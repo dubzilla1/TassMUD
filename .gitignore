@@ -18,6 +18,12 @@ Thumbs.db
 /logs/*.out
 /logs/*.err
 /logs/port-dump*.txt
+*.err
+*.out
+netstat_dump.txt
+# local tassmud DB files (ensure untracked)
+tassmud.mv.db
+tassmud.lock.db
  
 # H2 local DB files (ignore local file-backed databases)
 # ignore H2 file-based DBs and lock files anywhere
