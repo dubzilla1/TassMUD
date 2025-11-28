@@ -13,6 +13,11 @@ Thumbs.db
 
 # Logs
 *.log
+# runtime server logs and diagnostic dumps
+/logs/
+/logs/*.out
+/logs/*.err
+/logs/port-dump*.txt
  
 # H2 local DB files (ignore local file-backed databases)
 # ignore H2 file-based DBs and lock files anywhere
