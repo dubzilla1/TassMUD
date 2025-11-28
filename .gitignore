@@ -13,3 +13,17 @@ Thumbs.db
 
 # Logs
 *.log
+ 
+# H2 local DB files (ignore local file-backed databases)
+# ignore H2 file-based DBs and lock files anywhere
+*.mv.db
+*.trace.db
+*.lock.db
+# also ignore copies in `data/`
+data/*.mv.db
+data/*.trace.db
+data/*.lock.db
+# explicit tassmud DB filenames
+tassmud.mv.db
+tassmud.trace.db
+tassmud.lock.db
