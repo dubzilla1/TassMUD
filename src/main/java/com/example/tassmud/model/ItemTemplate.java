@@ -32,6 +32,8 @@ public class ItemTemplate {
     public final String spellEffectId3;
     public final String spellEffectId4;
     public final String templateJson;
+    public final WeaponCategory weaponCategory;
+    public final WeaponFamily weaponFamily;
 
     public ItemTemplate(
         int id,
@@ -64,7 +66,9 @@ public class ItemTemplate {
         String spellEffectId2,
         String spellEffectId3,
         String spellEffectId4,
-        String templateJson
+        String templateJson,
+        WeaponCategory weaponCategory,
+        WeaponFamily weaponFamily
     ) {
         this.id = id;
         this.key = key;
@@ -97,5 +101,28 @@ public class ItemTemplate {
         this.spellEffectId3 = spellEffectId3;
         this.spellEffectId4 = spellEffectId4;
         this.templateJson = templateJson;
+        this.weaponCategory = weaponCategory;
+        this.weaponFamily = weaponFamily;
+    }
+    
+    /**
+     * Check if this item is a weapon.
+     */
+    public boolean isWeapon() {
+        return "weapon".equalsIgnoreCase(type);
+    }
+    
+    /**
+     * Get the weapon category, or null if not a weapon or not categorized.
+     */
+    public WeaponCategory getWeaponCategory() {
+        return weaponCategory;
+    }
+    
+    /**
+     * Get the weapon family, or null if not a weapon or not categorized.
+     */
+    public WeaponFamily getWeaponFamily() {
+        return weaponFamily;
     }
 }

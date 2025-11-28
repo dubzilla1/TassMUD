@@ -1,5 +1,8 @@
 package com.example.tassmud.net;
 
+import com.example.tassmud.combat.Combat;
+import com.example.tassmud.combat.CombatManager;
+import com.example.tassmud.combat.Combatant;
 import com.example.tassmud.model.Area;
 import com.example.tassmud.model.Character;
 import com.example.tassmud.model.CharacterClass;
@@ -8,6 +11,8 @@ import com.example.tassmud.model.CharacterSpell;
 import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
+import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.MobileTemplate;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Spell;
@@ -15,6 +20,7 @@ import com.example.tassmud.net.CommandParser.Command;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
+import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.HelpManager;
 import com.example.tassmud.util.HelpPage;
@@ -24,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
@@ -38,11 +45,13 @@ public class ClientHandler implements Runnable {
     // Registry of active sessions
     private static final Set<ClientHandler> sessions = ConcurrentHashMap.newKeySet();
     private static final ConcurrentHashMap<String, ClientHandler> nameToSession = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Integer, ClientHandler> charIdToSession = new ConcurrentHashMap<>();
 
     // Per-session state used for routing messages
     private volatile PrintWriter out = null;
     private volatile String playerName = null;
     private volatile Integer currentRoomId = null;
+    private volatile Integer characterId = null;
     public ClientHandler(Socket socket, GameClock gameClock) {
         this.socket = socket;
         this.gameClock = gameClock;
@@ -51,11 +60,13 @@ public class ClientHandler implements Runnable {
     private void registerSession() {
         sessions.add(this);
         if (playerName != null) nameToSession.put(playerName.toLowerCase(), this);
+        if (characterId != null) charIdToSession.put(characterId, this);
     }
 
     private void unregisterSession() {
         sessions.remove(this);
         if (playerName != null) nameToSession.remove(playerName.toLowerCase());
+        if (characterId != null) charIdToSession.remove(characterId);
     }
 
     private void sendRaw(String msg) {
@@ -87,6 +98,17 @@ public class ClientHandler implements Runnable {
         out.println(exits.toString());
         // Blank line
         out.println();
+        // Mobs in this room
+        MobileDAO mobDao = new MobileDAO();
+        java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(roomId);
+        for (Mobile mob : roomMobs) {
+            String desc = mob.getShortDesc();
+            if (desc != null && !desc.isEmpty()) {
+                out.println(desc);
+            } else {
+                out.println(mob.getName() + " is here.");
+            }
+        }
         // Items on the floor in this room
         ItemDAO itemDao = new ItemDAO();
         java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(roomId);
@@ -98,7 +120,6 @@ public class ClientHandler implements Runnable {
                 out.println("A " + ri.template.name + " lies here.");
             }
         }
-        // MOBs in this room (TODO: implement MOB system)
     }
 
     private static void broadcastAll(String msg) {
@@ -143,6 +164,41 @@ public class ClientHandler implements Runnable {
                 }
             } catch (Exception ignored) {}
         }
+    }
+    
+    // === PUBLIC MESSAGING API FOR COMBAT SYSTEM ===
+    
+    /**
+     * Send a message to all players in a specific room.
+     * Called by combat system to broadcast combat messages.
+     */
+    public static void broadcastRoomMessage(Integer roomId, String msg) {
+        if (roomId == null) return;
+        for (ClientHandler s : sessions) {
+            Integer r = s.currentRoomId;
+            if (r != null && r.equals(roomId)) s.sendRaw(msg);
+        }
+    }
+    
+    /**
+     * Send a message to a specific character by their character ID.
+     * Called by combat system for targeted messages.
+     */
+    public static void sendToCharacter(Integer characterId, String msg) {
+        if (characterId == null) return;
+        ClientHandler handler = charIdToSession.get(characterId);
+        if (handler != null) {
+            handler.sendRaw(msg);
+        }
+    }
+    
+    /**
+     * Get the character ID for a session by player name.
+     */
+    public static Integer getCharacterIdByName(String name) {
+        if (name == null) return null;
+        ClientHandler handler = nameToSession.get(name.toLowerCase());
+        return handler != null ? handler.characterId : null;
     }
 
     private String formatPrompt(String fmt, CharacterDAO.CharacterRecord rec, CharacterDAO dao) {
@@ -259,74 +315,13 @@ public class ClientHandler implements Runnable {
 
             CharacterRecord rec = dao.findByName(name);
             if (rec == null) {
-                // creation flow
-                out.println("Character '" + name + "' not found. Creating new character.");
-                boolean created = false;
-                for (int attempt = 0; attempt < 3 && !created; attempt++) {
-                    out.print("Create password: "); out.flush();
-                    String p1 = in.readLine();
-                    if (p1 == null) return;
-                    out.print("Re-type password: "); out.flush();
-                    String p2 = in.readLine();
-                    if (p2 == null) return;
-                        if (!p1.equals(p2)) {
-                            out.println("Passwords do not match. Try again.");
-                            continue;
-                        }
-                        // Collect basic character fields
-                        out.print("Enter age (number): "); out.flush();
-                        String ageLine = in.readLine();
-                        int age = 0;
-                        try {
-                            age = Integer.parseInt(ageLine.trim());
-                        } catch (Exception ignored) {
-                            age = 0;
-                        }
-                        out.print("Enter a short description: "); out.flush();
-                        String desc = in.readLine();
-                        if (desc == null) desc = "";
-
-                        String salt = PasswordUtil.generateSaltBase64();
-                        String hash = PasswordUtil.hashPasswordBase64(p1.toCharArray(), java.util.Base64.getDecoder().decode(salt));
-
-                        // Default point values for a new character
-                        int hpMax = 100, mpMax = 50, mvMax = 100;
-                        int hpCur = hpMax, mpCur = mpMax, mvCur = mvMax;
-                        // Default ability scores
-                        int str = 10, dex = 10, con = 10, intel = 10, wis = 10, cha = 10;
-                        // Default saves
-                        int armor = 10, fortitude = 10, reflex = 10, will = 10;
-
-                        // Default starting room: 3001 if it exists, otherwise fall back
-                        int startRoomId = 3001;
-                        Room startRoom = dao.getRoomById(startRoomId);
-                        if (startRoom == null) {
-                            int anyRoomId = dao.getAnyRoomId();
-                            startRoomId = anyRoomId > 0 ? anyRoomId : 0;
-                        }
-                        Integer currentRoom = startRoomId > 0 ? startRoomId : null;
-
-                        Character ch = new Character(name, age, desc, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur,
-                                currentRoom,
-                                str, dex, con, intel, wis, cha, armor, fortitude, reflex, will);
-                        boolean ok = dao.createCharacter(ch, hash, salt);
-                            if (ok) {
-                            out.println("Character created. Welcome, " + name + "!");
-                            created = true;
-                            break;
-                        } else {
-                            out.println("Failed to create character (name may be taken). Try a different name.");
-                            socket.close();
-                            return;
-                        }
-                }
-                    if (!created) {
-                    out.println("Failed to create character after several attempts. Goodbye.");
+                // Character creation flow using extensible helper method
+                rec = runCharacterCreation(name, in, dao);
+                if (rec == null) {
+                    // Creation failed or was aborted
                     socket.close();
                     return;
                 }
-                        // reload the character record after successful creation
-                        rec = dao.findByName(name);
             } else {
                 // login flow
                 boolean authenticated = false;
@@ -360,10 +355,14 @@ public class ClientHandler implements Runnable {
                 }
             }
 
-            // register player name and room for routing
+            // register player name, character ID, and room for routing
             this.playerName = name;
+            this.characterId = dao.getCharacterIdByName(name);
             this.currentRoomId = rec != null ? rec.currentRoom : null;
             nameToSession.put(name.toLowerCase(), this);
+            if (this.characterId != null) {
+                charIdToSession.put(this.characterId, this);
+            }
 
             // Show MOTD (if any) after login/creation
             try {
@@ -401,23 +400,30 @@ public class ClientHandler implements Runnable {
                 }
 
                 String cmdName = cmd.getName().toLowerCase();
+                
+                // Combat lock: block non-combat commands when in combat
+                if (characterId != null) {
+                    Combat combat = CombatManager.getInstance().getCombatInRoom(currentRoomId);
+                    if (combat != null && combat.containsCharacter(characterId)) {
+                        CommandDefinition cmdDef = CommandRegistry.getCommand(cmdName);
+                        if (cmdDef != null && !cmdDef.isAllowedInCombat()) {
+                            out.println("You can't do that while fighting! (flee first)");
+                            continue;
+                        }
+                    }
+                }
+                
                 switch (cmdName) {
                     case "help":
                         String a = cmd.getArgs();
                         boolean isGm = dao.isCharacterFlagTrueByName(name, "is_gm");
                         if (a == null || a.trim().isEmpty()) {
-                            out.println("Available commands:");
-                            for (String k : HelpManager.getAllPagesFor(isGm).keySet()) {
-                                out.println("  " + k);
-                            }
-                            out.println("Type 'help <command>' for details.");
+                            // Display categorized command list
+                            displayHelpCommandList(isGm);
                         } else {
                             String arg0 = a.trim().split("\\s+",2)[0];
                             if (arg0.equalsIgnoreCase("commands")) {
-                                out.println("Available commands:");
-                                for (String k : HelpManager.getAllPagesFor(isGm).keySet()) {
-                                    out.println("  " + k);
-                                }
+                                displayHelpCommandList(isGm);
                                 break;
                             }
                             if (arg0.equalsIgnoreCase("reload")) {
@@ -427,21 +433,6 @@ public class ClientHandler implements Runnable {
                                     HelpManager.reloadPages();
                                     out.println("Help pages reloaded.");
                                 }
-                            } else if (arg0.equalsIgnoreCase("commands")) {
-                                // fallback: if HelpManager has nothing, build from canonical commands
-                                java.util.Map<String,String> pages = HelpManager.getAllPagesFor(isGm);
-                                if (pages != null && !pages.isEmpty()) {
-                                    out.println("Available commands:");
-                                    for (String k : pages.keySet()) out.println("  " + k);
-                                } else {
-                                    out.println("Available commands:");
-                                    for (String k : CommandParser.getCanonicalCommands()) {
-                                        // hide GM-only commands unless isGm
-                                        if (!isGm && (k.equalsIgnoreCase("cflag") || k.equalsIgnoreCase("gmchat"))) continue;
-                                        out.println("  " + k);
-                                    }
-                                }
-                                break;
                             } else {
                                 String page = HelpManager.getPage(arg0, isGm);
                                 if (page == null) {
@@ -470,7 +461,99 @@ public class ClientHandler implements Runnable {
                             out.println("You are in an unknown place (room id " + lookRoomId + ").");
                             break;
                         }
-                        showRoom(room, lookRoomId);
+                        
+                        String lookArgs = cmd.getArgs();
+                        if (lookArgs == null || lookArgs.trim().isEmpty()) {
+                            // No argument - show the room
+                            showRoom(room, lookRoomId);
+                        } else {
+                            // Look at something specific
+                            String searchTerm = lookArgs.trim().toLowerCase();
+                            boolean found = false;
+                            
+                            // Search mobs in the room first
+                            MobileDAO mobDao = new MobileDAO();
+                            java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
+                            for (Mobile mob : roomMobs) {
+                                String mobName = mob.getName().toLowerCase();
+                                if (mobName.startsWith(searchTerm)) {
+                                    out.println(mob.getName());
+                                    String longDesc = mob.getDescription();
+                                    if (longDesc != null && !longDesc.isEmpty()) {
+                                        out.println(longDesc);
+                                    } else {
+                                        out.println("You see nothing special about " + mob.getName() + ".");
+                                    }
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            
+                            if (!found) {
+                                // Search items in the room
+                                ItemDAO itemDao = new ItemDAO();
+                                java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
+                                for (ItemDAO.RoomItem ri : roomItems) {
+                                    String itemName = ri.template.name != null ? ri.template.name.toLowerCase() : "";
+                                    boolean keywordMatch = false;
+                                    if (ri.template.keywords != null) {
+                                        for (String kw : ri.template.keywords) {
+                                            if (kw.toLowerCase().startsWith(searchTerm)) {
+                                                keywordMatch = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (itemName.startsWith(searchTerm) || keywordMatch) {
+                                        out.println(ri.template.name);
+                                        String desc = ri.template.description;
+                                        if (desc != null && !desc.isEmpty()) {
+                                            out.println(desc);
+                                        } else {
+                                            out.println("You see nothing special about it.");
+                                        }
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (!found) {
+                                // Search items in inventory
+                                Integer charId = dao.getCharacterIdByName(name);
+                                if (charId != null) {
+                                    ItemDAO itemDao = new ItemDAO();
+                                    java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
+                                    for (ItemDAO.RoomItem ii : invItems) {
+                                        String itemName = ii.template.name != null ? ii.template.name.toLowerCase() : "";
+                                        boolean keywordMatch = false;
+                                        if (ii.template.keywords != null) {
+                                            for (String kw : ii.template.keywords) {
+                                                if (kw.toLowerCase().startsWith(searchTerm)) {
+                                                    keywordMatch = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (itemName.startsWith(searchTerm) || keywordMatch) {
+                                            out.println(ii.template.name);
+                                            String desc = ii.template.description;
+                                            if (desc != null && !desc.isEmpty()) {
+                                                out.println(desc);
+                                            } else {
+                                                out.println("You see nothing special about it.");
+                                            }
+                                            found = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            if (!found) {
+                                out.println("You don't see '" + lookArgs.trim() + "' here.");
+                            }
+                        }
                         break;
                     }
                     case "say": {
@@ -609,10 +692,545 @@ public class ClientHandler implements Runnable {
                             break;
                         }
                     }
+                    case "cskill": {
+                        // GM-only: CSKILL <character> <skill_id> [amount]
+                        // Grants a skill to a character at a given proficiency (default 100%)
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String cskillArgs = cmd.getArgs();
+                        if (cskillArgs == null || cskillArgs.trim().isEmpty()) {
+                            out.println("Usage: CSKILL <character> <skill_id> [amount]");
+                            out.println("  Grants a skill to a character at the specified proficiency.");
+                            out.println("  Amount defaults to 100 (mastered) if not specified.");
+                            break;
+                        }
+                        String[] cskillParts = cskillArgs.trim().split("\\s+");
+                        if (cskillParts.length < 2) {
+                            out.println("Usage: CSKILL <character> <skill_id> [amount]");
+                            break;
+                        }
+                        String targetCharName = cskillParts[0];
+                        int skillId;
+                        try {
+                            skillId = Integer.parseInt(cskillParts[1]);
+                        } catch (NumberFormatException e) {
+                            out.println("Invalid skill ID. Must be a number.");
+                            break;
+                        }
+                        int amount = 100; // default to mastered
+                        if (cskillParts.length >= 3) {
+                            try {
+                                amount = Integer.parseInt(cskillParts[2]);
+                                if (amount < 1) amount = 1;
+                                if (amount > 100) amount = 100;
+                            } catch (NumberFormatException e) {
+                                out.println("Invalid amount. Must be a number between 1 and 100.");
+                                break;
+                            }
+                        }
+                        // Look up target character
+                        Integer targetCharId = dao.getCharacterIdByName(targetCharName);
+                        if (targetCharId == null) {
+                            out.println("Character '" + targetCharName + "' not found.");
+                            break;
+                        }
+                        // Check if skill exists
+                        Skill skillDef = dao.getSkillById(skillId);
+                        String skillName = skillDef != null ? skillDef.getName() : "Skill #" + skillId;
+                        // Set the skill level (will create if doesn't exist, or update if it does)
+                        boolean ok = dao.setCharacterSkillLevel(targetCharId, skillId, amount);
+                        if (ok) {
+                            String profStr = amount >= 100 ? "MASTERED" : amount + "%";
+                            out.println("Granted " + targetCharName + " the skill '" + skillName + "' at " + profStr + ".");
+                        } else {
+                            out.println("Failed to grant skill to " + targetCharName + ".");
+                        }
+                        break;
+                    }
+                    case "cspell": {
+                        // GM-only: CSPELL <character> <spell_id> [amount]
+                        // Grants a spell to a character at a given proficiency (default 100%)
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String cspellArgs = cmd.getArgs();
+                        if (cspellArgs == null || cspellArgs.trim().isEmpty()) {
+                            out.println("Usage: CSPELL <character> <spell_id> [amount]");
+                            out.println("  Grants a spell to a character at the specified proficiency.");
+                            out.println("  Amount defaults to 100 (mastered) if not specified.");
+                            break;
+                        }
+                        String[] cspellParts = cspellArgs.trim().split("\\s+");
+                        if (cspellParts.length < 2) {
+                            out.println("Usage: CSPELL <character> <spell_id> [amount]");
+                            break;
+                        }
+                        String targetSpellCharName = cspellParts[0];
+                        int spellId;
+                        try {
+                            spellId = Integer.parseInt(cspellParts[1]);
+                        } catch (NumberFormatException e) {
+                            out.println("Invalid spell ID. Must be a number.");
+                            break;
+                        }
+                        int spellAmount = 100; // default to mastered
+                        if (cspellParts.length >= 3) {
+                            try {
+                                spellAmount = Integer.parseInt(cspellParts[2]);
+                                if (spellAmount < 1) spellAmount = 1;
+                                if (spellAmount > 100) spellAmount = 100;
+                            } catch (NumberFormatException e) {
+                                out.println("Invalid amount. Must be a number between 1 and 100.");
+                                break;
+                            }
+                        }
+                        // Look up target character
+                        Integer targetSpellCharId = dao.getCharacterIdByName(targetSpellCharName);
+                        if (targetSpellCharId == null) {
+                            out.println("Character '" + targetSpellCharName + "' not found.");
+                            break;
+                        }
+                        // Check if spell exists
+                        Spell spellDef = dao.getSpellById(spellId);
+                        String spellName = spellDef != null ? spellDef.getName() : "Spell #" + spellId;
+                        // Set the spell level (will create if doesn't exist, or update if it does)
+                        boolean spellOk = dao.setCharacterSpellLevel(targetSpellCharId, spellId, spellAmount);
+                        if (spellOk) {
+                            String spellProfStr = spellAmount >= 100 ? "MASTERED" : spellAmount + "%";
+                            out.println("Granted " + targetSpellCharName + " the spell '" + spellName + "' at " + spellProfStr + ".");
+                        } else {
+                            out.println("Failed to grant spell to " + targetSpellCharName + ".");
+                        }
+                        break;
+                    }
+                    case "ilist": {
+                        // GM-only: ILIST <search_string>
+                        // Finds all item templates matching the given string
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String ilistArgs = cmd.getArgs();
+                        if (ilistArgs == null || ilistArgs.trim().isEmpty()) {
+                            out.println("Usage: ILIST <search_string>");
+                            out.println("  Searches item templates by name.");
+                            break;
+                        }
+                        String searchStr = ilistArgs.trim();
+                        ItemDAO ilistItemDao = new ItemDAO();
+                        java.util.List<ItemTemplate> matches = ilistItemDao.searchItemTemplates(searchStr);
+                        if (matches.isEmpty()) {
+                            out.println("No item templates found matching '" + searchStr + "'.");
+                            break;
+                        }
+                        out.println();
+                        out.println(String.format("%-6s %-25s %-12s %s", "ID", "Name", "Type", "Description"));
+                        out.println(repeat("-", 75));
+                        for (ItemTemplate t : matches) {
+                            String typeName = t.type != null ? t.type : "";
+                            String desc = t.description != null ? truncate(t.description, 28) : "";
+                            out.println(String.format("%-6d %-25s %-12s %s",
+                                t.id,
+                                truncate(t.name, 25),
+                                truncate(typeName, 12),
+                                desc));
+                        }
+                        out.println(repeat("-", 75));
+                        out.println(matches.size() + " item(s) found.");
+                        out.println();
+                        break;
+                    }
+                    case "ifind": {
+                        // GM-only: IFIND <template_id> [world|char|bags|all]
+                        // Finds all instances of an item template in the game
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String ifindArgs = cmd.getArgs();
+                        if (ifindArgs == null || ifindArgs.trim().isEmpty()) {
+                            out.println("Usage: IFIND <template_id> [world|char|bags|all]");
+                            out.println("  Finds all instances of a given item template.");
+                            out.println("  world = items in rooms, char = in character inventories,");
+                            out.println("  bags = in containers, all = all locations (default)");
+                            break;
+                        }
+                        String[] ifindParts = ifindArgs.trim().split("\\s+");
+                        int ifindTemplateId;
+                        try {
+                            ifindTemplateId = Integer.parseInt(ifindParts[0]);
+                        } catch (NumberFormatException e) {
+                            out.println("Invalid template ID. Must be a number.");
+                            break;
+                        }
+                        String scope = ifindParts.length >= 2 ? ifindParts[1].toLowerCase() : "all";
+                        if (!scope.equals("world") && !scope.equals("char") && !scope.equals("bags") && !scope.equals("all")) {
+                            out.println("Invalid scope. Use: world, char, bags, or all");
+                            break;
+                        }
+                        
+                        ItemDAO ifindItemDao = new ItemDAO();
+                        ItemTemplate ifindTemplate = ifindItemDao.getTemplateById(ifindTemplateId);
+                        String templateName = ifindTemplate != null ? ifindTemplate.name : "Unknown";
+                        
+                        java.util.List<ItemInstance> allInstances = ifindItemDao.findInstancesByTemplateId(ifindTemplateId);
+                        if (allInstances.isEmpty()) {
+                            out.println("No instances of template #" + ifindTemplateId + " (" + templateName + ") found.");
+                            break;
+                        }
+                        
+                        // Separate by location type
+                        java.util.List<ItemInstance> inRooms = new java.util.ArrayList<>();
+                        java.util.List<ItemInstance> inChars = new java.util.ArrayList<>();
+                        java.util.List<ItemInstance> inContainers = new java.util.ArrayList<>();
+                        
+                        for (ItemInstance inst : allInstances) {
+                            if (inst.locationRoomId != null) inRooms.add(inst);
+                            else if (inst.ownerCharacterId != null) inChars.add(inst);
+                            else if (inst.containerInstanceId != null) inContainers.add(inst);
+                        }
+                        
+                        out.println();
+                        out.println("=== Instances of #" + ifindTemplateId + " (" + templateName + ") ===");
+                        
+                        // Items in rooms (world)
+                        if (scope.equals("world") || scope.equals("all")) {
+                            out.println();
+                            out.println("--- In Rooms (" + inRooms.size() + ") ---");
+                            if (inRooms.isEmpty()) {
+                                out.println("  (none)");
+                            } else {
+                                out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
+                                for (ItemInstance inst : inRooms) {
+                                    Room rm = dao.getRoomById(inst.locationRoomId);
+                                    String roomName = rm != null ? rm.getName() : "Unknown";
+                                    out.println(String.format("  %-10d %-6d %-20s %-6d %s",
+                                        inst.instanceId, inst.templateId, truncate(templateName, 20),
+                                        inst.locationRoomId, truncate(roomName, 25)));
+                                }
+                            }
+                        }
+                        
+                        // Items on characters (char)
+                        if (scope.equals("char") || scope.equals("all")) {
+                            out.println();
+                            out.println("--- In Character Inventories (" + inChars.size() + ") ---");
+                            if (inChars.isEmpty()) {
+                                out.println("  (none)");
+                            } else {
+                                out.println(String.format("  %-10s %-6s %-20s %-12s %-6s %s", "InstID", "TplID", "Name", "CharName", "RoomID", "Room Name"));
+                                for (ItemInstance inst : inChars) {
+                                    String charName = dao.getCharacterNameById(inst.ownerCharacterId);
+                                    if (charName == null) charName = "Char#" + inst.ownerCharacterId;
+                                    CharacterRecord charRec = dao.getCharacterById(inst.ownerCharacterId);
+                                    Integer charRoomId = charRec != null ? charRec.currentRoom : null;
+                                    Room charRoom = charRoomId != null ? dao.getRoomById(charRoomId) : null;
+                                    String charRoomName = charRoom != null ? charRoom.getName() : "Unknown";
+                                    out.println(String.format("  %-10d %-6d %-20s %-12s %-6s %s",
+                                        inst.instanceId, inst.templateId, truncate(templateName, 20),
+                                        truncate(charName, 12),
+                                        charRoomId != null ? String.valueOf(charRoomId) : "?",
+                                        truncate(charRoomName, 20)));
+                                }
+                            }
+                        }
+                        
+                        // Items in containers (bags)
+                        if (scope.equals("bags") || scope.equals("all")) {
+                            out.println();
+                            out.println("--- In Containers (" + inContainers.size() + ") ---");
+                            if (inContainers.isEmpty()) {
+                                out.println("  (none)");
+                            } else {
+                                out.println(String.format("  %-10s %-6s %-20s %-10s %-6s %s", "InstID", "TplID", "Name", "ContInstID", "ContID", "Container Name"));
+                                for (ItemInstance inst : inContainers) {
+                                    // Look up the container instance to get its template
+                                    ItemInstance containerInst = ifindItemDao.getInstanceById(inst.containerInstanceId);
+                                    int containerId = containerInst != null ? containerInst.templateId : 0;
+                                    ItemTemplate containerTpl = containerInst != null ? ifindItemDao.getTemplateById(containerInst.templateId) : null;
+                                    String containerName = containerTpl != null ? containerTpl.name : "Unknown";
+                                    out.println(String.format("  %-10d %-6d %-20s %-10d %-6d %s",
+                                        inst.instanceId, inst.templateId, truncate(templateName, 20),
+                                        inst.containerInstanceId, containerId, truncate(containerName, 20)));
+                                }
+                            }
+                        }
+                        
+                        out.println();
+                        int total = (scope.equals("world") ? inRooms.size() : 0)
+                                  + (scope.equals("char") ? inChars.size() : 0)
+                                  + (scope.equals("bags") ? inContainers.size() : 0)
+                                  + (scope.equals("all") ? allInstances.size() : 0);
+                        out.println("Total: " + total + " instance(s) found.");
+                        out.println();
+                        break;
+                    }
+                    case "goto": {
+                        // GM-only: GOTO <room_id>
+                        // Teleport directly to a room
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String gotoArgs = cmd.getArgs();
+                        if (gotoArgs == null || gotoArgs.trim().isEmpty()) {
+                            out.println("Usage: GOTO <room_id>");
+                            out.println("  Teleports you directly to a room.");
+                            break;
+                        }
+                        int gotoRoomId;
+                        try {
+                            gotoRoomId = Integer.parseInt(gotoArgs.trim());
+                        } catch (NumberFormatException e) {
+                            out.println("Invalid room ID. Must be a number.");
+                            break;
+                        }
+                        Room gotoRoom = dao.getRoomById(gotoRoomId);
+                        if (gotoRoom == null) {
+                            out.println("Room #" + gotoRoomId + " does not exist.");
+                            break;
+                        }
+                        // Teleport the character
+                        dao.updateCharacterRoom(name, gotoRoomId);
+                        rec = dao.findByName(name);
+                        out.println();
+                        out.println("You vanish and reappear in " + gotoRoom.getName() + ".");
+                        out.println();
+                        // Show the new room
+                        out.println(gotoRoom.getName());
+                        out.println(gotoRoom.getShortDesc());
+                        break;
+                    }
+                    case "kill":
+                    case "attack":
+                    case "fight": {
+                        // KILL <target> - initiate combat with a mobile in the room
+                        if (rec == null) {
+                            out.println("No character record found.");
+                            break;
+                        }
+                        if (rec.currentRoom == null) {
+                            out.println("You are not in any room.");
+                            break;
+                        }
+                        String killArgs = cmd.getArgs();
+                        if (killArgs == null || killArgs.trim().isEmpty()) {
+                            out.println("Usage: kill <target>");
+                            out.println("  Initiate combat with a mobile in the room.");
+                            break;
+                        }
+                        
+                        // Check if already in combat
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        if (combatMgr.isInCombat(charId)) {
+                            out.println("You are already in combat!");
+                            out.println("Use combat commands or wait for combat to end.");
+                            break;
+                        }
+                        
+                        // Find a mobile in the room matching the target name
+                        MobileDAO mobileDao = new MobileDAO();
+                        List<Mobile> mobilesInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                        if (mobilesInRoom.isEmpty()) {
+                            out.println("There is nothing here to attack.");
+                            break;
+                        }
+                        
+                        // Smart matching for target
+                        String targetSearch = killArgs.trim().toLowerCase();
+                        Mobile targetMob = null;
+                        
+                        // Priority 1: Exact name match
+                        for (Mobile mob : mobilesInRoom) {
+                            if (mob.getName().equalsIgnoreCase(targetSearch)) {
+                                targetMob = mob;
+                                break;
+                            }
+                        }
+                        
+                        // Priority 2: Name starts with search
+                        if (targetMob == null) {
+                            for (Mobile mob : mobilesInRoom) {
+                                if (mob.getName().toLowerCase().startsWith(targetSearch)) {
+                                    targetMob = mob;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        // Priority 3: Name contains search
+                        if (targetMob == null) {
+                            for (Mobile mob : mobilesInRoom) {
+                                if (mob.getName().toLowerCase().contains(targetSearch)) {
+                                    targetMob = mob;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        // Priority 4: Short desc contains search
+                        if (targetMob == null) {
+                            for (Mobile mob : mobilesInRoom) {
+                                String shortDesc = mob.getShortDesc();
+                                if (shortDesc != null && shortDesc.toLowerCase().contains(targetSearch)) {
+                                    targetMob = mob;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (targetMob == null) {
+                            out.println("You don't see '" + killArgs + "' here.");
+                            break;
+                        }
+                        
+                        // Check if target can be attacked
+                        if (targetMob.isImmortal()) {
+                            out.println(targetMob.getName() + " cannot be attacked.");
+                            break;
+                        }
+                        
+                        if (targetMob.isDead()) {
+                            out.println(targetMob.getName() + " is already dead.");
+                            break;
+                        }
+                        
+                        // Create a Character object for this player for combat
+                        Character playerChar = new Character(
+                            rec.name, rec.age, rec.description,
+                            rec.hpMax, rec.hpCur, rec.mpMax, rec.mpCur, rec.mvMax, rec.mvCur,
+                            rec.currentRoom,
+                            rec.str, rec.dex, rec.con, rec.intel, rec.wis, rec.cha,
+                            rec.getArmorTotal(), rec.getFortitudeTotal(), 
+                            rec.getReflexTotal(), rec.getWillTotal()
+                        );
+                        
+                        // Initiate combat
+                        Combat combat = combatMgr.initiateCombat(playerChar, charId, targetMob, rec.currentRoom);
+                        if (combat != null) {
+                            out.println("You attack " + targetMob.getName() + "!");
+                            out.println("=== COMBAT BEGINS ===");
+                        } else {
+                            out.println("Failed to initiate combat.");
+                        }
+                        break;
+                    }
+                    case "combat": {
+                        // COMBAT - show current combat status
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        if (!combatMgr.isInCombat(charId)) {
+                            out.println("You are not in combat.");
+                            break;
+                        }
+                        Combat combat = combatMgr.getCombatForCharacter(charId);
+                        if (combat == null) {
+                            out.println("You are not in combat.");
+                            break;
+                        }
+                        
+                        out.println("=== Combat Status ===");
+                        out.println("Round: " + combat.getCurrentRound());
+                        out.println("State: " + combat.getState().getDisplayName());
+                        out.println();
+                        out.println("Combatants:");
+                        for (Combatant c : combat.getActiveCombatants()) {
+                            String indicator = c.isPlayer() ? "[Player] " : "[Mob] ";
+                            int hpPct = c.getHpMax() > 0 ? (c.getHpCurrent() * 100) / c.getHpMax() : 0;
+                            String hpBar = getHpBar(hpPct);
+                            out.println("  " + indicator + c.getName() + " " + hpBar + " (" + c.getHpCurrent() + "/" + c.getHpMax() + " HP)");
+                        }
+                        out.println();
+                        out.println("Recent combat log:");
+                        String log = combat.getRecentLog(5);
+                        if (!log.isEmpty()) {
+                            for (String logLine : log.split("\n")) {
+                                out.println("  " + logLine);
+                            }
+                        } else {
+                            out.println("  (no events yet)");
+                        }
+                        break;
+                    }
+                    case "flee": {
+                        // FLEE - attempt to escape from combat (not fully implemented yet)
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        if (!combatMgr.isInCombat(charId)) {
+                            out.println("You are not in combat.");
+                            break;
+                        }
+                        out.println("You attempt to flee...");
+                        // TODO: Implement flee logic (check DEX, allow escape, remove from combat)
+                        out.println("Fleeing is not yet implemented. Fight to the death!");
+                        break;
+                    }
                     case "quit":
                         out.println("Goodbye!");
                         socket.close();
                         return;
+                    case "who": {
+                        // WHO - List all connected players
+                        out.println();
+                        out.println("===================================================================");
+                        out.println("  Players Online");
+                        out.println("===================================================================");
+                        
+                        CharacterClassDAO classDao = new CharacterClassDAO();
+                        try {
+                            classDao.loadClassesFromYamlResource("/data/classes.yaml");
+                        } catch (Exception ignored) {}
+                        
+                        int count = 0;
+                        for (ClientHandler session : sessions) {
+                            String pName = session.playerName;
+                            if (pName == null) continue; // Not yet logged in
+                            
+                            // Look up character info
+                            CharacterRecord pRec = dao.findByName(pName);
+                            if (pRec == null) continue;
+                            
+                            Integer pCharId = dao.getCharacterIdByName(pName);
+                            Integer pClassId = pRec.currentClassId;
+                            CharacterClass pClass = pClassId != null ? classDao.getClassById(pClassId) : null;
+                            int pLevel = (pClassId != null && pCharId != null) 
+                                ? classDao.getCharacterClassLevel(pCharId, pClassId) : 0;
+                            
+                            String className = pClass != null ? pClass.name : "Adventurer";
+                            String desc = pRec.description != null && !pRec.description.isEmpty() 
+                                ? pRec.description : "";
+                            
+                            // Format: [Lv ##] ClassName     PlayerName - Description
+                            out.println(String.format("  [Lv %2d] %-12s  %-15s %s",
+                                pLevel, className, pName, 
+                                desc.isEmpty() ? "" : "- " + truncate(desc, 30)));
+                            count++;
+                        }
+                        
+                        out.println("-------------------------------------------------------------------");
+                        out.println(String.format("  %d player%s online", count, count == 1 ? "" : "s"));
+                        out.println("===================================================================");
+                        out.println();
+                        break;
+                    }
                     case "chat": {
                         String t = cmd.getArgs();
                         if (t == null || t.trim().isEmpty()) { out.println("Usage: chat <message>"); break; }
@@ -727,12 +1345,13 @@ public class ClientHandler implements Runnable {
                         String spawnArgs = cmd.getArgs();
                         if (spawnArgs == null || spawnArgs.trim().isEmpty()) {
                             out.println("Usage: SPAWN ITEM <template_id> [room_id]");
-                            out.println("       SPAWN MOB <mob_id> [room_id]  (not yet implemented)");
+                            out.println("       SPAWN MOB <template_id> [room_id]");
                             break;
                         }
                         String[] sp = spawnArgs.trim().split("\\s+");
                         if (sp.length < 2) {
                             out.println("Usage: SPAWN ITEM <template_id> [room_id]");
+                            out.println("       SPAWN MOB <template_id> [room_id]");
                             break;
                         }
                         String spawnType = sp[0].toUpperCase();
@@ -773,7 +1392,40 @@ public class ClientHandler implements Runnable {
                             String itemName = tmpl != null && tmpl.name != null ? tmpl.name : "item #" + templateId;
                             out.println("Spawned " + itemName + " (instance #" + instanceId + ") in room " + targetRoomId + ".");
                         } else if (spawnType.equals("MOB")) {
-                            out.println("MOB spawning is not yet implemented.");
+                            int mobTemplateId;
+                            try {
+                                mobTemplateId = Integer.parseInt(sp[1]);
+                            } catch (NumberFormatException e) {
+                                out.println("Invalid mob template ID: " + sp[1]);
+                                break;
+                            }
+                            Integer targetRoomId = rec != null ? rec.currentRoom : null;
+                            if (sp.length >= 3) {
+                                try {
+                                    targetRoomId = Integer.parseInt(sp[2]);
+                                } catch (NumberFormatException e) {
+                                    out.println("Invalid room ID: " + sp[2]);
+                                    break;
+                                }
+                            }
+                            if (targetRoomId == null) {
+                                out.println("No room specified and you are not in a room.");
+                                break;
+                            }
+                            // Validate template exists
+                            MobileDAO mobDao = new MobileDAO();
+                            MobileTemplate mobTemplate = mobDao.getTemplateById(mobTemplateId);
+                            if (mobTemplate == null) {
+                                out.println("No mob template found with ID " + mobTemplateId);
+                                break;
+                            }
+                            // Spawn the mobile instance in the target room
+                            Mobile spawnedMob = mobDao.spawnMobile(mobTemplate, targetRoomId);
+                            if (spawnedMob == null) {
+                                out.println("Failed to spawn mobile instance.");
+                                break;
+                            }
+                            out.println("Spawned " + spawnedMob.getName() + " (instance #" + spawnedMob.getInstanceId() + ") in room " + targetRoomId + ".");
                         } else {
                             out.println("Unknown spawn type: " + spawnType);
                             out.println("Usage: SPAWN ITEM <template_id> [room_id]");
@@ -785,6 +1437,26 @@ public class ClientHandler implements Runnable {
                         if (t == null || t.trim().isEmpty()) { out.println("Usage: system <message>"); break; }
                         // system messages are broadcast to all
                         broadcastAll("[system] " + t);
+                        break;
+                    }
+                    case "peace": {
+                        // GM-only: End all combat in the current room
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use peace.");
+                            break;
+                        }
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("You are not in a room.");
+                            break;
+                        }
+                        Combat roomCombat = CombatManager.getInstance().getCombatInRoom(rec.currentRoom);
+                        if (roomCombat == null || !roomCombat.isActive()) {
+                            out.println("There is no active combat in this room.");
+                            break;
+                        }
+                        CombatManager.getInstance().endCombat(roomCombat);
+                        out.println("You wave your hand and combat ceases.");
+                        broadcastRoomMessage(rec.currentRoom, name + " waves their hand and all combat in the room ceases.");
                         break;
                     }
                     case "groupchat": {
@@ -1185,26 +1857,80 @@ public class ClientHandler implements Runnable {
                             break;
                         }
 
-                        // Check if slot is already occupied - if so, auto-remove the old item
-                        Long currentInSlot = equippedMap.get(slot.id);
-                        String removedItemName = null;
-                        if (currentInSlot != null) {
-                            // Get the name of the currently equipped item for the message
-                            ItemInstance curInst = itemDao.getInstance(currentInSlot);
-                            if (curInst != null) {
-                                ItemTemplate curTmpl = itemDao.getTemplateById(curInst.templateId);
-                                if (curTmpl != null && curTmpl.name != null) removedItemName = curTmpl.name;
+                        // Check if this is a two-handed weapon
+                        boolean isTwoHanded = itemDao.isTemplateTwoHanded(matched.template.id);
+                        
+                        // Track what we're removing
+                        java.util.List<String> removedItems = new java.util.ArrayList<>();
+                        
+                        // For two-handed weapons, need to clear both main and off hand
+                        if (isTwoHanded) {
+                            // Clear main hand if occupied
+                            Long mainHandItem = equippedMap.get(EquipmentSlot.MAIN_HAND.id);
+                            if (mainHandItem != null) {
+                                ItemInstance inst = itemDao.getInstance(mainHandItem);
+                                if (inst != null) {
+                                    ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
+                                    if (tmpl != null && tmpl.name != null) removedItems.add(tmpl.name);
+                                }
+                                dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
                             }
-                            if (removedItemName == null) removedItemName = "something";
-                            // Clear the slot (item stays in inventory)
-                            dao.setCharacterEquipment(charId, slot.id, null);
+                            // Clear off hand if occupied
+                            Long offHandItem = equippedMap.get(EquipmentSlot.OFF_HAND.id);
+                            if (offHandItem != null) {
+                                ItemInstance inst = itemDao.getInstance(offHandItem);
+                                if (inst != null) {
+                                    ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
+                                    if (tmpl != null && tmpl.name != null) removedItems.add(tmpl.name);
+                                }
+                                dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
+                            }
+                        } else {
+                            // For shields/off-hand items being equipped, check if a two-hander is in main hand
+                            if (slot == EquipmentSlot.OFF_HAND) {
+                                Long mainHandItem = equippedMap.get(EquipmentSlot.MAIN_HAND.id);
+                                if (mainHandItem != null) {
+                                    ItemInstance mainInst = itemDao.getInstance(mainHandItem);
+                                    if (mainInst != null && itemDao.isTemplateTwoHanded(mainInst.templateId)) {
+                                        ItemTemplate mainTmpl = itemDao.getTemplateById(mainInst.templateId);
+                                        if (mainTmpl != null && mainTmpl.name != null) removedItems.add(mainTmpl.name);
+                                        dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
+                                    }
+                                }
+                            }
+                            // For one-handed weapons being equipped, check if a two-hander is in main hand
+                            if (slot == EquipmentSlot.MAIN_HAND) {
+                                Long mainHandItem = equippedMap.get(EquipmentSlot.MAIN_HAND.id);
+                                if (mainHandItem != null) {
+                                    ItemInstance mainInst = itemDao.getInstance(mainHandItem);
+                                    if (mainInst != null && itemDao.isTemplateTwoHanded(mainInst.templateId)) {
+                                        // Two-hander was taking both slots, clear off-hand too
+                                        dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
+                                    }
+                                }
+                            }
+                            // Check if target slot is already occupied - if so, auto-remove the old item
+                            Long currentInSlot = equippedMap.get(slot.id);
+                            if (currentInSlot != null) {
+                                ItemInstance curInst = itemDao.getInstance(currentInSlot);
+                                if (curInst != null) {
+                                    ItemTemplate curTmpl = itemDao.getTemplateById(curInst.templateId);
+                                    if (curTmpl != null && curTmpl.name != null) removedItems.add(curTmpl.name);
+                                }
+                                dao.setCharacterEquipment(charId, slot.id, null);
+                            }
                         }
 
-                        // Equip the new item
+                        // Equip the new item to main hand
                         boolean equipped = dao.setCharacterEquipment(charId, slot.id, matched.instance.instanceId);
                         if (!equipped) {
                             out.println("Failed to equip " + matched.template.name + ".");
                             break;
+                        }
+                        
+                        // For two-handed weapons, also mark off-hand as occupied (same instance)
+                        if (isTwoHanded) {
+                            dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, matched.instance.instanceId);
                         }
 
                         // Recalculate and persist equipment bonuses
@@ -1213,11 +1939,13 @@ public class ClientHandler implements Runnable {
                         // Refresh character record
                         rec = dao.findByName(name);
 
-                        // Show message - mention if we auto-removed something
-                        if (removedItemName != null) {
-                            out.println("You remove " + removedItemName + " and equip " + matched.template.name + " (" + slot.displayName + ").");
+                        // Build equip message
+                        String slotDisplay = isTwoHanded ? "Both Hands" : slot.displayName;
+                        if (!removedItems.isEmpty()) {
+                            String removedStr = String.join(" and ", removedItems);
+                            out.println("You remove " + removedStr + " and equip " + matched.template.name + " (" + slotDisplay + ").");
                         } else {
-                            out.println("You equip " + matched.template.name + " (" + slot.displayName + ").");
+                            out.println("You equip " + matched.template.name + " (" + slotDisplay + ").");
                         }
                         
                         // Show new totals if any bonuses changed
@@ -1280,6 +2008,7 @@ public class ClientHandler implements Runnable {
                             ItemInstance inst = itemDao.getInstance(instanceInSlot);
                             String itemName = "an item";
                             int armorBonus = 0, fortBonus = 0, refBonus = 0, willBonus = 0;
+                            boolean isTwoHanded = false;
                             if (inst != null) {
                                 ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
                                 if (tmpl != null) {
@@ -1288,13 +2017,20 @@ public class ClientHandler implements Runnable {
                                     fortBonus = tmpl.fortSaveBonus;
                                     refBonus = tmpl.refSaveBonus;
                                     willBonus = tmpl.willSaveBonus;
+                                    isTwoHanded = itemDao.isTemplateTwoHanded(tmpl.id);
                                 }
                             }
-                            // Clear the slot
+                            // Clear the slot(s)
                             dao.setCharacterEquipment(charId, slotMatch.id, null);
+                            // For two-handed weapons, clear both slots
+                            if (isTwoHanded) {
+                                dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
+                                dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
+                            }
                             dao.recalculateEquipmentBonuses(charId, itemDao);
                             rec = dao.findByName(name);
-                            out.println("You remove " + itemName + " (" + slotMatch.displayName + ").");
+                            String slotDisplay = isTwoHanded ? "Both Hands" : slotMatch.displayName;
+                            out.println("You remove " + itemName + " (" + slotDisplay + ").");
                             if (armorBonus != 0 || fortBonus != 0 || refBonus != 0 || willBonus != 0) {
                                 out.println("  Saves: Armor " + rec.getArmorTotal() + ", Fort " + rec.getFortitudeTotal() + ", Ref " + rec.getReflexTotal() + ", Will " + rec.getWillTotal());
                             }
@@ -1400,7 +2136,15 @@ public class ClientHandler implements Runnable {
                         // Remove the item
                         EquipmentSlot slot = EquipmentSlot.fromId(matchedSlotId);
                         String slotName = slot != null ? slot.displayName : "unknown slot";
+                        boolean isTwoHanded = itemDao.isTemplateTwoHanded(matchedTemplate.id);
+                        
                         dao.setCharacterEquipment(charId, matchedSlotId, null);
+                        // For two-handed weapons, clear both slots
+                        if (isTwoHanded) {
+                            dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
+                            dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
+                            slotName = "Both Hands";
+                        }
                         dao.recalculateEquipmentBonuses(charId, itemDao);
                         rec = dao.findByName(name);
 
@@ -1459,6 +2203,222 @@ public class ClientHandler implements Runnable {
                         for (String n : itemNames) {
                             out.println("  " + n);
                         }
+                        break;
+                    }
+                    case "score":
+                    case "stats": {
+                        // CHARACTER SHEET - Display full character information
+                        if (rec == null) {
+                            out.println("You must be logged in to view your character sheet.");
+                            break;
+                        }
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get class information
+                        CharacterClassDAO classDao = new CharacterClassDAO();
+                        try {
+                            classDao.loadClassesFromYamlResource("/data/classes.yaml");
+                        } catch (Exception ignored) {}
+                        
+                        Integer currentClassId = rec.currentClassId;
+                        CharacterClass currentClass = currentClassId != null ? classDao.getClassById(currentClassId) : null;
+                        int classLevel = currentClassId != null ? classDao.getCharacterClassLevel(charId, currentClassId) : 0;
+                        int classXp = currentClassId != null ? classDao.getCharacterClassXp(charId, currentClassId) : 0;
+                        int xpToNext = classLevel < CharacterClass.MAX_HERO_LEVEL ? CharacterClass.xpRequiredForLevel(classLevel + 1) - classXp : 0;
+                        
+                        // Get all class progress for multiclass display
+                        java.util.List<CharacterClassDAO.ClassProgress> allProgress = classDao.getCharacterClassProgress(charId);
+                        
+                        // Get equipment for AC and weapon damage
+                        ItemDAO itemDao = new ItemDAO();
+                        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+                        
+                        // Calculate ability modifiers (D&D style: (score - 10) / 2)
+                        int strMod = (rec.str - 10) / 2;
+                        int dexMod = (rec.dex - 10) / 2;
+                        int conMod = (rec.con - 10) / 2;
+                        int intMod = (rec.intel - 10) / 2;
+                        int wisMod = (rec.wis - 10) / 2;
+                        int chaMod = (rec.cha - 10) / 2;
+                        
+                        // Build the character sheet
+                        StringBuilder sheet = new StringBuilder();
+                        String divider = "===================================================================";
+                        String thinDiv = "-------------------------------------------------------------------";
+                        
+                        // === HEADER ===
+                        sheet.append("\n").append(divider).append("\n");
+                        sheet.append(String.format("  %-30s %35s\n", name.toUpperCase(), "Age: " + rec.age));
+                        sheet.append(String.format("  %-30s %35s\n", 
+                            currentClass != null ? currentClass.name + " Level " + classLevel : "(No Class)",
+                            rec.description != null && !rec.description.isEmpty() ? "\"" + truncate(rec.description, 30) + "\"" : ""));
+                        sheet.append(divider).append("\n");
+                        
+                        // ═══ VITALS ═══
+                        sheet.append("\n  [ VITALS ]\n");
+                        sheet.append(String.format("  HP: %4d / %-4d    MP: %4d / %-4d    MV: %4d / %-4d\n",
+                            rec.hpCur, rec.hpMax, rec.mpCur, rec.mpMax, rec.mvCur, rec.mvMax));
+                        
+                        // XP bar
+                        if (currentClass != null && classLevel < CharacterClass.MAX_HERO_LEVEL) {
+                            int xpForCurrent = CharacterClass.xpRequiredForLevel(classLevel);
+                            int xpForNext = CharacterClass.xpRequiredForLevel(classLevel + 1);
+                            int xpInLevel = classXp - xpForCurrent;
+                            int xpNeeded = xpForNext - xpForCurrent;
+                            int pct = xpNeeded > 0 ? (xpInLevel * 100) / xpNeeded : 100;
+                            sheet.append(String.format("  XP: %d / %d  [%s%s] %d%%  (%d TNL)\n",
+                                classXp, xpForNext,
+                                repeat("#", pct / 5), repeat(".", 20 - pct / 5),
+                                pct, xpToNext));
+                        } else if (currentClass != null) {
+                            sheet.append(String.format("  XP: %d  [MAX LEVEL]\n", classXp));
+                        }
+                        
+                        // ═══ ABILITY SCORES ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ ABILITY SCORES ]\n");
+                        sheet.append(String.format("  STR: %2d (%+d)    DEX: %2d (%+d)    CON: %2d (%+d)\n",
+                            rec.str, strMod, rec.dex, dexMod, rec.con, conMod));
+                        sheet.append(String.format("  INT: %2d (%+d)    WIS: %2d (%+d)    CHA: %2d (%+d)\n",
+                            rec.intel, intMod, rec.wis, wisMod, rec.cha, chaMod));
+                        
+                        // ═══ SAVES & DEFENSES ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ SAVES & DEFENSES ]\n");
+                        sheet.append(String.format("  Armor: %2d (%+d equip)    Fortitude: %2d (%+d equip)\n",
+                            rec.getArmorTotal(), rec.armorEquipBonus, rec.getFortitudeTotal(), rec.fortitudeEquipBonus));
+                        sheet.append(String.format("  Reflex: %2d (%+d equip)   Will: %2d (%+d equip)\n",
+                            rec.getReflexTotal(), rec.reflexEquipBonus, rec.getWillTotal(), rec.willEquipBonus));
+                        
+                        // ═══ COMBAT ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ COMBAT ]\n");
+                        
+                        // Get weapon info from hands
+                        Long mainHandId = equippedMap.get(EquipmentSlot.MAIN_HAND.getId());
+                        Long offHandId = equippedMap.get(EquipmentSlot.OFF_HAND.getId());
+                        
+                        boolean hasWeapon = false;
+                        boolean isTwoHanded = mainHandId != null && mainHandId.equals(offHandId);
+                        
+                        if (mainHandId != null) {
+                            ItemInstance mainInst = itemDao.getInstance(mainHandId);
+                            if (mainInst != null) {
+                                ItemTemplate mainTmpl = itemDao.getTemplateById(mainInst.templateId);
+                                if (mainTmpl != null && mainTmpl.baseDie > 0) {
+                                    String dmgStr = formatDamage(mainTmpl.multiplier, mainTmpl.baseDie, 
+                                        getAbilityBonus(mainTmpl.abilityScore, mainTmpl.abilityMultiplier, rec));
+                                    String handLabel = isTwoHanded ? "Both Hands:" : "Main Hand: ";
+                                    sheet.append(String.format("  %s %-20s  Damage: %s\n", 
+                                        handLabel, truncate(mainTmpl.name, 20), dmgStr));
+                                    hasWeapon = true;
+                                }
+                            }
+                        }
+                        if (offHandId != null && !isTwoHanded) {
+                            ItemInstance offInst = itemDao.getInstance(offHandId);
+                            if (offInst != null) {
+                                ItemTemplate offTmpl = itemDao.getTemplateById(offInst.templateId);
+                                if (offTmpl != null) {
+                                    if (offTmpl.baseDie > 0) {
+                                        String dmgStr = formatDamage(offTmpl.multiplier, offTmpl.baseDie,
+                                            getAbilityBonus(offTmpl.abilityScore, offTmpl.abilityMultiplier, rec));
+                                        sheet.append(String.format("  Off Hand:  %-20s  Damage: %s\n",
+                                            truncate(offTmpl.name, 20), dmgStr));
+                                    } else {
+                                        // Shield or non-weapon (show armor bonus)
+                                        sheet.append(String.format("  Off Hand:  %-20s  (Shield)\n",
+                                            truncate(offTmpl.name, 20)));
+                                    }
+                                    hasWeapon = true;
+                                }
+                            }
+                        }
+                        if (!hasWeapon) {
+                            // Unarmed combat - 1d4 + STR
+                            String unarmedDmg = formatDamage(1, 4, strMod);
+                            sheet.append(String.format("  Unarmed:   %-20s  Damage: %s\n", "Fists", unarmedDmg));
+                        }
+                        
+                        // ═══ CLASS PROGRESSION ═══
+                        if (!allProgress.isEmpty()) {
+                            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                            sheet.append("  [ CLASS PROGRESSION ]\n");
+                            for (CharacterClassDAO.ClassProgress cp : allProgress) {
+                                CharacterClass cls = classDao.getClassById(cp.classId);
+                                String className = cls != null ? cls.name : "Unknown";
+                                String marker = cp.isCurrent ? " *" : "";
+                                sheet.append(String.format("  %-15s Lv %2d  XP: %5d%s\n", 
+                                    className, cp.level, cp.xp, marker));
+                            }
+                            sheet.append("  (* = active class)\n");
+                        }
+                        
+                        // ═══ SKILLS ═══
+                        java.util.List<CharacterSkill> knownSkills = dao.getAllCharacterSkills(charId);
+                        if (!knownSkills.isEmpty()) {
+                            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                            sheet.append("  [ SKILLS ]\n");
+                            // Sort by name
+                            java.util.List<String> skillLines = new java.util.ArrayList<>();
+                            for (CharacterSkill cs : knownSkills) {
+                                Skill skillDef = dao.getSkillById(cs.getSkillId());
+                                String skillName = skillDef != null ? skillDef.getName() : "Skill #" + cs.getSkillId();
+                                int prof = cs.getProficiency();
+                                String profStr = prof >= 100 ? "MASTERED" : prof + "%";
+                                skillLines.add(String.format("%-22s %8s", truncate(skillName, 22), profStr));
+                            }
+                            java.util.Collections.sort(skillLines, String.CASE_INSENSITIVE_ORDER);
+                            // Print in 2 columns
+                            for (int i = 0; i < skillLines.size(); i += 2) {
+                                String col1 = skillLines.get(i);
+                                String col2 = i + 1 < skillLines.size() ? skillLines.get(i + 1) : "";
+                                sheet.append(String.format("  %s  %s\n", col1, col2));
+                            }
+                        } else {
+                            sheet.append("\n  [ SKILLS ]\n");
+                            sheet.append("  No skills learned yet.\n");
+                        }
+                        
+                        // ═══ SPELLS ═══
+                        java.util.List<CharacterSpell> knownSpells = dao.getAllCharacterSpells(charId);
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ SPELLS ]\n");
+                        if (!knownSpells.isEmpty()) {
+                            // Group by spell level
+                            java.util.Map<Integer, java.util.List<String>> spellsByLevel = new java.util.TreeMap<>();
+                            for (CharacterSpell cs : knownSpells) {
+                                Spell spellDef = dao.getSpellById(cs.getSpellId());
+                                if (spellDef != null) {
+                                    int lvl = spellDef.getLevel();
+                                    spellsByLevel.computeIfAbsent(lvl, k -> new java.util.ArrayList<>());
+                                    int prof = cs.getProficiency();
+                                    String profStr = prof >= 100 ? "M" : prof + "%";
+                                    spellsByLevel.get(lvl).add(spellDef.getName() + " [" + profStr + "]");
+                                }
+                            }
+                            for (java.util.Map.Entry<Integer, java.util.List<String>> entry : spellsByLevel.entrySet()) {
+                                sheet.append(String.format("  Level %d: ", entry.getKey()));
+                                java.util.Collections.sort(entry.getValue(), String.CASE_INSENSITIVE_ORDER);
+                                sheet.append(String.join(", ", entry.getValue())).append("\n");
+                            }
+                        } else {
+                            sheet.append("  No spells known yet.\n");
+                        }
+                        
+                        // ═══ ACTIVE EFFECTS ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ ACTIVE EFFECTS ]\n");
+                        sheet.append("  (No active spell effects)\n");  // Placeholder for future implementation
+                        
+                        // ═══ FOOTER ═══
+                        sheet.append("\n").append(divider).append("\n");
+                        
+                        out.print(sheet.toString());
                         break;
                     }
                     case "spells": {
@@ -1724,5 +2684,375 @@ public class ClientHandler implements Runnable {
                 socket.close();
             } catch (IOException ignored) {}
         }
+    }
+
+    // =========================================================================
+    // CHARACTER CREATION FLOW
+    // =========================================================================
+    // This is an extensible character creation system. Each step is handled
+    // sequentially and can be easily expanded to include race selection,
+    // stat allocation, etc.
+    // =========================================================================
+
+    /**
+     * Runs the full character creation flow.
+     * Returns the CharacterRecord if successful, null if creation failed/aborted.
+     */
+    private CharacterRecord runCharacterCreation(String name, BufferedReader in, CharacterDAO dao) throws IOException {
+        out.println("Character '" + name + "' not found. Creating new character.");
+        out.println();
+
+        // Step 1: Password
+        String passwordHash = null;
+        String passwordSalt = null;
+        for (int attempt = 0; attempt < 3; attempt++) {
+            out.print("Create password: "); out.flush();
+            String p1 = in.readLine();
+            if (p1 == null) return null;
+            out.print("Re-type password: "); out.flush();
+            String p2 = in.readLine();
+            if (p2 == null) return null;
+            if (!p1.equals(p2)) {
+                out.println("Passwords do not match. Try again.");
+                continue;
+            }
+            passwordSalt = PasswordUtil.generateSaltBase64();
+            passwordHash = PasswordUtil.hashPasswordBase64(p1.toCharArray(), 
+                java.util.Base64.getDecoder().decode(passwordSalt));
+            break;
+        }
+        if (passwordHash == null) {
+            out.println("Failed to set password after several attempts. Goodbye.");
+            return null;
+        }
+        out.println();
+
+        // Step 2: Class Selection
+        CharacterClass selectedClass = runClassSelection(in);
+        if (selectedClass == null) {
+            out.println("Class selection failed. Goodbye.");
+            return null;
+        }
+        out.println();
+
+        // Step 3: Age
+        out.print("Enter your character's age (number): "); out.flush();
+        String ageLine = in.readLine();
+        int age = 0;
+        try {
+            if (ageLine != null) age = Integer.parseInt(ageLine.trim());
+        } catch (Exception ignored) {}
+        if (age < 1) age = 18; // default age
+        out.println();
+
+        // Step 4: Description
+        out.print("Enter a short description of your character: "); out.flush();
+        String desc = in.readLine();
+        if (desc == null) desc = "";
+        out.println();
+
+        // Calculate initial stats based on class
+        // Base values
+        int baseHp = 100, baseMp = 50, baseMv = 100;
+        // Add class bonuses at level 1
+        int hpMax = baseHp + selectedClass.hpPerLevel;
+        int mpMax = baseMp + selectedClass.mpPerLevel;
+        int mvMax = baseMv + selectedClass.mvPerLevel;
+        int hpCur = hpMax, mpCur = mpMax, mvCur = mvMax;
+
+        // Default ability scores (can be expanded later with stat allocation)
+        int str = 10, dex = 10, con = 10, intel = 10, wis = 10, cha = 10;
+        // Default saves
+        int armor = 10, fortitude = 10, reflex = 10, will = 10;
+
+        // Default starting room: 3001 if it exists, otherwise fall back
+        int startRoomId = 3001;
+        Room startRoom = dao.getRoomById(startRoomId);
+        if (startRoom == null) {
+            int anyRoomId = dao.getAnyRoomId();
+            startRoomId = anyRoomId > 0 ? anyRoomId : 0;
+        }
+        Integer currentRoom = startRoomId > 0 ? startRoomId : null;
+
+        // Create the character
+        Character ch = new Character(name, age, desc, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur,
+                currentRoom, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will);
+        boolean ok = dao.createCharacter(ch, passwordHash, passwordSalt);
+        if (!ok) {
+            out.println("Failed to create character (name may be taken). Try a different name.");
+            return null;
+        }
+
+        // Get the character ID for class assignment
+        Integer characterId = dao.getCharacterIdByName(name);
+        if (characterId == null) {
+            out.println("Failed to retrieve character ID after creation.");
+            return null;
+        }
+
+        // Set up initial class progress: level 1, xp 0
+        CharacterClassDAO classDao = new CharacterClassDAO();
+        classDao.setCharacterCurrentClass(characterId, selectedClass.id);
+        // Also set current_class_id on the characters table for convenience
+        dao.updateCharacterClass(characterId, selectedClass.id);
+
+        out.println("=========================================");
+        out.println("Character created successfully!");
+        out.println("Name: " + name);
+        out.println("Class: " + selectedClass.name + " (Level 1)");
+        out.println("HP: " + hpMax + " | MP: " + mpMax + " | MV: " + mvMax);
+        out.println("=========================================");
+        out.println("Welcome to TassMUD, " + name + "!");
+        out.println();
+
+        return dao.findByName(name);
+    }
+
+    /**
+     * Handles class selection during character creation.
+     * Returns the selected CharacterClass, or null if selection failed.
+     */
+    private CharacterClass runClassSelection(BufferedReader in) throws IOException {
+        CharacterClassDAO classDao = new CharacterClassDAO();
+        
+        // Load classes from YAML if not already loaded
+        try {
+            classDao.loadClassesFromYamlResource("/data/classes.yaml");
+        } catch (Exception e) {
+            out.println("Warning: Could not load class data.");
+        }
+        
+        java.util.List<CharacterClass> allClasses = classDao.getAllClasses();
+        if (allClasses.isEmpty()) {
+            out.println("Error: No classes available!");
+            return null;
+        }
+        
+        // Sort classes by ID for consistent display
+        allClasses.sort((a, b) -> Integer.compare(a.id, b.id));
+        
+        out.println("=== SELECT YOUR CLASS ===");
+        out.println();
+        for (CharacterClass cls : allClasses) {
+            out.println(String.format("  [%d] %s", cls.id, cls.name));
+            out.println(String.format("      HP/lvl: %+d  MP/lvl: %+d  MV/lvl: %+d", 
+                cls.hpPerLevel, cls.mpPerLevel, cls.mvPerLevel));
+        }
+        out.println();
+        out.println("Enter a number to see more details, or type the class name to select it.");
+        out.println();
+        
+        // Allow up to 10 attempts to select a valid class
+        for (int attempt = 0; attempt < 10; attempt++) {
+            out.print("Your choice: "); out.flush();
+            String input = in.readLine();
+            if (input == null) return null;
+            input = input.trim();
+            if (input.isEmpty()) continue;
+            
+            // Check if input is a number (show details)
+            try {
+                int classId = Integer.parseInt(input);
+                CharacterClass cls = classDao.getClassById(classId);
+                if (cls != null) {
+                    showClassDetails(cls);
+                    out.println();
+                    out.print("Select " + cls.name + "? (yes/no): "); out.flush();
+                    String confirm = in.readLine();
+                    if (confirm != null && (confirm.trim().equalsIgnoreCase("yes") || confirm.trim().equalsIgnoreCase("y"))) {
+                        out.println("You have chosen the path of the " + cls.name + "!");
+                        return cls;
+                    }
+                    // Show the list again
+                    out.println();
+                    out.println("Enter a number to see more details, or type the class name to select it.");
+                    continue;
+                } else {
+                    out.println("Invalid class number. Please try again.");
+                    continue;
+                }
+            } catch (NumberFormatException ignored) {
+                // Not a number, check if it's a class name
+            }
+            
+            // Try to match by name (case-insensitive, partial match)
+            CharacterClass match = null;
+            for (CharacterClass cls : allClasses) {
+                if (cls.name.equalsIgnoreCase(input)) {
+                    match = cls;
+                    break;
+                }
+            }
+            // If no exact match, try prefix match
+            if (match == null) {
+                for (CharacterClass cls : allClasses) {
+                    if (cls.name.toLowerCase().startsWith(input.toLowerCase())) {
+                        match = cls;
+                        break;
+                    }
+                }
+            }
+            
+            if (match != null) {
+                showClassDetails(match);
+                out.println();
+                out.print("Select " + match.name + "? (yes/no): "); out.flush();
+                String confirm = in.readLine();
+                if (confirm != null && (confirm.trim().equalsIgnoreCase("yes") || confirm.trim().equalsIgnoreCase("y"))) {
+                    out.println("You have chosen the path of the " + match.name + "!");
+                    return match;
+                }
+                out.println();
+                out.println("Enter a number to see more details, or type the class name to select it.");
+            } else {
+                out.println("Unknown class '" + input + "'. Please enter a valid class number or name.");
+            }
+        }
+        
+        out.println("Too many invalid attempts.");
+        return null;
+    }
+
+    /**
+     * Display detailed information about a character class.
+     */
+    private void showClassDetails(CharacterClass cls) {
+        out.println();
+        out.println("=== " + cls.name.toUpperCase() + " ===");
+        out.println(cls.description);
+        out.println();
+        out.println("Stats per level:");
+        out.println("  HP: +" + cls.hpPerLevel + "  MP: +" + cls.mpPerLevel + "  MV: +" + cls.mvPerLevel);
+        out.println();
+        // Show some early skills if available
+        java.util.List<CharacterClass.ClassSkillGrant> grants = cls.getSkillsAtLevel(10);
+        if (!grants.isEmpty()) {
+            out.println("Early skills (levels 1-10):");
+            for (CharacterClass.ClassSkillGrant grant : grants) {
+                out.println("  Level " + grant.classLevel + ": Skill #" + grant.skillId);
+            }
+        }
+    }
+
+    // =========================================================================
+    // HELPER METHODS FOR CHARACTER SHEET
+    // =========================================================================
+
+    /**
+     * Truncate a string to a maximum length, adding "..." if truncated.
+     */
+    private static String truncate(String s, int maxLen) {
+        if (s == null) return "";
+        if (s.length() <= maxLen) return s;
+        return s.substring(0, maxLen - 3) + "...";
+    }
+
+    /**
+     * Get an HP bar visual based on percentage.
+     */
+    private static String getHpBar(int hpPct) {
+        if (hpPct > 75) return "[####]";      // Healthy
+        if (hpPct > 50) return "[### ]";      // Hurt
+        if (hpPct > 25) return "[##  ]";      // Wounded
+        if (hpPct > 10) return "[#   ]";      // Critical
+        return "[    ]";                       // Near death
+    }
+
+    /**
+     * Repeat a string n times.
+     */
+    private static String repeat(String s, int count) {
+        if (count <= 0) return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < count; i++) sb.append(s);
+        return sb.toString();
+    }
+
+    /**
+     * Format damage as dice notation (e.g., "2d6 + 5").
+     */
+    private static String formatDamage(int multiplier, int baseDie, int bonus) {
+        if (multiplier <= 0) multiplier = 1;
+        if (baseDie <= 0) return "0";
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(multiplier).append("d").append(baseDie);
+        if (bonus > 0) {
+            sb.append(" + ").append(bonus);
+        } else if (bonus < 0) {
+            sb.append(" - ").append(Math.abs(bonus));
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Get the ability bonus for a weapon based on its ability score scaling.
+     */
+    private static int getAbilityBonus(String abilityScore, double multiplier, CharacterDAO.CharacterRecord rec) {
+        if (abilityScore == null || abilityScore.isEmpty() || multiplier == 0) return 0;
+        
+        int abilityValue = 10;
+        switch (abilityScore.toLowerCase()) {
+            case "str": case "strength": abilityValue = rec.str; break;
+            case "dex": case "dexterity": abilityValue = rec.dex; break;
+            case "con": case "constitution": abilityValue = rec.con; break;
+            case "int": case "intel": case "intelligence": abilityValue = rec.intel; break;
+            case "wis": case "wisdom": abilityValue = rec.wis; break;
+            case "cha": case "charisma": abilityValue = rec.cha; break;
+        }
+        
+        int modifier = (abilityValue - 10) / 2;
+        return (int) Math.round(modifier * multiplier);
+    }
+
+    /**
+     * Display a formatted, categorized list of available commands.
+     */
+    private void displayHelpCommandList(boolean isGm) {
+        out.println();
+        out.println("===================================================================");
+        out.println("                        AVAILABLE COMMANDS");
+        out.println("===================================================================");
+        
+        // Display commands by category from the registry
+        for (CommandDefinition.Category category : CommandDefinition.Category.values()) {
+            // Skip GM category if not a GM
+            if (category == CommandDefinition.Category.GM && !isGm) {
+                continue;
+            }
+            
+            java.util.List<CommandDefinition> cmds = CommandRegistry.getCommandsByCategory(category);
+            if (cmds.isEmpty()) continue;
+            
+            out.println();
+            out.println("  [ " + category.getDisplayName() + " ]");
+            
+            // Collect display names
+            java.util.List<String> displayNames = new java.util.ArrayList<>();
+            for (CommandDefinition cmd : cmds) {
+                displayNames.add(cmd.getDisplayName());
+            }
+            
+            // Print in rows of 3
+            for (int i = 0; i < displayNames.size(); i += 3) {
+                String c1 = displayNames.get(i);
+                String c2 = (i + 1 < displayNames.size()) ? displayNames.get(i + 1) : "";
+                String c3 = (i + 2 < displayNames.size()) ? displayNames.get(i + 2) : "";
+                printCommandRow(c1, c2, c3);
+            }
+        }
+        
+        out.println();
+        out.println("-------------------------------------------------------------------");
+        out.println("  Type 'help <command>' for detailed information on any command.");
+        out.println("===================================================================");
+        out.println();
+    }
+
+    /**
+     * Print a row of up to 3 commands, evenly spaced.
+     */
+    private void printCommandRow(String cmd1, String cmd2, String cmd3) {
+        out.println(String.format("    %-20s %-20s %-20s", cmd1, cmd2, cmd3));
     }
 }

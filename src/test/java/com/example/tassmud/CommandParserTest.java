@@ -88,7 +88,7 @@ public class CommandParserTest {
     
     @ParameterizedTest
     @CsvSource({
-        "i, i",
+        "i, inventory",
         "in, inventory",
         "inv, inventory",
         "inventory, inventory"
@@ -118,17 +118,17 @@ public class CommandParserTest {
     
     @ParameterizedTest
     @CsvSource({
-        "n, n",
+        "n, north",
         "north, north",
-        "e, e",
+        "e, east",
         "east, east",
-        "s, s",
+        "s, south",
         "south, south",
-        "w, w",
+        "w, west",
         "west, west",
-        "u, u",
+        "u, up",
         "up, up",
-        "d, d",
+        "d, down",
         "do, down",
         "down, down"
     })

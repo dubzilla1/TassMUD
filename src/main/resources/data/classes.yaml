@@ -19,25 +19,31 @@ classes:
     mv_level: 4
     skills:
       - level: 1
-        skill_id: 1   # basic attack
+        skill_id: 900  # simple weapons (all classes)
+      - level: 1
+        skill_id: 1    # basic attack
       - level: 3
-        skill_id: 10  # kick
+        skill_id: 901  # martial weapons
+      - level: 3
+        skill_id: 10   # kick
       - level: 5
-        skill_id: 11  # bash
+        skill_id: 11   # bash
       - level: 10
-        skill_id: 12  # disarm
+        skill_id: 12   # disarm
       - level: 15
-        skill_id: 13  # parry
+        skill_id: 902  # exotic weapons
+      - level: 15
+        skill_id: 13   # parry
       - level: 20
-        skill_id: 14  # riposte
+        skill_id: 14   # riposte
       - level: 25
-        skill_id: 15  # second attack
+        skill_id: 15   # second attack
       - level: 35
-        skill_id: 16  # third attack
+        skill_id: 16   # third attack
       - level: 45
-        skill_id: 17  # fourth attack
+        skill_id: 17   # fourth attack
       - level: 51
-        skill_id: 18  # heroic strike (hero level)
+        skill_id: 18   # heroic strike (hero level)
 
   # ============================================================
   # WIZARD - Arcane spellcaster
@@ -52,6 +58,8 @@ classes:
     mp_level: 15
     mv_level: 2
     skills:
+      - level: 1
+        skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 100  # magic missile
       - level: 5
@@ -88,6 +96,8 @@ classes:
     mv_level: 3
     skills:
       - level: 1
+        skill_id: 900  # simple weapons (all classes)
+      - level: 1
         skill_id: 200  # cure light wounds
       - level: 5
         skill_id: 201  # bless
@@ -122,6 +132,8 @@ classes:
     mp_level: 2
     mv_level: 6
     skills:
+      - level: 1
+        skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 300  # sneak
       - level: 3
@@ -158,7 +170,11 @@ classes:
     mv_level: 5
     skills:
       - level: 1
+        skill_id: 900  # simple weapons (all classes)
+      - level: 1
         skill_id: 400  # track
+      - level: 3
+        skill_id: 901  # martial weapons
       - level: 4
         skill_id: 401  # forage
       - level: 8
@@ -193,7 +209,11 @@ classes:
     mv_level: 3
     skills:
       - level: 1
+        skill_id: 900  # simple weapons (all classes)
+      - level: 1
         skill_id: 500  # lay on hands
+      - level: 3
+        skill_id: 901  # martial weapons
       - level: 5
         skill_id: 501  # detect evil
       - level: 10
@@ -227,6 +247,8 @@ classes:
     mp_level: 14
     mv_level: 2
     skills:
+      - level: 1
+        skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 600  # drain life
       - level: 5
@@ -263,7 +285,11 @@ classes:
     mv_level: 6
     skills:
       - level: 1
+        skill_id: 900  # simple weapons (all classes)
+      - level: 1
         skill_id: 700  # unarmed strike
+      - level: 3
+        skill_id: 901  # martial weapons
       - level: 5
         skill_id: 701  # flurry of blows
       - level: 10

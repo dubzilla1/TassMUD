@@ -1,0 +1,158 @@
+# Skill definitions for TassMUD
+# 
+# ID ranges:
+#   1-49: General combat skills (class skills)
+#   50-99: General non-combat skills
+#   100-199: Wizard spells/skills
+#   200-299: Cleric spells/skills
+#   300-399: Rogue skills
+#   400-499: Ranger skills
+#   500-599: Paladin skills
+#   600-699: Necromancer skills
+#   700-799: Monk skills
+#   800-899: Reserved
+#   900-999: Weapon skills
+
+skills:
+  # ============================================================
+  # WEAPON CATEGORY SKILLS (passive, granted by class)
+  # Proficiency level = 2x character level
+  # ============================================================
+  - id: 900
+    key: simple_weapons
+    name: Simple Weapons
+    description: Proficiency with simple weapons like daggers, clubs, staves, slings, and crossbows.
+    is_passive: true
+    max_level: 100
+
+  - id: 901
+    key: martial_weapons
+    name: Martial Weapons
+    description: Proficiency with martial weapons like swords, axes, gauntlets, and bows.
+    is_passive: true
+    max_level: 100
+
+  - id: 902
+    key: exotic_weapons
+    name: Exotic Weapons
+    description: Proficiency with exotic weapons like glaives, flails, and unusual armaments.
+    is_passive: true
+    max_level: 100
+
+  # ============================================================
+  # WEAPON FAMILY SKILLS - SIMPLE (passive, trained through use)
+  # Max 10% per character level, gained 0.1% per kill
+  # ============================================================
+  - id: 910
+    key: skill_daggers
+    name: Daggers
+    description: Expertise with daggers and small bladed weapons.
+    is_passive: true
+    max_level: 100
+
+  - id: 911
+    key: skill_clubs
+    name: Clubs
+    description: Expertise with clubs, maces, and similar blunt weapons.
+    is_passive: true
+    max_level: 100
+
+  - id: 912
+    key: skill_staves
+    name: Staves
+    description: Expertise with quarterstaves and magical staves.
+    is_passive: true
+    max_level: 100
+
+  - id: 913
+    key: skill_slings
+    name: Slings
+    description: Expertise with slings and throwing stones.
+    is_passive: true
+    max_level: 100
+
+  - id: 914
+    key: skill_crossbows
+    name: Crossbows
+    description: Expertise with crossbows and mechanical ranged weapons.
+    is_passive: true
+    max_level: 100
+
+  # ============================================================
+  # WEAPON FAMILY SKILLS - MARTIAL (passive, trained through use)
+  # ============================================================
+  - id: 920
+    key: skill_swords
+    name: Swords
+    description: Expertise with all types of swords from daggers to greatswords.
+    is_passive: true
+    max_level: 100
+
+  - id: 921
+    key: skill_axes
+    name: Axes
+    description: Expertise with hand axes, battle axes, and greataxes.
+    is_passive: true
+    max_level: 100
+
+  - id: 922
+    key: skill_gauntlets
+    name: Gauntlets
+    description: Expertise with fist weapons and spiked gauntlets.
+    is_passive: true
+    max_level: 100
+
+  - id: 923
+    key: skill_bows
+    name: Bows
+    description: Expertise with shortbows and longbows.
+    is_passive: true
+    max_level: 100
+
+  # ============================================================
+  # WEAPON FAMILY SKILLS - EXOTIC (passive, trained through use)
+  # ============================================================
+  - id: 930
+    key: skill_glaives
+    name: Glaives
+    description: Expertise with polearm weapons like glaives, halberds, and spears.
+    is_passive: true
+    max_level: 100
+
+  - id: 931
+    key: skill_flails
+    name: Flails
+    description: Expertise with chain weapons like flails, morningstars, and whips.
+    is_passive: true
+    max_level: 100
+
+  - id: 932
+    key: skill_exotic_other
+    name: Exotic Other
+    description: Expertise with unusual weapons that defy classification.
+    is_passive: true
+    max_level: 100
+
+  # ============================================================
+  # GENERAL SKILLS (non-weapon)
+  # ============================================================
+  - id: 50
+    key: lockpicking
+    name: Lockpicking
+    description: Ability to pick locks and disable simple traps.
+    is_passive: false
+    max_level: 100
+
+  - id: 51
+    key: stealth
+    name: Stealth
+    description: Ability to move silently and remain hidden.
+    is_passive: false
+    max_level: 100
+
+  - id: 52
+    key: perception
+    name: Perception
+    description: Ability to notice hidden things and detect danger.
+    is_passive: true
+    max_level: 100

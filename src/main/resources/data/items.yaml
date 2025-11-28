@@ -18,11 +18,16 @@
 # armor:
 #   id, key, name, description, weight, value, type, slot, armor_save_bonus, fort_save_bonus, ref_save_bonus, will_save_bonus, spell_effect_id_1-4
 #
+# shield:
+#   id, key, name, description, weight, value, type, armor_save_bonus, fort_save_bonus, ref_save_bonus, will_save_bonus, spell_effect_id_1-4
+#   NOTE: Shields equip to off-hand and provide defensive bonuses
+#
 # held:
 #   id, key, name, description, weight, value, type, hands (int), spell_effect_id_1-4
 #
 # weapon:
 #   id, key, name, description, weight, value, type, hands (int), base_die (int), multiplier (int), ability_score (string), ability_multiplier (decimal), spell_effect_id_1-4
+#   NOTE: weapons with hands=1 go to main_hand; hands=2 occupies both main_hand and off_hand
 #
 # Example items:
 items:
@@ -90,6 +95,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: SWORDS
 
   # ============================================================
   # CLOTH ARMOR SET (light, caster-friendly)
@@ -638,6 +645,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: DAGGERS
 
   - id: 201
     key: shortsword
@@ -651,6 +660,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: SWORDS
 
   - id: 202
     key: longsword
@@ -664,6 +675,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: SWORDS
 
   - id: 203
     key: bastard_sword
@@ -677,6 +690,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: SWORDS
 
   - id: 204
     key: greatsword
@@ -690,6 +705,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.5
+    weapon_category: MARTIAL
+    weapon_family: SWORDS
 
   - id: 205
     key: rapier
@@ -703,6 +720,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: SWORDS
 
   - id: 206
     key: scimitar
@@ -716,6 +735,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: SWORDS
 
   # ============================================================
   # WEAPONS - Axes
@@ -732,6 +753,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: AXES
 
   - id: 211
     key: battle_axe
@@ -745,6 +768,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: AXES
 
   - id: 212
     key: greataxe
@@ -758,6 +783,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.5
+    weapon_category: MARTIAL
+    weapon_family: AXES
 
   # ============================================================
   # WEAPONS - Blunt
@@ -774,6 +801,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: CLUBS
 
   - id: 221
     key: mace
@@ -787,6 +816,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: CLUBS
 
   - id: 222
     key: morningstar
@@ -800,6 +831,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: CLUBS
 
   - id: 223
     key: warhammer
@@ -813,6 +846,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: CLUBS
 
   - id: 224
     key: maul
@@ -826,6 +861,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.5
+    weapon_category: SIMPLE
+    weapon_family: CLUBS
 
   - id: 225
     key: flail
@@ -839,6 +876,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: EXOTIC
+    weapon_family: FLAILS
 
   # ============================================================
   # WEAPONS - Polearms
@@ -855,6 +894,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: STAVES
 
   - id: 231
     key: halberd
@@ -868,6 +909,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.5
+    weapon_category: EXOTIC
+    weapon_family: GLAIVES
 
   - id: 232
     key: glaive
@@ -881,6 +924,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.5
+    weapon_category: EXOTIC
+    weapon_family: GLAIVES
 
   - id: 233
     key: pike
@@ -894,6 +939,8 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: STAVES
 
   - id: 234
     key: trident
@@ -907,6 +954,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: EXOTIC
+    weapon_family: OTHER
 
   # ============================================================
   # WEAPONS - Ranged
@@ -923,6 +972,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: BOWS
 
   - id: 241
     key: longbow
@@ -936,6 +987,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: MARTIAL
+    weapon_family: BOWS
 
   - id: 242
     key: crossbow
@@ -949,6 +1002,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: CROSSBOWS
 
   - id: 243
     key: sling
@@ -962,6 +1017,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: SLINGS
 
   - id: 244
     key: throwing_knives
@@ -975,6 +1032,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: DAGGERS
 
   # ============================================================
   # WEAPONS - Staves & Exotic
@@ -991,6 +1050,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: STAVES
 
   - id: 251
     key: wizard_staff
@@ -1005,6 +1066,8 @@ items:
     ability_score: intelligence
     ability_multiplier: 1.0
     magical: true
+    weapon_category: SIMPLE
+    weapon_family: STAVES
 
   - id: 252
     key: whip
@@ -1018,6 +1081,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: EXOTIC
+    weapon_family: OTHER
 
   - id: 253
     key: sickle
@@ -1031,6 +1096,8 @@ items:
     multiplier: 1
     ability_score: dexterity
     ability_multiplier: 1.0
+    weapon_category: SIMPLE
+    weapon_family: DAGGERS
 
   - id: 254
     key: scythe
@@ -1044,3 +1111,92 @@ items:
     multiplier: 1
     ability_score: strength
     ability_multiplier: 1.0
+    weapon_category: EXOTIC
+    weapon_family: GLAIVES
+
+  # ============================================================
+  # SHIELDS - Equipped in off-hand
+  # ============================================================
+  - id: 260
+    key: buckler
+    name: Buckler
+    description: A small round shield strapped to the forearm.
+    weight: 2.0
+    value: 15
+    type: shield
+    armor_save_bonus: 2
+    fort_save_bonus: 0
+    ref_save_bonus: 1
+    will_save_bonus: 0
+
+  - id: 261
+    key: wooden_shield
+    name: Wooden Shield
+    description: A simple wooden shield reinforced with iron bands.
+    weight: 5.0
+    value: 25
+    type: shield
+    armor_save_bonus: 4
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 262
+    key: round_shield
+    name: Round Shield
+    description: A medium-sized round shield of sturdy construction.
+    weight: 6.0
+    value: 40
+    type: shield
+    armor_save_bonus: 5
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 263
+    key: kite_shield
+    name: Kite Shield
+    description: A large teardrop-shaped shield offering excellent coverage.
+    weight: 10.0
+    value: 60
+    type: shield
+    armor_save_bonus: 6
+    fort_save_bonus: 2
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 264
+    key: tower_shield
+    name: Tower Shield
+    description: A massive rectangular shield that can protect the entire body.
+    weight: 15.0
+    value: 100
+    type: shield
+    armor_save_bonus: 8
+    fort_save_bonus: 3
+    ref_save_bonus: -2
+    will_save_bonus: 0
+
+  - id: 265
+    key: heater_shield
+    name: Heater Shield
+    description: A classic knight's shield with a distinctive triangular shape.
+    weight: 8.0
+    value: 55
+    type: shield
+    armor_save_bonus: 5
+    fort_save_bonus: 2
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 266
+    key: spiked_shield
+    name: Spiked Shield
+    description: A round shield with a central spike for offensive use.
+    weight: 7.0
+    value: 50
+    type: shield
+    armor_save_bonus: 4
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 0

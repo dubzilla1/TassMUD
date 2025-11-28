@@ -1,6 +1,6 @@
 param(
     [switch]$NoBuild,
-    [int]$Port = 4001
+    [int]$Port = 4003
 )
 
 try {

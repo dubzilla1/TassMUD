@@ -65,8 +65,8 @@ class EquipmentSlotTest {
         "8, LEGS",
         "9, BOOTS",
         "10, BACK",
-        "11, LEFT_HAND",
-        "12, RIGHT_HAND"
+        "11, MAIN_HAND",
+        "12, OFF_HAND"
     })
     @DisplayName("fromId returns correct slot")
     void fromIdReturnsCorrectSlot(int id, EquipmentSlot expected) {
@@ -93,8 +93,8 @@ class EquipmentSlotTest {
         "legs, LEGS",
         "boots, BOOTS",
         "back, BACK",
-        "left_hand, LEFT_HAND",
-        "right_hand, RIGHT_HAND"
+        "main_hand, MAIN_HAND",
+        "off_hand, OFF_HAND"
     })
     @DisplayName("fromKey returns correct slot by key")
     void fromKeyReturnsCorrectSlotByKey(String key, EquipmentSlot expected) {
@@ -105,8 +105,8 @@ class EquipmentSlotTest {
     @CsvSource({
         "HEAD, HEAD",
         "CHEST, CHEST",
-        "left_hand, LEFT_HAND",
-        "RIGHT_HAND, RIGHT_HAND"
+        "main_hand, MAIN_HAND",
+        "OFF_HAND, OFF_HAND"
     })
     @DisplayName("fromKey accepts enum name as well as key")
     void fromKeyAcceptsEnumName(String input, EquipmentSlot expected) {
@@ -119,8 +119,8 @@ class EquipmentSlotTest {
         assertEquals(EquipmentSlot.HEAD, EquipmentSlot.fromKey("HEAD"));
         assertEquals(EquipmentSlot.HEAD, EquipmentSlot.fromKey("head"));
         assertEquals(EquipmentSlot.HEAD, EquipmentSlot.fromKey("Head"));
-        assertEquals(EquipmentSlot.LEFT_HAND, EquipmentSlot.fromKey("LEFT_HAND"));
-        assertEquals(EquipmentSlot.LEFT_HAND, EquipmentSlot.fromKey("left_hand"));
+        assertEquals(EquipmentSlot.MAIN_HAND, EquipmentSlot.fromKey("MAIN_HAND"));
+        assertEquals(EquipmentSlot.MAIN_HAND, EquipmentSlot.fromKey("main_hand"));
     }
     
     @Test
@@ -171,10 +171,26 @@ class EquipmentSlotTest {
     @Test
     @DisplayName("Hand slots have correct display names")
     void handSlotsHaveCorrectDisplayNames() {
-        assertEquals("Left Hand", EquipmentSlot.LEFT_HAND.displayName);
-        assertEquals("Right Hand", EquipmentSlot.RIGHT_HAND.displayName);
+        assertEquals("Main Hand", EquipmentSlot.MAIN_HAND.displayName);
+        assertEquals("Off Hand", EquipmentSlot.OFF_HAND.displayName);
     }
     
+    @Test
+    @DisplayName("fromKey accepts hand slot aliases")
+    void fromKeyAcceptsHandSlotAliases() {
+        // Main hand aliases
+        assertEquals(EquipmentSlot.MAIN_HAND, EquipmentSlot.fromKey("main"));
+        assertEquals(EquipmentSlot.MAIN_HAND, EquipmentSlot.fromKey("mainhand"));
+        assertEquals(EquipmentSlot.MAIN_HAND, EquipmentSlot.fromKey("MAIN"));
+        assertEquals(EquipmentSlot.MAIN_HAND, EquipmentSlot.fromKey("MAINHAND"));
+        
+        // Off hand aliases
+        assertEquals(EquipmentSlot.OFF_HAND, EquipmentSlot.fromKey("off"));
+        assertEquals(EquipmentSlot.OFF_HAND, EquipmentSlot.fromKey("offhand"));
+        assertEquals(EquipmentSlot.OFF_HAND, EquipmentSlot.fromKey("OFF"));
+        assertEquals(EquipmentSlot.OFF_HAND, EquipmentSlot.fromKey("OFFHAND"));
+    }
+
     @Test
     @DisplayName("There are exactly 12 equipment slots")
     void thereAre12Slots() {

@@ -1,6 +1,8 @@
 package com.example.tassmud.persistence;
 
 import com.example.tassmud.model.*;
+import com.example.tassmud.model.MobileBehavior;
+import com.example.tassmud.model.MobileTemplate;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -37,9 +39,175 @@ public class DataLoader {
         } catch (Exception e) {
             System.err.println("Failed to load classes.yaml: " + e.getMessage());
         }
+        // Load mobile templates from YAML resource
+        try {
+            loadMobileTemplates();
+        } catch (Exception e) {
+            System.err.println("Failed to load mobiles.yaml: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Load mobile templates from YAML resource.
+     */
+    @SuppressWarnings("unchecked")
+    private static void loadMobileTemplates() {
+        try (InputStream in = DataLoader.class.getResourceAsStream("/data/mobiles.yaml")) {
+            if (in == null) {
+                System.out.println("No mobiles.yaml found");
+                return;
+            }
+            
+            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+            List<Map<String, Object>> mobileList = yaml.load(in);
+            if (mobileList == null) return;
+            
+            MobileDAO mobileDao = new MobileDAO();
+            int count = 0;
+            
+            for (Map<String, Object> mobData : mobileList) {
+                int id = getInt(mobData, "id", -1);
+                if (id < 0) continue;
+                
+                String key = getString(mobData, "key", "mob_" + id);
+                String name = getString(mobData, "name", "Unknown");
+                String shortDesc = getString(mobData, "short_desc", name + " is here.");
+                String longDesc = getString(mobData, "long_desc", "You see nothing special.");
+                
+                // Parse keywords
+                List<String> keywords = new ArrayList<>();
+                Object keywordsObj = mobData.get("keywords");
+                if (keywordsObj instanceof List) {
+                    for (Object kw : (List<?>) keywordsObj) {
+                        keywords.add(String.valueOf(kw));
+                    }
+                }
+                
+                int level = getInt(mobData, "level", 1);
+                int hpMax = getInt(mobData, "hp_max", 10);
+                int mpMax = getInt(mobData, "mp_max", 0);
+                int mvMax = getInt(mobData, "mv_max", 100);
+                
+                int str = getInt(mobData, "str", 10);
+                int dex = getInt(mobData, "dex", 10);
+                int con = getInt(mobData, "con", 10);
+                int intel = getInt(mobData, "intel", 10);
+                int wis = getInt(mobData, "wis", 10);
+                int cha = getInt(mobData, "cha", 10);
+                
+                int armor = getInt(mobData, "armor", 10);
+                int fortitude = getInt(mobData, "fortitude", 0);
+                int reflex = getInt(mobData, "reflex", 0);
+                int will = getInt(mobData, "will", 0);
+                
+                int baseDamage = getInt(mobData, "base_damage", 4);
+                int damageBonus = getInt(mobData, "damage_bonus", 0);
+                int attackBonus = getInt(mobData, "attack_bonus", 0);
+                
+                // Parse behaviors list (can be single string or list of strings)
+                List<MobileBehavior> behaviors = new ArrayList<>();
+                Object behaviorsObj = mobData.get("behaviors");
+                if (behaviorsObj instanceof List) {
+                    for (Object b : (List<?>) behaviorsObj) {
+                        MobileBehavior behavior = MobileBehavior.fromString(String.valueOf(b));
+                        if (behavior != null) {
+                            behaviors.add(behavior);
+                        }
+                    }
+                } else if (behaviorsObj instanceof String) {
+                    MobileBehavior behavior = MobileBehavior.fromString((String) behaviorsObj);
+                    if (behavior != null) {
+                        behaviors.add(behavior);
+                    }
+                }
+                // Also check legacy "behavior" field for backwards compatibility
+                if (behaviors.isEmpty()) {
+                    String behaviorStr = getString(mobData, "behavior", "PASSIVE");
+                    MobileBehavior behavior = MobileBehavior.fromString(behaviorStr);
+                    behaviors.add(behavior != null ? behavior : MobileBehavior.PASSIVE);
+                }
+                
+                int aggroRange = getInt(mobData, "aggro_range", 0);
+                int experienceValue = getInt(mobData, "experience_value", 10);
+                int goldMin = getInt(mobData, "gold_min", 0);
+                int goldMax = getInt(mobData, "gold_max", 0);
+                int respawnSeconds = getInt(mobData, "respawn_seconds", 300);
+                
+                MobileTemplate template = new MobileTemplate(
+                    id, key, name, shortDesc, longDesc, keywords,
+                    level, hpMax, mpMax, mvMax,
+                    str, dex, con, intel, wis, cha,
+                    armor, fortitude, reflex, will,
+                    baseDamage, damageBonus, attackBonus,
+                    behaviors, aggroRange,
+                    experienceValue, goldMin, goldMax,
+                    respawnSeconds, null
+                );
+                
+                mobileDao.upsertTemplate(template);
+                count++;
+            }
+            
+            System.out.println("Loaded " + count + " mobile templates from mobiles.yaml");
+            
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load mobile templates: " + e.getMessage(), e);
+        }
     }
 
     private static void loadSkills(CharacterDAO dao) {
+        loadSkillsFromYaml(dao);
+    }
+    
+    /**
+     * Load skills from YAML resource. Falls back to CSV if YAML not found.
+     */
+    @SuppressWarnings("unchecked")
+    private static void loadSkillsFromYaml(CharacterDAO dao) {
+        try (InputStream in = DataLoader.class.getResourceAsStream("/data/skills.yaml")) {
+            if (in == null) {
+                // Fallback to old CSV
+                loadSkillsFromCsv(dao);
+                return;
+            }
+            
+            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+            Map<String, Object> root = yaml.load(in);
+            if (root == null) return;
+            
+            List<Map<String, Object>> skillList = (List<Map<String, Object>>) root.get("skills");
+            if (skillList == null) return;
+            
+            int count = 0;
+            for (Map<String, Object> skillData : skillList) {
+                int id = getInt(skillData, "id", -1);
+                String key = getString(skillData, "key", "");
+                String name = getString(skillData, "name", "");
+                String description = getString(skillData, "description", "");
+                boolean isPassive = getBoolean(skillData, "is_passive", false);
+                int maxLevel = getInt(skillData, "max_level", 100);
+                String progressionStr = getString(skillData, "progression", "NORMAL");
+                
+                if (id < 0 || key.isEmpty() || name.isEmpty()) continue;
+                
+                com.example.tassmud.model.Skill.SkillProgression progression = 
+                    com.example.tassmud.model.Skill.SkillProgression.fromString(progressionStr);
+                
+                if (dao.addSkillFull(id, key, name, description, isPassive, maxLevel, progression)) {
+                    count++;
+                }
+            }
+            System.out.println("[DataLoader] Loaded " + count + " skills from YAML");
+        } catch (Exception e) {
+            System.err.println("[DataLoader] Failed to load skills from YAML: " + e.getMessage());
+            loadSkillsFromCsv(dao);
+        }
+    }
+    
+    /**
+     * Legacy CSV skill loader (fallback).
+     */
+    private static void loadSkillsFromCsv(CharacterDAO dao) {
         try (InputStream in = DataLoader.class.getResourceAsStream("/data/skills.csv")) {
             if (in == null) return;
             try (BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
@@ -50,8 +218,6 @@ public class DataLoader {
                     String[] parts = line.split(",", 2);
                     String name = parts[0].trim();
                     String desc = parts.length > 1 ? parts[1].trim() : "";
-                    // naive idempotency: skip if skill exists
-                    // We don't have getSkillByName, but addSkill returns false on duplicate.
                     dao.addSkill(name, desc);
                 }
             }
@@ -161,8 +327,58 @@ public class DataLoader {
         }
         return defaultVal;
     }
+    
+    private static boolean getBoolean(Map<String, Object> map, String key, boolean defaultVal) {
+        Object val = map.get(key);
+        if (val instanceof Boolean) return (Boolean) val;
+        if (val instanceof String) return Boolean.parseBoolean((String) val);
+        return defaultVal;
+    }
 
     private static Map<String,Integer> loadAreas(CharacterDAO dao) {
+        // Try YAML first, fall back to CSV
+        Map<String,Integer> map = loadAreasFromYaml(dao);
+        if (map.isEmpty()) {
+            map = loadAreasFromCsv(dao);
+        }
+        return map;
+    }
+    
+    @SuppressWarnings("unchecked")
+    private static Map<String,Integer> loadAreasFromYaml(CharacterDAO dao) {
+        Map<String,Integer> map = new HashMap<>();
+        try (InputStream in = DataLoader.class.getResourceAsStream("/data/areas.yaml")) {
+            if (in == null) return map;
+            
+            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+            Map<String, Object> root = yaml.load(in);
+            if (root == null) return map;
+            
+            List<Map<String, Object>> areaList = (List<Map<String, Object>>) root.get("areas");
+            if (areaList == null) return map;
+            
+            int count = 0;
+            for (Map<String, Object> areaData : areaList) {
+                int id = getInt(areaData, "id", -1);
+                String name = getString(areaData, "name", "");
+                String desc = getString(areaData, "description", "");
+                
+                if (id < 0 || name.isEmpty()) continue;
+                
+                int used = dao.addAreaWithId(id, name, desc);
+                if (used > 0) {
+                    map.put(name, used);
+                    count++;
+                }
+            }
+            System.out.println("[DataLoader] Loaded " + count + " areas from YAML");
+        } catch (Exception e) {
+            System.err.println("[DataLoader] Failed to load areas from YAML: " + e.getMessage());
+        }
+        return map;
+    }
+    
+    private static Map<String,Integer> loadAreasFromCsv(CharacterDAO dao) {
         Map<String,Integer> map = new HashMap<>();
         try (InputStream in = DataLoader.class.getResourceAsStream("/data/areas.csv")) {
             if (in == null) return map;
@@ -171,20 +387,17 @@ public class DataLoader {
                 while ((line = br.readLine()) != null) {
                     line = line.trim();
                     if (line.isEmpty() || line.startsWith("#")) continue;
-                    // support optional leading numeric id: id,name,description
                     String[] parts = line.split(",", 3);
                     int id = -1;
                     String name;
                     String desc;
                     try {
                         id = Integer.parseInt(parts[0].trim());
-                        // id present
                         name = parts.length > 1 ? parts[1].trim() : "";
                         desc = parts.length > 2 ? parts[2].trim() : "";
                         int used = dao.addAreaWithId(id, name, desc);
                         if (used > 0) map.put(name, used);
                     } catch (NumberFormatException nfe) {
-                        // no id provided, fallback to old format
                         String[] parts2 = line.split(",", 2);
                         name = parts2[0].trim();
                         desc = parts2.length > 1 ? parts2[1].trim() : "";
@@ -198,36 +411,98 @@ public class DataLoader {
     }
 
     private static class RoomTemplate {
+        int explicitId = -1;
         String key;
         int areaId;
         String name;
         String shortDesc;
         String longDesc;
-        String exitN, exitE, exitS, exitW, exitU, exitD;
+        Integer exitN, exitE, exitS, exitW, exitU, exitD;
     }
 
     private static Map<String,Integer> loadRoomsFirstPass(CharacterDAO dao, Map<String,Integer> areaMap) {
-        Map<String,Integer> keyToId = new HashMap<>();
+        // Try YAML first, fall back to CSV
+        List<RoomTemplate> templates = loadRoomTemplatesFromYaml(areaMap);
+        if (templates.isEmpty()) {
+            templates = loadRoomTemplatesFromCsv(areaMap, dao);
+        }
+        return insertRoomTemplates(dao, templates);
+    }
+    
+    @SuppressWarnings("unchecked")
+    private static List<RoomTemplate> loadRoomTemplatesFromYaml(Map<String,Integer> areaMap) {
+        List<RoomTemplate> templates = new ArrayList<>();
+        try (InputStream in = DataLoader.class.getResourceAsStream("/data/rooms.yaml")) {
+            if (in == null) return templates;
+            
+            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+            Map<String, Object> root = yaml.load(in);
+            if (root == null) return templates;
+            
+            List<Map<String, Object>> roomList = (List<Map<String, Object>>) root.get("rooms");
+            if (roomList == null) return templates;
+            
+            for (Map<String, Object> roomData : roomList) {
+                RoomTemplate t = new RoomTemplate();
+                t.explicitId = getInt(roomData, "id", -1);
+                t.key = getString(roomData, "key", "");
+                t.name = getString(roomData, "name", "");
+                t.areaId = getInt(roomData, "area_id", 0);
+                t.shortDesc = getString(roomData, "short_desc", "");
+                t.longDesc = getString(roomData, "long_desc", "");
+                
+                // Parse exits
+                Object exitsObj = roomData.get("exits");
+                if (exitsObj instanceof Map) {
+                    Map<String, Object> exits = (Map<String, Object>) exitsObj;
+                    t.exitN = getExitId(exits, "north");
+                    t.exitE = getExitId(exits, "east");
+                    t.exitS = getExitId(exits, "south");
+                    t.exitW = getExitId(exits, "west");
+                    t.exitU = getExitId(exits, "up");
+                    t.exitD = getExitId(exits, "down");
+                }
+                
+                if (t.key.isEmpty() || t.name.isEmpty()) continue;
+                templates.add(t);
+            }
+            System.out.println("[DataLoader] Loaded " + templates.size() + " room templates from YAML");
+        } catch (Exception e) {
+            System.err.println("[DataLoader] Failed to load rooms from YAML: " + e.getMessage());
+        }
+        return templates;
+    }
+    
+    private static Integer getExitId(Map<String, Object> exits, String direction) {
+        Object val = exits.get(direction);
+        if (val == null) return null;
+        if (val instanceof Number) return ((Number) val).intValue();
+        if (val instanceof String) {
+            String s = ((String) val).trim();
+            if (s.isEmpty()) return null;
+            try { return Integer.parseInt(s); } catch (Exception e) { return null; }
+        }
+        return null;
+    }
+    
+    private static List<RoomTemplate> loadRoomTemplatesFromCsv(Map<String,Integer> areaMap, CharacterDAO dao) {
         List<RoomTemplate> templates = new ArrayList<>();
         try (InputStream in = DataLoader.class.getResourceAsStream("/data/rooms.csv")) {
-            if (in == null) return keyToId;
+            if (in == null) return templates;
             try (BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     line = line.trim();
                     if (line.isEmpty() || line.startsWith("#")) continue;
-                    // support optional leading numeric id: id,key,name,area,short_desc,long_desc,exit_n,...
                     String[] p = line.split(",", 12);
                     RoomTemplate t = new RoomTemplate();
-                    Integer explicitId = null;
                     int idx = 0;
                     try {
-                        explicitId = Integer.parseInt(p[0].trim());
-                        idx = 1; // fields start at p[1]
+                        t.explicitId = Integer.parseInt(p[0].trim());
+                        idx = 1;
                     } catch (NumberFormatException nfe) {
-                        idx = 0; // fields start at p[0]
+                        idx = 0;
                     }
-                    // key,name,area,short_desc,long_desc,exit_n,exit_e,exit_s,exit_w,exit_u,exit_d
                     t.key = p[idx + 0].trim();
                     t.name = p[idx + 1].trim();
                     String areaName = p[idx + 2].trim();
@@ -236,60 +511,42 @@ public class DataLoader {
                     t.areaId = areaId;
                     t.shortDesc = p[idx + 3].trim();
                     t.longDesc = p[idx + 4].trim();
-                    t.exitN = (p.length > idx + 5) ? emptyToNull(p[idx + 5]) : null;
-                    t.exitE = (p.length > idx + 6) ? emptyToNull(p[idx + 6]) : null;
-                    t.exitS = (p.length > idx + 7) ? emptyToNull(p[idx + 7]) : null;
-                    t.exitW = (p.length > idx + 8) ? emptyToNull(p[idx + 8]) : null;
-                    t.exitU = (p.length > idx + 9) ? emptyToNull(p[idx + 9]) : null;
-                    t.exitD = (p.length > idx + 10) ? emptyToNull(p[idx + 10]) : null;
-                    // store explicitId in shortDesc temporarily if present (we'll use DAO insertion accordingly below)
-                    if (explicitId != null) {
-                        // mark template by prefixing shortDesc with special token to carry id
-                        t.shortDesc = "__ID:" + explicitId + "__" + t.shortDesc;
-                    }
+                    // CSV exits stored as strings, will be resolved in second pass
                     templates.add(t);
                 }
             }
         } catch (Exception ignored) {}
-        // Insert rooms with null exits and remember ids
-        // We'll assign area-scoped numeric ids for rooms without explicit ids.
-        // Each area gets up to 1000 room slots: areaId*1000 .. areaId*1000+999
+        return templates;
+    }
+    
+    private static Map<String,Integer> insertRoomTemplates(CharacterDAO dao, List<RoomTemplate> templates) {
+        Map<String,Integer> keyToId = new HashMap<>();
         Map<Integer,Integer> areaCounters = new HashMap<>();
+        
         for (RoomTemplate t : templates) {
-            Integer explicitId = null;
-            String shortDesc = t.shortDesc;
-            if (shortDesc != null && shortDesc.startsWith("__ID:")) {
-                int end = shortDesc.indexOf("__", 5);
-                if (end > 0) {
-                    String idStr = shortDesc.substring(5, end);
-                    try { explicitId = Integer.parseInt(idStr); } catch (Exception ignored) {}
-                    // strip marker
-                    shortDesc = shortDesc.substring(end+2);
-                }
-            }
             int roomId;
-            if (explicitId != null) {
-                roomId = dao.addRoomWithId(explicitId, t.areaId, t.name, shortDesc, t.longDesc, null, null, null, null, null, null);
+            if (t.explicitId >= 0) {
+                roomId = dao.addRoomWithId(t.explicitId, t.areaId, t.name, t.shortDesc, t.longDesc, 
+                    t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
             } else {
                 int nextLocal = areaCounters.getOrDefault(t.areaId, 0);
                 if (nextLocal > 999) {
-                    // out of space for this area; fall back to generated id
-                    roomId = dao.addRoom(t.areaId, t.name, shortDesc, t.longDesc, null, null, null, null, null, null);
+                    roomId = dao.addRoom(t.areaId, t.name, t.shortDesc, t.longDesc, null, null, null, null, null, null);
                 } else {
                     int computed = t.areaId * 1000 + nextLocal;
-                    roomId = dao.addRoomWithId(computed, t.areaId, t.name, shortDesc, t.longDesc, null, null, null, null, null, null);
-                    // increment counter only if we successfully reserved the id
+                    roomId = dao.addRoomWithId(computed, t.areaId, t.name, t.shortDesc, t.longDesc,
+                        t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
                     if (roomId > 0) areaCounters.put(t.areaId, nextLocal + 1);
                 }
             }
             if (roomId > 0) keyToId.put(t.key, roomId);
         }
-        // Save templates to thread-local-like structure for second pass via mapping
-        // We'll call second pass loader with the templates resolved from resources again (simpler than storing globally)
         return keyToId;
     }
 
     private static void loadRoomsSecondPass(CharacterDAO dao, Map<String,Integer> keyToId) {
+        // Second pass only needed for CSV format where exits are stored as strings
+        // YAML already has numeric IDs resolved in first pass
         try (InputStream in = DataLoader.class.getResourceAsStream("/data/rooms.csv")) {
             if (in == null) return;
             try (BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
@@ -301,7 +558,7 @@ public class DataLoader {
                     int idx = 0;
                     try {
                         Integer.parseInt(p[0].trim());
-                        idx = 1; // id present
+                        idx = 1;
                     } catch (Exception ignored) { idx = 0; }
                     String key = p[idx + 0].trim();
                     Integer roomId = keyToId.get(key);

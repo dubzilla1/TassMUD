@@ -1,0 +1,501 @@
+# Mobile Templates
+# These define the types of NPCs/monsters that can be spawned in the game.
+# Each mob can have multiple behaviors: AGGRESSIVE, PASSIVE, DEFENSIVE, COWARDLY,
+# GUARD, SHOPKEEPER, HEALER, TRAINER, QUESTGIVER, BANKER, BEGGAR, THIEF,
+# WANDERER, SENTINEL, IMMORTAL, SCAVENGER, ASSISTS, NOCTURNAL, DIURNAL
+
+# ============================================================================
+# TUTORIAL / STARTER AREA MOBS (IDs 1-99)
+# ============================================================================
+
+- id: 1
+  key: rat
+  name: "A Rat"
+  short_desc: "A mangy rat scurries about here."
+  long_desc: "This is a common brown rat, its beady eyes gleaming with hunger. It's not particularly threatening, but its teeth look sharp enough."
+  keywords: [rat, rodent, vermin]
+  level: 1
+  hp_max: 8
+  mp_max: 0
+  mv_max: 100
+  str: 6
+  dex: 14
+  con: 8
+  intel: 2
+  wis: 10
+  cha: 2
+  armor: 12
+  fortitude: 0
+  reflex: 2
+  will: 0
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [PASSIVE, COWARDLY]
+  aggro_range: 0
+  experience_value: 5
+  gold_min: 0
+  gold_max: 1
+  respawn_seconds: 60
+
+- id: 2
+  key: giant_rat
+  name: "A Giant Rat"
+  short_desc: "A giant rat hisses menacingly."
+  long_desc: "This rat has grown to an unnatural size, nearly two feet long excluding its hairless tail. Its yellow teeth are stained and sharp."
+  keywords: [rat, giant, rodent, vermin]
+  level: 2
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 14
+  con: 10
+  intel: 2
+  wis: 10
+  cha: 2
+  armor: 13
+  fortitude: 1
+  reflex: 2
+  will: 0
+  base_damage: 4
+  damage_bonus: 1
+  attack_bonus: 1
+  behaviors: [AGGRESSIVE, ASSISTS]
+  aggro_range: 0
+  experience_value: 15
+  gold_min: 0
+  gold_max: 3
+  respawn_seconds: 120
+
+- id: 3
+  key: spider
+  name: "A Large Spider"
+  short_desc: "A large spider lurks in the shadows."
+  long_desc: "Eight hairy legs support a bulbous body the size of a small dog. Its multiple eyes gleam with predatory intelligence."
+  keywords: [spider, arachnid]
+  level: 2
+  hp_max: 12
+  mp_max: 0
+  mv_max: 120
+  str: 8
+  dex: 16
+  con: 8
+  intel: 1
+  wis: 10
+  cha: 2
+  armor: 13
+  fortitude: 0
+  reflex: 3
+  will: 0
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 2
+  behaviors: [PASSIVE]
+  aggro_range: 0
+  experience_value: 12
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 120
+
+# ============================================================================
+# HUMANOID ENEMIES (IDs 100-199)
+# ============================================================================
+
+- id: 100
+  key: goblin
+  name: "A Goblin"
+  short_desc: "A goblin snarls at you with beady eyes."
+  long_desc: "This small, green-skinned creature stands about three feet tall. Its pointed ears twitch as it watches you with cunning, malevolent eyes."
+  keywords: [goblin, creature]
+  level: 3
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 14
+  con: 10
+  intel: 8
+  wis: 8
+  cha: 6
+  armor: 14
+  fortitude: 1
+  reflex: 2
+  will: 0
+  base_damage: 6
+  damage_bonus: 0
+  attack_bonus: 2
+  behaviors: [AGGRESSIVE, SCAVENGER]
+  aggro_range: 0
+  experience_value: 25
+  gold_min: 2
+  gold_max: 8
+  respawn_seconds: 180
+
+- id: 101
+  key: goblin_warrior
+  name: "A Goblin Warrior"
+  short_desc: "A goblin warrior brandishes a rusty blade."
+  long_desc: "This goblin is larger than its kin and wears scraps of leather armor. It carries a notched shortsword and a battered wooden shield."
+  keywords: [goblin, warrior, creature]
+  level: 4
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 12
+  dex: 14
+  con: 12
+  intel: 8
+  wis: 8
+  cha: 6
+  armor: 16
+  fortitude: 2
+  reflex: 2
+  will: 0
+  base_damage: 6
+  damage_bonus: 2
+  attack_bonus: 3
+  behaviors: [AGGRESSIVE, ASSISTS]
+  aggro_range: 0
+  experience_value: 40
+  gold_min: 5
+  gold_max: 15
+  respawn_seconds: 300
+
+- id: 102
+  key: goblin_shaman
+  name: "A Goblin Shaman"
+  short_desc: "A goblin shaman mutters dark incantations."
+  long_desc: "This goblin wears a headdress of bones and feathers. Strange symbols are painted on its greenish skin, and it clutches a gnarled staff."
+  keywords: [goblin, shaman, caster, creature]
+  level: 5
+  hp_max: 25
+  mp_max: 30
+  mv_max: 80
+  str: 8
+  dex: 12
+  con: 10
+  intel: 14
+  wis: 14
+  cha: 10
+  armor: 12
+  fortitude: 1
+  reflex: 1
+  will: 3
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 1
+  behaviors: [DEFENSIVE, COWARDLY]
+  aggro_range: 0
+  experience_value: 60
+  gold_min: 8
+  gold_max: 20
+  respawn_seconds: 600
+
+- id: 110
+  key: bandit
+  name: "A Bandit"
+  short_desc: "A rough-looking bandit eyes you warily."
+  long_desc: "This human wears worn leather armor and carries a short sword. A mask covers the lower half of their face, and their eyes dart about nervously."
+  keywords: [bandit, human, thief]
+  level: 4
+  hp_max: 28
+  mp_max: 0
+  mv_max: 100
+  str: 12
+  dex: 14
+  con: 12
+  intel: 10
+  wis: 10
+  cha: 8
+  armor: 14
+  fortitude: 2
+  reflex: 2
+  will: 1
+  base_damage: 6
+  damage_bonus: 1
+  attack_bonus: 3
+  behaviors: [AGGRESSIVE, THIEF]
+  aggro_range: 0
+  experience_value: 35
+  gold_min: 10
+  gold_max: 30
+  respawn_seconds: 300
+
+- id: 111
+  key: bandit_leader
+  name: "The Bandit Leader"
+  short_desc: "A scarred bandit leader surveys the area."
+  long_desc: "This battle-hardened human wears quality leather armor and carries a well-maintained longsword. A deep scar runs across one cheek, and their commanding presence suggests years of leadership."
+  keywords: [bandit, leader, human]
+  level: 6
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 14
+  dex: 14
+  con: 14
+  intel: 12
+  wis: 12
+  cha: 12
+  armor: 16
+  fortitude: 3
+  reflex: 3
+  will: 2
+  base_damage: 8
+  damage_bonus: 3
+  attack_bonus: 5
+  behaviors: [DEFENSIVE, SENTINEL]
+  aggro_range: 0
+  experience_value: 100
+  gold_min: 25
+  gold_max: 75
+  respawn_seconds: 900
+
+# ============================================================================
+# UNDEAD (IDs 200-299)
+# ============================================================================
+
+- id: 200
+  key: skeleton
+  name: "A Skeleton"
+  short_desc: "A skeleton rattles as it moves."
+  long_desc: "Animated bones held together by dark magic, this skeleton grips a rusty sword in its bony fingers. Empty eye sockets seem to track your movement."
+  keywords: [skeleton, undead, bones]
+  level: 3
+  hp_max: 18
+  mp_max: 0
+  mv_max: 80
+  str: 12
+  dex: 10
+  con: 10
+  intel: 4
+  wis: 6
+  cha: 1
+  armor: 13
+  fortitude: 2
+  reflex: 0
+  will: 2
+  base_damage: 6
+  damage_bonus: 1
+  attack_bonus: 2
+  behaviors: [AGGRESSIVE, WANDERER]
+  aggro_range: 0
+  experience_value: 30
+  gold_min: 0
+  gold_max: 5
+  respawn_seconds: 300
+
+- id: 201
+  key: zombie
+  name: "A Shambling Zombie"
+  short_desc: "A rotting zombie shambles toward you."
+  long_desc: "This walking corpse moves with jerky, unnatural motions. Its flesh is gray and rotting, and a terrible stench emanates from its decaying form."
+  keywords: [zombie, undead, corpse]
+  level: 3
+  hp_max: 30
+  mp_max: 0
+  mv_max: 60
+  str: 14
+  dex: 6
+  con: 14
+  intel: 2
+  wis: 6
+  cha: 1
+  armor: 10
+  fortitude: 3
+  reflex: -1
+  will: 2
+  base_damage: 6
+  damage_bonus: 2
+  attack_bonus: 1
+  behaviors: [AGGRESSIVE]
+  aggro_range: 0
+  experience_value: 35
+  gold_min: 0
+  gold_max: 2
+  respawn_seconds: 300
+
+# ============================================================================
+# FRIENDLY NPCs (IDs 500-599)
+# ============================================================================
+
+- id: 500
+  key: town_guard
+  name: "A Town Guard"
+  short_desc: "A town guard stands watch here."
+  long_desc: "This guard wears the uniform of the local militia - a simple chain shirt over a blue tabard. They carry a spear and look alert."
+  keywords: [guard, soldier, watchman]
+  level: 5
+  hp_max: 40
+  mp_max: 0
+  mv_max: 100
+  str: 14
+  dex: 12
+  con: 14
+  intel: 10
+  wis: 12
+  cha: 10
+  armor: 16
+  fortitude: 3
+  reflex: 2
+  will: 2
+  base_damage: 8
+  damage_bonus: 2
+  attack_bonus: 4
+  behaviors: [GUARD, SENTINEL, ASSISTS]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 501
+  key: shopkeeper
+  name: "The Shopkeeper"
+  short_desc: "A friendly shopkeeper waits behind the counter."
+  long_desc: "This middle-aged human wears a clean apron over simple clothes. They greet you with a warm smile and keen merchant's eyes."
+  keywords: [shopkeeper, merchant, vendor]
+  level: 3
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 14
+  wis: 12
+  cha: 14
+  armor: 10
+  fortitude: 1
+  reflex: 1
+  will: 2
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, IMMORTAL, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 502
+  key: old_hermit
+  name: "An Old Hermit"
+  short_desc: "An old hermit sits quietly, lost in thought."
+  long_desc: "This wizened figure has a long white beard and wears simple, patched robes. Despite their humble appearance, their eyes hold a glint of wisdom."
+  keywords: [hermit, old, man, sage]
+  level: 8
+  hp_max: 30
+  mp_max: 50
+  mv_max: 60
+  str: 8
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 18
+  cha: 12
+  armor: 10
+  fortitude: 2
+  reflex: 2
+  will: 5
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [QUESTGIVER, TRAINER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 503
+  key: town_healer
+  name: "The Temple Healer"
+  short_desc: "A robed healer tends to the altar."
+  long_desc: "Dressed in white robes adorned with holy symbols, this serene figure radiates an aura of calm. Their hands glow faintly with healing magic."
+  keywords: [healer, priest, cleric]
+  level: 6
+  hp_max: 35
+  mp_max: 60
+  mv_max: 80
+  str: 8
+  dex: 10
+  con: 12
+  intel: 14
+  wis: 16
+  cha: 14
+  armor: 12
+  fortitude: 2
+  reflex: 1
+  will: 4
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [HEALER, IMMORTAL, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 504
+  key: street_beggar
+  name: "A Street Beggar"
+  short_desc: "A ragged beggar holds out a chipped cup."
+  long_desc: "This disheveled figure wears tattered clothes and has a desperate look in their eyes. They shake a chipped wooden cup hopefully."
+  keywords: [beggar, poor, vagrant]
+  level: 1
+  hp_max: 10
+  mp_max: 0
+  mv_max: 80
+  str: 8
+  dex: 10
+  con: 8
+  intel: 10
+  wis: 10
+  cha: 8
+  armor: 10
+  fortitude: 0
+  reflex: 1
+  will: 0
+  base_damage: 2
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [BEGGAR, WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 505
+  key: crazy_beggar
+  name: "A Crazed Beggar"
+  short_desc: "A wild-eyed beggar mutters to themselves."
+  long_desc: "This beggar has a manic gleam in their eyes and mutters constantly about conspiracies and hidden treasures. Occasionally they lash out at passersby."
+  keywords: [beggar, crazy, madman]
+  level: 2
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 12
+  con: 10
+  intel: 6
+  wis: 4
+  cha: 4
+  armor: 10
+  fortitude: 1
+  reflex: 1
+  will: 0
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [BEGGAR, AGGRESSIVE, WANDERER]
+  aggro_range: 0
+  experience_value: 5
+  gold_min: 0
+  gold_max: 2
+  respawn_seconds: 120

@@ -1,5 +1,6 @@
 package com.example.tassmud.net;
 
+import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.persistence.*;
 import com.example.tassmud.util.*;
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.util.concurrent.Executors;
  * Listens on port 4000 and spawns a ClientHandler per connection.
  */
 public class Server {
-    private static final int DEFAULT_PORT = 4002;
+    private static final int DEFAULT_PORT = 4003;
     private static final int PORT;
 
     static {
@@ -48,6 +49,26 @@ public class Server {
         // Ensure initial GM flag for 'Tass' (if the character exists)
         boolean gmSet = dao.setCharacterFlagByName("Tass", "is_gm", "true");
         if (gmSet) System.out.println("[startup] is_gm flag set for 'Tass'");
+        
+        // Set Tass's class to Ranger (id=5) at level 1 if not already set
+        CharacterClassDAO classDao = new CharacterClassDAO();
+        try {
+            classDao.loadClassesFromYamlResource("/data/classes.yaml");
+        } catch (Exception e) {
+            System.err.println("[startup] Warning: Could not load class data: " + e.getMessage());
+        }
+        Integer tassId = dao.getCharacterIdByName("Tass");
+        if (tassId != null) {
+            // Check if Tass already has a class assigned
+            Integer currentClassId = classDao.getCharacterCurrentClassId(tassId);
+            if (currentClassId == null) {
+                // Assign Ranger (id=5) as Tass's class
+                int rangerClassId = 5;
+                classDao.setCharacterCurrentClass(tassId, rangerClassId);
+                dao.updateCharacterClass(tassId, rangerClassId);
+                System.out.println("[startup] Assigned Tass the Ranger class (level 1)");
+            }
+        }
 
         // At startup, attempt to ping the database so we know it's reachable
         pingDatabase();
@@ -67,10 +88,23 @@ public class Server {
         // Start the in-game clock that persists the date on day rollover
         GameClock gameClock = new GameClock(tickService, dao);
 
+        // Initialize combat system
+        CombatManager combatManager = CombatManager.getInstance();
+        combatManager.initialize(tickService);
+        // Set up message callbacks for combat
+        combatManager.setRoomMessageCallback((roomId, message) -> {
+            ClientHandler.broadcastRoomMessage(roomId, "[COMBAT] " + message);
+        });
+        combatManager.setPlayerMessageCallback((charId, message) -> {
+            ClientHandler.sendToCharacter(charId, message);
+        });
+
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;
+        final CombatManager combatManagerRef = combatManager;
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Shutdown hook: stopping clock, tick service and thread pool...");
+            System.out.println("Shutdown hook: stopping combat, clock, tick service and thread pool...");
+            try { combatManagerRef.shutdown(); } catch (Exception ignored) {}
             try { gameClockRef.shutdown(); } catch (Exception ignored) {}
             try { tickService.shutdown(); } catch (Exception ignored) {}
             try { pool.shutdownNow(); } catch (Exception ignored) {}

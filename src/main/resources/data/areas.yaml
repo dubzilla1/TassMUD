@@ -1,0 +1,21 @@
+# Area definitions for TassMUD
+# Areas are logical groupings of rooms (zones)
+
+areas:
+  - id: 0
+    name: Debug
+    description: Debug and out-of-band testing area.
+
+  - id: 1
+    name: Starter Plains
+    description: The wide open plains where new adventurers begin.
+
+  - id: 2
+    name: Dungeon Level 1
+    description: A dark winding dungeon entrance.
+
+  - id: 3
+    name: Midgaard
+    description: >
+      The bustling heart of the city of Midgaard — cobbled streets, 
+      market stalls, and a central square where townsfolk gather.

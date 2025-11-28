@@ -307,7 +307,15 @@ equip:
         - Prefix matching
         - Partial match anywhere in name
         
-        Only items of type EQUIPMENT with a valid slot can be equipped.
+        Only items of type WEAPON, ARMOR, or SHIELD with a valid slot can be equipped.
+        
+        WEAPONS equip to your Main Hand. Two-handed weapons (including bows,
+        greatswords, and polearms) occupy both your Main Hand and Off Hand.
+        
+        SHIELDS equip to your Off Hand, providing defensive bonuses.
+        
+        If you equip a two-handed weapon while holding a shield (or vice versa),
+        the existing item will be automatically removed to your inventory.
         
         If the target slot is already occupied, the existing item will be
         automatically removed to your inventory and replaced with the new item.
@@ -320,11 +328,13 @@ equip:
 
     EQUIPMENT SLOTS
         Head, Neck, Shoulders, Arms, Hands, Chest, Waist, Legs, Boots, Back,
-        Left Hand, Right Hand
+        Main Hand, Off Hand
 
     EXAMPLE
         equip
         equip sword
+        equip greatsword     (equips to both hands)
+        equip shield         (equips to off hand)
         equip cloth robe
         wear plate helm
 
@@ -349,7 +359,7 @@ remove:
         
         You can specify either:
         - An item name (uses smart matching like get/drop/equip)
-        - A slot name directly (e.g., "remove head", "remove right_hand")
+        - A slot name directly (e.g., "remove head", "remove main_hand")
         
         The item remains in your inventory after removal and can be
         re-equipped or dropped.
@@ -357,16 +367,20 @@ remove:
         Removing items with bonuses will update your character's equipment
         bonus stats accordingly.
         
+        Two-handed weapons occupy both hand slots and will be fully
+        unequipped when removing from either hand slot.
+        
         "dequip" is an alias for "remove" with identical behavior.
 
     EQUIPMENT SLOTS
         head, neck, shoulders, arms, hands, chest, waist, legs, boots, back,
-        left_hand, right_hand
+        main_hand (or "main"), off_hand (or "off")
 
     EXAMPLE
         remove sword
         remove head
-        remove right_hand
+        remove main_hand
+        remove off
         dequip helm
 
 inventory:
@@ -397,3 +411,274 @@ inventory:
     EXAMPLE
         inventory
         i
+
+score:
+  summary: "display your character sheet"
+  visibility: public
+  synopsis:
+    - "score"
+    - "stats"
+  body: |
+    NAME
+        score, stats - display your full character sheet
+
+    SYNOPSIS
+        score
+        stats
+
+    DESCRIPTION
+        Displays a comprehensive character sheet showing all of your
+        character's information in a formatted layout similar to a
+        tabletop RPG character sheet.
+        
+        The character sheet includes:
+        
+        HEADER
+            Character name, age, class, level, and description.
+        
+        VITALS
+            Current and maximum HP, MP, and MV.
+            Experience points with a visual progress bar.
+            XP needed to reach next level (TNL = To Next Level).
+        
+        ABILITY SCORES
+            STR, DEX, CON, INT, WIS, CHA with D&D-style modifiers.
+            Modifier formula: (score - 10) / 2
+        
+        SAVES & DEFENSES
+            Armor, Fortitude, Reflex, and Will saves.
+            Shows base value plus equipment bonuses separately.
+        
+        COMBAT
+            Equipped weapons with damage dice notation (e.g., 2d6 + 3).
+            Shows main hand, off hand, or unarmed damage.
+            Damage includes weapon dice plus ability modifiers.
+        
+        CLASS PROGRESSION
+            All classes you have levels in (supports multiclassing).
+            Shows level and XP for each class.
+            Active class marked with asterisk (*).
+        
+        SKILLS
+            All learned skills with proficiency percentage.
+            Skills at 100% show as "MASTERED".
+            Displayed in two columns, sorted alphabetically.
+        
+        SPELLS
+            All known spells grouped by spell level.
+            Shows proficiency for each spell.
+            "M" indicates a mastered spell (100%).
+        
+        ACTIVE EFFECTS
+            Currently active spell effects on your character.
+            (Placeholder for future spell effect system.)
+
+    EXAMPLE
+        score
+        stats
+
+who:
+  summary: "list players currently online"
+  visibility: public
+  synopsis:
+    - "who"
+  body: |
+    NAME
+        who - list all players currently online
+
+    SYNOPSIS
+        who
+
+    DESCRIPTION
+        Displays a list of all players currently connected to the game.
+        
+        For each player, shows:
+        - Level (of their current/active class)
+        - Class name
+        - Character name
+        - Character description (truncated if too long)
+        
+        Players who have not yet completed login are not shown.
+        
+        The total number of online players is displayed at the bottom.
+
+    EXAMPLE
+        who
+        
+        Output:
+        ===================================================================
+          Players Online
+        ===================================================================
+          [Lv  5] Ranger        Tass            - A skilled tracker
+          [Lv 12] Wizard        Gandalf         - The grey pilgrim
+        -------------------------------------------------------------------
+          2 players online
+        ===================================================================
+
+spells:
+  summary: "list spells you have learned"
+  visibility: public
+  synopsis:
+    - "spells"
+  body: |
+    NAME
+        spells - list all spells your character knows
+
+    SYNOPSIS
+        spells
+
+    DESCRIPTION
+        Displays all spells your character has learned, grouped by
+        magical school (Arcane, Divine, Nature, etc.).
+        
+        For each spell, shows:
+        - Spell name
+        - Spell level
+        - Your proficiency percentage
+        
+        Spells are sorted by level within each school, then alphabetically.
+        
+        For a more compact view of spells as part of your full character
+        information, use the 'score' command instead.
+
+    SEE ALSO
+        score, cast
+
+    EXAMPLE
+        spells
+
+kill:
+  summary: "attack a target and initiate combat"
+  visibility: public
+  synopsis:
+    - "kill <target>"
+    - "attack <target>"
+    - "fight <target>"
+  body: |
+    NAME
+        kill, attack, fight - attack a target and initiate combat
+
+    SYNOPSIS
+        kill <target>
+        attack <target>
+        fight <target>
+
+    DESCRIPTION
+        Initiates combat with a mobile (NPC/monster) in your current room.
+        
+        The <target> argument uses smart matching:
+        - Exact name match (case-insensitive)
+        - Name starts with your search term
+        - Name contains your search term
+        - Short description contains your search term
+        
+        Once combat begins:
+        - Combat rounds occur every 2-4 seconds
+        - You and your target will automatically exchange attacks
+        - Movement commands are restricted during combat
+        - Use 'combat' to see the current combat status
+        - Use 'flee' to attempt to escape (not yet implemented)
+        
+        Combat ends when one side has no remaining combatants (all dead
+        or fled).
+        
+        NOTE: Some NPCs cannot be attacked (shopkeepers, quest givers, etc.)
+        and will display a message instead of entering combat.
+        
+        "attack" and "fight" are aliases for "kill" with identical behavior.
+
+    SEE ALSO
+        combat, flee
+
+    EXAMPLE
+        kill rat
+        attack goblin
+        fight spider
+
+combat:
+  summary: "display current combat status"
+  visibility: public
+  synopsis:
+    - "combat"
+  body: |
+    NAME
+        combat - display your current combat status
+
+    SYNOPSIS
+        combat
+
+    DESCRIPTION
+        Shows detailed information about the combat you are currently
+        engaged in.
+        
+        The combat status display includes:
+        
+        HEADER
+            Current round number
+            Combat state (Active, Ended, etc.)
+        
+        COMBATANTS
+            All active participants in the combat
+            Marked as [Player] or [Mob]
+            HP bar showing health status:
+              [####] = Healthy (>75% HP)
+              [### ] = Hurt (50-75% HP)
+              [##  ] = Wounded (25-50% HP)
+              [#   ] = Critical (10-25% HP)
+              [    ] = Near death (<10% HP)
+            Current and maximum HP
+        
+        COMBAT LOG
+            Recent events from the combat
+            Shows the last 5 combat messages
+        
+        If you are not in combat, displays "You are not in combat."
+
+    SEE ALSO
+        kill, flee
+
+    EXAMPLE
+        combat
+        
+        Output:
+        === Combat Status ===
+        Round: 3
+        State: Active
+        
+        Combatants:
+          [Player] Tass [#### ] (95/100 HP)
+          [Mob] A Giant Rat [#   ] (4/15 HP)
+        
+        Recent combat log:
+          [R3 4.2s] Tass hits A Giant Rat for 8 damage!
+          [R3 4.5s] A Giant Rat swings at Tass but misses!
+
+flee:
+  summary: "attempt to escape from combat"
+  visibility: public
+  synopsis:
+    - "flee"
+  body: |
+    NAME
+        flee - attempt to escape from combat
+
+    SYNOPSIS
+        flee
+
+    DESCRIPTION
+        Attempts to escape from the current combat encounter.
+        
+        NOTE: Fleeing is not yet fully implemented. Currently, combat
+        continues until one side is defeated.
+        
+        In a future update, fleeing will:
+        - Check your DEX vs opponents
+        - Allow escape to a random available exit
+        - Remove you from the combat
+        - Potentially incur penalties (opportunity attacks, etc.)
+
+    SEE ALSO
+        kill, combat
+
+    EXAMPLE
+        flee

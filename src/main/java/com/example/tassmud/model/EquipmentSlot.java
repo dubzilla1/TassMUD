@@ -11,8 +11,8 @@ public enum EquipmentSlot {
     LEGS(8, "legs", "Legs"),
     BOOTS(9, "boots", "Boots"),
     BACK(10, "back", "Back"),
-    LEFT_HAND(11, "left_hand", "Left Hand"),
-    RIGHT_HAND(12, "right_hand", "Right Hand");
+    MAIN_HAND(11, "main_hand", "Main Hand"),
+    OFF_HAND(12, "off_hand", "Off Hand");
 
     public final int id;
     public final String key;
@@ -36,6 +36,9 @@ public enum EquipmentSlot {
     public static EquipmentSlot fromKey(String key) {
         if (key == null) return null;
         String k = key.trim().toLowerCase();
+        // Handle common aliases
+        if (k.equals("main") || k.equals("mainhand")) return MAIN_HAND;
+        if (k.equals("off") || k.equals("offhand")) return OFF_HAND;
         for (EquipmentSlot s : values()) if (s.key.equals(k) || s.name().toLowerCase().equals(k)) return s;
         return null;
     }

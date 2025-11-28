@@ -1,0 +1,100 @@
+# Room definitions for TassMUD
+# Room IDs use area-based numbering: area_id * 1000 + local_index
+# Exits reference other room IDs (leave blank or omit for no exit)
+
+rooms:
+  # ============================================================
+  # DEBUG AREA (area 0) - Room IDs 0-999
+  # ============================================================
+  - id: 0
+    key: void_0
+    name: The Void
+    area_id: 0
+    short_desc: The default void
+    long_desc: A featureless void that swallows the lost.
+    exits:
+      north: 3001
+      east: 3001
+      south: 3001
+      west: 3001
+      up: 3001
+      down: 3001
+
+  # ============================================================
+  # STARTER PLAINS (area 1) - Room IDs 1000-1999
+  # ============================================================
+  - id: 1001
+    key: plains_1
+    name: Central Plain
+    area_id: 1
+    short_desc: A grassy plain
+    long_desc: A large open plain with a single hill.
+    exits:
+      south: 1002
+
+  - id: 1002
+    key: plains_2
+    name: Northern Hill
+    area_id: 1
+    short_desc: Small hill
+    long_desc: On top of a small hill that overlooks the plain.
+    exits:
+      north: 1001
+
+  # ============================================================
+  # DUNGEON LEVEL 1 (area 2) - Room IDs 2000-2999
+  # ============================================================
+  - id: 2001
+    key: dungeon_entrance
+    name: Dungeon Entrance
+    area_id: 2
+    short_desc: Entrance to dungeon
+    long_desc: A stone archway leading down into darkness.
+    exits: {}
+
+  # ============================================================
+  # MIDGAARD (area 3) - Room IDs 3000-3999
+  # 2x2 grid layout:
+  #   3001 (NW) -- 3002 (NE)
+  #     |            |
+  #   3003 (SW) -- 3004 (SE)
+  # ============================================================
+  - id: 3001
+    key: mg_nw
+    name: Northwest Plaza
+    area_id: 3
+    short_desc: Quiet northwest plaza
+    long_desc: A small plaza with a mossy fountain at its center.
+    exits:
+      east: 3002
+      south: 3003
+
+  - id: 3002
+    key: mg_ne
+    name: Northeast Market
+    area_id: 3
+    short_desc: Northeast market stalls
+    long_desc: Colorful stalls and the smell of fresh bread.
+    exits:
+      south: 3004
+      west: 3001
+
+  - id: 3003
+    key: mg_sw
+    name: Southwest Garden
+    area_id: 3
+    short_desc: Shaded garden corner
+    long_desc: A small garden with benches and a tinkling birdbath.
+    exits:
+      north: 3001
+      east: 3004
+
+  - id: 3004
+    key: mg_se
+    name: Southeast Alley
+    area_id: 3
+    short_desc: Narrow southeast alley
+    long_desc: Narrow alley flanked by lantern-lit shops.
+    exits:
+      north: 3002
+      west: 3003

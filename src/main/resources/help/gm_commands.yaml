@@ -20,6 +20,144 @@ cflag:
         CFLAG SET Alice is_gm 1
         CFLAG CHECK Alice is_gm
 
+cskill:
+  summary: "Grant a skill to a character at a proficiency level (GM-only)"
+  visibility: gm
+  synopsis:
+    - "CSKILL <character> <skill_id> [amount]"
+  body: |
+    NAME
+        cskill - grant a skill to a character
+
+    SYNOPSIS
+        CSKILL <character> <skill_id> [amount]
+
+    DESCRIPTION
+        Grants a skill to a character regardless of their class, setting their
+        proficiency to the specified amount (1-100). If the amount is omitted,
+        defaults to 100 (mastered).
+
+        This can also be used to update an existing skill's proficiency.
+
+    ARGUMENTS
+        character     The name of the target character.
+        skill_id      The numeric ID of the skill to grant (from skilltb).
+        amount        Optional proficiency level from 1 to 100. Defaults to 100.
+
+    EXAMPLE
+        cskill Alice 1           -- grants skill #1 to Alice at 100%
+        cskill Bob 5 50          -- grants skill #5 to Bob at 50%
+
+cspell:
+  summary: "Grant a spell to a character at a proficiency level (GM-only)"
+  visibility: gm
+  synopsis:
+    - "CSPELL <character> <spell_id> [amount]"
+  body: |
+    NAME
+        cspell - grant a spell to a character
+
+    SYNOPSIS
+        CSPELL <character> <spell_id> [amount]
+
+    DESCRIPTION
+        Grants a spell to a character regardless of their class, setting their
+        proficiency to the specified amount (1-100). If the amount is omitted,
+        defaults to 100 (mastered).
+
+        This can also be used to update an existing spell's proficiency.
+
+    ARGUMENTS
+        character     The name of the target character.
+        spell_id      The numeric ID of the spell to grant (from spelltb).
+        amount        Optional proficiency level from 1 to 100. Defaults to 100.
+
+    EXAMPLE
+        cspell Alice 1           -- grants spell #1 to Alice at 100%
+        cspell Bob 5 50          -- grants spell #5 to Bob at 50%
+
+ilist:
+  summary: "Search item templates by name (GM-only)"
+  visibility: gm
+  synopsis:
+    - "ILIST <search_string>"
+  body: |
+    NAME
+        ilist - search item templates
+
+    SYNOPSIS
+        ILIST <search_string>
+
+    DESCRIPTION
+        Searches all item templates for names containing the given string.
+        The search is case-insensitive and matches partial names.
+
+        Results show ID, name, type, and a truncated description for each
+        matching item template.
+
+    ARGUMENTS
+        search_string   Text to search for in item names.
+
+    EXAMPLE
+        ilist dag              -- finds "dagger", "small dagger", etc.
+        ilist sword            -- finds all swords
+        ilist plate            -- finds plate armor pieces
+
+ifind:
+  summary: "Find all instances of an item template in the game (GM-only)"
+  visibility: gm
+  synopsis:
+    - "IFIND <template_id> [world|char|bags|all]"
+  body: |
+    NAME
+        ifind - find item instances by template ID
+
+    SYNOPSIS
+        IFIND <template_id> [world|char|bags|all]
+
+    DESCRIPTION
+        Searches for all instances of a given item template in the game world.
+        Results are grouped by location type:
+
+        world  - Items in rooms (on the ground)
+        char   - Items in character inventories
+        bags   - Items inside containers
+        all    - All locations (default)
+
+        Each section shows relevant details about where the item is located.
+
+    ARGUMENTS
+        template_id   The numeric ID of the item template to search for.
+        scope         Optional: world, char, bags, or all (default: all)
+
+    EXAMPLE
+        ifind 101              -- find all instances of item #101
+        ifind 202 world        -- find item #202 only in rooms
+        ifind 305 char         -- find item #305 only in inventories
+
+goto:
+  summary: "Teleport directly to a room (GM-only)"
+  visibility: gm
+  synopsis:
+    - "GOTO <room_id>"
+  body: |
+    NAME
+        goto - teleport to a room
+
+    SYNOPSIS
+        GOTO <room_id>
+
+    DESCRIPTION
+        Instantly teleports you to the specified room by its numeric ID.
+        Useful for quickly navigating the world during testing or administration.
+
+    ARGUMENTS
+        room_id   The numeric ID of the destination room.
+
+    EXAMPLE
+        goto 3001          -- teleport to room #3001
+        goto 1             -- teleport to room #1
+
 dbinfo:
   summary: "(GM) inspect database table schemas"
   visibility: gm
@@ -38,6 +176,30 @@ dbinfo:
     EXAMPLE
         dbinfo
         dbinfo item_template
+
+peace:
+  summary: "(GM) end all combat in the current room"
+  visibility: gm
+  synopsis:
+    - "PEACE"
+  body: |
+    NAME
+        peace - end combat in the room
+
+    SYNOPSIS
+        PEACE
+
+    DESCRIPTION
+        Immediately ends all active combat in your current room. All combatants
+        are removed from combat and returned to a peaceful state.
+        
+        This command can be used whether you are in combat or not.
+
+    EXAMPLE
+        peace          -- end all fighting in the room
+
+    SEE ALSO
+        kill, combat
 
 spawn:
   summary: "(GM) create item or mob instances in the world"
