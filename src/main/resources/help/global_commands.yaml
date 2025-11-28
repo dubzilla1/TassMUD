@@ -1,0 +1,399 @@
+﻿look:
+  summary: "show the room you are in"
+  visibility: public
+  synopsis:
+    - "look"
+  body: |
+    NAME
+        look - show the room you are in
+
+    SYNOPSIS
+        look
+
+    DESCRIPTION
+        Prints the current room's name, long description and exits.
+
+    EXAMPLE
+        look
+
+say:
+  summary: "speak aloud to the room"
+  visibility: public
+  synopsis:
+    - "say <text>"
+  body: |
+    NAME
+        say - speak aloud to the room
+
+    SYNOPSIS
+        say <text>
+
+    DESCRIPTION
+        Sends <text> as a message from you to the room. Use quotes for long text.
+
+    EXAMPLE
+        say Hello everyone!
+
+prompt:
+  summary: "view or set your session prompt format"
+  visibility: public
+  synopsis:
+    - "prompt [FORMAT]"
+  body: |
+    NAME
+        prompt - view or set your session prompt format
+
+    SYNOPSIS
+        prompt [FORMAT]
+
+    DESCRIPTION
+        With no arguments prints your current prompt format. With FORMAT sets your session prompt.
+        Tokens: %h/%H hp, %m/%M mp, %v/%V mv, %c char name, %r room name, %a area name, %e exits, %T game time
+
+    EXAMPLE
+        prompt <%c@%r>
+
+quit:
+  summary: "exit the game"
+  visibility: public
+  synopsis:
+    - "quit"
+  body: |
+    NAME
+        quit - exit the game
+
+    SYNOPSIS
+        quit
+
+    DESCRIPTION
+        Disconnects your session from the server.
+
+    EXAMPLE
+        quit
+
+movement:
+  summary: "movement commands"
+  visibility: public
+  synopsis:
+    - "north | east | south | west | up | down"
+  body: |
+    NAME
+        north/east/south/west/up/down - movement commands
+
+    SYNOPSIS
+        north | east | south | west | up | down
+
+    DESCRIPTION
+        Move through room exits in the given direction if an exit exists.
+
+    EXAMPLE
+        north
+
+channels:
+  summary: "Chat channels and communication commands"
+  visibility: public
+  synopsis:
+    - "chat <message>"
+    - "yell <message>"
+    - "say <text>"
+    - "whisper <target> <message>"
+    - "groupchat <message>"
+    - "gmchat <message>"
+    - "system <message>"
+  body: |
+    NAME
+        channels - communication channels and chatting commands
+
+    SYNOPSIS
+        chat <message>
+        yell <message>
+        say <text>
+        whisper <target> <message>
+        groupchat <message>
+        gmchat <message>
+        system <message>
+
+    DESCRIPTION
+        chat  broadcast a message to everyone currently online.
+
+        yell  broadcast a message to everyone in your current area.
+
+        say  speak to other players in the same room as you.
+
+        whisper  send a private message to a single online player. Usage: "whisper Alice Are you there?"
+
+        groupchat  send a message to the members of your current group (group support is not implemented yet).
+
+        gmchat  send a message to all GMs currently online. Only available to characters with the 'is_gm' flag set to '1'.
+
+        system  server/system-level broadcast to all connected players (used by admins/system processes).
+
+    PERMISSIONS
+        gmchat requires the sender to have the 'is_gm' flag set to '1'.
+
+    EXAMPLE
+        chat Hello everyone!
+        yell We're under attack!
+        say Hello, friends.
+        whisper Alice Are you there?
+        groupchat Meet at the tavern.
+        gmchat Please check the arena.
+        system Server will restart in 10 minutes.
+
+help:
+  summary: "show help for commands and topics"
+  visibility: public
+  synopsis:
+    - "help [COMMAND|commands|reload]"
+  body: |
+    NAME
+        help - display help pages for commands and topics
+
+    SYNOPSIS
+        help [COMMAND|commands|reload]
+
+    DESCRIPTION
+        Without arguments, lists available help topics and commands visible to you.
+        "help commands" lists command names. "help <COMMAND>" shows the page for that command.
+        "help reload" forces the server to reload help pages from bundled resources; this requires GM privileges.
+
+    EXAMPLE
+        help
+        help look
+        help commands
+
+save:
+  summary: "persist your character's current mutable state"
+  visibility: public
+  synopsis:
+    - "save"
+  body: |
+    NAME
+        save - persist your character's mutable state to the database
+
+    SYNOPSIS
+        save
+
+    DESCRIPTION
+        Saves your current HP/MP/MV and current room to the server database so that it will be restored on next login.
+
+    EXAMPLE
+        save
+
+motd:
+  summary: "view or set the Message of the Day"
+  visibility: public
+  synopsis:
+    - "motd"
+    - "motd set <message>"
+    - "motd clear"
+  body: |
+    NAME
+        motd - view or (GM) set the Message of the Day
+
+    SYNOPSIS
+        motd
+        motd set <message>
+        motd clear
+
+    DESCRIPTION
+        With no arguments prints the current Message of the Day (MOTD).
+        GMs may set or clear the MOTD using "motd set <message>" and "motd clear". Use literal "\n" sequences in the set value to create newlines.
+
+    PERMISSIONS
+        Setting or clearing the MOTD requires the 'is_gm' flag.
+
+    EXAMPLE
+        motd
+        motd set Server will restart at midnight\nPlease save your characters.
+
+get:
+  summary: "pick up items from the ground"
+  visibility: public
+  synopsis:
+    - "get <item>"
+    - "get all"
+    - "pickup <item>"
+  body: |
+    NAME
+        get, pickup - pick up items from the current room
+
+    SYNOPSIS
+        get <item>
+        get all
+        pickup <item>
+
+    DESCRIPTION
+        Picks up an item from the ground in your current room and adds it to your inventory.
+        
+        The <item> argument uses smart matching:
+        - Exact item name (case-insensitive)
+        - Any word in the item name (e.g., "get sword" matches "Iron Sword")
+        - Item keywords defined in the template
+        - Prefix matching (e.g., "get ir" matches "Iron Sword")
+        - Partial match anywhere in name
+        
+        "get all" picks up every item in the room.
+        
+        "pickup" is an alias for "get" with identical behavior.
+
+    EXAMPLE
+        get sword
+        get iron sword
+        get all
+        pickup gloves
+
+drop:
+  summary: "drop items from your inventory"
+  visibility: public
+  synopsis:
+    - "drop <item>"
+    - "drop all"
+  body: |
+    NAME
+        drop - drop items from your inventory onto the ground
+
+    SYNOPSIS
+        drop <item>
+        drop all
+
+    DESCRIPTION
+        Drops an item from your inventory onto the ground in your current room.
+        
+        The <item> argument uses the same smart matching as the 'get' command:
+        - Exact item name (case-insensitive)
+        - Any word in the item name (e.g., "drop sword" matches "Iron Sword")
+        - Item keywords defined in the template
+        - Prefix matching (e.g., "drop ir" matches "Iron Sword")
+        - Partial match anywhere in name
+        
+        "drop all" drops every non-equipped item in your inventory.
+        
+        NOTE: You cannot drop items that are currently equipped. You must
+        unequip them first before dropping.
+
+    EXAMPLE
+        drop sword
+        drop iron sword
+        drop all
+
+equip:
+  summary: "view or equip items from your inventory"
+  visibility: public
+  synopsis:
+    - "equip"
+    - "equip <item>"
+    - "wear <item>"
+  body: |
+    NAME
+        equip, wear - view equipment or equip an item from your inventory
+
+    SYNOPSIS
+        equip
+        equip <item>
+        wear <item>
+
+    DESCRIPTION
+        With no arguments, displays your current equipment loadout showing
+        all equipment slots and what is equipped in each.
+        
+        With an item argument, equips an item from your inventory to its
+        designated equipment slot.
+        
+        The <item> argument uses smart matching (same as get/drop):
+        - Exact item name (case-insensitive)
+        - Any word in the item name
+        - Item keywords
+        - Prefix matching
+        - Partial match anywhere in name
+        
+        Only items of type EQUIPMENT with a valid slot can be equipped.
+        
+        If the target slot is already occupied, the existing item will be
+        automatically removed to your inventory and replaced with the new item.
+        
+        Equipping items with bonuses (armor, saves) will update your character's
+        equipment bonus stats. The system tracks base stats and equipment bonuses
+        separately, and combat uses the total (base + bonus).
+        
+        "wear" is an alias for "equip" with identical behavior.
+
+    EQUIPMENT SLOTS
+        Head, Neck, Shoulders, Arms, Hands, Chest, Waist, Legs, Boots, Back,
+        Left Hand, Right Hand
+
+    EXAMPLE
+        equip
+        equip sword
+        equip cloth robe
+        wear plate helm
+
+remove:
+  summary: "remove equipped items"
+  visibility: public
+  synopsis:
+    - "remove <item>"
+    - "remove <slot>"
+    - "dequip <item>"
+  body: |
+    NAME
+        remove, dequip - remove an equipped item
+
+    SYNOPSIS
+        remove <item>
+        remove <slot>
+        dequip <item>
+
+    DESCRIPTION
+        Removes an equipped item and returns it to your inventory.
+        
+        You can specify either:
+        - An item name (uses smart matching like get/drop/equip)
+        - A slot name directly (e.g., "remove head", "remove right_hand")
+        
+        The item remains in your inventory after removal and can be
+        re-equipped or dropped.
+        
+        Removing items with bonuses will update your character's equipment
+        bonus stats accordingly.
+        
+        "dequip" is an alias for "remove" with identical behavior.
+
+    EQUIPMENT SLOTS
+        head, neck, shoulders, arms, hands, chest, waist, legs, boots, back,
+        left_hand, right_hand
+
+    EXAMPLE
+        remove sword
+        remove head
+        remove right_hand
+        dequip helm
+
+inventory:
+  summary: "list items in your inventory"
+  visibility: public
+  synopsis:
+    - "inventory"
+    - "i"
+  body: |
+    NAME
+        inventory, i - list items you are carrying
+
+    SYNOPSIS
+        inventory
+        i
+
+    DESCRIPTION
+        Displays a list of items in your inventory, sorted alphabetically.
+        
+        The following items are NOT shown:
+        - Items that are currently equipped (use 'equipment' to see those)
+        - Items that are inside containers (bags, backpacks, etc.)
+        
+        Only items directly in your inventory are listed.
+        
+        "i" is a short alias for "inventory".
+
+    EXAMPLE
+        inventory
+        i

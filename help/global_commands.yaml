@@ -1,0 +1,141 @@
+﻿look:
+  summary: "show the room you are in"
+  visibility: public
+  synopsis:
+    - "look"
+  body: |
+    NAME
+        look - show the room you are in
+
+    SYNOPSIS
+        look
+
+    DESCRIPTION
+        Prints the current room's name, long description and exits.
+
+    EXAMPLE
+        look
+
+say:
+  summary: "speak aloud to the room"
+  visibility: public
+  synopsis:
+    - "say <text>"
+  body: |
+    NAME
+        say - speak aloud to the room
+
+    SYNOPSIS
+        say <text>
+
+    DESCRIPTION
+        Sends <text> as a message from you to the room. Use quotes for long text.
+
+    EXAMPLE
+        say Hello everyone!
+
+prompt:
+  summary: "view or set your session prompt format"
+  visibility: public
+  synopsis:
+    - "prompt [FORMAT]"
+  body: |
+    NAME
+        prompt - view or set your session prompt format
+
+    SYNOPSIS
+        prompt [FORMAT]
+
+    DESCRIPTION
+        With no arguments prints your current prompt format. With FORMAT sets your session prompt.
+        Tokens: %h/%H hp, %m/%M mp, %v/%V mv, %c char name, %r room name, %a area name, %e exits, %T game time
+
+    EXAMPLE
+        prompt <%c@%r>
+
+quit:
+  summary: "exit the game"
+  visibility: public
+  synopsis:
+    - "quit"
+  body: |
+    NAME
+        quit - exit the game
+
+    SYNOPSIS
+        quit
+
+    DESCRIPTION
+        Disconnects your session from the server.
+
+    EXAMPLE
+        quit
+
+movement:
+  summary: "movement commands"
+  visibility: public
+  synopsis:
+    - "north | east | south | west | up | down"
+  body: |
+    NAME
+        north/east/south/west/up/down - movement commands
+
+    SYNOPSIS
+        north | east | south | west | up | down
+
+    DESCRIPTION
+        Move through room exits in the given direction if an exit exists.
+
+    EXAMPLE
+        north
+
+channels:
+  summary: "Chat channels and communication commands"
+  visibility: public
+  synopsis:
+    - "chat <message>"
+    - "yell <message>"
+    - "say <text>"
+    - "whisper <target> <message>"
+    - "groupchat <message>"
+    - "gmchat <message>"
+    - "system <message>"
+  body: |
+    NAME
+        channels - communication channels and chatting commands
+
+    SYNOPSIS
+        chat <message>
+        yell <message>
+        say <text>
+        whisper <target> <message>
+        groupchat <message>
+        gmchat <message>
+        system <message>
+
+    DESCRIPTION
+        chat  broadcast a message to everyone currently online.
+
+        yell  broadcast a message to everyone in your current area.
+
+        say  speak to other players in the same room as you.
+
+        whisper  send a private message to a single online player. Usage: "whisper Alice Are you there?"
+
+        groupchat  send a message to the members of your current group (group support is not implemented yet).
+
+        gmchat  send a message to all GMs currently online. Only available to characters with the 'is_gm' flag set to '1'.
+
+        system  server/system-level broadcast to all connected players (used by admins/system processes).
+
+    PERMISSIONS
+        gmchat requires the sender to have the 'is_gm' flag set to '1'.
+
+    EXAMPLE
+        chat Hello everyone!
+        yell We're under attack!
+        say Hello, friends.
+        whisper Alice Are you there?
+        groupchat Meet at the tavern.
+        gmchat Please check the arena.
+        system Server will restart in 10 minutes.

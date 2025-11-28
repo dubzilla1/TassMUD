@@ -1,0 +1,15 @@
+ # id,key,name,area,short_desc,long_desc,exit_n,exit_e,exit_s,exit_w,exit_u,exit_d
+0,void_0,The Void,Debug,The default void,A featureless void that swallows the lost.,3001,3001,3001,3001,3001,3001
+
+ # Starter Plains (area id = 1) -> 1000+ local index
+1001,plains_1,Central Plain,Starter Plains,A grassy plain,A large open plain with a single hill.,, ,1002, , ,
+1002,plains_2,Northern Hill,Starter Plains,Small hill,On top of a small hill that overlooks the plain.,1001, , , , ,
+
+ # Dungeon Level 1 (area id = 2) -> 2000+ local index
+2001,dungeon_entrance,Dungeon Entrance,Dungeon Level 1,Entrance to dungeon,A stone archway leading down into darkness.,, , , , ,
+
+ # Midgaard central square (area id = 3) -> 3000+ local index (2x2)
+3001,mg_nw,Northwest Plaza,Midgaard,Quiet northwest plaza,A small plaza with a mossy fountain at its center,,3002,3003,,,
+3002,mg_ne,Northeast Market,Midgaard,Northeast market stalls,Colorful stalls and the smell of fresh bread,, ,3004,3001,,
+3003,mg_sw,Southwest Garden,Midgaard,Shaded garden corner,A small garden with benches and a tinkling birdbath,3001,3004,, , ,
+3004,mg_se,Southeast Alley,Midgaard,Narrow southeast alley,Narrow alley flanked by lantern-lit shops,3002, , ,3003, ,

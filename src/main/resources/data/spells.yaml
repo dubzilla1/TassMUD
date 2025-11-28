@@ -1,0 +1,463 @@
+# Spells Data - TassMUD
+# Schools: ARCANE, DIVINE, PRIMAL, OCCULT
+# Targets: SELF, CURRENT_ENEMY, EXPLICIT_MOB_TARGET, ITEM, ALL_ENEMIES, ALL_ALLIES, EVERYONE
+# Progressions: INSTANT, TRIVIAL, EASY, NORMAL, HARD, VERY_HARD, LEGENDARY
+
+spells:
+  # ========== ARCANE SPELLS (learned from spellbooks) ==========
+  
+  # Level 1 Arcane
+  - id: 1
+    name: Magic Missile
+    description: Conjures glowing darts of magical energy that unerringly strike your foe.
+    school: ARCANE
+    level: 1
+    castingTime: 1.0
+    target: CURRENT_ENEMY
+    progression: EASY
+    effectIds: [101]
+    
+  - id: 2
+    name: Light
+    description: Creates a floating orb of soft light that follows you.
+    school: ARCANE
+    level: 1
+    castingTime: 0.5
+    target: SELF
+    progression: TRIVIAL
+    effectIds: [102]
+    
+  - id: 3
+    name: Detect Magic
+    description: Your eyes shimmer as you perceive magical auras around objects.
+    school: ARCANE
+    level: 1
+    castingTime: 1.0
+    target: SELF
+    progression: EASY
+    effectIds: [103]
+    
+  # Level 2 Arcane
+  - id: 10
+    name: Burning Hands
+    description: Flames shoot from your fingertips in a cone of fire.
+    school: ARCANE
+    level: 2
+    castingTime: 1.5
+    target: ALL_ENEMIES
+    progression: NORMAL
+    effectIds: [110]
+    
+  - id: 11
+    name: Shield
+    description: An invisible barrier of force appears, deflecting attacks.
+    school: ARCANE
+    level: 2
+    castingTime: 0.5
+    target: SELF
+    progression: NORMAL
+    effectIds: [111]
+    
+  # Level 3 Arcane
+  - id: 20
+    name: Fireball
+    description: A bright streak flashes from your finger and explodes in a burst of flame.
+    school: ARCANE
+    level: 3
+    castingTime: 2.0
+    target: ALL_ENEMIES
+    progression: HARD
+    effectIds: [120]
+    
+  - id: 21
+    name: Lightning Bolt
+    description: A stroke of lightning forms a line 100 feet long, shocking all in its path.
+    school: ARCANE
+    level: 3
+    castingTime: 2.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: [121]
+    
+  # Level 4 Arcane
+  - id: 30
+    name: Ice Storm
+    description: Hail pounds down in a cylinder of frigid air, battering and freezing all within.
+    school: ARCANE
+    level: 4
+    castingTime: 2.5
+    target: ALL_ENEMIES
+    progression: HARD
+    effectIds: [130]
+    
+  - id: 31
+    name: Dimension Door
+    description: You teleport yourself to a visible location within range.
+    school: ARCANE
+    level: 4
+    castingTime: 1.0
+    target: SELF
+    progression: VERY_HARD
+    effectIds: [131]
+    
+  # Level 5 Arcane
+  - id: 40
+    name: Cone of Cold
+    description: A blast of cold air erupts from your hands, freezing everything in its path.
+    school: ARCANE
+    level: 5
+    castingTime: 2.0
+    target: ALL_ENEMIES
+    progression: VERY_HARD
+    effectIds: [140]
+    
+  # ========== DIVINE SPELLS (learned through prayer) ==========
+  
+  # Level 1 Divine
+  - id: 100
+    name: Cure Light Wounds
+    description: Your touch channels positive energy, mending wounds.
+    school: DIVINE
+    level: 1
+    castingTime: 1.5
+    target: SELF
+    progression: EASY
+    effectIds: [201]
+    
+  - id: 101
+    name: Bless
+    description: You invoke divine favor upon yourself and allies.
+    school: DIVINE
+    level: 1
+    castingTime: 1.0
+    target: ALL_ALLIES
+    progression: EASY
+    effectIds: [202]
+    
+  - id: 102
+    name: Sanctuary
+    description: A shimmering ward protects you from hostile actions.
+    school: DIVINE
+    level: 1
+    castingTime: 0.5
+    target: SELF
+    progression: NORMAL
+    effectIds: [203]
+    
+  # Level 2 Divine
+  - id: 110
+    name: Cure Moderate Wounds
+    description: Your touch channels stronger positive energy, healing more serious injuries.
+    school: DIVINE
+    level: 2
+    castingTime: 1.5
+    target: SELF
+    progression: NORMAL
+    effectIds: [210]
+    
+  - id: 111
+    name: Hold Person
+    description: Divine power freezes a humanoid in place.
+    school: DIVINE
+    level: 2
+    castingTime: 2.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: [211]
+    
+  - id: 112
+    name: Remove Curse
+    description: Holy light dispels curses afflicting the target.
+    school: DIVINE
+    level: 2
+    castingTime: 2.5
+    target: SELF
+    progression: NORMAL
+    effectIds: [212]
+    
+  # Level 3 Divine
+  - id: 120
+    name: Cure Serious Wounds
+    description: A surge of healing energy mends grave injuries.
+    school: DIVINE
+    level: 3
+    castingTime: 1.5
+    target: SELF
+    progression: HARD
+    effectIds: [220]
+    
+  - id: 121
+    name: Prayer
+    description: You invoke the power of your deity to aid allies and hinder foes.
+    school: DIVINE
+    level: 3
+    castingTime: 2.0
+    target: EVERYONE
+    progression: HARD
+    effectIds: [221]
+    
+  # Level 4 Divine
+  - id: 130
+    name: Cure Critical Wounds
+    description: Powerful healing energy mends even the most severe wounds.
+    school: DIVINE
+    level: 4
+    castingTime: 1.5
+    target: SELF
+    progression: VERY_HARD
+    effectIds: [230]
+    
+  - id: 131
+    name: Neutralize Poison
+    description: You neutralize any poison afflicting the target.
+    school: DIVINE
+    level: 4
+    castingTime: 2.0
+    target: SELF
+    progression: HARD
+    effectIds: [231]
+    
+  # Level 5 Divine
+  - id: 140
+    name: Raise Dead
+    description: You restore life to a recently deceased creature.
+    school: DIVINE
+    level: 5
+    castingTime: 10.0
+    target: EXPLICIT_MOB_TARGET
+    progression: LEGENDARY
+    effectIds: [240]
+    
+  - id: 141
+    name: Flame Strike
+    description: A vertical column of divine fire roars down from the heavens.
+    school: DIVINE
+    level: 5
+    castingTime: 2.5
+    target: CURRENT_ENEMY
+    progression: VERY_HARD
+    effectIds: [241]
+
+  # ========== PRIMAL SPELLS (learned through exploration/nature) ==========
+  
+  # Level 1 Primal
+  - id: 200
+    name: Entangle
+    description: Grasping weeds and vines sprout from the ground.
+    school: PRIMAL
+    level: 1
+    castingTime: 1.5
+    target: ALL_ENEMIES
+    progression: EASY
+    effectIds: [301]
+    
+  - id: 201
+    name: Goodberry
+    description: You transform berries into magical nourishment.
+    school: PRIMAL
+    level: 1
+    castingTime: 1.0
+    target: ITEM
+    progression: TRIVIAL
+    effectIds: [302]
+    
+  - id: 202
+    name: Speak with Animals
+    description: You gain the ability to comprehend and communicate with beasts.
+    school: PRIMAL
+    level: 1
+    castingTime: 0.5
+    target: SELF
+    progression: EASY
+    effectIds: [303]
+    
+  # Level 2 Primal
+  - id: 210
+    name: Barkskin
+    description: Your skin takes on a rough, bark-like texture.
+    school: PRIMAL
+    level: 2
+    castingTime: 1.5
+    target: SELF
+    progression: NORMAL
+    effectIds: [310]
+    
+  - id: 211
+    name: Flame Blade
+    description: A blade of fire springs forth from your hand.
+    school: PRIMAL
+    level: 2
+    castingTime: 1.0
+    target: SELF
+    progression: NORMAL
+    effectIds: [311]
+    
+  # Level 3 Primal
+  - id: 220
+    name: Call Lightning
+    description: Storm clouds gather and lightning strikes your foes.
+    school: PRIMAL
+    level: 3
+    castingTime: 2.5
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: [320]
+    
+  - id: 221
+    name: Plant Growth
+    description: Plants in the area become thick and overgrown.
+    school: PRIMAL
+    level: 3
+    castingTime: 3.0
+    target: EVERYONE
+    progression: NORMAL
+    effectIds: [321]
+    
+  # Level 4 Primal
+  - id: 230
+    name: Ice Storm
+    description: Primal fury manifests as a hailstorm of ice.
+    school: PRIMAL
+    level: 4
+    castingTime: 2.5
+    target: ALL_ENEMIES
+    progression: HARD
+    effectIds: [330]
+    
+  - id: 231
+    name: Stoneskin
+    description: Your flesh becomes as hard as stone.
+    school: PRIMAL
+    level: 4
+    castingTime: 2.0
+    target: SELF
+    progression: VERY_HARD
+    effectIds: [331]
+    
+  # Level 5 Primal
+  - id: 240
+    name: Earthquake
+    description: The ground shakes violently, toppling structures and creatures.
+    school: PRIMAL
+    level: 5
+    castingTime: 3.0
+    target: EVERYONE
+    progression: LEGENDARY
+    effectIds: [340]
+
+  # ========== OCCULT SPELLS (learned through dark rituals/corpses) ==========
+  
+  # Level 1 Occult
+  - id: 300
+    name: Chill Touch
+    description: Ghostly skeletal hands claw at your foe, draining their vitality.
+    school: OCCULT
+    level: 1
+    castingTime: 1.0
+    target: CURRENT_ENEMY
+    progression: EASY
+    effectIds: [401]
+    
+  - id: 301
+    name: Cause Fear
+    description: You invoke primal terror in a creature, causing it to flee.
+    school: OCCULT
+    level: 1
+    castingTime: 1.0
+    target: CURRENT_ENEMY
+    progression: NORMAL
+    effectIds: [402]
+    
+  - id: 302
+    name: Detect Undead
+    description: You sense the presence of undead creatures nearby.
+    school: OCCULT
+    level: 1
+    castingTime: 0.5
+    target: SELF
+    progression: TRIVIAL
+    effectIds: [403]
+    
+  # Level 2 Occult
+  - id: 310
+    name: Blindness
+    description: Dark energy clouds the target's vision.
+    school: OCCULT
+    level: 2
+    castingTime: 1.5
+    target: CURRENT_ENEMY
+    progression: NORMAL
+    effectIds: [410]
+    
+  - id: 311
+    name: Ghoul Touch
+    description: Your touch paralyzes the target with necrotic energy.
+    school: OCCULT
+    level: 2
+    castingTime: 1.5
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: [411]
+    
+  # Level 3 Occult
+  - id: 320
+    name: Vampiric Touch
+    description: Your shadow-shrouded hand drains life from your foe.
+    school: OCCULT
+    level: 3
+    castingTime: 1.5
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: [420]
+    
+  - id: 321
+    name: Animate Dead
+    description: You raise a corpse as an undead servant.
+    school: OCCULT
+    level: 3
+    castingTime: 5.0
+    target: EXPLICIT_MOB_TARGET
+    progression: VERY_HARD
+    effectIds: [421]
+    
+  # Level 4 Occult
+  - id: 330
+    name: Enervation
+    description: A black ray springs from your hand, draining the target's essence.
+    school: OCCULT
+    level: 4
+    castingTime: 1.5
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: [430]
+    
+  - id: 331
+    name: Fear
+    description: Phantasmal terrors overwhelm all enemies, causing them to flee.
+    school: OCCULT
+    level: 4
+    castingTime: 2.0
+    target: ALL_ENEMIES
+    progression: HARD
+    effectIds: [431]
+    
+  # Level 5 Occult
+  - id: 340
+    name: Create Undead
+    description: You create a powerful undead creature to serve you.
+    school: OCCULT
+    level: 5
+    castingTime: 10.0
+    target: EXPLICIT_MOB_TARGET
+    progression: LEGENDARY
+    effectIds: [440]
+    
+  - id: 341
+    name: Circle of Death
+    description: A sphere of negative energy expands, slaying weak creatures.
+    school: OCCULT
+    level: 5
+    castingTime: 2.5
+    target: ALL_ENEMIES
+    progression: VERY_HARD
+    effectIds: [441]

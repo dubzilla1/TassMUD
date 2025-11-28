@@ -1,0 +1,73 @@
+cflag:
+  summary: "Manage per-character key/value flags (GM-only)"
+  visibility: gm
+  synopsis:
+    - "CFLAG SET <char> <flag> <value>"
+    - "CFLAG CHECK <char> <flag>"
+  body: |
+    NAME
+        cflag - manage per-character key/value flags
+
+    SYNOPSIS
+        CFLAG SET <char> <flag> <value>
+        CFLAG CHECK <char> <flag>
+
+    DESCRIPTION
+        GMs may set or inspect arbitrary key/value flags on characters.
+        The GM permission is granted only when the character has the 'is_gm' flag set to '1'.
+
+    EXAMPLE
+        CFLAG SET Alice is_gm 1
+        CFLAG CHECK Alice is_gm
+
+dbinfo:
+  summary: "(GM) inspect database table schemas"
+  visibility: gm
+  synopsis:
+    - "dbinfo [TABLE_NAME]"
+  body: |
+    NAME
+        dbinfo - list columns for important database tables
+
+    SYNOPSIS
+        dbinfo [TABLE_NAME]
+
+    DESCRIPTION
+        Prints column names and types for database tables. Without arguments shows several item-related tables.
+
+    EXAMPLE
+        dbinfo
+        dbinfo item_template
+
+spawn:
+  summary: "(GM) create item or mob instances in the world"
+  visibility: gm
+  synopsis:
+    - "SPAWN ITEM <template_id> [room_id]"
+    - "SPAWN MOB <mob_id> [room_id]"
+  body: |
+    NAME
+        spawn - create item or mob instances
+
+    SYNOPSIS
+        SPAWN ITEM <template_id> [room_id]
+        SPAWN MOB <mob_id> [room_id]
+
+    DESCRIPTION
+        Creates a new instance of an item or mob (mobile NPC) based on its template ID.
+        
+        For ITEM: creates an item_instance in the specified room. If room_id is omitted,
+        the item is spawned in your current room.
+        
+        For MOB: not yet implemented, reserved for future use.
+
+    ARGUMENTS
+        template_id   The numeric ID of the item template (see items.yaml).
+        mob_id        The numeric ID of the mob template (not yet implemented).
+        room_id       Optional room ID where the item/mob should appear.
+                      Defaults to the GM's current room.
+
+    EXAMPLE
+        spawn item 202          -- spawns a longsword in your current room
+        spawn item 130 3001     -- spawns plate helm in room 3001
+        spawn mob 1             -- (future) spawn mob template #1

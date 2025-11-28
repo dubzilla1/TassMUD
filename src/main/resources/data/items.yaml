@@ -1,0 +1,1046 @@
+# Item Template YAML
+# Instructions: Each item entry should specify its type and only the fields relevant to that type.
+#
+# Available fields by type:
+#
+# trash:
+#   id, key, name, description, weight, value, type
+#
+# immobile:
+#   id, key, name, description, weight, value, type, indestructable (bool), magical (bool), spell_effect_id_1-4
+#
+# container:
+#   id, key, name, description, weight, value, type, max_items (int), max_weight (int), spell_effect_id_1-4
+#
+# inventory:
+#   id, key, name, description, weight, value, type, spell_effect_id_1-4
+#
+# armor:
+#   id, key, name, description, weight, value, type, slot, armor_save_bonus, fort_save_bonus, ref_save_bonus, will_save_bonus, spell_effect_id_1-4
+#
+# held:
+#   id, key, name, description, weight, value, type, hands (int), spell_effect_id_1-4
+#
+# weapon:
+#   id, key, name, description, weight, value, type, hands (int), base_die (int), multiplier (int), ability_score (string), ability_multiplier (decimal), spell_effect_id_1-4
+#
+# Example items:
+items:
+  - id: 1
+    key: void_trash
+    name: Void Trash
+    description: Absolutely nothing.
+    weight: 0
+    value: 0
+    type: trash
+  - id: 2
+    key: bench
+    name: Bench
+    description: A heavy wooden bench.
+    weight: 20
+    value: 0
+    type: immobile
+    indestructable: true
+    magical: false
+  - id: 3
+    key: pouch_basic
+    name: Basic Pouch
+    description: A small cloth pouch.
+    weight: 1
+    value: 5
+    type: container
+    max_items: 10
+    max_weight: 5
+  - id: 4
+    key: coin_gold
+    name: Gold Coin
+    description: A shiny gold coin.
+    weight: 0.1
+    value: 1
+    type: inventory
+  - id: 5
+    key: leather_cap
+    name: Leather Cap
+    description: A simple leather cap.
+    weight: 0.5
+    value: 10
+    type: armor
+    slot: head
+    armor_save_bonus: 2
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 0
+  - id: 6
+    key: wooden_staff
+    name: Wooden Staff
+    description: A sturdy wooden staff.
+    weight: 2
+    value: 15
+    type: held
+    hands: 2
+  - id: 7
+    key: iron_sword
+    name: Iron Sword
+    description: A basic iron sword.
+    weight: 3
+    value: 25
+    type: weapon
+    hands: 1
+    base_die: 8
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  # ============================================================
+  # CLOTH ARMOR SET (light, caster-friendly)
+  # ============================================================
+  - id: 100
+    key: cloth_hood
+    name: Cloth Hood
+    description: A simple hooded cloth cap favored by apprentice mages.
+    weight: 0.3
+    value: 5
+    type: armor
+    slot: head
+    armor_save_bonus: 1
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 1
+
+  - id: 101
+    key: cloth_mantle
+    name: Cloth Mantle
+    description: A light cloth shoulder wrap.
+    weight: 0.4
+    value: 5
+    type: armor
+    slot: shoulders
+    armor_save_bonus: 1
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 1
+
+  - id: 102
+    key: cloth_robe
+    name: Cloth Robe
+    description: A flowing cloth robe that provides minimal protection.
+    weight: 1.0
+    value: 10
+    type: armor
+    slot: chest
+    armor_save_bonus: 2
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 2
+
+  - id: 103
+    key: cloth_sleeves
+    name: Cloth Sleeves
+    description: Loose cloth sleeves tied at the wrist.
+    weight: 0.3
+    value: 4
+    type: armor
+    slot: arms
+    armor_save_bonus: 1
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 1
+
+  - id: 104
+    key: cloth_gloves
+    name: Cloth Gloves
+    description: Thin cloth gloves good for handling scrolls.
+    weight: 0.2
+    value: 3
+    type: armor
+    slot: hands
+    armor_save_bonus: 0
+    fort_save_bonus: 0
+    ref_save_bonus: 1
+    will_save_bonus: 1
+
+  - id: 105
+    key: cloth_sash
+    name: Cloth Sash
+    description: A fabric sash worn around the waist.
+    weight: 0.2
+    value: 4
+    type: armor
+    slot: waist
+    armor_save_bonus: 0
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 1
+
+  - id: 106
+    key: cloth_pants
+    name: Cloth Pants
+    description: Simple cloth trousers.
+    weight: 0.5
+    value: 6
+    type: armor
+    slot: legs
+    armor_save_bonus: 1
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 1
+
+  - id: 107
+    key: cloth_sandals
+    name: Cloth Sandals
+    description: Light woven sandals.
+    weight: 0.3
+    value: 4
+    type: armor
+    slot: boots
+    armor_save_bonus: 0
+    fort_save_bonus: 0
+    ref_save_bonus: 1
+    will_save_bonus: 0
+
+  - id: 108
+    key: cloth_cloak
+    name: Cloth Cloak
+    description: A plain traveling cloak.
+    weight: 0.6
+    value: 8
+    type: armor
+    slot: back
+    armor_save_bonus: 1
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 1
+
+  - id: 109
+    key: cloth_amulet
+    name: Cloth Cord Amulet
+    description: A simple amulet on a cloth cord.
+    weight: 0.1
+    value: 5
+    type: armor
+    slot: neck
+    armor_save_bonus: 0
+    fort_save_bonus: 0
+    ref_save_bonus: 0
+    will_save_bonus: 2
+
+  # ============================================================
+  # LEATHER ARMOR SET (light, rogue-friendly)
+  # ============================================================
+  - id: 110
+    key: leather_helm
+    name: Leather Helm
+    description: A hardened leather helm with a chin strap.
+    weight: 1.0
+    value: 15
+    type: armor
+    slot: head
+    armor_save_bonus: 3
+    fort_save_bonus: 1
+    ref_save_bonus: 1
+    will_save_bonus: 0
+
+  - id: 111
+    key: leather_pauldrons
+    name: Leather Pauldrons
+    description: Studded leather shoulder guards.
+    weight: 1.2
+    value: 18
+    type: armor
+    slot: shoulders
+    armor_save_bonus: 3
+    fort_save_bonus: 1
+    ref_save_bonus: 1
+    will_save_bonus: 0
+
+  - id: 112
+    key: leather_vest
+    name: Leather Vest
+    description: A fitted leather vest reinforced with studs.
+    weight: 3.0
+    value: 30
+    type: armor
+    slot: chest
+    armor_save_bonus: 5
+    fort_save_bonus: 1
+    ref_save_bonus: 2
+    will_save_bonus: 0
+
+  - id: 113
+    key: leather_bracers
+    name: Leather Bracers
+    description: Sturdy leather forearm guards.
+    weight: 0.8
+    value: 12
+    type: armor
+    slot: arms
+    armor_save_bonus: 2
+    fort_save_bonus: 0
+    ref_save_bonus: 2
+    will_save_bonus: 0
+
+  - id: 114
+    key: leather_gloves
+    name: Leather Gloves
+    description: Supple leather gloves with reinforced palms.
+    weight: 0.5
+    value: 10
+    type: armor
+    slot: hands
+    armor_save_bonus: 1
+    fort_save_bonus: 0
+    ref_save_bonus: 2
+    will_save_bonus: 0
+
+  - id: 115
+    key: leather_belt
+    name: Leather Belt
+    description: A thick leather belt with a brass buckle.
+    weight: 0.4
+    value: 8
+    type: armor
+    slot: waist
+    armor_save_bonus: 1
+    fort_save_bonus: 1
+    ref_save_bonus: 1
+    will_save_bonus: 0
+
+  - id: 116
+    key: leather_leggings
+    name: Leather Leggings
+    description: Flexible leather leg armor.
+    weight: 2.0
+    value: 22
+    type: armor
+    slot: legs
+    armor_save_bonus: 3
+    fort_save_bonus: 1
+    ref_save_bonus: 2
+    will_save_bonus: 0
+
+  - id: 117
+    key: leather_boots
+    name: Leather Boots
+    description: Soft-soled leather boots ideal for stealth.
+    weight: 1.5
+    value: 18
+    type: armor
+    slot: boots
+    armor_save_bonus: 2
+    fort_save_bonus: 0
+    ref_save_bonus: 3
+    will_save_bonus: 0
+
+  - id: 118
+    key: leather_cape
+    name: Leather Cape
+    description: A short leather cape clasped at the neck.
+    weight: 1.0
+    value: 15
+    type: armor
+    slot: back
+    armor_save_bonus: 2
+    fort_save_bonus: 0
+    ref_save_bonus: 2
+    will_save_bonus: 0
+
+  - id: 119
+    key: leather_gorget
+    name: Leather Gorget
+    description: A leather throat protector.
+    weight: 0.6
+    value: 12
+    type: armor
+    slot: neck
+    armor_save_bonus: 2
+    fort_save_bonus: 1
+    ref_save_bonus: 1
+    will_save_bonus: 0
+
+  # ============================================================
+  # MAIL ARMOR SET (medium, balanced)
+  # ============================================================
+  - id: 120
+    key: mail_coif
+    name: Mail Coif
+    description: A chainmail hood protecting the head and neck.
+    weight: 2.5
+    value: 40
+    type: armor
+    slot: head
+    armor_save_bonus: 5
+    fort_save_bonus: 2
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 121
+    key: mail_mantle
+    name: Mail Mantle
+    description: Chainmail shoulder and upper arm protection.
+    weight: 3.0
+    value: 45
+    type: armor
+    slot: shoulders
+    armor_save_bonus: 5
+    fort_save_bonus: 2
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 122
+    key: mail_hauberk
+    name: Mail Hauberk
+    description: A knee-length chainmail shirt worn over padding.
+    weight: 12.0
+    value: 100
+    type: armor
+    slot: chest
+    armor_save_bonus: 8
+    fort_save_bonus: 3
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 123
+    key: mail_sleeves
+    name: Mail Sleeves
+    description: Chainmail arm protection from shoulder to wrist.
+    weight: 2.5
+    value: 35
+    type: armor
+    slot: arms
+    armor_save_bonus: 4
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 124
+    key: mail_gauntlets
+    name: Mail Gauntlets
+    description: Chainmail gloves with leather palms.
+    weight: 1.5
+    value: 30
+    type: armor
+    slot: hands
+    armor_save_bonus: 3
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 125
+    key: mail_girdle
+    name: Mail Girdle
+    description: A reinforced belt with hanging mail skirt.
+    weight: 2.0
+    value: 28
+    type: armor
+    slot: waist
+    armor_save_bonus: 3
+    fort_save_bonus: 2
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 126
+    key: mail_chausses
+    name: Mail Chausses
+    description: Chainmail leggings tied at the waist.
+    weight: 5.0
+    value: 60
+    type: armor
+    slot: legs
+    armor_save_bonus: 6
+    fort_save_bonus: 2
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 127
+    key: mail_sabatons
+    name: Mail Sabatons
+    description: Chainmail boots reinforced at the toe.
+    weight: 3.0
+    value: 40
+    type: armor
+    slot: boots
+    armor_save_bonus: 4
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 128
+    key: mail_cloak
+    name: Mail-Lined Cloak
+    description: A heavy wool cloak with chainmail lining.
+    weight: 4.0
+    value: 55
+    type: armor
+    slot: back
+    armor_save_bonus: 4
+    fort_save_bonus: 2
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  - id: 129
+    key: mail_aventail
+    name: Mail Aventail
+    description: A mail curtain protecting the neck.
+    weight: 1.5
+    value: 35
+    type: armor
+    slot: neck
+    armor_save_bonus: 4
+    fort_save_bonus: 2
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  # ============================================================
+  # PLATE ARMOR SET (heavy, warrior-focused)
+  # ============================================================
+  - id: 130
+    key: plate_helm
+    name: Plate Helm
+    description: A full steel helm with a visor.
+    weight: 4.0
+    value: 80
+    type: armor
+    slot: head
+    armor_save_bonus: 8
+    fort_save_bonus: 3
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 131
+    key: plate_pauldrons
+    name: Plate Pauldrons
+    description: Heavy steel shoulder plates.
+    weight: 5.0
+    value: 90
+    type: armor
+    slot: shoulders
+    armor_save_bonus: 8
+    fort_save_bonus: 3
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 132
+    key: plate_cuirass
+    name: Plate Cuirass
+    description: A full steel breastplate with backplate.
+    weight: 20.0
+    value: 200
+    type: armor
+    slot: chest
+    armor_save_bonus: 12
+    fort_save_bonus: 4
+    ref_save_bonus: -2
+    will_save_bonus: 0
+
+  - id: 133
+    key: plate_vambraces
+    name: Plate Vambraces
+    description: Steel arm guards from elbow to wrist.
+    weight: 3.0
+    value: 60
+    type: armor
+    slot: arms
+    armor_save_bonus: 6
+    fort_save_bonus: 2
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 134
+    key: plate_gauntlets
+    name: Plate Gauntlets
+    description: Articulated steel gloves.
+    weight: 2.5
+    value: 55
+    type: armor
+    slot: hands
+    armor_save_bonus: 5
+    fort_save_bonus: 2
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 135
+    key: plate_fauld
+    name: Plate Fauld
+    description: Banded steel plates protecting the waist and hips.
+    weight: 4.0
+    value: 70
+    type: armor
+    slot: waist
+    armor_save_bonus: 5
+    fort_save_bonus: 3
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 136
+    key: plate_greaves
+    name: Plate Greaves
+    description: Steel leg armor from knee to ankle.
+    weight: 6.0
+    value: 100
+    type: armor
+    slot: legs
+    armor_save_bonus: 8
+    fort_save_bonus: 3
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 137
+    key: plate_sabatons
+    name: Plate Sabatons
+    description: Articulated steel boots.
+    weight: 4.0
+    value: 75
+    type: armor
+    slot: boots
+    armor_save_bonus: 6
+    fort_save_bonus: 2
+    ref_save_bonus: -1
+    will_save_bonus: 0
+
+  - id: 138
+    key: plate_cape
+    name: Heraldic Cape
+    description: A heavy cape worn over plate armor displaying a coat of arms.
+    weight: 2.0
+    value: 50
+    type: armor
+    slot: back
+    armor_save_bonus: 2
+    fort_save_bonus: 1
+    ref_save_bonus: 0
+    will_save_bonus: 1
+
+  - id: 139
+    key: plate_gorget
+    name: Plate Gorget
+    description: A steel collar protecting the throat.
+    weight: 2.0
+    value: 60
+    type: armor
+    slot: neck
+    armor_save_bonus: 6
+    fort_save_bonus: 3
+    ref_save_bonus: 0
+    will_save_bonus: 0
+
+  # ============================================================
+  # WEAPONS - Swords
+  # ============================================================
+  - id: 200
+    key: dagger
+    name: Dagger
+    description: A short blade ideal for close quarters.
+    weight: 0.5
+    value: 10
+    type: weapon
+    hands: 1
+    base_die: 4
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 201
+    key: shortsword
+    name: Shortsword
+    description: A light, quick blade favored by rogues.
+    weight: 2.0
+    value: 20
+    type: weapon
+    hands: 1
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 202
+    key: longsword
+    name: Longsword
+    description: A versatile blade balanced for cut and thrust.
+    weight: 3.0
+    value: 35
+    type: weapon
+    hands: 1
+    base_die: 8
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 203
+    key: bastard_sword
+    name: Bastard Sword
+    description: A hand-and-a-half sword usable one or two handed.
+    weight: 4.0
+    value: 50
+    type: weapon
+    hands: 1
+    base_die: 10
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 204
+    key: greatsword
+    name: Greatsword
+    description: A massive two-handed blade requiring great strength.
+    weight: 7.0
+    value: 75
+    type: weapon
+    hands: 2
+    base_die: 12
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.5
+
+  - id: 205
+    key: rapier
+    name: Rapier
+    description: A slender thrusting blade prized by duelists.
+    weight: 2.0
+    value: 40
+    type: weapon
+    hands: 1
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 206
+    key: scimitar
+    name: Scimitar
+    description: A curved slashing sword from distant lands.
+    weight: 3.0
+    value: 35
+    type: weapon
+    hands: 1
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  # ============================================================
+  # WEAPONS - Axes
+  # ============================================================
+  - id: 210
+    key: hand_axe
+    name: Hand Axe
+    description: A small axe suitable for throwing or melee.
+    weight: 2.0
+    value: 12
+    type: weapon
+    hands: 1
+    base_die: 6
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 211
+    key: battle_axe
+    name: Battle Axe
+    description: A sturdy single-headed axe.
+    weight: 4.0
+    value: 30
+    type: weapon
+    hands: 1
+    base_die: 8
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 212
+    key: greataxe
+    name: Greataxe
+    description: A fearsome double-headed war axe.
+    weight: 8.0
+    value: 60
+    type: weapon
+    hands: 2
+    base_die: 12
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.5
+
+  # ============================================================
+  # WEAPONS - Blunt
+  # ============================================================
+  - id: 220
+    key: club
+    name: Club
+    description: A simple wooden bludgeon.
+    weight: 2.0
+    value: 2
+    type: weapon
+    hands: 1
+    base_die: 4
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 221
+    key: mace
+    name: Mace
+    description: A flanged metal head on a sturdy haft.
+    weight: 4.0
+    value: 25
+    type: weapon
+    hands: 1
+    base_die: 6
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 222
+    key: morningstar
+    name: Morningstar
+    description: A spiked ball on a shaft, devastating against armor.
+    weight: 5.0
+    value: 35
+    type: weapon
+    hands: 1
+    base_die: 8
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 223
+    key: warhammer
+    name: Warhammer
+    description: A heavy hammer designed to crush plate.
+    weight: 5.0
+    value: 40
+    type: weapon
+    hands: 1
+    base_die: 8
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 224
+    key: maul
+    name: Maul
+    description: A two-handed sledge used to shatter bones and armor.
+    weight: 10.0
+    value: 55
+    type: weapon
+    hands: 2
+    base_die: 12
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.5
+
+  - id: 225
+    key: flail
+    name: Flail
+    description: A spiked ball on a chain, difficult to parry.
+    weight: 4.0
+    value: 30
+    type: weapon
+    hands: 1
+    base_die: 8
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  # ============================================================
+  # WEAPONS - Polearms
+  # ============================================================
+  - id: 230
+    key: spear
+    name: Spear
+    description: A simple but effective thrusting weapon.
+    weight: 3.0
+    value: 15
+    type: weapon
+    hands: 2
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 231
+    key: halberd
+    name: Halberd
+    description: An axe blade and spike mounted on a long pole.
+    weight: 7.0
+    value: 45
+    type: weapon
+    hands: 2
+    base_die: 10
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.5
+
+  - id: 232
+    key: glaive
+    name: Glaive
+    description: A single-edged blade on a long haft.
+    weight: 6.0
+    value: 40
+    type: weapon
+    hands: 2
+    base_die: 10
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.5
+
+  - id: 233
+    key: pike
+    name: Pike
+    description: An extremely long spear for formation fighting.
+    weight: 8.0
+    value: 20
+    type: weapon
+    hands: 2
+    base_die: 8
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0
+
+  - id: 234
+    key: trident
+    name: Trident
+    description: A three-pronged spear favored by gladiators.
+    weight: 4.0
+    value: 25
+    type: weapon
+    hands: 1
+    base_die: 8
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  # ============================================================
+  # WEAPONS - Ranged
+  # ============================================================
+  - id: 240
+    key: shortbow
+    name: Shortbow
+    description: A compact bow for skirmishers.
+    weight: 2.0
+    value: 25
+    type: weapon
+    hands: 2
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 241
+    key: longbow
+    name: Longbow
+    description: A powerful bow requiring strength to draw.
+    weight: 3.0
+    value: 50
+    type: weapon
+    hands: 2
+    base_die: 8
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 242
+    key: crossbow
+    name: Crossbow
+    description: A mechanical bow that fires bolts with deadly force.
+    weight: 6.0
+    value: 60
+    type: weapon
+    hands: 2
+    base_die: 10
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 243
+    key: sling
+    name: Sling
+    description: A simple weapon that hurls stones with surprising force.
+    weight: 0.2
+    value: 2
+    type: weapon
+    hands: 1
+    base_die: 4
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 244
+    key: throwing_knives
+    name: Throwing Knives
+    description: A set of balanced knives for throwing.
+    weight: 1.0
+    value: 15
+    type: weapon
+    hands: 1
+    base_die: 4
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  # ============================================================
+  # WEAPONS - Staves & Exotic
+  # ============================================================
+  - id: 250
+    key: quarterstaff
+    name: Quarterstaff
+    description: A simple wooden staff used for defense and offense.
+    weight: 3.0
+    value: 5
+    type: weapon
+    hands: 2
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 251
+    key: wizard_staff
+    name: Wizard Staff
+    description: An arcane focus that doubles as a weapon.
+    weight: 4.0
+    value: 100
+    type: weapon
+    hands: 2
+    base_die: 6
+    multiplier: 1
+    ability_score: intelligence
+    ability_multiplier: 1.0
+    magical: true
+
+  - id: 252
+    key: whip
+    name: Whip
+    description: A leather whip with exceptional reach.
+    weight: 1.0
+    value: 15
+    type: weapon
+    hands: 1
+    base_die: 4
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 253
+    key: sickle
+    name: Sickle
+    description: A curved farming tool adapted for combat.
+    weight: 1.5
+    value: 8
+    type: weapon
+    hands: 1
+    base_die: 4
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+
+  - id: 254
+    key: scythe
+    name: Scythe
+    description: A long-handled blade normally used for harvesting.
+    weight: 5.0
+    value: 20
+    type: weapon
+    hands: 2
+    base_die: 10
+    multiplier: 1
+    ability_score: strength
+    ability_multiplier: 1.0

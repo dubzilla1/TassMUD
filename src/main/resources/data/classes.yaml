@@ -1,0 +1,284 @@
+# Character Classes for TassMUD
+# Each class defines stat bonuses per level and skill availability.
+# Levels 1-50 are normal, 51-55 are hero levels.
+# Characters need 1000 XP per level.
+
+classes:
+  # ============================================================
+  # FIGHTER - Melee combat specialist
+  # High HP, moderate MV, low MP
+  # ============================================================
+  - id: 1
+    name: Fighter
+    description: >
+      Masters of martial combat, fighters excel in physical confrontation.
+      They gain the most hit points per level and have access to a wide
+      variety of weapon and armor proficiencies.
+    hp_level: 12
+    mp_level: 0
+    mv_level: 4
+    skills:
+      - level: 1
+        skill_id: 1   # basic attack
+      - level: 3
+        skill_id: 10  # kick
+      - level: 5
+        skill_id: 11  # bash
+      - level: 10
+        skill_id: 12  # disarm
+      - level: 15
+        skill_id: 13  # parry
+      - level: 20
+        skill_id: 14  # riposte
+      - level: 25
+        skill_id: 15  # second attack
+      - level: 35
+        skill_id: 16  # third attack
+      - level: 45
+        skill_id: 17  # fourth attack
+      - level: 51
+        skill_id: 18  # heroic strike (hero level)
+
+  # ============================================================
+  # WIZARD - Arcane spellcaster
+  # Low HP, high MP, low MV
+  # ============================================================
+  - id: 2
+    name: Wizard
+    description: >
+      Wielders of arcane magic, wizards command powerful offensive and
+      utility spells. They are physically frail but devastating at range.
+    hp_level: 4
+    mp_level: 15
+    mv_level: 2
+    skills:
+      - level: 1
+        skill_id: 100  # magic missile
+      - level: 5
+        skill_id: 101  # detect magic
+      - level: 8
+        skill_id: 102  # shield
+      - level: 12
+        skill_id: 103  # fireball
+      - level: 18
+        skill_id: 104  # lightning bolt
+      - level: 25
+        skill_id: 105  # teleport
+      - level: 30
+        skill_id: 106  # cone of cold
+      - level: 40
+        skill_id: 107  # disintegrate
+      - level: 50
+        skill_id: 108  # meteor swarm
+      - level: 51
+        skill_id: 109  # arcane mastery (hero level)
+
+  # ============================================================
+  # CLERIC - Divine spellcaster and healer
+  # Moderate HP, high MP, moderate MV
+  # ============================================================
+  - id: 3
+    name: Cleric
+    description: >
+      Servants of the divine, clerics channel holy power to heal allies,
+      smite enemies, and protect the faithful. They can also wear armor
+      and fight in melee when necessary.
+    hp_level: 8
+    mp_level: 12
+    mv_level: 3
+    skills:
+      - level: 1
+        skill_id: 200  # cure light wounds
+      - level: 5
+        skill_id: 201  # bless
+      - level: 8
+        skill_id: 202  # detect evil
+      - level: 12
+        skill_id: 203  # cure serious wounds
+      - level: 18
+        skill_id: 204  # remove curse
+      - level: 22
+        skill_id: 205  # cure critical wounds
+      - level: 28
+        skill_id: 206  # heal
+      - level: 35
+        skill_id: 207  # sanctuary
+      - level: 42
+        skill_id: 208  # resurrection
+      - level: 51
+        skill_id: 209  # divine intervention (hero level)
+
+  # ============================================================
+  # ROGUE - Stealth and agility specialist
+  # Moderate HP, low MP, high MV
+  # ============================================================
+  - id: 4
+    name: Rogue
+    description: >
+      Cunning and quick, rogues rely on stealth, precision strikes, and
+      dirty tricks. They excel at finding traps, picking locks, and
+      delivering devastating sneak attacks.
+    hp_level: 6
+    mp_level: 2
+    mv_level: 6
+    skills:
+      - level: 1
+        skill_id: 300  # sneak
+      - level: 3
+        skill_id: 301  # backstab
+      - level: 6
+        skill_id: 302  # pick lock
+      - level: 10
+        skill_id: 303  # detect traps
+      - level: 15
+        skill_id: 304  # disarm traps
+      - level: 20
+        skill_id: 305  # hide
+      - level: 25
+        skill_id: 306  # poison weapon
+      - level: 32
+        skill_id: 307  # circle stab
+      - level: 40
+        skill_id: 308  # assassinate
+      - level: 51
+        skill_id: 309  # shadow step (hero level)
+
+  # ============================================================
+  # RANGER - Wilderness warrior and archer
+  # Moderate HP, low MP, high MV
+  # ============================================================
+  - id: 5
+    name: Ranger
+    description: >
+      At home in the wild, rangers are skilled trackers, archers, and
+      survivalists. They can fight effectively in melee or at range and
+      have limited nature magic.
+    hp_level: 8
+    mp_level: 4
+    mv_level: 5
+    skills:
+      - level: 1
+        skill_id: 400  # track
+      - level: 4
+        skill_id: 401  # forage
+      - level: 8
+        skill_id: 402  # animal lore
+      - level: 12
+        skill_id: 403  # dual wield
+      - level: 18
+        skill_id: 404  # camouflage
+      - level: 22
+        skill_id: 405  # call animal
+      - level: 28
+        skill_id: 406  # rapid shot
+      - level: 35
+        skill_id: 407  # volley
+      - level: 45
+        skill_id: 408  # nature's ally
+      - level: 51
+        skill_id: 409  # apex predator (hero level)
+
+  # ============================================================
+  # PALADIN - Holy warrior
+  # High HP, moderate MP, moderate MV
+  # ============================================================
+  - id: 6
+    name: Paladin
+    description: >
+      Champions of righteousness, paladins combine martial prowess with
+      divine magic. They are sworn to uphold justice and protect the
+      innocent, gaining holy powers in return.
+    hp_level: 10
+    mp_level: 6
+    mv_level: 3
+    skills:
+      - level: 1
+        skill_id: 500  # lay on hands
+      - level: 5
+        skill_id: 501  # detect evil
+      - level: 10
+        skill_id: 502  # smite evil
+      - level: 15
+        skill_id: 503  # divine shield
+      - level: 20
+        skill_id: 504  # turn undead
+      - level: 28
+        skill_id: 505  # holy weapon
+      - level: 35
+        skill_id: 506  # aura of protection
+      - level: 42
+        skill_id: 507  # divine mount
+      - level: 50
+        skill_id: 508  # holy avenger
+      - level: 51
+        skill_id: 509  # champion of light (hero level)
+
+  # ============================================================
+  # NECROMANCER - Dark magic wielder
+  # Low HP, high MP, low MV
+  # ============================================================
+  - id: 7
+    name: Necromancer
+    description: >
+      Masters of death magic, necromancers command undead minions, drain
+      life from enemies, and wield curses. Their power comes at the cost
+      of being shunned by civilized society.
+    hp_level: 4
+    mp_level: 14
+    mv_level: 2
+    skills:
+      - level: 1
+        skill_id: 600  # drain life
+      - level: 5
+        skill_id: 601  # animate dead
+      - level: 10
+        skill_id: 602  # fear
+      - level: 15
+        skill_id: 603  # corpse explosion
+      - level: 22
+        skill_id: 604  # bone armor
+      - level: 28
+        skill_id: 605  # summon skeleton
+      - level: 35
+        skill_id: 606  # plague
+      - level: 42
+        skill_id: 607  # death coil
+      - level: 50
+        skill_id: 608  # army of the dead
+      - level: 51
+        skill_id: 609  # lich form (hero level)
+
+  # ============================================================
+  # MONK - Unarmed combat master
+  # Moderate HP, moderate MP, high MV
+  # ============================================================
+  - id: 8
+    name: Monk
+    description: >
+      Disciplined martial artists who have perfected mind and body. Monks
+      fight without weapons, using their fists and feet to devastating
+      effect, and can harness inner energy (ki).
+    hp_level: 7
+    mp_level: 6
+    mv_level: 6
+    skills:
+      - level: 1
+        skill_id: 700  # unarmed strike
+      - level: 5
+        skill_id: 701  # flurry of blows
+      - level: 10
+        skill_id: 702  # stunning fist
+      - level: 15
+        skill_id: 703  # deflect missiles
+      - level: 20
+        skill_id: 704  # slow fall
+      - level: 25
+        skill_id: 705  # ki strike
+      - level: 32
+        skill_id: 706  # wholeness of body
+      - level: 40
+        skill_id: 707  # quivering palm
+      - level: 48
+        skill_id: 708  # empty body
+      - level: 51
+        skill_id: 709  # perfect self (hero level)
