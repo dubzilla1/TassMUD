@@ -1,4 +1,0 @@
-Pinging database: jdbc:h2:mem:tassmud;DB_CLOSE_DELAY=-1
-Database ping successful (H2 in-memory).
-[tick] world heartbeat, anyRoom=1001 ts=1763934186270
-Shutdown hook: stopping clock, tick service and thread pool...
