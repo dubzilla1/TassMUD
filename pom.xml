@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <main.class>com.example.tassmud.Server</main.class>
+    <main.class>com.example.tassmud.net.Server</main.class>
   </properties>
 
   <dependencies>
@@ -91,6 +91,7 @@
                   <mainClass>${main.class}</mainClass>
                 </transformer>
               </transformers>
+              <!-- No artifactSet: include all dependencies (H2, SnakeYAML) in shaded JAR -->
             </configuration>
           </execution>
         </executions>

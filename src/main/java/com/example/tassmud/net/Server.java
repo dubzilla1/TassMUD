@@ -16,7 +16,27 @@ import java.util.concurrent.Executors;
  * Listens on port 4000 and spawns a ClientHandler per connection.
  */
 public class Server {
-    private static final int PORT = 4000;
+    private static final int DEFAULT_PORT = 4002;
+    private static final int PORT;
+
+    static {
+        int portVal = DEFAULT_PORT;
+        try {
+            String env = System.getenv("TASSMUD_PORT");
+            if (env != null && !env.isEmpty()) {
+                portVal = Integer.parseInt(env);
+            } else {
+                String prop = System.getProperty("tassmud.port");
+                if (prop != null && !prop.isEmpty()) {
+                    portVal = Integer.parseInt(prop);
+                }
+            }
+        } catch (Exception e) {
+            // fallback to default
+            portVal = DEFAULT_PORT;
+        }
+        PORT = portVal;
+    }
     private final ExecutorService pool = Executors.newCachedThreadPool();
 
     public void start() throws IOException {
