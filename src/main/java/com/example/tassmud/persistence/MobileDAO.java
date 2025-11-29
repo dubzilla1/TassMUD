@@ -309,7 +309,7 @@ public class MobileDAO {
      * Get a mobile instance by ID.
      */
     public Mobile getInstanceById(long instanceId) {
-        String sql = "SELECT mi.*, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
+        String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
             "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
@@ -335,7 +335,7 @@ public class MobileDAO {
      */
     public List<Mobile> getMobilesInRoom(int roomId) {
         List<Mobile> results = new ArrayList<>();
-        String sql = "SELECT mi.*, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
+        String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
             "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
@@ -361,7 +361,7 @@ public class MobileDAO {
      */
     public List<Mobile> getAllInstances() {
         List<Mobile> results = new ArrayList<>();
-        String sql = "SELECT mi.*, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
+        String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
             "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
@@ -420,7 +420,7 @@ public class MobileDAO {
      */
     public List<Mobile> findInstancesByTemplateId(int templateId) {
         List<Mobile> results = new ArrayList<>();
-        String sql = "SELECT mi.*, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
+        String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
             "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
@@ -460,6 +460,7 @@ public class MobileDAO {
         return new Mobile(
             rs.getLong("instance_id"),
             rs.getInt("template_id"),
+            rs.getInt("level"),
             rs.getString("name"),
             rs.getString("long_desc"),
             rs.getInt("hp_max"),

@@ -1,6 +1,7 @@
 package com.example.tassmud.persistence;
 
 import com.example.tassmud.model.Area;
+import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.Character;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.CharacterSpell;
@@ -789,6 +790,7 @@ public class CharacterDAO {
     }
 
     // Recalculate equipment bonuses by summing stats from all equipped items and persist to DB
+    // Armor bonuses are scaled by proficiency: effectiveness = 50% + proficiency%
     public boolean recalculateEquipmentBonuses(int characterId, ItemDAO itemDao) {
         java.util.Map<Integer, Long> equipped = getEquipmentMapByCharacterId(characterId);
         int armorBonus = 0, fortBonus = 0, reflexBonus = 0, willBonus = 0;
@@ -799,7 +801,28 @@ public class CharacterDAO {
             if (inst == null) continue;
             ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
             if (tmpl == null) continue;
-            armorBonus += tmpl.armorSaveBonus;
+            
+            // Scale armor bonus by proficiency if this is armor
+            int effectiveArmorBonus = tmpl.armorSaveBonus;
+            if (tmpl.isArmor() && tmpl.armorSaveBonus != 0) {
+                ArmorCategory armorCat = tmpl.getArmorCategory();
+                if (armorCat != null) {
+                    // Look up character's proficiency in this armor category
+                    double effectiveness = 0.50; // Base 50% with no proficiency
+                    Skill armorSkill = getSkillByKey(armorCat.getSkillKey());
+                    if (armorSkill != null) {
+                        CharacterSkill charSkill = getCharacterSkill(characterId, armorSkill.getId());
+                        if (charSkill != null) {
+                            // Effectiveness = 50% + proficiency% (e.g., 25% prof = 75% effectiveness)
+                            effectiveness = 0.50 + (charSkill.getProficiency() / 100.0);
+                        }
+                    }
+                    // Apply effectiveness: round to nearest integer
+                    effectiveArmorBonus = (int) Math.round(tmpl.armorSaveBonus * effectiveness);
+                }
+            }
+            
+            armorBonus += effectiveArmorBonus;
             fortBonus += tmpl.fortSaveBonus;
             reflexBonus += tmpl.refSaveBonus;
             willBonus += tmpl.willSaveBonus;

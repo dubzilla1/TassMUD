@@ -1,6 +1,13 @@
 # Room definitions for TassMUD
 # Room IDs use area-based numbering: area_id * 1000 + local_index
 # Exits reference other room IDs (leave blank or omit for no exit)
+#
+# SPAWNS: Each room can have an optional 'spawns' list with:
+#   - type: ITEM or MOB
+#   - id: template ID (item_template or mobile_template)
+#   - quantity: max number to exist in room at once
+#   - frequency: hours (game time) between spawn checks (max 24)
+#   - container: (optional) item template ID to spawn items into
 
 rooms:
   # ============================================================
@@ -22,24 +29,770 @@ rooms:
 
   # ============================================================
   # STARTER PLAINS (area 1) - Room IDs 1000-1999
+  # Tutorial Path: 1000-1011 (12 rooms winding down the mountain)
+  # Hunting Plains: 1100-1124 (5x5 grid)
   # ============================================================
-  - id: 1001
-    key: plains_1
-    name: Central Plain
+
+  # --- TUTORIAL PATH ---
+  
+  - id: 1000
+    key: encampment
+    name: The Encampment
     area_id: 1
-    short_desc: A grassy plain
-    long_desc: A large open plain with a single hill.
+    short_desc: A mountain camp with weathered tents
+    long_desc: >
+      You stand in a small encampment nestled against the mountain's rocky face.
+      Weathered canvas tents flutter in the breeze, and a smoldering campfire crackles
+      nearby. A grizzled veteran sits on a log, gesturing toward a trail leading south.
+      
+      
+      Welcome, adventurer! This is the beginning of your journey. Type LOOK to examine
+      your surroundings at any time. You can also LOOK AT <something> to examine specific
+      things - try LOOK AT FIRE or LOOK AT VETERAN.
+      
+      
+      A worn trail leads SOUTH down the mountainside.
     exits:
+      south: 1001
+
+  - id: 1001
+    key: mountain_overlook
+    name: Mountain Overlook
+    area_id: 1
+    short_desc: A rocky ledge with a sweeping view
+    long_desc: >
+      The trail opens onto a rocky ledge offering a breathtaking view. Far below, golden
+      plains stretch toward the horizon, dotted with copses of trees. You can just make
+      out the distant spires of a great city catching the morning light.
+      
+      
+      To move around the world, use cardinal directions: NORTH, SOUTH, EAST, and WEST.
+      You can also use shortcuts like N, S, E, and W. The trail continues SOUTH from here,
+      while the encampment lies to the NORTH.
+    exits:
+      north: 1000
       south: 1002
 
   - id: 1002
-    key: plains_2
-    name: Northern Hill
+    key: rocky_trail_upper
+    name: Rocky Trail
     area_id: 1
-    short_desc: Small hill
-    long_desc: On top of a small hill that overlooks the plain.
+    short_desc: A winding mountain trail
+    long_desc: >
+      Loose stones shift beneath your feet as the trail winds between massive boulders.
+      Someone has painted yellow arrows on the rocks to mark the path. A cold wind
+      whistles through gaps in the stone, carrying the scent of pine from below.
+      
+      
+      Navigation is essential for survival. Pay attention to room descriptions - they
+      often hint at which directions you can travel. The trail leads NORTH back up the
+      mountain and continues SOUTH deeper into the pass.
     exits:
       north: 1001
+      south: 1003
+
+  - id: 1003
+    key: switchback_turn
+    name: Switchback Turn
+    area_id: 1
+    short_desc: A sharp turn in the trail
+    long_desc: >
+      The trail makes a sharp switchback here, carved into the mountainside by
+      countless travelers before you. A weathered signpost stands at the turn,
+      its arrows pointing in various directions. Initials and messages have been
+      carved into its wooden surface by past adventurers.
+      
+      
+      Some areas have multiple exits. Use EXITS or just EX to see all available
+      directions from your current location. From here, the trail leads NORTH
+      back uphill and bends EAST to continue descending.
+    exits:
+      north: 1002
+      east: 1004
+
+  - id: 1004
+    key: narrow_ledge
+    name: Narrow Ledge
+    area_id: 1
+    short_desc: A precarious mountain ledge
+    long_desc: >
+      You inch along a narrow ledge with a sheer drop on one side. The view is
+      spectacular but dizzying. Ancient iron rings have been hammered into the
+      cliff face - perhaps for safety ropes in worse weather. Your muscles tense
+      with every careful step.
+      
+      
+      Your character has various attributes that affect their abilities. Type STATS
+      or SCORE to see your current statistics, including Strength, Dexterity, and
+      your health points. Keeping track of your HP is vital for survival!
+      
+      
+      The ledge continues EAST, while the wider trail lies to the WEST.
+    exits:
+      west: 1003
+      east: 1005
+
+  - id: 1005
+    key: waystone_rest
+    name: Waystone Rest
+    area_id: 1
+    short_desc: A sheltered resting spot
+    long_desc: >
+      A large flat boulder provides a welcome resting spot here, sheltered from the
+      wind by an overhanging cliff. An ancient waystone stands nearby, its surface
+      covered in worn runes. Someone has left a small offering of dried flowers at
+      its base.
+      
+      
+      If you're ever unsure what to do, type HELP to see a list of available topics.
+      You can also type HELP <command> for detailed information about specific commands.
+      Try HELP COMBAT or HELP NAVIGATION to learn more.
+      
+      
+      The path continues SOUTH from here, or you can return WEST along the ledge.
+    exits:
+      west: 1004
+      south: 1006
+
+  - id: 1006
+    key: mountain_base
+    name: Mountain Base
+    area_id: 1
+    short_desc: Where the mountains meet the foothills
+    long_desc: >
+      The steep trail finally levels out as you reach the base of the mountains.
+      The air is warmer here, and the harsh rocks give way to grassy hillocks.
+      An old stone marker indicates this was once a trade route. Scattered around
+      are remnants of an abandoned supply cache.
+      
+      
+      As an adventurer, you'll collect equipment and items. Type INVENTORY or INV to
+      see what you're carrying. Use EQUIPMENT or EQ to see what you have equipped.
+      You can WEAR armor, WIELD weapons, and REMOVE items you no longer need.
+      
+      
+      The mountain trail leads NORTH, while the path continues SOUTH toward the forest.
+    exits:
+      north: 1005
+      south: 1007
+
+  - id: 1007
+    key: forest_edge
+    name: Forest Edge
+    area_id: 1
+    short_desc: Where grassland meets woodland
+    long_desc: >
+      Tall grasses give way to the edge of a pine forest. The trees stand like silent
+      sentinels, their branches swaying gently overhead. Birdsong echoes through the
+      canopy, and small woodland creatures dart between the undergrowth. A well-worn
+      path leads into the woods.
+      
+      
+      You're not alone in this world! Use WHO to see other players online. The CHAT
+      command lets you speak to everyone: CHAT Hello everyone! You can also use
+      WHISPER <name> <message> for private conversations, or GROUPCHAT if you're
+      in a party.
+      
+      
+      The foothills lie to the NORTH, and the forest path leads SOUTH.
+    exits:
+      north: 1006
+      south: 1008
+
+  - id: 1008
+    key: woodland_trail
+    name: Woodland Trail
+    area_id: 1
+    short_desc: A shaded forest path
+    long_desc: >
+      Dappled sunlight filters through the canopy as you walk the forest trail.
+      The path is soft with fallen pine needles, muffling your footsteps. You notice
+      animal tracks in the soft earth - some small, like rabbits, others larger and
+      clawed. The underbrush rustles occasionally with unseen movement.
+      
+      
+      Keep your eyes open! Creatures roam these lands. When you enter a room with
+      creatures, they'll appear in the room description. Some are peaceful, while
+      others may attack. Use CONSIDER <creature> to gauge how dangerous a foe might
+      be before engaging.
+      
+      
+      The trail leads NORTH toward the forest edge and SOUTH deeper into the woods.
+    exits:
+      north: 1007
+      south: 1009
+
+  - id: 1009
+    key: forest_clearing
+    name: Forest Clearing
+    area_id: 1
+    short_desc: A sunlit clearing
+    long_desc: >
+      You emerge into a peaceful clearing where wildflowers bloom among the grass.
+      Butterflies dance on the warm breeze, and a fallen log provides a convenient
+      seat. Wooden practice dummies stand at one edge of the clearing, bristling
+      with old arrows and sword marks - a training ground for novice warriors.
+      
+      
+      Combat is initiated with KILL <target> or ATTACK <target>. Once in combat,
+      you'll automatically attack, but you can also use special abilities. If things
+      go badly, try to FLEE! After combat, rest to recover your health. Type REST
+      to begin resting, and WAKE when you're ready to continue.
+      
+      
+      The forest trail continues NORTH and SOUTH.
+    exits:
+      north: 1008
+      south: 1010
+    spawns:
+      # Place a weapons chest here
+      - type: ITEM
+        id: 267
+        quantity: 1
+        frequency: 24
+      # Spawn training swords inside the chest
+      - type: ITEM
+        id: 200
+        quantity: 3
+        frequency: 2
+        container: 267
+
+  - id: 1010
+    key: stream_crossing
+    name: Stream Crossing
+    area_id: 1
+    short_desc: A shallow forest stream
+    long_desc: >
+      A crystal-clear stream cuts across the path here, burbling over smooth stones.
+      Stepping stones provide an easy crossing, their surfaces worn smooth by years
+      of use. Minnows dart through the shallows, and a kingfisher watches from a
+      nearby branch.
+      
+      
+      Almost there! Beyond this forest, the Starter Plains await. This is where you'll
+      hone your combat skills against the creatures that roam the grasslands. When you're
+      strong enough, you can make your way to the great city of Midgaard to the south.
+      
+      
+      The path leads NORTH back to the clearing and SOUTH out of the forest.
+    exits:
+      north: 1009
+      south: 1011
+
+  - id: 1011
+    key: plains_gateway
+    name: Plains Gateway
+    area_id: 1
+    short_desc: Where the forest opens to the plains
+    long_desc: >
+      The forest thins and finally gives way to vast golden plains stretching to the
+      horizon. The tall grass ripples in waves like a golden sea. To the south, you
+      can see the grasslands extend in all directions - perfect hunting grounds for
+      aspiring adventurers. Far in the distance, the walls of Midgaard rise against
+      the southern sky.
+      
+      
+      You've completed the tutorial path! The Starter Plains to the SOUTH are a 
+      large open area where creatures roam freely. Explore, hunt, and grow stronger.
+      When you're ready, head south through the plains to reach the city of Midgaard.
+      
+      
+      Type SAVE periodically to save your progress!
+      
+      
+      The forest lies to the NORTH, and the open plains spread to the SOUTH.
+    exits:
+      north: 1010
+      south: 1100
+
+  # --- HUNTING PLAINS (5x5 Grid) ---
+  # Layout:
+  #   1100-1101-1102-1103-1104  (Northern Edge - row 0)
+  #   1105-1106-1107-1108-1109  (Northern Plains - row 1)
+  #   1110-1111-1112-1113-1114  (Central Plains - row 2)
+  #   1115-1116-1117-1118-1119  (Southern Plains - row 3)
+  #   1120-1121-1122-1123-1124  (Southern Edge - row 4, 1122 to Midgaard)
+
+  # Row 0: Northern Edge (1100-1104)
+  - id: 1100
+    key: plains_nw_edge
+    name: Northwestern Plains
+    area_id: 1
+    short_desc: Windswept grassland near the forest
+    long_desc: >
+      You stand at the northwestern edge of the great plains. The forest looms close
+      to the north, its dark canopy a stark contrast to the golden grasses around you.
+      Prairie dogs pop up from their burrows, chirping warnings to their neighbors.
+      The wind carries the sweet scent of wildflowers.
+    exits:
+      north: 1011
+      east: 1101
+      south: 1105
+    spawns:
+      - type: MOB
+        id: 1
+        quantity: 2
+        frequency: 1
+
+  - id: 1101
+    key: plains_n_edge_1
+    name: Northern Plains Edge
+    area_id: 1
+    short_desc: Rolling grassland near treeline
+    long_desc: >
+      Gentle hills roll across this stretch of plains near the northern forest edge.
+      A hawk circles lazily overhead, riding the thermal currents. Small game trails
+      crisscross through the tall grass, worn by countless small creatures going about
+      their daily business.
+    exits:
+      east: 1102
+      south: 1106
+      west: 1100
+
+  - id: 1102
+    key: plains_n_center
+    name: Northern Plains
+    area_id: 1
+    short_desc: Open grassland under wide skies
+    long_desc: >
+      The plains stretch endlessly in every direction from this vantage point. The
+      grass here grows tall, reaching past your waist in places. You can see
+      movement in the distance - perhaps creatures grazing or hunting. A lone
+      boulder provides the only landmark in this sea of gold.
+    exits:
+      east: 1103
+      south: 1107
+      west: 1101
+
+  - id: 1103
+    key: plains_n_edge_2
+    name: Northern Plains Edge
+    area_id: 1
+    short_desc: Grassland dotted with wildflowers
+    long_desc: >
+      Purple and yellow wildflowers dot the golden grass here, creating splashes of
+      color across the landscape. Bees drone lazily from bloom to bloom, and the
+      air is thick with the sweet perfume of nectar. A gentle breeze keeps the
+      worst of the heat at bay.
+    exits:
+      east: 1104
+      south: 1108
+      west: 1102
+
+  - id: 1104
+    key: plains_ne_edge
+    name: Northeastern Plains
+    area_id: 1
+    short_desc: Grassland near rocky outcroppings
+    long_desc: >
+      The plains give way to rocky outcroppings to the east, where the foothills
+      begin their climb toward distant peaks. Lizards sun themselves on the warm
+      stones, and you spot what might be a cave entrance in the rocks - perhaps
+      worth investigating another day.
+    exits:
+      south: 1109
+      west: 1103
+
+  # Row 1: Northern Plains (1105-1109)
+  - id: 1105
+    key: plains_nw_1
+    name: Western Grassland
+    area_id: 1
+    short_desc: Tall grass near the western edge
+    long_desc: >
+      The grass grows especially tall here, providing excellent cover for predator
+      and prey alike. You can hear rustling nearby - something moving through the
+      undergrowth. A worn game trail leads east toward the heart of the plains.
+    exits:
+      north: 1100
+      east: 1106
+      south: 1110
+
+  - id: 1106
+    key: plains_nm_1
+    name: Open Grassland
+    area_id: 1
+    short_desc: Flat expanse of waving grass
+    long_desc: >
+      An unremarkable but peaceful stretch of plains. The grass waves hypnotically
+      in the breeze, creating patterns like ripples on water. Grasshoppers leap
+      away with each step you take, their wings clicking in the warm air.
+    exits:
+      north: 1101
+      east: 1107
+      south: 1111
+      west: 1105
+    spawns:
+      - type: MOB
+        id: 1
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 2
+        quantity: 1
+        frequency: 4
+
+  - id: 1107
+    key: plains_center_n
+    name: Central Northern Plains
+    area_id: 1
+    short_desc: Heart of the northern grassland
+    long_desc: >
+      You're deep in the heart of the plains now. The sky seems impossibly vast
+      overhead, and the horizon stretches forever in every direction. A circle of
+      stones marks this spot - perhaps an ancient meeting place or astronomical
+      marker from civilizations long forgotten.
+    exits:
+      north: 1102
+      east: 1108
+      south: 1112
+      west: 1106
+
+  - id: 1108
+    key: plains_nm_2
+    name: Eastern Grassland
+    area_id: 1
+    short_desc: Plains with scattered shrubs
+    long_desc: >
+      Scrubby bushes dot this stretch of grassland, their twisted branches providing
+      perches for small birds. The soil here is stonier than elsewhere, and you can
+      see animal burrows dug into the harder ground. Something has been digging
+      recently.
+    exits:
+      north: 1103
+      east: 1109
+      south: 1113
+      west: 1107
+
+  - id: 1109
+    key: plains_ne_1
+    name: Rocky Grassland
+    area_id: 1
+    short_desc: Where plains meet foothills
+    long_desc: >
+      Large rocks jut from the earth here as the plains transition toward the eastern
+      foothills. The grass is shorter and tougher, growing in clumps between the
+      stones. You spot claw marks on several rocks - something large has been
+      marking its territory.
+    exits:
+      north: 1104
+      south: 1114
+      west: 1108
+
+  # Row 2: Central Plains (1110-1114)
+  - id: 1110
+    key: plains_w_center
+    name: Western Central Plains
+    area_id: 1
+    short_desc: Rolling grassland by a dry creek
+    long_desc: >
+      A dry creek bed cuts through the grass here, its banks lined with smooth
+      river stones. In wetter seasons, water must flow through here from the
+      mountains. Now it provides an easy path through the tall grass. Animal
+      tracks are numerous along the sandy bottom.
+    exits:
+      north: 1105
+      east: 1111
+      south: 1115
+
+  - id: 1111
+    key: plains_center_w
+    name: Central Plains West
+    area_id: 1
+    short_desc: Gentle hills of golden grass
+    long_desc: >
+      Gentle undulating hills make the landscape here more interesting than the
+      flat expanses elsewhere. From the hilltops, you can spot movement across
+      the plains - creatures going about their business, unaware of your presence.
+      A perfect spot for an ambush, or to avoid one.
+    exits:
+      north: 1106
+      east: 1112
+      south: 1116
+      west: 1110
+
+  - id: 1112
+    key: plains_center
+    name: Heart of the Plains
+    area_id: 1
+    short_desc: The very center of the Starter Plains
+    long_desc: >
+      You stand at the heart of the Starter Plains. A massive old oak tree grows
+      here - the only tree for miles around. Its spreading branches provide welcome
+      shade, and its trunk is scarred with old carvings from adventurers who rested
+      here before you. This seems like a good landmark to remember.
+      
+      
+      From this central point, you can travel in any direction to explore the plains.
+      To the south, beyond the grasslands, lies the city of Midgaard.
+    exits:
+      north: 1107
+      east: 1113
+      south: 1117
+      west: 1111
+    spawns:
+      - type: MOB
+        id: 2
+        quantity: 2
+        frequency: 2
+      - type: ITEM
+        id: 4
+        quantity: 3
+        frequency: 6
+
+  - id: 1113
+    key: plains_center_e
+    name: Central Plains East
+    area_id: 1
+    short_desc: Sun-baked grassland
+    long_desc: >
+      The sun beats down mercilessly on this exposed stretch of plains. The grass
+      is yellower here, baked golden by long hot days. Heat shimmers rise from
+      the ground, creating mirages in the distance. A cluster of bones - some old
+      hunting kill - lies bleaching in the sun.
+    exits:
+      north: 1108
+      east: 1114
+      south: 1118
+      west: 1112
+
+  - id: 1114
+    key: plains_e_center
+    name: Eastern Central Plains
+    area_id: 1
+    short_desc: Stony grassland near the hills
+    long_desc: >
+      The ground becomes increasingly rocky as the plains approach the eastern
+      foothills. Tough grass grows between the stones, and hardy wildflowers
+      cling to life in the cracks. The terrain would make for difficult travel
+      for anything larger than a wolf.
+    exits:
+      north: 1109
+      south: 1119
+      west: 1113
+
+  # Row 3: Southern Plains (1115-1119)
+  - id: 1115
+    key: plains_sw_1
+    name: Southwestern Plains
+    area_id: 1
+    short_desc: Grassland near a muddy waterhole
+    long_desc: >
+      A muddy waterhole attracts all manner of creatures to this area. The ground
+      around it is trampled and churned by countless hooves and paws. Tracks of
+      all sizes crisscross the mud - clearly a popular spot. The water looks
+      brackish but drinkable in a pinch.
+    exits:
+      north: 1110
+      east: 1116
+      south: 1120
+
+  - id: 1116
+    key: plains_sm_1
+    name: Southern Plains West
+    area_id: 1
+    short_desc: Grassland with grazing evidence
+    long_desc: >
+      The grass here has been heavily grazed, cropped short by herds of something
+      that passed through recently. Droppings indicate the presence of large
+      herbivores - potential prey for a hunter, but where there's prey, there's
+      usually something hunting it too.
+    exits:
+      north: 1111
+      east: 1117
+      south: 1121
+      west: 1115
+
+  - id: 1117
+    key: plains_south_center
+    name: Southern Central Plains
+    area_id: 1
+    short_desc: Open grassland on the main road
+    long_desc: >
+      A well-worn road cuts through the grass here, running roughly north to south.
+      This is the main trade route between the northern wilds and the city of
+      Midgaard. Wagon ruts show regular traffic, and you spot a merchant's lost
+      button glinting in the dirt.
+      
+      
+      Follow this road south to reach the gates of Midgaard.
+    exits:
+      north: 1112
+      east: 1118
+      south: 1122
+      west: 1116
+
+  - id: 1118
+    key: plains_sm_2
+    name: Southern Plains East
+    area_id: 1
+    short_desc: Rolling grassland with ant mounds
+    long_desc: >
+      Enormous ant mounds rise from the grass here, some taller than a human.
+      The industrious insects march in endless columns, carrying bits of grass
+      and unfortunate beetles to their underground chambers. It's best not to
+      disturb them.
+    exits:
+      north: 1113
+      east: 1119
+      south: 1123
+      west: 1117
+
+  - id: 1119
+    key: plains_se_1
+    name: Southeastern Plains
+    area_id: 1
+    short_desc: Scrubland at the plains' edge
+    long_desc: >
+      Scrubby bushes become more common as the plains transition toward rockier
+      terrain. The vegetation provides cover for smaller creatures, and you can
+      hear chittering and rustling all around. A well-used animal trail leads
+      south toward the distant city walls.
+    exits:
+      north: 1114
+      south: 1124
+      west: 1118
+
+  # Row 4: Southern Edge (1120-1124)
+  - id: 1120
+    key: plains_sw_edge
+    name: Southwestern Edge
+    area_id: 1
+    short_desc: Where plains meet marshland
+    long_desc: >
+      The ground becomes soft and boggy here as the plains give way to wetlands
+      to the southwest. Cattails and reeds grow in standing water, and frogs
+      chorus noisily. The footing is treacherous - best to head back north or
+      east to firmer ground.
+    exits:
+      north: 1115
+      east: 1121
+
+  - id: 1121
+    key: plains_s_edge_1
+    name: Southern Plains Edge
+    area_id: 1
+    short_desc: Grassland near the road to Midgaard
+    long_desc: >
+      You can see the walls of Midgaard clearly from here, rising above the
+      grassland to the south. The road is nearby, and you occasionally spot
+      travelers making their way to or from the city. Smoke rises from chimneys
+      within the walls, and you can almost smell baking bread on the wind.
+    exits:
+      north: 1116
+      east: 1122
+      west: 1120
+
+  - id: 1122
+    key: plains_south_gate
+    name: Northern Approach to Midgaard
+    area_id: 1
+    short_desc: The road to the city gates
+    long_desc: >
+      The trade road widens here as it approaches the northern gates of Midgaard.
+      The city walls loom impressively ahead, ancient stones weathered by centuries
+      but still standing strong. Guards patrol the battlements, and you can hear
+      the bustle of city life beyond the gates.
+      
+      
+      The great city of Midgaard lies to the SOUTH. Return to the plains by
+      heading NORTH.
+    exits:
+      north: 1117
+      east: 1123
+      south: 3001
+      west: 1121
+
+  - id: 1123
+    key: plains_s_edge_2
+    name: Southern Plains Edge
+    area_id: 1
+    short_desc: Grassland near the city walls
+    long_desc: >
+      The eastern stretch of plains near Midgaard's walls. A few enterprising
+      farmers have set up small plots here, growing vegetables to sell in the
+      city markets. A scarecrow stands sentinel over a patch of cabbages, its
+      button eyes staring blankly at the sky.
+    exits:
+      north: 1118
+      east: 1124
+      west: 1122
+
+  - id: 1124
+    key: plains_se_edge
+    name: Southeastern Edge
+    area_id: 1
+    short_desc: Where plains meet the eastern road
+    long_desc: >
+      The plains end here at a crossroads. The main road continues south to
+      Midgaard's eastern gate, while another path leads east toward distant
+      mountains and the unknown dangers beyond. Most travelers stick to the
+      main roads - the wilderness holds many perils.
+    exits:
+      north: 1119
+      west: 1123
+
+  # ============================================================
+  # DUNGEON LEVEL 1 (area 2) - Room IDs 2000-2999
+  # ============================================================
+  - id: 2001
+    key: dungeon_entrance
+    name: Dungeon Entrance
+    area_id: 2
+    short_desc: Entrance to dungeon
+    long_desc: A stone archway leading down into darkness.
+    exits: {}
+
+  # ============================================================
+  # MIDGAARD (area 3) - Room IDs 3000-3999
+  # 2x2 grid layout:
+  #   3001 (NW) -- 3002 (NE)
+  #     |            |
+  #   3003 (SW) -- 3004 (SE)
+  # ============================================================
+  - id: 3001
+    key: mg_nw
+    name: Northwest Plaza
+    area_id: 3
+    short_desc: Quiet northwest plaza
+    long_desc: >
+      A small plaza with a mossy fountain at its center. The northern gates of
+      Midgaard stand open to the north, leading out to the Starter Plains where
+      new adventurers hone their skills.
+    exits:
+      north: 1122
+      east: 3002
+      south: 3003
+
+  - id: 3002
+    key: mg_ne
+    name: Northeast Market
+    area_id: 3
+    short_desc: Northeast market stalls
+    long_desc: Colorful stalls and the smell of fresh bread.
+    exits:
+      south: 3004
+      west: 3001
+
+  - id: 3003
+    key: mg_sw
+    name: Southwest Garden
+    area_id: 3
+    short_desc: Shaded garden corner
+    long_desc: A small garden with benches and a tinkling birdbath.
+    exits:
+      north: 3001
+      east: 3004
+
+  - id: 3004
+    key: mg_se
+    name: Southeast Alley
+    area_id: 3
+    short_desc: Narrow southeast alley
+    long_desc: Narrow alley flanked by lantern-lit shops.
+    exits:
+      north: 3002
+      west: 3003
 
   # ============================================================
   # DUNGEON LEVEL 1 (area 2) - Room IDs 2000-2999

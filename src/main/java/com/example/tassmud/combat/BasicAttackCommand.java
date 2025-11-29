@@ -8,17 +8,22 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * The basic melee attack command available to all combatants.
  * Uses equipped weapon damage or unarmed combat.
+ * 
+ * Attack roll bonus: (attacker_level - defender_level) * 2, capped at attacker's level
+ * Damage multiplier: (attacker_family/defender_family) * (attacker_category/defender_category)
+ * - Applied to bonus damage only, not base die roll
+ * - Mob skills: category = level * 0.02, family = min(level * 0.1, 1.0)
  */
 public class BasicAttackCommand implements CombatCommand {
     
     /** Cooldowns per combatant (combatant ID -> timestamp when cooldown ends) */
     private final Map<Long, Long> cooldowns = new ConcurrentHashMap<>();
     
+    /** Combat calculator for level/skill bonuses */
+    private final CombatCalculator calculator = new CombatCalculator();
+    
     /** Base cooldown between attacks (2 seconds) */
     private static final long BASE_COOLDOWN_MS = 2000;
-    
-    /** Base to-hit bonus (d20 + bonus vs armor) */
-    private static final int BASE_HIT_BONUS = 0;
     
     /** Unarmed base damage (1d4) */
     private static final int UNARMED_DIE = 4;
@@ -85,11 +90,15 @@ public class BasicAttackCommand implements CombatCommand {
         int dexMod = (attacker.getDex() - 10) / 2;
         
         // Use STR for melee (TODO: check weapon type for ranged using DEX)
-        int attackBonus = strMod + BASE_HIT_BONUS;
+        int statBonus = strMod;
+        
+        // Calculate level-based attack bonus
+        int levelBonus = calculator.calculateFullAttackBonus(user, target);
+        int totalAttackBonus = statBonus + levelBonus;
         
         // Roll d20 + attack bonus vs armor
         int attackRoll = rollD20();
-        int totalAttack = attackRoll + attackBonus;
+        int totalAttack = attackRoll + totalAttackBonus;
         int targetArmor = target.getArmor();
         
         // Check for critical hit (natural 20)
@@ -108,7 +117,13 @@ public class BasicAttackCommand implements CombatCommand {
         int baseDamage = rollDamage(user);
         int damageBonus = strMod; // STR to damage for melee
         
-        int totalDamage = baseDamage + damageBonus;
+        // Calculate skill-based damage multiplier
+        // Applied to bonus damage only, not base die roll
+        double damageMultiplier = calculator.calculateFullDamageMultiplier(user, target);
+        
+        // Apply multiplier to bonus damage only
+        int multipliedBonus = (int) Math.round(damageBonus * damageMultiplier);
+        int totalDamage = baseDamage + multipliedBonus;
         if (totalDamage < 1) totalDamage = 1; // Minimum 1 damage on hit
         
         // Apply critical multiplier

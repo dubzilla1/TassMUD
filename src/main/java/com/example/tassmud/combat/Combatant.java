@@ -1,9 +1,12 @@
 package com.example.tassmud.combat;
 
+import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.Character;
 import com.example.tassmud.model.Mobile;
 
+import java.util.EnumMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 /**
@@ -50,6 +53,9 @@ public class Combatant {
     
     /** Timestamp when this combatant entered combat */
     private final long enteredCombatAt;
+    
+    /** Damage taken per armor category (for armor proficiency training) */
+    private final Map<ArmorCategory, Integer> armorDamageCounters = new EnumMap<>(ArmorCategory.class);
     
     /**
      * Create a combatant for a player character.
@@ -260,6 +266,36 @@ public class Combatant {
         if (c != null) {
             c.setHpCur(c.getHpCur() - amount);
         }
+    }
+    
+    /**
+     * Record damage taken for a specific armor category (for proficiency training).
+     */
+    public void recordArmorDamage(ArmorCategory category, int damage) {
+        if (category != null && damage > 0) {
+            armorDamageCounters.merge(category, damage, Integer::sum);
+        }
+    }
+    
+    /**
+     * Get total damage recorded for an armor category.
+     */
+    public int getArmorDamageCounter(ArmorCategory category) {
+        return armorDamageCounters.getOrDefault(category, 0);
+    }
+    
+    /**
+     * Get all armor damage counters.
+     */
+    public Map<ArmorCategory, Integer> getArmorDamageCounters() {
+        return armorDamageCounters;
+    }
+    
+    /**
+     * Reset all armor damage counters.
+     */
+    public void resetArmorDamageCounters() {
+        armorDamageCounters.clear();
     }
     
     public void heal(int amount) {

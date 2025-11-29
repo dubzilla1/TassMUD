@@ -45,6 +45,7 @@ public class CommandRegistry {
         // Items NOT allowed in combat (can't equip/drop mid-fight)
         register("get", "Pick up an item from the room", Category.ITEMS, List.of("pickup"));
         register("drop", "Drop an item from your inventory", Category.ITEMS);
+        register("put", "Put an item into a container", Category.ITEMS);
         register("equip", "Equip an item from your inventory", Category.ITEMS, List.of("wear"));
         register("remove", "Remove an equipped item", Category.ITEMS, List.of("dequip"));
         

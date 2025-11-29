@@ -1,7 +1,7 @@
 # Skill definitions for TassMUD
 # 
 # ID ranges:
-#   1-49: General combat skills (class skills)
+#   1-49: General combat skills (Fighter skills)
 #   50-99: General non-combat skills
 #   100-199: Wizard spells/skills
 #   200-299: Cleric spells/skills
@@ -11,148 +11,628 @@
 #   600-699: Necromancer skills
 #   700-799: Monk skills
 #   800-899: Reserved
-#   900-999: Weapon skills
+#   900-999: Weapon/proficiency skills
 
 skills:
   # ============================================================
-  # WEAPON CATEGORY SKILLS (passive, granted by class)
-  # Proficiency level = 2x character level
+  # FIGHTER SKILLS (1-49)
   # ============================================================
-  - id: 900
-    key: simple_weapons
-    name: Simple Weapons
-    description: Proficiency with simple weapons like daggers, clubs, staves, slings, and crossbows.
-    is_passive: true
-    max_level: 100
+  - id: 1
+    key: basic_attack
+    name: Basic Attack
+    description: A fundamental melee attack. All adventurers must start somewhere.
+    progression: TRIVIAL
 
-  - id: 901
-    key: martial_weapons
-    name: Martial Weapons
-    description: Proficiency with martial weapons like swords, axes, gauntlets, and bows.
-    is_passive: true
-    max_level: 100
+  - id: 10
+    key: kick
+    name: Kick
+    description: A powerful kick that can knock enemies off balance and deal extra damage.
+    progression: EASY
 
-  - id: 902
-    key: exotic_weapons
-    name: Exotic Weapons
-    description: Proficiency with exotic weapons like glaives, flails, and unusual armaments.
-    is_passive: true
-    max_level: 100
+  - id: 11
+    key: bash
+    name: Bash
+    description: Slam into an enemy with your body or shield, potentially stunning them.
+    progression: EASY
 
-  # ============================================================
-  # WEAPON FAMILY SKILLS - SIMPLE (passive, trained through use)
-  # Max 10% per character level, gained 0.1% per kill
-  # ============================================================
-  - id: 910
-    key: skill_daggers
-    name: Daggers
-    description: Expertise with daggers and small bladed weapons.
-    is_passive: true
-    max_level: 100
+  - id: 12
+    key: disarm
+    name: Disarm
+    description: Attempt to knock the weapon from an enemy's grasp.
+    progression: NORMAL
 
-  - id: 911
-    key: skill_clubs
-    name: Clubs
-    description: Expertise with clubs, maces, and similar blunt weapons.
-    is_passive: true
-    max_level: 100
+  - id: 13
+    key: parry
+    name: Parry
+    description: Deflect incoming melee attacks with your weapon, reducing damage taken.
+    progression: NORMAL
 
-  - id: 912
-    key: skill_staves
-    name: Staves
-    description: Expertise with quarterstaves and magical staves.
-    is_passive: true
-    max_level: 100
+  - id: 14
+    key: riposte
+    name: Riposte
+    description: Counter-attack immediately after a successful parry.
+    progression: HARD
 
-  - id: 913
-    key: skill_slings
-    name: Slings
-    description: Expertise with slings and throwing stones.
-    is_passive: true
-    max_level: 100
+  - id: 15
+    key: second_attack
+    name: Second Attack
+    description: Strike twice in a single combat round.
+    progression: HARD
 
-  - id: 914
-    key: skill_crossbows
-    name: Crossbows
-    description: Expertise with crossbows and mechanical ranged weapons.
-    is_passive: true
-    max_level: 100
+  - id: 16
+    key: third_attack
+    name: Third Attack
+    description: Strike three times in a single combat round.
+    progression: VERY_HARD
 
-  # ============================================================
-  # WEAPON FAMILY SKILLS - MARTIAL (passive, trained through use)
-  # ============================================================
-  - id: 920
-    key: skill_swords
-    name: Swords
-    description: Expertise with all types of swords from daggers to greatswords.
-    is_passive: true
-    max_level: 100
+  - id: 17
+    key: fourth_attack
+    name: Fourth Attack
+    description: Strike four times in a single combat round. Only the most skilled warriors achieve this.
+    progression: LEGENDARY
 
-  - id: 921
-    key: skill_axes
-    name: Axes
-    description: Expertise with hand axes, battle axes, and greataxes.
-    is_passive: true
-    max_level: 100
-
-  - id: 922
-    key: skill_gauntlets
-    name: Gauntlets
-    description: Expertise with fist weapons and spiked gauntlets.
-    is_passive: true
-    max_level: 100
-
-  - id: 923
-    key: skill_bows
-    name: Bows
-    description: Expertise with shortbows and longbows.
-    is_passive: true
-    max_level: 100
+  - id: 18
+    key: heroic_strike
+    name: Heroic Strike
+    description: A devastating blow infused with heroic willpower that ignores armor.
+    progression: LEGENDARY
 
   # ============================================================
-  # WEAPON FAMILY SKILLS - EXOTIC (passive, trained through use)
-  # ============================================================
-  - id: 930
-    key: skill_glaives
-    name: Glaives
-    description: Expertise with polearm weapons like glaives, halberds, and spears.
-    is_passive: true
-    max_level: 100
-
-  - id: 931
-    key: skill_flails
-    name: Flails
-    description: Expertise with chain weapons like flails, morningstars, and whips.
-    is_passive: true
-    max_level: 100
-
-  - id: 932
-    key: skill_exotic_other
-    name: Exotic Other
-    description: Expertise with unusual weapons that defy classification.
-    is_passive: true
-    max_level: 100
-
-  # ============================================================
-  # GENERAL SKILLS (non-weapon)
+  # GENERAL NON-COMBAT SKILLS (50-99)
   # ============================================================
   - id: 50
     key: lockpicking
     name: Lockpicking
     description: Ability to pick locks and disable simple traps.
-    is_passive: false
-    max_level: 100
+    progression: NORMAL
 
   - id: 51
     key: stealth
     name: Stealth
     description: Ability to move silently and remain hidden.
-    is_passive: false
-    max_level: 100
+    progression: NORMAL
 
   - id: 52
     key: perception
     name: Perception
     description: Ability to notice hidden things and detect danger.
-    is_passive: true
-    max_level: 100
+    progression: EASY
+
+  # ============================================================
+  # WIZARD SKILLS (100-199)
+  # ============================================================
+  - id: 100
+    key: magic_missile
+    name: Magic Missile
+    description: Unerring bolts of arcane energy that never miss their target.
+    progression: TRIVIAL
+
+  - id: 101
+    key: detect_magic
+    name: Detect Magic
+    description: Sense magical auras on items, creatures, and locations.
+    progression: EASY
+
+  - id: 102
+    key: arcane_shield
+    name: Shield
+    description: Conjure a shimmering barrier of force that deflects attacks.
+    progression: NORMAL
+
+  - id: 103
+    key: fireball
+    name: Fireball
+    description: Hurl an explosive ball of fire that detonates on impact.
+    progression: NORMAL
+
+  - id: 104
+    key: lightning_bolt
+    name: Lightning Bolt
+    description: Call down a crackling bolt of lightning to strike your foes.
+    progression: HARD
+
+  - id: 105
+    key: teleport
+    name: Teleport
+    description: Instantly transport yourself to a previously visited location.
+    progression: HARD
+
+  - id: 106
+    key: cone_of_cold
+    name: Cone of Cold
+    description: Unleash a freezing blast that damages and slows all enemies in a cone.
+    progression: HARD
+
+  - id: 107
+    key: disintegrate
+    name: Disintegrate
+    description: A ray of pure destruction that can reduce targets to dust.
+    progression: VERY_HARD
+
+  - id: 108
+    key: meteor_swarm
+    name: Meteor Swarm
+    description: Call down a devastating rain of flaming meteors from the sky.
+    progression: LEGENDARY
+
+  - id: 109
+    key: arcane_mastery
+    name: Arcane Mastery
+    description: Perfect understanding of magic itself. All spells cost less and hit harder.
+    progression: LEGENDARY
+
+  # ============================================================
+  # CLERIC SKILLS (200-299)
+  # ============================================================
+  - id: 200
+    key: cure_light_wounds
+    name: Cure Light Wounds
+    description: Channel divine energy to heal minor injuries.
+    progression: TRIVIAL
+
+  - id: 201
+    key: bless
+    name: Bless
+    description: Bestow divine favor upon allies, improving their combat effectiveness.
+    progression: EASY
+
+  - id: 202
+    key: detect_evil
+    name: Detect Evil
+    description: Sense the presence of evil creatures and unholy influences.
+    progression: EASY
+
+  - id: 203
+    key: cure_serious_wounds
+    name: Cure Serious Wounds
+    description: Channel divine energy to heal moderate injuries.
+    progression: NORMAL
+
+  - id: 204
+    key: remove_curse
+    name: Remove Curse
+    description: Lift curses and hexes from afflicted creatures or items.
+    progression: NORMAL
+
+  - id: 205
+    key: cure_critical_wounds
+    name: Cure Critical Wounds
+    description: Channel divine energy to heal severe injuries.
+    progression: HARD
+
+  - id: 206
+    key: heal
+    name: Heal
+    description: A powerful healing prayer that restores a large amount of health.
+    progression: HARD
+
+  - id: 207
+    key: sanctuary
+    name: Sanctuary
+    description: Surround yourself with holy protection, making enemies hesitate to attack.
+    progression: VERY_HARD
+
+  - id: 208
+    key: resurrection
+    name: Resurrection
+    description: Call a departed soul back from death itself.
+    progression: LEGENDARY
+
+  - id: 209
+    key: divine_intervention
+    name: Divine Intervention
+    description: Petition your deity directly for miraculous aid in dire circumstances.
+    progression: LEGENDARY
+
+  # ============================================================
+  # ROGUE SKILLS (300-399)
+  # ============================================================
+  - id: 300
+    key: sneak
+    name: Sneak
+    description: Move silently and avoid detection by enemies.
+    progression: TRIVIAL
+
+  - id: 301
+    key: backstab
+    name: Backstab
+    description: Strike from behind for massive damage against unaware targets.
+    progression: EASY
+
+  - id: 302
+    key: pick_lock
+    name: Pick Lock
+    description: Open locked doors and containers without the proper key.
+    progression: EASY
+
+  - id: 303
+    key: detect_traps
+    name: Detect Traps
+    description: Notice hidden traps before they spring.
+    progression: NORMAL
+
+  - id: 304
+    key: disarm_traps
+    name: Disarm Traps
+    description: Safely disable traps you have detected.
+    progression: NORMAL
+
+  - id: 305
+    key: hide
+    name: Hide
+    description: Conceal yourself in shadows, becoming nearly invisible.
+    progression: HARD
+
+  - id: 306
+    key: poison_weapon
+    name: Poison Weapon
+    description: Apply deadly poison to your blade for extra damage over time.
+    progression: HARD
+
+  - id: 307
+    key: circle_stab
+    name: Circle Stab
+    description: Dart around an enemy and strike from their blind spot.
+    progression: VERY_HARD
+
+  - id: 308
+    key: assassinate
+    name: Assassinate
+    description: A killing blow against an unaware target. Instant death if successful.
+    progression: LEGENDARY
+
+  - id: 309
+    key: shadow_step
+    name: Shadow Step
+    description: Step through the shadows to appear behind any enemy you can see.
+    progression: LEGENDARY
+
+  # ============================================================
+  # RANGER SKILLS (400-499)
+  # ============================================================
+  - id: 400
+    key: track
+    name: Track
+    description: Follow the trail of creatures through the wilderness.
+    progression: TRIVIAL
+
+  - id: 401
+    key: forage
+    name: Forage
+    description: Find food, herbs, and useful materials in the wild.
+    progression: EASY
+
+  - id: 402
+    key: animal_lore
+    name: Animal Lore
+    description: Understand animal behavior and identify creature weaknesses.
+    progression: EASY
+
+  - id: 403
+    key: dual_wield
+    name: Dual Wield
+    description: Fight effectively with a weapon in each hand.
+    progression: NORMAL
+
+  - id: 404
+    key: camouflage
+    name: Camouflage
+    description: Blend into natural surroundings to become nearly invisible outdoors.
+    progression: NORMAL
+
+  - id: 405
+    key: call_animal
+    name: Call Animal
+    description: Summon a wild animal to fight alongside you.
+    progression: HARD
+
+  - id: 406
+    key: rapid_shot
+    name: Rapid Shot
+    description: Fire multiple arrows in quick succession.
+    progression: HARD
+
+  - id: 407
+    key: volley
+    name: Volley
+    description: Rain arrows down on an area, hitting multiple enemies.
+    progression: VERY_HARD
+
+  - id: 408
+    key: natures_ally
+    name: Nature's Ally
+    description: Call upon the spirits of nature to aid you in battle.
+    progression: LEGENDARY
+
+  - id: 409
+    key: apex_predator
+    name: Apex Predator
+    description: Become one with the ultimate hunter. Track anything, hit everything.
+    progression: LEGENDARY
+
+  # ============================================================
+  # PALADIN SKILLS (500-599)
+  # ============================================================
+  - id: 500
+    key: lay_on_hands
+    name: Lay on Hands
+    description: Channel divine energy through touch to heal wounds.
+    progression: TRIVIAL
+
+  - id: 501
+    key: paladin_detect_evil
+    name: Detect Evil
+    description: Sense evil intentions and unholy creatures nearby.
+    progression: EASY
+
+  - id: 502
+    key: smite_evil
+    name: Smite Evil
+    description: Channel holy power into your weapon to devastate evil creatures.
+    progression: EASY
+
+  - id: 503
+    key: divine_shield
+    name: Divine Shield
+    description: Surround yourself with holy light that absorbs damage.
+    progression: NORMAL
+
+  - id: 504
+    key: turn_undead
+    name: Turn Undead
+    description: Force undead creatures to flee in terror from holy power.
+    progression: NORMAL
+
+  - id: 505
+    key: holy_weapon
+    name: Holy Weapon
+    description: Imbue your weapon with divine energy, making it more effective.
+    progression: HARD
+
+  - id: 506
+    key: aura_of_protection
+    name: Aura of Protection
+    description: Emanate a protective aura that shields nearby allies.
+    progression: HARD
+
+  - id: 507
+    key: divine_mount
+    name: Divine Mount
+    description: Summon a celestial steed to carry you into battle.
+    progression: VERY_HARD
+
+  - id: 508
+    key: holy_avenger
+    name: Holy Avenger
+    description: Transform into an avatar of divine justice, gaining immense power.
+    progression: LEGENDARY
+
+  - id: 509
+    key: champion_of_light
+    name: Champion of Light
+    description: Become a living beacon of divine power, inspiring all allies.
+    progression: LEGENDARY
+
+  # ============================================================
+  # NECROMANCER SKILLS (600-699)
+  # ============================================================
+  - id: 600
+    key: drain_life
+    name: Drain Life
+    description: Siphon life force from enemies to heal yourself.
+    progression: TRIVIAL
+
+  - id: 601
+    key: animate_dead
+    name: Animate Dead
+    description: Raise a corpse to fight as your undead minion.
+    progression: EASY
+
+  - id: 602
+    key: fear
+    name: Fear
+    description: Fill an enemy's mind with supernatural terror, causing them to flee.
+    progression: EASY
+
+  - id: 603
+    key: corpse_explosion
+    name: Corpse Explosion
+    description: Detonate a corpse, dealing damage to all nearby enemies.
+    progression: NORMAL
+
+  - id: 604
+    key: bone_armor
+    name: Bone Armor
+    description: Surround yourself with a shield of animated bones.
+    progression: NORMAL
+
+  - id: 605
+    key: summon_skeleton
+    name: Summon Skeleton
+    description: Summon a skeleton warrior from the spirit realm.
+    progression: HARD
+
+  - id: 606
+    key: plague
+    name: Plague
+    description: Inflict a wasting disease that spreads between enemies.
+    progression: HARD
+
+  - id: 607
+    key: death_coil
+    name: Death Coil
+    description: Hurl a bolt of death energy that damages living foes or heals undead.
+    progression: VERY_HARD
+
+  - id: 608
+    key: army_of_the_dead
+    name: Army of the Dead
+    description: Raise an entire horde of undead servants to overwhelm your enemies.
+    progression: LEGENDARY
+
+  - id: 609
+    key: lich_form
+    name: Lich Form
+    description: Transform into an undying lich, gaining immense dark power.
+    progression: LEGENDARY
+
+  # ============================================================
+  # MONK SKILLS (700-799)
+  # ============================================================
+  - id: 700
+    key: unarmed_strike
+    name: Unarmed Strike
+    description: Strike with fists and feet as effectively as any weapon.
+    progression: TRIVIAL
+
+  - id: 701
+    key: flurry_of_blows
+    name: Flurry of Blows
+    description: Unleash a rapid series of unarmed strikes.
+    progression: EASY
+
+  - id: 702
+    key: stunning_fist
+    name: Stunning Fist
+    description: Strike a pressure point to stun an opponent.
+    progression: EASY
+
+  - id: 703
+    key: deflect_missiles
+    name: Deflect Missiles
+    description: Knock aside incoming projectiles with your bare hands.
+    progression: NORMAL
+
+  - id: 704
+    key: slow_fall
+    name: Slow Fall
+    description: Use walls and air resistance to slow a dangerous fall.
+    progression: NORMAL
+
+  - id: 705
+    key: ki_strike
+    name: Ki Strike
+    description: Focus inner energy into your strikes, bypassing physical defenses.
+    progression: HARD
+
+  - id: 706
+    key: wholeness_of_body
+    name: Wholeness of Body
+    description: Channel ki to heal your own wounds through meditation.
+    progression: HARD
+
+  - id: 707
+    key: quivering_palm
+    name: Quivering Palm
+    description: A deadly touch that can kill with a single command, days later.
+    progression: VERY_HARD
+
+  - id: 708
+    key: empty_body
+    name: Empty Body
+    description: Become ethereal, passing through walls and avoiding all attacks.
+    progression: LEGENDARY
+
+  - id: 709
+    key: perfect_self
+    name: Perfect Self
+    description: Achieve physical and spiritual perfection, transcending mortality.
+    progression: LEGENDARY
+
+  # ============================================================
+  # WEAPON CATEGORY SKILLS (900-999)
+  # These are passive proficiencies granted by class
+  # ============================================================
+  - id: 900
+    key: simple_weapons
+    name: Simple Weapons
+    description: Proficiency with simple weapons like daggers, clubs, staves, slings, and crossbows.
+    progression: INSTANT
+
+  - id: 901
+    key: martial_weapons
+    name: Martial Weapons
+    description: Proficiency with martial weapons like swords, axes, gauntlets, and bows.
+    progression: INSTANT
+
+  - id: 902
+    key: exotic_weapons
+    name: Exotic Weapons
+    description: Proficiency with exotic weapons like glaives, flails, and unusual armaments.
+    progression: INSTANT
+
+  # ============================================================
+  # WEAPON FAMILY SKILLS (910-949)
+  # Trained through use - max 10% per character level
+  # ============================================================
+  - id: 910
+    key: skill_daggers
+    name: Daggers
+    description: Expertise with daggers and small bladed weapons.
+    progression: NORMAL
+
+  - id: 911
+    key: skill_clubs
+    name: Clubs
+    description: Expertise with clubs, maces, and similar blunt weapons.
+    progression: NORMAL
+
+  - id: 912
+    key: skill_staves
+    name: Staves
+    description: Expertise with quarterstaves and magical staves.
+    progression: NORMAL
+
+  - id: 913
+    key: skill_slings
+    name: Slings
+    description: Expertise with slings and throwing stones.
+    progression: NORMAL
+
+  - id: 914
+    key: skill_crossbows
+    name: Crossbows
+    description: Expertise with crossbows and mechanical ranged weapons.
+    progression: NORMAL
+
+  - id: 920
+    key: skill_swords
+    name: Swords
+    description: Expertise with all types of swords from daggers to greatswords.
+    progression: NORMAL
+
+  - id: 921
+    key: skill_axes
+    name: Axes
+    description: Expertise with hand axes, battle axes, and greataxes.
+    progression: NORMAL
+
+  - id: 922
+    key: skill_gauntlets
+    name: Gauntlets
+    description: Expertise with fist weapons and spiked gauntlets.
+    progression: NORMAL
+
+  - id: 923
+    key: skill_bows
+    name: Bows
+    description: Expertise with shortbows and longbows.
+    progression: NORMAL
+
+  - id: 930
+    key: skill_glaives
+    name: Glaives
+    description: Expertise with polearm weapons like glaives, halberds, and spears.
+    progression: NORMAL
+
+  - id: 931
+    key: skill_flails
+    name: Flails
+    description: Expertise with chain weapons like flails, morningstars, and whips.
+    progression: NORMAL
+
+  - id: 932
+    key: skill_exotic_other
+    name: Exotic Other
+    description: Expertise with unusual weapons that defy classification.
+    progression: NORMAL

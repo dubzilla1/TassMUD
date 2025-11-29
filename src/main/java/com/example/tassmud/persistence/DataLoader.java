@@ -3,6 +3,9 @@ package com.example.tassmud.persistence;
 import com.example.tassmud.model.*;
 import com.example.tassmud.model.MobileBehavior;
 import com.example.tassmud.model.MobileTemplate;
+import com.example.tassmud.event.SpawnConfig;
+import com.example.tassmud.event.SpawnConfig.SpawnType;
+import com.example.tassmud.event.SpawnManager;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,8 +29,9 @@ public class DataLoader {
         Map<String,Integer> roomKeyToId = loadRoomsFirstPass(dao, areaMap);
         loadRoomsSecondPass(dao, roomKeyToId);
         // Load item templates from YAML resource into item_template table
+        ItemDAO itemDao = null;
         try {
-            ItemDAO itemDao = new ItemDAO();
+            itemDao = new ItemDAO();
             itemDao.loadTemplatesFromYamlResource("/data/items.yaml");
         } catch (Exception e) {
             System.err.println("Failed to load items.yaml: " + e.getMessage());
@@ -44,6 +48,42 @@ public class DataLoader {
             loadMobileTemplates();
         } catch (Exception e) {
             System.err.println("Failed to load mobiles.yaml: " + e.getMessage());
+        }
+        // Spawn permanent room items (e.g., tutorial containers)
+        if (itemDao != null) {
+            spawnPermanentRoomItems(itemDao);
+        }
+    }
+    
+    /**
+     * Spawn permanent items that should always exist in specific rooms.
+     * This is idempotent - only creates if no instances exist for the template in that room.
+     */
+    private static void spawnPermanentRoomItems(ItemDAO itemDao) {
+        // Tutorial area permanent spawns: [templateId, roomId]
+        int[][] permanentSpawns = {
+            {267, 1005},  // Broken Weapons Chest in Waystone Rest
+        };
+        
+        for (int[] spawn : permanentSpawns) {
+            int templateId = spawn[0];
+            int roomId = spawn[1];
+            
+            // Check if any instance already exists in the room
+            java.util.List<ItemDAO.RoomItem> existingItems = itemDao.getItemsInRoom(roomId);
+            boolean alreadyExists = existingItems.stream()
+                .anyMatch(ri -> ri.template.id == templateId);
+            
+            if (!alreadyExists) {
+                try {
+                    long instanceId = itemDao.createInstance(templateId, roomId, null);
+                    ItemTemplate tmpl = itemDao.getTemplateById(templateId);
+                    String name = tmpl != null ? tmpl.name : "item #" + templateId;
+                    System.out.println("[DataLoader] Spawned permanent item '" + name + "' (instance #" + instanceId + ") in room " + roomId);
+                } catch (Exception e) {
+                    System.err.println("[DataLoader] Failed to spawn permanent item " + templateId + " in room " + roomId + ": " + e.getMessage());
+                }
+            }
         }
     }
     
@@ -418,6 +458,7 @@ public class DataLoader {
         String shortDesc;
         String longDesc;
         Integer exitN, exitE, exitS, exitW, exitU, exitD;
+        List<SpawnConfig> spawns = new ArrayList<>();
     }
 
     private static Map<String,Integer> loadRoomsFirstPass(CharacterDAO dao, Map<String,Integer> areaMap) {
@@ -463,6 +504,18 @@ public class DataLoader {
                     t.exitD = getExitId(exits, "down");
                 }
                 
+                // Parse spawns
+                Object spawnsObj = roomData.get("spawns");
+                if (spawnsObj instanceof List) {
+                    List<Map<String, Object>> spawnsList = (List<Map<String, Object>>) spawnsObj;
+                    for (Map<String, Object> spawnData : spawnsList) {
+                        SpawnConfig spawn = parseSpawnConfig(spawnData, t.explicitId);
+                        if (spawn != null) {
+                            t.spawns.add(spawn);
+                        }
+                    }
+                }
+                
                 if (t.key.isEmpty() || t.name.isEmpty()) continue;
                 templates.add(t);
             }
@@ -471,6 +524,30 @@ public class DataLoader {
             System.err.println("[DataLoader] Failed to load rooms from YAML: " + e.getMessage());
         }
         return templates;
+    }
+    
+    /**
+     * Parse a spawn configuration from YAML data.
+     */
+    private static SpawnConfig parseSpawnConfig(Map<String, Object> data, int roomId) {
+        try {
+            String typeStr = getString(data, "type", "").toUpperCase();
+            SpawnType type = SpawnType.valueOf(typeStr);
+            int templateId = getInt(data, "id", -1);
+            int quantity = getInt(data, "quantity", 1);
+            int frequency = getInt(data, "frequency", 1);
+            int containerId = getInt(data, "container", 0);
+            
+            if (templateId < 0) {
+                System.err.println("[DataLoader] Spawn missing template id in room " + roomId);
+                return null;
+            }
+            
+            return new SpawnConfig(type, templateId, quantity, frequency, roomId, containerId);
+        } catch (IllegalArgumentException e) {
+            System.err.println("[DataLoader] Invalid spawn type in room " + roomId + ": " + e.getMessage());
+            return null;
+        }
     }
     
     private static Integer getExitId(Map<String, Object> exits, String direction) {
@@ -522,6 +599,8 @@ public class DataLoader {
     private static Map<String,Integer> insertRoomTemplates(CharacterDAO dao, List<RoomTemplate> templates) {
         Map<String,Integer> keyToId = new HashMap<>();
         Map<Integer,Integer> areaCounters = new HashMap<>();
+        SpawnManager spawnManager = SpawnManager.getInstance();
+        int totalSpawns = 0;
         
         for (RoomTemplate t : templates) {
             int roomId;
@@ -539,8 +618,21 @@ public class DataLoader {
                     if (roomId > 0) areaCounters.put(t.areaId, nextLocal + 1);
                 }
             }
-            if (roomId > 0) keyToId.put(t.key, roomId);
+            if (roomId > 0) {
+                keyToId.put(t.key, roomId);
+                
+                // Register spawns with the SpawnManager
+                for (SpawnConfig spawn : t.spawns) {
+                    spawnManager.registerSpawn(t.areaId, spawn);
+                    totalSpawns++;
+                }
+            }
         }
+        
+        if (totalSpawns > 0) {
+            System.out.println("[DataLoader] Registered " + totalSpawns + " spawns with SpawnManager");
+        }
+        
         return keyToId;
     }
 

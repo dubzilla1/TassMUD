@@ -1,5 +1,6 @@
 package com.example.tassmud.combat;
 
+import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.Character;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.EquipmentSlot;
@@ -11,6 +12,7 @@ import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
+import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.TickService;
 
 import java.util.*;
@@ -216,6 +218,11 @@ public class CombatManager {
         // Send messages based on result
         broadcastCombatResult(combat, result);
         
+        // Track armor damage for proficiency training (only for player targets)
+        if (result.getDamage() > 0 && target.isPlayer()) {
+            trackArmorDamage(target, result.getDamage());
+        }
+        
         // Check for death
         if (result.isDeath() || !target.isAlive()) {
             handleCombatantDeath(combat, target, combatant);
@@ -257,17 +264,48 @@ public class CombatManager {
         // Mark as inactive
         victim.setActive(false);
         
-        // For now, we set them to 1 HP instead of actually killing
-        // This is per the spec - "for now just set them to 1hp and out of combat"
-        Character victimChar = victim.getAsCharacter();
-        if (victimChar != null) {
-            victimChar.setHpCur(1);
+        // Handle player death
+        if (victim.isPlayer()) {
+            // For now, we set them to 1 HP instead of actually killing
+            Character victimChar = victim.getAsCharacter();
+            if (victimChar != null) {
+                victimChar.setHpCur(1);
+            }
+            
+            // Send death message to the victim
+            if (victim.getCharacterId() != null) {
+                sendToPlayer(victim.getCharacterId(), 
+                    "You have been defeated! You narrowly escape death with 1 HP remaining.");
+            }
         }
         
-        // Send death message to the victim
-        if (victim.isPlayer() && victim.getCharacterId() != null) {
-            sendToPlayer(victim.getCharacterId(), 
-                "You have been defeated! You narrowly escape death with 1 HP remaining.");
+        // Handle mob death - spawn corpse and despawn mob
+        if (victim.isMobile()) {
+            Mobile mob = victim.getMobile();
+            if (mob != null) {
+                int roomId = combat.getRoomId();
+                String mobName = mob.getName();
+                
+                // Spawn a corpse in the room
+                try {
+                    ItemDAO itemDAO = new ItemDAO();
+                    long corpseId = itemDAO.createCorpse(roomId, mobName);
+                    if (corpseId > 0) {
+                        broadcastToRoom(roomId, mobName + " falls to the ground, leaving behind a corpse.");
+                    }
+                } catch (Exception e) {
+                    System.err.println("[CombatManager] Failed to create corpse for " + mobName + ": " + e.getMessage());
+                }
+                
+                // Mark the mob as dead and remove from the world
+                try {
+                    MobileDAO mobileDAO = new MobileDAO();
+                    mob.die();
+                    mobileDAO.deleteInstance(mob.getInstanceId());
+                } catch (Exception e) {
+                    System.err.println("[CombatManager] Failed to despawn mob " + mobName + ": " + e.getMessage());
+                }
+            }
         }
         
         // Award weapon skill proficiency to the killer if they are a player
@@ -362,6 +400,125 @@ public class CombatManager {
                 sendToPlayer(characterId, "Your " + familySkill.getName() + " skill improves! (" + result + "%)");
             }
         }
+    }
+    
+    /**
+     * Track damage taken for armor proficiency training.
+     * Records damage against each equipped armor category.
+     */
+    private void trackArmorDamage(Combatant target, int damage) {
+        if (!target.isPlayer() || target.getCharacterId() == null) {
+            return;
+        }
+        
+        CharacterDAO characterDAO = new CharacterDAO();
+        ItemDAO itemDAO = new ItemDAO();
+        Integer characterId = target.getCharacterId();
+        
+        // Get all equipped items and find armor categories
+        java.util.Map<Integer, Long> equipped = characterDAO.getEquipmentMapByCharacterId(characterId);
+        java.util.Set<ArmorCategory> wornCategories = new java.util.HashSet<>();
+        
+        for (Long instanceId : equipped.values()) {
+            if (instanceId == null) continue;
+            ItemInstance inst = itemDAO.getInstance(instanceId);
+            if (inst == null) continue;
+            ItemTemplate tmpl = itemDAO.getTemplateById(inst.templateId);
+            if (tmpl == null || !tmpl.isArmor()) continue;
+            
+            ArmorCategory category = tmpl.getArmorCategory();
+            if (category != null) {
+                wornCategories.add(category);
+            }
+        }
+        
+        // Record damage for each worn armor category
+        for (ArmorCategory category : wornCategories) {
+            target.recordArmorDamage(category, damage);
+        }
+    }
+    
+    /**
+     * Check if a player's armor proficiency should improve at end of combat.
+     * 
+     * For each armor category where damage taken >= max HP:
+     *   Roll 1d100 and compare to success threshold.
+     *   Success threshold = 1 / 2^max(0, skill% - level*2)
+     *   
+     * This creates diminishing returns: first 2% per level are guaranteed,
+     * then 50% chance, 25%, 12.5%, etc.
+     */
+    private void checkArmorProficiencyGain(Integer characterId, Combatant combatant) {
+        if (characterId == null) return;
+        
+        CharacterDAO characterDAO = new CharacterDAO();
+        
+        // Get character's max HP and level
+        Character character = combatant.getAsCharacter();
+        if (character == null) return;
+        
+        int maxHp = character.getHpMax();
+        if (maxHp <= 0) return;
+        
+        // Get character's class level for the proficiency cap
+        CharacterClassDAO classDAO = new CharacterClassDAO();
+        Integer currentClassId = classDAO.getCharacterCurrentClassId(characterId);
+        int classLevel = 1;
+        if (currentClassId != null) {
+            classLevel = Math.max(1, classDAO.getCharacterClassLevel(characterId, currentClassId));
+        }
+        
+        // Check each armor category with accumulated damage
+        java.util.Map<ArmorCategory, Integer> damageCounters = combatant.getArmorDamageCounters();
+        
+        for (java.util.Map.Entry<ArmorCategory, Integer> entry : damageCounters.entrySet()) {
+            ArmorCategory category = entry.getKey();
+            int damageTaken = entry.getValue();
+            
+            // Must have taken at least max HP worth of damage
+            if (damageTaken < maxHp) {
+                continue;
+            }
+            
+            // Look up the skill for this armor category
+            String skillKey = category.getSkillKey();
+            Skill armorSkill = characterDAO.getSkillByKey(skillKey);
+            if (armorSkill == null) {
+                continue;
+            }
+            
+            // Check if character has this skill
+            CharacterSkill charSkill = characterDAO.getCharacterSkill(characterId, armorSkill.getId());
+            if (charSkill == null) {
+                continue; // Must have the skill to improve it
+            }
+            
+            int currentProficiency = charSkill.getProficiency();
+            if (currentProficiency >= CharacterSkill.MAX_PROFICIENCY) {
+                continue; // Already mastered
+            }
+            
+            // Calculate success chance: 1 / 2^max(0, skill% - level*2)
+            // Example: Level 4, skill 7% -> 1/2^max(0, 7-8) = 1/2^0 = 100%
+            // Example: Level 4, skill 10% -> 1/2^max(0, 10-8) = 1/2^2 = 25%
+            int exponent = Math.max(0, currentProficiency - (classLevel * 2));
+            double successChance = 1.0 / Math.pow(2, exponent);
+            int successThreshold = (int) Math.round(successChance * 100); // Convert to 1-100 scale
+            
+            // Roll 1d100
+            int roll = (int)(Math.random() * 100) + 1;
+            
+            if (roll <= successThreshold) {
+                // Success! Increase proficiency by 1%
+                int newProficiency = characterDAO.increaseSkillProficiency(characterId, armorSkill.getId(), 1);
+                if (newProficiency > 0) {
+                    sendToPlayer(characterId, "Your " + armorSkill.getName() + " skill improves! (" + newProficiency + "%)");
+                }
+            }
+        }
+        
+        // Reset counters after check
+        combatant.resetArmorDamageCounters();
     }
     
     /**
@@ -471,6 +628,13 @@ public class CombatManager {
      */
     public void endCombat(Combat combat) {
         if (!combat.hasEnded()) {
+            // Check for armor proficiency improvements before ending
+            for (Combatant c : combat.getCombatants()) {
+                if (c.isPlayer() && c.getCharacterId() != null) {
+                    checkArmorProficiencyGain(c.getCharacterId(), c);
+                }
+            }
+            
             combat.end();
             broadcastToRoom(combat.getRoomId(), "=== Combat has ended ===");
         }

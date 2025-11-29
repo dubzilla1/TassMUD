@@ -1,6 +1,8 @@
 package com.example.tassmud.net;
 
 import com.example.tassmud.combat.CombatManager;
+import com.example.tassmud.event.EventScheduler;
+import com.example.tassmud.event.SpawnManager;
 import com.example.tassmud.persistence.*;
 import com.example.tassmud.util.*;
 import java.io.IOException;
@@ -99,11 +101,26 @@ public class Server {
             ClientHandler.sendToCharacter(charId, message);
         });
 
+        // Initialize event scheduler for spawn system
+        EventScheduler eventScheduler = EventScheduler.getInstance();
+        eventScheduler.initialize(tickService);
+        
+        // Start all registered spawns (spawns were registered during DataLoader.loadDefaults)
+        SpawnManager spawnManager = SpawnManager.getInstance();
+        if (spawnManager.getSpawnCount() > 0) {
+            // Trigger initial spawns to populate the world
+            spawnManager.triggerInitialSpawns();
+            // Schedule recurring spawns
+            spawnManager.scheduleAllSpawns();
+        }
+
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;
         final CombatManager combatManagerRef = combatManager;
+        final EventScheduler eventSchedulerRef = eventScheduler;
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Shutdown hook: stopping combat, clock, tick service and thread pool...");
+            System.out.println("Shutdown hook: stopping combat, clock, event scheduler, tick service and thread pool...");
+            try { eventSchedulerRef.shutdown(); } catch (Exception ignored) {}
             try { combatManagerRef.shutdown(); } catch (Exception ignored) {}
             try { gameClockRef.shutdown(); } catch (Exception ignored) {}
             try { tickService.shutdown(); } catch (Exception ignored) {}

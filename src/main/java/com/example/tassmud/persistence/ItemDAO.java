@@ -16,6 +16,23 @@ public class ItemDAO {
     public ItemDAO() {
         ensureTables();
     }
+    
+    /**
+     * Parse comma-separated type string from DB into a list of types.
+     * Handles null/empty strings gracefully.
+     */
+    private static List<String> parseTypesFromDb(String typeStr) {
+        List<String> types = new ArrayList<>();
+        if (typeStr != null && !typeStr.isBlank()) {
+            for (String t : typeStr.split(",")) {
+                String trimmed = t.trim().toLowerCase();
+                if (!trimmed.isEmpty()) {
+                    types.add(trimmed);
+                }
+            }
+        }
+        return types;
+    }
 
     private void ensureTables() {
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -44,6 +61,12 @@ public class ItemDAO {
             System.out.println("Migration: ensured column item_template.weapon_category");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS weapon_family VARCHAR(50)");
             System.out.println("Migration: ensured column item_template.weapon_family");
+            s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS armor_category VARCHAR(50)");
+            System.out.println("Migration: ensured column item_template.armor_category");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS custom_name VARCHAR(500)");
+            System.out.println("Migration: ensured column item_instance.custom_name");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS custom_description VARCHAR(4000)");
+            System.out.println("Migration: ensured column item_instance.custom_description");
         } catch (SQLException e) {
             // Best-effort migration; log but don't fail startup
             System.err.println("Warning: failed to run item table migrations: " + e.getMessage());
@@ -77,7 +100,26 @@ public class ItemDAO {
                     for (Object o : (java.util.List<?>) kObj) if (o != null) keywords.add(o.toString());
                 } else if (kObj != null) keywords.add(kObj.toString());
 
-                String type = str(item.get("type"));
+                // Support both "type" (single) and "types" (list)
+                // "types" list takes precedence if present
+                java.util.List<String> types = new java.util.ArrayList<>();
+                Object typesObj = item.get("types");
+                if (typesObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) typesObj) {
+                        if (o != null && !o.toString().isBlank()) {
+                            types.add(o.toString().trim().toLowerCase());
+                        }
+                    }
+                }
+                // Fall back to single "type" if "types" not provided
+                if (types.isEmpty()) {
+                    String singleType = str(item.get("type"));
+                    if (singleType != null && !singleType.isBlank()) {
+                        types.add(singleType.trim().toLowerCase());
+                    }
+                }
+                // For DB storage, join types with comma (backwards compat with "type" column)
+                String type = types.isEmpty() ? null : String.join(",", types);
                 String subtype = str(item.get("subtype"));
                 // slot may be expressed as equip_slot_id or slot key
                 String slot = null;
@@ -107,6 +149,9 @@ public class ItemDAO {
                 // Weapon categorization
                 String weaponCategoryStr = str(item.get("weapon_category"));
                 String weaponFamilyStr = str(item.get("weapon_family"));
+                
+                // Armor categorization
+                String armorCategoryStr = str(item.get("armor_category"));
 
                 // Serialize the original map into a compact YAML/JSON string for storage
                 String templateJson = null;
@@ -116,7 +161,7 @@ public class ItemDAO {
                 } catch (Exception e) { templateJson = null; }
 
                  try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
                     ps.setInt(1, id);
                     ps.setString(2, key);
                     ps.setString(3, name);
@@ -150,6 +195,7 @@ public class ItemDAO {
                     if (templateJson == null) ps.setNull(31, Types.CLOB); else ps.setString(31, templateJson);
                     ps.setString(32, weaponCategoryStr);
                     ps.setString(33, weaponFamilyStr);
+                    ps.setString(34, armorCategoryStr);
                     ps.executeUpdate();
                 }
             }
@@ -237,9 +283,86 @@ public class ItemDAO {
                 Integer room = (Integer) rs.getObject("location_room_id");
                 Integer owner = (Integer) rs.getObject("owner_character_id");
                 Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
-                return new ItemInstance(rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, rs.getLong("created_at"));
+                String customName = rs.getString("custom_name");
+                String customDesc = rs.getString("custom_description");
+                return new ItemInstance(rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, rs.getLong("created_at"), customName, customDesc);
             }
         } catch (SQLException e) { throw new RuntimeException(e); }
+    }
+
+    // --- Corpse-related methods ---
+    
+    /** The template ID for corpse items (defined in items.yaml) */
+    public static final int CORPSE_TEMPLATE_ID = 999;
+    
+    /**
+     * Create a corpse item in a room with custom name and description.
+     * The corpse acts as a container for loot.
+     * @param roomId The room where the corpse spawns
+     * @param mobName The name of the mob that died (used for name/description)
+     * @return The instance ID of the created corpse
+     */
+    public long createCorpse(int roomId, String mobName) {
+        String customName = "The corpse of " + mobName;
+        String customDesc = "The corpse of " + mobName + " lies here.";
+        
+        long now = System.currentTimeMillis();
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(
+                 "INSERT INTO item_instance (template_id, location_room_id, owner_character_id, container_instance_id, created_at, custom_name, custom_description) VALUES (?,?,?,?,?,?,?)",
+                 Statement.RETURN_GENERATED_KEYS)) {
+            ps.setInt(1, CORPSE_TEMPLATE_ID);
+            ps.setInt(2, roomId);
+            ps.setNull(3, Types.INTEGER);
+            ps.setNull(4, Types.BIGINT);
+            ps.setLong(5, now);
+            ps.setString(6, customName);
+            ps.setString(7, customDesc);
+            ps.executeUpdate();
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) return rs.getLong(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create corpse: " + e.getMessage(), e);
+        }
+        return -1;
+    }
+    
+    /**
+     * Delete all empty corpses (corpses with no items inside) from a specific room.
+     * @param roomId The room to clean up
+     * @return Number of corpses deleted
+     */
+    public int deleteEmptyCorpsesInRoom(int roomId) {
+        // Find corpses that have no items inside
+        String sql = "DELETE FROM item_instance WHERE template_id = ? AND location_room_id = ? " +
+                     "AND instance_id NOT IN (SELECT DISTINCT container_instance_id FROM item_instance WHERE container_instance_id IS NOT NULL)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, CORPSE_TEMPLATE_ID);
+            ps.setInt(2, roomId);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("[ItemDAO] Failed to delete empty corpses: " + e.getMessage());
+            return 0;
+        }
+    }
+    
+    /**
+     * Delete all empty corpses from the game world.
+     * @return Number of corpses deleted
+     */
+    public int deleteAllEmptyCorpses() {
+        String sql = "DELETE FROM item_instance WHERE template_id = ? " +
+                     "AND instance_id NOT IN (SELECT DISTINCT container_instance_id FROM item_instance WHERE container_instance_id IS NOT NULL)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, CORPSE_TEMPLATE_ID);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("[ItemDAO] Failed to delete all empty corpses: " + e.getMessage());
+            return 0;
+        }
     }
 
     // --- Equipment-related helpers ---
@@ -361,7 +484,7 @@ public class ItemDAO {
                     rs.getInt("template_value"),
                     null, // traits (not hydrated here)
                     null, // keywords (not hydrated here)
-                    rs.getString("type"),
+                    parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
                     rs.getString("subtype"),
                     rs.getString("slot"),
                     rs.getInt("capacity"),
@@ -385,7 +508,8 @@ public class ItemDAO {
                     rs.getString("spell_effect_id_4"),
                     rs.getString("template_json"),
                     WeaponCategory.fromString(rs.getString("weapon_category")),
-                    WeaponFamily.fromString(rs.getString("weapon_family"))
+                    WeaponFamily.fromString(rs.getString("weapon_family")),
+                    ArmorCategory.fromString(rs.getString("armor_category"))
                 );
             }
         } catch (SQLException e) {
@@ -419,13 +543,13 @@ public class ItemDAO {
     // Get all item instances in a room, joined with their templates
     public List<RoomItem> getItemsInRoom(int roomId) {
         List<RoomItem> result = new ArrayList<>();
-        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, " +
+        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, " +
                      "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
                      "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.location_room_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -436,11 +560,14 @@ public class ItemDAO {
                     Integer locRoom = (Integer) rs.getObject("location_room_id");
                     Integer owner = (Integer) rs.getObject("owner_character_id");
                     Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
+                    String customName = rs.getString("custom_name");
+                    String customDesc = rs.getString("custom_description");
                     ItemInstance inst = new ItemInstance(
                         rs.getLong("instance_id"),
                         rs.getInt("template_id"),
                         locRoom, owner, container,
-                        rs.getLong("created_at")
+                        rs.getLong("created_at"),
+                        customName, customDesc
                     );
                     // Parse traits and keywords from comma-separated strings
                     List<String> traits = new ArrayList<>();
@@ -462,7 +589,7 @@ public class ItemDAO {
                         rs.getInt("template_value"),
                         traits,
                         keywords,
-                        rs.getString("type"),
+                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
                         rs.getString("subtype"),
                         rs.getString("slot"),
                         rs.getInt("capacity"),
@@ -486,7 +613,8 @@ public class ItemDAO {
                         rs.getString("spell_effect_id_4"),
                         rs.getString("template_json"),
                         WeaponCategory.fromString(rs.getString("weapon_category")),
-                        WeaponFamily.fromString(rs.getString("weapon_family"))
+                        WeaponFamily.fromString(rs.getString("weapon_family")),
+                        ArmorCategory.fromString(rs.getString("armor_category"))
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }
@@ -506,7 +634,7 @@ public class ItemDAO {
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.owner_character_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -543,7 +671,7 @@ public class ItemDAO {
                         rs.getInt("template_value"),
                         traits,
                         keywords,
-                        rs.getString("type"),
+                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
                         rs.getString("subtype"),
                         rs.getString("slot"),
                         rs.getInt("capacity"),
@@ -567,13 +695,99 @@ public class ItemDAO {
                         rs.getString("spell_effect_id_4"),
                         rs.getString("template_json"),
                         WeaponCategory.fromString(rs.getString("weapon_category")),
-                        WeaponFamily.fromString(rs.getString("weapon_family"))
+                        WeaponFamily.fromString(rs.getString("weapon_family")),
+                        ArmorCategory.fromString(rs.getString("armor_category"))
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }
             }
         } catch (SQLException e) {
             throw new RuntimeException("Failed to get items for character: " + e.getMessage(), e);
+        }
+        return result;
+    }
+
+    // Get all item instances inside a container, joined with their templates
+    public List<RoomItem> getItemsInContainer(long containerInstanceId) {
+        List<RoomItem> result = new ArrayList<>();
+        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, " +
+                     "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
+                     "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
+                     "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
+                     "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
+                     "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category " +
+                     "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
+                     "WHERE i.container_instance_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, containerInstanceId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Integer locRoom = (Integer) rs.getObject("location_room_id");
+                    Integer owner = (Integer) rs.getObject("owner_character_id");
+                    Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
+                    String customName = rs.getString("custom_name");
+                    String customDesc = rs.getString("custom_description");
+                    ItemInstance inst = new ItemInstance(
+                        rs.getLong("instance_id"),
+                        rs.getInt("template_id"),
+                        locRoom, owner, container,
+                        rs.getLong("created_at"),
+                        customName, customDesc
+                    );
+                    // Parse traits and keywords from comma-separated strings
+                    List<String> traits = new ArrayList<>();
+                    List<String> keywords = new ArrayList<>();
+                    String traitsStr = rs.getString("traits");
+                    String keywordsStr = rs.getString("keywords");
+                    if (traitsStr != null && !traitsStr.isEmpty()) {
+                        for (String s : traitsStr.split(",")) traits.add(s.trim());
+                    }
+                    if (keywordsStr != null && !keywordsStr.isEmpty()) {
+                        for (String s : keywordsStr.split(",")) keywords.add(s.trim());
+                    }
+                    ItemTemplate tmpl = new ItemTemplate(
+                        rs.getInt("tid"),
+                        rs.getString("template_key"),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        rs.getDouble("weight"),
+                        rs.getInt("template_value"),
+                        traits,
+                        keywords,
+                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
+                        rs.getString("subtype"),
+                        rs.getString("slot"),
+                        rs.getInt("capacity"),
+                        rs.getInt("hand_count"),
+                        rs.getBoolean("indestructable"),
+                        rs.getBoolean("magical"),
+                        rs.getInt("max_items"),
+                        rs.getInt("max_weight"),
+                        rs.getInt("armor_save_bonus"),
+                        rs.getInt("fort_save_bonus"),
+                        rs.getInt("ref_save_bonus"),
+                        rs.getInt("will_save_bonus"),
+                        rs.getInt("base_die"),
+                        rs.getInt("multiplier"),
+                        rs.getInt("hands"),
+                        rs.getString("ability_score"),
+                        rs.getDouble("ability_multiplier"),
+                        rs.getString("spell_effect_id_1"),
+                        rs.getString("spell_effect_id_2"),
+                        rs.getString("spell_effect_id_3"),
+                        rs.getString("spell_effect_id_4"),
+                        rs.getString("template_json"),
+                        WeaponCategory.fromString(rs.getString("weapon_category")),
+                        WeaponFamily.fromString(rs.getString("weapon_family")),
+                        ArmorCategory.fromString(rs.getString("armor_category"))
+                    );
+                    result.add(new RoomItem(inst, tmpl));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to get items in container: " + e.getMessage(), e);
         }
         return result;
     }
@@ -601,7 +815,7 @@ public class ItemDAO {
                         rs.getInt("template_value"),
                         null, // traits
                         null, // keywords
-                        rs.getString("type"),
+                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
                         rs.getString("subtype"),
                         rs.getString("slot"),
                         rs.getInt("capacity"),
@@ -625,7 +839,8 @@ public class ItemDAO {
                         rs.getString("spell_effect_id_4"),
                         rs.getString("template_json"),
                         WeaponCategory.fromString(rs.getString("weapon_category")),
-                        WeaponFamily.fromString(rs.getString("weapon_family"))
+                        WeaponFamily.fromString(rs.getString("weapon_family")),
+                        ArmorCategory.fromString(rs.getString("armor_category"))
                     ));
                 }
             }

@@ -11,6 +11,7 @@ public class Mobile extends Character {
     
     private final long instanceId;         // Unique instance ID
     private final int templateId;          // Reference to MobileTemplate
+    private final int level;               // Mob's level (from template)
     
     // Combat state
     private Integer targetCharacterId;     // Current combat target (player character ID)
@@ -61,6 +62,7 @@ public class Mobile extends Character {
         
         this.instanceId = instanceId;
         this.templateId = template.getId();
+        this.level = template.getLevel();
         this.spawnRoomId = spawnRoomId;
         this.spawnedAt = System.currentTimeMillis();
         this.isDead = false;
@@ -78,7 +80,7 @@ public class Mobile extends Character {
     /**
      * Create a Mobile instance with explicit values (for loading from DB).
      */
-    public Mobile(long instanceId, int templateId, String name, String description,
+    public Mobile(long instanceId, int templateId, int level, String name, String description,
                   int hpMax, int hpCur, int mpMax, int mpCur, int mvMax, int mvCur,
                   Integer currentRoom, Integer spawnRoomId,
                   int str, int dex, int con, int intel, int wis, int cha,
@@ -91,6 +93,7 @@ public class Mobile extends Character {
         
         this.instanceId = instanceId;
         this.templateId = templateId;
+        this.level = level;
         this.spawnRoomId = spawnRoomId;
         this.spawnedAt = spawnedAt;
         this.isDead = isDead;
@@ -106,6 +109,7 @@ public class Mobile extends Character {
     // Instance-specific getters
     public long getInstanceId() { return instanceId; }
     public int getTemplateId() { return templateId; }
+    public int getLevel() { return level; }
     public Integer getSpawnRoomId() { return spawnRoomId; }
     public long getSpawnedAt() { return spawnedAt; }
     

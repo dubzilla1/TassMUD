@@ -1,32 +1,39 @@
 # Item Template YAML
-# Instructions: Each item entry should specify its type and only the fields relevant to that type.
+# Instructions: Each item entry should specify its type(s) and only the fields relevant to those types.
+#
+# Multi-Type Support:
+#   Items can have multiple types using the "types" field with a YAML list:
+#     types: [container, immobile]
+#   For backwards compatibility, single "type" field is still supported:
+#     type: container
 #
 # Available fields by type:
 #
 # trash:
-#   id, key, name, description, weight, value, type
+#   id, key, name, description, weight, value, type/types
 #
 # immobile:
-#   id, key, name, description, weight, value, type, indestructable (bool), magical (bool), spell_effect_id_1-4
+#   id, key, name, description, weight, value, type/types, indestructable (bool), magical (bool), spell_effect_id_1-4
 #
 # container:
-#   id, key, name, description, weight, value, type, max_items (int), max_weight (int), spell_effect_id_1-4
+#   id, key, name, description, weight, value, type/types, max_items (int), max_weight (int), spell_effect_id_1-4
 #
 # inventory:
-#   id, key, name, description, weight, value, type, spell_effect_id_1-4
+#   id, key, name, description, weight, value, type/types, spell_effect_id_1-4
 #
 # armor:
-#   id, key, name, description, weight, value, type, slot, armor_save_bonus, fort_save_bonus, ref_save_bonus, will_save_bonus, spell_effect_id_1-4
+#   id, key, name, description, weight, value, type/types, slot, armor_category (CLOTH/LEATHER/MAIL/PLATE/OTHER),
+#   armor_save_bonus, fort_save_bonus, ref_save_bonus, will_save_bonus, spell_effect_id_1-4
 #
 # shield:
-#   id, key, name, description, weight, value, type, armor_save_bonus, fort_save_bonus, ref_save_bonus, will_save_bonus, spell_effect_id_1-4
+#   id, key, name, description, weight, value, type/types, armor_save_bonus, fort_save_bonus, ref_save_bonus, will_save_bonus, spell_effect_id_1-4
 #   NOTE: Shields equip to off-hand and provide defensive bonuses
 #
 # held:
-#   id, key, name, description, weight, value, type, hands (int), spell_effect_id_1-4
+#   id, key, name, description, weight, value, type/types, hands (int), spell_effect_id_1-4
 #
 # weapon:
-#   id, key, name, description, weight, value, type, hands (int), base_die (int), multiplier (int), ability_score (string), ability_multiplier (decimal), spell_effect_id_1-4
+#   id, key, name, description, weight, value, type/types, hands (int), base_die (int), multiplier (int), ability_score (string), ability_multiplier (decimal), spell_effect_id_1-4
 #   NOTE: weapons with hands=1 go to main_hand; hands=2 occupies both main_hand and off_hand
 #
 # Example items:
@@ -71,6 +78,7 @@ items:
     value: 10
     type: armor
     slot: head
+    armor_category: LEATHER
     armor_save_bonus: 2
     fort_save_bonus: 1
     ref_save_bonus: 0
@@ -109,6 +117,7 @@ items:
     value: 5
     type: armor
     slot: head
+    armor_category: CLOTH
     armor_save_bonus: 1
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -122,6 +131,7 @@ items:
     value: 5
     type: armor
     slot: shoulders
+    armor_category: CLOTH
     armor_save_bonus: 1
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -135,6 +145,7 @@ items:
     value: 10
     type: armor
     slot: chest
+    armor_category: CLOTH
     armor_save_bonus: 2
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -148,6 +159,7 @@ items:
     value: 4
     type: armor
     slot: arms
+    armor_category: CLOTH
     armor_save_bonus: 1
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -161,6 +173,7 @@ items:
     value: 3
     type: armor
     slot: hands
+    armor_category: CLOTH
     armor_save_bonus: 0
     fort_save_bonus: 0
     ref_save_bonus: 1
@@ -174,6 +187,7 @@ items:
     value: 4
     type: armor
     slot: waist
+    armor_category: CLOTH
     armor_save_bonus: 0
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -187,6 +201,7 @@ items:
     value: 6
     type: armor
     slot: legs
+    armor_category: CLOTH
     armor_save_bonus: 1
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -200,6 +215,7 @@ items:
     value: 4
     type: armor
     slot: boots
+    armor_category: CLOTH
     armor_save_bonus: 0
     fort_save_bonus: 0
     ref_save_bonus: 1
@@ -213,6 +229,7 @@ items:
     value: 8
     type: armor
     slot: back
+    armor_category: CLOTH
     armor_save_bonus: 1
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -226,6 +243,7 @@ items:
     value: 5
     type: armor
     slot: neck
+    armor_category: CLOTH
     armor_save_bonus: 0
     fort_save_bonus: 0
     ref_save_bonus: 0
@@ -242,6 +260,7 @@ items:
     value: 15
     type: armor
     slot: head
+    armor_category: LEATHER
     armor_save_bonus: 3
     fort_save_bonus: 1
     ref_save_bonus: 1
@@ -255,6 +274,7 @@ items:
     value: 18
     type: armor
     slot: shoulders
+    armor_category: LEATHER
     armor_save_bonus: 3
     fort_save_bonus: 1
     ref_save_bonus: 1
@@ -268,6 +288,7 @@ items:
     value: 30
     type: armor
     slot: chest
+    armor_category: LEATHER
     armor_save_bonus: 5
     fort_save_bonus: 1
     ref_save_bonus: 2
@@ -281,6 +302,7 @@ items:
     value: 12
     type: armor
     slot: arms
+    armor_category: LEATHER
     armor_save_bonus: 2
     fort_save_bonus: 0
     ref_save_bonus: 2
@@ -294,6 +316,7 @@ items:
     value: 10
     type: armor
     slot: hands
+    armor_category: LEATHER
     armor_save_bonus: 1
     fort_save_bonus: 0
     ref_save_bonus: 2
@@ -307,6 +330,7 @@ items:
     value: 8
     type: armor
     slot: waist
+    armor_category: LEATHER
     armor_save_bonus: 1
     fort_save_bonus: 1
     ref_save_bonus: 1
@@ -320,6 +344,7 @@ items:
     value: 22
     type: armor
     slot: legs
+    armor_category: LEATHER
     armor_save_bonus: 3
     fort_save_bonus: 1
     ref_save_bonus: 2
@@ -333,6 +358,7 @@ items:
     value: 18
     type: armor
     slot: boots
+    armor_category: LEATHER
     armor_save_bonus: 2
     fort_save_bonus: 0
     ref_save_bonus: 3
@@ -346,6 +372,7 @@ items:
     value: 15
     type: armor
     slot: back
+    armor_category: LEATHER
     armor_save_bonus: 2
     fort_save_bonus: 0
     ref_save_bonus: 2
@@ -359,6 +386,7 @@ items:
     value: 12
     type: armor
     slot: neck
+    armor_category: LEATHER
     armor_save_bonus: 2
     fort_save_bonus: 1
     ref_save_bonus: 1
@@ -375,6 +403,7 @@ items:
     value: 40
     type: armor
     slot: head
+    armor_category: MAIL
     armor_save_bonus: 5
     fort_save_bonus: 2
     ref_save_bonus: 0
@@ -388,6 +417,7 @@ items:
     value: 45
     type: armor
     slot: shoulders
+    armor_category: MAIL
     armor_save_bonus: 5
     fort_save_bonus: 2
     ref_save_bonus: 0
@@ -401,6 +431,7 @@ items:
     value: 100
     type: armor
     slot: chest
+    armor_category: MAIL
     armor_save_bonus: 8
     fort_save_bonus: 3
     ref_save_bonus: 0
@@ -414,6 +445,7 @@ items:
     value: 35
     type: armor
     slot: arms
+    armor_category: MAIL
     armor_save_bonus: 4
     fort_save_bonus: 1
     ref_save_bonus: 0
@@ -427,6 +459,7 @@ items:
     value: 30
     type: armor
     slot: hands
+    armor_category: MAIL
     armor_save_bonus: 3
     fort_save_bonus: 1
     ref_save_bonus: 0
@@ -440,6 +473,7 @@ items:
     value: 28
     type: armor
     slot: waist
+    armor_category: MAIL
     armor_save_bonus: 3
     fort_save_bonus: 2
     ref_save_bonus: 0
@@ -453,6 +487,7 @@ items:
     value: 60
     type: armor
     slot: legs
+    armor_category: MAIL
     armor_save_bonus: 6
     fort_save_bonus: 2
     ref_save_bonus: 0
@@ -466,6 +501,7 @@ items:
     value: 40
     type: armor
     slot: boots
+    armor_category: MAIL
     armor_save_bonus: 4
     fort_save_bonus: 1
     ref_save_bonus: 0
@@ -479,6 +515,7 @@ items:
     value: 55
     type: armor
     slot: back
+    armor_category: MAIL
     armor_save_bonus: 4
     fort_save_bonus: 2
     ref_save_bonus: 0
@@ -492,6 +529,7 @@ items:
     value: 35
     type: armor
     slot: neck
+    armor_category: MAIL
     armor_save_bonus: 4
     fort_save_bonus: 2
     ref_save_bonus: 0
@@ -508,6 +546,7 @@ items:
     value: 80
     type: armor
     slot: head
+    armor_category: PLATE
     armor_save_bonus: 8
     fort_save_bonus: 3
     ref_save_bonus: -1
@@ -521,6 +560,7 @@ items:
     value: 90
     type: armor
     slot: shoulders
+    armor_category: PLATE
     armor_save_bonus: 8
     fort_save_bonus: 3
     ref_save_bonus: -1
@@ -534,6 +574,7 @@ items:
     value: 200
     type: armor
     slot: chest
+    armor_category: PLATE
     armor_save_bonus: 12
     fort_save_bonus: 4
     ref_save_bonus: -2
@@ -547,6 +588,7 @@ items:
     value: 60
     type: armor
     slot: arms
+    armor_category: PLATE
     armor_save_bonus: 6
     fort_save_bonus: 2
     ref_save_bonus: -1
@@ -560,6 +602,7 @@ items:
     value: 55
     type: armor
     slot: hands
+    armor_category: PLATE
     armor_save_bonus: 5
     fort_save_bonus: 2
     ref_save_bonus: -1
@@ -573,6 +616,7 @@ items:
     value: 70
     type: armor
     slot: waist
+    armor_category: PLATE
     armor_save_bonus: 5
     fort_save_bonus: 3
     ref_save_bonus: -1
@@ -586,6 +630,7 @@ items:
     value: 100
     type: armor
     slot: legs
+    armor_category: PLATE
     armor_save_bonus: 8
     fort_save_bonus: 3
     ref_save_bonus: -1
@@ -599,6 +644,7 @@ items:
     value: 75
     type: armor
     slot: boots
+    armor_category: PLATE
     armor_save_bonus: 6
     fort_save_bonus: 2
     ref_save_bonus: -1
@@ -612,6 +658,7 @@ items:
     value: 50
     type: armor
     slot: back
+    armor_category: CLOTH
     armor_save_bonus: 2
     fort_save_bonus: 1
     ref_save_bonus: 0
@@ -625,6 +672,7 @@ items:
     value: 60
     type: armor
     slot: neck
+    armor_category: PLATE
     armor_save_bonus: 6
     fort_save_bonus: 3
     ref_save_bonus: 0
@@ -1200,3 +1248,33 @@ items:
     fort_save_bonus: 1
     ref_save_bonus: 0
     will_save_bonus: 0
+
+  # Tutorial area containers
+  - id: 267
+    key: broken_weapons_chest
+    name: Broken Weapons Chest
+    description: A battered wooden chest filled with discarded practice weapons. Despite its worn appearance, it remains sturdy and cannot be moved.
+    weight: 100.0
+    value: 0
+    types: [container, immobile]
+    max_items: 20
+    max_weight: 50
+    indestructable: true
+
+  # ============================================================
+  # SYSTEM ITEMS (IDs 900-999)
+  # ============================================================
+  
+  # Corpse template - the base template for mob corpses.
+  # Instances use custom_name and custom_description to show the mob's name.
+  - id: 999
+    key: corpse
+    name: A corpse
+    description: The lifeless remains of a creature.
+    weight: 50.0
+    value: 0
+    types: [container, immobile]
+    max_items: 100
+    max_weight: 500
+    indestructable: false
+    keywords: [corpse, body, remains]
