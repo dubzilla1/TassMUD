@@ -5,6 +5,7 @@ import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.Character;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.CharacterSpell;
+import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Room;
@@ -88,6 +89,25 @@ public class CharacterDAO {
                 return null;
             }
             return null;
+        }
+        
+        /**
+         * Get all skills from the database.
+         */
+        public java.util.List<Skill> getAllSkills() {
+            java.util.List<Skill> skills = new java.util.ArrayList<>();
+            String sql = "SELECT id, skill_key, name, description, progression FROM skilltb ORDER BY name";
+            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                 PreparedStatement ps = c.prepareStatement(sql);
+                 ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Skill.SkillProgression prog = Skill.SkillProgression.fromString(rs.getString("progression"));
+                    skills.add(new Skill(rs.getInt("id"), rs.getString("name"), rs.getString("description"), prog));
+                }
+            } catch (SQLException e) {
+                // Return empty list on error
+            }
+            return skills;
         }
 
         // --- Spell DAO ---
@@ -789,14 +809,22 @@ public class CharacterDAO {
         return getEquipmentMapByCharacterId(id);
     }
 
-    // Recalculate equipment bonuses by summing stats from all equipped items and persist to DB
+    // Recalculate equipment bonuses by averaging stats across all equipment slots and persist to DB
+    // Empty slots and weapons count as 0 in the average (allows future armor-on-weapons and shields)
     // Armor bonuses are scaled by proficiency: effectiveness = 50% + proficiency%
     public boolean recalculateEquipmentBonuses(int characterId, ItemDAO itemDao) {
         java.util.Map<Integer, Long> equipped = getEquipmentMapByCharacterId(characterId);
-        int armorBonus = 0, fortBonus = 0, reflexBonus = 0, willBonus = 0;
         
-        for (Long instanceId : equipped.values()) {
-            if (instanceId == null) continue;
+        // Total number of equipment slots (all slots count in the average, empty = 0)
+        int totalSlots = EquipmentSlot.values().length;
+        
+        // Sum up bonuses from all equipped items
+        int armorSum = 0, fortSum = 0, reflexSum = 0, willSum = 0;
+        
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            Long instanceId = equipped.get(slot.getId());
+            if (instanceId == null) continue; // Empty slot counts as 0
+            
             ItemInstance inst = itemDao.getInstance(instanceId);
             if (inst == null) continue;
             ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
@@ -822,11 +850,17 @@ public class CharacterDAO {
                 }
             }
             
-            armorBonus += effectiveArmorBonus;
-            fortBonus += tmpl.fortSaveBonus;
-            reflexBonus += tmpl.refSaveBonus;
-            willBonus += tmpl.willSaveBonus;
+            armorSum += effectiveArmorBonus;
+            fortSum += tmpl.fortSaveBonus;
+            reflexSum += tmpl.refSaveBonus;
+            willSum += tmpl.willSaveBonus;
         }
+        
+        // Calculate averages (round to nearest integer)
+        int armorBonus = Math.round((float) armorSum / totalSlots);
+        int fortBonus = Math.round((float) fortSum / totalSlots);
+        int reflexBonus = Math.round((float) reflexSum / totalSlots);
+        int willBonus = Math.round((float) willSum / totalSlots);
         
         String sql = "UPDATE characters SET armor_equip_bonus = ?, fortitude_equip_bonus = ?, reflex_equip_bonus = ?, will_equip_bonus = ? WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -1199,6 +1233,47 @@ public class CharacterDAO {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    /**
+     * Add to a character's max and current HP/MP/MV (used for level-up bonuses).
+     * Increases both max and current by the specified amounts.
+     */
+    public boolean addVitals(int characterId, int hpAdd, int mpAdd, int mvAdd) {
+        String sql = "UPDATE characters SET hp_max = hp_max + ?, hp_cur = hp_cur + ?, " +
+                     "mp_max = mp_max + ?, mp_cur = mp_cur + ?, " +
+                     "mv_max = mv_max + ?, mv_cur = mv_cur + ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, hpAdd);
+            ps.setInt(2, hpAdd);
+            ps.setInt(3, mpAdd);
+            ps.setInt(4, mpAdd);
+            ps.setInt(5, mvAdd);
+            ps.setInt(6, mvAdd);
+            ps.setInt(7, characterId);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.err.println("Failed to add vitals: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Restore a character to full HP/MP/MV (set current = max).
+     */
+    public boolean restoreVitals(int characterId) {
+        String sql = "UPDATE characters SET hp_cur = hp_max, mp_cur = mp_max, mv_cur = mv_max WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.err.println("Failed to restore vitals: " + e.getMessage());
             return false;
         }
     }

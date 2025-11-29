@@ -22,6 +22,7 @@ public class CommandRegistry {
         register("who", "List all players currently online", Category.INFORMATION);
         registerCombat("look", "Look at your surroundings or examine something", Category.INFORMATION, List.of("l"));
         registerCombat("inventory", "List items you are carrying", Category.INFORMATION, List.of("i"));
+        registerCombat("skills", "List skills you have learned", Category.INFORMATION);
         registerCombat("spells", "List spells you have learned", Category.INFORMATION);
         
         // ===== MOVEMENT =====
@@ -74,6 +75,8 @@ public class CommandRegistry {
         registerGm("ifind", "Find all instances of an item template");
         registerGm("ilist", "Search item templates by name");
         registerGm("peace", "End all combat in the current room");
+        registerGm("promote", "Level up a character");
+        registerGm("restore", "Restore a character's HP/MP/MV to full");
         registerGm("spawn", "Create item or mob instances");
         registerGm("system", "Send a system-wide announcement");
     }

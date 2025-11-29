@@ -95,10 +95,22 @@ public class Server {
         combatManager.initialize(tickService);
         // Set up message callbacks for combat
         combatManager.setRoomMessageCallback((roomId, message) -> {
-            ClientHandler.broadcastRoomMessage(roomId, "[COMBAT] " + message);
+            // Don't add [COMBAT] prefix to blank separator lines
+            if (message.isEmpty()) {
+                ClientHandler.broadcastRoomMessage(roomId, "");
+            } else {
+                ClientHandler.broadcastRoomMessage(roomId, "[COMBAT] " + message);
+                // When combat ends, send prompts to all players in the room
+                if (message.contains("Combat has ended")) {
+                    ClientHandler.sendPromptsToRoom(roomId);
+                }
+            }
         });
         combatManager.setPlayerMessageCallback((charId, message) -> {
             ClientHandler.sendToCharacter(charId, message);
+        });
+        combatManager.setPlayerPromptCallback((charId) -> {
+            ClientHandler.sendPromptToCharacter(charId);
         });
 
         // Initialize event scheduler for spawn system

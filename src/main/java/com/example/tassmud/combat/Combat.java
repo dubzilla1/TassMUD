@@ -62,6 +62,9 @@ public class Combat {
     /** Duration of a combat round in milliseconds (2-4 seconds, we'll use 3) */
     public static final long ROUND_DURATION_MS = 3000;
     
+    /** Whether prompts have been sent for the current completed round */
+    private boolean promptsSentForRound = false;
+    
     /**
      * Create a new combat in the specified room.
      */
@@ -96,6 +99,12 @@ public class Combat {
     
     public int getCurrentRound() { return currentRound; }
     
+    /** Check if prompts have been sent for this completed round */
+    public boolean isPromptsSentForRound() { return promptsSentForRound; }
+    
+    /** Mark prompts as sent for this completed round */
+    public void setPromptsSentForRound(boolean sent) { this.promptsSentForRound = sent; }
+
     /**
      * Check if it's time for the next round.
      */
@@ -286,6 +295,7 @@ public class Combat {
         roundStartedAt = System.currentTimeMillis();
         roundResults.clear();
         currentTurnIndex = 0;
+        promptsSentForRound = false; // Reset for the new round
         
         logEvent("--- Round " + currentRound + " ---");
         

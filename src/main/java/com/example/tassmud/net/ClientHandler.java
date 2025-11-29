@@ -53,6 +53,8 @@ public class ClientHandler implements Runnable {
     private volatile String playerName = null;
     private volatile Integer currentRoomId = null;
     private volatile Integer characterId = null;
+    private volatile String promptFormat = "<%h/%Hhp %m/%Mmp %v/%Vmv> ";
+    
     public ClientHandler(Socket socket, GameClock gameClock) {
         this.socket = socket;
         this.gameClock = gameClock;
@@ -194,6 +196,49 @@ public class ClientHandler implements Runnable {
     }
     
     /**
+     * Send a formatted prompt to a specific character by their character ID.
+     * Called by combat system after each round to let players know they can input commands.
+     */
+    public static void sendPromptToCharacter(Integer characterId) {
+        if (characterId == null) return;
+        ClientHandler handler = charIdToSession.get(characterId);
+        if (handler != null) {
+            handler.sendPrompt();
+        }
+    }
+    
+    /**
+     * Send prompts to all players in a specific room.
+     * Called when combat ends in a room.
+     */
+    public static void sendPromptsToRoom(Integer roomId) {
+        if (roomId == null) return;
+        for (ClientHandler s : sessions) {
+            Integer r = s.currentRoomId;
+            if (r != null && r.equals(roomId)) {
+                s.sendPrompt();
+            }
+        }
+    }
+
+    /**
+     * Send the formatted prompt to this client.
+     */
+    private void sendPrompt() {
+        try {
+            PrintWriter o = out;
+            if (o != null && playerName != null) {
+                CharacterDAO dao = new CharacterDAO();
+                CharacterRecord rec = dao.findByName(playerName);
+                String prompt = formatPrompt(promptFormat, rec, dao);
+                o.println();  // blank line for visual separation
+                o.print(prompt);
+                o.flush();
+            }
+        } catch (Exception ignored) {}
+    }
+    
+    /**
      * Get the character ID for a session by player name.
      */
     public static Integer getCharacterIdByName(String name) {
@@ -299,9 +344,6 @@ public class ClientHandler implements Runnable {
 
                 CharacterDAO dao = new CharacterDAO();
 
-                // session prompt format (modifiable per session)
-                String promptFormat = "<%h/%Hhp %m/%Mmp %v/%Vmv> ";
-
             // Login / character creation flow
             out = this.out; // local alias
             out.print("Enter character name: "); out.flush();
@@ -381,8 +423,9 @@ public class ClientHandler implements Runnable {
             while (true) {
                 // print blank line before prompt for cleaner separation
                 out.println();
-                // print formatted prompt
+                // print formatted prompt (reload rec to get fresh vitals)
                 try {
+                    rec = dao.findByName(name);
                     out.print(formatPrompt(promptFormat, rec, dao));
                     out.flush();
                 } catch (Exception e) {
@@ -805,7 +848,7 @@ public class ClientHandler implements Runnable {
                         }
                     }
                     case "cskill": {
-                        // GM-only: CSKILL <character> <skill_id> [amount]
+                        // GM-only: CSKILL <character> <skill_id> [amount]  OR  CSKILL LIST
                         // Grants a skill to a character at a given proficiency (default 100%)
                         if (rec == null) { out.println("No character record found."); break; }
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
@@ -815,13 +858,52 @@ public class ClientHandler implements Runnable {
                         String cskillArgs = cmd.getArgs();
                         if (cskillArgs == null || cskillArgs.trim().isEmpty()) {
                             out.println("Usage: CSKILL <character> <skill_id> [amount]");
+                            out.println("       CSKILL LIST - List all available skills");
                             out.println("  Grants a skill to a character at the specified proficiency.");
                             out.println("  Amount defaults to 100 (mastered) if not specified.");
                             break;
                         }
                         String[] cskillParts = cskillArgs.trim().split("\\s+");
+                        
+                        // Handle CSKILL LIST
+                        if (cskillParts[0].equalsIgnoreCase("list")) {
+                            java.util.List<Skill> allSkills = dao.getAllSkills();
+                            if (allSkills.isEmpty()) {
+                                out.println("No skills found in the database.");
+                                break;
+                            }
+                            
+                            out.println();
+                            out.println("===================================================================");
+                            out.println("                       AVAILABLE SKILLS");
+                            out.println("===================================================================");
+                            out.println();
+                            
+                            // Format: "SkillName (ID)" in 3 columns
+                            java.util.List<String> skillDisplays = new java.util.ArrayList<>();
+                            for (Skill sk : allSkills) {
+                                skillDisplays.add(String.format("%s (%d)", sk.getName(), sk.getId()));
+                            }
+                            
+                            // Print in rows of 3
+                            for (int i = 0; i < skillDisplays.size(); i += 3) {
+                                String c1 = skillDisplays.get(i);
+                                String c2 = (i + 1 < skillDisplays.size()) ? skillDisplays.get(i + 1) : "";
+                                String c3 = (i + 2 < skillDisplays.size()) ? skillDisplays.get(i + 2) : "";
+                                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                            }
+                            
+                            out.println();
+                            out.println("-------------------------------------------------------------------");
+                            out.println(String.format("  Total: %d skills", allSkills.size()));
+                            out.println("===================================================================");
+                            out.println();
+                            break;
+                        }
+                        
                         if (cskillParts.length < 2) {
                             out.println("Usage: CSKILL <character> <skill_id> [amount]");
+                            out.println("       CSKILL LIST - List all available skills");
                             break;
                         }
                         String targetCharName = cskillParts[0];
@@ -863,7 +945,7 @@ public class ClientHandler implements Runnable {
                         break;
                     }
                     case "cspell": {
-                        // GM-only: CSPELL <character> <spell_id> [amount]
+                        // GM-only: CSPELL <character> <spell_id> [amount]  OR  CSPELL LIST
                         // Grants a spell to a character at a given proficiency (default 100%)
                         if (rec == null) { out.println("No character record found."); break; }
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
@@ -873,13 +955,55 @@ public class ClientHandler implements Runnable {
                         String cspellArgs = cmd.getArgs();
                         if (cspellArgs == null || cspellArgs.trim().isEmpty()) {
                             out.println("Usage: CSPELL <character> <spell_id> [amount]");
+                            out.println("       CSPELL LIST - List all available spells");
                             out.println("  Grants a spell to a character at the specified proficiency.");
                             out.println("  Amount defaults to 100 (mastered) if not specified.");
                             break;
                         }
                         String[] cspellParts = cspellArgs.trim().split("\\s+");
+                        
+                        // Handle CSPELL LIST
+                        if (cspellParts[0].equalsIgnoreCase("list")) {
+                            java.util.List<Spell> allSpells = dao.getAllSpells();
+                            if (allSpells.isEmpty()) {
+                                out.println("No spells found in the database.");
+                                break;
+                            }
+                            
+                            // Sort alphabetically by name
+                            allSpells.sort((sp1, sp2) -> sp1.getName().compareToIgnoreCase(sp2.getName()));
+                            
+                            out.println();
+                            out.println("===================================================================");
+                            out.println("                       AVAILABLE SPELLS");
+                            out.println("===================================================================");
+                            out.println();
+                            
+                            // Format: "SpellName (ID)" in 3 columns
+                            java.util.List<String> spellDisplays = new java.util.ArrayList<>();
+                            for (Spell sp : allSpells) {
+                                spellDisplays.add(String.format("%s (%d)", sp.getName(), sp.getId()));
+                            }
+                            
+                            // Print in rows of 3
+                            for (int i = 0; i < spellDisplays.size(); i += 3) {
+                                String c1 = spellDisplays.get(i);
+                                String c2 = (i + 1 < spellDisplays.size()) ? spellDisplays.get(i + 1) : "";
+                                String c3 = (i + 2 < spellDisplays.size()) ? spellDisplays.get(i + 2) : "";
+                                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                            }
+                            
+                            out.println();
+                            out.println("-------------------------------------------------------------------");
+                            out.println(String.format("  Total: %d spells", allSpells.size()));
+                            out.println("===================================================================");
+                            out.println();
+                            break;
+                        }
+                        
                         if (cspellParts.length < 2) {
                             out.println("Usage: CSPELL <character> <spell_id> [amount]");
+                            out.println("       CSPELL LIST - List all available spells");
                             break;
                         }
                         String targetSpellCharName = cspellParts[0];
@@ -1569,6 +1693,155 @@ public class ClientHandler implements Runnable {
                         CombatManager.getInstance().endCombat(roomCombat);
                         out.println("You wave your hand and combat ceases.");
                         broadcastRoomMessage(rec.currentRoom, name + " waves their hand and all combat in the room ceases.");
+                        break;
+                    }
+                    case "restore": {
+                        // GM-only: RESTORE [character] - restore HP/MP/MV to full
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use restore.");
+                            break;
+                        }
+                        String restoreArgs = cmd.getArgs();
+                        String targetName = (restoreArgs == null || restoreArgs.trim().isEmpty()) 
+                            ? name : restoreArgs.trim();
+                        
+                        CharacterDAO.CharacterRecord targetRec = dao.findByName(targetName);
+                        if (targetRec == null) {
+                            out.println("Character '" + targetName + "' not found.");
+                            break;
+                        }
+                        
+                        // Restore to full
+                        dao.saveCharacterStateByName(targetName, 
+                            targetRec.hpMax, targetRec.mpMax, targetRec.mvMax, 
+                            targetRec.currentRoom);
+                        
+                        // If target is in combat, also update their combatant
+                        Integer targetCharId = dao.getCharacterIdByName(targetName);
+                        if (targetCharId != null) {
+                            Combat combat = CombatManager.getInstance().getCombatForCharacter(targetCharId);
+                            if (combat != null) {
+                                Combatant combatant = combat.findByCharacterId(targetCharId);
+                                if (combatant != null) {
+                                    Character c = combatant.getAsCharacter();
+                                    if (c != null) {
+                                        c.setHpCur(c.getHpMax());
+                                        c.setMpCur(c.getMpMax());
+                                        c.setMvCur(c.getMvMax());
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if (targetName.equalsIgnoreCase(name)) {
+                            out.println("You feel fully restored!");
+                        } else {
+                            out.println("You restore " + targetRec.name + " to full health.");
+                            // Notify target if online
+                            ClientHandler targetHandler = nameToSession.get(targetName.toLowerCase());
+                            if (targetHandler != null) {
+                                targetHandler.sendRaw("You feel a surge of divine energy and are fully restored!");
+                            }
+                        }
+                        break;
+                    }
+                    case "promote": {
+                        // GM-only: PROMOTE <char> [level_target]
+                        // Levels up a character. If level_target specified, levels them up to that level.
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use promote.");
+                            break;
+                        }
+                        String promoteArgs = cmd.getArgs();
+                        if (promoteArgs == null || promoteArgs.trim().isEmpty()) {
+                            out.println("Usage: PROMOTE <character> [level_target]");
+                            out.println("  Levels up a character once, or to the specified level.");
+                            break;
+                        }
+                        
+                        String[] promoteParts = promoteArgs.trim().split("\\s+");
+                        String promoteTargetName = promoteParts[0];
+                        Integer targetLevel = null;
+                        
+                        if (promoteParts.length > 1) {
+                            try {
+                                targetLevel = Integer.parseInt(promoteParts[1]);
+                            } catch (NumberFormatException e) {
+                                out.println("Invalid level target: " + promoteParts[1]);
+                                break;
+                            }
+                        }
+                        
+                        // Find character
+                        Integer promoteCharId = dao.getCharacterIdByName(promoteTargetName);
+                        if (promoteCharId == null) {
+                            out.println("Character '" + promoteTargetName + "' not found.");
+                            break;
+                        }
+                        
+                        CharacterClassDAO classDAO = new CharacterClassDAO();
+                        Integer promoteClassId = classDAO.getCharacterCurrentClassId(promoteCharId);
+                        if (promoteClassId == null) {
+                            out.println(promoteTargetName + " has no class assigned.");
+                            break;
+                        }
+                        
+                        int currentLevel = classDAO.getCharacterClassLevel(promoteCharId, promoteClassId);
+                        
+                        // Validate target level if specified
+                        if (targetLevel != null) {
+                            if (targetLevel < 1 || targetLevel > 60) {
+                                out.println("Level target must be between 1 and 60.");
+                                break;
+                            }
+                            if (targetLevel <= currentLevel) {
+                                out.println(promoteTargetName + " is already level " + currentLevel + 
+                                    ". Cannot promote to level " + targetLevel + " (demotion not implemented).");
+                                break;
+                            }
+                        } else {
+                            // Default: promote by one level
+                            targetLevel = currentLevel + 1;
+                            if (targetLevel > 60) {
+                                out.println(promoteTargetName + " is already at maximum level.");
+                                break;
+                            }
+                        }
+                        
+                        // Get target handler for messaging
+                        ClientHandler promoteTargetHandler = nameToSession.get(promoteTargetName.toLowerCase());
+                        java.util.function.Consumer<String> msgCallback = null;
+                        if (promoteTargetHandler != null) {
+                            final ClientHandler handler = promoteTargetHandler;
+                            msgCallback = msg -> handler.sendRaw(msg);
+                        }
+                        
+                        // Loop: set XP to 1000 and trigger level-up until we reach target level
+                        int levelsGained = 0;
+                        while (currentLevel < targetLevel) {
+                            // Set XP to trigger level-up
+                            boolean leveledUp = classDAO.addXpToCurrentClass(promoteCharId, CharacterClass.XP_PER_LEVEL);
+                            if (!leveledUp) {
+                                out.println("Failed to level up " + promoteTargetName + " (unexpected error).");
+                                break;
+                            }
+                            
+                            currentLevel++;
+                            levelsGained++;
+                            
+                            // Notify target of level-up
+                            if (promoteTargetHandler != null) {
+                                promoteTargetHandler.sendRaw("You have reached level " + currentLevel + "!");
+                            }
+                            
+                            // Process level-up benefits
+                            classDAO.processLevelUp(promoteCharId, currentLevel, msgCallback);
+                        }
+                        
+                        if (levelsGained > 0) {
+                            out.println("Promoted " + promoteTargetName + " by " + levelsGained + 
+                                " level(s) to level " + currentLevel + ".");
+                        }
                         break;
                     }
                     case "groupchat": {
@@ -2952,6 +3225,58 @@ public class ClientHandler implements Runnable {
                         if (!anySpells) {
                             out.println("You don't know any spells yet.");
                         }
+                        break;
+                    }
+                    case "skills": {
+                        // List all skills the character knows with proficiency %
+                        if (rec == null) {
+                            out.println("You must be logged in to view skills.");
+                            break;
+                        }
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        java.util.List<CharacterSkill> knownSkills = dao.getAllCharacterSkills(charId);
+                        if (knownSkills.isEmpty()) {
+                            out.println("You don't know any skills yet.");
+                            break;
+                        }
+                        
+                        // Build list of skill name + proficiency pairs
+                        java.util.List<String> skillDisplays = new java.util.ArrayList<>();
+                        for (CharacterSkill cs : knownSkills) {
+                            Skill skillDef = dao.getSkillById(cs.getSkillId());
+                            if (skillDef != null) {
+                                String display = String.format("%s %3d%%", skillDef.getName(), cs.getProficiency());
+                                skillDisplays.add(display);
+                            }
+                        }
+                        
+                        // Sort alphabetically
+                        skillDisplays.sort(String::compareToIgnoreCase);
+                        
+                        out.println();
+                        out.println("===================================================================");
+                        out.println("                          KNOWN SKILLS");
+                        out.println("===================================================================");
+                        out.println();
+                        
+                        // Print in rows of 3, formatted nicely
+                        for (int i = 0; i < skillDisplays.size(); i += 3) {
+                            String c1 = skillDisplays.get(i);
+                            String c2 = (i + 1 < skillDisplays.size()) ? skillDisplays.get(i + 1) : "";
+                            String c3 = (i + 2 < skillDisplays.size()) ? skillDisplays.get(i + 2) : "";
+                            out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                        }
+                        
+                        out.println();
+                        out.println("-------------------------------------------------------------------");
+                        out.println(String.format("  Total: %d skill%s known", skillDisplays.size(), skillDisplays.size() == 1 ? "" : "s"));
+                        out.println("===================================================================");
+                        out.println();
                         break;
                     }
                     case "cast": {

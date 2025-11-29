@@ -515,6 +515,49 @@ who:
           2 players online
         ===================================================================
 
+skills:
+  summary: "list skills you have learned"
+  visibility: public
+  synopsis:
+    - "skills"
+  body: |
+    NAME
+        skills - list all skills your character knows
+
+    SYNOPSIS
+        skills
+
+    DESCRIPTION
+        Displays all skills your character has learned, along with your
+        current proficiency percentage for each skill.
+        
+        Skills are displayed alphabetically in a 3-column format showing:
+        - Skill name
+        - Your proficiency percentage (1-100%)
+        
+        Only skills you have actually learned are displayed. Skills you
+        don't know yet are not shown.
+        
+        Skill proficiency affects your effectiveness with that skill.
+        For weapon skills, proficiency affects hit chance and damage.
+        Proficiency can be improved through practice and combat.
+
+    SEE ALSO
+        score, spells
+
+    EXAMPLE
+        skills
+
+        ===================================================================
+                                  KNOWN SKILLS
+        ===================================================================
+
+          Longswords  45%        Shields  30%         Dodge  15%
+
+        -------------------------------------------------------------------
+          Total: 3 skills known
+        ===================================================================
+
 spells:
   summary: "list spells you have learned"
   visibility: public

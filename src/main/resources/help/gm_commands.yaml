@@ -25,12 +25,14 @@ cskill:
   visibility: gm
   synopsis:
     - "CSKILL <character> <skill_id> [amount]"
+    - "CSKILL LIST"
   body: |
     NAME
-        cskill - grant a skill to a character
+        cskill - grant a skill to a character or list available skills
 
     SYNOPSIS
         CSKILL <character> <skill_id> [amount]
+        CSKILL LIST
 
     DESCRIPTION
         Grants a skill to a character regardless of their class, setting their
@@ -38,13 +40,16 @@ cskill:
         defaults to 100 (mastered).
 
         This can also be used to update an existing skill's proficiency.
+        
+        Use CSKILL LIST to see all available skills and their IDs.
 
     ARGUMENTS
         character     The name of the target character.
-        skill_id      The numeric ID of the skill to grant (from skilltb).
+        skill_id      The numeric ID of the skill to grant.
         amount        Optional proficiency level from 1 to 100. Defaults to 100.
 
     EXAMPLE
+        cskill list              -- shows all skills with IDs
         cskill Alice 1           -- grants skill #1 to Alice at 100%
         cskill Bob 5 50          -- grants skill #5 to Bob at 50%
 
@@ -53,12 +58,14 @@ cspell:
   visibility: gm
   synopsis:
     - "CSPELL <character> <spell_id> [amount]"
+    - "CSPELL LIST"
   body: |
     NAME
-        cspell - grant a spell to a character
+        cspell - grant a spell to a character or list available spells
 
     SYNOPSIS
         CSPELL <character> <spell_id> [amount]
+        CSPELL LIST
 
     DESCRIPTION
         Grants a spell to a character regardless of their class, setting their
@@ -66,13 +73,16 @@ cspell:
         defaults to 100 (mastered).
 
         This can also be used to update an existing spell's proficiency.
+        
+        Use CSPELL LIST to see all available spells and their IDs.
 
     ARGUMENTS
         character     The name of the target character.
-        spell_id      The numeric ID of the spell to grant (from spelltb).
+        spell_id      The numeric ID of the spell to grant.
         amount        Optional proficiency level from 1 to 100. Defaults to 100.
 
     EXAMPLE
+        cspell list              -- shows all spells with IDs
         cspell Alice 1           -- grants spell #1 to Alice at 100%
         cspell Bob 5 50          -- grants spell #5 to Bob at 50%
 
@@ -200,6 +210,72 @@ peace:
 
     SEE ALSO
         kill, combat
+
+restore:
+  summary: "(GM) restore a character's HP, MP, and MV to full"
+  visibility: gm
+  synopsis:
+    - "RESTORE [character]"
+  body: |
+    NAME
+        restore - restore vitals to full
+
+    SYNOPSIS
+        RESTORE [character]
+
+    DESCRIPTION
+        Restores the target character's HP, MP, and MV to their maximum values.
+        If no character is specified, restores yourself.
+        
+        This command works whether the target is in combat or not. If used on
+        a character in combat, their combat stats are updated immediately.
+
+    ARGUMENTS
+        character   Optional name of the character to restore. Defaults to self.
+
+    EXAMPLE
+        restore            -- restore yourself to full
+        restore Alice      -- restore Alice to full health
+
+    SEE ALSO
+        peace, promote
+
+promote:
+  summary: "(GM) level up a character"
+  visibility: gm
+  synopsis:
+    - "PROMOTE <character> [level_target]"
+  body: |
+    NAME
+        promote - level up a character
+
+    SYNOPSIS
+        PROMOTE <character> [level_target]
+
+    DESCRIPTION
+        Levels up a character. If no level target is specified, the character
+        gains one level. If a level target is specified, the character is
+        promoted repeatedly until they reach that level.
+        
+        Each level-up grants:
+        - HP/MP/MV bonuses based on class
+        - Any skills that unlock at that level
+        - Full restoration of all vitals
+        
+        The level target must be between 1 and 60, and must be higher than
+        the character's current level (demotion is not implemented).
+
+    ARGUMENTS
+        character      The name of the character to promote.
+        level_target   Optional target level (1-60). Defaults to current + 1.
+
+    EXAMPLE
+        promote Alice          -- promote Alice by one level
+        promote Bob 10         -- promote Bob to level 10
+        promote Charlie 50     -- promote Charlie to max normal level
+
+    SEE ALSO
+        restore
 
 spawn:
   summary: "(GM) create item or mob instances in the world"

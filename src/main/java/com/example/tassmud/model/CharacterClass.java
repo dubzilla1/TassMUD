@@ -56,6 +56,19 @@ public class CharacterClass {
     }
     
     /**
+     * Get skills that unlock exactly at a given level.
+     */
+    public List<ClassSkillGrant> getSkillsUnlockedAtLevel(int level) {
+        List<ClassSkillGrant> result = new ArrayList<>();
+        for (ClassSkillGrant grant : skillGrants) {
+            if (grant.classLevel == level) {
+                result.add(grant);
+            }
+        }
+        return result;
+    }
+    
+    /**
      * Calculate total HP bonus for a given class level.
      */
     public int getTotalHpBonus(int level) {

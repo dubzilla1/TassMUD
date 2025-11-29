@@ -275,6 +275,7 @@ public class CharacterClassDAO {
     
     /**
      * Add XP to a character's current class. Returns true if they leveled up.
+     * XP resets to 0 after each level-up (1000 XP per level).
      */
     public boolean addXpToCurrentClass(int characterId, int xpAmount) {
         Integer classId = getCharacterCurrentClassId(characterId);
@@ -283,12 +284,16 @@ public class CharacterClassDAO {
         int currentXp = getCharacterClassXp(characterId, classId);
         int currentLevel = getCharacterClassLevel(characterId, classId);
         int newXp = currentXp + xpAmount;
-        int newLevel = CharacterClass.levelFromXp(newXp);
         
-        // Cap at max hero level
-        if (newLevel > CharacterClass.MAX_HERO_LEVEL) {
-            newLevel = CharacterClass.MAX_HERO_LEVEL;
-            newXp = CharacterClass.xpRequiredForLevel(CharacterClass.MAX_HERO_LEVEL + 1) - 1;
+        // Check if we've hit the threshold for next level (1000 XP)
+        boolean leveledUp = false;
+        int newLevel = currentLevel;
+        
+        if (newXp >= CharacterClass.XP_PER_LEVEL && currentLevel < CharacterClass.MAX_HERO_LEVEL) {
+            // Level up! Reset XP to 0
+            newLevel = currentLevel + 1;
+            newXp = 0;
+            leveledUp = true;
         }
         
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -305,7 +310,7 @@ public class CharacterClassDAO {
             return false;
         }
         
-        return newLevel > currentLevel;
+        return leveledUp;
     }
     
     /**
@@ -332,6 +337,65 @@ public class CharacterClassDAO {
             System.err.println("Failed to get class progress: " + e.getMessage());
         }
         return result;
+    }
+    
+    /**
+     * Handle level-up for a character in their current class.
+     * This method encapsulates all level-up mechanics:
+     * 1) The level has already been incremented in the DB by addXpToCurrentClass
+     * 2) Grant any new skills from the class at the new level
+     * 3) Add HP/MP/MV bonuses from the class and restore to full
+     * 
+     * @param characterId The character who leveled up
+     * @param newLevel The new level they reached
+     * @param messageCallback Callback to send messages to the player (can be null)
+     * @return List of skill names learned (for display purposes)
+     */
+    public java.util.List<String> processLevelUp(int characterId, int newLevel, 
+            java.util.function.Consumer<String> messageCallback) {
+        java.util.List<String> learnedSkills = new java.util.ArrayList<>();
+        
+        Integer classId = getCharacterCurrentClassId(characterId);
+        if (classId == null) return learnedSkills;
+        
+        CharacterClass charClass = getClassById(classId);
+        if (charClass == null) return learnedSkills;
+        
+        CharacterDAO charDAO = new CharacterDAO();
+        
+        // 1) Grant any skills that unlock at this level
+        for (CharacterClass.ClassSkillGrant grant : charClass.getSkillsUnlockedAtLevel(newLevel)) {
+            // Check if character already has this skill
+            if (!charDAO.hasSkill(characterId, grant.skillId)) {
+                // Get skill definition for proper starting proficiency
+                Skill skillDef = charDAO.getSkillById(grant.skillId);
+                if (skillDef != null) {
+                    charDAO.learnSkill(characterId, grant.skillId, skillDef);
+                    learnedSkills.add(skillDef.getName());
+                    if (messageCallback != null) {
+                        messageCallback.accept("You have learned " + skillDef.getName() + "!");
+                    }
+                } else {
+                    // Fallback if skill definition not found
+                    charDAO.learnSkill(characterId, grant.skillId);
+                    learnedSkills.add("skill #" + grant.skillId);
+                    if (messageCallback != null) {
+                        messageCallback.accept("You have learned a new skill!");
+                    }
+                }
+            }
+        }
+        
+        // 2) Add HP/MP/MV bonuses for this level
+        int hpGain = charClass.hpPerLevel;
+        int mpGain = charClass.mpPerLevel;
+        int mvGain = charClass.mvPerLevel;
+        charDAO.addVitals(characterId, hpGain, mpGain, mvGain);
+        
+        // 3) Restore to full (like GM restore command)
+        charDAO.restoreVitals(characterId);
+        
+        return learnedSkills;
     }
     
     /**

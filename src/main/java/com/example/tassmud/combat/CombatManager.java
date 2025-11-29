@@ -19,6 +19,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 /**
  * Manages all active combat instances in the game.
@@ -49,6 +50,9 @@ public class CombatManager {
     
     /** Callback for sending messages to a room */
     private BiConsumer<Integer, String> roomMessageCallback;
+    
+    /** Callback for sending prompts to players (triggers prompt display) */
+    private Consumer<Integer> playerPromptCallback;
     
     /** The basic attack command available to all combatants */
     private final BasicAttackCommand basicAttack = new BasicAttackCommand();
@@ -95,6 +99,14 @@ public class CombatManager {
     }
     
     /**
+     * Set callback for sending prompts to players after combat rounds.
+     * @param callback (characterId) -> void
+     */
+    public void setPlayerPromptCallback(Consumer<Integer> callback) {
+        this.playerPromptCallback = callback;
+    }
+    
+    /**
      * Main combat tick - called periodically to process all active combats.
      */
     public void tick() {
@@ -132,7 +144,8 @@ public class CombatManager {
         // If round is complete and it's time for a new round, start one
         if (combat.isRoundComplete() && combat.isTimeForNextRound()) {
             combat.startNewRound();
-            broadcastToRoom(combat.getRoomId(), "--- Round " + combat.getCurrentRound() + " ---");
+            // Send blank line to separate rounds visually
+            broadcastToRoom(combat.getRoomId(), "");
         }
         
         // Process turns until we hit someone who hasn't acted or round is complete
@@ -162,6 +175,12 @@ public class CombatManager {
             if (!combat.advanceTurn()) {
                 break; // Round complete
             }
+        }
+        
+        // After all turns are processed, if round just completed, send prompts to players (once)
+        if (combat.isRoundComplete() && !combat.isPromptsSentForRound()) {
+            sendPromptsToPlayers(combat);
+            combat.setPromptsSentForRound(true);
         }
     }
     
@@ -221,6 +240,8 @@ public class CombatManager {
         // Track armor damage for proficiency training (only for player targets)
         if (result.getDamage() > 0 && target.isPlayer()) {
             trackArmorDamage(target, result.getDamage());
+            // Sync player HP to database so prompt reflects actual HP
+            syncPlayerHpToDatabase(target);
         }
         
         // Check for death
@@ -306,10 +327,76 @@ public class CombatManager {
                     System.err.println("[CombatManager] Failed to despawn mob " + mobName + ": " + e.getMessage());
                 }
             }
+            
+            // Award XP to the killer if they are a player
+            awardExperienceOnKill(killer, victim);
         }
         
         // Award weapon skill proficiency to the killer if they are a player
         awardWeaponSkillOnKill(killer);
+    }
+    
+    /**
+     * Calculate and award experience points when a player kills a mob.
+     * 
+     * Formula: 100 / 2^(effective_level - target_level)
+     * Where effective_level = char_class_level + floor(char_class_level / 10)
+     * 
+     * This means:
+     * - Levels 1-9: 100 XP for same-level kills
+     * - Levels 10-19: 50 XP for same-level kills
+     * - Levels 20-29: 25 XP for same-level kills
+     * - Each level the foe is weaker: half XP
+     * - Each level the foe is stronger: double XP
+     */
+    private void awardExperienceOnKill(Combatant killer, Combatant victim) {
+        if (!killer.isPlayer() || killer.getCharacterId() == null) {
+            return; // Only players gain XP
+        }
+        if (!victim.isMobile() || victim.getMobile() == null) {
+            return; // Only mob kills award XP
+        }
+        
+        int characterId = killer.getCharacterId();
+        int targetLevel = victim.getMobile().getLevel();
+        
+        CharacterClassDAO classDAO = new CharacterClassDAO();
+        Integer classId = classDAO.getCharacterCurrentClassId(characterId);
+        if (classId == null) {
+            return; // No class, no XP
+        }
+        int charLevel = classDAO.getCharacterClassLevel(characterId, classId);
+        
+        // Calculate effective level: charLevel + floor(charLevel / 10)
+        int effectiveLevel = charLevel + (charLevel / 10);
+        
+        // Calculate level difference (positive = foe is weaker)
+        int levelDiff = effectiveLevel - targetLevel;
+        
+        // Calculate XP: 100 / 2^levelDiff
+        // Clamp levelDiff to prevent extreme values
+        levelDiff = Math.max(-10, Math.min(10, levelDiff));
+        double xpDouble = 100.0 / Math.pow(2, levelDiff);
+        int xpAwarded = (int) Math.round(xpDouble);
+        
+        // Minimum 1 XP
+        if (xpAwarded < 1) xpAwarded = 1;
+        
+        // Award the XP
+        boolean leveledUp = classDAO.addXpToCurrentClass(characterId, xpAwarded);
+        
+        // Notify the player about XP gain
+        sendToPlayer(characterId, "You gain " + xpAwarded + " experience.");
+        
+        // Handle level-up if it occurred
+        if (leveledUp) {
+            int newLevel = classDAO.getCharacterClassLevel(characterId, classId);
+            sendToPlayer(characterId, "You have reached level " + newLevel + "!");
+            
+            // Process level-up: grant skills, add vitals, restore
+            final int charId = characterId;
+            classDAO.processLevelUp(characterId, newLevel, msg -> sendToPlayer(charId, msg));
+        }
     }
     
     /**
@@ -635,8 +722,15 @@ public class CombatManager {
                 }
             }
             
+            // Sync all player HP to database before ending combat
+            for (Combatant c : combat.getPlayerCombatants()) {
+                syncPlayerHpToDatabase(c);
+            }
+            
             combat.end();
             broadcastToRoom(combat.getRoomId(), "=== Combat has ended ===");
+            // Send prompt to surviving players after combat ends
+            sendPromptsToSurvivingPlayers(combat);
         }
     }
     
@@ -737,6 +831,48 @@ public class CombatManager {
         if (playerMessageCallback != null && characterId != null) {
             playerMessageCallback.accept(characterId, message);
         }
+    }
+    
+    private void sendPromptToPlayer(Integer characterId) {
+        if (playerPromptCallback != null && characterId != null) {
+            playerPromptCallback.accept(characterId);
+        }
+    }
+    
+    private void sendPromptsToPlayers(Combat combat) {
+        for (Combatant combatant : combat.getPlayerCombatants()) {
+            if (combatant.isActive() && combatant.isAlive()) {
+                sendPromptToPlayer(combatant.getCharacterId());
+            }
+        }
+    }
+    
+    /** Send prompts to all surviving players (used at end of combat when isActive is false) */
+    private void sendPromptsToSurvivingPlayers(Combat combat) {
+        for (Combatant combatant : combat.getPlayerCombatants()) {
+            if (combatant.isAlive()) {
+                sendPromptToPlayer(combatant.getCharacterId());
+            }
+        }
+    }
+    
+    /**
+     * Sync a player combatant's HP/MP/MV to the database.
+     * This ensures the prompt and game state reflect combat damage.
+     */
+    private void syncPlayerHpToDatabase(Combatant player) {
+        if (!player.isPlayer()) return;
+        Character c = player.getAsCharacter();
+        if (c == null) return;
+        
+        CharacterDAO dao = new CharacterDAO();
+        dao.saveCharacterStateByName(
+            c.getName(),
+            c.getHpCur(),
+            c.getMpCur(),
+            c.getMvCur(),
+            c.getCurrentRoom()
+        );
     }
     
     private void broadcastToRoom(int roomId, String message) {
