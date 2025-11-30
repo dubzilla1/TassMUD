@@ -10,7 +10,9 @@ import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
+import com.example.tassmud.model.SkillTrait;
 import com.example.tassmud.model.Spell;
+import com.example.tassmud.model.SpellTrait;
 import com.example.tassmud.util.PasswordUtil;
 import java.sql.*;
 
@@ -34,9 +36,11 @@ public class CharacterDAO {
          * Add a skill with full details. Uses MERGE to update if exists.
          */
         public boolean addSkillFull(int id, String key, String name, String description, 
-                                    boolean isPassive, int maxLevel, Skill.SkillProgression progression) {
-            String sql = "MERGE INTO skilltb (id, skill_key, name, description, is_passive, max_level, progression) " +
-                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                                    boolean isPassive, int maxLevel, Skill.SkillProgression progression,
+                                    java.util.List<SkillTrait> traits, double cooldown) {
+            String sql = "MERGE INTO skilltb (id, skill_key, name, description, is_passive, max_level, progression, traits, cooldown) " +
+                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String traitsStr = traits != null ? traits.stream().map(Enum::name).collect(java.util.stream.Collectors.joining(",")) : "";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -46,6 +50,8 @@ public class CharacterDAO {
                 ps.setBoolean(5, isPassive);
                 ps.setInt(6, maxLevel);
                 ps.setString(7, progression != null ? progression.name() : "NORMAL");
+                ps.setString(8, traitsStr);
+                ps.setDouble(9, cooldown);
                 ps.executeUpdate();
                 return true;
             } catch (SQLException e) {
@@ -58,14 +64,13 @@ public class CharacterDAO {
          * Get a skill by its key (e.g., "simple_weapons").
          */
         public Skill getSkillByKey(String key) {
-            String sql = "SELECT id, skill_key, name, description, progression FROM skilltb WHERE skill_key = ?";
+            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown FROM skilltb WHERE skill_key = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, key);
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
-                        Skill.SkillProgression prog = Skill.SkillProgression.fromString(rs.getString("progression"));
-                        return new Skill(rs.getInt("id"), rs.getString("name"), rs.getString("description"), prog);
+                        return mapSkillFromResultSet(rs);
                     }
                 }
             } catch (SQLException e) {
@@ -75,14 +80,13 @@ public class CharacterDAO {
         }
 
         public Skill getSkillById(int id) {
-            String sql = "SELECT id, skill_key, name, description, progression FROM skilltb WHERE id = ?";
+            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown FROM skilltb WHERE id = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, id);
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
-                        Skill.SkillProgression prog = Skill.SkillProgression.fromString(rs.getString("progression"));
-                        return new Skill(rs.getInt("id"), rs.getString("name"), rs.getString("description"), prog);
+                        return mapSkillFromResultSet(rs);
                     }
                 }
             } catch (SQLException e) {
@@ -96,18 +100,42 @@ public class CharacterDAO {
          */
         public java.util.List<Skill> getAllSkills() {
             java.util.List<Skill> skills = new java.util.ArrayList<>();
-            String sql = "SELECT id, skill_key, name, description, progression FROM skilltb ORDER BY name";
+            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown FROM skilltb ORDER BY name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql);
                  ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Skill.SkillProgression prog = Skill.SkillProgression.fromString(rs.getString("progression"));
-                    skills.add(new Skill(rs.getInt("id"), rs.getString("name"), rs.getString("description"), prog));
+                    skills.add(mapSkillFromResultSet(rs));
                 }
             } catch (SQLException e) {
                 // Return empty list on error
             }
             return skills;
+        }
+        
+        /**
+         * Map a ResultSet row to a Skill object.
+         */
+        private Skill mapSkillFromResultSet(ResultSet rs) throws SQLException {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            String description = rs.getString("description");
+            String progressionStr = rs.getString("progression");
+            String traitsStr = rs.getString("traits");
+            double cooldown = rs.getDouble("cooldown");
+            
+            Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
+            
+            // Parse traits from comma-separated string
+            java.util.List<SkillTrait> traits = new java.util.ArrayList<>();
+            if (traitsStr != null && !traitsStr.isEmpty()) {
+                for (String t : traitsStr.split(",")) {
+                    SkillTrait trait = SkillTrait.fromString(t.trim());
+                    if (trait != null) traits.add(trait);
+                }
+            }
+            
+            return new Skill(id, name, description, progression, traits, cooldown);
         }
 
         // --- Spell DAO ---
@@ -128,8 +156,8 @@ public class CharacterDAO {
          * Add a spell with full details. Uses MERGE to update if exists.
          */
         public boolean addSpellFull(Spell spell) {
-            String sql = "MERGE INTO spelltb (id, name, description, school, level, casting_time, target, progression, effect_ids) " +
-                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "MERGE INTO spelltb (id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown) " +
+                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, spell.getId());
@@ -143,6 +171,10 @@ public class CharacterDAO {
                 // Store effect IDs as comma-separated string
                 String effectStr = String.join(",", spell.getEffectIds());
                 ps.setString(9, effectStr);
+                // Store traits as comma-separated string
+                String traitsStr = spell.getTraits().stream().map(Enum::name).collect(java.util.stream.Collectors.joining(","));
+                ps.setString(10, traitsStr);
+                ps.setDouble(11, spell.getCooldown());
                 ps.executeUpdate();
                 return true;
             } catch (SQLException e) {
@@ -152,7 +184,7 @@ public class CharacterDAO {
         }
 
         public Spell getSpellById(int id) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids FROM spelltb WHERE id = ?";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb WHERE id = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -168,7 +200,7 @@ public class CharacterDAO {
         }
         
         public Spell getSpellByName(String name) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids FROM spelltb WHERE name = ?";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb WHERE name = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, name);
@@ -185,7 +217,7 @@ public class CharacterDAO {
         
         public java.util.List<Spell> getAllSpells() {
             java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids FROM spelltb ORDER BY school, level, name";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb ORDER BY school, level, name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql);
                  ResultSet rs = ps.executeQuery()) {
@@ -200,7 +232,7 @@ public class CharacterDAO {
         
         public java.util.List<Spell> getSpellsBySchool(Spell.SpellSchool school) {
             java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids FROM spelltb WHERE school = ? ORDER BY level, name";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb WHERE school = ? ORDER BY level, name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, school.name());
@@ -225,6 +257,8 @@ public class CharacterDAO {
             String targetStr = rs.getString("target");
             String progressionStr = rs.getString("progression");
             String effectStr = rs.getString("effect_ids");
+            String traitsStr = rs.getString("traits");
+            double cooldown = rs.getDouble("cooldown");
             
             Spell.SpellSchool school = Spell.SpellSchool.fromString(schoolStr);
             Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
@@ -238,7 +272,16 @@ public class CharacterDAO {
                 }
             }
             
-            return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression);
+            // Parse traits from comma-separated string
+            java.util.List<SpellTrait> traits = new java.util.ArrayList<>();
+            if (traitsStr != null && !traitsStr.isEmpty()) {
+                for (String t : traitsStr.split(",")) {
+                    SpellTrait trait = SpellTrait.fromString(t.trim());
+                    if (trait != null) traits.add(trait);
+                }
+            }
+            
+            return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown);
         }
 
         // --- CharacterSkill DAO ---
@@ -508,13 +551,17 @@ public class CharacterDAO {
                             "description VARCHAR(1024) DEFAULT '', " +
                             "is_passive BOOLEAN DEFAULT FALSE, " +
                             "max_level INT DEFAULT 100, " +
-                            "progression VARCHAR(50) DEFAULT 'NORMAL' " +
+                            "progression VARCHAR(50) DEFAULT 'NORMAL', " +
+                            "traits VARCHAR(500) DEFAULT '', " +
+                            "cooldown DOUBLE DEFAULT 0 " +
                             ")");
                     // Migration: add columns for existing databases
                     s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS skill_key VARCHAR(100)");
                     s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS is_passive BOOLEAN DEFAULT FALSE");
                     s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS max_level INT DEFAULT 100");
                     s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS progression VARCHAR(50) DEFAULT 'NORMAL'");
+                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS traits VARCHAR(500) DEFAULT ''");
+                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS cooldown DOUBLE DEFAULT 0");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create skilltb table", e);
                 }
@@ -531,7 +578,9 @@ public class CharacterDAO {
                             "casting_time DOUBLE DEFAULT 1.0, " +
                             "target VARCHAR(50) DEFAULT 'SELF', " +
                             "progression VARCHAR(50) DEFAULT 'NORMAL', " +
-                            "effect_ids VARCHAR(500) DEFAULT '' " +
+                            "effect_ids VARCHAR(500) DEFAULT '', " +
+                            "traits VARCHAR(500) DEFAULT '', " +
+                            "cooldown DOUBLE DEFAULT 0 " +
                             ")");
                     // Migration: add columns for existing databases
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS school VARCHAR(50) DEFAULT 'ARCANE'");
@@ -540,6 +589,8 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS target VARCHAR(50) DEFAULT 'SELF'");
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS progression VARCHAR(50) DEFAULT 'NORMAL'");
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS effect_ids VARCHAR(500) DEFAULT ''");
+                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS traits VARCHAR(500) DEFAULT ''");
+                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS cooldown DOUBLE DEFAULT 0");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create spelltb table", e);
                 }
@@ -807,6 +858,45 @@ public class CharacterDAO {
         Integer id = getCharacterIdByName(name);
         if (id == null) return java.util.Collections.emptyMap();
         return getEquipmentMapByCharacterId(id);
+    }
+
+    /**
+     * Check if a character has a shield equipped in their off-hand.
+     * This is used for skills with the SHIELD trait (e.g., Bash).
+     * @param characterId The character to check
+     * @param itemDao ItemDAO instance for looking up item templates
+     * @return true if the character has a shield equipped in off-hand
+     */
+    public boolean hasShield(int characterId, ItemDAO itemDao) {
+        Long offHandInstanceId = getCharacterEquipment(characterId, EquipmentSlot.OFF_HAND.id);
+        if (offHandInstanceId == null) return false;
+        
+        ItemInstance instance = itemDao.getInstance(offHandInstanceId);
+        if (instance == null) return false;
+        
+        ItemTemplate template = itemDao.getTemplateById(instance.templateId);
+        if (template == null) return false;
+        
+        // Must be explicitly a shield type, not just any item in off-hand
+        // This handles two-handed weapons which occupy both hands but are NOT shields
+        if (!template.isShield()) return false;
+        
+        // Extra safety: weapons are never shields (handles edge case where type might be misconfigured)
+        if (template.isWeapon()) return false;
+        
+        return true;
+    }
+
+    /**
+     * Check if a character has a shield equipped in their off-hand (by name).
+     * @param name The character name
+     * @param itemDao ItemDAO instance for looking up item templates
+     * @return true if the character has a shield equipped in off-hand
+     */
+    public boolean hasShieldByName(String name, ItemDAO itemDao) {
+        Integer id = getCharacterIdByName(name);
+        if (id == null) return false;
+        return hasShield(id, itemDao);
     }
 
     // Recalculate equipment bonuses by averaging stats across all equipment slots and persist to DB

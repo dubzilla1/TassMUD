@@ -187,6 +187,39 @@ dbinfo:
         dbinfo
         dbinfo item_template
 
+debug:
+  summary: "(GM) toggle debug channel output"
+  visibility: gm
+  synopsis:
+    - "DEBUG"
+  body: |
+    NAME
+        debug - toggle debug channel output
+
+    SYNOPSIS
+        DEBUG
+
+    DESCRIPTION
+        Toggles the debug channel on or off for your session. When enabled,
+        you will see [DEBUG] messages that provide detailed information about
+        game mechanics, skill checks, proficiency rolls, and other internal
+        systems.
+        
+        Debug output is only available to GMs and is toggled per-session.
+        Each time you log in, debug starts OFF.
+        
+        Useful for:
+        - Troubleshooting skill/spell mechanics
+        - Verifying proficiency growth calculations  
+        - Understanding combat formulas
+        - Testing new game features
+
+    EXAMPLE
+        debug          -- toggle debug channel on/off
+
+    SEE ALSO
+        gmchat
+
 peace:
   summary: "(GM) end all combat in the current room"
   visibility: gm

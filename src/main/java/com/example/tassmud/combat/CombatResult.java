@@ -47,6 +47,7 @@ public class CombatResult {
         BLOCKED,        // Target blocked the attack
         PARRIED,        // Target parried the attack
         DODGED,         // Target dodged the attack
+        INTERRUPTED,    // Attack was interrupted/canceled
         HEAL,           // Healing effect
         BUFF,           // Positive status effect applied
         DEBUFF,         // Negative status effect applied
@@ -99,6 +100,13 @@ public class CombatResult {
         return new CombatResult(ResultType.FLEE, true, 0, 0, fleer, null);
     }
     
+    public static CombatResult interrupted(Combatant combatant) {
+        CombatResult r = new CombatResult(ResultType.INTERRUPTED, false, 0, 0, combatant, null);
+        r.attackerMessage = combatant.getName() + " is interrupted and cannot attack!";
+        r.roomMessage = combatant.getName() + "'s attack is interrupted!";
+        return r;
+    }
+    
     public static CombatResult error(String message) {
         CombatResult r = new CombatResult(ResultType.ERROR, false, 0, 0, null, null);
         r.attackerMessage = message;
@@ -136,6 +144,7 @@ public class CombatResult {
     public boolean isMiss() { return type == ResultType.MISS || type == ResultType.DODGED || 
                                      type == ResultType.BLOCKED || type == ResultType.PARRIED; }
     public boolean isDeath() { return type == ResultType.DEATH; }
+    public boolean isInterrupted() { return type == ResultType.INTERRUPTED; }
     
     @Override
     public String toString() {

@@ -54,6 +54,7 @@ public class ClientHandler implements Runnable {
     private volatile Integer currentRoomId = null;
     private volatile Integer characterId = null;
     private volatile String promptFormat = "<%h/%Hhp %m/%Mmp %v/%Vmv> ";
+    private volatile boolean debugChannelEnabled = false;  // GM-only debug output
     
     public ClientHandler(Socket socket, GameClock gameClock) {
         this.socket = socket;
@@ -167,6 +168,23 @@ public class ClientHandler implements Runnable {
                 }
             } catch (Exception ignored) {}
         }
+    }
+    
+    /**
+     * Send a debug message to this session (only if debug channel is enabled).
+     * Use this for verbose debugging output that GMs can toggle on/off.
+     */
+    private void sendDebug(String msg) {
+        if (debugChannelEnabled && out != null) {
+            out.println("[DEBUG] " + msg);
+        }
+    }
+    
+    /**
+     * Check if this session has the debug channel enabled.
+     */
+    public boolean isDebugEnabled() {
+        return debugChannelEnabled;
     }
     
     // === PUBLIC MESSAGING API FOR COMBAT SYSTEM ===
@@ -1419,6 +1437,272 @@ public class ClientHandler implements Runnable {
                         out.println("Fleeing is not yet implemented. Fight to the death!");
                         break;
                     }
+                    case "kick": {
+                        // KICK - combat skill that interrupts opponent's next attack
+                        if (rec == null) {
+                            out.println("You must be logged in to use kick.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        
+                        // Look up the kick skill (id=10)
+                        Skill kickSkill = dao.getSkillById(10);
+                        if (kickSkill == null) {
+                            out.println("Kick skill not found in database.");
+                            break;
+                        }
+                        
+                        // Check if character knows the kick skill
+                        CharacterSkill charKick = dao.getCharacterSkill(charId, 10);
+                        if (charKick == null) {
+                            out.println("You don't know how to kick.");
+                            break;
+                        }
+                        
+                        // Check cooldown and combat traits using unified check
+                        com.example.tassmud.util.AbilityCheck.CheckResult kickCheck = 
+                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, kickSkill);
+                        if (kickCheck.isFailure()) {
+                            out.println(kickCheck.getFailureMessage());
+                            break;
+                        }
+                        
+                        // Get the active combat and target
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                        if (activeCombat == null) {
+                            out.println("You must be in combat to use kick.");
+                            break;
+                        }
+                        
+                        // Get the user's combatant and find the opponent
+                        Combatant userCombatant = activeCombat.findByCharacterId(charId);
+                        if (userCombatant == null) {
+                            out.println("Combat error: could not find your combatant.");
+                            break;
+                        }
+                        
+                        // Find opponent (first combatant on different alliance)
+                        Combatant targetCombatant = null;
+                        for (Combatant c : activeCombat.getCombatants()) {
+                            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                                targetCombatant = c;
+                                break;
+                            }
+                        }
+                        
+                        if (targetCombatant == null) {
+                            out.println("You have no opponent to kick.");
+                            break;
+                        }
+                        
+                        // Get levels for opposed check
+                        CharacterClassDAO kickClassDao = new CharacterClassDAO();
+                        int userLevel = rec.currentClassId != null ? kickClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+                        int targetLevel;
+                        if (targetCombatant.isPlayer()) {
+                            Integer targetCharId = targetCombatant.getCharacterId();
+                            CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+                            targetLevel = targetRec != null && targetRec.currentClassId != null 
+                                ? kickClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
+                        } else {
+                            // For mobiles, use a level based on their HP (TODO: add proper level to Mobile)
+                            targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
+                        }
+                        
+                        // Perform opposed check with proficiency (1d100 vs success chance)
+                        // Success chance = base_level_chance * (0.5 + proficiency)
+                        int roll = (int)(Math.random() * 100) + 1;
+                        int proficiency = charKick.getProficiency();
+                        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
+                        
+                        String targetName = targetCombatant.getName();
+                        boolean kickSucceeded = roll <= successChance;
+                        
+                        if (kickSucceeded) {
+                            // Success! Interrupt the opponent's next attack
+                            targetCombatant.addStatusFlag(Combatant.StatusFlag.INTERRUPTED);
+                            out.println("Your kick connects! " + targetName + "'s next attack is interrupted.");
+                            
+                            // Notify the opponent if they're a player
+                            if (targetCombatant.isPlayer()) {
+                                Integer targetCharId = targetCombatant.getCharacterId();
+                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                                if (targetHandler != null) {
+                                    targetHandler.out.println(name + " kicks you, interrupting your next attack!");
+                                }
+                            }
+                        } else {
+                            // Miss
+                            out.println("Your kick misses " + targetName + ".");
+                            
+                            // Notify the opponent if they're a player
+                            if (targetCombatant.isPlayer()) {
+                                Integer targetCharId = targetCombatant.getCharacterId();
+                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                                if (targetHandler != null) {
+                                    targetHandler.out.println(name + " tries to kick you but misses.");
+                                }
+                            }
+                        }
+                        
+                        // Use unified skill execution to apply cooldown and check proficiency growth
+                        com.example.tassmud.util.SkillExecution.Result skillResult = 
+                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                                name, charId, kickSkill, charKick, dao, kickSucceeded);
+                        
+                        // Debug channel output for proficiency check (only shown if debug enabled)
+                        sendDebug("Kick proficiency check:");
+                        sendDebug("  Skill progression: " + kickSkill.getProgression());
+                        sendDebug("  Current proficiency: " + charKick.getProficiency() + "%");
+                        sendDebug("  Gain chance at this level: " + kickSkill.getProgression().getGainChance(charKick.getProficiency()) + "%");
+                        sendDebug("  Skill succeeded: " + kickSucceeded);
+                        sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
+                        if (skillResult.getProficiencyResult() != null) {
+                            sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency() + 
+                                      " -> New prof: " + skillResult.getProficiencyResult().getNewProficiency());
+                        }
+                        
+                        if (skillResult.didProficiencyImprove()) {
+                            out.println(skillResult.getProficiencyMessage());
+                        }
+                        break;
+                    }
+                    case "bash": {
+                        // BASH - combat skill that stuns and slows opponent (requires shield)
+                        if (rec == null) {
+                            out.println("You must be logged in to use bash.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        
+                        // Look up the bash skill (id=11)
+                        Skill bashSkill = dao.getSkillById(11);
+                        if (bashSkill == null) {
+                            out.println("Bash skill not found in database.");
+                            break;
+                        }
+                        
+                        // Check if character knows the bash skill
+                        CharacterSkill charBash = dao.getCharacterSkill(charId, 11);
+                        if (charBash == null) {
+                            out.println("You don't know how to bash.");
+                            break;
+                        }
+                        
+                        // Check cooldown, combat traits, and SHIELD requirement using unified check
+                        com.example.tassmud.util.AbilityCheck.CheckResult bashCheck = 
+                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, bashSkill);
+                        if (bashCheck.isFailure()) {
+                            out.println(bashCheck.getFailureMessage());
+                            break;
+                        }
+                        
+                        // Get the active combat and target
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                        if (activeCombat == null) {
+                            out.println("You must be in combat to use bash.");
+                            break;
+                        }
+                        
+                        // Get the user's combatant and find the opponent
+                        Combatant userCombatant = activeCombat.findByCharacterId(charId);
+                        if (userCombatant == null) {
+                            out.println("Combat error: could not find your combatant.");
+                            break;
+                        }
+                        
+                        // Bash sacrifices the user's next attack
+                        userCombatant.addStatusFlag(Combatant.StatusFlag.INTERRUPTED);
+                        
+                        // Find opponent (first combatant on different alliance)
+                        Combatant targetCombatant = null;
+                        for (Combatant c : activeCombat.getCombatants()) {
+                            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                                targetCombatant = c;
+                                break;
+                            }
+                        }
+                        
+                        if (targetCombatant == null) {
+                            out.println("You have no opponent to bash.");
+                            break;
+                        }
+                        
+                        // Get levels for opposed check
+                        CharacterClassDAO bashClassDao = new CharacterClassDAO();
+                        int userLevel = rec.currentClassId != null ? bashClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+                        int targetLevel;
+                        if (targetCombatant.isPlayer()) {
+                            Integer targetCharId = targetCombatant.getCharacterId();
+                            CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+                            targetLevel = targetRec != null && targetRec.currentClassId != null 
+                                ? bashClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
+                        } else {
+                            // For mobiles, use a level based on their HP
+                            targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
+                        }
+                        
+                        // Perform opposed check with proficiency (1d100 vs success chance)
+                        // Success chance = base_level_chance * (0.5 + proficiency)
+                        int roll = (int)(Math.random() * 100) + 1;
+                        int proficiency = charBash.getProficiency();
+                        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
+                        
+                        String targetName = targetCombatant.getName();
+                        boolean bashSucceeded = roll <= successChance;
+                        
+                        if (bashSucceeded) {
+                            // Success! Apply STUNNED and SLOWED for 1d6 rounds
+                            int stunDuration = (int)(Math.random() * 6) + 1;
+                            targetCombatant.addStatusFlag(Combatant.StatusFlag.STUNNED);
+                            targetCombatant.addStatusFlag(Combatant.StatusFlag.SLOWED);
+                            
+                            out.println("You slam your shield into " + targetName + ", stunning them for " + stunDuration + " rounds!");
+                            
+                            // Notify the opponent if they're a player
+                            if (targetCombatant.isPlayer()) {
+                                Integer targetCharId = targetCombatant.getCharacterId();
+                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                                if (targetHandler != null) {
+                                    targetHandler.out.println(name + " bashes you with their shield! You are stunned and slowed!");
+                                }
+                            }
+                            
+                            // Debug output
+                            sendDebug("Bash success! Applied STUNNED and SLOWED for " + stunDuration + " rounds.");
+                            sendDebug("  (Note: Current implementation removes status on first trigger. Multi-round tracking TODO.)");
+                        } else {
+                            // Miss
+                            out.println("Your shield bash misses " + targetName + ".");
+                            
+                            // Notify the opponent if they're a player
+                            if (targetCombatant.isPlayer()) {
+                                Integer targetCharId = targetCombatant.getCharacterId();
+                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                                if (targetHandler != null) {
+                                    targetHandler.out.println(name + " tries to bash you with their shield but misses.");
+                                }
+                            }
+                        }
+                        
+                        // Use unified skill execution to apply cooldown and check proficiency growth
+                        com.example.tassmud.util.SkillExecution.Result bashResult = 
+                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                                name, charId, bashSkill, charBash, dao, bashSucceeded);
+                        
+                        if (bashResult.didProficiencyImprove()) {
+                            out.println(bashResult.getProficiencyMessage());
+                        }
+                        break;
+                    }
                     case "quit":
                         out.println("Goodbye!");
                         socket.close();
@@ -1503,6 +1787,20 @@ public class ClientHandler implements Runnable {
                         if (t == null || t.trim().isEmpty()) { out.println("Usage: gmchat <message>"); break; }
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use gmchat."); break; }
                         gmBroadcast(dao, this.playerName, t);
+                        break;
+                    }
+                    case "debug": {
+                        // GM-only: toggle debug channel output
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
+                            out.println("You do not have permission to use debug."); 
+                            break; 
+                        }
+                        debugChannelEnabled = !debugChannelEnabled;
+                        if (debugChannelEnabled) {
+                            out.println("Debug channel is now ON. You will see [DEBUG] messages.");
+                        } else {
+                            out.println("Debug channel is now OFF.");
+                        }
                         break;
                     }
                     case "dbinfo": {
@@ -3008,15 +3306,14 @@ public class ClientHandler implements Runnable {
                         sheet.append(String.format("  HP: %4d / %-4d    MP: %4d / %-4d    MV: %4d / %-4d\n",
                             rec.hpCur, rec.hpMax, rec.mpCur, rec.mpMax, rec.mvCur, rec.mvMax));
                         
-                        // XP bar
+                        // XP bar - shows progress within current level (0 to XP_PER_LEVEL)
                         if (currentClass != null && classLevel < CharacterClass.MAX_HERO_LEVEL) {
                             int xpForCurrent = CharacterClass.xpRequiredForLevel(classLevel);
-                            int xpForNext = CharacterClass.xpRequiredForLevel(classLevel + 1);
                             int xpInLevel = classXp - xpForCurrent;
-                            int xpNeeded = xpForNext - xpForCurrent;
-                            int pct = xpNeeded > 0 ? (xpInLevel * 100) / xpNeeded : 100;
+                            int xpNeeded = CharacterClass.XP_PER_LEVEL;
+                            int pct = (xpInLevel * 100) / xpNeeded;
                             sheet.append(String.format("  XP: %d / %d  [%s%s] %d%%  (%d TNL)\n",
-                                classXp, xpForNext,
+                                xpInLevel, xpNeeded,
                                 repeat("#", pct / 5), repeat(".", 20 - pct / 5),
                                 pct, xpToNext));
                         } else if (currentClass != null) {
@@ -3423,6 +3720,14 @@ public class ClientHandler implements Runnable {
                             break;
                         }
                         
+                        // Check cooldown and combat traits before allowing cast
+                        com.example.tassmud.util.AbilityCheck.CheckResult spellCheck = 
+                            com.example.tassmud.util.AbilityCheck.canPlayerCastSpell(name, charId, matchedSpell);
+                        if (spellCheck.isFailure()) {
+                            out.println(spellCheck.getFailureMessage());
+                            break;
+                        }
+                        
                         // Check if spell requires a target
                         Spell.SpellTarget targetType = matchedSpell.getTarget();
                         boolean needsTarget = (targetType == Spell.SpellTarget.EXPLICIT_MOB_TARGET || 
@@ -3464,6 +3769,9 @@ public class ClientHandler implements Runnable {
                         }
                         
                         out.println(castMsg.toString());
+                        
+                        // Apply cooldown after successful cast
+                        com.example.tassmud.util.AbilityCheck.applyPlayerSpellCooldown(name, matchedSpell);
                         
                         // TODO: Implement actual spell effects here
                         // For now, spells don't do anything - effect logic will be added later

@@ -68,6 +68,13 @@ public class BasicAttackCommand implements CombatCommand {
     
     @Override
     public CombatResult execute(Combatant user, Combatant target, Combat combat) {
+        // Check for interrupted status - if present, skip the attack
+        if (user.consumeInterrupted()) {
+            CombatResult result = CombatResult.interrupted(user);
+            setCooldown(user);
+            return result;
+        }
+        
         // Verify target is valid
         if (target == null || !target.isAlive() || !target.isActive()) {
             return CombatResult.error("Invalid target");

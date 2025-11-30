@@ -696,6 +696,78 @@ combat:
           [R3 4.2s] Tass hits A Giant Rat for 8 damage!
           [R3 4.5s] A Giant Rat swings at Tass but misses!
 
+kick:
+  summary: "deliver a powerful kick to your enemy"
+  visibility: public
+  synopsis:
+    - "kick"
+  body: |
+    NAME
+        kick - deliver a powerful kick to your enemy
+
+    SYNOPSIS
+        kick
+
+    DESCRIPTION
+        Delivers a powerful kick to your current combat target,
+        dealing extra damage and potentially knocking them off balance.
+        
+        REQUIREMENTS:
+        - You must know the Kick skill
+        - You must be in combat (COMBAT trait)
+        - The skill has a 15-second cooldown between uses
+        
+        If you attempt to use kick while it's on cooldown, you'll see
+        how many seconds remain before you can use it again.
+        
+        NOTE: Kick damage calculation is not yet fully implemented.
+
+    SEE ALSO
+        skills, combat, kill
+
+    EXAMPLE
+        kick
+
+bash:
+  summary: "bash an enemy with your shield, stunning them"
+  visibility: public
+  synopsis:
+    - "bash"
+  body: |
+    NAME
+        bash - bash an enemy with your shield
+
+    SYNOPSIS
+        bash
+
+    DESCRIPTION
+        Slam your shield into your opponent, potentially stunning and
+        slowing them. A successful bash leaves the target unable to use
+        combat skills and limited to a single attack per round.
+        
+        REQUIREMENTS:
+        - You must know the Bash skill
+        - You must be in combat (COMBAT trait)
+        - You must have a shield equipped (SHIELD trait)
+        - The skill has a 15-second cooldown between uses
+        
+        MECHANICS:
+        - Sacrifices your next attack to attempt the bash
+        - Success chance is based on an opposed check (your level vs target)
+        - Success chance is improved by your Bash proficiency (0.5x to 1.5x)
+        - On success, target is STUNNED (cannot use cooldown skills) and
+          SLOWED (limited to 1 attack per round)
+        - Effect duration: 1d6 rounds
+        
+        This skill is particularly effective against enemies that rely on
+        special abilities or have multiple attacks per round.
+
+    SEE ALSO
+        skills, combat, kick, equip
+
+    EXAMPLE
+        bash
+
 flee:
   summary: "attempt to escape from combat"
   visibility: public

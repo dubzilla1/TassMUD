@@ -52,10 +52,12 @@ public class CommandRegistry {
         
         // ===== COMBAT & SKILLS =====
         // All combat commands allowed in combat
-        registerCombat("kill", "Attack a target and initiate combat", Category.COMBAT, List.of("attack", "fight"));
+        registerCombat("kill", "Attack a target and initiate combat", Category.COMBAT, List.of("k", "attack", "fight"));
         registerCombat("combat", "Display current combat status", Category.COMBAT);
         registerCombat("flee", "Attempt to escape from combat", Category.COMBAT);
         registerCombat("cast", "Cast a spell", Category.COMBAT);
+        registerCombat("kick", "Deliver a powerful kick to your enemy", Category.COMBAT);
+        registerCombat("bash", "Bash an enemy with your shield, stunning them", Category.COMBAT);
         
         // ===== SYSTEM =====
         // save, quit allowed in combat; prompt, motd not critical
@@ -70,6 +72,7 @@ public class CommandRegistry {
         registerGm("cskill", "Grant a skill to a character");
         registerGm("cspell", "Grant a spell to a character");
         registerGm("dbinfo", "Inspect database table schemas");
+        registerGm("debug", "Toggle debug channel output");
         registerGm("gmchat", "Send a message on the GM channel");
         registerGm("goto", "Teleport to a room by ID");
         registerGm("ifind", "Find all instances of an item template");

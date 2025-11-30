@@ -227,13 +227,24 @@ public class DataLoader {
                 boolean isPassive = getBoolean(skillData, "is_passive", false);
                 int maxLevel = getInt(skillData, "max_level", 100);
                 String progressionStr = getString(skillData, "progression", "NORMAL");
+                double cooldown = getDouble(skillData, "cooldown", 0);
+                
+                // Parse traits list
+                List<SkillTrait> traits = new ArrayList<>();
+                Object traitsObj = skillData.get("traits");
+                if (traitsObj instanceof List) {
+                    for (Object t : (List<?>) traitsObj) {
+                        SkillTrait trait = SkillTrait.fromString(String.valueOf(t));
+                        if (trait != null) traits.add(trait);
+                    }
+                }
                 
                 if (id < 0 || key.isEmpty() || name.isEmpty()) continue;
                 
                 com.example.tassmud.model.Skill.SkillProgression progression = 
                     com.example.tassmud.model.Skill.SkillProgression.fromString(progressionStr);
                 
-                if (dao.addSkillFull(id, key, name, description, isPassive, maxLevel, progression)) {
+                if (dao.addSkillFull(id, key, name, description, isPassive, maxLevel, progression, traits, cooldown)) {
                     count++;
                 }
             }
@@ -310,9 +321,20 @@ public class DataLoader {
                 Spell.SpellSchool school = Spell.SpellSchool.fromString(schoolStr);
                 Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
                 Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
+                double cooldown = getDouble(spellData, "cooldown", 0);
+                
+                // Parse traits list
+                List<SpellTrait> traits = new ArrayList<>();
+                Object traitsObj = spellData.get("traits");
+                if (traitsObj instanceof List) {
+                    for (Object t : (List<?>) traitsObj) {
+                        SpellTrait trait = SpellTrait.fromString(String.valueOf(t));
+                        if (trait != null) traits.add(trait);
+                    }
+                }
                 
                 Spell spell = new Spell(id, name, description, school, level, 
-                                        castingTime, target, effectIds, progression);
+                                        castingTime, target, effectIds, progression, traits, cooldown);
                 
                 // Store in DAO
                 boolean added = dao.addSpellFull(spell);

@@ -18,15 +18,24 @@ public class Spell {
     private final SpellTarget target;
     private final List<String> effectIds;       // spell effect IDs
     private final Skill.SkillProgression progression;
+    private final List<SpellTrait> traits;
+    private final double cooldown;              // cooldown in seconds, 0 means no cooldown
 
     public Spell(int id, String name, String description) {
         this(id, name, description, SpellSchool.ARCANE, 1, 1.0, SpellTarget.SELF, 
-             null, Skill.SkillProgression.NORMAL);
+             null, Skill.SkillProgression.NORMAL, null, 0);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
                  Skill.SkillProgression progression) {
+        this(id, name, description, school, level, baseCastingTime, target, effectIds,
+             progression, null, 0);
+    }
+    
+    public Spell(int id, String name, String description, SpellSchool school, int level,
+                 double baseCastingTime, SpellTarget target, List<String> effectIds,
+                 Skill.SkillProgression progression, List<SpellTrait> traits, double cooldown) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -36,6 +45,8 @@ public class Spell {
         this.target = target != null ? target : SpellTarget.SELF;
         this.effectIds = effectIds != null ? new ArrayList<>(effectIds) : new ArrayList<>();
         this.progression = progression != null ? progression : Skill.SkillProgression.NORMAL;
+        this.traits = traits != null ? new ArrayList<>(traits) : new ArrayList<>();
+        this.cooldown = Math.max(0, cooldown);
     }
 
     public int getId() { return id; }
@@ -47,6 +58,29 @@ public class Spell {
     public SpellTarget getTarget() { return target; }
     public List<String> getEffectIds() { return Collections.unmodifiableList(effectIds); }
     public Skill.SkillProgression getProgression() { return progression; }
+    public List<SpellTrait> getTraits() { return Collections.unmodifiableList(traits); }
+    public double getCooldown() { return cooldown; }
+    
+    /**
+     * Check if this spell has a specific trait.
+     */
+    public boolean hasTrait(SpellTrait trait) {
+        return traits.contains(trait);
+    }
+    
+    /**
+     * Check if this spell has a cooldown.
+     */
+    public boolean hasCooldown() {
+        return cooldown > 0;
+    }
+    
+    /**
+     * Check if this spell requires combat.
+     */
+    public boolean requiresCombat() {
+        return hasTrait(SpellTrait.COMBAT);
+    }
     
     /**
      * Spell schools - each has different acquisition methods.

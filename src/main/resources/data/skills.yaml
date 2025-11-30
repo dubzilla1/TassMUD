@@ -26,14 +26,18 @@ skills:
   - id: 10
     key: kick
     name: Kick
-    description: A powerful kick that can knock enemies off balance and deal extra damage.
+    description: A powerful kick that can interrupt an enemy's action.
     progression: EASY
+    traits: [COMBAT]
+    cooldown: 10
 
   - id: 11
     key: bash
     name: Bash
-    description: Slam into an enemy with your body or shield, potentially stunning them.
+    description: Slam into an enemy with your shield, potentially stunning them.
     progression: EASY
+    traits: [COMBAT,SHIELD]
+    cooldown: 15
 
   - id: 12
     key: disarm

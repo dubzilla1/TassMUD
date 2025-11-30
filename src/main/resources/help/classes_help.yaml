@@ -1,0 +1,368 @@
+# Help pages for character classes
+# See 'help classes' for an overview and 'help <classname>' for details
+
+classes:
+  summary: "list available character classes"
+  visibility: public
+  synopsis:
+    - "help classes"
+  body: |
+    NAME
+        classes - list available character classes
+
+    SYNOPSIS
+        help classes
+
+    DESCRIPTION
+        TassMUD offers eight distinct character classes, each with unique
+        abilities, stat progressions, and playstyles. Characters gain 1000
+        experience points per level, with normal levels from 1-50 and hero
+        levels from 51-55.
+
+    AVAILABLE CLASSES
+        Fighter     - Melee combat specialist (HP: +12, MP: +0, MV: +4)
+        Wizard      - Arcane spellcaster     (HP: +4, MP: +15, MV: +2)
+        Cleric      - Divine healer          (HP: +8, MP: +12, MV: +3)
+        Rogue       - Stealth specialist     (HP: +6, MP: +2, MV: +6)
+        Ranger      - Wilderness warrior     (HP: +8, MP: +4, MV: +5)
+        Paladin     - Holy warrior           (HP: +10, MP: +6, MV: +3)
+        Necromancer - Dark magic wielder     (HP: +4, MP: +14, MV: +2)
+        Monk        - Unarmed combat master  (HP: +7, MP: +6, MV: +6)
+
+    SEE ALSO
+        Type 'help <classname>' for detailed information about each class.
+        For example: help fighter, help wizard, help cleric
+
+    EXAMPLE
+        help classes
+        help fighter
+        help wizard
+
+fighter:
+  summary: "the Fighter class - melee combat specialist"
+  visibility: public
+  synopsis:
+    - "help fighter"
+  body: |
+    NAME
+        Fighter - melee combat specialist
+
+    SYNOPSIS
+        help fighter
+
+    DESCRIPTION
+        Masters of martial combat, fighters excel in physical confrontation.
+        They gain the most hit points per level and have access to a wide
+        variety of weapon and armor proficiencies.
+
+    STATS PER LEVEL
+        HP: +12    MP: +0    MV: +4
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Basic Attack
+        Level  3: Martial Weapons, Kick
+        Level  5: Bash
+        Level 10: Disarm
+        Level 15: Exotic Weapons, Parry
+        Level 20: Riposte
+        Level 25: Second Attack
+        Level 35: Third Attack
+        Level 45: Fourth Attack
+        Level 51: Heroic Strike (hero level)
+
+    PLAYSTYLE
+        Fighters are straightforward melee combatants who rely on high HP,
+        strong weapon skills, and multiple attacks per round. They excel at
+        absorbing damage and dealing consistent physical damage. Best suited
+        for players who enjoy direct combat without the complexity of magic.
+
+    SEE ALSO
+        classes, skills
+
+wizard:
+  summary: "the Wizard class - arcane spellcaster"
+  visibility: public
+  synopsis:
+    - "help wizard"
+  body: |
+    NAME
+        Wizard - arcane spellcaster
+
+    SYNOPSIS
+        help wizard
+
+    DESCRIPTION
+        Wielders of arcane magic, wizards command powerful offensive and
+        utility spells. They are physically frail but devastating at range.
+
+    STATS PER LEVEL
+        HP: +4    MP: +15    MV: +2
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Magic Missile
+        Level  5: Detect Magic
+        Level  8: Shield
+        Level 12: Fireball
+        Level 18: Lightning Bolt
+        Level 25: Teleport
+        Level 30: Cone of Cold
+        Level 40: Disintegrate
+        Level 50: Meteor Swarm
+        Level 51: Arcane Mastery (hero level)
+
+    PLAYSTYLE
+        Wizards are glass cannons - low HP but massive magical damage output.
+        They excel at dealing area damage and have utility spells for various
+        situations. Best suited for players who enjoy strategic spellcasting
+        and don't mind being fragile in exchange for power.
+
+    SEE ALSO
+        classes, spells
+
+cleric:
+  summary: "the Cleric class - divine healer"
+  visibility: public
+  synopsis:
+    - "help cleric"
+  body: |
+    NAME
+        Cleric - divine spellcaster and healer
+
+    SYNOPSIS
+        help cleric
+
+    DESCRIPTION
+        Servants of the divine, clerics channel holy power to heal allies,
+        smite enemies, and protect the faithful. They can also wear armor
+        and fight in melee when necessary.
+
+    STATS PER LEVEL
+        HP: +8    MP: +12    MV: +3
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Cure Light Wounds
+        Level  5: Bless
+        Level  8: Detect Evil
+        Level 12: Cure Serious Wounds
+        Level 18: Remove Curse
+        Level 22: Cure Critical Wounds
+        Level 28: Heal
+        Level 35: Sanctuary
+        Level 42: Resurrection
+        Level 51: Divine Intervention (hero level)
+
+    PLAYSTYLE
+        Clerics are versatile support characters who can heal, buff allies,
+        and still contribute to combat. They have moderate survivability with
+        decent HP and armor options. Best suited for players who enjoy helping
+        others and playing a supportive role in groups.
+
+    SEE ALSO
+        classes, spells
+
+rogue:
+  summary: "the Rogue class - stealth specialist"
+  visibility: public
+  synopsis:
+    - "help rogue"
+  body: |
+    NAME
+        Rogue - stealth and agility specialist
+
+    SYNOPSIS
+        help rogue
+
+    DESCRIPTION
+        Cunning and quick, rogues rely on stealth, precision strikes, and
+        dirty tricks. They excel at finding traps, picking locks, and
+        delivering devastating sneak attacks.
+
+    STATS PER LEVEL
+        HP: +6    MP: +2    MV: +6
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Sneak
+        Level  3: Backstab
+        Level  6: Pick Lock
+        Level 10: Detect Traps
+        Level 15: Disarm Traps
+        Level 20: Hide
+        Level 25: Poison Weapon
+        Level 32: Circle Stab
+        Level 40: Assassinate
+        Level 51: Shadow Step (hero level)
+
+    PLAYSTYLE
+        Rogues are high-risk, high-reward damage dealers who rely on
+        positioning and surprise. They have excellent mobility but limited
+        direct combat ability. Best suited for players who enjoy stealth,
+        trickery, and striking from the shadows.
+
+    SEE ALSO
+        classes, skills
+
+ranger:
+  summary: "the Ranger class - wilderness warrior"
+  visibility: public
+  synopsis:
+    - "help ranger"
+  body: |
+    NAME
+        Ranger - wilderness warrior and archer
+
+    SYNOPSIS
+        help ranger
+
+    DESCRIPTION
+        At home in the wild, rangers are skilled trackers, archers, and
+        survivalists. They can fight effectively in melee or at range and
+        have limited nature magic.
+
+    STATS PER LEVEL
+        HP: +8    MP: +4    MV: +5
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Track
+        Level  3: Martial Weapons
+        Level  4: Forage
+        Level  8: Animal Lore
+        Level 12: Dual Wield
+        Level 18: Camouflage
+        Level 22: Call Animal
+        Level 28: Rapid Shot
+        Level 35: Volley
+        Level 45: Nature's Ally
+        Level 51: Apex Predator (hero level)
+
+    PLAYSTYLE
+        Rangers are versatile combatants who excel at ranged combat and
+        wilderness survival. They have good mobility and can fill multiple
+        roles. Best suited for players who enjoy flexibility and a nature
+        or survival theme.
+
+    SEE ALSO
+        classes, skills
+
+paladin:
+  summary: "the Paladin class - holy warrior"
+  visibility: public
+  synopsis:
+    - "help paladin"
+  body: |
+    NAME
+        Paladin - holy warrior
+
+    SYNOPSIS
+        help paladin
+
+    DESCRIPTION
+        Champions of righteousness, paladins combine martial prowess with
+        divine magic. They are sworn to uphold justice and protect the
+        innocent, gaining holy powers in return.
+
+    STATS PER LEVEL
+        HP: +10    MP: +6    MV: +3
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Lay on Hands
+        Level  3: Martial Weapons
+        Level  5: Detect Evil
+        Level 10: Smite Evil
+        Level 15: Divine Shield
+        Level 20: Turn Undead
+        Level 28: Holy Weapon
+        Level 35: Aura of Protection
+        Level 42: Divine Mount
+        Level 50: Holy Avenger
+        Level 51: Champion of Light (hero level)
+
+    PLAYSTYLE
+        Paladins are durable melee fighters with supportive divine abilities.
+        They excel at fighting evil creatures and protecting allies. Best
+        suited for players who enjoy a noble, righteous character with a mix
+        of combat and holy magic.
+
+    SEE ALSO
+        classes, skills, spells
+
+necromancer:
+  summary: "the Necromancer class - dark magic wielder"
+  visibility: public
+  synopsis:
+    - "help necromancer"
+  body: |
+    NAME
+        Necromancer - dark magic wielder
+
+    SYNOPSIS
+        help necromancer
+
+    DESCRIPTION
+        Masters of death magic, necromancers command undead minions, drain
+        life from enemies, and wield curses. Their power comes at the cost
+        of being shunned by civilized society.
+
+    STATS PER LEVEL
+        HP: +4    MP: +14    MV: +2
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Drain Life
+        Level  5: Animate Dead
+        Level 10: Fear
+        Level 15: Corpse Explosion
+        Level 22: Bone Armor
+        Level 28: Summon Skeleton
+        Level 35: Plague
+        Level 42: Death Coil
+        Level 50: Army of the Dead
+        Level 51: Lich Form (hero level)
+
+    PLAYSTYLE
+        Necromancers are dark casters who drain life and summon undead. They
+        have low HP but can heal themselves through drain effects. Best suited
+        for players who enjoy a darker theme and pet/minion management.
+
+    SEE ALSO
+        classes, spells
+
+monk:
+  summary: "the Monk class - unarmed combat master"
+  visibility: public
+  synopsis:
+    - "help monk"
+  body: |
+    NAME
+        Monk - unarmed combat master
+
+    SYNOPSIS
+        help monk
+
+    DESCRIPTION
+        Disciplined martial artists who have perfected mind and body. Monks
+        fight without weapons, using their fists and feet to devastating
+        effect, and can harness inner energy (ki).
+
+    STATS PER LEVEL
+        HP: +7    MP: +6    MV: +6
+
+    SKILL PROGRESSION
+        Level  1: Simple Weapons, Unarmed Strike
+        Level  3: Martial Weapons
+        Level  5: Flurry of Blows
+        Level 10: Stunning Fist
+        Level 15: Deflect Missiles
+        Level 20: Slow Fall
+        Level 25: Ki Strike
+        Level 32: Wholeness of Body
+        Level 40: Quivering Palm
+        Level 48: Empty Body
+        Level 51: Perfect Self (hero level)
+
+    PLAYSTYLE
+        Monks are mobile melee fighters who rely on speed and multiple strikes
+        rather than heavy weapons. They have balanced stats and unique ki
+        abilities. Best suited for players who enjoy martial arts themes and
+        fast-paced combat.
+
+    SEE ALSO
+        classes, skills

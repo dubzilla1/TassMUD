@@ -5,6 +5,7 @@ import com.example.tassmud.event.EventScheduler;
 import com.example.tassmud.event.SpawnManager;
 import com.example.tassmud.persistence.*;
 import com.example.tassmud.util.*;
+import com.example.tassmud.util.CooldownManager;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -90,6 +91,10 @@ public class Server {
         // Start the in-game clock that persists the date on day rollover
         GameClock gameClock = new GameClock(tickService, dao);
 
+        // Initialize cooldown system
+        CooldownManager cooldownManager = CooldownManager.getInstance();
+        cooldownManager.initialize(tickService);
+        
         // Initialize combat system
         CombatManager combatManager = CombatManager.getInstance();
         combatManager.initialize(tickService);
