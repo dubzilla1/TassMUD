@@ -745,54 +745,520 @@ rooms:
 
   # ============================================================
   # MIDGAARD (area 3) - Room IDs 3000-3999
-  # 2x2 grid layout:
-  #   3001 (NW) -- 3002 (NE)
-  #     |            |
-  #   3003 (SW) -- 3004 (SE)
-  # ============================================================
+  # Midgaard is the starter city: compact, navigable, and full of services.
+  # Layout approach: a main north-south thoroughfare (Gate Road) with short
+  # east/west side streets that loop back to the main road. Landmarks (market,
+  # inn, temple) are placed at intersections to aid navigation.
+  # IDs used: 3001 - 3040 (city core)
+
   - id: 3001
-    key: mg_nw
-    name: Northwest Plaza
+    key: mg_gate_plaza
+    name: North Gate Plaza
     area_id: 3
-    short_desc: Quiet northwest plaza
+    short_desc: The northern gate plaza of Midgaard
     long_desc: >
-      A small plaza with a mossy fountain at its center. The northern gates of
-      Midgaard stand open to the north, leading out to the Starter Plains where
-      new adventurers hone their skills.
+      The northern gate of Midgaard towers above you, its heavy stone archway
+      and iron-bound doors standing open to the trade road beyond. Merchants
+      and travelers bustle around a tiled plaza; a stone marker lists the
+      city's founding and the names of its wardens. Guards keep a watchful eye.
+
+      This is the main entrance from the Starter Plains to the north.
     exits:
       north: 1122
+      south: 3005
       east: 3002
-      south: 3003
+      west: 3003
 
   - id: 3002
-    key: mg_ne
-    name: Northeast Market
+    key: mg_bakers_row
+    name: Baker's Row
     area_id: 3
-    short_desc: Northeast market stalls
-    long_desc: Colorful stalls and the smell of fresh bread.
+    short_desc: A row of bakeries and pastry stalls
+    long_desc: >
+      Warm, yeasty smells waft from several open-front bakeries. Wooden carts
+      bear fresh loaves and sugar-dusted pastries. A small square offers a few
+      benches where townsfolk gather to gossip and trade news.
     exits:
-      south: 3004
       west: 3001
+      south: 3006
 
   - id: 3003
-    key: mg_sw
-    name: Southwest Garden
+    key: mg_guard_quarter
+    name: Guard Quarter
     area_id: 3
-    short_desc: Shaded garden corner
-    long_desc: A small garden with benches and a tinkling birdbath.
+    short_desc: The city's guard quarter and barracks
+    long_desc: >
+      Sturdy buildings house the city watch here. Polished armor racks stand
+      at attention inside an open drill yard, where recruits spar beneath the
+      watchful glare of veteran sergeants. A tavern door on the corner bears
+      the insignia of the watch.
+    exits:
+      east: 3001
+      south: 3007
+
+  - id: 3005
+    key: mg_gate_road_north
+    name: Gate Road (north)
+    area_id: 3
+    short_desc: The northern stretch of Gate Road
+    long_desc: >
+      Cobblestones form a busy thoroughfare here, worn smooth by carts and
+      countless boots. Shops and stalls line the street, and colorful awnings
+      shield patrons from sun and rain. The road runs straight through the
+      city toward the southern gate.
     exits:
       north: 3001
-      east: 3004
+      south: 3010
+      east: 3009
+      west: 3012
 
-  - id: 3004
-    key: mg_se
-    name: Southeast Alley
+  # East of northern Gate Road cluster
+  - id: 3006
+    key: mg_apothecary_lane
+    name: Apothecary Lane
     area_id: 3
-    short_desc: Narrow southeast alley
-    long_desc: Narrow alley flanked by lantern-lit shops.
+    short_desc: A narrow lane of herb-sellers and potion shops
+    long_desc: >
+      Shelves of dried herbs hang above doorways, and glass vials glitter in
+      the dim light. The scent of lavender and crushed mint is punctuated by
+      the tang of vinegar and iron; a discreet sign reads 'Remedies & Tonics'.
     exits:
       north: 3002
-      west: 3003
+      south: 3011
+
+  - id: 3007
+    key: mg_barracks_square
+    name: Barracks Square
+    area_id: 3
+    short_desc: A small drill yard beside the barracks
+    long_desc: >
+      A compact square where guards drill and train. Wooden dummies and
+      weapon racks mark the perimeter. A noticeboard lists bounties and
+      local decrees; many a recruit has pinned a crude wanted poster here.
+    exits:
+      north: 3003
+      south: 3012
+
+  - id: 3008
+    key: mg_artisan_row
+    name: Artisan Row
+    area_id: 3
+    short_desc: Workshops of smiths, carpenters, and leatherworkers
+    long_desc: >
+      Hammers ring and sawdust drifts through the air in this industrious
+      alley. Blackened forges glow behind open doors, and apprentices rush
+      between shops carrying fresh goods for sale in the market.
+    exits:
+      north: 3004
+      east: 3009
+
+  - id: 3009
+    key: mg_trader_lane
+    name: Trader Lane
+    area_id: 3
+    short_desc: A busy trading lane full of stalls
+    long_desc: >
+      Traders haggle over bolts of cloth and crates of produce. Merchants
+      call out prices and samples of wares are proffered. The lane connects
+      the bakeries and market to the main road.
+    exits:
+      west: 3005
+      east: 3010
+
+  # Central Market and civic center
+  - id: 3010
+    key: mg_market_square
+    name: Market Square
+    area_id: 3
+    short_desc: Midgaard Market Square
+    long_desc: >
+      The market opens into a wide square dominated by a statue of the city's
+      founder. Stalls ring the plaza, and travelers pause beneath a bandstand
+      where bards perform. This is the heart of Midgaard and a reliable
+      meeting point for locals and newcomers alike.
+    exits:
+      north: 3005
+      south: 3015
+      west: 3009
+      east: 3011
+
+  - id: 3011
+    key: mg_tailors_row
+    name: Tailor's Row
+    area_id: 3
+    short_desc: A pleasant street of tailors and clothiers
+    long_desc: >
+      Rich bolts of fabric are draped from windows and mannequins stand
+      proudly outside doorways. Tailors ply their needles within, measuring
+      and cutting while customers discuss style and fit.
+    exits:
+      west: 3010
+      north: 3006
+      south: 3016
+
+  - id: 3012
+    key: mg_southern_lane_west
+    name: Southern Lane (west)
+    area_id: 3
+    short_desc: A quieter lane leading toward residential blocks
+    long_desc: >
+      Fewer stalls and more private doorways mark this lane. Flower boxes sit
+      under windows, and laundry flaps on lines across the narrow street.
+    exits:
+      north: 3007
+      east: 3010
+      south: 3017
+
+  # Southern Market and services
+  - id: 3015
+    key: mg_gate_road_south
+    name: Gate Road (south)
+    area_id: 3
+    short_desc: The southern stretch of Gate Road
+    long_desc: >
+      The road narrows slightly here. Inns and taverns begin to appear more
+      frequently, catering to weary travelers and caravan drivers heading
+      through the southern gate. A city noticeboard displays upcoming events.
+    exits:
+      north: 3010
+      south: 3020
+      east: 3016
+      west: 3017
+
+  - id: 3016
+    key: mg_inn_row
+    name: Inn & Tavern Row
+    area_id: 3
+    short_desc: A line of inns and taverns
+    long_desc: >
+      Lanterns hang low and the smell of stew drifts from open doors. Inns
+      here offer beds to travelers and common rooms echo with storytelling
+      and clinking mugs. This is a good place to find rumours and work.
+    exits:
+      north: 3011
+      west: 3015
+      south: 3021
+      east: 3041
+
+  - id: 3017
+    key: mg_residential_lane
+    name: Residential Lane
+    area_id: 3
+    short_desc: Modest houses and courtyards
+    long_desc: >
+      Rows of modest homes line this lane. Doorways are set back under
+      overhangs and small gardens provide color. Children play in the
+      courtyards, and a baker's smoke drifts from behind one of the doors.
+    exits:
+      north: 3012
+      east: 3015
+      south: 3022
+
+  - id: 3041
+    key: mg_meadgaard_inn
+    name: The Mead-Gaard Inn
+    area_id: 3
+    short_desc: The raucous Mead-Gaard Inn
+    long_desc: >
+      You stumble into the Mead-Gaard Inn, where the rafters vibrate with
+      bawdy shanties and the air hangs heavy with spilled mead and good-natured
+      insults. Tables wobble under platters of food, mugs clash in drunken
+      greetings, and a pair of patrons loudly debate whether the inn's namesake
+      really deserved a hyphen. A battered noticeboard behind the bar lists
+      local jobs and rumors; adventurers often find their first leads here.
+    exits:
+      west: 3016
+    spawns:
+      - type: ITEM
+        id: 400
+        quantity: 1
+        frequency: 0
+
+  - id: 3018
+    key: mg_temple_row
+    name: Temple Row
+    area_id: 3
+    short_desc: Shrines and a larger temple
+    long_desc: >
+      Small shrines to various faiths line this street, and a larger stone
+      temple stands at its center, with steps leading up to carved doors.
+      Candles burn in niches and priests move quietly between services.
+    exits:
+      north: 3004
+      south: 3023
+      east: 3015
+
+  # Southern outskirt and gates
+  - id: 3020
+    key: mg_south_gate_plaza
+    name: South Gate Plaza
+    area_id: 3
+    short_desc: The southern gate plaza
+    long_desc: >
+      Stone walls and a stout gate mark the city's southern boundary. Guards
+      inspect wagons and record arrivals; beyond the gate a road leads into
+      the wider lands to the south (the lands beyond are described on the
+      gate signage for travelers).
+    exits:
+      north: 3015
+      south: 3100
+
+  - id: 3021
+    key: mg_stables
+    name: Stables and Livery
+    area_id: 3
+    short_desc: Stables with a fenced yard
+    long_desc: >
+      Horses and mules are watered and tended here. Stablehands move quickly
+      between stalls, and a small smith's hearth can be seen where tack and
+      horseshoes are forged and repaired.
+    exits:
+      north: 3016
+      south: 3024
+
+  - id: 3022
+    key: mg_quiet_court
+    name: Quiet Court
+    area_id: 3
+    short_desc: A secluded courtyard with a fountain
+    long_desc: >
+      Walled gardens and a trickling fountain make this quiet court a favorite
+      resting spot for residents. A narrow alley leads back toward the market.
+    exits:
+      north: 3017
+      east: 3024
+
+  - id: 3023
+    key: mg_scribe_lane
+    name: Scribe's Lane & Library
+    area_id: 3
+    short_desc: Parchments, ink, and a small public library
+    long_desc: >
+      The clack of quills and the rustle of parchment come from narrow rooms
+      where scholars copy texts and sell maps. A modest public library offers
+      access to common knowledge and a few rare volumes.
+    exits:
+      north: 3018
+      south: 3025
+
+  - id: 3024
+    key: mg_workyard
+    name: Workyard
+    area_id: 3
+    short_desc: A cluster of small workshops and yards
+    long_desc: >
+      The workyard holds cooperages, cobblers and small forges. Trailers and
+      carts are serviced here, and wooden crates await shipment to the market.
+    exits:
+      north: 3021
+      west: 3022
+      south: 3026
+
+  - id: 3025
+    key: mg_academy_row
+    name: Arcane Annex & Scholar's Hall
+    area_id: 3
+    short_desc: Low towers and a hall for learning
+    long_desc: >
+      A modest collection of towers and a stuccoed hall serve as meeting
+      places for mages and scholars. A carved tablet proclaims the rules of
+      study and lists classes for apprentices. The towers are tall enough to
+      offer a city view but do not dominate the skyline.
+    exits:
+      north: 3023
+      south: 3027
+
+  - id: 3026
+    key: mg_common_green
+    name: Common Green
+    area_id: 3
+    short_desc: An open green used for festivals and drills
+    long_desc: >
+      An open green hosts markets, small festivals and occasional militia
+      musters. Lanterns can be strung between posts for night events, and
+      temporary booths are often erected here for fairs.
+    exits:
+      north: 3024
+      east: 3027
+
+  - id: 3027
+    key: mg_art_guild_way
+    name: Artisan Square & Guild Halls
+    area_id: 3
+    short_desc: Guild halls for craftsmen and artists
+    long_desc: >
+      Low, well-kept halls house the guilds of the city: metalworkers, wood
+      carvers, and potters. A small raised platform hosts demonstrations on
+      market days and guild notices.
+    exits:
+      north: 3025
+      west: 3026
+      south: 3028
+
+  - id: 3028
+    key: mg_river_walk
+    name: River Walk (inner)
+    area_id: 3
+    short_desc: A paved walk along the small canal that crosses the city
+    long_desc: >
+      A narrow canal flows through Midgaard, fed from springs outside the
+      walls. Stone bridges cross the water and small docks allow for river
+      vendors and light cargo. The sound of flowing water calms the busy streets.
+    exits:
+      north: 3027
+      south: 3029
+
+  - id: 3029
+    key: mg_bridge_south
+    name: Southern River Bridge
+    area_id: 3
+    short_desc: A stone bridge spanning the canal
+    long_desc: >
+      The bridge offers a pleasant view along the canal and leads toward
+      quieter southern neighborhoods. A small plaque names the mason who
+      built it generations ago.
+    exits:
+      north: 3028
+      south: 3030
+
+  - id: 3030
+    key: mg_garden_ward
+    name: Garden Ward
+    area_id: 3
+    short_desc: Tree-lined avenues and private gardens
+    long_desc: >
+      The Garden Ward is a pleasant residential district where wealthier
+      merchants keep small plots and walled gardens. Wrought-iron gates and
+      clipped hedges separate properties from the street.
+    exits:
+      north: 3029
+      east: 3031
+
+  - id: 3031
+    key: mg_jewelers_row
+    name: Jeweler's Row
+    area_id: 3
+    short_desc: Shiny windows and careful hands
+    long_desc: >
+      Tiny wares glitter in secure windows here; the jewellers' shops are
+      cluttered with velvet and faintly scented oils. Display cases show
+      small trinkets and wedding rings for sale.
+    exits:
+      west: 3030
+      south: 3032
+
+  - id: 3032
+    key: mg_temple_small
+    name: Small Chapel
+    area_id: 3
+    short_desc: A humble chapel for common folk
+    long_desc: >
+      A small stone chapel offers quiet prayers and simple rites. Candles
+      burn gently and a single priest tends to petitioners. The chapel is
+      open to all and often sees local baptisms.
+    exits:
+      north: 3031
+      east: 3033
+
+  - id: 3033
+    key: mg_hidden_alley
+    name: The Hidden Alley
+    area_id: 3
+    short_desc: A narrow alley that feels slightly off the map
+    long_desc: >
+      This alley is narrow enough that sunlight barely reaches the cobbles.
+      A few discreet doors and shutters suggest businesses that prefer to be
+      less visible. The street returns to the market to the west.
+    exits:
+      west: 3032
+      north: 3026
+
+  - id: 3034
+    key: mg_tower_walk
+    name: Watch Tower Walk
+    area_id: 3
+    short_desc: A short lane leading toward the western watch tower
+    long_desc: >
+      The lane climbs slightly toward a stout watch tower that grants a
+      view of the countryside. Guards sometimes patrol this way to reach
+      the tower on duty.
+    exits:
+      east: 3008
+      west: 3035
+
+  - id: 3035
+    key: mg_watch_tower
+    name: Western Watch Tower
+    area_id: 3
+    short_desc: A stout watch tower overlooking the outskirts
+    long_desc: >
+      The tower's spiral stairs creak as sentries climb to the top. From
+      here you can see the walls and the roads that lead away from Midgaard.
+    exits:
+      east: 3034
+
+  - id: 3036
+    key: mg_gatekeepers_house
+    name: Gatekeeper's House
+    area_id: 3
+    short_desc: A modest house used by the gate staff
+    long_desc: >
+      The gatekeepers and their families live here; the house is functional
+      and well tended. Noteboards outside contain rules for entry and lists
+      of caravan times.
+    exits:
+      north: 3001
+      south: 3037
+
+  - id: 3037
+    key: mg_caravan_yard
+    name: Caravan Yard
+    area_id: 3
+    short_desc: A yard for loading and unloading wagons
+    long_desc: >
+      Large wagons pull up here to deliver trade goods. The yard smells of
+      hay and oil; sailors and traders barter for space and labor.
+    exits:
+      north: 3036
+      south: 3020
+
+  - id: 3038
+    key: mg_sculptors_plaza
+    name: Sculptor's Plaza
+    area_id: 3
+    short_desc: A quiet square with half-carved statues
+    long_desc: >
+      Chisels and mallets lie beside half-formed statues and freize fragments.
+      Students and masters practice their craft here, occasionally selling
+      small carvings to travelers.
+    exits:
+      east: 3026
+      south: 3039
+
+  - id: 3039
+    key: mg_granary_lane
+    name: Granary Lane
+    area_id: 3
+    short_desc: Large storehouses and mills
+    long_desc: >
+      The granaries store grain for the city; workers move sacks and pour
+      fresh grain into churns for milling. A millstone grinds quietly nearby.
+    exits:
+      north: 3038
+      west: 3024
+
+  - id: 3040
+    key: mg_outer_wall_walk
+    name: Wallwalk (inner)
+    area_id: 3
+    short_desc: A path along the inner side of the city walls
+    long_desc: >
+      A narrow walk along the interior of the city wall provides a quick
+      route between towers. Guards sometimes march this path during the
+      night watch; the parapet gives a clear view outside the walls.
+    exits:
+      east: 3035
+      south: 3020
 
   # ============================================================
   # DUNGEON LEVEL 1 (area 2) - Room IDs 2000-2999
@@ -805,49 +1271,4 @@ rooms:
     long_desc: A stone archway leading down into darkness.
     exits: {}
 
-  # ============================================================
-  # MIDGAARD (area 3) - Room IDs 3000-3999
-  # 2x2 grid layout:
-  #   3001 (NW) -- 3002 (NE)
-  #     |            |
-  #   3003 (SW) -- 3004 (SE)
-  # ============================================================
-  - id: 3001
-    key: mg_nw
-    name: Northwest Plaza
-    area_id: 3
-    short_desc: Quiet northwest plaza
-    long_desc: A small plaza with a mossy fountain at its center.
-    exits:
-      east: 3002
-      south: 3003
-
-  - id: 3002
-    key: mg_ne
-    name: Northeast Market
-    area_id: 3
-    short_desc: Northeast market stalls
-    long_desc: Colorful stalls and the smell of fresh bread.
-    exits:
-      south: 3004
-      west: 3001
-
-  - id: 3003
-    key: mg_sw
-    name: Southwest Garden
-    area_id: 3
-    short_desc: Shaded garden corner
-    long_desc: A small garden with benches and a tinkling birdbath.
-    exits:
-      north: 3001
-      east: 3004
-
-  - id: 3004
-    key: mg_se
-    name: Southeast Alley
-    area_id: 3
-    short_desc: Narrow southeast alley
-    long_desc: Narrow alley flanked by lantern-lit shops.
-    exits:
-      north: 3002
-      west: 3003
+  # (Removed duplicate placeholder 2x2 Midgaard block — main city now defined above.)

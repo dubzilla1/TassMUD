@@ -1262,6 +1262,19 @@ items:
     indestructable: true
 
   # ============================================================
+  # INN FIXTURES
+  # ============================================================
+  - id: 400
+    key: mg_meadgaard_hearth
+    name: The Mead-Gaard Hearth Fire
+    description: The Mead-Gaard's world-famous hearth burns brightly, inviting you to rest your weary bones by its gentle flame.
+    weight: 500.0
+    value: 0
+    type: immobile
+    indestructable: true
+    magical: false
+
+  # ============================================================
   # SYSTEM ITEMS (IDs 900-999)
   # ============================================================
   

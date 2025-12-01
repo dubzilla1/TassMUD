@@ -1014,3 +1014,144 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "level" not found [42122-224]
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-12-01 12:46:06.448507-05:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:926)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:463)
+	at org.h2.mvstore.RandomAccessStore.lambda$doHousekeeping$3(RandomAccessStore.java:714)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:937)
+	at org.h2.mvstore.RandomAccessStore.doHousekeeping(RandomAccessStore.java:709)
+	at org.h2.mvstore.FileStore.writeInBackground(FileStore.java:1837)
+	at org.h2.mvstore.FileStore$BackgroundWriterThread.run(FileStore.java:2248)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 12 more
+Caused by: org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	... 7 more
+Caused by: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator
+	at org.h2.mvstore.RandomAccessStore.findChunksToMove(RandomAccessStore.java:516)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:479)
+	at org.h2.mvstore.RandomAccessStore.lambda$compactMoveChunks$1(RandomAccessStore.java:468)
+	at org.h2.mvstore.FileStore.executeFileStoreOperation(FileStore.java:1888)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:922)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: org.h2.mvstore.Chunk$PositionComparator
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 11 more
+2025-12-01 12:46:06.883630-05:00 jdbc[14049]: 
+org.h2.message.DbException: General error: "General error: ""org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]"" [50000-224]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:1817)
+	at org.h2.engine.SessionLocal.beforeCommitOrRollback(SessionLocal.java:764)
+	at org.h2.engine.SessionLocal.commit(SessionLocal.java:679)
+	at org.h2.command.Command.commitIfNonTransactional(Command.java:315)
+	at org.h2.command.Command.executeUpdate(Command.java:247)
+	at org.h2.engine.Engine.openSession(Engine.java:259)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at com.example.tassmud.persistence.CharacterDAO.findById(CharacterDAO.java:1125)
+	at com.example.tassmud.util.RegenerationService.regeneratePlayers(RegenerationService.java:118)
+	at com.example.tassmud.util.RegenerationService.tick(RegenerationService.java:99)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "General error: ""org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]"" [50000-224]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:926)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:463)
+	at org.h2.mvstore.RandomAccessStore.lambda$doHousekeeping$3(RandomAccessStore.java:714)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:937)
+	at org.h2.mvstore.RandomAccessStore.doHousekeeping(RandomAccessStore.java:709)
+	at org.h2.mvstore.FileStore.writeInBackground(FileStore.java:1837)
+	at org.h2.mvstore.FileStore$BackgroundWriterThread.run(FileStore.java:2248)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 12 more
+Caused by: org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	... 7 more
+Caused by: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator
+	at org.h2.mvstore.RandomAccessStore.findChunksToMove(RandomAccessStore.java:516)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:479)
+	at org.h2.mvstore.RandomAccessStore.lambda$compactMoveChunks$1(RandomAccessStore.java:468)
+	at org.h2.mvstore.FileStore.executeFileStoreOperation(FileStore.java:1888)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:922)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: org.h2.mvstore.Chunk$PositionComparator
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 11 more
+2025-12-01 12:46:06.905315-05:00 jdbc[14050]: 
+org.h2.message.DbException: The database has been closed [90098-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.engine.SessionLocal.getTransaction(SessionLocal.java:1610)
+	at org.h2.engine.SessionLocal.getStatementSavepoint(SessionLocal.java:1620)
+	at org.h2.engine.SessionLocal.setSavepoint(SessionLocal.java:858)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.engine.Engine.openSession(Engine.java:259)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at com.example.tassmud.persistence.MobileDAO.getAllInstances(MobileDAO.java:415)
+	at com.example.tassmud.util.RegenerationService.regenerateMobiles(RegenerationService.java:152)
+	at com.example.tassmud.util.RegenerationService.tick(RegenerationService.java:100)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The database has been closed [90098-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:926)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:463)
+	at org.h2.mvstore.RandomAccessStore.lambda$doHousekeeping$3(RandomAccessStore.java:714)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:937)
+	at org.h2.mvstore.RandomAccessStore.doHousekeeping(RandomAccessStore.java:709)
+	at org.h2.mvstore.FileStore.writeInBackground(FileStore.java:1837)
+	at org.h2.mvstore.FileStore$BackgroundWriterThread.run(FileStore.java:2248)
+Caused by: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator
+	at org.h2.mvstore.RandomAccessStore.findChunksToMove(RandomAccessStore.java:516)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:479)
+	at org.h2.mvstore.RandomAccessStore.lambda$compactMoveChunks$1(RandomAccessStore.java:468)
+	at org.h2.mvstore.FileStore.executeFileStoreOperation(FileStore.java:1888)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:922)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: org.h2.mvstore.Chunk$PositionComparator
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 11 more
