@@ -63,6 +63,14 @@ public class Skill {
     }
     
     /**
+     * Check if this skill is innate (automatically known at 100% by all).
+     * Innate skills are basic combat maneuvers that don't require training.
+     */
+    public boolean isInnate() {
+        return hasTrait(SkillTrait.INNATE);
+    }
+    
+    /**
      * Skill progression curves determine how quickly proficiency increases.
      * Each curve defines:
      * - baseGainChance: base % chance to gain 1% proficiency on successful use

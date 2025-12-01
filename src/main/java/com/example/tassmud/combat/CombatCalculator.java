@@ -265,7 +265,20 @@ public class CombatCalculator {
      * @return The total attack roll bonus
      */
     public int calculateFullAttackBonus(Combatant attacker, Combatant defender) {
-        int attackerLevel = getCombatantLevel(attacker);
+        return calculateFullAttackBonus(attacker, defender, 0);
+    }
+    
+    /**
+     * Calculate the full attack bonus for a combatant attacking another,
+     * with an optional level penalty (for multi-attack skills).
+     * 
+     * @param attacker The attacking combatant
+     * @param defender The defending combatant
+     * @param levelPenalty Penalty to attacker's effective level (e.g., 1 for second attack)
+     * @return The total attack roll bonus
+     */
+    public int calculateFullAttackBonus(Combatant attacker, Combatant defender, int levelPenalty) {
+        int attackerLevel = Math.max(1, getCombatantLevel(attacker) - levelPenalty);
         int defenderLevel = getCombatantLevel(defender);
         
         return calculateLevelAttackBonus(attackerLevel, defenderLevel);
@@ -302,6 +315,55 @@ public class CombatCalculator {
         if (itemDAO == null) {
             itemDAO = new ItemDAO();
         }
+    }
+    
+    /**
+     * Check if a combatant is using a ranged weapon.
+     * 
+     * @param combatant The combatant to check
+     * @return true if using a ranged weapon (bow, crossbow, sling), false otherwise
+     */
+    public boolean isUsingRangedWeapon(Combatant combatant) {
+        if (combatant == null) return false;
+        
+        if (combatant.isPlayer()) {
+            return isPlayerUsingRangedWeapon(combatant.getCharacterId());
+        } else if (combatant.isMobile()) {
+            // For now, mobs are assumed to be melee unless we add ranged mob support later
+            // TODO: Add ranged weapon support for mobiles
+            return false;
+        }
+        
+        return false;
+    }
+    
+    /**
+     * Check if a player character is using a ranged weapon.
+     */
+    private boolean isPlayerUsingRangedWeapon(Integer characterId) {
+        if (characterId == null) return false;
+        
+        ensureDAOs();
+        
+        // Get equipped main-hand weapon
+        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        if (mainHandInstanceId == null) {
+            return false; // Unarmed is melee
+        }
+        
+        // Get weapon template to find family
+        ItemInstance weaponInstance = itemDAO.getInstance(mainHandInstanceId);
+        if (weaponInstance == null) {
+            return false;
+        }
+        
+        ItemTemplate weaponTemplate = itemDAO.getTemplateById(weaponInstance.templateId);
+        if (weaponTemplate == null) {
+            return false;
+        }
+        
+        WeaponFamily weaponFamily = weaponTemplate.getWeaponFamily();
+        return weaponFamily != null && weaponFamily.isRanged();
     }
     
     /**

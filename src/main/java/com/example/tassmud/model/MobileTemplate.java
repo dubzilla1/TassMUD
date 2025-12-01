@@ -54,6 +54,9 @@ public class MobileTemplate {
     // Spawning
     private final int respawnSeconds;      // Time to respawn after death (0 = no respawn)
     
+    // Auto-combat behavior
+    private final int autoflee;            // Auto-flee threshold (0-100), defaults to 0
+    
     // Optional JSON for extended data (loot tables, dialogue, etc.)
     private final String templateJson;
     
@@ -65,7 +68,7 @@ public class MobileTemplate {
             int baseDamage, int damageBonus, int attackBonus,
             List<MobileBehavior> behaviors, int aggroRange,
             int experienceValue, int goldMin, int goldMax,
-            int respawnSeconds, String templateJson) {
+            int respawnSeconds, int autoflee, String templateJson) {
         this.id = id;
         this.key = key;
         this.name = name;
@@ -95,6 +98,7 @@ public class MobileTemplate {
         this.goldMin = goldMin;
         this.goldMax = goldMax;
         this.respawnSeconds = respawnSeconds;
+        this.autoflee = autoflee;
         this.templateJson = templateJson;
     }
     
@@ -124,6 +128,7 @@ public class MobileTemplate {
     public int getAttackBonus() { return attackBonus; }
     public List<MobileBehavior> getBehaviors() { return behaviors; }
     public int getAggroRange() { return aggroRange; }
+    public int getAutoflee() { return autoflee; }
     
     /**
      * Check if this mobile has a specific behavior.

@@ -55,6 +55,21 @@ public enum WeaponFamily {
     public String getDisplayName() { return displayName; }
     
     /**
+     * Check if this weapon family is ranged.
+     * Ranged weapons are: SLINGS, CROSSBOWS, BOWS
+     */
+    public boolean isRanged() {
+        return this == SLINGS || this == CROSSBOWS || this == BOWS;
+    }
+    
+    /**
+     * Check if this weapon family is melee (not ranged).
+     */
+    public boolean isMelee() {
+        return !isRanged();
+    }
+    
+    /**
      * Get the skill key for this weapon family (e.g., "skill_swords").
      */
     public String getSkillKey() { return skillKey; }

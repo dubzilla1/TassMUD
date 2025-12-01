@@ -1,78 +1,437 @@
-**Project Summary**
+# TassMUD – Agent Context Document
 
-TassMUD is a Java 17 Maven project: a lightweight MUD server used for development and testing. It runs as a single JVM process, exposes a telnet-like interface through `Server`/`ClientHandler`, and persists game state to an embedded H2 file database.
+> **Last Updated**: December 2025  
+> This document provides AI agents with comprehensive project context for effective assistance.
 
-Key facts for LLM agents:
+---
 
-- **Build**: `mvn -DskipTests package` (produces a shaded jar `target/tass-mud-0.1.0-shaded.jar`).
-- **Run (dev)**: use the included PowerShell script `target\scripts\restart-mud.ps1` which stops running Java processes, rebuilds, and launches the jar.
-- **DB**: H2 file-backed DB at `./data/tassmud` (files: `data/tassmud.mv.db`, `data/tassmud.trace.db`). DAOs use URL: `jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1`.
-- **Important**: H2 file locking prevents multiple processes from opening the DB simultaneously. Stop the running server before running other tools that open the DB.
+## Project Overview
 
-Where to look (important files & folders)
+TassMUD is a **Java 17 Maven project**: a multi-user dungeon (MUD) server exposing a telnet-like interface. It runs as a single JVM process, handles multiple concurrent player connections, and persists game state to an embedded H2 file database.
 
-- `src/main/java/com/example/tassmud/` — Java sources.
-  - `Server.java`, `ClientHandler.java` — server lifecycle and per-connection command dispatch.
-  - `CommandParser.java` — maps user input to commands and supports prefix-based resolution.
-  - `CharacterDAO.java`, `ItemDAO.java` — persistence; `ensureTables()` performs CREATE/ALTER migrations at startup.
-  - `HelpManager.java`, `HelpPage.java` — help YAML loader and lookup.
-  - `tools/SchemaInspector.java` — helper that instantiates DAOs and prints INFORMATION_SCHEMA rows (useful for debugging migrations).
-- `src/main/resources/data/` — seed CSV/YAML data: `areas.csv`, `rooms.csv`, `items.yaml` (templates), `skills.csv`, `spells.csv`.
-- `src/main/resources/help/` — YAML help pages (packaged into shaded JAR).
-- `target/scripts/restart-mud.ps1` — development restart script (copied from `src/main/java/.../scripts`).
+### Quick Reference
 
-Runtime / Behavior Notes
+| Aspect | Details |
+|--------|---------|
+| **Build** | `mvn -DskipTests package` → `target/tass-mud-0.1.0-shaded.jar` |
+| **Run (dev)** | `.\target\scripts\restart-mud.ps1` |
+| **Port** | 4003 (default, configurable via `TASSMUD_PORT` env var) |
+| **Database** | H2 file DB at `./data/tassmud` (`.mv.db`, `.trace.db`) |
+| **DB URL** | `jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1` |
 
-- DAOs are responsible for creating tables and running additive migrations with `ALTER TABLE ... ADD COLUMN IF NOT EXISTS`. This is best-effort and logs migration messages during startup (e.g. "Migration: ensured column item_template.traits").
-- `CharacterDAO` and `ItemDAO` now point at the same file-backed H2 DB so the server state is persistent across restarts.
-- To avoid the H2 "connection aborted" or lock errors, ensure the server is stopped before running any external tool that opens the DB (for example, the `SchemaInspector` tool or manual `java -cp ...` runs).
+### Important Constraints
 
-Common developer tasks & commands
+- **H2 file locking**: Only one process can access the DB at a time. Stop the server before running external DB tools.
+- **Shaded JAR**: Always use the shaded jar for classpath operations to avoid H2 version mismatches.
 
-- Build the shaded jar
+---
+
+## Project Structure
+
+```
+src/main/java/com/example/tassmud/
+├── combat/           # Combat system (CombatManager, Combat, Combatant, etc.)
+├── event/            # Event/spawn scheduling (EventScheduler, SpawnManager)
+├── model/            # Data models (Character, Mobile, Item, Skill, Spell, etc.)
+├── net/              # Network layer (Server, ClientHandler, CommandRegistry)
+├── persistence/      # DAOs and data loading (CharacterDAO, ItemDAO, etc.)
+├── scripts/          # PowerShell scripts (restart-mud.ps1)
+├── tools/            # Dev utilities (SchemaInspector)
+└── util/             # Services (TickService, RegenerationService, etc.)
+
+src/main/resources/
+├── asciiart/         # Title screen art
+├── data/             # YAML seed data (items, skills, spells, classes, etc.)
+└── help/             # YAML help pages
+```
+
+---
+
+## Core Architecture
+
+### Server & Client Handling (`net/`)
+
+The server backbone consists of three key files:
+
+#### `Server.java`
+- Entry point; starts the TCP listener on port 4003
+- Initializes all subsystems in order:
+  1. `CharacterDAO.ensureTable()` – DB schema migrations
+  2. `DataLoader.loadDefaults()` – Seed data from YAML resources
+  3. `TickService` – Central scheduler for periodic tasks
+  4. `GameClock` – In-game time tracking
+  5. `CooldownManager` – Skill/spell cooldown tracking
+  6. `CombatManager` – Combat tick processing
+  7. `EventScheduler` + `SpawnManager` – Mob/item spawn scheduling
+  8. `RegenerationService` – HP/MP/MV recovery
+  9. `MobileRoamingService` – NPC wandering behavior
+- Accepts connections and spawns `ClientHandler` threads
+
+#### `ClientHandler.java`
+- **The central command dispatcher** – most game logic lives here
+- Handles login/character creation flow
+- Main command loop with switch statement for all commands
+- Manages per-session state:
+  - `playerName`, `characterId`, `currentRoomId`
+  - `promptFormat` (customizable prompt)
+  - `debugChannelEnabled` (GM debug output)
+- Static messaging utilities:
+  - `broadcastRoomMessage()` – Send to all players in a room
+  - `sendToCharacter()` – Send to specific player by character ID
+  - `roomAnnounce()` – Arrival/departure announcements (respects sleep state)
+  - `sendPromptToCharacter()` – Refresh player's prompt
+  - `triggerAutoflee()` – Combat system callback for auto-flee
+
+#### `CommandRegistry.java` & `CommandParser.java`
+- `CommandRegistry` is the **single source of truth** for all commands
+- Commands are registered with:
+  - `register()` – Normal commands (blocked in combat)
+  - `registerCombat()` – Allowed during combat
+  - `registerGm()` – GM-only commands
+- Each command has: name, description, category, aliases, GM flag, combat flag
+- `CommandParser` resolves input to canonical command names (supports prefix matching and aliases)
+
+**Categories**: `INFORMATION`, `MOVEMENT`, `COMMUNICATION`, `ITEMS`, `COMBAT`, `SYSTEM`, `GM`
+
+**Adding a new command**:
+1. Register in `CommandRegistry.java` static initializer
+2. Add case in `ClientHandler.java` switch statement
+3. Add help entry in `src/main/resources/help/global_commands.yaml`
+
+---
+
+## Data Models (`model/`)
+
+### Core Entities
+
+| Model | Description |
+|-------|-------------|
+| `Character` | Player character with stats, vitals (HP/MP/MV), abilities, room location |
+| `Mobile` | NPC/monster instance (extends Character, adds combat AI, spawn tracking) |
+| `MobileTemplate` | Blueprint for spawning mobiles (stats, behaviors, loot, respawn) |
+| `ItemTemplate` | Item definition (type, stats, effects, requirements) |
+| `ItemInstance` | Spawned item in world (location: room, character inventory, or container) |
+| `Room` | Game location with exits (N/E/S/W/U/D), description, sector type |
+| `Area` | Collection of rooms with shared properties (name, level range) |
+
+### Skills & Spells
+
+**`Skill`**:
+- Has `id`, `name`, `description`, `progression` curve, `traits`, `cooldown`
+- **Progression curves** (how fast proficiency increases on use):
+  - `INSTANT` – Immediate 100% mastery (armor/weapon proficiencies)
+  - `TRIVIAL` through `LEGENDARY` – Varying learning speeds
+- **Traits**: `INNATE` (known by all), `COMBAT` (requires combat), etc.
+- Characters have proficiency 1-100% in each known skill
+
+**`Spell`**:
+- Has `school` (ARCANE, DIVINE, PRIMAL, OCCULT), `level` (1-10), `target` type
+- Progression works like skills
+- Target types: `SELF`, `CURRENT_ENEMY`, `EXPLICIT_MOB_TARGET`, `ALL_ENEMIES`, etc.
+
+**`CharacterClass`**:
+- Defines HP/MP/MV gains per level
+- Contains `ClassSkillGrant` list – which skills unlock at which class levels
+- Max level 50 (normal) + 5 hero levels (51-55)
+
+### Equipment & Items
+
+**Item Types** (can have multiple via `types` field):
+- `trash`, `inventory`, `container`, `immobile`, `armor`, `shield`, `weapon`, `held`
+
+**Equipment Slots** (`EquipmentSlot` enum):
+- HEAD, NECK, SHOULDERS, BACK, CHEST, ARMS, HANDS, WAIST, LEGS, BOOTS, MAIN_HAND, OFF_HAND
+
+**Armor Categories** (`ArmorCategory` enum):
+- `CLOTH`, `LEATHER`, `MAIL`, `PLATE`, `OTHER`
+- Each maps to a skill key (e.g., `skill_cloth_armor`) for proficiency checks
+
+**Weapon Categories/Families**:
+- Categories: `SIMPLE`, `MARTIAL`, `EXOTIC`
+- Families: `SWORDS`, `AXES`, `CLUBS`, `DAGGERS`, `BOWS`, `STAVES`, etc.
+
+---
+
+## Combat System (`combat/`)
+
+### Key Components
+
+| Class | Purpose |
+|-------|---------|
+| `CombatManager` | Singleton managing all active combats; processes ticks |
+| `Combat` | Single combat instance with combatants and state machine |
+| `Combatant` | Wrapper for player/mobile in combat (tracks HP, attacks, prone status) |
+| `CombatCalculator` | Hit/damage calculations using stats and proficiencies |
+| `MultiAttackHandler` | Handles second/third/fourth attack skills |
+| `BasicAttackCommand` | Default melee attack implementation |
+
+### Combat Flow
+
+1. Player uses `kill <target>` → `CombatManager.initiateCombat()`
+2. Combat enters `STARTING` state, adds combatants to appropriate alliance
+3. `CombatManager.tick()` runs every 500ms:
+   - Processes each combat's round
+   - Checks autoflee thresholds
+   - Handles death and combat end conditions
+4. Combat cycles through states: `STARTING` → `ACTIVE` → `ENDING`
+5. On mob death: XP awarded, corpse created, loot dropped
+
+### Combat Commands
+
+- `kill <target>` – Initiate combat
+- `flee` – Attempt to escape (opposed check vs highest-level enemy)
+- `autoflee <0-100>` – Set HP% threshold for automatic flee
+- `combat` – View current combat status
+- `kick`, `bash`, `cast` – Combat skills (require proficiency)
+
+---
+
+## Event & Spawn System (`event/`)
+
+### Components
+
+| Class | Purpose |
+|-------|---------|
+| `TickService` | Central scheduler using `ScheduledExecutorService` |
+| `EventScheduler` | Manages recurring game events |
+| `SpawnManager` | Registers and schedules mob/item spawns |
+| `SpawnConfig` | Configuration for a spawn (type, template, room, interval) |
+| `SpawnEvent` | Executes spawn, tracks instance UUIDs to prevent duplicates |
+
+### Spawn System Design
+
+- Spawns are registered during `DataLoader.loadDefaults()` from `mobiles.yaml`
+- Each spawn has a unique `spawnId` (e.g., `"area_1_room_1001_mob_1"`)
+- `SpawnEvent` creates instances and logs to `SpawnEventLogger`
+- On server restart: existing instances are cleared, spawns re-triggered
+- UUID-based tracking prevents duplicate spawns
+
+---
+
+## Utility Services (`util/`)
+
+| Service | Purpose | Tick Interval |
+|---------|---------|---------------|
+| `TickService` | Central scheduler for all timed tasks | N/A (scheduler) |
+| `RegenerationService` | HP/MP/MV recovery based on stance | 10 seconds |
+| `CooldownManager` | Track skill/spell cooldowns | 100ms |
+| `MobileRoamingService` | NPC wandering behavior | Varies |
+| `GameClock` | In-game time tracking and date persistence | Custom |
+| `HelpManager` | Load and serve help pages from YAML | N/A |
+
+### Stance System
+
+Players have stances affecting regen and actions:
+- `STANDING` – Normal (1% regen/tick)
+- `SITTING` – Resting (5% regen/tick), can't move
+- `SLEEPING` – Asleep (10% regen/tick), can't move, suppresses announcements
+
+---
+
+## Persistence Layer (`persistence/`)
+
+### DAOs
+
+| DAO | Tables Managed |
+|-----|----------------|
+| `CharacterDAO` | `characters`, `character_flags`, `character_skill`, `character_spell`, `character_equipment`, `character_class`, `skilltb`, `spelltb`, `rooms`, `areas`, `settings` |
+| `CharacterClassDAO` | `class`, `class_skill_grants` |
+| `ItemDAO` | `item_template`, `item_instance` |
+| `MobileDAO` | `mobile_template`, `mobile_instance` |
+
+### Migration Pattern
+
+DAOs use additive migrations in `ensureTables()`:
+```java
+s.execute("ALTER TABLE tablename ADD COLUMN IF NOT EXISTS colname TYPE DEFAULT val");
+```
+
+This ensures schema evolves safely without breaking existing data.
+
+### `DataLoader`
+
+Loads seed data from YAML resources on startup:
+- `/data/skills.yaml` → `skilltb`
+- `/data/spells.yaml` → `spelltb`
+- `/data/areas.yaml` → `areas`
+- `/data/rooms.yaml` → `rooms`
+- `/data/items.yaml` → `item_template`
+- `/data/classes.yaml` → `class` + `class_skill_grants`
+- `/data/mobiles.yaml` → `mobile_template` + spawn registration
+
+---
+
+## Data Files (`src/main/resources/data/`)
+
+| File | Contents |
+|------|----------|
+| `skills.yaml` | Skill definitions (id, key, name, description, progression, traits) |
+| `spells.yaml` | Spell definitions (id, name, school, level, target, effects) |
+| `classes.yaml` | Character classes with skill grants per level |
+| `items.yaml` | Item templates (armor, weapons, containers, etc.) |
+| `mobiles.yaml` | Mobile templates with stats, behaviors, spawn configs |
+| `areas.yaml` | Area definitions (id, name, description, level range) |
+| `rooms.yaml` | Room definitions with exits and descriptions |
+
+---
+
+## Help System
+
+### Files
+
+- `src/main/resources/help/global_commands.yaml` – Player command help
+- `src/main/resources/help/gm_commands.yaml` – GM command help
+- `src/main/resources/help/classes_help.yaml` – Class information
+
+### Format
+
+```yaml
+commandname:
+  keywords: [keyword1, keyword2]
+  see_also: [othercommand]
+  category: COMBAT
+  usage:
+    - "commandname <arg>"
+  content: |
+    NAME
+        commandname - short description
+    
+    SYNOPSIS
+        commandname <arg>
+    
+    DESCRIPTION
+        Detailed description...
+```
+
+---
+
+## GM Commands
+
+GMs are identified by the `is_gm` character flag.
+
+| Command | Purpose |
+|---------|---------|
+| `cflag` | Get/set character flags |
+| `cskill` | Grant skills to characters |
+| `cspell` | Grant spells to characters |
+| `goto` | Teleport to room or player |
+| `spawn` | Create mob/item instances |
+| `restore` | Refill HP/MP/MV |
+| `promote` | Level up a character |
+| `peace` | End combat in room |
+| `dbinfo` | Show database schema |
+| `debug` | Toggle debug channel |
+| `ilist` | Search item templates |
+| `ifind` | Find item instances |
+| `system` | Broadcast system message |
+| `gmchat` | GM-only chat channel |
+
+---
+
+## Development Workflow
+
+### Common Commands
 
 ```powershell
+# Build (skip tests for speed)
 mvn -DskipTests package
-```
 
-- Restart the server (stops any java processes, builds and starts the jar)
+# Full restart (stops server, builds, starts)
+.\target\scripts\restart-mud.ps1
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\target\scripts\restart-mud.ps1
-```
+# View server output (live)
+Get-Content .\logs\server.out -Wait -Tail 200
 
-- Run the in-repo SchemaInspector (prints data dir, runs DAO migrations, lists tables/columns)
+# View server errors
+Get-Content .\logs\server.err -Tail 200
 
-```powershell
+# Run schema inspector (server must be stopped)
 java -cp .\target\tass-mud-0.1.0-shaded.jar com.example.tassmud.tools.SchemaInspector
 ```
 
-- In-game GM debug commands (available via the server console / telnet client):
-  - `dbinfo` — GM-only schema listing (implemented in `ClientHandler`).
-  - `save` — saves character mutable state to DB.
+### Adding New Features
 
-Troubleshooting tips for agents
+**New Command**:
+1. `CommandRegistry.java` – Add registration
+2. `ClientHandler.java` – Add case handler
+3. `global_commands.yaml` – Add help entry
 
-- If you see H2-related NoClassDefFoundError or socket connection aborted errors when running external tools, it's usually due to:
-  - Running a second process against the same file-backed DB while the server is running (stop the server first), or
-  - A classpath mismatch when running a non-shaded tools or different H2 versions (use the shaded jar so the H2 classes match the server runtime).
-- To verify migrations ran, look for migration log lines in server stdout (lines beginning with `Migration: ensured ...`). If those are missing, ensure DAOs are instantiated during server startup or call them explicitly in a small in-process helper like `SchemaInspector`.
+**New Skill**:
+1. `skills.yaml` – Add skill definition
+2. `classes.yaml` – Add to class skill grants (if class-specific)
+3. `ClientHandler.java` – Add execution logic (if active skill)
 
-Notes about recent design decisions (so LLMs understand context)
+**New Item Type**:
+1. `items.yaml` – Add template with appropriate type/stats
+2. `ItemTemplate.java` – Add any new fields (with migrations in `ItemDAO`)
+3. `ClientHandler.java` – Handle in equip/use logic
 
-- Item model evolution: templates moved from flat CSV to structured YAML/JSON (`items.yaml`) stored in `item_template.template_json`. Templates carry `traits`/`keywords`. `ItemDAO` stores `template_json` in a CLOB column.
-- Item instances: `item_instance` rows include `location_room_id`, `owner_character_id`, and `container_instance_id` (a union of possible locations). `createInstance` has overloads to create instances in containers. `moveInstanceTo*` helpers update the proper location column and clear others.
-- Equipment: `character_equipment` table maps `slot_id` → `item_instance_id`. `EquipmentSlot` enum defines numeric slot ids used by DAOs.
-- Help pages: included in shaded JAR; `HelpManager` loads them from the classpath.
+**New Mobile**:
+1. `mobiles.yaml` – Add template with stats, behaviors, spawn config
+2. Restart server – spawns auto-register and trigger
 
-If you want, I can also:
-- Add a short README section (`docs/agents.md`) with runnable examples (I already added this file), or
-- Add more debug commands to the running server (e.g., a `schema-dump` command that prints INFORMATION_SCHEMA output without stopping the server).
+**DB Schema Change**:
+1. Add migration in DAO's `ensureTables()`: `ALTER TABLE ... ADD COLUMN IF NOT EXISTS`
+2. Update model class with new field
+3. Update SQL queries to use new column
 
-Contact points in code for common edits
+---
 
-- Adding commands: `ClientHandler.java` + `CommandParser.java`.
-- DB schema changes: `CharacterDAO.java` and `ItemDAO.java` (update `ensureTables()` and add additive `ALTER TABLE` migrations).
-- Seed data: `src/main/resources/data/*` and loaders in `DataLoader.java`.
+## Troubleshooting
 
-End of agents.md
+### H2 Connection Errors
+
+```
+Database may be already in use / Connection is broken
+```
+- Stop the running server before using external DB tools
+- Use the shaded jar for consistent H2 version
+
+### Command Not Found
+
+- Ensure command is registered in `CommandRegistry.java`
+- Check for typos in case label in `ClientHandler.java`
+- Verify help entry exists in YAML files
+
+### Skill/Spell Not Working
+
+- Check character has the skill/spell: `cskill list`, `cspell list`
+- Verify skill_key matches between `skills.yaml` and code references
+- Check proficiency requirements
+
+### Spawn Duplication
+
+- Clear instances: `MobileDAO.clearAllInstances()` runs on startup
+- Check spawn UUID tracking in `SpawnEvent`
+- Review `SpawnEventLogger` output in `logs/`
+
+---
+
+## Key Design Decisions
+
+1. **Single-threaded tick service**: Serializes all periodic tasks to avoid race conditions
+2. **Additive migrations**: Only `ADD COLUMN IF NOT EXISTS`, never destructive changes
+3. **Command registry**: Central source of truth for command metadata
+4. **Skill proficiency**: 1-100% system with progression curves for organic learning
+5. **Stance-based regen**: Encourages rest/recovery gameplay loop
+6. **UUID spawn tracking**: Prevents duplicate spawns across server restarts
+7. **Shaded JAR**: Bundles all dependencies for simple deployment
+
+---
+
+## Contact Points for Common Edits
+
+| Task | Primary Files |
+|------|---------------|
+| Add command | `CommandRegistry.java`, `ClientHandler.java`, help YAML |
+| Change combat | `CombatManager.java`, `Combat.java`, `CombatCalculator.java` |
+| Modify items | `items.yaml`, `ItemTemplate.java`, `ItemDAO.java` |
+| Add skills | `skills.yaml`, `Skill.java`, `ClientHandler.java` |
+| Change classes | `classes.yaml`, `CharacterClass.java`, `CharacterClassDAO.java` |
+| Modify spawns | `mobiles.yaml`, `SpawnManager.java`, `SpawnEvent.java` |
+| DB schema | DAO `ensureTables()` methods |
+| Help text | `src/main/resources/help/*.yaml` |
+
+---
+
+*End of agents.md*

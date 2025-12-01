@@ -7,6 +7,7 @@ import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.CharacterClassDAO;
@@ -54,8 +55,14 @@ public class CombatManager {
     /** Callback for sending prompts to players (triggers prompt display) */
     private Consumer<Integer> playerPromptCallback;
     
+    /** Callback for handling autoflee - takes (characterId, combat) and returns true if flee succeeded */
+    private java.util.function.BiFunction<Integer, Combat, Boolean> playerAutofleeCallback;
+    
     /** The basic attack command available to all combatants */
     private final BasicAttackCommand basicAttack = new BasicAttackCommand();
+    
+    /** Handler for multiple attacks (second_attack, third_attack, fourth_attack) */
+    private final MultiAttackHandler multiAttackHandler = new MultiAttackHandler();
     
     /** Tick service for scheduling combat updates */
     private TickService tickService;
@@ -79,6 +86,8 @@ public class CombatManager {
         this.tickService = tickService;
         // Schedule combat tick every 500ms for responsive combat
         tickService.scheduleAtFixedRate("combat-tick", this::tick, 500, 500);
+        // Set up multi-attack handler message callback
+        multiAttackHandler.setPlayerMessageCallback(this::sendToPlayer);
         System.out.println("[CombatManager] Initialized with tick service");
     }
     
@@ -104,6 +113,15 @@ public class CombatManager {
      */
     public void setPlayerPromptCallback(Consumer<Integer> callback) {
         this.playerPromptCallback = callback;
+    }
+    
+    /**
+     * Set callback for handling player autoflee.
+     * The callback takes (characterId, combat) and should return true if flee succeeded.
+     * @param callback (characterId, combat) -> success
+     */
+    public void setPlayerAutofleeCallback(java.util.function.BiFunction<Integer, Combat, Boolean> callback) {
+        this.playerAutofleeCallback = callback;
     }
     
     /**
@@ -179,9 +197,116 @@ public class CombatManager {
         
         // After all turns are processed, if round just completed, send prompts to players (once)
         if (combat.isRoundComplete() && !combat.isPromptsSentForRound()) {
+            // Process autoflee checks before prompts
+            processAutoflee(combat);
+            
+            // Check if combat ended due to autoflee
+            if (combat.shouldEnd()) {
+                return;
+            }
+            
             sendPromptsToPlayers(combat);
             combat.setPromptsSentForRound(true);
         }
+    }
+    
+    /**
+     * Process autoflee for all combatants in a combat.
+     * Called at the end of each round.
+     */
+    private void processAutoflee(Combat combat) {
+        CharacterDAO charDao = new CharacterDAO();
+        
+        // Create a copy of combatants to avoid concurrent modification
+        List<Combatant> combatants = new ArrayList<>(combat.getCombatants());
+        
+        for (Combatant c : combatants) {
+            if (!c.isActive() || !c.isAlive()) {
+                continue;
+            }
+            
+            int autoflee;
+            if (c.isPlayer() && c.getCharacterId() != null) {
+                // For players, look up their autoflee setting
+                autoflee = charDao.getAutoflee(c.getCharacterId());
+            } else if (c.isMobile()) {
+                // For mobs, get from the mobile
+                autoflee = c.getAutoflee();
+            } else {
+                continue;
+            }
+            
+            // Check if should autoflee
+            if (!c.shouldAutoflee(autoflee)) {
+                continue;
+            }
+            
+            // Trigger autoflee
+            if (c.isPlayer() && c.getCharacterId() != null) {
+                // Use callback for players
+                if (playerAutofleeCallback != null) {
+                    boolean success = playerAutofleeCallback.apply(c.getCharacterId(), combat);
+                    if (success) {
+                        sendToPlayer(c.getCharacterId(), "Panic overwhelms you and you flee!");
+                    }
+                }
+            } else if (c.isMobile()) {
+                // Handle mob autoflee directly
+                processMobileAutoflee(combat, c);
+            }
+        }
+    }
+    
+    /**
+     * Process autoflee for a mobile combatant.
+     * Mobs don't need opposed checks - they just flee to a random adjacent room if possible.
+     */
+    private void processMobileAutoflee(Combat combat, Combatant mobCombatant) {
+        Mobile mob = mobCombatant.getMobile();
+        if (mob == null) return;
+        
+        CharacterDAO charDao = new CharacterDAO();
+        Integer roomId = mob.getCurrentRoom();
+        if (roomId == null) return;
+        
+        com.example.tassmud.model.Room room = charDao.getRoomById(roomId);
+        if (room == null) return;
+        
+        // Build list of available exits
+        List<Integer> availableRooms = new ArrayList<>();
+        if (room.getExitN() != null) availableRooms.add(room.getExitN());
+        if (room.getExitE() != null) availableRooms.add(room.getExitE());
+        if (room.getExitS() != null) availableRooms.add(room.getExitS());
+        if (room.getExitW() != null) availableRooms.add(room.getExitW());
+        if (room.getExitU() != null) availableRooms.add(room.getExitU());
+        if (room.getExitD() != null) availableRooms.add(room.getExitD());
+        
+        if (availableRooms.isEmpty()) {
+            // Nowhere to flee - mob stays and fights
+            broadcastToRoom(roomId, mob.getName() + " panics but has nowhere to run!");
+            return;
+        }
+        
+        // Pick a random exit
+        Integer destRoom = availableRooms.get((int)(Math.random() * availableRooms.size()));
+        
+        // Announce and move
+        broadcastToRoom(roomId, mob.getName() + " flees in terror!");
+        
+        // Remove from combat
+        combat.removeCombatant(mobCombatant);
+        
+        // Move mob
+        mob.setCurrentRoom(destRoom);
+        try {
+            MobileDAO mobileDao = new MobileDAO();
+            mobileDao.updateInstance(mob);
+        } catch (Exception e) {
+            System.err.println("[CombatManager] Failed to update fleeing mob: " + e.getMessage());
+        }
+        
+        // Announce arrival at destination
+        broadcastToRoom(destRoom, mob.getName() + " arrives, looking panicked.");
     }
     
     /**
@@ -230,7 +355,7 @@ public class CombatManager {
             return;
         }
         
-        // Execute the command
+        // Execute the primary attack/command
         CombatResult result = command.execute(combatant, target, combat);
         combat.addRoundResult(result);
         
@@ -249,8 +374,65 @@ public class CombatManager {
             handleCombatantDeath(combat, target, combatant);
         }
         
+        // Process multiple attacks (only for basic attacks)
+        // Multi-attack only applies when using basic attack, not special abilities
+        if (command == basicAttack && combatant.isAlive() && !combat.shouldEnd()) {
+            processMultiAttacks(combat, combatant, target);
+        }
+        
         // Apply end-of-turn effects (damage over time, healing, etc.)
         applyEndOfTurnEffects(combat, combatant);
+    }
+    
+    /**
+     * Process additional attacks for a combatant with multi-attack skills.
+     * Checks for second_attack, third_attack, fourth_attack and executes
+     * any that trigger based on proficiency.
+     */
+    private void processMultiAttacks(Combat combat, Combatant combatant, Combatant initialTarget) {
+        // Get additional attack opportunities
+        List<MultiAttackHandler.AttackOpportunity> attacks = multiAttackHandler.getAdditionalAttacks(combatant);
+        
+        for (MultiAttackHandler.AttackOpportunity attack : attacks) {
+            // Skip if attack didn't trigger
+            if (!attack.isTriggered()) {
+                continue;
+            }
+            
+            // Check if combatant or combat ended
+            if (!combatant.isAlive() || combat.shouldEnd()) {
+                break;
+            }
+            
+            // Get a valid target (may have changed if initial target died)
+            Combatant target = initialTarget;
+            if (!target.isAlive() || !target.isActive()) {
+                target = combat.getRandomTarget(combatant);
+            }
+            
+            if (target == null) {
+                break; // No valid targets remaining
+            }
+            
+            // Execute the attack with level penalty
+            CombatResult result = basicAttack.executeWithPenalty(
+                combatant, target, combat, attack.getLevelPenalty());
+            combat.addRoundResult(result);
+            
+            // Send messages
+            broadcastCombatResult(combat, result);
+            
+            // Track armor damage
+            if (result.getDamage() > 0 && target.isPlayer()) {
+                trackArmorDamage(target, result.getDamage());
+                syncPlayerHpToDatabase(target);
+            }
+            
+            // Check for death
+            if (result.isDeath() || !target.isAlive()) {
+                handleCombatantDeath(combat, target, combatant);
+            }
+        }
     }
     
     /**

@@ -72,8 +72,16 @@ public class MobileDAO {
                 "is_dead BOOLEAN DEFAULT FALSE, " +
                 "spawned_at BIGINT, " +
                 "died_at BIGINT DEFAULT 0, " +
+                "orig_uuid VARCHAR(64), " +
                 "FOREIGN KEY(template_id) REFERENCES mobile_template(id)" +
             ")");
+            
+            // Migration: add autoflee column
+            s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS autoflee INT DEFAULT 0");
+            // Migration: add orig_uuid to mobile_instance to tie instances to original spawn mappings
+            s.execute("ALTER TABLE mobile_instance ADD COLUMN IF NOT EXISTS orig_uuid VARCHAR(64)");
+            // Spawn mapping table: room_id, template_id, uuid
+            s.execute("CREATE TABLE IF NOT EXISTS spawn_mapping (room_id INT NOT NULL, template_id INT NOT NULL, orig_uuid VARCHAR(64) NOT NULL, PRIMARY KEY(room_id, template_id, orig_uuid))");
             
             System.out.println("MobileDAO: ensured mobile_template and mobile_instance tables");
             
@@ -91,8 +99,8 @@ public class MobileDAO {
         String sql = "MERGE INTO mobile_template (id, template_key, name, short_desc, long_desc, keywords, " +
             "level, hp_max, mp_max, mv_max, str, dex, con, intel, wis, cha, " +
             "armor, fortitude, reflex, will_save, base_damage, damage_bonus, attack_bonus, " +
-            "behaviors, aggro_range, experience_value, gold_min, gold_max, respawn_seconds, template_json) " +
-            "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "behaviors, aggro_range, experience_value, gold_min, gold_max, respawn_seconds, autoflee, template_json) " +
+            "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
@@ -130,7 +138,8 @@ public class MobileDAO {
             ps.setInt(27, template.getGoldMin());
             ps.setInt(28, template.getGoldMax());
             ps.setInt(29, template.getRespawnSeconds());
-            ps.setString(30, template.getTemplateJson());
+            ps.setInt(30, template.getAutoflee());
+            ps.setString(31, template.getTemplateJson());
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Failed to upsert mobile template", e);
@@ -266,6 +275,7 @@ public class MobileDAO {
             rs.getInt("gold_min"),
             rs.getInt("gold_max"),
             rs.getInt("respawn_seconds"),
+            rs.getInt("autoflee"),
             rs.getString("template_json")
         );
     }
@@ -304,6 +314,41 @@ public class MobileDAO {
         }
         return null;
     }
+
+    /**
+     * Spawn a new mobile instance from a template and record an origin UUID on the instance.
+     */
+    public Mobile spawnMobile(MobileTemplate template, int roomId, String originUuid) {
+        String sql = "INSERT INTO mobile_instance (template_id, current_room_id, spawn_room_id, " +
+            "hp_cur, mp_cur, mv_cur, is_dead, spawned_at, died_at, orig_uuid) VALUES (?,?,?,?,?,?,?,?,?,?)";
+
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            long now = System.currentTimeMillis();
+            ps.setInt(1, template.getId());
+            ps.setInt(2, roomId);
+            ps.setInt(3, roomId);
+            ps.setInt(4, template.getHpMax());
+            ps.setInt(5, template.getMpMax());
+            ps.setInt(6, template.getMvMax());
+            ps.setBoolean(7, false);
+            ps.setLong(8, now);
+            ps.setLong(9, 0);
+            ps.setString(10, originUuid);
+            ps.executeUpdate();
+
+            try (ResultSet keys = ps.getGeneratedKeys()) {
+                if (keys.next()) {
+                    long instanceId = keys.getLong(1);
+                    // Return the freshly persisted instance (loads orig_uuid and full fields)
+                    return getInstanceById(instanceId);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to spawn mobile with UUID", e);
+        }
+        return null;
+    }
     
     /**
      * Get a mobile instance by ID.
@@ -312,7 +357,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.instance_id = ?";
         
@@ -338,7 +383,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.current_room_id = ? AND mi.is_dead = FALSE";
         
@@ -364,7 +409,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id";
         
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -377,6 +422,21 @@ public class MobileDAO {
             throw new RuntimeException("Failed to get all mobile instances", e);
         }
         return results;
+    }
+
+    /**
+     * Delete all mobile instances from the database.
+     * Used at server startup to ensure we don't accumulate mobs across restarts.
+     */
+    public void clearAllInstances() {
+        String sql = "DELETE FROM mobile_instance";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            int deleted = ps.executeUpdate();
+            System.out.println("MobileDAO: cleared " + deleted + " mobile instances from DB");
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to clear mobile instances", e);
+        }
     }
     
     /**
@@ -423,7 +483,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.template_id = ?";
         
@@ -439,6 +499,79 @@ public class MobileDAO {
             throw new RuntimeException("Failed to find mobile instances by template", e);
         }
         return results;
+    }
+
+    /**
+     * Get all configured spawn mapping UUIDs for a room/template.
+     */
+    public List<String> getSpawnMappingUUIDs(int roomId, int templateId) {
+        List<String> uuids = new ArrayList<>();
+        String sql = "SELECT orig_uuid FROM spawn_mapping WHERE room_id = ? AND template_id = ? ORDER BY orig_uuid";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            ps.setInt(2, templateId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    uuids.add(rs.getString(1));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to get spawn mappings", e);
+        }
+        return uuids;
+    }
+
+    /**
+     * Find a live mobile instance by its origin UUID.
+     * Returns the Mobile if present and not dead, otherwise null.
+     */
+    public Mobile getInstanceByOriginUuid(String originUuid) {
+        if (originUuid == null || originUuid.isEmpty()) return null;
+        String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
+            "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
+            "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee " +
+            "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
+            "WHERE mi.orig_uuid = ? AND mi.is_dead = FALSE";
+
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, originUuid);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return mobileFromResultSet(rs);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to query instance by origin UUID", e);
+        }
+        return null;
+    }
+
+    /**
+     * Ensure there are N spawn mapping UUIDs for the given room/template. Will insert additional UUIDs as needed.
+     */
+    public void ensureSpawnMappings(int roomId, int templateId, int quantity) {
+        List<String> existing = getSpawnMappingUUIDs(roomId, templateId);
+        int need = Math.max(0, quantity - existing.size());
+        if (need <= 0) return;
+
+        String sql = "INSERT INTO spawn_mapping (room_id, template_id, orig_uuid) VALUES (?,?,?)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            for (int i = 0; i < need; i++) {
+                String uuid = java.util.UUID.randomUUID().toString();
+                ps.setInt(1, roomId);
+                ps.setInt(2, templateId);
+                ps.setString(3, uuid);
+                ps.addBatch();
+            }
+            ps.executeBatch();
+            System.out.println("MobileDAO: added " + need + " spawn mapping(s) for template " + templateId + " in room " + roomId);
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to ensure spawn mappings", e);
+        }
     }
     
     private Mobile mobileFromResultSet(ResultSet rs) throws SQLException {
@@ -457,6 +590,7 @@ public class MobileDAO {
             behaviors.add(MobileBehavior.PASSIVE); // Default
         }
         
+        String origUuid = rs.getString("orig_uuid");
         return new Mobile(
             rs.getLong("instance_id"),
             rs.getInt("template_id"),
@@ -487,6 +621,8 @@ public class MobileDAO {
             rs.getInt("base_damage"),
             rs.getInt("damage_bonus"),
             rs.getInt("attack_bonus"),
+            rs.getInt("autoflee"),
+            origUuid,
             rs.getLong("spawned_at"),
             rs.getBoolean("is_dead"),
             rs.getLong("died_at")

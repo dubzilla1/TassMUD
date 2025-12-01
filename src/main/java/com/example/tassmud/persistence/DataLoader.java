@@ -172,6 +172,7 @@ public class DataLoader {
                 int goldMin = getInt(mobData, "gold_min", 0);
                 int goldMax = getInt(mobData, "gold_max", 0);
                 int respawnSeconds = getInt(mobData, "respawn_seconds", 300);
+                int autoflee = getInt(mobData, "autoflee", 0);  // Auto-flee threshold (0-100)
                 
                 MobileTemplate template = new MobileTemplate(
                     id, key, name, shortDesc, longDesc, keywords,
@@ -181,7 +182,7 @@ public class DataLoader {
                     baseDamage, damageBonus, attackBonus,
                     behaviors, aggroRange,
                     experienceValue, goldMin, goldMax,
-                    respawnSeconds, null
+                    respawnSeconds, autoflee, null
                 );
                 
                 mobileDao.upsertTemplate(template);
@@ -624,6 +625,7 @@ public class DataLoader {
         Map<String,Integer> keyToId = new HashMap<>();
         Map<Integer,Integer> areaCounters = new HashMap<>();
         SpawnManager spawnManager = SpawnManager.getInstance();
+        com.example.tassmud.persistence.MobileDAO mobileDao = new com.example.tassmud.persistence.MobileDAO();
         int totalSpawns = 0;
         
         for (RoomTemplate t : templates) {
@@ -645,9 +647,13 @@ public class DataLoader {
             if (roomId > 0) {
                 keyToId.put(t.key, roomId);
                 
-                // Register spawns with the SpawnManager
+                // Register spawns with the SpawnManager and seed spawn mappings for mobs
                 for (SpawnConfig spawn : t.spawns) {
                     spawnManager.registerSpawn(t.areaId, spawn);
+                    // If this is a mob spawn, ensure mapping UUIDs exist for the configured quantity
+                    if (spawn.type == SpawnConfig.SpawnType.MOB) {
+                        mobileDao.ensureSpawnMappings(roomId, spawn.templateId, spawn.quantity);
+                    }
                     totalSpawns++;
                 }
             }

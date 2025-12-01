@@ -12,8 +12,30 @@
 #   700-799: Monk skills
 #   800-899: Reserved
 #   900-999: Weapon/proficiency skills
+#   1000-1099: Innate combat skills (automatically known at 100%)
 
 skills:
+  # ============================================================
+  # INNATE COMBAT SKILLS (1000-1099)
+  # These are basic combat maneuvers known by all at 100% proficiency.
+  # They don't appear in the skills list and don't progress.
+  # ============================================================
+  - id: 1001
+    key: combat_stand
+    name: Stand
+    description: Attempt to stand up from a prone position during combat. Requires an opposed check against your opponents. Success removes the prone condition. Regardless of success or failure, you forfeit all attacks for the round.
+    progression: INSTANT
+    is_passive: true
+    traits: [COMBAT, INNATE]
+
+  - id: 1002
+    key: combat_flee
+    name: Flee
+    description: Attempt to escape from combat by fleeing to an adjacent room. Requires an opposed check against your opponents. Success moves you to a random exit. If you lack sufficient movement points, you fall prone instead.
+    progression: INSTANT
+    is_passive: true
+    traits: [COMBAT, INNATE]
+
   # ============================================================
   # FIGHTER SKILLS (1-49)
   # ============================================================
@@ -63,18 +85,21 @@ skills:
     key: second_attack
     name: Second Attack
     description: Strike twice in a single combat round.
+    is_passive: true
     progression: HARD
 
   - id: 16
     key: third_attack
     name: Third Attack
     description: Strike three times in a single combat round.
+    is_passive: true
     progression: VERY_HARD
 
   - id: 17
     key: fourth_attack
     name: Fourth Attack
     description: Strike four times in a single combat round. Only the most skilled warriors achieve this.
+    is_passive: true
     progression: LEGENDARY
 
   - id: 18
@@ -648,4 +673,39 @@ skills:
     key: skill_exotic_other
     name: Exotic Other
     description: Expertise with unusual weapons that defy classification.
+    progression: NORMAL
+
+  # ============================================================
+  # Armor FAMILY SKILLS (950-960)
+  # Trained through use - max 10% per character level
+  # ============================================================
+
+  - id: 950
+    key: skill_cloth_armor
+    name: Cloth Armor
+    description: Expertise with cloth armor types like robes and simple garments.
+    progression: NORMAL
+
+  - id: 951
+    key: skill_leather_armor
+    name: Leather Armor
+    description: Expertise with leather armor types like hide and studded leather.
+    progression: NORMAL
+
+  - id: 952
+    key: skill_mail_armor
+    name: Mail Armor
+    description: Expertise with mail armor types like chainmail and scale mail.
+    progression: NORMAL
+
+  - id: 953
+    key: skill_plate_armor
+    name: Plate Armor
+    description: Expertise with plate armor types like full plate and half plate.
+    progression: NORMAL
+  
+  - id: 954
+    key: skill_unarmored
+    name: Unarmored
+    description: Expertise with no armor, relying on natural fortitude, agility, and cleverness in battle.
     progression: NORMAL

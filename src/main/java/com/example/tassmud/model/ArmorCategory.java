@@ -11,11 +11,11 @@ package com.example.tassmud.model;
  * - OTHER: Special armors that don't fit other categories
  */
 public enum ArmorCategory {
-    CLOTH("Cloth", "cloth_armor"),
-    LEATHER("Leather", "leather_armor"),
-    MAIL("Mail", "mail_armor"),
-    PLATE("Plate", "plate_armor"),
-    OTHER("Other", "other_armor");
+    CLOTH("Cloth", "skill_cloth_armor"),
+    LEATHER("Leather", "skill_leather_armor"),
+    MAIL("Mail", "skill_mail_armor"),
+    PLATE("Plate", "skill_plate_armor"),
+    OTHER("Other", "skill_other_armor");
     
     private final String displayName;
     private final String skillKey;

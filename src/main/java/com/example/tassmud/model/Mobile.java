@@ -20,6 +20,7 @@ public class Mobile extends Character {
     // Spawn info
     private final Integer spawnRoomId;     // Room where this mob was spawned
     private final long spawnedAt;          // Timestamp when spawned
+    private final String originUuid;       // Optional UUID tying this instance to an original spawn mapping
     
     // State
     private boolean isDead;
@@ -32,6 +33,7 @@ public class Mobile extends Character {
     private final int baseDamage;
     private final int damageBonus;
     private final int attackBonus;
+    private final int autoflee;            // Auto-flee threshold (0-100)
     
     /**
      * Create a Mobile instance from a template.
@@ -65,6 +67,7 @@ public class Mobile extends Character {
         this.level = template.getLevel();
         this.spawnRoomId = spawnRoomId;
         this.spawnedAt = System.currentTimeMillis();
+        this.originUuid = null;
         this.isDead = false;
         this.diedAt = 0;
         
@@ -75,6 +78,7 @@ public class Mobile extends Character {
         this.baseDamage = template.getBaseDamage();
         this.damageBonus = template.getDamageBonus();
         this.attackBonus = template.getAttackBonus();
+        this.autoflee = template.getAutoflee();
     }
     
     /**
@@ -87,6 +91,8 @@ public class Mobile extends Character {
                   int armor, int fortitude, int reflex, int will,
                   String shortDesc, List<MobileBehavior> behaviors,
                   int experienceValue, int baseDamage, int damageBonus, int attackBonus,
+                  int autoflee,
+                  String originUuid,
                   long spawnedAt, boolean isDead, long diedAt) {
         super(name, 0, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom,
               str, dex, con, intel, wis, cha, armor, fortitude, reflex, will);
@@ -95,8 +101,9 @@ public class Mobile extends Character {
         this.templateId = templateId;
         this.level = level;
         this.spawnRoomId = spawnRoomId;
-        this.spawnedAt = spawnedAt;
-        this.isDead = isDead;
+          this.spawnedAt = spawnedAt;
+          this.originUuid = originUuid;
+          this.isDead = isDead;
         this.diedAt = diedAt;
         this.shortDesc = shortDesc;
         this.behaviors = behaviors == null ? Collections.emptyList() : behaviors;
@@ -104,6 +111,7 @@ public class Mobile extends Character {
         this.baseDamage = baseDamage;
         this.damageBonus = damageBonus;
         this.attackBonus = attackBonus;
+        this.autoflee = autoflee;
     }
     
     // Instance-specific getters
@@ -112,6 +120,7 @@ public class Mobile extends Character {
     public int getLevel() { return level; }
     public Integer getSpawnRoomId() { return spawnRoomId; }
     public long getSpawnedAt() { return spawnedAt; }
+    public String getOriginUuid() { return originUuid; }
     
     // Combat state
     public Integer getTargetCharacterId() { return targetCharacterId; }
@@ -156,6 +165,7 @@ public class Mobile extends Character {
     public int getBaseDamage() { return baseDamage; }
     public int getDamageBonus() { return damageBonus; }
     public int getAttackBonus() { return attackBonus; }
+    public int getAutoflee() { return autoflee; }
     
     /**
      * Check if this mobile has a specific behavior.

@@ -13,7 +13,14 @@ public enum SkillTrait {
     NOCOMBAT("Can only be used outside of combat"),
     
     /** Skill requires a shield to be equipped in off-hand */
-    SHIELD("Requires a shield equipped");
+    SHIELD("Requires a shield equipped"),
+    
+    /** 
+     * Skill is innate - automatically known by all characters and mobs at 100% proficiency.
+     * These are basic combat maneuvers like Stand (from prone) that don't require training.
+     * Innate skills typically don't show in the skills list and don't progress.
+     */
+    INNATE("Innate ability - automatically known at 100%");
     
     private final String description;
     

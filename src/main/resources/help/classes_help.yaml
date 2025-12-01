@@ -59,12 +59,13 @@ fighter:
         HP: +12    MP: +0    MV: +4
 
     SKILL PROGRESSION
-        Level  1: Simple Weapons, Basic Attack
+        Level  1: Simple Weapons, Basic Attack, Mail Armor
+        Level  2: Shields
         Level  3: Martial Weapons, Kick
         Level  5: Bash
         Level 10: Disarm
         Level 15: Exotic Weapons, Parry
-        Level 20: Riposte
+        Level 20: Riposte, Plate Armor
         Level 25: Second Attack
         Level 35: Third Attack
         Level 45: Fourth Attack
@@ -99,7 +100,7 @@ wizard:
         HP: +4    MP: +15    MV: +2
 
     SKILL PROGRESSION
-        Level  1: Simple Weapons, Magic Missile
+        Level  1: Simple Weapons, Magic Missile, Cloth Armor
         Level  5: Detect Magic
         Level  8: Shield
         Level 12: Fireball
@@ -140,7 +141,8 @@ cleric:
         HP: +8    MP: +12    MV: +3
 
     SKILL PROGRESSION
-        Level  1: Simple Weapons, Cure Light Wounds
+        Level  1: Simple Weapons, Cure Light Wounds, Mail Armor
+        Level  2: Shields
         Level  5: Bless
         Level  8: Detect Evil
         Level 12: Cure Serious Wounds
@@ -181,7 +183,7 @@ rogue:
         HP: +6    MP: +2    MV: +6
 
     SKILL PROGRESSION
-        Level  1: Simple Weapons, Sneak
+        Level  1: Simple Weapons, Sneak, Leather Armor
         Level  3: Backstab
         Level  6: Pick Lock
         Level 10: Detect Traps
@@ -200,6 +202,64 @@ rogue:
 
     SEE ALSO
         classes, skills
+
+armor:
+        summary: "Armor skills - passive proficiencies and progression"
+        visibility: public
+        synopsis:
+                - "help armor"
+        body: |
+                NAME
+                                Armor - passive armor and shield proficiencies
+
+                SYNOPSIS
+                                help armor
+
+                DESCRIPTION
+                                Armor and shield skills are passive proficiencies that determine
+                                which armor and shields a character can wear effectively. Several
+                                armor family skills are trainable through use and improve with practice.
+
+                                The following armor-related skills are defined in TassMUD's skill
+                                records (see 'help skills' for the full list):
+
+                                - Shields (instant)
+                                    Description: Proficiency with shields, allowing you to equip
+                                        them in your off-hand and gain defensive benefits without
+                                        penalties.
+
+                                - Cloth Armor (normal)
+                                    Description: Expertise with cloth armor types like robes and
+                                        simple garments.
+
+                                - Leather Armor (normal)
+                                    Description: Expertise with leather armor types like hide and
+                                        studded leather.
+
+                                - Mail Armor (normal)
+                                    Description: Expertise with mail armor types like chainmail and
+                                        scale mail.
+
+                                - Plate Armor (normal)
+                                    Description: Expertise with plate armor types like full plate
+                                        and half plate.
+
+                                - Unarmored (normal)
+                                    Description: Expertise with no armor, relying on natural
+                                        fortitude, agility, and cleverness in battle.
+
+                NOTES
+                                - "Shields" is granted as an instant passive proficiency in some
+                                    classes; armor family skills are typically trained through use
+                                    (see the 'Armor FAMILY SKILLS' section in `skills.yaml` for the
+                                    design note: trained through use, max 10% per character level).
+                                - Armor and shield proficiencies are checked when equipping items
+                                    and when resolving movement/combat encumbrance.
+                                - Some classes gain certain armor proficiencies automatically;
+                                    others must train them through gameplay.
+
+                SEE ALSO
+                                classes, skills
 
 ranger:
   summary: "the Ranger class - wilderness warrior"
@@ -222,7 +282,7 @@ ranger:
         HP: +8    MP: +4    MV: +5
 
     SKILL PROGRESSION
-        Level  1: Simple Weapons, Track
+        Level  1: Simple Weapons, Track, Leather Armor
         Level  3: Martial Weapons
         Level  4: Forage
         Level  8: Animal Lore
@@ -264,11 +324,18 @@ paladin:
         HP: +10    MP: +6    MV: +3
 
     SKILL PROGRESSION
-        Level  1: Simple Weapons, Lay on Hands
+        Level  1: Simple Weapons, Lay on Hands, Plate Armor
+        Level  2: Shields
         Level  3: Martial Weapons
         Level  5: Detect Evil
         Level 10: Smite Evil
         Level 15: Divine Shield
+        Level 20: Turn Undead
+        Level 28: Holy Weapon
+        Level 35: Aura of Protection
+        Level 42: Divine Mount
+        Level 50: Holy Avenger
+        Level 51: Champion of Light (hero level)
         Level 20: Turn Undead
         Level 28: Holy Weapon
         Level 35: Aura of Protection

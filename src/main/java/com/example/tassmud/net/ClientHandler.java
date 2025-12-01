@@ -241,7 +241,11 @@ public class ClientHandler implements Runnable {
         if (roomId == null || msg == null || msg.isEmpty()) return;
         // Future: if !isVisible, check each recipient's perception against actor's stealth
         if (!isVisible) return; // For now, invisible actors make no announcements
-        
+
+        // Determine whether this announcement looks like an arrival/departure
+        String lower = msg.toLowerCase();
+        boolean isArrivalOrDeparture = lower.contains("arrive") || lower.contains("leave") || lower.contains("flees") || lower.contains("flee") || lower.contains("disappear") || lower.contains("vanish");
+
         for (ClientHandler s : sessions) {
             Integer r = s.currentRoomId;
             if (r != null && r.equals(roomId)) {
@@ -249,8 +253,27 @@ public class ClientHandler implements Runnable {
                 if (excludeCharacterId != null && excludeCharacterId.equals(s.characterId)) {
                     continue;
                 }
+
+                // Suppress arrival/departure lines for sleeping players
+                if (isArrivalOrDeparture && s.characterId != null) {
+                    try {
+                        Stance stance = RegenerationService.getInstance().getPlayerStance(s.characterId);
+                        if (stance == Stance.SLEEPING) {
+                            continue; // don't wake sleeping players with arrival/departure noise
+                        }
+                    } catch (Exception ignored) {}
+                }
+
                 // Future: check if this session can perceive the actor (detect invis, true sight, etc.)
                 s.sendRaw(msg);
+
+                // If this was an arrival/departure style announcement, send a prompt
+                // so the user's client shows the prompt again (useful for telnet-like clients).
+                if (isArrivalOrDeparture) {
+                    try {
+                        s.sendPrompt();
+                    } catch (Exception ignored) {}
+                }
             }
         }
     }
@@ -337,6 +360,151 @@ public class ClientHandler implements Runnable {
                 s.sendPrompt();
             }
         }
+    }
+    
+    /**
+     * Trigger autoflee for a character.
+     * Called by CombatManager when a player's HP drops below their autoflee threshold.
+     * @param characterId the character ID
+     * @param combat the current combat
+     * @return true if flee succeeded, false otherwise
+     */
+    public static boolean triggerAutoflee(Integer characterId, Combat combat) {
+        if (characterId == null || combat == null) return false;
+        
+        ClientHandler handler = charIdToSession.get(characterId);
+        if (handler == null) return false;
+        
+        return handler.executeAutoflee(combat);
+    }
+    
+    /**
+     * Execute autoflee for this character.
+     * Similar to manual flee but triggered automatically by combat.
+     * @param combat the current combat
+     * @return true if flee succeeded
+     */
+    private boolean executeAutoflee(Combat combat) {
+        if (playerName == null || characterId == null || currentRoomId == null) {
+            return false;
+        }
+        
+        CharacterDAO dao = new CharacterDAO();
+        CharacterRecord rec = dao.findByName(playerName);
+        if (rec == null) return false;
+        
+        Combatant userCombatant = combat.findByCharacterId(characterId);
+        if (userCombatant == null) return false;
+        
+        // Get current room and available exits
+        Room curRoom = dao.getRoomById(currentRoomId);
+        if (curRoom == null) return false;
+        
+        // Build list of available exits
+        java.util.List<String> availableExits = new java.util.ArrayList<>();
+        java.util.Map<String, Integer> exitRooms = new java.util.HashMap<>();
+        if (curRoom.getExitN() != null) { availableExits.add("north"); exitRooms.put("north", curRoom.getExitN()); }
+        if (curRoom.getExitE() != null) { availableExits.add("east"); exitRooms.put("east", curRoom.getExitE()); }
+        if (curRoom.getExitS() != null) { availableExits.add("south"); exitRooms.put("south", curRoom.getExitS()); }
+        if (curRoom.getExitW() != null) { availableExits.add("west"); exitRooms.put("west", curRoom.getExitW()); }
+        if (curRoom.getExitU() != null) { availableExits.add("up"); exitRooms.put("up", curRoom.getExitU()); }
+        if (curRoom.getExitD() != null) { availableExits.add("down"); exitRooms.put("down", curRoom.getExitD()); }
+        
+        if (availableExits.isEmpty()) {
+            if (out != null) out.println("Panic! But there's nowhere to flee!");
+            return false;
+        }
+        
+        // Get user's level for opposed check
+        CharacterClassDAO classDao = new CharacterClassDAO();
+        int userLevel = rec.currentClassId != null 
+            ? classDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
+        
+        // Find the highest level opponent for opposed check
+        int opponentLevel = 1;
+        for (Combatant c : combat.getCombatants()) {
+            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                int cLevel;
+                if (c.isPlayer()) {
+                    Integer cCharId = c.getCharacterId();
+                    CharacterRecord cRec = dao.getCharacterById(cCharId);
+                    cLevel = cRec != null && cRec.currentClassId != null 
+                        ? classDao.getCharacterClassLevel(cCharId, cRec.currentClassId) : 1;
+                } else if (c.getMobile() != null) {
+                    cLevel = c.getMobile().getLevel();
+                } else {
+                    cLevel = 1;
+                }
+                if (cLevel > opponentLevel) {
+                    opponentLevel = cLevel;
+                }
+            }
+        }
+        
+        // Perform opposed check at 100% proficiency (innate skill)
+        int roll = (int)(Math.random() * 100) + 1;
+        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
+            userLevel, opponentLevel, 100);
+        
+        boolean fleeSucceeded = roll <= successChance;
+        
+        if (!fleeSucceeded) {
+            // Failed to flee
+            if (out != null) out.println("You panic and try to flee but your opponents block your escape!");
+            roomAnnounce(currentRoomId, playerName + " panics and tries to flee but fails!", this.characterId, true);
+            return false;
+        }
+        
+        // Flee succeeded - pick a random exit
+        String fleeDirection = availableExits.get((int)(Math.random() * availableExits.size()));
+        Integer destRoomId = exitRooms.get(fleeDirection);
+        
+        // Check movement cost
+        int moveCost = dao.getMoveCostForRoom(destRoomId);
+        
+        if (rec.mvCur < moveCost) {
+            // Insufficient MV - fall prone instead of escaping
+            userCombatant.setProne();
+            if (out != null) out.println("You break free but stumble and fall prone from exhaustion!");
+            roomAnnounce(currentRoomId, playerName + " panics and tries to flee but collapses from exhaustion!", this.characterId, true);
+            return false;
+        }
+        
+        // Deduct movement points
+        if (!dao.deductMovementPoints(playerName, moveCost)) {
+            userCombatant.setProne();
+            if (out != null) out.println("You break free but stumble and fall prone from exhaustion!");
+            roomAnnounce(currentRoomId, playerName + " panics and tries to flee but collapses from exhaustion!", this.characterId, true);
+            return false;
+        }
+        
+        // Remove from combat
+        combat.removeCombatant(userCombatant);
+        
+        // Announce departure
+        if (out != null) out.println("Panic overwhelms you and you flee " + fleeDirection + "!");
+        roomAnnounce(currentRoomId, playerName + " panics and flees " + fleeDirection + "!", this.characterId, true);
+        
+        // Move to new room
+        boolean moved = dao.updateCharacterRoom(playerName, destRoomId);
+        if (!moved) {
+            if (out != null) out.println("Something strange happened during your escape.");
+            return true; // Still count as success for combat purposes
+        }
+        
+        // Update cached room and show new location
+        rec = dao.findByName(playerName);
+        this.currentRoomId = rec != null ? rec.currentRoom : null;
+        Room newRoom = dao.getRoomById(destRoomId);
+        
+        // Announce arrival
+        roomAnnounce(destRoomId, makeArrivalMessage(playerName, fleeDirection), this.characterId, true);
+        
+        if (newRoom != null && out != null) {
+            showRoom(newRoom, destRoomId);
+        }
+        
+        return true;
     }
 
     /**
@@ -1013,6 +1181,78 @@ public class ClientHandler implements Runnable {
                     }
                     case "stand":
                     case "wake": {
+                        // Check if in combat - combat stand from prone is a special skill
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        Combat activeCombat = combatMgr.getCombatForCharacter(characterId);
+                        
+                        if (activeCombat != null) {
+                            // In combat - check if prone
+                            Combatant userCombatant = activeCombat.findByCharacterId(characterId);
+                            if (userCombatant == null) {
+                                out.println("Combat error: could not find your combatant.");
+                                break;
+                            }
+                            
+                            if (!userCombatant.isProne()) {
+                                out.println("You are already standing.");
+                                break;
+                            }
+                            
+                            // Combat stand from prone - this is an innate skill
+                            // Get user's level for opposed check
+                            CharacterClassDAO standClassDao = new CharacterClassDAO();
+                            int userLevel = rec.currentClassId != null 
+                                ? standClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
+                            
+                            // Find an opponent to make the opposed check against
+                            // Use the highest level opponent
+                            int opponentLevel = 1;
+                            Combatant mainOpponent = null;
+                            for (Combatant c : activeCombat.getCombatants()) {
+                                if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                                    int cLevel;
+                                    if (c.isPlayer()) {
+                                        Integer cCharId = c.getCharacterId();
+                                        CharacterRecord cRec = dao.getCharacterById(cCharId);
+                                        cLevel = cRec != null && cRec.currentClassId != null 
+                                            ? standClassDao.getCharacterClassLevel(cCharId, cRec.currentClassId) : 1;
+                                    } else if (c.getMobile() != null) {
+                                        cLevel = c.getMobile().getLevel();
+                                    } else {
+                                        cLevel = 1;
+                                    }
+                                    if (cLevel > opponentLevel) {
+                                        opponentLevel = cLevel;
+                                        mainOpponent = c;
+                                    }
+                                }
+                            }
+                            
+                            // Perform opposed check at 100% proficiency (innate skill)
+                            int roll = (int)(Math.random() * 100) + 1;
+                            int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
+                                userLevel, opponentLevel, 100); // 100% proficiency for innate skills
+                            
+                            boolean standSucceeded = roll <= successChance;
+                            
+                            // Regardless of success/failure, forfeit all attacks this round
+                            userCombatant.setAttacksRemaining(0);
+                            userCombatant.setHasActedThisRound(true);
+                            
+                            if (standSucceeded) {
+                                // Success! Remove prone status
+                                userCombatant.standUp();
+                                out.println("You manage to get to your feet!");
+                                roomAnnounce(currentRoomId, name + " scrambles to their feet.", this.characterId, true);
+                            } else {
+                                // Failure - remain prone
+                                out.println("You struggle to stand but fail to get up.");
+                                roomAnnounce(currentRoomId, name + " struggles to stand but remains on the ground.", this.characterId, true);
+                            }
+                            break;
+                        }
+                        
+                        // Not in combat - normal stand behavior
                         Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
                         if (currentStance == Stance.STANDING) {
                             out.println("You are already standing.");
@@ -1037,6 +1277,55 @@ public class ClientHandler implements Runnable {
                             // set new prompt format for this session
                             promptFormat = promptArgs;
                             out.println("Prompt set.");
+                        }
+                        break;
+                    }
+                    case "autoflee": {
+                        // AUTOFLEE - Set/view automatic flee threshold
+                        if (rec == null) {
+                            out.println("You must be logged in to use autoflee.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        if (charId == null) {
+                            out.println("Unable to find your character.");
+                            break;
+                        }
+                        
+                        String autofleeArgs = cmd.getArgs();
+                        if (autofleeArgs == null || autofleeArgs.trim().isEmpty()) {
+                            // Display current autoflee value
+                            int currentAutoflee = dao.getAutoflee(charId);
+                            if (currentAutoflee <= 0) {
+                                out.println("Autoflee is disabled (set to 0).");
+                            } else {
+                                out.println("Autoflee is set to " + currentAutoflee + "% HP.");
+                            }
+                        } else {
+                            // Set new autoflee value
+                            try {
+                                int newValue = Integer.parseInt(autofleeArgs.trim());
+                                if (newValue < 0 || newValue > 100) {
+                                    out.println("Autoflee must be between 0 and 100.");
+                                    break;
+                                }
+                                boolean success = dao.setAutoflee(charId, newValue);
+                                if (success) {
+                                    if (newValue == 0) {
+                                        out.println("Autoflee disabled.");
+                                    } else {
+                                        out.println("Autoflee set to " + newValue + "% HP.");
+                                        out.println("You will automatically attempt to flee when HP drops below " + newValue + "%.");
+                                    }
+                                } else {
+                                    out.println("Failed to set autoflee.");
+                                }
+                            } catch (NumberFormatException e) {
+                                out.println("Usage: autoflee <0-100>");
+                            }
                         }
                         break;
                     }
@@ -1676,19 +1965,137 @@ public class ClientHandler implements Runnable {
                         break;
                     }
                     case "flee": {
-                        // FLEE - attempt to escape from combat (not fully implemented yet)
+                        // FLEE - innate combat skill to escape from combat
                         Integer charId = this.characterId;
                         if (charId == null && name != null) {
                             charId = dao.getCharacterIdByName(name);
                         }
                         CombatManager combatMgr = CombatManager.getInstance();
-                        if (!combatMgr.isInCombat(charId)) {
+                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                        if (activeCombat == null) {
                             out.println("You are not in combat.");
                             break;
                         }
-                        out.println("You attempt to flee...");
-                        // TODO: Implement flee logic (check DEX, allow escape, remove from combat)
-                        out.println("Fleeing is not yet implemented. Fight to the death!");
+                        
+                        Combatant userCombatant = activeCombat.findByCharacterId(charId);
+                        if (userCombatant == null) {
+                            out.println("Combat error: could not find your combatant.");
+                            break;
+                        }
+                        
+                        // Get current room and available exits
+                        curRoom = dao.getRoomById(currentRoomId);
+                        if (curRoom == null) {
+                            out.println("You can't flee - you don't know where you are!");
+                            break;
+                        }
+                        
+                        // Build list of available exits
+                        java.util.List<String> availableExits = new java.util.ArrayList<>();
+                        java.util.Map<String, Integer> exitRooms = new java.util.HashMap<>();
+                        if (curRoom.getExitN() != null) { availableExits.add("north"); exitRooms.put("north", curRoom.getExitN()); }
+                        if (curRoom.getExitE() != null) { availableExits.add("east"); exitRooms.put("east", curRoom.getExitE()); }
+                        if (curRoom.getExitS() != null) { availableExits.add("south"); exitRooms.put("south", curRoom.getExitS()); }
+                        if (curRoom.getExitW() != null) { availableExits.add("west"); exitRooms.put("west", curRoom.getExitW()); }
+                        if (curRoom.getExitU() != null) { availableExits.add("up"); exitRooms.put("up", curRoom.getExitU()); }
+                        if (curRoom.getExitD() != null) { availableExits.add("down"); exitRooms.put("down", curRoom.getExitD()); }
+                        
+                        if (availableExits.isEmpty()) {
+                            out.println("There's nowhere to flee to!");
+                            break;
+                        }
+                        
+                        // Get user's level for opposed check
+                        CharacterClassDAO fleeClassDao = new CharacterClassDAO();
+                        int userLevel = rec.currentClassId != null 
+                            ? fleeClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+                        
+                        // Find the highest level opponent for opposed check
+                        int opponentLevel = 1;
+                        for (Combatant c : activeCombat.getCombatants()) {
+                            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                                int cLevel;
+                                if (c.isPlayer()) {
+                                    Integer cCharId = c.getCharacterId();
+                                    CharacterRecord cRec = dao.getCharacterById(cCharId);
+                                    cLevel = cRec != null && cRec.currentClassId != null 
+                                        ? fleeClassDao.getCharacterClassLevel(cCharId, cRec.currentClassId) : 1;
+                                } else if (c.getMobile() != null) {
+                                    cLevel = c.getMobile().getLevel();
+                                } else {
+                                    cLevel = 1;
+                                }
+                                if (cLevel > opponentLevel) {
+                                    opponentLevel = cLevel;
+                                }
+                            }
+                        }
+                        
+                        // Perform opposed check at 100% proficiency (innate skill)
+                        int roll = (int)(Math.random() * 100) + 1;
+                        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
+                            userLevel, opponentLevel, 100);
+                        
+                        boolean fleeSucceeded = roll <= successChance;
+                        
+                        if (!fleeSucceeded) {
+                            // Failed to flee
+                            out.println("You try to flee but your opponents block your escape!");
+                            roomAnnounce(currentRoomId, name + " tries to flee but fails!", this.characterId, true);
+                            break;
+                        }
+                        
+                        // Flee succeeded - pick a random exit
+                        String fleeDirection = availableExits.get((int)(Math.random() * availableExits.size()));
+                        Integer destRoomId = exitRooms.get(fleeDirection);
+                        
+                        // Check movement cost
+                        moveCost = dao.getMoveCostForRoom(destRoomId);
+                        
+                        if (rec.mvCur < moveCost) {
+                            // Insufficient MV - fall prone instead of escaping
+                            userCombatant.setProne();
+                            out.println("You break free but stumble and fall prone from exhaustion!");
+                            roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                            break;
+                        }
+                        
+                        // Deduct movement points
+                        if (!dao.deductMovementPoints(name, moveCost)) {
+                            // Shouldn't happen, but handle it
+                            userCombatant.setProne();
+                            out.println("You break free but stumble and fall prone from exhaustion!");
+                            roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                            break;
+                        }
+                        
+                        // Remove from combat
+                        activeCombat.removeCombatant(userCombatant);
+                        
+                        // Announce departure
+                        out.println("You flee " + fleeDirection + "!");
+                        roomAnnounce(currentRoomId, name + " flees " + fleeDirection + "!", this.characterId, true);
+                        
+                        // Move to new room
+                        moved = dao.updateCharacterRoom(name, destRoomId);
+                        if (!moved) {
+                            out.println("Something strange happened during your escape.");
+                            break;
+                        }
+                        
+                        // Update cached room and show new location
+                        rec = dao.findByName(name);
+                        this.currentRoomId = rec != null ? rec.currentRoom : null;
+                        newRoom = dao.getRoomById(destRoomId);
+                        
+                        // Announce arrival
+                        roomAnnounce(destRoomId, makeArrivalMessage(name, fleeDirection), this.characterId, true);
+                        
+                        if (newRoom != null) {
+                            showRoom(newRoom, destRoomId);
+                        }
+                        
+                        // Combat will check shouldEnd() on next tick and end if no opponents remain
                         break;
                     }
                     case "kick": {
@@ -3719,6 +4126,16 @@ public class ClientHandler implements Runnable {
                             }
                         } else {
                             sheet.append("  No spells known yet.\n");
+                        }
+                        
+                        // ═══ AUTO SETTINGS ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ AUTO SETTINGS ]\n");
+                        int autoflee = rec.autoflee;
+                        if (autoflee > 0) {
+                            sheet.append(String.format("  Autoflee: %d%% HP\n", autoflee));
+                        } else {
+                            sheet.append("  Autoflee: disabled\n");
                         }
                         
                         // ═══ ACTIVE EFFECTS ═══

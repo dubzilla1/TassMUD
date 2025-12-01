@@ -2,6 +2,7 @@ package com.example.tassmud.event;
 
 import com.example.tassmud.model.*;
 import com.example.tassmud.persistence.*;
+import com.example.tassmud.util.SpawnEventLogger;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class SpawnEvent implements GameEvent {
                 spawnMobs();
             }
         } catch (Exception e) {
-            System.err.println("[SpawnEvent] Error executing spawn " + config.getSpawnId() + ": " + e.getMessage());
+            SpawnEventLogger.error("[SpawnEvent] Error executing spawn " + config.getSpawnId() + ": " + e.getMessage());
         }
     }
     
@@ -42,7 +43,7 @@ public class SpawnEvent implements GameEvent {
         if (config.hasContainer()) {
             containerInstanceId = findOrCreateContainer();
             if (containerInstanceId == null) {
-                System.err.println("[SpawnEvent] Could not find/create container " + config.containerTemplateId + " in room " + config.roomId);
+                SpawnEventLogger.error("[SpawnEvent] Could not find/create container " + config.containerTemplateId + " in room " + config.roomId);
                 return;
             }
         }
@@ -69,11 +70,11 @@ public class SpawnEvent implements GameEvent {
                 if (instanceId > 0) {
                     ItemTemplate tmpl = itemDao.getTemplateById(config.templateId);
                     String name = tmpl != null ? tmpl.name : "item #" + config.templateId;
-                    System.out.println("[SpawnEvent] Spawned " + name + " (instance #" + instanceId + ") in " + 
+                    SpawnEventLogger.info("[SpawnEvent] Spawned " + name + " (instance #" + instanceId + ") in " + 
                         (containerInstanceId != null ? "container #" + containerInstanceId : "room " + config.roomId));
                 }
             } catch (Exception e) {
-                System.err.println("[SpawnEvent] Failed to spawn item: " + e.getMessage());
+                SpawnEventLogger.error("[SpawnEvent] Failed to spawn item: " + e.getMessage());
             }
         }
     }
@@ -84,37 +85,33 @@ public class SpawnEvent implements GameEvent {
     private void spawnMobs() {
         // Clean up empty corpses in the room before spawning
         cleanupEmptyCorpses();
-        
-        // Count existing mobs of this template in the room
-        List<Mobile> roomMobs = mobileDao.getMobilesInRoom(config.roomId);
-        int existingCount = 0;
-        for (Mobile mob : roomMobs) {
-            if (mob.getTemplateId() == config.templateId) {
-                existingCount++;
-            }
-        }
-        
-        int toSpawn = Math.max(0, config.quantity - existingCount);
-        
-        if (toSpawn <= 0) {
+        // Get configured mapping UUIDs for this spawn (one mapping per intended mob)
+        List<String> mappingUuids = mobileDao.getSpawnMappingUUIDs(config.roomId, config.templateId);
+        if (mappingUuids == null || mappingUuids.isEmpty()) {
+            // No canonical spawn mappings for this room/template - nothing to manage
+            SpawnEventLogger.info("[SpawnEvent] No spawn mappings for template " + config.templateId + " in room " + config.roomId + "; skipping.");
             return;
         }
-        
-        // Spawn the mobs
+
+        // Ensure the template exists
         MobileTemplate template = mobileDao.getTemplateById(config.templateId);
         if (template == null) {
-            System.err.println("[SpawnEvent] Mob template not found: " + config.templateId);
+            SpawnEventLogger.error("[SpawnEvent] Mob template not found: " + config.templateId);
             return;
         }
-        
-        for (int i = 0; i < toSpawn; i++) {
+
+        // For each mapping UUID, check globally if a live instance exists for that UUID. If not, spawn it.
+        for (String uuid : mappingUuids) {
             try {
-                Mobile spawned = mobileDao.spawnMobile(template, config.roomId);
+                Mobile existing = mobileDao.getInstanceByOriginUuid(uuid);
+                if (existing != null) continue; // already present somewhere
+
+                Mobile spawned = mobileDao.spawnMobile(template, config.roomId, uuid);
                 if (spawned != null) {
-                    System.out.println("[SpawnEvent] Spawned " + spawned.getName() + " (instance #" + spawned.getInstanceId() + ") in room " + config.roomId);
+                    SpawnEventLogger.info("[SpawnEvent] Spawned " + spawned.getName() + " (instance #" + spawned.getInstanceId() + ") in room " + config.roomId + " [uuid=" + uuid + "]");
                 }
             } catch (Exception e) {
-                System.err.println("[SpawnEvent] Failed to spawn mob: " + e.getMessage());
+                SpawnEventLogger.error("[SpawnEvent] Failed to spawn mapped mob: " + e.getMessage());
             }
         }
     }
@@ -127,10 +124,10 @@ public class SpawnEvent implements GameEvent {
         try {
             int deleted = itemDao.deleteEmptyCorpsesInRoom(config.roomId);
             if (deleted > 0) {
-                System.out.println("[SpawnEvent] Cleaned up " + deleted + " empty corpse(s) in room " + config.roomId);
+                SpawnEventLogger.info("[SpawnEvent] Cleaned up " + deleted + " empty corpse(s) in room " + config.roomId);
             }
         } catch (Exception e) {
-            System.err.println("[SpawnEvent] Failed to cleanup corpses in room " + config.roomId + ": " + e.getMessage());
+            SpawnEventLogger.error("[SpawnEvent] Failed to cleanup corpses in room " + config.roomId + ": " + e.getMessage());
         }
     }
     
@@ -151,15 +148,15 @@ public class SpawnEvent implements GameEvent {
         try {
             ItemTemplate containerTemplate = itemDao.getTemplateById(config.containerTemplateId);
             if (containerTemplate == null || !containerTemplate.isContainer()) {
-                System.err.println("[SpawnEvent] Container template " + config.containerTemplateId + " not found or not a container");
+                SpawnEventLogger.error("[SpawnEvent] Container template " + config.containerTemplateId + " not found or not a container");
                 return null;
             }
             
             long containerInstanceId = itemDao.createInstance(config.containerTemplateId, config.roomId, null);
-            System.out.println("[SpawnEvent] Created container " + containerTemplate.name + " (instance #" + containerInstanceId + ") in room " + config.roomId);
+            SpawnEventLogger.info("[SpawnEvent] Created container " + containerTemplate.name + " (instance #" + containerInstanceId + ") in room " + config.roomId);
             return containerInstanceId;
         } catch (Exception e) {
-            System.err.println("[SpawnEvent] Failed to create container: " + e.getMessage());
+            SpawnEventLogger.error("[SpawnEvent] Failed to create container: " + e.getMessage());
             return null;
         }
     }

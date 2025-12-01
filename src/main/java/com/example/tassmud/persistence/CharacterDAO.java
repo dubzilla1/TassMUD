@@ -652,6 +652,8 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS will_equip_bonus INT DEFAULT 0");
                     // Current class reference (denormalized for convenience)
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS current_class_id INT DEFAULT NULL");
+                    // Autoflee threshold (0-100, defaults to 0)
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS autoflee INT DEFAULT 0");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create characters table", e);
                 }
@@ -1082,7 +1084,7 @@ public class CharacterDAO {
     }
 
     public CharacterRecord findByName(String name) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id FROM characters WHERE name = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee FROM characters WHERE name = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);
@@ -1104,7 +1106,8 @@ public class CharacterDAO {
                             rs.getInt("armor"), rs.getInt("fortitude"), rs.getInt("reflex"), rs.getInt("will"),
                             rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
                             currentRoom,
-                            currentClassId
+                            currentClassId,
+                            rs.getInt("autoflee")
                         );
                 }
             }
@@ -1118,7 +1121,7 @@ public class CharacterDAO {
      * Find a character by their ID.
      */
     public CharacterRecord findById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id FROM characters WHERE id = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee FROM characters WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
@@ -1140,7 +1143,8 @@ public class CharacterDAO {
                         rs.getInt("armor"), rs.getInt("fortitude"), rs.getInt("reflex"), rs.getInt("will"),
                         rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
                         currentRoom,
-                        currentClassId
+                        currentClassId,
+                        rs.getInt("autoflee")
                     );
                 }
             }
@@ -1496,6 +1500,7 @@ public class CharacterDAO {
         public final int willEquipBonus;
         public final Integer currentRoom;
         public final Integer currentClassId;
+        public final int autoflee;  // Auto-flee threshold (0-100)
 
         // Convenience methods to get total saves (base + equipment)
         public int getArmorTotal() { return armor + armorEquipBonus; }
@@ -1512,7 +1517,8 @@ public class CharacterDAO {
                                int armor, int fortitude, int reflex, int will,
                                int armorEquipBonus, int fortitudeEquipBonus, int reflexEquipBonus, int willEquipBonus,
                                Integer currentRoom,
-                               Integer currentClassId) {
+                               Integer currentClassId,
+                               int autoflee) {
             this.name = name;
             this.passwordHashBase64 = passwordHashBase64;
             this.saltBase64 = saltBase64;
@@ -1540,6 +1546,7 @@ public class CharacterDAO {
             this.willEquipBonus = willEquipBonus;
             this.currentRoom = currentRoom;
             this.currentClassId = currentClassId;
+            this.autoflee = autoflee;
         }
     }
 
@@ -1566,7 +1573,7 @@ public class CharacterDAO {
      * Get character record by their ID (includes current_room).
      */
     public CharacterRecord getCharacterById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id FROM characters WHERE id = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee FROM characters WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
@@ -1588,7 +1595,8 @@ public class CharacterDAO {
                         rs.getInt("armor"), rs.getInt("fortitude"), rs.getInt("reflex"), rs.getInt("will"),
                         rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
                         currentRoom,
-                        currentClassId
+                        currentClassId,
+                        rs.getInt("autoflee")
                     );
                 }
             }
@@ -1596,5 +1604,48 @@ public class CharacterDAO {
             // ignore
         }
         return null;
+    }
+    
+    /**
+     * Set a character's autoflee threshold.
+     * @param characterId the character ID
+     * @param autoflee the autoflee percentage (0-100)
+     * @return true if successful
+     */
+    public boolean setAutoflee(int characterId, int autoflee) {
+        // Clamp to valid range
+        autoflee = Math.max(0, Math.min(100, autoflee));
+        
+        String sql = "UPDATE characters SET autoflee = ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, autoflee);
+            ps.setInt(2, characterId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Failed to set autoflee: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Get a character's autoflee threshold.
+     * @param characterId the character ID
+     * @return the autoflee percentage (0-100), or 0 if not found
+     */
+    public int getAutoflee(int characterId) {
+        String sql = "SELECT autoflee FROM characters WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("autoflee");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Failed to get autoflee: " + e.getMessage());
+        }
+        return 0;
     }
 }

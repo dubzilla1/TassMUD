@@ -79,6 +79,19 @@ public class BasicAttackCommand implements CombatCommand {
     
     @Override
     public CombatResult execute(Combatant user, Combatant target, Combat combat) {
+        return executeWithPenalty(user, target, combat, 0);
+    }
+    
+    /**
+     * Execute an attack with a level penalty (for multi-attack).
+     * 
+     * @param user The attacking combatant
+     * @param target The target combatant
+     * @param combat The combat instance
+     * @param levelPenalty Level penalty to apply (e.g., 1 for second attack)
+     * @return The combat result
+     */
+    public CombatResult executeWithPenalty(Combatant user, Combatant target, Combat combat, int levelPenalty) {
         // Check for interrupted status - if present, skip the attack
         if (user.consumeInterrupted()) {
             CombatResult result = CombatResult.interrupted(user);
@@ -110,8 +123,28 @@ public class BasicAttackCommand implements CombatCommand {
         // Use STR for melee (TODO: check weapon type for ranged using DEX)
         int statBonus = strMod;
         
-        // Calculate level-based attack bonus
-        int levelBonus = calculator.calculateFullAttackBonus(user, target);
+        // Check if target is prone - affects advantage/disadvantage based on weapon type
+        int proneModifier = 0;
+        if (target.isProne()) {
+            if (calculator.isUsingRangedWeapon(user)) {
+                // Ranged attacks have disadvantage against prone targets
+                proneModifier = -1;
+            } else {
+                // Melee attacks have advantage against prone targets
+                proneModifier = 1;
+            }
+        }
+        
+        // Calculate effective level penalty:
+        // - Start with multi-attack penalty (0, 1, 2, or 3)
+        // - Subtract advantage/disadvantage modifier (+1 for advantage, -1 for disadvantage)
+        // - Subtract prone modifier (+1 for melee vs prone, -1 for ranged vs prone)
+        // - So advantage/melee-vs-prone reduces penalty, disadvantage/ranged-vs-prone increases it
+        int advantageModifier = user.getAttackLevelModifier();
+        int effectivePenalty = levelPenalty - advantageModifier - proneModifier;
+        
+        // Calculate level-based attack bonus (with effective penalty)
+        int levelBonus = calculator.calculateFullAttackBonus(user, target, effectivePenalty);
         int totalAttackBonus = statBonus + levelBonus;
         
         // Roll d20 + attack bonus vs armor
@@ -189,13 +222,13 @@ public class BasicAttackCommand implements CombatCommand {
      */
     private CombatResult tryParry(Combatant defender, Combatant attacker, int attackRoll) {
         // Only player characters can parry (mobs may get their own version later)
-        Character defenderChar = defender.getAsCharacter();
-        if (defenderChar == null) {
+        if (!defender.isPlayer() || defender.getCharacterId() == null) {
             return null;
         }
         
         // Check if defender knows the parry skill
-        CharacterSkill parrySkill = defenderChar.getSkill(PARRY_SKILL_ID);
+        CharacterDAO dao = new CharacterDAO();
+        CharacterSkill parrySkill = dao.getCharacterSkill(defender.getCharacterId(), PARRY_SKILL_ID);
         if (parrySkill == null) {
             return null;
         }
@@ -209,8 +242,8 @@ public class BasicAttackCommand implements CombatCommand {
         int proficiency = parrySkill.getProficiency();
         
         // Run opposed check: defender's level vs attacker's level, with proficiency
-        int defenderLevel = defenderChar.getLevel();
-        int attackerLevel = attacker.getLevel();
+        int defenderLevel = calculator.getCombatantLevel(defender);
+        int attackerLevel = calculator.getCombatantLevel(attacker);
         
         boolean parrySuccess = OpposedCheck.checkWithProficiency(defenderLevel, attackerLevel, proficiency);
         

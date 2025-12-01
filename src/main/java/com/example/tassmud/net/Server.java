@@ -6,6 +6,7 @@ import com.example.tassmud.event.SpawnManager;
 import com.example.tassmud.persistence.*;
 import com.example.tassmud.util.*;
 import com.example.tassmud.util.CooldownManager;
+import com.example.tassmud.util.MobileRoamingService;
 import com.example.tassmud.util.RegenerationService;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -118,6 +119,9 @@ public class Server {
         combatManager.setPlayerPromptCallback((charId) -> {
             ClientHandler.sendPromptToCharacter(charId);
         });
+        combatManager.setPlayerAutofleeCallback((charId, combat) -> {
+            return ClientHandler.triggerAutoflee(charId, combat);
+        });
 
         // Initialize event scheduler for spawn system
         EventScheduler eventScheduler = EventScheduler.getInstance();
@@ -126,6 +130,14 @@ public class Server {
         // Start all registered spawns (spawns were registered during DataLoader.loadDefaults)
         SpawnManager spawnManager = SpawnManager.getInstance();
         if (spawnManager.getSpawnCount() > 0) {
+            // Wipe any existing mobile instances so restarts don't multiply spawns.
+            try {
+                com.example.tassmud.persistence.MobileDAO mobileDao = new com.example.tassmud.persistence.MobileDAO();
+                mobileDao.clearAllInstances();
+            } catch (Exception e) {
+                System.err.println("[startup] Warning: failed to clear mobile instances: " + e.getMessage());
+            }
+
             // Trigger initial spawns to populate the world
             spawnManager.triggerInitialSpawns();
             // Schedule recurring spawns
@@ -135,14 +147,20 @@ public class Server {
         // Initialize regeneration service for HP/MP/MV recovery
         RegenerationService regenService = RegenerationService.getInstance();
         regenService.initialize(tickService);
+        
+        // Initialize mobile roaming service for NPC wandering
+        MobileRoamingService roamingService = MobileRoamingService.getInstance();
+        roamingService.initialize(tickService);
 
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;
         final CombatManager combatManagerRef = combatManager;
         final EventScheduler eventSchedulerRef = eventScheduler;
         final RegenerationService regenServiceRef = regenService;
+        final MobileRoamingService roamingServiceRef = roamingService;
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Shutdown hook: stopping combat, clock, event scheduler, regen service, tick service and thread pool...");
+            System.out.println("Shutdown hook: stopping combat, clock, event scheduler, regen service, roaming service, tick service and thread pool...");
+            try { roamingServiceRef.shutdown(); } catch (Exception ignored) {}
             try { regenServiceRef.shutdown(); } catch (Exception ignored) {}
             try { eventSchedulerRef.shutdown(); } catch (Exception ignored) {}
             try { combatManagerRef.shutdown(); } catch (Exception ignored) {}

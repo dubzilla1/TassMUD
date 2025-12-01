@@ -35,6 +35,7 @@ public class MobileTest {
             25, // experienceValue
             2, 8, // goldMin, goldMax
             180, // respawnSeconds
+            0, // autoflee
             null // templateJson
         );
     }
@@ -166,7 +167,7 @@ public class MobileTest {
             2, "key", "Shopkeeper", "Short", "Long", Collections.emptyList(),
             1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
             4, 0, 0, Arrays.asList(MobileBehavior.SHOPKEEPER, MobileBehavior.IMMORTAL),
-            0, 0, 0, 0, 60, null
+            0, 0, 0, 0, 60, 0, null
         );
         assertTrue(shopkeeper.isShopkeeper());
         assertTrue(shopkeeper.isImmortal());
@@ -223,7 +224,7 @@ public class MobileTest {
         MobileTemplate template = new MobileTemplate(
             1, "key", "Name", "Short", "Long", null,
             1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, null, 0, 10, 0, 0, 60, null
+            4, 0, 0, null, 0, 10, 0, 0, 60, 0, null
         );
         
         assertNotNull(template.getKeywords());
@@ -345,22 +346,22 @@ public class MobileTest {
         MobileTemplate aggressive = new MobileTemplate(
             1, "key", "Name", "Short", "Long", Collections.emptyList(),
             1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, Arrays.asList(MobileBehavior.AGGRESSIVE), 0, 10, 0, 0, 60, null
+            4, 0, 0, Arrays.asList(MobileBehavior.AGGRESSIVE), 0, 10, 0, 0, 60, 0, null
         );
         MobileTemplate passive = new MobileTemplate(
             2, "key2", "Name2", "Short", "Long", Collections.emptyList(),
             1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, Arrays.asList(MobileBehavior.PASSIVE), 0, 10, 0, 0, 60, null
+            4, 0, 0, Arrays.asList(MobileBehavior.PASSIVE), 0, 10, 0, 0, 60, 0, null
         );
         MobileTemplate immortalShopkeeper = new MobileTemplate(
             3, "key3", "Name3", "Short", "Long", Collections.emptyList(),
             1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, Arrays.asList(MobileBehavior.SHOPKEEPER, MobileBehavior.IMMORTAL), 0, 0, 0, 0, 60, null
+            4, 0, 0, Arrays.asList(MobileBehavior.SHOPKEEPER, MobileBehavior.IMMORTAL), 0, 0, 0, 0, 60, 0, null
         );
         MobileTemplate cowardly = new MobileTemplate(
             4, "key4", "Name4", "Short", "Long", Collections.emptyList(),
             1, 100, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0, // 100 HP for flee test
-            4, 0, 0, Arrays.asList(MobileBehavior.COWARDLY), 0, 10, 0, 0, 60, null
+            4, 0, 0, Arrays.asList(MobileBehavior.COWARDLY), 0, 10, 0, 0, 60, 0, null
         );
         
         Mobile aggMob = new Mobile(1L, aggressive, 1000);

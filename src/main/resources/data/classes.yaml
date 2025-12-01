@@ -22,6 +22,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 1    # basic attack
+      - level: 1
+        skill_id: 952  # mail armor
       - level: 2
         skill_id: 19   # shields
       - level: 3
@@ -38,6 +40,8 @@ classes:
         skill_id: 13   # parry
       - level: 20
         skill_id: 14   # riposte
+      - level: 20
+        skill_id: 953  # plate armor
       - level: 25
         skill_id: 15   # second attack
       - level: 35
@@ -64,6 +68,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 100  # magic missile
+      - level: 1
+        skill_id: 950  # cloth armor
       - level: 5
         skill_id: 101  # detect magic
       - level: 8
@@ -101,6 +107,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 200  # cure light wounds
+      - level: 1
+        skill_id: 952  # mail armor
       - level: 2
         skill_id: 19   # shields
       - level: 5
@@ -115,6 +123,8 @@ classes:
         skill_id: 205  # cure critical wounds
       - level: 28
         skill_id: 206  # heal
+      - level: 30
+        skill_id: 953  # plate armor
       - level: 35
         skill_id: 207  # sanctuary
       - level: 42
@@ -140,6 +150,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 300  # sneak
+      - level: 1
+        skill_id: 951  # leather armor
       - level: 3
         skill_id: 301  # backstab
       - level: 6
@@ -177,6 +189,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 400  # track
+      - level: 1
+        skill_id: 951  # leather armor
       - level: 3
         skill_id: 901  # martial weapons
       - level: 4
@@ -191,6 +205,8 @@ classes:
         skill_id: 405  # call animal
       - level: 28
         skill_id: 406  # rapid shot
+      - level: 30
+        skill_id: 952  # mail armor  
       - level: 35
         skill_id: 407  # volley
       - level: 45
@@ -216,6 +232,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 500  # lay on hands
+      - level: 1
+        skill_id: 953  # plate armor
       - level: 2
         skill_id: 19   # shields
       - level: 3
@@ -257,6 +275,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 600  # drain life
+      - level: 1
+        skill_id: 950  # cloth armor
       - level: 5
         skill_id: 601  # animate dead
       - level: 10
@@ -294,6 +314,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 700  # unarmed strike
+      - level: 1
+        skill_id: 950  # cloth armor
       - level: 3
         skill_id: 901  # martial weapons
       - level: 5
@@ -304,6 +326,8 @@ classes:
         skill_id: 703  # deflect missiles
       - level: 20
         skill_id: 704  # slow fall
+      - level: 20
+        skill_id: 954  # unarmored
       - level: 25
         skill_id: 705  # ki strike
       - level: 32

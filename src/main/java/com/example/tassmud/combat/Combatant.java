@@ -85,7 +85,13 @@ public class Combatant {
         /** Combatant is blinded (reduced accuracy) */
         BLINDED,
         /** Combatant is confused (may attack allies) */
-        CONFUSED
+        CONFUSED,
+        /** Combatant has advantage (+1 level bonus to attacks this round) */
+        ADVANTAGE,
+        /** Combatant has disadvantage (-1 level penalty to attacks this round) */
+        DISADVANTAGE,
+        /** Combatant is prone (melee attackers have advantage, ranged have disadvantage) */
+        PRONE
     }
     
     /**
@@ -260,6 +266,10 @@ public class Combatant {
         this.hasActedThisRound = false;
         this.currentCommand = null;
         
+        // Clear round-based status effects
+        consumeAdvantage();
+        consumeDisadvantage();
+        
         // Calculate attacks for the round
         int baseAttacks = calculateBaseAttacks();
         
@@ -367,6 +377,34 @@ public class Combatant {
         return c != null ? c.getArmor() : 10;
     }
     
+    /**
+     * Get the autoflee threshold (0-100) for this combatant.
+     * For players, this comes from their character settings.
+     * For mobiles, this comes from their template.
+     * @return the autoflee percentage, or 0 if not set
+     */
+    public int getAutoflee() {
+        if (mobile != null) {
+            return mobile.getAutoflee();
+        }
+        // For players, we need to look up their autoflee setting
+        // This is handled externally as we don't store it in Combatant
+        return 0;
+    }
+    
+    /**
+     * Check if this combatant's HP percentage is below their autoflee threshold.
+     * @param autoflee the autoflee threshold to check against
+     * @return true if HP% < autoflee and autoflee > 0
+     */
+    public boolean shouldAutoflee(int autoflee) {
+        if (autoflee <= 0) return false;
+        int hpMax = getHpMax();
+        if (hpMax <= 0) return false;
+        int hpPercent = (getHpCurrent() * 100) / hpMax;
+        return hpPercent < autoflee;
+    }
+    
     // Status flag methods
     
     /**
@@ -442,6 +480,80 @@ public class Combatant {
      */
     public boolean consumeSlowed() {
         return statusFlags.remove(StatusFlag.SLOWED);
+    }
+    
+    /**
+     * Check if this combatant has advantage (+1 level bonus to attacks).
+     */
+    public boolean hasAdvantage() {
+        return hasStatusFlag(StatusFlag.ADVANTAGE);
+    }
+    
+    /**
+     * Check if this combatant has disadvantage (-1 level penalty to attacks).
+     */
+    public boolean hasDisadvantage() {
+        return hasStatusFlag(StatusFlag.DISADVANTAGE);
+    }
+    
+    /**
+     * Get the attack level modifier from advantage/disadvantage.
+     * Returns +1 for advantage, -1 for disadvantage, 0 for neither.
+     * If both are present, they cancel out (returns 0).
+     * 
+     * @return level modifier to apply to attacks
+     */
+    public int getAttackLevelModifier() {
+        boolean hasAdv = hasAdvantage();
+        boolean hasDisadv = hasDisadvantage();
+        
+        if (hasAdv && hasDisadv) {
+            return 0; // Cancel out
+        } else if (hasAdv) {
+            return 1; // +1 level bonus
+        } else if (hasDisadv) {
+            return -1; // -1 level penalty
+        }
+        return 0;
+    }
+    
+    /**
+     * Consume advantage status at end of round.
+     * @return true if was present
+     */
+    public boolean consumeAdvantage() {
+        return statusFlags.remove(StatusFlag.ADVANTAGE);
+    }
+    
+    /**
+     * Consume disadvantage status at end of round.
+     * @return true if was present
+     */
+    public boolean consumeDisadvantage() {
+        return statusFlags.remove(StatusFlag.DISADVANTAGE);
+    }
+    
+    /**
+     * Check if this combatant is prone.
+     * Prone targets give melee attackers advantage and ranged attackers disadvantage.
+     */
+    public boolean isProne() {
+        return hasStatusFlag(StatusFlag.PRONE);
+    }
+    
+    /**
+     * Set the combatant to prone (e.g., from being tripped).
+     */
+    public void setProne() {
+        addStatusFlag(StatusFlag.PRONE);
+    }
+    
+    /**
+     * Remove prone status (e.g., from standing up).
+     * @return true if was prone
+     */
+    public boolean standUp() {
+        return statusFlags.remove(StatusFlag.PRONE);
     }
     
     @Override

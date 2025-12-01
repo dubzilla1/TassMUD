@@ -820,19 +820,137 @@ flee:
         flee
 
     DESCRIPTION
-        Attempts to escape from the current combat encounter.
+        Attempt to escape from combat by fleeing to an adjacent room.
+        This is an INNATE combat skill known by all characters and creatures
+        at 100% proficiency.
         
-        NOTE: Fleeing is not yet fully implemented. Currently, combat
-        continues until one side is defeated.
+        MECHANICS:
+        Fleeing requires an opposed check against your opponents (using
+        the highest level opponent). If successful, you escape to a
+        randomly selected adjacent room.
         
-        In a future update, fleeing will:
-        - Check your DEX vs opponents
-        - Allow escape to a random available exit
-        - Remove you from the combat
-        - Potentially incur penalties (opportunity attacks, etc.)
+        SUCCESS:
+        - You move to a random available exit
+        - Movement points are deducted normally
+        - You are removed from combat
+        - Combat continues for remaining combatants (if any)
+        - In 1v1 combat, combat ends when you flee
+        
+        FAILURE:
+        - You remain in combat
+        - No movement points are deducted
+        - You may try again (no cooldown)
+        
+        EXHAUSTION:
+        If you succeed the flee check but lack sufficient movement points
+        to enter the destination room, you fall [PRONE] instead of escaping.
+        This represents stumbling from exhaustion while trying to flee.
+        Combat continues with you still in it.
+        
+        PRONE STATUS:
+        While prone, melee attackers have advantage and ranged attackers
+        have disadvantage against you. Use 'stand' to attempt to get up.
 
     SEE ALSO
-        kill, combat
+        autoflee, stand, kill, combat, prone
 
     EXAMPLE
         flee
+
+autoflee:
+  summary: "set automatic flee threshold"
+  visibility: public
+  synopsis:
+    - "autoflee [PERCENT]"
+  body: |
+    NAME
+        autoflee - set automatic flee threshold
+
+    SYNOPSIS
+        autoflee [PERCENT]
+
+    DESCRIPTION
+        View or set your automatic flee threshold. When set to a value
+        greater than 0, your character will automatically attempt to flee
+        at the end of each combat round if their current HP falls below
+        the specified percentage of their maximum HP.
+        
+        USAGE:
+        autoflee        - Display your current autoflee threshold
+        autoflee 0      - Disable automatic fleeing
+        autoflee 25     - Flee when HP drops below 25%
+        autoflee 50     - Flee when HP drops below 50%
+        
+        MECHANICS:
+        The autoflee check occurs at the END of each combat round, after
+        all attacks have been resolved. If your HP percentage is less than
+        your autoflee threshold, an automatic flee attempt is triggered.
+        
+        The automatic flee uses the same mechanics as the manual flee
+        command - an opposed check is made, and success/failure/exhaustion
+        outcomes apply normally.
+        
+        VALID VALUES:
+        0-100 (0 = disabled, 100 = always attempt to flee)
+        
+        NOTE:
+        Mobs can also have autoflee values set in their templates.
+        Your autoflee setting is saved and persists across sessions.
+
+    SEE ALSO
+        flee, stand, kill, combat
+
+    EXAMPLE
+        autoflee 25
+
+stand:
+  summary: "stand up from sitting, sleeping, or prone"
+  visibility: public
+  synopsis:
+    - "stand"
+    - "wake"
+  body: |
+    NAME
+        stand - stand up from a non-standing position
+
+    SYNOPSIS
+        stand
+        wake
+
+    DESCRIPTION
+        Stand up from sitting, sleeping, or prone positions.
+        
+        OUT OF COMBAT:
+        When not in combat, standing up is automatic and always succeeds.
+        You transition from sitting or sleeping to standing immediately.
+        "wake" is an alias that also stands you up.
+        
+        IN COMBAT (Prone):
+        When prone during combat, standing up requires an opposed check
+        against your opponents. This is an INNATE combat skill that all
+        characters and creatures possess at 100% proficiency.
+        
+        - SUCCESS: You stand up and remove the [PRONE] status.
+          Opponents no longer have advantage/disadvantage against you.
+        
+        - FAILURE: You remain prone and must try again next round.
+        
+        IMPORTANT: Regardless of success or failure, attempting to stand
+        during combat forfeits ALL of your attacks for that round (including
+        any bonus attacks from second_attack, third_attack, or fourth_attack).
+        
+        There is no cooldown - you may attempt to stand each round.
+
+    PRONE STATUS
+        While prone:
+        - Melee attackers have [ADVANTAGE] against you (+1 level bonus)
+        - Ranged attackers have [DISADVANTAGE] against you (-1 level penalty)
+        
+        Prone is typically caused by being tripped or knocked down.
+
+    SEE ALSO
+        sit, sleep, rest, prone, combat
+
+    EXAMPLE
+        stand
+        wake

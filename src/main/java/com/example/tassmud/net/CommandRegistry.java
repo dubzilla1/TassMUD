@@ -60,6 +60,7 @@ public class CommandRegistry {
         // All combat commands allowed in combat
         registerCombat("kill", "Attack a target and initiate combat", Category.COMBAT, List.of("k", "attack", "fight"));
         registerCombat("combat", "Display current combat status", Category.COMBAT);
+        registerCombat("autoflee", "Configure automatic flee threshold (0-100)", Category.COMBAT);
         registerCombat("flee", "Attempt to escape from combat", Category.COMBAT);
         registerCombat("cast", "Cast a spell", Category.COMBAT);
         registerCombat("kick", "Deliver a powerful kick to your enemy", Category.COMBAT);
