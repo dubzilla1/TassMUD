@@ -15,6 +15,9 @@ public class Character {
     private int mvCur;
     // Current room (nullable)
     private Integer currentRoom;
+    
+    // Current stance (out-of-combat position)
+    private Stance stance;
 
     // Ability scores
     private final int str;
@@ -37,6 +40,18 @@ public class Character {
                      Integer currentRoom,
                      int str, int dex, int con, int intel, int wis, int cha,
                      int armor, int fortitude, int reflex, int will) {
+        this(name, age, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom,
+             str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, Stance.STANDING);
+    }
+    
+    public Character(String name, int age, String description,
+                     int hpMax, int hpCur,
+                     int mpMax, int mpCur,
+                     int mvMax, int mvCur,
+                     Integer currentRoom,
+                     int str, int dex, int con, int intel, int wis, int cha,
+                     int armor, int fortitude, int reflex, int will,
+                     Stance stance) {
         this.name = name;
         this.age = age;
         this.description = description;
@@ -57,6 +72,7 @@ public class Character {
         this.fortitude = fortitude;
         this.reflex = reflex;
         this.will = will;
+        this.stance = stance != null ? stance : Stance.STANDING;
     }
 
     public String getName() { return name; }
@@ -77,6 +93,9 @@ public class Character {
 
     public Integer getCurrentRoom() { return currentRoom; }
     public void setCurrentRoom(Integer currentRoom) { this.currentRoom = currentRoom; }
+    
+    public Stance getStance() { return stance; }
+    public void setStance(Stance stance) { this.stance = stance != null ? stance : Stance.STANDING; }
 
     // Ability score getters
     public int getStr() { return str; }
@@ -90,4 +109,32 @@ public class Character {
     public int getFortitude() { return fortitude; }
     public int getReflex() { return reflex; }
     public int getWill() { return will; }
+    
+    /**
+     * Apply regeneration based on current stance.
+     * Returns the amounts regenerated as [hp, mp, mv].
+     */
+    public int[] regenerate() {
+        int percent = stance.getRegenPercent();
+        int hpRegen = Math.max(1, (hpMax * percent) / 100);
+        int mpRegen = Math.max(1, (mpMax * percent) / 100);
+        int mvRegen = Math.max(1, (mvMax * percent) / 100);
+        
+        int oldHp = hpCur;
+        int oldMp = mpCur;
+        int oldMv = mvCur;
+        
+        setHpCur(hpCur + hpRegen);
+        setMpCur(mpCur + mpRegen);
+        setMvCur(mvCur + mvRegen);
+        
+        return new int[] { hpCur - oldHp, mpCur - oldMp, mvCur - oldMv };
+    }
+    
+    /**
+     * Check if this character needs regeneration (any stat below max).
+     */
+    public boolean needsRegen() {
+        return hpCur < hpMax || mpCur < mpMax || mvCur < mvMax;
+    }
 }

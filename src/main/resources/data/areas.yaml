@@ -1,21 +1,38 @@
 # Area definitions for TassMUD
 # Areas are logical groupings of rooms (zones)
+#
+# sector_type determines the base movement cost for traveling in this area:
+#   INSIDE, CITY = 1 (indoor/urban - easy)
+#   FIELD = 2 (open grassland)
+#   FOREST = 3 (wooded terrain)
+#   HILLS = 4 (rolling hills)
+#   WATER_SWIM = 4 (shallow water)
+#   SLUSH = 6 (muddy/slushy terrain)
+#   MOUNTAIN, DESERT, SWAMP, UNDERWATER, SNOW = 8 (difficult terrain)
+#   ICE = 10 (treacherous ice)
+#   WATER_NOSWIM = 50 (deep water - requires boat/magic)
+#
+# Individual rooms can override the area's movement cost with their own move_cost.
 
 areas:
   - id: 0
     name: Debug
     description: Debug and out-of-band testing area.
+    sector_type: INSIDE
 
   - id: 1
     name: Starter Plains
     description: The wide open plains where new adventurers begin.
+    sector_type: FIELD
 
   - id: 2
     name: Dungeon Level 1
     description: A dark winding dungeon entrance.
+    sector_type: INSIDE
 
   - id: 3
     name: Midgaard
     description: >
       The bustling heart of the city of Midgaard — cobbled streets, 
       market stalls, and a central square where townsfolk gather.
+    sector_type: CITY

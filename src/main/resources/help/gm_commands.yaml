@@ -146,27 +146,40 @@ ifind:
         ifind 305 char         -- find item #305 only in inventories
 
 goto:
-  summary: "Teleport directly to a room (GM-only)"
+  summary: "Teleport directly to a room or player (GM-only)"
   visibility: gm
   synopsis:
     - "GOTO <room_id>"
+    - "GOTO <player_name>"
   body: |
     NAME
-        goto - teleport to a room
+        goto - teleport to a room or player
 
     SYNOPSIS
         GOTO <room_id>
+        GOTO <player_name>
 
     DESCRIPTION
-        Instantly teleports you to the specified room by its numeric ID.
-        Useful for quickly navigating the world during testing or administration.
+        Instantly teleports you to the specified room by its numeric ID,
+        or to the location of another player by name.
+        
+        When given a player name, it will:
+        - First search online players (case-insensitive prefix match)
+        - If not found online, search offline players by exact name
+        - Teleport you to their current (or last known) room
+        
+        Useful for quickly navigating the world during testing or administration,
+        or for finding and assisting players.
 
     ARGUMENTS
-        room_id   The numeric ID of the destination room.
+        room_id       The numeric ID of the destination room.
+        player_name   The name (or prefix) of a player to teleport to.
 
     EXAMPLE
         goto 3001          -- teleport to room #3001
         goto 1             -- teleport to room #1
+        goto Tass          -- teleport to player Tass's location
+        goto ta            -- teleport to first player starting with 'ta'
 
 dbinfo:
   summary: "(GM) inspect database table schemas"

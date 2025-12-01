@@ -9,6 +9,7 @@ import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Room;
+import com.example.tassmud.model.SectorType;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.SkillTrait;
 import com.example.tassmud.model.Spell;
@@ -693,6 +694,9 @@ public class CharacterDAO {
                             "name VARCHAR(200) UNIQUE NOT NULL, " +
                             "description VARCHAR(2048) DEFAULT '' " +
                             ")");
+                    // Migration: add sector_type column for movement costs
+                    s.execute("ALTER TABLE area ADD COLUMN IF NOT EXISTS sector_type VARCHAR(50) DEFAULT 'FIELD'");
+                    System.out.println("Migration: ensured column area.sector_type");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create area table", e);
                 }
@@ -725,6 +729,9 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_w INT");
                     s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_u INT");
                     s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_d INT");
+                    // Migration: add move_cost column for room-specific movement cost override
+                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS move_cost INT");
+                    System.out.println("Migration: ensured column room.move_cost");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create room table", e);
                 }
@@ -1106,6 +1113,42 @@ public class CharacterDAO {
         }
         return null;
     }
+    
+    /**
+     * Find a character by their ID.
+     */
+    public CharacterRecord findById(int characterId) {
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id FROM characters WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Integer currentRoom = rs.getObject("current_room") == null ? null : rs.getInt("current_room");
+                    Integer currentClassId = rs.getObject("current_class_id") == null ? null : rs.getInt("current_class_id");
+                    return new CharacterRecord(
+                        rs.getString("name"),
+                        rs.getString("password_hash"),
+                        rs.getString("salt"),
+                        rs.getInt("age"),
+                        rs.getString("description"),
+                        rs.getInt("hp_max"), rs.getInt("hp_cur"),
+                        rs.getInt("mp_max"), rs.getInt("mp_cur"),
+                        rs.getInt("mv_max"), rs.getInt("mv_cur"),
+                        rs.getInt("str"), rs.getInt("dex"), rs.getInt("con"),
+                        rs.getInt("intel"), rs.getInt("wis"), rs.getInt("cha"),
+                        rs.getInt("armor"), rs.getInt("fortitude"), rs.getInt("reflex"), rs.getInt("will"),
+                        rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
+                        currentRoom,
+                        currentClassId
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Failed to find character by ID: " + e.getMessage());
+        }
+        return null;
+    }
 
     // --- Area / Room DAO ---
     public int addArea(String name, String description) {
@@ -1126,12 +1169,18 @@ public class CharacterDAO {
 
     // Insert area with explicit id (idempotent via MERGE)
     public int addAreaWithId(int id, String name, String description) {
-        String sql = "MERGE INTO area (id, name, description) KEY(id) VALUES (?, ?, ?)";
+        return addAreaWithId(id, name, description, SectorType.FIELD);
+    }
+    
+    // Insert area with explicit id and sector type (idempotent via MERGE)
+    public int addAreaWithId(int id, String name, String description, SectorType sectorType) {
+        String sql = "MERGE INTO area (id, name, description, sector_type) KEY(id) VALUES (?, ?, ?, ?)";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.setString(2, name);
             ps.setString(3, description == null ? "" : description);
+            ps.setString(4, sectorType != null ? sectorType.name() : "FIELD");
             ps.executeUpdate();
             return id;
         } catch (SQLException e) {
@@ -1149,13 +1198,15 @@ public class CharacterDAO {
     }
 
     public Area getAreaById(int id) {
-        String sql = "SELECT id, name, description FROM area WHERE id = ?";
+        String sql = "SELECT id, name, description, sector_type FROM area WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return new Area(rs.getInt("id"), rs.getString("name"), rs.getString("description"));
+                    String sectorStr = rs.getString("sector_type");
+                    SectorType sectorType = SectorType.fromString(sectorStr);
+                    return new Area(rs.getInt("id"), rs.getString("name"), rs.getString("description"), sectorType);
                 }
             }
         } catch (SQLException e) {
@@ -1214,7 +1265,7 @@ public class CharacterDAO {
     }
 
     public Room getRoomById(int id) {
-        String sql = "SELECT id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d FROM room WHERE id = ?";
+        String sql = "SELECT id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d, move_cost FROM room WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -1226,13 +1277,35 @@ public class CharacterDAO {
                     Integer exitW = rs.getObject("exit_w") == null ? null : rs.getInt("exit_w");
                     Integer exitU = rs.getObject("exit_u") == null ? null : rs.getInt("exit_u");
                     Integer exitD = rs.getObject("exit_d") == null ? null : rs.getInt("exit_d");
-                    return new Room(rs.getInt("id"), rs.getInt("area_id"), rs.getString("name"), rs.getString("short_desc"), rs.getString("long_desc"), exitN, exitE, exitS, exitW, exitU, exitD);
+                    Integer moveCost = rs.getObject("move_cost") == null ? null : rs.getInt("move_cost");
+                    return new Room(rs.getInt("id"), rs.getInt("area_id"), rs.getString("name"), rs.getString("short_desc"), rs.getString("long_desc"), exitN, exitE, exitS, exitW, exitU, exitD, moveCost);
                 }
             }
         } catch (SQLException e) {
             return null;
         }
         return null;
+    }
+    
+    /**
+     * Get the movement cost for entering a room.
+     * Uses the room's custom move_cost if set, otherwise falls back to the area's sector type.
+     * @return movement cost in movement points
+     */
+    public int getMoveCostForRoom(int roomId) {
+        Room room = getRoomById(roomId);
+        if (room == null) return 1; // default
+        
+        // If room has a custom move cost, use it
+        if (room.hasCustomMoveCost()) {
+            return room.getMoveCost();
+        }
+        
+        // Otherwise, get the area's sector type cost
+        Area area = getAreaById(room.getAreaId());
+        if (area == null) return 1; // default
+        
+        return area.getMoveCost();
     }
 
     public boolean updateRoomExits(int roomId, Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD) {
@@ -1322,6 +1395,24 @@ public class CharacterDAO {
             ps.setString(5, name);
             ps.executeUpdate();
             return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    /**
+     * Deduct movement points from a character.
+     * @return true if successful, false if failed or insufficient points
+     */
+    public boolean deductMovementPoints(String name, int cost) {
+        String sql = "UPDATE characters SET mv_cur = mv_cur - ? WHERE name = ? AND mv_cur >= ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, cost);
+            ps.setString(2, name);
+            ps.setInt(3, cost);
+            int rows = ps.executeUpdate();
+            return rows > 0;
         } catch (SQLException e) {
             return false;
         }

@@ -6,6 +6,7 @@ import com.example.tassmud.event.SpawnManager;
 import com.example.tassmud.persistence.*;
 import com.example.tassmud.util.*;
 import com.example.tassmud.util.CooldownManager;
+import com.example.tassmud.util.RegenerationService;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -130,13 +131,19 @@ public class Server {
             // Schedule recurring spawns
             spawnManager.scheduleAllSpawns();
         }
+        
+        // Initialize regeneration service for HP/MP/MV recovery
+        RegenerationService regenService = RegenerationService.getInstance();
+        regenService.initialize(tickService);
 
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;
         final CombatManager combatManagerRef = combatManager;
         final EventScheduler eventSchedulerRef = eventScheduler;
+        final RegenerationService regenServiceRef = regenService;
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Shutdown hook: stopping combat, clock, event scheduler, tick service and thread pool...");
+            System.out.println("Shutdown hook: stopping combat, clock, event scheduler, regen service, tick service and thread pool...");
+            try { regenServiceRef.shutdown(); } catch (Exception ignored) {}
             try { eventSchedulerRef.shutdown(); } catch (Exception ignored) {}
             try { combatManagerRef.shutdown(); } catch (Exception ignored) {}
             try { gameClockRef.shutdown(); } catch (Exception ignored) {}

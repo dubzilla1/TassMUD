@@ -22,6 +22,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 1    # basic attack
+      - level: 2
+        skill_id: 19   # shields
       - level: 3
         skill_id: 901  # martial weapons
       - level: 3
@@ -99,6 +101,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 200  # cure light wounds
+      - level: 2
+        skill_id: 19   # shields
       - level: 5
         skill_id: 201  # bless
       - level: 8
@@ -212,6 +216,8 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 500  # lay on hands
+      - level: 2
+        skill_id: 19   # shields
       - level: 3
         skill_id: 901  # martial weapons
       - level: 5

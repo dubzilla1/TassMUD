@@ -768,6 +768,45 @@ bash:
     EXAMPLE
         bash
 
+shields:
+  summary: "proficiency with shields"
+  visibility: public
+  synopsis:
+    - "shields"
+  body: |
+    NAME
+        shields - proficiency with shields
+
+    SYNOPSIS
+        shields
+
+    DESCRIPTION
+        The Shields skill represents your training in the use of shields
+        for defense in combat. This is a passive skill that is either
+        known or not known - there is no proficiency percentage.
+        
+        EFFECT:
+        - Allows you to equip shields in your off-hand slot
+        - Without this skill, you cannot equip any shield
+        
+        CLASSES THAT LEARN SHIELDS:
+        - Fighter: Level 2
+        - Cleric: Level 2
+        - Paladin: Level 2
+        
+        Other classes (Wizard, Rogue, Ranger, Necromancer, Monk) do not
+        learn this skill through normal advancement.
+        
+        RELATED SKILLS:
+        - Bash: A combat skill that requires a shield equipped
+
+    SEE ALSO
+        skills, equip, bash, classes
+
+    EXAMPLE
+        skills     (to see if you know the shields skill)
+        equip shield
+
 flee:
   summary: "attempt to escape from combat"
   visibility: public

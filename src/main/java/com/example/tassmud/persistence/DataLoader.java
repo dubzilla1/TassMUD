@@ -424,10 +424,12 @@ public class DataLoader {
                 int id = getInt(areaData, "id", -1);
                 String name = getString(areaData, "name", "");
                 String desc = getString(areaData, "description", "");
+                String sectorStr = getString(areaData, "sector_type", "FIELD");
+                SectorType sectorType = SectorType.fromString(sectorStr);
                 
                 if (id < 0 || name.isEmpty()) continue;
                 
-                int used = dao.addAreaWithId(id, name, desc);
+                int used = dao.addAreaWithId(id, name, desc, sectorType);
                 if (used > 0) {
                     map.put(name, used);
                     count++;

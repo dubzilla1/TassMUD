@@ -34,6 +34,12 @@ public class CommandRegistry {
         register("up", "Move up", Category.MOVEMENT, List.of("u"));
         register("down", "Move down", Category.MOVEMENT, List.of("d"));
         
+        // ===== STANCE =====
+        // Stance changes NOT allowed in combat
+        register("sit", "Sit down to rest (5x regen rate)", Category.MOVEMENT);
+        register("sleep", "Go to sleep (10x regen rate)", Category.MOVEMENT, List.of("rest"));
+        register("stand", "Stand up from sitting or sleeping", Category.MOVEMENT, List.of("wake"));
+        
         // ===== COMMUNICATION =====
         // All communication allowed in combat
         registerCombat("say", "Say something to others in the room", Category.COMMUNICATION);

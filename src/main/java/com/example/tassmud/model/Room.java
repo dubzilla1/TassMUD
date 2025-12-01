@@ -6,6 +6,7 @@ public class Room {
     private final String name;
     private final String shortDesc;
     private final String longDesc;
+    private final Integer moveCost;  // Optional room-specific move cost override
 
     // exits reference other room IDs (nullable)
     private final Integer exitN;
@@ -17,6 +18,12 @@ public class Room {
 
     public Room(int id, int areaId, String name, String shortDesc, String longDesc,
                 Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD) {
+        this(id, areaId, name, shortDesc, longDesc, exitN, exitE, exitS, exitW, exitU, exitD, null);
+    }
+    
+    public Room(int id, int areaId, String name, String shortDesc, String longDesc,
+                Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD,
+                Integer moveCost) {
         this.id = id;
         this.areaId = areaId;
         this.name = name;
@@ -28,6 +35,7 @@ public class Room {
         this.exitW = exitW;
         this.exitU = exitU;
         this.exitD = exitD;
+        this.moveCost = moveCost;
     }
 
     public int getId() { return id; }
@@ -41,4 +49,14 @@ public class Room {
     public Integer getExitW() { return exitW; }
     public Integer getExitU() { return exitU; }
     public Integer getExitD() { return exitD; }
+    
+    /**
+     * Get the room-specific movement cost override, or null if using area default.
+     */
+    public Integer getMoveCost() { return moveCost; }
+    
+    /**
+     * Check if this room has a custom movement cost.
+     */
+    public boolean hasCustomMoveCost() { return moveCost != null; }
 }

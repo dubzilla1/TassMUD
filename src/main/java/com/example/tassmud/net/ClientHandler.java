@@ -17,6 +17,7 @@ import com.example.tassmud.model.MobileTemplate;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Spell;
+import com.example.tassmud.model.Stance;
 import com.example.tassmud.net.CommandParser.Command;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
@@ -26,6 +27,7 @@ import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.HelpManager;
 import com.example.tassmud.util.HelpPage;
 import com.example.tassmud.util.PasswordUtil;
+import com.example.tassmud.util.RegenerationService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -102,6 +104,16 @@ public class ClientHandler implements Runnable {
         out.println(exits.toString());
         // Blank line
         out.println();
+        // Other players in this room (before mobs and items)
+        for (ClientHandler s : sessions) {
+            // Skip self, skip sessions without a character, skip sessions not in this room
+            if (s == this) continue;
+            String otherName = s.playerName;
+            if (otherName == null) continue;
+            Integer otherRoomId = s.currentRoomId;
+            if (otherRoomId == null || !otherRoomId.equals(roomId)) continue;
+            out.println(otherName + " is here.");
+        }
         // Mobs in this room
         MobileDAO mobDao = new MobileDAO();
         java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(roomId);
@@ -213,6 +225,94 @@ public class ClientHandler implements Runnable {
         }
     }
     
+    // === ROOM ANNOUNCEMENT SYSTEM ===
+    
+    /**
+     * Announce a message to all players in a room, excluding specified characters.
+     * This is the foundation for arrival/departure notifications and supports future
+     * visibility filtering (invisibility, hiding, sneaking, etc.).
+     * 
+     * @param roomId the room to announce in
+     * @param msg the message to send
+     * @param excludeCharacterId character ID to exclude from receiving the message (usually the mover)
+     * @param isVisible whether the actor is visible (for future stealth filtering)
+     */
+    public static void roomAnnounce(Integer roomId, String msg, Integer excludeCharacterId, boolean isVisible) {
+        if (roomId == null || msg == null || msg.isEmpty()) return;
+        // Future: if !isVisible, check each recipient's perception against actor's stealth
+        if (!isVisible) return; // For now, invisible actors make no announcements
+        
+        for (ClientHandler s : sessions) {
+            Integer r = s.currentRoomId;
+            if (r != null && r.equals(roomId)) {
+                // Skip the excluded character (usually the mover themselves)
+                if (excludeCharacterId != null && excludeCharacterId.equals(s.characterId)) {
+                    continue;
+                }
+                // Future: check if this session can perceive the actor (detect invis, true sight, etc.)
+                s.sendRaw(msg);
+            }
+        }
+    }
+    
+    /**
+     * Simplified room announce that excludes no one and assumes visibility.
+     */
+    public static void roomAnnounce(Integer roomId, String msg) {
+        roomAnnounce(roomId, msg, null, true);
+    }
+    
+    /**
+     * Get the opposite direction for arrival messages.
+     * e.g., if someone went "north", observers see them arrive "from the south"
+     */
+    private static String getOppositeDirection(String direction) {
+        if (direction == null) return null;
+        switch (direction.toLowerCase()) {
+            case "north": return "south";
+            case "south": return "north";
+            case "east": return "west";
+            case "west": return "east";
+            case "up": return "below";
+            case "down": return "above";
+            default: return null;
+        }
+    }
+    
+    /**
+     * Generate an arrival message for a character entering a room.
+     * @param name the name of the arriving character
+     * @param fromDirection the direction they came from (null for teleport/magical arrival)
+     */
+    public static String makeArrivalMessage(String name, String fromDirection) {
+        if (fromDirection == null) {
+            return name + " arrives from out of thin air.";
+        }
+        String opposite = getOppositeDirection(fromDirection);
+        if (opposite == null) {
+            return name + " arrives from out of thin air.";
+        }
+        if (opposite.equals("above") || opposite.equals("below")) {
+            return name + " arrives from " + opposite + ".";
+        }
+        return name + " arrives from the " + opposite + ".";
+    }
+    
+    /**
+     * Generate a departure message for a character leaving a room.
+     * @param name the name of the departing character
+     * @param toDirection the direction they are going (null for teleport/magical departure)
+     */
+    public static String makeDepartureMessage(String name, String toDirection) {
+        if (toDirection == null) {
+            return name + " disappears in a puff of smoke.";
+        }
+        if (toDirection.equalsIgnoreCase("up") || toDirection.equalsIgnoreCase("down")) {
+            return name + " leaves " + toDirection.toLowerCase() + ".";
+        }
+        return name + " leaves to the " + toDirection.toLowerCase() + ".";
+    }
+    
     /**
      * Send a formatted prompt to a specific character by their character ID.
      * Called by combat system after each round to let players know they can input commands.
@@ -263,6 +363,14 @@ public class ClientHandler implements Runnable {
         if (name == null) return null;
         ClientHandler handler = nameToSession.get(name.toLowerCase());
         return handler != null ? handler.characterId : null;
+    }
+    
+    /**
+     * Get all character IDs for currently connected players.
+     * Used by RegenerationService to apply regen ticks.
+     */
+    public static java.util.Set<Integer> getConnectedCharacterIds() {
+        return new java.util.HashSet<>(charIdToSession.keySet());
     }
 
     private String formatPrompt(String fmt, CharacterDAO.CharacterRecord rec, CharacterDAO dao) {
@@ -423,6 +531,8 @@ public class ClientHandler implements Runnable {
             nameToSession.put(name.toLowerCase(), this);
             if (this.characterId != null) {
                 charIdToSession.put(this.characterId, this);
+                // Register with regeneration service for HP/MP/MV regen ticks
+                RegenerationService.getInstance().registerPlayer(this.characterId);
             }
 
             // Show MOTD (if any) after login/creation
@@ -644,24 +754,47 @@ public class ClientHandler implements Runnable {
                             String searchTerm = lookArgs.trim().toLowerCase();
                             boolean found = false;
                             
-                            // Search mobs in the room first
-                            MobileDAO mobDao = new MobileDAO();
-                            java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
-                            for (Mobile mob : roomMobs) {
-                                String mobName = mob.getName().toLowerCase();
-                                if (mobName.startsWith(searchTerm)) {
-                                    out.println(mob.getName());
-                                    String longDesc = mob.getDescription();
-                                    if (longDesc != null && !longDesc.isEmpty()) {
-                                        out.println(longDesc);
+                            // Search other players in the room first
+                            for (ClientHandler s : sessions) {
+                                if (s == this) continue;
+                                String otherName = s.playerName;
+                                if (otherName == null) continue;
+                                Integer otherRoomId = s.currentRoomId;
+                                if (otherRoomId == null || !otherRoomId.equals(lookRoomId)) continue;
+                                
+                                if (otherName.toLowerCase().startsWith(searchTerm)) {
+                                    CharacterRecord otherRec = dao.findByName(otherName);
+                                    out.println(otherName);
+                                    if (otherRec != null && otherRec.description != null && !otherRec.description.isEmpty()) {
+                                        out.println(otherRec.description);
                                     } else {
-                                        out.println("You see nothing special about " + mob.getName() + ".");
+                                        out.println("You see nothing special about " + otherName + ".");
                                     }
                                     found = true;
                                     break;
                                 }
                             }
                             
+                            // Search mobs in the room
+                            if (!found) {
+                                MobileDAO mobDao = new MobileDAO();
+                                java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
+                                for (Mobile mob : roomMobs) {
+                                    String mobName = mob.getName().toLowerCase();
+                                    if (mobName.startsWith(searchTerm)) {
+                                        out.println(mob.getName());
+                                        String longDesc = mob.getDescription();
+                                        if (longDesc != null && !longDesc.isEmpty()) {
+                                            out.println(longDesc);
+                                        } else {
+                                            out.println("You see nothing special about " + mob.getName() + ".");
+                                        }
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                            }
+
                             if (!found) {
                                 // Search items in the room
                                 ItemDAO itemDao = new ItemDAO();
@@ -758,6 +891,16 @@ public class ClientHandler implements Runnable {
                             out.println("No character record found.");
                             break;
                         }
+                        // Check stance - can't move while sitting or sleeping
+                        Stance moveStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                        if (!moveStance.canMove()) {
+                            if (moveStance == Stance.SLEEPING) {
+                                out.println("You are asleep! Type 'wake' to wake up first.");
+                            } else {
+                                out.println("You must stand up first. Type 'stand'.");
+                            }
+                            break;
+                        }
                         Integer curRoomId = rec.currentRoom;
                         if (curRoomId == null) {
                             out.println("You are not located in any room.");
@@ -794,12 +937,31 @@ public class ClientHandler implements Runnable {
                             // send player to void so they don't get stuck
                             destId = 0;
                         }
-                        // Persist movement
+                        
+                        // Check and deduct movement points based on destination room/area
+                        int moveCost = dao.getMoveCostForRoom(destId);
+                        if (rec.mvCur < moveCost) {
+                            out.println("You are too exhausted to move.");
+                            break;
+                        }
+                        
+                        // Deduct movement points
+                        if (!dao.deductMovementPoints(name, moveCost)) {
+                            out.println("You are too exhausted to move.");
+                            break;
+                        }
+                        
+                        // Persist movement (update room)
                         boolean moved = dao.updateCharacterRoom(name, destId);
                         if (!moved) {
                             out.println("You try to move but something prevents you.");
                             break;
                         }
+                        
+                        // Announce departure to the old room (before updating our position)
+                        Integer oldRoomId = rec.currentRoom;
+                        roomAnnounce(oldRoomId, makeDepartureMessage(name, directionName), this.characterId, true);
+                        
                         // Refresh character record and show new room
                         rec = dao.findByName(name);
                         // update our cached room id
@@ -809,9 +971,64 @@ public class ClientHandler implements Runnable {
                             out.println("You arrive at an unknown place.");
                             break;
                         }
+                        
+                        // Announce arrival to the new room
+                        roomAnnounce(destId, makeArrivalMessage(name, directionName), this.characterId, true);
+                        
                         out.println("You move " + directionName + ".");
                         showRoom(newRoom, destId);
                         break;
+                        
+                    // ===== STANCE COMMANDS =====
+                    case "sit": {
+                        Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                        if (currentStance == Stance.SITTING) {
+                            out.println("You are already sitting.");
+                            break;
+                        }
+                        if (currentStance == Stance.SLEEPING) {
+                            out.println("You wake up and sit up.");
+                        } else {
+                            out.println("You sit down.");
+                        }
+                        RegenerationService.getInstance().setPlayerStance(characterId, Stance.SITTING);
+                        roomAnnounce(currentRoomId, name + " sits down.", this.characterId, true);
+                        break;
+                    }
+                    case "sleep":
+                    case "rest": {
+                        Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                        if (currentStance == Stance.SLEEPING) {
+                            out.println("You are already sleeping.");
+                            break;
+                        }
+                        if (currentStance == Stance.STANDING) {
+                            out.println("You lie down and go to sleep.");
+                        } else {
+                            out.println("You close your eyes and drift off to sleep.");
+                        }
+                        RegenerationService.getInstance().setPlayerStance(characterId, Stance.SLEEPING);
+                        roomAnnounce(currentRoomId, name + " lies down and goes to sleep.", this.characterId, true);
+                        break;
+                    }
+                    case "stand":
+                    case "wake": {
+                        Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                        if (currentStance == Stance.STANDING) {
+                            out.println("You are already standing.");
+                            break;
+                        }
+                        if (currentStance == Stance.SLEEPING) {
+                            out.println("You wake up and stand up.");
+                            roomAnnounce(currentRoomId, name + " wakes up and stands up.", this.characterId, true);
+                        } else {
+                            out.println("You stand up.");
+                            roomAnnounce(currentRoomId, name + " stands up.", this.characterId, true);
+                        }
+                        RegenerationService.getInstance().setPlayerStance(characterId, Stance.STANDING);
+                        break;
+                    }
+                        
                     case "prompt": {
                         String promptArgs = cmd.getArgs();
                         if (promptArgs == null || promptArgs.trim().isEmpty()) {
@@ -1227,8 +1444,8 @@ public class ClientHandler implements Runnable {
                         break;
                     }
                     case "goto": {
-                        // GM-only: GOTO <room_id>
-                        // Teleport directly to a room
+                        // GM-only: GOTO <room_id> or GOTO <player_name>
+                        // Teleport directly to a room or to another player
                         if (rec == null) { out.println("No character record found."); break; }
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
                             out.println("You do not have permission to use GM commands.");
@@ -1236,31 +1453,68 @@ public class ClientHandler implements Runnable {
                         }
                         String gotoArgs = cmd.getArgs();
                         if (gotoArgs == null || gotoArgs.trim().isEmpty()) {
-                            out.println("Usage: GOTO <room_id>");
-                            out.println("  Teleports you directly to a room.");
+                            out.println("Usage: GOTO <room_id> or GOTO <player_name>");
+                            out.println("  Teleports you directly to a room or to another player.");
                             break;
                         }
-                        int gotoRoomId;
+                        
+                        int gotoRoomId = -1;
+                        String gotoTarget = gotoArgs.trim();
+                        
+                        // First try to parse as a room ID
                         try {
-                            gotoRoomId = Integer.parseInt(gotoArgs.trim());
+                            gotoRoomId = Integer.parseInt(gotoTarget);
                         } catch (NumberFormatException e) {
-                            out.println("Invalid room ID. Must be a number.");
-                            break;
+                            // Not a number, try to find a player with that name
+                            // Search connected players first (case-insensitive prefix match)
+                            ClientHandler targetSession = null;
+                            for (ClientHandler s : sessions) {
+                                String pName = s.playerName;
+                                if (pName != null && pName.toLowerCase().startsWith(gotoTarget.toLowerCase())) {
+                                    targetSession = s;
+                                    break;
+                                }
+                            }
+                            
+                            if (targetSession != null && targetSession.currentRoomId != null) {
+                                gotoRoomId = targetSession.currentRoomId;
+                                out.println("(Teleporting to " + targetSession.playerName + ")");
+                            } else {
+                                // Try to find an offline player
+                                CharacterRecord targetRec = dao.findByName(gotoTarget);
+                                if (targetRec != null && targetRec.currentRoom != null) {
+                                    gotoRoomId = targetRec.currentRoom;
+                                    out.println("(Teleporting to " + targetRec.name + "'s last location)");
+                                } else {
+                                    out.println("No room or player found matching '" + gotoTarget + "'.");
+                                    break;
+                                }
+                            }
                         }
+                        
                         Room gotoRoom = dao.getRoomById(gotoRoomId);
                         if (gotoRoom == null) {
                             out.println("Room #" + gotoRoomId + " does not exist.");
                             break;
                         }
+                        
+                        // Announce magical departure from old room (null direction = teleport)
+                        Integer oldRoom = rec.currentRoom;
+                        roomAnnounce(oldRoom, makeDepartureMessage(name, null), this.characterId, true);
+                        
                         // Teleport the character
                         dao.updateCharacterRoom(name, gotoRoomId);
+                        this.currentRoomId = gotoRoomId;
                         rec = dao.findByName(name);
+                        
+                        // Announce magical arrival in new room (null direction = teleport)
+                        roomAnnounce(gotoRoomId, makeArrivalMessage(name, null), this.characterId, true);
+                        
                         out.println();
                         out.println("You vanish and reappear in " + gotoRoom.getName() + ".");
                         out.println();
                         // Show the new room
-                        out.println(gotoRoom.getName());
-                        out.println(gotoRoom.getShortDesc());
+                        showRoom(gotoRoom, gotoRoomId);
                         break;
                     }
                     case "kill":
@@ -2900,6 +3154,15 @@ public class ClientHandler implements Runnable {
                             }
                         }
 
+                        // Check shield proficiency requirement
+                        if (matched.template.isShield()) {
+                            Skill shieldSkill = dao.getSkillByKey("shields");
+                            if (shieldSkill == null || !dao.hasSkill(charId, shieldSkill.getId())) {
+                                out.println("You lack proficiency with shields to equip " + matched.template.name + ".");
+                                break;
+                            }
+                        }
+
                         // Check if this is a two-handed weapon
                         boolean isTwoHanded = itemDao.isTemplateTwoHanded(matched.template.id);
                         
@@ -3305,6 +3568,12 @@ public class ClientHandler implements Runnable {
                         sheet.append("\n  [ VITALS ]\n");
                         sheet.append(String.format("  HP: %4d / %-4d    MP: %4d / %-4d    MV: %4d / %-4d\n",
                             rec.hpCur, rec.hpMax, rec.mpCur, rec.mpMax, rec.mvCur, rec.mvMax));
+                        
+                        // Stance info
+                        Stance playerStance = RegenerationService.getInstance().getPlayerStance(charId);
+                        String stanceLabel = playerStance.getDisplayName().substring(0, 1).toUpperCase() + playerStance.getDisplayName().substring(1);
+                        int regenPct = playerStance.getRegenPercent();
+                        sheet.append(String.format("  Stance: %-10s (%d%% regen out of combat)\n", stanceLabel, regenPct));
                         
                         // XP bar - shows progress within current level (0 to XP_PER_LEVEL)
                         if (currentClass != null && classLevel < CharacterClass.MAX_HERO_LEVEL) {
@@ -3785,6 +4054,12 @@ public class ClientHandler implements Runnable {
         } catch (IOException e) {
             System.err.println("Client connection error: " + e.getMessage());
         } finally {
+            // Unregister from regeneration service
+            if (characterId != null) {
+                RegenerationService.getInstance().unregisterPlayer(characterId);
+            }
+            // Unregister from session tracking
+            unregisterSession();
             try {
                 socket.close();
             } catch (IOException ignored) {}

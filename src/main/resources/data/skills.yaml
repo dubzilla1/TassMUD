@@ -81,6 +81,13 @@ skills:
     description: A devastating blow infused with heroic willpower that ignores armor.
     progression: LEGENDARY
 
+  - id: 19
+    key: shields
+    name: Shields
+    description: Proficiency with shields, allowing you to equip them in your off-hand.
+    is_passive: true
+    progression: INSTANT
+
   # ============================================================
   # GENERAL NON-COMBAT SKILLS (50-99)
   # ============================================================
