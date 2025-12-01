@@ -44,6 +44,9 @@ public class Combatant {
     /** Timestamp when this combatant can next use any combat ability (global cooldown) */
     private long globalCooldownUntil = 0;
     
+    /** Timestamp when parry can next be used (parry-specific cooldown) */
+    private long parryCooldownUntil = 0;
+    
     /** Number of attacks remaining this round (for multi-attack) */
     private int attacksRemaining = 1;
     
@@ -216,6 +219,20 @@ public class Combatant {
     
     public long getGlobalCooldownRemaining() {
         return Math.max(0, globalCooldownUntil - System.currentTimeMillis());
+    }
+    
+    // Parry cooldown
+    
+    public long getParryCooldownUntil() { return parryCooldownUntil; }
+    
+    public void setParryCooldownUntil(long timestamp) { this.parryCooldownUntil = timestamp; }
+    
+    public boolean isParryOnCooldown() {
+        return System.currentTimeMillis() < parryCooldownUntil;
+    }
+    
+    public long getParryCooldownRemaining() {
+        return Math.max(0, parryCooldownUntil - System.currentTimeMillis());
     }
     
     // Attack tracking

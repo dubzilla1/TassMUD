@@ -908,6 +908,10 @@ public class CombatManager {
                 message = String.format("%s's attack is blocked by %s!", 
                     attackerName, targetName);
                 break;
+            case PARRIED:
+                message = String.format("%s's attack is parried by %s!", 
+                    attackerName, targetName);
+                break;
             case HEAL:
                 message = String.format("%s heals %s for %d HP!", 
                     attackerName, targetName, result.getHealing());

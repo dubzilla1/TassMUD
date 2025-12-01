@@ -88,6 +88,10 @@ public class CombatResult {
         return new CombatResult(ResultType.DODGED, false, 0, 0, attacker, target);
     }
     
+    public static CombatResult parried(Combatant attacker, Combatant target) {
+        return new CombatResult(ResultType.PARRIED, false, 0, 0, attacker, target);
+    }
+    
     public static CombatResult heal(Combatant healer, Combatant target, int healing) {
         return new CombatResult(ResultType.HEAL, true, 0, healing, healer, target);
     }

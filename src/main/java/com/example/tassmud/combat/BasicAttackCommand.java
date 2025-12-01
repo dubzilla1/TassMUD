@@ -1,6 +1,11 @@
 package com.example.tassmud.combat;
 
 import com.example.tassmud.model.Character;
+import com.example.tassmud.model.CharacterSkill;
+import com.example.tassmud.model.Skill;
+import com.example.tassmud.persistence.CharacterClassDAO;
+import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.util.OpposedCheck;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,6 +38,12 @@ public class BasicAttackCommand implements CombatCommand {
     
     /** Critical hit damage multiplier */
     private static final double CRIT_MULTIPLIER = 2.0;
+    
+    /** Parry skill ID (from skills.yaml) */
+    private static final int PARRY_SKILL_ID = 13;
+    
+    /** Parry cooldown in milliseconds (15 seconds, matching skills.yaml) */
+    private static final long PARRY_COOLDOWN_MS = 15_000;
     
     @Override
     public String getName() {
@@ -120,6 +131,13 @@ public class BasicAttackCommand implements CombatCommand {
             return result;
         }
         
+        // Hit confirmed - check if defender can parry
+        CombatResult parryResult = tryParry(target, user, attackRoll);
+        if (parryResult != null) {
+            setCooldown(user);
+            return parryResult;
+        }
+        
         // Hit! Calculate damage
         int baseDamage = rollDamage(user);
         int damageBonus = strMod; // STR to damage for melee
@@ -158,6 +176,57 @@ public class BasicAttackCommand implements CombatCommand {
         result.setDamageRoll(baseDamage);
         
         return result;
+    }
+    
+    /**
+     * Attempts a parry by the defender against the attacker.
+     * Returns a PARRIED CombatResult if successful, null otherwise.
+     *
+     * @param defender the combatant being attacked (potential parrier)
+     * @param attacker the combatant attacking
+     * @param attackRoll the attack roll for logging
+     * @return CombatResult.parried if parry succeeds, null if parry doesn't apply or fails
+     */
+    private CombatResult tryParry(Combatant defender, Combatant attacker, int attackRoll) {
+        // Only player characters can parry (mobs may get their own version later)
+        Character defenderChar = defender.getAsCharacter();
+        if (defenderChar == null) {
+            return null;
+        }
+        
+        // Check if defender knows the parry skill
+        CharacterSkill parrySkill = defenderChar.getSkill(PARRY_SKILL_ID);
+        if (parrySkill == null) {
+            return null;
+        }
+        
+        // Check if parry is on cooldown
+        if (defender.isParryOnCooldown()) {
+            return null;
+        }
+        
+        // Get proficiency percentage (0-100)
+        int proficiency = parrySkill.getProficiency();
+        
+        // Run opposed check: defender's level vs attacker's level, with proficiency
+        int defenderLevel = defenderChar.getLevel();
+        int attackerLevel = attacker.getLevel();
+        
+        boolean parrySuccess = OpposedCheck.checkWithProficiency(defenderLevel, attackerLevel, proficiency);
+        
+        if (parrySuccess) {
+            // Set parry on cooldown
+            long cooldownEnd = System.currentTimeMillis() + PARRY_COOLDOWN_MS;
+            defender.setParryCooldownUntil(cooldownEnd);
+            
+            // Return parried result
+            CombatResult result = CombatResult.parried(attacker, defender);
+            result.setAttackRoll(attackRoll);
+            return result;
+        }
+        
+        // Parry attempt failed - attack proceeds normally
+        return null;
     }
     
     /**

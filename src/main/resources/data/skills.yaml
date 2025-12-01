@@ -48,8 +48,10 @@ skills:
   - id: 13
     key: parry
     name: Parry
-    description: Deflect incoming melee attacks with your weapon, reducing damage taken.
+    description: Deflect incoming melee attacks with your weapon
     progression: NORMAL
+    traits: [COMBAT]
+    cooldown: 15
 
   - id: 14
     key: riposte
