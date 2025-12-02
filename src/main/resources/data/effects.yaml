@@ -1,0 +1,31 @@
+# Effect definitions used by the effect engine
+# Each effect has an id (string or number), name, type, params, duration (seconds), stackPolicy, persistent, priority
+
+effects:
+  - id: "202"
+    name: "Bless"
+    type: MODIFIER
+    duration: 600    # 10 minutes
+    cooldown: 15
+    dice_multiplier: 0
+    profficiency_impact: [DURATION,COOLDOWN]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_HIT_BONUS
+      op: ADD
+      value: 1
+
+effects:
+  - id: "120"
+    name: "Fireball Damage"
+    type: INSTANT_DAMAGE
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 10d6
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params: {}

@@ -11,6 +11,8 @@ import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.model.SectorType;
 import com.example.tassmud.model.Skill;
+import com.example.tassmud.model.Modifier;
+import com.example.tassmud.model.Stat;
 import com.example.tassmud.model.SkillTrait;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.model.SpellTrait;
@@ -157,8 +159,8 @@ public class CharacterDAO {
          * Add a spell with full details. Uses MERGE to update if exists.
          */
         public boolean addSpellFull(Spell spell) {
-            String sql = "MERGE INTO spelltb (id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown) " +
-                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "MERGE INTO spelltb (id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration) " +
+                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, spell.getId());
@@ -176,6 +178,7 @@ public class CharacterDAO {
                 String traitsStr = spell.getTraits().stream().map(Enum::name).collect(java.util.stream.Collectors.joining(","));
                 ps.setString(10, traitsStr);
                 ps.setDouble(11, spell.getCooldown());
+                ps.setDouble(12, spell.getDuration());
                 ps.executeUpdate();
                 return true;
             } catch (SQLException e) {
@@ -185,7 +188,7 @@ public class CharacterDAO {
         }
 
         public Spell getSpellById(int id) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb WHERE id = ?";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb WHERE id = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -201,7 +204,7 @@ public class CharacterDAO {
         }
         
         public Spell getSpellByName(String name) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb WHERE name = ?";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb WHERE name = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, name);
@@ -218,7 +221,7 @@ public class CharacterDAO {
         
         public java.util.List<Spell> getAllSpells() {
             java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb ORDER BY school, level, name";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb ORDER BY school, level, name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql);
                  ResultSet rs = ps.executeQuery()) {
@@ -233,7 +236,7 @@ public class CharacterDAO {
         
         public java.util.List<Spell> getSpellsBySchool(Spell.SpellSchool school) {
             java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown FROM spelltb WHERE school = ? ORDER BY level, name";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb WHERE school = ? ORDER BY level, name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, school.name());
@@ -260,6 +263,7 @@ public class CharacterDAO {
             String effectStr = rs.getString("effect_ids");
             String traitsStr = rs.getString("traits");
             double cooldown = rs.getDouble("cooldown");
+            double duration = rs.getDouble("duration");
             
             Spell.SpellSchool school = Spell.SpellSchool.fromString(schoolStr);
             Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
@@ -282,7 +286,7 @@ public class CharacterDAO {
                 }
             }
             
-            return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown);
+            return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown, duration);
         }
 
         // --- CharacterSkill DAO ---
@@ -570,7 +574,7 @@ public class CharacterDAO {
                 // Spells table
                 try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                      Statement s = c.createStatement()) {
-                    s.execute("CREATE TABLE IF NOT EXISTS spelltb (" +
+                        s.execute("CREATE TABLE IF NOT EXISTS spelltb (" +
                             "id INT PRIMARY KEY, " +
                             "name VARCHAR(100) UNIQUE NOT NULL, " +
                             "description VARCHAR(1024) DEFAULT '', " +
@@ -581,7 +585,8 @@ public class CharacterDAO {
                             "progression VARCHAR(50) DEFAULT 'NORMAL', " +
                             "effect_ids VARCHAR(500) DEFAULT '', " +
                             "traits VARCHAR(500) DEFAULT '', " +
-                            "cooldown DOUBLE DEFAULT 0 " +
+                            "cooldown DOUBLE DEFAULT 0, " +
+                            "duration DOUBLE DEFAULT 0 " +
                             ")");
                     // Migration: add columns for existing databases
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS school VARCHAR(50) DEFAULT 'ARCANE'");
@@ -592,6 +597,7 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS effect_ids VARCHAR(500) DEFAULT ''");
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS traits VARCHAR(500) DEFAULT ''");
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS cooldown DOUBLE DEFAULT 0");
+                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS duration DOUBLE DEFAULT 0");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create spelltb table", e);
                 }
@@ -773,6 +779,24 @@ public class CharacterDAO {
                     ")");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create character_equipment table", e);
+        }
+
+        // Character modifiers (stat-affecting temporary/permanent effects)
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             Statement s = c.createStatement()) {
+                s.execute("CREATE TABLE IF NOT EXISTS character_modifier (" +
+                    "id VARCHAR(36) PRIMARY KEY, " +
+                    "character_id INT NOT NULL, " +
+                    "source VARCHAR(200), " +
+                    "stat VARCHAR(50) NOT NULL, " +
+                    "op VARCHAR(20) NOT NULL, " +
+                    "val DOUBLE NOT NULL, " +
+                    "expires_at BIGINT DEFAULT 0, " +
+                    "priority INT DEFAULT 0, " +
+                    "FOREIGN KEY (character_id) REFERENCES characters(id) " +
+                    ")");
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create character_modifier table", e);
         }
     }
 
@@ -1152,6 +1176,113 @@ public class CharacterDAO {
             System.err.println("Failed to find character by ID: " + e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * Load all modifiers for a character.
+     */
+    public java.util.List<Modifier> getModifiersForCharacter(int characterId) {
+        java.util.List<Modifier> out = new java.util.ArrayList<>();
+        String sql = "SELECT id, source, stat, op, val, expires_at, priority FROM character_modifier WHERE character_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    try {
+                            java.util.UUID id = java.util.UUID.fromString(rs.getString("id"));
+                            String source = rs.getString("source");
+                            Stat stat = Stat.valueOf(rs.getString("stat"));
+                            Modifier.Op op = Modifier.Op.valueOf(rs.getString("op"));
+                            double value = rs.getDouble("val");
+                            long expiresAt = rs.getLong("expires_at");
+                            int priority = rs.getInt("priority");
+                            Modifier m = new Modifier(id, source, stat, op, value, expiresAt, priority);
+                        out.add(m);
+                    } catch (IllegalArgumentException iae) {
+                        // skip malformed rows
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            // return what we have on error
+        }
+        return out;
+    }
+
+    /**
+     * Persist all modifiers for a character. Existing rows for the character are replaced.
+     */
+    public boolean saveModifiersForCharacter(int characterId, com.example.tassmud.model.Character ch) {
+        // Remove expired modifiers from the Character instance before saving
+        java.util.List<Modifier> mods = ch.getAllModifiers();
+        mods.removeIf(Modifier::isExpired);
+
+        String deleteSql = "DELETE FROM character_modifier WHERE character_id = ?";
+        String insertSql = "INSERT INTO character_modifier (id, character_id, source, stat, op, val, expires_at, priority) VALUES (?,?,?,?,?,?,?,?)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+            c.setAutoCommit(false);
+            try (PreparedStatement del = c.prepareStatement(deleteSql)) {
+                del.setInt(1, characterId);
+                del.executeUpdate();
+            }
+
+            try (PreparedStatement ins = c.prepareStatement(insertSql)) {
+                for (Modifier m : mods) {
+                    ins.setString(1, m.id().toString());
+                    ins.setInt(2, characterId);
+                    ins.setString(3, m.source());
+                    ins.setString(4, m.stat().name());
+                    ins.setString(5, m.op().name());
+                    ins.setDouble(6, m.value());
+                    ins.setLong(7, m.expiresAtMillis());
+                    ins.setInt(8, m.priority());
+                    ins.addBatch();
+                }
+                ins.executeBatch();
+            }
+            c.commit();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Persist a list of modifiers for a character. Replaces existing rows for the character.
+     */
+    public boolean saveModifierListForCharacter(int characterId, java.util.List<Modifier> mods) {
+        if (mods == null) mods = new java.util.ArrayList<>();
+        mods.removeIf(Modifier::isExpired);
+
+        String deleteSql = "DELETE FROM character_modifier WHERE character_id = ?";
+        String insertSql = "INSERT INTO character_modifier (id, character_id, source, stat, op, val, expires_at, priority) VALUES (?,?,?,?,?,?,?,?)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+            c.setAutoCommit(false);
+            try (PreparedStatement del = c.prepareStatement(deleteSql)) {
+                del.setInt(1, characterId);
+                del.executeUpdate();
+            }
+
+            try (PreparedStatement ins = c.prepareStatement(insertSql)) {
+                for (Modifier m : mods) {
+                    ins.setString(1, m.id().toString());
+                    ins.setInt(2, characterId);
+                    ins.setString(3, m.source());
+                    ins.setString(4, m.stat().name());
+                    ins.setString(5, m.op().name());
+                    ins.setDouble(6, m.value());
+                    ins.setLong(7, m.expiresAtMillis());
+                    ins.setInt(8, m.priority());
+                    ins.addBatch();
+                }
+                ins.executeBatch();
+            }
+            c.commit();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     // --- Area / Room DAO ---

@@ -241,6 +241,29 @@ public class AbilityCheck {
                 characterName, CooldownType.SPELL, spell.getId(), spell.getCooldown());
         }
     }
+
+    /**
+     * Apply a custom cooldown (in seconds) for a player's spell usage.
+     */
+    public static void applyPlayerSpellCooldown(String characterName, Spell spell, int cooldownSeconds) {
+        if (spell == null) return;
+        if (cooldownSeconds <= 0) return;
+        CooldownManager.getInstance().setPlayerCooldown(
+            characterName, CooldownType.SPELL, spell.getId(), (double) cooldownSeconds);
+    }
+
+    /**
+     * Compute a scaled cooldown based on baseCooldown (seconds) and proficiency (1-100).
+     * Scales linearly from baseCooldown at 1% to minCooldown (3s) at 100%.
+     */
+    public static int computeScaledCooldown(double baseCooldown, int proficiency) {
+        if (baseCooldown <= 0) return 0;
+        double minCooldown = 3.0; // minimum allowed cooldown at 100% proficiency
+        double t = Math.max(0.0, Math.min(1.0, (proficiency - 1) / 99.0));
+        double scaled = baseCooldown * (1.0 - t) + minCooldown * t;
+        int secs = (int) Math.max(1, Math.round(scaled));
+        return secs;
+    }
     
     /**
      * Apply spell cooldown for a mob after successful cast.

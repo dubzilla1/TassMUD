@@ -1,6 +1,7 @@
 package com.example.tassmud.persistence;
 
 import com.example.tassmud.model.*;
+import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.model.MobileBehavior;
 import com.example.tassmud.model.MobileTemplate;
 import com.example.tassmud.event.SpawnConfig;
@@ -25,6 +26,12 @@ public class DataLoader {
     public static void loadDefaults(CharacterDAO dao) {
         loadSkills(dao);
         loadSpells(dao);
+        // Load effects definitions (custom effect engine)
+        try {
+            loadEffects();
+        } catch (Exception e) {
+            System.err.println("Failed to load effects.yaml: " + e.getMessage());
+        }
         Map<String,Integer> areaMap = loadAreas(dao);
         Map<String,Integer> roomKeyToId = loadRoomsFirstPass(dao, areaMap);
         loadRoomsSecondPass(dao, roomKeyToId);
@@ -323,7 +330,7 @@ public class DataLoader {
                 Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
                 Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
                 double cooldown = getDouble(spellData, "cooldown", 0);
-                
+                double duration = getDouble(spellData, "duration", 0);
                 // Parse traits list
                 List<SpellTrait> traits = new ArrayList<>();
                 Object traitsObj = spellData.get("traits");
@@ -335,7 +342,7 @@ public class DataLoader {
                 }
                 
                 Spell spell = new Spell(id, name, description, school, level, 
-                                        castingTime, target, effectIds, progression, traits, cooldown);
+                                        castingTime, target, effectIds, progression, traits, cooldown,duration);
                 
                 // Store in DAO
                 boolean added = dao.addSpellFull(spell);
@@ -347,6 +354,94 @@ public class DataLoader {
             System.err.println("Failed to load spells.yaml: " + e.getMessage());
             // Fallback to old CSV
             loadSpellsFromCsv(dao);
+        }
+    }
+
+    /**
+     * Load effect definitions from /data/effects.yaml and register handlers.
+     */
+    @SuppressWarnings("unchecked")
+    private static void loadEffects() {
+        try (InputStream in = DataLoader.class.getResourceAsStream("/data/effects.yaml")) {
+            if (in == null) {
+                System.out.println("No effects.yaml found");
+                return;
+            }
+            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+            Map<String, Object> root = yaml.load(in);
+            if (root == null) return;
+
+            java.util.List<Map<String,Object>> list = (java.util.List<Map<String,Object>>) root.get("effects");
+            if (list == null) return;
+
+            int count = 0;
+            for (Map<String,Object> item : list) {
+                String id = getString(item, "id", null);
+                String name = getString(item, "name", id == null ? "effect" : "effect_" + id);
+                String typeStr = getString(item, "type", "MODIFIER");
+                double duration = getDouble(item, "duration", 0);
+                double cooldown = getDouble(item, "cooldown", 0);
+                String diceMultRaw = getString(item, "dice_multiplier", "");
+                // Support both spellings: profficiency_impact (typo) and proficiency_impact
+                Object profImpactObj = item.get("profficiency_impact");
+                if (profImpactObj == null) profImpactObj = item.get("proficiency_impact");
+                java.util.Set<com.example.tassmud.effect.EffectDefinition.ProficiencyImpact> profImpactSet = new java.util.HashSet<>();
+                if (profImpactObj != null) {
+                    if (profImpactObj instanceof java.util.List) {
+                        for (Object o : (java.util.List<?>) profImpactObj) {
+                            String s = String.valueOf(o).toUpperCase().trim();
+                            try { profImpactSet.add(com.example.tassmud.effect.EffectDefinition.ProficiencyImpact.valueOf(s)); } catch (Exception ignored) {}
+                        }
+                    } else if (profImpactObj instanceof String) {
+                        String s = ((String) profImpactObj).trim();
+                        // Comma/space separated
+                        for (String tok : s.split("[,\s]+")) {
+                            try { profImpactSet.add(com.example.tassmud.effect.EffectDefinition.ProficiencyImpact.valueOf(tok.toUpperCase())); } catch (Exception ignored) {}
+                        }
+                    }
+                }
+                String stackStr = getString(item, "stackPolicy", "REFRESH");
+                boolean persistent = getBoolean(item, "persistent", true);
+                int priority = getInt(item, "priority", 0);
+
+                java.util.Map<String,String> params = new java.util.HashMap<>();
+                Object paramsObj = item.get("params");
+                if (paramsObj instanceof Map) {
+                    for (Map.Entry<?,?> e : ((Map<?,?>)paramsObj).entrySet()) {
+                        params.put(String.valueOf(e.getKey()), String.valueOf(e.getValue()));
+                    }
+                }
+
+                EffectDefinition.Type type;
+                try { type = EffectDefinition.Type.valueOf(typeStr); } catch (Exception e) { type = EffectDefinition.Type.MODIFIER; }
+                EffectDefinition.StackPolicy sp;
+                try { sp = EffectDefinition.StackPolicy.valueOf(stackStr); } catch (Exception e) { sp = EffectDefinition.StackPolicy.REFRESH; }
+
+                com.example.tassmud.effect.EffectDefinition def = new com.example.tassmud.effect.EffectDefinition(
+                    id == null ? String.valueOf(count) : id,
+                    name,
+                    type,
+                    params,
+                    duration,
+                    cooldown,
+                    diceMultRaw,
+                    profImpactSet,
+                    sp,
+                    persistent,
+                    priority
+                );
+                com.example.tassmud.effect.EffectRegistry.registerDefinition(def);
+                count++;
+            }
+
+            // Register built-in handlers (ModifierEffect for MODIFIER type)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("MODIFIER", new com.example.tassmud.effect.ModifierEffect());
+            // Register instant damage handler for CUSTOM effects (e.g., fireball-like effects)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("CUSTOM", new com.example.tassmud.effect.InstantDamageEffect());
+
+            System.out.println("Loaded " + count + " effects from effects.yaml");
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load effects.yaml: " + e.getMessage(), e);
         }
     }
     

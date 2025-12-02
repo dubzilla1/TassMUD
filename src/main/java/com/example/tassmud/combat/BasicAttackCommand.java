@@ -145,7 +145,9 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Calculate level-based attack bonus (with effective penalty)
         int levelBonus = calculator.calculateFullAttackBonus(user, target, effectivePenalty);
-        int totalAttackBonus = statBonus + levelBonus;
+        // Include any modifier-based attack hit bonuses
+        int attackHitBonus = attacker.getAttackHitBonus();
+        int totalAttackBonus = statBonus + levelBonus + attackHitBonus;
         
         // Roll d20 + attack bonus vs armor
         int attackRoll = rollD20();
@@ -173,7 +175,8 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Hit! Calculate damage
         int baseDamage = rollDamage(user);
-        int damageBonus = strMod; // STR to damage for melee
+        // STR to damage for melee + modifier-based attack damage bonus
+        int damageBonus = strMod + attacker.getAttackDamageBonus();
         
         // Calculate skill-based damage multiplier
         // Applied to bonus damage only, not base die roll
@@ -188,6 +191,14 @@ public class BasicAttackCommand implements CombatCommand {
         if (isCrit) {
             totalDamage = (int)(totalDamage * CRIT_MULTIPLIER);
         }
+
+        // Apply defender's attack damage reduction (flat)
+        int reduction = defender.getAttackDamageReduction();
+        if (reduction > 0) {
+            totalDamage = Math.max(0, totalDamage - reduction);
+        }
+
+        if (totalDamage < 1) totalDamage = 1;
         
         // Apply damage
         target.damage(totalDamage);

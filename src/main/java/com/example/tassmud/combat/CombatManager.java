@@ -907,6 +907,14 @@ public class CombatManager {
             // Sync all player HP to database before ending combat
             for (Combatant c : combat.getPlayerCombatants()) {
                 syncPlayerHpToDatabase(c);
+                // Persist any active modifiers the player had during combat
+                if (c.isPlayer() && c.getCharacterId() != null) {
+                    Character ch = c.getAsCharacter();
+                    if (ch != null) {
+                        CharacterDAO dao = new CharacterDAO();
+                        dao.saveModifiersForCharacter(c.getCharacterId(), ch);
+                    }
+                }
             }
             
             combat.end();

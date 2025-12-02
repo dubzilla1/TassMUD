@@ -1,6 +1,6 @@
 # Spells Data - TassMUD
 # Schools: ARCANE, DIVINE, PRIMAL, OCCULT
-# Targets: SELF, CURRENT_ENEMY, EXPLICIT_MOB_TARGET, ITEM, ALL_ENEMIES, ALL_ALLIES, EVERYONE
+# Targets: TARGET, CURRENT_ENEMY, EXPLICIT_MOB_TARGET, ITEM, ALL_ENEMIES, ALL_ALLIES, EVERYONE
 # Progressions: INSTANT, TRIVIAL, EASY, NORMAL, HARD, VERY_HARD, LEGENDARY
 
 spells:
@@ -23,7 +23,7 @@ spells:
     school: ARCANE
     level: 1
     castingTime: 0.5
-    target: SELF
+    target: TARGET
     progression: TRIVIAL
     effectIds: [102]
     
@@ -33,7 +33,7 @@ spells:
     school: ARCANE
     level: 1
     castingTime: 1.0
-    target: SELF
+    target: TARGET
     progression: EASY
     effectIds: [103]
     
@@ -54,7 +54,7 @@ spells:
     school: ARCANE
     level: 2
     castingTime: 0.5
-    target: SELF
+    target: TARGET
     progression: NORMAL
     effectIds: [111]
     
@@ -92,11 +92,11 @@ spells:
     
   - id: 31
     name: Dimension Door
-    description: You teleport yourself to a visible location within range.
+    description: You teleport yourTARGET to a visible location within range.
     school: ARCANE
     level: 4
     castingTime: 1.0
-    target: SELF
+    target: TARGET
     progression: VERY_HARD
     effectIds: [131]
     
@@ -120,18 +120,19 @@ spells:
     school: DIVINE
     level: 1
     castingTime: 1.5
-    target: SELF
+    target: TARGET
     progression: EASY
     effectIds: [201]
     
   - id: 101
     name: Bless
-    description: You invoke divine favor upon yourself and allies.
+    description: You invoke divine favor upon yourTARGET and allies.
     school: DIVINE
     level: 1
     castingTime: 1.0
     target: ALL_ALLIES
     progression: EASY
+    duration: 600  # lasts 10 minutes
     effectIds: [202]
     
   - id: 102
@@ -140,7 +141,7 @@ spells:
     school: DIVINE
     level: 1
     castingTime: 0.5
-    target: SELF
+    target: TARGET
     progression: NORMAL
     effectIds: [203]
     
@@ -151,7 +152,7 @@ spells:
     school: DIVINE
     level: 2
     castingTime: 1.5
-    target: SELF
+    target: TARGET
     progression: NORMAL
     effectIds: [210]
     
@@ -171,7 +172,7 @@ spells:
     school: DIVINE
     level: 2
     castingTime: 2.5
-    target: SELF
+    target: TARGET
     progression: NORMAL
     effectIds: [212]
     
@@ -182,7 +183,7 @@ spells:
     school: DIVINE
     level: 3
     castingTime: 1.5
-    target: SELF
+    target: TARGET
     progression: HARD
     effectIds: [220]
     
@@ -203,7 +204,7 @@ spells:
     school: DIVINE
     level: 4
     castingTime: 1.5
-    target: SELF
+    target: TARGET
     progression: VERY_HARD
     effectIds: [230]
     
@@ -213,7 +214,7 @@ spells:
     school: DIVINE
     level: 4
     castingTime: 2.0
-    target: SELF
+    target: TARGET
     progression: HARD
     effectIds: [231]
     
@@ -267,7 +268,7 @@ spells:
     school: PRIMAL
     level: 1
     castingTime: 0.5
-    target: SELF
+    target: TARGET
     progression: EASY
     effectIds: [303]
     
@@ -278,7 +279,7 @@ spells:
     school: PRIMAL
     level: 2
     castingTime: 1.5
-    target: SELF
+    target: TARGET
     progression: NORMAL
     effectIds: [310]
     
@@ -288,7 +289,7 @@ spells:
     school: PRIMAL
     level: 2
     castingTime: 1.0
-    target: SELF
+    target: TARGET
     progression: NORMAL
     effectIds: [311]
     
@@ -330,7 +331,7 @@ spells:
     school: PRIMAL
     level: 4
     castingTime: 2.0
-    target: SELF
+    target: TARGET
     progression: VERY_HARD
     effectIds: [331]
     
@@ -374,7 +375,7 @@ spells:
     school: OCCULT
     level: 1
     castingTime: 0.5
-    target: SELF
+    target: TARGET
     progression: TRIVIAL
     effectIds: [403]
     

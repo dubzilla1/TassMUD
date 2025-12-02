@@ -1,5 +1,13 @@
 package com.example.tassmud.model;
 
+import java.time.Instant;
+import java.util.Comparator;
+import java.util.EnumMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 public class Character {
     private final String name;
     private final int age;
@@ -73,6 +81,8 @@ public class Character {
         this.reflex = reflex;
         this.will = will;
         this.stance = stance != null ? stance : Stance.STANDING;
+        // initialize modifier base values and caches
+        initBaseStats();
     }
 
     public String getName() { return name; }
@@ -109,6 +119,138 @@ public class Character {
     public int getFortitude() { return fortitude; }
     public int getReflex() { return reflex; }
     public int getWill() { return will; }
+
+    // -- Modifier system backing fields --
+    private final EnumMap<Stat, Double> baseStats = new EnumMap<>(Stat.class);
+    private final EnumMap<Stat, CopyOnWriteArrayList<Modifier>> modifiers = new EnumMap<>(Stat.class);
+    private final EnumMap<Stat, Double> cachedStats = new EnumMap<>(Stat.class);
+    private final EnumSet<Stat> dirtyStats = EnumSet.noneOf(Stat.class);
+
+    private void initBaseStats() {
+        baseStats.put(Stat.STRENGTH, (double) str);
+        baseStats.put(Stat.DEXTERITY, (double) dex);
+        baseStats.put(Stat.CONSTITUTION, (double) con);
+        baseStats.put(Stat.INTELLIGENCE, (double) intel);
+        baseStats.put(Stat.WISDOM, (double) wis);
+        baseStats.put(Stat.CHARISMA, (double) cha);
+
+        baseStats.put(Stat.HP_MAX, (double) hpMax);
+        baseStats.put(Stat.HP_CURRENT, (double) hpCur);
+        baseStats.put(Stat.MP_MAX, (double) mpMax);
+        baseStats.put(Stat.MP_CURRENT, (double) mpCur);
+        baseStats.put(Stat.MV_MAX, (double) mvMax);
+        baseStats.put(Stat.MV_CURRENT, (double) mvCur);
+
+        baseStats.put(Stat.ARMOR, (double) armor);
+        baseStats.put(Stat.FORTITUDE, (double) fortitude);
+        baseStats.put(Stat.REFLEX, (double) reflex);
+        baseStats.put(Stat.WILL, (double) will);
+
+        // New combat/spell stats (default 0)
+        baseStats.put(Stat.ATTACK_HIT_BONUS, 0.0);
+        baseStats.put(Stat.ATTACK_DAMAGE_BONUS, 0.0);
+        baseStats.put(Stat.SPELL_HIT_BONUS, 0.0);
+        baseStats.put(Stat.SPELL_DAMAGE_BONUS, 0.0);
+        baseStats.put(Stat.ATTACK_DAMAGE_REDUCTION, 0.0);
+        baseStats.put(Stat.SPELL_DAMAGE_REDUCTION, 0.0);
+
+        // initially mark all stats dirty so cache builds on demand
+        dirtyStats.addAll(EnumSet.allOf(Stat.class));
+    }
+
+    /**
+     * Add a modifier onto this character. Returns the modifier id.
+     */
+    public UUID addModifier(Modifier m) {
+        modifiers.computeIfAbsent(m.stat(), k -> new CopyOnWriteArrayList<>()).add(m);
+        markDirty(m.stat());
+        return m.id();
+    }
+
+    /**
+     * Remove a modifier by id. Returns true if removed.
+     */
+    public boolean removeModifier(UUID modifierId) {
+        boolean removedAny = false;
+        for (var entry : modifiers.entrySet()) {
+            List<Modifier> list = entry.getValue();
+            boolean removed = list.removeIf(mod -> mod.id().equals(modifierId));
+            if (removed) {
+                removedAny = true;
+                markDirty(entry.getKey());
+            }
+        }
+        return removedAny;
+    }
+
+    private void markDirty(Stat s) {
+        cachedStats.remove(s);
+        dirtyStats.add(s);
+    }
+
+    /**
+     * Compute effective stat value, applying modifiers.
+     */
+    public double getStat(Stat s) {
+        // lazy compute: if not dirty and cached, return
+        if (!dirtyStats.contains(s) && cachedStats.containsKey(s)) {
+            return cachedStats.get(s);
+        }
+
+        double base = baseStats.getOrDefault(s, 0.0);
+        var list = modifiers.getOrDefault(s, new CopyOnWriteArrayList<>());
+
+        // remove expired modifiers
+        boolean removedExpired = list.removeIf(Modifier::isExpired);
+        if (removedExpired) markDirty(s);
+
+        // OVERRIDE by highest priority
+        Modifier override = list.stream()
+            .filter(m -> m.op() == Modifier.Op.OVERRIDE)
+            .max(Comparator.comparingInt(Modifier::priority))
+            .orElse(null);
+        if (override != null) {
+            double res = override.value();
+            cachedStats.put(s, res);
+            dirtyStats.remove(s);
+            return res;
+        }
+
+        double addSum = list.stream()
+            .filter(m -> m.op() == Modifier.Op.ADD)
+            .mapToDouble(Modifier::value)
+            .sum();
+
+        double mulProduct = list.stream()
+            .filter(m -> m.op() == Modifier.Op.MULTIPLY)
+            .mapToDouble(Modifier::value)
+            .reduce(1.0, (a, b) -> a * b);
+
+        double result = (base + addSum) * mulProduct;
+        cachedStats.put(s, result);
+        dirtyStats.remove(s);
+        return result;
+    }
+
+    // Convenience integer getters for the new combat/spell stats (rounded)
+    public int getAttackHitBonus() { return (int)Math.round(getStat(Stat.ATTACK_HIT_BONUS)); }
+    public int getAttackDamageBonus() { return (int)Math.round(getStat(Stat.ATTACK_DAMAGE_BONUS)); }
+    public int getSpellHitBonus() { return (int)Math.round(getStat(Stat.SPELL_HIT_BONUS)); }
+    public int getSpellDamageBonus() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_BONUS)); }
+    public int getAttackDamageReduction() { return (int)Math.round(getStat(Stat.ATTACK_DAMAGE_REDUCTION)); }
+    public int getSpellDamageReduction() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_REDUCTION)); }
+
+    /**
+     * Return a snapshot list of all active modifiers on this character.
+     */
+    public java.util.List<Modifier> getAllModifiers() {
+        java.util.List<Modifier> out = new java.util.ArrayList<>();
+        for (var entry : modifiers.entrySet()) {
+            out.addAll(entry.getValue());
+        }
+        return out;
+    }
+
     
     /**
      * Apply regeneration based on current stance.

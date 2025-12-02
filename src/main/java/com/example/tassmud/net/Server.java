@@ -8,6 +8,7 @@ import com.example.tassmud.util.*;
 import com.example.tassmud.util.CooldownManager;
 import com.example.tassmud.util.MobileRoamingService;
 import com.example.tassmud.util.RegenerationService;
+import com.example.tassmud.effect.EffectScheduler;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -151,6 +152,9 @@ public class Server {
         // Initialize mobile roaming service for NPC wandering
         MobileRoamingService roamingService = MobileRoamingService.getInstance();
         roamingService.initialize(tickService);
+
+        // Initialize effect scheduler to tick and expire active effects
+        EffectScheduler.getInstance().initialize(tickService);
 
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;

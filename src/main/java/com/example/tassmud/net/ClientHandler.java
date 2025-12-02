@@ -1913,6 +1913,13 @@ public class ClientHandler implements Runnable {
                             rec.getArmorTotal(), rec.getFortitudeTotal(), 
                             rec.getReflexTotal(), rec.getWillTotal()
                         );
+                        // Load persisted modifiers for this character (if any) so they apply in combat
+                        if (charId != null) {
+                            java.util.List<com.example.tassmud.model.Modifier> mods = dao.getModifiersForCharacter(charId);
+                            for (com.example.tassmud.model.Modifier m : mods) {
+                                playerChar.addModifier(m);
+                            }
+                        }
                         
                         // Initiate combat
                         Combat combat = combatMgr.initiateCombat(playerChar, charId, targetMob, rec.currentRoom);
@@ -4141,7 +4148,29 @@ public class ClientHandler implements Runnable {
                         // ═══ ACTIVE EFFECTS ═══
                         sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
                         sheet.append("  [ ACTIVE EFFECTS ]\n");
-                        sheet.append("  (No active spell effects)\n");  // Placeholder for future implementation
+                        // Attempt to get live modifiers (combat) else load from DB
+                        java.util.List<com.example.tassmud.model.Modifier> activeMods = new java.util.ArrayList<>();
+                        com.example.tassmud.combat.Combatant combatant = com.example.tassmud.combat.CombatManager.getInstance().getCombatantForCharacter(charId);
+                        if (combatant != null && combatant.getAsCharacter() != null) {
+                            activeMods = combatant.getAsCharacter().getAllModifiers();
+                        } else {
+                            activeMods = dao.getModifiersForCharacter(charId);
+                        }
+                        // Filter expired
+                        long nowMs = System.currentTimeMillis();
+                        activeMods.removeIf(com.example.tassmud.model.Modifier::isExpired);
+
+                        if (activeMods.isEmpty()) {
+                            sheet.append("  (No active spell effects)\n");
+                        } else {
+                            for (com.example.tassmud.model.Modifier m : activeMods) {
+                                long remaining = Math.max(0, m.expiresAtMillis() - nowMs) / 1000L;
+                                String timeStr = formatDuration(remaining);
+                                String sign = m.op() == com.example.tassmud.model.Modifier.Op.ADD && m.value() > 0 ? "+" : "";
+                                sheet.append(String.format("  - %s : %s%1.0f %s  (%s)\n",
+                                    m.source(), sign, m.value(), m.stat().name(), timeStr));
+                            }
+                        }
                         
                         // ═══ FOOTER ═══
                         sheet.append("\n").append(divider).append("\n");
@@ -4455,12 +4484,79 @@ public class ClientHandler implements Runnable {
                         }
                         
                         out.println(castMsg.toString());
-                        
-                        // Apply cooldown after successful cast
-                        com.example.tassmud.util.AbilityCheck.applyPlayerSpellCooldown(name, matchedSpell);
-                        
-                        // TODO: Implement actual spell effects here
-                        // For now, spells don't do anything - effect logic will be added later
+
+                        // Dispatch spell effects via the EffectRegistry
+                        java.util.List<Integer> targets = new java.util.ArrayList<>();
+                        Spell.SpellTarget ttype = matchedSpell.getTarget();
+                        if (ttype == Spell.SpellTarget.ALL_ALLIES) {
+                            for (ClientHandler s : sessions) {
+                                if (s == this) continue;
+                                Integer otherCharId = s.characterId;
+                                if (otherCharId == null) continue;
+                                Integer otherRoom = s.currentRoomId;
+                                if (otherRoom != null && otherRoom.equals(this.currentRoomId)) {
+                                    targets.add(otherCharId);
+                                }
+                            }
+                            targets.add(charId);
+                        } else if (ttype == Spell.SpellTarget.SELF) {
+                            targets.add(charId);
+                        } else {
+                            if (targetArg != null && !targetArg.trim().isEmpty()) {
+                                Integer targetId = dao.getCharacterIdByName(targetArg);
+                                if (targetId != null) targets.add(targetId);
+                            }
+                        }
+
+                        if (targets.isEmpty()) {
+                            out.println("No valid targets found for that spell.");
+                        } else {
+                            java.util.List<String> effectedNames = new java.util.ArrayList<>();
+                            // Determine caster proficiency for this spell and send as extraParams
+                            com.example.tassmud.model.CharacterSpell charSpell = dao.getCharacterSpell(charId, matchedSpell.getId());
+                            java.util.Map<String,String> extraParams = new java.util.HashMap<>();
+                            int proficiency = 1;
+                            if (charSpell != null) {
+                                proficiency = charSpell.getProficiency();
+                                extraParams.put("proficiency", String.valueOf(proficiency));
+                            }
+
+                            // Compute scaled cooldown based on spell-level and effect-level cooldowns (use the largest)
+                            int finalCooldown = (int) Math.round(matchedSpell.getCooldown());
+                            for (String effId : matchedSpell.getEffectIds()) {
+                                com.example.tassmud.effect.EffectDefinition def = com.example.tassmud.effect.EffectRegistry.getDefinition(effId);
+                                if (def == null) continue;
+                                double effectCd = def.getCooldownSeconds();
+                                if (effectCd <= 0) continue;
+                                int cdSecs;
+                                if (def.getProficiencyImpact().contains(com.example.tassmud.effect.EffectDefinition.ProficiencyImpact.COOLDOWN)) {
+                                    cdSecs = com.example.tassmud.util.AbilityCheck.computeScaledCooldown(effectCd, proficiency);
+                                } else {
+                                    cdSecs = (int) Math.round(effectCd);
+                                }
+                                if (cdSecs > finalCooldown) finalCooldown = cdSecs;
+                            }
+
+                            // Apply the computed cooldown for this spell
+                            com.example.tassmud.util.AbilityCheck.applyPlayerSpellCooldown(name, matchedSpell, finalCooldown);
+
+                            for (String effId : matchedSpell.getEffectIds()) {
+                                com.example.tassmud.effect.EffectDefinition def = com.example.tassmud.effect.EffectRegistry.getDefinition(effId);
+                                for (Integer tgt : targets) {
+                                    com.example.tassmud.effect.EffectInstance inst = com.example.tassmud.effect.EffectRegistry.apply(effId, charId, tgt, extraParams);
+                                    if (inst != null && def != null) {
+                                        // Notify target if online
+                                        ClientHandler targetSession = charIdToSession.get(tgt);
+                                        if (targetSession != null) {
+                                            targetSession.sendRaw(def.getName() + " from " + name + " takes effect.");
+                                        }
+                                        CharacterDAO.CharacterRecord recT = dao.findById(tgt);
+                                        if (recT != null) effectedNames.add(recT.name + "(" + def.getName() + ")");
+                                    }
+                                }
+                            }
+                            if (!effectedNames.isEmpty()) out.println("Effects applied: " + String.join(", ", effectedNames));
+                        }
                         
                         break;
                     }
@@ -4471,6 +4567,28 @@ public class ClientHandler implements Runnable {
         } catch (IOException e) {
             System.err.println("Client connection error: " + e.getMessage());
         } finally {
+            // Attempt to persist character state and modifiers on disconnect
+            try {
+                CharacterDAO dao = new CharacterDAO();
+                if (characterId != null) {
+                    // Persist vitals/state
+                    CharacterDAO.CharacterRecord latest = dao.findById(characterId);
+                    if (latest != null) {
+                        dao.saveCharacterStateByName(latest.name, latest.hpCur, latest.mpCur, latest.mvCur, latest.currentRoom);
+                    }
+
+                    // If in combat, try to persist modifiers from the combatant's Character instance
+                    com.example.tassmud.combat.CombatManager cm = com.example.tassmud.combat.CombatManager.getInstance();
+                    com.example.tassmud.combat.Combatant combatant = cm.getCombatantForCharacter(characterId);
+                    if (combatant != null) {
+                        com.example.tassmud.model.Character ch = combatant.getAsCharacter();
+                        if (ch != null) {
+                            dao.saveModifiersForCharacter(characterId, ch);
+                        }
+                    }
+                }
+            } catch (Exception ignored) {}
+
             // Unregister from regeneration service
             if (characterId != null) {
                 RegenerationService.getInstance().unregisterPlayer(characterId);
@@ -4783,6 +4901,18 @@ public class ClientHandler implements Runnable {
             sb.append(" - ").append(Math.abs(bonus));
         }
         return sb.toString();
+    }
+
+    /**
+     * Format a duration (seconds) into H:MM:SS or M:SS depending on length.
+     */
+    private static String formatDuration(long seconds) {
+        if (seconds <= 0) return "0s";
+        long hrs = seconds / 3600;
+        long mins = (seconds % 3600) / 60;
+        long secs = seconds % 60;
+        if (hrs > 0) return String.format("%d:%02d:%02d", hrs, mins, secs);
+        return String.format("%d:%02d", mins, secs);
     }
 
     /**

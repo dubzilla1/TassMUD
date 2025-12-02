@@ -27,7 +27,7 @@ function Add-TimestampsToFile {
         Move-Item -Path $temp -Destination $Path -Force
         Write-Host "Stamped: $Path"
     } catch {
-        Write-Host "Failed to timestamp $Path: $_" -ForegroundColor Red
+        Write-Host "Failed to timestamp $Path : $_" -ForegroundColor Red
         if (Test-Path $temp) { Remove-Item $temp -Force }
     }
 }
