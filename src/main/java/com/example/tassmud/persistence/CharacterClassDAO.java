@@ -395,6 +395,12 @@ public class CharacterClassDAO {
         // 3) Restore to full (like GM restore command)
         charDAO.restoreVitals(characterId);
         
+        // 4) Award 1 talent point for leveling
+        charDAO.addTalentPoints(characterId, 1);
+        if (messageCallback != null) {
+            messageCallback.accept("You have gained a Talent Point! Use TRAIN to spend it.");
+        }
+        
         return learnedSkills;
     }
     

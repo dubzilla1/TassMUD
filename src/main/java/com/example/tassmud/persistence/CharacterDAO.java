@@ -660,6 +660,17 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS current_class_id INT DEFAULT NULL");
                     // Autoflee threshold (0-100, defaults to 0)
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS autoflee INT DEFAULT 0");
+                    // Talent points for training abilities/skills/spells
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS talent_points INT DEFAULT 0");
+                    // Trained ability score bonuses (added via talent points)
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS trained_str INT DEFAULT 0");
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS trained_dex INT DEFAULT 0");
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS trained_con INT DEFAULT 0");
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS trained_int INT DEFAULT 0");
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS trained_wis INT DEFAULT 0");
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS trained_cha INT DEFAULT 0");
+                    // Gold pieces (currency)
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS gold_pieces BIGINT DEFAULT 0");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create characters table", e);
                 }
@@ -1108,7 +1119,7 @@ public class CharacterDAO {
     }
 
     public CharacterRecord findByName(String name) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee FROM characters WHERE name = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces FROM characters WHERE name = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);
@@ -1131,7 +1142,11 @@ public class CharacterDAO {
                             rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
                             currentRoom,
                             currentClassId,
-                            rs.getInt("autoflee")
+                            rs.getInt("autoflee"),
+                            rs.getInt("talent_points"),
+                            rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
+                            rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
+                            rs.getLong("gold_pieces")
                         );
                 }
             }
@@ -1145,7 +1160,7 @@ public class CharacterDAO {
      * Find a character by their ID.
      */
     public CharacterRecord findById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee FROM characters WHERE id = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces FROM characters WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
@@ -1168,7 +1183,11 @@ public class CharacterDAO {
                         rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
                         currentRoom,
                         currentClassId,
-                        rs.getInt("autoflee")
+                        rs.getInt("autoflee"),
+                        rs.getInt("talent_points"),
+                        rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
+                        rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
+                        rs.getLong("gold_pieces")
                     );
                 }
             }
@@ -1632,12 +1651,30 @@ public class CharacterDAO {
         public final Integer currentRoom;
         public final Integer currentClassId;
         public final int autoflee;  // Auto-flee threshold (0-100)
+        // Talent points and trained ability bonuses
+        public final int talentPoints;
+        public final int trainedStr;
+        public final int trainedDex;
+        public final int trainedCon;
+        public final int trainedInt;
+        public final int trainedWis;
+        public final int trainedCha;
+        // Currency
+        public final long goldPieces;
 
         // Convenience methods to get total saves (base + equipment)
         public int getArmorTotal() { return armor + armorEquipBonus; }
         public int getFortitudeTotal() { return fortitude + fortitudeEquipBonus; }
         public int getReflexTotal() { return reflex + reflexEquipBonus; }
         public int getWillTotal() { return will + willEquipBonus; }
+        
+        // Convenience methods to get total ability scores (base + trained)
+        public int getStrTotal() { return str + trainedStr; }
+        public int getDexTotal() { return dex + trainedDex; }
+        public int getConTotal() { return con + trainedCon; }
+        public int getIntTotal() { return intel + trainedInt; }
+        public int getWisTotal() { return wis + trainedWis; }
+        public int getChaTotal() { return cha + trainedCha; }
 
         public CharacterRecord(String name, String passwordHashBase64, String saltBase64,
                                int age, String description,
@@ -1649,7 +1686,10 @@ public class CharacterDAO {
                                int armorEquipBonus, int fortitudeEquipBonus, int reflexEquipBonus, int willEquipBonus,
                                Integer currentRoom,
                                Integer currentClassId,
-                               int autoflee) {
+                               int autoflee,
+                               int talentPoints,
+                               int trainedStr, int trainedDex, int trainedCon, int trainedInt, int trainedWis, int trainedCha,
+                               long goldPieces) {
             this.name = name;
             this.passwordHashBase64 = passwordHashBase64;
             this.saltBase64 = saltBase64;
@@ -1678,6 +1718,14 @@ public class CharacterDAO {
             this.currentRoom = currentRoom;
             this.currentClassId = currentClassId;
             this.autoflee = autoflee;
+            this.talentPoints = talentPoints;
+            this.trainedStr = trainedStr;
+            this.trainedDex = trainedDex;
+            this.trainedCon = trainedCon;
+            this.trainedInt = trainedInt;
+            this.trainedWis = trainedWis;
+            this.trainedCha = trainedCha;
+            this.goldPieces = goldPieces;
         }
     }
 
@@ -1704,7 +1752,7 @@ public class CharacterDAO {
      * Get character record by their ID (includes current_room).
      */
     public CharacterRecord getCharacterById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee FROM characters WHERE id = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces FROM characters WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
@@ -1727,7 +1775,11 @@ public class CharacterDAO {
                         rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
                         currentRoom,
                         currentClassId,
-                        rs.getInt("autoflee")
+                        rs.getInt("autoflee"),
+                        rs.getInt("talent_points"),
+                        rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
+                        rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
+                        rs.getLong("gold_pieces")
                     );
                 }
             }
@@ -1778,5 +1830,232 @@ public class CharacterDAO {
             System.err.println("Failed to get autoflee: " + e.getMessage());
         }
         return 0;
+    }
+    
+    // ===================== TALENT POINTS =====================
+    
+    /**
+     * Get a character's current talent points.
+     * @param characterId the character ID
+     * @return the number of unspent talent points
+     */
+    public int getTalentPoints(int characterId) {
+        String sql = "SELECT talent_points FROM characters WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("talent_points");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Failed to get talent points: " + e.getMessage());
+        }
+        return 0;
+    }
+    
+    /**
+     * Set a character's talent points.
+     * @param characterId the character ID
+     * @param points the new talent point total
+     * @return true if successful
+     */
+    public boolean setTalentPoints(int characterId, int points) {
+        String sql = "UPDATE characters SET talent_points = ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, Math.max(0, points));
+            ps.setInt(2, characterId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Failed to set talent points: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Add talent points to a character (e.g., on level-up).
+     * @param characterId the character ID
+     * @param points the points to add
+     * @return true if successful
+     */
+    public boolean addTalentPoints(int characterId, int points) {
+        String sql = "UPDATE characters SET talent_points = talent_points + ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, points);
+            ps.setInt(2, characterId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Failed to add talent points: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Get the trained bonus for an ability score.
+     * @param characterId the character ID
+     * @param ability the ability name (str, dex, con, int, wis, cha)
+     * @return the trained bonus (0 if none or invalid ability)
+     */
+    public int getTrainedAbility(int characterId, String ability) {
+        String column = getTrainedAbilityColumn(ability);
+        if (column == null) return 0;
+        
+        String sql = "SELECT " + column + " FROM characters WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Failed to get trained ability: " + e.getMessage());
+        }
+        return 0;
+    }
+    
+    /**
+     * Set the trained bonus for an ability score.
+     * @param characterId the character ID
+     * @param ability the ability name (str, dex, con, int, wis, cha)
+     * @param bonus the new trained bonus
+     * @return true if successful
+     */
+    public boolean setTrainedAbility(int characterId, String ability, int bonus) {
+        String column = getTrainedAbilityColumn(ability);
+        if (column == null) return false;
+        
+        String sql = "UPDATE characters SET " + column + " = ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, Math.max(0, bonus));
+            ps.setInt(2, characterId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Failed to set trained ability: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Increment the trained bonus for an ability by 1.
+     * @param characterId the character ID
+     * @param ability the ability name (str, dex, con, int, wis, cha)
+     * @return true if successful
+     */
+    public boolean incrementTrainedAbility(int characterId, String ability) {
+        String column = getTrainedAbilityColumn(ability);
+        if (column == null) return false;
+        
+        String sql = "UPDATE characters SET " + column + " = " + column + " + 1 WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Failed to increment trained ability: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Map ability name to database column.
+     */
+    private String getTrainedAbilityColumn(String ability) {
+        if (ability == null) return null;
+        switch (ability.toLowerCase()) {
+            case "str": case "strength": return "trained_str";
+            case "dex": case "dexterity": return "trained_dex";
+            case "con": case "constitution": return "trained_con";
+            case "int": case "intel": case "intelligence": return "trained_int";
+            case "wis": case "wisdom": return "trained_wis";
+            case "cha": case "charisma": return "trained_cha";
+            default: return null;
+        }
+    }
+    
+    /**
+     * Calculate the talent point cost to train an ability from its current total to the next point.
+     * Costs: 10-16 = 1 point, 17-18 = 2 points, 19-20 = 4 points, 21+ = impossible
+     * @param currentTotal the current total ability score (base + trained)
+     * @return the cost, or -1 if training is not possible
+     */
+    public static int getAbilityTrainingCost(int currentTotal) {
+        if (currentTotal < 10) return 1;  // Below minimum, easy to train
+        if (currentTotal <= 16) return 1;
+        if (currentTotal <= 18) return 2;
+        if (currentTotal <= 20) return 4;
+        return -1;  // Cannot train above 20
+    }
+
+    // ========== Gold Methods ==========
+
+    /**
+     * Get the current gold pieces for a character.
+     * @param characterId the character's ID
+     * @return the amount of gold pieces, or 0 if not found
+     */
+    public long getGold(int characterId) {
+        String sql = "SELECT gold_pieces FROM characters WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getLong("gold_pieces");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error getting gold for character " + characterId + ": " + e.getMessage());
+        }
+        return 0;
+    }
+
+    /**
+     * Set the gold pieces for a character to a specific amount.
+     * @param characterId the character's ID
+     * @param amount the new gold amount (must be >= 0)
+     * @return true if successful, false otherwise
+     */
+    public boolean setGold(int characterId, long amount) {
+        if (amount < 0) {
+            System.err.println("Attempted to set negative gold for character " + characterId);
+            return false;
+        }
+        String sql = "UPDATE characters SET gold_pieces = ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, amount);
+            ps.setInt(2, characterId);
+            int rows = ps.executeUpdate();
+            return rows > 0;
+        } catch (SQLException e) {
+            System.err.println("Error setting gold for character " + characterId + ": " + e.getMessage());
+        }
+        return false;
+    }
+
+    /**
+     * Add gold pieces to a character's current amount.
+     * @param characterId the character's ID
+     * @param amount the amount to add (can be negative to subtract)
+     * @return true if successful, false otherwise
+     */
+    public boolean addGold(int characterId, long amount) {
+        String sql = "UPDATE characters SET gold_pieces = gold_pieces + ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, amount);
+            ps.setInt(2, characterId);
+            int rows = ps.executeUpdate();
+            return rows > 0;
+        } catch (SQLException e) {
+            System.err.println("Error adding gold for character " + characterId + ": " + e.getMessage());
+        }
+        return false;
     }
 }

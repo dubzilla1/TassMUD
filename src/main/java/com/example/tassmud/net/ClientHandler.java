@@ -13,8 +13,10 @@ import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.MobileBehavior;
 import com.example.tassmud.model.MobileTemplate;
 import com.example.tassmud.model.Room;
+import com.example.tassmud.model.Shop;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.model.Stance;
@@ -23,6 +25,7 @@ import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
+import com.example.tassmud.persistence.ShopDAO;
 import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.HelpManager;
 import com.example.tassmud.util.HelpPage;
@@ -2375,6 +2378,273 @@ public class ClientHandler implements Runnable {
                         out.println("Goodbye!");
                         socket.close();
                         return;
+                    case "train": {
+                        // TRAIN [ability|skill|spell] <name> - Spend talent points
+                        if (rec == null) {
+                            out.println("You must be logged in to train.");
+                            break;
+                        }
+                        Integer trainCharId = dao.getCharacterIdByName(name);
+                        if (trainCharId == null) {
+                            out.println("Failed to find your character.");
+                            break;
+                        }
+                        
+                        String trainArgs = cmd.getArgs();
+                        int talentPoints = dao.getTalentPoints(trainCharId);
+                        
+                        // No args: show status
+                        if (trainArgs == null || trainArgs.trim().isEmpty()) {
+                            // Display talent points, ability scores, and trainable skills/spells
+                            StringBuilder trainInfo = new StringBuilder();
+                            trainInfo.append("\n===================================================================\n");
+                            trainInfo.append("  TRAINING STATUS\n");
+                            trainInfo.append("===================================================================\n");
+                            trainInfo.append(String.format("  Talent Points Available: %d\n", talentPoints));
+                            trainInfo.append("-------------------------------------------------------------------\n");
+                            trainInfo.append("  [ ABILITY SCORES ] (base + trained = total)\n");
+                            
+                            // Calculate modifiers for display
+                            int strTotal = rec.getStrTotal();
+                            int dexTotal = rec.getDexTotal();
+                            int conTotal = rec.getConTotal();
+                            int intTotal = rec.getIntTotal();
+                            int wisTotal = rec.getWisTotal();
+                            int chaTotal = rec.getChaTotal();
+                            
+                            trainInfo.append(String.format("  STR: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.str, rec.trainedStr, strTotal, (strTotal - 10) / 2, formatTrainCost(strTotal)));
+                            trainInfo.append(String.format("  DEX: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.dex, rec.trainedDex, dexTotal, (dexTotal - 10) / 2, formatTrainCost(dexTotal)));
+                            trainInfo.append(String.format("  CON: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.con, rec.trainedCon, conTotal, (conTotal - 10) / 2, formatTrainCost(conTotal)));
+                            trainInfo.append(String.format("  INT: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.intel, rec.trainedInt, intTotal, (intTotal - 10) / 2, formatTrainCost(intTotal)));
+                            trainInfo.append(String.format("  WIS: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.wis, rec.trainedWis, wisTotal, (wisTotal - 10) / 2, formatTrainCost(wisTotal)));
+                            trainInfo.append(String.format("  CHA: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.cha, rec.trainedCha, chaTotal, (chaTotal - 10) / 2, formatTrainCost(chaTotal)));
+                            
+                            // Show trainable skills (under 80%)
+                            java.util.List<CharacterSkill> trainSkills = dao.getAllCharacterSkills(trainCharId);
+                            java.util.List<String> trainableSkills = new java.util.ArrayList<>();
+                            for (CharacterSkill cs : trainSkills) {
+                                if (cs.getProficiency() < 80) {
+                                    Skill skillDef = dao.getSkillById(cs.getSkillId());
+                                    String skillName = skillDef != null ? skillDef.getName() : "Skill #" + cs.getSkillId();
+                                    trainableSkills.add(String.format("%-22s %3d%%", skillName, cs.getProficiency()));
+                                }
+                            }
+                            if (!trainableSkills.isEmpty()) {
+                                trainInfo.append("-------------------------------------------------------------------\n");
+                                trainInfo.append("  [ TRAINABLE SKILLS ] (< 80%: costs 1 point for +5%)\n");
+                                java.util.Collections.sort(trainableSkills, String.CASE_INSENSITIVE_ORDER);
+                                for (String s : trainableSkills) {
+                                    trainInfo.append("  ").append(s).append("\n");
+                                }
+                            }
+                            
+                            // Show trainable spells (under 80%)
+                            java.util.List<CharacterSpell> trainSpells = dao.getAllCharacterSpells(trainCharId);
+                            java.util.List<String> trainableSpells = new java.util.ArrayList<>();
+                            for (CharacterSpell cs : trainSpells) {
+                                if (cs.getProficiency() < 80) {
+                                    Spell spellDef = dao.getSpellById(cs.getSpellId());
+                                    String spellName = spellDef != null ? spellDef.getName() : "Spell #" + cs.getSpellId();
+                                    trainableSpells.add(String.format("%-22s %3d%%", spellName, cs.getProficiency()));
+                                }
+                            }
+                            if (!trainableSpells.isEmpty()) {
+                                trainInfo.append("-------------------------------------------------------------------\n");
+                                trainInfo.append("  [ TRAINABLE SPELLS ] (< 80%: costs 1 point for +5%)\n");
+                                java.util.Collections.sort(trainableSpells, String.CASE_INSENSITIVE_ORDER);
+                                for (String s : trainableSpells) {
+                                    trainInfo.append("  ").append(s).append("\n");
+                                }
+                            }
+                            
+                            trainInfo.append("===================================================================\n");
+                            trainInfo.append("  Usage: TRAIN ABILITY <str|dex|con|int|wis|cha>\n");
+                            trainInfo.append("         TRAIN SKILL <skill_name>\n");
+                            trainInfo.append("         TRAIN SPELL <spell_name>\n");
+                            trainInfo.append("===================================================================\n");
+                            out.print(trainInfo.toString());
+                            break;
+                        }
+                        
+                        // Parse args: train ability|skill|spell <name>
+                        String[] trainParts = trainArgs.trim().split("\\s+", 2);
+                        if (trainParts.length < 2) {
+                            out.println("Usage: TRAIN ABILITY <str|dex|con|int|wis|cha>");
+                            out.println("       TRAIN SKILL <skill_name>");
+                            out.println("       TRAIN SPELL <spell_name>");
+                            break;
+                        }
+                        
+                        String trainType = trainParts[0].toLowerCase();
+                        String trainTarget = trainParts[1].trim();
+                        
+                        if (talentPoints < 1) {
+                            out.println("You have no talent points to spend.");
+                            break;
+                        }
+                        
+                        switch (trainType) {
+                            case "ability":
+                            case "stat":
+                            case "attr":
+                            case "attribute": {
+                                // Train an ability score
+                                String abilityName = trainTarget.toLowerCase();
+                                int currentTotal = 0;
+                                String displayName = null;
+                                switch (abilityName) {
+                                    case "str": case "strength": 
+                                        currentTotal = rec.getStrTotal(); displayName = "Strength"; break;
+                                    case "dex": case "dexterity": 
+                                        currentTotal = rec.getDexTotal(); displayName = "Dexterity"; break;
+                                    case "con": case "constitution": 
+                                        currentTotal = rec.getConTotal(); displayName = "Constitution"; break;
+                                    case "int": case "intel": case "intelligence": 
+                                        currentTotal = rec.getIntTotal(); displayName = "Intelligence"; break;
+                                    case "wis": case "wisdom": 
+                                        currentTotal = rec.getWisTotal(); displayName = "Wisdom"; break;
+                                    case "cha": case "charisma": 
+                                        currentTotal = rec.getChaTotal(); displayName = "Charisma"; break;
+                                }
+                                
+                                if (displayName == null) {
+                                    out.println("Unknown ability: " + trainTarget);
+                                    out.println("Valid abilities: STR, DEX, CON, INT, WIS, CHA");
+                                    break;
+                                }
+                                
+                                int cost = CharacterDAO.getAbilityTrainingCost(currentTotal);
+                                if (cost < 0) {
+                                    out.println("Your " + displayName + " is already at maximum (20). You cannot train it further with talent points.");
+                                    break;
+                                }
+                                if (talentPoints < cost) {
+                                    out.println("Training " + displayName + " from " + currentTotal + " to " + (currentTotal + 1) + " costs " + cost + " talent points.");
+                                    out.println("You only have " + talentPoints + " talent point" + (talentPoints == 1 ? "" : "s") + ".");
+                                    break;
+                                }
+                                
+                                // Deduct points and increment ability
+                                dao.setTalentPoints(trainCharId, talentPoints - cost);
+                                dao.incrementTrainedAbility(trainCharId, abilityName);
+                                
+                                int newTotal = currentTotal + 1;
+                                int newMod = (newTotal - 10) / 2;
+                                out.println("You train your " + displayName + "!");
+                                out.println(displayName + " increased from " + currentTotal + " to " + newTotal + " (" + (newMod >= 0 ? "+" : "") + newMod + " modifier).");
+                                out.println("Spent " + cost + " talent point" + (cost == 1 ? "" : "s") + ". Remaining: " + (talentPoints - cost));
+                                break;
+                            }
+                            case "skill": {
+                                // Train a skill
+                                Skill targetSkill = null;
+                                CharacterSkill charSkill = null;
+                                java.util.List<CharacterSkill> allSkills = dao.getAllCharacterSkills(trainCharId);
+                                for (CharacterSkill cs : allSkills) {
+                                    Skill def = dao.getSkillById(cs.getSkillId());
+                                    if (def != null && def.getName().equalsIgnoreCase(trainTarget)) {
+                                        targetSkill = def;
+                                        charSkill = cs;
+                                        break;
+                                    }
+                                }
+                                
+                                // Try partial match if exact match failed
+                                if (targetSkill == null) {
+                                    String targetLower = trainTarget.toLowerCase();
+                                    for (CharacterSkill cs : allSkills) {
+                                        Skill def = dao.getSkillById(cs.getSkillId());
+                                        if (def != null && def.getName().toLowerCase().startsWith(targetLower)) {
+                                            targetSkill = def;
+                                            charSkill = cs;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                if (targetSkill == null || charSkill == null) {
+                                    out.println("You don't know a skill called '" + trainTarget + "'.");
+                                    break;
+                                }
+                                
+                                int currentProf = charSkill.getProficiency();
+                                if (currentProf >= 80) {
+                                    out.println(targetSkill.getName() + " is already at " + currentProf + "%. Skills cannot be trained above 80% - you must practice them in use.");
+                                    break;
+                                }
+                                
+                                // Training costs 1 point for +5% proficiency
+                                int newProf = Math.min(80, currentProf + 5);
+                                dao.setCharacterSkillLevel(trainCharId, charSkill.getSkillId(), newProf);
+                                dao.setTalentPoints(trainCharId, talentPoints - 1);
+                                
+                                out.println("You train " + targetSkill.getName() + "!");
+                                out.println("Proficiency increased from " + currentProf + "% to " + newProf + "%.");
+                                out.println("Spent 1 talent point. Remaining: " + (talentPoints - 1));
+                                break;
+                            }
+                            case "spell": {
+                                // Train a spell
+                                Spell targetSpell = null;
+                                CharacterSpell charSpell = null;
+                                java.util.List<CharacterSpell> allSpells = dao.getAllCharacterSpells(trainCharId);
+                                for (CharacterSpell cs : allSpells) {
+                                    Spell def = dao.getSpellById(cs.getSpellId());
+                                    if (def != null && def.getName().equalsIgnoreCase(trainTarget)) {
+                                        targetSpell = def;
+                                        charSpell = cs;
+                                        break;
+                                    }
+                                }
+                                
+                                // Try partial match if exact match failed
+                                if (targetSpell == null) {
+                                    String targetLower = trainTarget.toLowerCase();
+                                    for (CharacterSpell cs : allSpells) {
+                                        Spell def = dao.getSpellById(cs.getSpellId());
+                                        if (def != null && def.getName().toLowerCase().startsWith(targetLower)) {
+                                            targetSpell = def;
+                                            charSpell = cs;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                if (targetSpell == null || charSpell == null) {
+                                    out.println("You don't know a spell called '" + trainTarget + "'.");
+                                    break;
+                                }
+                                
+                                int currentProf = charSpell.getProficiency();
+                                if (currentProf >= 80) {
+                                    out.println(targetSpell.getName() + " is already at " + currentProf + "%. Spells cannot be trained above 80% - you must practice them in use.");
+                                    break;
+                                }
+                                
+                                // Training costs 1 point for +5% proficiency
+                                int newProf = Math.min(80, currentProf + 5);
+                                dao.setCharacterSpellLevel(trainCharId, charSpell.getSpellId(), newProf);
+                                dao.setTalentPoints(trainCharId, talentPoints - 1);
+                                
+                                out.println("You train " + targetSpell.getName() + "!");
+                                out.println("Proficiency increased from " + currentProf + "% to " + newProf + "%.");
+                                out.println("Spent 1 talent point. Remaining: " + (talentPoints - 1));
+                                break;
+                            }
+                            default:
+                                out.println("Unknown training type: " + trainType);
+                                out.println("Usage: TRAIN ABILITY <str|dex|con|int|wis|cha>");
+                                out.println("       TRAIN SKILL <skill_name>");
+                                out.println("       TRAIN SPELL <spell_name>");
+                        }
+                        break;
+                    }
                     case "who": {
                         // WHO - List all connected players
                         out.println();
@@ -2539,7 +2809,7 @@ public class ClientHandler implements Runnable {
                         break;
                     }
                     case "spawn": {
-                        // GM-only: SPAWN ITEM <template_id> [room_id]   or   SPAWN MOB <mob_id> [room_id]
+                        // GM-only: SPAWN ITEM <template_id> [room_id]   or   SPAWN MOB <mob_id> [room_id]   or   SPAWN GOLD <amount>
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
                             out.println("You do not have permission to use spawn.");
                             break;
@@ -2548,12 +2818,14 @@ public class ClientHandler implements Runnable {
                         if (spawnArgs == null || spawnArgs.trim().isEmpty()) {
                             out.println("Usage: SPAWN ITEM <template_id> [room_id]");
                             out.println("       SPAWN MOB <template_id> [room_id]");
+                            out.println("       SPAWN GOLD <amount>");
                             break;
                         }
                         String[] sp = spawnArgs.trim().split("\\s+");
                         if (sp.length < 2) {
                             out.println("Usage: SPAWN ITEM <template_id> [room_id]");
                             out.println("       SPAWN MOB <template_id> [room_id]");
+                            out.println("       SPAWN GOLD <amount>");
                             break;
                         }
                         String spawnType = sp[0].toUpperCase();
@@ -2628,9 +2900,42 @@ public class ClientHandler implements Runnable {
                                 break;
                             }
                             out.println("Spawned " + spawnedMob.getName() + " (instance #" + spawnedMob.getInstanceId() + ") in room " + targetRoomId + ".");
+                        } else if (spawnType.equals("GOLD")) {
+                            // GM gold spawn - gives gold directly to the GM
+                            long amount;
+                            try {
+                                amount = Long.parseLong(sp[1]);
+                            } catch (NumberFormatException e) {
+                                out.println("Invalid gold amount: " + sp[1]);
+                                break;
+                            }
+                            if (amount <= 0) {
+                                out.println("Amount must be a positive number.");
+                                break;
+                            }
+                            // Cap at Long.MAX_VALUE to prevent overflow
+                            long currentGold = dao.getGold(characterId);
+                            long maxAddable = Long.MAX_VALUE - currentGold;
+                            if (amount > maxAddable) {
+                                amount = maxAddable;
+                                out.println("Amount capped to prevent overflow.");
+                            }
+                            if (amount == 0) {
+                                out.println("You already have maximum gold.");
+                                break;
+                            }
+                            boolean success = dao.addGold(characterId, amount);
+                            if (success) {
+                                long newTotal = dao.getGold(characterId);
+                                out.println("Spawned " + amount + " gold. You now have " + newTotal + " gp.");
+                            } else {
+                                out.println("Failed to add gold.");
+                            }
                         } else {
                             out.println("Unknown spawn type: " + spawnType);
                             out.println("Usage: SPAWN ITEM <template_id> [room_id]");
+                            out.println("       SPAWN MOB <template_id> [room_id]");
+                            out.println("       SPAWN GOLD <amount>");
                         }
                         break;
                     }
@@ -3875,6 +4180,409 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
+                    case "list": {
+                        // LIST - show items for sale from shopkeepers in the room
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("You must be in a room to see what's for sale.");
+                            break;
+                        }
+                        
+                        // Find all shopkeeper mobs in the room
+                        MobileDAO mobileDao = new MobileDAO();
+                        ShopDAO shopDao = new ShopDAO();
+                        ItemDAO itemDao = new ItemDAO();
+                        
+                        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                        java.util.List<Integer> shopkeeperTemplateIds = new java.util.ArrayList<>();
+                        
+                        for (Mobile mob : mobsInRoom) {
+                            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
+                                shopkeeperTemplateIds.add(mob.getTemplateId());
+                            }
+                        }
+                        
+                        if (shopkeeperTemplateIds.isEmpty()) {
+                            out.println("There are no shopkeepers here.");
+                            break;
+                        }
+                        
+                        // Get all shops for these shopkeepers
+                        java.util.List<Shop> shops = shopDao.getShopsForMobTemplateIds(shopkeeperTemplateIds);
+                        if (shops.isEmpty()) {
+                            out.println("The shopkeeper has nothing for sale.");
+                            break;
+                        }
+                        
+                        // Get all item IDs available for sale
+                        java.util.Set<Integer> itemIds = shopDao.getAllItemIds(shops);
+                        if (itemIds.isEmpty()) {
+                            out.println("The shopkeeper has nothing for sale.");
+                            break;
+                        }
+                        
+                        // Build list of items with prices
+                        java.util.List<ItemTemplate> itemsForSale = new java.util.ArrayList<>();
+                        for (Integer itemId : itemIds) {
+                            ItemTemplate tmpl = itemDao.getTemplateById(itemId);
+                            if (tmpl != null) {
+                                itemsForSale.add(tmpl);
+                            }
+                        }
+                        
+                        if (itemsForSale.isEmpty()) {
+                            out.println("The shopkeeper has nothing for sale.");
+                            break;
+                        }
+                        
+                        // Sort by price ascending
+                        itemsForSale.sort((item1, item2) -> Integer.compare(item1.value, item2.value));
+                        
+                        out.println("Items for sale:");
+                        for (ItemTemplate item : itemsForSale) {
+                            String itemName = item.name != null ? item.name : "(unnamed)";
+                            out.println(String.format("  %-40s %,d gp", itemName, item.value));
+                        }
+                        break;
+                    }
+                    case "buy": {
+                        // BUY <item> [quantity] - purchase an item from a shopkeeper
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("You must be in a room to buy items.");
+                            break;
+                        }
+                        String buyArgs = cmd.getArgs();
+                        if (buyArgs == null || buyArgs.trim().isEmpty()) {
+                            out.println("Usage: buy <item> [quantity]");
+                            break;
+                        }
+                        
+                        // Parse args: item name and optional quantity
+                        String buyArg = buyArgs.trim();
+                        int quantity = 1;
+                        String itemSearchStr;
+                        
+                        // Check if last word is a number (quantity)
+                        String[] parts = buyArg.split("\\s+");
+                        if (parts.length > 1) {
+                            String lastPart = parts[parts.length - 1];
+                            try {
+                                quantity = Integer.parseInt(lastPart);
+                                if (quantity < 1) quantity = 1;
+                                if (quantity > 100) {
+                                    out.println("You can only buy up to 100 items at once.");
+                                    break;
+                                }
+                                // Reconstruct item name without quantity
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 0; i < parts.length - 1; i++) {
+                                    if (i > 0) sb.append(" ");
+                                    sb.append(parts[i]);
+                                }
+                                itemSearchStr = sb.toString();
+                            } catch (NumberFormatException e) {
+                                itemSearchStr = buyArg;
+                            }
+                        } else {
+                            itemSearchStr = buyArg;
+                        }
+                        
+                        // Find shopkeepers
+                        MobileDAO mobileDao = new MobileDAO();
+                        ShopDAO shopDao = new ShopDAO();
+                        ItemDAO itemDao = new ItemDAO();
+                        
+                        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                        java.util.List<Integer> shopkeeperTemplateIds = new java.util.ArrayList<>();
+                        
+                        for (Mobile mob : mobsInRoom) {
+                            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
+                                shopkeeperTemplateIds.add(mob.getTemplateId());
+                            }
+                        }
+                        
+                        if (shopkeeperTemplateIds.isEmpty()) {
+                            out.println("There are no shopkeepers here.");
+                            break;
+                        }
+                        
+                        java.util.List<Shop> shops = shopDao.getShopsForMobTemplateIds(shopkeeperTemplateIds);
+                        java.util.Set<Integer> availableItemIds = shopDao.getAllItemIds(shops);
+                        
+                        if (availableItemIds.isEmpty()) {
+                            out.println("There is nothing for sale here.");
+                            break;
+                        }
+                        
+                        // Build list of available items for matching
+                        java.util.List<ItemTemplate> availableItems = new java.util.ArrayList<>();
+                        for (Integer itemId : availableItemIds) {
+                            ItemTemplate tmpl = itemDao.getTemplateById(itemId);
+                            if (tmpl != null) {
+                                availableItems.add(tmpl);
+                            }
+                        }
+                        
+                        // Smart match the item by name/keywords
+                        String searchLower = itemSearchStr.toLowerCase();
+                        ItemTemplate matchedItem = null;
+                        
+                        // Priority 1: Exact name match
+                        for (ItemTemplate tmpl : availableItems) {
+                            if (tmpl.name != null && tmpl.name.equalsIgnoreCase(itemSearchStr)) {
+                                matchedItem = tmpl;
+                                break;
+                            }
+                        }
+                        
+                        // Priority 2: Name word match
+                        if (matchedItem == null) {
+                            for (ItemTemplate tmpl : availableItems) {
+                                if (tmpl.name != null) {
+                                    String[] nameWords = tmpl.name.toLowerCase().split("\\s+");
+                                    for (String w : nameWords) {
+                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                            matchedItem = tmpl;
+                                            break;
+                                        }
+                                    }
+                                    if (matchedItem != null) break;
+                                }
+                            }
+                        }
+                        
+                        // Priority 3: Keyword match
+                        if (matchedItem == null) {
+                            for (ItemTemplate tmpl : availableItems) {
+                                if (tmpl.keywords != null) {
+                                    for (String kw : tmpl.keywords) {
+                                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
+                                            matchedItem = tmpl;
+                                            break;
+                                        }
+                                    }
+                                    if (matchedItem != null) break;
+                                }
+                            }
+                        }
+                        
+                        // Priority 4: Name starts with
+                        if (matchedItem == null) {
+                            for (ItemTemplate tmpl : availableItems) {
+                                if (tmpl.name != null && tmpl.name.toLowerCase().startsWith(searchLower)) {
+                                    matchedItem = tmpl;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        // Priority 5: Name contains
+                        if (matchedItem == null) {
+                            for (ItemTemplate tmpl : availableItems) {
+                                if (tmpl.name != null && tmpl.name.toLowerCase().contains(searchLower)) {
+                                    matchedItem = tmpl;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (matchedItem == null) {
+                            out.println("'" + itemSearchStr + "' is not for sale here.");
+                            break;
+                        }
+                        
+                        // Calculate total cost
+                        long totalCost = (long) matchedItem.value * quantity;
+                        
+                        // Check if player has enough gold
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        long playerGold = dao.getGold(charId);
+                        if (playerGold < totalCost) {
+                            out.println("You need " + String.format("%,d", totalCost) + " gp to buy " + 
+                                (quantity > 1 ? quantity + " " + matchedItem.name : matchedItem.name) + 
+                                ", but you only have " + String.format("%,d", playerGold) + " gp.");
+                            break;
+                        }
+                        
+                        // Subtract gold and add items
+                        dao.addGold(charId, -totalCost);
+                        for (int i = 0; i < quantity; i++) {
+                            itemDao.createInstance(matchedItem.id, null, charId);
+                        }
+                        
+                        String itemName = matchedItem.name != null ? matchedItem.name : "an item";
+                        if (quantity == 1) {
+                            out.println("You buy " + itemName + " for " + String.format("%,d", totalCost) + " gp.");
+                        } else {
+                            out.println("You buy " + quantity + " " + itemName + " for " + String.format("%,d", totalCost) + " gp.");
+                        }
+                        break;
+                    }
+                    case "sell": {
+                        // SELL <item> [quantity] - sell an item to a shopkeeper (half value)
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("You must be in a room to sell items.");
+                            break;
+                        }
+                        String sellArgs = cmd.getArgs();
+                        if (sellArgs == null || sellArgs.trim().isEmpty()) {
+                            out.println("Usage: sell <item> [quantity]");
+                            break;
+                        }
+                        
+                        // Parse args: item name and optional quantity
+                        String sellArg = sellArgs.trim();
+                        int quantity = 1;
+                        String itemSearchStr;
+                        
+                        // Check if last word is a number (quantity)
+                        String[] parts = sellArg.split("\\s+");
+                        if (parts.length > 1) {
+                            String lastPart = parts[parts.length - 1];
+                            try {
+                                quantity = Integer.parseInt(lastPart);
+                                if (quantity < 1) quantity = 1;
+                                if (quantity > 100) {
+                                    out.println("You can only sell up to 100 items at once.");
+                                    break;
+                                }
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 0; i < parts.length - 1; i++) {
+                                    if (i > 0) sb.append(" ");
+                                    sb.append(parts[i]);
+                                }
+                                itemSearchStr = sb.toString();
+                            } catch (NumberFormatException e) {
+                                itemSearchStr = sellArg;
+                            }
+                        } else {
+                            itemSearchStr = sellArg;
+                        }
+                        
+                        // Find shopkeepers (must be one present to sell)
+                        MobileDAO mobileDao = new MobileDAO();
+                        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                        boolean hasShopkeeper = false;
+                        
+                        for (Mobile mob : mobsInRoom) {
+                            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
+                                hasShopkeeper = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!hasShopkeeper) {
+                            out.println("There are no shopkeepers here.");
+                            break;
+                        }
+                        
+                        // Get player's inventory
+                        ItemDAO itemDao = new ItemDAO();
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get equipped items to exclude
+                        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+                        java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
+                        for (Long iid : equippedMap.values()) {
+                            if (iid != null) equippedInstanceIds.add(iid);
+                        }
+                        
+                        // Get all items in inventory (not equipped, not in containers)
+                        java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
+                        java.util.List<ItemDAO.RoomItem> inventoryItems = new java.util.ArrayList<>();
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
+                            if (ri.instance.containerInstanceId != null) continue;
+                            inventoryItems.add(ri);
+                        }
+                        
+                        if (inventoryItems.isEmpty()) {
+                            out.println("You have nothing to sell.");
+                            break;
+                        }
+                        
+                        // Smart match the item by name/keywords
+                        String searchLower = itemSearchStr.toLowerCase();
+                        java.util.List<ItemDAO.RoomItem> matchingItems = new java.util.ArrayList<>();
+                        
+                        // Find all items matching the search term
+                        for (ItemDAO.RoomItem ri : inventoryItems) {
+                            boolean match = false;
+                            
+                            // Check name
+                            if (ri.template.name != null) {
+                                String nameLower = ri.template.name.toLowerCase();
+                                if (nameLower.equalsIgnoreCase(itemSearchStr) ||
+                                    nameLower.startsWith(searchLower) ||
+                                    nameLower.contains(searchLower)) {
+                                    match = true;
+                                } else {
+                                    // Check name words
+                                    String[] nameWords = nameLower.split("\\s+");
+                                    for (String w : nameWords) {
+                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                            match = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Check keywords
+                            if (!match && ri.template.keywords != null) {
+                                for (String kw : ri.template.keywords) {
+                                    if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
+                                        match = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (match) {
+                                matchingItems.add(ri);
+                            }
+                        }
+                        
+                        if (matchingItems.isEmpty()) {
+                            out.println("You don't have '" + itemSearchStr + "' to sell.");
+                            break;
+                        }
+                        
+                        // Limit to requested quantity
+                        int actualQuantity = Math.min(quantity, matchingItems.size());
+                        java.util.List<ItemDAO.RoomItem> toSell = matchingItems.subList(0, actualQuantity);
+                        
+                        // Calculate sell value (half of item value, minimum 1)
+                        ItemTemplate soldTemplate = toSell.get(0).template;
+                        int sellPrice = Math.max(1, soldTemplate.value / 2);
+                        long totalGold = (long) sellPrice * actualQuantity;
+                        
+                        // Delete items and add gold
+                        for (ItemDAO.RoomItem ri : toSell) {
+                            itemDao.deleteInstance(ri.instance.instanceId);
+                        }
+                        dao.addGold(charId, totalGold);
+                        
+                        String itemName = soldTemplate.name != null ? soldTemplate.name : "an item";
+                        if (actualQuantity == 1) {
+                            out.println("You sell " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
+                        } else {
+                            out.println("You sell " + actualQuantity + " " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
+                        }
+                        
+                        if (actualQuantity < quantity) {
+                            out.println("(You only had " + actualQuantity + " to sell.)");
+                        }
+                        break;
+                    }
                     case "inventory":
                     case "i": {
                         // INVENTORY - list items in inventory (not equipped, not in containers)
@@ -3911,18 +4619,24 @@ public class ClientHandler implements Runnable {
                             itemNames.add(itemName);
                         }
 
+                        // Get gold amount
+                        long gold = dao.getGold(charId);
+
                         if (itemNames.isEmpty()) {
                             out.println("You are not carrying anything.");
-                            break;
+                        } else {
+                            // Sort alphabetically
+                            java.util.Collections.sort(itemNames, String.CASE_INSENSITIVE_ORDER);
+
+                            out.println("You are carrying:");
+                            for (String n : itemNames) {
+                                out.println("  " + n);
+                            }
                         }
 
-                        // Sort alphabetically
-                        java.util.Collections.sort(itemNames, String.CASE_INSENSITIVE_ORDER);
-
-                        out.println("You are carrying:");
-                        for (String n : itemNames) {
-                            out.println("  " + n);
-                        }
+                        // Always show gold
+                        out.println("");
+                        out.println("Gold: " + gold + " gp");
                         break;
                     }
                     case "score":
@@ -3957,13 +4671,19 @@ public class ClientHandler implements Runnable {
                         ItemDAO itemDao = new ItemDAO();
                         java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
                         
-                        // Calculate ability modifiers (D&D style: (score - 10) / 2)
-                        int strMod = (rec.str - 10) / 2;
-                        int dexMod = (rec.dex - 10) / 2;
-                        int conMod = (rec.con - 10) / 2;
-                        int intMod = (rec.intel - 10) / 2;
-                        int wisMod = (rec.wis - 10) / 2;
-                        int chaMod = (rec.cha - 10) / 2;
+                        // Calculate ability modifiers using totals (base + trained)
+                        int strTotal = rec.getStrTotal();
+                        int dexTotal = rec.getDexTotal();
+                        int conTotal = rec.getConTotal();
+                        int intTotal = rec.getIntTotal();
+                        int wisTotal = rec.getWisTotal();
+                        int chaTotal = rec.getChaTotal();
+                        int strMod = (strTotal - 10) / 2;
+                        int dexMod = (dexTotal - 10) / 2;
+                        int conMod = (conTotal - 10) / 2;
+                        int intMod = (intTotal - 10) / 2;
+                        int wisMod = (wisTotal - 10) / 2;
+                        int chaMod = (chaTotal - 10) / 2;
                         
                         // Build the character sheet
                         StringBuilder sheet = new StringBuilder();
@@ -4005,11 +4725,15 @@ public class ClientHandler implements Runnable {
                         
                         // ═══ ABILITY SCORES ═══
                         sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-                        sheet.append("  [ ABILITY SCORES ]\n");
+                        sheet.append("  [ ABILITY SCORES ]");
+                        if (rec.talentPoints > 0) {
+                            sheet.append("  (").append(rec.talentPoints).append(" Talent Point").append(rec.talentPoints == 1 ? "" : "s").append(")");
+                        }
+                        sheet.append("\n");
                         sheet.append(String.format("  STR: %2d (%+d)    DEX: %2d (%+d)    CON: %2d (%+d)\n",
-                            rec.str, strMod, rec.dex, dexMod, rec.con, conMod));
+                            strTotal, strMod, dexTotal, dexMod, conTotal, conMod));
                         sheet.append(String.format("  INT: %2d (%+d)    WIS: %2d (%+d)    CHA: %2d (%+d)\n",
-                            rec.intel, intMod, rec.wis, wisMod, rec.cha, chaMod));
+                            intTotal, intMod, wisTotal, wisMod, chaTotal, chaMod));
                         
                         // ═══ SAVES & DEFENSES ═══
                         sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
@@ -4863,6 +5587,15 @@ public class ClientHandler implements Runnable {
         if (s == null) return "";
         if (s.length() <= maxLen) return s;
         return s.substring(0, maxLen - 3) + "...";
+    }
+
+    /**
+     * Format the talent point cost to train an ability from its current total.
+     */
+    private static String formatTrainCost(int currentTotal) {
+        int cost = CharacterDAO.getAbilityTrainingCost(currentTotal);
+        if (cost < 0) return "MAX";
+        return cost + " pt" + (cost == 1 ? "" : "s");
     }
 
     /**

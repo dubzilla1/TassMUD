@@ -327,6 +327,23 @@ public class ItemDAO {
         }
         return -1;
     }
+
+    /**
+     * Delete an item instance from the game world.
+     * @param instanceId The instance ID to delete
+     * @return true if deleted, false otherwise
+     */
+    public boolean deleteInstance(long instanceId) {
+        String sql = "DELETE FROM item_instance WHERE instance_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, instanceId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("[ItemDAO] Failed to delete instance " + instanceId + ": " + e.getMessage());
+            return false;
+        }
+    }
     
     /**
      * Delete all empty corpses (corpses with no items inside) from a specific room.

@@ -499,3 +499,1097 @@
   gold_min: 0
   gold_max: 2
   respawn_seconds: 120
+
+# ============================================================================
+# MIDGAARD CITY NPCs (IDs 600-799)
+# ============================================================================
+
+# --- CITY GUARDS (600-609) - High level, discourage player violence ---
+
+- id: 600
+  key: midgaard_guard
+  name: "A Midgaard Guard"
+  short_desc: "A Midgaard guard patrols the streets."
+  long_desc: "This guard wears polished chainmail emblazoned with the crest of Midgaard - a silver tower on blue. They carry a well-maintained longsword and watch the streets with practiced vigilance."
+  keywords: [guard, soldier, watchman, midgaard]
+  level: 25
+  hp_max: 350
+  mp_max: 0
+  mv_max: 100
+  str: 18
+  dex: 14
+  con: 18
+  intel: 12
+  wis: 14
+  cha: 12
+  armor: 20
+  fortitude: 8
+  reflex: 5
+  will: 5
+  base_damage: 12
+  damage_bonus: 6
+  attack_bonus: 12
+  behaviors: [GUARD, ASSISTS, WANDERER]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 120
+
+- id: 601
+  key: midgaard_sergeant
+  name: "A Guard Sergeant"
+  short_desc: "A grizzled guard sergeant surveys the area."
+  long_desc: "This veteran guard wears sergeant's stripes on their shoulder. Scars on their arms speak of years of service, and their stern gaze misses nothing."
+  keywords: [guard, sergeant, soldier, watchman]
+  level: 30
+  hp_max: 500
+  mp_max: 0
+  mv_max: 100
+  str: 20
+  dex: 14
+  con: 20
+  intel: 14
+  wis: 16
+  cha: 14
+  armor: 22
+  fortitude: 10
+  reflex: 6
+  will: 7
+  base_damage: 14
+  damage_bonus: 8
+  attack_bonus: 15
+  behaviors: [GUARD, SENTINEL, ASSISTS]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 180
+
+- id: 602
+  key: gate_guard
+  name: "A Gate Guard"
+  short_desc: "A heavily armored gate guard stands watch."
+  long_desc: "This imposing guard wears full plate armor and carries a massive halberd. They stand at perfect attention, eyes scanning all who enter or leave."
+  keywords: [guard, gate, soldier, watchman]
+  level: 28
+  hp_max: 450
+  mp_max: 0
+  mv_max: 80
+  str: 20
+  dex: 12
+  con: 20
+  intel: 12
+  wis: 14
+  cha: 10
+  armor: 24
+  fortitude: 10
+  reflex: 4
+  will: 6
+  base_damage: 14
+  damage_bonus: 8
+  attack_bonus: 14
+  behaviors: [GUARD, SENTINEL, ASSISTS]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 120
+
+# --- VENDORS (610-639) - Immobile shopkeepers ---
+
+- id: 610
+  key: baker
+  name: "Marta the Baker"
+  short_desc: "Marta the baker arranges fresh loaves on display."
+  long_desc: "A plump, cheerful woman with flour-dusted hands and a warm smile. Her apron is stained with the evidence of countless baked goods, and the smell of fresh bread clings to her."
+  keywords: [baker, marta, woman, vendor, shopkeeper]
+  level: 5
+  hp_max: 40
+  mp_max: 0
+  mv_max: 100
+  str: 12
+  dex: 10
+  con: 14
+  intel: 12
+  wis: 12
+  cha: 16
+  armor: 10
+  fortitude: 2
+  reflex: 1
+  will: 2
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 611
+  key: apothecary
+  name: "Aldric the Apothecary"
+  short_desc: "Aldric carefully measures ingredients behind the counter."
+  long_desc: "A thin, bespectacled man with stained fingers and an intense gaze. Bottles and vials crowd the shelves behind him, each labeled in cramped handwriting."
+  keywords: [apothecary, aldric, man, vendor, shopkeeper, alchemist]
+  level: 8
+  hp_max: 35
+  mp_max: 40
+  mv_max: 80
+  str: 8
+  dex: 14
+  con: 10
+  intel: 18
+  wis: 16
+  cha: 10
+  armor: 10
+  fortitude: 1
+  reflex: 2
+  will: 4
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 612
+  key: blacksmith
+  name: "Torgin the Blacksmith"
+  short_desc: "Torgin pounds metal at his forge."
+  long_desc: "A massively muscled dwarf with soot-blackened arms and a beard carefully tucked away from the flames. Sweat glistens on his brow as he works the metal."
+  keywords: [blacksmith, torgin, dwarf, vendor, shopkeeper, smith]
+  level: 10
+  hp_max: 80
+  mp_max: 0
+  mv_max: 80
+  str: 20
+  dex: 12
+  con: 18
+  intel: 12
+  wis: 12
+  cha: 10
+  armor: 14
+  fortitude: 5
+  reflex: 2
+  will: 3
+  base_damage: 10
+  damage_bonus: 4
+  attack_bonus: 4
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 613
+  key: tailor
+  name: "Elise the Tailor"
+  short_desc: "Elise examines a bolt of fine silk."
+  long_desc: "An elegant elven woman with nimble fingers and an eye for fashion. Her own clothes are impeccably made, a walking advertisement for her craft."
+  keywords: [tailor, elise, elf, woman, vendor, shopkeeper, clothier]
+  level: 6
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 8
+  dex: 16
+  con: 10
+  intel: 14
+  wis: 14
+  cha: 16
+  armor: 10
+  fortitude: 1
+  reflex: 3
+  will: 3
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 614
+  key: innkeeper
+  name: "Brom the Innkeeper"
+  short_desc: "Brom wipes down the bar with a practiced hand."
+  long_desc: "A burly, jovial man with a booming laugh and arms like tree trunks. He runs the Mead-Gaard Inn with an iron fist wrapped in velvet hospitality."
+  keywords: [innkeeper, brom, man, vendor, shopkeeper, bartender]
+  level: 8
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 16
+  dex: 12
+  con: 16
+  intel: 12
+  wis: 14
+  cha: 16
+  armor: 12
+  fortitude: 4
+  reflex: 2
+  will: 3
+  base_damage: 8
+  damage_bonus: 2
+  attack_bonus: 3
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 615
+  key: stablemaster
+  name: "Old Gareth"
+  short_desc: "Old Gareth brushes down a mare."
+  long_desc: "A weathered old man with a permanent stoop from years of working with horses. His gentle hands and soft voice calm even the most skittish animals."
+  keywords: [stablemaster, gareth, man, vendor, stable, old]
+  level: 5
+  hp_max: 35
+  mp_max: 0
+  mv_max: 60
+  str: 10
+  dex: 10
+  con: 12
+  intel: 10
+  wis: 16
+  cha: 14
+  armor: 10
+  fortitude: 2
+  reflex: 1
+  will: 3
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 616
+  key: jeweler
+  name: "Silvana the Jeweler"
+  short_desc: "Silvana peers at a gem through a loupe."
+  long_desc: "A refined gnomish woman with spectacles perched on her nose. Every movement is precise, every tool perfectly positioned on her velvet-lined workbench."
+  keywords: [jeweler, silvana, gnome, woman, vendor, shopkeeper]
+  level: 7
+  hp_max: 25
+  mp_max: 0
+  mv_max: 80
+  str: 6
+  dex: 18
+  con: 8
+  intel: 16
+  wis: 14
+  cha: 14
+  armor: 10
+  fortitude: 1
+  reflex: 4
+  will: 3
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 617
+  key: scribe
+  name: "Erasmus the Scribe"
+  short_desc: "Erasmus scratches away at a parchment."
+  long_desc: "A thin, bespectacled man hunched over his desk. Ink stains his fingers and a permanent squint marks years of close work. Stacks of scrolls and books surround him."
+  keywords: [scribe, erasmus, man, vendor, shopkeeper]
+  level: 6
+  hp_max: 25
+  mp_max: 30
+  mv_max: 60
+  str: 8
+  dex: 14
+  con: 10
+  intel: 18
+  wis: 16
+  cha: 10
+  armor: 10
+  fortitude: 1
+  reflex: 2
+  will: 4
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 618
+  key: temple_priest
+  name: "Father Aldwyn"
+  short_desc: "Father Aldwyn tends to the altar candles."
+  long_desc: "A kindly old priest with silver hair and gentle eyes. His white robes are simple but immaculate, and he radiates an aura of peace and healing."
+  keywords: [priest, father, aldwyn, healer, temple, cleric]
+  level: 15
+  hp_max: 80
+  mp_max: 150
+  mv_max: 80
+  str: 10
+  dex: 10
+  con: 12
+  intel: 16
+  wis: 20
+  cha: 18
+  armor: 12
+  fortitude: 4
+  reflex: 2
+  will: 8
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [HEALER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 619
+  key: armorer
+  name: "Bruno the Armorer"
+  short_desc: "Bruno adjusts a suit of chainmail on a stand."
+  long_desc: "A broad-shouldered man with arms like a wrestler. His shop is filled with armor of all types, from simple leather to gleaming plate."
+  keywords: [armorer, bruno, man, vendor, shopkeeper]
+  level: 8
+  hp_max: 70
+  mp_max: 0
+  mv_max: 80
+  str: 18
+  dex: 12
+  con: 16
+  intel: 12
+  wis: 12
+  cha: 10
+  armor: 16
+  fortitude: 4
+  reflex: 2
+  will: 2
+  base_damage: 8
+  damage_bonus: 3
+  attack_bonus: 3
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 620
+  key: mage_vendor
+  name: "Magister Vorn"
+  short_desc: "Magister Vorn studies a glowing crystal."
+  long_desc: "A middle-aged wizard in dark blue robes embroidered with silver stars. His eyes hold a distant look, as if seeing things beyond normal perception."
+  keywords: [magister, vorn, wizard, mage, vendor, shopkeeper]
+  level: 18
+  hp_max: 60
+  mp_max: 200
+  mv_max: 80
+  str: 8
+  dex: 12
+  con: 10
+  intel: 22
+  wis: 18
+  cha: 12
+  armor: 14
+  fortitude: 2
+  reflex: 3
+  will: 10
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [SHOPKEEPER, SENTINEL]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+# --- WANDERING CITIZENS (640-669) ---
+
+- id: 640
+  key: merchant
+  name: "A Traveling Merchant"
+  short_desc: "A merchant hurries by with a heavy pack."
+  long_desc: "This merchant carries a pack bulging with goods. They walk with purpose, mentally calculating profits and losses as they navigate the busy streets."
+  keywords: [merchant, trader, man]
+  level: 4
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 12
+  dex: 12
+  con: 12
+  intel: 14
+  wis: 12
+  cha: 14
+  armor: 10
+  fortitude: 2
+  reflex: 2
+  will: 2
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 5
+  gold_max: 20
+  respawn_seconds: 120
+
+- id: 641
+  key: city_woman
+  name: "A Townswoman"
+  short_desc: "A townswoman goes about her daily errands."
+  long_desc: "A middle-aged woman in a simple dress carries a basket of vegetables. She nods politely to passersby while hurrying to complete her shopping."
+  keywords: [woman, townswoman, citizen, lady]
+  level: 2
+  hp_max: 18
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 12
+  con: 10
+  intel: 12
+  wis: 12
+  cha: 12
+  armor: 10
+  fortitude: 1
+  reflex: 1
+  will: 1
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 1
+  gold_max: 5
+  respawn_seconds: 120
+
+- id: 642
+  key: city_man
+  name: "A Townsman"
+  short_desc: "A townsman walks purposefully down the street."
+  long_desc: "A working man in simple clothes, his hands calloused from honest labor. He tips his cap politely but keeps moving, places to be and work to do."
+  keywords: [man, townsman, citizen, worker]
+  level: 3
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 14
+  dex: 12
+  con: 12
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 2
+  reflex: 1
+  will: 1
+  base_damage: 4
+  damage_bonus: 1
+  attack_bonus: 1
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 2
+  gold_max: 8
+  respawn_seconds: 120
+
+- id: 643
+  key: servant
+  name: "A Servant"
+  short_desc: "A servant hurries past with an armload of linens."
+  long_desc: "Dressed in the simple uniform of household staff, this young person moves quickly between buildings, carrying out the endless tasks of maintaining a great house."
+  keywords: [servant, maid, worker]
+  level: 2
+  hp_max: 15
+  mp_max: 0
+  mv_max: 120
+  str: 10
+  dex: 14
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 1
+  reflex: 2
+  will: 1
+  base_damage: 2
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 3
+  respawn_seconds: 120
+
+- id: 644
+  key: craftsman
+  name: "A Craftsman"
+  short_desc: "A craftsman carries tools of their trade."
+  long_desc: "Wood shavings cling to their clothes and a leather tool belt hangs at their waist. This artisan moves with the confidence of skilled hands."
+  keywords: [craftsman, artisan, worker, carpenter]
+  level: 4
+  hp_max: 35
+  mp_max: 0
+  mv_max: 100
+  str: 14
+  dex: 14
+  con: 12
+  intel: 12
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 2
+  reflex: 2
+  will: 1
+  base_damage: 5
+  damage_bonus: 1
+  attack_bonus: 1
+  behaviors: [WANDERER, DEFENSIVE]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 3
+  gold_max: 12
+  respawn_seconds: 120
+
+- id: 645
+  key: noble
+  name: "A Minor Noble"
+  short_desc: "A finely dressed noble strolls past."
+  long_desc: "This person's expensive clothes and haughty bearing mark them as someone of wealth and status. A servant trails behind carrying their parcels."
+  keywords: [noble, lord, lady, aristocrat]
+  level: 5
+  hp_max: 30
+  mp_max: 0
+  mv_max: 80
+  str: 10
+  dex: 12
+  con: 10
+  intel: 14
+  wis: 12
+  cha: 16
+  armor: 12
+  fortitude: 2
+  reflex: 2
+  will: 3
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 1
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 20
+  gold_max: 50
+  respawn_seconds: 180
+
+- id: 646
+  key: farmer
+  name: "A Farmer"
+  short_desc: "A sunburned farmer leads a laden donkey."
+  long_desc: "Weathered by sun and wind, this farmer brings produce to market. Their donkey is loaded with baskets of vegetables and sacks of grain."
+  keywords: [farmer, peasant, man]
+  level: 3
+  hp_max: 28
+  mp_max: 0
+  mv_max: 80
+  str: 14
+  dex: 10
+  con: 14
+  intel: 10
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 3
+  reflex: 1
+  will: 2
+  base_damage: 4
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 2
+  gold_max: 10
+  respawn_seconds: 120
+
+- id: 647
+  key: sailor
+  name: "A Sailor"
+  short_desc: "A rough-looking sailor weaves through the crowd."
+  long_desc: "This sailor's rolling gait and sun-bleached hair speak of long months at sea. Tattoos cover their forearms, and they smell faintly of salt and rope."
+  keywords: [sailor, seaman, mariner]
+  level: 5
+  hp_max: 40
+  mp_max: 0
+  mv_max: 100
+  str: 14
+  dex: 14
+  con: 14
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 12
+  fortitude: 3
+  reflex: 2
+  will: 1
+  base_damage: 6
+  damage_bonus: 2
+  attack_bonus: 2
+  behaviors: [WANDERER, DEFENSIVE]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 5
+  gold_max: 15
+  respawn_seconds: 120
+
+- id: 648
+  key: bard
+  name: "A Wandering Bard"
+  short_desc: "A bard strums a lute while walking."
+  long_desc: "Colorful clothes and a ready smile mark this traveling entertainer. They hum a tune while walking, occasionally breaking into song."
+  keywords: [bard, minstrel, musician, singer]
+  level: 6
+  hp_max: 35
+  mp_max: 40
+  mv_max: 100
+  str: 10
+  dex: 14
+  con: 10
+  intel: 14
+  wis: 12
+  cha: 18
+  armor: 12
+  fortitude: 1
+  reflex: 3
+  will: 3
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 1
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 3
+  gold_max: 15
+  respawn_seconds: 180
+
+- id: 649
+  key: drunk
+  name: "A Drunken Reveler"
+  short_desc: "A drunk staggers about, singing off-key."
+  long_desc: "This unfortunate soul has clearly had too much to drink. They sway unsteadily, clutching a half-empty bottle and singing fragments of bawdy songs."
+  keywords: [drunk, reveler, man]
+  level: 2
+  hp_max: 20
+  mp_max: 0
+  mv_max: 60
+  str: 12
+  dex: 6
+  con: 14
+  intel: 10
+  wis: 6
+  cha: 8
+  armor: 10
+  fortitude: 2
+  reflex: -1
+  will: 0
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: -1
+  behaviors: [WANDERER]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 5
+  respawn_seconds: 120
+
+- id: 650
+  key: courier
+  name: "A City Courier"
+  short_desc: "A young courier dashes past with urgent messages."
+  long_desc: "This nimble youth wears the badge of the courier's guild. A satchel of letters bounces at their hip as they hurry to their next delivery."
+  keywords: [courier, messenger, runner]
+  level: 3
+  hp_max: 22
+  mp_max: 0
+  mv_max: 140
+  str: 10
+  dex: 16
+  con: 12
+  intel: 12
+  wis: 10
+  cha: 12
+  armor: 12
+  fortitude: 1
+  reflex: 4
+  will: 1
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 1
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 1
+  gold_max: 5
+  respawn_seconds: 120
+
+- id: 651
+  key: street_sweeper
+  name: "A Street Sweeper"
+  short_desc: "A street sweeper methodically cleans the cobblestones."
+  long_desc: "Armed with a broom and cart, this city worker slowly makes their way down the street, collecting refuse and keeping Midgaard tidy."
+  keywords: [sweeper, cleaner, worker]
+  level: 2
+  hp_max: 20
+  mp_max: 0
+  mv_max: 60
+  str: 12
+  dex: 10
+  con: 12
+  intel: 8
+  wis: 10
+  cha: 8
+  armor: 10
+  fortitude: 2
+  reflex: 1
+  will: 1
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [WANDERER]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 2
+  respawn_seconds: 120
+
+# --- CHILDREN (670-679) ---
+
+- id: 670
+  key: street_child
+  name: "A Street Urchin"
+  short_desc: "A grubby street urchin darts through the crowd."
+  long_desc: "This quick-fingered child weaves between adults with practiced ease. Their clothes are patched and dirty, but their eyes are bright and alert."
+  keywords: [child, urchin, kid, boy, girl]
+  level: 1
+  hp_max: 10
+  mp_max: 0
+  mv_max: 140
+  str: 6
+  dex: 16
+  con: 8
+  intel: 12
+  wis: 8
+  cha: 10
+  armor: 12
+  fortitude: 0
+  reflex: 4
+  will: 0
+  base_damage: 2
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [WANDERER, THIEF, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 3
+  respawn_seconds: 120
+
+- id: 671
+  key: playing_child
+  name: "A Playing Child"
+  short_desc: "A child plays with a wooden toy."
+  long_desc: "A young child sits on the ground, deeply absorbed in making a wooden horse gallop and neigh. Sticky candy smears their cheerful face."
+  keywords: [child, kid, boy, girl]
+  level: 1
+  hp_max: 8
+  mp_max: 0
+  mv_max: 120
+  str: 6
+  dex: 14
+  con: 8
+  intel: 10
+  wis: 8
+  cha: 14
+  armor: 10
+  fortitude: 0
+  reflex: 2
+  will: 0
+  base_damage: 1
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 1
+  respawn_seconds: 120
+
+- id: 672
+  key: apprentice_child
+  name: "A Craftsman's Apprentice"
+  short_desc: "A young apprentice carries materials for their master."
+  long_desc: "This young person struggles under the weight of supplies, eager to prove themselves worthy of learning a trade. Sawdust and ink stain their hands."
+  keywords: [apprentice, child, kid, youth]
+  level: 2
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 12
+  con: 10
+  intel: 12
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 1
+  reflex: 1
+  will: 1
+  base_damage: 2
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 2
+  respawn_seconds: 120
+
+# --- NE'ER-DO-WELLS (680-699) ---
+
+- id: 680
+  key: pickpocket
+  name: "A Pickpocket"
+  short_desc: "A shifty figure loiters near the crowd."
+  long_desc: "This unremarkable-looking person moves through the crowd with practiced ease. Their eyes constantly scan for easy marks and their fingers twitch with anticipation."
+  keywords: [pickpocket, thief, cutpurse]
+  level: 5
+  hp_max: 32
+  mp_max: 0
+  mv_max: 120
+  str: 10
+  dex: 18
+  con: 10
+  intel: 14
+  wis: 12
+  cha: 12
+  armor: 14
+  fortitude: 1
+  reflex: 5
+  will: 2
+  base_damage: 5
+  damage_bonus: 1
+  attack_bonus: 3
+  behaviors: [THIEF, WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 25
+  gold_min: 10
+  gold_max: 40
+  respawn_seconds: 300
+
+- id: 681
+  key: vagrant
+  name: "A Vagrant"
+  short_desc: "A dirty vagrant huddles in the shadows."
+  long_desc: "Wrapped in rags and smelling of stale alcohol, this vagrant has clearly fallen on hard times. They mutter to themselves and eye passersby with a mix of hope and resentment."
+  keywords: [vagrant, homeless, bum]
+  level: 2
+  hp_max: 18
+  mp_max: 0
+  mv_max: 60
+  str: 10
+  dex: 10
+  con: 12
+  intel: 10
+  wis: 8
+  cha: 6
+  armor: 10
+  fortitude: 2
+  reflex: 1
+  will: 0
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [BEGGAR, WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 1
+  respawn_seconds: 120
+
+- id: 682
+  key: shady_dealer
+  name: "A Shady Dealer"
+  short_desc: "A cloaked figure whispers, 'Psst, interested in some wares?'"
+  long_desc: "This suspicious character lurks in the shadows, coat bulging with hidden pockets. They approach potential customers with a conspiratorial whisper."
+  keywords: [dealer, fence, shady, criminal]
+  level: 6
+  hp_max: 38
+  mp_max: 0
+  mv_max: 100
+  str: 12
+  dex: 16
+  con: 12
+  intel: 14
+  wis: 12
+  cha: 14
+  armor: 14
+  fortitude: 2
+  reflex: 4
+  will: 2
+  base_damage: 6
+  damage_bonus: 1
+  attack_bonus: 3
+  behaviors: [THIEF, WANDERER]
+  aggro_range: 0
+  experience_value: 35
+  gold_min: 15
+  gold_max: 50
+  respawn_seconds: 300
+
+- id: 683
+  key: con_artist
+  name: "A Smooth-Talking Stranger"
+  short_desc: "A well-dressed stranger flashes a winning smile."
+  long_desc: "Impeccably dressed and oozing charm, this individual seems a bit too eager to make your acquaintance. Their smile doesn't quite reach their calculating eyes."
+  keywords: [stranger, con, artist, swindler]
+  level: 5
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 14
+  con: 10
+  intel: 16
+  wis: 14
+  cha: 18
+  armor: 12
+  fortitude: 1
+  reflex: 3
+  will: 3
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 2
+  behaviors: [THIEF, WANDERER]
+  aggro_range: 0
+  experience_value: 30
+  gold_min: 10
+  gold_max: 30
+  respawn_seconds: 300
+
+- id: 684
+  key: tough_guy
+  name: "A Street Tough"
+  short_desc: "A scarred tough glares at passersby."
+  long_desc: "This muscular individual is covered in scars and crude tattoos. They lean against a wall, cracking their knuckles and sizing up everyone who passes."
+  keywords: [tough, thug, brute]
+  level: 7
+  hp_max: 55
+  mp_max: 0
+  mv_max: 100
+  str: 16
+  dex: 12
+  con: 16
+  intel: 8
+  wis: 10
+  cha: 8
+  armor: 14
+  fortitude: 4
+  reflex: 2
+  will: 1
+  base_damage: 8
+  damage_bonus: 3
+  attack_bonus: 4
+  behaviors: [AGGRESSIVE, WANDERER]
+  aggro_range: 0
+  experience_value: 50
+  gold_min: 5
+  gold_max: 20
+  respawn_seconds: 300
+
+- id: 685
+  key: gambler
+  name: "A Dice-Rolling Gambler"
+  short_desc: "A gambler rattles dice invitingly."
+  long_desc: "This flashy individual wears gaudy rings and a knowing smirk. They constantly roll a pair of dice between their fingers, eyes scanning for the next mark."
+  keywords: [gambler, dice, man]
+  level: 4
+  hp_max: 28
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 16
+  con: 10
+  intel: 14
+  wis: 12
+  cha: 14
+  armor: 12
+  fortitude: 1
+  reflex: 3
+  will: 2
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 2
+  behaviors: [THIEF, WANDERER]
+  aggro_range: 0
+  experience_value: 20
+  gold_min: 8
+  gold_max: 35
+  respawn_seconds: 240
+
+- id: 686
+  key: gang_lookout
+  name: "A Nervous Lookout"
+  short_desc: "A nervous youth keeps watch from the shadows."
+  long_desc: "This young person peers around corners with darting eyes, clearly standing watch for someone. They whistle a nervous tune between glances."
+  keywords: [lookout, youth, kid, watcher]
+  level: 3
+  hp_max: 22
+  mp_max: 0
+  mv_max: 140
+  str: 10
+  dex: 16
+  con: 10
+  intel: 12
+  wis: 12
+  cha: 10
+  armor: 12
+  fortitude: 1
+  reflex: 4
+  will: 1
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 2
+  behaviors: [WANDERER, COWARDLY]
+  aggro_range: 0
+  experience_value: 15
+  gold_min: 2
+  gold_max: 8
+  respawn_seconds: 240

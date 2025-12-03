@@ -56,6 +56,12 @@ public class CommandRegistry {
         register("equip", "Equip an item from your inventory", Category.ITEMS, List.of("wear"));
         register("remove", "Remove an equipped item", Category.ITEMS, List.of("dequip"));
         
+        // ===== SHOP COMMANDS =====
+        // Shop commands require a shopkeeper in the room
+        register("list", "List items for sale from shopkeepers in the room", Category.ITEMS);
+        register("buy", "Buy an item from a shopkeeper", Category.ITEMS);
+        register("sell", "Sell an item to a shopkeeper", Category.ITEMS);
+        
         // ===== COMBAT & SKILLS =====
         // All combat commands allowed in combat
         registerCombat("kill", "Attack a target and initiate combat", Category.COMBAT, List.of("k", "attack", "fight"));
@@ -72,6 +78,7 @@ public class CommandRegistry {
         register("prompt", "Configure your prompt display", Category.SYSTEM);
         register("motd", "Display the message of the day", Category.SYSTEM);
         registerCombat("quit", "Exit the game", Category.SYSTEM);
+        register("train", "Spend talent points to improve abilities, skills, or spells", Category.SYSTEM);
         
         // ===== GM COMMANDS =====
         // All GM commands allowed in combat (GMs need full control)

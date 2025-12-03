@@ -1,13 +1,17 @@
 param(
     [switch]$NoBuild,
+    [switch]$Clean,
     [int]$Port = 4003
 )
 
 try {
 
-# Also check for --nobuild in $args for unix-style flag
+# Also check for --nobuild and --clean in $args for unix-style flags
 if ($args -contains "--nobuild") {
     $NoBuild = $true
+}
+if ($args -contains "--clean") {
+    $Clean = $true
 }
 
 # 1) Stop existing TassMUD java processes (match jar name, command-line or port)
@@ -96,8 +100,13 @@ if ($busy) {
 
 # 2) Optionally build
 if (-not $NoBuild) {
-    Write-Host "Running Maven build (skip tests)..."
-    mvn -DskipTests package
+    if ($Clean) {
+        Write-Host "Running Maven clean build (skip tests)..."
+        mvn -DskipTests clean package
+    } else {
+        Write-Host "Running Maven build (skip tests)..."
+        mvn -DskipTests package
+    }
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Maven build failed (exit code $LASTEXITCODE). Aborting."
         exit $LASTEXITCODE
@@ -108,7 +117,7 @@ if (-not $NoBuild) {
 
 # 3) Start the server
 Write-Host "Starting TassMUD server..."
-$jarPath = "target\tass-mud-0.1.0-shaded.jar"
+$jarPath = "target\tass-mud-0.1.0.jar"
 if (-not (Test-Path $jarPath)) {
     Write-Error "Jar not found at $jarPath. Did the build succeed?"
     exit 1

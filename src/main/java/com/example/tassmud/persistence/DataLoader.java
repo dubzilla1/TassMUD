@@ -56,6 +56,12 @@ public class DataLoader {
         } catch (Exception e) {
             System.err.println("Failed to load mobiles.yaml: " + e.getMessage());
         }
+        // Load shop menus from YAML resource
+        try {
+            ShopDAO.loadFromYamlResource("/data/shops.yaml");
+        } catch (Exception e) {
+            System.err.println("Failed to load shops.yaml: " + e.getMessage());
+        }
         // Spawn permanent room items (e.g., tutorial containers)
         if (itemDao != null) {
             spawnPermanentRoomItems(itemDao);

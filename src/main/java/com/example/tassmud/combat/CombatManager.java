@@ -512,6 +512,9 @@ public class CombatManager {
             
             // Award XP to the killer if they are a player
             awardExperienceOnKill(killer, victim);
+            
+            // Award gold to the killer if they are a player
+            awardGoldOnKill(killer, victim);
         }
         
         // Award weapon skill proficiency to the killer if they are a player
@@ -579,6 +582,41 @@ public class CombatManager {
             final int charId = characterId;
             classDAO.processLevelUp(characterId, newLevel, msg -> sendToPlayer(charId, msg));
         }
+    }
+
+    /**
+     * Award gold pieces to a player when they kill a mob.
+     * 
+     * Formula: Random(1-10) * level^1.5
+     * This gives roughly:
+     * - Level 1: 1-10 gold
+     * - Level 10: 32-316 gold  
+     * - Level 50: 354-3,536 gold
+     */
+    private void awardGoldOnKill(Combatant killer, Combatant victim) {
+        if (!killer.isPlayer() || killer.getCharacterId() == null) {
+            return; // Only players gain gold
+        }
+        if (!victim.isMobile() || victim.getMobile() == null) {
+            return; // Only mob kills award gold
+        }
+        
+        int characterId = killer.getCharacterId();
+        int mobLevel = Math.max(1, victim.getMobile().getLevel()); // Ensure at least level 1
+        
+        // Random base between 1-10
+        java.util.Random rand = new java.util.Random();
+        int baseGold = rand.nextInt(10) + 1; // 1-10
+        
+        // Scale by level^1.5 to get exponential growth
+        double scaledGold = baseGold * Math.pow(mobLevel, 1.5);
+        long goldAwarded = Math.max(1, Math.round(scaledGold));
+        
+        // Award the gold
+        CharacterDAO dao = new CharacterDAO();
+        dao.addGold(characterId, goldAwarded);
+        
+        sendToPlayer(characterId, "You receive " + goldAwarded + " gold.");
     }
     
     /**

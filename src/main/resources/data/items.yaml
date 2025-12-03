@@ -1275,6 +1275,567 @@ items:
     magical: false
 
   # ============================================================
+  # FOOD & DRINK (IDs 500-549)
+  # Consumables that restore hunger/thirst (effects not yet implemented)
+  # ============================================================
+  
+  # --- Baked Goods (Baker: Marta) ---
+  - id: 500
+    key: bread_loaf
+    name: Loaf of Bread
+    description: A fresh loaf of crusty bread, still warm from the oven.
+    keywords: [bread, loaf, food]
+    weight: 0.5
+    value: 2
+    type: inventory
+
+  - id: 501
+    key: honey_roll
+    name: Honey Roll
+    description: A sweet roll glazed with golden honey.
+    keywords: [roll, honey, sweet, pastry, food]
+    weight: 0.2
+    value: 3
+    type: inventory
+
+  - id: 502
+    key: meat_pie
+    name: Meat Pie
+    description: A savory pie filled with seasoned ground meat and vegetables.
+    keywords: [pie, meat, food]
+    weight: 0.4
+    value: 5
+    type: inventory
+
+  - id: 503
+    key: fruit_tart
+    name: Fruit Tart
+    description: A flaky pastry shell filled with glazed fruits.
+    keywords: [tart, fruit, pastry, sweet, food]
+    weight: 0.3
+    value: 4
+    type: inventory
+
+  - id: 504
+    key: cheese_biscuit
+    name: Cheese Biscuit
+    description: A flaky biscuit with sharp cheese baked inside.
+    keywords: [biscuit, cheese, food]
+    weight: 0.2
+    value: 2
+    type: inventory
+
+  - id: 505
+    key: travelers_ration
+    name: Traveler's Ration
+    description: A package of dried bread, cheese, and salted meat. Perfect for long journeys.
+    keywords: [ration, travel, food]
+    weight: 1.0
+    value: 8
+    type: inventory
+
+  # --- Inn Food & Drinks (Innkeeper: Brom) ---
+  - id: 510
+    key: mead_mug
+    name: Mug of Mead
+    description: A frothy mug of the inn's famous honey mead.
+    keywords: [mead, mug, drink, alcohol]
+    weight: 0.5
+    value: 3
+    type: inventory
+
+  - id: 511
+    key: ale_tankard
+    name: Tankard of Ale
+    description: A hearty tankard of dark ale with a creamy head.
+    keywords: [ale, tankard, drink, alcohol, beer]
+    weight: 0.5
+    value: 2
+    type: inventory
+
+  - id: 512
+    key: wine_goblet
+    name: Goblet of Wine
+    description: A goblet of fine red wine from southern vineyards.
+    keywords: [wine, goblet, drink, alcohol]
+    weight: 0.4
+    value: 5
+    type: inventory
+
+  - id: 513
+    key: water_flask
+    name: Flask of Water
+    description: A flask of clean, fresh water.
+    keywords: [water, flask, drink]
+    weight: 0.5
+    value: 1
+    type: inventory
+
+  - id: 514
+    key: stew_bowl
+    name: Bowl of Hearty Stew
+    description: A steaming bowl of thick stew with chunks of meat and vegetables.
+    keywords: [stew, bowl, food]
+    weight: 0.6
+    value: 6
+    type: inventory
+
+  - id: 515
+    key: roast_chicken
+    name: Roast Chicken
+    description: A whole roasted chicken, crispy on the outside and juicy within.
+    keywords: [chicken, roast, food, meat]
+    weight: 1.0
+    value: 10
+    type: inventory
+
+  - id: 516
+    key: cheese_wheel
+    name: Wheel of Cheese
+    description: A small wheel of aged yellow cheese.
+    keywords: [cheese, wheel, food]
+    weight: 0.8
+    value: 8
+    type: inventory
+
+  - id: 517
+    key: apple
+    name: Fresh Apple
+    description: A crisp red apple, perfect for a quick snack.
+    keywords: [apple, fruit, food]
+    weight: 0.2
+    value: 1
+    type: inventory
+
+  # ============================================================
+  # POTIONS (IDs 550-599)
+  # Consumables with magical effects (effects not yet implemented)
+  # ============================================================
+
+  # --- Basic Potions (Apothecary: Aldric) ---
+  - id: 550
+    key: potion_healing_minor
+    name: Minor Healing Potion
+    description: A small vial of red liquid that mends minor wounds.
+    keywords: [potion, healing, minor, red]
+    weight: 0.2
+    value: 25
+    type: inventory
+
+  - id: 551
+    key: potion_healing
+    name: Healing Potion
+    description: A vial of crimson liquid that heals moderate injuries.
+    keywords: [potion, healing, red]
+    weight: 0.2
+    value: 50
+    type: inventory
+
+  - id: 552
+    key: potion_healing_major
+    name: Major Healing Potion
+    description: A large vial of deep red liquid that heals serious wounds.
+    keywords: [potion, healing, major, red]
+    weight: 0.3
+    value: 100
+    type: inventory
+
+  - id: 553
+    key: potion_mana_minor
+    name: Minor Mana Potion
+    description: A small vial of blue liquid that restores magical energy.
+    keywords: [potion, mana, minor, blue]
+    weight: 0.2
+    value: 25
+    type: inventory
+
+  - id: 554
+    key: potion_mana
+    name: Mana Potion
+    description: A vial of azure liquid that replenishes magical reserves.
+    keywords: [potion, mana, blue]
+    weight: 0.2
+    value: 50
+    type: inventory
+
+  - id: 555
+    key: potion_mana_major
+    name: Major Mana Potion
+    description: A large vial of deep blue liquid that fully restores magical energy.
+    keywords: [potion, mana, major, blue]
+    weight: 0.3
+    value: 100
+    type: inventory
+
+  - id: 556
+    key: potion_antidote
+    name: Antidote
+    description: A murky green liquid that cures poison.
+    keywords: [potion, antidote, poison, green]
+    weight: 0.2
+    value: 35
+    type: inventory
+
+  - id: 557
+    key: potion_strength
+    name: Potion of Bull's Strength
+    description: A thick brown potion that temporarily enhances physical power.
+    keywords: [potion, strength, brown, buff]
+    weight: 0.2
+    value: 75
+    type: inventory
+
+  - id: 558
+    key: potion_agility
+    name: Potion of Cat's Grace
+    description: A silvery potion that enhances reflexes and dexterity.
+    keywords: [potion, agility, dexterity, silver, buff]
+    weight: 0.2
+    value: 75
+    type: inventory
+
+  - id: 559
+    key: potion_endurance
+    name: Potion of Bear's Endurance
+    description: A viscous amber potion that toughens the body.
+    keywords: [potion, endurance, constitution, amber, buff]
+    weight: 0.2
+    value: 75
+    type: inventory
+
+  - id: 560
+    key: herbal_salve
+    name: Herbal Salve
+    description: A jar of healing ointment made from medicinal herbs.
+    keywords: [salve, herbal, healing, ointment]
+    weight: 0.3
+    value: 15
+    type: inventory
+
+  - id: 561
+    key: smelling_salts
+    name: Smelling Salts
+    description: A small bottle of pungent salts that revives the unconscious.
+    keywords: [salts, smelling, revival]
+    weight: 0.1
+    value: 20
+    type: inventory
+
+  # ============================================================
+  # SCROLLS & MAGICAL SUPPLIES (IDs 580-599)
+  # Scribe: Erasmus / Magister Vorn
+  # ============================================================
+
+  - id: 580
+    key: scroll_blank
+    name: Blank Scroll
+    description: A roll of fine parchment suitable for transcribing spells.
+    keywords: [scroll, blank, parchment]
+    weight: 0.1
+    value: 5
+    type: inventory
+
+  - id: 581
+    key: scroll_identify
+    name: Scroll of Identify
+    description: A scroll inscribed with the Identify spell.
+    keywords: [scroll, identify, magic]
+    weight: 0.1
+    value: 50
+    type: inventory
+
+  - id: 582
+    key: scroll_recall
+    name: Scroll of Recall
+    description: A scroll that teleports the reader to their bind point.
+    keywords: [scroll, recall, teleport, magic]
+    weight: 0.1
+    value: 100
+    type: inventory
+
+  - id: 583
+    key: scroll_light
+    name: Scroll of Light
+    description: A scroll inscribed with the Light spell.
+    keywords: [scroll, light, magic]
+    weight: 0.1
+    value: 25
+    type: inventory
+
+  - id: 584
+    key: scroll_cure_wounds
+    name: Scroll of Cure Wounds
+    description: A scroll inscribed with a healing prayer.
+    keywords: [scroll, cure, healing, magic]
+    weight: 0.1
+    value: 75
+    type: inventory
+
+  - id: 585
+    key: inkwell
+    name: Inkwell
+    description: A small pot of magical ink for writing scrolls.
+    keywords: [ink, inkwell, writing]
+    weight: 0.2
+    value: 10
+    type: inventory
+
+  - id: 586
+    key: quill_pen
+    name: Quill Pen
+    description: A finely crafted feather quill.
+    keywords: [quill, pen, writing, feather]
+    weight: 0.1
+    value: 3
+    type: inventory
+
+  - id: 587
+    key: spellbook_blank
+    name: Blank Spellbook
+    description: A leather-bound book with blank pages, ready for spells.
+    keywords: [spellbook, book, blank, magic]
+    weight: 1.0
+    value: 50
+    type: inventory
+
+  - id: 588
+    key: component_pouch
+    name: Component Pouch
+    description: A small pouch containing common spell components.
+    keywords: [pouch, component, spell, magic]
+    weight: 0.5
+    value: 25
+    type: container
+    max_items: 20
+    max_weight: 5
+
+  - id: 589
+    key: arcane_focus
+    name: Arcane Focus Crystal
+    description: A crystal that focuses magical energy, replacing material components.
+    keywords: [crystal, focus, arcane, magic]
+    weight: 0.3
+    value: 100
+    type: held
+    hands: 1
+
+  # ============================================================
+  # JEWELRY (IDs 600-620)
+  # Jeweler: Silvana
+  # ============================================================
+
+  - id: 600
+    key: ring_copper
+    name: Copper Ring
+    description: A simple band of hammered copper.
+    keywords: [ring, copper, jewelry]
+    weight: 0.1
+    value: 5
+    type: inventory
+
+  - id: 601
+    key: ring_silver
+    name: Silver Ring
+    description: A polished ring of gleaming silver.
+    keywords: [ring, silver, jewelry]
+    weight: 0.1
+    value: 25
+    type: inventory
+
+  - id: 602
+    key: ring_gold
+    name: Gold Ring
+    description: A band of lustrous gold, expertly crafted.
+    keywords: [ring, gold, jewelry]
+    weight: 0.1
+    value: 100
+    type: inventory
+
+  - id: 603
+    key: necklace_beaded
+    name: Beaded Necklace
+    description: A simple necklace of wooden beads on a leather cord.
+    keywords: [necklace, beads, jewelry]
+    weight: 0.1
+    value: 8
+    type: inventory
+
+  - id: 604
+    key: necklace_silver
+    name: Silver Pendant
+    description: A delicate silver pendant on a fine chain.
+    keywords: [necklace, pendant, silver, jewelry]
+    weight: 0.1
+    value: 50
+    type: inventory
+
+  - id: 605
+    key: necklace_gold
+    name: Gold Medallion
+    description: A golden medallion engraved with intricate patterns.
+    keywords: [necklace, medallion, gold, jewelry]
+    weight: 0.2
+    value: 200
+    type: inventory
+
+  - id: 606
+    key: bracelet_leather
+    name: Leather Bracelet
+    description: A braided leather wristband.
+    keywords: [bracelet, leather, wrist, jewelry]
+    weight: 0.1
+    value: 5
+    type: inventory
+
+  - id: 607
+    key: bracelet_silver
+    name: Silver Bracelet
+    description: An elegant silver bangle with etched designs.
+    keywords: [bracelet, silver, wrist, jewelry, bangle]
+    weight: 0.1
+    value: 40
+    type: inventory
+
+  - id: 608
+    key: earrings_pearl
+    name: Pearl Earrings
+    description: A matched pair of lustrous freshwater pearls.
+    keywords: [earrings, pearl, jewelry]
+    weight: 0.1
+    value: 75
+    type: inventory
+
+  - id: 609
+    key: gem_ruby
+    name: Uncut Ruby
+    description: A rough ruby crystal, deep red and valuable.
+    keywords: [gem, ruby, red, stone, uncut]
+    weight: 0.1
+    value: 150
+    type: inventory
+
+  - id: 610
+    key: gem_sapphire
+    name: Uncut Sapphire
+    description: A raw sapphire crystal of brilliant blue.
+    keywords: [gem, sapphire, blue, stone, uncut]
+    weight: 0.1
+    value: 150
+    type: inventory
+
+  - id: 611
+    key: gem_emerald
+    name: Uncut Emerald
+    description: An unpolished emerald, green as spring leaves.
+    keywords: [gem, emerald, green, stone, uncut]
+    weight: 0.1
+    value: 175
+    type: inventory
+
+  # ============================================================
+  # CONTAINERS & BAGS (IDs 650-669)
+  # General goods sold by various merchants
+  # ============================================================
+
+  - id: 650
+    key: backpack_small
+    name: Small Backpack
+    description: A compact canvas backpack for light travel.
+    keywords: [backpack, bag, pack, small]
+    weight: 0.5
+    value: 15
+    type: container
+    max_items: 15
+    max_weight: 20
+
+  - id: 651
+    key: backpack_large
+    name: Large Backpack
+    description: A sturdy leather backpack with multiple compartments.
+    keywords: [backpack, bag, pack, large]
+    weight: 1.0
+    value: 40
+    type: container
+    max_items: 30
+    max_weight: 50
+
+  - id: 652
+    key: belt_pouch
+    name: Belt Pouch
+    description: A small pouch that attaches to your belt.
+    keywords: [pouch, belt, bag, small]
+    weight: 0.2
+    value: 8
+    type: container
+    max_items: 10
+    max_weight: 5
+
+  - id: 653
+    key: saddlebag
+    name: Saddlebags
+    description: A pair of bags designed to hang across a horse's back.
+    keywords: [saddlebag, bag, horse]
+    weight: 2.0
+    value: 25
+    type: container
+    max_items: 40
+    max_weight: 80
+
+  - id: 654
+    key: waterskin
+    name: Waterskin
+    description: A leather pouch for carrying water on journeys.
+    keywords: [waterskin, water, drink]
+    weight: 0.3
+    value: 5
+    type: inventory
+
+  - id: 655
+    key: torch
+    name: Torch
+    description: A wooden torch wrapped in oil-soaked cloth.
+    keywords: [torch, light]
+    weight: 0.5
+    value: 1
+    type: inventory
+
+  - id: 656
+    key: lantern
+    name: Lantern
+    description: A hooded lantern that provides steady light.
+    keywords: [lantern, light]
+    weight: 1.0
+    value: 12
+    type: inventory
+
+  - id: 657
+    key: rope_hemp
+    name: Hemp Rope (50 ft)
+    description: Fifty feet of sturdy hemp rope.
+    keywords: [rope, hemp]
+    weight: 5.0
+    value: 5
+    type: inventory
+
+  - id: 658
+    key: bedroll
+    name: Bedroll
+    description: A rolled-up sleeping mat and blanket.
+    keywords: [bedroll, sleep, camping]
+    weight: 3.0
+    value: 8
+    type: inventory
+
+  - id: 659
+    key: flint_steel
+    name: Flint and Steel
+    description: A fire-starting kit with flint and steel striker.
+    keywords: [flint, steel, fire]
+    weight: 0.2
+    value: 3
+    type: inventory
+
+  # ============================================================
   # SYSTEM ITEMS (IDs 900-999)
   # ============================================================
   

@@ -477,6 +477,75 @@ score:
         score
         stats
 
+train:
+  summary: "spend talent points to improve abilities, skills, or spells"
+  visibility: public
+  keywords: [train, talent, points, ability, skill, spell, training]
+  see_also: [score]
+  category: SYSTEM
+  synopsis:
+    - "train"
+    - "train ability <str|dex|con|int|wis|cha>"
+    - "train skill <skill_name>"
+    - "train spell <spell_name>"
+  body: |
+    NAME
+        train - spend talent points to improve abilities, skills, or spells
+
+    SYNOPSIS
+        train
+        train ability <str|dex|con|int|wis|cha>
+        train skill <skill_name>
+        train spell <spell_name>
+
+    DESCRIPTION
+        Talent Points are earned each time you gain a level (1 point per level).
+        You can spend these points to permanently improve your character.
+        
+        With no arguments, TRAIN displays your current talent points, ability
+        scores (with training costs), and any skills or spells that can be
+        trained.
+        
+        ABILITY TRAINING
+            You can train your ability scores (STR, DEX, CON, INT, WIS, CHA).
+            The cost increases as your ability score rises:
+            
+              Total Score    Cost to Train
+              10 - 16        1 talent point
+              17 - 18        2 talent points
+              19 - 20        4 talent points
+              21+            Cannot train with talent points
+            
+            Scores above 20 must be achieved through magical items or other
+            extraordinary means.
+        
+        SKILL TRAINING
+            You can train skills you know up to 80% proficiency.
+            Each training session costs 1 talent point and grants +5% proficiency.
+            Beyond 80%, you must improve skills through actual use in gameplay.
+        
+        SPELL TRAINING
+            Works the same as skill training. You can train known spells up to
+            80% proficiency for 1 talent point per +5%.
+
+    ARGUMENTS
+        ability   - Train an ability score (STR, DEX, CON, INT, WIS, or CHA).
+        skill     - Train a skill you know.
+        spell     - Train a spell you know.
+
+    EXAMPLE
+        train
+            -- Shows talent points and what can be trained
+        
+        train ability str
+            -- Spend talent points to increase Strength
+        
+        train skill parry
+            -- Spend 1 talent point to increase Parry by 5%
+        
+        train spell magic missile
+            -- Spend 1 talent point to increase Magic Missile by 5%
+
 who:
   summary: "list players currently online"
   visibility: public

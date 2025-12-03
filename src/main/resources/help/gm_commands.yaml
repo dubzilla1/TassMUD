@@ -324,34 +324,42 @@ promote:
         restore
 
 spawn:
-  summary: "(GM) create item or mob instances in the world"
+  summary: "(GM) create item, mob, or gold instances in the world"
   visibility: gm
   synopsis:
     - "SPAWN ITEM <template_id> [room_id]"
     - "SPAWN MOB <mob_id> [room_id]"
+    - "SPAWN GOLD <amount>"
   body: |
     NAME
-        spawn - create item or mob instances
+        spawn - create item, mob, or gold instances
 
     SYNOPSIS
         SPAWN ITEM <template_id> [room_id]
         SPAWN MOB <mob_id> [room_id]
+        SPAWN GOLD <amount>
 
     DESCRIPTION
-        Creates a new instance of an item or mob (mobile NPC) based on its template ID.
+        Creates a new instance of an item, mob, or gold based on the type specified.
         
         For ITEM: creates an item_instance in the specified room. If room_id is omitted,
         the item is spawned in your current room.
         
-        For MOB: not yet implemented, reserved for future use.
+        For MOB: creates a mobile NPC instance in the specified room using the mob
+        template ID. If room_id is omitted, the mob spawns in your current room.
+        
+        For GOLD: instantly gives the specified amount of gold to yourself.
+        Maximum amount is capped at the 64-bit signed integer limit to prevent overflow.
 
     ARGUMENTS
         template_id   The numeric ID of the item template (see items.yaml).
-        mob_id        The numeric ID of the mob template (not yet implemented).
+        mob_id        The numeric ID of the mob template (see mobiles.yaml).
         room_id       Optional room ID where the item/mob should appear.
                       Defaults to the GM's current room.
+        amount        Amount of gold to create (max ~9.2 quintillion).
 
     EXAMPLE
         spawn item 202          -- spawns a longsword in your current room
         spawn item 130 3001     -- spawns plate helm in room 3001
-        spawn mob 1             -- (future) spawn mob template #1
+        spawn mob 601           -- spawn mob template #601 in your room
+        spawn gold 100000       -- gives yourself 100,000 gold pieces
