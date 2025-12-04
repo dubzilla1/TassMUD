@@ -2,6 +2,62 @@
 # Each effect has an id (string or number), name, type, params, duration (seconds), stackPolicy, persistent, priority
 
 effects:
+  # ========== HEALING EFFECTS ==========
+  
+  - id: "201"
+    name: "Cure Light Wounds"
+    type: INSTANT_HEAL
+    duration: 0
+    cooldown: 15
+    dice_multiplier: 4d8
+    level_multiplier: 1
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params: {}
+    
+  - id: "210"
+    name: "Cure Moderate Wounds"
+    type: INSTANT_HEAL
+    duration: 0
+    cooldown: 15
+    dice_multiplier: 8d8
+    level_multiplier: 2
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params: {}
+    
+  - id: "220"
+    name: "Cure Serious Wounds"
+    type: INSTANT_HEAL
+    duration: 0
+    cooldown: 15
+    dice_multiplier: 16d8
+    level_multiplier: 4
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params: {}
+    
+  - id: "230"
+    name: "Cure Critical Wounds"
+    type: INSTANT_HEAL
+    duration: 0
+    cooldown: 15
+    dice_multiplier: 32d8
+    level_multiplier: 8
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params: {}
+  
+  # ========== BUFF EFFECTS ==========
+  
   - id: "202"
     name: "Bless"
     type: MODIFIER
@@ -17,15 +73,32 @@ effects:
       op: ADD
       value: 1
 
-effects:
+  # ========== DAMAGE EFFECTS ==========
+
   - id: "120"
     name: "Fireball Damage"
     type: INSTANT_DAMAGE
     duration: 0
     cooldown: 0
     dice_multiplier: 10d6
+    level_multiplier: 4
     profficiency_impact: DICE_MULTIPLIER
     stackPolicy: NONE
     persistent: false
     priority: 0
     params: {}
+
+  - id: "500"
+    name: "Heroism"
+    type: MODIFIER
+    duration: 30    # 30 seconds
+    cooldown: 60
+    dice_multiplier: 0
+    profficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: CRITICAL_THRESHOLD_BONUS
+      op: ADD
+      value: -18

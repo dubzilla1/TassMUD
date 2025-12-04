@@ -88,6 +88,7 @@ public class ModifierEffect implements EffectHandler {
     }
 
     // Helper to compute a scaled cooldown given base cooldown and proficiency (1-100).
+    @SuppressWarnings("unused") // Utility method for future effect scaling
     private int computeScaledCooldown(double baseCooldown, int proficiency) {
         if (baseCooldown <= 0) return 0;
         double minCooldown = 3.0; // floor minimum in seconds
@@ -98,6 +99,7 @@ public class ModifierEffect implements EffectHandler {
     }
 
     // Helper to compute scaled dice multiplier: "NdM" -> scale N by proficiency, min 1 at 1%.
+    @SuppressWarnings("unused") // Utility method for future effect scaling
     private int computeScaledDiceMultiplier(String raw, int proficiency) {
         if (raw == null || raw.isEmpty()) return 0;
         String s = raw.trim();

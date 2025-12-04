@@ -1,9 +1,16 @@
 package com.example.tassmud.util;
 
+import com.example.tassmud.effect.EffectDefinition;
+import com.example.tassmud.effect.EffectInstance;
+import com.example.tassmud.effect.EffectRegistry;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.persistence.CharacterDAO;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 /**
@@ -172,5 +179,79 @@ public class SkillExecution {
         AbilityCheck.applyMobileSkillCooldown(mobileInstanceId, skill);
         
         return true;
+    }
+    
+    /**
+     * Result of applying skill effects.
+     */
+    public static class EffectResult {
+        private final List<String> appliedEffects;
+        private final List<String> failedEffects;
+        
+        public EffectResult() {
+            this.appliedEffects = new ArrayList<>();
+            this.failedEffects = new ArrayList<>();
+        }
+        
+        public void addApplied(String effectName) { appliedEffects.add(effectName); }
+        public void addFailed(String effectId) { failedEffects.add(effectId); }
+        
+        public List<String> getAppliedEffects() { return appliedEffects; }
+        public List<String> getFailedEffects() { return failedEffects; }
+        public boolean hasAppliedEffects() { return !appliedEffects.isEmpty(); }
+        public boolean hasFailures() { return !failedEffects.isEmpty(); }
+        
+        /**
+         * Get a summary message of applied effects.
+         */
+        public String getSummary() {
+            if (appliedEffects.isEmpty()) return null;
+            return String.join(", ", appliedEffects);
+        }
+    }
+    
+    /**
+     * Apply all effects associated with a skill.
+     * This is used for skills that trigger spell-like effects (e.g., Heroic Strike applies Heroism).
+     * 
+     * @param skill the skill with effectIds
+     * @param casterId the character ID of the skill user (caster)
+     * @param targetId the character ID of the target (often same as caster for self-buffs)
+     * @param proficiency the user's proficiency in this skill (1-100)
+     * @return EffectResult containing applied and failed effects
+     */
+    public static EffectResult applySkillEffects(Skill skill, Integer casterId, Integer targetId, int proficiency) {
+        EffectResult result = new EffectResult();
+        
+        if (skill == null || !skill.hasEffects()) {
+            return result;
+        }
+        
+        Map<String, String> extraParams = new HashMap<>();
+        extraParams.put("proficiency", String.valueOf(proficiency));
+        
+        for (String effId : skill.getEffectIds()) {
+            EffectDefinition def = EffectRegistry.getDefinition(effId);
+            if (def == null) {
+                result.addFailed(effId);
+                continue;
+            }
+            
+            EffectInstance inst = EffectRegistry.apply(effId, casterId, targetId, extraParams);
+            if (inst != null) {
+                result.addApplied(def.getName());
+            } else {
+                result.addFailed(effId);
+            }
+        }
+        
+        return result;
+    }
+    
+    /**
+     * Apply skill effects to self (convenience method where caster = target).
+     */
+    public static EffectResult applySkillEffectsToSelf(Skill skill, Integer characterId, int proficiency) {
+        return applySkillEffects(skill, characterId, characterId, proficiency);
     }
 }

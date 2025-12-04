@@ -50,6 +50,9 @@ public class Combatant {
     /** Number of attacks remaining this round (for multi-attack) */
     private int attacksRemaining = 1;
     
+    /** Number of bonus riposte attacks earned from successful parries (applied next round) */
+    private int pendingRiposteAttacks = 0;
+    
     /** Whether this combatant has acted this round */
     private boolean hasActedThisRound = false;
     
@@ -253,6 +256,12 @@ public class Combatant {
     
     public boolean hasAttacksRemaining() { return attacksRemaining > 0; }
     
+    // Riposte bonus attacks
+    
+    public int getPendingRiposteAttacks() { return pendingRiposteAttacks; }
+    
+    public void addRiposteAttack() { this.pendingRiposteAttacks++; }
+    
     // Round state
     
     public boolean hasActedThisRound() { return hasActedThisRound; }
@@ -273,11 +282,15 @@ public class Combatant {
         // Calculate attacks for the round
         int baseAttacks = calculateBaseAttacks();
         
+        // Add any pending riposte bonus attacks earned last round
+        int riposteBonus = this.pendingRiposteAttacks;
+        this.pendingRiposteAttacks = 0;
+        
         // SLOWED: limits to 1 attack per round, then wears off
         if (consumeSlowed()) {
             this.attacksRemaining = 1;
         } else {
-            this.attacksRemaining = baseAttacks;
+            this.attacksRemaining = baseAttacks + riposteBonus;
         }
     }
     
@@ -375,6 +388,15 @@ public class Combatant {
     public int getArmor() {
         Character c = getAsCharacter();
         return c != null ? c.getArmor() : 10;
+    }
+    
+    /**
+     * Get the critical threshold bonus (reduces the roll needed for a crit).
+     * Default is 0 (crit on natural 20). A value of -1 means crit on 19+.
+     */
+    public int getCriticalThresholdBonus() {
+        Character c = getAsCharacter();
+        return c != null ? c.getCriticalThresholdBonus() : 0;
     }
     
     /**

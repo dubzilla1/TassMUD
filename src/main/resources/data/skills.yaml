@@ -105,8 +105,12 @@ skills:
   - id: 18
     key: heroic_strike
     name: Heroic Strike
-    description: A devastating blow infused with heroic willpower that ignores armor.
+    description: A devastating blow infused with heroic willpower that grants guaranteed critical hits.
     progression: LEGENDARY
+    traits: [COMBAT]
+    cooldown: 120
+    duration: 60
+    effectIds: [500]
 
   - id: 19
     key: shields
@@ -201,13 +205,8 @@ skills:
 
   # ============================================================
   # CLERIC SKILLS (200-299)
+  # Note: Cure spells are defined in spells.yaml, not here
   # ============================================================
-  - id: 200
-    key: cure_light_wounds
-    name: Cure Light Wounds
-    description: Channel divine energy to heal minor injuries.
-    progression: TRIVIAL
-
   - id: 201
     key: bless
     name: Bless
@@ -221,42 +220,30 @@ skills:
     progression: EASY
 
   - id: 203
-    key: cure_serious_wounds
-    name: Cure Serious Wounds
-    description: Channel divine energy to heal moderate injuries.
-    progression: NORMAL
-
-  - id: 204
     key: remove_curse
     name: Remove Curse
     description: Lift curses and hexes from afflicted creatures or items.
     progression: NORMAL
 
-  - id: 205
-    key: cure_critical_wounds
-    name: Cure Critical Wounds
-    description: Channel divine energy to heal severe injuries.
-    progression: HARD
-
-  - id: 206
+  - id: 204
     key: heal
     name: Heal
     description: A powerful healing prayer that restores a large amount of health.
     progression: HARD
 
-  - id: 207
+  - id: 205
     key: sanctuary
     name: Sanctuary
     description: Surround yourself with holy protection, making enemies hesitate to attack.
     progression: VERY_HARD
 
-  - id: 208
+  - id: 206
     key: resurrection
     name: Resurrection
     description: Call a departed soul back from death itself.
     progression: LEGENDARY
 
-  - id: 209
+  - id: 207
     key: divine_intervention
     name: Divine Intervention
     description: Petition your deity directly for miraculous aid in dire circumstances.

@@ -1,7 +1,6 @@
 package com.example.tassmud.util;
 
 import com.example.tassmud.combat.CombatManager;
-import com.example.tassmud.model.Area;
 import com.example.tassmud.model.Mobile;
 import com.example.tassmud.model.MobileBehavior;
 import com.example.tassmud.model.Room;
@@ -218,6 +217,7 @@ public class MobileRoamingService {
      * Clean up a mob's name/short_desc for use in movement messages.
      * Removes common trailing phrases like "is here", "stands here", etc.
      */
+    @SuppressWarnings("unused") // Utility method for future roaming message improvements
     private String cleanMobName(String name) {
         if (name == null) return "something";
         String lower = name.toLowerCase();

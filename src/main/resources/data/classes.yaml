@@ -38,7 +38,7 @@ classes:
         skill_id: 902  # exotic weapons
       - level: 15
         skill_id: 13   # parry
-      - level: 20
+      - level: 300
         skill_id: 14   # riposte
       - level: 20
         skill_id: 953  # plate armor
@@ -106,31 +106,33 @@ classes:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
       - level: 1
-        skill_id: 200  # cure light wounds
-      - level: 1
         skill_id: 952  # mail armor
       - level: 2
         skill_id: 19   # shields
-      - level: 5
+      - level: 3
         skill_id: 201  # bless
+      - level: 5
+        spell_id: 100  # cure light wounds
       - level: 8
         skill_id: 202  # detect evil
       - level: 12
-        skill_id: 203  # cure serious wounds
-      - level: 18
-        skill_id: 204  # remove curse
-      - level: 22
-        skill_id: 205  # cure critical wounds
-      - level: 28
-        skill_id: 206  # heal
+        skill_id: 203  # remove curse
+      - level: 15
+        spell_id: 110  # cure moderate wounds
+      - level: 20
+        skill_id: 204  # heal
+      - level: 25
+        spell_id: 120  # cure serious wounds
       - level: 30
         skill_id: 953  # plate armor
       - level: 35
-        skill_id: 207  # sanctuary
-      - level: 42
-        skill_id: 208  # resurrection
+        spell_id: 130  # cure critical wounds
+      - level: 40
+        skill_id: 205  # sanctuary
+      - level: 45
+        skill_id: 206  # resurrection
       - level: 51
-        skill_id: 209  # divine intervention (hero level)
+        skill_id: 207  # divine intervention (hero level)
 
   # ============================================================
   # ROGUE - Stealth and agility specialist
@@ -201,6 +203,8 @@ classes:
         skill_id: 403  # dual wield
       - level: 18
         skill_id: 404  # camouflage
+      - level: 20
+        spell_id: 100  # cure light wounds
       - level: 22
         skill_id: 405  # call animal
       - level: 28
@@ -209,6 +213,8 @@ classes:
         skill_id: 952  # mail armor  
       - level: 35
         skill_id: 407  # volley
+      - level: 40
+        spell_id: 110  # cure moderate wounds
       - level: 45
         skill_id: 408  # nature's ally
       - level: 51
@@ -241,15 +247,23 @@ classes:
       - level: 5
         skill_id: 501  # detect evil
       - level: 10
+        spell_id: 100  # cure light wounds
+      - level: 10
         skill_id: 502  # smite evil
       - level: 15
         skill_id: 503  # divine shield
       - level: 20
+        spell_id: 110  # cure moderate wounds
+      - level: 20
         skill_id: 504  # turn undead
       - level: 28
         skill_id: 505  # holy weapon
+      - level: 30
+        spell_id: 120  # cure serious wounds
       - level: 35
         skill_id: 506  # aura of protection
+      - level: 40
+        spell_id: 130  # cure critical wounds
       - level: 42
         skill_id: 507  # divine mount
       - level: 50

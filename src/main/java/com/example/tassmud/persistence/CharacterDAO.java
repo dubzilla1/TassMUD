@@ -40,10 +40,12 @@ public class CharacterDAO {
          */
         public boolean addSkillFull(int id, String key, String name, String description, 
                                     boolean isPassive, int maxLevel, Skill.SkillProgression progression,
-                                    java.util.List<SkillTrait> traits, double cooldown) {
-            String sql = "MERGE INTO skilltb (id, skill_key, name, description, is_passive, max_level, progression, traits, cooldown) " +
-                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                    java.util.List<SkillTrait> traits, double cooldown,
+                                    double duration, java.util.List<String> effectIds) {
+            String sql = "MERGE INTO skilltb (id, skill_key, name, description, is_passive, max_level, progression, traits, cooldown, duration, effect_ids) " +
+                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             String traitsStr = traits != null ? traits.stream().map(Enum::name).collect(java.util.stream.Collectors.joining(",")) : "";
+            String effectStr = effectIds != null ? String.join(",", effectIds) : "";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -55,6 +57,8 @@ public class CharacterDAO {
                 ps.setString(7, progression != null ? progression.name() : "NORMAL");
                 ps.setString(8, traitsStr);
                 ps.setDouble(9, cooldown);
+                ps.setDouble(10, duration);
+                ps.setString(11, effectStr);
                 ps.executeUpdate();
                 return true;
             } catch (SQLException e) {
@@ -67,7 +71,7 @@ public class CharacterDAO {
          * Get a skill by its key (e.g., "simple_weapons").
          */
         public Skill getSkillByKey(String key) {
-            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown FROM skilltb WHERE skill_key = ?";
+            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown, duration, effect_ids FROM skilltb WHERE skill_key = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, key);
@@ -83,7 +87,7 @@ public class CharacterDAO {
         }
 
         public Skill getSkillById(int id) {
-            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown FROM skilltb WHERE id = ?";
+            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown, duration, effect_ids FROM skilltb WHERE id = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -103,7 +107,7 @@ public class CharacterDAO {
          */
         public java.util.List<Skill> getAllSkills() {
             java.util.List<Skill> skills = new java.util.ArrayList<>();
-            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown FROM skilltb ORDER BY name";
+            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown, duration, effect_ids FROM skilltb ORDER BY name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql);
                  ResultSet rs = ps.executeQuery()) {
@@ -126,6 +130,8 @@ public class CharacterDAO {
             String progressionStr = rs.getString("progression");
             String traitsStr = rs.getString("traits");
             double cooldown = rs.getDouble("cooldown");
+            double duration = rs.getDouble("duration");
+            String effectIdsStr = rs.getString("effect_ids");
             
             Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
             
@@ -138,7 +144,16 @@ public class CharacterDAO {
                 }
             }
             
-            return new Skill(id, name, description, progression, traits, cooldown);
+            // Parse effect IDs from comma-separated string
+            java.util.List<String> effectIds = new java.util.ArrayList<>();
+            if (effectIdsStr != null && !effectIdsStr.isEmpty()) {
+                for (String e : effectIdsStr.split(",")) {
+                    String trimmed = e.trim();
+                    if (!trimmed.isEmpty()) effectIds.add(trimmed);
+                }
+            }
+            
+            return new Skill(id, name, description, progression, traits, cooldown, duration, effectIds);
         }
 
         // --- Spell DAO ---
@@ -567,6 +582,8 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS progression VARCHAR(50) DEFAULT 'NORMAL'");
                     s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS traits VARCHAR(500) DEFAULT ''");
                     s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS cooldown DOUBLE DEFAULT 0");
+                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS duration DOUBLE DEFAULT 0");
+                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS effect_ids VARCHAR(500) DEFAULT ''");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create skilltb table", e);
                 }

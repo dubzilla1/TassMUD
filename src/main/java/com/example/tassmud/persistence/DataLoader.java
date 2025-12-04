@@ -11,7 +11,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.sql.Types;
 import java.util.*;
 
 public class DataLoader {
@@ -103,7 +102,6 @@ public class DataLoader {
     /**
      * Load mobile templates from YAML resource.
      */
-    @SuppressWarnings("unchecked")
     private static void loadMobileTemplates() {
         try (InputStream in = DataLoader.class.getResourceAsStream("/data/mobiles.yaml")) {
             if (in == null) {
@@ -242,6 +240,7 @@ public class DataLoader {
                 int maxLevel = getInt(skillData, "max_level", 100);
                 String progressionStr = getString(skillData, "progression", "NORMAL");
                 double cooldown = getDouble(skillData, "cooldown", 0);
+                double duration = getDouble(skillData, "duration", 0);
                 
                 // Parse traits list
                 List<SkillTrait> traits = new ArrayList<>();
@@ -253,12 +252,21 @@ public class DataLoader {
                     }
                 }
                 
+                // Parse effect IDs list
+                List<String> effectIds = new ArrayList<>();
+                Object effectIdsObj = skillData.get("effectIds");
+                if (effectIdsObj instanceof List) {
+                    for (Object e : (List<?>) effectIdsObj) {
+                        effectIds.add(String.valueOf(e));
+                    }
+                }
+                
                 if (id < 0 || key.isEmpty() || name.isEmpty()) continue;
                 
                 com.example.tassmud.model.Skill.SkillProgression progression = 
                     com.example.tassmud.model.Skill.SkillProgression.fromString(progressionStr);
                 
-                if (dao.addSkillFull(id, key, name, description, isPassive, maxLevel, progression, traits, cooldown)) {
+                if (dao.addSkillFull(id, key, name, description, isPassive, maxLevel, progression, traits, cooldown, duration, effectIds)) {
                     count++;
                 }
             }
@@ -388,6 +396,7 @@ public class DataLoader {
                 double duration = getDouble(item, "duration", 0);
                 double cooldown = getDouble(item, "cooldown", 0);
                 String diceMultRaw = getString(item, "dice_multiplier", "");
+                int levelMult = getInt(item, "level_multiplier", 0);
                 // Support both spellings: profficiency_impact (typo) and proficiency_impact
                 Object profImpactObj = item.get("profficiency_impact");
                 if (profImpactObj == null) profImpactObj = item.get("proficiency_impact");
@@ -431,6 +440,7 @@ public class DataLoader {
                     duration,
                     cooldown,
                     diceMultRaw,
+                    levelMult,
                     profImpactSet,
                     sp,
                     persistent,
@@ -442,8 +452,11 @@ public class DataLoader {
 
             // Register built-in handlers (ModifierEffect for MODIFIER type)
             com.example.tassmud.effect.EffectRegistry.registerHandler("MODIFIER", new com.example.tassmud.effect.ModifierEffect());
-            // Register instant damage handler for CUSTOM effects (e.g., fireball-like effects)
+            // Register instant damage handler for INSTANT_DAMAGE and CUSTOM effects (e.g., fireball-like effects)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("INSTANT_DAMAGE", new com.example.tassmud.effect.InstantDamageEffect());
             com.example.tassmud.effect.EffectRegistry.registerHandler("CUSTOM", new com.example.tassmud.effect.InstantDamageEffect());
+            // Register instant heal handler for INSTANT_HEAL effects (cure spells)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("INSTANT_HEAL", new com.example.tassmud.effect.InstantHealEffect());
 
             System.out.println("Loaded " + count + " effects from effects.yaml");
         } catch (Exception e) {

@@ -26,8 +26,6 @@ public class CooldownManager {
     // Tick interval in milliseconds (matches combat tick rate for consistency)
     private static final long TICK_INTERVAL_MS = 500;
     
-    private TickService tickService;
-    
     private CooldownManager() {}
     
     public static CooldownManager getInstance() {
@@ -39,7 +37,6 @@ public class CooldownManager {
      * Should be called once during server startup.
      */
     public void initialize(TickService tickService) {
-        this.tickService = tickService;
         tickService.scheduleAtFixedRate("cooldown-tick", this::tick, TICK_INTERVAL_MS, TICK_INTERVAL_MS);
     }
     

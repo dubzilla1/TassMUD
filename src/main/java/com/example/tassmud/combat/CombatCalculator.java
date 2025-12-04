@@ -1,6 +1,5 @@
 package com.example.tassmud.combat;
 
-import com.example.tassmud.model.Character;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;

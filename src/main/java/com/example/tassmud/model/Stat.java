@@ -26,5 +26,8 @@ public enum Stat {
     SPELL_HIT_BONUS,
     SPELL_DAMAGE_BONUS,
     ATTACK_DAMAGE_REDUCTION,
-    SPELL_DAMAGE_REDUCTION
+    SPELL_DAMAGE_REDUCTION,
+    
+    /** Reduces the natural roll needed for a critical hit (default 0, so crit on 20; -1 means crit on 19+) */
+    CRITICAL_THRESHOLD_BONUS
 }

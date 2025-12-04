@@ -118,17 +118,37 @@ public class CharacterClass {
     }
     
     /**
-     * Represents a skill granted by a class at a specific level.
+     * Represents a skill or spell granted by a class at a specific level.
+     * Either skillId or spellId will be set, but not both.
      */
     public static class ClassSkillGrant {
         public final int classId;
         public final int classLevel;
-        public final int skillId;
+        public final int skillId;  // 0 if this is a spell grant
+        public final int spellId;  // 0 if this is a skill grant
         
+        /** Constructor for skill grants */
         public ClassSkillGrant(int classId, int classLevel, int skillId) {
             this.classId = classId;
             this.classLevel = classLevel;
             this.skillId = skillId;
+            this.spellId = 0;
+        }
+        
+        /** Constructor for spell grants */
+        public ClassSkillGrant(int classId, int classLevel, int skillId, int spellId) {
+            this.classId = classId;
+            this.classLevel = classLevel;
+            this.skillId = skillId;
+            this.spellId = spellId;
+        }
+        
+        public boolean isSpellGrant() {
+            return spellId > 0;
+        }
+        
+        public boolean isSkillGrant() {
+            return skillId > 0;
         }
     }
 }

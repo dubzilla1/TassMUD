@@ -3,7 +3,6 @@ package com.example.tassmud.combat;
 import com.example.tassmud.model.Character;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
-import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.util.OpposedCheck;
 
@@ -41,6 +40,9 @@ public class BasicAttackCommand implements CombatCommand {
     
     /** Parry skill ID (from skills.yaml) */
     private static final int PARRY_SKILL_ID = 13;
+    
+    /** Riposte skill ID (from skills.yaml) */
+    private static final int RIPOSTE_SKILL_ID = 14;
     
     /** Parry cooldown in milliseconds (15 seconds, matching skills.yaml) */
     private static final long PARRY_COOLDOWN_MS = 15_000;
@@ -118,6 +120,7 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Calculate attack bonus
         int strMod = (attacker.getStr() - 10) / 2;
+        @SuppressWarnings("unused") // TODO: check weapon type for ranged using DEX
         int dexMod = (attacker.getDex() - 10) / 2;
         
         // Use STR for melee (TODO: check weapon type for ranged using DEX)
@@ -154,8 +157,11 @@ public class BasicAttackCommand implements CombatCommand {
         int totalAttack = attackRoll + totalAttackBonus;
         int targetArmor = target.getArmor();
         
-        // Check for critical hit (natural 20)
-        boolean isCrit = (attackRoll >= CRIT_THRESHOLD);
+        // Check for critical hit (natural 20, or lower with CRITICAL_THRESHOLD_BONUS)
+        // The bonus reduces the threshold (e.g., -1 means crit on 19+, -18 means crit on 2+)
+        int critThreshold = CRIT_THRESHOLD + user.getCriticalThresholdBonus();
+        critThreshold = Math.max(2, critThreshold); // Can't crit on natural 1
+        boolean isCrit = (attackRoll >= critThreshold);
         
         // Check for miss (natural 1 always misses, or roll < armor)
         if (attackRoll == 1 || (!isCrit && totalAttack < targetArmor)) {
@@ -263,6 +269,9 @@ public class BasicAttackCommand implements CombatCommand {
             long cooldownEnd = System.currentTimeMillis() + PARRY_COOLDOWN_MS;
             defender.setParryCooldownUntil(cooldownEnd);
             
+            // Check for riposte opportunity
+            checkRiposte(defender, attacker);
+            
             // Return parried result
             CombatResult result = CombatResult.parried(attacker, defender);
             result.setAttackRoll(attackRoll);
@@ -271,6 +280,46 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Parry attempt failed - attack proceeds normally
         return null;
+    }
+    
+    /**
+     * Check if the defender can riposte after a successful parry.
+     * If they know Riposte and pass an opposed check, they get a bonus attack next round.
+     * 
+     * @param defender the combatant who parried
+     * @param attacker the combatant whose attack was parried
+     */
+    private void checkRiposte(Combatant defender, Combatant attacker) {
+        // Only player characters can riposte for now
+        if (!defender.isPlayer() || defender.getCharacterId() == null) {
+            return;
+        }
+        
+        // Check if defender knows Riposte skill
+        CharacterDAO dao = new CharacterDAO();
+        CharacterSkill riposteSkill = dao.getCharacterSkill(defender.getCharacterId(), RIPOSTE_SKILL_ID);
+        if (riposteSkill == null) {
+            return; // Doesn't know Riposte
+        }
+        
+        int proficiency = riposteSkill.getProficiency();
+        int defenderLevel = calculator.getCombatantLevel(defender);
+        int attackerLevel = calculator.getCombatantLevel(attacker);
+        
+        // Opposed check for riposte opportunity
+        boolean riposteSuccess = OpposedCheck.checkWithProficiency(defenderLevel, attackerLevel, proficiency);
+        
+        if (riposteSuccess) {
+            defender.addRiposteAttack();
+            
+            // Try to improve proficiency
+            Skill riposteDef = dao.getSkillById(RIPOSTE_SKILL_ID);
+            if (riposteDef != null) {
+                dao.tryImproveSkill(defender.getCharacterId(), RIPOSTE_SKILL_ID, riposteDef);
+            }
+            
+            // TODO: Send message about riposte opportunity via ClientHandler
+        }
     }
     
     /**

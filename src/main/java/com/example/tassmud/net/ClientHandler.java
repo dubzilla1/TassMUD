@@ -28,7 +28,6 @@ import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.persistence.ShopDAO;
 import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.HelpManager;
-import com.example.tassmud.util.HelpPage;
 import com.example.tassmud.util.PasswordUtil;
 import com.example.tassmud.util.RegenerationService;
 import java.io.BufferedReader;
@@ -145,6 +144,7 @@ public class ClientHandler implements Runnable {
         for (ClientHandler s : sessions) s.sendRaw(msg);
     }
 
+    @SuppressWarnings("unused") // Utility method for future chat/communication features
     private static void broadcastRoom(Integer roomId, String msg) {
         if (roomId == null) return;
         for (ClientHandler s : sessions) {
@@ -165,6 +165,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    @SuppressWarnings("unused") // Utility method for future chat/communication features
     private static void whisperTo(String targetName, String fromName, String msg) {
         if (targetName == null) return;
         ClientHandler t = nameToSession.get(targetName.toLowerCase());
@@ -1596,7 +1597,7 @@ public class ClientHandler implements Runnable {
                         out.println(String.format("%-6s %-25s %-12s %s", "ID", "Name", "Type", "Description"));
                         out.println(repeat("-", 75));
                         for (ItemTemplate t : matches) {
-                            String typeName = t.type != null ? t.type : "";
+                            String typeName = t.types != null && !t.types.isEmpty() ? String.join(",", t.types) : "";
                             String desc = t.description != null ? truncate(t.description, 28) : "";
                             out.println(String.format("%-6d %-25s %-12s %s",
                                 t.id,
@@ -2371,6 +2372,76 @@ public class ClientHandler implements Runnable {
                         
                         if (bashResult.didProficiencyImprove()) {
                             out.println(bashResult.getProficiencyMessage());
+                        }
+                        break;
+                    }
+                    case "heroic": {
+                        // HEROIC STRIKE - applies Heroism effect (guaranteed crits) to self
+                        if (rec == null) {
+                            out.println("You must be logged in to use Heroic Strike.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        
+                        // Look up the heroic strike skill (id=18)
+                        final int HEROIC_STRIKE_SKILL_ID = 18;
+                        Skill heroicSkill = dao.getSkillById(HEROIC_STRIKE_SKILL_ID);
+                        if (heroicSkill == null) {
+                            out.println("Heroic Strike skill not found in database.");
+                            break;
+                        }
+                        
+                        // Check if character knows the heroic strike skill
+                        CharacterSkill charHeroic = dao.getCharacterSkill(charId, HEROIC_STRIKE_SKILL_ID);
+                        if (charHeroic == null) {
+                            out.println("You don't know how to use Heroic Strike.");
+                            break;
+                        }
+                        
+                        // Check cooldown and combat traits using unified check
+                        com.example.tassmud.util.AbilityCheck.CheckResult heroicCheck = 
+                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, heroicSkill);
+                        if (heroicCheck.isFailure()) {
+                            out.println(heroicCheck.getFailureMessage());
+                            break;
+                        }
+                        
+                        // Get the active combat (skill requires combat)
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                        if (activeCombat == null) {
+                            out.println("You must be in combat to use Heroic Strike.");
+                            break;
+                        }
+                        
+                        // Apply the skill's effects to self
+                        int proficiency = charHeroic.getProficiency();
+                        com.example.tassmud.util.SkillExecution.EffectResult effectResult = 
+                            com.example.tassmud.util.SkillExecution.applySkillEffectsToSelf(heroicSkill, charId, proficiency);
+                        
+                        if (effectResult.hasAppliedEffects()) {
+                            out.println("You channel your heroic spirit! " + effectResult.getSummary() + " takes effect!");
+                            // Broadcast to room (excluding self)
+                            for (ClientHandler ch : charIdToSession.values()) {
+                                if (ch != this && ch.currentRoomId != null && ch.currentRoomId.equals(currentRoomId)) {
+                                    ch.out.println(name + " is filled with heroic determination!");
+                                }
+                            }
+                        } else {
+                            out.println("You attempt to summon your heroic spirit, but nothing happens.");
+                        }
+                        
+                        // Apply cooldown and check proficiency growth (skill always "succeeds" if effects apply)
+                        boolean heroicSucceeded = effectResult.hasAppliedEffects();
+                        com.example.tassmud.util.SkillExecution.Result heroicResult = 
+                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                                name, charId, heroicSkill, charHeroic, dao, heroicSucceeded);
+                        
+                        if (heroicResult.didProficiencyImprove()) {
+                            out.println(heroicResult.getProficiencyMessage());
                         }
                         break;
                     }

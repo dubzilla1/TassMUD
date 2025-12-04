@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class EffectDefinition {
     public enum ProficiencyImpact { DURATION, COOLDOWN, DICE_MULTIPLIER }
-    public enum Type { MODIFIER, HEAL, DOT, CUSTOM }
+    public enum Type { MODIFIER, HEAL, DOT, CUSTOM, INSTANT_HEAL, INSTANT_DAMAGE }
     public enum StackPolicy { STACK, REFRESH, REPLACE_HIGHER_PRIORITY, UNIQUE }
 
     private final String id;
@@ -16,6 +16,7 @@ public class EffectDefinition {
     private final double durationSeconds;
     private final double cooldownSeconds;
     private final String diceMultiplierRaw;
+    private final int levelMultiplier;
     private final Set<ProficiencyImpact> proficiencyImpact;
     private final StackPolicy stackPolicy;
     private final boolean persistent;
@@ -23,6 +24,7 @@ public class EffectDefinition {
 
     public EffectDefinition(String id, String name, Type type, Map<String,String> params,
                             double durationSeconds, double cooldownSeconds, String diceMultiplierRaw,
+                            int levelMultiplier,
                             Set<ProficiencyImpact> proficiencyImpact, StackPolicy stackPolicy, boolean persistent, int priority) {
         this.id = id;
         this.name = name;
@@ -31,6 +33,7 @@ public class EffectDefinition {
         this.durationSeconds = durationSeconds;
         this.cooldownSeconds = cooldownSeconds;
         this.diceMultiplierRaw = diceMultiplierRaw == null ? "" : diceMultiplierRaw;
+        this.levelMultiplier = levelMultiplier;
         this.proficiencyImpact = proficiencyImpact == null ? new HashSet<>() : proficiencyImpact;
         this.stackPolicy = stackPolicy;
         this.persistent = persistent;
@@ -44,6 +47,7 @@ public class EffectDefinition {
     public double getDurationSeconds() { return durationSeconds; }
     public double getCooldownSeconds() { return cooldownSeconds; }
     public String getDiceMultiplierRaw() { return diceMultiplierRaw; }
+    public int getLevelMultiplier() { return levelMultiplier; }
     public Set<ProficiencyImpact> getProficiencyImpact() { return proficiencyImpact; }
     public StackPolicy getStackPolicy() { return stackPolicy; }
     public boolean isPersistent() { return persistent; }

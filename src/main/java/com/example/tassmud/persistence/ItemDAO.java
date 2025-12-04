@@ -228,17 +228,7 @@ public class ItemDAO {
         return v.equals("true") || v.equals("1") || v.equals("yes") || v.equals("y");
     }
 
-    private static int parseIntSafe(String s) {
-        try { return Integer.parseInt(s.trim()); } catch (Exception e) { return 0; }
-    }
-    private static double parseDoubleSafe(String s) {
-        try { return Double.parseDouble(s.trim()); } catch (Exception e) { return 0.0; }
-    }
-    private static boolean parseBooleanSafe(String s) {
-        if (s == null) return false;
-        String v = s.trim().toLowerCase();
-        return v.equals("true") || v.equals("1") || v.equals("yes") || v.equals("y");
-    }
+
 
     public long createInstance(int templateId, Integer roomId, Integer characterId) {
         long now = System.currentTimeMillis();
@@ -385,13 +375,12 @@ public class ItemDAO {
     // --- Equipment-related helpers ---
     public EquipmentSlot getTemplateEquipmentSlot(int templateId) {
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement("SELECT type, slot, hands FROM item_template WHERE id = ?")) {
+             PreparedStatement ps = c.prepareStatement("SELECT type, slot FROM item_template WHERE id = ?")) {
             ps.setInt(1, templateId);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) return null;
                 String type = rs.getString("type");
                 String slot = rs.getString("slot");
-                int hands = rs.getInt("hands");
                 if (type == null) return null;
                 type = type.trim().toUpperCase();
                 // Armor uses the slot field

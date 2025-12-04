@@ -1,6 +1,4 @@
 package com.example.tassmud.model;
-
-import java.time.Instant;
 import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -92,6 +90,16 @@ public class Character {
     public int getHpMax() { return hpMax; }
     public int getHpCur() { return hpCur; }
     public void setHpCur(int hpCur) { this.hpCur = Math.max(0, Math.min(hpCur, hpMax)); }
+    
+    /**
+     * Heal the character by the given amount (capped at hpMax).
+     * @param amount Amount to heal
+     */
+    public void heal(int amount) {
+        if (amount > 0) {
+            setHpCur(hpCur + amount);
+        }
+    }
 
     public int getMpMax() { return mpMax; }
     public int getMpCur() { return mpCur; }
@@ -153,6 +161,7 @@ public class Character {
         baseStats.put(Stat.SPELL_DAMAGE_BONUS, 0.0);
         baseStats.put(Stat.ATTACK_DAMAGE_REDUCTION, 0.0);
         baseStats.put(Stat.SPELL_DAMAGE_REDUCTION, 0.0);
+        baseStats.put(Stat.CRITICAL_THRESHOLD_BONUS, 0.0);
 
         // initially mark all stats dirty so cache builds on demand
         dirtyStats.addAll(EnumSet.allOf(Stat.class));
@@ -239,6 +248,12 @@ public class Character {
     public int getSpellDamageBonus() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_BONUS)); }
     public int getAttackDamageReduction() { return (int)Math.round(getStat(Stat.ATTACK_DAMAGE_REDUCTION)); }
     public int getSpellDamageReduction() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_REDUCTION)); }
+    
+    /**
+     * Get the critical threshold bonus (reduces the roll needed for a crit).
+     * Default is 0 (crit on natural 20). A value of -1 means crit on 19+, -18 means crit on 2+.
+     */
+    public int getCriticalThresholdBonus() { return (int)Math.round(getStat(Stat.CRITICAL_THRESHOLD_BONUS)); }
 
     /**
      * Return a snapshot list of all active modifiers on this character.

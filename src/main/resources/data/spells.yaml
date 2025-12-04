@@ -116,12 +116,12 @@ spells:
   # Level 1 Divine
   - id: 100
     name: Cure Light Wounds
-    description: Your touch channels positive energy, mending wounds.
+    description: Your touch channels positive energy, mending wounds. Heals 4d8+level HP.
     school: DIVINE
     level: 1
     castingTime: 1.5
     target: TARGET
-    progression: EASY
+    progression: NORMAL
     effectIds: [201]
     
   - id: 101
@@ -145,12 +145,12 @@ spells:
     progression: NORMAL
     effectIds: [203]
     
-  # Level 2 Divine
+  # Level 3 Divine
   - id: 110
     name: Cure Moderate Wounds
-    description: Your touch channels stronger positive energy, healing more serious injuries.
+    description: Your touch channels stronger positive energy, healing more serious injuries. Heals 8d8+2xlevel HP.
     school: DIVINE
-    level: 2
+    level: 3
     castingTime: 1.5
     target: TARGET
     progression: NORMAL
@@ -176,15 +176,15 @@ spells:
     progression: NORMAL
     effectIds: [212]
     
-  # Level 3 Divine
+  # Level 5 Divine
   - id: 120
     name: Cure Serious Wounds
-    description: A surge of healing energy mends grave injuries.
+    description: A surge of healing energy mends grave injuries. Heals 16d8+4xlevel HP.
     school: DIVINE
-    level: 3
+    level: 5
     castingTime: 1.5
     target: TARGET
-    progression: HARD
+    progression: NORMAL
     effectIds: [220]
     
   - id: 121
@@ -197,15 +197,15 @@ spells:
     progression: HARD
     effectIds: [221]
     
-  # Level 4 Divine
+  # Level 7 Divine
   - id: 130
     name: Cure Critical Wounds
-    description: Powerful healing energy mends even the most severe wounds.
+    description: Powerful healing energy mends even the most severe wounds. Heals 32d8+8xlevel HP.
     school: DIVINE
-    level: 4
+    level: 7
     castingTime: 1.5
     target: TARGET
-    progression: VERY_HARD
+    progression: NORMAL
     effectIds: [230]
     
   - id: 131
@@ -316,7 +316,7 @@ spells:
     
   # Level 4 Primal
   - id: 230
-    name: Ice Storm
+    name: Primal Ice Storm
     description: Primal fury manifests as a hailstorm of ice.
     school: PRIMAL
     level: 4
@@ -462,3 +462,14 @@ spells:
     target: ALL_ENEMIES
     progression: VERY_HARD
     effectIds: [441]
+
+  - id: 500
+    name: Heroism
+    description: You charge your target with divine might.
+    school: DIVINE
+    level: 9
+    castingTime: 1.0
+    target: TARGET
+    progression: LEGENDARY
+    duration: 30  # lasts 30 seconds
+    effectIds: [500]

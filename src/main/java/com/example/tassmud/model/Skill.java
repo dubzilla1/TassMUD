@@ -14,24 +14,33 @@ public class Skill {
     private final String description;
     private final SkillProgression progression;
     private final List<SkillTrait> traits;
-    private final double cooldown; // cooldown in seconds, 0 means no cooldown
+    private final double cooldown;          // cooldown in seconds, 0 means no cooldown
+    private final double duration;          // duration in seconds, 0 means instant
+    private final List<String> effectIds;   // effect IDs to apply when skill is used
 
     public Skill(int id, String name, String description) {
-        this(id, name, description, SkillProgression.NORMAL, null, 0);
+        this(id, name, description, SkillProgression.NORMAL, null, 0, 0, null);
     }
     
     public Skill(int id, String name, String description, SkillProgression progression) {
-        this(id, name, description, progression, null, 0);
+        this(id, name, description, progression, null, 0, 0, null);
     }
     
     public Skill(int id, String name, String description, SkillProgression progression,
                  List<SkillTrait> traits, double cooldown) {
+        this(id, name, description, progression, traits, cooldown, 0, null);
+    }
+    
+    public Skill(int id, String name, String description, SkillProgression progression,
+                 List<SkillTrait> traits, double cooldown, double duration, List<String> effectIds) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.progression = progression != null ? progression : SkillProgression.NORMAL;
         this.traits = traits != null ? new ArrayList<>(traits) : new ArrayList<>();
         this.cooldown = Math.max(0, cooldown);
+        this.duration = Math.max(0, duration);
+        this.effectIds = effectIds != null ? new ArrayList<>(effectIds) : new ArrayList<>();
     }
 
     public int getId() { return id; }
@@ -40,6 +49,15 @@ public class Skill {
     public SkillProgression getProgression() { return progression; }
     public List<SkillTrait> getTraits() { return Collections.unmodifiableList(traits); }
     public double getCooldown() { return cooldown; }
+    public double getDuration() { return duration; }
+    public List<String> getEffectIds() { return Collections.unmodifiableList(effectIds); }
+    
+    /**
+     * Check if this skill has associated effects.
+     */
+    public boolean hasEffects() {
+        return !effectIds.isEmpty();
+    }
     
     /**
      * Check if this skill has a specific trait.

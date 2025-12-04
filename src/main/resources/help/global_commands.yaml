@@ -837,6 +837,44 @@ bash:
     EXAMPLE
         bash
 
+heroic:
+  summary: "execute a Heroic Strike, granting guaranteed critical hits"
+  visibility: public
+  synopsis:
+    - "heroic"
+  body: |
+    NAME
+        heroic - execute a Heroic Strike
+
+    SYNOPSIS
+        heroic
+
+    DESCRIPTION
+        Channel your inner heroism into a devastating combat stance that
+        guarantees critical hits on all attacks for a short duration.
+        
+        REQUIREMENTS:
+        - You must know the Heroic Strike skill
+        - You must be in combat (COMBAT trait)
+        - The skill has a 120-second cooldown between uses
+        
+        MECHANICS:
+        - Applies the Heroism effect to yourself
+        - While Heroism is active, nearly all attack rolls count as critical hits
+          (any roll of 2 or higher on d20)
+        - The effect duration is 30 seconds (base), scaled by your proficiency
+        - Higher proficiency increases the duration of the Heroism buff
+        
+        This powerful skill is best saved for challenging encounters or
+        when you need to deal maximum damage quickly. The long cooldown
+        means you should use it wisely.
+
+    SEE ALSO
+        skills, combat, kick, bash
+
+    EXAMPLE
+        heroic
+
 shields:
   summary: "proficiency with shields"
   visibility: public

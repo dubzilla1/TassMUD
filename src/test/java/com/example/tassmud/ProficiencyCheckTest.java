@@ -1,6 +1,5 @@
 package com.example.tassmud;
 
-import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.util.ProficiencyCheck;
 import org.junit.jupiter.api.DisplayName;
@@ -53,7 +52,6 @@ public class ProficiencyCheckTest {
     void instantSkillsNeverImprove() {
         // INSTANT skills start at 100% and don't progress
         Skill instantSkill = new Skill(1, "Sword Proficiency", "Sword use", Skill.SkillProgression.INSTANT);
-        CharacterSkill charSkill = new CharacterSkill(1, 1, 100);
         
         // Even with success, instant skills don't grow
         // We can't easily test without a real DAO, but we can verify the logic

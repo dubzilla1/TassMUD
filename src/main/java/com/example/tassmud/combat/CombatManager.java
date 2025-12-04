@@ -7,7 +7,6 @@ import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Mobile;
-import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.CharacterClassDAO;
@@ -64,9 +63,6 @@ public class CombatManager {
     /** Handler for multiple attacks (second_attack, third_attack, fourth_attack) */
     private final MultiAttackHandler multiAttackHandler = new MultiAttackHandler();
     
-    /** Tick service for scheduling combat updates */
-    private TickService tickService;
-    
     private CombatManager() {}
     
     /**
@@ -83,7 +79,6 @@ public class CombatManager {
      * Initialize the combat manager with a tick service.
      */
     public void initialize(TickService tickService) {
-        this.tickService = tickService;
         // Schedule combat tick every 500ms for responsive combat
         tickService.scheduleAtFixedRate("combat-tick", this::tick, 500, 500);
         // Set up multi-attack handler message callback

@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
+@SuppressWarnings("unused") // itemDao instantiated for side effect (ensureTables)
 public class SchemaInspector {
     public static void main(String[] args) {
         try {

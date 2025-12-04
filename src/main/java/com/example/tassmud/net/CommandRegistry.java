@@ -71,6 +71,7 @@ public class CommandRegistry {
         registerCombat("cast", "Cast a spell", Category.COMBAT);
         registerCombat("kick", "Deliver a powerful kick to your enemy", Category.COMBAT);
         registerCombat("bash", "Bash an enemy with your shield, stunning them", Category.COMBAT);
+        registerCombat("heroic", "Execute a Heroic Strike, granting guaranteed critical hits", Category.COMBAT);
         
         // ===== SYSTEM =====
         // save, quit allowed in combat; prompt, motd not critical

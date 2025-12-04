@@ -18,7 +18,6 @@ public class CharacterClassDAO {
     
     // In-memory cache of loaded classes
     private static final Map<Integer, CharacterClass> classCache = new HashMap<>();
-    private static boolean loaded = false;
     
     public CharacterClassDAO() {
         ensureTables();
@@ -99,7 +98,8 @@ public class CharacterClassDAO {
                     for (Map<String, Object> skill : skills) {
                         int level = parseIntSafe(skill.get("level"));
                         int skillId = parseIntSafe(skill.get("skill_id"));
-                        skillGrants.add(new CharacterClass.ClassSkillGrant(id, level, skillId));
+                        int spellId = parseIntSafe(skill.get("spell_id"));
+                        skillGrants.add(new CharacterClass.ClassSkillGrant(id, level, skillId, spellId));
                     }
                 }
                 
@@ -112,7 +112,6 @@ public class CharacterClassDAO {
                 saveClassToDb(charClass);
             }
             
-            loaded = true;
             System.out.println("Loaded character classes: " + classCache.size());
         }
     }
@@ -363,24 +362,42 @@ public class CharacterClassDAO {
         
         CharacterDAO charDAO = new CharacterDAO();
         
-        // 1) Grant any skills that unlock at this level
+        // 1) Grant any skills/spells that unlock at this level
         for (CharacterClass.ClassSkillGrant grant : charClass.getSkillsUnlockedAtLevel(newLevel)) {
-            // Check if character already has this skill
-            if (!charDAO.hasSkill(characterId, grant.skillId)) {
-                // Get skill definition for proper starting proficiency
-                Skill skillDef = charDAO.getSkillById(grant.skillId);
-                if (skillDef != null) {
-                    charDAO.learnSkill(characterId, grant.skillId, skillDef);
-                    learnedSkills.add(skillDef.getName());
-                    if (messageCallback != null) {
-                        messageCallback.accept("You have learned " + skillDef.getName() + "!");
+            if (grant.isSpellGrant()) {
+                // Grant spell
+                if (!charDAO.hasSpell(characterId, grant.spellId)) {
+                    Spell spellDef = charDAO.getSpellById(grant.spellId);
+                    if (spellDef != null) {
+                        charDAO.learnSpell(characterId, grant.spellId, spellDef);
+                        learnedSkills.add(spellDef.getName() + " (spell)");
+                        if (messageCallback != null) {
+                            messageCallback.accept("You have learned the spell " + spellDef.getName() + "!");
+                        }
+                    } else {
+                        charDAO.learnSpell(characterId, grant.spellId);
+                        learnedSkills.add("spell #" + grant.spellId);
+                        if (messageCallback != null) {
+                            messageCallback.accept("You have learned a new spell!");
+                        }
                     }
-                } else {
-                    // Fallback if skill definition not found
-                    charDAO.learnSkill(characterId, grant.skillId);
-                    learnedSkills.add("skill #" + grant.skillId);
-                    if (messageCallback != null) {
-                        messageCallback.accept("You have learned a new skill!");
+                }
+            } else if (grant.isSkillGrant()) {
+                // Grant skill
+                if (!charDAO.hasSkill(characterId, grant.skillId)) {
+                    Skill skillDef = charDAO.getSkillById(grant.skillId);
+                    if (skillDef != null) {
+                        charDAO.learnSkill(characterId, grant.skillId, skillDef);
+                        learnedSkills.add(skillDef.getName());
+                        if (messageCallback != null) {
+                            messageCallback.accept("You have learned " + skillDef.getName() + "!");
+                        }
+                    } else {
+                        charDAO.learnSkill(characterId, grant.skillId);
+                        learnedSkills.add("skill #" + grant.skillId);
+                        if (messageCallback != null) {
+                            messageCallback.accept("You have learned a new skill!");
+                        }
                     }
                 }
             }
