@@ -5238,6 +5238,22 @@ public class ClientHandler implements Runnable {
                             break;
                         }
                         
+                        // Calculate MP cost: 2^spellLevel
+                        int spellLevel = matchedSpell.getLevel();
+                        int mpCost = (int) Math.pow(2, spellLevel);
+                        
+                        // Check if player has enough MP
+                        if (rec.mpCur < mpCost) {
+                            out.println("You don't have enough mana to cast " + matchedSpell.getName() + ". (Need " + mpCost + " MP, have " + rec.mpCur + ")");
+                            break;
+                        }
+                        
+                        // Deduct MP cost
+                        if (!dao.deductManaPoints(name, mpCost)) {
+                            out.println("Failed to expend mana for the spell.");
+                            break;
+                        }
+                        
                         // Check if spell requires a target
                         Spell.SpellTarget targetType = matchedSpell.getTarget();
                         boolean needsTarget = (targetType == Spell.SpellTarget.EXPLICIT_MOB_TARGET || 
@@ -5252,7 +5268,7 @@ public class ClientHandler implements Runnable {
                         
                         // Build the cast message based on target type
                         StringBuilder castMsg = new StringBuilder();
-                        castMsg.append("You cast ").append(matchedSpell.getName());
+                        castMsg.append("You cast ").append(matchedSpell.getName()).append(" (-").append(mpCost).append(" MP)");
                         
                         switch (targetType) {
                             case SELF:

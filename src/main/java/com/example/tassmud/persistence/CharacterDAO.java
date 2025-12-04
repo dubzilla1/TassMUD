@@ -1590,6 +1590,24 @@ public class CharacterDAO {
     }
     
     /**
+     * Deduct mana points from a character.
+     * @return true if successful, false if failed or insufficient mana
+     */
+    public boolean deductManaPoints(String name, int cost) {
+        String sql = "UPDATE characters SET mp_cur = mp_cur - ? WHERE name = ? AND mp_cur >= ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, cost);
+            ps.setString(2, name);
+            ps.setInt(3, cost);
+            int rows = ps.executeUpdate();
+            return rows > 0;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    /**
      * Add to a character's max and current HP/MP/MV (used for level-up bonuses).
      * Increases both max and current by the specified amounts.
      */
