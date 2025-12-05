@@ -55,6 +55,7 @@ public class CommandRegistry {
         register("put", "Put an item into a container", Category.ITEMS);
         register("equip", "Equip an item from your inventory", Category.ITEMS, List.of("wear"));
         register("remove", "Remove an equipped item", Category.ITEMS, List.of("dequip"));
+        registerCombat("quaff", "Drink a potion from your inventory", Category.ITEMS, List.of("drink"));
         
         // ===== SHOP COMMANDS =====
         // Shop commands require a shopkeeper in the room
@@ -85,6 +86,7 @@ public class CommandRegistry {
         // ===== GM COMMANDS =====
         // All GM commands allowed in combat (GMs need full control)
         registerGm("cflag", "Manage per-character key/value flags");
+        registerGm("cset", "Set a character attribute value");
         registerGm("cskill", "Grant a skill to a character");
         registerGm("cspell", "Grant a spell to a character");
         registerGm("dbinfo", "Inspect database table schemas");
@@ -96,6 +98,7 @@ public class CommandRegistry {
         registerGm("peace", "End all combat in the current room");
         registerGm("promote", "Level up a character");
         registerGm("restore", "Restore a character's HP/MP/MV to full");
+        registerGm("slay", "Instantly kill a target mob");
         registerGm("spawn", "Create item or mob instances");
         registerGm("system", "Send a system-wide announcement");
     }

@@ -383,6 +383,56 @@ remove:
         remove off
         dequip helm
 
+quaff:
+  summary: "drink a potion from your inventory"
+  visibility: public
+  synopsis:
+    - "quaff <potion>"
+    - "drink <potion>"
+  body: |
+    NAME
+        quaff, drink - consume a potion from your inventory
+
+    SYNOPSIS
+        quaff <potion>
+        drink <potion>
+
+    DESCRIPTION
+        Consumes a potion from your inventory and applies its magical effect.
+        
+        Only items of type POTION can be quaffed. Attempting to quaff non-potion
+        items will fail with an appropriate message.
+        
+        The <potion> argument uses smart matching:
+        - Exact item name (case-insensitive)
+        - Any word in the item name
+        - Item keywords (e.g., "cure", "healing", "red")
+        - Prefix matching
+        - Partial match anywhere in name
+        
+        After quaffing, the potion is consumed and removed from your inventory.
+        
+        POTION EFFECTS:
+        Potions contain stored spells at 100% proficiency. The effect's power
+        is determined by the potion's item level, which varies by potion type
+        and the specific instance.
+        
+        Healing potions use Cure spells:
+        - Cure Light Wounds: 4d8 + (1 × level) HP
+        - Cure Moderate Wounds: 8d8 + (2 × level) HP
+        - Cure Serious Wounds: 16d8 + (4 × level) HP
+        - Cure Critical Wounds: 32d8 + (8 × level) HP
+        
+        This command can be used during combat.
+        
+        "drink" is an alias for "quaff" with identical behavior.
+
+    EXAMPLE
+        quaff cure
+        quaff healing
+        quaff potion
+        drink potion of cure light
+
 inventory:
   summary: "list items in your inventory"
   visibility: public

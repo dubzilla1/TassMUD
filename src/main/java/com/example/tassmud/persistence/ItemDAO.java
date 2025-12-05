@@ -67,6 +67,13 @@ public class ItemDAO {
             System.out.println("Migration: ensured column item_instance.custom_name");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS custom_description VARCHAR(4000)");
             System.out.println("Migration: ensured column item_instance.custom_description");
+            // Item level system migrations
+            s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS min_item_level INT DEFAULT 1");
+            System.out.println("Migration: ensured column item_template.min_item_level");
+            s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS max_item_level INT DEFAULT 1");
+            System.out.println("Migration: ensured column item_template.max_item_level");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS item_level INT DEFAULT 1");
+            System.out.println("Migration: ensured column item_instance.item_level");
         } catch (SQLException e) {
             // Best-effort migration; log but don't fail startup
             System.err.println("Warning: failed to run item table migrations: " + e.getMessage());
@@ -153,6 +160,15 @@ public class ItemDAO {
                 // Armor categorization
                 String armorCategoryStr = str(item.get("armor_category"));
 
+                // Item level range (for potions, scrolls, etc.)
+                int minItemLevel = parseIntSafe(item.get("min_item_level"));
+                int maxItemLevel = parseIntSafe(item.get("max_item_level"));
+                // Default to 1 if not specified
+                if (minItemLevel <= 0) minItemLevel = 1;
+                if (maxItemLevel <= 0) maxItemLevel = minItemLevel;
+                // Ensure max >= min
+                if (maxItemLevel < minItemLevel) maxItemLevel = minItemLevel;
+
                 // Serialize the original map into a compact YAML/JSON string for storage
                 String templateJson = null;
                 try {
@@ -161,7 +177,7 @@ public class ItemDAO {
                 } catch (Exception e) { templateJson = null; }
 
                  try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
                     ps.setInt(1, id);
                     ps.setString(2, key);
                     ps.setString(3, name);
@@ -196,6 +212,8 @@ public class ItemDAO {
                     ps.setString(32, weaponCategoryStr);
                     ps.setString(33, weaponFamilyStr);
                     ps.setString(34, armorCategoryStr);
+                    ps.setInt(35, minItemLevel);
+                    ps.setInt(36, maxItemLevel);
                     ps.executeUpdate();
                 }
             }
@@ -231,13 +249,25 @@ public class ItemDAO {
 
 
     public long createInstance(int templateId, Integer roomId, Integer characterId) {
+        // Get template to determine item level range
+        ItemTemplate template = getTemplateById(templateId);
+        int itemLevel = 1;
+        if (template != null) {
+            int min = template.minItemLevel;
+            int max = template.maxItemLevel;
+            if (min > 0 && max >= min) {
+                itemLevel = min + (int)(Math.random() * (max - min + 1));
+            }
+        }
+        
         long now = System.currentTimeMillis();
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement("INSERT INTO item_instance (template_id, location_room_id, owner_character_id, created_at) VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement ps = c.prepareStatement("INSERT INTO item_instance (template_id, location_room_id, owner_character_id, created_at, item_level) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, templateId);
             if (roomId == null) ps.setNull(2, Types.INTEGER); else ps.setInt(2, roomId);
             if (characterId == null) ps.setNull(3, Types.INTEGER); else ps.setInt(3, characterId);
             ps.setLong(4, now);
+            ps.setInt(5, itemLevel);
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) { if (rs.next()) return rs.getLong(1); }
         } catch (SQLException e) {
@@ -248,14 +278,26 @@ public class ItemDAO {
 
     // New overload allowing creation inside a container
     public long createInstance(int templateId, Integer roomId, Integer characterId, Long containerInstanceId) {
+        // Get template to determine item level range
+        ItemTemplate template = getTemplateById(templateId);
+        int itemLevel = 1;
+        if (template != null) {
+            int min = template.minItemLevel;
+            int max = template.maxItemLevel;
+            if (min > 0 && max >= min) {
+                itemLevel = min + (int)(Math.random() * (max - min + 1));
+            }
+        }
+        
         long now = System.currentTimeMillis();
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement("INSERT INTO item_instance (template_id, location_room_id, owner_character_id, container_instance_id, created_at) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement ps = c.prepareStatement("INSERT INTO item_instance (template_id, location_room_id, owner_character_id, container_instance_id, created_at, item_level) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, templateId);
             if (roomId == null) ps.setNull(2, Types.INTEGER); else ps.setInt(2, roomId);
             if (characterId == null) ps.setNull(3, Types.INTEGER); else ps.setInt(3, characterId);
             if (containerInstanceId == null) ps.setNull(4, Types.BIGINT); else ps.setLong(4, containerInstanceId);
             ps.setLong(5, now);
+            ps.setInt(6, itemLevel);
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) { if (rs.next()) return rs.getLong(1); }
         } catch (SQLException e) {
@@ -275,7 +317,9 @@ public class ItemDAO {
                 Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
                 String customName = rs.getString("custom_name");
                 String customDesc = rs.getString("custom_description");
-                return new ItemInstance(rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, rs.getLong("created_at"), customName, customDesc);
+                int itemLevel = rs.getInt("item_level");
+                if (itemLevel <= 0) itemLevel = 1;
+                return new ItemInstance(rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, rs.getLong("created_at"), customName, customDesc, itemLevel);
             }
         } catch (SQLException e) { throw new RuntimeException(e); }
     }
@@ -515,7 +559,9 @@ public class ItemDAO {
                     rs.getString("template_json"),
                     WeaponCategory.fromString(rs.getString("weapon_category")),
                     WeaponFamily.fromString(rs.getString("weapon_family")),
-                    ArmorCategory.fromString(rs.getString("armor_category"))
+                    ArmorCategory.fromString(rs.getString("armor_category")),
+                    rs.getInt("min_item_level"),
+                    rs.getInt("max_item_level")
                 );
             }
         } catch (SQLException e) {
@@ -549,13 +595,13 @@ public class ItemDAO {
     // Get all item instances in a room, joined with their templates
     public List<RoomItem> getItemsInRoom(int roomId) {
         List<RoomItem> result = new ArrayList<>();
-        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, " +
+        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, i.item_level, " +
                      "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
                      "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, t.min_item_level, t.max_item_level " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.location_room_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -568,12 +614,15 @@ public class ItemDAO {
                     Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
                     String customName = rs.getString("custom_name");
                     String customDesc = rs.getString("custom_description");
+                    int itemLevel = rs.getInt("item_level");
+                    if (itemLevel <= 0) itemLevel = 1;
                     ItemInstance inst = new ItemInstance(
                         rs.getLong("instance_id"),
                         rs.getInt("template_id"),
                         locRoom, owner, container,
                         rs.getLong("created_at"),
-                        customName, customDesc
+                        customName, customDesc,
+                        itemLevel
                     );
                     // Parse traits and keywords from comma-separated strings
                     List<String> traits = new ArrayList<>();
@@ -620,7 +669,9 @@ public class ItemDAO {
                         rs.getString("template_json"),
                         WeaponCategory.fromString(rs.getString("weapon_category")),
                         WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category"))
+                        ArmorCategory.fromString(rs.getString("armor_category")),
+                        rs.getInt("min_item_level"),
+                        rs.getInt("max_item_level")
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }
@@ -634,13 +685,13 @@ public class ItemDAO {
     // Get all item instances owned by a character (inventory), joined with their templates
     public List<RoomItem> getItemsByCharacter(int characterId) {
         List<RoomItem> result = new ArrayList<>();
-        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, " +
+        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.item_level, " +
                      "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
                      "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, t.min_item_level, t.max_item_level " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.owner_character_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -651,11 +702,15 @@ public class ItemDAO {
                     Integer locRoom = (Integer) rs.getObject("location_room_id");
                     Integer owner = (Integer) rs.getObject("owner_character_id");
                     Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
+                    int itemLevel = rs.getInt("item_level");
+                    if (itemLevel <= 0) itemLevel = 1;
                     ItemInstance inst = new ItemInstance(
                         rs.getLong("instance_id"),
                         rs.getInt("template_id"),
                         locRoom, owner, container,
-                        rs.getLong("created_at")
+                        rs.getLong("created_at"),
+                        null, null,
+                        itemLevel
                     );
                     // Parse traits and keywords from comma-separated strings
                     List<String> traits = new ArrayList<>();
@@ -702,7 +757,9 @@ public class ItemDAO {
                         rs.getString("template_json"),
                         WeaponCategory.fromString(rs.getString("weapon_category")),
                         WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category"))
+                        ArmorCategory.fromString(rs.getString("armor_category")),
+                        rs.getInt("min_item_level"),
+                        rs.getInt("max_item_level")
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }
@@ -716,13 +773,13 @@ public class ItemDAO {
     // Get all item instances inside a container, joined with their templates
     public List<RoomItem> getItemsInContainer(long containerInstanceId) {
         List<RoomItem> result = new ArrayList<>();
-        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, " +
+        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, i.item_level, " +
                      "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
                      "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, t.min_item_level, t.max_item_level " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.container_instance_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -735,12 +792,15 @@ public class ItemDAO {
                     Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
                     String customName = rs.getString("custom_name");
                     String customDesc = rs.getString("custom_description");
+                    int itemLevel = rs.getInt("item_level");
+                    if (itemLevel <= 0) itemLevel = 1;
                     ItemInstance inst = new ItemInstance(
                         rs.getLong("instance_id"),
                         rs.getInt("template_id"),
                         locRoom, owner, container,
                         rs.getLong("created_at"),
-                        customName, customDesc
+                        customName, customDesc,
+                        itemLevel
                     );
                     // Parse traits and keywords from comma-separated strings
                     List<String> traits = new ArrayList<>();
@@ -787,7 +847,9 @@ public class ItemDAO {
                         rs.getString("template_json"),
                         WeaponCategory.fromString(rs.getString("weapon_category")),
                         WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category"))
+                        ArmorCategory.fromString(rs.getString("armor_category")),
+                        rs.getInt("min_item_level"),
+                        rs.getInt("max_item_level")
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }
@@ -846,7 +908,9 @@ public class ItemDAO {
                         rs.getString("template_json"),
                         WeaponCategory.fromString(rs.getString("weapon_category")),
                         WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category"))
+                        ArmorCategory.fromString(rs.getString("armor_category")),
+                        rs.getInt("min_item_level"),
+                        rs.getInt("max_item_level")
                     ));
                 }
             }
@@ -871,13 +935,17 @@ public class ItemDAO {
                     Integer room = (Integer) rs.getObject("location_room_id");
                     Integer owner = (Integer) rs.getObject("owner_character_id");
                     Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
+                    int itemLevel = rs.getInt("item_level");
+                    if (itemLevel <= 0) itemLevel = 1;
                     results.add(new ItemInstance(
                         rs.getLong("instance_id"),
                         rs.getInt("template_id"),
                         room,
                         owner,
                         container,
-                        rs.getLong("created_at")
+                        rs.getLong("created_at"),
+                        null, null,
+                        itemLevel
                     ));
                 }
             }
@@ -899,13 +967,17 @@ public class ItemDAO {
                     Integer room = (Integer) rs.getObject("location_room_id");
                     Integer owner = (Integer) rs.getObject("owner_character_id");
                     Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
+                    int itemLevel = rs.getInt("item_level");
+                    if (itemLevel <= 0) itemLevel = 1;
                     return new ItemInstance(
                         rs.getLong("instance_id"),
                         rs.getInt("template_id"),
                         room,
                         owner,
                         container,
-                        rs.getLong("created_at")
+                        rs.getLong("created_at"),
+                        null, null,
+                        itemLevel
                     );
                 }
             }

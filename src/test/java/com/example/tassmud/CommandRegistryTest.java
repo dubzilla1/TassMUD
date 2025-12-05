@@ -136,6 +136,16 @@ public class CommandRegistryTest {
         
         String source = Files.readString(clientHandlerPath);
         
+        // Also check command handler files in the commands package
+        Path commandsDir = clientHandlerPath.getParent().resolve("commands");
+        if (Files.exists(commandsDir) && Files.isDirectory(commandsDir)) {
+            try (var files = Files.list(commandsDir)) {
+                for (Path handlerPath : files.filter(p -> p.toString().endsWith(".java")).toList()) {
+                    source += Files.readString(handlerPath);
+                }
+            }
+        }
+        
         // Find all case statements
         Pattern casePattern = Pattern.compile("case\\s+\"(\\w+)\"\\s*:");
         Matcher matcher = casePattern.matcher(source);

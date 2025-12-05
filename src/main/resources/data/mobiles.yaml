@@ -1593,3 +1593,954 @@
   gold_min: 2
   gold_max: 8
   respawn_seconds: 240
+
+# ============================================================================
+# PLAINS OF DANATH WILDLIFE (IDs 700-749)
+# Level 1-5 fauna for the grasslands, trails, and light forest areas
+# ============================================================================
+
+# --- LEVEL 1 FAUNA (Small Herbivores) ---
+
+- id: 700
+  key: plains_rabbit
+  name: "A Plains Rabbit"
+  short_desc: "A brown rabbit nibbles at the grass here."
+  long_desc: "This plump rabbit has soft brown fur and long ears that twitch at every sound. It seems more interested in finding tasty clover than in you."
+  keywords: [rabbit, bunny, hare]
+  level: 1
+  hp_max: 6
+  mp_max: 0
+  mv_max: 150
+  str: 4
+  dex: 16
+  con: 6
+  intel: 2
+  wis: 12
+  cha: 8
+  armor: 11
+  fortitude: 0
+  reflex: 3
+  will: 0
+  base_damage: 1
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 3
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 701
+  key: field_mouse
+  name: "A Field Mouse"
+  short_desc: "A tiny field mouse scurries through the grass."
+  long_desc: "This small grey mouse has bright black eyes and whiskers that quiver constantly. It freezes when it notices you, then darts away into the tall grass."
+  keywords: [mouse, rodent, field]
+  level: 1
+  hp_max: 4
+  mp_max: 0
+  mv_max: 180
+  str: 2
+  dex: 18
+  con: 4
+  intel: 2
+  wis: 10
+  cha: 4
+  armor: 12
+  fortitude: 0
+  reflex: 4
+  will: 0
+  base_damage: 1
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 2
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 45
+
+- id: 702
+  key: prairie_dog
+  name: "A Prairie Dog"
+  short_desc: "A prairie dog stands alert, chirping warnings."
+  long_desc: "This chubby rodent stands on its hind legs, surveying the grassland. Its high-pitched bark alerts others to potential danger. A network of burrows must be nearby."
+  keywords: [prairie, dog, rodent, groundhog]
+  level: 1
+  hp_max: 8
+  mp_max: 0
+  mv_max: 120
+  str: 6
+  dex: 14
+  con: 8
+  intel: 4
+  wis: 14
+  cha: 6
+  armor: 11
+  fortitude: 0
+  reflex: 2
+  will: 1
+  base_damage: 2
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [PASSIVE, COWARDLY]
+  aggro_range: 0
+  experience_value: 4
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+- id: 703
+  key: quail
+  name: "A Plump Quail"
+  short_desc: "A plump quail pecks at seeds in the grass."
+  long_desc: "This round bird has mottled brown feathers and a distinctive curved plume on its head. It scratches at the ground, searching for seeds and insects."
+  keywords: [quail, bird, fowl]
+  level: 1
+  hp_max: 5
+  mp_max: 0
+  mv_max: 100
+  str: 4
+  dex: 14
+  con: 6
+  intel: 2
+  wis: 10
+  cha: 6
+  armor: 10
+  fortitude: 0
+  reflex: 2
+  will: 0
+  base_damage: 1
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 3
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 60
+
+# --- LEVEL 2 FAUNA (Medium Herbivores / Small Predators) ---
+
+- id: 710
+  key: plains_pheasant
+  name: "A Colorful Pheasant"
+  short_desc: "A colorful pheasant struts through the tall grass."
+  long_desc: "This magnificent bird has iridescent feathers that shimmer green, copper, and gold. Its long tail feathers trail behind as it picks through the undergrowth for food."
+  keywords: [pheasant, bird, fowl]
+  level: 2
+  hp_max: 10
+  mp_max: 0
+  mv_max: 110
+  str: 6
+  dex: 14
+  con: 8
+  intel: 2
+  wis: 12
+  cha: 10
+  armor: 11
+  fortitude: 0
+  reflex: 2
+  will: 0
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 1
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 8
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 90
+
+- id: 711
+  key: grass_snake
+  name: "A Grass Snake"
+  short_desc: "A grass snake slithers through the undergrowth."
+  long_desc: "This slender green snake moves silently through the grass, its forked tongue tasting the air. While not venomous, it looks ready to defend itself if cornered."
+  keywords: [snake, serpent, grass]
+  level: 2
+  hp_max: 12
+  mp_max: 0
+  mv_max: 100
+  str: 8
+  dex: 16
+  con: 10
+  intel: 2
+  wis: 10
+  cha: 2
+  armor: 12
+  fortitude: 1
+  reflex: 3
+  will: 0
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 2
+  behaviors: [PASSIVE, DEFENSIVE]
+  aggro_range: 0
+  experience_value: 10
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 120
+
+- id: 712
+  key: young_deer
+  name: "A Young Deer"
+  short_desc: "A young deer grazes peacefully nearby."
+  long_desc: "This graceful fawn has spotted brown fur and large, gentle eyes. Its ears swivel constantly, alert for any sign of danger. Delicate hooves leave barely a mark in the soft earth."
+  keywords: [deer, fawn, doe]
+  level: 2
+  hp_max: 14
+  mp_max: 0
+  mv_max: 160
+  str: 8
+  dex: 16
+  con: 10
+  intel: 4
+  wis: 14
+  cha: 12
+  armor: 11
+  fortitude: 1
+  reflex: 3
+  will: 1
+  base_damage: 3
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 10
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 120
+
+- id: 713
+  key: wild_turkey
+  name: "A Wild Turkey"
+  short_desc: "A wild turkey gobbles as it forages."
+  long_desc: "This large bird has dark feathers with a bronze sheen and a distinctive red wattle. It struts about importantly, scratching at the dirt for insects and seeds."
+  keywords: [turkey, bird, fowl]
+  level: 2
+  hp_max: 12
+  mp_max: 0
+  mv_max: 90
+  str: 8
+  dex: 12
+  con: 10
+  intel: 2
+  wis: 10
+  cha: 6
+  armor: 11
+  fortitude: 1
+  reflex: 1
+  will: 0
+  base_damage: 4
+  damage_bonus: 0
+  attack_bonus: 1
+  behaviors: [PASSIVE, DEFENSIVE, WANDERER]
+  aggro_range: 0
+  experience_value: 9
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 90
+
+# --- LEVEL 3 FAUNA (Larger Animals / Small Predators) ---
+
+- id: 720
+  key: plains_fox
+  name: "A Plains Fox"
+  short_desc: "A russet fox watches you with keen eyes."
+  long_desc: "This clever fox has a luxurious rust-colored coat and a bushy white-tipped tail. Its amber eyes study you with obvious intelligence, weighing whether you're a threat or opportunity."
+  keywords: [fox, vixen, canine]
+  level: 3
+  hp_max: 20
+  mp_max: 0
+  mv_max: 140
+  str: 10
+  dex: 16
+  con: 10
+  intel: 8
+  wis: 14
+  cha: 10
+  armor: 13
+  fortitude: 1
+  reflex: 3
+  will: 1
+  base_damage: 5
+  damage_bonus: 1
+  attack_bonus: 2
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 18
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 180
+
+- id: 721
+  key: badger
+  name: "A Surly Badger"
+  short_desc: "A badger glares at you with beady eyes."
+  long_desc: "This stocky creature has distinctive black and white striped markings on its face. Despite its small size, its powerful claws and fierce demeanor suggest it won't back down from a fight."
+  keywords: [badger]
+  level: 3
+  hp_max: 25
+  mp_max: 0
+  mv_max: 80
+  str: 14
+  dex: 12
+  con: 14
+  intel: 4
+  wis: 12
+  cha: 4
+  armor: 14
+  fortitude: 2
+  reflex: 1
+  will: 1
+  base_damage: 6
+  damage_bonus: 1
+  attack_bonus: 2
+  behaviors: [DEFENSIVE]
+  aggro_range: 0
+  experience_value: 22
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 180
+
+- id: 722
+  key: adult_deer
+  name: "A White-Tailed Deer"
+  short_desc: "A white-tailed deer stands alert in the grass."
+  long_desc: "This mature deer has a sleek brown coat and large, watchful eyes. Its white tail twitches nervously as it assesses you. Ready to bolt at the first sign of danger, it could easily outrun most pursuers."
+  keywords: [deer, buck, stag, doe]
+  level: 3
+  hp_max: 22
+  mp_max: 0
+  mv_max: 180
+  str: 12
+  dex: 18
+  con: 12
+  intel: 4
+  wis: 16
+  cha: 12
+  armor: 12
+  fortitude: 1
+  reflex: 4
+  will: 1
+  base_damage: 5
+  damage_bonus: 0
+  attack_bonus: 1
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 18
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 180
+
+- id: 723
+  key: heron
+  name: "A Blue Heron"
+  short_desc: "A blue heron stands motionless in the shallows."
+  long_desc: "This elegant wading bird has slate-blue plumage and a long, sharp beak. It stands perfectly still, waiting with infinite patience for an unwary fish to swim within striking range."
+  keywords: [heron, bird, crane]
+  level: 3
+  hp_max: 18
+  mp_max: 0
+  mv_max: 100
+  str: 8
+  dex: 16
+  con: 10
+  intel: 4
+  wis: 14
+  cha: 10
+  armor: 11
+  fortitude: 0
+  reflex: 3
+  will: 1
+  base_damage: 6
+  damage_bonus: 0
+  attack_bonus: 3
+  behaviors: [PASSIVE, COWARDLY]
+  aggro_range: 0
+  experience_value: 15
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 180
+
+- id: 724
+  key: hawk
+  name: "A Red-Tailed Hawk"
+  short_desc: "A hawk circles overhead, hunting."
+  long_desc: "This magnificent raptor has rust-colored tail feathers and keen golden eyes. Its broad wings catch the thermals as it searches the grasslands below for prey."
+  keywords: [hawk, bird, raptor]
+  level: 3
+  hp_max: 16
+  mp_max: 0
+  mv_max: 200
+  str: 10
+  dex: 18
+  con: 10
+  intel: 4
+  wis: 16
+  cha: 8
+  armor: 12
+  fortitude: 1
+  reflex: 4
+  will: 1
+  base_damage: 6
+  damage_bonus: 1
+  attack_bonus: 3
+  behaviors: [PASSIVE, DEFENSIVE]
+  aggro_range: 0
+  experience_value: 16
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 180
+
+# --- LEVEL 4 FAUNA (Large Herbivores / Medium Predators) ---
+
+- id: 730
+  key: wild_boar
+  name: "A Wild Boar"
+  short_desc: "A wild boar snorts and paws at the ground."
+  long_desc: "This burly pig has coarse dark bristles and wicked curved tusks. It roots through the earth with its tough snout, grunting contentedly - until disturbed. Then those tusks become very dangerous."
+  keywords: [boar, pig, swine, hog]
+  level: 4
+  hp_max: 35
+  mp_max: 0
+  mv_max: 100
+  str: 16
+  dex: 10
+  con: 16
+  intel: 4
+  wis: 12
+  cha: 4
+  armor: 14
+  fortitude: 3
+  reflex: 0
+  will: 1
+  base_damage: 8
+  damage_bonus: 2
+  attack_bonus: 2
+  behaviors: [DEFENSIVE, AGGRESSIVE]
+  aggro_range: 0
+  experience_value: 35
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 240
+
+- id: 731
+  key: coyote
+  name: "A Lean Coyote"
+  short_desc: "A coyote watches you with wary yellow eyes."
+  long_desc: "This wiry canine has greyish-brown fur and intelligent yellow eyes. It moves with a loping, tireless gait, clearly built for endurance. Alone it seems cautious, but you sense it wouldn't hesitate to attack in a pack."
+  keywords: [coyote, dog, canine, wolf]
+  level: 4
+  hp_max: 28
+  mp_max: 0
+  mv_max: 150
+  str: 12
+  dex: 16
+  con: 12
+  intel: 6
+  wis: 14
+  cha: 6
+  armor: 13
+  fortitude: 1
+  reflex: 3
+  will: 1
+  base_damage: 7
+  damage_bonus: 1
+  attack_bonus: 3
+  behaviors: [PASSIVE, COWARDLY, WANDERER, ASSISTS]
+  aggro_range: 0
+  experience_value: 30
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 240
+
+- id: 732
+  key: giant_frog
+  name: "A Giant Frog"
+  short_desc: "A giant frog sits by the water, its throat pulsing."
+  long_desc: "This enormous amphibian is the size of a large dog. Its mottled green skin glistens wetly, and its bulbous eyes track your movement. A long, sticky tongue could snatch prey from several feet away."
+  keywords: [frog, toad, amphibian, giant]
+  level: 4
+  hp_max: 30
+  mp_max: 0
+  mv_max: 80
+  str: 14
+  dex: 14
+  con: 14
+  intel: 2
+  wis: 10
+  cha: 2
+  armor: 13
+  fortitude: 2
+  reflex: 2
+  will: 0
+  base_damage: 7
+  damage_bonus: 1
+  attack_bonus: 2
+  behaviors: [PASSIVE, DEFENSIVE]
+  aggro_range: 0
+  experience_value: 28
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 240
+
+- id: 733
+  key: snapping_turtle
+  name: "A Giant Snapping Turtle"
+  short_desc: "A massive snapping turtle lurks in the shallows."
+  long_desc: "This ancient-looking reptile has a shell the size of a shield and a beak that could sever a finger. Algae grows on its ridged shell, suggesting it has lived here for many years. It watches you with prehistoric patience."
+  keywords: [turtle, snapping, reptile]
+  level: 4
+  hp_max: 40
+  mp_max: 0
+  mv_max: 40
+  str: 16
+  dex: 6
+  con: 18
+  intel: 2
+  wis: 10
+  cha: 2
+  armor: 18
+  fortitude: 4
+  reflex: -2
+  will: 0
+  base_damage: 9
+  damage_bonus: 2
+  attack_bonus: 1
+  behaviors: [PASSIVE, DEFENSIVE]
+  aggro_range: 0
+  experience_value: 32
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 300
+
+# --- LEVEL 5 FAUNA (Large Predators / Exotic/Fantasy) ---
+
+- id: 740
+  key: plains_lion
+  name: "A Plains Lion"
+  short_desc: "A tawny lion surveys its domain."
+  long_desc: "This magnificent predator has a flowing golden mane and powerful muscles rippling beneath its tawny coat. Its amber eyes regard you with the calm confidence of an apex predator. Few creatures in the plains dare challenge a lion."
+  keywords: [lion, cat, feline, predator]
+  level: 5
+  hp_max: 50
+  mp_max: 0
+  mv_max: 140
+  str: 18
+  dex: 14
+  con: 16
+  intel: 6
+  wis: 14
+  cha: 12
+  armor: 14
+  fortitude: 3
+  reflex: 2
+  will: 1
+  base_damage: 10
+  damage_bonus: 3
+  attack_bonus: 3
+  behaviors: [PASSIVE, AGGRESSIVE]
+  aggro_range: 0
+  experience_value: 60
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 600
+
+- id: 741
+  key: blink_hare
+  name: "A Blink Hare"
+  short_desc: "A shimmering hare flickers in and out of visibility."
+  long_desc: "This unusual rabbit-like creature has fur that seems to shimmer between visibility and transparency. Its large eyes glow faintly with an otherworldly light. Legend says they can teleport short distances when threatened."
+  keywords: [hare, rabbit, blink, magic, magical]
+  level: 5
+  hp_max: 25
+  mp_max: 20
+  mv_max: 200
+  str: 8
+  dex: 20
+  con: 10
+  intel: 8
+  wis: 14
+  cha: 12
+  armor: 16
+  fortitude: 1
+  reflex: 5
+  will: 2
+  base_damage: 5
+  damage_bonus: 0
+  attack_bonus: 3
+  behaviors: [PASSIVE, COWARDLY, WANDERER]
+  aggro_range: 0
+  experience_value: 45
+  gold_min: 0
+  gold_max: 2
+  respawn_seconds: 480
+
+- id: 742
+  key: stone_drake
+  name: "A Stone Drake"
+  short_desc: "A small drake basks on a sun-warmed boulder."
+  long_desc: "This creature resembles a miniature dragon, about the size of a large dog. Its scales are the grey-brown of weathered stone, and small vestigial wings fold along its flanks. While not a true dragon, its bite is still dangerous."
+  keywords: [drake, dragon, lizard, stone]
+  level: 5
+  hp_max: 45
+  mp_max: 0
+  mv_max: 100
+  str: 16
+  dex: 14
+  con: 16
+  intel: 6
+  wis: 12
+  cha: 8
+  armor: 17
+  fortitude: 3
+  reflex: 2
+  will: 1
+  base_damage: 9
+  damage_bonus: 2
+  attack_bonus: 3
+  behaviors: [DEFENSIVE]
+  aggro_range: 0
+  experience_value: 55
+  gold_min: 0
+  gold_max: 5
+  respawn_seconds: 600
+
+- id: 743
+  key: will_o_wisp
+  name: "A Will-o'-Wisp"
+  short_desc: "A ghostly light dances above the grass."
+  long_desc: "This floating ball of pale blue light bobs and weaves through the air, leaving a faint trail of sparks. Some say they're lost souls, others claim they're nature spirits. Whatever the truth, following one rarely ends well."
+  keywords: [wisp, light, ghost, spirit, will]
+  level: 5
+  hp_max: 20
+  mp_max: 40
+  mv_max: 160
+  str: 4
+  dex: 20
+  con: 8
+  intel: 12
+  wis: 16
+  cha: 14
+  armor: 18
+  fortitude: 0
+  reflex: 5
+  will: 3
+  base_damage: 8
+  damage_bonus: 0
+  attack_bonus: 4
+  behaviors: [PASSIVE, WANDERER]
+  aggro_range: 0
+  experience_value: 50
+  gold_min: 2
+  gold_max: 10
+  respawn_seconds: 600
+
+# --- PLAINS OF DANATH - LARGER PREDATORS & FANTASY CREATURES (IDs 750-769) ---
+
+- id: 750
+  key: timber_wolf
+  name: "A Timber Wolf"
+  short_desc: "A large grey wolf watches you with calculating eyes."
+  long_desc: "This powerful wolf stands nearly waist-high, its thick grey coat marked with darker patches. Intelligent yellow eyes size you up, determining whether you're prey, threat, or simply something to avoid. Wolves rarely hunt alone."
+  keywords: [wolf, timber, grey, gray, canine]
+  level: 6
+  hp_max: 55
+  mp_max: 0
+  mv_max: 140
+  str: 16
+  dex: 16
+  con: 14
+  intel: 6
+  wis: 14
+  cha: 8
+  armor: 14
+  fortitude: 3
+  reflex: 3
+  will: 2
+  base_damage: 12
+  damage_bonus: 3
+  attack_bonus: 4
+  behaviors: [AGGRESSIVE, ASSISTS, WANDERER]
+  aggro_range: 2
+  experience_value: 80
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 600
+
+- id: 751
+  key: giant_boar
+  name: "A Giant Boar"
+  short_desc: "An enormous wild boar snorts and paws the ground."
+  long_desc: "This massive boar stands shoulder-high, its bristly hide scarred from countless fights. Tusks as long as your forearm curve up from its jaw, stained with mud and worse. It eyes you with the dim aggression of something that fears nothing smaller than itself."
+  keywords: [boar, giant, pig, tusks, hog]
+  level: 7
+  hp_max: 85
+  mp_max: 0
+  mv_max: 100
+  str: 20
+  dex: 10
+  con: 18
+  intel: 3
+  wis: 10
+  cha: 4
+  armor: 16
+  fortitude: 5
+  reflex: 1
+  will: 1
+  base_damage: 14
+  damage_bonus: 4
+  attack_bonus: 3
+  behaviors: [AGGRESSIVE]
+  aggro_range: 1
+  experience_value: 120
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 900
+
+- id: 752
+  key: dire_bear
+  name: "A Dire Bear"
+  short_desc: "A massive bear rears up on its hind legs, towering above you."
+  long_desc: "This is no ordinary bear - it's a throwback to a more savage age. Standing over twelve feet tall on its hind legs, its claws are like curved daggers and its roar shakes the ground. The scars on its muzzle speak of many victories."
+  keywords: [bear, dire, grizzly, beast]
+  level: 8
+  hp_max: 120
+  mp_max: 0
+  mv_max: 80
+  str: 22
+  dex: 12
+  con: 20
+  intel: 4
+  wis: 12
+  cha: 6
+  armor: 17
+  fortitude: 6
+  reflex: 2
+  will: 2
+  base_damage: 18
+  damage_bonus: 5
+  attack_bonus: 4
+  behaviors: [DEFENSIVE]
+  aggro_range: 0
+  experience_value: 180
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 1200
+
+- id: 753
+  key: worg
+  name: "A Worg"
+  short_desc: "An enormous, evil-looking wolf snarls at your approach."
+  long_desc: "This is no natural wolf but something twisted by dark magic. The size of a small horse, its black fur bristles with unnatural energy and its eyes glow with malevolent intelligence. Worgs are said to understand speech and take pleasure in the hunt."
+  keywords: [worg, wolf, evil, beast, demonic]
+  level: 7
+  hp_max: 70
+  mp_max: 0
+  mv_max: 160
+  str: 18
+  dex: 18
+  con: 16
+  intel: 8
+  wis: 12
+  cha: 6
+  armor: 15
+  fortitude: 4
+  reflex: 4
+  will: 2
+  base_damage: 14
+  damage_bonus: 4
+  attack_bonus: 5
+  behaviors: [AGGRESSIVE, WANDERER]
+  aggro_range: 3
+  experience_value: 130
+  gold_min: 0
+  gold_max: 5
+  respawn_seconds: 900
+
+- id: 754
+  key: owlbear
+  name: "An Owlbear"
+  short_desc: "A bizarre creature with an owl's head on a bear's body blocks your path."
+  long_desc: "This unnatural fusion of owl and bear is the stuff of nightmares. Its massive ursine body is covered in feathers as well as fur, and its owl-like head swivels to fix you with huge, unblinking eyes. A hooked beak clicks menacingly as it spreads its stubby, useless wings in a threat display."
+  keywords: [owlbear, owl, bear, beast, monster]
+  level: 8
+  hp_max: 100
+  mp_max: 0
+  mv_max: 90
+  str: 20
+  dex: 12
+  con: 18
+  intel: 4
+  wis: 14
+  cha: 4
+  armor: 16
+  fortitude: 5
+  reflex: 2
+  will: 3
+  base_damage: 16
+  damage_bonus: 5
+  attack_bonus: 4
+  behaviors: [AGGRESSIVE]
+  aggro_range: 2
+  experience_value: 170
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 1200
+
+- id: 755
+  key: giant_elk
+  name: "A Giant Elk"
+  short_desc: "A majestic elk with an enormous rack of antlers grazes nearby."
+  long_desc: "This magnificent beast stands head and shoulders above a normal elk, its antlers spanning nearly ten feet. Despite its peaceful grazing, there's power in those shoulders and danger in those sharp-tipped antlers. Wise travelers give it a wide berth during mating season."
+  keywords: [elk, giant, deer, stag, antlers]
+  level: 6
+  hp_max: 65
+  mp_max: 0
+  mv_max: 130
+  str: 18
+  dex: 14
+  con: 16
+  intel: 4
+  wis: 14
+  cha: 10
+  armor: 14
+  fortitude: 4
+  reflex: 3
+  will: 2
+  base_damage: 12
+  damage_bonus: 3
+  attack_bonus: 3
+  behaviors: [PASSIVE, WANDERER]
+  aggro_range: 0
+  experience_value: 85
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 800
+
+- id: 756
+  key: cockatrice
+  name: "A Cockatrice"
+  short_desc: "A chicken-like creature with leathery wings and a serpent's tail hisses."
+  long_desc: "Half rooster, half dragon, this bizarre creature struts about on scaly legs. Its beady eyes hold an unnatural gleam, and legend says its gaze can turn flesh to stone. Its serpentine tail lashes as it considers whether you might be edible."
+  keywords: [cockatrice, chicken, rooster, dragon, serpent]
+  level: 9
+  hp_max: 75
+  mp_max: 20
+  mv_max: 100
+  str: 12
+  dex: 16
+  con: 14
+  intel: 4
+  wis: 12
+  cha: 6
+  armor: 15
+  fortitude: 3
+  reflex: 4
+  will: 2
+  base_damage: 14
+  damage_bonus: 3
+  attack_bonus: 5
+  behaviors: [AGGRESSIVE]
+  aggro_range: 2
+  experience_value: 200
+  gold_min: 5
+  gold_max: 20
+  respawn_seconds: 1500
+
+- id: 757
+  key: griffon
+  name: "A Griffon"
+  short_desc: "A magnificent creature with an eagle's head and a lion's body circles overhead."
+  long_desc: "This noble beast combines the fierce majesty of a lion with the keen predatory nature of a giant eagle. Its golden fur gleams in the sunlight, and its massive wings cast shadows across the plains as it hunts. Griffons are territorial and will attack those who threaten their hunting grounds."
+  keywords: [griffon, griffin, eagle, lion, beast]
+  level: 9
+  hp_max: 95
+  mp_max: 0
+  mv_max: 180
+  str: 18
+  dex: 18
+  con: 16
+  intel: 6
+  wis: 14
+  cha: 12
+  armor: 16
+  fortitude: 4
+  reflex: 5
+  will: 3
+  base_damage: 16
+  damage_bonus: 4
+  attack_bonus: 6
+  behaviors: [AGGRESSIVE, WANDERER]
+  aggro_range: 3
+  experience_value: 220
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 1800
+
+# --- SPECIAL / RARE SPAWNS (IDs 770-779) ---
+
+- id: 770
+  key: silvermane_unicorn
+  name: "A Silvermane Unicorn"
+  short_desc: "A beautiful white unicorn with a silver mane watches you with ancient eyes."
+  long_desc: "This ethereal creature is the stuff of legend - a pure white horse with a coat that seems to shimmer with inner light. Its silver mane flows like liquid moonlight, and a spiraling horn of pearlescent ivory rises from its forehead. Its deep blue eyes hold wisdom beyond mortal understanding. You feel both humbled and blessed to witness such a creature."
+  keywords: [unicorn, horse, silvermane, white, magical]
+  level: 30
+  hp_max: 400
+  mp_max: 200
+  mv_max: 200
+  str: 18
+  dex: 22
+  con: 20
+  intel: 18
+  wis: 24
+  cha: 26
+  armor: 22
+  fortitude: 8
+  reflex: 8
+  will: 10
+  base_damage: 25
+  damage_bonus: 8
+  attack_bonus: 12
+  behaviors: [PASSIVE, WANDERER]
+  aggro_range: 0
+  experience_value: 5000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 86400
+
+# --- APEX PREDATOR (ID 780) ---
+
+- id: 780
+  key: granite_troll
+  name: "The Granite Troll"
+  short_desc: "A MASSIVE stone-skinned troll lumbers through the area, shaking the ground."
+  long_desc: "This nightmarish creature stands nearly fifteen feet tall, its hide the color and texture of rough granite. Muscles like twisted cables of stone ripple beneath its skin as it moves with surprising speed for something so massive. Its eyes burn with a dull orange glow, and its claws have gouged deep furrows in every boulder it's passed. The apex predator of the Plains of Danath, even the dire bears give this monster a wide berth. Veteran adventurers whisper warnings about the Granite Troll - it fears nothing and forgets no slight."
+  keywords: [troll, granite, stone, rock, giant, monster, apex]
+  level: 10
+  hp_max: 200
+  mp_max: 0
+  mv_max: 100
+  str: 24
+  dex: 10
+  con: 24
+  intel: 6
+  wis: 10
+  cha: 4
+  armor: 20
+  fortitude: 8
+  reflex: 2
+  will: 3
+  base_damage: 24
+  damage_bonus: 8
+  attack_bonus: 6
+  behaviors: [AGGRESSIVE, WANDERER]
+  aggro_range: 4
+  experience_value: 500
+  gold_min: 20
+  gold_max: 100
+  respawn_seconds: 3600

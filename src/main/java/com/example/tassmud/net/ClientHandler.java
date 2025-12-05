@@ -3,6 +3,8 @@ package com.example.tassmud.net;
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
+import com.example.tassmud.effect.EffectDefinition;
+import com.example.tassmud.effect.EffectRegistry;
 import com.example.tassmud.model.Area;
 import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.Character;
@@ -21,6 +23,8 @@ import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.model.Stance;
 import com.example.tassmud.net.CommandParser.Command;
+import com.example.tassmud.net.commands.CommandContext;
+import com.example.tassmud.net.commands.CommandDispatcher;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
@@ -757,6 +761,21 @@ public class ClientHandler implements Runnable {
                     }
                 }
                 
+                // Try to dispatch to category handlers first (reduces method size)
+                boolean isGmForDispatch = dao.isCharacterFlagTrueByName(name, "is_gm");
+                boolean inCombatForDispatch = characterId != null && 
+                    CombatManager.getInstance().getCombatForCharacter(characterId) != null;
+                CommandContext cmdCtx = new CommandContext(
+                    cmd, name, characterId, currentRoomId, rec, dao, out, 
+                    isGmForDispatch, inCombatForDispatch
+                );
+                if (CommandDispatcher.dispatch(cmdCtx)) {
+                    // Command was handled by a category handler
+                    // Refresh rec in case it changed
+                    rec = dao.findByName(name);
+                    continue;
+                }
+                
                 switch (cmdName) {
                     case "help":
                         String a = cmd.getArgs();
@@ -1374,6 +1393,85 @@ public class ClientHandler implements Runnable {
                             out.println("Usage: CFLAG SET <char> <flag> <value>   |   CFLAG CHECK <char> <flag>");
                             break;
                         }
+                    }
+                    case "cset": {
+                        // GM-only: CSET <char> <attribute> <value>  OR  CSET LIST
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String csetArgs = cmd.getArgs();
+                        if (csetArgs == null || csetArgs.trim().isEmpty()) {
+                            out.println("Usage: CSET <character> <attribute> <value>");
+                            out.println("       CSET LIST - Show all settable attributes");
+                            break;
+                        }
+                        String[] csetParts = csetArgs.trim().split("\\s+", 3);
+                        
+                        // Handle CSET LIST
+                        if (csetParts[0].equalsIgnoreCase("list")) {
+                            out.println();
+                            out.println("═══════════════════════════════════════════════════════════════");
+                            out.println("                    SETTABLE ATTRIBUTES");
+                            out.println("═══════════════════════════════════════════════════════════════");
+                            out.println();
+                            out.println("  [ VITALS ]");
+                            out.println("    hp, hpmax, mp, mpmax, mv, mvmax");
+                            out.println();
+                            out.println("  [ BASE ABILITIES ]");
+                            out.println("    str, dex, con, int, wis, cha");
+                            out.println();
+                            out.println("  [ TRAINED ABILITIES ]");
+                            out.println("    trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha");
+                            out.println("    (aliases: tstr, tdex, tcon, tint, twis, tcha)");
+                            out.println();
+                            out.println("  [ SAVES ]");
+                            out.println("    armor (ac), fortitude (fort), reflex (ref), will");
+                            out.println();
+                            out.println("  [ EQUIPMENT BONUSES ]");
+                            out.println("    armor_equip, fort_equip, reflex_equip, will_equip");
+                            out.println();
+                            out.println("  [ CLASS & PROGRESSION ]");
+                            out.println("    class, level, xp");
+                            out.println();
+                            out.println("  [ OTHER ]");
+                            out.println("    age, room, autoflee, talents, gold, description");
+                            out.println();
+                            out.println("═══════════════════════════════════════════════════════════════");
+                            out.println();
+                            break;
+                        }
+                        
+                        if (csetParts.length < 3) {
+                            out.println("Usage: CSET <character> <attribute> <value>");
+                            out.println("       CSET LIST - Show all settable attributes");
+                            break;
+                        }
+                        
+                        String targetName = csetParts[0];
+                        String attrName = csetParts[1];
+                        String attrValue = csetParts[2];
+                        
+                        // Find the character
+                        Integer targetCharId = dao.getCharacterIdByName(targetName);
+                        if (targetCharId == null) {
+                            out.println("Character '" + targetName + "' not found.");
+                            break;
+                        }
+                        
+                        // Set the attribute
+                        String result = dao.setCharacterAttribute(targetCharId, attrName, attrValue);
+                        out.println(targetName + ": " + result);
+                        
+                        // Notify the target if they're online and it's not self
+                        if (!targetName.equalsIgnoreCase(name)) {
+                            ClientHandler targetHandler = nameToSession.get(targetName.toLowerCase());
+                            if (targetHandler != null) {
+                                targetHandler.sendRaw("[GM] Your " + attrName + " has been modified.");
+                            }
+                        }
+                        break;
                     }
                     case "cskill": {
                         // GM-only: CSKILL <character> <skill_id> [amount]  OR  CSKILL LIST
@@ -3128,6 +3226,133 @@ public class ClientHandler implements Runnable {
                         broadcastRoomMessage(rec.currentRoom, name + " waves their hand and all combat in the room ceases.");
                         break;
                     }
+                    case "slay": {
+                        // GM-only: SLAY <target> - instantly kill a mob
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use slay.");
+                            break;
+                        }
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("You must be in a room to use slay.");
+                            break;
+                        }
+                        
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        
+                        CombatManager combatMgr = CombatManager.getInstance();
+                        Combat combat = combatMgr.getCombatForCharacter(charId);
+                        
+                        Mobile targetMob = null;
+                        String slayArgs = cmd.getArgs();
+                        
+                        if (combat != null && combatMgr.isInCombat(charId)) {
+                            // In combat - if no args, target current enemy
+                            if (slayArgs == null || slayArgs.trim().isEmpty()) {
+                                // Find first enemy combatant
+                                Combatant self = combat.findByCharacterId(charId);
+                                if (self != null) {
+                                    for (Combatant c : combat.getActiveCombatants()) {
+                                        if (c.getAlliance() != self.getAlliance() && c.isMobile()) {
+                                            targetMob = c.getMobile();
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (targetMob == null) {
+                                    out.println("You have no enemy to slay.");
+                                    break;
+                                }
+                            } else {
+                                // Search for target by name in combat
+                                String targetSearch = slayArgs.trim().toLowerCase();
+                                for (Combatant c : combat.getActiveCombatants()) {
+                                    if (c.isMobile() && c.getMobile() != null) {
+                                        Mobile mob = c.getMobile();
+                                        if (mob.getName().toLowerCase().contains(targetSearch)) {
+                                            targetMob = mob;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (targetMob == null) {
+                                    out.println("No enemy matching '" + slayArgs + "' in combat.");
+                                    break;
+                                }
+                            }
+                            
+                            // Kill the mob instantly
+                            String mobName = targetMob.getName();
+                            out.println("You raise your hand and " + mobName + " is struck down by divine power!");
+                            broadcastRoomMessage(rec.currentRoom, name + " raises their hand and " + mobName + " is struck down by divine power!");
+                            
+                            // Find combatant and set HP to 0 - combat system will handle death
+                            Combatant victimCombatant = null;
+                            for (Combatant c : combat.getActiveCombatants()) {
+                                if (c.getMobile() == targetMob) {
+                                    victimCombatant = c;
+                                    break;
+                                }
+                            }
+                            if (victimCombatant != null) {
+                                Character victimChar = victimCombatant.getAsCharacter();
+                                if (victimChar != null) {
+                                    victimChar.setHpCur(0);
+                                }
+                            }
+                        } else {
+                            // Not in combat - find target in room and kill immediately
+                            if (slayArgs == null || slayArgs.trim().isEmpty()) {
+                                out.println("Usage: slay <target>");
+                                out.println("  Instantly kill a mob in the room.");
+                                break;
+                            }
+                            
+                            MobileDAO mobileDao = new MobileDAO();
+                            List<Mobile> mobilesInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                            if (mobilesInRoom.isEmpty()) {
+                                out.println("There is nothing here to slay.");
+                                break;
+                            }
+                            
+                            String targetSearch = slayArgs.trim().toLowerCase();
+                            for (Mobile mob : mobilesInRoom) {
+                                if (mob.getName().toLowerCase().contains(targetSearch)) {
+                                    targetMob = mob;
+                                    break;
+                                }
+                            }
+                            
+                            if (targetMob == null) {
+                                out.println("You don't see '" + slayArgs + "' here.");
+                                break;
+                            }
+                            
+                            if (targetMob.isDead()) {
+                                out.println(targetMob.getName() + " is already dead.");
+                                break;
+                            }
+                            
+                            String mobName = targetMob.getName();
+                            out.println("You raise your hand and " + mobName + " is struck down by divine power!");
+                            broadcastRoomMessage(rec.currentRoom, name + " raises their hand and " + mobName + " is struck down by divine power!");
+                            
+                            // Create corpse
+                            try {
+                                ItemDAO itemDAO = new ItemDAO();
+                                itemDAO.createCorpse(rec.currentRoom, mobName);
+                            } catch (Exception e) {
+                                System.err.println("[slay] Failed to create corpse: " + e.getMessage());
+                            }
+                            
+                            // Kill and remove the mob
+                            targetMob.die();
+                            mobileDao.deleteInstance(targetMob.getInstanceId());
+                        }
+                        break;
+                    }
                     case "restore": {
                         // GM-only: RESTORE [character] - restore HP/MP/MV to full
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
@@ -4342,6 +4567,7 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
+                    // Note: quaff/drink commands are handled by ItemCommandHandler via CommandDispatcher
                     case "list": {
                         // LIST - show items for sale from shopkeepers in the room
                         if (rec == null || rec.currentRoom == null) {
@@ -4824,7 +5050,8 @@ public class ClientHandler implements Runnable {
                         CharacterClass currentClass = currentClassId != null ? classDao.getClassById(currentClassId) : null;
                         int classLevel = currentClassId != null ? classDao.getCharacterClassLevel(charId, currentClassId) : 0;
                         int classXp = currentClassId != null ? classDao.getCharacterClassXp(charId, currentClassId) : 0;
-                        int xpToNext = classLevel < CharacterClass.MAX_HERO_LEVEL ? CharacterClass.xpRequiredForLevel(classLevel + 1) - classXp : 0;
+                        // classXp is progress within current level (0 to XP_PER_LEVEL-1), so xpToNext is simply the remainder
+                        int xpToNext = classLevel < CharacterClass.MAX_HERO_LEVEL ? CharacterClass.XP_PER_LEVEL - classXp : 0;
                         
                         // Get all class progress for multiclass display
                         java.util.List<CharacterClassDAO.ClassProgress> allProgress = classDao.getCharacterClassProgress(charId);
@@ -4873,12 +5100,11 @@ public class ClientHandler implements Runnable {
                         
                         // XP bar - shows progress within current level (0 to XP_PER_LEVEL)
                         if (currentClass != null && classLevel < CharacterClass.MAX_HERO_LEVEL) {
-                            int xpForCurrent = CharacterClass.xpRequiredForLevel(classLevel);
-                            int xpInLevel = classXp - xpForCurrent;
+                            // classXp is already the progress within the current level (resets to 0 on level-up)
                             int xpNeeded = CharacterClass.XP_PER_LEVEL;
-                            int pct = (xpInLevel * 100) / xpNeeded;
+                            int pct = (classXp * 100) / xpNeeded;
                             sheet.append(String.format("  XP: %d / %d  [%s%s] %d%%  (%d TNL)\n",
-                                xpInLevel, xpNeeded,
+                                classXp, xpNeeded,
                                 repeat("#", pct / 5), repeat(".", 20 - pct / 5),
                                 pct, xpToNext));
                         } else if (currentClass != null) {

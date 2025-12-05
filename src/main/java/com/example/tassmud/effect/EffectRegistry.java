@@ -44,7 +44,11 @@ public class EffectRegistry {
         }
         if (h == null) return null;
         EffectInstance inst = h.apply(def, casterId, targetId, extraParams);
-        if (inst != null) activeInstances.put(inst.getId(), inst);
+        // Only track persistent effects with duration > 0 in activeInstances
+        // Instant effects (heals, damage) should not be tracked
+        if (inst != null && def.isPersistent() && def.getDurationSeconds() > 0) {
+            activeInstances.put(inst.getId(), inst);
+        }
         return inst;
     }
 

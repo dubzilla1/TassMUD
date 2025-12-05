@@ -46,6 +46,11 @@ public class ItemTemplate {
     public final WeaponFamily weaponFamily;
     public final ArmorCategory armorCategory;
     
+    /** Minimum item level for instances (default 1). Used for level-scaled items like potions. */
+    public final int minItemLevel;
+    /** Maximum item level for instances (default 1). Used for level-scaled items like potions. */
+    public final int maxItemLevel;
+    
     /** Cached lowercase type set for efficient lookups */
     private final Set<String> typeSet;
 
@@ -84,6 +89,57 @@ public class ItemTemplate {
         WeaponCategory weaponCategory,
         WeaponFamily weaponFamily,
         ArmorCategory armorCategory
+    ) {
+        // Delegate to full constructor with default item levels
+        this(id, key, name, description, weight, value, traits, keywords, type, subtype, slot,
+             capacity, handCount, indestructable, magical, maxItems, maxWeight,
+             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
+             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
+             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
+             templateJson, weaponCategory, weaponFamily, armorCategory,
+             1, 1); // default minItemLevel=1, maxItemLevel=1
+    }
+    
+    /**
+     * Full constructor with item level range.
+     */
+    public ItemTemplate(
+        int id,
+        String key,
+        String name,
+        String description,
+        double weight,
+        int value,
+        java.util.List<String> traits,
+        java.util.List<String> keywords,
+        String type,
+        String subtype,
+        String slot,
+        int capacity,
+        int handCount,
+        boolean indestructable,
+        boolean magical,
+        int maxItems,
+        int maxWeight,
+        int armorSaveBonus,
+        int fortSaveBonus,
+        int refSaveBonus,
+        int willSaveBonus,
+        int baseDie,
+        int multiplier,
+        int hands,
+        String abilityScore,
+        double abilityMultiplier,
+        String spellEffectId1,
+        String spellEffectId2,
+        String spellEffectId3,
+        String spellEffectId4,
+        String templateJson,
+        WeaponCategory weaponCategory,
+        WeaponFamily weaponFamily,
+        ArmorCategory armorCategory,
+        int minItemLevel,
+        int maxItemLevel
     ) {
         this.id = id;
         this.key = key;
@@ -129,6 +185,9 @@ public class ItemTemplate {
         this.weaponCategory = weaponCategory;
         this.weaponFamily = weaponFamily;
         this.armorCategory = armorCategory;
+        // Item level range - defaults to 1 if not specified
+        this.minItemLevel = minItemLevel > 0 ? minItemLevel : 1;
+        this.maxItemLevel = maxItemLevel > 0 ? maxItemLevel : 1;
     }
     
     /**
@@ -170,6 +229,57 @@ public class ItemTemplate {
         WeaponCategory weaponCategory,
         WeaponFamily weaponFamily,
         ArmorCategory armorCategory
+    ) {
+        // Delegate to full constructor with default item levels
+        this(id, key, name, description, weight, value, traits, keywords, types, subtype, slot,
+             capacity, handCount, indestructable, magical, maxItems, maxWeight,
+             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
+             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
+             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
+             templateJson, weaponCategory, weaponFamily, armorCategory,
+             1, 1); // default minItemLevel=1, maxItemLevel=1
+    }
+    
+    /**
+     * Full constructor that accepts multiple types and item level range.
+     */
+    public ItemTemplate(
+        int id,
+        String key,
+        String name,
+        String description,
+        double weight,
+        int value,
+        java.util.List<String> traits,
+        java.util.List<String> keywords,
+        java.util.List<String> types,
+        String subtype,
+        String slot,
+        int capacity,
+        int handCount,
+        boolean indestructable,
+        boolean magical,
+        int maxItems,
+        int maxWeight,
+        int armorSaveBonus,
+        int fortSaveBonus,
+        int refSaveBonus,
+        int willSaveBonus,
+        int baseDie,
+        int multiplier,
+        int hands,
+        String abilityScore,
+        double abilityMultiplier,
+        String spellEffectId1,
+        String spellEffectId2,
+        String spellEffectId3,
+        String spellEffectId4,
+        String templateJson,
+        WeaponCategory weaponCategory,
+        WeaponFamily weaponFamily,
+        ArmorCategory armorCategory,
+        int minItemLevel,
+        int maxItemLevel
     ) {
         this.id = id;
         this.key = key;
@@ -224,6 +334,9 @@ public class ItemTemplate {
         this.weaponCategory = weaponCategory;
         this.weaponFamily = weaponFamily;
         this.armorCategory = armorCategory;
+        // Item level range - defaults to 1 if not specified
+        this.minItemLevel = minItemLevel > 0 ? minItemLevel : 1;
+        this.maxItemLevel = maxItemLevel > 0 ? maxItemLevel : 1;
     }
     
     /**
@@ -304,6 +417,13 @@ public class ItemTemplate {
      */
     public boolean isTrash() {
         return hasType("trash");
+    }
+    
+    /**
+     * Check if this item is a potion (consumable via quaff command).
+     */
+    public boolean isPotion() {
+        return hasType("potion");
     }
     
     /**

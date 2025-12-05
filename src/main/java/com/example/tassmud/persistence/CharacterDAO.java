@@ -2093,4 +2093,174 @@ public class CharacterDAO {
         }
         return false;
     }
+    
+    /**
+     * Set a character attribute by name. Used by GM cset command.
+     * Returns a result message describing success or failure.
+     * 
+     * Supported attributes:
+     * - Vitals: hp, hpmax, mp, mpmax, mv, mvmax
+     * - Base Abilities: str, dex, con, int, wis, cha
+     * - Trained Abilities: trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha
+     * - Saves: armor, fortitude, reflex, will
+     * - Equipment bonuses: armor_equip, fort_equip, reflex_equip, will_equip
+     * - Other: age, room, class, autoflee, talents, gold, xp, level
+     */
+    public String setCharacterAttribute(int characterId, String attribute, String value) {
+        if (attribute == null || value == null) {
+            return "Attribute and value are required.";
+        }
+        
+        String attr = attribute.toLowerCase().trim();
+        
+        // Handle special attributes first
+        switch (attr) {
+            case "xp": {
+                try {
+                    int xp = Integer.parseInt(value);
+                    CharacterClassDAO classDAO = new CharacterClassDAO();
+                    Integer classId = classDAO.getCharacterCurrentClassId(characterId);
+                    if (classId == null) return "Character has no class.";
+                    String sql = "UPDATE character_class_progress SET class_xp = ? WHERE character_id = ? AND class_id = ?";
+                    try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                         PreparedStatement ps = c.prepareStatement(sql)) {
+                        ps.setInt(1, Math.max(0, xp));
+                        ps.setInt(2, characterId);
+                        ps.setInt(3, classId);
+                        if (ps.executeUpdate() > 0) return "XP set to " + xp;
+                    }
+                    return "Failed to set XP.";
+                } catch (Exception e) { return "Invalid XP value: " + value; }
+            }
+            case "level": {
+                try {
+                    int level = Integer.parseInt(value);
+                    if (level < 1 || level > 55) return "Level must be between 1 and 55.";
+                    CharacterClassDAO classDAO = new CharacterClassDAO();
+                    Integer classId = classDAO.getCharacterCurrentClassId(characterId);
+                    if (classId == null) return "Character has no class.";
+                    String sql = "UPDATE character_class_progress SET class_level = ? WHERE character_id = ? AND class_id = ?";
+                    try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                         PreparedStatement ps = c.prepareStatement(sql)) {
+                        ps.setInt(1, level);
+                        ps.setInt(2, characterId);
+                        ps.setInt(3, classId);
+                        if (ps.executeUpdate() > 0) return "Level set to " + level;
+                    }
+                    return "Failed to set level.";
+                } catch (Exception e) { return "Invalid level value: " + value; }
+            }
+            case "class": {
+                try {
+                    int classId = Integer.parseInt(value);
+                    String sql = "UPDATE characters SET current_class_id = ? WHERE id = ?";
+                    try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                         PreparedStatement ps = c.prepareStatement(sql)) {
+                        ps.setInt(1, classId);
+                        ps.setInt(2, characterId);
+                        if (ps.executeUpdate() > 0) return "Class ID set to " + classId;
+                    }
+                    return "Failed to set class.";
+                } catch (Exception e) { return "Invalid class ID: " + value; }
+            }
+            case "description": case "desc": {
+                String sql = "UPDATE characters SET description = ? WHERE id = ?";
+                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                     PreparedStatement ps = c.prepareStatement(sql)) {
+                    ps.setString(1, value);
+                    ps.setInt(2, characterId);
+                    if (ps.executeUpdate() > 0) return "Description set.";
+                } catch (SQLException e) { return "Failed to set description: " + e.getMessage(); }
+                return "Failed to set description.";
+            }
+        }
+        
+        // Map attribute name to column
+        String column = null;
+        boolean isLong = false;
+        
+        switch (attr) {
+            // Vitals
+            case "hp": case "hpcur": case "hp_cur": column = "hp_cur"; break;
+            case "hpmax": case "hp_max": column = "hp_max"; break;
+            case "mp": case "mpcur": case "mp_cur": column = "mp_cur"; break;
+            case "mpmax": case "mp_max": column = "mp_max"; break;
+            case "mv": case "mvcur": case "mv_cur": column = "mv_cur"; break;
+            case "mvmax": case "mv_max": column = "mv_max"; break;
+            
+            // Base abilities
+            case "str": case "strength": column = "str"; break;
+            case "dex": case "dexterity": column = "dex"; break;
+            case "con": case "constitution": column = "con"; break;
+            case "int": case "intel": case "intelligence": column = "intel"; break;
+            case "wis": case "wisdom": column = "wis"; break;
+            case "cha": case "charisma": column = "cha"; break;
+            
+            // Trained abilities
+            case "trained_str": case "trainedstr": case "tstr": column = "trained_str"; break;
+            case "trained_dex": case "traineddex": case "tdex": column = "trained_dex"; break;
+            case "trained_con": case "trainedcon": case "tcon": column = "trained_con"; break;
+            case "trained_int": case "trainedint": case "tint": column = "trained_int"; break;
+            case "trained_wis": case "trainedwis": case "twis": column = "trained_wis"; break;
+            case "trained_cha": case "trainedcha": case "tcha": column = "trained_cha"; break;
+            
+            // Saves
+            case "armor": case "ac": column = "armor"; break;
+            case "fortitude": case "fort": column = "fortitude"; break;
+            case "reflex": case "ref": column = "reflex"; break;
+            case "will": column = "will"; break;
+            
+            // Equipment bonuses
+            case "armor_equip": case "armorequip": case "ac_equip": column = "armor_equip_bonus"; break;
+            case "fort_equip": case "fortequip": case "fortitude_equip": column = "fortitude_equip_bonus"; break;
+            case "reflex_equip": case "reflexequip": case "ref_equip": column = "reflex_equip_bonus"; break;
+            case "will_equip": case "willequip": column = "will_equip_bonus"; break;
+            
+            // Other
+            case "age": column = "age"; break;
+            case "room": case "currentroom": case "current_room": column = "current_room"; break;
+            case "autoflee": column = "autoflee"; break;
+            case "talents": case "talentpoints": case "talent_points": column = "talent_points"; break;
+            case "gold": case "goldpieces": case "gold_pieces": column = "gold_pieces"; isLong = true; break;
+            
+            default:
+                return "Unknown attribute: " + attribute + ". Use CSET LIST to see available attributes.";
+        }
+        
+        // Parse and update
+        String sql = "UPDATE characters SET " + column + " = ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            if (isLong) {
+                long longVal = Long.parseLong(value);
+                ps.setLong(1, longVal);
+            } else {
+                int intVal = Integer.parseInt(value);
+                ps.setInt(1, intVal);
+            }
+            ps.setInt(2, characterId);
+            if (ps.executeUpdate() > 0) {
+                return attr.toUpperCase() + " set to " + value;
+            }
+            return "Failed to update " + attr + ".";
+        } catch (NumberFormatException e) {
+            return "Invalid numeric value: " + value;
+        } catch (SQLException e) {
+            return "Database error: " + e.getMessage();
+        }
+    }
+    
+    /**
+     * Get list of all settable attributes for CSET command.
+     */
+    public static java.util.List<String> getSettableAttributes() {
+        return java.util.Arrays.asList(
+            "hp", "hpmax", "mp", "mpmax", "mv", "mvmax",
+            "str", "dex", "con", "int", "wis", "cha",
+            "trained_str", "trained_dex", "trained_con", "trained_int", "trained_wis", "trained_cha",
+            "armor", "fortitude", "reflex", "will",
+            "armor_equip", "fort_equip", "reflex_equip", "will_equip",
+            "age", "room", "class", "autoflee", "talents", "gold", "xp", "level", "description"
+        );
+    }
 }

@@ -1409,46 +1409,63 @@ items:
 
   # ============================================================
   # POTIONS (IDs 550-599)
-  # Consumables with magical effects (effects not yet implemented)
+  # Consumables with magical effects. Use 'quaff' command to consume.
+  # Level-scaled potions roll their level at spawn (min_item_level to max_item_level).
   # ============================================================
 
-  # --- Basic Potions (Apothecary: Aldric) ---
+  # --- Cure Wound Potions (Apothecary: Aldric) ---
+  # These potions contain cure spells at 100% proficiency.
+  # Item level acts as caster level for the spell effect.
+  
   - id: 550
-    key: potion_healing_minor
-    name: Minor Healing Potion
-    description: A small vial of red liquid that mends minor wounds.
-    keywords: [potion, healing, minor, red]
+    key: potion_cure_light
+    name: Potion of Cure Light Wounds
+    description: A small vial of pale red liquid that mends minor wounds.
+    keywords: [potion, healing, cure, light, red]
+    types: [potion]
     weight: 0.2
     value: 25
-    type: inventory
+    spell_effect_id_1: "201"
+    min_item_level: 1
+    max_item_level: 10
 
   - id: 551
-    key: potion_healing
-    name: Healing Potion
+    key: potion_cure_moderate
+    name: Potion of Cure Moderate Wounds
     description: A vial of crimson liquid that heals moderate injuries.
-    keywords: [potion, healing, red]
+    keywords: [potion, healing, cure, moderate, red]
+    types: [potion]
     weight: 0.2
-    value: 50
-    type: inventory
+    value: 75
+    spell_effect_id_1: "210"
+    min_item_level: 10
+    max_item_level: 20
 
   - id: 552
-    key: potion_healing_major
-    name: Major Healing Potion
+    key: potion_cure_serious
+    name: Potion of Cure Serious Wounds
     description: A large vial of deep red liquid that heals serious wounds.
-    keywords: [potion, healing, major, red]
+    keywords: [potion, healing, cure, serious, red]
+    types: [potion]
     weight: 0.3
-    value: 100
-    type: inventory
+    value: 150
+    spell_effect_id_1: "220"
+    min_item_level: 20
+    max_item_level: 30
 
   - id: 553
-    key: potion_mana_minor
-    name: Minor Mana Potion
-    description: A small vial of blue liquid that restores magical energy.
-    keywords: [potion, mana, minor, blue]
-    weight: 0.2
-    value: 25
-    type: inventory
+    key: potion_cure_critical
+    name: Potion of Cure Critical Wounds
+    description: A large vial of brilliant ruby liquid that heals critical wounds.
+    keywords: [potion, healing, cure, critical, red]
+    types: [potion]
+    weight: 0.3
+    value: 300
+    spell_effect_id_1: "230"
+    min_item_level: 30
+    max_item_level: 40
 
+  # --- Mana Potions ---
   - id: 554
     key: potion_mana
     name: Mana Potion

@@ -20,6 +20,64 @@ cflag:
         CFLAG SET Alice is_gm 1
         CFLAG CHECK Alice is_gm
 
+cset:
+  summary: "Set a character's attribute to a specific value (GM-only)"
+  visibility: gm
+  synopsis:
+    - "CSET <character> <attribute> <value>"
+    - "CSET LIST"
+  body: |
+    NAME
+        cset - set character attribute values
+
+    SYNOPSIS
+        CSET <character> <attribute> <value>
+        CSET LIST
+
+    DESCRIPTION
+        A powerful GM command that allows direct modification of character
+        attributes. Use CSET LIST to see all available attributes.
+        
+        Supported attribute categories:
+        
+        VITALS:
+            hp, hpmax, mp, mpmax, mv, mvmax
+        
+        BASE ABILITIES:
+            str, dex, con, int, wis, cha
+        
+        TRAINED ABILITIES:
+            trained_str (tstr), trained_dex (tdex), trained_con (tcon),
+            trained_int (tint), trained_wis (twis), trained_cha (tcha)
+        
+        SAVES:
+            armor (ac), fortitude (fort), reflex (ref), will
+        
+        EQUIPMENT BONUSES:
+            armor_equip, fort_equip, reflex_equip, will_equip
+        
+        CLASS & PROGRESSION:
+            class, level, xp
+        
+        OTHER:
+            age, room, autoflee, talents, gold, description
+
+    ARGUMENTS
+        character     The name of the target character.
+        attribute     The attribute to modify (see list above).
+        value         The new value to set.
+
+    EXAMPLE
+        cset Alice hp 100        -- set Alice's current HP to 100
+        cset Bob str 18          -- set Bob's base strength to 18
+        cset Charlie level 10    -- set Charlie's level to 10
+        cset Dana gold 50000     -- give Dana 50000 gold
+        cset Eve xp 500          -- set Eve's current XP to 500
+        cset Frank talents 5     -- give Frank 5 talent points
+
+    SEE ALSO
+        cflag, promote, restore
+
 cskill:
   summary: "Grant a skill to a character at a proficiency level (GM-only)"
   visibility: gm
@@ -256,6 +314,43 @@ peace:
 
     SEE ALSO
         kill, combat
+
+slay:
+  summary: "(GM) instantly kill a mob"
+  visibility: gm
+  synopsis:
+    - "SLAY [target]"
+  body: |
+    NAME
+        slay - instantly kill a mob
+
+    SYNOPSIS
+        SLAY [target]
+
+    DESCRIPTION
+        Instantly kills a mobile creature. This is the ultimate GM kill command
+        that bypasses all combat mechanics.
+        
+        If you are in combat:
+        - Without an argument, slays your current enemy
+        - With an argument, slays the specified mob in the fight
+        
+        If you are not in combat:
+        - Requires a target argument
+        - Finds and instantly kills the specified mob in your room
+        - Creates a corpse as if the mob died normally
+        - Does NOT initiate combat first
+
+    ARGUMENTS
+        target    The name (or partial name) of the mob to slay. Optional in combat.
+
+    EXAMPLE
+        slay               -- (in combat) slay your current enemy
+        slay goblin        -- slay the goblin
+        slay wolf          -- slay the wolf in the room
+
+    SEE ALSO
+        kill, peace, restore
 
 restore:
   summary: "(GM) restore a character's HP, MP, and MV to full"

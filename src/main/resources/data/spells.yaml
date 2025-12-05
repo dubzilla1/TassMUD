@@ -473,3 +473,317 @@ spells:
     progression: LEGENDARY
     duration: 30  # lasts 30 seconds
     effectIds: [500]
+
+  # ========== WIZARD CLASS SPELLS (101-108) ==========
+  # These are granted by the Wizard class at specific levels
+  
+  - id: 101
+    name: Detect Magic
+    description: Your eyes shimmer as you perceive magical auras on items and creatures.
+    school: ARCANE
+    level: 1
+    castingTime: 1.0
+    target: TARGET
+    progression: EASY
+    # effectIds: [] # TODO: implement effect
+
+  - id: 102
+    name: Arcane Shield
+    description: A shimmering barrier of arcane force surrounds you, deflecting attacks.
+    school: ARCANE
+    level: 2
+    castingTime: 0.5
+    target: TARGET
+    progression: NORMAL
+    duration: 300
+    # effectIds: [] # TODO: implement effect
+
+  - id: 103
+    name: Fireball
+    description: You hurl a mote of fire that explodes in a devastating burst of flame.
+    school: ARCANE
+    level: 3
+    castingTime: 2.0
+    target: ALL_ENEMIES
+    progression: NORMAL
+    # effectIds: [] # TODO: implement effect
+
+  - id: 104
+    name: Lightning Bolt
+    description: A crackling bolt of electrical energy streaks from your fingertips.
+    school: ARCANE
+    level: 4
+    castingTime: 2.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    # effectIds: [] # TODO: implement effect
+
+  - id: 105
+    name: Teleport
+    description: You fold space and instantly transport yourself to a remembered location.
+    school: ARCANE
+    level: 5
+    castingTime: 3.0
+    target: TARGET
+    progression: HARD
+    # effectIds: [] # TODO: implement effect
+
+  - id: 106
+    name: Cone of Cold
+    description: A blast of frigid air erupts from your hands, flash-freezing everything in its path.
+    school: ARCANE
+    level: 5
+    castingTime: 2.0
+    target: ALL_ENEMIES
+    progression: HARD
+    # effectIds: [] # TODO: implement effect
+
+  - id: 107
+    name: Disintegrate
+    description: A thin green ray springs from your finger, reducing the target to fine dust.
+    school: ARCANE
+    level: 7
+    castingTime: 2.5
+    target: CURRENT_ENEMY
+    progression: VERY_HARD
+    # effectIds: [] # TODO: implement effect
+
+  - id: 108
+    name: Meteor Swarm
+    description: Blazing orbs of fire streak down from the heavens, devastating all in the area.
+    school: ARCANE
+    level: 9
+    castingTime: 3.0
+    target: ALL_ENEMIES
+    progression: LEGENDARY
+    # effectIds: [] # TODO: implement effect
+
+  # ========== CLERIC CLASS SPELLS (201-207) ==========
+  # These are granted by the Cleric class at specific levels
+  
+  - id: 201
+    name: Bless
+    description: You invoke divine favor, bolstering your allies' combat effectiveness.
+    school: DIVINE
+    level: 1
+    castingTime: 1.0
+    target: ALL_ALLIES
+    progression: EASY
+    duration: 600
+    # effectIds: [] # TODO: implement effect
+
+  - id: 202
+    name: Detect Evil
+    description: You sense the presence of evil creatures and unholy influences nearby.
+    school: DIVINE
+    level: 1
+    castingTime: 1.0
+    target: TARGET
+    progression: EASY
+    duration: 300
+    # effectIds: [] # TODO: implement effect
+
+  - id: 203
+    name: Remove Curse
+    description: Holy light dispels curses and hexes afflicting the target.
+    school: DIVINE
+    level: 3
+    castingTime: 2.5
+    target: TARGET
+    progression: NORMAL
+    # effectIds: [] # TODO: implement effect
+
+  - id: 206
+    name: Resurrection
+    description: You call upon divine power to restore life to a departed soul.
+    school: DIVINE
+    level: 7
+    castingTime: 10.0
+    target: EXPLICIT_MOB_TARGET
+    progression: LEGENDARY
+    # effectIds: [] # TODO: implement effect
+
+  - id: 207
+    name: Divine Intervention
+    description: You petition your deity directly for miraculous aid in dire circumstances.
+    school: DIVINE
+    level: 9
+    castingTime: 5.0
+    target: TARGET
+    progression: LEGENDARY
+    # effectIds: [] # TODO: implement effect
+
+  # ========== PALADIN CLASS SPELLS (501-507) ==========
+  # These are granted by the Paladin class at specific levels
+  
+  - id: 501
+    name: Detect Evil
+    description: Your divine senses reveal evil intentions and unholy creatures nearby.
+    school: DIVINE
+    level: 1
+    castingTime: 1.0
+    target: TARGET
+    progression: EASY
+    duration: 300
+    # effectIds: [] # TODO: implement effect
+
+  - id: 502
+    name: Smite Evil
+    description: You channel holy power into your weapon to devastate evil creatures.
+    school: DIVINE
+    level: 2
+    castingTime: 0.5
+    target: CURRENT_ENEMY
+    progression: EASY
+    # effectIds: [] # TODO: implement effect
+
+  - id: 503
+    name: Divine Shield
+    description: A barrier of holy light surrounds you, absorbing incoming damage.
+    school: DIVINE
+    level: 3
+    castingTime: 0.5
+    target: TARGET
+    progression: NORMAL
+    duration: 60
+    # effectIds: [] # TODO: implement effect
+
+  - id: 504
+    name: Turn Undead
+    description: Holy power radiates from you, forcing undead creatures to flee in terror.
+    school: DIVINE
+    level: 3
+    castingTime: 1.5
+    target: ALL_ENEMIES
+    progression: NORMAL
+    # effectIds: [] # TODO: implement effect
+
+  - id: 505
+    name: Holy Weapon
+    description: You imbue your weapon with divine energy, making it shimmer with holy light.
+    school: DIVINE
+    level: 4
+    castingTime: 1.0
+    target: TARGET
+    progression: HARD
+    duration: 300
+    # effectIds: [] # TODO: implement effect
+
+  - id: 506
+    name: Aura of Protection
+    description: A protective aura emanates from you, shielding nearby allies from harm.
+    school: DIVINE
+    level: 5
+    castingTime: 1.5
+    target: ALL_ALLIES
+    progression: HARD
+    duration: 120
+    # effectIds: [] # TODO: implement effect
+
+  - id: 507
+    name: Divine Mount
+    description: You summon a celestial steed from the heavens to carry you into battle.
+    school: DIVINE
+    level: 6
+    castingTime: 3.0
+    target: TARGET
+    progression: VERY_HARD
+    duration: 3600
+    # effectIds: [] # TODO: implement effect
+
+  # ========== NECROMANCER CLASS SPELLS (600-608) ==========
+  # These are granted by the Necromancer class at specific levels
+  
+  - id: 600
+    name: Drain Life
+    description: Dark tendrils siphon life force from your enemy, healing you for the damage dealt.
+    school: OCCULT
+    level: 1
+    castingTime: 1.5
+    target: CURRENT_ENEMY
+    progression: TRIVIAL
+    # effectIds: [] # TODO: implement effect
+
+  - id: 601
+    name: Animate Dead
+    description: You raise a fresh corpse as an undead minion bound to your will.
+    school: OCCULT
+    level: 2
+    castingTime: 5.0
+    target: EXPLICIT_MOB_TARGET
+    progression: EASY
+    # effectIds: [] # TODO: implement effect
+
+  - id: 602
+    name: Fear
+    description: You fill an enemy's mind with supernatural terror, causing them to flee.
+    school: OCCULT
+    level: 2
+    castingTime: 1.0
+    target: CURRENT_ENEMY
+    progression: EASY
+    # effectIds: [] # TODO: implement effect
+
+  - id: 603
+    name: Corpse Explosion
+    description: You detonate a nearby corpse, dealing necrotic damage to all nearby enemies.
+    school: OCCULT
+    level: 3
+    castingTime: 1.5
+    target: ALL_ENEMIES
+    progression: NORMAL
+    # effectIds: [] # TODO: implement effect
+
+  - id: 604
+    name: Bone Armor
+    description: A swirling shield of animated bones surrounds you, absorbing damage.
+    school: OCCULT
+    level: 4
+    castingTime: 1.0
+    target: TARGET
+    progression: NORMAL
+    duration: 300
+    # effectIds: [] # TODO: implement effect
+
+  - id: 605
+    name: Summon Skeleton
+    description: You call forth a skeleton warrior from the spirit realm to fight for you.
+    school: OCCULT
+    level: 5
+    castingTime: 3.0
+    target: TARGET
+    progression: HARD
+    duration: 600
+    # effectIds: [] # TODO: implement effect
+
+  - id: 606
+    name: Plague
+    description: You inflict a wasting disease that spreads between nearby enemies.
+    school: OCCULT
+    level: 5
+    castingTime: 2.0
+    target: ALL_ENEMIES
+    progression: HARD
+    duration: 60
+    # effectIds: [] # TODO: implement effect
+
+  - id: 607
+    name: Death Coil
+    description: You hurl a bolt of pure death energy that damages the living or heals undead.
+    school: OCCULT
+    level: 6
+    castingTime: 1.5
+    target: CURRENT_ENEMY
+    progression: VERY_HARD
+    # effectIds: [] # TODO: implement effect
+
+  - id: 608
+    name: Army of the Dead
+    description: You raise an entire horde of undead servants to overwhelm your enemies.
+    school: OCCULT
+    level: 9
+    castingTime: 5.0
+    target: TARGET
+    progression: LEGENDARY
+    duration: 120
+    # effectIds: [] # TODO: implement effect

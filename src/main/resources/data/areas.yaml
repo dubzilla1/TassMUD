@@ -36,3 +36,13 @@ areas:
       The bustling heart of the city of Midgaard — cobbled streets, 
       market stalls, and a central square where townsfolk gather.
     sector_type: CITY
+
+  - id: 4
+    name: Plains of Danath
+    description: >
+      Rolling grasslands south of Midgaard, dotted with copses of trees,
+      small ponds, and ancient standing stones. A peaceful but wild area
+      where novice adventurers can test their mettle against the creatures
+      that roam the open countryside.
+    sector_type: FIELD
+    level_range: 1-10

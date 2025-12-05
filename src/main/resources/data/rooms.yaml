@@ -1227,12 +1227,12 @@ rooms:
     short_desc: The southern gate plaza
     long_desc: >
       Stone walls and a stout gate mark the city's southern boundary. Guards
-      inspect wagons and record arrivals; beyond the gate a road leads into
-      the wider lands to the south (the lands beyond are described on the
-      gate signage for travelers).
+      inspect wagons and record arrivals; beyond the gate a well-worn road leads
+      south into the Plains of Danath, where grasslands stretch toward the horizon.
+      A weathered signpost reads: "Danath Plains - Travelers Beware".
     exits:
       north: 3015
-      south: 3100
+      south: 4000
     spawns:
       - type: MOB
         id: 602
@@ -1736,3 +1736,1407 @@ rooms:
     exits: {}
 
   # (Removed duplicate placeholder 2x2 Midgaard block — main city now defined above.)
+
+  # ============================================================
+  # PLAINS OF DANATH (area 4) - Room IDs 4000-4049
+  # Level 1-10 outdoor area south of Midgaard
+  # 
+  # Map Layout (approximate - not a strict grid):
+  #
+  #                    [MIDGAARD SOUTH GATE]
+  #                           |
+  #                         4000 (Road from Midgaard)
+  #                           |
+  #               4010------4001------4011
+  #              /     \     |     /      \
+  #           4020     4012-4002-4013     4021
+  #            |    /        |        \     |
+  #           4030-4022----4003----4023---4031
+  #            |      \      |      /      |
+  #           4040     4032-4004-4033    4041
+  #            |            / \           |
+  #           4042---4034-4005-4035---4043
+  #                  /         \
+  #            4044-4006       4007-4045
+  #                  \         /
+  #                   4008---4009
+  #                      |
+  #                    4046 (Ancient Crossroads - future expansion)
+  #
+  # Terrain features:
+  # - 4000-4009: Main trail through the plains
+  # - 4010-4015: Western grasslands
+  # - 4016-4019: Eastern grasslands  
+  # - 4020-4025: Whispering Woods (small forest)
+  # - 4026-4029: Silverlake area (pond and streams)
+  # - 4030-4035: Standing Stones region
+  # - 4036-4039: Rocky Outcrops
+  # - 4040-4045: Southern grasslands
+  # - 4046-4049: Southern border (expansion hooks)
+  # ============================================================
+
+  # --- MAIN TRAIL (4000-4009) ---
+  
+  - id: 4000
+    key: danath_road_north
+    name: Road from Midgaard
+    area_id: 4
+    short_desc: The trade road south of the city gates
+    long_desc: >
+      The cobblestones of Midgaard give way to a hard-packed dirt road that winds
+      south into the Plains of Danath. The city walls loom behind you, their guards
+      watching from the battlements. Ahead, golden grasslands stretch in every
+      direction under an endless sky. Wagon ruts and hoofprints mark the well-traveled
+      route, and a weathered milestone reads "Danath Crossroads - 2 leagues".
+    exits:
+      north: 3020
+      south: 4001
+      east: 4011
+      west: 4010
+    spawns:
+      - type: MOB
+        id: 700    # plains rabbit
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 703    # quail
+        quantity: 1
+        frequency: 2
+
+  - id: 4001
+    key: danath_road_1
+    name: Dusty Trade Road
+    area_id: 4
+    short_desc: A dusty stretch of the trade road
+    long_desc: >
+      Dust rises in small clouds with each step along this well-worn road. The grass
+      on either side grows tall and wild, swaying in the constant breeze. A few
+      scattered boulders provide landmarks, and you can see the glint of water to
+      the southwest. Birds wheel overhead, their calls echoing across the open land.
+    exits:
+      north: 4000
+      south: 4002
+      east: 4013
+      west: 4012
+    spawns:
+      - type: MOB
+        id: 701    # field mouse
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 702    # prairie dog
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 724    # hawk
+        quantity: 1
+        frequency: 3
+
+  - id: 4002
+    key: danath_road_2
+    name: Trade Road Bend
+    area_id: 4
+    short_desc: Where the road curves around a small hill
+    long_desc: >
+      The road bends here to skirt around a grassy hillock topped with a lone oak tree.
+      Its ancient branches spread wide, providing shade for weary travelers. Someone
+      has carved initials into the trunk over many generations. To the west, you can
+      see the dark treeline of a small forest, while open plains extend to the east.
+    exits:
+      north: 4001
+      south: 4003
+      east: 4023
+      west: 4022
+    spawns:
+      - type: MOB
+        id: 703    # quail
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 712    # young deer
+        quantity: 1
+        frequency: 2
+
+  - id: 4003
+    key: danath_road_3
+    name: Plains Crossway
+    area_id: 4
+    short_desc: An intersection of trails
+    long_desc: >
+      Several smaller paths branch off from the main road here, worn by farmers,
+      hunters, and wandering beasts. A crooked signpost offers directions: "Midgaard
+      - North", "Crossroads - South", "Silverlake - West", "Old Stones - East". Tall
+      grass whispers secrets in the wind, and the scent of wildflowers fills the air.
+    exits:
+      north: 4002
+      south: 4004
+      east: 4033
+      west: 4032
+    spawns:
+      - type: MOB
+        id: 700    # plains rabbit
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 710    # pheasant
+        quantity: 2
+        frequency: 2
+
+  - id: 4004
+    key: danath_road_4
+    name: Southern Trade Road
+    area_id: 4
+    short_desc: The road continues through open country
+    long_desc: >
+      The road here is quieter, less traveled than the stretch near Midgaard. Grass
+      has begun to encroach on the edges of the path, and a few potholes suggest
+      maintenance is overdue. A hawk circles lazily overhead, hunting for mice in
+      the tall grass. The distant sound of running water comes from the west.
+    exits:
+      north: 4003
+      south: 4005
+      east: 4033
+      west: 4034
+    spawns:
+      - type: MOB
+        id: 701    # field mouse
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 711    # grass snake
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 3
+
+  - id: 4005
+    key: danath_road_5
+    name: Bramble-Lined Path
+    area_id: 4
+    short_desc: Where brambles grow alongside the road
+    long_desc: >
+      Thorny brambles crowd the roadside here, their branches heavy with blackberries
+      in season. Birds flit among the tangles, chirping territorial warnings. The
+      road continues south toward a distant line of standing stones visible on the
+      horizon. You can hear the gurgle of a stream somewhere to the west.
+    exits:
+      north: 4004
+      south: 4006
+      east: 4035
+      west: 4034
+    spawns:
+      - type: MOB
+        id: 710    # pheasant
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 713    # wild turkey
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 721    # badger
+        quantity: 1
+        frequency: 4
+
+  - id: 4006
+    key: danath_road_6
+    name: Stream Ford
+    area_id: 4
+    short_desc: Where the road crosses a shallow stream
+    long_desc: >
+      The road dips into a shallow ford where a clear stream crosses the path. Smooth
+      stones have been laid to make the crossing easier, their surfaces worn by years
+      of use. Willows line the banks, their trailing branches dipping into the water.
+      Small fish dart away from your shadow, and dragonflies hover over the current.
+    exits:
+      north: 4005
+      south: 4007
+      west: 4044
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 732    # giant frog
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 723    # heron
+        quantity: 1
+        frequency: 2
+
+  - id: 4007
+    key: danath_road_7
+    name: Southern Plains Road
+    area_id: 4
+    short_desc: The road through southern grasslands
+    long_desc: >
+      The grasslands here seem wilder, less touched by civilization. The road narrows
+      to little more than a trail, winding between patches of tall grass and scattered
+      rocks. You can see ancient standing stones to the west, silhouetted against the
+      sky. The air smells of earth and growing things.
+    exits:
+      north: 4006
+      south: 4008
+      east: 4045
+    spawns:
+      - type: MOB
+        id: 702    # prairie dog
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 722    # adult deer
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 731    # coyote
+        quantity: 1
+        frequency: 4
+
+  - id: 4008
+    key: danath_road_8
+    name: Ancient Milestone
+    area_id: 4
+    short_desc: An ancient milestone marks the path
+    long_desc: >
+      A weathered stone pillar stands beside the road, its surface carved with symbols
+      too worn to read. This must have marked something important once, perhaps a
+      boundary or a warning. The road continues south toward distant crossroads, while
+      paths branch off to explore the wider plains.
+    exits:
+      north: 4007
+      south: 4009
+      west: 4046
+    spawns:
+      - type: MOB
+        id: 711    # grass snake
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 730    # wild boar
+        quantity: 1
+        frequency: 5
+      - type: MOB
+        id: 743    # will-o-wisp
+        quantity: 1
+        frequency: 8
+
+  - id: 4009
+    key: danath_road_9
+    name: Southern Road's End
+    area_id: 4
+    short_desc: Where the road meets the ancient crossroads
+    long_desc: >
+      The trade road from Midgaard ends here at an ancient crossroads marked by four
+      standing stones. Other paths lead away into the wild plains beyond - routes to
+      distant lands that few travelers now remember. For now, the way south is blocked
+      by overgrown brush, but perhaps someday adventurers will clear the path.
+    exits:
+      north: 4008
+      east: 4047
+      west: 4046
+    spawns:
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 741    # blink hare
+        quantity: 1
+        frequency: 6
+
+  # --- WESTERN GRASSLANDS (4010-4015) ---
+
+  - id: 4010
+    key: danath_west_grass_1
+    name: Western Grasslands
+    area_id: 4
+    short_desc: Open grassland west of the road
+    long_desc: >
+      Waist-high grass ripples like waves in the wind, creating a golden sea that
+      stretches toward a dark line of trees to the southwest. Prairie dogs pop up
+      from their burrows, chirping warnings before diving back underground. A few
+      wildflowers add splashes of purple and yellow to the endless gold.
+    exits:
+      south: 4020
+      east: 4000
+    spawns:
+      - type: MOB
+        id: 702    # prairie dog
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 700    # plains rabbit
+        quantity: 2
+        frequency: 1
+
+  - id: 4011
+    key: danath_east_grass_1
+    name: Eastern Grasslands
+    area_id: 4
+    short_desc: Open grassland east of the road
+    long_desc: >
+      The grass grows especially tall here, reaching up to your chest in places.
+      You can hear the rustle of small creatures moving through the undergrowth,
+      hidden from sight. To the east, rocky outcrops break the horizon, while the
+      road lies to the west. A warm breeze carries the scent of sun-baked earth.
+    exits:
+      south: 4021
+      west: 4000
+      east: 4016
+    spawns:
+      - type: MOB
+        id: 701    # field mouse
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 711    # grass snake
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 724    # hawk
+        quantity: 1
+        frequency: 3
+
+  - id: 4012
+    key: danath_west_grass_2
+    name: Wildflower Meadow
+    area_id: 4
+    short_desc: A meadow bursting with wildflowers
+    long_desc: >
+      Brilliant wildflowers paint this meadow in every color imaginable - purple
+      coneflowers, yellow daisies, orange poppies, and delicate white baby's breath.
+      Bees drone busily from bloom to bloom, and butterflies dance on the warm air.
+      The sweet perfume is almost overwhelming. A dark forest looms to the south.
+    exits:
+      south: 4022
+      east: 4001
+      west: 4020
+    spawns:
+      - type: MOB
+        id: 703    # quail
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 712    # young deer
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 741    # blink hare
+        quantity: 1
+        frequency: 6
+
+  - id: 4013
+    key: danath_east_grass_2
+    name: Tall Grass Plains
+    area_id: 4
+    short_desc: Plains of exceptionally tall grass
+    long_desc: >
+      The grass here grows taller than your head, forming a maze of golden stalks.
+      Game trails wind through the growth, and you can hear the calls of hidden
+      pheasants. Moving through this terrain requires pushing aside the thick stems,
+      which rustle loudly with every step. Something large moves nearby...
+    exits:
+      south: 4023
+      west: 4001
+    spawns:
+      - type: MOB
+        id: 710    # pheasant
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 730    # wild boar
+        quantity: 1
+        frequency: 5
+
+  - id: 4014
+    key: danath_west_grass_3
+    name: Rolling Hills
+    area_id: 4
+    short_desc: Gently rolling grassland hills
+    long_desc: >
+      The land rises and falls in gentle swells here, like frozen waves on a grassy
+      sea. From the top of each rise, you can see for miles in every direction - the
+      walls of Midgaard to the north, forest to the west, and endless plains all
+      around. Rabbits scatter at your approach, white tails flashing.
+    exits:
+      south: 4030
+      east: 4022
+      north: 4020
+    spawns:
+      - type: MOB
+        id: 700    # plains rabbit
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 722    # adult deer
+        quantity: 2
+        frequency: 2
+
+  - id: 4015
+    key: danath_east_grass_3
+    name: Windswept Rise
+    area_id: 4
+    short_desc: A wind-battered hilltop
+    long_desc: >
+      This exposed hilltop catches the full force of the plains wind. The grass here
+      grows short and tough, pressed flat by the constant gale. A few stunted shrubs
+      cling to the soil, their branches all bent in the same direction. The view is
+      spectacular, but you have to lean into the wind to stand upright.
+    exits:
+      south: 4031
+      west: 4023
+      north: 4021
+    spawns:
+      - type: MOB
+        id: 724    # hawk
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 731    # coyote
+        quantity: 1
+        frequency: 4
+
+  # --- MORE EASTERN GRASSLANDS (4016-4019) ---
+
+  - id: 4016
+    key: danath_east_grass_4
+    name: Boulder Field
+    area_id: 4
+    short_desc: Grassland dotted with large boulders
+    long_desc: >
+      Massive boulders lie scattered across the grassland here, as if dropped by
+      giants in some ancient game. Lizards sun themselves on the warm stone, and
+      small creatures have dug burrows in the shelter of the rocks. Some boulders
+      bear faded carvings - perhaps territorial markers from a forgotten age.
+    exits:
+      south: 4017
+      west: 4011
+      east: 4036
+    spawns:
+      - type: MOB
+        id: 711    # grass snake
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 742    # stone drake
+        quantity: 1
+        frequency: 8
+
+  - id: 4017
+    key: danath_east_grass_5
+    name: Rabbit Warren
+    area_id: 4
+    short_desc: A field pockmarked with rabbit holes
+    long_desc: >
+      The ground here is honecombed with rabbit burrows. Furry heads pop up to
+      examine you before disappearing underground with a flash of white tails.
+      Walking requires care - one wrong step could twist an ankle in a hidden hole.
+      Hawks circle overhead, waiting for a careless rabbit to venture too far.
+    exits:
+      north: 4016
+      south: 4018
+      west: 4021
+    spawns:
+      - type: MOB
+        id: 700    # plains rabbit
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 724    # hawk
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 3
+
+  - id: 4018
+    key: danath_east_grass_6
+    name: Hunting Grounds
+    area_id: 4
+    short_desc: Open plains favored by predators
+    long_desc: >
+      This stretch of grassland shows signs of frequent hunting - trampled grass,
+      scattered bones, and dark stains on the earth. Predators clearly favor this
+      area, perhaps because prey is abundant. You feel watched, though you can't
+      see anything in the tall grass surrounding this clearing.
+    exits:
+      north: 4017
+      south: 4037
+      west: 4031
+    spawns:
+      - type: MOB
+        id: 731    # coyote
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 740    # plains lion
+        quantity: 1
+        frequency: 8
+
+  - id: 4019
+    key: danath_east_edge
+    name: Eastern Edge
+    area_id: 4
+    short_desc: Where the plains meet rocky foothills
+    long_desc: >
+      The grasslands end here at a tumble of rocks and boulders marking the start
+      of rougher terrain. The foothills beyond lead to distant mountains, their
+      peaks often hidden in clouds. For now, the way east is impassable - the rocks
+      are too steep and jumbled to climb without proper equipment.
+    exits:
+      north: 4036
+      west: 4037
+    spawns:
+      - type: MOB
+        id: 711    # grass snake
+        quantity: 1
+        frequency: 2
+      - type: MOB
+        id: 742    # stone drake
+        quantity: 1
+        frequency: 6
+
+  # --- WHISPERING WOODS (4020-4025) ---
+
+  - id: 4020
+    key: danath_forest_edge_1
+    name: Forest Edge
+    area_id: 4
+    short_desc: Where grassland meets woodland
+    long_desc: >
+      The golden grass gives way to the shadowy edge of a small forest. Oak and
+      maple trees stand like sentinels, their branches interweaving overhead to
+      form a natural archway. The air is cooler here, scented with leaf mold and
+      growing things. Birdsong echoes from within, inviting exploration.
+    exits:
+      north: 4010
+      south: 4014
+      east: 4012
+      west: 4024
+    sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 712    # young deer
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 713    # wild turkey
+        quantity: 1
+        frequency: 2
+
+  - id: 4021
+    key: danath_grass_east_edge
+    name: Eastern Plains Edge
+    area_id: 4
+    short_desc: Open grassland near rocky terrain
+    long_desc: >
+      The grasslands here brush up against rockier ground to the east. Tough shrubs
+      and hardy wildflowers grow in the thin soil between scattered stones. Small
+      lizards bask in sunny spots, darting away as you approach. The wind carries
+      the sound of rattling grass and distant bird calls.
+    exits:
+      north: 4011
+      south: 4015
+      east: 4017
+      west: 4013
+    spawns:
+      - type: MOB
+        id: 701    # field mouse
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 711    # grass snake
+        quantity: 1
+        frequency: 2
+
+  - id: 4022
+    key: danath_forest_path_1
+    name: Whispering Path
+    area_id: 4
+    short_desc: A quiet path into the woods
+    long_desc: >
+      A narrow path winds between ancient trees whose leaves rustle with every
+      breath of wind, creating a constant whisper that gives the forest its name.
+      Moss covers the ground in a soft carpet, muffling your footsteps. Shafts of
+      golden light pierce the canopy, illuminating dancing dust motes.
+    exits:
+      north: 4012
+      south: 4032
+      east: 4002
+      west: 4014
+    sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 700    # plains rabbit
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 3
+
+  - id: 4023
+    key: danath_grass_central
+    name: Central Grasslands
+    area_id: 4
+    short_desc: The heart of the plains
+    long_desc: >
+      You stand in the very heart of the Plains of Danath. Grass stretches away
+      in every direction, broken only by distant landmarks - woods to the west,
+      rocks to the east, the spires of Midgaard far to the north. It's easy to
+      feel small here, beneath the vast dome of the sky.
+    exits:
+      north: 4013
+      south: 4033
+      east: 4015
+      west: 4002
+    spawns:
+      - type: MOB
+        id: 702    # prairie dog
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 722    # adult deer
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 740    # plains lion
+        quantity: 1
+        frequency: 10
+
+  - id: 4024
+    key: danath_forest_clearing
+    name: Forest Clearing
+    area_id: 4
+    short_desc: A sunlit clearing in the woods
+    long_desc: >
+      A natural clearing opens in the heart of the Whispering Woods. Sunlight
+      streams down, encouraging a riot of wildflowers and tall ferns. A fallen
+      log provides a convenient seat, and someone has built a small fire ring
+      from gathered stones. This would make an excellent campsite.
+    exits:
+      east: 4020
+      south: 4025
+    sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 711    # young deer
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 4
+      - type: MOB
+        id: 741    # blink hare (rare)
+        quantity: 1
+        frequency: 15
+
+  - id: 4025
+    key: danath_forest_deep
+    name: Deep Woods
+    area_id: 4
+    short_desc: The shadowy heart of the forest
+    long_desc: >
+      The trees grow close together here, their trunks thick with age. Little
+      light penetrates the dense canopy, and the air is cool and still. Strange
+      mushrooms glow faintly on rotting logs, and you hear the occasional hoot
+      of an owl despite the daylight. Something moves in the shadows...
+    exits:
+      north: 4024
+      east: 4026
+      south: 4030
+    sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 721    # badger
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 731    # wild boar
+        quantity: 1
+        frequency: 5
+      - type: MOB
+        id: 743    # will-o-wisp (rare)
+        quantity: 1
+        frequency: 20
+      - type: MOB
+        id: 754    # owlbear (rare)
+        quantity: 1
+        frequency: 30
+
+  # --- SILVERLAKE AREA (4026-4029) ---
+
+  - id: 4026
+    key: danath_lake_shore_1
+    name: Silverlake Shore
+    area_id: 4
+    short_desc: The northern shore of a small lake
+    long_desc: >
+      A serene lake stretches before you, its surface as smooth as polished silver
+      in the calm air. Cattails and rushes crowd the shore, home to countless frogs
+      whose croaking fills the air. A heron stands motionless in the shallows,
+      watching for fish. The water is crystal clear, revealing a sandy bottom.
+    exits:
+      west: 4025
+      south: 4027
+      east: 4032
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 733    # pond heron
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 722    # snapping turtle
+        quantity: 1
+        frequency: 4
+
+  - id: 4027
+    key: danath_lake_shore_2
+    name: Western Lake Shore
+    area_id: 4
+    short_desc: A quiet stretch of lakeshore
+    long_desc: >
+      Willow trees drape their branches over the water here, creating curtains
+      of green that trail in the lake. Lily pads float on the surface, their
+      white flowers attracting busy bees. The shore is muddy, marked with the
+      tracks of deer and other creatures that come to drink.
+    exits:
+      north: 4026
+      south: 4028
+      east: 4034
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 711    # young deer
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 722    # snapping turtle
+        quantity: 1
+        frequency: 5
+
+  - id: 4028
+    key: danath_lake_outlet
+    name: Lake Outlet
+    area_id: 4
+    short_desc: Where a stream flows from the lake
+    long_desc: >
+      A small stream flows out from the southern end of Silverlake, winding its
+      way through the grasslands toward distant lands. The current is gentle here,
+      gurgling over smooth stones. Fish leap occasionally, snatching insects from
+      the air. Tracks in the mud show many creatures visit this watering spot.
+    exits:
+      north: 4027
+      east: 4044
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 733    # pond heron
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 5
+
+  - id: 4029
+    key: danath_lake_island
+    name: Lake Island
+    area_id: 4
+    short_desc: A small island in the lake
+    long_desc: >
+      A tiny island rises from the center of Silverlake, accessible by wading
+      through waist-deep water or swimming. A single ancient willow dominates the
+      island, its trunk carved with mysterious symbols. Offerings of coins and
+      flowers lie scattered at its base - clearly this is a sacred place to some.
+    exits:
+      west: 4027
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 741    # blink hare (rare magical creature)
+        quantity: 1
+        frequency: 12
+      - type: MOB
+        id: 743    # will-o-wisp (rare)
+        quantity: 1
+        frequency: 15
+      - type: MOB
+        id: 770    # silvermane unicorn (extremely rare)
+        quantity: 1
+        frequency: 200
+
+  # --- STANDING STONES (4030-4035) ---
+
+  - id: 4030
+    key: danath_stones_north
+    name: Northern Standing Stones
+    area_id: 4
+    short_desc: Ancient stones rise from the grass
+    long_desc: >
+      Weathered standing stones dot the landscape here, remnants of some forgotten
+      age. The largest reaches twice your height, its surface carved with spirals
+      and strange figures worn almost smooth by time. The grass grows especially
+      thick around their bases, as if fed by ancient power.
+    exits:
+      north: 4014
+      east: 4025
+      south: 4040
+    spawns:
+      - type: MOB
+        id: 701    # prairie dog
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 710    # grass snake
+        quantity: 1
+        frequency: 4
+      - type: MOB
+        id: 742    # stone drake (rare)
+        quantity: 1
+        frequency: 20
+
+  - id: 4031
+    key: danath_stones_east
+    name: Eastern Stone Circle
+    area_id: 4
+    short_desc: Stones arranged in a partial circle
+    long_desc: >
+      Several standing stones form a broken circle here, with gaps where others
+      must once have stood. The remaining stones are covered in lichen and carved
+      with symbols of the sun and moon. At certain times of year, the shadows
+      must align in meaningful ways. Even now, you feel a strange tingling.
+    exits:
+      north: 4015
+      west: 4023
+      south: 4041
+      east: 4018
+    spawns:
+      - type: MOB
+        id: 702    # meadow lark
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 5
+
+  - id: 4032
+    key: danath_lake_east_shore
+    name: Eastern Lake Shore
+    area_id: 4
+    short_desc: The eastern shore of Silverlake
+    long_desc: >
+      The shore here is rocky, with large flat stones that make excellent spots
+      for fishing or simply watching the water. The lake stretches away to the
+      west, its surface reflecting the sky like a mirror. A few ducks paddle
+      near the reeds, diving for weeds and small creatures.
+    exits:
+      north: 4022
+      south: 4003
+      west: 4026
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 733    # pond heron
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 722    # snapping turtle
+        quantity: 1
+        frequency: 4
+
+  - id: 4033
+    key: danath_stones_central
+    name: Heart of the Stones
+    area_id: 4
+    short_desc: The center of the stone field
+    long_desc: >
+      You stand among the densest concentration of standing stones. They seem
+      to radiate outward from a central altar stone, flat and dark with age.
+      Faded channels carved into its surface might once have held offerings or
+      worse. The air here feels heavy, charged with old magic.
+    exits:
+      north: 4023
+      south: 4043
+      east: 4031
+      west: 4003
+    spawns:
+      - type: MOB
+        id: 742    # stone drake (rare, fits mystical area)
+        quantity: 1
+        frequency: 15
+      - type: MOB
+        id: 743    # will-o-wisp (rare)
+        quantity: 1
+        frequency: 18
+      - type: MOB
+        id: 780    # THE GRANITE TROLL - apex predator
+        quantity: 1
+        frequency: 60
+
+  - id: 4034
+    key: danath_stream_west
+    name: Streamside
+    area_id: 4
+    short_desc: Following the stream through the plains
+    long_desc: >
+      The stream from Silverlake winds through the grasslands here, bordered
+      by willows and thick brush. The sound of running water is constant and
+      soothing. Kingfishers dart from branch to branch, and you spot the
+      silver flash of fish in the deeper pools.
+    exits:
+      north: 4027
+      south: 4044
+      east: 4004
+      west: 4005
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 702    # meadow lark
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 711    # young deer
+        quantity: 1
+        frequency: 4
+
+  - id: 4035
+    key: danath_stones_south
+    name: Southern Standing Stones
+    area_id: 4
+    short_desc: The southern edge of the stone field
+    long_desc: >
+      The standing stones grow fewer here as you reach the southern edge of
+      the ancient site. The last few stones are smaller, perhaps marking a
+      boundary. Beyond them, the grasslands continue toward distant horizons.
+      Something about this place makes you want to whisper.
+    exits:
+      north: 4033
+      west: 4005
+      south: 4043
+    spawns:
+      - type: MOB
+        id: 701    # prairie dog
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 710    # grass snake
+        quantity: 1
+        frequency: 5
+
+  # --- ROCKY OUTCROPS (4036-4039) ---
+
+  - id: 4036
+    key: danath_rocks_north
+    name: Northern Outcrops
+    area_id: 4
+    short_desc: Rocky terrain at the plain's edge
+    long_desc: >
+      Large rocks and boulders thrust up from the earth here, breaking the
+      monotony of the grasslands. The stones are warm from the sun, and
+      lizards bask on their surfaces. Between the rocks, tough grasses and
+      thorny shrubs have found purchase in the thin soil.
+    exits:
+      west: 4016
+      south: 4019
+    sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 710    # grass snake
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 721    # badger
+        quantity: 1
+        frequency: 4
+
+  - id: 4037
+    key: danath_rocks_central
+    name: Rocky Hollow
+    area_id: 4
+    short_desc: A hollow between large boulders
+    long_desc: >
+      Massive boulders form a natural hollow here, creating a sheltered spot
+      out of the wind. Scorch marks and old bones suggest something uses this
+      as a den. The rocks are too steep to climb, forcing travel around them.
+      A faint animal musk hangs in the still air.
+    exits:
+      north: 4019
+      west: 4018
+      south: 4038
+    sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 732    # coyote
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 742    # stone drake (rare, fits rocky terrain)
+        quantity: 1
+        frequency: 12
+      - type: MOB
+        id: 752    # dire bear (rare, uses hollow as den)
+        quantity: 1
+        frequency: 40
+
+  - id: 4038
+    key: danath_rocks_south
+    name: Southern Rocks
+    area_id: 4
+    short_desc: Where the rocks meet the plains again
+    long_desc: >
+      The rocky terrain begins to give way to grassland again here. The last
+      few boulders are smaller, weathered smooth by centuries of wind and rain.
+      Cave-like spaces between some rocks might provide shelter for small
+      creatures - or hide dangerous predators.
+    exits:
+      north: 4037
+      west: 4041
+    sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 710    # grass snake
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 740    # plains cat (predator)
+        quantity: 1
+        frequency: 8
+
+  - id: 4039
+    key: danath_rocks_cave
+    name: Shallow Cave
+    area_id: 4
+    short_desc: A cave-like hollow in the rocks
+    long_desc: >
+      A large boulder has fallen against others here, creating a cave-like
+      space just large enough for a person to stand in. The floor is littered
+      with old bones and debris. Something lived here once - or still does.
+      Faded scratches on the walls might be territorial markings.
+    exits:
+      west: 4037
+    sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 740    # plains cat
+        quantity: 1
+        frequency: 5
+      - type: MOB
+        id: 731    # wild boar
+        quantity: 1
+        frequency: 6
+      - type: MOB
+        id: 756    # cockatrice (rare)
+        quantity: 1
+        frequency: 35
+
+  # --- SOUTHERN GRASSLANDS (4040-4045) ---
+
+  - id: 4040
+    key: danath_south_grass_1
+    name: Southern Plains
+    area_id: 4
+    short_desc: The southern reaches of the plains
+    long_desc: >
+      The grasslands stretch away to the south, wilder and less traveled than
+      the regions near Midgaard. Game trails wind through the tall grass, and
+      you spot the distant shapes of grazing animals. The wind carries strange
+      scents from the unknown lands beyond.
+    exits:
+      north: 4030
+      east: 4042
+      south: 4048
+    spawns:
+      - type: MOB
+        id: 701    # prairie dog
+        quantity: 3
+        frequency: 2
+      - type: MOB
+        id: 711    # young deer
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 732    # coyote
+        quantity: 1
+        frequency: 6
+      - type: MOB
+        id: 755    # giant elk (rare)
+        quantity: 1
+        frequency: 25
+      - type: MOB
+        id: 750    # timber wolf (rare)
+        quantity: 1
+        frequency: 20
+
+  - id: 4041
+    key: danath_south_grass_2
+    name: Southwestern Plains
+    area_id: 4
+    short_desc: Open grassland in the southwest
+    long_desc: >
+      Golden grass waves in the wind as far as the eye can see. This remote
+      corner of the plains sees few visitors - the only signs of civilization
+      are the distant standing stones to the north and the faint shimmer of
+      Midgaard's towers on the horizon.
+    exits:
+      north: 4031
+      east: 4038
+      west: 4043
+    spawns:
+      - type: MOB
+        id: 700    # field mouse
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 702    # meadow lark
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 720    # fox
+        quantity: 1
+        frequency: 5
+      - type: MOB
+        id: 753    # worg (rare, prowls remote areas)
+        quantity: 1
+        frequency: 30
+
+  - id: 4042
+    key: danath_south_grass_3
+    name: Deer Meadow
+    area_id: 4
+    short_desc: A meadow favored by deer
+    long_desc: >
+      This peaceful meadow is criss-crossed with deer trails. Droppings and
+      flattened grass show where the herd beds down at night. The grass here
+      is shorter, heavily grazed, and dotted with wildflowers the deer don't
+      favor. A salt lick - probably placed by hunters - sits near a large rock.
+    exits:
+      north: 4044
+      west: 4040
+      south: 4048
+    spawns:
+      - type: MOB
+        id: 711    # young deer
+        quantity: 3
+        frequency: 2
+      - type: MOB
+        id: 722    # adult deer
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 741    # blink hare (rare)
+        quantity: 1
+        frequency: 10
+      - type: MOB
+        id: 751    # giant boar (rare)
+        quantity: 1
+        frequency: 35
+
+  - id: 4043
+    key: danath_south_grass_4
+    name: Old Campsite
+    area_id: 4
+    short_desc: An abandoned campsite
+    long_desc: >
+      Someone camped here long ago - a ring of fire-blackened stones and the
+      remains of a lean-to shelter mark the spot. The ashes are cold and
+      scattered, overgrown with grass. A few rusted utensils lie half-buried
+      in the soil. Whatever happened to the campers remains a mystery.
+    exits:
+      north: 4033
+      south: 4035
+      east: 4041
+      west: 4045
+    spawns:
+      - type: MOB
+        id: 700    # field mouse
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 710    # grass snake
+        quantity: 1
+        frequency: 4
+
+  - id: 4044
+    key: danath_stream_south
+    name: Stream Crossing
+    area_id: 4
+    short_desc: Where the stream broadens into pools
+    long_desc: >
+      The stream from Silverlake broadens here into a series of shallow pools
+      connected by gentle riffles. Smooth stones make crossing easy, though
+      the water is cold enough to make you gasp. Fish dart between the pools,
+      and water striders skate across the calm surfaces.
+    exits:
+      north: 4034
+      east: 4006
+      south: 4042
+      west: 4028
+    sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 733    # pond heron
+        quantity: 1
+        frequency: 3
+      - type: MOB
+        id: 722    # snapping turtle
+        quantity: 1
+        frequency: 4
+      - type: MOB
+        id: 711    # young deer
+        quantity: 2
+        frequency: 4
+
+  - id: 4045
+    key: danath_south_grass_5
+    name: Windblown Plains
+    area_id: 4
+    short_desc: Exposed grasslands battered by wind
+    long_desc: >
+      The wind howls across these exposed plains, bending the grass flat and
+      making your eyes water. No trees or rocks break the gale. This would be
+      miserable in bad weather, but on a clear day the view is spectacular -
+      you can see the curve of the horizon in every direction.
+    exits:
+      north: 4035
+      east: 4043
+      west: 4007
+      south: 4047
+    spawns:
+      - type: MOB
+        id: 702    # meadow lark
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 712    # wild turkey
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 732    # coyote
+        quantity: 1
+        frequency: 6
+      - type: MOB
+        id: 757    # griffon (rare, hunts open plains)
+        quantity: 1
+        frequency: 40
+
+  # --- SOUTHERN BORDER / EXPANSION HOOKS (4046-4049) ---
+
+  - id: 4046
+    key: danath_ancient_cross
+    name: Ancient Crossroads
+    area_id: 4
+    short_desc: A crossroads marked by old stones
+    long_desc: >
+      Four ancient standing stones mark a crossroads here, each carved with
+      a pointing hand indicating a direction. The northern stone points toward
+      Midgaard, readable despite its age. The others point to lands now wild
+      and overgrown - paths that once led somewhere important. Perhaps someday
+      brave adventurers will clear these old roads again.
+    exits:
+      north: 4009
+      east: 4008
+    spawns:
+      - type: MOB
+        id: 701    # prairie dog
+        quantity: 2
+        frequency: 2
+      - type: MOB
+        id: 743    # will-o-wisp (rare, mystical location)
+        quantity: 1
+        frequency: 18
+
+  - id: 4047
+    key: danath_southeast_border
+    name: Southeastern Border
+    area_id: 4
+    short_desc: The edge of known lands
+    long_desc: >
+      The grasslands grow rougher here, transitioning to scrubland and rocky
+      terrain. The path south is choked with thorns and fallen stones. Whatever
+      lies beyond will require clearing the way first. For now, this marks the
+      edge of the Plains of Danath.
+    exits:
+      north: 4045
+      west: 4009
+    spawns:
+      - type: MOB
+        id: 710    # grass snake
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 740    # plains cat
+        quantity: 1
+        frequency: 8
+
+  - id: 4048
+    key: danath_south_border
+    name: Southern Border
+    area_id: 4
+    short_desc: Where the plains end
+    long_desc: >
+      The grasslands give way to rougher terrain here - rocky hills and thorny
+      scrub. Old stories speak of lands beyond, but the way is currently blocked
+      by dense undergrowth and a deep ravine. This is as far south as one can
+      easily travel in the Plains of Danath.
+    exits:
+      north: 4040
+      east: 4042
+    spawns:
+      - type: MOB
+        id: 731    # wild boar
+        quantity: 1
+        frequency: 5
+      - type: MOB
+        id: 732    # coyote
+        quantity: 2
+        frequency: 4
+      - type: MOB
+        id: 750    # timber wolf (rare)
+        quantity: 1
+        frequency: 18
+      - type: MOB
+        id: 753    # worg (rare)
+        quantity: 1
+        frequency: 35
+
+  - id: 4049
+    key: danath_ruins
+    name: Ruined Watchtower
+    area_id: 4
+    short_desc: The remains of an ancient tower
+    long_desc: >
+      Crumbling stones are all that remain of what was once a watchtower. The
+      walls have collapsed, leaving only a circular foundation and a few
+      stubborn sections of masonry. Vines cover everything, and small trees
+      grow from cracks in the stonework. A rusted iron gate lies half-buried
+      in the rubble, hinting at passages below - now sealed by fallen debris.
+    exits:
+      east: 4030
+      south: 4040
+    spawns:
+      - type: MOB
+        id: 710    # grass snake
+        quantity: 2
+        frequency: 3
+      - type: MOB
+        id: 742    # stone drake (ruins have ancient magic)
+        quantity: 1
+        frequency: 10
+      - type: MOB
+        id: 743    # will-o-wisp (haunted ruins)
+        quantity: 1
+        frequency: 12
+      - type: MOB
+        id: 754    # owlbear (rare, nests in ruins)
+        quantity: 1
+        frequency: 30

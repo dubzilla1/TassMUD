@@ -71,23 +71,23 @@ classes:
       - level: 1
         skill_id: 950  # cloth armor
       - level: 5
-        skill_id: 101  # detect magic
+        spell_id: 101  # detect magic
       - level: 8
-        skill_id: 102  # shield
+        spell_id: 102  # shield
       - level: 12
-        skill_id: 103  # fireball
+        spell_id: 103  # fireball
       - level: 18
-        skill_id: 104  # lightning bolt
+        spell_id: 104  # lightning bolt
       - level: 25
-        skill_id: 105  # teleport
+        spell_id: 105  # teleport
       - level: 30
-        skill_id: 106  # cone of cold
+        spell_id: 106  # cone of cold
       - level: 30
         skill_id: 110  # greater arcane infusion
       - level: 40
-        skill_id: 107  # disintegrate
+        spell_id: 107  # disintegrate
       - level: 50
-        skill_id: 108  # meteor swarm
+        spell_id: 108  # meteor swarm
       - level: 51
         skill_id: 109  # arcane mastery (hero level)
 
@@ -112,13 +112,13 @@ classes:
       - level: 2
         skill_id: 19   # shields
       - level: 3
-        skill_id: 201  # bless
+        spell_id: 201  # bless
       - level: 5
         spell_id: 100  # cure light wounds
       - level: 8
-        skill_id: 202  # detect evil
+        spell_id: 202  # detect evil
       - level: 12
-        skill_id: 203  # remove curse
+        spell_id: 203  # remove curse
       - level: 15
         spell_id: 110  # cure moderate wounds
       - level: 20
@@ -132,9 +132,9 @@ classes:
       - level: 40
         skill_id: 205  # sanctuary
       - level: 45
-        skill_id: 206  # resurrection
+        spell_id: 206  # resurrection
       - level: 51
-        skill_id: 207  # divine intervention (hero level)
+        spell_id: 207  # divine intervention (hero level)
 
   # ============================================================
   # ROGUE - Stealth and agility specialist
@@ -247,27 +247,27 @@ classes:
       - level: 3
         skill_id: 901  # martial weapons
       - level: 5
-        skill_id: 501  # detect evil
+        spell_id: 501  # detect evil
       - level: 10
         spell_id: 100  # cure light wounds
       - level: 10
-        skill_id: 502  # smite evil
+        spell_id: 502  # smite evil
       - level: 15
-        skill_id: 503  # divine shield
+        spell_id: 503  # divine shield
       - level: 20
         spell_id: 110  # cure moderate wounds
       - level: 20
-        skill_id: 504  # turn undead
+        spell_id: 504  # turn undead
       - level: 28
-        skill_id: 505  # holy weapon
+        spell_id: 505  # holy weapon
       - level: 30
         spell_id: 120  # cure serious wounds
       - level: 35
-        skill_id: 506  # aura of protection
+        spell_id: 506  # aura of protection
       - level: 40
         spell_id: 130  # cure critical wounds
       - level: 42
-        skill_id: 507  # divine mount
+        spell_id: 507  # divine mount
       - level: 50
         skill_id: 508  # holy avenger
       - level: 51
@@ -290,25 +290,25 @@ classes:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
       - level: 1
-        skill_id: 600  # drain life
+        spell_id: 600  # drain life
       - level: 1
         skill_id: 950  # cloth armor
       - level: 5
-        skill_id: 601  # animate dead
+        spell_id: 601  # animate dead
       - level: 10
-        skill_id: 602  # fear
+        spell_id: 602  # fear
       - level: 15
-        skill_id: 603  # corpse explosion
+        spell_id: 603  # corpse explosion
       - level: 22
-        skill_id: 604  # bone armor
+        spell_id: 604  # bone armor
       - level: 28
-        skill_id: 605  # summon skeleton
+        spell_id: 605  # summon skeleton
       - level: 35
-        skill_id: 606  # plague
+        spell_id: 606  # plague
       - level: 42
-        skill_id: 607  # death coil
+        spell_id: 607  # death coil
       - level: 50
-        skill_id: 608  # army of the dead
+        spell_id: 608  # army of the dead
       - level: 51
         skill_id: 609  # lich form (hero level)
 

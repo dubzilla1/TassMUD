@@ -38,7 +38,7 @@ public class CharacterClassDAO {
                 )
             """);
             
-            // Class skill grants - which skills become available at which class level
+            // Class skill grants - which skills/spells become available at which class level
             s.execute("""
                 CREATE TABLE IF NOT EXISTS class_skill_grant (
                     class_id INT NOT NULL,
@@ -47,6 +47,9 @@ public class CharacterClassDAO {
                     PRIMARY KEY (class_id, class_level, skill_id)
                 )
             """);
+            
+            // Migration: Add spell_id column for spell grants
+            s.execute("ALTER TABLE class_skill_grant ADD COLUMN IF NOT EXISTS spell_id INT DEFAULT 0");
             
             // Character class progress - tracks a character's level/XP in each class
             s.execute("""
@@ -139,13 +142,14 @@ public class CharacterClassDAO {
                 ps.executeUpdate();
             }
             
-            // Insert new grants
+            // Insert new grants (skills and spells)
             try (PreparedStatement ps = c.prepareStatement(
-                    "INSERT INTO class_skill_grant (class_id, class_level, skill_id) VALUES (?, ?, ?)")) {
+                    "INSERT INTO class_skill_grant (class_id, class_level, skill_id, spell_id) VALUES (?, ?, ?, ?)")) {
                 for (CharacterClass.ClassSkillGrant grant : cls.getSkillGrants()) {
                     ps.setInt(1, grant.classId);
                     ps.setInt(2, grant.classLevel);
                     ps.setInt(3, grant.skillId);
+                    ps.setInt(4, grant.spellId);
                     ps.addBatch();
                 }
                 ps.executeBatch();

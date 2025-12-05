@@ -11,12 +11,18 @@ public class ItemInstance {
     // Custom name/description for dynamically-named items (like corpses)
     public final String customName;         // nullable: overrides template name if set
     public final String customDescription;  // nullable: overrides template description if set
+    // Runtime item level - rolled at spawn time from template's min/max range
+    public final int itemLevel;             // default 1 for items without level range
 
     public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt) {
-        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, null, null);
+        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, null, null, 1);
     }
 
     public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt, String customName, String customDescription) {
+        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, customName, customDescription, 1);
+    }
+    
+    public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt, String customName, String customDescription, int itemLevel) {
         this.instanceId = instanceId;
         this.templateId = templateId;
         this.locationRoomId = locationRoomId;
@@ -25,16 +31,25 @@ public class ItemInstance {
         this.createdAt = createdAt;
         this.customName = customName;
         this.customDescription = customDescription;
+        this.itemLevel = itemLevel > 0 ? itemLevel : 1;
     }
 
     /**
      * Get the effective name (custom if set, otherwise from template).
+     * For level-scaled items, appends "[Lv.X]" to the name.
      */
     public String getEffectiveName(ItemTemplate template) {
+        String baseName;
         if (customName != null && !customName.isEmpty()) {
-            return customName;
+            baseName = customName;
+        } else {
+            baseName = template != null ? template.name : "unknown item";
         }
-        return template != null ? template.name : "unknown item";
+        // For level-scaled items (max > min), show the level
+        if (template != null && template.maxItemLevel > template.minItemLevel) {
+            return baseName + " [Lv." + itemLevel + "]";
+        }
+        return baseName;
     }
 
     /**
