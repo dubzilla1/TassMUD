@@ -87,11 +87,13 @@ public class CommandParserTest {
     @ParameterizedTest
     @CsvSource({
         "i, inventory",
-        "in, inventory",
-        "inv, inventory",
+        "in, infuse",          // 'in' now matches 'infuse' first alphabetically
+        "inf, infuse",         // 'inf' matches 'infuse'
+        "infu, infuse",        // 'infu' matches 'infuse'
+        "inv, inventory",      // 'inv' matches 'inventory'
         "inventory, inventory"
     })
-    @DisplayName("parse resolves 'inventory' command with prefix matching")
+    @DisplayName("parse resolves 'inventory' and 'infuse' commands with prefix matching")
     void parseInventoryPrefixMatching(String input, String expected) {
         Command c = CommandParser.parse(input);
         assertNotNull(c, "Command should not be null for input: " + input);

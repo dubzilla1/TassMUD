@@ -317,6 +317,52 @@ public class CombatCalculator {
     }
     
     /**
+     * Get the weapon family of the combatant's equipped main-hand weapon.
+     * 
+     * @param combatant The combatant to check
+     * @return The WeaponFamily of the equipped weapon, or null if unarmed/invalid
+     */
+    public WeaponFamily getEquippedWeaponFamily(Combatant combatant) {
+        if (combatant == null) return null;
+        
+        if (combatant.isPlayer()) {
+            return getPlayerWeaponFamily(combatant.getCharacterId());
+        } else if (combatant.isMobile()) {
+            // For mobs, return null (they don't have equipped items)
+            // TODO: Could add weapon family to MobileTemplate for mob weapons
+            return null;
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Get the weapon family of a player's equipped main-hand weapon.
+     */
+    private WeaponFamily getPlayerWeaponFamily(Integer characterId) {
+        if (characterId == null) return null;
+        
+        ensureDAOs();
+        
+        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        if (mainHandInstanceId == null) {
+            return null; // Unarmed
+        }
+        
+        ItemInstance weaponInstance = itemDAO.getInstance(mainHandInstanceId);
+        if (weaponInstance == null) {
+            return null;
+        }
+        
+        ItemTemplate weaponTemplate = itemDAO.getTemplateById(weaponInstance.templateId);
+        if (weaponTemplate == null) {
+            return null;
+        }
+        
+        return weaponTemplate.getWeaponFamily();
+    }
+    
+    /**
      * Check if a combatant is using a ranged weapon.
      * 
      * @param combatant The combatant to check

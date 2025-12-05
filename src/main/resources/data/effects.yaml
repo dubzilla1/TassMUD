@@ -102,3 +102,41 @@ effects:
       stat: CRITICAL_THRESHOLD_BONUS
       op: ADD
       value: -18
+
+  # ========== WEAPON INFUSION EFFECTS ==========
+
+  - id: "100"
+    name: "Lesser Arcane Infusion"
+    type: WEAPON_INFUSION
+    duration: 3600    # 1 hour base duration
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      infusion_type: ARCANE
+      weapon_family: STAVES
+      attack_stat: INTELLIGENCE
+      defense_stat: REFLEX
+      ranged: true
+      aoe: false
+
+  - id: "101"
+    name: "Greater Arcane Infusion"
+    type: WEAPON_INFUSION
+    duration: 3600    # 1 hour base duration
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 10  # Higher priority replaces lesser infusion
+    params:
+      infusion_type: ARCANE
+      weapon_family: STAVES
+      attack_stat: INTELLIGENCE
+      defense_stat: REFLEX
+      ranged: true
+      aoe: true

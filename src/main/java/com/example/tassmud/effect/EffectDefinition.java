@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class EffectDefinition {
     public enum ProficiencyImpact { DURATION, COOLDOWN, DICE_MULTIPLIER }
-    public enum Type { MODIFIER, HEAL, DOT, CUSTOM, INSTANT_HEAL, INSTANT_DAMAGE }
+    public enum Type { MODIFIER, HEAL, DOT, CUSTOM, INSTANT_HEAL, INSTANT_DAMAGE, WEAPON_INFUSION }
     public enum StackPolicy { STACK, REFRESH, REPLACE_HIGHER_PRIORITY, UNIQUE }
 
     private final String id;

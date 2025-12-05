@@ -2445,6 +2445,97 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
+                    case "infuse": {
+                        // INFUSE - Infuse your staff with arcane energy
+                        if (rec == null) {
+                            out.println("You must be logged in to use infuse.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        
+                        // Look up the lesser arcane infusion skill (id=100)
+                        final int ARCANE_INFUSION_SKILL_ID = 100;
+                        Skill infuseSkill = dao.getSkillById(ARCANE_INFUSION_SKILL_ID);
+                        if (infuseSkill == null) {
+                            out.println("Arcane Infusion skill not found in database.");
+                            break;
+                        }
+                        
+                        // Check if character knows the arcane infusion skill
+                        CharacterSkill charInfuse = dao.getCharacterSkill(charId, ARCANE_INFUSION_SKILL_ID);
+                        if (charInfuse == null) {
+                            out.println("You don't know how to infuse weapons with arcane energy.");
+                            break;
+                        }
+                        
+                        // Check cooldown using unified check (no combat requirement for infusion)
+                        com.example.tassmud.util.AbilityCheck.CheckResult infuseCheck = 
+                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, infuseSkill);
+                        if (infuseCheck.isFailure()) {
+                            out.println(infuseCheck.getFailureMessage());
+                            break;
+                        }
+                        
+                        // Check if player has a staff equipped
+                        ItemDAO itemDao = new ItemDAO();
+                        Long mainHandInstanceId = dao.getCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.getId());
+                        if (mainHandInstanceId == null) {
+                            out.println("You need to have a weapon equipped to infuse it.");
+                            break;
+                        }
+                        
+                        ItemInstance weaponInstance = itemDao.getInstance(mainHandInstanceId);
+                        if (weaponInstance == null) {
+                            out.println("You need to have a weapon equipped to infuse it.");
+                            break;
+                        }
+                        
+                        ItemTemplate weaponTemplate = itemDao.getTemplateById(weaponInstance.templateId);
+                        if (weaponTemplate == null) {
+                            out.println("You need to have a weapon equipped to infuse it.");
+                            break;
+                        }
+                        
+                        // Check if the weapon is a staff
+                        com.example.tassmud.model.WeaponFamily weaponFamily = weaponTemplate.getWeaponFamily();
+                        if (weaponFamily != com.example.tassmud.model.WeaponFamily.STAVES) {
+                            out.println("You can only infuse staves with arcane energy.");
+                            break;
+                        }
+                        
+                        // Apply the skill's effects to self
+                        int proficiency = charInfuse.getProficiency();
+                        com.example.tassmud.util.SkillExecution.EffectResult effectResult = 
+                            com.example.tassmud.util.SkillExecution.applySkillEffectsToSelf(infuseSkill, charId, proficiency);
+                        
+                        if (effectResult.hasAppliedEffects()) {
+                            String weaponName = weaponTemplate.name != null ? weaponTemplate.name : "staff";
+                            out.println("You channel arcane energy into your " + weaponName + "! It crackles with magical power.");
+                            out.println("Your attacks now fire arcane bolts, targeting reflex and using Intelligence for damage.");
+                            // Broadcast to room (excluding self)
+                            for (ClientHandler ch : charIdToSession.values()) {
+                                if (ch != this && ch.currentRoomId != null && ch.currentRoomId.equals(currentRoomId)) {
+                                    ch.out.println(name + "'s " + weaponName + " begins to glow with arcane energy!");
+                                }
+                            }
+                        } else {
+                            out.println("You attempt to channel arcane energy, but nothing happens.");
+                        }
+                        
+                        // Apply cooldown and check proficiency growth
+                        boolean infuseSucceeded = effectResult.hasAppliedEffects();
+                        com.example.tassmud.util.SkillExecution.Result infuseResult = 
+                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                                name, charId, infuseSkill, charInfuse, dao, infuseSucceeded);
+                        
+                        if (infuseResult.didProficiencyImprove()) {
+                            out.println(infuseResult.getProficiencyMessage());
+                        }
+                        break;
+                    }
                     case "quit":
                         out.println("Goodbye!");
                         socket.close();

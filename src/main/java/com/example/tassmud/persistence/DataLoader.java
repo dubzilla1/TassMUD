@@ -457,6 +457,8 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("CUSTOM", new com.example.tassmud.effect.InstantDamageEffect());
             // Register instant heal handler for INSTANT_HEAL effects (cure spells)
             com.example.tassmud.effect.EffectRegistry.registerHandler("INSTANT_HEAL", new com.example.tassmud.effect.InstantHealEffect());
+            // Register weapon infusion handler for WEAPON_INFUSION effects (arcane infusion, etc.)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("WEAPON_INFUSION", new com.example.tassmud.effect.WeaponInfusionEffect());
 
             System.out.println("Loaded " + count + " effects from effects.yaml");
         } catch (Exception e) {

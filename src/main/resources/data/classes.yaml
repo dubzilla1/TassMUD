@@ -67,7 +67,7 @@ classes:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
       - level: 1
-        skill_id: 100  # magic missile
+        skill_id: 100  # arcane infusion
       - level: 1
         skill_id: 950  # cloth armor
       - level: 5
@@ -82,6 +82,8 @@ classes:
         skill_id: 105  # teleport
       - level: 30
         skill_id: 106  # cone of cold
+      - level: 30
+        skill_id: 110  # greater arcane infusion
       - level: 40
         skill_id: 107  # disintegrate
       - level: 50

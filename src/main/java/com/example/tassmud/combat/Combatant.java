@@ -391,6 +391,14 @@ public class Combatant {
     }
     
     /**
+     * Get reflex defense value for attacks that target reflex instead of armor.
+     */
+    public int getReflex() {
+        Character c = getAsCharacter();
+        return c != null ? c.getReflex() : 10;
+    }
+    
+    /**
      * Get the critical threshold bonus (reduces the roll needed for a crit).
      * Default is 0 (crit on natural 20). A value of -1 means crit on 19+.
      */

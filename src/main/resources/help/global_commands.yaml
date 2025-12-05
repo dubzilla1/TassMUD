@@ -875,6 +875,44 @@ heroic:
     EXAMPLE
         heroic
 
+infuse:
+  summary: "infuse your staff with arcane energy for ranged attacks"
+  visibility: public
+  keywords: [arcane, infusion, staff, wizard, magic]
+  synopsis:
+    - "infuse"
+  body: |
+    NAME
+        infuse - infuse your staff with arcane energy
+
+    SYNOPSIS
+        infuse
+
+    DESCRIPTION
+        Channel arcane energy into your equipped staff, transforming your
+        basic attacks into ranged arcane bolts.
+        
+        REQUIREMENTS:
+        - You must know the Lesser Arcane Infusion skill (Wizard level 1)
+        - You must have a staff equipped (weapon family: STAVES)
+        - No cooldown between uses
+        
+        MECHANICS:
+        - Your basic attacks become ranged attacks
+        - Attacks target Reflex instead of Armor
+        - Damage bonus uses Intelligence instead of Strength
+        - Effect duration is 1 hour (base), scaled by proficiency
+        
+        This skill is essential for wizards who want to deal damage from
+        range while using their staff. The infusion persists until it
+        expires, even if you leave combat.
+
+    SEE ALSO
+        skills, combat, cast
+
+    EXAMPLE
+        infuse
+
 shields:
   summary: "proficiency with shields"
   visibility: public

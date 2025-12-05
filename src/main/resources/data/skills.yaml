@@ -144,10 +144,12 @@ skills:
   # WIZARD SKILLS (100-199)
   # ============================================================
   - id: 100
-    key: magic_missile
-    name: Magic Missile
-    description: Unerring bolts of arcane energy that never miss their target.
+    key: lesser_arcane_infusion
+    name: Lesser Arcane Infusion
+    description: Infuse your staff with arcane energy.
     progression: TRIVIAL
+    duration: 3600
+    effectIds: [100]
 
   - id: 101
     key: detect_magic
@@ -202,6 +204,14 @@ skills:
     name: Arcane Mastery
     description: Perfect understanding of magic itself. All spells cost less and hit harder.
     progression: LEGENDARY
+
+  - id: 110
+    key: greater_arcane_infusion
+    name: Greater Arcane Infusion
+    description: Infuse your staff with powerful arcane energy, allowing area of effect attacks.
+    progression: NORMAL
+    duration: 3600
+    effectIds: [101]
 
   # ============================================================
   # CLERIC SKILLS (200-299)

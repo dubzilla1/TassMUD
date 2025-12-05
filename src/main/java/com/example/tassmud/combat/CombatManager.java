@@ -350,7 +350,33 @@ public class CombatManager {
             return;
         }
         
-        // Execute the primary attack/command
+        // Check for AoE weapon infusion (e.g., Greater Arcane Infusion)
+        // If the combatant has an AoE infusion active and is using basic attack,
+        // execute an AoE attack instead of single target
+        if (command == basicAttack && basicAttack.hasAoEInfusion(combatant)) {
+            // Execute AoE attack against all valid targets
+            List<CombatResult> aoeResults = basicAttack.executeAoE(combatant, combat, 0);
+            for (CombatResult result : aoeResults) {
+                combat.addRoundResult(result);
+                broadcastCombatResult(combat, result);
+                
+                Combatant aoeTarget = result.getTarget();
+                if (result.getDamage() > 0 && aoeTarget != null && aoeTarget.isPlayer()) {
+                    trackArmorDamage(aoeTarget, result.getDamage());
+                    syncPlayerHpToDatabase(aoeTarget);
+                }
+                
+                if ((result.isDeath() || (aoeTarget != null && !aoeTarget.isAlive())) && aoeTarget != null) {
+                    handleCombatantDeath(combat, aoeTarget, combatant);
+                }
+            }
+            
+            // Apply end-of-turn effects (damage over time, healing, etc.)
+            applyEndOfTurnEffects(combat, combatant);
+            return; // AoE attack complete, skip normal single-target flow
+        }
+        
+        // Execute the primary attack/command (single target)
         CombatResult result = command.execute(combatant, target, combat);
         combat.addRoundResult(result);
         

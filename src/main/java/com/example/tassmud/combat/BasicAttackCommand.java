@@ -1,11 +1,15 @@
 package com.example.tassmud.combat;
 
+import com.example.tassmud.effect.WeaponInfusionEffect;
 import com.example.tassmud.model.Character;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
+import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.util.OpposedCheck;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -118,18 +122,56 @@ public class BasicAttackCommand implements CombatCommand {
             return CombatResult.error("Invalid combatants");
         }
         
-        // Calculate attack bonus
-        int strMod = (attacker.getStr() - 10) / 2;
-        @SuppressWarnings("unused") // TODO: check weapon type for ranged using DEX
-        int dexMod = (attacker.getDex() - 10) / 2;
+        // Check for active weapon infusion on the equipped weapon
+        WeaponFamily weaponFamily = calculator.getEquippedWeaponFamily(user);
+        WeaponInfusionEffect.InfusionData infusion = null;
+        if (user.isPlayer() && user.getCharacterId() != null && weaponFamily != null) {
+            infusion = WeaponInfusionEffect.getActiveInfusion(user.getCharacterId(), weaponFamily);
+        }
         
-        // Use STR for melee (TODO: check weapon type for ranged using DEX)
-        int statBonus = strMod;
+        // Determine if this attack should be treated as ranged
+        // Either from a ranged weapon OR from a weapon infusion that makes it ranged
+        boolean isRangedAttack = calculator.isUsingRangedWeapon(user) || (infusion != null && infusion.isRanged);
+        
+        // Calculate stat modifiers
+        int strMod = (attacker.getStr() - 10) / 2;
+        int dexMod = (attacker.getDex() - 10) / 2;
+        int intMod = (attacker.getIntel() - 10) / 2;
+        
+        // Determine which stat to use for attack/damage
+        // Default: STR for melee, DEX for ranged
+        // Weapon infusions can override this (e.g., INT for arcane infusion)
+        int statBonus;
+        int damageStatMod;
+        if (infusion != null) {
+            // Use the stat specified by the infusion
+            damageStatMod = getStatMod(attacker, infusion.attackStat);
+            statBonus = damageStatMod; // Use same stat for attack roll
+        } else if (isRangedAttack) {
+            statBonus = dexMod;
+            damageStatMod = dexMod;
+        } else {
+            statBonus = strMod;
+            damageStatMod = strMod;
+        }
+        
+        // Determine which defense to target
+        // Default: Armor
+        // Weapon infusions can override this (e.g., Reflex for arcane infusion)
+        int targetDefense;
+        String defenseType;
+        if (infusion != null && "REFLEX".equals(infusion.defenseStat)) {
+            targetDefense = target.getReflex();
+            defenseType = "reflex";
+        } else {
+            targetDefense = target.getArmor();
+            defenseType = "armor";
+        }
         
         // Check if target is prone - affects advantage/disadvantage based on weapon type
         int proneModifier = 0;
         if (target.isProne()) {
-            if (calculator.isUsingRangedWeapon(user)) {
+            if (isRangedAttack) {
                 // Ranged attacks have disadvantage against prone targets
                 proneModifier = -1;
             } else {
@@ -152,10 +194,9 @@ public class BasicAttackCommand implements CombatCommand {
         int attackHitBonus = attacker.getAttackHitBonus();
         int totalAttackBonus = statBonus + levelBonus + attackHitBonus;
         
-        // Roll d20 + attack bonus vs armor
+        // Roll d20 + attack bonus vs target defense
         int attackRoll = rollD20();
         int totalAttack = attackRoll + totalAttackBonus;
-        int targetArmor = target.getArmor();
         
         // Check for critical hit (natural 20, or lower with CRITICAL_THRESHOLD_BONUS)
         // The bonus reduces the threshold (e.g., -1 means crit on 19+, -18 means crit on 2+)
@@ -163,8 +204,8 @@ public class BasicAttackCommand implements CombatCommand {
         critThreshold = Math.max(2, critThreshold); // Can't crit on natural 1
         boolean isCrit = (attackRoll >= critThreshold);
         
-        // Check for miss (natural 1 always misses, or roll < armor)
-        if (attackRoll == 1 || (!isCrit && totalAttack < targetArmor)) {
+        // Check for miss (natural 1 always misses, or roll < target defense)
+        if (attackRoll == 1 || (!isCrit && totalAttack < targetDefense)) {
             // Miss
             CombatResult result = CombatResult.miss(user, target);
             result.setAttackRoll(attackRoll);
@@ -181,8 +222,8 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Hit! Calculate damage
         int baseDamage = rollDamage(user);
-        // STR to damage for melee + modifier-based attack damage bonus
-        int damageBonus = strMod + attacker.getAttackDamageBonus();
+        // Use appropriate stat for damage (STR for melee, DEX for ranged, or infusion-specified stat)
+        int damageBonus = damageStatMod + attacker.getAttackDamageBonus();
         
         // Calculate skill-based damage multiplier
         // Applied to bonus damage only, not base die roll
@@ -226,6 +267,57 @@ public class BasicAttackCommand implements CombatCommand {
         result.setDamageRoll(baseDamage);
         
         return result;
+    }
+    
+    /**
+     * Execute an AoE (Area of Effect) attack against all valid targets.
+     * Used when the attacker has an AoE weapon infusion active.
+     * 
+     * @param user The attacking combatant
+     * @param combat The combat instance
+     * @param levelPenalty Level penalty to apply
+     * @return List of combat results for each target hit
+     */
+    public List<CombatResult> executeAoE(Combatant user, Combat combat, int levelPenalty) {
+        List<CombatResult> results = new ArrayList<>();
+        
+        // Get all valid targets (all enemies)
+        List<Combatant> targets = combat.getValidTargets(user);
+        if (targets.isEmpty()) {
+            return results;
+        }
+        
+        // Execute attack against each target
+        for (Combatant target : targets) {
+            if (target.isAlive() && target.isActive()) {
+                CombatResult result = executeWithPenalty(user, target, combat, levelPenalty);
+                results.add(result);
+            }
+        }
+        
+        return results;
+    }
+    
+    /**
+     * Check if the attacker has an active AoE weapon infusion.
+     * 
+     * @param user The attacking combatant
+     * @return true if the attacker has an AoE infusion active on their equipped weapon
+     */
+    public boolean hasAoEInfusion(Combatant user) {
+        if (!user.isPlayer() || user.getCharacterId() == null) {
+            return false;
+        }
+        
+        WeaponFamily weaponFamily = calculator.getEquippedWeaponFamily(user);
+        if (weaponFamily == null) {
+            return false;
+        }
+        
+        WeaponInfusionEffect.InfusionData infusion = 
+            WeaponInfusionEffect.getActiveInfusion(user.getCharacterId(), weaponFamily);
+        
+        return infusion != null && infusion.isAoE;
     }
     
     /**
@@ -354,6 +446,49 @@ public class BasicAttackCommand implements CombatCommand {
         long cooldownEnd = System.currentTimeMillis() + BASE_COOLDOWN_MS;
         cooldowns.put(user.getCombatantId(), cooldownEnd);
         user.setGlobalCooldownUntil(cooldownEnd);
+    }
+    
+    /**
+     * Get the stat modifier for a character based on the stat name.
+     * 
+     * @param character The character to get the stat from
+     * @param statName The name of the stat (STRENGTH, DEXTERITY, INTELLIGENCE, WISDOM, CHARISMA, CONSTITUTION)
+     * @return The stat modifier (stat - 10) / 2
+     */
+    private int getStatMod(Character character, String statName) {
+        if (character == null || statName == null) return 0;
+        
+        int statValue;
+        switch (statName.toUpperCase()) {
+            case "STRENGTH":
+            case "STR":
+                statValue = character.getStr();
+                break;
+            case "DEXTERITY":
+            case "DEX":
+                statValue = character.getDex();
+                break;
+            case "INTELLIGENCE":
+            case "INT":
+                statValue = character.getIntel();
+                break;
+            case "WISDOM":
+            case "WIS":
+                statValue = character.getWis();
+                break;
+            case "CHARISMA":
+            case "CHA":
+                statValue = character.getCha();
+                break;
+            case "CONSTITUTION":
+            case "CON":
+                statValue = character.getCon();
+                break;
+            default:
+                statValue = 10; // Default to no modifier
+        }
+        
+        return (statValue - 10) / 2;
     }
     
     @Override
