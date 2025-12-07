@@ -1098,6 +1098,74 @@ autoflee:
     EXAMPLE
         autoflee 25
 
+autoloot:
+  summary: "toggle automatic looting of items from corpses"
+  visibility: public
+  synopsis:
+    - "autoloot"
+  body: |
+    NAME
+        autoloot - toggle automatic item looting
+
+    SYNOPSIS
+        autoloot
+
+    DESCRIPTION
+        Toggle automatic looting of items from corpses. When enabled,
+        any items in a corpse will automatically be moved to your
+        inventory when you kill a mob.
+        
+        This is a toggle command - each use switches between enabled
+        and disabled.
+        
+        Default: ENABLED
+        
+    SEE ALSO
+        autogold, get, inventory
+
+    EXAMPLE
+        autoloot
+
+autogold:
+  summary: "toggle automatic looting of gold from corpses"
+  visibility: public
+  synopsis:
+    - "autogold"
+  body: |
+    NAME
+        autogold - toggle automatic gold looting
+
+    SYNOPSIS
+        autogold
+
+    DESCRIPTION
+        Toggle automatic looting of gold from corpses. When enabled,
+        gold dropped by mobs will automatically be added to your
+        character's gold total when you kill a mob.
+        
+        This is a toggle command - each use switches between enabled
+        and disabled.
+        
+        Default: ENABLED
+        
+        GOLD DROPS:
+        Mobs drop gold based on their level:
+        - Base gold: level * 2
+        - Bonus gold: level² / 5
+        - Plus random variance up to their level
+        
+        Examples:
+        - Level 1 mob: 2-3 gold
+        - Level 10 mob: 40-50 gold
+        - Level 25 mob: 175-200 gold
+        - Level 50 mob: 600-650 gold
+
+    SEE ALSO
+        autoloot, get, gold, score
+
+    EXAMPLE
+        autogold
+
 stand:
   summary: "stand up from sitting, sleeping, or prone"
   visibility: public

@@ -1352,6 +1352,70 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
+                    case "autoloot": {
+                        // AUTOLOOT - Toggle automatic looting of items from corpses
+                        if (rec == null) {
+                            out.println("You must be logged in to use autoloot.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        if (charId == null) {
+                            out.println("Unable to find your character.");
+                            break;
+                        }
+                        
+                        // Toggle current value
+                        boolean currentValue = rec.autoloot;
+                        boolean newValue = !currentValue;
+                        boolean success = dao.setAutoloot(charId, newValue);
+                        if (success) {
+                            if (newValue) {
+                                out.println("Autoloot enabled. You will automatically loot items from corpses.");
+                            } else {
+                                out.println("Autoloot disabled. You must manually loot items from corpses.");
+                            }
+                            // Refresh rec
+                            rec = dao.findByName(name);
+                        } else {
+                            out.println("Failed to toggle autoloot.");
+                        }
+                        break;
+                    }
+                    case "autogold": {
+                        // AUTOGOLD - Toggle automatic looting of gold from corpses
+                        if (rec == null) {
+                            out.println("You must be logged in to use autogold.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        if (charId == null) {
+                            out.println("Unable to find your character.");
+                            break;
+                        }
+                        
+                        // Toggle current value
+                        boolean currentValue = rec.autogold;
+                        boolean newValue = !currentValue;
+                        boolean success = dao.setAutogold(charId, newValue);
+                        if (success) {
+                            if (newValue) {
+                                out.println("Autogold enabled. You will automatically loot gold from corpses.");
+                            } else {
+                                out.println("Autogold disabled. You must manually loot gold from corpses.");
+                            }
+                            // Refresh rec
+                            rec = dao.findByName(name);
+                        } else {
+                            out.println("Failed to toggle autogold.");
+                        }
+                        break;
+                    }
                     case "cflag": {
                         // GM-only: CFLAG SET <char> <flag> <value>  OR  CFLAG CHECK <char> <flag>
                         if (rec == null) { out.println("No character record found."); break; }
@@ -3586,14 +3650,33 @@ public class ClientHandler implements Runnable {
                         // If getting from a container
                         if (matchedContainer != null) {
                             java.util.List<ItemDAO.RoomItem> containerContents = itemDao.getItemsInContainer(matchedContainer.instance.instanceId);
+                            long containerGold = itemDao.getGoldContents(matchedContainer.instance.instanceId);
+                            
+                            // Handle "get gold <container>" specifically
+                            if (itemSearchPart.equalsIgnoreCase("gold")) {
+                                if (containerGold <= 0) {
+                                    out.println(matchedContainer.template.name + " contains no gold.");
+                                } else {
+                                    long goldTaken = itemDao.takeGoldContents(matchedContainer.instance.instanceId);
+                                    dao.addGold(charId, goldTaken);
+                                    out.println("You get " + goldTaken + " gold from " + matchedContainer.template.name + ".");
+                                }
+                                break;
+                            }
                             
                             if (itemSearchPart.equalsIgnoreCase("all")) {
-                                // Get all from container
-                                if (containerContents.isEmpty()) {
+                                // Get all from container (including gold)
+                                if (containerContents.isEmpty() && containerGold <= 0) {
                                     out.println(matchedContainer.template.name + " is empty.");
                                     break;
                                 }
                                 int count = 0;
+                                // Take gold first
+                                if (containerGold > 0) {
+                                    long goldTaken = itemDao.takeGoldContents(matchedContainer.instance.instanceId);
+                                    dao.addGold(charId, goldTaken);
+                                    out.println("You get " + goldTaken + " gold from " + matchedContainer.template.name + ".");
+                                }
                                 for (ItemDAO.RoomItem ci : containerContents) {
                                     itemDao.moveInstanceToCharacter(ci.instance.instanceId, charId);
                                     out.println("You get " + (ci.template.name != null ? ci.template.name : "an item") + " from " + matchedContainer.template.name + ".");

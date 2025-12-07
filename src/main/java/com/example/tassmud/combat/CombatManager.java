@@ -13,6 +13,7 @@ import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
+import com.example.tassmud.util.LootGenerator;
 import com.example.tassmud.util.TickService;
 
 import java.util.*;
@@ -509,16 +510,51 @@ public class CombatManager {
             if (mob != null) {
                 int roomId = combat.getRoomId();
                 String mobName = mob.getName();
+                int mobLevel = Math.max(1, mob.getLevel());
                 
-                // Spawn a corpse in the room
+                // Calculate gold to put in corpse
+                java.util.Random rand = new java.util.Random();
+                int baseGold = mobLevel * 2;
+                int bonusGold = (mobLevel * mobLevel) / 5;
+                int variance = rand.nextInt(mobLevel + 1);
+                long goldAmount = baseGold + bonusGold + variance;
+                
+                // Spawn a corpse in the room with gold
+                long corpseId = -1;
                 try {
                     ItemDAO itemDAO = new ItemDAO();
-                    long corpseId = itemDAO.createCorpse(roomId, mobName);
+                    corpseId = itemDAO.createCorpse(roomId, mobName, goldAmount);
                     if (corpseId > 0) {
                         broadcastToRoom(roomId, mobName + " falls to the ground, leaving behind a corpse.");
+                        
+                        // Generate random loot in the corpse
+                        List<LootGenerator.GeneratedItem> loot = LootGenerator.generateLoot(mobLevel, corpseId, itemDAO);
+                        if (!loot.isEmpty()) {
+                            // Announce loot items
+                            for (LootGenerator.GeneratedItem item : loot) {
+                                if (item.customName != null) {
+                                    broadcastToRoom(roomId, "  * " + item.customName);
+                                }
+                            }
+                        }
                     }
                 } catch (Exception e) {
                     System.err.println("[CombatManager] Failed to create corpse for " + mobName + ": " + e.getMessage());
+                }
+                
+                // Handle autogold for the killer
+                if (killer.isPlayer() && killer.getCharacterId() != null && corpseId > 0) {
+                    CharacterDAO charDao = new CharacterDAO();
+                    CharacterDAO.CharacterRecord killerRec = charDao.getCharacterById(killer.getCharacterId());
+                    if (killerRec != null && killerRec.autogold && goldAmount > 0) {
+                        // Take the gold automatically
+                        ItemDAO itemDAO = new ItemDAO();
+                        long goldTaken = itemDAO.takeGoldContents(corpseId);
+                        if (goldTaken > 0) {
+                            charDao.addGold(killer.getCharacterId(), goldTaken);
+                            sendToPlayer(killer.getCharacterId(), "You receive " + goldTaken + " gold.");
+                        }
+                    }
                 }
                 
                 // Mark the mob as dead and remove from the world
@@ -533,9 +569,6 @@ public class CombatManager {
             
             // Award XP to the killer if they are a player
             awardExperienceOnKill(killer, victim);
-            
-            // Award gold to the killer if they are a player
-            awardGoldOnKill(killer, victim);
         }
         
         // Award weapon skill proficiency to the killer if they are a player
@@ -606,40 +639,6 @@ public class CombatManager {
     }
 
     /**
-     * Award gold pieces to a player when they kill a mob.
-     * 
-     * Formula: Random(1-10) * level^1.5
-     * This gives roughly:
-     * - Level 1: 1-10 gold
-     * - Level 10: 32-316 gold  
-     * - Level 50: 354-3,536 gold
-     */
-    private void awardGoldOnKill(Combatant killer, Combatant victim) {
-        if (!killer.isPlayer() || killer.getCharacterId() == null) {
-            return; // Only players gain gold
-        }
-        if (!victim.isMobile() || victim.getMobile() == null) {
-            return; // Only mob kills award gold
-        }
-        
-        int characterId = killer.getCharacterId();
-        int mobLevel = Math.max(1, victim.getMobile().getLevel()); // Ensure at least level 1
-        
-        // Random base between 1-10
-        java.util.Random rand = new java.util.Random();
-        int baseGold = rand.nextInt(10) + 1; // 1-10
-        
-        // Scale by level^1.5 to get exponential growth
-        double scaledGold = baseGold * Math.pow(mobLevel, 1.5);
-        long goldAwarded = Math.max(1, Math.round(scaledGold));
-        
-        // Award the gold
-        CharacterDAO dao = new CharacterDAO();
-        dao.addGold(characterId, goldAwarded);
-        
-        sendToPlayer(characterId, "You receive " + goldAwarded + " gold.");
-    }
-    
     /**
      * Award weapon family skill proficiency to a player when they get a kill.
      * Awards 1 point of proficiency (1%) for the weapon family of the equipped main-hand weapon.

@@ -82,6 +82,8 @@ public class CommandRegistry {
         register("motd", "Display the message of the day", Category.SYSTEM);
         registerCombat("quit", "Exit the game", Category.SYSTEM);
         register("train", "Spend talent points to improve abilities, skills, or spells", Category.SYSTEM);
+        register("autoloot", "Toggle automatic looting of items from corpses", Category.SYSTEM);
+        register("autogold", "Toggle automatic looting of gold from corpses", Category.SYSTEM);
         
         // ===== GM COMMANDS =====
         // All GM commands allowed in combat (GMs need full control)

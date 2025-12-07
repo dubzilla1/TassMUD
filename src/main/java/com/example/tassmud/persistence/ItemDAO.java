@@ -74,6 +74,41 @@ public class ItemDAO {
             System.out.println("Migration: ensured column item_template.max_item_level");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS item_level INT DEFAULT 1");
             System.out.println("Migration: ensured column item_instance.item_level");
+            // Gold stored in containers (e.g., corpses)
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS gold_contents BIGINT DEFAULT 0");
+            System.out.println("Migration: ensured column item_instance.gold_contents");
+            
+            // === Stat override columns for dynamically generated loot ===
+            // Weapon stat overrides
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS base_die_override INT");
+            System.out.println("Migration: ensured column item_instance.base_die_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS multiplier_override INT");
+            System.out.println("Migration: ensured column item_instance.multiplier_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS ability_mult_override DOUBLE");
+            System.out.println("Migration: ensured column item_instance.ability_mult_override");
+            // Armor/save stat overrides
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS armor_save_override INT");
+            System.out.println("Migration: ensured column item_instance.armor_save_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS fort_save_override INT");
+            System.out.println("Migration: ensured column item_instance.fort_save_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS ref_save_override INT");
+            System.out.println("Migration: ensured column item_instance.ref_save_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS will_save_override INT");
+            System.out.println("Migration: ensured column item_instance.will_save_override");
+            // Magic effect overrides
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_1_override VARCHAR(50)");
+            System.out.println("Migration: ensured column item_instance.spell_effect_1_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_2_override VARCHAR(50)");
+            System.out.println("Migration: ensured column item_instance.spell_effect_2_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_3_override VARCHAR(50)");
+            System.out.println("Migration: ensured column item_instance.spell_effect_3_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_4_override VARCHAR(50)");
+            System.out.println("Migration: ensured column item_instance.spell_effect_4_override");
+            // Value override and generation flag
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS value_override INT");
+            System.out.println("Migration: ensured column item_instance.value_override");
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS is_generated BOOLEAN DEFAULT FALSE");
+            System.out.println("Migration: ensured column item_instance.is_generated");
         } catch (SQLException e) {
             // Best-effort migration; log but don't fail startup
             System.err.println("Warning: failed to run item table migrations: " + e.getMessage());
@@ -306,22 +341,119 @@ public class ItemDAO {
         return -1;
     }
 
+    /**
+     * Create a dynamically generated item instance with stat overrides.
+     * Used by LootGenerator for mob drops with randomized stats.
+     * 
+     * @param templateId Base item template ID
+     * @param containerInstanceId Container to place item in (e.g., corpse)
+     * @param customName Custom name for the item (null to use template name)
+     * @param customDescription Custom description (null to use template)
+     * @param itemLevel Item level for scaling
+     * @param baseDieOverride Weapon base die override (null for template value)
+     * @param multiplierOverride Weapon multiplier override (null for template value)
+     * @param abilityMultOverride Ability multiplier override (null for template value)
+     * @param armorSaveOverride Armor save bonus override (null for template value)
+     * @param fortSaveOverride Fort save bonus override (null for template value)
+     * @param refSaveOverride Ref save bonus override (null for template value)
+     * @param willSaveOverride Will save bonus override (null for template value)
+     * @param spellEffect1 Spell effect 1 ID override (null for template value)
+     * @param spellEffect2 Spell effect 2 ID override (null for template value)
+     * @param spellEffect3 Spell effect 3 ID override (null for template value)
+     * @param spellEffect4 Spell effect 4 ID override (null for template value)
+     * @param valueOverride Gold value override (null for template value)
+     * @return The created instance ID, or -1 on failure
+     */
+    public long createGeneratedInstance(
+            int templateId, Long containerInstanceId,
+            String customName, String customDescription, int itemLevel,
+            Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
+            Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
+            String spellEffect1, String spellEffect2, String spellEffect3, String spellEffect4,
+            Integer valueOverride) {
+        long now = System.currentTimeMillis();
+        String sql = "INSERT INTO item_instance (" +
+            "template_id, container_instance_id, created_at, custom_name, custom_description, item_level, " +
+            "base_die_override, multiplier_override, ability_mult_override, " +
+            "armor_save_override, fort_save_override, ref_save_override, will_save_override, " +
+            "spell_effect_1_override, spell_effect_2_override, spell_effect_3_override, spell_effect_4_override, " +
+            "value_override, is_generated) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,TRUE)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            int idx = 1;
+            ps.setInt(idx++, templateId);
+            if (containerInstanceId == null) ps.setNull(idx++, Types.BIGINT); else ps.setLong(idx++, containerInstanceId);
+            ps.setLong(idx++, now);
+            if (customName == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, customName);
+            if (customDescription == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, customDescription);
+            ps.setInt(idx++, itemLevel);
+            if (baseDieOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, baseDieOverride);
+            if (multiplierOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, multiplierOverride);
+            if (abilityMultOverride == null) ps.setNull(idx++, Types.DOUBLE); else ps.setDouble(idx++, abilityMultOverride);
+            if (armorSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, armorSaveOverride);
+            if (fortSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, fortSaveOverride);
+            if (refSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, refSaveOverride);
+            if (willSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, willSaveOverride);
+            if (spellEffect1 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect1);
+            if (spellEffect2 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect2);
+            if (spellEffect3 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect3);
+            if (spellEffect4 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect4);
+            if (valueOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, valueOverride);
+            ps.executeUpdate();
+            try (ResultSet rs = ps.getGeneratedKeys()) { if (rs.next()) return rs.getLong(1); }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create generated item instance: " + e.getMessage(), e);
+        }
+        return -1;
+    }
+
     public ItemInstance getInstance(long instanceId) {
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement("SELECT * FROM item_instance WHERE instance_id = ?")) {
             ps.setLong(1, instanceId);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) return null;
-                Integer room = (Integer) rs.getObject("location_room_id");
-                Integer owner = (Integer) rs.getObject("owner_character_id");
-                Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
-                String customName = rs.getString("custom_name");
-                String customDesc = rs.getString("custom_description");
-                int itemLevel = rs.getInt("item_level");
-                if (itemLevel <= 0) itemLevel = 1;
-                return new ItemInstance(rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, rs.getLong("created_at"), customName, customDesc, itemLevel);
+                return extractItemInstance(rs);
             }
         } catch (SQLException e) { throw new RuntimeException(e); }
+    }
+    
+    /**
+     * Helper to extract ItemInstance from a ResultSet row.
+     * Handles all columns including stat overrides for generated items.
+     */
+    private ItemInstance extractItemInstance(ResultSet rs) throws SQLException {
+        Integer room = (Integer) rs.getObject("location_room_id");
+        Integer owner = (Integer) rs.getObject("owner_character_id");
+        Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
+        String customName = rs.getString("custom_name");
+        String customDesc = rs.getString("custom_description");
+        int itemLevel = rs.getInt("item_level");
+        if (itemLevel <= 0) itemLevel = 1;
+        
+        // Stat overrides (null if not set)
+        Integer baseDieOverride = (Integer) rs.getObject("base_die_override");
+        Integer multiplierOverride = (Integer) rs.getObject("multiplier_override");
+        Double abilityMultOverride = (Double) rs.getObject("ability_mult_override");
+        Integer armorSaveOverride = (Integer) rs.getObject("armor_save_override");
+        Integer fortSaveOverride = (Integer) rs.getObject("fort_save_override");
+        Integer refSaveOverride = (Integer) rs.getObject("ref_save_override");
+        Integer willSaveOverride = (Integer) rs.getObject("will_save_override");
+        String spellEffect1Override = rs.getString("spell_effect_1_override");
+        String spellEffect2Override = rs.getString("spell_effect_2_override");
+        String spellEffect3Override = rs.getString("spell_effect_3_override");
+        String spellEffect4Override = rs.getString("spell_effect_4_override");
+        Integer valueOverride = (Integer) rs.getObject("value_override");
+        boolean isGenerated = rs.getBoolean("is_generated");
+        
+        return new ItemInstance(
+            rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, 
+            rs.getLong("created_at"), customName, customDesc, itemLevel,
+            baseDieOverride, multiplierOverride, abilityMultOverride,
+            armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
+            spellEffect1Override, spellEffect2Override, spellEffect3Override, spellEffect4Override,
+            valueOverride, isGenerated
+        );
     }
 
     // --- Corpse-related methods ---
@@ -337,13 +469,25 @@ public class ItemDAO {
      * @return The instance ID of the created corpse
      */
     public long createCorpse(int roomId, String mobName) {
+        return createCorpse(roomId, mobName, 0);
+    }
+    
+    /**
+     * Create a corpse item in a room with custom name, description, and gold.
+     * The corpse acts as a container for loot.
+     * @param roomId The room where the corpse spawns
+     * @param mobName The name of the mob that died (used for name/description)
+     * @param gold The amount of gold to put in the corpse
+     * @return The instance ID of the created corpse
+     */
+    public long createCorpse(int roomId, String mobName, long gold) {
         String customName = "The corpse of " + mobName;
         String customDesc = "The corpse of " + mobName + " lies here.";
         
         long now = System.currentTimeMillis();
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(
-                 "INSERT INTO item_instance (template_id, location_room_id, owner_character_id, container_instance_id, created_at, custom_name, custom_description) VALUES (?,?,?,?,?,?,?)",
+                 "INSERT INTO item_instance (template_id, location_room_id, owner_character_id, container_instance_id, created_at, custom_name, custom_description, gold_contents) VALUES (?,?,?,?,?,?,?,?)",
                  Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, CORPSE_TEMPLATE_ID);
             ps.setInt(2, roomId);
@@ -352,6 +496,7 @@ public class ItemDAO {
             ps.setLong(5, now);
             ps.setString(6, customName);
             ps.setString(7, customDesc);
+            ps.setLong(8, gold);
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) return rs.getLong(1);
@@ -360,6 +505,48 @@ public class ItemDAO {
             throw new RuntimeException("Failed to create corpse: " + e.getMessage(), e);
         }
         return -1;
+    }
+    
+    /**
+     * Get the gold contents of an item instance (e.g., a corpse).
+     * @param instanceId The instance ID to check
+     * @return The amount of gold in the container
+     */
+    public long getGoldContents(long instanceId) {
+        String sql = "SELECT gold_contents FROM item_instance WHERE instance_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, instanceId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getLong("gold_contents");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("[ItemDAO] Failed to get gold contents: " + e.getMessage());
+        }
+        return 0;
+    }
+    
+    /**
+     * Take gold from an item instance (e.g., looting a corpse).
+     * @param instanceId The instance ID to loot
+     * @return The amount of gold taken (0 if none or error)
+     */
+    public long takeGoldContents(long instanceId) {
+        long gold = getGoldContents(instanceId);
+        if (gold > 0) {
+            String sql = "UPDATE item_instance SET gold_contents = 0 WHERE instance_id = ?";
+            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                 PreparedStatement ps = c.prepareStatement(sql)) {
+                ps.setLong(1, instanceId);
+                ps.executeUpdate();
+                return gold;
+            } catch (SQLException e) {
+                System.err.println("[ItemDAO] Failed to take gold: " + e.getMessage());
+            }
+        }
+        return 0;
     }
 
     /**
@@ -595,7 +782,7 @@ public class ItemDAO {
     // Get all item instances in a room, joined with their templates
     public List<RoomItem> getItemsInRoom(int roomId) {
         List<RoomItem> result = new ArrayList<>();
-        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, i.item_level, " +
+        String sql = "SELECT i.*, " +
                      "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
                      "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
@@ -609,21 +796,7 @@ public class ItemDAO {
             ps.setInt(1, roomId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Integer locRoom = (Integer) rs.getObject("location_room_id");
-                    Integer owner = (Integer) rs.getObject("owner_character_id");
-                    Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
-                    String customName = rs.getString("custom_name");
-                    String customDesc = rs.getString("custom_description");
-                    int itemLevel = rs.getInt("item_level");
-                    if (itemLevel <= 0) itemLevel = 1;
-                    ItemInstance inst = new ItemInstance(
-                        rs.getLong("instance_id"),
-                        rs.getInt("template_id"),
-                        locRoom, owner, container,
-                        rs.getLong("created_at"),
-                        customName, customDesc,
-                        itemLevel
-                    );
+                    ItemInstance inst = extractItemInstance(rs);
                     // Parse traits and keywords from comma-separated strings
                     List<String> traits = new ArrayList<>();
                     List<String> keywords = new ArrayList<>();
@@ -685,7 +858,7 @@ public class ItemDAO {
     // Get all item instances owned by a character (inventory), joined with their templates
     public List<RoomItem> getItemsByCharacter(int characterId) {
         List<RoomItem> result = new ArrayList<>();
-        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.item_level, " +
+        String sql = "SELECT i.*, " +
                      "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
                      "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
@@ -699,19 +872,7 @@ public class ItemDAO {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Integer locRoom = (Integer) rs.getObject("location_room_id");
-                    Integer owner = (Integer) rs.getObject("owner_character_id");
-                    Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
-                    int itemLevel = rs.getInt("item_level");
-                    if (itemLevel <= 0) itemLevel = 1;
-                    ItemInstance inst = new ItemInstance(
-                        rs.getLong("instance_id"),
-                        rs.getInt("template_id"),
-                        locRoom, owner, container,
-                        rs.getLong("created_at"),
-                        null, null,
-                        itemLevel
-                    );
+                    ItemInstance inst = extractItemInstance(rs);
                     // Parse traits and keywords from comma-separated strings
                     List<String> traits = new ArrayList<>();
                     List<String> keywords = new ArrayList<>();
@@ -773,7 +934,7 @@ public class ItemDAO {
     // Get all item instances inside a container, joined with their templates
     public List<RoomItem> getItemsInContainer(long containerInstanceId) {
         List<RoomItem> result = new ArrayList<>();
-        String sql = "SELECT i.instance_id, i.template_id, i.location_room_id, i.owner_character_id, i.container_instance_id, i.created_at, i.custom_name, i.custom_description, i.item_level, " +
+        String sql = "SELECT i.*, " +
                      "t.id as tid, t.template_key, t.name, t.description, t.weight, t.template_value, t.type, t.subtype, t.slot, " +
                      "t.capacity, t.hand_count, t.indestructable, t.magical, t.max_items, t.max_weight, " +
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
@@ -787,21 +948,7 @@ public class ItemDAO {
             ps.setLong(1, containerInstanceId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Integer locRoom = (Integer) rs.getObject("location_room_id");
-                    Integer owner = (Integer) rs.getObject("owner_character_id");
-                    Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
-                    String customName = rs.getString("custom_name");
-                    String customDesc = rs.getString("custom_description");
-                    int itemLevel = rs.getInt("item_level");
-                    if (itemLevel <= 0) itemLevel = 1;
-                    ItemInstance inst = new ItemInstance(
-                        rs.getLong("instance_id"),
-                        rs.getInt("template_id"),
-                        locRoom, owner, container,
-                        rs.getLong("created_at"),
-                        customName, customDesc,
-                        itemLevel
-                    );
+                    ItemInstance inst = extractItemInstance(rs);
                     // Parse traits and keywords from comma-separated strings
                     List<String> traits = new ArrayList<>();
                     List<String> keywords = new ArrayList<>();
@@ -932,21 +1079,7 @@ public class ItemDAO {
             ps.setInt(1, templateId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Integer room = (Integer) rs.getObject("location_room_id");
-                    Integer owner = (Integer) rs.getObject("owner_character_id");
-                    Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
-                    int itemLevel = rs.getInt("item_level");
-                    if (itemLevel <= 0) itemLevel = 1;
-                    results.add(new ItemInstance(
-                        rs.getLong("instance_id"),
-                        rs.getInt("template_id"),
-                        room,
-                        owner,
-                        container,
-                        rs.getLong("created_at"),
-                        null, null,
-                        itemLevel
-                    ));
+                    results.add(extractItemInstance(rs));
                 }
             }
         } catch (SQLException e) {
@@ -964,21 +1097,7 @@ public class ItemDAO {
             ps.setLong(1, instanceId);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    Integer room = (Integer) rs.getObject("location_room_id");
-                    Integer owner = (Integer) rs.getObject("owner_character_id");
-                    Long container = rs.getObject("container_instance_id") == null ? null : rs.getLong("container_instance_id");
-                    int itemLevel = rs.getInt("item_level");
-                    if (itemLevel <= 0) itemLevel = 1;
-                    return new ItemInstance(
-                        rs.getLong("instance_id"),
-                        rs.getInt("template_id"),
-                        room,
-                        owner,
-                        container,
-                        rs.getLong("created_at"),
-                        null, null,
-                        itemLevel
-                    );
+                    return extractItemInstance(rs);
                 }
             }
         } catch (SQLException e) {
