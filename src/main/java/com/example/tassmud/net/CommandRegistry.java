@@ -33,6 +33,7 @@ public class CommandRegistry {
         register("west", "Move west", Category.MOVEMENT, List.of("w"));
         register("up", "Move up", Category.MOVEMENT, List.of("u"));
         register("down", "Move down", Category.MOVEMENT, List.of("d"));
+        register("recall", "Teleport back to the Mead-Gaard Inn (home base)", Category.MOVEMENT);
         
         // ===== STANCE =====
         // Stance changes NOT allowed in combat

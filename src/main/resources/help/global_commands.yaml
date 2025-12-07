@@ -1098,6 +1098,39 @@ autoflee:
     EXAMPLE
         autoflee 25
 
+recall:
+  summary: "teleport back to the Mead-Gaard Inn (home base)"
+  visibility: public
+  synopsis:
+    - "recall"
+  body: |
+    NAME
+        recall - teleport back to the Mead-Gaard Inn
+
+    SYNOPSIS
+        recall
+
+    DESCRIPTION
+        Instantly teleport yourself back to the Mead-Gaard Inn, the
+        central hub and home base for adventurers in the realm.
+        
+        This command has no cooldown and can be used at any time,
+        serving as a safety net for lost or stranded adventurers.
+        Similar to a hearthstone, but always available.
+        
+        REQUIREMENTS:
+        - You must be standing (not sitting or sleeping)
+        - Cannot be used while in combat
+        
+        The Mead-Gaard Inn is where adventurers gather to share tales,
+        find work on the noticeboard, and recover from their journeys.
+
+    SEE ALSO
+        north, south, east, west, up, down
+
+    EXAMPLE
+        recall
+
 autoloot:
   summary: "toggle automatic looting of items from corpses"
   visibility: public

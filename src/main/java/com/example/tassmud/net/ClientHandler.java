@@ -1169,6 +1169,59 @@ public class ClientHandler implements Runnable {
                         out.println("You move " + directionName + ".");
                         showRoom(newRoom, destId);
                         break;
+                    
+                    case "recall": {
+                        // Teleport back to the Mead-Gaard Inn (home base)
+                        if (rec == null) {
+                            out.println("No character record found.");
+                            break;
+                        }
+                        
+                        // Check stance - can't recall while sleeping
+                        Stance recallStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                        if (!recallStance.canMove()) {
+                            if (recallStance == Stance.SLEEPING) {
+                                out.println("You are asleep! Type 'wake' to wake up first.");
+                            } else {
+                                out.println("You must stand up first. Type 'stand'.");
+                            }
+                            break;
+                        }
+                        
+                        final int MEAD_GAARD_INN = 3041;
+                        
+                        // Already at the inn?
+                        if (rec.currentRoom != null && rec.currentRoom == MEAD_GAARD_INN) {
+                            out.println("You are already at the Mead-Gaard Inn.");
+                            break;
+                        }
+                        
+                        // Verify the destination exists
+                        Room innRoom = dao.getRoomById(MEAD_GAARD_INN);
+                        if (innRoom == null) {
+                            out.println("The Mead-Gaard Inn seems to have vanished from reality. Something is very wrong.");
+                            break;
+                        }
+                        
+                        // Announce magical departure from old room (null direction = teleport)
+                        Integer recallOldRoom = rec.currentRoom;
+                        roomAnnounce(recallOldRoom, name + " closes their eyes and vanishes in a shimmer of light.", this.characterId, true);
+                        
+                        // Teleport the character
+                        dao.updateCharacterRoom(name, MEAD_GAARD_INN);
+                        this.currentRoomId = MEAD_GAARD_INN;
+                        rec = dao.findByName(name);
+                        
+                        // Announce magical arrival in new room
+                        roomAnnounce(MEAD_GAARD_INN, name + " appears in a shimmer of light.", this.characterId, true);
+                        
+                        out.println();
+                        out.println("You close your eyes and think of home...");
+                        out.println("A warm sensation envelops you, and when you open your eyes, you find yourself at the Mead-Gaard Inn.");
+                        out.println();
+                        showRoom(innRoom, MEAD_GAARD_INN);
+                        break;
+                    }
                         
                     // ===== STANCE COMMANDS =====
                     case "sit": {
