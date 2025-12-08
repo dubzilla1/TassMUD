@@ -32,6 +32,7 @@ import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.persistence.ShopDAO;
 import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.HelpManager;
+import com.example.tassmud.util.MobileRoamingService;
 import com.example.tassmud.util.PasswordUtil;
 import com.example.tassmud.util.RegenerationService;
 import java.io.BufferedReader;
@@ -534,6 +535,54 @@ public class ClientHandler implements Runnable {
         
         // Send the prompt (which will show their new low stats)
         handler.sendPrompt();
+    }
+    
+    /**
+     * Get a ClientHandler by character ID.
+     * @param characterId the character ID
+     * @return the ClientHandler or null if not found
+     */
+    public static ClientHandler getHandlerByCharacterId(Integer characterId) {
+        if (characterId == null) return null;
+        return charIdToSession.get(characterId);
+    }
+    
+    /**
+     * Get the current room ID for this handler.
+     * @return the room ID or null
+     */
+    public Integer getCurrentRoomId() {
+        return this.currentRoomId;
+    }
+    
+    /**
+     * Build a Character object from a CharacterRecord for use in combat.
+     * @param rec the character record from the database
+     * @param characterId the character ID
+     * @return a Character object suitable for combat
+     */
+    public static Character buildCharacterForCombat(CharacterDAO.CharacterRecord rec, Integer characterId) {
+        if (rec == null) return null;
+        
+        Character playerChar = new Character(
+            rec.name, rec.age, rec.description,
+            rec.hpMax, rec.hpCur, rec.mpMax, rec.mpCur, rec.mvMax, rec.mvCur,
+            rec.currentRoom,
+            rec.str, rec.dex, rec.con, rec.intel, rec.wis, rec.cha,
+            rec.getArmorTotal(), rec.getFortitudeTotal(), 
+            rec.getReflexTotal(), rec.getWillTotal()
+        );
+        
+        // Load persisted modifiers for this character (if any) so they apply in combat
+        if (characterId != null) {
+            CharacterDAO dao = new CharacterDAO();
+            java.util.List<com.example.tassmud.model.Modifier> mods = dao.getModifiersForCharacter(characterId);
+            for (com.example.tassmud.model.Modifier m : mods) {
+                playerChar.addModifier(m);
+            }
+        }
+        
+        return playerChar;
     }
 
     /**
@@ -1189,6 +1238,14 @@ public class ClientHandler implements Runnable {
                         
                         out.println("You move " + directionName + ".");
                         showRoom(newRoom, destId);
+                        
+                        // Check for aggressive mobs in the new room
+                        {
+                            CharacterClassDAO moveClassDao = new CharacterClassDAO();
+                            int playerLevel = rec.currentClassId != null 
+                                ? moveClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
+                            MobileRoamingService.getInstance().checkAggroOnPlayerEntry(destId, characterId, playerLevel);
+                        }
                         break;
                     
                     case "recall": {

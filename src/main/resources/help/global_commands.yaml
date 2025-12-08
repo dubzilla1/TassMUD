@@ -815,6 +815,57 @@ combat:
           [R3 4.2s] Tass hits A Giant Rat for 8 damage!
           [R3 4.5s] A Giant Rat swings at Tass but misses!
 
+aggressive:
+  summary: "information about aggressive mob behavior"
+  visibility: public
+  keywords: [aggressive, aggro, hostiles, attack, ambush]
+  synopsis:
+    - "N/A - informational topic"
+  body: |
+    NAME
+        aggressive - information about aggressive mob behavior
+
+    DESCRIPTION
+        Some creatures in the world are AGGRESSIVE and will attack
+        players on sight. This topic explains how aggro mobs work.
+        
+        WHEN AGGRO TRIGGERS:
+        
+        1. PLAYER ENTERS ROOM WITH AGGRO MOB
+           When you move into a room containing an aggressive creature,
+           it may attack you immediately! The mob makes an opposed check
+           using its level against your level:
+           - Higher level mobs are more likely to notice and attack you
+           - Higher level players are harder for mobs to ambush
+           
+        2. AGGRO MOB ENTERS YOUR ROOM
+           Wandering aggressive mobs that enter your room will also
+           attempt to attack using the same opposed check.
+           
+        3. COMBAT IN ROOM WITH AGGRO MOB
+           If combat starts in a room with an aggressive mob, or if
+           an aggro mob enters a room where combat is happening, the
+           mob will automatically JOIN the fight - no roll needed!
+           It will fight alongside other monsters against players.
+        
+        AVOIDING AGGRO:
+        - Stay in town areas (usually safe)
+        - Be higher level than the creatures you encounter
+        - Move through dangerous areas quickly
+        - Be prepared for combat when exploring new areas
+        
+        RECOGNIZING AGGRO MOBS:
+        You'll see a message like:
+            <MobName> snarls and attacks you!
+        
+        TIPS:
+        - Use RECALL to escape to safety
+        - Keep your HP high when exploring
+        - Set AUTOFLEE as a safety net
+        
+    SEE ALSO
+        combat, kill, flee, autoflee, death
+
 kick:
   summary: "deliver a powerful kick to your enemy"
   visibility: public

@@ -1064,6 +1064,37 @@ public class CombatManager {
     }
     
     /**
+     * Have an aggressive mob join an existing combat in a room.
+     * The mob joins the "enemy" alliance (opposing players).
+     * No roll required - aggro mobs auto-join combats.
+     * 
+     * @param mob The aggressive mob to add
+     * @param roomId The room where combat is happening
+     * @return true if the mob joined combat, false otherwise
+     */
+    public boolean aggroMobJoinCombat(Mobile mob, int roomId) {
+        Combat combat = combatsByRoom.get(roomId);
+        if (combat == null || !combat.isActive()) {
+            return false;
+        }
+        
+        // Check if mob is already in combat
+        if (combat.findByMobileInstanceId(mob.getInstanceId()) != null) {
+            return false;
+        }
+        
+        // Add mob to combat on the "enemy" alliance (opposing players)
+        int mobAlliance = 1; // Mobs are alliance 1, players are alliance 0
+        combat.addMobileCombatant(mob, mobAlliance);
+        combatsByMobile.put(mob.getInstanceId(), combat);
+        
+        // Announce the mob joining
+        broadcastToRoom(roomId, mob.getName() + " joins the fight!");
+        
+        return true;
+    }
+    
+    /**
      * End a combat instance.
      */
     public void endCombat(Combat combat) {

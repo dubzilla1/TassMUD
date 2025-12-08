@@ -1,10 +1,12 @@
 package com.example.tassmud.util;
 
+import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.model.Mobile;
 import com.example.tassmud.model.MobileBehavior;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.net.ClientHandler;
+import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.MobileDAO;
 
@@ -211,6 +213,9 @@ public class MobileRoamingService {
         
         // Persist the change
         mobileDao.updateInstance(mobile);
+        
+        // Check if this aggressive mob should attack players in the new room
+        checkAggroOnMobEntry(mobile, chosen.destinationRoomId);
     }
     
     /**
@@ -448,6 +453,174 @@ public class MobileRoamingService {
      */
     public void shutdown() {
         nextMoveTime.clear();
+    }
+    
+    // ========== AGGRESSIVE MOB BEHAVIOR ==========
+    
+    /**
+     * Check if any aggressive mobs in a room should attack a player who just entered.
+     * Called after a player moves into a new room.
+     * 
+     * For each AGGRESSIVE mob in the room:
+     * - If there's combat already, the mob auto-joins (no roll)
+     * - Otherwise, roll an opposed check (mob level vs player level)
+     * - If mob wins, it attacks the player
+     * 
+     * @param roomId The room the player entered
+     * @param characterId The player's character ID
+     * @param playerLevel The player's class level
+     */
+    public void checkAggroOnPlayerEntry(int roomId, int characterId, int playerLevel) {
+        // Get all mobs in the room
+        List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(roomId);
+        if (mobsInRoom.isEmpty()) {
+            return;
+        }
+        
+        // Check if there's already combat in this room
+        Combat existingCombat = combatManager.getCombatInRoom(roomId);
+        
+        for (Mobile mob : mobsInRoom) {
+            // Skip non-aggressive mobs
+            if (!mob.hasBehavior(MobileBehavior.AGGRESSIVE)) {
+                continue;
+            }
+            
+            // Skip dead mobs
+            if (mob.isDead()) {
+                continue;
+            }
+            
+            // Skip mobs already in combat
+            if (combatManager.isInCombat(mob)) {
+                continue;
+            }
+            
+            // If there's already combat in the room, aggro mob auto-joins
+            if (existingCombat != null && existingCombat.isActive()) {
+                combatManager.aggroMobJoinCombat(mob, roomId);
+                continue;
+            }
+            
+            // Roll opposed check: mob level vs player level
+            int mobLevel = Math.max(1, mob.getLevel());
+            if (OpposedCheck.check(mobLevel, playerLevel)) {
+                // Mob wins - initiate combat!
+                triggerAggroAttack(mob, characterId, roomId);
+            }
+        }
+    }
+    
+    /**
+     * Check aggro when a mob enters a room.
+     * Called after a mobile moves into a new room.
+     * 
+     * - If there's combat in the room, AGGRESSIVE mob auto-joins
+     * - Otherwise, for each player in the room, roll opposed check
+     * 
+     * @param mob The mob that just entered
+     * @param roomId The room the mob entered
+     */
+    public void checkAggroOnMobEntry(Mobile mob, int roomId) {
+        if (mob == null || !mob.hasBehavior(MobileBehavior.AGGRESSIVE)) {
+            return;
+        }
+        
+        if (mob.isDead() || combatManager.isInCombat(mob)) {
+            return;
+        }
+        
+        // Check if there's already combat in this room
+        Combat existingCombat = combatManager.getCombatInRoom(roomId);
+        if (existingCombat != null && existingCombat.isActive()) {
+            // Auto-join the fight
+            combatManager.aggroMobJoinCombat(mob, roomId);
+            return;
+        }
+        
+        // Get all players in the room and try to attack one
+        List<PlayerInRoom> playersInRoom = getPlayersInRoom(roomId);
+        if (playersInRoom.isEmpty()) {
+            return;
+        }
+        
+        int mobLevel = Math.max(1, mob.getLevel());
+        
+        // Try to attack each player (in random order) until one succeeds
+        java.util.Collections.shuffle(playersInRoom);
+        for (PlayerInRoom player : playersInRoom) {
+            if (OpposedCheck.check(mobLevel, player.level)) {
+                // Mob wins - initiate combat!
+                triggerAggroAttack(mob, player.characterId, roomId);
+                return; // Only attack one player
+            }
+        }
+    }
+    
+    /**
+     * Trigger an aggressive mob attacking a player.
+     */
+    private void triggerAggroAttack(Mobile mob, int characterId, int roomId) {
+        // Get the player's Character object
+        CharacterDAO.CharacterRecord rec = dao.getCharacterById(characterId);
+        if (rec == null) {
+            return;
+        }
+        
+        // Build a Character object from the record for combat
+        com.example.tassmud.model.Character playerChar = ClientHandler.buildCharacterForCombat(rec, characterId);
+        if (playerChar == null) {
+            return;
+        }
+        
+        // Announce the attack
+        String attackMsg = mob.getName() + " snarls and attacks " + rec.name + "!";
+        ClientHandler.roomAnnounce(roomId, attackMsg);
+        
+        // Send message to the victim
+        ClientHandler.sendToCharacter(characterId, "\r\n\u001B[1;31m" + mob.getName() + " attacks you!\u001B[0m");
+        
+        // Initiate combat
+        combatManager.mobileInitiateCombat(mob, playerChar, characterId, roomId);
+        
+        // Send prompt to the player
+        ClientHandler.sendPromptToCharacter(characterId);
+    }
+    
+    /**
+     * Get all players currently in a room with their levels.
+     */
+    private List<PlayerInRoom> getPlayersInRoom(int roomId) {
+        List<PlayerInRoom> result = new ArrayList<>();
+        CharacterClassDAO classDao = new CharacterClassDAO();
+        
+        for (Integer charId : ClientHandler.getConnectedCharacterIds()) {
+            ClientHandler handler = ClientHandler.getHandlerByCharacterId(charId);
+            if (handler != null && handler.getCurrentRoomId() != null && handler.getCurrentRoomId() == roomId) {
+                // Get player's level
+                CharacterDAO.CharacterRecord rec = dao.getCharacterById(charId);
+                int level = 1;
+                if (rec != null && rec.currentClassId != null) {
+                    level = classDao.getCharacterClassLevel(charId, rec.currentClassId);
+                }
+                result.add(new PlayerInRoom(charId, level));
+            }
+        }
+        
+        return result;
+    }
+    
+    /**
+     * Simple container for a player in a room.
+     */
+    private static class PlayerInRoom {
+        final int characterId;
+        final int level;
+        
+        PlayerInRoom(int characterId, int level) {
+            this.characterId = characterId;
+            this.level = level;
+        }
     }
     
     /**
