@@ -75,6 +75,8 @@ public class CommandRegistry {
         registerCombat("bash", "Bash an enemy with your shield, stunning them", Category.COMBAT);
         registerCombat("heroic", "Execute a Heroic Strike, granting guaranteed critical hits", Category.COMBAT);
         register("infuse", "Infuse your staff with arcane energy for ranged attacks", Category.COMBAT);
+        register("hide", "Become invisible to others", Category.COMBAT);
+        register("visible", "Become visible again, dropping invisibility", Category.COMBAT, List.of("unhide"));
         
         // ===== SYSTEM =====
         // save, quit allowed in combat; prompt, motd not critical

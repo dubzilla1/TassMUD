@@ -140,3 +140,77 @@ effects:
       defense_stat: REFLEX
       ranged: true
       aoe: true
+
+  # ========== VISIBILITY EFFECTS ==========
+
+  - id: "110"
+    name: "Invisibility"
+    description: Makes the target invisible to others.
+    type: MODIFIER
+    duration: 0  # Perpetual until combat or removed
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      visibility: INVISIBLE
+
+  - id: "111"
+    name: "See Invisibility"
+    description: Allows the target to see invisible creatures.
+    type: MODIFIER
+    duration: 600  # 10 minutes
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      visibility: SEE_INVISIBLE
+
+  - id: "112"
+    name: "GM Invisibility"
+    description: Complete invisibility that cannot be detected.
+    type: MODIFIER
+    duration: 0  # Perpetual
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 100
+    params:
+      visibility: GM_INVISIBLE
+
+  # ========== ARCANE DAMAGE/DEFENSE EFFECTS ==========
+
+  - id: "113"
+    name: "Burning Hands Damage"
+    type: INSTANT_DAMAGE
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 3d6
+    level_multiplier: 2
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params: {}
+
+  - id: "114"
+    name: "Shield"
+    type: MODIFIER
+    duration: 600    # 10 minutes
+    cooldown: 15
+    dice_multiplier: 0
+    profficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ARMOR
+      op: ADD
+      value: 4

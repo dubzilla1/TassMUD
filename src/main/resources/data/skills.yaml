@@ -297,6 +297,7 @@ skills:
     name: Hide
     description: Conceal yourself in shadows, becoming nearly invisible.
     progression: HARD
+    cooldown: 30
 
   - id: 306
     key: poison_weapon

@@ -471,6 +471,11 @@ public class MobileRoamingService {
      * @param playerLevel The player's class level
      */
     public void checkAggroOnPlayerEntry(int roomId, int characterId, int playerLevel) {
+        // Skip aggro check if the player is invisible
+        if (com.example.tassmud.effect.EffectRegistry.isInvisible(characterId)) {
+            return; // Invisible characters don't trigger aggro
+        }
+        
         // Get all mobs in the room
         List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(roomId);
         if (mobsInRoom.isEmpty()) {
@@ -538,8 +543,14 @@ public class MobileRoamingService {
             return;
         }
         
-        // Get all players in the room and try to attack one
+        // Get all players in the room and try to attack one (excluding invisible players)
         List<PlayerInRoom> playersInRoom = getPlayersInRoom(roomId);
+        if (playersInRoom.isEmpty()) {
+            return;
+        }
+        
+        // Filter out invisible players
+        playersInRoom.removeIf(p -> com.example.tassmud.effect.EffectRegistry.isInvisible(p.characterId));
         if (playersInRoom.isEmpty()) {
             return;
         }

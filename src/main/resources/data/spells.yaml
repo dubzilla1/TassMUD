@@ -46,7 +46,7 @@ spells:
     castingTime: 1.5
     target: ALL_ENEMIES
     progression: NORMAL
-    effectIds: [110]
+    effectIds: [113]
     
   - id: 11
     name: Shield
@@ -54,7 +54,27 @@ spells:
     school: ARCANE
     level: 2
     castingTime: 0.5
-    target: TARGET
+    target: SELF
+    progression: NORMAL
+    effectIds: [114]
+    
+  - id: 12
+    name: Invisibility
+    description: You weave light around yourself, becoming invisible to the naked eye.
+    school: ARCANE
+    level: 2
+    castingTime: 1.0
+    target: SELF
+    progression: NORMAL
+    effectIds: [110]
+
+  - id: 13
+    name: See Invisibility
+    description: Your eyes shimmer with arcane power, allowing you to perceive invisible creatures.
+    school: ARCANE
+    level: 2
+    castingTime: 1.0
+    target: SELF
     progression: NORMAL
     effectIds: [111]
     

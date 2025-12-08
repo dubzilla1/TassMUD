@@ -119,12 +119,27 @@ public class ClientHandler implements Runnable {
             if (otherName == null) continue;
             Integer otherRoomId = s.currentRoomId;
             if (otherRoomId == null || !otherRoomId.equals(roomId)) continue;
-            out.println(otherName + " is here.");
+            
+            // Check invisibility - skip if we can't see them
+            Integer otherCharId = s.characterId;
+            boolean otherInvis = com.example.tassmud.effect.EffectRegistry.isInvisible(otherCharId);
+            if (otherInvis) {
+                // Check if we can see invisible
+                if (!com.example.tassmud.effect.EffectRegistry.canSee(this.characterId, otherCharId)) {
+                    continue; // Can't see them
+                }
+                // We can see them - show with (INVIS) tag
+                out.println(otherName + " is here. (INVIS)");
+            } else {
+                out.println(otherName + " is here.");
+            }
         }
         // Mobs in this room
         MobileDAO mobDao = new MobileDAO();
         java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(roomId);
         for (Mobile mob : roomMobs) {
+            // Check if mob is invisible (mobiles use negative IDs for effect tracking)
+            // For now, mobs don't have invisibility effects - that could be added later
             String desc = mob.getShortDesc();
             if (desc != null && !desc.isEmpty()) {
                 out.println(desc);
@@ -238,18 +253,16 @@ public class ClientHandler implements Runnable {
     
     /**
      * Announce a message to all players in a room, excluding specified characters.
-     * This is the foundation for arrival/departure notifications and supports future
+     * This is the foundation for arrival/departure notifications and supports
      * visibility filtering (invisibility, hiding, sneaking, etc.).
      * 
      * @param roomId the room to announce in
      * @param msg the message to send
      * @param excludeCharacterId character ID to exclude from receiving the message (usually the mover)
-     * @param isVisible whether the actor is visible (for future stealth filtering)
+     * @param isVisible whether the actor is visible - if false, only players who can see invisible will get the message
      */
     public static void roomAnnounce(Integer roomId, String msg, Integer excludeCharacterId, boolean isVisible) {
         if (roomId == null || msg == null || msg.isEmpty()) return;
-        // Future: if !isVisible, check each recipient's perception against actor's stealth
-        if (!isVisible) return; // For now, invisible actors make no announcements
 
         // Determine whether this announcement looks like an arrival/departure
         String lower = msg.toLowerCase();
@@ -273,8 +286,17 @@ public class ClientHandler implements Runnable {
                     } catch (Exception ignored) {}
                 }
 
-                // Future: check if this session can perceive the actor (detect invis, true sight, etc.)
-                s.sendRaw(msg);
+                // If the actor is invisible, check if this player can see invisible
+                if (!isVisible) {
+                    boolean canSeeInvis = com.example.tassmud.effect.EffectRegistry.canSeeInvisible(s.characterId);
+                    if (!canSeeInvis) {
+                        continue; // Can't see the invisible actor
+                    }
+                    // Add (INVIS) indicator to the message for those who can see
+                    s.sendRaw(msg + " (INVIS)");
+                } else {
+                    s.sendRaw(msg);
+                }
 
                 // If this was an arrival/departure style announcement, send a prompt
                 // so the user's client shows the prompt again (useful for telnet-like clients).
@@ -292,6 +314,16 @@ public class ClientHandler implements Runnable {
      */
     public static void roomAnnounce(Integer roomId, String msg) {
         roomAnnounce(roomId, msg, null, true);
+    }
+    
+    /**
+     * Room announce that automatically checks the actor's invisibility status.
+     * Use this for player actions where we want to respect their invisibility.
+     */
+    public static void roomAnnounceFromActor(Integer roomId, String msg, Integer actorCharacterId) {
+        if (roomId == null || msg == null || msg.isEmpty()) return;
+        boolean isVisible = !com.example.tassmud.effect.EffectRegistry.isInvisible(actorCharacterId);
+        roomAnnounce(roomId, msg, actorCharacterId, isVisible);
     }
     
     /**
@@ -1219,9 +1251,9 @@ public class ClientHandler implements Runnable {
                             break;
                         }
                         
-                        // Announce departure to the old room (before updating our position)
+                        // Announce departure to the old room (respecting invisibility)
                         Integer oldRoomId = rec.currentRoom;
-                        roomAnnounce(oldRoomId, makeDepartureMessage(name, directionName), this.characterId, true);
+                        roomAnnounceFromActor(oldRoomId, makeDepartureMessage(name, directionName), this.characterId);
                         
                         // Refresh character record and show new room
                         rec = dao.findByName(name);
@@ -1233,8 +1265,8 @@ public class ClientHandler implements Runnable {
                             break;
                         }
                         
-                        // Announce arrival to the new room
-                        roomAnnounce(destId, makeArrivalMessage(name, directionName), this.characterId, true);
+                        // Announce arrival to the new room (respecting invisibility)
+                        roomAnnounceFromActor(destId, makeArrivalMessage(name, directionName), this.characterId);
                         
                         out.println("You move " + directionName + ".");
                         showRoom(newRoom, destId);
@@ -1281,17 +1313,17 @@ public class ClientHandler implements Runnable {
                             break;
                         }
                         
-                        // Announce magical departure from old room (null direction = teleport)
+                        // Announce magical departure from old room (respecting invisibility)
                         Integer recallOldRoom = rec.currentRoom;
-                        roomAnnounce(recallOldRoom, name + " closes their eyes and vanishes in a shimmer of light.", this.characterId, true);
+                        roomAnnounceFromActor(recallOldRoom, name + " closes their eyes and vanishes in a shimmer of light.", this.characterId);
                         
                         // Teleport the character
                         dao.updateCharacterRoom(name, MEAD_GAARD_INN);
                         this.currentRoomId = MEAD_GAARD_INN;
                         rec = dao.findByName(name);
                         
-                        // Announce magical arrival in new room
-                        roomAnnounce(MEAD_GAARD_INN, name + " appears in a shimmer of light.", this.characterId, true);
+                        // Announce magical arrival in new room (respecting invisibility)
+                        roomAnnounceFromActor(MEAD_GAARD_INN, name + " appears in a shimmer of light.", this.characterId);
                         
                         out.println();
                         out.println("You close your eyes and think of home...");
@@ -1314,7 +1346,7 @@ public class ClientHandler implements Runnable {
                             out.println("You sit down.");
                         }
                         RegenerationService.getInstance().setPlayerStance(characterId, Stance.SITTING);
-                        roomAnnounce(currentRoomId, name + " sits down.", this.characterId, true);
+                        roomAnnounceFromActor(currentRoomId, name + " sits down.", this.characterId);
                         break;
                     }
                     case "sleep":
@@ -1330,7 +1362,7 @@ public class ClientHandler implements Runnable {
                             out.println("You close your eyes and drift off to sleep.");
                         }
                         RegenerationService.getInstance().setPlayerStance(characterId, Stance.SLEEPING);
-                        roomAnnounce(currentRoomId, name + " lies down and goes to sleep.", this.characterId, true);
+                        roomAnnounceFromActor(currentRoomId, name + " lies down and goes to sleep.", this.characterId);
                         break;
                     }
                     case "stand":
@@ -2829,6 +2861,111 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
+                    case "hide": {
+                        // HIDE - Skill-based invisibility (requires hide skill, has cooldown)
+                        if (rec == null) {
+                            out.println("You must be logged in to hide.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        
+                        // Look up the hide skill (id=305)
+                        Skill hideSkill = dao.getSkillById(305);
+                        if (hideSkill == null) {
+                            out.println("Hide skill not found in database.");
+                            break;
+                        }
+                        
+                        // Check if character knows the hide skill
+                        CharacterSkill charHide = dao.getCharacterSkill(charId, 305);
+                        if (charHide == null) {
+                            out.println("You don't know how to hide.");
+                            break;
+                        }
+                        
+                        // Check cooldown using unified check
+                        com.example.tassmud.util.AbilityCheck.CheckResult hideCheck = 
+                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, hideSkill);
+                        if (hideCheck.isFailure()) {
+                            out.println(hideCheck.getFailureMessage());
+                            break;
+                        }
+                        
+                        // Check if already invisible
+                        if (com.example.tassmud.effect.EffectRegistry.isInvisible(charId)) {
+                            out.println("You are already invisible.");
+                            break;
+                        }
+                        
+                        // Perform proficiency roll to determine success
+                        // Success chance = proficiency%
+                        int roll = (int)(Math.random() * 100) + 1;
+                        int proficiency = charHide.getProficiency();
+                        boolean hideSucceeded = roll <= proficiency;
+                        
+                        if (hideSucceeded) {
+                            // Apply invisibility effect (id 110)
+                            com.example.tassmud.effect.EffectInstance inst = 
+                                com.example.tassmud.effect.EffectRegistry.apply("110", charId, charId, null);
+                            
+                            if (inst != null) {
+                                out.println("You fade from view, becoming invisible.");
+                                // Announce to room only if others can see invisible
+                                roomAnnounceFromActor(currentRoomId, name + " fades from view.", this.characterId);
+                            } else {
+                                out.println("You try to hide but fail.");
+                            }
+                        } else {
+                            out.println("You attempt to hide but fail to conceal yourself.");
+                        }
+                        
+                        // Record skill use (applies cooldown and checks proficiency growth)
+                        com.example.tassmud.util.SkillExecution.Result hideResult = 
+                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                                name, charId, hideSkill, charHide, dao, hideSucceeded);
+                        
+                        // Debug channel output for proficiency check
+                        sendDebug("Hide proficiency check:");
+                        sendDebug("  Skill progression: " + hideSkill.getProgression());
+                        sendDebug("  Current proficiency: " + proficiency + "%");
+                        sendDebug("  Roll: " + roll + " (needed <= " + proficiency + ")");
+                        sendDebug("  Skill succeeded: " + hideSucceeded);
+                        sendDebug("  Proficiency improved: " + hideResult.didProficiencyImprove());
+                        
+                        if (hideResult.didProficiencyImprove()) {
+                            out.println(hideResult.getProficiencyMessage());
+                        }
+                        break;
+                    }
+                    case "visible":
+                    case "unhide": {
+                        // VISIBLE/UNHIDE - Drop invisibility
+                        if (rec == null) {
+                            out.println("You must be logged in to become visible.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        
+                        // Check if currently invisible
+                        if (!com.example.tassmud.effect.EffectRegistry.isInvisible(charId)) {
+                            out.println("You are already visible.");
+                            break;
+                        }
+                        
+                        // Remove invisibility effect
+                        com.example.tassmud.effect.EffectRegistry.removeInvisibility(charId);
+                        
+                        out.println("You become visible again.");
+                        // Announce to room
+                        roomAnnounce(currentRoomId, name + " fades into view.", this.characterId, true);
+                        break;
+                    }
                     case "quit":
                         out.println("Goodbye!");
                         socket.close();
@@ -3122,6 +3259,14 @@ public class ClientHandler implements Runnable {
                             if (pRec == null) continue;
                             
                             Integer pCharId = dao.getCharacterIdByName(pName);
+                            
+                            // Check invisibility - skip if we can't see them (unless it's ourselves)
+                            boolean isInvis = com.example.tassmud.effect.EffectRegistry.isInvisible(pCharId);
+                            boolean canSee = session == this || com.example.tassmud.effect.EffectRegistry.canSee(this.characterId, pCharId);
+                            if (isInvis && !canSee) {
+                                continue; // Can't see them in who list
+                            }
+                            
                             Integer pClassId = pRec.currentClassId;
                             CharacterClass pClass = pClassId != null ? classDao.getClassById(pClassId) : null;
                             int pLevel = (pClassId != null && pCharId != null) 
@@ -3131,9 +3276,12 @@ public class ClientHandler implements Runnable {
                             String desc = pRec.description != null && !pRec.description.isEmpty() 
                                 ? pRec.description : "";
                             
+                            // Add (INVIS) tag if invisible but we can see them
+                            String invisTag = (isInvis && canSee && session != this) ? " (INVIS)" : "";
+                            
                             // Format: [Lv ##] ClassName     PlayerName - Description
-                            out.println(String.format("  [Lv %2d] %-12s  %-15s %s",
-                                pLevel, className, pName, 
+                            out.println(String.format("  [Lv %2d] %-12s  %-15s%s %s",
+                                pLevel, className, pName, invisTag,
                                 desc.isEmpty() ? "" : "- " + truncate(desc, 30)));
                             count++;
                         }

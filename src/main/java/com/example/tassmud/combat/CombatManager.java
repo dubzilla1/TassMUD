@@ -976,6 +976,11 @@ public class CombatManager {
      * @return The created Combat, or null if combat couldn't start
      */
     public Combat initiateCombat(Character attacker, Integer attackerId, Mobile target, int roomId) {
+        // Remove invisibility from the attacker when they enter combat
+        if (attackerId != null) {
+            com.example.tassmud.effect.EffectRegistry.removeInvisibility(attackerId);
+        }
+        
         // Check if there's already combat in this room
         Combat combat = combatsByRoom.get(roomId);
         
@@ -1023,6 +1028,11 @@ public class CombatManager {
      * Have a mobile initiate combat against a player.
      */
     public Combat mobileInitiateCombat(Mobile attacker, Character target, Integer targetId, int roomId) {
+        // Remove invisibility from the target (player being attacked) when they enter combat
+        if (targetId != null) {
+            com.example.tassmud.effect.EffectRegistry.removeInvisibility(targetId);
+        }
+        
         // Check if there's already combat in this room
         Combat combat = combatsByRoom.get(roomId);
         

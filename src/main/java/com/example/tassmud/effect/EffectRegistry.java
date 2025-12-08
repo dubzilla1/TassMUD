@@ -70,4 +70,82 @@ public class EffectRegistry {
     public static void removeInstance(UUID id) {
         activeInstances.remove(id);
     }
+    
+    // === Visibility Effect Constants ===
+    public static final String EFFECT_INVISIBILITY = "110";
+    public static final String EFFECT_SEE_INVISIBILITY = "111";
+    public static final String EFFECT_GM_INVISIBILITY = "112";
+    
+    /**
+     * Check if a target has a specific effect active.
+     */
+    public static boolean hasEffect(Integer targetId, String effectDefId) {
+        if (targetId == null || effectDefId == null) return false;
+        long now = System.currentTimeMillis();
+        for (EffectInstance ei : activeInstances.values()) {
+            if (ei.getTargetId() != null && ei.getTargetId().equals(targetId) 
+                    && effectDefId.equals(ei.getDefId()) && !ei.isExpired(now)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Check if a target is invisible (has invisibility or GM invisibility effect).
+     */
+    public static boolean isInvisible(Integer targetId) {
+        return hasEffect(targetId, EFFECT_INVISIBILITY) || hasEffect(targetId, EFFECT_GM_INVISIBILITY);
+    }
+    
+    /**
+     * Check if an observer can see invisible targets.
+     * GM invisibility cannot be seen by anyone.
+     */
+    public static boolean canSeeInvisible(Integer observerId) {
+        return hasEffect(observerId, EFFECT_SEE_INVISIBILITY);
+    }
+    
+    /**
+     * Check if an observer can see a target (considering invisibility).
+     * @param observerId The character who is looking
+     * @param targetId The character being looked at
+     * @return true if observer can see target
+     */
+    public static boolean canSee(Integer observerId, Integer targetId) {
+        if (targetId == null) return true;
+        
+        // GM invisibility is absolute - no one can see it
+        if (hasEffect(targetId, EFFECT_GM_INVISIBILITY)) {
+            return false;
+        }
+        
+        // If target is not invisible, anyone can see them
+        if (!hasEffect(targetId, EFFECT_INVISIBILITY)) {
+            return true;
+        }
+        
+        // Target is invisible - check if observer can see invisible
+        return canSeeInvisible(observerId);
+    }
+    
+    /**
+     * Remove all invisibility effects from a target.
+     * Called when combat starts.
+     */
+    public static void removeInvisibility(Integer targetId) {
+        if (targetId == null) return;
+        List<UUID> toRemove = new ArrayList<>();
+        for (EffectInstance ei : activeInstances.values()) {
+            if (ei.getTargetId() != null && ei.getTargetId().equals(targetId)) {
+                String defId = ei.getDefId();
+                if (EFFECT_INVISIBILITY.equals(defId)) {
+                    toRemove.add(ei.getId());
+                }
+            }
+        }
+        for (UUID id : toRemove) {
+            activeInstances.remove(id);
+        }
+    }
 }

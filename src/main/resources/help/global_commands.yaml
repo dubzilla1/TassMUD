@@ -976,6 +976,126 @@ heroic:
     EXAMPLE
         heroic
 
+hide:
+  summary: "use stealth to become invisible (requires hide skill)"
+  visibility: public
+  keywords: [invisible, invisibility, stealth, hidden, rogue]
+  see_also: [visible, invisibility, skills]
+  synopsis:
+    - "hide"
+  body: |
+    NAME
+        hide - use stealth to become invisible
+
+    SYNOPSIS
+        hide
+
+    DESCRIPTION
+        Attempt to conceal yourself in shadows, becoming invisible to others.
+        
+        REQUIREMENTS:
+        - You must know the Hide skill (Rogue skill #305)
+        - Success is based on your proficiency in the skill
+        - Has a 30 second cooldown between attempts
+        
+        SUCCESS:
+        - Higher proficiency = higher chance of success
+        - On success, you fade from view and gain invisibility
+        - On failure, you fail to conceal yourself (cooldown still applies)
+        
+        EFFECTS OF INVISIBILITY:
+        - You don't appear in room descriptions when others use 'look'
+        - You don't appear in the 'who' list
+        - Your room entry/exit messages are suppressed
+        - Aggressive mobs will not attack you on sight
+        
+        BREAKING INVISIBILITY:
+        - Entering combat (attacking or being attacked)
+        - Using the 'visible' or 'unhide' command
+        
+        DETECTION:
+        - Characters with See Invisibility can still see you
+        - They will see "(INVIS)" next to your name
+        
+        SKILL PROGRESSION:
+        - Using hide trains your proficiency (win or lose)
+        - The Hide skill uses HARD progression
+        
+    SEE ALSO
+        visible, invisibility, skills
+
+    EXAMPLE
+        hide
+
+visible:
+  summary: "become visible again, dropping invisibility"
+  visibility: public
+  keywords: [visible, unhide, appear]
+  see_also: [hide, invisibility]
+  synopsis:
+    - "visible"
+    - "unhide"
+  body: |
+    NAME
+        visible - become visible again
+
+    SYNOPSIS
+        visible
+        unhide
+
+    DESCRIPTION
+        Drop your invisibility effect and become visible again.
+        
+        If you are not currently invisible, this command has no effect.
+        
+    SEE ALSO
+        hide, invisibility
+
+    EXAMPLE
+        visible
+
+invisibility:
+  summary: "information about the invisibility system"
+  visibility: public
+  keywords: [invisible, invis, see invisible, detection, stealth]
+  see_also: [hide, visible]
+  synopsis:
+    - "help invisibility"
+  body: |
+    NAME
+        invisibility - the invisibility system
+
+    DESCRIPTION
+        Invisibility is a magical or skill-based effect that hides you
+        from the perception of others.
+        
+        WAYS TO BECOME INVISIBLE:
+        - Use the 'hide' command
+        - Cast the 'Invisibility' spell (Arcane level 2)
+        
+        WHAT INVISIBILITY DOES:
+        - Hides you from room 'look' displays
+        - Removes you from the 'who' list
+        - Suppresses your movement messages (arrivals/departures)
+        - Prevents aggressive mobs from attacking you on sight
+        
+        WHAT BREAKS INVISIBILITY:
+        - Initiating combat (kill, attack, cast offensive spell)
+        - Being attacked by a creature that can see you
+        - Using the 'visible' or 'unhide' command
+        
+        SEE INVISIBILITY:
+        Some creatures and spells grant the ability to see invisible
+        beings. When you can see invisible:
+        - Invisible creatures appear with "(INVIS)" marker
+        - You can attack invisible targets normally
+        - Aggressive mobs can still try to attack you
+        
+        The 'See Invisibility' spell (Arcane level 2) grants this ability.
+        
+    SEE ALSO
+        hide, visible
+
 infuse:
   summary: "infuse your staff with arcane energy for ranged attacks"
   visibility: public
