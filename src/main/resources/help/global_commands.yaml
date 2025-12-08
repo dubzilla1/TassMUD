@@ -1126,10 +1126,51 @@ recall:
         find work on the noticeboard, and recover from their journeys.
 
     SEE ALSO
-        north, south, east, west, up, down
+        north, south, east, west, up, down, death
 
     EXAMPLE
         recall
+
+death:
+  summary: "information about dying and corpse runs"
+  visibility: public
+  keywords: [death, dying, die, corpse, corpserun]
+  synopsis:
+    - "N/A - informational topic"
+  body: |
+    NAME
+        death - information about dying and corpse runs
+
+    DESCRIPTION
+        When your character is killed in combat, the following occurs:
+        
+        DEATH SEQUENCE:
+        1. A corpse container is created in the room where you died
+        2. ALL your equipped items are moved into the corpse
+        3. ALL your inventory items are moved into the corpse
+        4. ALL your gold is moved into the corpse
+        5. You lose 250 XP (minimum 0, cannot lose a level)
+        6. You are teleported to the Mead-Gaard Inn
+        7. You wake up with 1 HP, 0 MP, and 0 MV
+        8. You fall asleep from exhaustion
+        
+        CORPSE RETRIEVAL:
+        Your possessions remain in your corpse where you died. You must
+        make a "corpse run" - travel back to where you died, find your
+        corpse, and retrieve your items using GET commands.
+        
+        Example:
+            get all corpse    - retrieve all items from your corpse
+            get <item> corpse - retrieve a specific item
+        
+        TIPS:
+        - Corpses decay over time, so retrieve your items quickly!
+        - The Mead-Gaard Inn is a safe place to rest and recover
+        - Use SLEEP to recover HP/MP/MV faster, then WAKE when ready
+        - Use RECALL as a safety net before exploring dangerous areas
+        
+    SEE ALSO
+        recall, get, sleep, wake, combat
 
 autoloot:
   summary: "toggle automatic looting of items from corpses"

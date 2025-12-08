@@ -317,6 +317,35 @@ public class CharacterClassDAO {
     }
     
     /**
+     * Deduct XP from a character's current class. 
+     * Cannot go below 0 and cannot cause level loss.
+     * @return the amount of XP actually deducted
+     */
+    public int deductXpFromCurrentClass(int characterId, int xpAmount) {
+        Integer classId = getCharacterCurrentClassId(characterId);
+        if (classId == null) return 0;
+        
+        int currentXp = getCharacterClassXp(characterId, classId);
+        int deducted = Math.min(currentXp, xpAmount);
+        int newXp = currentXp - deducted;
+        
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(
+                     "UPDATE character_class_progress SET class_xp = ? " +
+                     "WHERE character_id = ? AND class_id = ?")) {
+            ps.setInt(1, newXp);
+            ps.setInt(2, characterId);
+            ps.setInt(3, classId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Failed to deduct XP: " + e.getMessage());
+            return 0;
+        }
+        
+        return deducted;
+    }
+    
+    /**
      * Get all class progress for a character.
      */
     public List<ClassProgress> getCharacterClassProgress(int characterId) {

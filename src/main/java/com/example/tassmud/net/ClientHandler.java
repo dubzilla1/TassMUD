@@ -514,6 +514,27 @@ public class ClientHandler implements Runnable {
         
         return true;
     }
+    
+    /**
+     * Called by CombatManager when a player dies.
+     * Sets the player's stance to SLEEPING and updates their current room.
+     * @param characterId the character ID
+     */
+    public static void handlePlayerDeathStance(Integer characterId) {
+        if (characterId == null) return;
+        
+        ClientHandler handler = charIdToSession.get(characterId);
+        if (handler == null) return;
+        
+        // Update the handler's current room to the recall point
+        handler.currentRoomId = 3041;
+        
+        // Set the player's stance to SLEEPING via RegenerationService
+        RegenerationService.getInstance().setPlayerStance(characterId, Stance.SLEEPING);
+        
+        // Send the prompt (which will show their new low stats)
+        handler.sendPrompt();
+    }
 
     /**
      * Send the formatted prompt to this client.

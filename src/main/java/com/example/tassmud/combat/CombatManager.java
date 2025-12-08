@@ -9,6 +9,7 @@ import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Mobile;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
+import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
@@ -491,17 +492,7 @@ public class CombatManager {
         
         // Handle player death
         if (victim.isPlayer()) {
-            // For now, we set them to 1 HP instead of actually killing
-            Character victimChar = victim.getAsCharacter();
-            if (victimChar != null) {
-                victimChar.setHpCur(1);
-            }
-            
-            // Send death message to the victim
-            if (victim.getCharacterId() != null) {
-                sendToPlayer(victim.getCharacterId(), 
-                    "You have been defeated! You narrowly escape death with 1 HP remaining.");
-            }
+            handlePlayerDeath(combat, victim);
         }
         
         // Handle mob death - spawn corpse and despawn mob
@@ -573,6 +564,128 @@ public class CombatManager {
         
         // Award weapon skill proficiency to the killer if they are a player
         awardWeaponSkillOnKill(killer);
+    }
+    
+    /**
+     * Handle a player's death - create corpse, move items, deduct XP, teleport to recall.
+     * 
+     * Death sequence:
+     * 1. Create a corpse container in the death room with the player's name
+     * 2. Move ALL equipped items into the corpse
+     * 3. Move ALL inventory items into the corpse
+     * 4. Move ALL gold into the corpse
+     * 5. Deduct 250 XP (minimum 0, cannot lose a level)
+     * 6. Teleport player to Mead-Gaard Inn (room 3041)
+     * 7. Set HP to 1, MP to 0, MV to 0
+     * 8. Set stance to SLEEPING
+     */
+    private void handlePlayerDeath(Combat combat, Combatant victim) {
+        Integer characterId = victim.getCharacterId();
+        if (characterId == null) return;
+        
+        int deathRoomId = combat.getRoomId();
+        String playerName = victim.getName();
+        
+        CharacterDAO charDAO = new CharacterDAO();
+        ItemDAO itemDAO = new ItemDAO();
+        CharacterClassDAO classDAO = new CharacterClassDAO();
+        
+        // Get player's gold before we clear it
+        long playerGold = charDAO.getGold(characterId);
+        
+        // 1. Create the corpse in the death room (uses template 999)
+        long corpseId = -1;
+        try {
+            corpseId = itemDAO.createCorpse(deathRoomId, playerName, playerGold);
+            if (corpseId > 0) {
+                broadcastToRoom(deathRoomId, playerName + " has fallen! Their corpse lies on the ground.");
+            }
+        } catch (Exception e) {
+            System.err.println("[CombatManager] Failed to create corpse for " + playerName + ": " + e.getMessage());
+        }
+        
+        // 2. Move ALL equipped items into the corpse
+        if (corpseId > 0) {
+            java.util.Map<Integer, Long> equipment = charDAO.getEquipmentMapByCharacterId(characterId);
+            for (java.util.Map.Entry<Integer, Long> entry : equipment.entrySet()) {
+                Long itemInstanceId = entry.getValue();
+                if (itemInstanceId != null) {
+                    try {
+                        itemDAO.moveInstanceToContainer(itemInstanceId, corpseId);
+                    } catch (Exception e) {
+                        System.err.println("[CombatManager] Failed to move equipment to corpse: " + e.getMessage());
+                    }
+                }
+            }
+            // Clear all equipment slots
+            charDAO.clearAllEquipment(characterId);
+            
+            // 3. Move ALL inventory items into the corpse
+            java.util.List<ItemDAO.RoomItem> inventory = itemDAO.getItemsByCharacter(characterId);
+            for (ItemDAO.RoomItem item : inventory) {
+                try {
+                    itemDAO.moveInstanceToContainer(item.instance.instanceId, corpseId);
+                } catch (Exception e) {
+                    System.err.println("[CombatManager] Failed to move inventory to corpse: " + e.getMessage());
+                }
+            }
+            
+            // 4. Gold was already moved when corpse was created, just clear player's gold
+            if (playerGold > 0) {
+                charDAO.setGold(characterId, 0);
+            }
+        }
+        
+        // 5. Deduct 250 XP (minimum 0, cannot lose a level)
+        int xpLost = classDAO.deductXpFromCurrentClass(characterId, 250);
+        
+        // 6. Teleport player to Mead-Gaard Inn (room 3041)
+        int recallRoomId = 3041;
+        charDAO.updateCharacterRoom(playerName, recallRoomId);
+        
+        // Announce departure from death room (if different from recall room)
+        if (deathRoomId != recallRoomId) {
+            broadcastToRoom(deathRoomId, playerName + "'s spirit departs...");
+        }
+        
+        // Announce arrival at recall room
+        broadcastToRoom(recallRoomId, "The spirit of " + playerName + " materializes, barely clinging to life.");
+        
+        // 7. Set HP to 1, MP to 0, MV to 0
+        charDAO.setVitals(characterId, 1, 0, 0);
+        
+        // Update the character's in-memory state
+        Character victimChar = victim.getAsCharacter();
+        if (victimChar != null) {
+            victimChar.setHpCur(1);
+            victimChar.setMpCur(0);
+            victimChar.setMvCur(0);
+            victimChar.setCurrentRoom(recallRoomId);
+        }
+        
+        // 8. Set stance to SLEEPING (handled by ClientHandler session update)
+        // We need to notify ClientHandler to update the session state
+        
+        // Send death messages to the player
+        sendToPlayer(characterId, "");
+        sendToPlayer(characterId, "\u001B[1;31m*** YOU HAVE DIED ***\u001B[0m");
+        sendToPlayer(characterId, "");
+        sendToPlayer(characterId, "Your vision fades to black...");
+        sendToPlayer(characterId, "");
+        if (playerGold > 0) {
+            sendToPlayer(characterId, "Your \u001B[33m" + playerGold + " gold\u001B[0m lies in your corpse.");
+        }
+        if (xpLost > 0) {
+            sendToPlayer(characterId, "You have lost \u001B[1;31m" + xpLost + " experience\u001B[0m.");
+        }
+        sendToPlayer(characterId, "");
+        sendToPlayer(characterId, "You awaken at the Mead-Gaard Inn, naked and penniless.");
+        sendToPlayer(characterId, "Your possessions remain in your corpse at the place of your death.");
+        sendToPlayer(characterId, "You fall into an exhausted sleep...");
+        
+        // Notify ClientHandler to set the player to SLEEPING stance
+        // This is done via a special callback mechanism
+        ClientHandler.handlePlayerDeathStance(characterId);
     }
     
     /**

@@ -18,6 +18,8 @@ import com.example.tassmud.model.Spell;
 import com.example.tassmud.model.SpellTrait;
 import com.example.tassmud.util.PasswordUtil;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CharacterDAO {
 
@@ -925,6 +927,21 @@ public class CharacterDAO {
     }
 
     /**
+     * Clear all equipment from a character (unequip all slots).
+     * Used for player death to move equipment to corpse.
+     */
+    public void clearAllEquipment(int characterId) {
+        String sql = "DELETE FROM character_equipment WHERE character_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Failed to clear equipment: " + e.getMessage());
+        }
+    }
+
+    /**
      * Check if a character has a shield equipped in their off-hand.
      * This is used for skills with the SHIELD trait (e.g., Bash).
      * @param characterId The character to check
@@ -1649,6 +1666,54 @@ public class CharacterDAO {
             return true;
         } catch (SQLException e) {
             System.err.println("Failed to restore vitals: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Set specific vitals for a character (used for death/revival).
+     * @param characterId The character to update
+     * @param hp The HP to set (or null to leave unchanged)
+     * @param mp The MP to set (or null to leave unchanged)
+     * @param mv The MV to set (or null to leave unchanged)
+     */
+    public boolean setVitals(int characterId, Integer hp, Integer mp, Integer mv) {
+        StringBuilder sql = new StringBuilder("UPDATE characters SET ");
+        List<Integer> params = new ArrayList<>();
+        boolean first = true;
+        
+        if (hp != null) {
+            sql.append("hp_cur = ?");
+            params.add(hp);
+            first = false;
+        }
+        if (mp != null) {
+            if (!first) sql.append(", ");
+            sql.append("mp_cur = ?");
+            params.add(mp);
+            first = false;
+        }
+        if (mv != null) {
+            if (!first) sql.append(", ");
+            sql.append("mv_cur = ?");
+            params.add(mv);
+        }
+        
+        if (params.isEmpty()) return true; // Nothing to update
+        
+        sql.append(" WHERE id = ?");
+        
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql.toString())) {
+            int idx = 1;
+            for (Integer p : params) {
+                ps.setInt(idx++, p);
+            }
+            ps.setInt(idx, characterId);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.err.println("Failed to set vitals: " + e.getMessage());
             return false;
         }
     }
