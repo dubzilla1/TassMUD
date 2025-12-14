@@ -277,6 +277,47 @@ drop:
         drop iron sword
         drop all
 
+sacrifice:
+  keywords: [sac, sacrifice]
+  see_also: [drop, get, loot]
+  category: ITEMS
+  summary: "sacrifice items on the ground for experience"
+  visibility: public
+  synopsis:
+    - "sacrifice <item>"
+    - "sac <item>"
+  body: |
+    NAME
+        sacrifice, sac - sacrifice items to the gods for experience
+
+    SYNOPSIS
+        sacrifice <item>
+        sac <item>
+
+    DESCRIPTION
+        Sacrifice an item lying on the ground in your current room. In return,
+        the gods grant you 1 experience point.
+        
+        This command is useful for:
+        - Cleaning up corpses after combat (makes targeting easier)
+        - Disposing of unwanted items cluttering a room
+        - Earning a small amount of XP from junk items
+        
+        IMPORTANT: Corpses and containers must be EMPTY before they can be
+        sacrificed. You must loot all items and gold from a corpse first.
+        
+        The <item> argument uses smart matching:
+        - Exact item name (case-insensitive)
+        - Name starts with search term
+        - Name contains search term
+        - Keyword match
+
+    EXAMPLES
+        sacrifice corpse           - Sacrifice the corpse of a slain enemy
+        sac corpse                 - Shorthand version
+        sacrifice sword            - Sacrifice an unwanted sword on the ground
+        sac "the corpse of rat"    - Sacrifice a specific corpse
+
 equip:
   summary: "view or equip items from your inventory"
   visibility: public
@@ -814,6 +855,39 @@ combat:
         Recent combat log:
           [R3 4.2s] Tass hits A Giant Rat for 8 damage!
           [R3 4.5s] A Giant Rat swings at Tass but misses!
+
+consider:
+  keywords: [consider, con, evaluate, assess]
+  see_also: [kill, combat]
+  category: INFORMATION
+  summary: "evaluate how dangerous a target would be to fight"
+  usage:
+    - "consider <target>"
+    - "con <target>"
+  content: |
+    NAME
+        consider - evaluate target difficulty
+    
+    SYNOPSIS
+        consider <target>
+        con <target>
+    
+    DESCRIPTION
+        Compares your level to the target's level and gives you an
+        assessment of how dangerous the fight would be.
+        
+        The assessment is based on the level difference between you
+        and the target. A higher level opponent will be more dangerous,
+        while a lower level opponent will be easier.
+        
+        Messages range from:
+          "Don't bother, <target> is not worth your time." (much weaker)
+        to:
+          "Death appreciates your sacrifice." (much stronger)
+    
+    EXAMPLES
+        consider rat
+        con goblin
 
 aggressive:
   summary: "information about aggressive mob behavior"
@@ -1366,7 +1440,7 @@ autoloot:
         Default: ENABLED
         
     SEE ALSO
-        autogold, get, inventory
+        autogold, autosac, get, inventory
 
     EXAMPLE
         autoloot
@@ -1406,10 +1480,48 @@ autogold:
         - Level 50 mob: 600-650 gold
 
     SEE ALSO
-        autoloot, get, gold, score
+        autoloot, autosac, get, gold, score
 
     EXAMPLE
         autogold
+
+autosac:
+  summary: "toggle automatic sacrifice of empty corpses"
+  visibility: public
+  synopsis:
+    - "autosac"
+  body: |
+    NAME
+        autosac - toggle automatic corpse sacrifice
+
+    SYNOPSIS
+        autosac
+
+    DESCRIPTION
+        Toggle automatic sacrifice of empty corpses. When enabled,
+        corpses will automatically be sacrificed for 1 experience point
+        after all items and gold have been looted from them.
+        
+        REQUIREMENTS:
+        Autosac can only be enabled when BOTH autoloot and autogold
+        are already enabled. If you disable either autoloot or autogold,
+        autosac will remain enabled but will not trigger until the
+        corpse is truly empty.
+        
+        This is a toggle command - each use switches between enabled
+        and disabled.
+        
+        Default: DISABLED
+        
+        NOTE:
+        Autosac is designed for convenience during grinding. It awards
+        a small amount of XP (1 per corpse) while cleaning up the room.
+
+    SEE ALSO
+        autoloot, autogold, sacrifice, score
+
+    EXAMPLE
+        autosac
 
 stand:
   summary: "stand up from sitting, sleeping, or prone"

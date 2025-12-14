@@ -24,6 +24,7 @@ public class CommandRegistry {
         registerCombat("inventory", "List items you are carrying", Category.INFORMATION, List.of("i"));
         registerCombat("skills", "List skills you have learned", Category.INFORMATION);
         registerCombat("spells", "List spells you have learned", Category.INFORMATION);
+        register("consider", "Evaluate how dangerous a target would be to fight", Category.INFORMATION, List.of("con"));
         
         // ===== MOVEMENT =====
         // Movement NOT allowed in combat (use flee instead)
@@ -54,6 +55,7 @@ public class CommandRegistry {
         register("get", "Pick up an item from the room", Category.ITEMS, List.of("pickup"));
         register("drop", "Drop an item from your inventory", Category.ITEMS);
         register("put", "Put an item into a container", Category.ITEMS);
+        register("sacrifice", "Sacrifice an item on the ground for 1 XP", Category.ITEMS, List.of("sac"));
         register("equip", "Equip an item from your inventory", Category.ITEMS, List.of("wear"));
         register("remove", "Remove an equipped item", Category.ITEMS, List.of("dequip"));
         registerCombat("quaff", "Drink a potion from your inventory", Category.ITEMS, List.of("drink"));
@@ -87,6 +89,7 @@ public class CommandRegistry {
         register("train", "Spend talent points to improve abilities, skills, or spells", Category.SYSTEM);
         register("autoloot", "Toggle automatic looting of items from corpses", Category.SYSTEM);
         register("autogold", "Toggle automatic looting of gold from corpses", Category.SYSTEM);
+        register("autosac", "Toggle automatic sacrifice of empty corpses (requires autoloot and autogold)", Category.SYSTEM);
         
         // ===== GM COMMANDS =====
         // All GM commands allowed in combat (GMs need full control)
@@ -96,10 +99,14 @@ public class CommandRegistry {
         registerGm("cspell", "Grant a spell to a character");
         registerGm("dbinfo", "Inspect database table schemas");
         registerGm("debug", "Toggle debug channel output");
+        registerGm("genmap", "Generate ASCII map for an area");
         registerGm("gmchat", "Send a message on the GM channel");
+        registerGm("gminvis", "Toggle perfect GM invisibility (invisible to all non-GMs)");
         registerGm("goto", "Teleport to a room by ID");
         registerGm("ifind", "Find all instances of an item template");
         registerGm("ilist", "Search item templates by name");
+        registerGm("istat", "Show detailed stats of an inventory item");
+        registerGm("mstat", "Show detailed stats of a mobile in the room");
         registerGm("peace", "End all combat in the current room");
         registerGm("promote", "Level up a character");
         registerGm("restore", "Restore a character's HP/MP/MV to full");

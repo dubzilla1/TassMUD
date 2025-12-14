@@ -38,3 +38,5 @@ data/*.lock.db
 tassmud.mv.db
 tassmud.trace.db
 tassmud.lock.db
+
+.env

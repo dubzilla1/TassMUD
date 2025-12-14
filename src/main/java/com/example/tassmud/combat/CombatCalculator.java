@@ -67,28 +67,28 @@ public class CombatCalculator {
     }
     
     /**
-     * Calculate the damage multiplier based on weapon skills.
+     * Calculate the damage multiplier based on the attacker's weapon proficiency.
      * 
-     * Formula: (attacker_family / defender_family) * (attacker_category / defender_category)
+     * Formula: 0.5 + average(familySkill, categorySkill)
      * 
-     * Multiplier is applied to bonus damage only, not the base die roll.
+     * This gives a range of 0.5 (0% proficiency) to 1.5 (100% proficiency).
+     * At 50% average proficiency, you deal neutral (1.0x) bonus damage.
+     * 
+     * Multiplier is applied to stat bonus damage only, not the base weapon die roll.
      * 
      * @param attackerFamilySkill Attacker's weapon family proficiency (0.0-1.0)
-     * @param defenderFamilySkill Defender's weapon family proficiency (0.0-1.0)
+     * @param defenderFamilySkill Defender's weapon family proficiency (unused, kept for API compatibility)
      * @param attackerCategorySkill Attacker's weapon category proficiency (0.0-1.0)
-     * @param defenderCategorySkill Defender's weapon category proficiency (0.0-1.0)
-     * @return The damage multiplier
+     * @param defenderCategorySkill Defender's weapon category proficiency (unused, kept for API compatibility)
+     * @return The damage multiplier (0.5 to 1.5)
      */
     public double calculateDamageMultiplier(double attackerFamilySkill, double defenderFamilySkill,
                                             double attackerCategorySkill, double defenderCategorySkill) {
-        // Ensure minimum proficiency to avoid division by zero
-        defenderFamilySkill = Math.max(defenderFamilySkill, MIN_SKILL_PROFICIENCY);
-        defenderCategorySkill = Math.max(defenderCategorySkill, MIN_SKILL_PROFICIENCY);
+        // Average the attacker's family and category proficiency
+        double avgProficiency = (attackerFamilySkill + attackerCategorySkill) / 2.0;
         
-        double familyRatio = attackerFamilySkill / defenderFamilySkill;
-        double categoryRatio = attackerCategorySkill / defenderCategorySkill;
-        
-        return familyRatio * categoryRatio;
+        // 50% base + proficiency = 0.5 to 1.5 range
+        return 0.5 + avgProficiency;
     }
     
     /**

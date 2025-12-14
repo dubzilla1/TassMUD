@@ -20,6 +20,40 @@ cflag:
         CFLAG SET Alice is_gm 1
         CFLAG CHECK Alice is_gm
 
+gminvis:
+  summary: "Toggle perfect GM invisibility (GM-only)"
+  visibility: gm
+  synopsis:
+    - "GMINVIS"
+  body: |
+    NAME
+        gminvis - toggle perfect GM invisibility
+
+    SYNOPSIS
+        GMINVIS
+
+    DESCRIPTION
+        Toggles GM invisibility mode for your character. When GM-invisible:
+        
+        - You are completely hidden from non-GM players
+        - You do not appear in the WHO list to non-GMs
+        - You do not appear in room descriptions to non-GMs
+        - Your arrivals and departures are not announced
+        - Mobs cannot see you and will not aggro on you
+        - Other GMs can still see you (marked with GMINVIS)
+        
+        This is perfect invisibility - unlike the invisibility spell,
+        there is no way for non-GMs to detect you.
+        
+        The toggle persists until you use GMINVIS again or log out.
+
+    EXAMPLE
+        > gminvis
+        You fade from mortal sight.
+        
+        > gminvis
+        You become visible to mortals once more.
+
 cset:
   summary: "Set a character's attribute to a specific value (GM-only)"
   visibility: gm
@@ -202,6 +236,116 @@ ifind:
         ifind 101              -- find all instances of item #101
         ifind 202 world        -- find item #202 only in rooms
         ifind 305 char         -- find item #305 only in inventories
+
+istat:
+  summary: "Show detailed stat block for an inventory item (GM-only)"
+  visibility: gm
+  synopsis:
+    - "ISTAT <item>"
+  body: |
+    NAME
+        istat - show item stat block
+
+    SYNOPSIS
+        ISTAT <item>
+
+    DESCRIPTION
+        Displays the full stat block for an item in your inventory. This is
+        useful for inspecting dynamically generated loot to see what stats
+        were rolled.
+        
+        The output includes:
+        
+        GENERAL INFO:
+            Display name, base template name, instance ID, template ID,
+            item level, and whether the item was dynamically generated.
+        
+        TEMPLATE INFO:
+            Key, types, subtype, slot, weight, base value, traits, keywords.
+        
+        WEAPON STATS (if applicable):
+            Base die, multiplier, ability score & multiplier, damage formula,
+            hands required, weapon category and family.
+        
+        ARMOR/SAVES (if applicable):
+            Armor save bonus, fortitude/reflex/will save bonuses,
+            armor category.
+        
+        SPELL EFFECTS (if any):
+            Up to 4 spell effect IDs.
+        
+        VALUE:
+            The effective sell value (may be overridden from template).
+        
+        Fields marked "(override)" indicate the value was randomly generated
+        and differs from the base template.
+
+    ARGUMENTS
+        item    Name (or partial name) of an item in your inventory.
+
+    EXAMPLE
+        istat rusty sword      -- show stats for "Rusty Sword"
+        istat plate            -- show stats for first matching plate item
+        istat dagger           -- show stats for first matching dagger
+
+mstat:
+  summary: "Show detailed stat block for a mobile in the room (GM-only)"
+  visibility: gm
+  synopsis:
+    - "MSTAT <mobile>"
+  body: |
+    NAME
+        mstat - show mobile stat block
+
+    SYNOPSIS
+        MSTAT <mobile>
+
+    DESCRIPTION
+        Displays the full stat block for a mobile (NPC/monster) in your
+        current room. This is useful for inspecting mob stats, combat
+        values, and spawn information.
+        
+        The output includes:
+        
+        GENERAL INFO:
+            Name, short description, instance ID, template ID, level,
+            current room, and spawn room.
+        
+        TEMPLATE INFO:
+            Key, long description, and keywords.
+        
+        VITALS:
+            Current and max HP, MP, and MV.
+        
+        ABILITIES:
+            STR, DEX, CON, INT, WIS, CHA with modifiers.
+        
+        DEFENSES:
+            Armor class, fortitude, reflex, and will saves.
+        
+        COMBAT:
+            Attack bonus, base damage, damage bonus, damage roll formula,
+            and autoflee HP percentage.
+        
+        BEHAVIORS:
+            List of behavior flags (AGGRESSIVE, PASSIVE, COWARDLY, etc.)
+        
+        STATE:
+            Dead status, current target information.
+        
+        REWARDS:
+            XP value, gold range, respawn time, aggro range.
+        
+        SPAWN INFO:
+            Origin UUID, spawned timestamp, death timestamp.
+
+    ARGUMENTS
+        mobile    Name, keyword, or partial name of a mobile in the room.
+
+    EXAMPLE
+        mstat rat              -- show stats for a rat in the room
+        mstat guard            -- show stats for a guard
+        mstat fido             -- show stats for the mob named "Fido"
 
 goto:
   summary: "Teleport directly to a room or player (GM-only)"
@@ -419,42 +563,53 @@ promote:
         restore
 
 spawn:
-  summary: "(GM) create item, mob, or gold instances in the world"
+  summary: "(GM) create items with scaled stats, mobs, or gold"
   visibility: gm
   synopsis:
-    - "SPAWN ITEM <template_id> [room_id]"
+    - "SPAWN ITEM <template_id> [level]"
     - "SPAWN MOB <mob_id> [room_id]"
     - "SPAWN GOLD <amount>"
   body: |
     NAME
-        spawn - create item, mob, or gold instances
+        spawn - create items with scaled stats, mobs, or gold
 
     SYNOPSIS
-        SPAWN ITEM <template_id> [room_id]
+        SPAWN ITEM <template_id> [level]
         SPAWN MOB <mob_id> [room_id]
         SPAWN GOLD <amount>
 
     DESCRIPTION
-        Creates a new instance of an item, mob, or gold based on the type specified.
+        Creates instances of items, mobs, or gold for testing and development.
         
-        For ITEM: creates an item_instance in the specified room. If room_id is omitted,
-        the item is spawned in your current room.
+        For ITEM: creates an item using the specified template with randomly
+        generated stats scaled to the given level. If no level is specified,
+        uses your character's total level.
+        
+        - Weapons get scaled: base die, multiplier, ability multiplier, magic effects
+        - Armor gets scaled: armor save, fort/ref/will saves, magic effects
+        - Other items just get the item level set
+        
+        Use ISTAT to inspect the generated item's actual stats.
         
         For MOB: creates a mobile NPC instance in the specified room using the mob
         template ID. If room_id is omitted, the mob spawns in your current room.
         
         For GOLD: instantly gives the specified amount of gold to yourself.
-        Maximum amount is capped at the 64-bit signed integer limit to prevent overflow.
 
     ARGUMENTS
-        template_id   The numeric ID of the item template (see items.yaml).
+        template_id   The numeric ID of the item template (use ILIST to search).
+        level         Optional level for stat scaling (1-55).
+                      Defaults to your character's total level.
         mob_id        The numeric ID of the mob template (see mobiles.yaml).
-        room_id       Optional room ID where the item/mob should appear.
-                      Defaults to the GM's current room.
-        amount        Amount of gold to create (max ~9.2 quintillion).
+        room_id       Optional room ID where the mob should appear.
+        amount        Amount of gold to create.
 
     EXAMPLE
-        spawn item 202          -- spawns a longsword in your current room
-        spawn item 130 3001     -- spawns plate helm in room 3001
+        spawn item 7            -- spawn Iron Sword at your level
+        spawn item 7 30         -- spawn Iron Sword with level 30 stats
+        spawn item 130 50       -- spawn Plate Helm with level 50 stats
         spawn mob 601           -- spawn mob template #601 in your room
         spawn gold 100000       -- gives yourself 100,000 gold pieces
+
+    SEE ALSO
+        istat, ilist, ifind

@@ -693,6 +693,8 @@ public class CharacterDAO {
                     // Autoloot and autogold flags (default true for convenience)
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS autoloot BOOLEAN DEFAULT TRUE");
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS autogold BOOLEAN DEFAULT TRUE");
+                    // Autosac flag (auto-sacrifice empty corpses, default false - requires autoloot+autogold)
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS autosac BOOLEAN DEFAULT FALSE");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create characters table", e);
                 }
@@ -1001,9 +1003,15 @@ public class CharacterDAO {
             ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
             if (tmpl == null) continue;
             
+            // Use effective values (instance overrides if present, otherwise template)
+            int baseArmorBonus = inst.getEffectiveArmorSave(tmpl);
+            int baseFortBonus = inst.getEffectiveFortSave(tmpl);
+            int baseRefBonus = inst.getEffectiveRefSave(tmpl);
+            int baseWillBonus = inst.getEffectiveWillSave(tmpl);
+            
             // Scale armor bonus by proficiency if this is armor
-            int effectiveArmorBonus = tmpl.armorSaveBonus;
-            if (tmpl.isArmor() && tmpl.armorSaveBonus != 0) {
+            int effectiveArmorBonus = baseArmorBonus;
+            if (tmpl.isArmor() && baseArmorBonus != 0) {
                 ArmorCategory armorCat = tmpl.getArmorCategory();
                 if (armorCat != null) {
                     // Look up character's proficiency in this armor category
@@ -1017,14 +1025,14 @@ public class CharacterDAO {
                         }
                     }
                     // Apply effectiveness: round to nearest integer
-                    effectiveArmorBonus = (int) Math.round(tmpl.armorSaveBonus * effectiveness);
+                    effectiveArmorBonus = (int) Math.round(baseArmorBonus * effectiveness);
                 }
             }
             
             armorSum += effectiveArmorBonus;
-            fortSum += tmpl.fortSaveBonus;
-            reflexSum += tmpl.refSaveBonus;
-            willSum += tmpl.willSaveBonus;
+            fortSum += baseFortBonus;
+            reflexSum += baseRefBonus;
+            willSum += baseWillBonus;
         }
         
         // Calculate averages (round to nearest integer)
@@ -1156,7 +1164,7 @@ public class CharacterDAO {
     }
 
     public CharacterRecord findByName(String name) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold FROM characters WHERE name = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac FROM characters WHERE name = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);
@@ -1184,7 +1192,7 @@ public class CharacterDAO {
                             rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
                             rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
                             rs.getLong("gold_pieces"),
-                            rs.getBoolean("autoloot"), rs.getBoolean("autogold")
+                            rs.getBoolean("autoloot"), rs.getBoolean("autogold"), rs.getBoolean("autosac")
                         );
                 }
             }
@@ -1198,7 +1206,7 @@ public class CharacterDAO {
      * Find a character by their ID.
      */
     public CharacterRecord findById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold FROM characters WHERE id = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac FROM characters WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
@@ -1226,7 +1234,7 @@ public class CharacterDAO {
                         rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
                         rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
                         rs.getLong("gold_pieces"),
-                        rs.getBoolean("autoloot"), rs.getBoolean("autogold")
+                        rs.getBoolean("autoloot"), rs.getBoolean("autogold"), rs.getBoolean("autosac")
                     );
                 }
             }
@@ -1769,6 +1777,7 @@ public class CharacterDAO {
         // Auto-loot settings
         public final boolean autoloot;  // Auto-loot items from corpses
         public final boolean autogold;  // Auto-loot gold from corpses
+        public final boolean autosac;   // Auto-sacrifice empty corpses (requires autoloot+autogold)
 
         // Convenience methods to get total saves (base + equipment)
         public int getArmorTotal() { return armor + armorEquipBonus; }
@@ -1798,7 +1807,7 @@ public class CharacterDAO {
                                int talentPoints,
                                int trainedStr, int trainedDex, int trainedCon, int trainedInt, int trainedWis, int trainedCha,
                                long goldPieces,
-                               boolean autoloot, boolean autogold) {
+                               boolean autoloot, boolean autogold, boolean autosac) {
             this.name = name;
             this.passwordHashBase64 = passwordHashBase64;
             this.saltBase64 = saltBase64;
@@ -1837,6 +1846,7 @@ public class CharacterDAO {
             this.goldPieces = goldPieces;
             this.autoloot = autoloot;
             this.autogold = autogold;
+            this.autosac = autosac;
         }
     }
 
@@ -1863,7 +1873,7 @@ public class CharacterDAO {
      * Get character record by their ID (includes current_room).
      */
     public CharacterRecord getCharacterById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold FROM characters WHERE id = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac FROM characters WHERE id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
@@ -1891,7 +1901,7 @@ public class CharacterDAO {
                         rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
                         rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
                         rs.getLong("gold_pieces"),
-                        rs.getBoolean("autoloot"), rs.getBoolean("autogold")
+                        rs.getBoolean("autoloot"), rs.getBoolean("autogold"), rs.getBoolean("autosac")
                     );
                 }
             }
@@ -1978,6 +1988,25 @@ public class CharacterDAO {
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Failed to set autogold: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Set a character's autosac flag.
+     * @param characterId the character ID
+     * @param autosac whether to automatically sacrifice empty corpses
+     * @return true if successful
+     */
+    public boolean setAutosac(int characterId, boolean autosac) {
+        String sql = "UPDATE characters SET autosac = ? WHERE id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setBoolean(1, autosac);
+            ps.setInt(2, characterId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Failed to set autosac: " + e.getMessage());
             return false;
         }
     }

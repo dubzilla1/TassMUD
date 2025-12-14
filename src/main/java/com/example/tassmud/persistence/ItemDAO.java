@@ -406,6 +406,72 @@ public class ItemDAO {
         }
         return -1;
     }
+    
+    /**
+     * Create a dynamically generated item instance in a room.
+     * Used by GM spawn command with loot generation logic.
+     * 
+     * @param templateId Base item template ID
+     * @param roomId Room to place item in
+     * @param customName Custom name for the item (null to use template name)
+     * @param customDescription Custom description (null to use template)
+     * @param itemLevel Item level for scaling
+     * @param baseDieOverride Weapon base die override (null for template value)
+     * @param multiplierOverride Weapon multiplier override (null for template value)
+     * @param abilityMultOverride Ability multiplier override (null for template value)
+     * @param armorSaveOverride Armor save bonus override (null for template value)
+     * @param fortSaveOverride Fort save bonus override (null for template value)
+     * @param refSaveOverride Ref save bonus override (null for template value)
+     * @param willSaveOverride Will save bonus override (null for template value)
+     * @param spellEffect1 Spell effect 1 ID override (null for template value)
+     * @param spellEffect2 Spell effect 2 ID override (null for template value)
+     * @param spellEffect3 Spell effect 3 ID override (null for template value)
+     * @param spellEffect4 Spell effect 4 ID override (null for template value)
+     * @param valueOverride Gold value override (null for template value)
+     * @return The created instance ID, or -1 on failure
+     */
+    public long createGeneratedInstanceInRoom(
+            int templateId, int roomId,
+            String customName, String customDescription, int itemLevel,
+            Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
+            Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
+            String spellEffect1, String spellEffect2, String spellEffect3, String spellEffect4,
+            Integer valueOverride) {
+        long now = System.currentTimeMillis();
+        String sql = "INSERT INTO item_instance (" +
+            "template_id, location_room_id, created_at, custom_name, custom_description, item_level, " +
+            "base_die_override, multiplier_override, ability_mult_override, " +
+            "armor_save_override, fort_save_override, ref_save_override, will_save_override, " +
+            "spell_effect_1_override, spell_effect_2_override, spell_effect_3_override, spell_effect_4_override, " +
+            "value_override, is_generated) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,TRUE)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            int idx = 1;
+            ps.setInt(idx++, templateId);
+            ps.setInt(idx++, roomId);
+            ps.setLong(idx++, now);
+            if (customName == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, customName);
+            if (customDescription == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, customDescription);
+            ps.setInt(idx++, itemLevel);
+            if (baseDieOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, baseDieOverride);
+            if (multiplierOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, multiplierOverride);
+            if (abilityMultOverride == null) ps.setNull(idx++, Types.DOUBLE); else ps.setDouble(idx++, abilityMultOverride);
+            if (armorSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, armorSaveOverride);
+            if (fortSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, fortSaveOverride);
+            if (refSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, refSaveOverride);
+            if (willSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, willSaveOverride);
+            if (spellEffect1 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect1);
+            if (spellEffect2 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect2);
+            if (spellEffect3 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect3);
+            if (spellEffect4 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect4);
+            if (valueOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, valueOverride);
+            ps.executeUpdate();
+            try (ResultSet rs = ps.getGeneratedKeys()) { if (rs.next()) return rs.getLong(1); }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create generated item instance in room: " + e.getMessage(), e);
+        }
+        return -1;
+    }
 
     public ItemInstance getInstance(long instanceId) {
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);

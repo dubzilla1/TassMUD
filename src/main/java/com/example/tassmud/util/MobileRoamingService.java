@@ -476,6 +476,11 @@ public class MobileRoamingService {
             return; // Invisible characters don't trigger aggro
         }
         
+        // Skip aggro check if the player is GM-invisible
+        if (com.example.tassmud.net.ClientHandler.isGmInvisible(characterId)) {
+            return; // GM-invisible characters don't trigger aggro
+        }
+        
         // Get all mobs in the room
         List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(roomId);
         if (mobsInRoom.isEmpty()) {
@@ -549,8 +554,14 @@ public class MobileRoamingService {
             return;
         }
         
-        // Filter out invisible players
+        // Filter out invisible players (spell invisibility)
         playersInRoom.removeIf(p -> com.example.tassmud.effect.EffectRegistry.isInvisible(p.characterId));
+        if (playersInRoom.isEmpty()) {
+            return;
+        }
+        
+        // Filter out GM-invisible players
+        playersInRoom.removeIf(p -> com.example.tassmud.net.ClientHandler.isGmInvisible(p.characterId));
         if (playersInRoom.isEmpty()) {
             return;
         }

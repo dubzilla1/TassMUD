@@ -222,8 +222,51 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Hit! Calculate damage
         int baseDamage = rollDamage(user);
-        // Use appropriate stat for damage (STR for melee, DEX for ranged, or infusion-specified stat)
-        int damageBonus = damageStatMod + attacker.getAttackDamageBonus();
+        
+        // Calculate damage bonus from ability score
+        // For weapons: use weapon's abilityScore and abilityMultiplier (from instance or template)
+        // For infusions: use the infusion's specified stat
+        // For unarmed/mobs: use default STR
+        int damageBonus;
+        if (infusion != null) {
+            // Infusion overrides weapon ability - use infusion's stat with 1x multiplier
+            damageBonus = damageStatMod;
+        } else if (user.isPlayer() && user.getCharacterId() != null) {
+            // Player with weapon - use weapon's ability score and multiplier
+            damageBonus = getWeaponAbilityDamageBonus(user, attacker);
+            // If unarmed (returns 0), fall back to STR mod
+            CharacterDAO tempDao = new CharacterDAO();
+            Long mainHandId = tempDao.getCharacterEquipment(user.getCharacterId(), 
+                com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
+            if (mainHandId == null) {
+                damageBonus = strMod; // Unarmed uses STR
+            }
+        } else {
+            // Mob or fallback - use default stat
+            damageBonus = isRangedAttack ? dexMod : strMod;
+        }
+        
+        // Two-handed melee weapons get 1.5x STR bonus to damage (only for unarmed/default, not weapon ability)
+        // Note: For weapons with custom ability multipliers, the multiplier is already applied
+        if (!isRangedAttack && infusion == null && isTwoHandedWeapon(user)) {
+            // Only apply 1.5x bonus if using default STR calculation (not custom weapon ability)
+            // Check if weapon has custom ability multiplier > 1.0
+            CharacterDAO th2Dao = new CharacterDAO();
+            com.example.tassmud.persistence.ItemDAO th2ItemDAO = new com.example.tassmud.persistence.ItemDAO();
+            Long mainHandId = th2Dao.getCharacterEquipment(user.getCharacterId(), 
+                com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
+            if (mainHandId != null) {
+                com.example.tassmud.model.ItemInstance weaponInst = th2ItemDAO.getInstance(mainHandId);
+                com.example.tassmud.model.ItemTemplate weaponTmpl = weaponInst != null 
+                    ? th2ItemDAO.getTemplateById(weaponInst.templateId) : null;
+                double abilMult = weaponInst != null ? weaponInst.getEffectiveAbilityMultiplier(weaponTmpl) : 1.0;
+                // Only apply 1.5x if weapon uses default 1.0 multiplier
+                if (abilMult <= 1.0) {
+                    damageBonus = (int) Math.floor(damageBonus * 1.5);
+                }
+            }
+        }
+        damageBonus += attacker.getAttackDamageBonus();
         
         // Calculate skill-based damage multiplier
         // Applied to bonus damage only, not base die roll
@@ -422,11 +465,12 @@ public class BasicAttackCommand implements CombatCommand {
     }
     
     /**
-     * Roll damage for this attacker.
-     * TODO: Check equipped weapon for damage dice.
+     * Roll damage for this attacker based on equipped weapon.
+     * Uses weapon's baseDie and multiplier, or mob's base damage, or 1d4 unarmed.
+     * Now correctly uses instance overrides for generated loot.
      */
     private int rollDamage(Combatant attacker) {
-        // For now: 1d4 unarmed, or mob's base damage if it's a mobile
+        // For mobs: use mob's base damage
         if (attacker.isMobile() && attacker.getMobile() != null) {
             int baseDie = attacker.getMobile().getBaseDamage();
             if (baseDie > 0) {
@@ -434,8 +478,99 @@ public class BasicAttackCommand implements CombatCommand {
             }
         }
         
+        // For players: check equipped main-hand weapon
+        if (attacker.isPlayer() && attacker.getCharacterId() != null) {
+            CharacterDAO dao = new CharacterDAO();
+            com.example.tassmud.persistence.ItemDAO itemDAO = new com.example.tassmud.persistence.ItemDAO();
+            
+            Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+                com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
+            
+            if (mainHandId != null) {
+                com.example.tassmud.model.ItemInstance weaponInst = itemDAO.getInstance(mainHandId);
+                if (weaponInst != null) {
+                    com.example.tassmud.model.ItemTemplate weaponTmpl = itemDAO.getTemplateById(weaponInst.templateId);
+                    // Use effective stats (instance overrides if present, otherwise template)
+                    int effectiveBaseDie = weaponInst.getEffectiveBaseDie(weaponTmpl);
+                    int effectiveMultiplier = weaponInst.getEffectiveMultiplier(weaponTmpl);
+                    if (effectiveBaseDie > 0) {
+                        // Roll multiplier * d(baseDie)
+                        int mult = effectiveMultiplier > 0 ? effectiveMultiplier : 1;
+                        int total = 0;
+                        for (int i = 0; i < mult; i++) {
+                            total += (int)(Math.random() * effectiveBaseDie) + 1;
+                        }
+                        return total;
+                    }
+                }
+            }
+        }
+        
         // Unarmed: 1d4
         return (int)(Math.random() * UNARMED_DIE) + 1;
+    }
+    
+    /**
+     * Calculate the ability-based damage bonus from the equipped weapon.
+     * Uses the weapon's abilityScore and abilityMultiplier fields (from instance overrides or template).
+     * 
+     * @param attacker The attacking combatant
+     * @param character The attacker's character for stat lookup
+     * @return The ability damage bonus, or 0 if no weapon/unarmed
+     */
+    private int getWeaponAbilityDamageBonus(Combatant attacker, Character character) {
+        if (!attacker.isPlayer() || attacker.getCharacterId() == null) {
+            return 0; // Mobs don't use this system
+        }
+        
+        CharacterDAO dao = new CharacterDAO();
+        com.example.tassmud.persistence.ItemDAO itemDAO = new com.example.tassmud.persistence.ItemDAO();
+        
+        Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+            com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
+        
+        if (mainHandId == null) {
+            return 0; // Unarmed - no ability multiplier bonus
+        }
+        
+        com.example.tassmud.model.ItemInstance weaponInst = itemDAO.getInstance(mainHandId);
+        if (weaponInst == null) {
+            return 0;
+        }
+        
+        com.example.tassmud.model.ItemTemplate weaponTmpl = itemDAO.getTemplateById(weaponInst.templateId);
+        
+        // Get ability score name from template (default to STR)
+        String abilityScore = (weaponTmpl != null && weaponTmpl.abilityScore != null) 
+            ? weaponTmpl.abilityScore : "strength";
+        
+        // Get ability multiplier from instance (uses override if present, otherwise template)
+        double abilityMultiplier = weaponInst.getEffectiveAbilityMultiplier(weaponTmpl);
+        
+        // Calculate the stat modifier
+        int statMod = getStatMod(character, abilityScore);
+        
+        // Apply multiplier and return
+        return (int) Math.round(statMod * abilityMultiplier);
+    }
+
+    /**
+     * Check if the attacker is using a two-handed weapon.
+     * A weapon is two-handed if main hand and off hand both hold the same item instance.
+     */
+    private boolean isTwoHandedWeapon(Combatant attacker) {
+        if (!attacker.isPlayer() || attacker.getCharacterId() == null) {
+            return false;
+        }
+        
+        CharacterDAO dao = new CharacterDAO();
+        Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+            com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
+        Long offHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+            com.example.tassmud.model.EquipmentSlot.OFF_HAND.getId());
+        
+        // Two-handed if both slots have the same non-null item
+        return mainHandId != null && mainHandId.equals(offHandId);
     }
     
     /**

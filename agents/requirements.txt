@@ -1,0 +1,8 @@
+# TassMUD Player Agent Dependencies
+# Install with: pip install -r requirements.txt
+
+# OpenAI SDK for GitHub Models
+openai>=1.0.0
+
+# Environment variable management
+python-dotenv

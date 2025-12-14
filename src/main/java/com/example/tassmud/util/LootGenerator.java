@@ -178,6 +178,118 @@ public class LootGenerator {
     }
     
     /**
+     * Generate a single random item at the given level and place it in a room.
+     * Used by GM spawn command to create level-appropriate random loot.
+     * 
+     * @param level The item level to scale stats to
+     * @param roomId The room to place the item in
+     * @param itemDAO DAO to create item instances
+     * @return The generated item info, or null if creation failed
+     */
+    public static GeneratedItem generateItemInRoom(int level, int roomId, ItemDAO itemDAO) {
+        GeneratedItem item = generateSingleItem(level);
+        if (item == null) return null;
+        
+        long instanceId = itemDAO.createGeneratedInstanceInRoom(
+            item.templateId, roomId,
+            item.customName, item.customDescription, item.itemLevel,
+            item.baseDieOverride, item.multiplierOverride, item.abilityMultOverride,
+            item.armorSaveOverride, item.fortSaveOverride, item.refSaveOverride, item.willSaveOverride,
+            item.spellEffect1, item.spellEffect2, item.spellEffect3, item.spellEffect4,
+            item.valueOverride
+        );
+        
+        return instanceId > 0 ? item : null;
+    }
+    
+    /**
+     * Generate a specific item with level-scaled stats and place it in a room.
+     * Applies random stat overrides based on the item's type (weapon/armor).
+     * 
+     * @param templateId The item template ID to use
+     * @param level The item level to scale stats to
+     * @param roomId The room to place the item in
+     * @param itemDAO DAO to create item instances
+     * @return The instance ID of the created item, or -1 on failure
+     */
+    public static long generateItemFromTemplateInRoom(int templateId, int level, int roomId, ItemDAO itemDAO) {
+        ItemTemplate template = itemDAO.getTemplateById(templateId);
+        if (template == null) return -1;
+        
+        // Determine item type and generate appropriate stats
+        boolean isWeapon = template.hasType("weapon");
+        boolean isArmor = template.hasType("armor") || template.hasType("shield");
+        
+        Integer baseDieOverride = null;
+        Integer multiplierOverride = null;
+        Double abilityMultOverride = null;
+        Integer armorSaveOverride = null;
+        Integer fortSaveOverride = null;
+        Integer refSaveOverride = null;
+        Integer willSaveOverride = null;
+        Integer valueOverride = null;
+        
+        if (isWeapon) {
+            // Generate weapon stats scaled to level
+            int dieIndex = Math.min(DIE_PROGRESSION.length - 1, level / 7);
+            baseDieOverride = DIE_PROGRESSION[dieIndex];
+            
+            multiplierOverride = 1 + (level / 10);
+            multiplierOverride = Math.max(1, Math.min(multiplierOverride, level));
+            
+            double abilityMult = 1.0 + (level - 1) * 0.18;
+            abilityMult = Math.max(1.0, Math.min(10.0, abilityMult));
+            abilityMultOverride = Math.round(abilityMult * 10.0) / 10.0;
+            
+            // Generate magic effects
+            String[] effects = generateMagicEffects(level);
+            
+            valueOverride = calculateWeaponValue(baseDieOverride, multiplierOverride, abilityMultOverride, effects);
+            
+            return itemDAO.createGeneratedInstanceInRoom(
+                templateId, roomId,
+                null, null, level, // No custom name/description - use template's
+                baseDieOverride, multiplierOverride, abilityMultOverride,
+                null, null, null, null,
+                effects[0], effects[1], effects[2], effects[3],
+                valueOverride
+            );
+        } else if (isArmor) {
+            // Generate armor stats scaled to level
+            armorSaveOverride = 1 + (level * 49 / 50);
+            armorSaveOverride = Math.max(1, Math.min(50, armorSaveOverride));
+            
+            fortSaveOverride = armorSaveOverride / 3 + RNG.nextInt(3);
+            refSaveOverride = armorSaveOverride / 4 + RNG.nextInt(3);
+            willSaveOverride = armorSaveOverride / 4 + RNG.nextInt(3);
+            
+            // Generate magic effects
+            String[] effects = generateMagicEffects(level);
+            
+            valueOverride = calculateArmorValue(armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride, effects);
+            
+            return itemDAO.createGeneratedInstanceInRoom(
+                templateId, roomId,
+                null, null, level,
+                null, null, null,
+                armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
+                effects[0], effects[1], effects[2], effects[3],
+                valueOverride
+            );
+        } else {
+            // Not a weapon or armor - just create with item level, no stat overrides
+            return itemDAO.createGeneratedInstanceInRoom(
+                templateId, roomId,
+                null, null, level,
+                null, null, null,
+                null, null, null, null,
+                null, null, null, null,
+                null
+            );
+        }
+    }
+    
+    /**
      * Determine how many items to generate.
      * 50% for 1, 25% for 2, 12.5% for 3, etc.
      * Capped at 5 items max.

@@ -546,6 +546,37 @@ public class CombatManager {
                             sendToPlayer(killer.getCharacterId(), "You receive " + goldTaken + " gold.");
                         }
                     }
+                    
+                    // Handle autoloot for the killer
+                    if (killerRec != null && killerRec.autoloot) {
+                        ItemDAO itemDAO = new ItemDAO();
+                        List<ItemDAO.RoomItem> corpseContents = itemDAO.getItemsInContainer(corpseId);
+                        if (!corpseContents.isEmpty()) {
+                            for (ItemDAO.RoomItem ri : corpseContents) {
+                                itemDAO.moveInstanceToCharacter(ri.instance.instanceId, killer.getCharacterId());
+                                String displayName = ri.instance.customName != null && !ri.instance.customName.isEmpty() 
+                                    ? ri.instance.customName : ri.template.name;
+                                sendToPlayer(killer.getCharacterId(), "You get " + displayName + " from the corpse.");
+                            }
+                        }
+                    }
+                    
+                    // Handle autosac for the killer - sacrifice empty corpses for 1 XP
+                    // Refresh record to check autosac setting
+                    killerRec = charDao.getCharacterById(killer.getCharacterId());
+                    if (killerRec != null && killerRec.autosac) {
+                        ItemDAO itemDAO = new ItemDAO();
+                        // Check if corpse is empty (no items and no gold)
+                        List<ItemDAO.RoomItem> remainingContents = itemDAO.getItemsInContainer(corpseId);
+                        long remainingGold = itemDAO.getGoldContents(corpseId);
+                        if (remainingContents.isEmpty() && remainingGold <= 0) {
+                            // Delete the corpse and award 1 XP
+                            itemDAO.deleteInstance(corpseId);
+                            CharacterClassDAO classDAO = new CharacterClassDAO();
+                            classDAO.addXpToCurrentClass(killer.getCharacterId(), 1);
+                            sendToPlayer(killer.getCharacterId(), "You sacrifice the corpse for 1 experience point.");
+                        }
+                    }
                 }
                 
                 // Mark the mob as dead and remove from the world
@@ -607,11 +638,14 @@ public class CombatManager {
         // 2. Move ALL equipped items into the corpse
         if (corpseId > 0) {
             java.util.Map<Integer, Long> equipment = charDAO.getEquipmentMapByCharacterId(characterId);
+            // Use a set to track moved items (two-handed weapons appear in both main and off hand)
+            java.util.Set<Long> movedItemIds = new java.util.HashSet<>();
             for (java.util.Map.Entry<Integer, Long> entry : equipment.entrySet()) {
                 Long itemInstanceId = entry.getValue();
-                if (itemInstanceId != null) {
+                if (itemInstanceId != null && !movedItemIds.contains(itemInstanceId)) {
                     try {
                         itemDAO.moveInstanceToContainer(itemInstanceId, corpseId);
+                        movedItemIds.add(itemInstanceId);
                     } catch (Exception e) {
                         System.err.println("[CombatManager] Failed to move equipment to corpse: " + e.getMessage());
                     }

@@ -32,6 +32,7 @@ import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.persistence.ShopDAO;
 import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.HelpManager;
+import com.example.tassmud.util.LootGenerator;
 import com.example.tassmud.util.MobileRoamingService;
 import com.example.tassmud.util.PasswordUtil;
 import com.example.tassmud.util.RegenerationService;
@@ -64,6 +65,7 @@ public class ClientHandler implements Runnable {
     private volatile Integer characterId = null;
     private volatile String promptFormat = "<%h/%Hhp %m/%Mmp %v/%Vmv> ";
     private volatile boolean debugChannelEnabled = false;  // GM-only debug output
+    private volatile boolean gmInvisible = false;  // GM-only perfect invisibility
     
     public ClientHandler(Socket socket, GameClock gameClock) {
         this.socket = socket;
@@ -112,6 +114,8 @@ public class ClientHandler implements Runnable {
         // Blank line
         out.println();
         // Other players in this room (before mobs and items)
+        CharacterDAO visDao = new CharacterDAO();
+        boolean iAmGm = this.playerName != null && visDao.isCharacterFlagTrueByName(this.playerName, "is_gm");
         for (ClientHandler s : sessions) {
             // Skip self, skip sessions without a character, skip sessions not in this room
             if (s == this) continue;
@@ -120,7 +124,12 @@ public class ClientHandler implements Runnable {
             Integer otherRoomId = s.currentRoomId;
             if (otherRoomId == null || !otherRoomId.equals(roomId)) continue;
             
-            // Check invisibility - skip if we can't see them
+            // Check GM invisibility - only other GMs can see GM-invisible players
+            if (s.gmInvisible && !iAmGm) {
+                continue; // Can't see GM-invisible players
+            }
+            
+            // Check normal invisibility - skip if we can't see them
             Integer otherCharId = s.characterId;
             boolean otherInvis = com.example.tassmud.effect.EffectRegistry.isInvisible(otherCharId);
             if (otherInvis) {
@@ -129,7 +138,11 @@ public class ClientHandler implements Runnable {
                     continue; // Can't see them
                 }
                 // We can see them - show with (INVIS) tag
-                out.println(otherName + " is here. (INVIS)");
+                String gmTag = s.gmInvisible ? "(GM-INVIS)" : "(INVIS)";
+                out.println(otherName + " is here. " + gmTag);
+            } else if (s.gmInvisible) {
+                // GM invisible but not normal invisible
+                out.println(otherName + " is here. (GM-INVIS)");
             } else {
                 out.println(otherName + " is here.");
             }
@@ -151,11 +164,14 @@ public class ClientHandler implements Runnable {
         ItemDAO itemDao = new ItemDAO();
         java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(roomId);
         for (ItemDAO.RoomItem ri : roomItems) {
-            String desc = ri.template.description;
+            // Prefer custom description (for corpses, etc.), then template description
+            String desc = ri.instance.customDescription != null && !ri.instance.customDescription.isEmpty() 
+                ? ri.instance.customDescription 
+                : ri.template.description;
             if (desc != null && !desc.isEmpty()) {
                 out.println(desc);
             } else {
-                out.println("A " + ri.template.name + " lies here.");
+                out.println("A " + getItemDisplayName(ri) + " lies here.");
             }
         }
     }
@@ -507,7 +523,9 @@ public class ClientHandler implements Runnable {
             // Insufficient MV - fall prone instead of escaping
             userCombatant.setProne();
             if (out != null) out.println("You break free but stumble and fall prone from exhaustion!");
-            roomAnnounce(currentRoomId, playerName + " panics and tries to flee but collapses from exhaustion!", this.characterId, true);
+            if (!this.gmInvisible) {
+                roomAnnounce(currentRoomId, playerName + " panics and tries to flee but collapses from exhaustion!", this.characterId, true);
+            }
             return false;
         }
         
@@ -515,7 +533,9 @@ public class ClientHandler implements Runnable {
         if (!dao.deductMovementPoints(playerName, moveCost)) {
             userCombatant.setProne();
             if (out != null) out.println("You break free but stumble and fall prone from exhaustion!");
-            roomAnnounce(currentRoomId, playerName + " panics and tries to flee but collapses from exhaustion!", this.characterId, true);
+            if (!this.gmInvisible) {
+                roomAnnounce(currentRoomId, playerName + " panics and tries to flee but collapses from exhaustion!", this.characterId, true);
+            }
             return false;
         }
         
@@ -524,7 +544,9 @@ public class ClientHandler implements Runnable {
         
         // Announce departure
         if (out != null) out.println("Panic overwhelms you and you flee " + fleeDirection + "!");
-        roomAnnounce(currentRoomId, playerName + " panics and flees " + fleeDirection + "!", this.characterId, true);
+        if (!this.gmInvisible) {
+            roomAnnounce(currentRoomId, playerName + " panics and flees " + fleeDirection + "!", this.characterId, true);
+        }
         
         // Move to new room
         boolean moved = dao.updateCharacterRoom(playerName, destRoomId);
@@ -539,7 +561,9 @@ public class ClientHandler implements Runnable {
         Room newRoom = dao.getRoomById(destRoomId);
         
         // Announce arrival
-        roomAnnounce(destRoomId, makeArrivalMessage(playerName, fleeDirection), this.characterId, true);
+        if (!this.gmInvisible) {
+            roomAnnounce(destRoomId, makeArrivalMessage(playerName, fleeDirection), this.characterId, true);
+        }
         
         if (newRoom != null && out != null) {
             showRoom(newRoom, destRoomId);
@@ -649,6 +673,54 @@ public class ClientHandler implements Runnable {
      */
     public static java.util.Set<Integer> getConnectedCharacterIds() {
         return new java.util.HashSet<>(charIdToSession.keySet());
+    }
+    
+    /**
+     * Check if a character is currently GM-invisible.
+     * Used by MobileRoamingService to skip aggro checks.
+     * @param characterId the character to check
+     * @return true if the character is online and GM-invisible
+     */
+    public static boolean isGmInvisible(Integer characterId) {
+        if (characterId == null) return false;
+        ClientHandler handler = charIdToSession.get(characterId);
+        return handler != null && handler.gmInvisible;
+    }
+    
+    /**
+     * Get the display name for an item, preferring customName over template name.
+     * Generated loot items (like trash) have custom names that override the template.
+     * 
+     * @param ri the RoomItem containing both instance and template
+     * @return the display name to show players
+     */
+    private static String getItemDisplayName(ItemDAO.RoomItem ri) {
+        if (ri == null) return "an item";
+        if (ri.instance != null && ri.instance.customName != null && !ri.instance.customName.isEmpty()) {
+            return ri.instance.customName;
+        }
+        if (ri.template != null && ri.template.name != null) {
+            return ri.template.name;
+        }
+        return "an item";
+    }
+    
+    /**
+     * Get the display name for an item from separate instance and template.
+     * Used when we have ItemInstance and ItemTemplate separately (e.g., equipped items).
+     * 
+     * @param inst the ItemInstance (may be null)
+     * @param tmpl the ItemTemplate (may be null)
+     * @return the display name to show players
+     */
+    private static String getItemDisplayName(ItemInstance inst, ItemTemplate tmpl) {
+        if (inst != null && inst.customName != null && !inst.customName.isEmpty()) {
+            return inst.customName;
+        }
+        if (tmpl != null && tmpl.name != null) {
+            return tmpl.name;
+        }
+        return "an item";
     }
 
     private String formatPrompt(String fmt, CharacterDAO.CharacterRecord rec, CharacterDAO dao) {
@@ -1024,14 +1096,14 @@ public class ClientHandler implements Runnable {
                             // Get items in the container
                             java.util.List<ItemDAO.RoomItem> contents = itemDao.getItemsInContainer(matchedContainer.instance.instanceId);
                             
-                            out.println(matchedContainer.template.name + " contains:");
+                            out.println(getItemDisplayName(matchedContainer) + " contains:");
                             if (contents.isEmpty()) {
                                 out.println("  Nothing.");
                             } else {
-                                // Group by template name and count
+                                // Group by display name and count
                                 java.util.Map<String, Integer> itemCounts = new java.util.LinkedHashMap<>();
                                 for (ItemDAO.RoomItem ci : contents) {
-                                    String itemName = ci.template.name != null ? ci.template.name : "an item";
+                                    String itemName = getItemDisplayName(ci);
                                     itemCounts.put(itemName, itemCounts.getOrDefault(itemName, 0) + 1);
                                 }
                                 for (java.util.Map.Entry<String, Integer> entry : itemCounts.entrySet()) {
@@ -1253,7 +1325,9 @@ public class ClientHandler implements Runnable {
                         
                         // Announce departure to the old room (respecting invisibility)
                         Integer oldRoomId = rec.currentRoom;
-                        roomAnnounceFromActor(oldRoomId, makeDepartureMessage(name, directionName), this.characterId);
+                        if (!this.gmInvisible) {
+                            roomAnnounceFromActor(oldRoomId, makeDepartureMessage(name, directionName), this.characterId);
+                        }
                         
                         // Refresh character record and show new room
                         rec = dao.findByName(name);
@@ -1266,7 +1340,9 @@ public class ClientHandler implements Runnable {
                         }
                         
                         // Announce arrival to the new room (respecting invisibility)
-                        roomAnnounceFromActor(destId, makeArrivalMessage(name, directionName), this.characterId);
+                        if (!this.gmInvisible) {
+                            roomAnnounceFromActor(destId, makeArrivalMessage(name, directionName), this.characterId);
+                        }
                         
                         out.println("You move " + directionName + ".");
                         showRoom(newRoom, destId);
@@ -1576,6 +1652,46 @@ public class ClientHandler implements Runnable {
                             rec = dao.findByName(name);
                         } else {
                             out.println("Failed to toggle autogold.");
+                        }
+                        break;
+                    }
+                    case "autosac": {
+                        // AUTOSAC - Toggle automatic sacrifice of empty corpses
+                        // Requires both autoloot and autogold to be enabled
+                        if (rec == null) {
+                            out.println("You must be logged in to use autosac.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        if (charId == null) {
+                            out.println("Unable to find your character.");
+                            break;
+                        }
+                        
+                        // Toggle current value
+                        boolean currentValue = rec.autosac;
+                        boolean newValue = !currentValue;
+                        
+                        // If trying to enable, check that autoloot and autogold are both enabled
+                        if (newValue && (!rec.autoloot || !rec.autogold)) {
+                            out.println("You must enable both autoloot and autogold before you can enable autosac.");
+                            break;
+                        }
+                        
+                        boolean success = dao.setAutosac(charId, newValue);
+                        if (success) {
+                            if (newValue) {
+                                out.println("Autosac enabled. You will automatically sacrifice empty corpses for 1 XP.");
+                            } else {
+                                out.println("Autosac disabled. Corpses will remain after looting.");
+                            }
+                            // Refresh rec
+                            rec = dao.findByName(name);
+                        } else {
+                            out.println("Failed to toggle autosac.");
                         }
                         break;
                     }
@@ -2061,6 +2177,337 @@ public class ClientHandler implements Runnable {
                         out.println();
                         break;
                     }
+                    case "istat": {
+                        // GM-only: ISTAT <item> - Show detailed stats of an inventory item
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String istatArgs = cmd.getArgs();
+                        if (istatArgs == null || istatArgs.trim().isEmpty()) {
+                            out.println("Usage: ISTAT <item>");
+                            out.println("  Shows detailed stat block for an item in your inventory.");
+                            break;
+                        }
+                        String istatSearch = istatArgs.trim().toLowerCase();
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get all items owned by character
+                        ItemDAO istatItemDao = new ItemDAO();
+                        java.util.List<ItemDAO.RoomItem> allItems = istatItemDao.getItemsByCharacter(charId);
+                        
+                        // Find matching item by name or keyword
+                        ItemDAO.RoomItem matchedItem = null;
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            // Check customName first (for generated items)
+                            if (ri.instance.customName != null && ri.instance.customName.toLowerCase().contains(istatSearch)) {
+                                matchedItem = ri;
+                                break;
+                            }
+                            // Check template name
+                            if (ri.template != null && ri.template.name != null && 
+                                ri.template.name.toLowerCase().contains(istatSearch)) {
+                                matchedItem = ri;
+                                break;
+                            }
+                            // Check keywords
+                            if (ri.template != null && ri.template.keywords != null) {
+                                for (String kw : ri.template.keywords) {
+                                    if (kw.toLowerCase().contains(istatSearch)) {
+                                        matchedItem = ri;
+                                        break;
+                                    }
+                                }
+                                if (matchedItem != null) break;
+                            }
+                        }
+                        
+                        if (matchedItem == null) {
+                            out.println("You don't have '" + istatSearch + "' in your inventory.");
+                            break;
+                        }
+                        
+                        ItemInstance inst = matchedItem.instance;
+                        ItemTemplate tmpl = matchedItem.template;
+                        String displayName = getItemDisplayName(matchedItem);
+                        
+                        out.println();
+                        out.println("=== ITEM STAT BLOCK ===");
+                        out.println();
+                        out.println("  Name:        " + displayName);
+                        if (inst.customName != null) {
+                            out.println("  Base Name:   " + (tmpl != null ? tmpl.name : "Unknown") + " (template)");
+                        }
+                        out.println("  Instance ID: " + inst.instanceId);
+                        out.println("  Template ID: " + inst.templateId);
+                        out.println("  Item Level:  " + inst.itemLevel);
+                        out.println("  Generated:   " + (inst.isGenerated ? "Yes" : "No"));
+                        out.println();
+                        
+                        // Template info
+                        if (tmpl != null) {
+                            out.println("--- TEMPLATE INFO ---");
+                            out.println("  Key:         " + (tmpl.key != null ? tmpl.key : "-"));
+                            out.println("  Types:       " + (tmpl.types != null && !tmpl.types.isEmpty() ? String.join(", ", tmpl.types) : "-"));
+                            out.println("  Subtype:     " + (tmpl.subtype != null ? tmpl.subtype : "-"));
+                            out.println("  Slot:        " + (tmpl.slot != null ? tmpl.slot : "-"));
+                            out.println("  Weight:      " + tmpl.weight);
+                            out.println("  Base Value:  " + tmpl.value + " gp");
+                            out.println("  Traits:      " + (tmpl.traits != null && !tmpl.traits.isEmpty() ? String.join(", ", tmpl.traits) : "-"));
+                            out.println("  Keywords:    " + (tmpl.keywords != null && !tmpl.keywords.isEmpty() ? String.join(", ", tmpl.keywords) : "-"));
+                            out.println();
+                        }
+                        
+                        // Show weapon stats if applicable
+                        boolean isWeapon = tmpl != null && tmpl.hasType("weapon");
+                        if (isWeapon || inst.baseDieOverride != null || inst.multiplierOverride != null) {
+                            out.println("--- WEAPON STATS ---");
+                            int baseDie = inst.getEffectiveBaseDie(tmpl);
+                            int mult = inst.getEffectiveMultiplier(tmpl);
+                            double abilMult = inst.getEffectiveAbilityMultiplier(tmpl);
+                            String abilScore = tmpl != null ? tmpl.abilityScore : "STR";
+                            
+                            out.println("  Base Die:        " + baseDie + (inst.baseDieOverride != null ? " (override)" : ""));
+                            out.println("  Multiplier:      " + mult + (inst.multiplierOverride != null ? " (override)" : ""));
+                            out.println("  Ability Score:   " + (abilScore != null ? abilScore : "STR"));
+                            out.println("  Ability Mult:    " + String.format("%.1f", abilMult) + (inst.abilityMultOverride != null ? " (override)" : ""));
+                            out.println("  Damage Formula:  " + mult + "d" + baseDie + " + " + String.format("%.1f", abilMult) + "x" + (abilScore != null ? abilScore : "STR") + " mod");
+                            out.println("  Hands:           " + (tmpl != null ? tmpl.hands : 1));
+                            if (tmpl != null) {
+                                out.println("  Category:        " + (tmpl.weaponCategory != null ? tmpl.weaponCategory : "-"));
+                                out.println("  Family:          " + (tmpl.weaponFamily != null ? tmpl.weaponFamily : "-"));
+                            }
+                            out.println();
+                        }
+                        
+                        // Show armor/save stats if applicable
+                        boolean isArmor = tmpl != null && (tmpl.hasType("armor") || tmpl.hasType("shield"));
+                        boolean hasSaves = inst.armorSaveOverride != null || inst.fortSaveOverride != null 
+                                        || inst.refSaveOverride != null || inst.willSaveOverride != null
+                                        || (tmpl != null && (tmpl.armorSaveBonus > 0 || tmpl.fortSaveBonus > 0 
+                                            || tmpl.refSaveBonus > 0 || tmpl.willSaveBonus > 0));
+                        if (isArmor || hasSaves) {
+                            out.println("--- ARMOR / SAVES ---");
+                            int armorSave = inst.getEffectiveArmorSave(tmpl);
+                            int fortSave = inst.getEffectiveFortSave(tmpl);
+                            int refSave = inst.getEffectiveRefSave(tmpl);
+                            int willSave = inst.getEffectiveWillSave(tmpl);
+                            
+                            out.println("  Armor Save:      " + (armorSave != 0 ? "+" + armorSave : "0") + (inst.armorSaveOverride != null ? " (override)" : ""));
+                            out.println("  Fortitude Save:  " + (fortSave != 0 ? "+" + fortSave : "0") + (inst.fortSaveOverride != null ? " (override)" : ""));
+                            out.println("  Reflex Save:     " + (refSave != 0 ? "+" + refSave : "0") + (inst.refSaveOverride != null ? " (override)" : ""));
+                            out.println("  Will Save:       " + (willSave != 0 ? "+" + willSave : "0") + (inst.willSaveOverride != null ? " (override)" : ""));
+                            if (tmpl != null && tmpl.armorCategory != null) {
+                                out.println("  Armor Category:  " + tmpl.armorCategory);
+                            }
+                            out.println();
+                        }
+                        
+                        // Show spell effects if any
+                        String eff1 = inst.getEffectiveSpellEffect1(tmpl);
+                        String eff2 = inst.getEffectiveSpellEffect2(tmpl);
+                        String eff3 = inst.getEffectiveSpellEffect3(tmpl);
+                        String eff4 = inst.getEffectiveSpellEffect4(tmpl);
+                        if (eff1 != null || eff2 != null || eff3 != null || eff4 != null) {
+                            out.println("--- SPELL EFFECTS ---");
+                            if (eff1 != null) out.println("  Effect 1: " + eff1 + (inst.spellEffect1Override != null ? " (override)" : ""));
+                            if (eff2 != null) out.println("  Effect 2: " + eff2 + (inst.spellEffect2Override != null ? " (override)" : ""));
+                            if (eff3 != null) out.println("  Effect 3: " + eff3 + (inst.spellEffect3Override != null ? " (override)" : ""));
+                            if (eff4 != null) out.println("  Effect 4: " + eff4 + (inst.spellEffect4Override != null ? " (override)" : ""));
+                            out.println();
+                        }
+                        
+                        // Show effective value
+                        int effectiveValue = inst.getEffectiveValue(tmpl);
+                        out.println("--- VALUE ---");
+                        out.println("  Sell Value:  " + effectiveValue + " gp" + (inst.valueOverride != null ? " (override)" : ""));
+                        out.println();
+                        
+                        // Show description
+                        String desc = inst.customDescription != null ? inst.customDescription : (tmpl != null ? tmpl.description : null);
+                        if (desc != null && !desc.isEmpty()) {
+                            out.println("--- DESCRIPTION ---");
+                            out.println("  " + desc);
+                            out.println();
+                        }
+                        
+                        out.println("=======================");
+                        out.println();
+                        break;
+                    }
+                    case "mstat": {
+                        // GM-only: MSTAT <mobile> - Show detailed stats of a mobile in the room
+                        if (rec == null) { out.println("No character record found."); break; }
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                            out.println("You do not have permission to use GM commands.");
+                            break;
+                        }
+                        String mstatArgs = cmd.getArgs();
+                        if (mstatArgs == null || mstatArgs.trim().isEmpty()) {
+                            out.println("Usage: MSTAT <mobile>");
+                            out.println("  Shows detailed stat block for a mobile in your current room.");
+                            break;
+                        }
+                        String mstatSearch = mstatArgs.trim().toLowerCase();
+                        
+                        // Get all mobiles in the room
+                        MobileDAO mstatMobDao = new MobileDAO();
+                        java.util.List<Mobile> mobsInRoom = mstatMobDao.getMobilesInRoom(rec.currentRoom);
+                        
+                        // Find matching mobile by name or keyword
+                        Mobile matchedMob = null;
+                        for (Mobile mob : mobsInRoom) {
+                            if (mob.isDead()) continue;
+                            
+                            // Check name
+                            if (mob.getName() != null && mob.getName().toLowerCase().contains(mstatSearch)) {
+                                matchedMob = mob;
+                                break;
+                            }
+                            // Check short desc
+                            if (mob.getShortDesc() != null && mob.getShortDesc().toLowerCase().contains(mstatSearch)) {
+                                matchedMob = mob;
+                                break;
+                            }
+                        }
+                        
+                        // Also try template keywords
+                        if (matchedMob == null) {
+                            for (Mobile mob : mobsInRoom) {
+                                if (mob.isDead()) continue;
+                                MobileTemplate mobTmpl = mstatMobDao.getTemplateById(mob.getTemplateId());
+                                if (mobTmpl != null && mobTmpl.matchesKeyword(mstatSearch)) {
+                                    matchedMob = mob;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (matchedMob == null) {
+                            out.println("No mobile '" + mstatSearch + "' found in this room.");
+                            break;
+                        }
+                        
+                        MobileTemplate mobTmpl = mstatMobDao.getTemplateById(matchedMob.getTemplateId());
+                        
+                        out.println();
+                        out.println("=== MOBILE STAT BLOCK ===");
+                        out.println();
+                        out.println("  Name:          " + matchedMob.getName());
+                        out.println("  Short Desc:    " + (matchedMob.getShortDesc() != null ? matchedMob.getShortDesc() : "-"));
+                        out.println("  Instance ID:   " + matchedMob.getInstanceId());
+                        out.println("  Template ID:   " + matchedMob.getTemplateId());
+                        out.println("  Level:         " + matchedMob.getLevel());
+                        out.println("  Room:          " + matchedMob.getCurrentRoom());
+                        out.println("  Spawn Room:    " + (matchedMob.getSpawnRoomId() != null ? matchedMob.getSpawnRoomId() : "-"));
+                        out.println();
+                        
+                        // Template info
+                        if (mobTmpl != null) {
+                            out.println("--- TEMPLATE INFO ---");
+                            out.println("  Key:           " + (mobTmpl.getKey() != null ? mobTmpl.getKey() : "-"));
+                            out.println("  Long Desc:     " + (mobTmpl.getLongDesc() != null ? mobTmpl.getLongDesc() : "-"));
+                            out.println("  Keywords:      " + (mobTmpl.getKeywords() != null && !mobTmpl.getKeywords().isEmpty() ? String.join(", ", mobTmpl.getKeywords()) : "-"));
+                            out.println();
+                        }
+                        
+                        // Vitals
+                        out.println("--- VITALS ---");
+                        out.println("  HP:            " + matchedMob.getHpCur() + " / " + matchedMob.getHpMax());
+                        out.println("  MP:            " + matchedMob.getMpCur() + " / " + matchedMob.getMpMax());
+                        out.println("  MV:            " + matchedMob.getMvCur() + " / " + matchedMob.getMvMax());
+                        out.println();
+                        
+                        // Ability scores
+                        out.println("--- ABILITIES ---");
+                        out.println("  STR: " + String.format("%2d", matchedMob.getStr()) + 
+                                   " (" + (matchedMob.getStr() >= 10 ? "+" : "") + ((matchedMob.getStr() - 10) / 2) + ")" +
+                                   "   DEX: " + String.format("%2d", matchedMob.getDex()) + 
+                                   " (" + (matchedMob.getDex() >= 10 ? "+" : "") + ((matchedMob.getDex() - 10) / 2) + ")" +
+                                   "   CON: " + String.format("%2d", matchedMob.getCon()) + 
+                                   " (" + (matchedMob.getCon() >= 10 ? "+" : "") + ((matchedMob.getCon() - 10) / 2) + ")");
+                        out.println("  INT: " + String.format("%2d", matchedMob.getIntel()) + 
+                                   " (" + (matchedMob.getIntel() >= 10 ? "+" : "") + ((matchedMob.getIntel() - 10) / 2) + ")" +
+                                   "   WIS: " + String.format("%2d", matchedMob.getWis()) + 
+                                   " (" + (matchedMob.getWis() >= 10 ? "+" : "") + ((matchedMob.getWis() - 10) / 2) + ")" +
+                                   "   CHA: " + String.format("%2d", matchedMob.getCha()) + 
+                                   " (" + (matchedMob.getCha() >= 10 ? "+" : "") + ((matchedMob.getCha() - 10) / 2) + ")");
+                        out.println();
+                        
+                        // Defenses
+                        out.println("--- DEFENSES ---");
+                        out.println("  Armor:         " + matchedMob.getArmor());
+                        out.println("  Fortitude:     " + matchedMob.getFortitude());
+                        out.println("  Reflex:        " + matchedMob.getReflex());
+                        out.println("  Will:          " + matchedMob.getWill());
+                        out.println();
+                        
+                        // Combat stats
+                        out.println("--- COMBAT ---");
+                        out.println("  Attack Bonus:  " + (matchedMob.getAttackBonus() >= 0 ? "+" : "") + matchedMob.getAttackBonus());
+                        out.println("  Base Damage:   " + matchedMob.getBaseDamage());
+                        out.println("  Damage Bonus:  " + (matchedMob.getDamageBonus() >= 0 ? "+" : "") + matchedMob.getDamageBonus());
+                        int strMod = (matchedMob.getStr() - 10) / 2;
+                        out.println("  Damage Roll:   1d" + matchedMob.getBaseDamage() + " + " + matchedMob.getDamageBonus() + " + " + strMod + " (STR)");
+                        out.println("  Autoflee HP%:  " + matchedMob.getAutoflee() + "%");
+                        out.println();
+                        
+                        // Behaviors
+                        out.println("--- BEHAVIORS ---");
+                        if (matchedMob.getBehaviors() != null && !matchedMob.getBehaviors().isEmpty()) {
+                            StringBuilder behaviorList = new StringBuilder();
+                            for (MobileBehavior b : matchedMob.getBehaviors()) {
+                                if (behaviorList.length() > 0) behaviorList.append(", ");
+                                behaviorList.append(b.name());
+                            }
+                            out.println("  " + behaviorList);
+                        } else {
+                            out.println("  (none)");
+                        }
+                        out.println();
+                        
+                        // Combat state
+                        out.println("--- STATE ---");
+                        out.println("  Dead:          " + (matchedMob.isDead() ? "Yes" : "No"));
+                        out.println("  Has Target:    " + (matchedMob.hasTarget() ? "Yes" : "No"));
+                        if (matchedMob.getTargetCharacterId() != null) {
+                            out.println("  Target (PC):   Character ID " + matchedMob.getTargetCharacterId());
+                        }
+                        if (matchedMob.getTargetMobileId() != null) {
+                            out.println("  Target (Mob):  Mobile ID " + matchedMob.getTargetMobileId());
+                        }
+                        out.println();
+                        
+                        // Rewards (from template)
+                        if (mobTmpl != null) {
+                            out.println("--- REWARDS ---");
+                            out.println("  XP Value:      " + matchedMob.getExperienceValue());
+                            out.println("  Gold Range:    " + mobTmpl.getGoldMin() + " - " + mobTmpl.getGoldMax());
+                            out.println("  Respawn Time:  " + mobTmpl.getRespawnSeconds() + " seconds");
+                            if (mobTmpl.getAggroRange() > 0) {
+                                out.println("  Aggro Range:   " + mobTmpl.getAggroRange() + " rooms");
+                            }
+                            out.println();
+                        }
+                        
+                        // Spawn info
+                        out.println("--- SPAWN INFO ---");
+                        out.println("  Origin UUID:   " + (matchedMob.getOriginUuid() != null ? matchedMob.getOriginUuid() : "-"));
+                        out.println("  Spawned At:    " + (matchedMob.getSpawnedAt() > 0 ? new java.util.Date(matchedMob.getSpawnedAt()).toString() : "-"));
+                        if (matchedMob.isDead() && matchedMob.getDiedAt() > 0) {
+                            out.println("  Died At:       " + new java.util.Date(matchedMob.getDiedAt()).toString());
+                        }
+                        out.println();
+                        
+                        out.println("=========================");
+                        out.println();
+                        break;
+                    }
                     case "goto": {
                         // GM-only: GOTO <room_id> or GOTO <player_name>
                         // Teleport directly to a room or to another player
@@ -2118,7 +2565,9 @@ public class ClientHandler implements Runnable {
                         
                         // Announce magical departure from old room (null direction = teleport)
                         Integer oldRoom = rec.currentRoom;
-                        roomAnnounce(oldRoom, makeDepartureMessage(name, null), this.characterId, true);
+                        if (!this.gmInvisible) {
+                            roomAnnounce(oldRoom, makeDepartureMessage(name, null), this.characterId, true);
+                        }
                         
                         // Teleport the character
                         dao.updateCharacterRoom(name, gotoRoomId);
@@ -2126,7 +2575,9 @@ public class ClientHandler implements Runnable {
                         rec = dao.findByName(name);
                         
                         // Announce magical arrival in new room (null direction = teleport)
-                        roomAnnounce(gotoRoomId, makeArrivalMessage(name, null), this.characterId, true);
+                        if (!this.gmInvisible) {
+                            roomAnnounce(gotoRoomId, makeArrivalMessage(name, null), this.characterId, true);
+                        }
                         
                         out.println();
                         out.println("You vanish and reappear in " + gotoRoom.getName() + ".");
@@ -2377,7 +2828,9 @@ public class ClientHandler implements Runnable {
                         if (!fleeSucceeded) {
                             // Failed to flee
                             out.println("You try to flee but your opponents block your escape!");
-                            roomAnnounce(currentRoomId, name + " tries to flee but fails!", this.characterId, true);
+                            if (!this.gmInvisible) {
+                                roomAnnounce(currentRoomId, name + " tries to flee but fails!", this.characterId, true);
+                            }
                             break;
                         }
                         
@@ -2392,7 +2845,9 @@ public class ClientHandler implements Runnable {
                             // Insufficient MV - fall prone instead of escaping
                             userCombatant.setProne();
                             out.println("You break free but stumble and fall prone from exhaustion!");
-                            roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                            if (!this.gmInvisible) {
+                                roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                            }
                             break;
                         }
                         
@@ -2401,7 +2856,9 @@ public class ClientHandler implements Runnable {
                             // Shouldn't happen, but handle it
                             userCombatant.setProne();
                             out.println("You break free but stumble and fall prone from exhaustion!");
-                            roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                            if (!this.gmInvisible) {
+                                roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                            }
                             break;
                         }
                         
@@ -2410,7 +2867,9 @@ public class ClientHandler implements Runnable {
                         
                         // Announce departure
                         out.println("You flee " + fleeDirection + "!");
-                        roomAnnounce(currentRoomId, name + " flees " + fleeDirection + "!", this.characterId, true);
+                        if (!this.gmInvisible) {
+                            roomAnnounce(currentRoomId, name + " flees " + fleeDirection + "!", this.characterId, true);
+                        }
                         
                         // Move to new room
                         moved = dao.updateCharacterRoom(name, destRoomId);
@@ -2425,12 +2884,14 @@ public class ClientHandler implements Runnable {
                         newRoom = dao.getRoomById(destRoomId);
                         
                         // Announce arrival
-                        roomAnnounce(destRoomId, makeArrivalMessage(name, fleeDirection), this.characterId, true);
-                        
+                        if (!this.gmInvisible) {
+                            roomAnnounce(destRoomId, makeArrivalMessage(name, fleeDirection), this.characterId, true);
+                        }
+
                         if (newRoom != null) {
                             showRoom(newRoom, destRoomId);
                         }
-                        
+
                         // Combat will check shouldEnd() on next tick and end if no opponents remain
                         break;
                     }
@@ -3249,6 +3710,9 @@ public class ClientHandler implements Runnable {
                             classDao.loadClassesFromYamlResource("/data/classes.yaml");
                         } catch (Exception ignored) {}
                         
+                        // Check if I'm a GM (for seeing GM-invisible players)
+                        boolean iAmGm = dao.isCharacterFlagTrueByName(name, "is_gm");
+                        
                         int count = 0;
                         for (ClientHandler session : sessions) {
                             String pName = session.playerName;
@@ -3260,7 +3724,12 @@ public class ClientHandler implements Runnable {
                             
                             Integer pCharId = dao.getCharacterIdByName(pName);
                             
-                            // Check invisibility - skip if we can't see them (unless it's ourselves)
+                            // Check GM invisibility - only other GMs can see GM-invisible players
+                            if (session.gmInvisible && session != this && !iAmGm) {
+                                continue; // Can't see GM-invisible players in who list
+                            }
+                            
+                            // Check normal invisibility - skip if we can't see them (unless it's ourselves)
                             boolean isInvis = com.example.tassmud.effect.EffectRegistry.isInvisible(pCharId);
                             boolean canSee = session == this || com.example.tassmud.effect.EffectRegistry.canSee(this.characterId, pCharId);
                             if (isInvis && !canSee) {
@@ -3276,8 +3745,13 @@ public class ClientHandler implements Runnable {
                             String desc = pRec.description != null && !pRec.description.isEmpty() 
                                 ? pRec.description : "";
                             
-                            // Add (INVIS) tag if invisible but we can see them
-                            String invisTag = (isInvis && canSee && session != this) ? " (INVIS)" : "";
+                            // Add invisibility tag if invisible but we can see them
+                            String invisTag = "";
+                            if (session.gmInvisible && session != this) {
+                                invisTag = " (GM-INVIS)";
+                            } else if (isInvis && canSee && session != this) {
+                                invisTag = " (INVIS)";
+                            }
                             
                             // Format: [Lv ##] ClassName     PlayerName - Description
                             out.println(String.format("  [Lv %2d] %-12s  %-15s%s %s",
@@ -3344,6 +3818,35 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
+                    case "gminvis": {
+                        // GM-only: toggle perfect invisibility
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
+                            out.println("You do not have permission to use gminvis."); 
+                            break; 
+                        }
+                        gmInvisible = !gmInvisible;
+                        if (gmInvisible) {
+                            out.println("You fade into the shadows, becoming invisible to mortals.");
+                            out.println("GM Invisibility is now ON. Only other GMs can see you.");
+                            out.println("You will not appear in the who list, room descriptions, or be visible to mobs.");
+                            // Notify other GMs
+                            for (ClientHandler s : sessions) {
+                                if (s != this && s.playerName != null && dao.isCharacterFlagTrueByName(s.playerName, "is_gm")) {
+                                    s.sendRaw("[GM] " + this.playerName + " has gone GM-invisible.");
+                                }
+                            }
+                        } else {
+                            out.println("You step out of the shadows, becoming visible once more.");
+                            out.println("GM Invisibility is now OFF.");
+                            // Notify other GMs
+                            for (ClientHandler s : sessions) {
+                                if (s != this && s.playerName != null && dao.isCharacterFlagTrueByName(s.playerName, "is_gm")) {
+                                    s.sendRaw("[GM] " + this.playerName + " is no longer GM-invisible.");
+                                }
+                            }
+                        }
+                        break;
+                    }
                     case "dbinfo": {
                         // GM-only: prints table schema information
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use dbinfo."); break; }
@@ -3365,6 +3868,44 @@ public class ClientHandler implements Runnable {
                             } else {
                                 for (String c : cols) out.println("  " + c);
                             }
+                        }
+                        break;
+                    }
+                    case "genmap": {
+                        // GM-only: generate ASCII map for an area
+                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
+                            out.println("You do not have permission to use genmap."); 
+                            break; 
+                        }
+                        String mapArgs = cmd.getArgs();
+                        int targetAreaId;
+                        if (mapArgs == null || mapArgs.trim().isEmpty()) {
+                            // Use current room's area
+                            if (rec == null || rec.currentRoom == null) {
+                                out.println("Usage: genmap [areaId]");
+                                break;
+                            }
+                            com.example.tassmud.model.Room currentRoom = dao.getRoomById(rec.currentRoom);
+                            if (currentRoom == null) {
+                                out.println("Could not determine your current area.");
+                                break;
+                            }
+                            targetAreaId = currentRoom.getAreaId();
+                        } else {
+                            try {
+                                targetAreaId = Integer.parseInt(mapArgs.trim());
+                            } catch (NumberFormatException e) {
+                                out.println("Invalid area ID: " + mapArgs);
+                                break;
+                            }
+                        }
+                        
+                        // Generate the map
+                        String mapResult = com.example.tassmud.tools.MapGenerator.generateMapForAreaInGame(targetAreaId);
+                        if (mapResult != null) {
+                            out.println(mapResult);
+                        } else {
+                            out.println("Failed to generate map for area " + targetAreaId);
                         }
                         break;
                     }
@@ -3412,27 +3953,28 @@ public class ClientHandler implements Runnable {
                         break;
                     }
                     case "spawn": {
-                        // GM-only: SPAWN ITEM <template_id> [room_id]   or   SPAWN MOB <mob_id> [room_id]   or   SPAWN GOLD <amount>
+                        // GM-only: SPAWN ITEM <template_id> [level]   or   SPAWN MOB <mob_id> [room_id]   or   SPAWN GOLD <amount>
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
                             out.println("You do not have permission to use spawn.");
                             break;
                         }
                         String spawnArgs = cmd.getArgs();
                         if (spawnArgs == null || spawnArgs.trim().isEmpty()) {
-                            out.println("Usage: SPAWN ITEM <template_id> [room_id]");
+                            out.println("Usage: SPAWN ITEM <template_id> [level]  - Spawn item with random stats scaled to level");
                             out.println("       SPAWN MOB <template_id> [room_id]");
                             out.println("       SPAWN GOLD <amount>");
                             break;
                         }
                         String[] sp = spawnArgs.trim().split("\\s+");
                         if (sp.length < 2) {
-                            out.println("Usage: SPAWN ITEM <template_id> [room_id]");
+                            out.println("Usage: SPAWN ITEM <template_id> [level]  - Spawn item with random stats scaled to level");
                             out.println("       SPAWN MOB <template_id> [room_id]");
                             out.println("       SPAWN GOLD <amount>");
                             break;
                         }
                         String spawnType = sp[0].toUpperCase();
                         if (spawnType.equals("ITEM")) {
+                            // SPAWN ITEM <template_id> [level] - Spawn item with loot-generated stats
                             int templateId;
                             try {
                                 templateId = Integer.parseInt(sp[1]);
@@ -3440,34 +3982,50 @@ public class ClientHandler implements Runnable {
                                 out.println("Invalid template ID: " + sp[1]);
                                 break;
                             }
+                            
                             Integer targetRoomId = rec != null ? rec.currentRoom : null;
-                            if (sp.length >= 3) {
-                                try {
-                                    targetRoomId = Integer.parseInt(sp[2]);
-                                } catch (NumberFormatException e) {
-                                    out.println("Invalid room ID: " + sp[2]);
-                                    break;
-                                }
-                            }
                             if (targetRoomId == null) {
-                                out.println("No room specified and you are not in a room.");
+                                out.println("You must be in a room to spawn items.");
                                 break;
                             }
+                            
                             // Validate template exists
                             ItemDAO itemDao = new ItemDAO();
-                            if (!itemDao.templateExists(templateId)) {
+                            ItemTemplate tmpl = itemDao.getTemplateById(templateId);
+                            if (tmpl == null) {
                                 out.println("No item template found with ID " + templateId);
                                 break;
                             }
-                            // Create the instance in the target room
-                            long instanceId = itemDao.createInstance(templateId, targetRoomId, null);
+                            
+                            // Determine level: use optional arg, otherwise use character's class level
+                            CharacterClassDAO spawnClassDao = new CharacterClassDAO();
+                            int spawnLevel = (rec != null && rec.currentClassId != null) 
+                                ? spawnClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
+                            if (sp.length >= 3) {
+                                try {
+                                    spawnLevel = Integer.parseInt(sp[2]);
+                                    if (spawnLevel < 1) spawnLevel = 1;
+                                    if (spawnLevel > 55) spawnLevel = 55;
+                                } catch (NumberFormatException e) {
+                                    out.println("Invalid level: " + sp[2] + ". Using your level (" + spawnLevel + ").");
+                                }
+                            }
+                            
+                            // Generate item with level-scaled stats using LootGenerator
+                            long instanceId = LootGenerator.generateItemFromTemplateInRoom(templateId, spawnLevel, targetRoomId, itemDao);
                             if (instanceId < 0) {
                                 out.println("Failed to create item instance.");
                                 break;
                             }
-                            ItemTemplate tmpl = itemDao.getTemplateById(templateId);
-                            String itemName = tmpl != null && tmpl.name != null ? tmpl.name : "item #" + templateId;
-                            out.println("Spawned " + itemName + " (instance #" + instanceId + ") in room " + targetRoomId + ".");
+                            
+                            String itemName = tmpl.name != null ? tmpl.name : "item #" + templateId;
+                            boolean isWeapon = tmpl.hasType("weapon");
+                            boolean isArmor = tmpl.hasType("armor") || tmpl.hasType("shield");
+                            String typeNote = isWeapon ? "weapon" : (isArmor ? "armor" : "item");
+                            out.println("Spawned " + itemName + " (instance #" + instanceId + ", level " + spawnLevel + " " + typeNote + ") in current room.");
+                            if (isWeapon || isArmor) {
+                                out.println("Stats scaled to level " + spawnLevel + ". Use ISTAT to inspect.");
+                            }
                         } else if (spawnType.equals("MOB")) {
                             int mobTemplateId;
                             try {
@@ -3934,11 +4492,11 @@ public class ClientHandler implements Runnable {
                             // Handle "get gold <container>" specifically
                             if (itemSearchPart.equalsIgnoreCase("gold")) {
                                 if (containerGold <= 0) {
-                                    out.println(matchedContainer.template.name + " contains no gold.");
+                                    out.println(getItemDisplayName(matchedContainer) + " contains no gold.");
                                 } else {
                                     long goldTaken = itemDao.takeGoldContents(matchedContainer.instance.instanceId);
                                     dao.addGold(charId, goldTaken);
-                                    out.println("You get " + goldTaken + " gold from " + matchedContainer.template.name + ".");
+                                    out.println("You get " + goldTaken + " gold from " + getItemDisplayName(matchedContainer) + ".");
                                 }
                                 break;
                             }
@@ -3946,7 +4504,7 @@ public class ClientHandler implements Runnable {
                             if (itemSearchPart.equalsIgnoreCase("all")) {
                                 // Get all from container (including gold)
                                 if (containerContents.isEmpty() && containerGold <= 0) {
-                                    out.println(matchedContainer.template.name + " is empty.");
+                                    out.println(getItemDisplayName(matchedContainer) + " is empty.");
                                     break;
                                 }
                                 int count = 0;
@@ -3954,14 +4512,14 @@ public class ClientHandler implements Runnable {
                                 if (containerGold > 0) {
                                     long goldTaken = itemDao.takeGoldContents(matchedContainer.instance.instanceId);
                                     dao.addGold(charId, goldTaken);
-                                    out.println("You get " + goldTaken + " gold from " + matchedContainer.template.name + ".");
+                                    out.println("You get " + goldTaken + " gold from " + getItemDisplayName(matchedContainer) + ".");
                                 }
                                 for (ItemDAO.RoomItem ci : containerContents) {
                                     itemDao.moveInstanceToCharacter(ci.instance.instanceId, charId);
-                                    out.println("You get " + (ci.template.name != null ? ci.template.name : "an item") + " from " + matchedContainer.template.name + ".");
+                                    out.println("You get " + getItemDisplayName(ci) + " from " + getItemDisplayName(matchedContainer) + ".");
                                     count++;
                                 }
-                                if (count > 1) out.println("Got " + count + " items from " + matchedContainer.template.name + ".");
+                                if (count > 1) out.println("Got " + count + " items from " + getItemDisplayName(matchedContainer) + ".");
                                 break;
                             } else {
                                 // Get specific item from container
@@ -4025,12 +4583,12 @@ public class ClientHandler implements Runnable {
                                 }
                                 
                                 if (matchedItem == null) {
-                                    out.println("You don't see '" + itemSearchPart + "' in " + matchedContainer.template.name + ".");
+                                    out.println("You don't see '" + itemSearchPart + "' in " + getItemDisplayName(matchedContainer) + ".");
                                     break;
                                 }
                                 
                                 itemDao.moveInstanceToCharacter(matchedItem.instance.instanceId, charId);
-                                out.println("You get " + (matchedItem.template.name != null ? matchedItem.template.name : "an item") + " from " + matchedContainer.template.name + ".");
+                                out.println("You get " + getItemDisplayName(matchedItem) + " from " + getItemDisplayName(matchedContainer) + ".");
                                 break;
                             }
                         }
@@ -4050,7 +4608,7 @@ public class ClientHandler implements Runnable {
                                     continue;
                                 }
                                 itemDao.moveInstanceToCharacter(ri.instance.instanceId, charId);
-                                out.println("You pick up " + (ri.template.name != null ? ri.template.name : "an item") + ".");
+                                out.println("You pick up " + getItemDisplayName(ri) + ".");
                                 count++;
                             }
                             if (count > 1) out.println("Picked up " + count + " items.");
@@ -4466,6 +5024,138 @@ public class ClientHandler implements Runnable {
                         out.println("You put " + (matchedItem.template.name != null ? matchedItem.template.name : "an item") + " in " + matchedContainer.template.name + ".");
                         break;
                     }
+                    case "sacrifice":
+                    case "sac": {
+                        // SACRIFICE <item> - sacrifice an item on the ground for 1 XP
+                        // Corpses must be empty to be sacrificed
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("You are nowhere.");
+                            break;
+                        }
+                        String sacArgs = cmd.getArgs();
+                        if (sacArgs == null || sacArgs.trim().isEmpty()) {
+                            out.println("Usage: sacrifice <item>");
+                            out.println("Sacrifice an item on the ground to gain 1 experience point.");
+                            out.println("Corpses must be empty (looted) before they can be sacrificed.");
+                            break;
+                        }
+                        
+                        String sacArg = sacArgs.trim().toLowerCase();
+                        ItemDAO itemDao = new ItemDAO();
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get items in the room
+                        java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(rec.currentRoom);
+                        if (roomItems.isEmpty()) {
+                            out.println("There is nothing here to sacrifice.");
+                            break;
+                        }
+                        
+                        // Find matching item
+                        ItemDAO.RoomItem matched = null;
+                        
+                        // Priority 1: Exact name match
+                        for (ItemDAO.RoomItem ri : roomItems) {
+                            String itemName = ri.instance.customName != null ? ri.instance.customName : ri.template.name;
+                            if (itemName != null && itemName.toLowerCase().equals(sacArg)) {
+                                matched = ri;
+                                break;
+                            }
+                        }
+                        
+                        // Priority 2: Name starts with search term
+                        if (matched == null) {
+                            for (ItemDAO.RoomItem ri : roomItems) {
+                                String itemName = ri.instance.customName != null ? ri.instance.customName : ri.template.name;
+                                if (itemName != null && itemName.toLowerCase().startsWith(sacArg)) {
+                                    matched = ri;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        // Priority 3: Name contains search term
+                        if (matched == null) {
+                            for (ItemDAO.RoomItem ri : roomItems) {
+                                String itemName = ri.instance.customName != null ? ri.instance.customName : ri.template.name;
+                                if (itemName != null && itemName.toLowerCase().contains(sacArg)) {
+                                    matched = ri;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        // Priority 4: Keyword match
+                        if (matched == null) {
+                            for (ItemDAO.RoomItem ri : roomItems) {
+                                if (ri.template.keywords != null) {
+                                    for (String kw : ri.template.keywords) {
+                                        if (kw.toLowerCase().startsWith(sacArg)) {
+                                            matched = ri;
+                                            break;
+                                        }
+                                    }
+                                    if (matched != null) break;
+                                }
+                            }
+                        }
+                        
+                        if (matched == null) {
+                            out.println("You don't see '" + sacArgs.trim() + "' here to sacrifice.");
+                            break;
+                        }
+                        
+                        String itemDisplayName = matched.instance.customName != null ? matched.instance.customName : 
+                                                 (matched.template.name != null ? matched.template.name : "an item");
+                        
+                        // Check if it's a corpse - if so, it must be empty
+                        if (matched.template.isContainer()) {
+                            // Check for items inside
+                            java.util.List<ItemDAO.RoomItem> contents = itemDao.getItemsInContainer(matched.instance.instanceId);
+                            if (!contents.isEmpty()) {
+                                out.println(itemDisplayName + " is not empty. You must loot it first before sacrificing.");
+                                break;
+                            }
+                            // Check for gold inside
+                            long gold = itemDao.getGoldContents(matched.instance.instanceId);
+                            if (gold > 0) {
+                                out.println(itemDisplayName + " still contains " + gold + " gold. Loot it first.");
+                                break;
+                            }
+                        }
+                        
+                        // Delete the item
+                        boolean deleted = itemDao.deleteInstance(matched.instance.instanceId);
+                        if (!deleted) {
+                            out.println("Failed to sacrifice " + itemDisplayName + ".");
+                            break;
+                        }
+                        
+                        // Grant 1 XP using CharacterClassDAO
+                        CharacterClassDAO classDao = new CharacterClassDAO();
+                        boolean leveledUp = classDao.addXpToCurrentClass(charId, 1);
+                        
+                        // Announce to room
+                        out.println("You sacrifice " + itemDisplayName + " to the gods.");
+                        out.println("The gods grant you 1 experience point.");
+                        roomAnnounce(rec.currentRoom, name + " sacrifices " + itemDisplayName + " to the gods.");
+                        
+                        // Handle level-up if it occurred
+                        if (leveledUp) {
+                            Integer classId = classDao.getCharacterCurrentClassId(charId);
+                            if (classId != null) {
+                                int newLevel = classDao.getCharacterClassLevel(charId, classId);
+                                out.println("You have reached level " + newLevel + "!");
+                                final int charIdFinal = charId;
+                                classDao.processLevelUp(charId, newLevel, msg -> sendToCharacter(charIdFinal, msg));
+                            }
+                        }
+                        break;
+                    }
                     case "equip":
                     case "wear": {
                         // EQUIP [item_name] - with no args, show current equipment; with args, equip item
@@ -4502,7 +5192,7 @@ public class ClientHandler implements Runnable {
                                     ItemInstance inst = itemDao.getInstance(instanceId);
                                     if (inst != null) {
                                         ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-                                        if (tmpl != null && tmpl.name != null) itemName = tmpl.name;
+                                        itemName = getItemDisplayName(inst, tmpl);
                                     }
                                 }
                                 // Pad slot name to maxLen
@@ -4538,9 +5228,10 @@ public class ClientHandler implements Runnable {
                         ItemDAO.RoomItem matched = null;
                         String searchLower = equipArg.toLowerCase();
 
-                        // Priority 1: Exact name match
+                        // Priority 1: Exact name match (check both customName and template name)
                         for (ItemDAO.RoomItem ri : unequippedItems) {
-                            if (ri.template.name != null && ri.template.name.equalsIgnoreCase(equipArg)) {
+                            String displayName = getItemDisplayName(ri);
+                            if (displayName.equalsIgnoreCase(equipArg)) {
                                 matched = ri;
                                 break;
                             }
@@ -4549,16 +5240,15 @@ public class ClientHandler implements Runnable {
                         // Priority 2: Word match
                         if (matched == null) {
                             for (ItemDAO.RoomItem ri : unequippedItems) {
-                                if (ri.template.name != null) {
-                                    String[] nameWords = ri.template.name.toLowerCase().split("\\s+");
-                                    for (String w : nameWords) {
-                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                                            matched = ri;
-                                            break;
-                                        }
+                                String displayName = getItemDisplayName(ri);
+                                String[] nameWords = displayName.toLowerCase().split("\\s+");
+                                for (String w : nameWords) {
+                                    if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                        matched = ri;
+                                        break;
                                     }
-                                    if (matched != null) break;
                                 }
+                                if (matched != null) break;
                             }
                         }
 
@@ -4580,7 +5270,8 @@ public class ClientHandler implements Runnable {
                         // Priority 4: Name starts with search
                         if (matched == null) {
                             for (ItemDAO.RoomItem ri : unequippedItems) {
-                                if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
+                                String displayName = getItemDisplayName(ri);
+                                if (displayName.toLowerCase().startsWith(searchLower)) {
                                     matched = ri;
                                     break;
                                 }
@@ -4590,7 +5281,8 @@ public class ClientHandler implements Runnable {
                         // Priority 5: Name contains search
                         if (matched == null) {
                             for (ItemDAO.RoomItem ri : unequippedItems) {
-                                if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
+                                String displayName = getItemDisplayName(ri);
+                                if (displayName.toLowerCase().contains(searchLower)) {
                                     matched = ri;
                                     break;
                                 }
@@ -4605,7 +5297,7 @@ public class ClientHandler implements Runnable {
                         // Check if item is equipable (has a slot)
                         EquipmentSlot slot = itemDao.getTemplateEquipmentSlot(matched.template.id);
                         if (slot == null) {
-                            out.println(matched.template.name + " cannot be equipped.");
+                            out.println(getItemDisplayName(matched) + " cannot be equipped.");
                             break;
                         }
 
@@ -4616,7 +5308,7 @@ public class ClientHandler implements Runnable {
                                 String skillKey = armorCat.getSkillKey();
                                 Skill armorSkill = dao.getSkillByKey(skillKey);
                                 if (armorSkill == null || !dao.hasSkill(charId, armorSkill.getId())) {
-                                    out.println("You lack proficiency in " + armorCat.getDisplayName() + " armor to equip " + matched.template.name + ".");
+                                    out.println("You lack proficiency in " + armorCat.getDisplayName() + " armor to equip " + getItemDisplayName(matched) + ".");
                                     break;
                                 }
                             }
@@ -4626,7 +5318,7 @@ public class ClientHandler implements Runnable {
                         if (matched.template.isShield()) {
                             Skill shieldSkill = dao.getSkillByKey("shields");
                             if (shieldSkill == null || !dao.hasSkill(charId, shieldSkill.getId())) {
-                                out.println("You lack proficiency with shields to equip " + matched.template.name + ".");
+                                out.println("You lack proficiency with shields to equip " + getItemDisplayName(matched) + ".");
                                 break;
                             }
                         }
@@ -4645,7 +5337,7 @@ public class ClientHandler implements Runnable {
                                 ItemInstance inst = itemDao.getInstance(mainHandItem);
                                 if (inst != null) {
                                     ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-                                    if (tmpl != null && tmpl.name != null) removedItems.add(tmpl.name);
+                                    removedItems.add(getItemDisplayName(inst, tmpl));
                                 }
                                 dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
                             }
@@ -4655,7 +5347,7 @@ public class ClientHandler implements Runnable {
                                 ItemInstance inst = itemDao.getInstance(offHandItem);
                                 if (inst != null) {
                                     ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-                                    if (tmpl != null && tmpl.name != null) removedItems.add(tmpl.name);
+                                    removedItems.add(getItemDisplayName(inst, tmpl));
                                 }
                                 dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
                             }
@@ -4667,7 +5359,7 @@ public class ClientHandler implements Runnable {
                                     ItemInstance mainInst = itemDao.getInstance(mainHandItem);
                                     if (mainInst != null && itemDao.isTemplateTwoHanded(mainInst.templateId)) {
                                         ItemTemplate mainTmpl = itemDao.getTemplateById(mainInst.templateId);
-                                        if (mainTmpl != null && mainTmpl.name != null) removedItems.add(mainTmpl.name);
+                                        removedItems.add(getItemDisplayName(mainInst, mainTmpl));
                                         dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
                                     }
                                 }
@@ -4689,7 +5381,7 @@ public class ClientHandler implements Runnable {
                                 ItemInstance curInst = itemDao.getInstance(currentInSlot);
                                 if (curInst != null) {
                                     ItemTemplate curTmpl = itemDao.getTemplateById(curInst.templateId);
-                                    if (curTmpl != null && curTmpl.name != null) removedItems.add(curTmpl.name);
+                                    removedItems.add(getItemDisplayName(curInst, curTmpl));
                                 }
                                 dao.setCharacterEquipment(charId, slot.id, null);
                             }
@@ -4698,7 +5390,7 @@ public class ClientHandler implements Runnable {
                         // Equip the new item to main hand
                         boolean equipped = dao.setCharacterEquipment(charId, slot.id, matched.instance.instanceId);
                         if (!equipped) {
-                            out.println("Failed to equip " + matched.template.name + ".");
+                            out.println("Failed to equip " + getItemDisplayName(matched) + ".");
                             break;
                         }
                         
@@ -4717,9 +5409,9 @@ public class ClientHandler implements Runnable {
                         String slotDisplay = isTwoHanded ? "Both Hands" : slot.displayName;
                         if (!removedItems.isEmpty()) {
                             String removedStr = String.join(" and ", removedItems);
-                            out.println("You remove " + removedStr + " and equip " + matched.template.name + " (" + slotDisplay + ").");
+                            out.println("You remove " + removedStr + " and equip " + getItemDisplayName(matched) + " (" + slotDisplay + ").");
                         } else {
-                            out.println("You equip " + matched.template.name + " (" + slotDisplay + ").");
+                            out.println("You equip " + getItemDisplayName(matched) + " (" + slotDisplay + ").");
                         }
                         
                         // Show new totals if any bonuses changed
@@ -4815,9 +5507,10 @@ public class ClientHandler implements Runnable {
                         String searchLower = removeArg.toLowerCase();
                         Integer matchedSlotId = null;
                         Long matchedInstanceId = null;
+                        ItemInstance matchedInstance = null;
                         ItemTemplate matchedTemplate = null;
 
-                        // Build list of equipped items with their templates
+                        // Build list of equipped items with their instances and templates
                         java.util.List<Object[]> equippedItems = new java.util.ArrayList<>();
                         for (java.util.Map.Entry<Integer, Long> entry : equippedMap.entrySet()) {
                             if (entry.getValue() == null) continue;
@@ -4825,48 +5518,54 @@ public class ClientHandler implements Runnable {
                             if (inst == null) continue;
                             ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
                             if (tmpl == null) continue;
-                            equippedItems.add(new Object[] { entry.getKey(), entry.getValue(), tmpl });
+                            equippedItems.add(new Object[] { entry.getKey(), entry.getValue(), inst, tmpl });
                         }
 
-                        // Priority 1: Exact name match
+                        // Priority 1: Exact display name match
                         for (Object[] arr : equippedItems) {
-                            ItemTemplate tmpl = (ItemTemplate) arr[2];
-                            if (tmpl.name != null && tmpl.name.equalsIgnoreCase(removeArg)) {
+                            ItemInstance inst = (ItemInstance) arr[2];
+                            ItemTemplate tmpl = (ItemTemplate) arr[3];
+                            String displayName = getItemDisplayName(inst, tmpl);
+                            if (displayName.equalsIgnoreCase(removeArg)) {
                                 matchedSlotId = (Integer) arr[0];
                                 matchedInstanceId = (Long) arr[1];
+                                matchedInstance = inst;
                                 matchedTemplate = tmpl;
                                 break;
                             }
                         }
 
-                        // Priority 2: Word match
+                        // Priority 2: Word match on display name
                         if (matchedSlotId == null) {
                             for (Object[] arr : equippedItems) {
-                                ItemTemplate tmpl = (ItemTemplate) arr[2];
-                                if (tmpl.name != null) {
-                                    String[] words = tmpl.name.toLowerCase().split("\\s+");
-                                    for (String w : words) {
-                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                                            matchedSlotId = (Integer) arr[0];
-                                            matchedInstanceId = (Long) arr[1];
-                                            matchedTemplate = tmpl;
-                                            break;
-                                        }
+                                ItemInstance inst = (ItemInstance) arr[2];
+                                ItemTemplate tmpl = (ItemTemplate) arr[3];
+                                String displayName = getItemDisplayName(inst, tmpl);
+                                String[] words = displayName.toLowerCase().split("\\s+");
+                                for (String w : words) {
+                                    if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                        matchedSlotId = (Integer) arr[0];
+                                        matchedInstanceId = (Long) arr[1];
+                                        matchedInstance = inst;
+                                        matchedTemplate = tmpl;
+                                        break;
                                     }
-                                    if (matchedSlotId != null) break;
                                 }
+                                if (matchedSlotId != null) break;
                             }
                         }
 
                         // Priority 3: Keyword match
                         if (matchedSlotId == null) {
                             for (Object[] arr : equippedItems) {
-                                ItemTemplate tmpl = (ItemTemplate) arr[2];
+                                ItemInstance inst = (ItemInstance) arr[2];
+                                ItemTemplate tmpl = (ItemTemplate) arr[3];
                                 if (tmpl.keywords != null) {
                                     for (String kw : tmpl.keywords) {
                                         if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
                                             matchedSlotId = (Integer) arr[0];
                                             matchedInstanceId = (Long) arr[1];
+                                            matchedInstance = inst;
                                             matchedTemplate = tmpl;
                                             break;
                                         }
@@ -4876,26 +5575,32 @@ public class ClientHandler implements Runnable {
                             }
                         }
 
-                        // Priority 4: Name starts with
+                        // Priority 4: Display name starts with
                         if (matchedSlotId == null) {
                             for (Object[] arr : equippedItems) {
-                                ItemTemplate tmpl = (ItemTemplate) arr[2];
-                                if (tmpl.name != null && tmpl.name.toLowerCase().startsWith(searchLower)) {
+                                ItemInstance inst = (ItemInstance) arr[2];
+                                ItemTemplate tmpl = (ItemTemplate) arr[3];
+                                String displayName = getItemDisplayName(inst, tmpl);
+                                if (displayName.toLowerCase().startsWith(searchLower)) {
                                     matchedSlotId = (Integer) arr[0];
                                     matchedInstanceId = (Long) arr[1];
+                                    matchedInstance = inst;
                                     matchedTemplate = tmpl;
                                     break;
                                 }
                             }
                         }
 
-                        // Priority 5: Name contains
+                        // Priority 5: Display name contains
                         if (matchedSlotId == null) {
                             for (Object[] arr : equippedItems) {
-                                ItemTemplate tmpl = (ItemTemplate) arr[2];
-                                if (tmpl.name != null && tmpl.name.toLowerCase().contains(searchLower)) {
+                                ItemInstance inst = (ItemInstance) arr[2];
+                                ItemTemplate tmpl = (ItemTemplate) arr[3];
+                                String displayName = getItemDisplayName(inst, tmpl);
+                                if (displayName.toLowerCase().contains(searchLower)) {
                                     matchedSlotId = (Integer) arr[0];
                                     matchedInstanceId = (Long) arr[1];
+                                    matchedInstance = inst;
                                     matchedTemplate = tmpl;
                                     break;
                                 }
@@ -4922,7 +5627,7 @@ public class ClientHandler implements Runnable {
                         dao.recalculateEquipmentBonuses(charId, itemDao);
                         rec = dao.findByName(name);
 
-                        out.println("You remove " + (matchedTemplate.name != null ? matchedTemplate.name : "an item") + " (" + slotName + ").");
+                        out.println("You remove " + getItemDisplayName(matchedInstance, matchedTemplate) + " (" + slotName + ").");
                         if (matchedTemplate.armorSaveBonus != 0 || matchedTemplate.fortSaveBonus != 0 || 
                             matchedTemplate.refSaveBonus != 0 || matchedTemplate.willSaveBonus != 0) {
                             out.println("  Saves: Armor " + rec.getArmorTotal() + ", Fort " + rec.getFortitudeTotal() + ", Ref " + rec.getReflexTotal() + ", Will " + rec.getWillTotal());
@@ -5267,8 +5972,27 @@ public class ClientHandler implements Runnable {
                         for (ItemDAO.RoomItem ri : inventoryItems) {
                             boolean match = false;
                             
-                            // Check name
-                            if (ri.template.name != null) {
+                            // Check customName first (for generated/renamed items)
+                            if (ri.instance.customName != null && !ri.instance.customName.isEmpty()) {
+                                String customLower = ri.instance.customName.toLowerCase();
+                                if (customLower.equalsIgnoreCase(itemSearchStr) ||
+                                    customLower.startsWith(searchLower) ||
+                                    customLower.contains(searchLower)) {
+                                    match = true;
+                                } else {
+                                    // Check customName words
+                                    String[] customWords = customLower.split("\\s+");
+                                    for (String w : customWords) {
+                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                            match = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Check template name
+                            if (!match && ri.template.name != null) {
                                 String nameLower = ri.template.name.toLowerCase();
                                 if (nameLower.equalsIgnoreCase(itemSearchStr) ||
                                     nameLower.startsWith(searchLower) ||
@@ -5311,8 +6035,8 @@ public class ClientHandler implements Runnable {
                         java.util.List<ItemDAO.RoomItem> toSell = matchingItems.subList(0, actualQuantity);
                         
                         // Calculate sell value (half of item value, minimum 1)
-                        ItemTemplate soldTemplate = toSell.get(0).template;
-                        int sellPrice = Math.max(1, soldTemplate.value / 2);
+                        ItemDAO.RoomItem soldItem = toSell.get(0);
+                        int sellPrice = Math.max(1, soldItem.template.value / 2);
                         long totalGold = (long) sellPrice * actualQuantity;
                         
                         // Delete items and add gold
@@ -5321,7 +6045,7 @@ public class ClientHandler implements Runnable {
                         }
                         dao.addGold(charId, totalGold);
                         
-                        String itemName = soldTemplate.name != null ? soldTemplate.name : "an item";
+                        String itemName = getItemDisplayName(soldItem);
                         if (actualQuantity == 1) {
                             out.println("You sell " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
                         } else {
@@ -5364,9 +6088,8 @@ public class ClientHandler implements Runnable {
                             if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
                             // Skip items inside containers (container_instance_id is set)
                             if (ri.instance.containerInstanceId != null) continue;
-                            // Add name
-                            String itemName = ri.template.name != null ? ri.template.name : "(unnamed item)";
-                            itemNames.add(itemName);
+                            // Add name (prefer customName for generated items)
+                            itemNames.add(getItemDisplayName(ri));
                         }
 
                         // Get gold amount
@@ -5508,12 +6231,18 @@ public class ClientHandler implements Runnable {
                             ItemInstance mainInst = itemDao.getInstance(mainHandId);
                             if (mainInst != null) {
                                 ItemTemplate mainTmpl = itemDao.getTemplateById(mainInst.templateId);
-                                if (mainTmpl != null && mainTmpl.baseDie > 0) {
-                                    String dmgStr = formatDamage(mainTmpl.multiplier, mainTmpl.baseDie, 
-                                        getAbilityBonus(mainTmpl.abilityScore, mainTmpl.abilityMultiplier, rec));
+                                // Use effective stats (instance overrides if present, otherwise template)
+                                int effectiveBaseDie = mainInst.getEffectiveBaseDie(mainTmpl);
+                                int effectiveMultiplier = mainInst.getEffectiveMultiplier(mainTmpl);
+                                double effectiveAbilityMult = mainInst.getEffectiveAbilityMultiplier(mainTmpl);
+                                String abilityScore = mainTmpl != null ? mainTmpl.abilityScore : "STR";
+                                if (effectiveBaseDie > 0) {
+                                    String dmgStr = formatDamage(effectiveMultiplier, effectiveBaseDie, 
+                                        getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
                                     String handLabel = isTwoHanded ? "Both Hands:" : "Main Hand: ";
+                                    String weaponName = getItemDisplayName(mainInst, mainTmpl);
                                     sheet.append(String.format("  %s %-20s  Damage: %s\n", 
-                                        handLabel, truncate(mainTmpl.name, 20), dmgStr));
+                                        handLabel, truncate(weaponName, 20), dmgStr));
                                     hasWeapon = true;
                                 }
                             }
@@ -5522,19 +6251,24 @@ public class ClientHandler implements Runnable {
                             ItemInstance offInst = itemDao.getInstance(offHandId);
                             if (offInst != null) {
                                 ItemTemplate offTmpl = itemDao.getTemplateById(offInst.templateId);
-                                if (offTmpl != null) {
-                                    if (offTmpl.baseDie > 0) {
-                                        String dmgStr = formatDamage(offTmpl.multiplier, offTmpl.baseDie,
-                                            getAbilityBonus(offTmpl.abilityScore, offTmpl.abilityMultiplier, rec));
-                                        sheet.append(String.format("  Off Hand:  %-20s  Damage: %s\n",
-                                            truncate(offTmpl.name, 20), dmgStr));
-                                    } else {
-                                        // Shield or non-weapon (show armor bonus)
-                                        sheet.append(String.format("  Off Hand:  %-20s  (Shield)\n",
-                                            truncate(offTmpl.name, 20)));
-                                    }
-                                    hasWeapon = true;
+                                // Use effective stats (instance overrides if present, otherwise template)
+                                int effectiveBaseDie = offInst.getEffectiveBaseDie(offTmpl);
+                                int effectiveMultiplier = offInst.getEffectiveMultiplier(offTmpl);
+                                double effectiveAbilityMult = offInst.getEffectiveAbilityMultiplier(offTmpl);
+                                String abilityScore = offTmpl != null ? offTmpl.abilityScore : "STR";
+                                if (effectiveBaseDie > 0) {
+                                    String dmgStr = formatDamage(effectiveMultiplier, effectiveBaseDie,
+                                        getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
+                                    String weaponName = getItemDisplayName(offInst, offTmpl);
+                                    sheet.append(String.format("  Off Hand:  %-20s  Damage: %s\n",
+                                        truncate(weaponName, 20), dmgStr));
+                                } else {
+                                    // Shield or non-weapon (show armor bonus)
+                                    String itemName = getItemDisplayName(offInst, offTmpl);
+                                    sheet.append(String.format("  Off Hand:  %-20s  (Shield)\n",
+                                        truncate(itemName, 20)));
                                 }
+                                hasWeapon = true;
                             }
                         }
                         if (!hasWeapon) {
@@ -5618,6 +6352,8 @@ public class ClientHandler implements Runnable {
                         } else {
                             sheet.append("  Autoflee: disabled\n");
                         }
+                        sheet.append(String.format("  Autoloot: %s    Autogold: %s    Autosac: %s\n",
+                            rec.autoloot ? "ON" : "OFF", rec.autogold ? "ON" : "OFF", rec.autosac ? "ON" : "OFF"));
                         
                         // ═══ ACTIVE EFFECTS ═══
                         sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
@@ -5763,6 +6499,99 @@ public class ClientHandler implements Runnable {
                         out.println(String.format("  Total: %d skill%s known", skillDisplays.size(), skillDisplays.size() == 1 ? "" : "s"));
                         out.println("===================================================================");
                         out.println();
+                        break;
+                    }
+                    case "consider":
+                    case "con": {
+                        // CONSIDER <target> - evaluate how dangerous a target would be
+                        if (rec == null) {
+                            out.println("You must be logged in to consider targets.");
+                            break;
+                        }
+                        String conArgs = cmd.getArgs();
+                        if (conArgs == null || conArgs.trim().isEmpty()) {
+                            out.println("Consider whom?");
+                            break;
+                        }
+                        
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get player's level
+                        CharacterClassDAO classDao = new CharacterClassDAO();
+                        Integer currentClassId = rec.currentClassId;
+                        int playerLevel = currentClassId != null ? classDao.getCharacterClassLevel(charId, currentClassId) : 1;
+                        
+                        // Search for target mob in the room
+                        String targetName = conArgs.trim().toLowerCase();
+                        MobileDAO mobileDao = new MobileDAO();
+                        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                        
+                        Mobile targetMob = null;
+                        for (Mobile mob : mobsInRoom) {
+                            String mobNameLower = mob.getName().toLowerCase();
+                            if (mobNameLower.equals(targetName) || 
+                                mobNameLower.startsWith(targetName) || 
+                                mobNameLower.contains(targetName)) {
+                                targetMob = mob;
+                                break;
+                            }
+                        }
+                        
+                        if (targetMob == null) {
+                            out.println("You don't see '" + conArgs.trim() + "' here.");
+                            break;
+                        }
+                        
+                        // Calculate level difference: player - target
+                        int targetLevel = targetMob.getLevel();
+                        int levelDiff = playerLevel - targetLevel;
+                        
+                        // Clamp to -5 to +5 range
+                        levelDiff = Math.max(-5, Math.min(5, levelDiff));
+                        
+                        String opponentName = targetMob.getName();
+                        String message;
+                        switch (levelDiff) {
+                            case 5:
+                                message = "Don't bother, " + opponentName + " is not worth your time.";
+                                break;
+                            case 4:
+                                message = "You would wipe the floor with " + opponentName + ".";
+                                break;
+                            case 3:
+                                message = "It should be an easy fight.";
+                                break;
+                            case 2:
+                                message = opponentName + " wouldn't pose much trouble.";
+                                break;
+                            case 1:
+                                message = "You're stronger than " + opponentName + ", but not by much.";
+                                break;
+                            case 0:
+                                message = "You and " + opponentName + " are well matched.";
+                                break;
+                            case -1:
+                                message = "You're at a disadvantage, but you can probably swing it.";
+                                break;
+                            case -2:
+                                message = opponentName + " would be a tough fight.";
+                                break;
+                            case -3:
+                                message = "You should pass on this one if you know what's good for you.";
+                                break;
+                            case -4:
+                                message = "Not a chance in hell, which is where you'd end up.";
+                                break;
+                            case -5:
+                            default:
+                                message = "Death appreciates your sacrifice.";
+                                break;
+                        }
+                        out.println(message);
                         break;
                     }
                     case "cast": {
