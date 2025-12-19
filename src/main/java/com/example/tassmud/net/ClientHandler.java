@@ -176,6 +176,358 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    private CharacterRecord handleLookAndMovement(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        if (rec == null) {
+            out.println("You seem to be nowhere. (no character record found)");
+            return rec;
+        }
+
+        String cmdName = cmd.getName().toLowerCase();
+        try {
+            if ("look".equals(cmdName)) {
+                Integer lookRoomId = rec.currentRoom;
+                if (lookRoomId == null) {
+                    out.println("You are not located in any room.");
+                    return rec;
+                }
+                Room room = dao.getRoomById(lookRoomId);
+                if (room == null) {
+                    out.println("You are in an unknown place (room id " + lookRoomId + ").");
+                    return rec;
+                }
+
+                String lookArgs = cmd.getArgs();
+                if (lookArgs == null || lookArgs.trim().isEmpty()) {
+                    showRoom(room, lookRoomId);
+                    return rec;
+                }
+
+                if (lookArgs.trim().toLowerCase().startsWith("in ")) {
+                    String containerSearch = lookArgs.trim().substring(3).trim().toLowerCase();
+                    if (containerSearch.isEmpty()) {
+                        out.println("Look in what?");
+                        return rec;
+                    }
+
+                    ItemDAO itemDao = new ItemDAO();
+                    Integer charId = dao.getCharacterIdByName(name);
+
+                    java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
+                    java.util.List<ItemDAO.RoomItem> invItems = charId != null ? itemDao.getItemsByCharacter(charId) : new java.util.ArrayList<>();
+
+                    java.util.List<ItemDAO.RoomItem> allItems = new java.util.ArrayList<>();
+                    allItems.addAll(roomItems);
+                    allItems.addAll(invItems);
+
+                    ItemDAO.RoomItem matchedContainer = null;
+                    for (ItemDAO.RoomItem ri : allItems) {
+                        if (ri.template.isContainer() && ri.template.name != null && ri.template.name.equalsIgnoreCase(containerSearch)) {
+                            matchedContainer = ri;
+                            break;
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.name != null && ri.template.name.toLowerCase().startsWith(containerSearch)) {
+                                matchedContainer = ri;
+                                break;
+                            }
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.name != null) {
+                                String[] words = ri.template.name.toLowerCase().split("\\s+");
+                                for (String w : words) {
+                                    if (w.startsWith(containerSearch)) {
+                                        matchedContainer = ri;
+                                        break;
+                                    }
+                                }
+                                if (matchedContainer != null) break;
+                            }
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.keywords != null) {
+                                for (String kw : ri.template.keywords) {
+                                    if (kw.toLowerCase().startsWith(containerSearch)) {
+                                        matchedContainer = ri;
+                                        break;
+                                    }
+                                }
+                                if (matchedContainer != null) break;
+                            }
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.name != null && ri.template.name.toLowerCase().contains(containerSearch)) {
+                                matchedContainer = ri;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (matchedContainer == null) {
+                        out.println("You don't see a container called '" + lookArgs.trim().substring(3).trim() + "' here.");
+                        return rec;
+                    }
+
+                    java.util.List<ItemDAO.RoomItem> contents = itemDao.getItemsInContainer(matchedContainer.instance.instanceId);
+                    out.println(getItemDisplayName(matchedContainer) + " contains:");
+                    if (contents.isEmpty()) {
+                        out.println("  Nothing.");
+                    } else {
+                        java.util.Map<String, Integer> itemCounts = new java.util.LinkedHashMap<>();
+                        for (ItemDAO.RoomItem ci : contents) {
+                            String itemName = getItemDisplayName(ci);
+                            itemCounts.put(itemName, itemCounts.getOrDefault(itemName, 0) + 1);
+                        }
+                        for (java.util.Map.Entry<String, Integer> entry : itemCounts.entrySet()) {
+                            if (entry.getValue() > 1) {
+                                out.println("  " + entry.getKey() + " (x" + entry.getValue() + ")");
+                            } else {
+                                out.println("  " + entry.getKey());
+                            }
+                        }
+                    }
+
+                    return rec;
+                }
+
+                String searchTerm = lookArgs.trim().toLowerCase();
+                boolean found = false;
+                for (ClientHandler s : sessions) {
+                    if (s == this) continue;
+                    String otherName = s.playerName;
+                    if (otherName == null) continue;
+                    Integer otherRoomId = s.currentRoomId;
+                    if (otherRoomId == null || !otherRoomId.equals(lookRoomId)) continue;
+                    if (otherName.toLowerCase().startsWith(searchTerm)) {
+                        CharacterRecord otherRec = dao.findByName(otherName);
+                        out.println(otherName);
+                        if (otherRec != null && otherRec.description != null && !otherRec.description.isEmpty()) {
+                            out.println(otherRec.description);
+                        } else {
+                            out.println("You see nothing special about " + otherName + ".");
+                        }
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    MobileDAO mobDao = new MobileDAO();
+                    java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
+                    for (Mobile mob : roomMobs) {
+                        String mobName = mob.getName().toLowerCase();
+                        if (mobName.startsWith(searchTerm)) {
+                            out.println(mob.getName());
+                            String longDesc = mob.getDescription();
+                            if (longDesc != null && !longDesc.isEmpty()) {
+                                out.println(longDesc);
+                            } else {
+                                out.println("You see nothing special about " + mob.getName() + ".");
+                            }
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!found) {
+                    ItemDAO itemDao = new ItemDAO();
+                    java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
+                    for (ItemDAO.RoomItem ri : roomItems) {
+                        String itemName = ri.template.name != null ? ri.template.name.toLowerCase() : "";
+                        boolean keywordMatch = false;
+                        if (ri.template.keywords != null) {
+                            for (String kw : ri.template.keywords) {
+                                if (kw.toLowerCase().startsWith(searchTerm)) {
+                                    keywordMatch = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (itemName.startsWith(searchTerm) || keywordMatch) {
+                            out.println(ri.template.name);
+                            String desc = ri.template.description;
+                            if (desc != null && !desc.isEmpty()) {
+                                out.println(desc);
+                            } else {
+                                out.println("You see nothing special about it.");
+                            }
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!found) {
+                    Integer charId = dao.getCharacterIdByName(name);
+                    if (charId != null) {
+                        ItemDAO itemDao = new ItemDAO();
+                        java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
+                        for (ItemDAO.RoomItem ii : invItems) {
+                            String itemName = ii.template.name != null ? ii.template.name.toLowerCase() : "";
+                            boolean keywordMatch = false;
+                            if (ii.template.keywords != null) {
+                                for (String kw : ii.template.keywords) {
+                                    if (kw.toLowerCase().startsWith(searchTerm)) {
+                                        keywordMatch = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (itemName.startsWith(searchTerm) || keywordMatch) {
+                                out.println(ii.template.name);
+                                String desc = ii.template.description;
+                                if (desc != null && !desc.isEmpty()) {
+                                    out.println(desc);
+                                } else {
+                                    out.println("You see nothing special about it.");
+                                }
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (!found) {
+                    out.println("You don't see '" + lookArgs.trim() + "' here.");
+                }
+
+                return rec;
+            }
+
+            // Movement handling: use existing DAO/Room APIs to mirror original logic
+            String dir = null;
+            switch (cmdName) {
+                case "north":
+                case "n": dir = "north"; break;
+                case "east":
+                case "e": dir = "east"; break;
+                case "south":
+                case "s": dir = "south"; break;
+                case "west":
+                case "w": dir = "west"; break;
+                case "up":
+                case "u": dir = "up"; break;
+                case "down":
+                case "d": dir = "down"; break;
+            }
+
+            if (dir != null) {
+                // Use the same stance check as the original code path
+                Stance moveStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                if (!moveStance.canMove()) {
+                    if (moveStance == Stance.SLEEPING) {
+                        out.println("You are asleep! Type 'wake' to wake up first.");
+                    } else {
+                        out.println("You must stand up first. Type 'stand'.");
+                    }
+                    return rec;
+                }
+
+                Integer curRoomId = rec.currentRoom;
+                if (curRoomId == null) {
+                    out.println("You are not located in any room.");
+                    return rec;
+                }
+                Room curRoom = dao.getRoomById(curRoomId);
+                if (curRoom == null) {
+                    out.println("You seem to be in an unknown place.");
+                    return rec;
+                }
+
+                Integer destId = null;
+                String directionName = null;
+                switch (cmdName) {
+                    case "north":
+                    case "n": destId = curRoom.getExitN(); directionName = "north"; break;
+                    case "east":
+                    case "e": destId = curRoom.getExitE(); directionName = "east"; break;
+                    case "south":
+                    case "s": destId = curRoom.getExitS(); directionName = "south"; break;
+                    case "west":
+                    case "w": destId = curRoom.getExitW(); directionName = "west"; break;
+                    case "up":
+                    case "u": destId = curRoom.getExitU(); directionName = "up"; break;
+                    case "down":
+                    case "d": destId = curRoom.getExitD(); directionName = "down"; break;
+                }
+
+                if (destId == null) {
+                    out.println("You can't go that way.");
+                    return rec;
+                }
+
+                // If the destination room id refers to a missing room (broken world), redirect to The Void (id 0)
+                Room maybeDest = (destId == null) ? null : dao.getRoomById(destId);
+                if (destId != null && maybeDest == null) {
+                    destId = 0;
+                }
+
+                // Check and deduct movement points based on destination room/area
+                int moveCost = dao.getMoveCostForRoom(destId);
+                if (rec.mvCur < moveCost) {
+                    out.println("You are too exhausted to move.");
+                    return rec;
+                }
+
+                if (!dao.deductMovementPoints(name, moveCost)) {
+                    out.println("You are too exhausted to move.");
+                    return rec;
+                }
+
+                boolean moved = dao.updateCharacterRoom(name, destId);
+                if (!moved) {
+                    out.println("You try to move but something prevents you.");
+                    return rec;
+                }
+
+                // Announce departure to the old room (respecting invisibility)
+                Integer oldRoomId = curRoomId;
+                if (!this.gmInvisible) {
+                    roomAnnounceFromActor(oldRoomId, makeDepartureMessage(name, directionName), this.characterId);
+                }
+
+                // Refresh character record and show new room
+                rec = dao.findByName(name);
+                this.currentRoomId = rec != null ? rec.currentRoom : null;
+                Room newRoom = dao.getRoomById(destId);
+                if (newRoom == null) {
+                    out.println("You arrive at an unknown place.");
+                    return rec;
+                }
+
+                if (!this.gmInvisible) {
+                    roomAnnounceFromActor(destId, makeArrivalMessage(name, directionName), this.characterId);
+                }
+
+                out.println("You move " + directionName + ".");
+                showRoom(newRoom, destId);
+
+                // Check for aggressive mobs in the new room
+                {
+                    CharacterClassDAO moveClassDao = new CharacterClassDAO();
+                    int playerLevel = rec.currentClassId != null
+                        ? moveClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
+                    MobileRoamingService.getInstance().checkAggroOnPlayerEntry(destId, characterId, playerLevel);
+                }
+
+                return rec;
+            }
+
+        } catch (Exception ex) {
+            out.println("An error occurred while processing the command.");
+        }
+        return rec;
+    }
+
     private static void broadcastAll(String msg) {
         for (ClientHandler s : sessions) s.sendRaw(msg);
     }
@@ -950,6 +1302,11 @@ public class ClientHandler implements Runnable {
                     continue;
                 }
                 
+                // Shared temporaries for multiple case branches
+                Room curRoom = null;
+                int moveCost = 0;
+                boolean moved = false;
+                Room newRoom = null;
                 switch (cmdName) {
                     case "help":
                         String a = cmd.getArgs();
@@ -982,251 +1339,9 @@ public class ClientHandler implements Runnable {
                             }
                         }
                         break;
-                    case "look": {
-                        // Show the room the character is currently in (if any)
-                        if (rec == null) {
-                            out.println("You seem to be nowhere. (no character record found)");
-                            break;
-                        }
-                        Integer lookRoomId = rec.currentRoom;
-                        if (lookRoomId == null) {
-                            out.println("You are not located in any room.");
-                            break;
-                        }
-                        Room room = dao.getRoomById(lookRoomId);
-                        if (room == null) {
-                            out.println("You are in an unknown place (room id " + lookRoomId + ").");
-                            break;
-                        }
-                        
-                        String lookArgs = cmd.getArgs();
-                        if (lookArgs == null || lookArgs.trim().isEmpty()) {
-                            // No argument - show the room
-                            showRoom(room, lookRoomId);
-                        } else if (lookArgs.trim().toLowerCase().startsWith("in ")) {
-                            // "look in <container>" - search for container and show contents
-                            String containerSearch = lookArgs.trim().substring(3).trim().toLowerCase();
-                            if (containerSearch.isEmpty()) {
-                                out.println("Look in what?");
-                                break;
-                            }
-                            
-                            ItemDAO itemDao = new ItemDAO();
-                            Integer charId = dao.getCharacterIdByName(name);
-                            
-                            // Search for container in room first, then inventory
-                            java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
-                            java.util.List<ItemDAO.RoomItem> invItems = charId != null ? itemDao.getItemsByCharacter(charId) : new java.util.ArrayList<>();
-                            
-                            // Combine both lists for searching
-                            java.util.List<ItemDAO.RoomItem> allItems = new java.util.ArrayList<>();
-                            allItems.addAll(roomItems);
-                            allItems.addAll(invItems);
-                            
-                            // Smart search for container
-                            ItemDAO.RoomItem matchedContainer = null;
-                            
-                            // Priority 1: Exact name match
-                            for (ItemDAO.RoomItem ri : allItems) {
-                                if (ri.template.isContainer() && ri.template.name != null 
-                                    && ri.template.name.equalsIgnoreCase(containerSearch)) {
-                                    matchedContainer = ri;
-                                    break;
-                                }
-                            }
-                            
-                            // Priority 2: Name starts with search term
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.name != null 
-                                        && ri.template.name.toLowerCase().startsWith(containerSearch)) {
-                                        matchedContainer = ri;
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                            // Priority 3: Name word starts with search term
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.name != null) {
-                                        String[] words = ri.template.name.toLowerCase().split("\\s+");
-                                        for (String w : words) {
-                                            if (w.startsWith(containerSearch)) {
-                                                matchedContainer = ri;
-                                                break;
-                                            }
-                                        }
-                                        if (matchedContainer != null) break;
-                                    }
-                                }
-                            }
-                            
-                            // Priority 4: Keyword match
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.keywords != null) {
-                                        for (String kw : ri.template.keywords) {
-                                            if (kw.toLowerCase().startsWith(containerSearch)) {
-                                                matchedContainer = ri;
-                                                break;
-                                            }
-                                        }
-                                        if (matchedContainer != null) break;
-                                    }
-                                }
-                            }
-                            
-                            // Priority 5: Name contains search term
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.name != null 
-                                        && ri.template.name.toLowerCase().contains(containerSearch)) {
-                                        matchedContainer = ri;
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                            if (matchedContainer == null) {
-                                out.println("You don't see a container called '" + lookArgs.trim().substring(3).trim() + "' here.");
-                                break;
-                            }
-                            
-                            // Get items in the container
-                            java.util.List<ItemDAO.RoomItem> contents = itemDao.getItemsInContainer(matchedContainer.instance.instanceId);
-                            
-                            out.println(getItemDisplayName(matchedContainer) + " contains:");
-                            if (contents.isEmpty()) {
-                                out.println("  Nothing.");
-                            } else {
-                                // Group by display name and count
-                                java.util.Map<String, Integer> itemCounts = new java.util.LinkedHashMap<>();
-                                for (ItemDAO.RoomItem ci : contents) {
-                                    String itemName = getItemDisplayName(ci);
-                                    itemCounts.put(itemName, itemCounts.getOrDefault(itemName, 0) + 1);
-                                }
-                                for (java.util.Map.Entry<String, Integer> entry : itemCounts.entrySet()) {
-                                    if (entry.getValue() > 1) {
-                                        out.println("  " + entry.getKey() + " (x" + entry.getValue() + ")");
-                                    } else {
-                                        out.println("  " + entry.getKey());
-                                    }
-                                }
-                            }
-                        } else {
-                            // Look at something specific
-                            String searchTerm = lookArgs.trim().toLowerCase();
-                            boolean found = false;
-                            
-                            // Search other players in the room first
-                            for (ClientHandler s : sessions) {
-                                if (s == this) continue;
-                                String otherName = s.playerName;
-                                if (otherName == null) continue;
-                                Integer otherRoomId = s.currentRoomId;
-                                if (otherRoomId == null || !otherRoomId.equals(lookRoomId)) continue;
-                                
-                                if (otherName.toLowerCase().startsWith(searchTerm)) {
-                                    CharacterRecord otherRec = dao.findByName(otherName);
-                                    out.println(otherName);
-                                    if (otherRec != null && otherRec.description != null && !otherRec.description.isEmpty()) {
-                                        out.println(otherRec.description);
-                                    } else {
-                                        out.println("You see nothing special about " + otherName + ".");
-                                    }
-                                    found = true;
-                                    break;
-                                }
-                            }
-                            
-                            // Search mobs in the room
-                            if (!found) {
-                                MobileDAO mobDao = new MobileDAO();
-                                java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
-                                for (Mobile mob : roomMobs) {
-                                    String mobName = mob.getName().toLowerCase();
-                                    if (mobName.startsWith(searchTerm)) {
-                                        out.println(mob.getName());
-                                        String longDesc = mob.getDescription();
-                                        if (longDesc != null && !longDesc.isEmpty()) {
-                                            out.println(longDesc);
-                                        } else {
-                                            out.println("You see nothing special about " + mob.getName() + ".");
-                                        }
-                                        found = true;
-                                        break;
-                                    }
-                                }
-                            }
-
-                            if (!found) {
-                                // Search items in the room
-                                ItemDAO itemDao = new ItemDAO();
-                                java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
-                                for (ItemDAO.RoomItem ri : roomItems) {
-                                    String itemName = ri.template.name != null ? ri.template.name.toLowerCase() : "";
-                                    boolean keywordMatch = false;
-                                    if (ri.template.keywords != null) {
-                                        for (String kw : ri.template.keywords) {
-                                            if (kw.toLowerCase().startsWith(searchTerm)) {
-                                                keywordMatch = true;
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    if (itemName.startsWith(searchTerm) || keywordMatch) {
-                                        out.println(ri.template.name);
-                                        String desc = ri.template.description;
-                                        if (desc != null && !desc.isEmpty()) {
-                                            out.println(desc);
-                                        } else {
-                                            out.println("You see nothing special about it.");
-                                        }
-                                        found = true;
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                            if (!found) {
-                                // Search items in inventory
-                                Integer charId = dao.getCharacterIdByName(name);
-                                if (charId != null) {
-                                    ItemDAO itemDao = new ItemDAO();
-                                    java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
-                                    for (ItemDAO.RoomItem ii : invItems) {
-                                        String itemName = ii.template.name != null ? ii.template.name.toLowerCase() : "";
-                                        boolean keywordMatch = false;
-                                        if (ii.template.keywords != null) {
-                                            for (String kw : ii.template.keywords) {
-                                                if (kw.toLowerCase().startsWith(searchTerm)) {
-                                                    keywordMatch = true;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if (itemName.startsWith(searchTerm) || keywordMatch) {
-                                            out.println(ii.template.name);
-                                            String desc = ii.template.description;
-                                            if (desc != null && !desc.isEmpty()) {
-                                                out.println(desc);
-                                            } else {
-                                                out.println("You see nothing special about it.");
-                                            }
-                                            found = true;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            if (!found) {
-                                out.println("You don't see '" + lookArgs.trim() + "' here.");
-                            }
-                        }
+                    case "look":
+                        rec = handleLookAndMovement(cmd, name, rec, dao);
                         break;
-                    }
                     case "say": {
                         String text = cmd.getArgs();
                         if (rec == null || rec.currentRoom == null) { out.println("You are nowhere to say that."); break; }
@@ -1252,108 +1367,7 @@ public class ClientHandler implements Runnable {
                     case "u":
                     case "down":
                     case "d":
-                        if (rec == null) {
-                            out.println("No character record found.");
-                            break;
-                        }
-                        // Check stance - can't move while sitting or sleeping
-                        Stance moveStance = RegenerationService.getInstance().getPlayerStance(characterId);
-                        if (!moveStance.canMove()) {
-                            if (moveStance == Stance.SLEEPING) {
-                                out.println("You are asleep! Type 'wake' to wake up first.");
-                            } else {
-                                out.println("You must stand up first. Type 'stand'.");
-                            }
-                            break;
-                        }
-                        Integer curRoomId = rec.currentRoom;
-                        if (curRoomId == null) {
-                            out.println("You are not located in any room.");
-                            break;
-                        }
-                        Room curRoom = dao.getRoomById(curRoomId);
-                        if (curRoom == null) {
-                            out.println("You seem to be in an unknown place.");
-                            break;
-                        }
-                        Integer destId = null;
-                        String directionName = null;
-                        switch (cmdName) {
-                            case "north":
-                            case "n": destId = curRoom.getExitN(); directionName = "north"; break;
-                            case "east":
-                            case "e": destId = curRoom.getExitE(); directionName = "east"; break;
-                            case "south":
-                            case "s": destId = curRoom.getExitS(); directionName = "south"; break;
-                            case "west":
-                            case "w": destId = curRoom.getExitW(); directionName = "west"; break;
-                            case "up":
-                            case "u": destId = curRoom.getExitU(); directionName = "up"; break;
-                            case "down":
-                            case "d": destId = curRoom.getExitD(); directionName = "down"; break;
-                        }
-                        if (destId == null) {
-                            out.println("You can't go that way.");
-                            break;
-                        }
-                        // If the destination room id refers to a missing room (broken world), redirect to The Void (id 0)
-                        Room maybeDest = (destId == null) ? null : dao.getRoomById(destId);
-                        if (destId != null && maybeDest == null) {
-                            // send player to void so they don't get stuck
-                            destId = 0;
-                        }
-                        
-                        // Check and deduct movement points based on destination room/area
-                        int moveCost = dao.getMoveCostForRoom(destId);
-                        if (rec.mvCur < moveCost) {
-                            out.println("You are too exhausted to move.");
-                            break;
-                        }
-                        
-                        // Deduct movement points
-                        if (!dao.deductMovementPoints(name, moveCost)) {
-                            out.println("You are too exhausted to move.");
-                            break;
-                        }
-                        
-                        // Persist movement (update room)
-                        boolean moved = dao.updateCharacterRoom(name, destId);
-                        if (!moved) {
-                            out.println("You try to move but something prevents you.");
-                            break;
-                        }
-                        
-                        // Announce departure to the old room (respecting invisibility)
-                        Integer oldRoomId = rec.currentRoom;
-                        if (!this.gmInvisible) {
-                            roomAnnounceFromActor(oldRoomId, makeDepartureMessage(name, directionName), this.characterId);
-                        }
-                        
-                        // Refresh character record and show new room
-                        rec = dao.findByName(name);
-                        // update our cached room id
-                        this.currentRoomId = rec != null ? rec.currentRoom : null;
-                        Room newRoom = dao.getRoomById(destId);
-                        if (newRoom == null) {
-                            out.println("You arrive at an unknown place.");
-                            break;
-                        }
-                        
-                        // Announce arrival to the new room (respecting invisibility)
-                        if (!this.gmInvisible) {
-                            roomAnnounceFromActor(destId, makeArrivalMessage(name, directionName), this.characterId);
-                        }
-                        
-                        out.println("You move " + directionName + ".");
-                        showRoom(newRoom, destId);
-                        
-                        // Check for aggressive mobs in the new room
-                        {
-                            CharacterClassDAO moveClassDao = new CharacterClassDAO();
-                            int playerLevel = rec.currentClassId != null 
-                                ? moveClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
-                            MobileRoamingService.getInstance().checkAggroOnPlayerEntry(destId, characterId, playerLevel);
-                        }
+                        rec = handleLookAndMovement(cmd, name, rec, dao);
                         break;
                     
                     case "recall": {
