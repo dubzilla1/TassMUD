@@ -319,6 +319,14 @@ public class MobileDAO {
      * Spawn a new mobile instance from a template and record an origin UUID on the instance.
      */
     public Mobile spawnMobile(MobileTemplate template, int roomId, String originUuid) {
+        // If an instance already exists for this origin UUID (possibly due to a
+        // race or repeated checks), return it instead of inserting a duplicate.
+        try {
+            Mobile existing = getInstanceByOriginUuid(originUuid);
+            if (existing != null) return existing;
+        } catch (Exception ignored) {
+            // Ignore and proceed to attempt insert; insertion may fail if DB state is odd.
+        }
         String sql = "INSERT INTO mobile_instance (template_id, current_room_id, spawn_room_id, " +
             "hp_cur, mp_cur, mv_cur, is_dead, spawned_at, died_at, orig_uuid) VALUES (?,?,?,?,?,?,?,?,?,?)";
 

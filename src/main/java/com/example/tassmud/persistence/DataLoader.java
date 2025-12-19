@@ -765,10 +765,18 @@ public class DataLoader {
                 
                 // Register spawns with the SpawnManager and seed spawn mappings for mobs
                 for (SpawnConfig spawn : t.spawns) {
+                    // Determine how many mapping UUIDs to seed. Do NOT mutate the SpawnConfig object
+                    // since its fields are final; only limit mapping quantity to 1 for MOBs.
+                    int mappingQty = spawn.quantity;
+                    if (spawn.type == SpawnConfig.SpawnType.MOB && spawn.quantity > 1) {
+                        System.out.println("[DataLoader] Limiting spawn mappings to 1 for room " + roomId + " template " + spawn.templateId + " (configured " + spawn.quantity + ")");
+                        mappingQty = 1;
+                    }
+
                     spawnManager.registerSpawn(t.areaId, spawn);
-                    // If this is a mob spawn, ensure mapping UUIDs exist for the configured quantity
+                    // If this is a mob spawn, ensure mapping UUIDs exist for the configured (limited) quantity
                     if (spawn.type == SpawnConfig.SpawnType.MOB) {
-                        mobileDao.ensureSpawnMappings(roomId, spawn.templateId, spawn.quantity);
+                        mobileDao.ensureSpawnMappings(roomId, spawn.templateId, mappingQty);
                     }
                     totalSpawns++;
                 }
@@ -783,11 +791,92 @@ public class DataLoader {
     }
 
     private static void loadRoomsSecondPass(CharacterDAO dao, Map<String,Integer> keyToId) {
-        // Second pass only needed for CSV format where exits are stored as strings
-        // YAML already has numeric IDs resolved in first pass
-        try (InputStream in = DataLoader.class.getResourceAsStream("/data/rooms.csv")) {
-            if (in == null) return;
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
+        // Second pass: process CSV fallback, but prefer YAML for door metadata parsing.
+        // If rooms.yaml exists, parse it and persist any `doors` blocks which may reference room keys.
+        try (InputStream in = DataLoader.class.getResourceAsStream("/data/rooms.yaml")) {
+            if (in != null) {
+                try {
+                    org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+                    Map<String, Object> root = yaml.load(in);
+                    if (root != null) {
+                        List<Map<String, Object>> roomList = (List<Map<String, Object>>) root.get("rooms");
+                        if (roomList != null) {
+                            for (Map<String, Object> roomData : roomList) {
+                                String key = getString(roomData, "key", "");
+                                if (key.isEmpty()) continue;
+                                Integer roomId = keyToId.get(key);
+                                if (roomId == null) continue;
+
+                                // If the room has explicit exits as tokens (string keys), resolve and write them
+                                Object exitsObj = roomData.get("exits");
+                                if (exitsObj instanceof Map) {
+                                    Map<String, Object> exits = (Map<String, Object>) exitsObj;
+                                    Integer exitN = resolveExitTokenFromYaml(exits.get("north"), keyToId);
+                                    Integer exitE = resolveExitTokenFromYaml(exits.get("east"), keyToId);
+                                    Integer exitS = resolveExitTokenFromYaml(exits.get("south"), keyToId);
+                                    Integer exitW = resolveExitTokenFromYaml(exits.get("west"), keyToId);
+                                    Integer exitU = resolveExitTokenFromYaml(exits.get("up"), keyToId);
+                                    Integer exitD = resolveExitTokenFromYaml(exits.get("down"), keyToId);
+                                    dao.updateRoomExits(roomId, exitN, exitE, exitS, exitW, exitU, exitD);
+                                }
+
+                                // Parse doors block if present
+                                Object doorsObj = roomData.get("doors");
+                                if (doorsObj instanceof Map) {
+                                    Map<String, Object> doors = (Map<String, Object>) doorsObj;
+                                    for (Map.Entry<String, Object> e : doors.entrySet()) {
+                                        String dir = e.getKey();
+                                        Object v = e.getValue();
+                                        Integer toId = null;
+                                        String state = "OPEN";
+                                        boolean locked = false, hidden = false, blocked = false;
+                                        Integer keyItem = null;
+
+                                        if (v instanceof Map) {
+                                            Map<String, Object> props = (Map<String, Object>) v;
+                                            // 'to' may be a room key or numeric id
+                                            Object toToken = props.get("to");
+                                            toId = resolveExitTokenFromYaml(toToken, keyToId);
+                                            // If no explicit 'to', fall back to exits mapping
+                                            if (toId == null) {
+                                                Object exitsObj2 = roomData.get("exits");
+                                                if (exitsObj2 instanceof Map) {
+                                                    Map<String, Object> exits2 = (Map<String, Object>) exitsObj2;
+                                                    toId = resolveExitTokenFromYaml(exits2.get(dir), keyToId);
+                                                }
+                                            }
+                                            state = getString(props, "state", state).toUpperCase();
+                                            locked = getBoolean(props, "locked", false);
+                                            hidden = getBoolean(props, "hidden", false);
+                                            blocked = getBoolean(props, "blocked", false);
+                                            keyItem = getInt(props, "key", 0);
+                                            if (keyItem != null && keyItem == 0) keyItem = null;
+                                        } else {
+                                            // Simple boolean or token: attempt to use exit mapping
+                                            Object exitsObj2 = roomData.get("exits");
+                                            if (exitsObj2 instanceof Map) {
+                                                Map<String, Object> exits2 = (Map<String, Object>) exitsObj2;
+                                                toId = resolveExitTokenFromYaml(exits2.get(dir), keyToId);
+                                            }
+                                        }
+
+                                        dao.upsertDoor(roomId, dir, toId, state, locked, hidden, blocked, keyItem);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    System.err.println("Failed to process doors from rooms.yaml: " + e.getMessage());
+                }
+                return;
+            }
+        } catch (Exception ignored) {}
+
+        // Fallback: process CSV rooms (legacy)
+        try (InputStream inCsv = DataLoader.class.getResourceAsStream("/data/rooms.csv")) {
+            if (inCsv == null) return;
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(inCsv, StandardCharsets.UTF_8))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     line = line.trim();
@@ -817,6 +906,19 @@ public class DataLoader {
                 }
             }
         } catch (Exception ignored) {}
+    }
+
+    private static Integer resolveExitTokenFromYaml(Object tokenObj, Map<String,Integer> keyToId) {
+        if (tokenObj == null) return null;
+        if (tokenObj instanceof Number) return ((Number) tokenObj).intValue();
+        if (tokenObj instanceof String) {
+            String s = ((String) tokenObj).trim();
+            if (s.isEmpty()) return null;
+            Integer byKey = keyToId.get(s);
+            if (byKey != null) return byKey;
+            try { return Integer.parseInt(s); } catch (Exception e) { return null; }
+        }
+        return null;
     }
 
     // Resolve an exit token that may be either a room key or a numeric id.

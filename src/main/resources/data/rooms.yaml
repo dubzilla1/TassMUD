@@ -1,3 +1,277 @@
+# ============================================================
+# MIDGAARD SEWERS (area 6) - Room IDs 6000-6019
+# A twisting network of drains and masonry tunnels under the city.
+# ============================================================
+
+rooms:
+
+  - id: 6000
+    key: sewer_entrance_central
+    name: Central Sewer Shaft
+    area_id: 6
+    short_desc: A vertical shaft leading down into the sewers
+    long_desc: >
+      A stone-lined shaft opens here, its ladder rungs slick with damp.
+      Water drips from the rim and the scent of old refuse drifts up.
+      Narrow tunnels run off in several directions below.
+    exits:
+      up: 3003
+      down: 6006
+
+  - id: 6001
+    key: sewer_entrance_north
+    name: Northern Sewer Drop
+    area_id: 6
+    short_desc: A barred shaft set into the city wall
+    long_desc: >
+      The iron grill over this shaft has been left slightly ajar. A rusty
+      ladder descends into gloom; faint scurrying noises echo from below.
+    exits:
+      up: 3040
+      down: 6007
+
+  - id: 6002
+    key: sewer_entrance_south
+    name: Granary Sluice
+    area_id: 6
+    short_desc: A maintenance hatch near the granary
+    long_desc: >
+      A stone hatch set beside the granary's service lane drops into a
+      narrow conduit. A trickle of grain-colored slurry flows past here.
+    exits:
+      up: 3039
+      down: 6003
+
+  - id: 6003
+    key: sewer_tunnel_01
+    name: Sludge Run
+    area_id: 6
+    short_desc: A low tunnel with a shallow flow of sewage
+    long_desc: >
+      The tunnel is cramped and the water here is ankle to knee deep. Old
+      wooden planks bridge the deeper ruts; echoes make it hard to judge
+      distances. A narrow side drain leads off to the east.
+    exits:
+      north: 6002
+      south: 6004
+      east: 6008
+
+  - id: 6004
+    key: sewer_tunnel_02
+    name: Echoing Conduit
+    area_id: 6
+    short_desc: A vaulted conduit that carries water more quickly
+    long_desc: >
+      The vaulted ceiling here is higher and the flow of water stronger.
+      Occasional alcoves in the walls suggest maintenance niches or past
+      habitation by creatures who prefer darker corners.
+    exits:
+      north: 6003
+      west: 6005
+
+  - id: 6005
+    key: sewer_deadend_01
+    name: Collapsed Alcove
+    area_id: 6
+    short_desc: A small chamber partly blocked by rubble
+    long_desc: >
+      Rubble falls from a collapsed ceiling have blocked much of this
+      chamber. Small tunnels squeeze around the debris but most lead to
+      tight, impassable crawlspaces.
+    exits:
+      east: 6004
+
+  - id: 6006
+    key: sewer_spiral_down
+    name: Spiraling Drain
+    area_id: 6
+    short_desc: A spiraling corridor that descends deeper
+    long_desc: >
+      The passage spirals down along a carved stone helix with trickling
+      water running along the edge. The air grows cooler and the stones
+      are slicker here; distant pounding suggests a larger chamber below.
+    exits:
+      up: 6000
+      down: 6009
+
+  - id: 6007
+    key: sewer_side_tunnel_north
+    name: Rat-Scent Passage
+    area_id: 6
+    short_desc: A narrow passage reeking of rodent activity
+    long_desc: >
+      The floor is carpeted with droppings and the air moves with the
+      nervous rustle of many small feet. Scratch marks lead deeper into
+      a maze of smaller tunnels.
+    exits:
+      south: 6008
+      west: 6010
+
+  - id: 6008
+    key: sewer_crossing
+    name: T-junction Beneath Midgaard
+    area_id: 6
+    short_desc: A crossing where several drains meet
+    long_desc: >
+      Three tunnels converge here; the water is shallow but the noise is
+      intense. A narrow iron gate is set into the northern wall and a
+      slick ramp leads down to a lower channel.
+    exits:
+      west: 6003
+      north: 6007
+      down: 6011
+
+  - id: 6009
+    key: sewer_lower_hall
+    name: Lower Hall of the Sewers
+    area_id: 6
+    short_desc: A broad, dimly lit hall cut into old stone
+    long_desc: >
+      This larger chamber looks like it was carved long ago to act as a cistern
+      or holding pool. Stagnant water reflects faint torchlight from above.
+      A narrow tunnel climbs to the west while a carved recess to the east
+      looks like it once held offerings or markers.
+    exits:
+      up: 6006
+      west: 6012
+      east: 6013
+
+  - id: 6010
+    key: sewer_rat_tunnels_entrance
+    name: Rat-Tunnel Mouth
+    area_id: 6
+    short_desc: A cramped hole leading into a rat-run network
+    long_desc: >
+      Jagged stones form a low arch here and a maze of tiny tunnels threads
+      away, barely big enough for a hand to pass. The smell of rot is strong.
+    exits:
+      east: 6007
+      south: 6014
+
+  - id: 6011
+    key: sewer_down_ramp
+    name: Ramp to the Lower Flow
+    area_id: 6
+    short_desc: A slick ramp leading to a lower sewage channel
+    long_desc: >
+      The ramp slopes into a deeper, faster-moving channel. Chains bolted
+      into the wall suggest maintenance crews once tied off equipment here.
+    exits:
+      up: 6008
+      down: 6015
+
+  - id: 6012
+    key: sewer_vault_approach
+    name: Approaching the Rathold
+    area_id: 6
+    short_desc: The air grows warmer and smells of old incense
+    long_desc: >
+      Faint bits of carved bone and detritus hanging from the ceiling give
+      this passage an unnerving feeling. The scrawl of some animal's chew
+      marks the masonry; this tunnel feels like it leads to a den.
+    exits:
+      east: 6009
+      west: 6016
+
+  - id: 6013
+    key: sewer_antechamber
+    name: Flooded Antechamber
+    area_id: 6
+    short_desc: A shallow flooded room with shelves of muck
+    long_desc: >
+      The room is partially filled with water and debris. A short stone
+      staircase leads up into a blocked corridor; a narrow vault entrance
+      has been hewn into the far wall and sealed with a wooden bar.
+    exits:
+      west: 6009
+      up: 6017
+
+  - id: 6014
+    key: sewer_deadend_tunnel
+    name: Tunnel Terminus
+    area_id: 6
+    short_desc: A tight terminus that peters out into rubble
+    long_desc: >
+      The tunnel was once larger but has collapsed; only tiny, dangerous
+      passages continue. For now this leads nowhere useful.
+    exits:
+      north: 6010
+
+  - id: 6015
+    key: sewer_deeper_channel
+    name: The Deeper Flow
+    area_id: 6
+    short_desc: A strong, fast-moving channel that carries the main flow
+    long_desc: >
+      Water moves quickly here; only a narrow ledge gives safe passage.
+      The sound of rushing water makes conversation difficult. A rusted
+      hatch screws into the far wall and might connect to surface drains.
+    exits:
+      up: 6011
+      west: 6018
+
+  - id: 6016
+    key: sewer_rathold_mouth
+    name: Entrance to the Rat Hold
+    area_id: 6
+    short_desc: A wide opening hemmed with gnawed timber
+    long_desc: >
+      The roof here is blackened by smoke and the floor is trampled flat.
+      Small tokens have been hung like trophies; further in a larger
+      chamber exhales cold, stale air.
+    exits:
+      east: 6012
+      west: 6019
+
+  - id: 6017
+    key: sewer_maintenance_exit
+    name: Maintenance Egress
+    area_id: 6
+    short_desc: A blocked stair leading toward the surface
+    long_desc: >
+      Stairs climb toward a sealed access hatch; rusted bolts and old rope
+      suggest this was used rarely. Someone has cleared partial debris to
+      allow a narrow passage upward.
+    exits:
+      down: 6013
+
+  - id: 6018
+    key: sewer_lower_bypass
+    name: Subflow Bypass
+    area_id: 6
+    short_desc: A narrow bypass tunnel beside the main channel
+    long_desc: >
+      This bypass was cut later to divert peak flows. It is narrow and
+      requires careful footing to avoid a sudden dip into the main stream.
+    exits:
+      east: 6015
+
+  - id: 6019
+    key: sewer_ratking_throne
+    name: Rat King's Hall
+    area_id: 6
+    short_desc: A grotesque throne room of piled refuse
+    long_desc: >
+      A vast chamber ringed with the bones of smaller creatures centers on
+      a throne of scavenged metal and bone. The Rat King---a grotesque
+      aggregation of rodents and filth---is said to rule here. A small
+      vault with a crude lock sits hidden in a niche to the south.
+    exits:
+      east: 6016
+      south: 6020
+
+  - id: 6020
+    key: sewer_ratking_vault
+    name: Rat King's Vault
+    area_id: 6
+    short_desc: A cramped vault tucked behind the throne
+    long_desc: >
+      The vault is damp and smells of old coin and rust. Crates and small
+      broken chests line the walls; for now they hold little of value but
+      could be interesting to explore later.
+    exits:
+      north: 6019
+
 # Room definitions for TassMUD
 # Room IDs use area-based numbering: area_id * 1000 + local_index
 # Exits reference other room IDs (leave blank or omit for no exit)
@@ -9,7 +283,6 @@
 #   - frequency: hours (game time) between spawn checks (max 24)
 #   - container: (optional) item template ID to spawn items into
 
-rooms:
   # ============================================================
   # DEBUG AREA (area 0) - Room IDs 0-999
   # ============================================================
@@ -821,6 +1094,8 @@ rooms:
     exits:
       east: 3001
       south: 3007
+      down: 6000
+      west: 5000
     spawns:
       - type: MOB
         id: 601
@@ -1692,6 +1967,7 @@ rooms:
     exits:
       north: 3038
       west: 3024
+      down: 6002
     spawns:
       - type: MOB
         id: 642
@@ -1714,6 +1990,7 @@ rooms:
     exits:
       east: 3035
       south: 3020
+      down: 6001
     spawns:
       - type: MOB
         id: 600
@@ -1793,6 +2070,97 @@ rooms:
       south: 4001
       east: 4011
       west: 4010
+
+# ============================================================
+# WESTERN HIGHWAY APPROACH (area 5) - Room IDs 5000-5009
+# A short, mostly linear set of road tiles leading west out of Midgaard.
+# Includes a few small side paths and campsites (dead-ends) for now.
+# ============================================================
+
+  - id: 5000
+    key: mg_west_entrance
+    name: Road West of Guard Quarter
+    area_id: 5
+    short_desc: A narrow lane leading out of the guard quarter
+    long_desc: >
+      The bustle of the guard quarter fades as a narrow lane slips between
+      low buildings and turns toward open country. Travelers heading west
+      follow this path to reach the wider western highway. A worn sign
+      points further west and bears scratches from years of weather.
+    exits:
+      east: 3003
+      west: 5001
+
+  - id: 5001
+    key: west_road_01
+    name: Westward Lane
+    area_id: 5
+    short_desc: A simple lane lined with hedgerows
+    long_desc: >
+      The lane widens slightly here. Hedgerows and a scattering of scrub
+      trees line the road, and the ground bears the churned marks of carts.
+      A small footpath leads south into a shallow dell where smoke curls
+      from a campsite on clear nights.
+    exits:
+      east: 5000
+      west: 5002
+      south: 5003
+
+  - id: 5002
+    key: west_highway_junction
+    name: Western Highway Junction
+    area_id: 5
+    short_desc: Where the lane meets the western highway
+    long_desc: >
+      The travel-worn lane opens onto a wider stretch of road, where the
+      western highway begins. The highway stretches to the west and will
+      serve as a main route for future expansions. A faint track leads north
+      to a rocky clearing; to the south a fire-ring marks a small, temporary
+      campsite used by itinerant traders.
+    exits:
+      east: 5001
+      west: 5004
+      north: 5005
+      south: 5003
+
+  - id: 5003
+    key: west_campsite
+    name: Wayside Campsite
+    area_id: 5
+    short_desc: A shallow clearing with a few charred stones
+    long_desc: >
+      Low stones cower around an old fire ring, and a short stack of kindling
+      and a flattened tarp show that travelers sometimes rest here. Scattered
+      footprints indicate people of many trades have paused to rest briefly.
+    exits:
+      north: 5001
+
+  - id: 5004
+    key: west_highway_west_01
+    name: Western Highway (westbound)
+    area_id: 5
+    short_desc: The western highway continues into open country
+    long_desc: >
+      A broader road with deeper ruts and evidence of heavier traffic, the
+      western highway continues toward the horizon. For now it runs mostly
+      straight; tracks and small side lanes split off to dead-end farmsteads
+      and abandoned waystations.
+    exits:
+      east: 5002
+
+  - id: 5005
+    key: west_rocky_clearing
+    name: Rocky Clearing
+    area_id: 5
+    short_desc: A wind-scoured rocky outcrop beside the road
+    long_desc: >
+      Patches of grass struggle between pale stones here; a single boulder
+      provides a windbreak. The clearing affords a good view of the road and
+      any approaching travelers, and a carved notch in the rock looks like
+      it was once used as a milestone marker.
+    exits:
+      south: 5002
+
     spawns:
       - type: MOB
         id: 700    # plains rabbit

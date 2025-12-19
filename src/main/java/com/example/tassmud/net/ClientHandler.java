@@ -176,6 +176,358 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    public CharacterRecord handleLookAndMovement(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        if (rec == null) {
+            out.println("You seem to be nowhere. (no character record found)");
+            return rec;
+        }
+
+        String cmdName = cmd.getName().toLowerCase();
+        try {
+            if ("look".equals(cmdName)) {
+                Integer lookRoomId = rec.currentRoom;
+                if (lookRoomId == null) {
+                    out.println("You are not located in any room.");
+                    return rec;
+                }
+                Room room = dao.getRoomById(lookRoomId);
+                if (room == null) {
+                    out.println("You are in an unknown place (room id " + lookRoomId + ").");
+                    return rec;
+                }
+
+                String lookArgs = cmd.getArgs();
+                if (lookArgs == null || lookArgs.trim().isEmpty()) {
+                    showRoom(room, lookRoomId);
+                    return rec;
+                }
+
+                if (lookArgs.trim().toLowerCase().startsWith("in ")) {
+                    String containerSearch = lookArgs.trim().substring(3).trim().toLowerCase();
+                    if (containerSearch.isEmpty()) {
+                        out.println("Look in what?");
+                        return rec;
+                    }
+
+                    ItemDAO itemDao = new ItemDAO();
+                    Integer charId = dao.getCharacterIdByName(name);
+
+                    java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
+                    java.util.List<ItemDAO.RoomItem> invItems = charId != null ? itemDao.getItemsByCharacter(charId) : new java.util.ArrayList<>();
+
+                    java.util.List<ItemDAO.RoomItem> allItems = new java.util.ArrayList<>();
+                    allItems.addAll(roomItems);
+                    allItems.addAll(invItems);
+
+                    ItemDAO.RoomItem matchedContainer = null;
+                    for (ItemDAO.RoomItem ri : allItems) {
+                        if (ri.template.isContainer() && ri.template.name != null && ri.template.name.equalsIgnoreCase(containerSearch)) {
+                            matchedContainer = ri;
+                            break;
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.name != null && ri.template.name.toLowerCase().startsWith(containerSearch)) {
+                                matchedContainer = ri;
+                                break;
+                            }
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.name != null) {
+                                String[] words = ri.template.name.toLowerCase().split("\\s+");
+                                for (String w : words) {
+                                    if (w.startsWith(containerSearch)) {
+                                        matchedContainer = ri;
+                                        break;
+                                    }
+                                }
+                                if (matchedContainer != null) break;
+                            }
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.keywords != null) {
+                                for (String kw : ri.template.keywords) {
+                                    if (kw.toLowerCase().startsWith(containerSearch)) {
+                                        matchedContainer = ri;
+                                        break;
+                                    }
+                                }
+                                if (matchedContainer != null) break;
+                            }
+                        }
+                    }
+                    if (matchedContainer == null) {
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (ri.template.isContainer() && ri.template.name != null && ri.template.name.toLowerCase().contains(containerSearch)) {
+                                matchedContainer = ri;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (matchedContainer == null) {
+                        out.println("You don't see a container called '" + lookArgs.trim().substring(3).trim() + "' here.");
+                        return rec;
+                    }
+
+                    java.util.List<ItemDAO.RoomItem> contents = itemDao.getItemsInContainer(matchedContainer.instance.instanceId);
+                    out.println(getItemDisplayName(matchedContainer) + " contains:");
+                    if (contents.isEmpty()) {
+                        out.println("  Nothing.");
+                    } else {
+                        java.util.Map<String, Integer> itemCounts = new java.util.LinkedHashMap<>();
+                        for (ItemDAO.RoomItem ci : contents) {
+                            String itemName = getItemDisplayName(ci);
+                            itemCounts.put(itemName, itemCounts.getOrDefault(itemName, 0) + 1);
+                        }
+                        for (java.util.Map.Entry<String, Integer> entry : itemCounts.entrySet()) {
+                            if (entry.getValue() > 1) {
+                                out.println("  " + entry.getKey() + " (x" + entry.getValue() + ")");
+                            } else {
+                                out.println("  " + entry.getKey());
+                            }
+                        }
+                    }
+
+                    return rec;
+                }
+
+                String searchTerm = lookArgs.trim().toLowerCase();
+                boolean found = false;
+                for (ClientHandler s : sessions) {
+                    if (s == this) continue;
+                    String otherName = s.playerName;
+                    if (otherName == null) continue;
+                    Integer otherRoomId = s.currentRoomId;
+                    if (otherRoomId == null || !otherRoomId.equals(lookRoomId)) continue;
+                    if (otherName.toLowerCase().startsWith(searchTerm)) {
+                        CharacterRecord otherRec = dao.findByName(otherName);
+                        out.println(otherName);
+                        if (otherRec != null && otherRec.description != null && !otherRec.description.isEmpty()) {
+                            out.println(otherRec.description);
+                        } else {
+                            out.println("You see nothing special about " + otherName + ".");
+                        }
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    MobileDAO mobDao = new MobileDAO();
+                    java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
+                    for (Mobile mob : roomMobs) {
+                        String mobName = mob.getName().toLowerCase();
+                        if (mobName.startsWith(searchTerm)) {
+                            out.println(mob.getName());
+                            String longDesc = mob.getDescription();
+                            if (longDesc != null && !longDesc.isEmpty()) {
+                                out.println(longDesc);
+                            } else {
+                                out.println("You see nothing special about " + mob.getName() + ".");
+                            }
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!found) {
+                    ItemDAO itemDao = new ItemDAO();
+                    java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
+                    for (ItemDAO.RoomItem ri : roomItems) {
+                        String itemName = ri.template.name != null ? ri.template.name.toLowerCase() : "";
+                        boolean keywordMatch = false;
+                        if (ri.template.keywords != null) {
+                            for (String kw : ri.template.keywords) {
+                                if (kw.toLowerCase().startsWith(searchTerm)) {
+                                    keywordMatch = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (itemName.startsWith(searchTerm) || keywordMatch) {
+                            out.println(ri.template.name);
+                            String desc = ri.template.description;
+                            if (desc != null && !desc.isEmpty()) {
+                                out.println(desc);
+                            } else {
+                                out.println("You see nothing special about it.");
+                            }
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!found) {
+                    Integer charId = dao.getCharacterIdByName(name);
+                    if (charId != null) {
+                        ItemDAO itemDao = new ItemDAO();
+                        java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
+                        for (ItemDAO.RoomItem ii : invItems) {
+                            String itemName = ii.template.name != null ? ii.template.name.toLowerCase() : "";
+                            boolean keywordMatch = false;
+                            if (ii.template.keywords != null) {
+                                for (String kw : ii.template.keywords) {
+                                    if (kw.toLowerCase().startsWith(searchTerm)) {
+                                        keywordMatch = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (itemName.startsWith(searchTerm) || keywordMatch) {
+                                out.println(ii.template.name);
+                                String desc = ii.template.description;
+                                if (desc != null && !desc.isEmpty()) {
+                                    out.println(desc);
+                                } else {
+                                    out.println("You see nothing special about it.");
+                                }
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (!found) {
+                    out.println("You don't see '" + lookArgs.trim() + "' here.");
+                }
+
+                return rec;
+            }
+
+            // Movement handling: use existing DAO/Room APIs to mirror original logic
+            String dir = null;
+            switch (cmdName) {
+                case "north":
+                case "n": dir = "north"; break;
+                case "east":
+                case "e": dir = "east"; break;
+                case "south":
+                case "s": dir = "south"; break;
+                case "west":
+                case "w": dir = "west"; break;
+                case "up":
+                case "u": dir = "up"; break;
+                case "down":
+                case "d": dir = "down"; break;
+            }
+
+            if (dir != null) {
+                // Use the same stance check as the original code path
+                Stance moveStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                if (!moveStance.canMove()) {
+                    if (moveStance == Stance.SLEEPING) {
+                        out.println("You are asleep! Type 'wake' to wake up first.");
+                    } else {
+                        out.println("You must stand up first. Type 'stand'.");
+                    }
+                    return rec;
+                }
+
+                Integer curRoomId = rec.currentRoom;
+                if (curRoomId == null) {
+                    out.println("You are not located in any room.");
+                    return rec;
+                }
+                Room curRoom = dao.getRoomById(curRoomId);
+                if (curRoom == null) {
+                    out.println("You seem to be in an unknown place.");
+                    return rec;
+                }
+
+                Integer destId = null;
+                String directionName = null;
+                switch (cmdName) {
+                    case "north":
+                    case "n": destId = curRoom.getExitN(); directionName = "north"; break;
+                    case "east":
+                    case "e": destId = curRoom.getExitE(); directionName = "east"; break;
+                    case "south":
+                    case "s": destId = curRoom.getExitS(); directionName = "south"; break;
+                    case "west":
+                    case "w": destId = curRoom.getExitW(); directionName = "west"; break;
+                    case "up":
+                    case "u": destId = curRoom.getExitU(); directionName = "up"; break;
+                    case "down":
+                    case "d": destId = curRoom.getExitD(); directionName = "down"; break;
+                }
+
+                if (destId == null) {
+                    out.println("You can't go that way.");
+                    return rec;
+                }
+
+                // If the destination room id refers to a missing room (broken world), redirect to The Void (id 0)
+                Room maybeDest = (destId == null) ? null : dao.getRoomById(destId);
+                if (destId != null && maybeDest == null) {
+                    destId = 0;
+                }
+
+                // Check and deduct movement points based on destination room/area
+                int moveCost = dao.getMoveCostForRoom(destId);
+                if (rec.mvCur < moveCost) {
+                    out.println("You are too exhausted to move.");
+                    return rec;
+                }
+
+                if (!dao.deductMovementPoints(name, moveCost)) {
+                    out.println("You are too exhausted to move.");
+                    return rec;
+                }
+
+                boolean moved = dao.updateCharacterRoom(name, destId);
+                if (!moved) {
+                    out.println("You try to move but something prevents you.");
+                    return rec;
+                }
+
+                // Announce departure to the old room (respecting invisibility)
+                Integer oldRoomId = curRoomId;
+                if (!this.gmInvisible) {
+                    roomAnnounceFromActor(oldRoomId, makeDepartureMessage(name, directionName), this.characterId);
+                }
+
+                // Refresh character record and show new room
+                rec = dao.findByName(name);
+                this.currentRoomId = rec != null ? rec.currentRoom : null;
+                Room newRoom = dao.getRoomById(destId);
+                if (newRoom == null) {
+                    out.println("You arrive at an unknown place.");
+                    return rec;
+                }
+
+                if (!this.gmInvisible) {
+                    roomAnnounceFromActor(destId, makeArrivalMessage(name, directionName), this.characterId);
+                }
+
+                out.println("You move " + directionName + ".");
+                showRoom(newRoom, destId);
+
+                // Check for aggressive mobs in the new room
+                {
+                    CharacterClassDAO moveClassDao = new CharacterClassDAO();
+                    int playerLevel = rec.currentClassId != null
+                        ? moveClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
+                    MobileRoamingService.getInstance().checkAggroOnPlayerEntry(destId, characterId, playerLevel);
+                }
+
+                return rec;
+            }
+
+        } catch (Exception ex) {
+            out.println("An error occurred while processing the command.");
+        }
+        return rec;
+    }
+
     private static void broadcastAll(String msg) {
         for (ClientHandler s : sessions) s.sendRaw(msg);
     }
@@ -220,6 +572,932 @@ public class ClientHandler implements Runnable {
                 }
             } catch (Exception ignored) {}
         }
+    }
+
+    /**
+     * Handle a local 'say' command: broadcast to everyone in the same room,
+     * formatting the sender's own view as "You say: ..." and others as
+     * "<name> says: ...".
+     */
+    public void handleSay(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        try {
+            String text = cmd.getArgs();
+            if (rec == null || rec.currentRoom == null) { out.println("You are nowhere to say that."); return; }
+            Integer roomId = rec.currentRoom;
+            if (roomId == null) return;
+            for (ClientHandler s : sessions) {
+                if (s.currentRoomId != null && s.currentRoomId.equals(roomId)) {
+                    if (s == this) s.sendRaw("You say: " + text);
+                    else s.sendRaw(this.playerName + " says: " + text);
+                }
+            }
+        } catch (Exception ignored) {}
+    }
+
+    /**
+     * Centralized handling for chat-style commands: `chat`, `yell`, `whisper`, and `gmchat`.
+     */
+    public void handleCommunication(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        try {
+            String cmdName = cmd.getName().toLowerCase();
+            switch (cmdName) {
+                case "chat": {
+                    String t = cmd.getArgs();
+                    if (t == null || t.trim().isEmpty()) { out.println("Usage: chat <message>"); return; }
+                    broadcastAll("[chat] " + this.playerName + ": " + t);
+                    return;
+                }
+                case "yell": {
+                    String t = cmd.getArgs();
+                    if (t == null || t.trim().isEmpty()) { out.println("Usage: yell <message>"); return; }
+                    Integer roomId = rec != null ? rec.currentRoom : null;
+                    if (roomId == null) { out.println("You are nowhere to yell from."); return; }
+                    Room roomObj = dao.getRoomById(roomId);
+                    if (roomObj == null) { out.println("You are nowhere to yell from."); return; }
+                    int areaId = roomObj.getAreaId();
+                    broadcastArea(dao, areaId, "[yell] " + this.playerName + ": " + t);
+                    return;
+                }
+                case "whisper": {
+                    String args = cmd.getArgs();
+                    if (args == null || args.trim().isEmpty()) { out.println("Usage: whisper <target> <message>"); return; }
+                    String[] parts = args.trim().split("\\s+", 2);
+                    if (parts.length < 2) { out.println("Usage: whisper <target> <message>"); return; }
+                    String target = parts[0];
+                    String msg = parts[1];
+                    ClientHandler t = nameToSession.get(target.toLowerCase());
+                    if (t == null) { out.println("No such player online: " + target); return; }
+                    t.sendRaw("[whisper] " + this.playerName + " -> you: " + msg);
+                    this.sendRaw("[whisper] you -> " + target + ": " + msg);
+                    return;
+                }
+                case "gmchat": {
+                    String t = cmd.getArgs();
+                    if (t == null || t.trim().isEmpty()) { out.println("Usage: gmchat <message>"); return; }
+                    if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use gmchat."); return; }
+                    gmBroadcast(dao, this.playerName, t);
+                    return;
+                }
+                default:
+                    // Not a communication command; fall through to caller
+                    return;
+            }
+        } catch (Exception ignored) {}
+    }
+
+    /**
+     * Ensure the current session/character is a GM. Prints an appropriate
+     * message and returns false if not allowed.
+     */
+    private boolean ensureGm(String name, CharacterRecord rec, CharacterDAO dao) {
+        if (rec == null) { out.println("No character record found."); return false; }
+        try {
+            if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                out.println("You do not have permission to use GM commands.");
+                return false;
+            }
+        } catch (Exception ignored) {
+            out.println("Permission check failed.");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Centralized handler for GM commands. Moves GM case bodies here to keep
+     * the main switch compact. Returns possibly-updated CharacterRecord.
+     */
+    public CharacterRecord handleGmCommand(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        if (cmd == null) return rec;
+        String cmdName = cmd.getName().toLowerCase();
+        try {
+            switch (cmdName) {
+                case "cflag": {
+                    // GM-only: CFLAG SET <char> <flag> <value>  OR  CFLAG CHECK <char> <flag>
+                    if (!ensureGm(name, rec, dao)) break;
+                    String cfArgs2b = cmd.getArgs();
+                    if (cfArgs2b == null || cfArgs2b.trim().isEmpty()) {
+                        out.println("Usage: CFLAG SET <char> <flag> <value>   |   CFLAG CHECK <char> <flag>");
+                        break;
+                    }
+                    String[] parts = cfArgs2b.trim().split("\\s+");
+                    String verb = parts.length > 0 ? parts[0].toLowerCase() : "";
+                    if (verb.equals("set")) {
+                        if (parts.length < 4) { out.println("Usage: CFLAG SET <char> <flag> <value>"); break; }
+                        String targetName2 = parts[1];
+                        String flagName2 = parts[2];
+                        // join remaining parts as the value to allow spaces
+                        StringBuilder sbv = new StringBuilder();
+                        for (int i = 3; i < parts.length; i++) { if (sbv.length() > 0) sbv.append(' '); sbv.append(parts[i]); }
+                        String flagVal2 = sbv.toString();
+                        boolean ok3 = dao.setCharacterFlagByName(targetName2, flagName2, flagVal2);
+                        if (ok3) out.println("Flag set for " + targetName2 + ": " + flagName2 + " = " + flagVal2);
+                        else out.println("Failed to set flag for " + targetName2 + ".");
+                        break;
+                    } else if (verb.equals("check") || verb.equals("get")) {
+                        if (parts.length < 3) { out.println("Usage: CFLAG CHECK <char> <flag>"); break; }
+                        String targetName3 = parts[1];
+                        String flagName3 = parts[2];
+                        String v = dao.getCharacterFlagByName(targetName3, flagName3);
+                        if (v == null || v.isEmpty()) {
+                            out.println("No flag set for " + targetName3 + " (" + flagName3 + ")");
+                        } else {
+                            out.println("Flag for " + targetName3 + ": " + flagName3 + " = " + v);
+                        }
+                        break;
+                    } else {
+                        out.println("Usage: CFLAG SET <char> <flag> <value>   |   CFLAG CHECK <char> <flag>");
+                        break;
+                    }
+                }
+                case "cset": {
+                    // GM-only: CSET <char> <attribute> <value>  OR  CSET LIST
+                    if (!ensureGm(name, rec, dao)) break;
+                    String csetArgs = cmd.getArgs();
+                    if (csetArgs == null || csetArgs.trim().isEmpty()) {
+                        out.println("Usage: CSET <character> <attribute> <value>");
+                        out.println("       CSET LIST - Show all settable attributes");
+                        break;
+                    }
+                    String[] csetParts = csetArgs.trim().split("\\s+", 3);
+                    
+                    // Handle CSET LIST
+                    if (csetParts[0].equalsIgnoreCase("list")) {
+                        out.println();
+                        out.println("═══════════════════════════════════════════════════════════════");
+                        out.println("                    SETTABLE ATTRIBUTES");
+                        out.println("═══════════════════════════════════════════════════════════════");
+                        out.println();
+                        out.println("  [ VITALS ]");
+                        out.println("    hp, hpmax, mp, mpmax, mv, mvmax");
+                        out.println();
+                        out.println("  [ BASE ABILITIES ]");
+                        out.println("    str, dex, con, int, wis, cha");
+                        out.println();
+                        out.println("  [ TRAINED ABILITIES ]");
+                        out.println("    trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha");
+                        out.println("    (aliases: tstr, tdex, tcon, tint, twis, tcha)");
+                        out.println();
+                        out.println("  [ SAVES ]");
+                        out.println("    armor (ac), fortitude (fort), reflex (ref), will");
+                        out.println();
+                        out.println("  [ EQUIPMENT BONUSES ]");
+                        out.println("    armor_equip, fort_equip, reflex_equip, will_equip");
+                        out.println();
+                        out.println("  [ CLASS & PROGRESSION ]");
+                        out.println("    class, level, xp");
+                        out.println();
+                        out.println("  [ OTHER ]");
+                        out.println("    age, room, autoflee, talents, gold, description");
+                        out.println();
+                        out.println("═══════════════════════════════════════════════════════════════");
+                        out.println();
+                        break;
+                    }
+                    
+                    if (csetParts.length < 3) {
+                        out.println("Usage: CSET <character> <attribute> <value>");
+                        out.println("       CSET LIST - Show all settable attributes");
+                        break;
+                    }
+                    
+                    String targetName = csetParts[0];
+                    String attrName = csetParts[1];
+                    String attrValue = csetParts[2];
+                    
+                    // Find the character
+                    Integer targetCharId = dao.getCharacterIdByName(targetName);
+                    if (targetCharId == null) {
+                        out.println("Character '" + targetName + "' not found.");
+                        break;
+                    }
+                    
+                    // Set the attribute
+                    String result = dao.setCharacterAttribute(targetCharId, attrName, attrValue);
+                    out.println(targetName + ": " + result);
+                    
+                    // Notify the target if they're online and it's not self
+                    if (!targetName.equalsIgnoreCase(name)) {
+                        ClientHandler targetHandler = nameToSession.get(targetName.toLowerCase());
+                        if (targetHandler != null) {
+                            targetHandler.sendRaw("[GM] Your " + attrName + " has been modified.");
+                        }
+                    }
+                    break;
+                }
+                case "cskill": {
+                    // GM-only: CSKILL <character> <skill_id> [amount]  OR  CSKILL LIST
+                    // Grants a skill to a character at a given proficiency (default 100%)
+                    if (!ensureGm(name, rec, dao)) break;
+                    String cskillArgs = cmd.getArgs();
+                    if (cskillArgs == null || cskillArgs.trim().isEmpty()) {
+                        out.println("Usage: CSKILL <character> <skill_id> [amount]");
+                        out.println("       CSKILL LIST - List all available skills");
+                        out.println("  Grants a skill to a character at the specified proficiency.");
+                        out.println("  Amount defaults to 100 (mastered) if not specified.");
+                        break;
+                    }
+                    String[] cskillParts = cskillArgs.trim().split("\\s+");
+                    
+                    // Handle CSKILL LIST
+                    if (cskillParts[0].equalsIgnoreCase("list")) {
+                        java.util.List<Skill> allSkills = dao.getAllSkills();
+                        if (allSkills.isEmpty()) {
+                            out.println("No skills found in the database.");
+                            break;
+                        }
+                        
+                        out.println();
+                        out.println("===================================================================");
+                        out.println("                       AVAILABLE SKILLS");
+                        out.println("===================================================================");
+                        out.println();
+                        
+                        // Format: "SkillName (ID)" in 3 columns
+                        java.util.List<String> skillDisplays = new java.util.ArrayList<>();
+                        for (Skill sk : allSkills) {
+                            skillDisplays.add(String.format("%s (%d)", sk.getName(), sk.getId()));
+                        }
+                        
+                        // Print in rows of 3
+                        for (int i = 0; i < skillDisplays.size(); i += 3) {
+                            String c1 = skillDisplays.get(i);
+                            String c2 = (i + 1 < skillDisplays.size()) ? skillDisplays.get(i + 1) : "";
+                            String c3 = (i + 2 < skillDisplays.size()) ? skillDisplays.get(i + 2) : "";
+                            out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                        }
+                        
+                        out.println();
+                        out.println("-------------------------------------------------------------------");
+                        out.println(String.format("  Total: %d skills", allSkills.size()));
+                        out.println("===================================================================");
+                        out.println();
+                        break;
+                    }
+                    
+                    if (cskillParts.length < 2) {
+                        out.println("Usage: CSKILL <character> <skill_id> [amount]");
+                        out.println("       CSKILL LIST - List all available skills");
+                        break;
+                    }
+                    String targetCharName = cskillParts[0];
+                    int skillId;
+                    try {
+                        skillId = Integer.parseInt(cskillParts[1]);
+                    } catch (NumberFormatException e) {
+                        out.println("Invalid skill ID. Must be a number.");
+                        break;
+                    }
+                    int amount = 100; // default to mastered
+                    if (cskillParts.length >= 3) {
+                        try {
+                            amount = Integer.parseInt(cskillParts[2]);
+                            if (amount < 1) amount = 1;
+                            if (amount > 100) amount = 100;
+                        } catch (NumberFormatException e) {
+                            out.println("Invalid amount. Must be a number between 1 and 100.");
+                            break;
+                        }
+                    }
+                    // Look up target character
+                    Integer targetCharId = dao.getCharacterIdByName(targetCharName);
+                    if (targetCharId == null) {
+                        out.println("Character '" + targetCharName + "' not found.");
+                        break;
+                    }
+                    // Check if skill exists
+                    Skill skillDef = dao.getSkillById(skillId);
+                    String skillName = skillDef != null ? skillDef.getName() : "Skill #" + skillId;
+                    // Set the skill level (will create if doesn't exist, or update if it does)
+                    boolean ok = dao.setCharacterSkillLevel(targetCharId, skillId, amount);
+                    if (ok) {
+                        String profStr = amount >= 100 ? "MASTERED" : amount + "%";
+                        out.println("Granted " + targetCharName + " the skill '" + skillName + "' at " + profStr + ".");
+                    } else {
+                        out.println("Failed to grant skill to " + targetCharName + ".");
+                    }
+                    break;
+                }
+                case "cspell": {
+                    // GM-only: CSPELL <character> <spell_id> [amount]  OR  CSPELL LIST
+                    // Grants a spell to a character at a given proficiency (default 100%)
+                    if (!ensureGm(name, rec, dao)) break;
+                    String cspellArgs = cmd.getArgs();
+                    if (cspellArgs == null || cspellArgs.trim().isEmpty()) {
+                        out.println("Usage: CSPELL <character> <spell_id> [amount]");
+                        out.println("       CSPELL LIST - List all available spells");
+                        out.println("  Grants a spell to a character at the specified proficiency.");
+                        out.println("  Amount defaults to 100 (mastered) if not specified.");
+                        break;
+                    }
+                    String[] cspellParts = cspellArgs.trim().split("\\s+");
+                    
+                    // Handle CSPELL LIST
+                    if (cspellParts[0].equalsIgnoreCase("list")) {
+                        java.util.List<Spell> allSpells = dao.getAllSpells();
+                        if (allSpells.isEmpty()) {
+                            out.println("No spells found in the database.");
+                            break;
+                        }
+                        
+                        // Sort alphabetically by name
+                        allSpells.sort((sp1, sp2) -> sp1.getName().compareToIgnoreCase(sp2.getName()));
+                        
+                        out.println();
+                        out.println("===================================================================");
+                        out.println("                       AVAILABLE SPELLS");
+                        out.println("===================================================================");
+                        out.println();
+                        
+                        // Format: "SpellName (ID)" in 3 columns
+                        java.util.List<String> spellDisplays = new java.util.ArrayList<>();
+                        for (Spell sp : allSpells) {
+                            spellDisplays.add(String.format("%s (%d)", sp.getName(), sp.getId()));
+                        }
+                        
+                        // Print in rows of 3
+                        for (int i = 0; i < spellDisplays.size(); i += 3) {
+                            String c1 = spellDisplays.get(i);
+                            String c2 = (i + 1 < spellDisplays.size()) ? spellDisplays.get(i + 1) : "";
+                            String c3 = (i + 2 < spellDisplays.size()) ? spellDisplays.get(i + 2) : "";
+                            out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                        }
+                        
+                        out.println();
+                        out.println("-------------------------------------------------------------------");
+                        out.println(String.format("  Total: %d spells", allSpells.size()));
+                        out.println("===================================================================");
+                        out.println();
+                        break;
+                    }
+                    
+                    if (cspellParts.length < 2) {
+                        out.println("Usage: CSPELL <character> <spell_id> [amount]");
+                        out.println("       CSPELL LIST - List all available spells");
+                        break;
+                    }
+                    String targetSpellCharName = cspellParts[0];
+                    int spellId;
+                    try {
+                        spellId = Integer.parseInt(cspellParts[1]);
+                    } catch (NumberFormatException e) {
+                        out.println("Invalid spell ID. Must be a number.");
+                        break;
+                    }
+                    int spellAmount = 100; // default to mastered
+                    if (cspellParts.length >= 3) {
+                        try {
+                            spellAmount = Integer.parseInt(cspellParts[2]);
+                            if (spellAmount < 1) spellAmount = 1;
+                            if (spellAmount > 100) spellAmount = 100;
+                        } catch (NumberFormatException e) {
+                            out.println("Invalid amount. Must be a number between 1 and 100.");
+                            break;
+                        }
+                    }
+                    // Look up target character
+                    Integer targetSpellCharId = dao.getCharacterIdByName(targetSpellCharName);
+                    if (targetSpellCharId == null) {
+                        out.println("Character '" + targetSpellCharName + "' not found.");
+                        break;
+                    }
+                    // Check if spell exists
+                    Spell spellDef = dao.getSpellById(spellId);
+                    String spellName = spellDef != null ? spellDef.getName() : "Spell #" + spellId;
+                    // Set the spell level (will create if doesn't exist, or update if it does)
+                    boolean spellOk = dao.setCharacterSpellLevel(targetSpellCharId, spellId, spellAmount);
+                    if (spellOk) {
+                        String spellProfStr = spellAmount >= 100 ? "MASTERED" : spellAmount + "%";
+                        out.println("Granted " + targetSpellCharName + " the spell '" + spellName + "' at " + spellProfStr + ".");
+                    } else {
+                        out.println("Failed to grant spell to " + targetSpellCharName + ".");
+                    }
+                    break;
+                }
+                case "ilist": {
+                    // GM-only: ILIST <search_string>
+                    // Finds all item templates matching the given string
+                    if (!ensureGm(name, rec, dao)) break;
+                    String ilistArgs = cmd.getArgs();
+                    if (ilistArgs == null || ilistArgs.trim().isEmpty()) {
+                        out.println("Usage: ILIST <search_string>");
+                        out.println("  Searches item templates by name.");
+                        break;
+                    }
+                    String searchStr = ilistArgs.trim();
+                    ItemDAO ilistItemDao = new ItemDAO();
+                    java.util.List<ItemTemplate> matches = ilistItemDao.searchItemTemplates(searchStr);
+                    if (matches.isEmpty()) {
+                        out.println("No item templates found matching '" + searchStr + "'.");
+                        break;
+                    }
+                    out.println();
+                    out.println(String.format("%-6s %-25s %-12s %s", "ID", "Name", "Type", "Description"));
+                    out.println(repeat("-", 75));
+                    for (ItemTemplate t : matches) {
+                        String typeName = t.types != null && !t.types.isEmpty() ? String.join(",", t.types) : "";
+                        String desc = t.description != null ? truncate(t.description, 28) : "";
+                        out.println(String.format("%-6d %-25s %-12s %s",
+                            t.id,
+                            truncate(t.name, 25),
+                            truncate(typeName, 12),
+                            desc));
+                    }
+                    out.println(repeat("-", 75));
+                    out.println(matches.size() + " item(s) found.");
+                    out.println();
+                    break;
+                }
+                case "ifind": {
+                    // GM-only: IFIND <template_id> [world|char|bags|all]
+                    // Finds all instances of an item template in the game
+                    if (!ensureGm(name, rec, dao)) break;
+                    String ifindArgs = cmd.getArgs();
+                    if (ifindArgs == null || ifindArgs.trim().isEmpty()) {
+                        out.println("Usage: IFIND <template_id> [world|char|bags|all]");
+                        out.println("  Finds all instances of a given item template.");
+                        out.println("  world = items in rooms, char = in character inventories,");
+                        out.println("  bags = in containers, all = all locations (default)");
+                        break;
+                    }
+                    String[] ifindParts = ifindArgs.trim().split("\\s+");
+                    int ifindTemplateId;
+                    try {
+                        ifindTemplateId = Integer.parseInt(ifindParts[0]);
+                    } catch (NumberFormatException e) {
+                        out.println("Invalid template ID. Must be a number.");
+                        break;
+                    }
+                    String scope = ifindParts.length >= 2 ? ifindParts[1].toLowerCase() : "all";
+                    if (!scope.equals("world") && !scope.equals("char") && !scope.equals("bags") && !scope.equals("all")) {
+                        out.println("Invalid scope. Use: world, char, bags, or all");
+                        break;
+                    }
+                    
+                    ItemDAO ifindItemDao = new ItemDAO();
+                    ItemTemplate ifindTemplate = ifindItemDao.getTemplateById(ifindTemplateId);
+                    String templateName = ifindTemplate != null ? ifindTemplate.name : "Unknown";
+                    
+                    java.util.List<ItemInstance> allInstances = ifindItemDao.findInstancesByTemplateId(ifindTemplateId);
+                    if (allInstances.isEmpty()) {
+                        out.println("No instances of template #" + ifindTemplateId + " (" + templateName + ") found.");
+                        break;
+                    }
+                    
+                    // Separate by location type
+                    java.util.List<ItemInstance> inRooms = new java.util.ArrayList<>();
+                    java.util.List<ItemInstance> inChars = new java.util.ArrayList<>();
+                    java.util.List<ItemInstance> inContainers = new java.util.ArrayList<>();
+                    
+                    for (ItemInstance inst : allInstances) {
+                        if (inst.locationRoomId != null) inRooms.add(inst);
+                        else if (inst.ownerCharacterId != null) inChars.add(inst);
+                        else if (inst.containerInstanceId != null) inContainers.add(inst);
+                    }
+                    
+                    out.println();
+                    out.println("=== Instances of #" + ifindTemplateId + " (" + templateName + ") ===");
+                    
+                    // Items in rooms (world)
+                    if (scope.equals("world") || scope.equals("all")) {
+                        out.println();
+                        out.println("--- In Rooms (" + inRooms.size() + ") ---");
+                        if (inRooms.isEmpty()) {
+                            out.println("  (none)");
+                        } else {
+                            out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
+                            for (ItemInstance inst : inRooms) {
+                                Room rm = dao.getRoomById(inst.locationRoomId);
+                                String roomName = rm != null ? rm.getName() : "Unknown";
+                                out.println(String.format("  %-10d %-6d %-20s %-6d %s",
+                                    inst.instanceId, inst.templateId, truncate(templateName, 20),
+                                    inst.locationRoomId, truncate(roomName, 25)));
+                            }
+                        }
+                    }
+                    
+                    // Items on characters (char)
+                    if (scope.equals("char") || scope.equals("all")) {
+                        out.println();
+                        out.println("--- In Character Inventories (" + inChars.size() + ") ---");
+                        if (inChars.isEmpty()) {
+                            out.println("  (none)");
+                        } else {
+                            out.println(String.format("  %-10s %-6s %-20s %-12s %-6s %s", "InstID", "TplID", "Name", "CharName", "RoomID", "Room Name"));
+                            for (ItemInstance inst : inChars) {
+                                String charName = dao.getCharacterNameById(inst.ownerCharacterId);
+                                if (charName == null) charName = "Char#" + inst.ownerCharacterId;
+                                CharacterRecord charRec = dao.getCharacterById(inst.ownerCharacterId);
+                                Integer charRoomId = charRec != null ? charRec.currentRoom : null;
+                                Room charRoom = charRoomId != null ? dao.getRoomById(charRoomId) : null;
+                                String charRoomName = charRoom != null ? charRoom.getName() : "Unknown";
+                                out.println(String.format("  %-10d %-6d %-20s %-12s %-6s %s",
+                                    inst.instanceId, inst.templateId, truncate(templateName, 20),
+                                    truncate(charName, 12),
+                                    charRoomId != null ? String.valueOf(charRoomId) : "?",
+                                    truncate(charRoomName, 20)));
+                            }
+                        }
+                    }
+                    
+                    // Items in containers (bags)
+                    if (scope.equals("bags") || scope.equals("all")) {
+                        out.println();
+                        out.println("--- In Containers (" + inContainers.size() + ") ---");
+                        if (inContainers.isEmpty()) {
+                            out.println("  (none)");
+                        } else {
+                            out.println(String.format("  %-10s %-6s %-20s %-10s %-6s %s", "InstID", "TplID", "Name", "ContInstID", "ContID", "Container Name"));
+                            for (ItemInstance inst : inContainers) {
+                                // Look up the container instance to get its template
+                                ItemInstance containerInst = ifindItemDao.getInstanceById(inst.containerInstanceId);
+                                int containerId = containerInst != null ? containerInst.templateId : 0;
+                                ItemTemplate containerTpl = containerInst != null ? ifindItemDao.getTemplateById(containerInst.templateId) : null;
+                                String containerName = containerTpl != null ? containerTpl.name : "Unknown";
+                                out.println(String.format("  %-10d %-6d %-20s %-10d %-6d %s",
+                                    inst.instanceId, inst.templateId, truncate(templateName, 20),
+                                    inst.containerInstanceId, containerId, truncate(containerName, 20)));
+                            }
+                        }
+                    }
+                    
+                    out.println();
+                    int total = (scope.equals("world") ? inRooms.size() : 0)
+                              + (scope.equals("char") ? inChars.size() : 0)
+                              + (scope.equals("bags") ? inContainers.size() : 0)
+                              + (scope.equals("all") ? allInstances.size() : 0);
+                    out.println("Total: " + total + " instance(s) found.");
+                    out.println();
+                    break;
+                }
+                case "istat": {
+                    // GM-only: ISTAT <item> - Show detailed stats of an inventory item
+                    if (!ensureGm(name, rec, dao)) break;
+                    String istatArgs = cmd.getArgs();
+                    if (istatArgs == null || istatArgs.trim().isEmpty()) {
+                        out.println("Usage: ISTAT <item>");
+                        out.println("  Shows detailed stat block for an item in your inventory.");
+                        break;
+                    }
+                    String istatSearch = istatArgs.trim().toLowerCase();
+                    Integer charId = dao.getCharacterIdByName(name);
+                    if (charId == null) { out.println("Failed to locate your character record."); break; }
+
+                    ItemDAO istatItemDao = new ItemDAO();
+                    java.util.List<ItemDAO.RoomItem> allItems = istatItemDao.getItemsByCharacter(charId);
+
+                    ItemDAO.RoomItem matchedItem = null;
+                    for (ItemDAO.RoomItem ri : allItems) {
+                        if (ri.instance.customName != null && ri.instance.customName.toLowerCase().contains(istatSearch)) { matchedItem = ri; break; }
+                        if (ri.template != null && ri.template.name != null && ri.template.name.toLowerCase().contains(istatSearch)) { matchedItem = ri; break; }
+                        if (ri.template != null && ri.template.keywords != null) {
+                            for (String kw : ri.template.keywords) {
+                                if (kw.toLowerCase().contains(istatSearch)) { matchedItem = ri; break; }
+                            }
+                            if (matchedItem != null) break;
+                        }
+                    }
+
+                    if (matchedItem == null) { out.println("You don't have '" + istatSearch + "' in your inventory."); break; }
+
+                    ItemInstance inst = matchedItem.instance;
+                    ItemTemplate tmpl = matchedItem.template;
+                    String displayName = getItemDisplayName(matchedItem);
+
+                    out.println();
+                    out.println("=== ITEM STAT BLOCK ===");
+                    out.println();
+                    out.println("  Name:        " + displayName);
+                    if (inst.customName != null) {
+                        out.println("  Base Name:   " + (tmpl != null ? tmpl.name : "Unknown") + " (template)");
+                    }
+                    out.println("  Instance ID: " + inst.instanceId);
+                    out.println("  Template ID: " + inst.templateId);
+                    out.println("  Item Level:  " + inst.itemLevel);
+                    out.println("  Generated:   " + (inst.isGenerated ? "Yes" : "No"));
+                    out.println();
+
+                    if (tmpl != null) {
+                        out.println("--- TEMPLATE INFO ---");
+                        out.println("  Key:         " + (tmpl.key != null ? tmpl.key : "-"));
+                        out.println("  Types:       " + (tmpl.types != null && !tmpl.types.isEmpty() ? String.join(", ", tmpl.types) : "-"));
+                        out.println("  Subtype:     " + (tmpl.subtype != null ? tmpl.subtype : "-"));
+                        out.println("  Slot:        " + (tmpl.slot != null ? tmpl.slot : "-"));
+                        out.println("  Weight:      " + tmpl.weight);
+                        out.println("  Base Value:  " + tmpl.value + " gp");
+                        out.println("  Traits:      " + (tmpl.traits != null && !tmpl.traits.isEmpty() ? String.join(", ", tmpl.traits) : "-"));
+                        out.println("  Keywords:    " + (tmpl.keywords != null && !tmpl.keywords.isEmpty() ? String.join(", ", tmpl.keywords) : "-"));
+                        out.println();
+                    }
+
+                    boolean isWeapon = tmpl != null && tmpl.hasType("weapon");
+                    if (isWeapon || inst.baseDieOverride != null || inst.multiplierOverride != null) {
+                        out.println("--- WEAPON STATS ---");
+                        int baseDie = inst.getEffectiveBaseDie(tmpl);
+                        int mult = inst.getEffectiveMultiplier(tmpl);
+                        double abilMult = inst.getEffectiveAbilityMultiplier(tmpl);
+                        String abilScore = tmpl != null ? tmpl.abilityScore : "STR";
+
+                        out.println("  Base Die:        " + baseDie + (inst.baseDieOverride != null ? " (override)" : ""));
+                        out.println("  Multiplier:      " + mult + (inst.multiplierOverride != null ? " (override)" : ""));
+                        out.println("  Ability Score:   " + (abilScore != null ? abilScore : "STR"));
+                        out.println("  Ability Mult:    " + String.format("%.1f", abilMult) + (inst.abilityMultOverride != null ? " (override)" : ""));
+                        out.println("  Damage Formula:  " + mult + "d" + baseDie + " + " + String.format("%.1f", abilMult) + "x" + (abilScore != null ? abilScore : "STR") + " mod");
+                        out.println("  Hands:           " + (tmpl != null ? tmpl.hands : 1));
+                        if (tmpl != null) {
+                            out.println("  Category:        " + (tmpl.weaponCategory != null ? tmpl.weaponCategory : "-"));
+                            out.println("  Family:          " + (tmpl.weaponFamily != null ? tmpl.weaponFamily : "-"));
+                        }
+                        out.println();
+                    }
+
+                    boolean isArmor = tmpl != null && (tmpl.hasType("armor") || tmpl.hasType("shield"));
+                    boolean hasSaves = inst.armorSaveOverride != null || inst.fortSaveOverride != null || inst.refSaveOverride != null || inst.willSaveOverride != null || (tmpl != null && (tmpl.armorSaveBonus > 0 || tmpl.fortSaveBonus > 0 || tmpl.refSaveBonus > 0 || tmpl.willSaveBonus > 0));
+                    if (isArmor || hasSaves) {
+                        out.println("--- ARMOR / SAVES ---");
+                        int armorSave = inst.getEffectiveArmorSave(tmpl);
+                        int fortSave = inst.getEffectiveFortSave(tmpl);
+                        int refSave = inst.getEffectiveRefSave(tmpl);
+                        int willSave = inst.getEffectiveWillSave(tmpl);
+
+                        out.println("  Armor Save:      " + (armorSave != 0 ? "+" + armorSave : "0") + (inst.armorSaveOverride != null ? " (override)" : ""));
+                        out.println("  Fortitude Save:  " + (fortSave != 0 ? "+" + fortSave : "0") + (inst.fortSaveOverride != null ? " (override)" : ""));
+                        out.println("  Reflex Save:     " + (refSave != 0 ? "+" + refSave : "0") + (inst.refSaveOverride != null ? " (override)" : ""));
+                        out.println("  Will Save:       " + (willSave != 0 ? "+" + willSave : "0") + (inst.willSaveOverride != null ? " (override)" : ""));
+                        if (tmpl != null && tmpl.armorCategory != null) {
+                            out.println("  Armor Category:  " + tmpl.armorCategory);
+                        }
+                        out.println();
+                    }
+
+                    String eff1 = inst.getEffectiveSpellEffect1(tmpl);
+                    String eff2 = inst.getEffectiveSpellEffect2(tmpl);
+                    String eff3 = inst.getEffectiveSpellEffect3(tmpl);
+                    String eff4 = inst.getEffectiveSpellEffect4(tmpl);
+                    if (eff1 != null || eff2 != null || eff3 != null || eff4 != null) {
+                        out.println("--- SPELL EFFECTS ---");
+                        if (eff1 != null) out.println("  Effect 1: " + eff1 + (inst.spellEffect1Override != null ? " (override)" : ""));
+                        if (eff2 != null) out.println("  Effect 2: " + eff2 + (inst.spellEffect2Override != null ? " (override)" : ""));
+                        if (eff3 != null) out.println("  Effect 3: " + eff3 + (inst.spellEffect3Override != null ? " (override)" : ""));
+                        if (eff4 != null) out.println("  Effect 4: " + eff4 + (inst.spellEffect4Override != null ? " (override)" : ""));
+                        out.println();
+                    }
+
+                    int effectiveValue = inst.getEffectiveValue(tmpl);
+                    out.println("--- VALUE ---");
+                    out.println("  Sell Value:  " + effectiveValue + " gp" + (inst.valueOverride != null ? " (override)" : ""));
+                    out.println();
+
+                    String desc = inst.customDescription != null ? inst.customDescription : (tmpl != null ? tmpl.description : null);
+                    if (desc != null && !desc.isEmpty()) {
+                        out.println("--- DESCRIPTION ---");
+                        out.println("  " + desc);
+                        out.println();
+                    }
+
+                    out.println("=======================");
+                    out.println();
+                    break;
+                }
+                case "mstat": {
+                    // GM-only: MSTAT <mobile> - Show detailed stats of a mobile in the room
+                    if (!ensureGm(name, rec, dao)) break;
+                    String mstatArgs = cmd.getArgs();
+                    if (mstatArgs == null || mstatArgs.trim().isEmpty()) {
+                        out.println("Usage: MSTAT <mobile>");
+                        out.println("  Shows detailed stat block for a mobile in your current room.");
+                        break;
+                    }
+                    String mstatSearch = mstatArgs.trim().toLowerCase();
+
+                    MobileDAO mstatMobDao = new MobileDAO();
+                    java.util.List<Mobile> mobsInRoom = mstatMobDao.getMobilesInRoom(rec.currentRoom);
+
+                    Mobile matchedMob = null;
+                    for (Mobile mob : mobsInRoom) {
+                        if (mob.isDead()) continue;
+                        if (mob.getName() != null && mob.getName().toLowerCase().contains(mstatSearch)) { matchedMob = mob; break; }
+                        if (mob.getShortDesc() != null && mob.getShortDesc().toLowerCase().contains(mstatSearch)) { matchedMob = mob; break; }
+                    }
+
+                    if (matchedMob == null) {
+                        for (Mobile mob : mobsInRoom) {
+                            if (mob.isDead()) continue;
+                            MobileTemplate mobTmpl = mstatMobDao.getTemplateById(mob.getTemplateId());
+                            if (mobTmpl != null && mobTmpl.matchesKeyword(mstatSearch)) { matchedMob = mob; break; }
+                        }
+                    }
+
+                    if (matchedMob == null) { out.println("No mobile '" + mstatSearch + "' found in this room."); break; }
+
+                    MobileTemplate mobTmpl = mstatMobDao.getTemplateById(matchedMob.getTemplateId());
+
+                    out.println();
+                    out.println("=== MOBILE STAT BLOCK ===");
+                    out.println();
+                    out.println("  Name:          " + matchedMob.getName());
+                    out.println("  Short Desc:    " + (matchedMob.getShortDesc() != null ? matchedMob.getShortDesc() : "-"));
+                    out.println("  Instance ID:   " + matchedMob.getInstanceId());
+                    out.println("  Template ID:   " + matchedMob.getTemplateId());
+                    out.println("  Level:         " + matchedMob.getLevel());
+                    out.println("  Room:          " + matchedMob.getCurrentRoom());
+                    out.println("  Spawn Room:    " + (matchedMob.getSpawnRoomId() != null ? matchedMob.getSpawnRoomId() : "-"));
+                    out.println();
+
+                    if (mobTmpl != null) {
+                        out.println("--- TEMPLATE INFO ---");
+                        out.println("  Key:           " + (mobTmpl.getKey() != null ? mobTmpl.getKey() : "-"));
+                        out.println("  Long Desc:     " + (mobTmpl.getLongDesc() != null ? mobTmpl.getLongDesc() : "-"));
+                        out.println("  Keywords:      " + (mobTmpl.getKeywords() != null && !mobTmpl.getKeywords().isEmpty() ? String.join(", ", mobTmpl.getKeywords()) : "-"));
+                        out.println();
+                    }
+
+                    out.println("--- VITALS ---");
+                    out.println("  HP:            " + matchedMob.getHpCur() + " / " + matchedMob.getHpMax());
+                    out.println("  MP:            " + matchedMob.getMpCur() + " / " + matchedMob.getMpMax());
+                    out.println("  MV:            " + matchedMob.getMvCur() + " / " + matchedMob.getMvMax());
+                    out.println();
+
+                    out.println("--- ABILITIES ---");
+                    out.println("  STR: " + String.format("%2d", matchedMob.getStr()) + " (" + (matchedMob.getStr() >= 10 ? "+" : "") + ((matchedMob.getStr() - 10) / 2) + ")" + "   DEX: " + String.format("%2d", matchedMob.getDex()) + " (" + (matchedMob.getDex() >= 10 ? "+" : "") + ((matchedMob.getDex() - 10) / 2) + ")" + "   CON: " + String.format("%2d", matchedMob.getCon()) + " (" + (matchedMob.getCon() >= 10 ? "+" : "") + ((matchedMob.getCon() - 10) / 2) + ")");
+                    out.println("  INT: " + String.format("%2d", matchedMob.getIntel()) + " (" + (matchedMob.getIntel() >= 10 ? "+" : "") + ((matchedMob.getIntel() - 10) / 2) + ")" + "   WIS: " + String.format("%2d", matchedMob.getWis()) + " (" + (matchedMob.getWis() >= 10 ? "+" : "") + ((matchedMob.getWis() - 10) / 2) + ")" + "   CHA: " + String.format("%2d", matchedMob.getCha()) + " (" + (matchedMob.getCha() >= 10 ? "+" : "") + ((matchedMob.getCha() - 10) / 2) + ")");
+                    out.println();
+
+                    out.println("--- DEFENSES ---");
+                    out.println("  Armor:         " + matchedMob.getArmor());
+                    out.println("  Fortitude:     " + matchedMob.getFortitude());
+                    out.println("  Reflex:        " + matchedMob.getReflex());
+                    out.println("  Will:          " + matchedMob.getWill());
+                    out.println();
+
+                    out.println("--- COMBAT ---");
+                    out.println("  Attack Bonus:  " + (matchedMob.getAttackBonus() >= 0 ? "+" : "") + matchedMob.getAttackBonus());
+                    out.println("  Base Damage:   " + matchedMob.getBaseDamage());
+                    out.println("  Damage Bonus:  " + (matchedMob.getDamageBonus() >= 0 ? "+" : "") + matchedMob.getDamageBonus());
+                    int strMod2 = (matchedMob.getStr() - 10) / 2;
+                    out.println("  Damage Roll:   1d" + matchedMob.getBaseDamage() + " + " + matchedMob.getDamageBonus() + " + " + strMod2 + " (STR)");
+                    out.println("  Autoflee HP%:  " + matchedMob.getAutoflee() + "%");
+                    out.println();
+
+                    out.println("--- BEHAVIORS ---");
+                    if (matchedMob.getBehaviors() != null && !matchedMob.getBehaviors().isEmpty()) {
+                        StringBuilder behaviorList = new StringBuilder();
+                        for (MobileBehavior b : matchedMob.getBehaviors()) { if (behaviorList.length() > 0) behaviorList.append(", "); behaviorList.append(b.name()); }
+                        out.println("  " + behaviorList);
+                    } else {
+                        out.println("  (none)");
+                    }
+                    out.println();
+
+                    out.println("--- STATE ---");
+                    out.println("  Dead:          " + (matchedMob.isDead() ? "Yes" : "No"));
+                    out.println("  Has Target:    " + (matchedMob.hasTarget() ? "Yes" : "No"));
+                    if (matchedMob.getTargetCharacterId() != null) out.println("  Target (PC):   Character ID " + matchedMob.getTargetCharacterId());
+                    if (matchedMob.getTargetMobileId() != null) out.println("  Target (Mob):  Mobile ID " + matchedMob.getTargetMobileId());
+                    out.println();
+
+                    if (mobTmpl != null) {
+                        out.println("--- REWARDS ---");
+                        out.println("  XP Value:      " + matchedMob.getExperienceValue());
+                        out.println("  Gold Range:    " + mobTmpl.getGoldMin() + " - " + mobTmpl.getGoldMax());
+                        out.println("  Respawn Time:  " + mobTmpl.getRespawnSeconds() + " seconds");
+                        if (mobTmpl.getAggroRange() > 0) out.println("  Aggro Range:   " + mobTmpl.getAggroRange() + " rooms");
+                        out.println();
+                    }
+
+                    out.println("--- SPAWN INFO ---");
+                    out.println("  Origin UUID:   " + (matchedMob.getOriginUuid() != null ? matchedMob.getOriginUuid() : "-"));
+                    out.println("  Spawned At:    " + (matchedMob.getSpawnedAt() > 0 ? new java.util.Date(matchedMob.getSpawnedAt()).toString() : "-"));
+                    if (matchedMob.isDead() && matchedMob.getDiedAt() > 0) out.println("  Died At:       " + new java.util.Date(matchedMob.getDiedAt()).toString());
+                    out.println();
+
+                    out.println("=========================");
+                    out.println();
+                    break;
+                }
+                case "goto": {
+                    // GM-only: GOTO <room_id> or GOTO <player_name>
+                    if (!ensureGm(name, rec, dao)) break;
+                    String gotoArgs = cmd.getArgs();
+                    if (gotoArgs == null || gotoArgs.trim().isEmpty()) {
+                        out.println("Usage: GOTO <room_id> or GOTO <player_name>");
+                        out.println("  Teleports you directly to a room or to another player.");
+                        break;
+                    }
+
+                    int gotoRoomId = -1;
+                    String gotoTarget = gotoArgs.trim();
+
+                    try {
+                        gotoRoomId = Integer.parseInt(gotoTarget);
+                    } catch (NumberFormatException e) {
+                        ClientHandler targetSession = null;
+                        for (ClientHandler s : sessions) {
+                            String pName = s.playerName;
+                            if (pName != null && pName.toLowerCase().startsWith(gotoTarget.toLowerCase())) { targetSession = s; break; }
+                        }
+
+                        if (targetSession != null && targetSession.currentRoomId != null) {
+                            gotoRoomId = targetSession.currentRoomId;
+                            out.println("(Teleporting to " + targetSession.playerName + ")");
+                        } else {
+                            CharacterRecord targetRec = dao.findByName(gotoTarget);
+                            if (targetRec != null && targetRec.currentRoom != null) {
+                                gotoRoomId = targetRec.currentRoom;
+                                out.println("(Teleporting to " + targetRec.name + "'s last location)");
+                            } else {
+                                out.println("No room or player found matching '" + gotoTarget + "'.");
+                                break;
+                            }
+                        }
+                    }
+
+                    Room gotoRoom = dao.getRoomById(gotoRoomId);
+                    if (gotoRoom == null) { out.println("Room #" + gotoRoomId + " does not exist."); break; }
+
+                    Integer oldRoom = rec.currentRoom;
+                    if (!this.gmInvisible) { roomAnnounce(oldRoom, makeDepartureMessage(name, null), this.characterId, true); }
+
+                    dao.updateCharacterRoom(name, gotoRoomId);
+                    this.currentRoomId = gotoRoomId;
+                    rec = dao.findByName(name);
+
+                    if (!this.gmInvisible) { roomAnnounce(gotoRoomId, makeArrivalMessage(name, null), this.characterId, true); }
+
+                    out.println();
+                    out.println("You vanish and reappear in " + gotoRoom.getName() + ".");
+                    out.println();
+                    showRoom(gotoRoom, gotoRoomId);
+                    break;
+                }
+                // other GM commands inserted below
+                case "dbinfo": {
+                    // GM-only: prints table schema information
+                    if (!ensureGm(name, rec, dao)) break;
+                    // Ensure item tables/migrations are applied by constructing ItemDAO
+                    try { new ItemDAO(); } catch (Exception ignored) {}
+
+                    String targs = cmd.getArgs();
+                    String[] tables;
+                    if (targs == null || targs.trim().isEmpty()) {
+                        tables = new String[] { "item_template", "item_instance", "character_equipment" };
+                    } else {
+                        tables = new String[] { targs.trim() };
+                    }
+                    for (String tbl : tables) {
+                        out.println("Table: " + tbl);
+                        java.util.List<String> cols = dao.listTableColumns(tbl);
+                        if (cols == null || cols.isEmpty()) {
+                            out.println("  <no columns or table does not exist>");
+                        } else {
+                            for (String c : cols) out.println("  " + c);
+                        }
+                    }
+                    break;
+                }
+                case "genmap": {
+                    // GM-only: generate ASCII map for an area
+                    if (!ensureGm(name, rec, dao)) break;
+                    String mapArgs = cmd.getArgs();
+                    int targetAreaId;
+                    if (mapArgs == null || mapArgs.trim().isEmpty()) {
+                        // Use current room's area
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("Usage: genmap [areaId]");
+                            break;
+                        }
+                        com.example.tassmud.model.Room currentRoom = dao.getRoomById(rec.currentRoom);
+                        if (currentRoom == null) {
+                            out.println("Could not determine your current area.");
+                            break;
+                        }
+                        targetAreaId = currentRoom.getAreaId();
+                    } else {
+                        try {
+                            targetAreaId = Integer.parseInt(mapArgs.trim());
+                        } catch (NumberFormatException e) {
+                            out.println("Invalid area ID: " + mapArgs);
+                            break;
+                        }
+                    }
+
+                    // Generate the map
+                    String mapResult = com.example.tassmud.tools.MapGenerator.generateMapForAreaInGame(targetAreaId);
+                    if (mapResult != null) {
+                        out.println(mapResult);
+                    } else {
+                        out.println("Failed to generate map for area " + targetAreaId);
+                    }
+                    break;
+                }
+                default:
+                    // Not a GM command we handle here; leave caller to continue.
+                    return rec;
+            }
+        } catch (Exception ex) {
+            out.println("An error occurred while processing GM command.");
+        }
+        return rec;
     }
     
     /**
@@ -978,8 +2256,8 @@ public class ClientHandler implements Runnable {
                 boolean inCombatForDispatch = characterId != null && 
                     CombatManager.getInstance().getCombatForCharacter(characterId) != null;
                 CommandContext cmdCtx = new CommandContext(
-                    cmd, name, characterId, currentRoomId, rec, dao, out, 
-                    isGmForDispatch, inCombatForDispatch
+                    cmd, name, characterId, currentRoomId, rec, dao, out,
+                    isGmForDispatch, inCombatForDispatch, this
                 );
                 if (CommandDispatcher.dispatch(cmdCtx)) {
                     // Command was handled by a category handler
@@ -988,6 +2266,11 @@ public class ClientHandler implements Runnable {
                     continue;
                 }
                 
+                // Shared temporaries for multiple case branches
+                Room curRoom = null;
+                int moveCost = 0;
+                boolean moved = false;
+                Room newRoom = null;
                 switch (cmdName) {
                     case "help":
                         String a = cmd.getArgs();
@@ -1020,264 +2303,66 @@ public class ClientHandler implements Runnable {
                             }
                         }
                         break;
-                    case "look": {
-                        // Show the room the character is currently in (if any)
-                        if (rec == null) {
-                            out.println("You seem to be nowhere. (no character record found)");
+                    case "look":
+                        rec = handleLookAndMovement(cmd, name, rec, dao);
+                        break;
+                    case "kill": {
+                        // Initiate combat against a mobile in the current room
+                        if (rec == null) { out.println("You must be logged in to attack."); break; }
+                        String targetArg = cmd.getArgs();
+                        if (targetArg == null || targetArg.trim().isEmpty()) {
+                            out.println("Usage: kill <target>");
                             break;
                         }
-                        Integer lookRoomId = rec.currentRoom;
-                        if (lookRoomId == null) {
-                            out.println("You are not located in any room.");
-                            break;
+                        if (characterId == null) {
+                            out.println("Unable to determine your character."); break;
                         }
-                        Room room = dao.getRoomById(lookRoomId);
-                        if (room == null) {
-                            out.println("You are in an unknown place (room id " + lookRoomId + ").");
-                            break;
-                        }
-                        
-                        String lookArgs = cmd.getArgs();
-                        if (lookArgs == null || lookArgs.trim().isEmpty()) {
-                            // No argument - show the room
-                            showRoom(room, lookRoomId);
-                        } else if (lookArgs.trim().toLowerCase().startsWith("in ")) {
-                            // "look in <container>" - search for container and show contents
-                            String containerSearch = lookArgs.trim().substring(3).trim().toLowerCase();
-                            if (containerSearch.isEmpty()) {
-                                out.println("Look in what?");
-                                break;
-                            }
-                            
-                            ItemDAO itemDao = new ItemDAO();
-                            Integer charId = dao.getCharacterIdByName(name);
-                            
-                            // Search for container in room first, then inventory
-                            java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
-                            java.util.List<ItemDAO.RoomItem> invItems = charId != null ? itemDao.getItemsByCharacter(charId) : new java.util.ArrayList<>();
-                            
-                            // Combine both lists for searching
-                            java.util.List<ItemDAO.RoomItem> allItems = new java.util.ArrayList<>();
-                            allItems.addAll(roomItems);
-                            allItems.addAll(invItems);
-                            
-                            // Smart search for container
-                            ItemDAO.RoomItem matchedContainer = null;
-                            
-                            // Priority 1: Exact name match
-                            for (ItemDAO.RoomItem ri : allItems) {
-                                if (ri.template.isContainer() && ri.template.name != null 
-                                    && ri.template.name.equalsIgnoreCase(containerSearch)) {
-                                    matchedContainer = ri;
-                                    break;
-                                }
-                            }
-                            
-                            // Priority 2: Name starts with search term
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.name != null 
-                                        && ri.template.name.toLowerCase().startsWith(containerSearch)) {
-                                        matchedContainer = ri;
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                            // Priority 3: Name word starts with search term
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.name != null) {
-                                        String[] words = ri.template.name.toLowerCase().split("\\s+");
-                                        for (String w : words) {
-                                            if (w.startsWith(containerSearch)) {
-                                                matchedContainer = ri;
-                                                break;
-                                            }
-                                        }
-                                        if (matchedContainer != null) break;
-                                    }
-                                }
-                            }
-                            
-                            // Priority 4: Keyword match
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.keywords != null) {
-                                        for (String kw : ri.template.keywords) {
-                                            if (kw.toLowerCase().startsWith(containerSearch)) {
-                                                matchedContainer = ri;
-                                                break;
-                                            }
-                                        }
-                                        if (matchedContainer != null) break;
-                                    }
-                                }
-                            }
-                            
-                            // Priority 5: Name contains search term
-                            if (matchedContainer == null) {
-                                for (ItemDAO.RoomItem ri : allItems) {
-                                    if (ri.template.isContainer() && ri.template.name != null 
-                                        && ri.template.name.toLowerCase().contains(containerSearch)) {
-                                        matchedContainer = ri;
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                            if (matchedContainer == null) {
-                                out.println("You don't see a container called '" + lookArgs.trim().substring(3).trim() + "' here.");
-                                break;
-                            }
-                            
-                            // Get items in the container
-                            java.util.List<ItemDAO.RoomItem> contents = itemDao.getItemsInContainer(matchedContainer.instance.instanceId);
-                            
-                            out.println(getItemDisplayName(matchedContainer) + " contains:");
-                            if (contents.isEmpty()) {
-                                out.println("  Nothing.");
-                            } else {
-                                // Group by display name and count
-                                java.util.Map<String, Integer> itemCounts = new java.util.LinkedHashMap<>();
-                                for (ItemDAO.RoomItem ci : contents) {
-                                    String itemName = getItemDisplayName(ci);
-                                    itemCounts.put(itemName, itemCounts.getOrDefault(itemName, 0) + 1);
-                                }
-                                for (java.util.Map.Entry<String, Integer> entry : itemCounts.entrySet()) {
-                                    if (entry.getValue() > 1) {
-                                        out.println("  " + entry.getKey() + " (x" + entry.getValue() + ")");
-                                    } else {
-                                        out.println("  " + entry.getKey());
-                                    }
-                                }
-                            }
-                        } else {
-                            // Look at something specific
-                            String searchTerm = lookArgs.trim().toLowerCase();
-                            boolean found = false;
-                            
-                            // Search other players in the room first
-                            for (ClientHandler s : sessions) {
-                                if (s == this) continue;
-                                String otherName = s.playerName;
-                                if (otherName == null) continue;
-                                Integer otherRoomId = s.currentRoomId;
-                                if (otherRoomId == null || !otherRoomId.equals(lookRoomId)) continue;
-                                
-                                if (otherName.toLowerCase().startsWith(searchTerm)) {
-                                    CharacterRecord otherRec = dao.findByName(otherName);
-                                    out.println(otherName);
-                                    if (otherRec != null && otherRec.description != null && !otherRec.description.isEmpty()) {
-                                        out.println(otherRec.description);
-                                    } else {
-                                        out.println("You see nothing special about " + otherName + ".");
-                                    }
-                                    found = true;
-                                    break;
-                                }
-                            }
-                            
-                            // Search mobs in the room
-                            if (!found) {
-                                MobileDAO mobDao = new MobileDAO();
-                                java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
-                                for (Mobile mob : roomMobs) {
-                                    String mobName = mob.getName().toLowerCase();
-                                    if (mobName.startsWith(searchTerm)) {
-                                        out.println(mob.getName());
-                                        String longDesc = mob.getDescription();
-                                        if (longDesc != null && !longDesc.isEmpty()) {
-                                            out.println(longDesc);
-                                        } else {
-                                            out.println("You see nothing special about " + mob.getName() + ".");
-                                        }
-                                        found = true;
-                                        break;
-                                    }
-                                }
-                            }
 
-                            if (!found) {
-                                // Search items in the room
-                                ItemDAO itemDao = new ItemDAO();
-                                java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
-                                for (ItemDAO.RoomItem ri : roomItems) {
-                                    String itemName = ri.template.name != null ? ri.template.name.toLowerCase() : "";
-                                    boolean keywordMatch = false;
-                                    if (ri.template.keywords != null) {
-                                        for (String kw : ri.template.keywords) {
-                                            if (kw.toLowerCase().startsWith(searchTerm)) {
-                                                keywordMatch = true;
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    if (itemName.startsWith(searchTerm) || keywordMatch) {
-                                        out.println(ri.template.name);
-                                        String desc = ri.template.description;
-                                        if (desc != null && !desc.isEmpty()) {
-                                            out.println(desc);
-                                        } else {
-                                            out.println("You see nothing special about it.");
-                                        }
-                                        found = true;
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                            if (!found) {
-                                // Search items in inventory
-                                Integer charId = dao.getCharacterIdByName(name);
-                                if (charId != null) {
-                                    ItemDAO itemDao = new ItemDAO();
-                                    java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
-                                    for (ItemDAO.RoomItem ii : invItems) {
-                                        String itemName = ii.template.name != null ? ii.template.name.toLowerCase() : "";
-                                        boolean keywordMatch = false;
-                                        if (ii.template.keywords != null) {
-                                            for (String kw : ii.template.keywords) {
-                                                if (kw.toLowerCase().startsWith(searchTerm)) {
-                                                    keywordMatch = true;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if (itemName.startsWith(searchTerm) || keywordMatch) {
-                                            out.println(ii.template.name);
-                                            String desc = ii.template.description;
-                                            if (desc != null && !desc.isEmpty()) {
-                                                out.println(desc);
-                                            } else {
-                                                out.println("You see nothing special about it.");
-                                            }
-                                            found = true;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            if (!found) {
-                                out.println("You don't see '" + lookArgs.trim() + "' here.");
-                            }
+                        // Check stance allows initiating combat
+                        Stance s = RegenerationService.getInstance().getPlayerStance(characterId);
+                        if (!s.canInitiateCombat()) {
+                            out.println("You must be standing to initiate combat.");
+                            break;
                         }
-                        break;
-                    }
-                    case "say": {
-                        String text = cmd.getArgs();
-                        if (rec == null || rec.currentRoom == null) { out.println("You are nowhere to say that."); break; }
+
                         Integer roomId = rec.currentRoom;
-                        // Send to everyone in the same room
-                        for (ClientHandler s : sessions) {
-                            if (s.currentRoomId != null && s.currentRoomId.equals(roomId)) {
-                                if (s == this) s.sendRaw("You say: " + text);
-                                else s.sendRaw(this.playerName + " says: " + text);
+                        if (roomId == null) { out.println("You are nowhere to attack from."); break; }
+
+                        MobileDAO mobDao = new MobileDAO();
+                        java.util.List<Mobile> mobs = mobDao.getMobilesInRoom(roomId);
+                        if (mobs == null || mobs.isEmpty()) { out.println("There are no creatures here to attack."); break; }
+
+                        String search = targetArg.trim().toLowerCase();
+                        Mobile matched = null;
+                        for (Mobile m : mobs) {
+                            if (m.isDead()) continue;
+                            if (m.getName() != null && m.getName().toLowerCase().startsWith(search)) { matched = m; break; }
+                            if (m.getShortDesc() != null && m.getShortDesc().toLowerCase().startsWith(search)) { matched = m; break; }
+                        }
+                        if (matched == null) {
+                            // Try template keyword match
+                            for (Mobile m : mobs) {
+                                if (m.isDead()) continue;
+                                MobileTemplate mt = mobDao.getTemplateById(m.getTemplateId());
+                                if (mt != null && mt.matchesKeyword(search)) { matched = m; break; }
                             }
                         }
+
+                        if (matched == null) { out.println("No such target here: " + targetArg); break; }
+
+                        // Build attacker and initiate combat
+                        Character attacker = buildCharacterForCombat(rec, characterId);
+                        if (attacker == null) { out.println("Failed to prepare you for combat."); break; }
+
+                        CombatManager cm = CombatManager.getInstance();
+                        cm.initiateCombat(attacker, characterId, matched, roomId);
+                        // Refresh record after initiating combat
+                        rec = dao.findByName(name);
                         break;
                     }
+                    case "say":
+                        handleSay(cmd, name, rec, dao);
+                        break;
                     case "north":
                     case "n":
                     case "east":
@@ -1290,108 +2375,7 @@ public class ClientHandler implements Runnable {
                     case "u":
                     case "down":
                     case "d":
-                        if (rec == null) {
-                            out.println("No character record found.");
-                            break;
-                        }
-                        // Check stance - can't move while sitting or sleeping
-                        Stance moveStance = RegenerationService.getInstance().getPlayerStance(characterId);
-                        if (!moveStance.canMove()) {
-                            if (moveStance == Stance.SLEEPING) {
-                                out.println("You are asleep! Type 'wake' to wake up first.");
-                            } else {
-                                out.println("You must stand up first. Type 'stand'.");
-                            }
-                            break;
-                        }
-                        Integer curRoomId = rec.currentRoom;
-                        if (curRoomId == null) {
-                            out.println("You are not located in any room.");
-                            break;
-                        }
-                        Room curRoom = dao.getRoomById(curRoomId);
-                        if (curRoom == null) {
-                            out.println("You seem to be in an unknown place.");
-                            break;
-                        }
-                        Integer destId = null;
-                        String directionName = null;
-                        switch (cmdName) {
-                            case "north":
-                            case "n": destId = curRoom.getExitN(); directionName = "north"; break;
-                            case "east":
-                            case "e": destId = curRoom.getExitE(); directionName = "east"; break;
-                            case "south":
-                            case "s": destId = curRoom.getExitS(); directionName = "south"; break;
-                            case "west":
-                            case "w": destId = curRoom.getExitW(); directionName = "west"; break;
-                            case "up":
-                            case "u": destId = curRoom.getExitU(); directionName = "up"; break;
-                            case "down":
-                            case "d": destId = curRoom.getExitD(); directionName = "down"; break;
-                        }
-                        if (destId == null) {
-                            out.println("You can't go that way.");
-                            break;
-                        }
-                        // If the destination room id refers to a missing room (broken world), redirect to The Void (id 0)
-                        Room maybeDest = (destId == null) ? null : dao.getRoomById(destId);
-                        if (destId != null && maybeDest == null) {
-                            // send player to void so they don't get stuck
-                            destId = 0;
-                        }
-                        
-                        // Check and deduct movement points based on destination room/area
-                        int moveCost = dao.getMoveCostForRoom(destId);
-                        if (rec.mvCur < moveCost) {
-                            out.println("You are too exhausted to move.");
-                            break;
-                        }
-                        
-                        // Deduct movement points
-                        if (!dao.deductMovementPoints(name, moveCost)) {
-                            out.println("You are too exhausted to move.");
-                            break;
-                        }
-                        
-                        // Persist movement (update room)
-                        boolean moved = dao.updateCharacterRoom(name, destId);
-                        if (!moved) {
-                            out.println("You try to move but something prevents you.");
-                            break;
-                        }
-                        
-                        // Announce departure to the old room (respecting invisibility)
-                        Integer oldRoomId = rec.currentRoom;
-                        if (!this.gmInvisible) {
-                            roomAnnounceFromActor(oldRoomId, makeDepartureMessage(name, directionName), this.characterId);
-                        }
-                        
-                        // Refresh character record and show new room
-                        rec = dao.findByName(name);
-                        // update our cached room id
-                        this.currentRoomId = rec != null ? rec.currentRoom : null;
-                        Room newRoom = dao.getRoomById(destId);
-                        if (newRoom == null) {
-                            out.println("You arrive at an unknown place.");
-                            break;
-                        }
-                        
-                        // Announce arrival to the new room (respecting invisibility)
-                        if (!this.gmInvisible) {
-                            roomAnnounceFromActor(destId, makeArrivalMessage(name, directionName), this.characterId);
-                        }
-                        
-                        out.println("You move " + directionName + ".");
-                        showRoom(newRoom, destId);
-                        
-                        // Check for aggressive mobs in the new room
-                        {
-                            CharacterClassDAO moveClassDao = new CharacterClassDAO();
-                            int playerLevel = rec.currentClassId != null 
-                                ? moveClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
-                            MobileRoamingService.getInstance().checkAggroOnPlayerEntry(destId, characterId, playerLevel);
-                        }
+                        rec = handleLookAndMovement(cmd, name, rec, dao);
                         break;
                     
                     case "recall": {
@@ -1733,658 +2717,30 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
-                    case "cflag": {
-                        // GM-only: CFLAG SET <char> <flag> <value>  OR  CFLAG CHECK <char> <flag>
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String cfArgs2b = cmd.getArgs();
-                        if (cfArgs2b == null || cfArgs2b.trim().isEmpty()) {
-                            out.println("Usage: CFLAG SET <char> <flag> <value>   |   CFLAG CHECK <char> <flag>");
-                            break;
-                        }
-                        String[] parts = cfArgs2b.trim().split("\\s+");
-                        String verb = parts.length > 0 ? parts[0].toLowerCase() : "";
-                        if (verb.equals("set")) {
-                            if (parts.length < 4) { out.println("Usage: CFLAG SET <char> <flag> <value>"); break; }
-                            String targetName2 = parts[1];
-                            String flagName2 = parts[2];
-                            // join remaining parts as the value to allow spaces
-                            StringBuilder sbv = new StringBuilder();
-                            for (int i = 3; i < parts.length; i++) { if (sbv.length() > 0) sbv.append(' '); sbv.append(parts[i]); }
-                            String flagVal2 = sbv.toString();
-                            boolean ok3 = dao.setCharacterFlagByName(targetName2, flagName2, flagVal2);
-                            if (ok3) out.println("Flag set for " + targetName2 + ": " + flagName2 + " = " + flagVal2);
-                            else out.println("Failed to set flag for " + targetName2 + ".");
-                            break;
-                        } else if (verb.equals("check") || verb.equals("get")) {
-                            if (parts.length < 3) { out.println("Usage: CFLAG CHECK <char> <flag>"); break; }
-                            String targetName3 = parts[1];
-                            String flagName3 = parts[2];
-                            String v = dao.getCharacterFlagByName(targetName3, flagName3);
-                            if (v == null || v.isEmpty()) {
-                                out.println("No flag set for " + targetName3 + " (" + flagName3 + ")");
-                            } else {
-                                out.println("Flag for " + targetName3 + ": " + flagName3 + " = " + v);
-                            }
-                            break;
-                        } else {
-                            out.println("Usage: CFLAG SET <char> <flag> <value>   |   CFLAG CHECK <char> <flag>");
-                            break;
-                        }
-                    }
-                    case "cset": {
-                        // GM-only: CSET <char> <attribute> <value>  OR  CSET LIST
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String csetArgs = cmd.getArgs();
-                        if (csetArgs == null || csetArgs.trim().isEmpty()) {
-                            out.println("Usage: CSET <character> <attribute> <value>");
-                            out.println("       CSET LIST - Show all settable attributes");
-                            break;
-                        }
-                        String[] csetParts = csetArgs.trim().split("\\s+", 3);
-                        
-                        // Handle CSET LIST
-                        if (csetParts[0].equalsIgnoreCase("list")) {
-                            out.println();
-                            out.println("═══════════════════════════════════════════════════════════════");
-                            out.println("                    SETTABLE ATTRIBUTES");
-                            out.println("═══════════════════════════════════════════════════════════════");
-                            out.println();
-                            out.println("  [ VITALS ]");
-                            out.println("    hp, hpmax, mp, mpmax, mv, mvmax");
-                            out.println();
-                            out.println("  [ BASE ABILITIES ]");
-                            out.println("    str, dex, con, int, wis, cha");
-                            out.println();
-                            out.println("  [ TRAINED ABILITIES ]");
-                            out.println("    trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha");
-                            out.println("    (aliases: tstr, tdex, tcon, tint, twis, tcha)");
-                            out.println();
-                            out.println("  [ SAVES ]");
-                            out.println("    armor (ac), fortitude (fort), reflex (ref), will");
-                            out.println();
-                            out.println("  [ EQUIPMENT BONUSES ]");
-                            out.println("    armor_equip, fort_equip, reflex_equip, will_equip");
-                            out.println();
-                            out.println("  [ CLASS & PROGRESSION ]");
-                            out.println("    class, level, xp");
-                            out.println();
-                            out.println("  [ OTHER ]");
-                            out.println("    age, room, autoflee, talents, gold, description");
-                            out.println();
-                            out.println("═══════════════════════════════════════════════════════════════");
-                            out.println();
-                            break;
-                        }
-                        
-                        if (csetParts.length < 3) {
-                            out.println("Usage: CSET <character> <attribute> <value>");
-                            out.println("       CSET LIST - Show all settable attributes");
-                            break;
-                        }
-                        
-                        String targetName = csetParts[0];
-                        String attrName = csetParts[1];
-                        String attrValue = csetParts[2];
-                        
-                        // Find the character
-                        Integer targetCharId = dao.getCharacterIdByName(targetName);
-                        if (targetCharId == null) {
-                            out.println("Character '" + targetName + "' not found.");
-                            break;
-                        }
-                        
-                        // Set the attribute
-                        String result = dao.setCharacterAttribute(targetCharId, attrName, attrValue);
-                        out.println(targetName + ": " + result);
-                        
-                        // Notify the target if they're online and it's not self
-                        if (!targetName.equalsIgnoreCase(name)) {
-                            ClientHandler targetHandler = nameToSession.get(targetName.toLowerCase());
-                            if (targetHandler != null) {
-                                targetHandler.sendRaw("[GM] Your " + attrName + " has been modified.");
-                            }
-                        }
+                    case "cflag":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "cskill": {
-                        // GM-only: CSKILL <character> <skill_id> [amount]  OR  CSKILL LIST
-                        // Grants a skill to a character at a given proficiency (default 100%)
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String cskillArgs = cmd.getArgs();
-                        if (cskillArgs == null || cskillArgs.trim().isEmpty()) {
-                            out.println("Usage: CSKILL <character> <skill_id> [amount]");
-                            out.println("       CSKILL LIST - List all available skills");
-                            out.println("  Grants a skill to a character at the specified proficiency.");
-                            out.println("  Amount defaults to 100 (mastered) if not specified.");
-                            break;
-                        }
-                        String[] cskillParts = cskillArgs.trim().split("\\s+");
-                        
-                        // Handle CSKILL LIST
-                        if (cskillParts[0].equalsIgnoreCase("list")) {
-                            java.util.List<Skill> allSkills = dao.getAllSkills();
-                            if (allSkills.isEmpty()) {
-                                out.println("No skills found in the database.");
-                                break;
-                            }
-                            
-                            out.println();
-                            out.println("===================================================================");
-                            out.println("                       AVAILABLE SKILLS");
-                            out.println("===================================================================");
-                            out.println();
-                            
-                            // Format: "SkillName (ID)" in 3 columns
-                            java.util.List<String> skillDisplays = new java.util.ArrayList<>();
-                            for (Skill sk : allSkills) {
-                                skillDisplays.add(String.format("%s (%d)", sk.getName(), sk.getId()));
-                            }
-                            
-                            // Print in rows of 3
-                            for (int i = 0; i < skillDisplays.size(); i += 3) {
-                                String c1 = skillDisplays.get(i);
-                                String c2 = (i + 1 < skillDisplays.size()) ? skillDisplays.get(i + 1) : "";
-                                String c3 = (i + 2 < skillDisplays.size()) ? skillDisplays.get(i + 2) : "";
-                                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
-                            }
-                            
-                            out.println();
-                            out.println("-------------------------------------------------------------------");
-                            out.println(String.format("  Total: %d skills", allSkills.size()));
-                            out.println("===================================================================");
-                            out.println();
-                            break;
-                        }
-                        
-                        if (cskillParts.length < 2) {
-                            out.println("Usage: CSKILL <character> <skill_id> [amount]");
-                            out.println("       CSKILL LIST - List all available skills");
-                            break;
-                        }
-                        String targetCharName = cskillParts[0];
-                        int skillId;
-                        try {
-                            skillId = Integer.parseInt(cskillParts[1]);
-                        } catch (NumberFormatException e) {
-                            out.println("Invalid skill ID. Must be a number.");
-                            break;
-                        }
-                        int amount = 100; // default to mastered
-                        if (cskillParts.length >= 3) {
-                            try {
-                                amount = Integer.parseInt(cskillParts[2]);
-                                if (amount < 1) amount = 1;
-                                if (amount > 100) amount = 100;
-                            } catch (NumberFormatException e) {
-                                out.println("Invalid amount. Must be a number between 1 and 100.");
-                                break;
-                            }
-                        }
-                        // Look up target character
-                        Integer targetCharId = dao.getCharacterIdByName(targetCharName);
-                        if (targetCharId == null) {
-                            out.println("Character '" + targetCharName + "' not found.");
-                            break;
-                        }
-                        // Check if skill exists
-                        Skill skillDef = dao.getSkillById(skillId);
-                        String skillName = skillDef != null ? skillDef.getName() : "Skill #" + skillId;
-                        // Set the skill level (will create if doesn't exist, or update if it does)
-                        boolean ok = dao.setCharacterSkillLevel(targetCharId, skillId, amount);
-                        if (ok) {
-                            String profStr = amount >= 100 ? "MASTERED" : amount + "%";
-                            out.println("Granted " + targetCharName + " the skill '" + skillName + "' at " + profStr + ".");
-                        } else {
-                            out.println("Failed to grant skill to " + targetCharName + ".");
-                        }
+                    case "cset":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "cspell": {
-                        // GM-only: CSPELL <character> <spell_id> [amount]  OR  CSPELL LIST
-                        // Grants a spell to a character at a given proficiency (default 100%)
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String cspellArgs = cmd.getArgs();
-                        if (cspellArgs == null || cspellArgs.trim().isEmpty()) {
-                            out.println("Usage: CSPELL <character> <spell_id> [amount]");
-                            out.println("       CSPELL LIST - List all available spells");
-                            out.println("  Grants a spell to a character at the specified proficiency.");
-                            out.println("  Amount defaults to 100 (mastered) if not specified.");
-                            break;
-                        }
-                        String[] cspellParts = cspellArgs.trim().split("\\s+");
-                        
-                        // Handle CSPELL LIST
-                        if (cspellParts[0].equalsIgnoreCase("list")) {
-                            java.util.List<Spell> allSpells = dao.getAllSpells();
-                            if (allSpells.isEmpty()) {
-                                out.println("No spells found in the database.");
-                                break;
-                            }
-                            
-                            // Sort alphabetically by name
-                            allSpells.sort((sp1, sp2) -> sp1.getName().compareToIgnoreCase(sp2.getName()));
-                            
-                            out.println();
-                            out.println("===================================================================");
-                            out.println("                       AVAILABLE SPELLS");
-                            out.println("===================================================================");
-                            out.println();
-                            
-                            // Format: "SpellName (ID)" in 3 columns
-                            java.util.List<String> spellDisplays = new java.util.ArrayList<>();
-                            for (Spell sp : allSpells) {
-                                spellDisplays.add(String.format("%s (%d)", sp.getName(), sp.getId()));
-                            }
-                            
-                            // Print in rows of 3
-                            for (int i = 0; i < spellDisplays.size(); i += 3) {
-                                String c1 = spellDisplays.get(i);
-                                String c2 = (i + 1 < spellDisplays.size()) ? spellDisplays.get(i + 1) : "";
-                                String c3 = (i + 2 < spellDisplays.size()) ? spellDisplays.get(i + 2) : "";
-                                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
-                            }
-                            
-                            out.println();
-                            out.println("-------------------------------------------------------------------");
-                            out.println(String.format("  Total: %d spells", allSpells.size()));
-                            out.println("===================================================================");
-                            out.println();
-                            break;
-                        }
-                        
-                        if (cspellParts.length < 2) {
-                            out.println("Usage: CSPELL <character> <spell_id> [amount]");
-                            out.println("       CSPELL LIST - List all available spells");
-                            break;
-                        }
-                        String targetSpellCharName = cspellParts[0];
-                        int spellId;
-                        try {
-                            spellId = Integer.parseInt(cspellParts[1]);
-                        } catch (NumberFormatException e) {
-                            out.println("Invalid spell ID. Must be a number.");
-                            break;
-                        }
-                        int spellAmount = 100; // default to mastered
-                        if (cspellParts.length >= 3) {
-                            try {
-                                spellAmount = Integer.parseInt(cspellParts[2]);
-                                if (spellAmount < 1) spellAmount = 1;
-                                if (spellAmount > 100) spellAmount = 100;
-                            } catch (NumberFormatException e) {
-                                out.println("Invalid amount. Must be a number between 1 and 100.");
-                                break;
-                            }
-                        }
-                        // Look up target character
-                        Integer targetSpellCharId = dao.getCharacterIdByName(targetSpellCharName);
-                        if (targetSpellCharId == null) {
-                            out.println("Character '" + targetSpellCharName + "' not found.");
-                            break;
-                        }
-                        // Check if spell exists
-                        Spell spellDef = dao.getSpellById(spellId);
-                        String spellName = spellDef != null ? spellDef.getName() : "Spell #" + spellId;
-                        // Set the spell level (will create if doesn't exist, or update if it does)
-                        boolean spellOk = dao.setCharacterSpellLevel(targetSpellCharId, spellId, spellAmount);
-                        if (spellOk) {
-                            String spellProfStr = spellAmount >= 100 ? "MASTERED" : spellAmount + "%";
-                            out.println("Granted " + targetSpellCharName + " the spell '" + spellName + "' at " + spellProfStr + ".");
-                        } else {
-                            out.println("Failed to grant spell to " + targetSpellCharName + ".");
-                        }
+                    case "cskill":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "ilist": {
-                        // GM-only: ILIST <search_string>
-                        // Finds all item templates matching the given string
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String ilistArgs = cmd.getArgs();
-                        if (ilistArgs == null || ilistArgs.trim().isEmpty()) {
-                            out.println("Usage: ILIST <search_string>");
-                            out.println("  Searches item templates by name.");
-                            break;
-                        }
-                        String searchStr = ilistArgs.trim();
-                        ItemDAO ilistItemDao = new ItemDAO();
-                        java.util.List<ItemTemplate> matches = ilistItemDao.searchItemTemplates(searchStr);
-                        if (matches.isEmpty()) {
-                            out.println("No item templates found matching '" + searchStr + "'.");
-                            break;
-                        }
-                        out.println();
-                        out.println(String.format("%-6s %-25s %-12s %s", "ID", "Name", "Type", "Description"));
-                        out.println(repeat("-", 75));
-                        for (ItemTemplate t : matches) {
-                            String typeName = t.types != null && !t.types.isEmpty() ? String.join(",", t.types) : "";
-                            String desc = t.description != null ? truncate(t.description, 28) : "";
-                            out.println(String.format("%-6d %-25s %-12s %s",
-                                t.id,
-                                truncate(t.name, 25),
-                                truncate(typeName, 12),
-                                desc));
-                        }
-                        out.println(repeat("-", 75));
-                        out.println(matches.size() + " item(s) found.");
-                        out.println();
+                    case "cspell":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "ifind": {
-                        // GM-only: IFIND <template_id> [world|char|bags|all]
-                        // Finds all instances of an item template in the game
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String ifindArgs = cmd.getArgs();
-                        if (ifindArgs == null || ifindArgs.trim().isEmpty()) {
-                            out.println("Usage: IFIND <template_id> [world|char|bags|all]");
-                            out.println("  Finds all instances of a given item template.");
-                            out.println("  world = items in rooms, char = in character inventories,");
-                            out.println("  bags = in containers, all = all locations (default)");
-                            break;
-                        }
-                        String[] ifindParts = ifindArgs.trim().split("\\s+");
-                        int ifindTemplateId;
-                        try {
-                            ifindTemplateId = Integer.parseInt(ifindParts[0]);
-                        } catch (NumberFormatException e) {
-                            out.println("Invalid template ID. Must be a number.");
-                            break;
-                        }
-                        String scope = ifindParts.length >= 2 ? ifindParts[1].toLowerCase() : "all";
-                        if (!scope.equals("world") && !scope.equals("char") && !scope.equals("bags") && !scope.equals("all")) {
-                            out.println("Invalid scope. Use: world, char, bags, or all");
-                            break;
-                        }
-                        
-                        ItemDAO ifindItemDao = new ItemDAO();
-                        ItemTemplate ifindTemplate = ifindItemDao.getTemplateById(ifindTemplateId);
-                        String templateName = ifindTemplate != null ? ifindTemplate.name : "Unknown";
-                        
-                        java.util.List<ItemInstance> allInstances = ifindItemDao.findInstancesByTemplateId(ifindTemplateId);
-                        if (allInstances.isEmpty()) {
-                            out.println("No instances of template #" + ifindTemplateId + " (" + templateName + ") found.");
-                            break;
-                        }
-                        
-                        // Separate by location type
-                        java.util.List<ItemInstance> inRooms = new java.util.ArrayList<>();
-                        java.util.List<ItemInstance> inChars = new java.util.ArrayList<>();
-                        java.util.List<ItemInstance> inContainers = new java.util.ArrayList<>();
-                        
-                        for (ItemInstance inst : allInstances) {
-                            if (inst.locationRoomId != null) inRooms.add(inst);
-                            else if (inst.ownerCharacterId != null) inChars.add(inst);
-                            else if (inst.containerInstanceId != null) inContainers.add(inst);
-                        }
-                        
-                        out.println();
-                        out.println("=== Instances of #" + ifindTemplateId + " (" + templateName + ") ===");
-                        
-                        // Items in rooms (world)
-                        if (scope.equals("world") || scope.equals("all")) {
-                            out.println();
-                            out.println("--- In Rooms (" + inRooms.size() + ") ---");
-                            if (inRooms.isEmpty()) {
-                                out.println("  (none)");
-                            } else {
-                                out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
-                                for (ItemInstance inst : inRooms) {
-                                    Room rm = dao.getRoomById(inst.locationRoomId);
-                                    String roomName = rm != null ? rm.getName() : "Unknown";
-                                    out.println(String.format("  %-10d %-6d %-20s %-6d %s",
-                                        inst.instanceId, inst.templateId, truncate(templateName, 20),
-                                        inst.locationRoomId, truncate(roomName, 25)));
-                                }
-                            }
-                        }
-                        
-                        // Items on characters (char)
-                        if (scope.equals("char") || scope.equals("all")) {
-                            out.println();
-                            out.println("--- In Character Inventories (" + inChars.size() + ") ---");
-                            if (inChars.isEmpty()) {
-                                out.println("  (none)");
-                            } else {
-                                out.println(String.format("  %-10s %-6s %-20s %-12s %-6s %s", "InstID", "TplID", "Name", "CharName", "RoomID", "Room Name"));
-                                for (ItemInstance inst : inChars) {
-                                    String charName = dao.getCharacterNameById(inst.ownerCharacterId);
-                                    if (charName == null) charName = "Char#" + inst.ownerCharacterId;
-                                    CharacterRecord charRec = dao.getCharacterById(inst.ownerCharacterId);
-                                    Integer charRoomId = charRec != null ? charRec.currentRoom : null;
-                                    Room charRoom = charRoomId != null ? dao.getRoomById(charRoomId) : null;
-                                    String charRoomName = charRoom != null ? charRoom.getName() : "Unknown";
-                                    out.println(String.format("  %-10d %-6d %-20s %-12s %-6s %s",
-                                        inst.instanceId, inst.templateId, truncate(templateName, 20),
-                                        truncate(charName, 12),
-                                        charRoomId != null ? String.valueOf(charRoomId) : "?",
-                                        truncate(charRoomName, 20)));
-                                }
-                            }
-                        }
-                        
-                        // Items in containers (bags)
-                        if (scope.equals("bags") || scope.equals("all")) {
-                            out.println();
-                            out.println("--- In Containers (" + inContainers.size() + ") ---");
-                            if (inContainers.isEmpty()) {
-                                out.println("  (none)");
-                            } else {
-                                out.println(String.format("  %-10s %-6s %-20s %-10s %-6s %s", "InstID", "TplID", "Name", "ContInstID", "ContID", "Container Name"));
-                                for (ItemInstance inst : inContainers) {
-                                    // Look up the container instance to get its template
-                                    ItemInstance containerInst = ifindItemDao.getInstanceById(inst.containerInstanceId);
-                                    int containerId = containerInst != null ? containerInst.templateId : 0;
-                                    ItemTemplate containerTpl = containerInst != null ? ifindItemDao.getTemplateById(containerInst.templateId) : null;
-                                    String containerName = containerTpl != null ? containerTpl.name : "Unknown";
-                                    out.println(String.format("  %-10d %-6d %-20s %-10d %-6d %s",
-                                        inst.instanceId, inst.templateId, truncate(templateName, 20),
-                                        inst.containerInstanceId, containerId, truncate(containerName, 20)));
-                                }
-                            }
-                        }
-                        
-                        out.println();
-                        int total = (scope.equals("world") ? inRooms.size() : 0)
-                                  + (scope.equals("char") ? inChars.size() : 0)
-                                  + (scope.equals("bags") ? inContainers.size() : 0)
-                                  + (scope.equals("all") ? allInstances.size() : 0);
-                        out.println("Total: " + total + " instance(s) found.");
-                        out.println();
+                    case "ilist":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "istat": {
-                        // GM-only: ISTAT <item> - Show detailed stats of an inventory item
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String istatArgs = cmd.getArgs();
-                        if (istatArgs == null || istatArgs.trim().isEmpty()) {
-                            out.println("Usage: ISTAT <item>");
-                            out.println("  Shows detailed stat block for an item in your inventory.");
-                            break;
-                        }
-                        String istatSearch = istatArgs.trim().toLowerCase();
-                        Integer charId = dao.getCharacterIdByName(name);
-                        if (charId == null) {
-                            out.println("Failed to locate your character record.");
-                            break;
-                        }
-                        
-                        // Get all items owned by character
-                        ItemDAO istatItemDao = new ItemDAO();
-                        java.util.List<ItemDAO.RoomItem> allItems = istatItemDao.getItemsByCharacter(charId);
-                        
-                        // Find matching item by name or keyword
-                        ItemDAO.RoomItem matchedItem = null;
-                        for (ItemDAO.RoomItem ri : allItems) {
-                            // Check customName first (for generated items)
-                            if (ri.instance.customName != null && ri.instance.customName.toLowerCase().contains(istatSearch)) {
-                                matchedItem = ri;
-                                break;
-                            }
-                            // Check template name
-                            if (ri.template != null && ri.template.name != null && 
-                                ri.template.name.toLowerCase().contains(istatSearch)) {
-                                matchedItem = ri;
-                                break;
-                            }
-                            // Check keywords
-                            if (ri.template != null && ri.template.keywords != null) {
-                                for (String kw : ri.template.keywords) {
-                                    if (kw.toLowerCase().contains(istatSearch)) {
-                                        matchedItem = ri;
-                                        break;
-                                    }
-                                }
-                                if (matchedItem != null) break;
-                            }
-                        }
-                        
-                        if (matchedItem == null) {
-                            out.println("You don't have '" + istatSearch + "' in your inventory.");
-                            break;
-                        }
-                        
-                        ItemInstance inst = matchedItem.instance;
-                        ItemTemplate tmpl = matchedItem.template;
-                        String displayName = getItemDisplayName(matchedItem);
-                        
-                        out.println();
-                        out.println("=== ITEM STAT BLOCK ===");
-                        out.println();
-                        out.println("  Name:        " + displayName);
-                        if (inst.customName != null) {
-                            out.println("  Base Name:   " + (tmpl != null ? tmpl.name : "Unknown") + " (template)");
-                        }
-                        out.println("  Instance ID: " + inst.instanceId);
-                        out.println("  Template ID: " + inst.templateId);
-                        out.println("  Item Level:  " + inst.itemLevel);
-                        out.println("  Generated:   " + (inst.isGenerated ? "Yes" : "No"));
-                        out.println();
-                        
-                        // Template info
-                        if (tmpl != null) {
-                            out.println("--- TEMPLATE INFO ---");
-                            out.println("  Key:         " + (tmpl.key != null ? tmpl.key : "-"));
-                            out.println("  Types:       " + (tmpl.types != null && !tmpl.types.isEmpty() ? String.join(", ", tmpl.types) : "-"));
-                            out.println("  Subtype:     " + (tmpl.subtype != null ? tmpl.subtype : "-"));
-                            out.println("  Slot:        " + (tmpl.slot != null ? tmpl.slot : "-"));
-                            out.println("  Weight:      " + tmpl.weight);
-                            out.println("  Base Value:  " + tmpl.value + " gp");
-                            out.println("  Traits:      " + (tmpl.traits != null && !tmpl.traits.isEmpty() ? String.join(", ", tmpl.traits) : "-"));
-                            out.println("  Keywords:    " + (tmpl.keywords != null && !tmpl.keywords.isEmpty() ? String.join(", ", tmpl.keywords) : "-"));
-                            out.println();
-                        }
-                        
-                        // Show weapon stats if applicable
-                        boolean isWeapon = tmpl != null && tmpl.hasType("weapon");
-                        if (isWeapon || inst.baseDieOverride != null || inst.multiplierOverride != null) {
-                            out.println("--- WEAPON STATS ---");
-                            int baseDie = inst.getEffectiveBaseDie(tmpl);
-                            int mult = inst.getEffectiveMultiplier(tmpl);
-                            double abilMult = inst.getEffectiveAbilityMultiplier(tmpl);
-                            String abilScore = tmpl != null ? tmpl.abilityScore : "STR";
-                            
-                            out.println("  Base Die:        " + baseDie + (inst.baseDieOverride != null ? " (override)" : ""));
-                            out.println("  Multiplier:      " + mult + (inst.multiplierOverride != null ? " (override)" : ""));
-                            out.println("  Ability Score:   " + (abilScore != null ? abilScore : "STR"));
-                            out.println("  Ability Mult:    " + String.format("%.1f", abilMult) + (inst.abilityMultOverride != null ? " (override)" : ""));
-                            out.println("  Damage Formula:  " + mult + "d" + baseDie + " + " + String.format("%.1f", abilMult) + "x" + (abilScore != null ? abilScore : "STR") + " mod");
-                            out.println("  Hands:           " + (tmpl != null ? tmpl.hands : 1));
-                            if (tmpl != null) {
-                                out.println("  Category:        " + (tmpl.weaponCategory != null ? tmpl.weaponCategory : "-"));
-                                out.println("  Family:          " + (tmpl.weaponFamily != null ? tmpl.weaponFamily : "-"));
-                            }
-                            out.println();
-                        }
-                        
-                        // Show armor/save stats if applicable
-                        boolean isArmor = tmpl != null && (tmpl.hasType("armor") || tmpl.hasType("shield"));
-                        boolean hasSaves = inst.armorSaveOverride != null || inst.fortSaveOverride != null 
-                                        || inst.refSaveOverride != null || inst.willSaveOverride != null
-                                        || (tmpl != null && (tmpl.armorSaveBonus > 0 || tmpl.fortSaveBonus > 0 
-                                            || tmpl.refSaveBonus > 0 || tmpl.willSaveBonus > 0));
-                        if (isArmor || hasSaves) {
-                            out.println("--- ARMOR / SAVES ---");
-                            int armorSave = inst.getEffectiveArmorSave(tmpl);
-                            int fortSave = inst.getEffectiveFortSave(tmpl);
-                            int refSave = inst.getEffectiveRefSave(tmpl);
-                            int willSave = inst.getEffectiveWillSave(tmpl);
-                            
-                            out.println("  Armor Save:      " + (armorSave != 0 ? "+" + armorSave : "0") + (inst.armorSaveOverride != null ? " (override)" : ""));
-                            out.println("  Fortitude Save:  " + (fortSave != 0 ? "+" + fortSave : "0") + (inst.fortSaveOverride != null ? " (override)" : ""));
-                            out.println("  Reflex Save:     " + (refSave != 0 ? "+" + refSave : "0") + (inst.refSaveOverride != null ? " (override)" : ""));
-                            out.println("  Will Save:       " + (willSave != 0 ? "+" + willSave : "0") + (inst.willSaveOverride != null ? " (override)" : ""));
-                            if (tmpl != null && tmpl.armorCategory != null) {
-                                out.println("  Armor Category:  " + tmpl.armorCategory);
-                            }
-                            out.println();
-                        }
-                        
-                        // Show spell effects if any
-                        String eff1 = inst.getEffectiveSpellEffect1(tmpl);
-                        String eff2 = inst.getEffectiveSpellEffect2(tmpl);
-                        String eff3 = inst.getEffectiveSpellEffect3(tmpl);
-                        String eff4 = inst.getEffectiveSpellEffect4(tmpl);
-                        if (eff1 != null || eff2 != null || eff3 != null || eff4 != null) {
-                            out.println("--- SPELL EFFECTS ---");
-                            if (eff1 != null) out.println("  Effect 1: " + eff1 + (inst.spellEffect1Override != null ? " (override)" : ""));
-                            if (eff2 != null) out.println("  Effect 2: " + eff2 + (inst.spellEffect2Override != null ? " (override)" : ""));
-                            if (eff3 != null) out.println("  Effect 3: " + eff3 + (inst.spellEffect3Override != null ? " (override)" : ""));
-                            if (eff4 != null) out.println("  Effect 4: " + eff4 + (inst.spellEffect4Override != null ? " (override)" : ""));
-                            out.println();
-                        }
-                        
-                        // Show effective value
-                        int effectiveValue = inst.getEffectiveValue(tmpl);
-                        out.println("--- VALUE ---");
-                        out.println("  Sell Value:  " + effectiveValue + " gp" + (inst.valueOverride != null ? " (override)" : ""));
-                        out.println();
-                        
-                        // Show description
-                        String desc = inst.customDescription != null ? inst.customDescription : (tmpl != null ? tmpl.description : null);
-                        if (desc != null && !desc.isEmpty()) {
-                            out.println("--- DESCRIPTION ---");
-                            out.println("  " + desc);
-                            out.println();
-                        }
-                        
-                        out.println("=======================");
-                        out.println();
+                    case "ifind":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
+                    case "istat":
+                        rec = handleGmCommand(cmd, name, rec, dao);
+                        break;
                     case "mstat": {
                         // GM-only: MSTAT <mobile> - Show detailed stats of a mobile in the room
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String mstatArgs = cmd.getArgs();
                         if (mstatArgs == null || mstatArgs.trim().isEmpty()) {
                             out.println("Usage: MSTAT <mobile>");
@@ -2480,886 +2836,27 @@ public class ClientHandler implements Runnable {
                         // Defenses
                         out.println("--- DEFENSES ---");
                         out.println("  Armor:         " + matchedMob.getArmor());
-                        out.println("  Fortitude:     " + matchedMob.getFortitude());
-                        out.println("  Reflex:        " + matchedMob.getReflex());
-                        out.println("  Will:          " + matchedMob.getWill());
-                        out.println();
-                        
-                        // Combat stats
-                        out.println("--- COMBAT ---");
-                        out.println("  Attack Bonus:  " + (matchedMob.getAttackBonus() >= 0 ? "+" : "") + matchedMob.getAttackBonus());
-                        out.println("  Base Damage:   " + matchedMob.getBaseDamage());
-                        out.println("  Damage Bonus:  " + (matchedMob.getDamageBonus() >= 0 ? "+" : "") + matchedMob.getDamageBonus());
-                        int strMod = (matchedMob.getStr() - 10) / 2;
-                        out.println("  Damage Roll:   1d" + matchedMob.getBaseDamage() + " + " + matchedMob.getDamageBonus() + " + " + strMod + " (STR)");
-                        out.println("  Autoflee HP%:  " + matchedMob.getAutoflee() + "%");
-                        out.println();
-                        
-                        // Behaviors
-                        out.println("--- BEHAVIORS ---");
-                        if (matchedMob.getBehaviors() != null && !matchedMob.getBehaviors().isEmpty()) {
-                            StringBuilder behaviorList = new StringBuilder();
-                            for (MobileBehavior b : matchedMob.getBehaviors()) {
-                                if (behaviorList.length() > 0) behaviorList.append(", ");
-                                behaviorList.append(b.name());
-                            }
-                            out.println("  " + behaviorList);
-                        } else {
-                            out.println("  (none)");
-                        }
-                        out.println();
-                        
-                        // Combat state
-                        out.println("--- STATE ---");
-                        out.println("  Dead:          " + (matchedMob.isDead() ? "Yes" : "No"));
-                        out.println("  Has Target:    " + (matchedMob.hasTarget() ? "Yes" : "No"));
-                        if (matchedMob.getTargetCharacterId() != null) {
-                            out.println("  Target (PC):   Character ID " + matchedMob.getTargetCharacterId());
-                        }
-                        if (matchedMob.getTargetMobileId() != null) {
-                            out.println("  Target (Mob):  Mobile ID " + matchedMob.getTargetMobileId());
-                        }
-                        out.println();
-                        
-                        // Rewards (from template)
-                        if (mobTmpl != null) {
-                            out.println("--- REWARDS ---");
-                            out.println("  XP Value:      " + matchedMob.getExperienceValue());
-                            out.println("  Gold Range:    " + mobTmpl.getGoldMin() + " - " + mobTmpl.getGoldMax());
-                            out.println("  Respawn Time:  " + mobTmpl.getRespawnSeconds() + " seconds");
-                            if (mobTmpl.getAggroRange() > 0) {
-                                out.println("  Aggro Range:   " + mobTmpl.getAggroRange() + " rooms");
-                            }
-                            out.println();
-                        }
-                        
-                        // Spawn info
-                        out.println("--- SPAWN INFO ---");
-                        out.println("  Origin UUID:   " + (matchedMob.getOriginUuid() != null ? matchedMob.getOriginUuid() : "-"));
-                        out.println("  Spawned At:    " + (matchedMob.getSpawnedAt() > 0 ? new java.util.Date(matchedMob.getSpawnedAt()).toString() : "-"));
-                        if (matchedMob.isDead() && matchedMob.getDiedAt() > 0) {
-                            out.println("  Died At:       " + new java.util.Date(matchedMob.getDiedAt()).toString());
-                        }
-                        out.println();
-                        
-                        out.println("=========================");
-                        out.println();
                         break;
                     }
-                    case "goto": {
-                        // GM-only: GOTO <room_id> or GOTO <player_name>
-                        // Teleport directly to a room or to another player
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
-                        String gotoArgs = cmd.getArgs();
-                        if (gotoArgs == null || gotoArgs.trim().isEmpty()) {
-                            out.println("Usage: GOTO <room_id> or GOTO <player_name>");
-                            out.println("  Teleports you directly to a room or to another player.");
-                            break;
-                        }
-                        
-                        int gotoRoomId = -1;
-                        String gotoTarget = gotoArgs.trim();
-                        
-                        // First try to parse as a room ID
-                        try {
-                            gotoRoomId = Integer.parseInt(gotoTarget);
-                        } catch (NumberFormatException e) {
-                            // Not a number, try to find a player with that name
-                            // Search connected players first (case-insensitive prefix match)
-                            ClientHandler targetSession = null;
-                            for (ClientHandler s : sessions) {
-                                String pName = s.playerName;
-                                if (pName != null && pName.toLowerCase().startsWith(gotoTarget.toLowerCase())) {
-                                    targetSession = s;
-                                    break;
-                                }
-                            }
-                            
-                            if (targetSession != null && targetSession.currentRoomId != null) {
-                                gotoRoomId = targetSession.currentRoomId;
-                                out.println("(Teleporting to " + targetSession.playerName + ")");
-                            } else {
-                                // Try to find an offline player
-                                CharacterRecord targetRec = dao.findByName(gotoTarget);
-                                if (targetRec != null && targetRec.currentRoom != null) {
-                                    gotoRoomId = targetRec.currentRoom;
-                                    out.println("(Teleporting to " + targetRec.name + "'s last location)");
-                                } else {
-                                    out.println("No room or player found matching '" + gotoTarget + "'.");
-                                    break;
-                                }
-                            }
-                        }
-                        
-                        Room gotoRoom = dao.getRoomById(gotoRoomId);
-                        if (gotoRoom == null) {
-                            out.println("Room #" + gotoRoomId + " does not exist.");
-                            break;
-                        }
-                        
-                        // Announce magical departure from old room (null direction = teleport)
-                        Integer oldRoom = rec.currentRoom;
-                        if (!this.gmInvisible) {
-                            roomAnnounce(oldRoom, makeDepartureMessage(name, null), this.characterId, true);
-                        }
-                        
-                        // Teleport the character
-                        dao.updateCharacterRoom(name, gotoRoomId);
-                        this.currentRoomId = gotoRoomId;
-                        rec = dao.findByName(name);
-                        
-                        // Announce magical arrival in new room (null direction = teleport)
-                        if (!this.gmInvisible) {
-                            roomAnnounce(gotoRoomId, makeArrivalMessage(name, null), this.characterId, true);
-                        }
-                        
-                        out.println();
-                        out.println("You vanish and reappear in " + gotoRoom.getName() + ".");
-                        out.println();
-                        // Show the new room
-                        showRoom(gotoRoom, gotoRoomId);
+                    case "combat":
+                        rec = handleCombatCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "kill":
-                    case "attack":
-                    case "fight": {
-                        // KILL <target> - initiate combat with a mobile in the room
-                        if (rec == null) {
-                            out.println("No character record found.");
-                            break;
-                        }
-                        if (rec.currentRoom == null) {
-                            out.println("You are not in any room.");
-                            break;
-                        }
-                        String killArgs = cmd.getArgs();
-                        if (killArgs == null || killArgs.trim().isEmpty()) {
-                            out.println("Usage: kill <target>");
-                            out.println("  Initiate combat with a mobile in the room.");
-                            break;
-                        }
-                        
-                        // Check if already in combat
-                        CombatManager combatMgr = CombatManager.getInstance();
-                        Integer charId = this.characterId;
-                        if (charId == null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        if (combatMgr.isInCombat(charId)) {
-                            out.println("You are already in combat!");
-                            out.println("Use combat commands or wait for combat to end.");
-                            break;
-                        }
-                        
-                        // Find a mobile in the room matching the target name
-                        MobileDAO mobileDao = new MobileDAO();
-                        List<Mobile> mobilesInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
-                        if (mobilesInRoom.isEmpty()) {
-                            out.println("There is nothing here to attack.");
-                            break;
-                        }
-                        
-                        // Smart matching for target
-                        String targetSearch = killArgs.trim().toLowerCase();
-                        Mobile targetMob = null;
-                        
-                        // Priority 1: Exact name match
-                        for (Mobile mob : mobilesInRoom) {
-                            if (mob.getName().equalsIgnoreCase(targetSearch)) {
-                                targetMob = mob;
-                                break;
-                            }
-                        }
-                        
-                        // Priority 2: Name starts with search
-                        if (targetMob == null) {
-                            for (Mobile mob : mobilesInRoom) {
-                                if (mob.getName().toLowerCase().startsWith(targetSearch)) {
-                                    targetMob = mob;
-                                    break;
-                                }
-                            }
-                        }
-                        
-                        // Priority 3: Name contains search
-                        if (targetMob == null) {
-                            for (Mobile mob : mobilesInRoom) {
-                                if (mob.getName().toLowerCase().contains(targetSearch)) {
-                                    targetMob = mob;
-                                    break;
-                                }
-                            }
-                        }
-                        
-                        // Priority 4: Short desc contains search
-                        if (targetMob == null) {
-                            for (Mobile mob : mobilesInRoom) {
-                                String shortDesc = mob.getShortDesc();
-                                if (shortDesc != null && shortDesc.toLowerCase().contains(targetSearch)) {
-                                    targetMob = mob;
-                                    break;
-                                }
-                            }
-                        }
-                        
-                        if (targetMob == null) {
-                            out.println("You don't see '" + killArgs + "' here.");
-                            break;
-                        }
-                        
-                        // Check if target can be attacked
-                        if (targetMob.isImmortal()) {
-                            out.println(targetMob.getName() + " cannot be attacked.");
-                            break;
-                        }
-                        
-                        if (targetMob.isDead()) {
-                            out.println(targetMob.getName() + " is already dead.");
-                            break;
-                        }
-                        
-                        // Create a Character object for this player for combat
-                        Character playerChar = new Character(
-                            rec.name, rec.age, rec.description,
-                            rec.hpMax, rec.hpCur, rec.mpMax, rec.mpCur, rec.mvMax, rec.mvCur,
-                            rec.currentRoom,
-                            rec.str, rec.dex, rec.con, rec.intel, rec.wis, rec.cha,
-                            rec.getArmorTotal(), rec.getFortitudeTotal(), 
-                            rec.getReflexTotal(), rec.getWillTotal()
-                        );
-                        // Load persisted modifiers for this character (if any) so they apply in combat
-                        if (charId != null) {
-                            java.util.List<com.example.tassmud.model.Modifier> mods = dao.getModifiersForCharacter(charId);
-                            for (com.example.tassmud.model.Modifier m : mods) {
-                                playerChar.addModifier(m);
-                            }
-                        }
-                        
-                        // Initiate combat
-                        Combat combat = combatMgr.initiateCombat(playerChar, charId, targetMob, rec.currentRoom);
-                        if (combat != null) {
-                            out.println("You attack " + targetMob.getName() + "!");
-                            out.println("=== COMBAT BEGINS ===");
-                        } else {
-                            out.println("Failed to initiate combat.");
-                        }
+                    
+                    case "flee":
+                        rec = handleCombatCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "combat": {
-                        // COMBAT - show current combat status
-                        Integer charId = this.characterId;
-                        if (charId == null && name != null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        CombatManager combatMgr = CombatManager.getInstance();
-                        if (!combatMgr.isInCombat(charId)) {
-                            out.println("You are not in combat.");
-                            break;
-                        }
-                        Combat combat = combatMgr.getCombatForCharacter(charId);
-                        if (combat == null) {
-                            out.println("You are not in combat.");
-                            break;
-                        }
-                        
-                        out.println("=== Combat Status ===");
-                        out.println("Round: " + combat.getCurrentRound());
-                        out.println("State: " + combat.getState().getDisplayName());
-                        out.println();
-                        out.println("Combatants:");
-                        for (Combatant c : combat.getActiveCombatants()) {
-                            String indicator = c.isPlayer() ? "[Player] " : "[Mob] ";
-                            int hpPct = c.getHpMax() > 0 ? (c.getHpCurrent() * 100) / c.getHpMax() : 0;
-                            String hpBar = getHpBar(hpPct);
-                            out.println("  " + indicator + c.getName() + " " + hpBar + " (" + c.getHpCurrent() + "/" + c.getHpMax() + " HP)");
-                        }
-                        out.println();
-                        out.println("Recent combat log:");
-                        String log = combat.getRecentLog(5);
-                        if (!log.isEmpty()) {
-                            for (String logLine : log.split("\n")) {
-                                out.println("  " + logLine);
-                            }
-                        } else {
-                            out.println("  (no events yet)");
-                        }
+                    case "kick":
+                        rec = handleCombatCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "flee": {
-                        // FLEE - innate combat skill to escape from combat
-                        Integer charId = this.characterId;
-                        if (charId == null && name != null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        CombatManager combatMgr = CombatManager.getInstance();
-                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
-                        if (activeCombat == null) {
-                            out.println("You are not in combat.");
-                            break;
-                        }
-                        
-                        Combatant userCombatant = activeCombat.findByCharacterId(charId);
-                        if (userCombatant == null) {
-                            out.println("Combat error: could not find your combatant.");
-                            break;
-                        }
-                        
-                        // Get current room and available exits
-                        curRoom = dao.getRoomById(currentRoomId);
-                        if (curRoom == null) {
-                            out.println("You can't flee - you don't know where you are!");
-                            break;
-                        }
-                        
-                        // Build list of available exits
-                        java.util.List<String> availableExits = new java.util.ArrayList<>();
-                        java.util.Map<String, Integer> exitRooms = new java.util.HashMap<>();
-                        if (curRoom.getExitN() != null) { availableExits.add("north"); exitRooms.put("north", curRoom.getExitN()); }
-                        if (curRoom.getExitE() != null) { availableExits.add("east"); exitRooms.put("east", curRoom.getExitE()); }
-                        if (curRoom.getExitS() != null) { availableExits.add("south"); exitRooms.put("south", curRoom.getExitS()); }
-                        if (curRoom.getExitW() != null) { availableExits.add("west"); exitRooms.put("west", curRoom.getExitW()); }
-                        if (curRoom.getExitU() != null) { availableExits.add("up"); exitRooms.put("up", curRoom.getExitU()); }
-                        if (curRoom.getExitD() != null) { availableExits.add("down"); exitRooms.put("down", curRoom.getExitD()); }
-                        
-                        if (availableExits.isEmpty()) {
-                            out.println("There's nowhere to flee to!");
-                            break;
-                        }
-                        
-                        // Get user's level for opposed check
-                        CharacterClassDAO fleeClassDao = new CharacterClassDAO();
-                        int userLevel = rec.currentClassId != null 
-                            ? fleeClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
-                        
-                        // Find the highest level opponent for opposed check
-                        int opponentLevel = 1;
-                        for (Combatant c : activeCombat.getCombatants()) {
-                            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
-                                int cLevel;
-                                if (c.isPlayer()) {
-                                    Integer cCharId = c.getCharacterId();
-                                    CharacterRecord cRec = dao.getCharacterById(cCharId);
-                                    cLevel = cRec != null && cRec.currentClassId != null 
-                                        ? fleeClassDao.getCharacterClassLevel(cCharId, cRec.currentClassId) : 1;
-                                } else if (c.getMobile() != null) {
-                                    cLevel = c.getMobile().getLevel();
-                                } else {
-                                    cLevel = 1;
-                                }
-                                if (cLevel > opponentLevel) {
-                                    opponentLevel = cLevel;
-                                }
-                            }
-                        }
-                        
-                        // Perform opposed check at 100% proficiency (innate skill)
-                        int roll = (int)(Math.random() * 100) + 1;
-                        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
-                            userLevel, opponentLevel, 100);
-                        
-                        boolean fleeSucceeded = roll <= successChance;
-                        
-                        if (!fleeSucceeded) {
-                            // Failed to flee
-                            out.println("You try to flee but your opponents block your escape!");
-                            if (!this.gmInvisible) {
-                                roomAnnounce(currentRoomId, name + " tries to flee but fails!", this.characterId, true);
-                            }
-                            break;
-                        }
-                        
-                        // Flee succeeded - pick a random exit
-                        String fleeDirection = availableExits.get((int)(Math.random() * availableExits.size()));
-                        Integer destRoomId = exitRooms.get(fleeDirection);
-                        
-                        // Check movement cost
-                        moveCost = dao.getMoveCostForRoom(destRoomId);
-                        
-                        if (rec.mvCur < moveCost) {
-                            // Insufficient MV - fall prone instead of escaping
-                            userCombatant.setProne();
-                            out.println("You break free but stumble and fall prone from exhaustion!");
-                            if (!this.gmInvisible) {
-                                roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
-                            }
-                            break;
-                        }
-                        
-                        // Deduct movement points
-                        if (!dao.deductMovementPoints(name, moveCost)) {
-                            // Shouldn't happen, but handle it
-                            userCombatant.setProne();
-                            out.println("You break free but stumble and fall prone from exhaustion!");
-                            if (!this.gmInvisible) {
-                                roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
-                            }
-                            break;
-                        }
-                        
-                        // Remove from combat
-                        activeCombat.removeCombatant(userCombatant);
-                        
-                        // Announce departure
-                        out.println("You flee " + fleeDirection + "!");
-                        if (!this.gmInvisible) {
-                            roomAnnounce(currentRoomId, name + " flees " + fleeDirection + "!", this.characterId, true);
-                        }
-                        
-                        // Move to new room
-                        moved = dao.updateCharacterRoom(name, destRoomId);
-                        if (!moved) {
-                            out.println("Something strange happened during your escape.");
-                            break;
-                        }
-                        
-                        // Update cached room and show new location
-                        rec = dao.findByName(name);
-                        this.currentRoomId = rec != null ? rec.currentRoom : null;
-                        newRoom = dao.getRoomById(destRoomId);
-                        
-                        // Announce arrival
-                        if (!this.gmInvisible) {
-                            roomAnnounce(destRoomId, makeArrivalMessage(name, fleeDirection), this.characterId, true);
-                        }
-
-                        if (newRoom != null) {
-                            showRoom(newRoom, destRoomId);
-                        }
-
-                        // Combat will check shouldEnd() on next tick and end if no opponents remain
+                    case "bash":
+                        rec = handleCombatCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "kick": {
-                        // KICK - combat skill that interrupts opponent's next attack
-                        if (rec == null) {
-                            out.println("You must be logged in to use kick.");
-                            break;
-                        }
-                        Integer charId = this.characterId;
-                        if (charId == null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        
-                        // Look up the kick skill (id=10)
-                        Skill kickSkill = dao.getSkillById(10);
-                        if (kickSkill == null) {
-                            out.println("Kick skill not found in database.");
-                            break;
-                        }
-                        
-                        // Check if character knows the kick skill
-                        CharacterSkill charKick = dao.getCharacterSkill(charId, 10);
-                        if (charKick == null) {
-                            out.println("You don't know how to kick.");
-                            break;
-                        }
-                        
-                        // Check cooldown and combat traits using unified check
-                        com.example.tassmud.util.AbilityCheck.CheckResult kickCheck = 
-                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, kickSkill);
-                        if (kickCheck.isFailure()) {
-                            out.println(kickCheck.getFailureMessage());
-                            break;
-                        }
-                        
-                        // Get the active combat and target
-                        CombatManager combatMgr = CombatManager.getInstance();
-                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
-                        if (activeCombat == null) {
-                            out.println("You must be in combat to use kick.");
-                            break;
-                        }
-                        
-                        // Get the user's combatant and find the opponent
-                        Combatant userCombatant = activeCombat.findByCharacterId(charId);
-                        if (userCombatant == null) {
-                            out.println("Combat error: could not find your combatant.");
-                            break;
-                        }
-                        
-                        // Find opponent (first combatant on different alliance)
-                        Combatant targetCombatant = null;
-                        for (Combatant c : activeCombat.getCombatants()) {
-                            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
-                                targetCombatant = c;
-                                break;
-                            }
-                        }
-                        
-                        if (targetCombatant == null) {
-                            out.println("You have no opponent to kick.");
-                            break;
-                        }
-                        
-                        // Get levels for opposed check
-                        CharacterClassDAO kickClassDao = new CharacterClassDAO();
-                        int userLevel = rec.currentClassId != null ? kickClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
-                        int targetLevel;
-                        if (targetCombatant.isPlayer()) {
-                            Integer targetCharId = targetCombatant.getCharacterId();
-                            CharacterRecord targetRec = dao.getCharacterById(targetCharId);
-                            targetLevel = targetRec != null && targetRec.currentClassId != null 
-                                ? kickClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
-                        } else {
-                            // For mobiles, use a level based on their HP (TODO: add proper level to Mobile)
-                            targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
-                        }
-                        
-                        // Perform opposed check with proficiency (1d100 vs success chance)
-                        // Success chance = base_level_chance * (0.5 + proficiency)
-                        int roll = (int)(Math.random() * 100) + 1;
-                        int proficiency = charKick.getProficiency();
-                        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
-                        
-                        String targetName = targetCombatant.getName();
-                        boolean kickSucceeded = roll <= successChance;
-                        
-                        if (kickSucceeded) {
-                            // Success! Interrupt the opponent's next attack
-                            targetCombatant.addStatusFlag(Combatant.StatusFlag.INTERRUPTED);
-                            out.println("Your kick connects! " + targetName + "'s next attack is interrupted.");
-                            
-                            // Notify the opponent if they're a player
-                            if (targetCombatant.isPlayer()) {
-                                Integer targetCharId = targetCombatant.getCharacterId();
-                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
-                                if (targetHandler != null) {
-                                    targetHandler.out.println(name + " kicks you, interrupting your next attack!");
-                                }
-                            }
-                        } else {
-                            // Miss
-                            out.println("Your kick misses " + targetName + ".");
-                            
-                            // Notify the opponent if they're a player
-                            if (targetCombatant.isPlayer()) {
-                                Integer targetCharId = targetCombatant.getCharacterId();
-                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
-                                if (targetHandler != null) {
-                                    targetHandler.out.println(name + " tries to kick you but misses.");
-                                }
-                            }
-                        }
-                        
-                        // Use unified skill execution to apply cooldown and check proficiency growth
-                        com.example.tassmud.util.SkillExecution.Result skillResult = 
-                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
-                                name, charId, kickSkill, charKick, dao, kickSucceeded);
-                        
-                        // Debug channel output for proficiency check (only shown if debug enabled)
-                        sendDebug("Kick proficiency check:");
-                        sendDebug("  Skill progression: " + kickSkill.getProgression());
-                        sendDebug("  Current proficiency: " + charKick.getProficiency() + "%");
-                        sendDebug("  Gain chance at this level: " + kickSkill.getProgression().getGainChance(charKick.getProficiency()) + "%");
-                        sendDebug("  Skill succeeded: " + kickSucceeded);
-                        sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
-                        if (skillResult.getProficiencyResult() != null) {
-                            sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency() + 
-                                      " -> New prof: " + skillResult.getProficiencyResult().getNewProficiency());
-                        }
-                        
-                        if (skillResult.didProficiencyImprove()) {
-                            out.println(skillResult.getProficiencyMessage());
-                        }
+                    case "heroic":
+                        rec = handleCombatCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "bash": {
-                        // BASH - combat skill that stuns and slows opponent (requires shield)
-                        if (rec == null) {
-                            out.println("You must be logged in to use bash.");
-                            break;
-                        }
-                        Integer charId = this.characterId;
-                        if (charId == null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        
-                        // Look up the bash skill (id=11)
-                        Skill bashSkill = dao.getSkillById(11);
-                        if (bashSkill == null) {
-                            out.println("Bash skill not found in database.");
-                            break;
-                        }
-                        
-                        // Check if character knows the bash skill
-                        CharacterSkill charBash = dao.getCharacterSkill(charId, 11);
-                        if (charBash == null) {
-                            out.println("You don't know how to bash.");
-                            break;
-                        }
-                        
-                        // Check cooldown, combat traits, and SHIELD requirement using unified check
-                        com.example.tassmud.util.AbilityCheck.CheckResult bashCheck = 
-                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, bashSkill);
-                        if (bashCheck.isFailure()) {
-                            out.println(bashCheck.getFailureMessage());
-                            break;
-                        }
-                        
-                        // Get the active combat and target
-                        CombatManager combatMgr = CombatManager.getInstance();
-                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
-                        if (activeCombat == null) {
-                            out.println("You must be in combat to use bash.");
-                            break;
-                        }
-                        
-                        // Get the user's combatant and find the opponent
-                        Combatant userCombatant = activeCombat.findByCharacterId(charId);
-                        if (userCombatant == null) {
-                            out.println("Combat error: could not find your combatant.");
-                            break;
-                        }
-                        
-                        // Bash sacrifices the user's next attack
-                        userCombatant.addStatusFlag(Combatant.StatusFlag.INTERRUPTED);
-                        
-                        // Find opponent (first combatant on different alliance)
-                        Combatant targetCombatant = null;
-                        for (Combatant c : activeCombat.getCombatants()) {
-                            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
-                                targetCombatant = c;
-                                break;
-                            }
-                        }
-                        
-                        if (targetCombatant == null) {
-                            out.println("You have no opponent to bash.");
-                            break;
-                        }
-                        
-                        // Get levels for opposed check
-                        CharacterClassDAO bashClassDao = new CharacterClassDAO();
-                        int userLevel = rec.currentClassId != null ? bashClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
-                        int targetLevel;
-                        if (targetCombatant.isPlayer()) {
-                            Integer targetCharId = targetCombatant.getCharacterId();
-                            CharacterRecord targetRec = dao.getCharacterById(targetCharId);
-                            targetLevel = targetRec != null && targetRec.currentClassId != null 
-                                ? bashClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
-                        } else {
-                            // For mobiles, use a level based on their HP
-                            targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
-                        }
-                        
-                        // Perform opposed check with proficiency (1d100 vs success chance)
-                        // Success chance = base_level_chance * (0.5 + proficiency)
-                        int roll = (int)(Math.random() * 100) + 1;
-                        int proficiency = charBash.getProficiency();
-                        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
-                        
-                        String targetName = targetCombatant.getName();
-                        boolean bashSucceeded = roll <= successChance;
-                        
-                        if (bashSucceeded) {
-                            // Success! Apply STUNNED and SLOWED for 1d6 rounds
-                            int stunDuration = (int)(Math.random() * 6) + 1;
-                            targetCombatant.addStatusFlag(Combatant.StatusFlag.STUNNED);
-                            targetCombatant.addStatusFlag(Combatant.StatusFlag.SLOWED);
-                            
-                            out.println("You slam your shield into " + targetName + ", stunning them for " + stunDuration + " rounds!");
-                            
-                            // Notify the opponent if they're a player
-                            if (targetCombatant.isPlayer()) {
-                                Integer targetCharId = targetCombatant.getCharacterId();
-                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
-                                if (targetHandler != null) {
-                                    targetHandler.out.println(name + " bashes you with their shield! You are stunned and slowed!");
-                                }
-                            }
-                            
-                            // Debug output
-                            sendDebug("Bash success! Applied STUNNED and SLOWED for " + stunDuration + " rounds.");
-                            sendDebug("  (Note: Current implementation removes status on first trigger. Multi-round tracking TODO.)");
-                        } else {
-                            // Miss
-                            out.println("Your shield bash misses " + targetName + ".");
-                            
-                            // Notify the opponent if they're a player
-                            if (targetCombatant.isPlayer()) {
-                                Integer targetCharId = targetCombatant.getCharacterId();
-                                ClientHandler targetHandler = charIdToSession.get(targetCharId);
-                                if (targetHandler != null) {
-                                    targetHandler.out.println(name + " tries to bash you with their shield but misses.");
-                                }
-                            }
-                        }
-                        
-                        // Use unified skill execution to apply cooldown and check proficiency growth
-                        com.example.tassmud.util.SkillExecution.Result bashResult = 
-                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
-                                name, charId, bashSkill, charBash, dao, bashSucceeded);
-                        
-                        if (bashResult.didProficiencyImprove()) {
-                            out.println(bashResult.getProficiencyMessage());
-                        }
+                    case "infuse":
+                        rec = handleCombatCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "heroic": {
-                        // HEROIC STRIKE - applies Heroism effect (guaranteed crits) to self
-                        if (rec == null) {
-                            out.println("You must be logged in to use Heroic Strike.");
-                            break;
-                        }
-                        Integer charId = this.characterId;
-                        if (charId == null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        
-                        // Look up the heroic strike skill (id=18)
-                        final int HEROIC_STRIKE_SKILL_ID = 18;
-                        Skill heroicSkill = dao.getSkillById(HEROIC_STRIKE_SKILL_ID);
-                        if (heroicSkill == null) {
-                            out.println("Heroic Strike skill not found in database.");
-                            break;
-                        }
-                        
-                        // Check if character knows the heroic strike skill
-                        CharacterSkill charHeroic = dao.getCharacterSkill(charId, HEROIC_STRIKE_SKILL_ID);
-                        if (charHeroic == null) {
-                            out.println("You don't know how to use Heroic Strike.");
-                            break;
-                        }
-                        
-                        // Check cooldown and combat traits using unified check
-                        com.example.tassmud.util.AbilityCheck.CheckResult heroicCheck = 
-                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, heroicSkill);
-                        if (heroicCheck.isFailure()) {
-                            out.println(heroicCheck.getFailureMessage());
-                            break;
-                        }
-                        
-                        // Get the active combat (skill requires combat)
-                        CombatManager combatMgr = CombatManager.getInstance();
-                        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
-                        if (activeCombat == null) {
-                            out.println("You must be in combat to use Heroic Strike.");
-                            break;
-                        }
-                        
-                        // Apply the skill's effects to self
-                        int proficiency = charHeroic.getProficiency();
-                        com.example.tassmud.util.SkillExecution.EffectResult effectResult = 
-                            com.example.tassmud.util.SkillExecution.applySkillEffectsToSelf(heroicSkill, charId, proficiency);
-                        
-                        if (effectResult.hasAppliedEffects()) {
-                            out.println("You channel your heroic spirit! " + effectResult.getSummary() + " takes effect!");
-                            // Broadcast to room (excluding self)
-                            for (ClientHandler ch : charIdToSession.values()) {
-                                if (ch != this && ch.currentRoomId != null && ch.currentRoomId.equals(currentRoomId)) {
-                                    ch.out.println(name + " is filled with heroic determination!");
-                                }
-                            }
-                        } else {
-                            out.println("You attempt to summon your heroic spirit, but nothing happens.");
-                        }
-                        
-                        // Apply cooldown and check proficiency growth (skill always "succeeds" if effects apply)
-                        boolean heroicSucceeded = effectResult.hasAppliedEffects();
-                        com.example.tassmud.util.SkillExecution.Result heroicResult = 
-                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
-                                name, charId, heroicSkill, charHeroic, dao, heroicSucceeded);
-                        
-                        if (heroicResult.didProficiencyImprove()) {
-                            out.println(heroicResult.getProficiencyMessage());
-                        }
-                        break;
-                    }
-                    case "infuse": {
-                        // INFUSE - Infuse your staff with arcane energy
-                        if (rec == null) {
-                            out.println("You must be logged in to use infuse.");
-                            break;
-                        }
-                        Integer charId = this.characterId;
-                        if (charId == null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        
-                        // Look up the lesser arcane infusion skill (id=100)
-                        final int ARCANE_INFUSION_SKILL_ID = 100;
-                        Skill infuseSkill = dao.getSkillById(ARCANE_INFUSION_SKILL_ID);
-                        if (infuseSkill == null) {
-                            out.println("Arcane Infusion skill not found in database.");
-                            break;
-                        }
-                        
-                        // Check if character knows the arcane infusion skill
-                        CharacterSkill charInfuse = dao.getCharacterSkill(charId, ARCANE_INFUSION_SKILL_ID);
-                        if (charInfuse == null) {
-                            out.println("You don't know how to infuse weapons with arcane energy.");
-                            break;
-                        }
-                        
-                        // Check cooldown using unified check (no combat requirement for infusion)
-                        com.example.tassmud.util.AbilityCheck.CheckResult infuseCheck = 
-                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, infuseSkill);
-                        if (infuseCheck.isFailure()) {
-                            out.println(infuseCheck.getFailureMessage());
-                            break;
-                        }
-                        
-                        // Check if player has a staff equipped
-                        ItemDAO itemDao = new ItemDAO();
-                        Long mainHandInstanceId = dao.getCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.getId());
-                        if (mainHandInstanceId == null) {
-                            out.println("You need to have a weapon equipped to infuse it.");
-                            break;
-                        }
-                        
-                        ItemInstance weaponInstance = itemDao.getInstance(mainHandInstanceId);
-                        if (weaponInstance == null) {
-                            out.println("You need to have a weapon equipped to infuse it.");
-                            break;
-                        }
-                        
-                        ItemTemplate weaponTemplate = itemDao.getTemplateById(weaponInstance.templateId);
-                        if (weaponTemplate == null) {
-                            out.println("You need to have a weapon equipped to infuse it.");
-                            break;
-                        }
-                        
-                        // Check if the weapon is a staff
-                        com.example.tassmud.model.WeaponFamily weaponFamily = weaponTemplate.getWeaponFamily();
-                        if (weaponFamily != com.example.tassmud.model.WeaponFamily.STAVES) {
-                            out.println("You can only infuse staves with arcane energy.");
-                            break;
-                        }
-                        
-                        // Apply the skill's effects to self
-                        int proficiency = charInfuse.getProficiency();
-                        com.example.tassmud.util.SkillExecution.EffectResult effectResult = 
-                            com.example.tassmud.util.SkillExecution.applySkillEffectsToSelf(infuseSkill, charId, proficiency);
-                        
-                        if (effectResult.hasAppliedEffects()) {
-                            String weaponName = weaponTemplate.name != null ? weaponTemplate.name : "staff";
-                            out.println("You channel arcane energy into your " + weaponName + "! It crackles with magical power.");
-                            out.println("Your attacks now fire arcane bolts, targeting reflex and using Intelligence for damage.");
-                            // Broadcast to room (excluding self)
-                            for (ClientHandler ch : charIdToSession.values()) {
-                                if (ch != this && ch.currentRoomId != null && ch.currentRoomId.equals(currentRoomId)) {
-                                    ch.out.println(name + "'s " + weaponName + " begins to glow with arcane energy!");
-                                }
-                            }
-                        } else {
-                            out.println("You attempt to channel arcane energy, but nothing happens.");
-                        }
-                        
-                        // Apply cooldown and check proficiency growth
-                        boolean infuseSucceeded = effectResult.hasAppliedEffects();
-                        com.example.tassmud.util.SkillExecution.Result infuseResult = 
-                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
-                                name, charId, infuseSkill, charInfuse, dao, infuseSucceeded);
-                        
-                        if (infuseResult.didProficiencyImprove()) {
-                            out.println(infuseResult.getProficiencyMessage());
-                        }
-                        break;
-                    }
                     case "hide": {
                         // HIDE - Skill-based invisibility (requires hide skill, has cooldown)
                         if (rec == null) {
@@ -3804,50 +3301,21 @@ public class ClientHandler implements Runnable {
                         out.println();
                         break;
                     }
-                    case "chat": {
-                        String t = cmd.getArgs();
-                        if (t == null || t.trim().isEmpty()) { out.println("Usage: chat <message>"); break; }
-                        broadcastAll("[chat] " + this.playerName + ": " + t);
+                    case "chat":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
-                    case "yell": {
-                        String t = cmd.getArgs();
-                        if (t == null || t.trim().isEmpty()) { out.println("Usage: yell <message>"); break; }
-                        // find our area
-                        Integer roomId = rec != null ? rec.currentRoom : null;
-                        if (roomId == null) { out.println("You are nowhere to yell from."); break; }
-                        Room roomObj = dao.getRoomById(roomId);
-                        if (roomObj == null) { out.println("You are nowhere to yell from."); break; }
-                        int areaId = roomObj.getAreaId();
-                        broadcastArea(dao, areaId, "[yell] " + this.playerName + ": " + t);
+                    case "yell":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
-                    case "whisper": {
-                        String args = cmd.getArgs();
-                        if (args == null || args.trim().isEmpty()) { out.println("Usage: whisper <target> <message>"); break; }
-                        String[] parts = args.trim().split("\\s+", 2);
-                        if (parts.length < 2) { out.println("Usage: whisper <target> <message>"); break; }
-                        String target = parts[0];
-                        String msg = parts[1];
-                        ClientHandler t = nameToSession.get(target.toLowerCase());
-                        if (t == null) { out.println("No such player online: " + target); break; }
-                        t.sendRaw("[whisper] " + this.playerName + " -> you: " + msg);
-                        this.sendRaw("[whisper] you -> " + target + ": " + msg);
+                    case "whisper":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
-                    case "gmchat": {
-                        String t = cmd.getArgs();
-                        if (t == null || t.trim().isEmpty()) { out.println("Usage: gmchat <message>"); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use gmchat."); break; }
-                        gmBroadcast(dao, this.playerName, t);
+                    case "gmchat":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
                     case "debug": {
                         // GM-only: toggle debug channel output
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
-                            out.println("You do not have permission to use debug."); 
-                            break; 
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         debugChannelEnabled = !debugChannelEnabled;
                         if (debugChannelEnabled) {
                             out.println("Debug channel is now ON. You will see [DEBUG] messages.");
@@ -3858,10 +3326,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "gminvis": {
                         // GM-only: toggle perfect invisibility
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
-                            out.println("You do not have permission to use gminvis."); 
-                            break; 
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         gmInvisible = !gmInvisible;
                         if (gmInvisible) {
                             out.println("You fade into the shadows, becoming invisible to mortals.");
@@ -3885,68 +3350,12 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
-                    case "dbinfo": {
-                        // GM-only: prints table schema information
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use dbinfo."); break; }
-                        // Ensure item tables/migrations are applied by constructing ItemDAO
-                        try { new ItemDAO(); } catch (Exception ignored) {}
-
-                        String targs = cmd.getArgs();
-                        String[] tables;
-                        if (targs == null || targs.trim().isEmpty()) {
-                            tables = new String[] { "item_template", "item_instance", "character_equipment" };
-                        } else {
-                            tables = new String[] { targs.trim() };
-                        }
-                        for (String tbl : tables) {
-                            out.println("Table: " + tbl);
-                            java.util.List<String> cols = dao.listTableColumns(tbl);
-                            if (cols == null || cols.isEmpty()) {
-                                out.println("  <no columns or table does not exist>");
-                            } else {
-                                for (String c : cols) out.println("  " + c);
-                            }
-                        }
+                    case "dbinfo":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
-                    case "genmap": {
-                        // GM-only: generate ASCII map for an area
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
-                            out.println("You do not have permission to use genmap."); 
-                            break; 
-                        }
-                        String mapArgs = cmd.getArgs();
-                        int targetAreaId;
-                        if (mapArgs == null || mapArgs.trim().isEmpty()) {
-                            // Use current room's area
-                            if (rec == null || rec.currentRoom == null) {
-                                out.println("Usage: genmap [areaId]");
-                                break;
-                            }
-                            com.example.tassmud.model.Room currentRoom = dao.getRoomById(rec.currentRoom);
-                            if (currentRoom == null) {
-                                out.println("Could not determine your current area.");
-                                break;
-                            }
-                            targetAreaId = currentRoom.getAreaId();
-                        } else {
-                            try {
-                                targetAreaId = Integer.parseInt(mapArgs.trim());
-                            } catch (NumberFormatException e) {
-                                out.println("Invalid area ID: " + mapArgs);
-                                break;
-                            }
-                        }
-                        
-                        // Generate the map
-                        String mapResult = com.example.tassmud.tools.MapGenerator.generateMapForAreaInGame(targetAreaId);
-                        if (mapResult != null) {
-                            out.println(mapResult);
-                        } else {
-                            out.println("Failed to generate map for area " + targetAreaId);
-                        }
+                    case "genmap":
+                        rec = handleGmCommand(cmd, name, rec, dao);
                         break;
-                    }
                     case "motd": {
                         String margs = cmd.getArgs();
                         if (margs == null || margs.trim().isEmpty()) {
@@ -7411,5 +6820,629 @@ public class ClientHandler implements Runnable {
      */
     private void printCommandRow(String cmd1, String cmd2, String cmd3) {
         out.println(String.format("    %-20s %-20s %-20s", cmd1, cmd2, cmd3));
+    }
+
+    /**
+     * Centralized handler for combat-related commands.
+     */
+    public CharacterRecord handleCombatCommand(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        if (cmd == null) return rec;
+        String cmdName = cmd.getName().toLowerCase();
+        try {
+            switch (cmdName) {
+                case "combat": {
+                    // COMBAT - show current combat status
+                    Integer charId = this.characterId;
+                    if (charId == null && name != null) {
+                        charId = dao.getCharacterIdByName(name);
+                    }
+                    CombatManager combatMgr = CombatManager.getInstance();
+                    if (!combatMgr.isInCombat(charId)) {
+                        out.println("You are not in combat.");
+                        break;
+                    }
+                    Combat combat = combatMgr.getCombatForCharacter(charId);
+                    if (combat == null) {
+                        out.println("You are not in combat.");
+                        break;
+                    }
+
+                    out.println("=== Combat Status ===");
+                    out.println("Round: " + combat.getCurrentRound());
+                    out.println("State: " + combat.getState().getDisplayName());
+                    out.println();
+                    out.println("Combatants:");
+                    for (Combatant c : combat.getActiveCombatants()) {
+                        String indicator = c.isPlayer() ? "[Player] " : "[Mob] ";
+                        int hpPct = c.getHpMax() > 0 ? (c.getHpCurrent() * 100) / c.getHpMax() : 0;
+                        String hpBar = getHpBar(hpPct);
+                        out.println("  " + indicator + c.getName() + " " + hpBar + " (" + c.getHpCurrent() + "/" + c.getHpMax() + " HP)");
+                    }
+                    out.println();
+                    out.println("Recent combat log:");
+                    String log = combat.getRecentLog(5);
+                    if (!log.isEmpty()) {
+                        for (String logLine : log.split("\n")) {
+                            out.println("  " + logLine);
+                        }
+                    } else {
+                        out.println("  (no events yet)");
+                    }
+                    break;
+                }
+                case "flee": {
+                    // FLEE - innate combat skill to escape from combat
+                    Integer charId = this.characterId;
+                    if (charId == null && name != null) {
+                        charId = dao.getCharacterIdByName(name);
+                    }
+                    CombatManager combatMgr = CombatManager.getInstance();
+                    Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                    if (activeCombat == null) {
+                        out.println("You are not in combat.");
+                        break;
+                    }
+
+                    Combatant userCombatant = activeCombat.findByCharacterId(charId);
+                    if (userCombatant == null) {
+                        out.println("Combat error: could not find your combatant.");
+                        break;
+                    }
+
+                    // Get current room and available exits
+                    Room curRoom = dao.getRoomById(currentRoomId);
+                    if (curRoom == null) {
+                        out.println("You can't flee - you don't know where you are!");
+                        break;
+                    }
+
+                    // Build list of available exits
+                    java.util.List<String> availableExits = new java.util.ArrayList<>();
+                    java.util.Map<String, Integer> exitRooms = new java.util.HashMap<>();
+                    if (curRoom.getExitN() != null) { availableExits.add("north"); exitRooms.put("north", curRoom.getExitN()); }
+                    if (curRoom.getExitE() != null) { availableExits.add("east"); exitRooms.put("east", curRoom.getExitE()); }
+                    if (curRoom.getExitS() != null) { availableExits.add("south"); exitRooms.put("south", curRoom.getExitS()); }
+                    if (curRoom.getExitW() != null) { availableExits.add("west"); exitRooms.put("west", curRoom.getExitW()); }
+                    if (curRoom.getExitU() != null) { availableExits.add("up"); exitRooms.put("up", curRoom.getExitU()); }
+                    if (curRoom.getExitD() != null) { availableExits.add("down"); exitRooms.put("down", curRoom.getExitD()); }
+
+                    if (availableExits.isEmpty()) {
+                        out.println("There's nowhere to flee to!");
+                        break;
+                    }
+
+                    // Get user's level for opposed check
+                    CharacterClassDAO fleeClassDao = new CharacterClassDAO();
+                    int userLevel = rec.currentClassId != null 
+                        ? fleeClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+
+                    // Find the highest level opponent for opposed check
+                    int opponentLevel = 1;
+                    for (Combatant c : activeCombat.getCombatants()) {
+                        if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                            int cLevel;
+                            if (c.isPlayer()) {
+                                Integer cCharId = c.getCharacterId();
+                                CharacterRecord cRec = dao.getCharacterById(cCharId);
+                                cLevel = cRec != null && cRec.currentClassId != null 
+                                    ? fleeClassDao.getCharacterClassLevel(cCharId, cRec.currentClassId) : 1;
+                            } else if (c.getMobile() != null) {
+                                cLevel = c.getMobile().getLevel();
+                            } else {
+                                cLevel = 1;
+                            }
+                            if (cLevel > opponentLevel) {
+                                opponentLevel = cLevel;
+                            }
+                        }
+                    }
+
+                    // Perform opposed check at 100% proficiency (innate skill)
+                    int roll = (int)(Math.random() * 100) + 1;
+                    int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
+                        userLevel, opponentLevel, 100);
+
+                    boolean fleeSucceeded = roll <= successChance;
+
+                    if (!fleeSucceeded) {
+                        // Failed to flee
+                        out.println("You try to flee but your opponents block your escape!");
+                        if (!this.gmInvisible) {
+                            roomAnnounce(currentRoomId, name + " tries to flee but fails!", this.characterId, true);
+                        }
+                        break;
+                    }
+
+                    // Flee succeeded - pick a random exit
+                    String fleeDirection = availableExits.get((int)(Math.random() * availableExits.size()));
+                    Integer destRoomId = exitRooms.get(fleeDirection);
+
+                    // Check movement cost
+                    int moveCost = dao.getMoveCostForRoom(destRoomId);
+
+                    if (rec.mvCur < moveCost) {
+                        // Insufficient MV - fall prone instead of escaping
+                        userCombatant.setProne();
+                        out.println("You break free but stumble and fall prone from exhaustion!");
+                        if (!this.gmInvisible) {
+                            roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                        }
+                        break;
+                    }
+
+                    // Deduct movement points
+                    if (!dao.deductMovementPoints(name, moveCost)) {
+                        // Shouldn't happen, but handle it
+                        userCombatant.setProne();
+                        out.println("You break free but stumble and fall prone from exhaustion!");
+                        if (!this.gmInvisible) {
+                            roomAnnounce(currentRoomId, name + " tries to flee but collapses from exhaustion!", this.characterId, true);
+                        }
+                        break;
+                    }
+
+                    // Remove from combat
+                    activeCombat.removeCombatant(userCombatant);
+
+                    // Announce departure
+                    out.println("You flee " + fleeDirection + "!");
+                    if (!this.gmInvisible) {
+                        roomAnnounce(currentRoomId, name + " flees " + fleeDirection + "!", this.characterId, true);
+                    }
+
+                    // Move to new room
+                    boolean moved = dao.updateCharacterRoom(name, destRoomId);
+                    if (!moved) {
+                        out.println("Something strange happened during your escape.");
+                        break;
+                    }
+
+                    // Update cached room and show new location
+                    rec = dao.findByName(name);
+                    this.currentRoomId = rec != null ? rec.currentRoom : null;
+                    Room newRoom = dao.getRoomById(destRoomId);
+
+                    // Announce arrival
+                    if (!this.gmInvisible) {
+                        roomAnnounce(destRoomId, makeArrivalMessage(name, fleeDirection), this.characterId, true);
+                    }
+
+                    if (newRoom != null) {
+                        showRoom(newRoom, destRoomId);
+                    }
+
+                    // Combat will check shouldEnd() on next tick and end if no opponents remain
+                    break;
+                }
+                case "kick": {
+                    // KICK - combat skill that interrupts opponent's next attack
+                    if (rec == null) {
+                        out.println("You must be logged in to use kick.");
+                        break;
+                    }
+                    Integer charId = this.characterId;
+                    if (charId == null) {
+                        charId = dao.getCharacterIdByName(name);
+                    }
+
+                    // Look up the kick skill (id=10)
+                    Skill kickSkill = dao.getSkillById(10);
+                    if (kickSkill == null) {
+                        out.println("Kick skill not found in database.");
+                        break;
+                    }
+
+                    // Check if character knows the kick skill
+                    CharacterSkill charKick = dao.getCharacterSkill(charId, 10);
+                    if (charKick == null) {
+                        out.println("You don't know how to kick.");
+                        break;
+                    }
+
+                    // Check cooldown and combat traits using unified check
+                    com.example.tassmud.util.AbilityCheck.CheckResult kickCheck = 
+                        com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, kickSkill);
+                    if (kickCheck.isFailure()) {
+                        out.println(kickCheck.getFailureMessage());
+                        break;
+                    }
+
+                    // Get the active combat and target
+                    CombatManager combatMgr = CombatManager.getInstance();
+                    Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                    if (activeCombat == null) {
+                        out.println("You must be in combat to use kick.");
+                        break;
+                    }
+
+                    // Get the user's combatant and find the opponent
+                    Combatant userCombatant = activeCombat.findByCharacterId(charId);
+                    if (userCombatant == null) {
+                        out.println("Combat error: could not find your combatant.");
+                        break;
+                    }
+
+                    // Find opponent (first combatant on different alliance)
+                    Combatant targetCombatant = null;
+                    for (Combatant c : activeCombat.getCombatants()) {
+                        if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                            targetCombatant = c;
+                            break;
+                        }
+                    }
+
+                    if (targetCombatant == null) {
+                        out.println("You have no opponent to kick.");
+                        break;
+                    }
+
+                    // Get levels for opposed check
+                    CharacterClassDAO kickClassDao = new CharacterClassDAO();
+                    int userLevel = rec.currentClassId != null ? kickClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+                    int targetLevel;
+                    if (targetCombatant.isPlayer()) {
+                        Integer targetCharId = targetCombatant.getCharacterId();
+                        CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+                        targetLevel = targetRec != null && targetRec.currentClassId != null 
+                            ? kickClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
+                    } else {
+                        // For mobiles, use a level based on their HP (TODO: add proper level to Mobile)
+                        targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
+                    }
+
+                    // Perform opposed check with proficiency (1d100 vs success chance)
+                    int roll = (int)(Math.random() * 100) + 1;
+                    int proficiency = charKick.getProficiency();
+                    int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
+
+                    String targetName = targetCombatant.getName();
+                    boolean kickSucceeded = roll <= successChance;
+
+                    if (kickSucceeded) {
+                        // Success! Interrupt the opponent's next attack
+                        targetCombatant.addStatusFlag(Combatant.StatusFlag.INTERRUPTED);
+                        out.println("Your kick connects! " + targetName + "'s next attack is interrupted.");
+
+                        // Notify the opponent if they're a player
+                        if (targetCombatant.isPlayer()) {
+                            Integer targetCharId = targetCombatant.getCharacterId();
+                            ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                            if (targetHandler != null) {
+                                targetHandler.out.println(name + " kicks you, interrupting your next attack!");
+                            }
+                        }
+                    } else {
+                        // Miss
+                        out.println("Your kick misses " + targetName + ".");
+
+                        // Notify the opponent if they're a player
+                        if (targetCombatant.isPlayer()) {
+                            Integer targetCharId = targetCombatant.getCharacterId();
+                            ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                            if (targetHandler != null) {
+                                targetHandler.out.println(name + " tries to kick you but misses.");
+                            }
+                        }
+                    }
+
+                    // Use unified skill execution to apply cooldown and check proficiency growth
+                    com.example.tassmud.util.SkillExecution.Result skillResult = 
+                        com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                            name, charId, kickSkill, charKick, dao, kickSucceeded);
+
+                    // Debug channel output for proficiency check (only shown if debug enabled)
+                    sendDebug("Kick proficiency check:");
+                    sendDebug("  Skill progression: " + kickSkill.getProgression());
+                    sendDebug("  Current proficiency: " + charKick.getProficiency() + "%");
+                    sendDebug("  Gain chance at this level: " + kickSkill.getProgression().getGainChance(charKick.getProficiency()) + "%");
+                    sendDebug("  Skill succeeded: " + kickSucceeded);
+                    sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
+                    if (skillResult.getProficiencyResult() != null) {
+                        sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency() + 
+                                  " -> New prof: " + skillResult.getProficiencyResult().getNewProficiency());
+                    }
+
+                    if (skillResult.didProficiencyImprove()) {
+                        out.println(skillResult.getProficiencyMessage());
+                    }
+                    break;
+                }
+                case "bash": {
+                    // BASH - combat skill that stuns and slows opponent (requires shield)
+                    if (rec == null) {
+                        out.println("You must be logged in to use bash.");
+                        break;
+                    }
+                    Integer charId = this.characterId;
+                    if (charId == null) {
+                        charId = dao.getCharacterIdByName(name);
+                    }
+
+                    // Look up the bash skill (id=11)
+                    Skill bashSkill = dao.getSkillById(11);
+                    if (bashSkill == null) {
+                        out.println("Bash skill not found in database.");
+                        break;
+                    }
+
+                    // Check if character knows the bash skill
+                    CharacterSkill charBash = dao.getCharacterSkill(charId, 11);
+                    if (charBash == null) {
+                        out.println("You don't know how to bash.");
+                        break;
+                    }
+
+                    // Check cooldown, combat traits, and SHIELD requirement using unified check
+                    com.example.tassmud.util.AbilityCheck.CheckResult bashCheck = 
+                        com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, bashSkill);
+                    if (bashCheck.isFailure()) {
+                        out.println(bashCheck.getFailureMessage());
+                        break;
+                    }
+
+                    // Get the active combat and target
+                    CombatManager combatMgr = CombatManager.getInstance();
+                    Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                    if (activeCombat == null) {
+                        out.println("You must be in combat to use bash.");
+                        break;
+                    }
+
+                    // Get the user's combatant and find the opponent
+                    Combatant userCombatant = activeCombat.findByCharacterId(charId);
+                    if (userCombatant == null) {
+                        out.println("Combat error: could not find your combatant.");
+                        break;
+                    }
+
+                    // Bash sacrifices the user's next attack
+                    userCombatant.addStatusFlag(Combatant.StatusFlag.INTERRUPTED);
+
+                    // Find opponent (first combatant on different alliance)
+                    Combatant targetCombatant = null;
+                    for (Combatant c : activeCombat.getCombatants()) {
+                        if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                            targetCombatant = c;
+                            break;
+                        }
+                    }
+
+                    if (targetCombatant == null) {
+                        out.println("You have no opponent to bash.");
+                        break;
+                    }
+
+                    // Get levels for opposed check
+                    CharacterClassDAO bashClassDao = new CharacterClassDAO();
+                    int userLevel = rec.currentClassId != null ? bashClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+                    int targetLevel;
+                    if (targetCombatant.isPlayer()) {
+                        Integer targetCharId = targetCombatant.getCharacterId();
+                        CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+                        targetLevel = targetRec != null && targetRec.currentClassId != null 
+                            ? bashClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
+                    } else {
+                        // For mobiles, use a level based on their HP
+                        targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
+                    }
+
+                    // Perform opposed check with proficiency (1d100 vs success chance)
+                    int roll = (int)(Math.random() * 100) + 1;
+                    int proficiency = charBash.getProficiency();
+                    int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
+
+                    String targetName = targetCombatant.getName();
+                    boolean bashSucceeded = roll <= successChance;
+
+                    if (bashSucceeded) {
+                        // Success! Apply STUNNED and SLOWED for 1d6 rounds
+                        int stunDuration = (int)(Math.random() * 6) + 1;
+                        targetCombatant.addStatusFlag(Combatant.StatusFlag.STUNNED);
+                        targetCombatant.addStatusFlag(Combatant.StatusFlag.SLOWED);
+
+                        out.println("You slam your shield into " + targetName + ", stunning them for " + stunDuration + " rounds!");
+
+                        // Notify the opponent if they're a player
+                        if (targetCombatant.isPlayer()) {
+                            Integer targetCharId = targetCombatant.getCharacterId();
+                            ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                            if (targetHandler != null) {
+                                targetHandler.out.println(name + " bashes you with their shield! You are stunned and slowed!");
+                            }
+                        }
+
+                        // Debug output
+                        sendDebug("Bash success! Applied STUNNED and SLOWED for " + stunDuration + " rounds.");
+                        sendDebug("  (Note: Current implementation removes status on first trigger. Multi-round tracking TODO.)");
+                    } else {
+                        // Miss
+                        out.println("Your shield bash misses " + targetName + ".");
+
+                        // Notify the opponent if they're a player
+                        if (targetCombatant.isPlayer()) {
+                            Integer targetCharId = targetCombatant.getCharacterId();
+                            ClientHandler targetHandler = charIdToSession.get(targetCharId);
+                            if (targetHandler != null) {
+                                targetHandler.out.println(name + " tries to bash you with their shield but misses.");
+                            }
+                        }
+                    }
+
+                    // Use unified skill execution to apply cooldown and check proficiency growth
+                    com.example.tassmud.util.SkillExecution.Result bashResult = 
+                        com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                            name, charId, bashSkill, charBash, dao, bashSucceeded);
+
+                    if (bashResult.didProficiencyImprove()) {
+                        out.println(bashResult.getProficiencyMessage());
+                    }
+                    break;
+                }
+                case "heroic": {
+                    // HEROIC STRIKE - applies Heroism effect (guaranteed crits) to self
+                    if (rec == null) {
+                        out.println("You must be logged in to use Heroic Strike.");
+                        break;
+                    }
+                    Integer charId = this.characterId;
+                    if (charId == null) {
+                        charId = dao.getCharacterIdByName(name);
+                    }
+                    
+                    // Look up the heroic strike skill (id=18)
+                    final int HEROIC_STRIKE_SKILL_ID = 18;
+                    Skill heroicSkill = dao.getSkillById(HEROIC_STRIKE_SKILL_ID);
+                    if (heroicSkill == null) {
+                        out.println("Heroic Strike skill not found in database.");
+                        break;
+                    }
+                    
+                    // Check if character knows the heroic strike skill
+                    CharacterSkill charHeroic = dao.getCharacterSkill(charId, HEROIC_STRIKE_SKILL_ID);
+                    if (charHeroic == null) {
+                        out.println("You don't know how to use Heroic Strike.");
+                        break;
+                    }
+                    
+                    // Check cooldown and combat traits using unified check
+                    com.example.tassmud.util.AbilityCheck.CheckResult heroicCheck = 
+                        com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, heroicSkill);
+                    if (heroicCheck.isFailure()) {
+                        out.println(heroicCheck.getFailureMessage());
+                        break;
+                    }
+                    
+                    // Get the active combat (skill requires combat)
+                    CombatManager combatMgr = CombatManager.getInstance();
+                    Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+                    if (activeCombat == null) {
+                        out.println("You must be in combat to use Heroic Strike.");
+                        break;
+                    }
+                    
+                    // Apply the skill's effects to self
+                    int proficiency = charHeroic.getProficiency();
+                    com.example.tassmud.util.SkillExecution.EffectResult effectResult = 
+                        com.example.tassmud.util.SkillExecution.applySkillEffectsToSelf(heroicSkill, charId, proficiency);
+                    
+                    if (effectResult.hasAppliedEffects()) {
+                        out.println("You channel your heroic spirit! " + effectResult.getSummary() + " takes effect!");
+                        // Broadcast to room (excluding self)
+                        for (ClientHandler ch : charIdToSession.values()) {
+                            if (ch != this && ch.currentRoomId != null && ch.currentRoomId.equals(currentRoomId)) {
+                                ch.out.println(name + " is filled with heroic determination!");
+                            }
+                        }
+                    } else {
+                        out.println("You attempt to summon your heroic spirit, but nothing happens.");
+                    }
+                    
+                    // Apply cooldown and check proficiency growth (skill always "succeeds" if effects apply)
+                    boolean heroicSucceeded = effectResult.hasAppliedEffects();
+                    com.example.tassmud.util.SkillExecution.Result heroicResult = 
+                        com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                            name, charId, heroicSkill, charHeroic, dao, heroicSucceeded);
+                    
+                    if (heroicResult.didProficiencyImprove()) {
+                        out.println(heroicResult.getProficiencyMessage());
+                    }
+                    break;
+                }
+                case "infuse": {
+                    // INFUSE - Infuse your staff with arcane energy
+                    if (rec == null) {
+                        out.println("You must be logged in to use infuse.");
+                        break;
+                    }
+                    Integer charId = this.characterId;
+                    if (charId == null) {
+                        charId = dao.getCharacterIdByName(name);
+                    }
+                    
+                    // Look up the lesser arcane infusion skill (id=100)
+                    final int ARCANE_INFUSION_SKILL_ID = 100;
+                    Skill infuseSkill = dao.getSkillById(ARCANE_INFUSION_SKILL_ID);
+                    if (infuseSkill == null) {
+                        out.println("Arcane Infusion skill not found in database.");
+                        break;
+                    }
+                    
+                    // Check if character knows the arcane infusion skill
+                    CharacterSkill charInfuse = dao.getCharacterSkill(charId, ARCANE_INFUSION_SKILL_ID);
+                    if (charInfuse == null) {
+                        out.println("You don't know how to infuse weapons with arcane energy.");
+                        break;
+                    }
+                    
+                    // Check cooldown using unified check (no combat requirement for infusion)
+                    com.example.tassmud.util.AbilityCheck.CheckResult infuseCheck = 
+                        com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, infuseSkill);
+                    if (infuseCheck.isFailure()) {
+                        out.println(infuseCheck.getFailureMessage());
+                        break;
+                    }
+                    
+                    // Check if player has a staff equipped
+                    ItemDAO itemDao = new ItemDAO();
+                    Long mainHandInstanceId = dao.getCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.getId());
+                    if (mainHandInstanceId == null) {
+                        out.println("You need to have a weapon equipped to infuse it.");
+                        break;
+                    }
+                    
+                    ItemInstance weaponInstance = itemDao.getInstance(mainHandInstanceId);
+                    if (weaponInstance == null) {
+                        out.println("You need to have a weapon equipped to infuse it.");
+                        break;
+                    }
+                    
+                    ItemTemplate weaponTemplate = itemDao.getTemplateById(weaponInstance.templateId);
+                    if (weaponTemplate == null) {
+                        out.println("You need to have a weapon equipped to infuse it.");
+                        break;
+                    }
+                    
+                    // Check if the weapon is a staff
+                    com.example.tassmud.model.WeaponFamily weaponFamily = weaponTemplate.getWeaponFamily();
+                    if (weaponFamily != com.example.tassmud.model.WeaponFamily.STAVES) {
+                        out.println("You can only infuse staves with arcane energy.");
+                        break;
+                    }
+                    
+                    // Apply the skill's effects to self
+                    int proficiency = charInfuse.getProficiency();
+                    com.example.tassmud.util.SkillExecution.EffectResult effectResult = 
+                        com.example.tassmud.util.SkillExecution.applySkillEffectsToSelf(infuseSkill, charId, proficiency);
+                    
+                    if (effectResult.hasAppliedEffects()) {
+                        String weaponName = weaponTemplate.name != null ? weaponTemplate.name : "staff";
+                        out.println("You channel arcane energy into your " + weaponName + "! It crackles with magical power.");
+                        out.println("Your attacks now fire arcane bolts, targeting reflex and using Intelligence for damage.");
+                        // Broadcast to room (excluding self)
+                        for (ClientHandler ch : charIdToSession.values()) {
+                            if (ch != this && ch.currentRoomId != null && ch.currentRoomId.equals(currentRoomId)) {
+                                ch.out.println(name + "'s " + weaponName + " begins to glow with arcane energy!");
+                            }
+                        }
+                    } else {
+                        out.println("You attempt to channel arcane energy, but nothing happens.");
+                    }
+                    
+                    // Apply cooldown and check proficiency growth
+                    boolean infuseSucceeded = effectResult.hasAppliedEffects();
+                    com.example.tassmud.util.SkillExecution.Result infuseResult = 
+                        com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                            name, charId, infuseSkill, charInfuse, dao, infuseSucceeded);
+                    
+                    if (infuseResult.didProficiencyImprove()) {
+                        out.println(infuseResult.getProficiencyMessage());
+                    }
+                    break;
+                }
+                default:
+                    break;
+            }
+        } catch (Exception ignored) {}
+        return rec;
     }
 }

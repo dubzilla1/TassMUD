@@ -1,12 +1,16 @@
+package com.example.tassmud.tools;
+
 import java.sql.*;
 
-public class CheckDbRaw {
+/**
+ * Small DB inspection tool to help debug spawn duplication.
+ */
+public class DbInspect {
     public static void main(String[] args) {
         String url = "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1";
         try (Connection c = DriverManager.getConnection(url, "sa", "")) {
-            // Run quick investigative queries for spawn duplication debugging
-            runQuery(c, "Total mobile_instance rows", "SELECT COUNT(*) FROM mobile_instance");
-            runQuery(c, "mobile_instance rows with NULL orig_uuid", "SELECT COUNT(*) FROM mobile_instance WHERE orig_uuid IS NULL");
+            runQuery(c, "Total mobile_instance rows", "SELECT COUNT(*) AS total FROM mobile_instance");
+            runQuery(c, "mobile_instance rows with NULL orig_uuid", "SELECT COUNT(*) AS null_uuid FROM mobile_instance WHERE orig_uuid IS NULL");
             runQuery(c, "Live instances grouped by orig_uuid (counts >1)",
                 "SELECT orig_uuid, COUNT(*) AS cnt FROM mobile_instance WHERE is_dead = FALSE GROUP BY orig_uuid HAVING COUNT(*) > 1");
             runQuery(c, "Recent mobile_instance rows (top 20)",
@@ -15,24 +19,7 @@ public class CheckDbRaw {
                 "SELECT template_id, COUNT(*) AS cnt FROM spawn_mapping GROUP BY template_id ORDER BY cnt DESC LIMIT 20");
         } catch (SQLException e) {
             System.err.println("Connection failed: " + e.getMessage());
-        }
-    }
-
-    private static void checkTable(Connection c, String table) {
-        String sql = "SELECT COLUMN_NAME, TYPE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ? ORDER BY ORDINAL_POSITION";
-        try (PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setString(1, table);
-            try (ResultSet rs = ps.executeQuery()) {
-                System.out.println("\nColumns for table " + table + ":");
-                boolean any = false;
-                while (rs.next()) {
-                    any = true;
-                    System.out.println("  " + rs.getString("COLUMN_NAME") + " (" + rs.getString("TYPE_NAME") + ")");
-                }
-                if (!any) System.out.println("  <no columns or table does not exist>");
-            }
-        } catch (SQLException e) {
-            System.out.println("Error querying table " + table + ": " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -42,7 +29,7 @@ public class CheckDbRaw {
             boolean hasRs = s.execute(sql);
             if (hasRs) {
                 try (ResultSet rs = s.getResultSet()) {
-                    java.sql.ResultSetMetaData md = rs.getMetaData();
+                    ResultSetMetaData md = rs.getMetaData();
                     int cols = md.getColumnCount();
                     // Print header
                     for (int i = 1; i <= cols; i++) {
@@ -64,6 +51,7 @@ public class CheckDbRaw {
             }
         } catch (SQLException e) {
             System.out.println("Query failed: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

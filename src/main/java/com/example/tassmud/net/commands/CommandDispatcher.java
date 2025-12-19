@@ -23,6 +23,10 @@ public class CommandDispatcher {
         
         // Register category handlers
         handlers.put(CommandDefinition.Category.ITEMS, new ItemCommandHandler());
+        handlers.put(CommandDefinition.Category.MOVEMENT, new MovementCommandHandler());
+        handlers.put(CommandDefinition.Category.COMMUNICATION, new CommunicationCommandHandler());
+        handlers.put(CommandDefinition.Category.COMBAT, new CombatCommandHandler());
+        handlers.put(CommandDefinition.Category.GM, new GmCommandHandler());
         
         // Future handlers to add:
         // handlers.put(CommandDefinition.Category.MOVEMENT, new MovementCommandHandler());

@@ -384,7 +384,16 @@ public class MobileRoamingService {
      * @return true if the mobile can pass
      */
     private boolean canPassDoor(Mobile mobile, int destRoomId, String direction) {
-        // TODO: Check for locked doors, secret doors, mob-only passages, etc.
+        // Determine the from-room id for this mobile
+        Integer fromRoomId = mobile.getCurrentRoom();
+        if (fromRoomId == null) return false;
+        com.example.tassmud.model.Door door = dao.getDoor(fromRoomId, direction);
+        if (door == null) return true;
+        // Block passage for blocked doors
+        if (door.blocked) return false;
+        // Block for closed or locked doors
+        if (door.isLocked() || door.isClosed()) return false;
+        // Hidden doors do not prevent passage here (mob doesn't get special access)
         return true;
     }
     
