@@ -573,6 +573,26 @@ public class ClientHandler implements Runnable {
             } catch (Exception ignored) {}
         }
     }
+
+    /**
+     * Handle a local 'say' command: broadcast to everyone in the same room,
+     * formatting the sender's own view as "You say: ..." and others as
+     * "<name> says: ...".
+     */
+    private void handleSay(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        try {
+            String text = cmd.getArgs();
+            if (rec == null || rec.currentRoom == null) { out.println("You are nowhere to say that."); return; }
+            Integer roomId = rec.currentRoom;
+            if (roomId == null) return;
+            for (ClientHandler s : sessions) {
+                if (s.currentRoomId != null && s.currentRoomId.equals(roomId)) {
+                    if (s == this) s.sendRaw("You say: " + text);
+                    else s.sendRaw(this.playerName + " says: " + text);
+                }
+            }
+        } catch (Exception ignored) {}
+    }
     
     /**
      * Send a debug message to this session (only if debug channel is enabled).
@@ -1342,19 +1362,9 @@ public class ClientHandler implements Runnable {
                     case "look":
                         rec = handleLookAndMovement(cmd, name, rec, dao);
                         break;
-                    case "say": {
-                        String text = cmd.getArgs();
-                        if (rec == null || rec.currentRoom == null) { out.println("You are nowhere to say that."); break; }
-                        Integer roomId = rec.currentRoom;
-                        // Send to everyone in the same room
-                        for (ClientHandler s : sessions) {
-                            if (s.currentRoomId != null && s.currentRoomId.equals(roomId)) {
-                                if (s == this) s.sendRaw("You say: " + text);
-                                else s.sendRaw(this.playerName + " says: " + text);
-                            }
-                        }
+                    case "say":
+                        handleSay(cmd, name, rec, dao);
                         break;
-                    }
                     case "north":
                     case "n":
                     case "east":
