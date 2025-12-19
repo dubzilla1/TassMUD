@@ -51,6 +51,13 @@ public class ItemTemplate {
     /** Maximum item level for instances (default 1). Used for level-scaled items like potions. */
     public final int maxItemLevel;
     
+    /** List of spell IDs to cast when item is used. Empty list means item is not usable. */
+    public final List<Integer> onUseSpellIds;
+    /** Number of uses for on-use spells. -1 = unlimited, 0+ = limited charges. */
+    public final int uses;
+    /** List of effect IDs applied while item is equipped. Empty list means no equip effects. */
+    public final List<String> onEquipEffectIds;
+    
     /** Cached lowercase type set for efficient lookups */
     private final Set<String> typeSet;
 
@@ -91,13 +98,16 @@ public class ItemTemplate {
         ArmorCategory armorCategory
     ) {
         // Delegate to full constructor with default item levels
-        this(id, key, name, description, weight, value, traits, keywords, type, subtype, slot,
-             capacity, handCount, indestructable, magical, maxItems, maxWeight,
+        // Convert single type to list inline for Java 17 compatibility
+        this(id, key, name, description, weight, value, traits, keywords,
+             (type == null || type.isBlank()) ? null : List.of(type), // convert type to list
+             subtype, slot, capacity, handCount, indestructable, magical, maxItems, maxWeight,
              armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
              baseDie, multiplier, hands, abilityScore, abilityMultiplier,
              spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
              templateJson, weaponCategory, weaponFamily, armorCategory,
-             1, 1); // default minItemLevel=1, maxItemLevel=1
+             1, 1, // default minItemLevel=1, maxItemLevel=1
+             null, 0, null); // no on-use spells, no uses, no equip effects
     }
     
     /**
@@ -141,53 +151,17 @@ public class ItemTemplate {
         int minItemLevel,
         int maxItemLevel
     ) {
-        this.id = id;
-        this.key = key;
-        this.name = name;
-        this.description = description;
-        this.weight = weight;
-        this.value = value;
-        this.traits = traits == null ? java.util.Collections.emptyList() : java.util.Collections.unmodifiableList(new java.util.ArrayList<>(traits));
-        this.keywords = keywords == null ? java.util.Collections.emptyList() : java.util.Collections.unmodifiableList(new java.util.ArrayList<>(keywords));
-        this.type = type;
-        // Build types list from single type for backwards compatibility
-        if (type == null || type.isBlank()) {
-            this.types = Collections.emptyList();
-            this.typeSet = Collections.emptySet();
-        } else {
-            List<String> typeList = new ArrayList<>();
-            typeList.add(type.trim().toLowerCase());
-            this.types = Collections.unmodifiableList(typeList);
-            this.typeSet = Set.of(type.trim().toLowerCase());
-        }
-        this.subtype = subtype;
-        this.slot = slot;
-        this.capacity = capacity;
-        this.handCount = handCount;
-        this.indestructable = indestructable;
-        this.magical = magical;
-        this.maxItems = maxItems;
-        this.maxWeight = maxWeight;
-        this.armorSaveBonus = armorSaveBonus;
-        this.fortSaveBonus = fortSaveBonus;
-        this.refSaveBonus = refSaveBonus;
-        this.willSaveBonus = willSaveBonus;
-        this.baseDie = baseDie;
-        this.multiplier = multiplier;
-        this.hands = hands;
-        this.abilityScore = abilityScore;
-        this.abilityMultiplier = abilityMultiplier;
-        this.spellEffectId1 = spellEffectId1;
-        this.spellEffectId2 = spellEffectId2;
-        this.spellEffectId3 = spellEffectId3;
-        this.spellEffectId4 = spellEffectId4;
-        this.templateJson = templateJson;
-        this.weaponCategory = weaponCategory;
-        this.weaponFamily = weaponFamily;
-        this.armorCategory = armorCategory;
-        // Item level range - defaults to 1 if not specified
-        this.minItemLevel = minItemLevel > 0 ? minItemLevel : 1;
-        this.maxItemLevel = maxItemLevel > 0 ? maxItemLevel : 1;
+        // Delegate to full constructor with default on-use/equip effects
+        // Convert single type to list inline for Java 17 compatibility
+        this(id, key, name, description, weight, value, traits, keywords,
+             (type == null || type.isBlank()) ? null : List.of(type), // convert type to list
+             subtype, slot, capacity, handCount, indestructable, magical, maxItems, maxWeight,
+             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
+             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
+             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
+             templateJson, weaponCategory, weaponFamily, armorCategory,
+             minItemLevel, maxItemLevel,
+             null, 0, null); // no on-use spells, no uses, no equip effects
     }
     
     /**
@@ -230,14 +204,68 @@ public class ItemTemplate {
         WeaponFamily weaponFamily,
         ArmorCategory armorCategory
     ) {
-        // Delegate to full constructor with default item levels
+        // Delegate to full constructor with default item levels and no use/equip effects
         this(id, key, name, description, weight, value, traits, keywords, types, subtype, slot,
              capacity, handCount, indestructable, magical, maxItems, maxWeight,
              armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
              baseDie, multiplier, hands, abilityScore, abilityMultiplier,
              spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
              templateJson, weaponCategory, weaponFamily, armorCategory,
-             1, 1); // default minItemLevel=1, maxItemLevel=1
+             1, 1, // default minItemLevel=1, maxItemLevel=1
+             null, 0, null); // no on-use spells, no uses, no equip effects
+    }
+    
+    /**
+     * Constructor that accepts multiple types with item level range.
+     * Used by ItemDAO when loading items from database.
+     */
+    public ItemTemplate(
+        int id,
+        String key,
+        String name,
+        String description,
+        double weight,
+        int value,
+        java.util.List<String> traits,
+        java.util.List<String> keywords,
+        java.util.List<String> types,
+        String subtype,
+        String slot,
+        int capacity,
+        int handCount,
+        boolean indestructable,
+        boolean magical,
+        int maxItems,
+        int maxWeight,
+        int armorSaveBonus,
+        int fortSaveBonus,
+        int refSaveBonus,
+        int willSaveBonus,
+        int baseDie,
+        int multiplier,
+        int hands,
+        String abilityScore,
+        double abilityMultiplier,
+        String spellEffectId1,
+        String spellEffectId2,
+        String spellEffectId3,
+        String spellEffectId4,
+        String templateJson,
+        WeaponCategory weaponCategory,
+        WeaponFamily weaponFamily,
+        ArmorCategory armorCategory,
+        int minItemLevel,
+        int maxItemLevel
+    ) {
+        // Delegate to full constructor with no use/equip effects
+        this(id, key, name, description, weight, value, traits, keywords, types, subtype, slot,
+             capacity, handCount, indestructable, magical, maxItems, maxWeight,
+             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
+             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
+             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
+             templateJson, weaponCategory, weaponFamily, armorCategory,
+             minItemLevel, maxItemLevel,
+             null, 0, null); // no on-use spells, no uses, no equip effects
     }
     
     /**
@@ -279,7 +307,10 @@ public class ItemTemplate {
         WeaponFamily weaponFamily,
         ArmorCategory armorCategory,
         int minItemLevel,
-        int maxItemLevel
+        int maxItemLevel,
+        List<Integer> onUseSpellIds,
+        int uses,
+        List<String> onEquipEffectIds
     ) {
         this.id = id;
         this.key = key;
@@ -337,6 +368,35 @@ public class ItemTemplate {
         // Item level range - defaults to 1 if not specified
         this.minItemLevel = minItemLevel > 0 ? minItemLevel : 1;
         this.maxItemLevel = maxItemLevel > 0 ? maxItemLevel : 1;
+        // On-use spell system
+        this.onUseSpellIds = onUseSpellIds == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList<>(onUseSpellIds));
+        this.uses = uses;
+        this.onEquipEffectIds = onEquipEffectIds == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList<>(onEquipEffectIds));
+    }
+    
+    /**
+     * Check if this item can be used (has on-use spells).
+     * @return true if the item has at least one on-use spell
+     */
+    public boolean isUsable() {
+        return onUseSpellIds != null && !onUseSpellIds.isEmpty();
+    }
+    
+    /**
+     * Check if this item has equip effects.
+     * @return true if the item has at least one on-equip effect
+     */
+    public boolean hasEquipEffects() {
+        return onEquipEffectIds != null && !onEquipEffectIds.isEmpty();
+    }
+    
+    /**
+     * Check if this item has magical use (casts spells when used).
+     * Items with this property are shown with "(MAGICAL)" suffix.
+     * @return true if the item has at least one on-use spell
+     */
+    public boolean hasMagicalUse() {
+        return onUseSpellIds != null && !onUseSpellIds.isEmpty();
     }
     
     /**

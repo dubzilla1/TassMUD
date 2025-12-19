@@ -76,6 +76,9 @@ public class EffectRegistry {
     public static final String EFFECT_SEE_INVISIBILITY = "111";
     public static final String EFFECT_GM_INVISIBILITY = "112";
     
+    // === Combat Information Effect Constants ===
+    public static final String EFFECT_INSIGHT = "115";
+    
     /**
      * Check if a target has a specific effect active.
      */
@@ -127,6 +130,15 @@ public class EffectRegistry {
         
         // Target is invisible - check if observer can see invisible
         return canSeeInvisible(observerId);
+    }
+    
+    /**
+     * Check if a character has the Insight effect, allowing them to see enemy HP.
+     * @param characterId The character to check
+     * @return true if the character has the Insight effect active
+     */
+    public static boolean hasInsight(Integer characterId) {
+        return hasEffect(characterId, EFFECT_INSIGHT);
     }
     
     /**

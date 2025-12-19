@@ -31,6 +31,9 @@ public class CombatResult {
     private int attackRoll;
     private int damageRoll;
     
+    /** Debug info for detailed combat logging */
+    private String debugInfo;
+    
     /** Messages to display */
     private String attackerMessage;
     private String targetMessage;
@@ -131,6 +134,9 @@ public class CombatResult {
     
     public int getDamageRoll() { return damageRoll; }
     public CombatResult setDamageRoll(int roll) { this.damageRoll = roll; return this; }
+    
+    public String getDebugInfo() { return debugInfo; }
+    public CombatResult setDebugInfo(String info) { this.debugInfo = info; return this; }
     
     public String getAttackerMessage() { return attackerMessage; }
     public CombatResult setAttackerMessage(String msg) { this.attackerMessage = msg; return this; }

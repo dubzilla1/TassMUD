@@ -214,3 +214,18 @@ effects:
       stat: ARMOR
       op: ADD
       value: 4
+
+  # ========== COMBAT INFORMATION EFFECTS ==========
+
+  - id: "115"
+    name: "Insight"
+    description: Allows the character to see enemy HP during combat.
+    type: MODIFIER
+    duration: 600    # 10 minutes
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params: {}

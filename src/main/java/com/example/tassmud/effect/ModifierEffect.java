@@ -29,15 +29,8 @@ public class ModifierEffect implements EffectHandler {
         String statName = p.get("stat");
         String opName = p.getOrDefault("op", "ADD");
         String valueStr = p.get("value");
-        if (statName == null || valueStr == null) return null;
-
-        Stat stat;
-        try { stat = Stat.valueOf(statName); } catch (Exception e) { return null; }
-        Modifier.Op op;
-        try { op = Modifier.Op.valueOf(opName); } catch (Exception e) { op = Modifier.Op.ADD; }
-        double value = 0.0;
-        try { value = Double.parseDouble(valueStr); } catch (Exception e) { return null; }
-
+        
+        // Calculate duration first - needed for both stat-modifying and flag-based effects
         long now = System.currentTimeMillis();
         long expiresAt = 0;
         double effectiveDuration = def.getDurationSeconds();
@@ -50,6 +43,21 @@ public class ModifierEffect implements EffectHandler {
             effectiveDuration = def.getDurationSeconds() * frac;
         }
         if (effectiveDuration > 0) expiresAt = now + (long)(effectiveDuration * 1000.0);
+        
+        // Flag-based effect: no stat/value, just track the effect instance
+        // Used for effects like Insight (see enemy HP) that are checked via hasEffect()
+        if (statName == null || valueStr == null) {
+            UUID instanceId = UUID.randomUUID();
+            EffectInstance inst = new EffectInstance(instanceId, def.getId(), casterId, targetId, p, now, expiresAt, def.getPriority());
+            return inst;
+        }
+
+        Stat stat;
+        try { stat = Stat.valueOf(statName); } catch (Exception e) { return null; }
+        Modifier.Op op;
+        try { op = Modifier.Op.valueOf(opName); } catch (Exception e) { op = Modifier.Op.ADD; }
+        double value = 0.0;
+        try { value = Double.parseDouble(valueStr); } catch (Exception e) { return null; }
 
         // Use a single UUID for both the effect instance and the underlying Modifier so we can reliably remove it on expiry
         UUID instanceId = UUID.randomUUID();

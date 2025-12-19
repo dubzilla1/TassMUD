@@ -101,7 +101,8 @@ public class InstantDamageEffect implements EffectHandler {
                 dao.saveCharacterStateByName(trec.name, newHp, trec.mpCur, trec.mvCur, trec.currentRoom);
                 Integer roomId = trec.currentRoom;
                 String attacker = casterName != null ? casterName : def.getName();
-                String msg = attacker + " hits " + trec.name + " for " + total + " damage!";
+                String verb = com.example.tassmud.combat.CombatManager.getDamageVerb(total, false);
+                String msg = attacker + "'s attack " + verb + " " + trec.name + "!";
                 com.example.tassmud.net.ClientHandler.broadcastRoomMessage(roomId, msg);
             }
         }

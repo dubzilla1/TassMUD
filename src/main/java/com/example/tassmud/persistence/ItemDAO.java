@@ -109,6 +109,16 @@ public class ItemDAO {
             System.out.println("Migration: ensured column item_instance.value_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS is_generated BOOLEAN DEFAULT FALSE");
             System.out.println("Migration: ensured column item_instance.is_generated");
+            // Uses remaining for usable items
+            s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS uses_remaining INT");
+            System.out.println("Migration: ensured column item_instance.uses_remaining");
+            // Item usage system - template fields
+            s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS on_use_spell_ids VARCHAR(200)");
+            System.out.println("Migration: ensured column item_template.on_use_spell_ids");
+            s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS uses INT DEFAULT 0");
+            System.out.println("Migration: ensured column item_template.uses");
+            s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS on_equip_effect_ids VARCHAR(200)");
+            System.out.println("Migration: ensured column item_template.on_equip_effect_ids");
         } catch (SQLException e) {
             // Best-effort migration; log but don't fail startup
             System.err.println("Warning: failed to run item table migrations: " + e.getMessage());
@@ -203,6 +213,36 @@ public class ItemDAO {
                 if (maxItemLevel <= 0) maxItemLevel = minItemLevel;
                 // Ensure max >= min
                 if (maxItemLevel < minItemLevel) maxItemLevel = minItemLevel;
+                
+                // Item usage system - on-use spells
+                java.util.List<Integer> onUseSpellIds = new java.util.ArrayList<>();
+                Object useObj = item.get("on_use_spell_ids");
+                if (useObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) useObj) {
+                        if (o != null) {
+                            try { onUseSpellIds.add(Integer.parseInt(o.toString().trim())); } catch (Exception ignored) {}
+                        }
+                    }
+                } else if (useObj != null) {
+                    try { onUseSpellIds.add(Integer.parseInt(useObj.toString().trim())); } catch (Exception ignored) {}
+                }
+                int uses = parseIntSafe(item.get("uses"));
+                
+                // On-equip effect IDs
+                java.util.List<String> onEquipEffectIds = new java.util.ArrayList<>();
+                Object equipObj = item.get("on_equip_effect_ids");
+                if (equipObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) equipObj) {
+                        if (o != null) onEquipEffectIds.add(o.toString().trim());
+                    }
+                } else if (equipObj != null) {
+                    onEquipEffectIds.add(equipObj.toString().trim());
+                }
+                
+                // Convert lists to comma-separated strings for DB storage
+                String onUseSpellIdsStr = onUseSpellIds.isEmpty() ? null : 
+                    onUseSpellIds.stream().map(String::valueOf).collect(java.util.stream.Collectors.joining(","));
+                String onEquipEffectIdsStr = onEquipEffectIds.isEmpty() ? null : String.join(",", onEquipEffectIds);
 
                 // Serialize the original map into a compact YAML/JSON string for storage
                 String templateJson = null;
@@ -212,7 +252,7 @@ public class ItemDAO {
                 } catch (Exception e) { templateJson = null; }
 
                  try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level,on_use_spell_ids,uses,on_equip_effect_ids) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
                     ps.setInt(1, id);
                     ps.setString(2, key);
                     ps.setString(3, name);
@@ -249,6 +289,9 @@ public class ItemDAO {
                     ps.setString(34, armorCategoryStr);
                     ps.setInt(35, minItemLevel);
                     ps.setInt(36, maxItemLevel);
+                    ps.setString(37, onUseSpellIdsStr);
+                    ps.setInt(38, uses);
+                    ps.setString(39, onEquipEffectIdsStr);
                     ps.executeUpdate();
                 }
             }
@@ -511,6 +554,7 @@ public class ItemDAO {
         String spellEffect4Override = rs.getString("spell_effect_4_override");
         Integer valueOverride = (Integer) rs.getObject("value_override");
         boolean isGenerated = rs.getBoolean("is_generated");
+        Integer usesRemaining = (Integer) rs.getObject("uses_remaining");
         
         return new ItemInstance(
             rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, 
@@ -518,7 +562,7 @@ public class ItemDAO {
             baseDieOverride, multiplierOverride, abilityMultOverride,
             armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
             spellEffect1Override, spellEffect2Override, spellEffect3Override, spellEffect4Override,
-            valueOverride, isGenerated
+            valueOverride, isGenerated, usesRemaining
         );
     }
 
@@ -770,6 +814,19 @@ public class ItemDAO {
             ps.executeUpdate();
         } catch (SQLException e) { throw new RuntimeException(e); }
     }
+    
+    /**
+     * Update the uses_remaining for an item instance.
+     * Used when an item with limited uses is used.
+     */
+    public void updateUsesRemaining(long instanceId, int usesRemaining) {
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement("UPDATE item_instance SET uses_remaining = ? WHERE instance_id = ?")) {
+            ps.setInt(1, usesRemaining);
+            ps.setLong(2, instanceId);
+            ps.executeUpdate();
+        } catch (SQLException e) { throw new RuntimeException(e); }
+    }
 
     // Retrieve a template by its numeric ID
     public ItemTemplate getTemplateById(int id) {
@@ -778,6 +835,22 @@ public class ItemDAO {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) return null;
+                // Parse on_use_spell_ids from comma-separated string
+                List<Integer> onUseSpellIds = new ArrayList<>();
+                String onUseStr = rs.getString("on_use_spell_ids");
+                if (onUseStr != null && !onUseStr.isEmpty()) {
+                    for (String s : onUseStr.split(",")) {
+                        try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
+                    }
+                }
+                // Parse on_equip_effect_ids from comma-separated string
+                List<String> onEquipEffectIds = new ArrayList<>();
+                String onEquipStr = rs.getString("on_equip_effect_ids");
+                if (onEquipStr != null && !onEquipStr.isEmpty()) {
+                    for (String s : onEquipStr.split(",")) {
+                        if (!s.trim().isEmpty()) onEquipEffectIds.add(s.trim());
+                    }
+                }
                 return new ItemTemplate(
                     rs.getInt("id"),
                     rs.getString("template_key"),
@@ -814,7 +887,10 @@ public class ItemDAO {
                     WeaponFamily.fromString(rs.getString("weapon_family")),
                     ArmorCategory.fromString(rs.getString("armor_category")),
                     rs.getInt("min_item_level"),
-                    rs.getInt("max_item_level")
+                    rs.getInt("max_item_level"),
+                    onUseSpellIds,
+                    rs.getInt("uses"),
+                    onEquipEffectIds
                 );
             }
         } catch (SQLException e) {
@@ -854,7 +930,8 @@ public class ItemDAO {
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, t.min_item_level, t.max_item_level " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, " +
+                     "t.min_item_level, t.max_item_level, t.on_use_spell_ids, t.uses, t.on_equip_effect_ids " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.location_room_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -874,6 +951,21 @@ public class ItemDAO {
                     if (keywordsStr != null && !keywordsStr.isEmpty()) {
                         for (String s : keywordsStr.split(",")) keywords.add(s.trim());
                     }
+                    // Parse on_use_spell_ids from comma-separated string
+                    List<Integer> onUseSpellIds = new ArrayList<>();
+                    String onUseStr = rs.getString("on_use_spell_ids");
+                    if (onUseStr != null && !onUseStr.isEmpty()) {
+                        for (String s : onUseStr.split(",")) {
+                            try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
+                        }
+                    }
+                    int uses = rs.getInt("uses");
+                    // Parse on_equip_effect_ids from comma-separated string
+                    List<String> onEquipEffectIds = new ArrayList<>();
+                    String onEquipStr = rs.getString("on_equip_effect_ids");
+                    if (onEquipStr != null && !onEquipStr.isEmpty()) {
+                        for (String s : onEquipStr.split(",")) onEquipEffectIds.add(s.trim());
+                    }
                     ItemTemplate tmpl = new ItemTemplate(
                         rs.getInt("tid"),
                         rs.getString("template_key"),
@@ -910,7 +1002,10 @@ public class ItemDAO {
                         WeaponFamily.fromString(rs.getString("weapon_family")),
                         ArmorCategory.fromString(rs.getString("armor_category")),
                         rs.getInt("min_item_level"),
-                        rs.getInt("max_item_level")
+                        rs.getInt("max_item_level"),
+                        onUseSpellIds,
+                        uses,
+                        onEquipEffectIds
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }
@@ -930,7 +1025,8 @@ public class ItemDAO {
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, t.min_item_level, t.max_item_level " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, " +
+                     "t.min_item_level, t.max_item_level, t.on_use_spell_ids, t.uses, t.on_equip_effect_ids " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.owner_character_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -950,6 +1046,21 @@ public class ItemDAO {
                     if (keywordsStr != null && !keywordsStr.isEmpty()) {
                         for (String s : keywordsStr.split(",")) keywords.add(s.trim());
                     }
+                    // Parse on_use_spell_ids from comma-separated string
+                    List<Integer> onUseSpellIds = new ArrayList<>();
+                    String onUseStr = rs.getString("on_use_spell_ids");
+                    if (onUseStr != null && !onUseStr.isEmpty()) {
+                        for (String s : onUseStr.split(",")) {
+                            try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
+                        }
+                    }
+                    int uses = rs.getInt("uses");
+                    // Parse on_equip_effect_ids from comma-separated string
+                    List<String> onEquipEffectIds = new ArrayList<>();
+                    String onEquipStr = rs.getString("on_equip_effect_ids");
+                    if (onEquipStr != null && !onEquipStr.isEmpty()) {
+                        for (String s : onEquipStr.split(",")) onEquipEffectIds.add(s.trim());
+                    }
                     ItemTemplate tmpl = new ItemTemplate(
                         rs.getInt("tid"),
                         rs.getString("template_key"),
@@ -986,7 +1097,10 @@ public class ItemDAO {
                         WeaponFamily.fromString(rs.getString("weapon_family")),
                         ArmorCategory.fromString(rs.getString("armor_category")),
                         rs.getInt("min_item_level"),
-                        rs.getInt("max_item_level")
+                        rs.getInt("max_item_level"),
+                        onUseSpellIds,
+                        uses,
+                        onEquipEffectIds
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }
@@ -1006,7 +1120,8 @@ public class ItemDAO {
                      "t.armor_save_bonus, t.fort_save_bonus, t.ref_save_bonus, t.will_save_bonus, " +
                      "t.base_die, t.multiplier, t.hands, t.ability_score, t.ability_multiplier, " +
                      "t.spell_effect_id_1, t.spell_effect_id_2, t.spell_effect_id_3, t.spell_effect_id_4, " +
-                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, t.min_item_level, t.max_item_level " +
+                     "t.traits, t.keywords, t.template_json, t.weapon_category, t.weapon_family, t.armor_category, " +
+                     "t.min_item_level, t.max_item_level, t.on_use_spell_ids, t.uses, t.on_equip_effect_ids " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.container_instance_id = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
@@ -1025,6 +1140,21 @@ public class ItemDAO {
                     }
                     if (keywordsStr != null && !keywordsStr.isEmpty()) {
                         for (String s : keywordsStr.split(",")) keywords.add(s.trim());
+                    }
+                    // Parse on_use_spell_ids from comma-separated string
+                    List<Integer> onUseSpellIds = new ArrayList<>();
+                    String onUseStr = rs.getString("on_use_spell_ids");
+                    if (onUseStr != null && !onUseStr.isEmpty()) {
+                        for (String s : onUseStr.split(",")) {
+                            try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
+                        }
+                    }
+                    int uses = rs.getInt("uses");
+                    // Parse on_equip_effect_ids from comma-separated string
+                    List<String> onEquipEffectIds = new ArrayList<>();
+                    String onEquipStr = rs.getString("on_equip_effect_ids");
+                    if (onEquipStr != null && !onEquipStr.isEmpty()) {
+                        for (String s : onEquipStr.split(",")) onEquipEffectIds.add(s.trim());
                     }
                     ItemTemplate tmpl = new ItemTemplate(
                         rs.getInt("tid"),
@@ -1062,7 +1192,10 @@ public class ItemDAO {
                         WeaponFamily.fromString(rs.getString("weapon_family")),
                         ArmorCategory.fromString(rs.getString("armor_category")),
                         rs.getInt("min_item_level"),
-                        rs.getInt("max_item_level")
+                        rs.getInt("max_item_level"),
+                        onUseSpellIds,
+                        uses,
+                        onEquipEffectIds
                     );
                     result.add(new RoomItem(inst, tmpl));
                 }

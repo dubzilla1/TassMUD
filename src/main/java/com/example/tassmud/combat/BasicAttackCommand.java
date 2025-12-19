@@ -206,9 +206,16 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Check for miss (natural 1 always misses, or roll < target defense)
         if (attackRoll == 1 || (!isCrit && totalAttack < targetDefense)) {
-            // Miss
+            // Miss - build debug info
+            String debugInfo = buildAttackDebugInfo(
+                attacker.getName(), attackRoll, totalAttackBonus,
+                defender.getName(), defenseType.toUpperCase(), targetDefense,
+                false, null, 0, 0
+            );
+            
             CombatResult result = CombatResult.miss(user, target);
             result.setAttackRoll(attackRoll);
+            result.setDebugInfo(debugInfo);
             setCooldown(user);
             return result;
         }
@@ -296,6 +303,14 @@ public class BasicAttackCommand implements CombatCommand {
         // Set cooldown
         setCooldown(user);
         
+        // Build debug info for hit
+        String damageDice = getDamageDiceNotation(user);
+        String debugInfo = buildAttackDebugInfo(
+            attacker.getName(), attackRoll, totalAttackBonus,
+            defender.getName(), defenseType.toUpperCase(), targetDefense,
+            true, damageDice, baseDamage, multipliedBonus
+        );
+        
         // Create result
         CombatResult result;
         if (!target.isAlive()) {
@@ -308,6 +323,7 @@ public class BasicAttackCommand implements CombatCommand {
         
         result.setAttackRoll(attackRoll);
         result.setDamageRoll(baseDamage);
+        result.setDebugInfo(debugInfo);
         
         return result;
     }
@@ -462,6 +478,83 @@ public class BasicAttackCommand implements CombatCommand {
      */
     private int rollD20() {
         return (int)(Math.random() * 20) + 1;
+    }
+    
+    /**
+     * Get the damage dice notation for the attacker (e.g., "1d8", "2d6", "1d4").
+     * Used for debug output.
+     */
+    private String getDamageDiceNotation(Combatant attacker) {
+        // For mobs: use mob's base damage as 1dN
+        if (attacker.isMobile() && attacker.getMobile() != null) {
+            int baseDie = attacker.getMobile().getBaseDamage();
+            if (baseDie > 0) {
+                return "1d" + baseDie;
+            }
+        }
+        
+        // For players: check equipped main-hand weapon
+        if (attacker.isPlayer() && attacker.getCharacterId() != null) {
+            CharacterDAO dao = new CharacterDAO();
+            com.example.tassmud.persistence.ItemDAO itemDAO = new com.example.tassmud.persistence.ItemDAO();
+            
+            Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+                com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
+            
+            if (mainHandId != null) {
+                com.example.tassmud.model.ItemInstance weaponInst = itemDAO.getInstance(mainHandId);
+                if (weaponInst != null) {
+                    com.example.tassmud.model.ItemTemplate weaponTmpl = itemDAO.getTemplateById(weaponInst.templateId);
+                    int effectiveBaseDie = weaponInst.getEffectiveBaseDie(weaponTmpl);
+                    int effectiveMultiplier = weaponInst.getEffectiveMultiplier(weaponTmpl);
+                    if (effectiveBaseDie > 0) {
+                        int mult = effectiveMultiplier > 0 ? effectiveMultiplier : 1;
+                        return mult + "d" + effectiveBaseDie;
+                    }
+                }
+            }
+        }
+        
+        // Unarmed: 1d4
+        return "1d" + UNARMED_DIE;
+    }
+    
+    /**
+     * Build a debug info string for an attack roll.
+     * Format: "Attacker hit roll: 1d20 (roll) + bonus = total, vs Target AC (defense) hits/misses. Damage: dice (roll) + bonus = total"
+     */
+    private String buildAttackDebugInfo(String attackerName, int attackRoll, int attackBonus,
+                                        String defenderName, String defenseType, int defenseValue,
+                                        boolean isHit, String damageDice, int damageRoll, int damageBonus) {
+        StringBuilder sb = new StringBuilder();
+        
+        // Attack roll portion
+        int totalAttack = attackRoll + attackBonus;
+        sb.append(attackerName).append(" hit roll: 1d20 (").append(attackRoll).append(")");
+        if (attackBonus >= 0) {
+            sb.append(" +").append(attackBonus);
+        } else {
+            sb.append(" ").append(attackBonus); // Already has minus sign
+        }
+        sb.append(" = ").append(totalAttack);
+        sb.append(", vs ").append(defenderName).append(" ").append(defenseType).append(" (").append(defenseValue).append(")");
+        
+        if (isHit) {
+            sb.append(" hits.");
+            // Add damage info
+            int totalDamage = damageRoll + damageBonus;
+            sb.append(" Damage: ").append(damageDice).append(" (").append(damageRoll).append(")");
+            if (damageBonus >= 0) {
+                sb.append(" +").append(damageBonus);
+            } else {
+                sb.append(" ").append(damageBonus);
+            }
+            sb.append(" = ").append(totalDamage);
+        } else {
+            sb.append(" misses.");
+        }
+        
+        return sb.toString();
     }
     
     /**

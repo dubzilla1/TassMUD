@@ -1853,6 +1853,25 @@ items:
     type: inventory
 
   # ============================================================
+  # MAGICAL ITEMS (IDs 700-799)
+  # Items with on-use spell charges
+  # ============================================================
+  
+  - id: 700
+    key: wizards_loupe
+    name: Wizard's Loupe
+    description: A small brass magnifying glass inscribed with arcane runes. When held to the eye and activated, it reveals the life force of creatures.
+    keywords: [loupe, magnifying, glass, wizard, insight]
+    weight: 0.3
+    value: 500
+    type: held
+    hands: 1
+    level_min: 1
+    level_max: 10
+    on_use_spell_ids: [142]
+    uses: 10
+
+  # ============================================================
   # SYSTEM ITEMS (IDs 900-999)
   # ============================================================
   

@@ -37,6 +37,9 @@ public class ItemInstance {
     
     // Generation flag - true if this item was dynamically generated
     public final boolean isGenerated;
+    
+    // Uses remaining for usable items (-1 = unlimited, null = use template default)
+    public final Integer usesRemaining;
 
     public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt) {
         this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, null, null, 1);
@@ -48,7 +51,7 @@ public class ItemInstance {
     
     public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt, String customName, String customDescription, int itemLevel) {
         this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, customName, customDescription, itemLevel,
-             null, null, null, null, null, null, null, null, null, null, null, null, false);
+             null, null, null, null, null, null, null, null, null, null, null, null, false, null);
     }
     
     /**
@@ -60,6 +63,23 @@ public class ItemInstance {
                        Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
                        String spellEffect1Override, String spellEffect2Override, String spellEffect3Override, String spellEffect4Override,
                        Integer valueOverride, boolean isGenerated) {
+        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, 
+             customName, customDescription, itemLevel,
+             baseDieOverride, multiplierOverride, abilityMultOverride,
+             armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
+             spellEffect1Override, spellEffect2Override, spellEffect3Override, spellEffect4Override,
+             valueOverride, isGenerated, null);
+    }
+    
+    /**
+     * Full constructor with all stat overrides and uses remaining.
+     */
+    public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, 
+                       Long containerInstanceId, long createdAt, String customName, String customDescription, int itemLevel,
+                       Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
+                       Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
+                       String spellEffect1Override, String spellEffect2Override, String spellEffect3Override, String spellEffect4Override,
+                       Integer valueOverride, boolean isGenerated, Integer usesRemaining) {
         this.instanceId = instanceId;
         this.templateId = templateId;
         this.locationRoomId = locationRoomId;
@@ -84,6 +104,7 @@ public class ItemInstance {
         this.spellEffect4Override = spellEffect4Override;
         this.valueOverride = valueOverride;
         this.isGenerated = isGenerated;
+        this.usesRemaining = usesRemaining;
     }
     
     // === Effective stat getters (use override if set, otherwise template) ===
@@ -174,5 +195,39 @@ public class ItemInstance {
             return customDescription;
         }
         return template != null ? template.description : "You see nothing special.";
+    }
+    
+    /**
+     * Get the effective uses remaining (instance override or template default).
+     * Returns -1 for unlimited uses, 0+ for limited charges.
+     * Returns 0 if item has no on-use spells.
+     * 
+     * @param template The item template (for default uses)
+     * @return The number of uses remaining (-1 = unlimited, 0 = depleted/not usable)
+     */
+    public int getEffectiveUsesRemaining(ItemTemplate template) {
+        // If instance has override, use it
+        if (usesRemaining != null) {
+            return usesRemaining;
+        }
+        // Otherwise use template default
+        if (template != null && template.isUsable()) {
+            return template.uses;
+        }
+        return 0;
+    }
+    
+    /**
+     * Check if this item can still be used (has uses remaining or unlimited).
+     * 
+     * @param template The item template
+     * @return true if the item can be used
+     */
+    public boolean canUse(ItemTemplate template) {
+        if (template == null || !template.isUsable()) {
+            return false;
+        }
+        int uses = getEffectiveUsesRemaining(template);
+        return uses == -1 || uses > 0; // -1 = unlimited, >0 = has charges
     }
 }

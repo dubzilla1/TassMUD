@@ -474,6 +474,55 @@ quaff:
         quaff potion
         drink potion of cure light
 
+use:
+  summary: "activate a magical item to cast its spell"
+  visibility: public
+  synopsis:
+    - "use <item>"
+  body: |
+    NAME
+        use - activate a magical item to cast its spell
+
+    SYNOPSIS
+        use <item>
+
+    DESCRIPTION
+        Activates a magical item to cast its stored spell. Magical items are
+        shown with a "(MAGICAL)" suffix in your inventory and room descriptions.
+        
+        ITEM PRIORITY:
+        When multiple items match your search, priority is given to:
+        1. Equipped items
+        2. Items in your inventory
+        3. Items on the ground in the room
+        
+        ITEM MATCHING:
+        The <item> argument uses smart matching:
+        - Exact item name (case-insensitive)
+        - Any word in the item name
+        - Item keywords
+        - Prefix matching
+        - Partial match anywhere in name
+        
+        SPELL CASTING:
+        Magical items cast their spells at 100% proficiency, using the item's
+        level to determine spell power. No mana is consumed when using an item.
+        
+        CHARGES:
+        Most magical items have limited charges. Each use consumes one charge.
+        The remaining charges are shown after each use. Items with -1 charges
+        have unlimited uses.
+        
+        When an item runs out of charges, it cannot be used again but is not
+        destroyed. You can still carry or sell it.
+        
+        This command can be used during combat.
+
+    EXAMPLE
+        use loupe
+        use wizard's loupe
+        use magnifying
+
 inventory:
   summary: "list items in your inventory"
   visibility: public

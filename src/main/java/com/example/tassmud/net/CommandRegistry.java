@@ -59,6 +59,7 @@ public class CommandRegistry {
         register("equip", "Equip an item from your inventory", Category.ITEMS, List.of("wear"));
         register("remove", "Remove an equipped item", Category.ITEMS, List.of("dequip"));
         registerCombat("quaff", "Drink a potion from your inventory", Category.ITEMS, List.of("drink"));
+        registerCombat("use", "Use a magical item to cast its spell", Category.ITEMS);
         
         // ===== SHOP COMMANDS =====
         // Shop commands require a shopkeeper in the room

@@ -121,6 +121,8 @@ classes:
         spell_id: 203  # remove curse
       - level: 15
         spell_id: 110  # cure moderate wounds
+      - level: 15
+        spell_id: 142  # insight
       - level: 20
         skill_id: 204  # heal
       - level: 25
@@ -248,6 +250,8 @@ classes:
         skill_id: 901  # martial weapons
       - level: 5
         spell_id: 501  # detect evil
+      - level: 5
+        spell_id: 142  # insight
       - level: 10
         spell_id: 100  # cure light wounds
       - level: 10

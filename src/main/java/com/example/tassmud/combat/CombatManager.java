@@ -1325,16 +1325,16 @@ public class CombatManager {
         String message;
         switch (result.getType()) {
             case HIT:
-                message = String.format("%s hits %s for %d damage!", 
-                    attackerName, targetName, result.getDamage());
+                message = String.format("%s's attack %s %s!", 
+                    attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 break;
             case CRITICAL_HIT:
-                message = String.format("CRITICAL! %s hits %s for %d damage!", 
-                    attackerName, targetName, result.getDamage());
+                message = String.format("CRITICAL! %s's attack %s %s!", 
+                    attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 break;
             case MISS:
-                message = String.format("%s swings at %s but misses!", 
-                    attackerName, targetName);
+                message = String.format("%s's attack %s %s!", 
+                    attackerName, getDamageVerb(0, false), targetName);
                 break;
             case DODGED:
                 message = String.format("%s attacks %s, but they dodge!", 
@@ -1353,7 +1353,19 @@ public class CombatManager {
                     attackerName, targetName, result.getHealing());
                 break;
             case DEATH:
-                // Handled separately in handleCombatantDeath
+                // Show the killing blow damage before the death message
+                message = String.format("%s's attack %s %s!", 
+                    attackerName, getDamageVerb(result.getDamage(), false), targetName);
+                broadcastToRoom(combat.getRoomId(), message);
+                combat.logEvent(message);
+                
+                // Send debug info for the killing blow
+                String deathDebugInfo = result.getDebugInfo();
+                if (deathDebugInfo != null && !deathDebugInfo.isEmpty()) {
+                    ClientHandler.sendDebugToRoom(combat.getRoomId(), deathDebugInfo);
+                }
+                
+                // Death itself is handled separately in handleCombatantDeath
                 return;
             default:
                 message = result.getRoomMessage();
@@ -1363,13 +1375,22 @@ public class CombatManager {
         broadcastToRoom(combat.getRoomId(), message);
         combat.logEvent(message);
         
-        // Show target's HP to attacker if they're a player
+        // Send debug info to players with debug channel enabled
+        String debugInfo = result.getDebugInfo();
+        if (debugInfo != null && !debugInfo.isEmpty()) {
+            ClientHandler.sendDebugToRoom(combat.getRoomId(), debugInfo);
+        }
+        
+        // Show target's HP to attacker if they're a player with Insight effect
         if (result.getAttacker() != null && result.getAttacker().isPlayer() && 
             result.getAttacker().getCharacterId() != null && result.getTarget() != null) {
-            Combatant target = result.getTarget();
-            String hpMsg = String.format("  %s: %d/%d HP", 
-                target.getName(), target.getHpCurrent(), target.getHpMax());
-            sendToPlayer(result.getAttacker().getCharacterId(), hpMsg);
+            Integer attackerId = result.getAttacker().getCharacterId();
+            if (com.example.tassmud.effect.EffectRegistry.hasInsight(attackerId)) {
+                Combatant target = result.getTarget();
+                String hpMsg = String.format("  %s: %d/%d HP", 
+                    target.getName(), target.getHpCurrent(), target.getHpMax());
+                sendToPlayer(attackerId, hpMsg);
+            }
         }
     }
     
@@ -1387,5 +1408,55 @@ public class CombatManager {
             endCombat(combat);
             cleanupCombat(combat);
         }
+    }
+    
+    // === Damage Verb System ===
+    
+    /**
+     * Damage verb thresholds and their corresponding verbs.
+     * Each entry is: [maxDamage, singularVerb, pluralVerb]
+     * Sorted by damage threshold ascending.
+     */
+    private static final Object[][] DAMAGE_VERBS = {
+        {0,   "miss",           "misses"},
+        {1,   "scratch",        "scratches"},
+        {2,   "graze",          "grazes"},
+        {3,   "hit",            "hits"},
+        {5,   "injure",         "injures"},
+        {8,   "wound",          "wounds"},
+        {13,  "maul",           "mauls"},
+        {20,  "maim",           "maims"},
+        {30,  "DEVASTATE",      "DEVASTATES"},
+        {40,  "DECIMATE",       "DECIMATES"},
+        {50,  "*MUTILATE*",     "*MUTILATES*"},
+        {65,  "*DESTROY*",      "*DESTROYS*"},
+        {80,  "**EVISCERATE**", "**EVISCERATES**"},
+        {100, "**DISEMBOWEL**", "**DISEMBOWELS**"},
+        {125, "***MASSACRE***", "***MASSACRES***"},
+        {150, "***ANNIHILATE***", "***ANNIHILATES***"},
+        {175, "==**DEMOLISH**==", "==**DEMOLISHES**=="},
+        {200, "==**ERADICATE**==", "==**ERADICATES**=="},
+    };
+    
+    /** Default verb for damage over max threshold */
+    private static final String DAMAGE_VERB_MAX_SINGULAR = "--==**ATOMIZE**==--";
+    private static final String DAMAGE_VERB_MAX_PLURAL = "--==**ATOMIZES**==--";
+    
+    /**
+     * Get the damage verb for a given damage amount.
+     * 
+     * @param damage The damage dealt
+     * @param singular True for singular form ("I hit"), false for plural ("attack hits")
+     * @return The appropriate damage verb
+     */
+    public static String getDamageVerb(int damage, boolean singular) {
+        for (Object[] entry : DAMAGE_VERBS) {
+            int threshold = (Integer) entry[0];
+            if (damage <= threshold) {
+                return singular ? (String) entry[1] : (String) entry[2];
+            }
+        }
+        // Damage exceeds all thresholds
+        return singular ? DAMAGE_VERB_MAX_SINGULAR : DAMAGE_VERB_MAX_PLURAL;
     }
 }

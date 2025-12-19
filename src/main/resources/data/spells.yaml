@@ -46,7 +46,7 @@ spells:
     castingTime: 1.5
     target: ALL_ENEMIES
     progression: NORMAL
-    effectIds: [113]
+    effectIds: [110]
     
   - id: 11
     name: Shield
@@ -54,27 +54,7 @@ spells:
     school: ARCANE
     level: 2
     castingTime: 0.5
-    target: SELF
-    progression: NORMAL
-    effectIds: [114]
-    
-  - id: 12
-    name: Invisibility
-    description: You weave light around yourself, becoming invisible to the naked eye.
-    school: ARCANE
-    level: 2
-    castingTime: 1.0
-    target: SELF
-    progression: NORMAL
-    effectIds: [110]
-
-  - id: 13
-    name: See Invisibility
-    description: Your eyes shimmer with arcane power, allowing you to perceive invisible creatures.
-    school: ARCANE
-    level: 2
-    castingTime: 1.0
-    target: SELF
+    target: TARGET
     progression: NORMAL
     effectIds: [111]
     
@@ -258,6 +238,16 @@ spells:
     target: CURRENT_ENEMY
     progression: VERY_HARD
     effectIds: [241]
+    
+  - id: 142
+    name: Insight
+    description: Divine guidance reveals the vitality of your enemies, allowing you to see their health.
+    school: DIVINE
+    level: 5
+    castingTime: 1.0
+    target: SELF
+    progression: EASY
+    effectIds: [115]
 
   # ========== PRIMAL SPELLS (learned through exploration/nature) ==========
   

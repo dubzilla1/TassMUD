@@ -265,6 +265,32 @@ public class ClientHandler implements Runnable {
         }
     }
     
+    /**
+     * Send a debug message to all players in a room who have debug channel enabled.
+     * Used for detailed combat roll information.
+     */
+    public static void sendDebugToRoom(Integer roomId, String msg) {
+        if (roomId == null || msg == null) return;
+        for (ClientHandler s : sessions) {
+            Integer r = s.currentRoomId;
+            if (r != null && r.equals(roomId) && s.debugChannelEnabled) {
+                s.sendRaw("[DEBUG] " + msg);
+            }
+        }
+    }
+    
+    /**
+     * Send a debug message to a specific character if they have debug channel enabled.
+     * Used for detailed debugging output for items, effects, etc.
+     */
+    public static void sendDebugToCharacter(Integer characterId, String msg) {
+        if (characterId == null || msg == null) return;
+        ClientHandler handler = charIdToSession.get(characterId);
+        if (handler != null && handler.debugChannelEnabled) {
+            handler.sendRaw("[DEBUG] " + msg);
+        }
+    }
+    
     // === ROOM ANNOUNCEMENT SYSTEM ===
     
     /**
@@ -696,13 +722,19 @@ public class ClientHandler implements Runnable {
      */
     private static String getItemDisplayName(ItemDAO.RoomItem ri) {
         if (ri == null) return "an item";
+        String name;
         if (ri.instance != null && ri.instance.customName != null && !ri.instance.customName.isEmpty()) {
-            return ri.instance.customName;
+            name = ri.instance.customName;
+        } else if (ri.template != null && ri.template.name != null) {
+            name = ri.template.name;
+        } else {
+            name = "an item";
         }
-        if (ri.template != null && ri.template.name != null) {
-            return ri.template.name;
+        // Add (MAGICAL) suffix for items that cast spells when used
+        if (ri.template != null && ri.template.hasMagicalUse()) {
+            name = name + " (MAGICAL)";
         }
-        return "an item";
+        return name;
     }
     
     /**
@@ -714,13 +746,19 @@ public class ClientHandler implements Runnable {
      * @return the display name to show players
      */
     private static String getItemDisplayName(ItemInstance inst, ItemTemplate tmpl) {
+        String name;
         if (inst != null && inst.customName != null && !inst.customName.isEmpty()) {
-            return inst.customName;
+            name = inst.customName;
+        } else if (tmpl != null && tmpl.name != null) {
+            name = tmpl.name;
+        } else {
+            name = "an item";
         }
-        if (tmpl != null && tmpl.name != null) {
-            return tmpl.name;
+        // Add (MAGICAL) suffix for items that cast spells when used
+        if (tmpl != null && tmpl.hasMagicalUse()) {
+            name = name + " (MAGICAL)";
         }
-        return "an item";
+        return name;
     }
 
     private String formatPrompt(String fmt, CharacterDAO.CharacterRecord rec, CharacterDAO dao) {
@@ -6237,12 +6275,15 @@ public class ClientHandler implements Runnable {
                                 double effectiveAbilityMult = mainInst.getEffectiveAbilityMultiplier(mainTmpl);
                                 String abilityScore = mainTmpl != null ? mainTmpl.abilityScore : "STR";
                                 if (effectiveBaseDie > 0) {
+                                    // Hit bonus: stat modifier (same stat as damage)
+                                    int hitBonus = getStatModifier(abilityScore, rec);
+                                    String hitStr = formatHitBonus(hitBonus);
                                     String dmgStr = formatDamage(effectiveMultiplier, effectiveBaseDie, 
                                         getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
                                     String handLabel = isTwoHanded ? "Both Hands:" : "Main Hand: ";
                                     String weaponName = getItemDisplayName(mainInst, mainTmpl);
-                                    sheet.append(String.format("  %s %-20s  Damage: %s\n", 
-                                        handLabel, truncate(weaponName, 20), dmgStr));
+                                    sheet.append(String.format("  %s %-16s  Hit: %-9s  Damage: %s\n", 
+                                        handLabel, truncate(weaponName, 16), hitStr, dmgStr));
                                     hasWeapon = true;
                                 }
                             }
@@ -6257,24 +6298,28 @@ public class ClientHandler implements Runnable {
                                 double effectiveAbilityMult = offInst.getEffectiveAbilityMultiplier(offTmpl);
                                 String abilityScore = offTmpl != null ? offTmpl.abilityScore : "STR";
                                 if (effectiveBaseDie > 0) {
+                                    // Hit bonus: stat modifier (same stat as damage)
+                                    int hitBonus = getStatModifier(abilityScore, rec);
+                                    String hitStr = formatHitBonus(hitBonus);
                                     String dmgStr = formatDamage(effectiveMultiplier, effectiveBaseDie,
                                         getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
                                     String weaponName = getItemDisplayName(offInst, offTmpl);
-                                    sheet.append(String.format("  Off Hand:  %-20s  Damage: %s\n",
-                                        truncate(weaponName, 20), dmgStr));
+                                    sheet.append(String.format("  Off Hand:  %-16s  Hit: %-9s  Damage: %s\n",
+                                        truncate(weaponName, 16), hitStr, dmgStr));
                                 } else {
                                     // Shield or non-weapon (show armor bonus)
                                     String itemName = getItemDisplayName(offInst, offTmpl);
-                                    sheet.append(String.format("  Off Hand:  %-20s  (Shield)\n",
-                                        truncate(itemName, 20)));
+                                    sheet.append(String.format("  Off Hand:  %-16s  (Shield)\n",
+                                        truncate(itemName, 16)));
                                 }
                                 hasWeapon = true;
                             }
                         }
                         if (!hasWeapon) {
                             // Unarmed combat - 1d4 + STR
+                            String hitStr = formatHitBonus(strMod);
                             String unarmedDmg = formatDamage(1, 4, strMod);
-                            sheet.append(String.format("  Unarmed:   %-20s  Damage: %s\n", "Fists", unarmedDmg));
+                            sheet.append(String.format("  Unarmed:   %-16s  Hit: %-9s  Damage: %s\n", "Fists", hitStr, unarmedDmg));
                         }
                         
                         // ═══ CLASS PROGRESSION ═══
@@ -6369,16 +6414,40 @@ public class ClientHandler implements Runnable {
                         // Filter expired
                         long nowMs = System.currentTimeMillis();
                         activeMods.removeIf(com.example.tassmud.model.Modifier::isExpired);
+                        
+                        // Also get flag-based effects from EffectRegistry (e.g., Insight, Invisibility)
+                        java.util.List<com.example.tassmud.effect.EffectInstance> flagEffects = 
+                            com.example.tassmud.effect.EffectRegistry.getActiveForTarget(charId);
+                        // Filter to only show flag-based effects (those without stat modifiers)
+                        // Stat-modifying effects are already shown via activeMods
+                        flagEffects.removeIf(ei -> {
+                            com.example.tassmud.effect.EffectDefinition def = 
+                                com.example.tassmud.effect.EffectRegistry.getDefinition(ei.getDefId());
+                            if (def == null) return true;
+                            java.util.Map<String, String> params = def.getParams();
+                            // If it has stat and value params, it's a stat modifier (shown elsewhere)
+                            return params != null && params.containsKey("stat") && params.containsKey("value");
+                        });
 
-                        if (activeMods.isEmpty()) {
+                        if (activeMods.isEmpty() && flagEffects.isEmpty()) {
                             sheet.append("  (No active spell effects)\n");
                         } else {
+                            // Show stat modifiers
                             for (com.example.tassmud.model.Modifier m : activeMods) {
                                 long remaining = Math.max(0, m.expiresAtMillis() - nowMs) / 1000L;
                                 String timeStr = formatDuration(remaining);
                                 String sign = m.op() == com.example.tassmud.model.Modifier.Op.ADD && m.value() > 0 ? "+" : "";
                                 sheet.append(String.format("  - %s : %s%1.0f %s  (%s)\n",
                                     m.source(), sign, m.value(), m.stat().name(), timeStr));
+                            }
+                            // Show flag-based effects (Insight, Invisibility, etc.)
+                            for (com.example.tassmud.effect.EffectInstance ei : flagEffects) {
+                                com.example.tassmud.effect.EffectDefinition def = 
+                                    com.example.tassmud.effect.EffectRegistry.getDefinition(ei.getDefId());
+                                String effectName = def != null ? def.getName() : "Unknown Effect";
+                                long remaining = Math.max(0, ei.getExpiresAtMs() - nowMs) / 1000L;
+                                String timeStr = formatDuration(remaining);
+                                sheet.append(String.format("  - %s  (%s)\n", effectName, timeStr));
                             }
                         }
                         
@@ -7261,6 +7330,36 @@ public class ClientHandler implements Runnable {
         
         int modifier = (abilityValue - 10) / 2;
         return (int) Math.round(modifier * multiplier);
+    }
+
+    /**
+     * Get the stat modifier for a given ability score (for hit bonus display).
+     */
+    private static int getStatModifier(String abilityScore, CharacterDAO.CharacterRecord rec) {
+        if (abilityScore == null || abilityScore.isEmpty()) return 0;
+        
+        int abilityValue = 10;
+        switch (abilityScore.toLowerCase()) {
+            case "str": case "strength": abilityValue = rec.str; break;
+            case "dex": case "dexterity": abilityValue = rec.dex; break;
+            case "con": case "constitution": abilityValue = rec.con; break;
+            case "int": case "intel": case "intelligence": abilityValue = rec.intel; break;
+            case "wis": case "wisdom": abilityValue = rec.wis; break;
+            case "cha": case "charisma": abilityValue = rec.cha; break;
+        }
+        
+        return (abilityValue - 10) / 2;
+    }
+
+    /**
+     * Format a hit bonus as "1d20+X" or "1d20-X" for display.
+     */
+    private static String formatHitBonus(int bonus) {
+        if (bonus >= 0) {
+            return "1d20+" + bonus;
+        } else {
+            return "1d20" + bonus; // negative sign already included
+        }
     }
 
     /**
