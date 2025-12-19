@@ -593,6 +593,57 @@ public class ClientHandler implements Runnable {
             }
         } catch (Exception ignored) {}
     }
+
+    /**
+     * Centralized handling for chat-style commands: `chat`, `yell`, `whisper`, and `gmchat`.
+     */
+    private void handleCommunication(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
+        try {
+            String cmdName = cmd.getName().toLowerCase();
+            switch (cmdName) {
+                case "chat": {
+                    String t = cmd.getArgs();
+                    if (t == null || t.trim().isEmpty()) { out.println("Usage: chat <message>"); return; }
+                    broadcastAll("[chat] " + this.playerName + ": " + t);
+                    return;
+                }
+                case "yell": {
+                    String t = cmd.getArgs();
+                    if (t == null || t.trim().isEmpty()) { out.println("Usage: yell <message>"); return; }
+                    Integer roomId = rec != null ? rec.currentRoom : null;
+                    if (roomId == null) { out.println("You are nowhere to yell from."); return; }
+                    Room roomObj = dao.getRoomById(roomId);
+                    if (roomObj == null) { out.println("You are nowhere to yell from."); return; }
+                    int areaId = roomObj.getAreaId();
+                    broadcastArea(dao, areaId, "[yell] " + this.playerName + ": " + t);
+                    return;
+                }
+                case "whisper": {
+                    String args = cmd.getArgs();
+                    if (args == null || args.trim().isEmpty()) { out.println("Usage: whisper <target> <message>"); return; }
+                    String[] parts = args.trim().split("\\s+", 2);
+                    if (parts.length < 2) { out.println("Usage: whisper <target> <message>"); return; }
+                    String target = parts[0];
+                    String msg = parts[1];
+                    ClientHandler t = nameToSession.get(target.toLowerCase());
+                    if (t == null) { out.println("No such player online: " + target); return; }
+                    t.sendRaw("[whisper] " + this.playerName + " -> you: " + msg);
+                    this.sendRaw("[whisper] you -> " + target + ": " + msg);
+                    return;
+                }
+                case "gmchat": {
+                    String t = cmd.getArgs();
+                    if (t == null || t.trim().isEmpty()) { out.println("Usage: gmchat <message>"); return; }
+                    if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use gmchat."); return; }
+                    gmBroadcast(dao, this.playerName, t);
+                    return;
+                }
+                default:
+                    // Not a communication command; fall through to caller
+                    return;
+            }
+        } catch (Exception ignored) {}
+    }
     
     /**
      * Send a debug message to this session (only if debug channel is enabled).
@@ -3790,44 +3841,18 @@ public class ClientHandler implements Runnable {
                         out.println();
                         break;
                     }
-                    case "chat": {
-                        String t = cmd.getArgs();
-                        if (t == null || t.trim().isEmpty()) { out.println("Usage: chat <message>"); break; }
-                        broadcastAll("[chat] " + this.playerName + ": " + t);
+                    case "chat":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
-                    case "yell": {
-                        String t = cmd.getArgs();
-                        if (t == null || t.trim().isEmpty()) { out.println("Usage: yell <message>"); break; }
-                        // find our area
-                        Integer roomId = rec != null ? rec.currentRoom : null;
-                        if (roomId == null) { out.println("You are nowhere to yell from."); break; }
-                        Room roomObj = dao.getRoomById(roomId);
-                        if (roomObj == null) { out.println("You are nowhere to yell from."); break; }
-                        int areaId = roomObj.getAreaId();
-                        broadcastArea(dao, areaId, "[yell] " + this.playerName + ": " + t);
+                    case "yell":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
-                    case "whisper": {
-                        String args = cmd.getArgs();
-                        if (args == null || args.trim().isEmpty()) { out.println("Usage: whisper <target> <message>"); break; }
-                        String[] parts = args.trim().split("\\s+", 2);
-                        if (parts.length < 2) { out.println("Usage: whisper <target> <message>"); break; }
-                        String target = parts[0];
-                        String msg = parts[1];
-                        ClientHandler t = nameToSession.get(target.toLowerCase());
-                        if (t == null) { out.println("No such player online: " + target); break; }
-                        t.sendRaw("[whisper] " + this.playerName + " -> you: " + msg);
-                        this.sendRaw("[whisper] you -> " + target + ": " + msg);
+                    case "whisper":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
-                    case "gmchat": {
-                        String t = cmd.getArgs();
-                        if (t == null || t.trim().isEmpty()) { out.println("Usage: gmchat <message>"); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use gmchat."); break; }
-                        gmBroadcast(dao, this.playerName, t);
+                    case "gmchat":
+                        handleCommunication(cmd, name, rec, dao);
                         break;
-                    }
                     case "debug": {
                         // GM-only: toggle debug channel output
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
