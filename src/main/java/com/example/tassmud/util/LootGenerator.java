@@ -324,6 +324,14 @@ public class LootGenerator {
             return RNG.nextBoolean() ? generateWeapon(mobLevel) : generateArmor(mobLevel);
         }
     }
+
+    /**
+     * Public wrapper for tests/tools to sample a single generated item without DB interaction.
+     * This returns the GeneratedItem that would be used to create an instance.
+     */
+    public static GeneratedItem sampleSingleItem(int mobLevel) {
+        return generateSingleItem(mobLevel);
+    }
     
     /**
      * Generate a comically absurd piece of trash using the TrashGenerator.
@@ -441,8 +449,8 @@ public class LootGenerator {
             description += " It hums with magical power.";
         }
         
-        // Find a suitable armor template based on slot
-        int templateId = getArmorTemplateForSlot(slot);
+        // Find a suitable armor template based on slot and material
+        int templateId = getArmorTemplateForSlot(slot, material);
         
         return new GeneratedItem(
             templateId,
@@ -558,21 +566,39 @@ public class LootGenerator {
      * Get a suitable armor template ID for a given equipment slot.
      * These should match template IDs from items.yaml.
      */
-    private static int getArmorTemplateForSlot(EquipmentSlot slot) {
-        // Map slots to base armor template IDs from items.yaml
-        // Using cloth armor set as base (IDs 100-109)
-        switch (slot) {
-            case HEAD: return 100;       // cloth_hood
-            case SHOULDERS: return 101;  // cloth_mantle  
-            case CHEST: return 102;      // cloth_robe
-            case ARMS: return 103;       // cloth_sleeves
-            case HANDS: return 104;      // cloth_gloves
-            case WAIST: return 105;      // cloth_cord
-            case LEGS: return 106;       // cloth_pants
-            case BOOTS: return 107;      // cloth_sandals
-            case NECK: return 5;         // leather_cap (temporary)
-            case BACK: return 5;         // leather_cap (temporary)
-            default: return 100;
+    private static int getArmorTemplateForSlot(EquipmentSlot slot, String material) {
+        // Map material to base template ID (per items.yaml sets)
+        // Cloth: 100-109, Leather: 110-119, Mail/Chain: 120-129, Plate: 130-139
+        int base;
+        if (material == null) material = "cloth";
+        switch (material.toLowerCase()) {
+            case "cloth": base = 100; break;
+            case "leather":
+            case "hide": base = 110; break;
+            case "mail":
+            case "chain":
+            case "scale": base = 120; break;
+            case "plate": base = 130; break;
+            default: base = 100; break;
         }
+
+        // Offsets inside each material set (match items.yaml ordering)
+        // HEAD=0, SHOULDERS=1, CHEST=2, ARMS=3, HANDS=4, WAIST=5, LEGS=6, BOOTS=7, BACK=8, NECK=9
+        int offset;
+        switch (slot) {
+            case HEAD: offset = 0; break;
+            case SHOULDERS: offset = 1; break;
+            case CHEST: offset = 2; break;
+            case ARMS: offset = 3; break;
+            case HANDS: offset = 4; break;
+            case WAIST: offset = 5; break;
+            case LEGS: offset = 6; break;
+            case BOOTS: offset = 7; break;
+            case BACK: offset = 8; break;
+            case NECK: offset = 9; break;
+            default: offset = 0; break;
+        }
+
+        return base + offset;
     }
 }

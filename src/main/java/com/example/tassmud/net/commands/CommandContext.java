@@ -3,6 +3,7 @@ package com.example.tassmud.net.commands;
 import com.example.tassmud.net.CommandParser.Command;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
+import com.example.tassmud.net.ClientHandler;
 
 import java.io.PrintWriter;
 
@@ -20,6 +21,7 @@ public class CommandContext {
     public final PrintWriter out;
     public final boolean isGm;
     public final boolean inCombat;
+    public final ClientHandler handler;
     
     public CommandContext(
             Command cmd,
@@ -30,7 +32,8 @@ public class CommandContext {
             CharacterDAO dao,
             PrintWriter out,
             boolean isGm,
-            boolean inCombat
+            boolean inCombat,
+            ClientHandler handler
     ) {
         this.cmd = cmd;
         this.playerName = playerName;
@@ -41,6 +44,7 @@ public class CommandContext {
         this.out = out;
         this.isGm = isGm;
         this.inCombat = inCombat;
+        this.handler = handler;
     }
     
     /**

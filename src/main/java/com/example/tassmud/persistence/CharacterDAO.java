@@ -775,6 +775,24 @@ public class CharacterDAO {
                     // Migration: add move_cost column for room-specific movement cost override
                     s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS move_cost INT");
                     System.out.println("Migration: ensured column room.move_cost");
+                    // Door table for exit metadata (open/closed/locked/hidden/blocked)
+                    s.execute("CREATE TABLE IF NOT EXISTS door (" +
+                              "from_room_id INT NOT NULL, " +
+                              "direction VARCHAR(16) NOT NULL, " +
+                              "to_room_id INT, " +
+                              "state VARCHAR(32) DEFAULT 'OPEN', " +
+                              "locked BOOLEAN DEFAULT FALSE, " +
+                              "hidden BOOLEAN DEFAULT FALSE, " +
+                              "blocked BOOLEAN DEFAULT FALSE, " +
+                              "key_item_id INT, " +
+                              "PRIMARY KEY (from_room_id, direction), " +
+                              "FOREIGN KEY (from_room_id) REFERENCES room(id) " +
+                              ")");
+                    // Add convenience migration columns if missing
+                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS state VARCHAR(32) DEFAULT 'OPEN'");
+                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS locked BOOLEAN DEFAULT FALSE");
+                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS hidden BOOLEAN DEFAULT FALSE");
+                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS blocked BOOLEAN DEFAULT FALSE");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create room table", e);
                 }
@@ -1525,6 +1543,77 @@ public class CharacterDAO {
         } catch (SQLException e) {
             return false;
         }
+    }
+
+    // --- Door accessors ---
+    /**
+     * Insert or update a door record for an exit. Uses MERGE so it's idempotent.
+     */
+    public boolean upsertDoor(int fromRoomId, String direction, Integer toRoomId, String state, boolean locked, boolean hidden, boolean blocked, Integer keyItemId) {
+        String sql = "MERGE INTO door (from_room_id, direction, to_room_id, state, locked, hidden, blocked, key_item_id) KEY(from_room_id, direction) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, fromRoomId);
+            ps.setString(2, direction == null ? "" : direction.toLowerCase());
+            if (toRoomId == null) ps.setNull(3, Types.INTEGER); else ps.setInt(3, toRoomId);
+            ps.setString(4, state == null ? "OPEN" : state);
+            ps.setBoolean(5, locked);
+            ps.setBoolean(6, hidden);
+            ps.setBoolean(7, blocked);
+            if (keyItemId == null) ps.setNull(8, Types.INTEGER); else ps.setInt(8, keyItemId);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.err.println("Failed to upsert door for room " + fromRoomId + " dir " + direction + ": " + e.getMessage());
+            return false;
+        }
+    }
+
+    public java.util.List<com.example.tassmud.model.Door> getDoorsForRoom(int fromRoomId) {
+        java.util.List<com.example.tassmud.model.Door> out = new java.util.ArrayList<>();
+        String sql = "SELECT direction, to_room_id, state, locked, hidden, blocked, key_item_id FROM door WHERE from_room_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, fromRoomId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String dir = rs.getString("direction");
+                    Integer to = rs.getObject("to_room_id") == null ? null : rs.getInt("to_room_id");
+                    String state = rs.getString("state");
+                    boolean locked = rs.getBoolean("locked");
+                    boolean hidden = rs.getBoolean("hidden");
+                    boolean blocked = rs.getBoolean("blocked");
+                    Integer keyId = rs.getObject("key_item_id") == null ? null : rs.getInt("key_item_id");
+                    out.add(new com.example.tassmud.model.Door(fromRoomId, dir, to, state, locked, hidden, blocked, keyId));
+                }
+            }
+        } catch (SQLException e) {
+            // return what we have
+        }
+        return out;
+    }
+
+    public com.example.tassmud.model.Door getDoor(int fromRoomId, String direction) {
+        String sql = "SELECT direction, to_room_id, state, locked, hidden, blocked, key_item_id FROM door WHERE from_room_id = ? AND direction = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, fromRoomId);
+            ps.setString(2, direction == null ? "" : direction.toLowerCase());
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Integer to = rs.getObject("to_room_id") == null ? null : rs.getInt("to_room_id");
+                    String state = rs.getString("state");
+                    boolean locked = rs.getBoolean("locked");
+                    boolean hidden = rs.getBoolean("hidden");
+                    boolean blocked = rs.getBoolean("blocked");
+                    Integer keyId = rs.getObject("key_item_id") == null ? null : rs.getInt("key_item_id");
+                    return new com.example.tassmud.model.Door(fromRoomId, direction, to, state, locked, hidden, blocked, keyId);
+                }
+            }
+        } catch (SQLException e) {
+            // ignore
+        }
+        return null;
     }
 
     public boolean createCharacter(Character ch, String passwordHashBase64, String saltBase64) {
