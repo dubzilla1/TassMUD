@@ -644,6 +644,24 @@ public class ClientHandler implements Runnable {
             }
         } catch (Exception ignored) {}
     }
+
+    /**
+     * Ensure the current session/character is a GM. Prints an appropriate
+     * message and returns false if not allowed.
+     */
+    private boolean ensureGm(String name, CharacterRecord rec, CharacterDAO dao) {
+        if (rec == null) { out.println("No character record found."); return false; }
+        try {
+            if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
+                out.println("You do not have permission to use GM commands.");
+                return false;
+            }
+        } catch (Exception ignored) {
+            out.println("Permission check failed.");
+            return false;
+        }
+        return true;
+    }
     
     /**
      * Send a debug message to this session (only if debug channel is enabled).
@@ -1772,11 +1790,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "cflag": {
                         // GM-only: CFLAG SET <char> <flag> <value>  OR  CFLAG CHECK <char> <flag>
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String cfArgs2b = cmd.getArgs();
                         if (cfArgs2b == null || cfArgs2b.trim().isEmpty()) {
                             out.println("Usage: CFLAG SET <char> <flag> <value>   |   CFLAG CHECK <char> <flag>");
@@ -1814,11 +1828,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "cset": {
                         // GM-only: CSET <char> <attribute> <value>  OR  CSET LIST
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String csetArgs = cmd.getArgs();
                         if (csetArgs == null || csetArgs.trim().isEmpty()) {
                             out.println("Usage: CSET <character> <attribute> <value>");
@@ -1894,11 +1904,7 @@ public class ClientHandler implements Runnable {
                     case "cskill": {
                         // GM-only: CSKILL <character> <skill_id> [amount]  OR  CSKILL LIST
                         // Grants a skill to a character at a given proficiency (default 100%)
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String cskillArgs = cmd.getArgs();
                         if (cskillArgs == null || cskillArgs.trim().isEmpty()) {
                             out.println("Usage: CSKILL <character> <skill_id> [amount]");
@@ -1991,11 +1997,7 @@ public class ClientHandler implements Runnable {
                     case "cspell": {
                         // GM-only: CSPELL <character> <spell_id> [amount]  OR  CSPELL LIST
                         // Grants a spell to a character at a given proficiency (default 100%)
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String cspellArgs = cmd.getArgs();
                         if (cspellArgs == null || cspellArgs.trim().isEmpty()) {
                             out.println("Usage: CSPELL <character> <spell_id> [amount]");
@@ -2091,11 +2093,7 @@ public class ClientHandler implements Runnable {
                     case "ilist": {
                         // GM-only: ILIST <search_string>
                         // Finds all item templates matching the given string
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String ilistArgs = cmd.getArgs();
                         if (ilistArgs == null || ilistArgs.trim().isEmpty()) {
                             out.println("Usage: ILIST <search_string>");
@@ -2129,11 +2127,7 @@ public class ClientHandler implements Runnable {
                     case "ifind": {
                         // GM-only: IFIND <template_id> [world|char|bags|all]
                         // Finds all instances of an item template in the game
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String ifindArgs = cmd.getArgs();
                         if (ifindArgs == null || ifindArgs.trim().isEmpty()) {
                             out.println("Usage: IFIND <template_id> [world|char|bags|all]");
@@ -2254,11 +2248,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "istat": {
                         // GM-only: ISTAT <item> - Show detailed stats of an inventory item
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String istatArgs = cmd.getArgs();
                         if (istatArgs == null || istatArgs.trim().isEmpty()) {
                             out.println("Usage: ISTAT <item>");
@@ -2417,11 +2407,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "mstat": {
                         // GM-only: MSTAT <mobile> - Show detailed stats of a mobile in the room
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String mstatArgs = cmd.getArgs();
                         if (mstatArgs == null || mstatArgs.trim().isEmpty()) {
                             out.println("Usage: MSTAT <mobile>");
@@ -2586,11 +2572,7 @@ public class ClientHandler implements Runnable {
                     case "goto": {
                         // GM-only: GOTO <room_id> or GOTO <player_name>
                         // Teleport directly to a room or to another player
-                        if (rec == null) { out.println("No character record found."); break; }
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
-                            out.println("You do not have permission to use GM commands.");
-                            break;
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String gotoArgs = cmd.getArgs();
                         if (gotoArgs == null || gotoArgs.trim().isEmpty()) {
                             out.println("Usage: GOTO <room_id> or GOTO <player_name>");
@@ -3855,10 +3837,7 @@ public class ClientHandler implements Runnable {
                         break;
                     case "debug": {
                         // GM-only: toggle debug channel output
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
-                            out.println("You do not have permission to use debug."); 
-                            break; 
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         debugChannelEnabled = !debugChannelEnabled;
                         if (debugChannelEnabled) {
                             out.println("Debug channel is now ON. You will see [DEBUG] messages.");
@@ -3869,10 +3848,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "gminvis": {
                         // GM-only: toggle perfect invisibility
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
-                            out.println("You do not have permission to use gminvis."); 
-                            break; 
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         gmInvisible = !gmInvisible;
                         if (gmInvisible) {
                             out.println("You fade into the shadows, becoming invisible to mortals.");
@@ -3898,7 +3874,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "dbinfo": {
                         // GM-only: prints table schema information
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to use dbinfo."); break; }
+                        if (!ensureGm(name, rec, dao)) break;
                         // Ensure item tables/migrations are applied by constructing ItemDAO
                         try { new ItemDAO(); } catch (Exception ignored) {}
 
@@ -3922,10 +3898,7 @@ public class ClientHandler implements Runnable {
                     }
                     case "genmap": {
                         // GM-only: generate ASCII map for an area
-                        if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { 
-                            out.println("You do not have permission to use genmap."); 
-                            break; 
-                        }
+                        if (!ensureGm(name, rec, dao)) break;
                         String mapArgs = cmd.getArgs();
                         int targetAreaId;
                         if (mapArgs == null || mapArgs.trim().isEmpty()) {
