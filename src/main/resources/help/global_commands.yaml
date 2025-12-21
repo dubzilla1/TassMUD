@@ -1529,7 +1529,7 @@ autogold:
         - Level 50 mob: 600-650 gold
 
     SEE ALSO
-        autoloot, autosac, get, gold, score
+        autoloot, autosac, autojunk, get, gold, score
 
     EXAMPLE
         autogold
@@ -1567,11 +1567,39 @@ autosac:
         a small amount of XP (1 per corpse) while cleaning up the room.
 
     SEE ALSO
-        autoloot, autogold, sacrifice, score
+        autoloot, autogold, autojunk, sacrifice, score
 
     EXAMPLE
         autosac
 
+autojunk:
+  summary: "toggle automatic selling of junk items to shopkeepers"
+  visibility: public
+  synopsis:
+    - "autojunk"
+  body: |
+    NAME
+        autojunk - toggle automatic selling of junk items to shopkeepers
+
+    SYNOPSIS
+        autojunk
+
+    DESCRIPTION
+        Toggle automatic selling of junk items to shopkeepers. When enabled,
+        junk items in your inventory will automatically be sold to shopkeepers
+        when you visit them.
+        
+        This is a toggle command - each use switches between enabled
+        and disabled.
+        
+        Default: ENABLED
+        
+    SEE ALSO
+        autoloot, autosac, autgold, sell, buy, score
+
+    EXAMPLE
+        autojunk
+        
 stand:
   summary: "stand up from sitting, sleeping, or prone"
   visibility: public

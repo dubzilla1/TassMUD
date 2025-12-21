@@ -4,11 +4,13 @@ import java.util.Set;
 
 /**
  * Handles combat-related commands by delegating to ClientHandler.
+ * NOTE: Only list commands that are actually implemented in handleCombatCommand().
+ * Commands like kill, hide, cast are still in the main switch statement.
  */
 public class CombatCommandHandler implements CommandHandler {
 
     private static final Set<String> SUPPORTED = Set.of(
-        "kill", "combat", "flee", "kick", "bash", "heroic", "infuse", "hide", "visible", "unhide", "cast"
+        "combat", "flee", "kick", "bash", "heroic", "infuse"
     );
 
     @Override

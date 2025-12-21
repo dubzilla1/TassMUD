@@ -91,6 +91,7 @@ public class CommandRegistry {
         register("autoloot", "Toggle automatic looting of items from corpses", Category.SYSTEM);
         register("autogold", "Toggle automatic looting of gold from corpses", Category.SYSTEM);
         register("autosac", "Toggle automatic sacrifice of empty corpses (requires autoloot and autogold)", Category.SYSTEM);
+        register("autojunk", "Toggle automatic sale of junk", Category.SYSTEM);
         
         // ===== GM COMMANDS =====
         // All GM commands allowed in combat (GMs need full control)

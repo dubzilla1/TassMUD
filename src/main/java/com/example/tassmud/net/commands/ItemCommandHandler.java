@@ -5,26 +5,30 @@ import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.effect.EffectRegistry;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
+import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.MobileBehavior;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.net.ClientHandler;
+import com.example.tassmud.net.CommandDefinition.Category;
+import com.example.tassmud.net.CommandRegistry;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
+import com.example.tassmud.persistence.MobileDAO;
 
 import java.io.PrintWriter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
- * Handles ITEMS category commands: get, drop, put, equip, remove, quaff, use, list, buy, sell
- * 
+ * Handles ITEMS category commands: get, drop, put, sacrifice, equip, remove, quaff, use, list, buy, sell
  * This class extracts item-related command logic from ClientHandler to reduce
  * method size and improve maintainability.
  */
 public class ItemCommandHandler implements CommandHandler {
     
-    private static final Set<String> SUPPORTED_COMMANDS = Set.of(
-        "quaff", "drink", "use"
-        // Future: "get", "drop", "put", "equip", "remove", "list", "buy", "sell"
-    );
+    private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.ITEMS).stream()
+            .map(cmd -> cmd.getName())
+            .collect(Collectors.toUnmodifiableSet());
     
     @Override
     public boolean supports(String commandName) {
@@ -38,18 +42,237 @@ public class ItemCommandHandler implements CommandHandler {
         switch (cmdName) {
             case "quaff":
             case "drink":
-                return handleQuaff(ctx);
+                return handleQuaffCommand(ctx);
             case "use":
-                return handleUse(ctx);
+                return handleUseCommand(ctx);
+            case "sell":
+                return handleSellCommand(ctx);
             default:
                 return false;
         }
     }
     
+    private boolean handleSellCommand(CommandContext ctx) {
+        // SELL <item> [quantity] - sell an item to a shopkeeper (half value)
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.character;
+        CharacterDAO dao = ctx.dao;
+        Integer charId = ctx.characterId;
+        String sellArgs = ctx.getArgs();
+
+        if (rec == null || rec.currentRoom == null) {
+            out.println("You must be in a room to sell items.");
+            return true;
+        }
+         // Find shopkeepers (must be one present to sell)
+        MobileDAO mobileDao = new MobileDAO();
+        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+        boolean hasShopkeeper = false;
+        
+        for (Mobile mob : mobsInRoom) {
+            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
+                hasShopkeeper = true;
+                break;
+            }
+        }
+        
+        if (!hasShopkeeper) {
+            out.println("There are no shopkeepers here.");
+            return true;
+        }
+        
+        // Get player's inventory
+        ItemDAO itemDao = new ItemDAO();
+        if (charId == null) {
+            out.println("Failed to locate your character record.");
+            return true;
+        }
+        
+        // Get equipped items to exclude
+        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
+        for (Long iid : equippedMap.values()) {
+            if (iid != null) equippedInstanceIds.add(iid);
+        }
+        Boolean soldJunk = false;
+        if (rec.autojunk || sellArgs.equalsIgnoreCase("junk") || sellArgs.equalsIgnoreCase("trash")) {
+            
+            // Get all items in inventory (not equipped, not in containers)
+            java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
+            java.util.List<ItemDAO.RoomItem> inventoryToJunkItems = new java.util.ArrayList<>();
+            Integer sellGold = 0;
+            for (ItemDAO.RoomItem ri : allItems) {
+                if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
+                if (ri.template.types.contains("trash")) {
+                    inventoryToJunkItems.add(ri);
+                    sellGold += 1;
+                }
+            }
+            
+            if (!inventoryToJunkItems.isEmpty()) {
+                // Delete items and add gold
+                soldJunk = true;
+                for (ItemDAO.RoomItem ri : inventoryToJunkItems) {
+                    itemDao.deleteInstance(ri.instance.instanceId);
+                    out.println("Sold " + ri.instance.getEffectiveName(ri.template));
+                }
+                dao.addGold(charId, sellGold);
+                out.println("Sold all junk items for "+ sellGold + " gp");
+            }
+        }
+       
+        // stop here if we were just selling junk
+        if (sellArgs.equalsIgnoreCase("junk") || sellArgs.equalsIgnoreCase("trash")) {
+            if (!soldJunk) out.println("You have no more junk left to sell.");
+            return true;
+        }
+        
+        if (sellArgs == null || sellArgs.trim().isEmpty())  {
+            if (!soldJunk) out.println("Usage: sell <item> [quantity]");
+            return true;
+        }
+
+        // Parse args: item name and optional quantity
+        String sellArg = sellArgs.trim();
+        int quantity = 1;
+        String itemSearchStr;
+        
+        // Check if last word is a number (quantity)
+        String[] parts = sellArg.split("\\s+");
+        if (parts.length > 1) {
+            String lastPart = parts[parts.length - 1];
+            try {
+                quantity = Integer.parseInt(lastPart);
+                if (quantity < 1) quantity = 1;
+                if (quantity > 100) {
+                    out.println("You can only sell up to 100 items at once.");
+                    return true;
+                }
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < parts.length - 1; i++) {
+                    if (i > 0) sb.append(" ");
+                    sb.append(parts[i]);
+                }
+                itemSearchStr = sb.toString();
+            } catch (NumberFormatException e) {
+                itemSearchStr = sellArg;
+            }
+        } else {
+            itemSearchStr = sellArg;
+        }
+       
+        // Get all items in inventory (not equipped, not in containers)
+        java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
+        java.util.List<ItemDAO.RoomItem> inventoryItems = new java.util.ArrayList<>();
+        for (ItemDAO.RoomItem ri : allItems) {
+            if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
+            if (ri.instance.containerInstanceId != null) continue;
+            inventoryItems.add(ri);
+        }
+        
+        if (inventoryItems.isEmpty()) {
+            out.println("You have nothing to sell.");
+            return true;
+        }
+        
+        // Smart match the item by name/keywords
+        String searchLower = itemSearchStr.toLowerCase();
+        java.util.List<ItemDAO.RoomItem> matchingItems = new java.util.ArrayList<>();
+        
+        // Find all items matching the search term
+        for (ItemDAO.RoomItem ri : inventoryItems) {
+            boolean match = false;
+            
+            // Check customName first (for generated/renamed items)
+            if (ri.instance.customName != null && !ri.instance.customName.isEmpty()) {
+                String customLower = ri.instance.customName.toLowerCase();
+                if (customLower.equalsIgnoreCase(itemSearchStr) ||
+                    customLower.startsWith(searchLower) ||
+                    customLower.contains(searchLower)) {
+                    match = true;
+                } else {
+                    // Check customName words
+                    String[] customWords = customLower.split("\\s+");
+                    for (String w : customWords) {
+                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                            match = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            // Check template name
+            if (!match && ri.template.name != null) {
+                String nameLower = ri.template.name.toLowerCase();
+                if (nameLower.equalsIgnoreCase(itemSearchStr) ||
+                    nameLower.startsWith(searchLower) ||
+                    nameLower.contains(searchLower)) {
+                    match = true;
+                } else {
+                    // Check name words
+                    String[] nameWords = nameLower.split("\\s+");
+                    for (String w : nameWords) {
+                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                            match = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            // Check keywords
+            if (!match && ri.template.keywords != null) {
+                for (String kw : ri.template.keywords) {
+                    if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
+                        match = true;
+                        break;
+                    }
+                }
+            }
+            
+            if (match) {
+                matchingItems.add(ri);
+            }
+        }
+        
+        if (matchingItems.isEmpty()) {
+            out.println("You don't have '" + itemSearchStr + "' to sell.");
+            return true;
+        }
+        
+        // Limit to requested quantity
+        int actualQuantity = Math.min(quantity, matchingItems.size());
+        java.util.List<ItemDAO.RoomItem> toSell = matchingItems.subList(0, actualQuantity);
+        
+        // Calculate sell value (half of item value, minimum 1)
+        ItemDAO.RoomItem soldItem = toSell.get(0);
+        int sellPrice = Math.max(1, soldItem.template.value / 2);
+        long totalGold = (long) sellPrice * actualQuantity;
+        
+        // Delete items and add gold
+        for (ItemDAO.RoomItem ri : toSell) {
+            itemDao.deleteInstance(ri.instance.instanceId);
+        }
+        dao.addGold(charId, totalGold);
+        
+        String itemName = ClientHandler.getItemDisplayName(soldItem);
+        if (actualQuantity == 1) {
+            out.println("You sell " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
+        } else {
+            out.println("You sell " + actualQuantity + " " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
+        }
+        
+        if (actualQuantity < quantity) {
+            out.println("(You only had " + actualQuantity + " to sell.)");
+        }
+                return true;
+    }
+
     /**
      * Handle the quaff/drink command - consume a potion from inventory.
      */
-    private boolean handleQuaff(CommandContext ctx) {
+    private boolean handleQuaffCommand(CommandContext ctx) {
         PrintWriter out = ctx.out;
         CharacterDAO.CharacterRecord rec = ctx.character;
         CharacterDAO dao = ctx.dao;
@@ -156,7 +379,7 @@ public class ItemCommandHandler implements CommandHandler {
      * Priority: equipped items > inventory > room items
      * Spells are cast at 100% proficiency using the item's level.
      */
-    private boolean handleUse(CommandContext ctx) {
+    private boolean handleUseCommand(CommandContext ctx) {
         PrintWriter out = ctx.out;
         CharacterDAO.CharacterRecord rec = ctx.character;
         CharacterDAO dao = ctx.dao;
@@ -225,8 +448,7 @@ public class ItemCommandHandler implements CommandHandler {
         
         // Try to match item in priority order: equipped > inventory > room
         ItemDAO.RoomItem matched = null;
-        String location = null;
-        
+        String location = null;        
         matched = findMatchingItem(usableEquipped, useArg);
         if (matched != null) {
             location = "equipped";
