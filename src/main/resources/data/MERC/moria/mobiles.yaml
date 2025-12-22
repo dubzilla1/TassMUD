@@ -1,0 +1,1023 @@
+- id: 4000
+  key: "the_huge_python"
+  name: "python snake"
+  short_desc: "the huge python"
+  long_desc: "The huge python rears its head and hisses at you."
+  keywords: ['python', 'snake']
+  level: 35
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': 'It sways back and forth contemplating whether or not to eat you.\n~\n35 8 -200 S\n11 7 3 11d11+110 3d6+0\n0 5000\n8 8 1'}
+
+- id: 4001
+  key: "the_garter_snake"
+  name: "garter snake"
+  short_desc: "the garter snake"
+  long_desc: "A small green garter snake slithers along the floor."
+  keywords: ['garter', 'snake']
+  level: 3
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 3, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'It looks harmless enough.  Or is it?\n~\n3 0 -100 S\n7 12 4 7d7+70 2d6+1\n0 1500\n8 8 0'}
+
+- id: 4002
+  key: "the_centipede"
+  name: "centipede"
+  short_desc: "the centipede"
+  long_desc: "A small centipede here is looking for vegetation."
+  keywords: ['centipede']
+  level: 2
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '3d3+30', 'damage_dice': '3d3+30', 'raw_block': 'It looks completely harmless but who knows for sure?\n~\n2 0 100 S\n3 20 6 3d3+30 1d6+0\n0 400\n8 8 0'}
+
+- id: 4003
+  key: "the_kobold"
+  name: "kobold"
+  short_desc: "the kobold"
+  long_desc: "An ugly kobold mumbles something under its breath."
+  keywords: ['kobold']
+  level: 68
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '4d4+40', 'damage_dice': '4d4+40', 'raw_block': 'It looks ugly enough to scare its own mother.\n~\n68 0 -100 S\n4 16 5 4d4+40 1d8+1\n50 500\n8 8 0'}
+
+- id: 4004
+  key: "the_orc"
+  name: "orc"
+  short_desc: "the orc"
+  long_desc: "This orc is frothing around the mouth.  Better stay away."
+  keywords: ['orc']
+  level: 100
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'You notice a slight tinge of madness in his eyes.\n~\n100 0 -400 S\n5 15 5 5d5+50 2d4+0\n100 700\n8 8 1'}
+
+- id: 4005
+  key: "the_large_orc"
+  name: "orc"
+  short_desc: "the large orc"
+  long_desc: "This large orc is looking for someone small to pick on."
+  keywords: ['orc']
+  level: 68
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'The orc says, "Whatcha look\'n at?"\n~\n68 0 -500 S\n7 11 2 7d7+70 2d6+2\n200 1500\n8 8 1'}
+
+- id: 4050
+  key: "the_warrior"
+  name: "warrior"
+  short_desc: "the warrior"
+  long_desc: "This tall warrior has more scars than even you!"
+  keywords: ['warrior']
+  level: 102
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': "He's surely a strong, brainless fighter.  Like you.\n~\n102 0 -300 S\n12 8 -1 12d12+120 2d8+1\n1000 5000\n8 8 1"}
+
+- id: 4051
+  key: "the_warrior"
+  name: "warrior"
+  short_desc: "the warrior"
+  long_desc: "This veteran warrior could even be your father."
+  keywords: ['warrior']
+  level: 100
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'He seems to know his way with weapons.  And he wants\nto show you what he can do!\n~\n100 0 -400 S\n7 13 3 7d7+70 2d5+0\n200 1500\n8 8 1'}
+
+- id: 4052
+  key: "the_hobgoblin"
+  name: "hobgoblin"
+  short_desc: "the hobgoblin"
+  long_desc: "A small beat-up hobgoblin cringes in the corner."
+  keywords: ['hobgoblin']
+  level: 68
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': "Looking into the eyes of this poor soul makes you feel\nsad as you see the terror and fear in its eyes.  Why\ndon't you put it out of its misery?\n~\n68 0 -300 S\n6 12 6 6d6+60 2d4+0\n100 1000\n8 8 1"}
+
+- id: 4053
+  key: "the_snake"
+  name: "snake"
+  short_desc: "the snake"
+  long_desc: "A sickly brown snake watches you with caution."
+  keywords: ['snake']
+  level: 35
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': "A closer look reveals a hungry demeanor.  Don't get too close!\n~\n35 0 -600 S\n10 10 4  10d10+100 3d5+1\n0 1000\n8 8 0"}
+
+- id: 4054
+  key: "the_centipede"
+  name: "centipede"
+  short_desc: "the centipede"
+  long_desc: "A white centipede crawls along the cave floors randomly."
+  keywords: ['centipede']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': "The centipede doesn't really seem to notice you.\n~\n2 0 -100 S\n5 17 5 5d5+50 1d7+0\n0 100\n8 8 0"}
+
+- id: 4055
+  key: "the_large_hobgoblin"
+  name: "hobgoblin"
+  short_desc: "the large hobgoblin"
+  long_desc: "A large hobgoblin is here wondering if he should tear you apart."
+  keywords: ['hobgoblin']
+  level: 68
+  hp_max: 125
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '1d10+120', 'damage_dice': '1d10+120', 'raw_block': 'Red, bloodshot eyes and drool dripping from its mouth makes you\nwonder just how far away you should be.\n~\n68 0 -500 S\n10 11 2 1d10+120 2d6+1\n300 4000\n8 8 1'}
+
+- id: 4056
+  key: "the_orc"
+  name: "orc"
+  short_desc: "the orc"
+  long_desc: "An orc is here, looking for something (or perhaps someone) to eat."
+  keywords: ['orc']
+  level: 100
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '3d10+100', 'damage_dice': '3d10+100', 'raw_block': 'As you already know, orcs have quite a ravenous appetite.  \nCare to be dinner?\n~\n100 0 -800 S\n8 13 2 3d10+100 2d5+2\n150 1000\n8 8 1'}
+
+- id: 4057
+  key: "the_mountain_lion"
+  name: "lion mountain"
+  short_desc: "the mountain lion"
+  long_desc: "A mountain lion bears its teeth at the sight of more food."
+  keywords: ['lion', 'mountain']
+  level: 96
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '1d10+60', 'damage_dice': '1d10+60', 'raw_block': 'Huge claws and big teeth make quite a fearsome opponent for\nthe weary.  Are you next?\n~\n96 0 -100 S\n5 16 5 1d10+60 2d4+0\n0 900\n8 8 1'}
+
+- id: 4058
+  key: "the_hill_giant"
+  name: "giant hill"
+  short_desc: "the hill giant"
+  long_desc: "A hill giant is here tossing rocks around.  Marbles perhaps?"
+  keywords: ['giant', 'hill']
+  level: 9
+  hp_max: 165
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 9, 'hit_dice': '1d10+160', 'damage_dice': '1d10+160', 'act_flags': 9, 'raw_block': "The hill giant looks like he's about 9 feet tall. By his actions you\ncome to the conclusion that he's not very intelligent.  A perfect\nplaymate for you.\n~\n64 0 0 S\n13 8 2 1d10+160 2d10+0\n1000 16500\n8 8 1"}
+
+- id: 4100
+  key: "the_mage"
+  name: "mage"
+  short_desc: "the Mage"
+  long_desc: "A small intelligent looking mage is standing here. It looks like he\nknows his way with magic."
+  keywords: ['mage']
+  level: 39
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 39, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'This guy can ace the SAT with his frontal lobe tied behind his back.\n~\n39 8 -100 S\n13 10 2 13d13+130 2d6+0\n1500 17000\n8 8 1'}
+
+- id: 4101
+  key: "the_troll"
+  name: "troll"
+  short_desc: "the troll"
+  long_desc: "This large mean-looking troll wants to take a closer look at you."
+  keywords: ['troll']
+  level: 38
+  hp_max: 111
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 38, 'hit_dice': '2d10+100', 'damage_dice': '2d10+100', 'raw_block': 'Whilst you look at this troll, you realize he is trying to\nfigure just how tender you are.\n~\n38 0 -800 S\n12 8 1 2d10+100 2d7+1\n500 15000\n8 8 1'}
+
+- id: 4102
+  key: "the_guardian_snake"
+  name: "guardian snake"
+  short_desc: "the guardian snake"
+  long_desc: "A large green snake is guardian for something."
+  keywords: ['guardian', 'snake']
+  level: 39
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 39, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'You take a closer look at this large snake while it tries to\nbite your head off!\n~\n39 0 -700 S\n10 8 5 10d10+100 2d5+2\n0 9000\n8 8 1'}
+
+- id: 4104
+  key: "the_orc"
+  name: "orc"
+  short_desc: "the orc"
+  long_desc: "An ugly orc is standing here waiting for someone to practice on."
+  keywords: ['orc']
+  level: 228
+  hp_max: 93
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 228, 'hit_dice': '1d5+90', 'damage_dice': '1d5+90', 'raw_block': 'Yrkk..  He belches in your face!\n~\n228 0 -200 S\n7 14 4 1d5+90 2d4+1\n200 2250\n8 8 1'}
+
+- id: 4105
+  key: "a_centipede"
+  name: "centipede"
+  short_desc: "a centipede"
+  long_desc: "A small harmless centipede is here looking for some vegetation to eat."
+  keywords: ['centipede']
+  level: 2
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '3d10+50', 'damage_dice': '3d10+50', 'raw_block': "It doesn't seem to pay any attention towards you.  You are probably\nnot important.\n~\n2 0 300 S\n6 15 4 3d10+50 1d8+1\n0 1500\n8 8 0"}
+
+- id: 4106
+  key: "the_warrior"
+  name: "warrior"
+  short_desc: "the Warrior"
+  long_desc: "A human warrior grins an evil grin in your face."
+  keywords: ['warrior']
+  level: 100
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '3d10+100', 'damage_dice': '3d10+100', 'raw_block': "He doesn't look friendly at all...  He is no Mr. Rogers!\n~\n100 0 -300 S\n9 10 3 3d10+100 2d6+1\n500 9000\n8 8 1"}
+
+- id: 4107
+  key: "the_green_kobold"
+  name: "kobold"
+  short_desc: "the green kobold"
+  long_desc: "A green kobold hobbles along the cave walls puking periodically."
+  keywords: ['kobold']
+  level: 100
+  hp_max: 31
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '2d10+20', 'damage_dice': '2d10+20', 'raw_block': 'It looks a little sick.  Something he ate maybe?\n~\n100 0 -100 S\n7 14 4 2d10+20 1d10+0\n20 3000\n8 8 1'}
+
+- id: 4150
+  key: "the_blue_bat"
+  name: "bat blue"
+  short_desc: "the blue bat"
+  long_desc: "A blue bat flies in circles while electrical charges arc here and there."
+  keywords: ['bat', 'blue']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '3d10+70', 'damage_dice': '3d10+70', 'raw_block': 'Bzzzt.  Zap.  Crackle.  Speak about static electricity!\n~\n35 0 -100 S\n7 15 4 3d10+70 1d7+1\n0 2200\n8 8 0'}
+
+- id: 4151
+  key: "the_red_bat"
+  name: "bat red"
+  short_desc: "the red bat"
+  long_desc: "A red bat hangs upside down from the ceiling, glowing."
+  keywords: ['bat', 'red']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '3d10+70', 'damage_dice': '3d10+70', 'raw_block': 'You can definitely feel some heat from this thing.  A fever perhaps?\n~\n35 0 -100 S\n7 15 4 3d10+70 1d7+1\n0 2200\n8 8 0'}
+
+- id: 4152
+  key: "the_green_bat"
+  name: "bat green"
+  short_desc: "the green bat"
+  long_desc: "A green bat flies from wall to wall leaving an awful smell."
+  keywords: ['bat', 'green']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '3d10+70', 'damage_dice': '3d10+70', 'raw_block': 'Whew!  What a stinker!\n~\n35 0 -100 S\n7 15 4 3d10+70 1d7+1\n0 2200\n8 8 0'}
+
+- id: 4153
+  key: "the_white_bat"
+  name: "bat white"
+  short_desc: "the white bat"
+  long_desc: "A white bat rests on the ceiling.  You wonder where the cold is coming from."
+  keywords: ['bat', 'white']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '3d10+70', 'damage_dice': '3d10+70', 'raw_block': "Brrr!  You almost can't distinguish this bat from an ice cube.\n~\n35 0 -100 S\n7 15 4 3d10+70 1d7+1\n0 2200\n8 8 0"}
+
+- id: 4154
+  key: "the_black_bat"
+  name: "bat black"
+  short_desc: "the black bat"
+  long_desc: "A black bat flies from wall to wall leaving something hissing behind."
+  keywords: ['bat', 'black']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '3d10+70', 'damage_dice': '3d10+70', 'raw_block': 'Amazing!  This bat is grooming itself with acid!\n~\n35 0 -100 S\n7 15 4 3d10+70 1d7+1\n0 2200\n8 8 0'}
+
+- id: 4155
+  key: "the_thief"
+  name: "thief"
+  short_desc: "the thief"
+  long_desc: "A sneaky thief appears and disappears within the shadows."
+  keywords: ['thief']
+  level: 69
+  hp_max: 161
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 69, 'hit_dice': '3d20+130', 'damage_dice': '3d20+130', 'raw_block': "He definitely knows what he's doing.  Trust him.\n~\n69 32770 400 S\n12 7 1 3d20+130 2d7+1\n2000 14000\n8 8 1"}
+
+- id: 4156
+  key: "the_troll"
+  name: "troll"
+  short_desc: "the troll"
+  long_desc: "A large ugly troll is here mumbling something."
+  keywords: ['troll']
+  level: 38
+  hp_max: 224
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 38, 'hit_dice': '8d20+140', 'damage_dice': '8d20+140', 'raw_block': "He looks quite mean.  Don't mess with him.\n~\n38 0 -700 S\n14 8 1 8d20+140 2d7+1\n3000 20000\n8 8 1"}
+
+- id: 4157
+  key: "the_mage"
+  name: "mage"
+  short_desc: "the Mage"
+  long_desc: "A small man is here researching magical incantations."
+  keywords: ['mage']
+  level: 101
+  hp_max: 102
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 101, 'hit_dice': '4d10+80', 'damage_dice': '4d10+80', 'raw_block': "His little head is buried into his magic books.  He'd be very\nangry should you bother his studies.\n~\n101 0 -200 S\n11 10 2 4d10+80 2d5+1\n800 11000\n8 8 1"}
+
+- id: 4158
+  key: "the_snake"
+  name: "snake"
+  short_desc: "the snake"
+  long_desc: "A brown snake hisses at you."
+  keywords: ['snake']
+  level: 35
+  hp_max: 115
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '1d10+110', 'damage_dice': '1d10+110', 'raw_block': 'Sickly brown as it is, you know what it really wants is you\nfor dinner.\n~\n35 0 200 S\n9 12 3 1d10+110 2d5+1\n0 8000\n8 8 1'}
+
+- id: 4159
+  key: "the_small_troll"
+  name: "troll"
+  short_desc: "the small troll"
+  long_desc: "A small troll is here happily dancing.  Trala-la-la.  La-la."
+  keywords: ['troll']
+  level: 100
+  hp_max: 96
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '3d10+80', 'damage_dice': '3d10+80', 'raw_block': 'He is so happy, you are disgusted.  Kill him now!\n~\n100 0 -300 S\n8 13 3 3d10+80 2d5+2\n500 5000\n8 8 1'}
+
+- id: 4160
+  key: "the_orc"
+  name: "orc"
+  short_desc: "the orc"
+  long_desc: "A large orc growls in your face."
+  keywords: ['orc']
+  level: 100
+  hp_max: 110
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '1d20+100', 'damage_dice': '1d20+100', 'raw_block': "He is just looking for a fight isn't he?\n~\n100 0 -200 S\n9 12 3 1d20+100 2d5+1\n500 6000\n8 8 1"}
+

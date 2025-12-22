@@ -1,0 +1,908 @@
+items:
+  - id: 9301
+    key: comet_s_tail
+    name: a comet's tail
+    description: A long, slender whip lies here.~
+    weight: 9
+    value: 1000
+    type: weapon
+    multiplier: 2
+    base_die: 6
+    damage_bonus: 4
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - HUM
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [comet, s, tail]
+    template_json:
+      raw_block: |
+        #9301
+        comet's tail~
+        a comet's tail~
+        A long, slender whip lies here.~ 
+        ~
+        5 3 1|8192
+        0 2 6 4
+        9 1000 1000
+      type_line: 5 3 1|8192
+  - id: 9302
+    key: arm_hercules
+    name: the Titanic Arm plates of Hercules
+    description: Arm plates of the Zodiac lie here.
+    weight: 10
+    value: 10000
+    type: armor
+    slot: arms
+    armor_class: 6
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [arm, hercules]
+    applies:
+      - location: 1
+        modifier: 1
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        E
+        arm~
+        These mighty armors have been worn by this immortal, since the ancient time.
+        ~
+        A
+        1 1
+        A 
+        19 2
+      type_line: 9 1089 1|256
+      extra_desc: These mighty armors have been worn by this immortal, since the ancient time.
+  - id: 9304
+    key: belt_orion
+    name: the Titanic Belt of Orion
+    description: A belt of the Zodiac lies here.
+    weight: 7
+    value: 10000
+    type: armor
+    slot: waist
+    armor_class: 9
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [belt, orion]
+    applies:
+      - location: 5
+        modifier: 2
+    template_json:
+      raw_block: |
+        7 10000 5000
+        E
+        belt~
+        You can immediately see that it belongs to Orion, from the three stars
+        engraved on it.
+        ~
+        A
+        5 2
+      type_line: 9 1089 1|2048
+      extra_desc: |
+        You can immediately see that it belongs to Orion, from the three stars
+        engraved on it.
+  - id: 9305
+    key: skull_draco
+    name: An ugly skull of Draco
+    description: A massive skull of a dead Draco lies here.
+    weight: 20
+    value: 10000
+    type: weapon
+    multiplier: 5
+    base_die: 5
+    damage_bonus: 6
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - HUM
+      - MAGIC
+      - NODROP
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [skull, draco]
+    template_json:
+      raw_block: |
+        #9305
+        skull draco~
+        An ugly skull of Draco~
+        A massive skull of a dead Draco lies here.~
+        ~
+        4 194 1|16384
+        15 5 5 6
+        20 10000 3000
+      type_line: 4 194 1|16384
+  - id: 9306
+    key: fleece_aries
+    name: the Titanic Fleece of Aries
+    description: A fleece of the Zodiac lies here.~
+    weight: 9
+    value: 10000
+    type: armor
+    slot: neck
+    armor_class: 9
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [fleece, aries]
+    applies:
+      - location: 17
+        modifier: -2
+    template_json:
+      raw_block: |
+        9 0 0 0
+        9 10000 5000 
+        E
+        fleece~
+        From a look it resembles the Golden Fleece that exists in the Greek myths.
+        ~
+        A
+        17 -2
+      type_line: 9 1089 1|4
+      extra_desc: From a look it resembles the Golden Fleece that exists in the Greek myths.
+  - id: 9307
+    key: hoof_taurus
+    name: the Titanic Hoof of Taurus~ 
+    description: A hoof of the Zodiac lies here.
+    weight: 10
+    value: 10000
+    type: armor
+    slot: boots
+    armor_class: 3
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [hoof, taurus]
+    applies:
+      - location: 14
+        modifier: 50
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 503
+    template_json:
+      raw_block: |
+        E
+        hoof~
+        It is with these hooves that Taurus can stand against Orion's attacks.
+        ~
+        A
+        14 50
+        A
+        19 1
+      type_line: 9 1089 1|64
+      extra_desc: It is with these hooves that Taurus can stand against Orion's attacks.
+  - id: 9308
+    key: mask_gemini
+    name: the Titanic Mask of Gemini
+    description: A mask of the Zodiac lies here.
+    weight: 7
+    value: 10000
+    type: armor
+    slot: head
+    armor_class: 2
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - NODROP
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [mask, gemini]
+    applies:
+      - location: 1
+        modifier: 1
+      - location: 2
+        modifier: 2
+    template_json:
+      raw_block: |
+        mask~
+        You notice the mask has got two faces, one smiling and the other crying.
+        You don't know which way you should wear it.
+        ~
+        A
+        1 1
+        A
+        2 2
+      type_line: 9 1217 1|16
+      extra_desc: |
+        You notice the mask has got two faces, one smiling and the other crying.
+        You don't know which way you should wear it.
+  - id: 9309
+    key: shell_cancer
+    name: the Titanic Shell of Cancer
+    description: A shell of the Zodiac lies here.~
+    weight: 15
+    value: 10000
+    type: armor
+    slot: chest
+    armor_class: 10
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [shell, cancer]
+    applies:
+      - location: 17
+        modifier: -2
+    template_json:
+      raw_block: |
+        15 10000 5000
+        E
+        shell~
+        A shell which is dented in the middle, resulting from the Hercules' mighty
+        pound when the Crab was still an enemy of Hercules in ancient times.
+        ~ 
+        A
+        17 -2
+      type_line: 9 1089 1|8
+      extra_desc: |
+        A shell which is dented in the middle, resulting from the Hercules' mighty
+        pound when the Crab was still an enemy of Hercules in ancient times.
+        ~
+  - id: 9310
+    key: skin_leo
+    name: the Titanic Skin of Leo
+    description: A skin of the Zodiac lies here.
+    weight: 15
+    value: 10000
+    type: armor
+    slot: back
+    armor_class: 11
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [skin, leo]
+    template_json:
+      raw_block: |
+        ~
+        9 1089 1|1024
+        11 0 0 0
+        15 10000 5000
+        E
+        skin~
+        A skin made of metal, which was worn by Hercules during his Ten Labours.
+        ~
+      type_line: 9 1089 1|1024
+      extra_desc: A skin made of metal, which was worn by Hercules during his Ten Labours.
+  - id: 9311
+    key: bracelet_virgo
+    name: the Titanic Bracelet of Virgo
+    description: A bracelet of the Zodiac lies here.
+    weight: 4
+    value: 10000
+    type: armor
+    slot: wrist
+    armor_class: 4
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracelet, virgo]
+    applies:
+      - location: 4
+        modifier: 2
+    template_json:
+      raw_block: |
+        4 0 0 0
+        4 10000 5000
+        E
+        bracelet~
+        A bracelet of purity and youth, only worn by selected virgins.
+        ~
+        A
+        4 2
+      type_line: 9 1089 1|4096
+      extra_desc: A bracelet of purity and youth, only worn by selected virgins.
+  - id: 9312
+    key: scale_libra
+    name: the Titanic Scale of Libra
+    description: A shield of the Zodiac lies here.
+    weight: 15
+    value: 10000
+    type: armor
+    slot: off_hand
+    armor_class: 8
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [scale, libra]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        E
+        scale~
+        It is a shield of justice, used in the ancient battle against injustice.
+        ~
+        A
+        17 -3
+        A
+        13 5
+      type_line: 9 1089 1|512
+      extra_desc: It is a shield of justice, used in the ancient battle against injustice.
+  - id: 9313
+    key: scale_libra
+    name: the Titanic Scale of Libra
+    description: A shield of the Zodiac lies here.
+    weight: 15
+    value: 10000
+    type: armor
+    slot: off_hand
+    armor_class: 0
+    extra_flags:
+      - HUM
+      - MAGIC
+      - NODROP
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [scale, libra]
+    applies:
+      - location: 17
+        modifier: 6
+      - location: 13
+        modifier: -30
+    template_json:
+      raw_block: |
+        E
+        scale~
+        It is a shield of injustice, it picks on the innocent.
+        ~
+        A
+        17 6
+        A
+        13 -30
+      type_line: 9 194 1|512
+      extra_desc: It is a shield of injustice, it picks on the innocent.
+  - id: 9314
+    key: sting_scorpio
+    name: the Sting of Scorpio~ 
+    description: Sting of the Zodiac lies here.
+    weight: 7
+    value: 10000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sting, scorpio]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 508
+      - 503
+    template_json:
+      raw_block: |
+        E
+        sting~
+        This dreadful weapon put a lot of mortals to death before Scorpio was banished.
+        ~
+        A
+        18 3
+        A
+        19 1
+      type_line: 5 1089 1|8192
+      extra_desc: This dreadful weapon put a lot of mortals to death before Scorpio was banished.
+  - id: 9315
+    key: arrow_sagittarius
+    name: the Arrow of Sagittarius
+    description: the Arrow of Sagittarius lies here.
+    weight: 7
+    value: 5000
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 30
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [arrow, sagittarius]
+    template_json:
+      raw_block: |
+        ~
+        3 1089 1|16384
+        10 10 10 30
+        7 5000 5000 
+        E
+        arrow~
+        It's an arrow of lightning; it will never miss any target.
+        ~
+      type_line: 3 1089 1|16384
+      extra_desc: It's an arrow of lightning; it will never miss any target.
+  - id: 9316
+    key: bow_sagittarius
+    name: the Titanic Bow of Sagittarius~ 
+    description: the Titanic Bow of Sagittarius lies here.
+    weight: 20
+    value: 10000
+    type: weapon
+    multiplier: 2
+    base_die: 9
+    damage_bonus: 6
+    weapon_family: BOWS
+    weapon_category: MARTIAL
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [bow, sagittarius]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 202
+      - 507
+    template_json:
+      raw_block: |
+        E
+        bow~
+        The gigantic bow used by the Archer; it is a very powerful weapon.
+        ~
+        A
+        18 1
+        A
+        19 3
+      type_line: 5 1089 1|8192
+      extra_desc: The gigantic bow used by the Archer; it is a very powerful weapon.
+  - id: 9317
+    key: horns_capricon
+    name: the Titanic Horns of Capricon
+    description: a pair of horns of the Zodiac lies here.
+    weight: 6
+    value: 10000
+    type: armor
+    slot: hands
+    armor_class: 4
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [horns, capricon]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 508
+      - 502
+    template_json:
+      raw_block: |
+        horn~
+        These strange horns are the work of gods, shaped to fit on hands.
+        They look powerful indeed.
+        ~
+        A
+        18 3
+        A
+        19 2
+      type_line: 9 1089 1|128
+      extra_desc: |
+        These strange horns are the work of gods, shaped to fit on hands.
+        They look powerful indeed.
+  - id: 9318
+    key: vessel_aquarius
+    name: the Ancient Vessel of Aquarius
+    description: A vessel of the Zodiac lies here.
+    weight: 12
+    value: 10000
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 80
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [vessel, aquarius]
+    template_json:
+      raw_block: |
+        4 1089 1|16384
+        10 10 10 80
+        12 10000 5000
+        E
+        vessel~
+        This vessel has been carried by the Water Bearer ever since she came to the
+        Zodiac.
+        ~
+      type_line: 4 1089 1|16384
+      extra_desc: |
+        This vessel has been carried by the Water Bearer ever since she came to the
+        Zodiac.
+  - id: 9319
+    key: tail_pisces
+    name: the Titanic Tail of Pisces
+    description: A fish tail of the Zodiac lies here.
+    weight: 10
+    value: 10000
+    type: armor
+    slot: legs
+    armor_class: 10
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [tail, pisces]
+    applies:
+      - location: 17
+        modifier: -2
+      - location: 2
+        modifier: -2
+    template_json:
+      raw_block: |
+        tail~
+        This tail can actually be worn by mortals somehow as leggings ... another
+        work of the gods.
+        ~
+        A
+        17 -2
+        A
+        2 -2
+      type_line: 9 1089 1|32
+      extra_desc: |
+        This tail can actually be worn by mortals somehow as leggings ... another
+        work of the gods.
+  - id: 9320
+    key: ring_dignity
+    name: the Ring of Dignity
+    description: A ring of specialty lies here.
+    weight: 3
+    value: 20000
+    type: armor
+    slot: finger
+    armor_class: 0
+    extra_flags:
+      - GLOW
+      - HUM
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, dignity]
+    applies:
+      - location: 12
+        modifier: 25
+      - location: 3
+        modifier: 2
+    template_json:
+      raw_block: |
+        ring~
+        This ring belongs to Cassiopeia, queen of the Universe.
+        Mortals, do not touch!
+        ~
+        A
+        12 25
+        A
+        3 2
+      type_line: 9 1123 1|2
+      extra_desc: |
+        This ring belongs to Cassiopeia, queen of the Universe.
+        Mortals, do not touch!
+  - id: 9321
+    key: sceptre_might
+    name: the Sceptre of Might
+    description: A sceptre of interest lies here.
+    weight: 4
+    value: 20000
+    type: held
+    extra_flags:
+      - GLOW
+      - HUM
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+      - WEAR_BODY
+      - WEAR_HEAD
+      - WEAR_FEET
+      - WEAR_HANDS
+      - WEAR_ARMS
+      - WEAR_SHIELD
+      - WEAR_ABOUT
+      - WEAR_WAIST
+      - WEAR_WRIST
+      - WIELD
+    keywords: [sceptre, might]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        E
+        sceptre~
+        You'd better give it back, or the king of the Universe will punish you.
+        ~
+        A
+        18 2
+        A
+        19 2
+      type_line: 1 1123 1|16348
+      extra_desc: You'd better give it back, or the king of the Universe will punish you.
+  - id: 9322
+    key: ring_universe
+    name: the ring of the universe
+    description: Here lies a fortune ... a small ring of power.
+    weight: 3
+    value: 40000
+    type: armor
+    slot: finger
+    armor_class: 4
+    extra_flags:
+      - GLOW
+      - HUM
+      - INVIS
+      - MAGIC
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, universe]
+    applies:
+      - location: 12
+        modifier: 10
+      - location: 13
+        modifier: 30
+    template_json:
+      raw_block: |
+        E
+        ring~
+        It conceals the power of the universe.
+        ~
+        A
+        12 10
+        A
+        13 30
+      type_line: 9 355 1|2
+      extra_desc: It conceals the power of the universe.
+  - id: 9323
+    key: great_dipper
+    name: the Great Dipper of the Skies
+    description: A dazzling white object lies on the ground.
+    weight: 20
+    value: 30000
+    type: weapon
+    multiplier: 4
+    base_die: 6
+    damage_bonus: 6
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - HUM
+      - INVIS
+      - MAGIC
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [great, dipper]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 355 1|8192
+        0 4 6 6
+        20 30000 20000
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 355 1|8192
+  - id: 9324
+    key: spring_shoot
+    name: a spring shoot
+    description: A shoot grows here, covered with dew.
+    weight: 2
+    value: 0
+    type: inventory
+    extra_flags:
+      - GLOW
+      - HUM
+    wear_flags:
+      - TAKE
+    keywords: [spring, shoot]
+    template_json:
+      raw_block: |
+        #9324
+        spring shoot~
+        a spring shoot~
+        A shoot grows here, covered with dew.~
+        ~
+        18 3 1
+        0 0 0 0
+        2 0 100000
+      type_line: 18 3 1
+  - id: 9325
+    key: summer_flower
+    name: a summer flower
+    description: A flower grows here, waiting to be picked up.
+    weight: 2
+    value: 0
+    type: inventory
+    extra_flags:
+      - GLOW
+      - HUM
+    wear_flags:
+      - TAKE
+    keywords: [summer, flower]
+    template_json:
+      raw_block: |
+        #9325
+        summer flower~
+        a summer flower~
+        A flower grows here, waiting to be picked up.~
+        ~
+        18 3 1
+        0 0 0 0
+        2 0 100000
+      type_line: 18 3 1
+  - id: 9326
+    key: autumn_leaf
+    name: an autumn leaf
+    description: A leaf lies here, as if just fallen from a tree.
+    weight: 2
+    value: 0
+    type: inventory
+    extra_flags:
+      - GLOW
+      - HUM
+    wear_flags:
+      - TAKE
+    keywords: [autumn, leaf]
+    template_json:
+      raw_block: |
+        #9326
+        autumn leaf~
+        an autumn leaf~
+        A leaf lies here, as if just fallen from a tree.~
+        ~
+        18 3 1
+        0 0 0 0
+        2 0 100000
+      type_line: 18 3 1
+  - id: 9327
+    key: winter_branch
+    name: a winter branch
+    description: A branch lies here, still covered with snow.~
+    weight: 2
+    value: 0
+    type: inventory
+    extra_flags:
+      - GLOW
+      - HUM
+    wear_flags:
+      - TAKE
+    keywords: [winter, branch]
+    template_json:
+      raw_block: |
+        #9327
+        winter branch~
+        a winter branch~
+        A branch lies here, still covered with snow.~ 
+        ~
+        18 3 1
+        0 0 0 0
+        2 0 100000
+      type_line: 18 3 1
+  - id: 9328
+    key: chains_andromeda
+    name: chains of Andromeda
+    description: Some chains lie on the floor.
+    weight: 50
+    value: 0
+    type: trash
+    extra_flags:
+      - GLOW
+      - INVIS
+    wear_flags:
+      - TAKE
+    keywords: [chains, andromeda]
+    template_json:
+      raw_block: |
+        ~
+        13 1|32 1
+        0 0 0 0
+        50 0 0
+        E
+        chains~
+        They certainly look important!
+        ~
+      type_line: 13 1|32 1
+      extra_desc: They certainly look important!

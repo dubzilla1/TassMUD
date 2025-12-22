@@ -1,0 +1,1093 @@
+items:
+  - id: 5200
+    key: mithril_vest
+    name: a mithril vest
+    description: A vest made of mithril plates lies heaped on the floor.
+    weight: 30
+    value: 12000
+    type: armor
+    slot: chest
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [mithril, vest]
+    applies:
+      - location: 19
+        modifier: 1
+      - location: 1
+        modifier: 2
+    on_equip_effect_ids:
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 9
+        8 0 0 0
+        30 12000 3000
+        A
+        19 1
+        A
+        1 2
+      type_line: 9 64|1024 9
+  - id: 5201
+    key: helm_mithril
+    name: a mithril helm
+    description: Here lies a large mithril helm.
+    weight: 10
+    value: 5000
+    type: armor
+    slot: head
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, mithril]
+    applies:
+      - location: 18
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        a mithril helm~
+        Here lies a large mithril helm.~
+        ~
+        9 64|1024 17
+        8 0 0 0
+        10 5000 1800
+        A
+        18 2
+      type_line: 9 64|1024 17
+  - id: 5202
+    key: gauntlets_mithril
+    name: a pair of mithril gauntlets
+    description: A pair of mithril gauntlets rests on the ground.
+    weight: 10
+    value: 2200
+    type: armor
+    slot: hands
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, mithril]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 129
+        8 0 0 0
+        10 2200 1900
+        A
+        18 1
+        A
+        19 1
+      type_line: 9 64|1024 129
+  - id: 5203
+    key: sleeves_mithril
+    name: some mithril sleeves
+    description: A set of mithril sleeves lies on the ground.
+    weight: 10
+    value: 12450
+    type: armor
+    slot: arms
+    armor_class: 7
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, mithril]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 257
+        7 0 0 0
+        10 12450 2200
+        A
+        18 1
+        A
+        19 1
+      type_line: 9 64|1024 257
+  - id: 5204
+    key: boots_mithril
+    name: a pair of mithril boots
+    description: A pair of mithril boots stands has been left here.
+    weight: 6
+    value: 1800
+    type: armor
+    slot: boots
+    armor_class: 7
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, mithril]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 2
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 65
+        7 0 0 0
+        6 1800 1200
+        A
+        18 1
+        A
+        2 1
+      type_line: 9 64|1024 65
+  - id: 5205
+    key: leggings_mithril
+    name: a set of mithril leggings
+    description: A set of mithril leggings lie here unattended.
+    weight: 10
+    value: 5400
+    type: armor
+    slot: legs
+    armor_class: 7
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings, mithril]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 2
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 33
+        7 0 0 0
+        10 5400 2100
+        A
+        18 1
+        A
+        2 1
+      type_line: 9 64|1024 33
+  - id: 5206
+    key: girth_mithril
+    name: a mithril girth
+    description: A large iron girth lies at your feet.
+    weight: 6
+    value: 14200
+    type: armor
+    slot: waist
+    armor_class: 7
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [girth, mithril]
+    applies:
+      - location: 5
+        modifier: 2
+    template_json:
+      raw_block: |
+        a mithril girth~
+        A large iron girth lies at your feet.~
+        ~
+        9 64|1024 2049
+        7 0 0 0
+        6 14200 1200
+        A
+        5 2
+      type_line: 9 64|1024 2049
+  - id: 5207
+    key: breast_plate_iron
+    name: a battered iron breast plate
+    description: A battered iron breast plate lies here.
+    weight: 125
+    value: 13000
+    type: armor
+    slot: chest
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [breast, plate, iron]
+    applies:
+      - location: 18
+        modifier: -6
+    on_equip_effect_ids:
+      - 515
+    template_json:
+      raw_block: |
+        a battered iron breast plate~
+        A battered iron breast plate lies here.~
+        ~
+        9 0 9
+        5 0 0 0
+        125 13000 1500
+        A
+        18 -6
+      type_line: 9 0 9
+  - id: 5208
+    key: shield_iron
+    name: a sturdy iron shield
+    description: A small, but sturdy, iron shield has been left here.
+    weight: 5
+    value: 500
+    type: armor
+    slot: off_hand
+    armor_class: 7
+    extra_flags:
+      - MAGIC
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, iron]
+    applies:
+      - location: 20
+        modifier: -2
+      - location: 21
+        modifier: -2
+    template_json:
+      raw_block: |
+        ~
+        9 64|512 513
+        7 0 0 0
+        5 500 100
+        A
+        20 -2
+        A
+        21 -2
+      type_line: 9 64|512 513
+  - id: 5210
+    key: potion_black
+    name: a black potion
+    description: A jet black potion sits upright waiting to be taken.
+    weight: 5
+    value: 6000
+    type: inventory
+    extra_flags:
+      - INVIS
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion, black]
+    spell_ids:
+      - 16
+      - 4
+      - 36
+      - 39
+    template_json:
+      raw_block: |
+        #5210
+        potion black~
+        a black potion~
+        A jet black potion sits upright waiting to be taken.~
+        ~
+        10 96 1
+        16 4 36 39
+        5 6000 1400
+      type_line: 10 96 1
+  - id: 5211
+    key: potion_orange
+    name: an orange potion
+    description: A small orange potion lies here.
+    weight: 10
+    value: 7500
+    type: inventory
+    extra_flags:
+      - INVIS
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion, orange]
+    spell_ids:
+      - 20
+      - 44
+    template_json:
+      raw_block: |
+        #5211
+        potion orange~
+        an orange potion~
+        A small orange potion lies here.~
+        ~
+        10 96 1
+        20 44 -1 -1
+        10 7500 2000
+      type_line: 10 96 1
+  - id: 5214
+    key: ball_quartz
+    name: a smooth quartz ball
+    description: A smooth quartz ball lies here gleaming.
+    weight: 30
+    value: 3050
+    type: held
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [ball, quartz]
+    template_json:
+      raw_block: |
+        #5214
+        ball quartz~
+        a smooth quartz ball~
+        A smooth quartz ball lies here gleaming.~
+        ~
+        1 64 16385
+        0 0 72 0
+        30 3050 950
+      type_line: 1 64 16385
+  - id: 5215
+    key: scroll_tattered
+    name: a tattered scroll
+    description: A worn and tattered scroll has been left here.
+    weight: 15
+    value: 11000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll, tattered]
+    spell_ids:
+      - 24
+      - 24
+    template_json:
+      raw_block: |
+        #5215
+        scroll tattered~
+        a tattered scroll~
+        A worn and tattered scroll has been left here.~
+        ~
+        2 64 1
+        24 24 -1 -1
+        15 11000 3400
+      type_line: 2 64 1
+  - id: 5216
+    key: scroll_bound
+    name: a bound scroll
+    description: A bound scroll of detection lies at your feet.
+    weight: 15
+    value: 4200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll, bound]
+    spell_ids:
+      - 15
+      - 18
+      - 19
+      - 20
+    template_json:
+      raw_block: |
+        #5216
+        scroll bound~
+        a bound scroll~
+        A bound scroll of detection lies at your feet.~
+        ~
+        2 64 1
+        15 18 19 20
+        15 4200 2100
+      type_line: 2 64 1
+  - id: 5217
+    key: flute_silver
+    name: a silver flute
+    description: A brilliant silver flute glimmers from beneath a rock.
+    weight: 6
+    value: 10500
+    type: weapon
+    multiplier: 1
+    base_die: 1
+    damage_bonus: 7
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [flute, silver]
+    template_json:
+      raw_block: |
+        #5217
+        flute silver~
+        a silver flute~
+        A brilliant silver flute glimmers from beneath a rock.~
+        ~
+        4 65 16385
+        17 1 1 7
+        6 10500 3500
+      type_line: 4 65 16385
+  - id: 5218
+    key: talisman_demon
+    name: a demon-faced talisman
+    description: A demon-faced talisman glares at you angrily.
+    weight: 11
+    value: 2500
+    type: armor
+    slot: neck
+    armor_class: 5
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [talisman, demon]
+    applies:
+      - location: 1
+        modifier: -10
+      - location: 2
+        modifier: -8
+    template_json:
+      raw_block: |
+        ~
+        9 1|64 5
+        5 0 0 0
+        11 2500 150
+        A
+        1 -10
+        A
+        2 -8
+      type_line: 9 1|64 5
+  - id: 5219
+    key: venison_chunk
+    name: a chunk of venison
+    description: A large chunk of venison sits here ready to be eaten.
+    weight: 20
+    value: 100
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [venison, chunk]
+    template_json:
+      raw_block: |
+        #5219
+        venison chunk~
+        a chunk of venison~
+        A large chunk of venison sits here ready to be eaten.~
+        ~
+        19 0 1
+        24 0 0 0
+        20 100 20
+      type_line: 19 0 1
+  - id: 5220
+    key: fountain_water
+    name: a large cracked fountain
+    description: Some stagnant water lies in the bottom of the fountain.
+    weight: 0
+    value: 0
+    type: immobile
+    keywords: [fountain, water]
+    template_json:
+      raw_block: |
+        #5220
+        fountain water~
+        a large cracked fountain~
+        Some stagnant water lies in the bottom of the fountain.~
+        ~
+        25 0 0
+        10 10 0 1
+        0 0 0
+      type_line: 25 0 0
+  - id: 5221
+    key: two_handed_two_sword
+    name: a two-handed sword
+    description: A nice two-handed sword hangs on a hook in the wall.
+    weight: 24
+    value: 55000
+    type: weapon
+    multiplier: 2
+    base_die: 12
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [two, handed, two, sword]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 501
+      - 507
+    template_json:
+      raw_block: |
+        ~
+        5 64|1024 8193
+        0 2 12 3
+        24 55000 12000
+        A
+        18 2
+        A
+        19 3
+      type_line: 5 64|1024 8193
+  - id: 5222
+    key: robe_black_silk
+    name: a black silk robe
+    description: A black silk robe lies heaped in one corner.
+    weight: 6
+    value: 1300
+    type: armor
+    slot: back
+    armor_class: 1
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [robe, black, silk]
+    applies:
+      - location: 12
+        modifier: 10
+    template_json:
+      raw_block: |
+        a black silk robe~
+        A black silk robe lies heaped in one corner.~
+        ~
+        9 0 1025
+        1 0 0 0
+        6 1300 500
+        A
+        12 10
+      type_line: 9 0 1025
+  - id: 5223
+    key: cloak_green
+    name: a dark green cloak
+    description: A beautiful dark green cloak has been dropped by someone.
+    weight: 12
+    value: 14500
+    type: armor
+    slot: neck
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [cloak, green]
+    applies:
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        a dark green cloak~
+        A beautiful dark green cloak has been dropped by someone.~
+        ~
+        9 64|512 5
+        8 0 0 0
+        12 14500 2200
+        A
+        13 5
+      type_line: 9 64|512 5
+  - id: 5224
+    key: seal_ebony
+    name: an engraved ebony seal
+    description: A small, engraved ebony seal is here.
+    weight: 2
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [seal, ebony]
+    template_json:
+      raw_block: |
+        #5224
+        seal ebony~
+        an engraved ebony seal~
+        A small, engraved ebony seal is here.~
+        ~
+        18 0 1
+        30 0 0 0
+        2 500 20
+      type_line: 18 0 1
+  - id: 5225
+    key: desk_curved
+    name: the desk
+    description: A dirty, crumbling curved desk is here.
+    weight: 0
+    value: 0
+    type: container
+    keywords: [desk, curved]
+    template_json:
+      raw_block: |
+        #5225
+        desk curved~
+        the desk~
+        A dirty, crumbling curved desk is here.~
+        ~
+        15 0 0
+        100 13 5224 0
+        0 0 0
+      type_line: 15 0 0
+  - id: 5226
+    key: seal_ivory
+    name: an engraved ivory seal
+    description: A small, engraved ivory seal lies here.
+    weight: 2
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [seal, ivory]
+    template_json:
+      raw_block: |
+        #5226
+        seal ivory~
+        an engraved ivory seal~
+        A small, engraved ivory seal lies here.~
+        ~
+        18 0 1
+        31 0 0 0
+        2 500 20
+      type_line: 18 0 1
+  - id: 5227
+    key: cabinet_glass
+    name: the glass cabinet
+    description: A broken glass cabinet is here.
+    weight: 0
+    value: 0
+    type: container
+    keywords: [cabinet, glass]
+    template_json:
+      raw_block: |
+        #5227
+        cabinet glass~
+        the glass cabinet~
+        A broken glass cabinet is here.~
+        ~
+        15 0 0
+        500 13 5226 0
+        0 0 0
+      type_line: 15 0 0
+  - id: 5228
+    key: arm_rotted
+    name: a rotten arm
+    description: A rotted arm floats lazily by your feet.
+    weight: 20
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [arm, rotted]
+    template_json:
+      raw_block: |
+        #5228
+        arm rotted~
+        a rotten arm~
+        A rotted arm floats lazily by your feet.~
+        ~
+        19 0 1
+        50 0 0 1
+        20 0 0
+      type_line: 19 0 1
+  - id: 5230
+    key: stone_pale_blue
+    name: a pale blue stone
+    description: A pale blue stone sits here.
+    weight: 10
+    value: 5500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, pale, blue]
+    applies:
+      - location: 1
+        modifier: 1
+    template_json:
+      raw_block: |
+        a pale blue stone~
+        A pale blue stone sits here.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 5500 2000
+        A
+        1 1
+      type_line: 8 64 16385
+  - id: 5231
+    key: stone_scarlet_blue
+    name: a scarlet and blue stone
+    description: A pretty scarlet and blue stone has been dropped here.
+    weight: 10
+    value: 5500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, scarlet, blue]
+    applies:
+      - location: 3
+        modifier: 1
+    template_json:
+      raw_block: |
+        a scarlet and blue stone~
+        A pretty scarlet and blue stone has been dropped here.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 5500 2000
+        A
+        3 1
+      type_line: 8 64 16385
+  - id: 5232
+    key: stone_blue_incandescent
+    name: an incandescent blue stone
+    description: A small incandescent blue stone lies here.
+    weight: 10
+    value: 5500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, blue, incandescent]
+    applies:
+      - location: 4
+        modifier: 1
+    template_json:
+      raw_block: |
+        an incandescent blue stone~
+        A small incandescent blue stone lies here.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 5500 2000
+        A
+        4 1
+      type_line: 8 64 16385
+  - id: 5233
+    key: stone_red_deep
+    name: a deep red stone
+    description: Someone has left a deep red stone here.
+    weight: 10
+    value: 5500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, red, deep]
+    applies:
+      - location: 2
+        modifier: 1
+    template_json:
+      raw_block: |
+        a deep red stone~
+        Someone has left a deep red stone here.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 5500 2000
+        A
+        2 1
+      type_line: 8 64 16385
+  - id: 5234
+    key: stone_pink
+    name: a pink stone
+    description: A tiny pink stone lies at your feet.
+    weight: 10
+    value: 5500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, pink]
+    applies:
+      - location: 5
+        modifier: 1
+    template_json:
+      raw_block: |
+        a pink stone~
+        A tiny pink stone lies at your feet.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 5500 2000
+        A
+        5 1
+      type_line: 8 64 16385
+  - id: 5235
+    key: stone_pearly_white
+    name: a pearly white stone
+    description: This pearly white stone would probably sell for a good price.
+    weight: 10
+    value: 8700
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, pearly, white]
+    applies:
+      - location: 13
+        modifier: 1
+    template_json:
+      raw_block: |
+        a pearly white stone~
+        This pearly white stone would probably sell for a good price.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 8700 3500
+        A
+        13 1
+      type_line: 8 64 16385
+  - id: 5237
+    key: stone_lavender_green
+    name: a lavender and green stone
+    description: A stunning lavender and green stone rests on the ground.
+    weight: 10
+    value: 4700
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, lavender, green]
+    applies:
+      - location: 24
+        modifier: -4
+    template_json:
+      raw_block: |
+        a lavender and green stone~
+        A stunning lavender and green stone rests on the ground.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 4700 1900
+        A
+        24 -4
+      type_line: 8 64 16385
+  - id: 5239
+    key: stone_grey_dull
+    name: a dull grey stone
+    description: You can barely make out a dull grey stone on the ground.
+    weight: 10
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, grey, dull]
+    template_json:
+      raw_block: |
+        #5239
+        stone grey dull~
+        a dull grey stone~
+        You can barely make out a dull grey stone on the ground.~
+        ~
+        8 0 16385
+        0 0 0 0
+        10 20 20
+      type_line: 8 0 16385
+  - id: 5241
+    key: stone_pink_green
+    name: a pink and green stone
+    description: A bright pink and green stone has been left here.
+    weight: 10
+    value: 6600
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, pink, green]
+    applies:
+      - location: 18
+        modifier: -5
+    on_equip_effect_ids:
+      - 516
+    template_json:
+      raw_block: |
+        a pink and green stone~
+        A bright pink and green stone has been left here.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 6600 2500
+        A
+        18 -5
+      type_line: 8 64 16385
+  - id: 5243
+    key: stone_clear
+    name: a clear stone
+    description: A odd clear stone lies at your feet.
+    weight: 10
+    value: 8900
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stone, clear]
+    applies:
+      - location: 17
+        modifier: 3
+    template_json:
+      raw_block: |
+        a clear stone~
+        A odd clear stone lies at your feet.~
+        ~
+        8 64 16385
+        0 0 0 0
+        10 8900 3900
+        A
+        17 3
+      type_line: 8 64 16385
+  - id: 5250
+    key: mandolin
+    name: a mandolin
+    description: A mandolin lies against the wall.
+    weight: 20
+    value: 3000
+    type: weapon
+    multiplier: 3
+    base_die: 3
+    damage_bonus: 15
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [mandolin]
+    template_json:
+      raw_block: |
+        #5250
+        mandolin~
+        a mandolin~
+        A mandolin lies against the wall.~
+        ~
+        4 64 16385
+        13 3 3 15
+        20 3000 5000
+      type_line: 4 64 16385
+  - id: 5251
+    key: harp_golden
+    name: a golden harp
+    description: A battered golden harp has been tipped over.
+    weight: 100
+    value: 2500
+    type: weapon
+    multiplier: 1
+    base_die: 1
+    damage_bonus: 6
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [harp, golden]
+    template_json:
+      raw_block: |
+        #5251
+        harp golden~
+        a golden harp~
+        A battered golden harp has been tipped over.~
+        ~
+        4 64 16385
+        18 1 1 6
+        100 2500 6700
+      type_line: 4 64 16385
+  - id: 5252
+    key: long_dagger_slim
+    name: a long slim dagger
+    description: A long slim dagger has been left here.
+    weight: 4
+    value: 1000
+    type: weapon
+    multiplier: 2
+    base_die: 5
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [long, dagger, slim]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        5 64 8193
+        0 2 5 11
+        4 1000 100
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 64 8193

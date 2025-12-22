@@ -1,0 +1,480 @@
+items:
+  - id: 2001
+    key: glowing_key
+    name: a glowing key
+    description: A circular, glowing key radiates a bright aura around it.
+    weight: 1
+    value: 10000
+    type: inventory
+    extra_flags:
+      - GLOW
+      - HUM
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [glowing, key]
+    template_json:
+      raw_block: |
+        #2001
+        glowing key~
+        a glowing key~
+        A circular, glowing key radiates a bright aura around it.~
+        ~
+        18 67 1
+        39 0 0 0
+        1 10000 1000000
+      type_line: 18 67 1
+  - id: 2002
+    key: granite_plate_mail_platemail
+    name: a suit of granite platemail
+    description: A suit of platemail hewn from granite stands by itself in the corner.
+    weight: 55
+    value: 42300
+    type: armor
+    slot: chest
+    armor_class: 9
+    extra_flags:
+      - ANTI_GOOD
+      - HUM
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [granite, plate, mail, platemail]
+    applies:
+      - location: 2
+        modifier: -1
+    template_json:
+      raw_block: |
+        a suit of granite platemail~
+        A suit of platemail hewn from granite stands by itself in the corner.~
+        ~
+        9 512|2 9
+        9 0 0 0
+        55 42300 1000
+        A
+        2 -1
+      type_line: 9 512|2 9
+  - id: 2003
+    key: onyx_ring
+    name: an onyx ring
+    description: A ring with a very dark onyx stone in it has been left in the dirt.
+    weight: 1
+    value: 11010
+    type: armor
+    slot: finger
+    armor_class: 5
+    extra_flags:
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [onyx, ring]
+    applies:
+      - location: 4
+        modifier: 1
+    template_json:
+      raw_block: |
+        an onyx ring~
+        A ring with a very dark onyx stone in it has been left in the dirt.~
+        ~
+        9 512 3
+        5 0 0 0
+        1 11010 200
+        A
+        4 1
+      type_line: 9 512 3
+  - id: 2004
+    key: neutralizer_sword
+    name: the neutralizer
+    description: A long thin sword with a wide blade makes you wonder.
+    weight: 9
+    value: 3304
+    type: weapon
+    multiplier: 4
+    base_die: 5
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - HUM
+      - ANTI_GOOD
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [neutralizer, sword]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        5 2|512|1024 8193
+        0 4 5 3
+        9 3304 99
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 2|512|1024 8193
+  - id: 2005
+    key: sword_excalibur
+    name: The sword Excalibur
+    description: A sword gleams by the light of its magical silvery blade.
+    weight: 15
+    value: 12157
+    type: weapon
+    multiplier: 5
+    base_die: 4
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, excalibur]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 1
+        modifier: 1
+    on_equip_effect_ids:
+      - 508
+    template_json:
+      raw_block: |
+        ~
+        5 1|64|1024|2048 8193
+        0 5 4 3
+        15 12157 50
+        A
+        18 3
+        A
+        1 1
+      type_line: 5 1|64|1024|2048 8193
+  - id: 2006
+    key: crown
+    name: A kingly crown
+    description: The crown of a long lost King lies forgotten here.
+    weight: 10
+    value: 15900
+    type: inventory
+    extra_flags:
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [crown]
+    applies:
+      - location: 17
+        modifier: -8
+    template_json:
+      raw_block: |
+        A kingly crown~
+        The crown of a long lost King lies forgotten here.~
+        ~
+        18 256 17
+        15 0 0 0
+        10 15900 720
+        A
+        17 -8
+      type_line: 18 256 17
+  - id: 2007
+    key: stone
+    name: stone
+    description: The stone is surrounded by a bright glow, better look closer.
+    weight: 2000
+    value: 0
+    type: container
+    extra_flags:
+      - GLOW
+    keywords: [stone]
+    template_json:
+      raw_block: |
+        #2007
+        stone~
+        stone~
+        The stone is surrounded by a bright glow, better look closer.~
+        ~
+        15 1 0
+        15 15 2006 0
+        2000 0 0
+      type_line: 15 1 0
+  - id: 2008
+    key: holy_water_flask
+    name: a flask of holy water
+    description: A flask of holy water is here.
+    weight: 2
+    value: 5000
+    type: inventory
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [holy, water, flask]
+    spell_ids:
+      - 25
+      - 3
+      - 36
+    template_json:
+      raw_block: |
+        #2008
+        holy water flask~
+        a flask of holy water~
+        A flask of holy water is here.~
+        ~
+        10 1 16385
+        25 3 36 -1
+        2 5000 10
+      type_line: 10 1 16385
+  - id: 2009
+    key: chainmail_chain_mail_suit
+    name: a suit of chainmail
+    description: A nice suit of chainmail has been left behind.
+    weight: 20
+    value: 1111
+    type: armor
+    slot: chest
+    armor_class: 5
+    extra_flags:
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [chainmail, chain, mail, suit]
+    template_json:
+      raw_block: |
+        #2009
+        chainmail chain mail suit~
+        a suit of chainmail~
+        A nice suit of chainmail has been left behind.~
+        ~
+        9 256 9
+        5 0 0 0
+        20 1111 25
+      type_line: 9 256 9
+  - id: 2010
+    key: white_cape
+    name: a white cape
+    description: A blazing cape of white lies in a careful pile.
+    weight: 3
+    value: 5000
+    type: armor
+    slot: neck
+    armor_class: 5
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [white, cape]
+    applies:
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        a white cape~
+        A blazing cape of white lies in a careful pile.~
+        ~
+        9 1 5
+        5 0 0 0
+        3 5000 10
+        A
+        18 1
+      type_line: 9 1 5
+  - id: 2011
+    key: shield_defense
+    name: the shield of defense
+    description: A large shield lies protecting the ground.
+    weight: 15
+    value: 33000
+    type: armor
+    slot: off_hand
+    armor_class: 15
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, defense]
+    applies:
+      - location: 12
+        modifier: 10
+      - location: 13
+        modifier: 10
+      - location: 18
+        modifier: -2
+      - location: 19
+        modifier: -1
+    on_equip_effect_ids:
+      - 506
+      - 509
+    template_json:
+      raw_block: |
+        A
+        12 10
+        A
+        13 10
+        A
+        18 -2
+        A
+        19 -1
+      type_line: 9 64 513
+  - id: 2012
+    key: scale_shield_dragonscale
+    name: a dragonscale shield
+    description: A shield from from the scales of a large dragon lies here.
+    weight: 18
+    value: 8000
+    type: armor
+    slot: off_hand
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [scale, shield, dragonscale]
+    applies:
+      - location: 23
+        modifier: 3
+    template_json:
+      raw_block: |
+        a dragonscale shield~
+        A shield from from the scales of a large dragon lies here.~
+        ~
+        9 0 513
+        8 0 0 0
+        18 8000 100
+        A
+        23 3
+      type_line: 9 0 513
+  - id: 2013
+    key: prism_wand
+    name: a prism wand
+    description: A wand made of a triangular prism twinkles in the dust.
+    weight: 4
+    value: 7070
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 10
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [prism, wand]
+    template_json:
+      raw_block: |
+        #2013
+        prism wand~
+        a prism wand~
+        A wand made of a triangular prism twinkles in the dust.~
+        ~
+        3 65 16385
+        11 4 4 10
+        4 7070 20
+      type_line: 3 65 16385
+  - id: 2014
+    key: shadow_cloak
+    name: a shadow cloak
+    description: The shadows in the corner of the room seems strange ...
+    weight: 1
+    value: 4000
+    type: armor
+    slot: back
+    armor_class: 10
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [shadow, cloak]
+    applies:
+      - location: 14
+        modifier: -30
+    template_json:
+      raw_block: |
+        a shadow cloak~
+        The shadows in the corner of the room seems strange ...~
+        ~
+        9 64 1025
+        10 0 0 0
+        1 4000 1
+        A
+        14 -30
+      type_line: 9 64 1025
+  - id: 2015
+    key: misty_potion
+    name: a misty potion
+    description: A potion of swirling mist-like substance is here.
+    weight: 1
+    value: 1000
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [misty, potion]
+    spell_ids:
+      - 10
+      - 74
+    template_json:
+      raw_block: |
+        #2015
+        misty potion~
+        a misty potion~
+        A potion of swirling mist-like substance is here.~
+        ~
+        10 0 16385
+        10 74 -1 -1
+        1 1000 10
+      type_line: 10 0 16385
+  - id: 2016
+    key: templar_templars_sword_wooden
+    name: a templar's sword
+    description: A sword made of wood has been left here.
+    weight: 6
+    value: 2900
+    type: weapon
+    multiplier: 2
+    base_die: 6
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [templar, templars, sword, wooden]
+    applies:
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        a templar's sword~
+        A sword made of wood has been left here.~
+        ~
+        5 256 8193
+        0 2 6 3
+        6 2900 50
+        A
+        18 1
+      type_line: 5 256 8193

@@ -1,0 +1,336 @@
+items:
+  - id: 2901
+    key: horns
+    name: horns
+    description: a set of horns lies here.
+    weight: 2
+    value: 10
+    type: weapon
+    multiplier: 1
+    base_die: 6
+    damage_bonus: 7
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [horns]
+    template_json:
+      raw_block: |
+        #2901
+        horns~
+        horns~
+        a set of horns lies here.~
+        ~
+        5 0 1|8192
+        0 1 6 7
+        2 10 3
+      type_line: 5 0 1|8192
+  - id: 2902
+    key: bladder_milk
+    name: milk bladder
+    description: a milk bladder lies here.
+    weight: 1
+    value: 2
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [bladder, milk]
+    template_json:
+      raw_block: |
+        #2902
+        bladder milk~
+        milk bladder~
+        a milk bladder lies here.~
+        ~
+        17 0 1
+        20 20 10 0
+        1 2 2 
+      type_line: 17 0 1
+  - id: 2903
+    key: shovel
+    name: shovel
+    description: a shovel lies here.
+    weight: 2
+    value: 10
+    type: weapon
+    multiplier: 1
+    base_die: 6
+    damage_bonus: 7
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [shovel]
+    template_json:
+      raw_block: |
+        #2903
+        shovel~
+        shovel~
+        a shovel lies here.~
+        ~
+        5 0 1|8192
+        0 1 6 7
+        2 10 3
+      type_line: 5 0 1|8192
+  - id: 2904
+    key: short_sword
+    name: short sword
+    description: a short sword lies here.
+    weight: 3
+    value: 30
+    type: weapon
+    multiplier: 1
+    base_die: 6
+    damage_bonus: 11
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [short, sword]
+    template_json:
+      raw_block: |
+        #2904
+        short sword~
+        short sword~
+        a short sword lies here.~
+        ~
+        5 0 1|8192
+        0 1 6 11
+        3 30 3
+      type_line: 5 0 1|8192
+  - id: 2905
+    key: hand_axe
+    name: hand axe
+    description: a hand axe lies here.
+    weight: 3
+    value: 30
+    type: weapon
+    multiplier: 1
+    base_die: 6
+    damage_bonus: 3
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [hand, axe]
+    template_json:
+      raw_block: |
+        #2905
+        hand axe~
+        hand axe~
+        a hand axe lies here.~
+        ~
+        5 0 1|8192
+        0 1 6 3
+        3 30 3
+      type_line: 5 0 1|8192
+  - id: 2906
+    key: chainmail
+    name: chainmail
+    description: a chainmail shirt lies here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: chest
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [chainmail]
+    template_json:
+      raw_block: |
+        #2906
+        chainmail~
+        chainmail~
+        a chainmail shirt lies here.~
+        ~
+        9 0 1|8 
+        4 0 0 0 
+        10 1000 10
+      type_line: 9 0 1|8
+  - id: 2907
+    key: pick
+    name: pick
+    description: a pick lies here.
+    weight: 2
+    value: 1000
+    type: weapon
+    multiplier: 1
+    base_die: 9
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [pick]
+    template_json:
+      raw_block: |
+        #2907
+        pick~
+        pick~
+        a pick lies here.~
+        ~
+        5 0 1|8192
+        0 1 9 11
+        2 1000 10
+      type_line: 5 0 1|8192
+  - id: 2911
+    key: broad_axe
+    name: broad axe
+    description: a broad axe lies here.
+    weight: 15
+    value: 600
+    type: weapon
+    multiplier: 2
+    base_die: 8
+    damage_bonus: 3
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [broad, axe]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 202
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 64|512 1|8192
+        0 2 8 3
+        15 600 100
+        A
+        18 1
+        A
+        19 2
+      type_line: 5 64|512 1|8192
+  - id: 2912
+    key: leather_suit
+    name: leather suit
+    description: a leather suit lies here.
+    weight: 3
+    value: 1000
+    type: armor
+    slot: chest
+    armor_class: 4
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [leather, suit]
+    applies:
+      - location: 2
+        modifier: 1
+    template_json:
+      raw_block: |
+        leather suit~
+        a leather suit lies here.~
+        ~
+        9 1|64 1|8
+        4 0 0 0 
+        3 1000 100
+        A
+        2 1
+      type_line: 9 1|64 1|8
+  - id: 2913
+    key: mace
+    name: mace
+    description: a mace lies here.
+    weight: 10
+    value: 300
+    type: weapon
+    multiplier: 2
+    base_die: 6
+    damage_bonus: 6
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    extra_flags:
+      - HUM
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [mace]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 2|64 1|8192
+        0 2 6 6
+        10 300 20
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 2|64 1|8192
+  - id: 2914
+    key: potion
+    name: orange potion
+    description: an orange potion lies here.
+    weight: 1
+    value: 100
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 22
+      - 17
+      - 28
+    template_json:
+      raw_block: |
+        #2914
+        potion~
+        orange potion~
+        an orange potion lies here.~
+        ~
+        10 64 1
+        10 22 17 28
+        1 100 10
+      type_line: 10 64 1
+  - id: 2915
+    key: egg_newt
+    name: a newt egg
+    description: a newt egg lies here.
+    weight: 1
+    value: 1
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [egg, newt]
+    template_json:
+      raw_block: |
+        #2915
+        egg newt~
+        a newt egg~
+        a newt egg lies here.~
+        ~
+        19 0 1
+        10 0 0 0
+        1 1 1
+      type_line: 19 0 1

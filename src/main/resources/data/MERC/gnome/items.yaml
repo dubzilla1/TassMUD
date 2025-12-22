@@ -1,0 +1,589 @@
+items:
+  - id: 1500
+    key: key_bloody
+    name: a bloody key
+    description: A bloody key is stuck to the floor.
+    weight: 1
+    value: 1000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, bloody]
+    template_json:
+      raw_block: |
+        #1500
+        key bloody~
+        a bloody key~
+        A bloody key is stuck to the floor.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 1000 400
+      type_line: 18 0 1
+  - id: 1501
+    key: key_dirty
+    name: a dirty key
+    description: A dirty key lies here.
+    weight: 1
+    value: 1050
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, dirty]
+    template_json:
+      raw_block: |
+        #1501
+        key dirty~
+        a dirty key~
+        A dirty key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 1050 405
+      type_line: 18 0 1
+  - id: 1502
+    key: toy_boomerang
+    name: A toy boomerang
+    description: A toy boomerang wants to be picked up.
+    weight: 5
+    value: 5
+    type: weapon
+    multiplier: 2
+    base_die: 4
+    damage_bonus: 7
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [toy, boomerang]
+    template_json:
+      raw_block: |
+        #1502
+        toy boomerang~
+        A toy boomerang~
+        A toy boomerang wants to be picked up.~
+        ~
+        5 0 1|8192
+        0 2 4 7
+        5 5 2
+      type_line: 5 0 1|8192
+  - id: 1503
+    key: staff_gnarled
+    name: A gnarled staff
+    description: A gnarled staff is here.
+    weight: 15
+    value: 600
+    type: weapon
+    multiplier: 1
+    base_die: 9
+    damage_bonus: 7
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [staff, gnarled]
+    template_json:
+      raw_block: |
+        #1503
+        staff gnarled~
+        A gnarled staff~
+        A gnarled staff is here.~
+        ~
+        5 0 1|8192
+        0 1 9 7
+        15 600 250
+      type_line: 5 0 1|8192
+  - id: 1504
+    key: sword_gnome
+    name: A gnome sword
+    description: A gnome sword catches your eye.
+    weight: 15
+    value: 4000
+    type: weapon
+    multiplier: 3
+    base_die: 3
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, gnome]
+    template_json:
+      raw_block: |
+        #1504
+        sword gnome~
+        A gnome sword~
+        A gnome sword catches your eye.~
+        ~
+        5 0 8193
+        0 3 3 3
+        15 4000 2000
+      type_line: 5 0 8193
+  - id: 1505
+    key: shield_studded
+    name: a studded shield
+    description: A studded wooden shield lies here.
+    weight: 16
+    value: 3000
+    type: armor
+    slot: off_hand
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, studded]
+    template_json:
+      raw_block: |
+        #1505
+        shield studded~
+        a studded shield~
+        A studded wooden shield lies here.~
+        ~
+        9 0 513
+        4 0 0 0
+        16 3000 1500
+      type_line: 9 0 513
+  - id: 1506
+    key: potion_bloody
+    name: a bloody potion
+    description: A bloody potion lies here.
+    weight: 22
+    value: 1500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [potion, bloody]
+    spell_ids:
+      - 15
+      - 14
+      - 15
+      - 39
+    template_json:
+      raw_block: |
+        #1506
+        potion bloody~
+        a bloody potion~
+        A bloody potion lies here.~
+        ~
+        10 0 1
+        15 14 15 39
+        22 1500 800
+      type_line: 10 0 1
+  - id: 1507
+    key: cloak_bloody
+    name: a bloody cloak
+    description: A bloody cloak lies in a corner.
+    weight: 15
+    value: 2000
+    type: armor
+    slot: neck
+    armor_class: 4
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [cloak, bloody]
+    template_json:
+      raw_block: |
+        #1507
+        cloak bloody~
+        a bloody cloak~
+        A bloody cloak lies in a corner.~
+        ~
+        9 64 5
+        4 0 0 0
+        15 2000 1000
+      type_line: 9 64 5
+  - id: 1508
+    key: ring_bat
+    name: A bat ring
+    description: A ring in the shape of a bat lies here.
+    weight: 2
+    value: 2500
+    type: armor
+    slot: finger
+    armor_class: 3
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, bat]
+    applies:
+      - location: 14
+        modifier: 15
+    template_json:
+      raw_block: |
+        A bat ring~
+        A ring in the shape of a bat lies here.~
+        ~
+        9 64 3
+        3 0 0 0
+        2 2500 1250
+        A
+        14 15
+      type_line: 9 64 3
+  - id: 1509
+    key: necklace_bead
+    name: A bead necklace
+    description: A string of beads is here.
+    weight: 8
+    value: 4000
+    type: armor
+    slot: neck
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [necklace, bead]
+    applies:
+      - location: 18
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        A bead necklace~
+        A string of beads is here.~
+        ~
+        9 0 5
+        3 0 0 0
+        8 4000 2000
+        A
+        18 2
+      type_line: 9 0 5
+  - id: 1510
+    key: sword_electrum
+    name: An electrum sword
+    description: An electrum sword lies here.
+    weight: 20
+    value: 100000
+    type: weapon
+    multiplier: 4
+    base_die: 3
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, electrum]
+    template_json:
+      raw_block: |
+        #1510
+        sword electrum~
+        An electrum sword~
+        An electrum sword lies here.~
+        ~
+        5 65 8193
+        0 4 3 3
+        20 100000 25000
+      type_line: 5 65 8193
+  - id: 1511
+    key: basket_wicker
+    name: a wicker basket
+    description: A wicker basket sits here.
+    weight: 5
+    value: 45
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [basket, wicker]
+    template_json:
+      raw_block: |
+        #1511
+        basket wicker~
+        a wicker basket~
+        A wicker basket sits here.~
+        ~
+        15 0 1
+        90 0 -1 0
+        5 45 15
+      type_line: 15 0 1
+  - id: 1512
+    key: peanuts
+    name: some peanuts
+    description: Peanuts lie here.
+    weight: 9
+    value: 25
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [peanuts]
+    template_json:
+      raw_block: |
+        #1512
+        peanuts~
+        some peanuts~
+        Peanuts lie here.~
+        ~
+        19 0 1
+        16 0 0 0
+        9 25 5
+      type_line: 19 0 1
+  - id: 1513
+    key: grain
+    name: some grain
+    description: There is some grain here.
+    weight: 8
+    value: 22
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [grain]
+    template_json:
+      raw_block: |
+        #1513
+        grain~
+        some grain~
+        There is some grain here.~
+        ~
+        19 0 1
+        15 0 0 0
+        8 22 4
+      type_line: 19 0 1
+  - id: 1514
+    key: skiff
+    name: a skiff
+    description: A small skiff is here.
+    weight: 24
+    value: 1500
+    type: immobile
+    wear_flags:
+      - TAKE
+    keywords: [skiff]
+    template_json:
+      raw_block: |
+        #1514
+        skiff~
+        a skiff~
+        A small skiff is here.~
+        ~
+        22 0 1
+        0 0 0 0
+        24 1500 500
+      type_line: 22 0 1
+  - id: 1515
+    key: boots_gnome
+    name: a pair of gnome boots
+    description: You notice a pair of Gnome Boots.
+    weight: 12
+    value: 12000
+    type: armor
+    slot: boots
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, gnome]
+    applies:
+      - location: 14
+        modifier: 10
+    template_json:
+      raw_block: |
+        a pair of gnome boots~
+        You notice a pair of Gnome Boots.~
+        ~
+        9 0 65
+        4 0 0 0
+        12 12000 5000
+        A
+        14 10
+      type_line: 9 0 65
+  - id: 1516
+    key: coins
+    name: a pile of coins
+    description: A pile of coins.
+    weight: 1
+    value: 1
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins]
+    template_json:
+      raw_block: |
+        #1516
+        coins~
+        a pile of coins~
+        A pile of coins.~
+        ~
+        20 0 1
+        1000 0 0 0
+        1 1 1
+      type_line: 20 0 1
+  - id: 1517
+    key: coins
+    name: a pile of coins
+    description: A pile of coins.
+    weight: 1
+    value: 1
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins]
+    template_json:
+      raw_block: |
+        #1517
+        coins~
+        a pile of coins~
+        A pile of coins.~
+        ~
+        20 0 1
+        5000 0 0 0
+        1 1 1
+      type_line: 20 0 1
+  - id: 1518
+    key: coins
+    name: a pile of coins
+    description: A pile of coins.
+    weight: 1
+    value: 1
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins]
+    template_json:
+      raw_block: |
+        #1518
+        coins~
+        a pile of coins~
+        A pile of coins.~
+        ~
+        20 0 1
+        1000 0 0 0
+        1 1 1
+      type_line: 20 0 1
+  - id: 1519
+    key: shield_stone
+    name: a stone shield
+    description: A stone slab lies here.
+    weight: 35
+    value: 9000
+    type: armor
+    slot: off_hand
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, stone]
+    applies:
+      - location: 1
+        modifier: 2
+    template_json:
+      raw_block: |
+        a stone shield~
+        A stone slab lies here.~
+        ~
+        9 0 513
+        4 0 0 0
+        35 9000 5000
+        A
+        1 2
+      type_line: 9 0 513
+  - id: 1520
+    key: mail_heavy_banded
+    name: heavy banded mail
+    description: A large suit of heavy banded mail is here
+    weight: 30
+    value: 35000
+    type: armor
+    slot: chest
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [mail, heavy, banded]
+    template_json:
+      raw_block: |
+        #1520
+        mail heavy banded~
+        heavy banded mail~
+        A large suit of heavy banded mail is here~
+        ~
+        9 0 9
+        6 0 0 0
+        30 35000 10000
+      type_line: 9 0 9
+  - id: 1521
+    key: club_large
+    name: a large club
+    description: A large club sits here.
+    weight: 22
+    value: 20000
+    type: weapon
+    multiplier: 4
+    base_die: 3
+    damage_bonus: 7
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [club, large]
+    template_json:
+      raw_block: |
+        #1521
+        club large~
+        a large club~
+        A large club sits here.~
+        ~
+        5 0 8193
+        0 4 3 7
+        22 20000 10000
+      type_line: 5 0 8193
+  - id: 1522
+    key: banana
+    name: a banana
+    description: There is a banana here.
+    weight: 5
+    value: 9
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [banana]
+    template_json:
+      raw_block: |
+        #1522
+        banana~
+        a banana~
+        There is a banana here.~
+        ~
+        19 0 1
+        6 0 0 0
+        5 9 3
+      type_line: 19 0 1
+  - id: 1523
+    key: life_potion
+    name: a potion of life healing
+    description: A potion of life healing has left here.
+    weight: 1
+    value: 1
+    type: inventory
+    extra_flags:
+      - NODROP
+    wear_flags:
+      - TAKE
+    keywords: [life, potion]
+    spell_ids:
+      - 32
+      - 43
+      - 3
+      - 0
+    template_json:
+      raw_block: |
+        #1523
+        life potion~
+        a potion of life healing~
+        A potion of life healing has left here.~
+        ~
+        10 128 1
+        32 43 3 0
+        1 1 1
+      type_line: 10 128 1

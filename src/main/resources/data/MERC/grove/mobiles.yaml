@@ -1,0 +1,341 @@
+- id: 8900
+  key: "the_hierophant"
+  name: "hierophant"
+  short_desc: "The Hierophant"
+  long_desc: "The old Hierophant of the holy grove is here, gathering hollies."
+  keywords: ['hierophant']
+  level: 64
+  hp_max: 390
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '20d20+180', 'damage_dice': '20d20+180', 'raw_block': 'He is a very old man, dressed in an old robe; but from the glint in his\nclear blue eyes you can see that He is aware of the world, and wise to its\ntraps and pitfalls.\n~\n64|128 8|128|8192 +1000 S\n20 0 -5 20d20+180 1d8+12\n50 60000\n8 8 1'}
+
+- id: 8901
+  key: "the_hierophant"
+  name: "hierophant"
+  short_desc: "The Hierophant"
+  long_desc: "The old Hierophant of the holy grove is here, gathering ivy."
+  keywords: ['hierophant']
+  level: 64
+  hp_max: 390
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '20d20+180', 'damage_dice': '20d20+180', 'raw_block': 'She is a very old woman, dressed in an old gown; but from the glint in her\nclear blue eyes you can see that She is aware of the world, and wise to its\ntraps and pitfalls.\n~\n64|128 8|128|8192 +1000 S\n20 0 -5 20d20+180 1d8+12\n50 60000\n8 8 2'}
+
+- id: 8902
+  key: "an_elder_druid"
+  name: "elder druid"
+  short_desc: "an elder druid"
+  long_desc: "An elder druid stands here, watching the local flora and wildlife."
+  keywords: ['elder', 'druid']
+  level: 64
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'He looks ageless, as do all druids.  His grey beard contrasts strongly with\nhis lack of wrinkles.\n~\n64|128 8192 1000 S\n13 7 0 13d13+130 1d4+7\n50 15000\n8 8 1'}
+
+- id: 8903
+  key: "an_elder_druidess"
+  name: "elder druidess"
+  short_desc: "an elder druidess"
+  long_desc: "An elder druidess stands here, watching the local fauna and feeding rabbits."
+  keywords: ['elder', 'druidess']
+  level: 64
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'She looks ageless, as do all druids.  She smiles a beautiful smile at you.\n~\n64|128 8192 1000 S\n13 7 0 13d13+130 1d4+7\n50 15000\n8 8 2'}
+
+- id: 8904
+  key: "a_doe"
+  name: "doe"
+  short_desc: "a doe"
+  long_desc: "A doe is here, munching on grass."
+  keywords: ['doe']
+  level: 64
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '5d5+55', 'damage_dice': '5d5+55', 'raw_block': 'This peaceful creature looks at you with big dark eyes.  Her nose twitches as\nshe sniffs at you, but she goes back to chewing some grass.\n~\n64|128 0 0 S\n5 15 5 5d5+55 1d4+3\n2 600\n8 8 2'}
+
+- id: 8905
+  key: "a_deer"
+  name: "deer"
+  short_desc: "a deer"
+  long_desc: "A deer is here, staring back at you."
+  keywords: ['deer']
+  level: 64
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '6d6+66', 'damage_dice': '6d6+66', 'raw_block': 'The deer looks angered at your intrusion.  He butts his head against you, \nalbeit ineffectively.\n~\n64|128 0 0 S\n6 14 4 6d6+66 1d4+4\n2 800\n8 8 1'}
+
+- id: 8906
+  key: "a_stag"
+  name: "stag deer large"
+  short_desc: "a stag"
+  long_desc: "A large deer stag is here, protecting his territory."
+  keywords: ['stag', 'deer', 'large']
+  level: 32
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '8d8+88', 'damage_dice': '8d8+88', 'raw_block': "He eyes you with contained anger.  You'd better leave him alone!\n~\n32|64|128 0 0 S\n8 12 2 8d8+88 1d4+9\n2 2000\n8 8 1"}
+
+- id: 8907
+  key: "a_small_bunny"
+  name: "bunny rabbit"
+  short_desc: "a small bunny"
+  long_desc: "A small bunny is here, poking from bush to bush."
+  keywords: ['bunny', 'rabbit']
+  level: 64
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '2d2+22', 'damage_dice': '2d2+22', 'raw_block': 'This bunny looks so adorable, you wished you had one just like this!\n~\n64|128 0 0 S\n2 18 8 2d2+22 1d4+1\n2 100\n8 8 0'}
+
+- id: 8908
+  key: "a_harmless_snake"
+  name: "snake"
+  short_desc: "a harmless snake"
+  long_desc: "A small snake slithers between the grass."
+  keywords: ['snake']
+  level: 32
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '4d4+44', 'damage_dice': '4d4+44', 'raw_block': 'Upon careful inspection, you are sure it is NOT a cobra!\n~\n32|64|128 32768 0 S\n4 16 4 4d4+44 1d8+4\n2 500\n8 8 0'}
+
+- id: 8909
+  key: "a_druid"
+  name: "druid"
+  short_desc: "a druid"
+  long_desc: "A druid is here in meditation."
+  keywords: ['druid']
+  level: 64
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': "He doesn't like you bothering him, but is too polite to ask you to leave.\n~\n64|128 8|8192 1000 S\n10 10 0 10d10+100 1d4+6\n50 5000\n8 8 1"}
+
+- id: 8910
+  key: "a_druidess"
+  name: "druidess"
+  short_desc: "a druidess"
+  long_desc: "A druidess is here, peering at you."
+  keywords: ['druidess']
+  level: 64
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'She wonders why you are staring at her, and how you got in here.\n~\n64|128 8|8192 1000 S\n10 10 0 10d10+100 1d4+6\n50 5000\n8 8 2'}
+

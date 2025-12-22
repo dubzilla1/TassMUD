@@ -1,0 +1,1054 @@
+- id: 2300
+  key: "the_dark_ethereal_knight"
+  name: "knight ethereal dark"
+  short_desc: "the Dark Ethereal Knight"
+  long_desc: "A dark ethereal knight hovers over the bloody clearing."
+  keywords: ['knight', 'ethereal', 'dark']
+  level: 2
+  hp_max: 625
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '550d1+75', 'damage_dice': '550d1+75', 'raw_block': 'The ethereal knight is clad in shadowy black armor. It appears as though he\nwas involved in the carnage that occurred here. His soul is trapped here, as\nhe waits for release.\n~\n2 136 -1000 S\n25 0 -5 550d1+75 1d8+15\n25000 70000\n8 8 1'}
+
+- id: 2301
+  key: "the_old_treant"
+  name: "treant tree"
+  short_desc: "the Old Treant"
+  long_desc: "A huge, gnarled tree stands here, battered by age and nature."
+  keywords: ['treant', 'tree']
+  level: 2
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '250d1+50', 'damage_dice': '250d1+50', 'raw_block': 'The old tree looks as though the wind has battered and torn at it for years.\nVery few leaves remain. Its limbs are crooked and gnarled. It moans as the \nwind pushes it back and forth.\n~\n2 0 250 S\n20 0 -3 250d1+50 3d6+5\n5000 35000\n8 8 0'}
+
+- id: 2302
+  key: "the_cave_dweller"
+  name: "dweller cave"
+  short_desc: "the Cave Dweller"
+  long_desc: "A slimy, gross creature is here munching on a corpse."
+  keywords: ['dweller', 'cave']
+  level: 2
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '150d1+75', 'damage_dice': '150d1+75', 'raw_block': "The cave dweller looks like a mixture of several disgusting monsters. It has\na bird's beak, huge white eyes, a furry body, and long clawed hands and feet.\nIt sees you and snarls.\n~\n2|32 32788 0 S\n15 5 2 150d1+75 3d6+3\n2500 21000\n8 8 0"}
+
+- id: 2303
+  key: "the_rock_toad"
+  name: "toad rock"
+  short_desc: "the Rock Toad"
+  long_desc: "A rather large rock toad sits here, croaking loudly."
+  keywords: ['toad', 'rock']
+  level: 2
+  hp_max: 185
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '150d1+35', 'damage_dice': '150d1+35', 'raw_block': 'A grey toad. Its about the size of a cow. Small horns grow all over its body.\n~\n2 0 -250 S\n14 6 4 150d1+35 2d8+3\n2550 17500\n6 6 0'}
+
+- id: 2304
+  key: "the_weeping_willow"
+  name: "weeping willow tree"
+  short_desc: "the Weeping Willow"
+  long_desc: "A large willow tree stands here, weeping."
+  keywords: ['weeping', 'willow', 'tree']
+  level: 2
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '550d1+50', 'damage_dice': '550d1+50', 'raw_block': 'The weeping willow has long thins branches. These branches seem to droop in\nanguish and dismay. You hear a faint sound of crying.\n~\n2 136 1000 S\n25 0 -5 550d1+50 4d6+5\n20000 150000\n8 8 2'}
+
+- id: 2305
+  key: "the_mistling"
+  name: "mist mistling"
+  short_desc: "the Mistling"
+  long_desc: "A mistling emerges from the mist surrounding you."
+  keywords: ['mist', 'mistling']
+  level: 34
+  hp_max: 220
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '200d1+20', 'damage_dice': '200d1+20', 'raw_block': 'It looks like a thin wisp of mist that has gained substance and size.\n~\n34 65536 0 S\n15 1 5 200d1+20 2d9+3\n1000 22000\n8 8 0'}
+
+- id: 2306
+  key: "the_swamp_wraith"
+  name: "swamp wraith"
+  short_desc: "the Swamp Wraith"
+  long_desc: "A swamp wraith emerges from the mist here."
+  keywords: ['swamp', 'wraith']
+  level: 38
+  hp_max: 275
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 38, 'hit_dice': '250d1+25', 'damage_dice': '250d1+25', 'raw_block': 'The swamp wraith is made of mist and is in the image of a great warrior. He\nappears to emerge from the mist. You feel the cold radiating from his form as\nhe nears you.\n~\n38 0 -1000 S\n20 0 -10 250d1+25 6d4+5\n25000 50000\n8 8 1'}
+
+- id: 2307
+  key: "the_ogre_villager"
+  name: "ogre villager"
+  short_desc: "the Ogre Villager"
+  long_desc: "The ogre villager is here, going about its chores."
+  keywords: ['ogre', 'villager']
+  level: 192
+  hp_max: 120
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '100d1+20', 'damage_dice': '100d1+20', 'raw_block': 'You see a pitifully overworked ogre. It is dressed in rags and shuffles along\nwith its head hung low. It sees you and cringes in mortal terror.\n~\n192 0 -200 S\n10 11 3 100d1+20 2d6+2\n200 10000\n8 8 0'}
+
+- id: 2308
+  key: "the_ogre_warrior"
+  name: "warrior ogre"
+  short_desc: "the Ogre Warrior"
+  long_desc: "The ogre warrior stands here, growling fiercely."
+  keywords: ['warrior', 'ogre']
+  level: 228
+  hp_max: 200
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 228, 'hit_dice': '175d1+25', 'damage_dice': '175d1+25', 'raw_block': 'The ogre warrior is dressed in thick fur armor. He looks quite large and\nformidable.\n~\n228 0 -350 S\n15 6 1 175d1+25 3d6+3\n5000 22000\n8 8 1'}
+
+- id: 2309
+  key: "the_ogre_guard"
+  name: "guard ogre"
+  short_desc: "the Ogre Guard"
+  long_desc: "The ogre guard is here manning his post faithfully."
+  keywords: ['guard', 'ogre']
+  level: 102
+  hp_max: 250
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '200d1+50', 'damage_dice': '200d1+50', 'raw_block': 'The ogre guard stands here manning his post. It appears as though he would\nfight to the death before abandoning his post.\n~\n102 0 -500 S\n19 0 2 200d1+50 3d6+5\n10000 35000\n8 8 1'}
+
+- id: 2310
+  key: "the_ogre_shaman"
+  name: "shaman ogre"
+  short_desc: "The Ogre Shaman"
+  long_desc: "The ogre shaman is here chanting arcane words and waving his arms."
+  keywords: ['shaman', 'ogre']
+  level: 230
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '250d1+50', 'damage_dice': '250d1+50', 'raw_block': 'The ogre shaman is draped in thick fur cloaks and pelts. He has all types of\ncharms and holy symbols draped about him. He looks at you and snarls.\n~\n230 136 -750 S\n20 0 1 250d1+50 4d6+5\n50000 45000\n8 8 1'}
+
+- id: 2311
+  key: "the_ogre_chieftain"
+  name: "chief chieftain ogre"
+  short_desc: "the Ogre Chieftain"
+  long_desc: "The ogre chieftain is here, observing his subjects."
+  keywords: ['chief', 'chieftain', 'ogre']
+  level: 230
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '550d1+50', 'damage_dice': '550d1+50', 'raw_block': 'This is the biggest ogre you have ever seen. He is heavily equipped and looks\nquite formidable. He towers high above you and growls menacingly.\n~\n230 136 -1000 S\n25 -4 0 550d1+50 5d5+5\n50000 145000\n8 8 1'}
+
+- id: 2312
+  key: "the_plains_barbarian"
+  name: "barbarian"
+  short_desc: "the Plains Barbarian"
+  long_desc: "A plains barbarian is here, clad in heavy furs."
+  keywords: ['barbarian']
+  level: 230
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '250d1+50', 'damage_dice': '250d1+50', 'raw_block': 'The plains barbarian is clad in heavy furs. He seems used to the chilling cold\nand icy wastes.\n~\n230 0 0 S\n20 0 1 250d1+50 3D6+4\n5000 50000\n8 8 1'}
+
+- id: 2313
+  key: "the_white_yeti"
+  name: "yeti white"
+  short_desc: "the White Yeti"
+  long_desc: "The white yeti crouches here snarling."
+  keywords: ['yeti', 'white']
+  level: 230
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '200d1+25', 'damage_dice': '200d1+25', 'raw_block': 'The white yeti looks like a huge white snow ape. Its long arms end in long\ncurved talons and its mouth is full of sharp teeth.\n~\n230 0 -350 S\n16 1 5 200d1+25 3d7+3\n1000 28000\n8 8 0'}
+
+- id: 2314
+  key: "the_ice_worm"
+  name: "worm ice iceworm"
+  short_desc: "the Ice Worm"
+  long_desc: "A huge ice worm burrows through the ice and snow here. It rears up and\nattacks!"
+  keywords: ['worm', 'ice', 'iceworm']
+  level: 50
+  hp_max: 325
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 5000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 50, 'hit_dice': '250d1+75', 'damage_dice': '250d1+75', 'act_flags': 50, 'raw_block': 'The huge worm is almost 50 feet long. Its huge gaping mouth spews ice and snow\nas it charges directly at you.\n~\n102 0 0 S\n20 0 -5 250d1+75 3d6+5\n3500 45000\n8 8 0'}
+
+- id: 2315
+  key: "the_minotaur_citizen"
+  name: "citizen minotaur"
+  short_desc: "the Minotaur Citizen"
+  long_desc: "A minotaur citizen is here, hurrying through the icy streets."
+  keywords: ['citizen', 'minotaur']
+  level: 198
+  hp_max: 190
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 198, 'hit_dice': '100d1+90', 'damage_dice': '100d1+90', 'raw_block': 'You see a rather ragged and cold minotaur. It appears to be looking for a warm\nplace to seek refuge from the cold.\n~\n198 0 100 S\n15 5 3 100d1+90 2d5+5\n10000 15000\n8 8 0'}
+
+- id: 2316
+  key: "the_minotaur_guard"
+  name: "guard minotaur"
+  short_desc: "the Minotaur Guard"
+  long_desc: "A minotaur guard catches you trespassing and attacks!"
+  keywords: ['guard', 'minotaur']
+  level: 102
+  hp_max: 440
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '400d1+40', 'damage_dice': '400d1+40', 'raw_block': 'The minotaur is clad in heavy furs. Beneath these furs, you see the gleam of\nhis armor.\n~\n102 0 -330 S\n22 -2 0 400d1+40 4d6+5\n25000 90000\n8 8 1'}
+
+- id: 2317
+  key: "the_minotaur_warrior"
+  name: "warrior minotaur"
+  short_desc: "the Minotaur Warrior"
+  long_desc: "A minotaur warrior is here looking for intruders."
+  keywords: ['warrior', 'minotaur']
+  level: 4
+  hp_max: 350
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '300d1+50', 'damage_dice': '300d1+50', 'raw_block': 'You see a huge minotaur that is dressed in thick furs and armor. He has black\nfur and red eyes. He looks quite capable of protecting the city.\n~\n4|32|64 0 -330 S\n21 -1 0 300d1+50 3d7+5\n25000 65000\n8 8 1'}
+
+- id: 2318
+  key: "the_minotaur_gatekeeper"
+  name: "minotaur gatekeeper"
+  short_desc: "the Minotaur Gatekeeper"
+  long_desc: "A minotaur is here guarding the Keep of Mahn-Tor."
+  keywords: ['minotaur', 'gatekeeper']
+  level: 70
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 70, 'hit_dice': '550d1+50', 'damage_dice': '550d1+50', 'raw_block': 'The minotaur stands rigidly before the gates of the keep. It looks quite\nmiserable standing in the driven snow and ice.\n~\n70 8 -330 S\n25 -4 -5 550d1+50 5d5+5\n25000 100000\n8 8 0'}
+
+- id: 2319
+  key: "the_high_minotaur_guard"
+  name: "minotaur high guard"
+  short_desc: "the High Minotaur Guard"
+  long_desc: "The minotaur high guard is here guarding the Keep."
+  keywords: ['minotaur', 'high', 'guard']
+  level: 102
+  hp_max: 620
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '600d1+20', 'damage_dice': '600d1+20', 'raw_block': 'The high guard is dressed in blue plate armour. He looks quite dangerous and\nskilled.\n~\n102 8 -330 S\n25 -4 -5 600d1+20 4d7+4\n45000 130000\n8 8 1'}
+
+- id: 2320
+  key: "the_royal_minotaur_guard"
+  name: "minotaur royal guard"
+  short_desc: "the Royal Minotaur Guard"
+  long_desc: "The royal minotaur guard considers you an intruder and attacks!"
+  keywords: ['minotaur', 'royal', 'guard']
+  level: 102
+  hp_max: 700
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '650d1+50', 'damage_dice': '650d1+50', 'raw_block': 'The royal guard is quite huge. He is dressed in heavy red armor and wields a\nhuge glaive. He looks quite capable of protecting the keep.\n~\n102 8 -330 S\n26 -6 -7 650d1+50 5d5+4\n50000 160000\n8 8 1'}
+
+- id: 2321
+  key: "the_elite_minotaur_guard"
+  name: "guard minotaur elite"
+  short_desc: "the Elite Minotaur Guard"
+  long_desc: "The elite minotaur guard sees you and attacks!"
+  keywords: ['guard', 'minotaur', 'elite']
+  level: 102
+  hp_max: 850
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '800d1+50', 'damage_dice': '800d1+50', 'raw_block': 'This minotaur wields a huge morningstar and is clad in heavy crimson plate and\nfurs.\n~\n102 8 -250 S\n28 -8 -8 800d1+50 6d5+5\n75000 300000\n8 8 1'}
+
+- id: 2322
+  key: "the_harem_girl"
+  name: "girl haremgirl harem slave"
+  short_desc: "the Harem Girl"
+  long_desc: "A harem girl cowers here in fear."
+  keywords: ['girl', 'haremgirl', 'harem', 'slave']
+  level: 198
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 198, 'hit_dice': '50d1+10', 'damage_dice': '50d1+10', 'raw_block': 'She looks quite attractive. Her low cut gown reveals why she was chosen to be\nin the harem.\n~\n198 0 1000 S\n2 20 10 50d1+10 3d1+5\n10 100\n8 8 1'}
+
+- id: 2323
+  key: "the_minotaur_butler"
+  name: "butler minotaur"
+  short_desc: "the Minotaur Butler"
+  long_desc: "A minotaur butler stands here rigidly, awaiting orders."
+  keywords: ['butler', 'minotaur']
+  level: 198
+  hp_max: 253
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 247
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 198, 'hit_dice': '1d12+247', 'damage_dice': '1d12+247', 'raw_block': 'He looks quite regal and refined to be a minotaur.\n~\n198 0 250 S\n20 1 0 1d12+247 3d6+4\n5000 40000\n8 8 1'}
+
+- id: 2324
+  key: "the_minotaur_ring_keeper"
+  name: "keeper minotaur ring-keeper"
+  short_desc: "the Minotaur Ring-Keeper"
+  long_desc: "The minotaur ring-keeper stands guarding his post."
+  keywords: ['keeper', 'minotaur', 'ring-keeper']
+  level: 70
+  hp_max: 900
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 70, 'hit_dice': '100d3+700', 'damage_dice': '100d3+700', 'raw_block': 'The ring-keeper is a huge minotaur. You notice a huge ring of multicolored\nkeys hanging from his belt. He wears huge, spiked brass knuckles.\n~\n70 136 -300 S\n29 -9 -9 100d3+700 5d7+5\n50000 400000\n8 8 1'}
+
+- id: 2325
+  key: "gorak"
+  name: "gorak minotaur warrior master"
+  short_desc: "Gorak"
+  long_desc: "Gorak, the Minotaur Master Warrior, is here practicing his skills."
+  keywords: ['gorak', 'minotaur', 'warrior', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Gorak is HUGE. His bulging muscles are confined beneath heavy armor. He is the\nmaster of the warrior guild of Mahn-Tor.\n~\n34 136 -300 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2326
+  key: "darkoth"
+  name: "darkoth minotaur anti-paladin master"
+  short_desc: "Darkoth"
+  long_desc: "Darkoth, the minotaur anti-paladin, stands here grinning wickedly."
+  keywords: ['darkoth', 'minotaur', 'anti-paladin', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold\nchill runs down your spine. He is the master of the Mahn-Tor anti-paladins.\n~\n34 136 -1000 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2327
+  key: "tyrgoth"
+  name: "tyrgoth minotaur paladin master"
+  short_desc: "Tyrgoth"
+  long_desc: "Tyrgoth, the minotaur paladin, is here worshipping silently."
+  keywords: ['tyrgoth', 'minotaur', 'paladin', 'master']
+  level: 2
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Tyrgoth is the minotaur incarnation of good. You feel safe and at ease in his\npresence. He is the leader of the Mahn-Tor paladins.\n~\n2 136 1000 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2328
+  key: "amyrok"
+  name: "amyrok minotaur mage master"
+  short_desc: "Amyrok"
+  long_desc: "Amyrok, the minotaur archmage, is here chanting arcane spells."
+  keywords: ['amyrok', 'minotaur', 'mage', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Amyrok is a small minotaur. He is clad in loose robes and emits an aura of\npower. He appears quite dangerous, despite his size. He is the leader of the\nmages of Mahn-Tor.\n~\n34 136 300 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2329
+  key: "sumaron"
+  name: "sumaron minotaur cleric master"
+  short_desc: "Sumaron"
+  long_desc: "Sumaron, master cleric of Mahn-Tor, is here looking holy."
+  keywords: ['sumaron', 'minotaur', 'cleric', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Sumaron is clad in white glowing robes. He is goodness incarnate. He is the\nmaster of all the clerics of Mahn-Tor.\n~\n34 136 1000 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2330
+  key: "nasturn"
+  name: "nasturn minotaur druid master"
+  short_desc: "Nasturn"
+  long_desc: "Nasturn, the minotaur druid, is here studying the arts of nature."
+  keywords: ['nasturn', 'minotaur', 'druid', 'master']
+  level: 2
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Nasturn is quite a natural looking minotaur. He is dressed in leather and\nwears no metal of any type. He looks at you and smiles.\n~\n2 136 500 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2331
+  key: "belrak"
+  name: "belrak minotaur ranger master"
+  short_desc: "Belrak"
+  long_desc: "Belrak, the minotaur ranger, looks unhappy about having visitors."
+  keywords: ['belrak', 'minotaur', 'ranger', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Belrak is clad in green and brown leather. He looks quite agile and thin, when\ncompared to the normal minotaur. He looks at you with a slight smirk.\n~\n34 136 500 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2332
+  key: "dorgar"
+  name: "dorgar minotaur thief master"
+  short_desc: "Dorgar"
+  long_desc: "Dorgar, the minotaur thief, is here hiding in the shadows."
+  keywords: ['dorgar', 'minotaur', 'thief', 'master']
+  level: 38
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 38, 'hit_dice': '2500d1+500', 'damage_dice': '2500d1+500', 'raw_block': 'Dorgar is clad all in black. He is tall and slender, unlike most minotaurs. He\nappears to be quite a skilled thief.\n~\n38 65536 -500 S\n30 -9 -10 2500d1+500 6d6+5\n100000 800000\n8 8 1'}
+
+- id: 2333
+  key: "mahn_tor"
+  name: "mahn-tor minotaur grand master"
+  short_desc: "Mahn-Tor"
+  long_desc: "Mahn-Tor, the minotaur grand master, is here looking down at you."
+  keywords: ['mahn-tor', 'minotaur', 'grand', 'master']
+  level: 6
+  hp_max: 3500
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 6, 'hit_dice': '3000d1+500', 'damage_dice': '3000d1+500', 'raw_block': 'Mahn-Tor towers above you. He is simply huge. Mahn-Tor is clad in the best of\narmor and robes. He wields the largest axe you have ever seen. You can see why\nMahn-Tor is the leader of the minotaurs. He is awe-inspiring.\n~\n6 1573002 -500 S\n33 -10 -10 3000d1+500 6d7+5\n100000 900000\n8 8 1'}
+

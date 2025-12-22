@@ -1,0 +1,2046 @@
+- id: 1300
+  key: "a_shadow_guardian"
+  name: "shadow guardian"
+  short_desc: "a shadow guardian"
+  long_desc: "A shadow guardian screams a challenge and attacks."
+  keywords: ['shadow', 'guardian']
+  level: 4
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': 'It seems to be made of nothing more than darkness ...\n~\n4|32|64 2|8|512|32768 -350 S\n9 10 1 9d9+90 2d5+5\n100 4000\n8 8 0'}
+
+- id: 1301
+  key: "a_lost_adventurer"
+  name: "adventurer"
+  short_desc: "a lost adventurer"
+  long_desc: "An emaciated adventurer is here looking lost and hopeless."
+  keywords: ['adventurer']
+  level: 134
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 134, 'hit_dice': '10d10+10', 'damage_dice': '10d10+10', 'raw_block': "He looks haggard and sickly; no doubt he's been lost here for quite some time.\n~\n134 0 400 S\n8 12 6 10d10+10 2d4+4\n286 1500\n6 8 1"}
+
+- id: 1302
+  key: "edgar"
+  name: "edgar"
+  short_desc: "Edgar"
+  long_desc: "Edgar the Human Swordpupil"
+  keywords: ['edgar']
+  level: 148
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 148, 'hit_dice': '3d9+10', 'damage_dice': '3d9+10', 'raw_block': "Edgar says 'pardon me, can you tell me where to buy cups?'\n\nYou see before you, one of Midgaard's finest fighting elite, the mighty\nbunny slayer himself, Edgar the Horrible!\n~\n148 0 1000 S\n1 20 10 3d9+10 1d8+1\n23 100\n8 8 1"}
+
+- id: 1303
+  key: "the_golem"
+  name: "diamond golem"
+  short_desc: "the golem"
+  long_desc: "A huge diamond golem is standing guard here."
+  keywords: ['diamond', 'golem']
+  level: 66
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '23d23+230', 'damage_dice': '23d23+230', 'raw_block': 'It looks quite strong.\n~\n66 8 500 S\n23 5 -10 23d23+230 3d6+15\n985 15000\n8 8 0'}
+
+- id: 1304
+  key: "a_mage"
+  name: "mage young"
+  short_desc: "a mage"
+  long_desc: "A young mage wanders about, oblivious to all."
+  keywords: ['mage', 'young']
+  level: 192
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'He seems to be contemplating life, love and the mysteries of the universe.\nThen again, he may just have a headache.\n~\n192 8 450 S\n10 10 -1 10d10+100 1d8+8\n436 3500\n8 8 1'}
+
+- id: 1305
+  key: "strick_the_bartender"
+  name: "strick bartender"
+  short_desc: "Strick the bartender"
+  long_desc: "Strick is here levitating drinks to his customers."
+  keywords: ['strick', 'bartender']
+  level: 66
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'He looks rather harmless, but then again so does a sleeping dragon.\n~\n66 8 750 S\n25 1 -6 1d1+30000 3d7+20\n2000 20000\n8 8 1'}
+
+- id: 1306
+  key: "tatorious"
+  name: "tatorious wizard"
+  short_desc: "Tatorious"
+  long_desc: "Tatorious the wizard is here counting his earnings."
+  keywords: ['tatorious', 'wizard']
+  level: 66
+  hp_max: 3001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 3000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '1d1+3000', 'damage_dice': '1d1+3000', 'raw_block': 'Tatorious winks at you mischievously.\n~\n66 8 900 S\n25 0 -8 1d1+3000 3d7+21\n5000 24000\n8 8 1'}
+
+- id: 1307
+  key: "ezmerelda"
+  name: "ezmerelda cook"
+  short_desc: "Ezmerelda"
+  long_desc: "Ezmerelda the cook is here stirring a large pot of something."
+  keywords: ['ezmerelda', 'cook']
+  level: 66
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': '~\n66 8 -500 S\n20 6 -1 20d20+200 3d4+8\n1092 31300\n8 8 2'}
+
+- id: 1308
+  key: "the_cook_s_assistant"
+  name: "assistant mage"
+  short_desc: "The cook's assistant"
+  long_desc: "The cook's assistant is here assisting the cook."
+  keywords: ['assistant', 'mage']
+  level: 194
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': '~\n194 8 -200 S\n11 8 1 11d11+110 3d4+4\n116 4600\n8 8 1'}
+
+- id: 1309
+  key: "the_prisoner"
+  name: "prisoner"
+  short_desc: "The prisoner"
+  long_desc: "A prisoner is chained to the wall here."
+  keywords: ['prisoner']
+  level: 230
+  hp_max: 76
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '3d30+30', 'damage_dice': '3d30+30', 'raw_block': "Though his clothes are all in rags, you can see that at one time they must\nhave been fine garments. A metal muzzle has been fitted over the poor\nwretch's mouth, whether to keep him from screaming, or to silence his spell\ncasting you cannot tell.\n\nHe looks quite mad, no doubt he's been mistreated horribly.\n~\n230 0 100 S\n16 6 2 3d30+30 2d4+9\n0 1800\n8 8 1"}
+
+- id: 1310
+  key: "the_jailor"
+  name: "jailor mage"
+  short_desc: "the Jailor"
+  long_desc: "The Jailor is here enjoying a comfortable nap."
+  keywords: ['jailor', 'mage']
+  level: 66
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '17d17+170', 'damage_dice': '17d17+170', 'raw_block': 'He looks rather dirty.\n~\n66 8 100 S\n17 5 -3 17d17+170 3d5+10\n1326 12000\n4 4 1'}
+
+- id: 1311
+  key: "a_broom"
+  name: "broom"
+  short_desc: "a broom"
+  long_desc: "A straw broom is here leaning against the wall."
+  keywords: ['broom']
+  level: 102
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': "The broom screams 'Take that you lout!'\n~\n102 8 50 S\n7 10 2 7d7+70 2d4+4\n0 1600\n8 8 0"}
+
+- id: 1312
+  key: "a_pair_of_disembodied_hands"
+  name: "lesser guardian hands"
+  short_desc: "a pair of disembodied hands"
+  long_desc: "A pair of disembodied hands floats in the air here."
+  keywords: ['lesser', 'guardian', 'hands']
+  level: 96
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': 'The hands twitch with anticipation of strangling someone.\n~\n96 0 -400 S\n9 7 -5 9d9+90 2d4+5\n0 3100\n8 8 0'}
+
+- id: 1313
+  key: "a_pair_of_disembodied_eyes"
+  name: "guardian greater eyes"
+  short_desc: "a pair of disembodied eyes"
+  long_desc: "A pair of disembodied eyes floats here glaring at you."
+  keywords: ['guardian', 'greater', 'eyes']
+  level: 96
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'The eyes smolder with hatred.\n~\n96 8 -600 S\n15 5 -9 15d15+150 3d4+8\n0 9100\n8 8 0'}
+
+- id: 1314
+  key: "the_mage"
+  name: "mage visitor"
+  short_desc: "the mage"
+  long_desc: "A visiting mage is here snoring away in peaceful slumber."
+  keywords: ['mage', 'visitor']
+  level: 198
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 198, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'He looks quite sleepy.\n~\n198 8 250 S\n12 8 -2 12d12+120 2d4+5\n726 6200\n4 4 1'}
+
+- id: 1315
+  key: "a_young_apprentice_magic_user"
+  name: "apprentice young"
+  short_desc: "a young apprentice magic user"
+  long_desc: "A young apprentice magic user is here doing magical studies."
+  keywords: ['apprentice', 'young']
+  level: 194
+  hp_max: 49
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '7d6+25', 'damage_dice': '7d6+25', 'raw_block': 'She looks quite intent on her studies.\n~\n194 0 400 S\n7 7 2 7d6+25 2d4+5\n369 2950\n6 6 2'}
+
+- id: 1316
+  key: "a_young_apprentice"
+  name: "apprentice young"
+  short_desc: "a young apprentice"
+  long_desc: "A young apprentice is here mumbling words of magic to himself."
+  keywords: ['apprentice', 'young']
+  level: 194
+  hp_max: 49
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '7d6+25', 'damage_dice': '7d6+25', 'raw_block': 'He looks to be oblivious to all but the spell he is memorizing.\n~\n194 0 380 S\n7 6 2 7d6+25 2d4+5\n487 2750\n8 8 1'}
+
+- id: 1317
+  key: "a_young_apprentice"
+  name: "apprentice young"
+  short_desc: "a young apprentice"
+  long_desc: "A young apprentice is sleeping here."
+  keywords: ['apprentice', 'young']
+  level: 194
+  hp_max: 49
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '7d6+25', 'damage_dice': '7d6+25', 'raw_block': 'He seems to be dreaming.\n~\n194 0 350 S\n7 7 2 7d6+25 2d4+4\n211 2650\n4 4 1'}
+
+- id: 1318
+  key: "a_young_apprentice"
+  name: "apprentice young"
+  short_desc: "A young apprentice"
+  long_desc: "A young apprentice is here teasing a cornered kitten."
+  keywords: ['apprentice', 'young']
+  level: 194
+  hp_max: 49
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '7d6+25', 'damage_dice': '7d6+25', 'raw_block': 'He looks like a mischievous youth.\n~\n194 0 -200 S\n7 7 1 7d6+25 2d4+5\n382 2300\n8 8 1'}
+
+- id: 1319
+  key: "a_small_kitten"
+  name: "kitten"
+  short_desc: "a small kitten"
+  long_desc: "A small kitten is here meowing in terror."
+  keywords: ['kitten']
+  level: 194
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '1d1+10', 'damage_dice': '1d1+10', 'raw_block': 'The little ball of fur looks very unhappy.  Singed fur and a few minor burns\nmark its mottled coat.\n~\n194 0 500 S\n1 20 1 1d1+10 1d4+1\n0 11\n8 8 2'}
+
+- id: 1320
+  key: "a_student"
+  name: "student"
+  short_desc: "a student"
+  long_desc: "A student of spells is here looking quite bored"
+  keywords: ['student']
+  level: 194
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'The student yawns.\n~\n194 0 350 S\n8 9 1 8d8+80 2d4+6\n263 3000\n6 6 1'}
+
+- id: 1321
+  key: "an_instructor_of_magic"
+  name: "instructor teacher mage"
+  short_desc: "an instructor of magic"
+  long_desc: "The instructor screams at your interruption and attacks you."
+  keywords: ['instructor', 'teacher', 'mage']
+  level: 98
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '14d14+140', 'damage_dice': '14d14+140', 'raw_block': 'He looks quite angry at your interruption.\n~\n98 8 300 S\n14 6 -2 14d14+140 3d4+8\n880 18500\n8 8 1'}
+
+- id: 1322
+  key: "a_student_of_spells"
+  name: "student"
+  short_desc: "a student of spells"
+  long_desc: "A student of spells is here trying to master invisibility."
+  keywords: ['student']
+  level: 194
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'He blinks in and out of existence, trying to master the spell.\n~\n194 10 400 S\n8 8 -2 8d8+80 2d4+6\n198 2200\n8 8 1'}
+
+- id: 1323
+  key: "a_spell_teacher"
+  name: "teacher mage"
+  short_desc: "a spell teacher"
+  long_desc: "A spell teacher screams at your interruption and attacks."
+  keywords: ['teacher', 'mage']
+  level: 98
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': '~\n98 10 300 S\n15 5 -4 15d15+150 3d4+9\n1256 20500\n8 8 1'}
+
+- id: 1324
+  key: "a_student_of_spells"
+  name: "student"
+  short_desc: "a student of spells"
+  long_desc: "A student of spells has fallen asleep at her desk here."
+  keywords: ['student']
+  level: 194
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': 'She looks to have collapsed from sheer boredom.\n~\n194 8 400 S\n9 11 -2 9d9+90 2d4+7\n567 3800\n4 4 2'}
+
+- id: 1325
+  key: "a_wizard"
+  name: "wizard speaker mage"
+  short_desc: "a wizard"
+  long_desc: "An old wizard is here making a speech"
+  keywords: ['wizard', 'speaker', 'mage']
+  level: 194
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': '~\n194 8 400 S\n18 4 -5 18d18+180 3d4+8\n2468 31000\n8 8 1'}
+
+- id: 1326
+  key: "a_young_mage"
+  name: "mage young"
+  short_desc: "a young mage"
+  long_desc: "A young mage is here learning hand to hand combat."
+  keywords: ['mage', 'young']
+  level: 194
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': '~\n194 8 300 S\n9 11 -1 9d9+90 2d4+8\n695 3800\n8 8 1'}
+
+- id: 1327
+  key: "the_battle_mistress"
+  name: "mistress battle"
+  short_desc: "the battle mistress"
+  long_desc: "The battle mistress is here teaching the fine uses of a dagger."
+  keywords: ['mistress', 'battle']
+  level: 98
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '17d17+170', 'damage_dice': '17d17+170', 'raw_block': 'She looks quite rugged. In fact, she more resembles a warrior than a magic\nuser.\n~\n98 8 200 S\n17 2 -2 17d17+170 3d5+8\n3211 23050\n8 8 2'}
+
+- id: 1328
+  key: "a_spell_teacher"
+  name: "mage teacher"
+  short_desc: "a spell teacher"
+  long_desc: "A spell teacher is here relaxing."
+  keywords: ['mage', 'teacher']
+  level: 66
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': '~\n66 8 200 S\n15 5 1 15d15+150 3d4+4\n1002 15800\n5 5 1'}
+
+- id: 1329
+  key: "an_aged_wizard"
+  name: "wizard"
+  short_desc: "an aged wizard"
+  long_desc: "An aged wizard is sleeping here."
+  keywords: ['wizard']
+  level: 226
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 226, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': '~\n226 8 350 S\n20 5 -5 20d20+200 3d4+9\n1567 37500\n4 4 1'}
+
+- id: 1330
+  key: "a_scribe"
+  name: "scribe mage"
+  short_desc: "a scribe"
+  long_desc: "A scribe is here working on some manuscripts."
+  keywords: ['scribe', 'mage']
+  level: 198
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 198, 'hit_dice': '14d14+140', 'damage_dice': '14d14+140', 'raw_block': '~\n198 8 400 S\n14 6 -1 14d14+140 3d4+4\n312 14850\n8 8 1'}
+
+- id: 1331
+  key: "a_scribe"
+  name: "scribe mage"
+  short_desc: "a scribe"
+  long_desc: "A scribe is here working diligently on some translations."
+  keywords: ['scribe', 'mage']
+  level: 194
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': "She's quite cute.  Too bad her only interest seems to be the words of\nlore she is translating.\n~\n194 8 500 S\n15 6 -1 15d15+150 2d4+10\n684 16550\n8 8 2"}
+
+- id: 1332
+  key: "the_master_scribe"
+  name: "master scribe"
+  short_desc: "the master scribe"
+  long_desc: "The master scribe is here looking a little upset"
+  keywords: ['master', 'scribe']
+  level: 226
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 220
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 226, 'hit_dice': '22d22+220', 'damage_dice': '22d22+220', 'raw_block': "He seems to be so old, his skin has become nothing but a giant wrinkle.\nThe master scribe screams 'How dare you interrupt my important work???'\n~\n226 8 100 S\n22 4 -5 22d22+220 3d5+8\n5634 29500\n8 8 1"}
+
+- id: 1333
+  key: "the_scribe_s_assistant"
+  name: "assistant scribe"
+  short_desc: "the scribe's assistant"
+  long_desc: "The scribe's assistant is here folding parchments."
+  keywords: ['assistant', 'scribe']
+  level: 226
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 226, 'hit_dice': '16d16+160', 'damage_dice': '16d16+160', 'raw_block': '~\n226 8 100 S\n16 6 -2 16d16+160 3d4+6\n1050 21300\n8 8 1'}
+
+- id: 1334
+  key: "the_enchanter"
+  name: "master enchanter mage"
+  short_desc: "the Enchanter"
+  long_desc: "The Enchanter is here placing a dweomer upon well made sword."
+  keywords: ['master', 'enchanter', 'mage']
+  level: 98
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '23d23+230', 'damage_dice': '23d23+230', 'raw_block': '~\n98 8 -200 S\n23 4 -5 23d23+230 3d5+6\n6812 30500\n8 8 1'}
+
+- id: 1335
+  key: "a_dancing_sword"
+  name: "sword dancing"
+  short_desc: "a dancing sword"
+  long_desc: "A well crafted sword lies on the work table here."
+  keywords: ['sword', 'dancing']
+  level: 98
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'It looks quite sharp.\n~\n98 0 -500 S\n10 1 -10 10d10+100 3d5+5\n0 4000\n8 8 0'}
+
+- id: 1336
+  key: "the_mad_alchemist"
+  name: "alchemist"
+  short_desc: "the Mad Alchemist"
+  long_desc: "The Mad Alchemist babbles something incomprehensible and attacks."
+  keywords: ['alchemist']
+  level: 230
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '24d24+240', 'damage_dice': '24d24+240', 'raw_block': "He looks like he's been quaffing too many potions. His eyes dart around\nwildly, and he starts to drool.\n\nThe Mad Alchemist throws back his head and cackles with insane glee!\n~\n230 8 150 S\n24 4 -4 24d24+240 3d5+10\n2346 31500\n8 8 1"}
+
+- id: 1337
+  key: "the_master_summoner"
+  name: "master summoner"
+  short_desc: "the master summoner"
+  long_desc: "The master summoner is here holding gateways open to other planes."
+  keywords: ['master', 'summoner']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 220
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '22d22+220', 'damage_dice': '22d22+220', 'raw_block': '~\n2|32|64|128 8 -200 S\n22 5 -2 22d22+220 3d5+6\n1019 27050\n8 8 1'}
+
+- id: 1338
+  key: "the_master_charmer"
+  name: "master charmer"
+  short_desc: "the master charmer"
+  long_desc: "The master charmer utters the words, 'uuuzzldctz'."
+  keywords: ['master', 'charmer']
+  level: 34
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '23d23+230', 'damage_dice': '23d23+230', 'raw_block': 'The master charmer sizes you up, always looking for a new pet.\n~\n34 8 -400 S\n23 4 -4 23d23+230 3d5+10\n4672 31050\n8 8 1'}
+
+- id: 1339
+  key: "a_wooden_golem"
+  name: "golem wooden"
+  short_desc: "a wooden golem"
+  long_desc: "A wooden golem stands a silent vigil here, guarding the stairs."
+  keywords: ['golem', 'wooden']
+  level: 98
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '16d16+160', 'damage_dice': '16d16+160', 'raw_block': 'He looks flammable.\n~\n98 8 100 S\n16 7 -5 16d16+160 1d10+10\n1000 17500\n8 8 0'}
+
+- id: 1340
+  key: "the_master_spell_binder"
+  name: "master binder"
+  short_desc: "the master spell binder"
+  long_desc: "The master spell binder is here re-charging a blackened wand."
+  keywords: ['master', 'binder']
+  level: 230
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '23d23+230', 'damage_dice': '23d23+230', 'raw_block': 'The master spell binder snarls at you and attacks.\n~\n230 8 -500 S\n23 5 -4 23d23+230 3d5+8\n2315 30500\n8 8 1'}
+
+- id: 1341
+  key: "the_golem_maker"
+  name: "master maker"
+  short_desc: "the golem maker"
+  long_desc: "The golem maker is here chiseling some stone."
+  keywords: ['master', 'maker']
+  level: 98
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '21d21+210', 'damage_dice': '21d21+210', 'raw_block': '~\n98 8 300 S\n21 6 -2 21d21+210 3d5+5\n2678 26850\n8 8 1'}
+
+- id: 1342
+  key: "a_granite_golem"
+  name: "golem granite"
+  short_desc: "a granite golem"
+  long_desc: "A granite golem stands here waiting to do its master's bidding."
+  keywords: ['golem', 'granite']
+  level: 98
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'It looks like a statue, until you see it shamble towards you.\n~\n98 0 300 S\n20 7 -6 20d20+200 4d5+10\n0 25600\n8 8 0'}
+
+- id: 1343
+  key: "a_bronze_golem"
+  name: "golem bronze"
+  short_desc: "a bronze golem"
+  long_desc: "A bronze golem stands here shining in the light."
+  keywords: ['golem', 'bronze']
+  level: 66
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': 'He looks rather dim witted.\n~\n66 0 350 S\n18 8 -3 18d18+180 4d5+5\n0 22350\n8 8 0'}
+
+- id: 1344
+  key: "a_flesh_golem"
+  name: "golem flesh"
+  short_desc: "a flesh golem"
+  long_desc: "A flesh golem stands guard here"
+  keywords: ['golem', 'flesh']
+  level: 98
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': "It looks to be made of a potpourri of different body parts; some don't even\nresemble anything human.\n~\n98 0 200 S\n12 9 -1 12d12+120 4d4+4\n0 8520\n8 8 0"}
+
+- id: 1345
+  key: "a_cloth_golem"
+  name: "golem cloth"
+  short_desc: "a cloth golem"
+  long_desc: "A cloth golem wanders around here."
+  keywords: ['golem', 'cloth']
+  level: 70
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 70, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'It looks like a bunch of old rags, quite surprising it can actually walk.\n~\n70 0 350 S\n8 10 1 8d8+80 3d4+1\n0 2100\n8 8 0'}
+
+- id: 1346
+  key: "an_adamantite_golem"
+  name: "golem adamantite"
+  short_desc: "an adamantite golem"
+  long_desc: "An adamantite golem stands here looking very dangerous."
+  keywords: ['golem', 'adamantite']
+  level: 70
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 70, 'hit_dice': '25d25+250', 'damage_dice': '25d25+250', 'raw_block': 'It seems to be forged of dark metal.  It looks strong and durable,\nbut somewhat un-intelligent.\n~\n70 0 350 S\n25 0 -10 25d25+250 3d7+3\n10000 35650\n8 8 0'}
+
+- id: 1347
+  key: "a_clay_golem"
+  name: "golem clay"
+  short_desc: "a clay golem"
+  long_desc: "A clay golem stands guard here."
+  keywords: ['golem', 'clay']
+  level: 102
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': '~\n102 8 200 S\n15 5 -1 15d15+150 4d5+3\n0 18320\n8 8 0'}
+
+- id: 1348
+  key: "the_master_of_illusions"
+  name: "master illusionist mage"
+  short_desc: "the master of illusions"
+  long_desc: "An enormous multi-colored three-headed dragon growls at you."
+  keywords: ['master', 'illusionist', 'mage']
+  level: 198
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 198, 'hit_dice': '21d21+210', 'damage_dice': '21d21+210', 'raw_block': 'The image of an ugly dragon flickers slightly, and where the dragon was\nnow stands a small harmless looking old man.\n~\n198 8 150 S\n21 6 -4 21d21+210 3d5+5\n2345 26450\n8 8 1'}
+
+- id: 1349
+  key: "the_necromancer"
+  name: "necromancer master"
+  short_desc: "the Necromancer"
+  long_desc: "The Necromancer is here raising undead servants"
+  keywords: ['necromancer', 'master']
+  level: 230
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '25d25+250', 'damage_dice': '25d25+250', 'raw_block': 'Attired all in black, the Necromancer is tall and gangly, but still quite\nan imposing figure.  A dark cowl shrouds most of his face, but two blazing\nembers which serve as eyes can be seen through the shadow.\nThe Necromancer shrieks some obscenities and orders his minions to attack.\n~\n230 8 -950 S\n25 0 -8 25d25+250 3d7+7\n11684 35250\n8 8 1'}
+
+- id: 1350
+  key: "an_animated_skeleton"
+  name: "skeleton undead"
+  short_desc: "an animated skeleton"
+  long_desc: "An animated skeleton screams silently and attacks."
+  keywords: ['skeleton', 'undead']
+  level: 98
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'It feels no pain, and hacks at you ruthlessly.\n~\n98 8 -500 S\n15 5 -2 15d15+150 3d4+10\n0 16500\n8 8 0'}
+
+- id: 1351
+  key: "an_undead_giant"
+  name: "undead giant"
+  short_desc: "an undead giant"
+  long_desc: "An undead giant lumbers towards you."
+  keywords: ['undead', 'giant']
+  level: 102
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': '~\n102 8 -500 S\n18 5 -4 18d18+180 3d5+10\n0 22000\n8 8 0'}
+
+- id: 1352
+  key: "an_ugly_witch"
+  name: "witch hag"
+  short_desc: "an ugly witch"
+  long_desc: "An ugly witch is here scrying out secrets."
+  keywords: ['witch', 'hag']
+  level: 102
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'She has no face at all, just blank skin, rather disturbing.  From about where\nher mouth should be, comes a disgusting giggling sound that makes your skin\ncrawl with revulsion.\n~\n102 8 -450 S\n20 5 -2 20d20+200 3d6+5\n2150 26850\n8 8 2'}
+
+- id: 1353
+  key: "the_librarian"
+  name: "librarian mage"
+  short_desc: "the Librarian"
+  long_desc: "The Librarian has fallen asleep at his desk here."
+  keywords: ['librarian', 'mage']
+  level: 226
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 226, 'hit_dice': '23d23+230', 'damage_dice': '23d23+230', 'raw_block': 'He looks like a rather peaceful old man.\n~\n226 8 450 S\n23 3 -6 23d23+230 3d6+5\n1287 29500\n4 4 1'}
+
+- id: 1354
+  key: "the_master_s_apprentice"
+  name: "apprentice"
+  short_desc: "the master's apprentice"
+  long_desc: "The master's apprentice leaps to halt your passage."
+  keywords: ['apprentice']
+  level: 102
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '24d24+240', 'damage_dice': '24d24+240', 'raw_block': 'A powerful wizard in his own right, the apprentice of the master of balance\nhas given up his station in the mage guild hierarchy in order to serve the\ngreat master in hopes of gleaning secrets one could never hope to uncover\nalone.\n~\n102 8 0 S\n24 -3 -12 24d24+240 3d6+6\n6723 30750\n8 8 1'}
+
+- id: 1355
+  key: "a_grey_cat"
+  name: "cat grey familiar"
+  short_desc: "a grey cat"
+  long_desc: "A grey cat is lounging lazily here."
+  keywords: ['cat', 'grey', 'familiar']
+  level: 66
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'The grey cat cocks an ear towards you, sensing your scrutiny, then purrs\ncontentedly.  It looks rather harmless, until you notice its very large claws.\n~\n66 32770 0 S\n15 5 -5 15d15+150 5d5+5\n0 18750\n8 8 2'}
+
+- id: 1356
+  key: "the_master_of_neutrality"
+  name: "master guildmaster grey"
+  short_desc: "the master of Neutrality"
+  long_desc: "The master of Neutrality stands here contemplating the balance of the universe."
+  keywords: ['master', 'guildmaster', 'grey']
+  level: 66
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'He looks quite peaceful.\n~\n66 136 0 S\n30 -10 -20 30d30+300 2d5+20\n15350 150000\n8 8 1'}
+
+- id: 1357
+  key: "a_black_robed_apprentice"
+  name: "apprentice black"
+  short_desc: "a black robed apprentice"
+  long_desc: "A black robed apprentice jumps from the shadows and attacks."
+  keywords: ['apprentice', 'black']
+  level: 102
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 102, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'She bears a wicked looking scar down the side of her face, though once she\nmust have been beautiful, now the scar combined with what seems to be a\npermanent scowl make her looks quite fearsome.\n~\n102 32776 -750 S\n20 2 -6 20d20+200 3d6+6\n13876 27800\n8 8 2'}
+
+- id: 1358
+  key: "a_black_cat"
+  name: "cat black familiar"
+  short_desc: "a black cat"
+  long_desc: "A black cat with its fur up hisses at you."
+  keywords: ['cat', 'black', 'familiar']
+  level: 66
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '16d16+160', 'damage_dice': '16d16+160', 'raw_block': 'It looks both mean and dangerous.  Petting seems to be completely out of\nthe question.\n~\n66 32776 -800 S\n16 5 -4 16d16+160 3d7+3\n0 19950\n8 8 0'}
+
+- id: 1359
+  key: "the_master_of_the_black_robes"
+  name: "master guildmaster black"
+  short_desc: "the master of the black robes"
+  long_desc: "The master of the black robes is here plotting vile deeds."
+  keywords: ['master', 'guildmaster', 'black']
+  level: 70
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 70, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'The master glares at you.\n~\n70 136 -1000 S\n30 -10 -20 30d30+300 2d5+20\n22100 150000\n8 8 1'}
+
+- id: 1360
+  key: "a_white_robed_apprentice"
+  name: "apprentice white"
+  short_desc: "a white robed apprentice"
+  long_desc: "A white robed apprentice screams at your desecration of goodness."
+  keywords: ['apprentice', 'white']
+  level: 98
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': "He looks like a fanatic.\nThe apprentice screams 'Thou art unworthy of this honor!'\n~\n98 8 750 S\n20 2 -6 20d20+200 3d6+6\n7400 27850\n8 8 1"}
+
+- id: 1361
+  key: "a_white_cat"
+  name: "cat white familiar"
+  short_desc: "a white cat"
+  long_desc: "A white cat is here preening its fur."
+  keywords: ['cat', 'white', 'familiar']
+  level: 66
+  hp_max: 77
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '15d8+10', 'damage_dice': '15d8+10', 'raw_block': 'It seems to be nothing more than a large ball of fluff with claws.\n~\n66 32776 800 S\n15 4 -4 15d8+10 3d7+3\n0 7950\n8 8 0'}
+
+- id: 1362
+  key: "the_master_of_goodness"
+  name: "master guildmaster white"
+  short_desc: "The master of goodness"
+  long_desc: "The master of goodness is here frowning at your intrusion."
+  keywords: ['master', 'guildmaster', 'white']
+  level: 66
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'He looks like a self-righteous bastard.\n~\n66 136 1000 S\n30 -10 -20 30d30+300 2d5+20\n21900 150000\n8 8 1'}
+
+- id: 1363
+  key: "a_calico_cat"
+  name: "cat calico familiar"
+  short_desc: "A calico cat"
+  long_desc: "A large calico cat is here"
+  keywords: ['cat', 'calico', 'familiar']
+  level: 66
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '25d25+250', 'damage_dice': '25d25+250', 'raw_block': 'It looks incredibly large for a cat, no doubt a giant of its species.\nA beautiful jewel encrusted collar about its neck is its only adornment.\n~\n66 32776 800 S\n25 1 -9 25d25+250 5d5+10\n0 30000\n8 8 0'}
+
+- id: 1364
+  key: "the_grand_mistress"
+  name: "guildmaster grand mistress"
+  short_desc: "The Grand Mistress"
+  long_desc: "The Grand Mistress of Magic is sitting here."
+  keywords: ['guildmaster', 'grand', 'mistress']
+  level: 66
+  hp_max: 1775
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 50
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '50d50+500', 'damage_dice': '50d50+500', 'raw_block': 'She looks quite comfortable on her emerald throne. Amazingly young and\npretty for one of such stature in the guild, no doubt she has kept her\nyouthful appearance through the use of strong magics.\nThe Grand Master pets her familiar and smiles at you in confidence.\n~\n66 136 0 S\n50 -20 -30 50d50+500 3d4+20\n50000 500000\n8 8 2'}
+
+- id: 1365
+  key: "a_wizard"
+  name: "wizard"
+  short_desc: "a wizard"
+  long_desc: "A wandering wizard is here mumbling to himself."
+  keywords: ['wizard']
+  level: 68
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '17d17+170', 'damage_dice': '17d17+170', 'raw_block': '~\n68 32776 350 S\n17 5 -3 17d17+170 3d5+5\n3210 20500\n8 8 1'}
+

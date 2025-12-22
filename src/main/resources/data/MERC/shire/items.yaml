@@ -1,0 +1,423 @@
+items:
+  - id: 1100
+    key: rainbow_staff
+    name: the rainbow staff
+    description: The rainbow staff lies here.
+    weight: 8
+    value: 5000
+    type: held
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [rainbow, staff]
+    applies:
+      - location: 4
+        modifier: 1
+    template_json:
+      raw_block: |
+        the rainbow staff~
+        The rainbow staff lies here.~
+        ~
+        1 64 65537
+        0 0 -1 0
+        8 5000 2667
+        A
+        4 1
+      type_line: 1 64 65537
+  - id: 1101
+    key: sting
+    name: Sting
+    description: Sting lies here.
+    weight: 1
+    value: 10000
+    type: weapon
+    multiplier: 2
+    base_die: 7
+    damage_bonus: 10
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - HUM
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sting]
+    applies:
+      - location: 2
+        modifier: 2
+    template_json:
+      raw_block: |
+        Sting~
+        Sting lies here.~
+        ~
+        5 1027 8193
+        0 2 7 10
+        1 10000 7500
+        A
+        2 2
+      type_line: 5 1027 8193
+  - id: 1102
+    key: sign
+    name: a sign
+    description: A sign demands your attention.
+    weight: 0
+    value: 0
+    type: immobile
+    keywords: [sign]
+    template_json:
+      raw_block: |
+        by entering these lands you agree to obey our laws.  If you break these laws,
+        you will be severely punished.  We do not like riff raff in our peaceful
+        town.
+        
+        					The Thain
+        					Peacekeeper of the Shire
+        
+        ~
+      type_line: 12 0 0
+      extra_desc: |
+        Welcome to the Shire.  As you enter the Shire from Haon-Dor you come under
+        the jurisdiction of the Thain, the peacekeeper of the Shire.  Consequently,
+        by entering these lands you agree to obey our laws.  If you break these laws,
+        you will be severely punished.  We do not like riff raff in our peaceful
+        town.
+        
+        					The Thain
+        					Peacekeeper of the Shire
+  - id: 1103
+    key: pipeweed_bread
+    name: a pipeweed bread
+    description: A loaf of pipeweed bread arouses your hunger.
+    weight: 1
+    value: 13
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [pipeweed, bread]
+    template_json:
+      raw_block: |
+        #1103
+        pipeweed bread~
+        a pipeweed bread~
+        A loaf of pipeweed bread arouses your hunger.~
+        ~
+        19 0 1
+        24 0 0 0
+        1 13 2
+      type_line: 19 0 1
+  - id: 1104
+    key: silvery_cloak
+    name: a silvery cloak
+    description: A silvery cloak lies here.
+    weight: 3
+    value: 10000
+    type: armor
+    slot: back
+    armor_class: 7
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [silvery, cloak]
+    applies:
+      - location: 24
+        modifier: -2
+    template_json:
+      raw_block: |
+        a silvery cloak~
+        A silvery cloak lies here.~
+        ~
+        9 64|1024 1025
+        7 0 0 0
+        3 10000 4500
+        A
+        24 -2
+      type_line: 9 64|1024 1025
+  - id: 1105
+    key: one_ring
+    name: the One Ring
+    description: The One Ring is here.
+    weight: 3
+    value: 2500
+    type: armor
+    slot: finger
+    armor_class: 0
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+      - HOLD
+    keywords: [one, ring]
+    applies:
+      - location: 17
+        modifier: 10
+      - location: 12
+        modifier: 20
+    template_json:
+      raw_block: |
+        ~
+        9 64 16387
+        0 0 0 0
+        3 2500 1900
+        A
+        17 10
+        A
+        12 20
+      type_line: 9 64 16387
+  - id: 1106
+    key: elven_bow
+    name: an elven bow
+    description: An elven bow lies here.
+    weight: 10
+    value: 2000
+    type: weapon
+    multiplier: 2
+    base_die: 8
+    damage_bonus: 4
+    weapon_family: BOWS
+    weapon_category: MARTIAL
+    extra_flags:
+      - HUM
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [elven, bow]
+    applies:
+      - location: 18
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        an elven bow~
+        An elven bow lies here.~
+        ~
+        5 1090 8193
+        0 2 8 4
+        10 2000 2000
+        A
+        18 2
+      type_line: 5 1090 8193
+  - id: 1107
+    key: mithril_axe
+    name: a mithril axe
+    description: A mithril axe lies here.
+    weight: 12
+    value: 4000
+    type: weapon
+    multiplier: 2
+    base_die: 8
+    damage_bonus: 5
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - GLOW
+      - DARK
+      - NOREMOVE
+      - INVENTORY
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [mithril, axe]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        a mithril axe~
+        A mithril axe lies here.~
+        ~
+        5 28677 8193
+        0 2 8 5
+        12 4000 2000
+        A
+        19 2
+      type_line: 5 28677 8193
+  - id: 1108
+    key: thain_girth
+    name: the thain girth
+    description: The girth of the thain lies here.
+    weight: 4
+    value: 1000
+    type: armor
+    slot: waist
+    armor_class: 5
+    extra_flags:
+      - INVENTORY
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [thain, girth]
+    applies:
+      - location: 4
+        modifier: 2
+    template_json:
+      raw_block: |
+        the thain girth~
+        The girth of the thain lies here.~
+        ~
+        9 8192 2049
+        5 3 0 0
+        4 1000 200
+        A
+        4 2
+      type_line: 9 8192 2049
+  - id: 1109
+    key: tiny_dagger
+    name: a tiny dagger
+    description: A tiny dagger lies here.
+    weight: 3
+    value: 40
+    type: weapon
+    multiplier: 1
+    base_die: 6
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [tiny, dagger]
+    template_json:
+      raw_block: |
+        #1109
+        tiny dagger~
+        a tiny dagger~
+        A tiny dagger lies here.~
+        ~
+        5 0 8193
+        0 1 6 11
+        3 40 10
+      type_line: 5 0 8193
+  - id: 1110
+    key: egg
+    name: an egg
+    description: An egg lies here.
+    weight: 1
+    value: 9
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [egg]
+    template_json:
+      raw_block: |
+        #1110
+        egg~
+        an egg~
+        An egg lies here.~
+        ~
+        19 0 1
+        12 0 0 0
+        1 9 1
+      type_line: 19 0 1
+  - id: 1111
+    key: bag
+    name: a bag
+    description: A bag is on the floor.
+    weight: 5
+    value: 50
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [bag]
+    template_json:
+      raw_block: |
+        #1111
+        bag~
+        a bag~
+        A bag is on the floor.~
+        ~
+        15 0 1
+        50 0 0 0 
+        5 50 10
+      type_line: 15 0 1
+  - id: 1112
+    key: lantern
+    name: a lantern
+    description: A lantern is on the floor.
+    weight: 4
+    value: 50
+    type: held
+    wear_flags:
+      - TAKE
+    keywords: [lantern]
+    template_json:
+      raw_block: |
+        #1112
+        lantern~
+        a lantern~
+        A lantern is on the floor.~
+        ~
+        1 0 1
+        0 0 20 0
+        4 50 10
+      type_line: 1 0 1
+  - id: 1113
+    key: bardiche
+    name: a bardiche
+    description: A long weapon with a sharp end is on the floor.
+    weight: 10
+    value: 1000
+    type: weapon
+    multiplier: 3
+    base_die: 4
+    damage_bonus: 3
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [bardiche]
+    applies:
+      - location: 18
+        modifier: 4
+    on_equip_effect_ids:
+      - 511
+    template_json:
+      raw_block: |
+        a bardiche~
+        A long weapon with a sharp end is on the floor.~
+        ~
+        5 0 1|8192
+        0 3 4 3
+        10 1000 50
+        A
+        18 4
+      type_line: 5 0 1|8192
+  - id: 1114
+    key: flail
+    name: a flail
+    description: A flail is on the floor.
+    weight: 8
+    value: 300
+    type: weapon
+    multiplier: 2
+    base_die: 4
+    damage_bonus: 6
+    weapon_family: FLAILS
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [flail]
+    template_json:
+      raw_block: |
+        #1114
+        flail~
+        a flail~
+        A flail is on the floor.~
+        ~
+        5 0 1|8192
+        0 2 4 6
+        8 300 50
+      type_line: 5 0 1|8192

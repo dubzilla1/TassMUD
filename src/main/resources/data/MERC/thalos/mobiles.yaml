@@ -1,0 +1,279 @@
+- id: 5200
+  key: "the_mighty_beholder"
+  name: "beholder"
+  short_desc: "The mighty beholder"
+  long_desc: "You meet a beholder's deadly gaze!"
+  keywords: ['beholder']
+  level: 163
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 163, 'hit_dice': '25d25+250', 'damage_dice': '25d25+250', 'raw_block': 'It has a large central eye that projects an anti-magic ray and ten\neyestalks atop the round body which can do anything from charm you\nto disintegrate you.  Beholders are not known for their personality.\n~\n163 8 -870 S\n25 6 0 25d25+250 6d6+5\n22560 94000\n8 8 0'}
+
+- id: 5201
+  key: "the_lamia"
+  name: "lamia beast"
+  short_desc: "The lamia"
+  long_desc: "A strange lamia stands here waiting for her next meal."
+  keywords: ['lamia', 'beast']
+  level: 100
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '9d9+99', 'damage_dice': '9d9+99', 'raw_block': 'This is a creature with the upper torso of a beautiful woman, but the lower\nbody of a four-legged beast.  She licks her lips as she looks at you greedily.\n~\n100 0 -999 S\n9 12 1 9d9+99 1d5+4\n1000 3000\n8 8 2'}
+
+- id: 5202
+  key: "the_mimic"
+  name: "mimic chest"
+  short_desc: "The mimic"
+  long_desc: "A strong chest lies in one corner of the room."
+  keywords: ['mimic', 'chest']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 228, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': 'A strong, wooden chest bound with iron straps and a heavy pad-lock on the\nfront.\n~\n228 32768 10 S\n11 10 1 11d11+110 2d7+0\n0 4000\n8 8 0'}
+
+- id: 5203
+  key: "the_mimic"
+  name: "mimic boulder"
+  short_desc: "The mimic"
+  long_desc: "Two skeletons lie crushed under a large boulder."
+  keywords: ['mimic', 'boulder']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 228, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': '~\n228 32768 -10 S\n11 10 1 11d11+110 3d5+1\n0 4000\n8 8 0'}
+
+- id: 5204
+  key: "the_mimic"
+  name: "mimic floor"
+  short_desc: "The mimic"
+  long_desc: "The stone floor of this house has been ripped apart."
+  keywords: ['mimic', 'floor']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 228, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': '~\n228 32768 -140 S\n11 10 1 11d11+110 2d6+0\n0 3500\n8 8 0'}
+
+- id: 5205
+  key: "the_mimic"
+  name: "mimic pottery"
+  short_desc: "The mimic"
+  long_desc: "Some broken shards of pottery lie strewn about the floor."
+  keywords: ['mimic', 'pottery']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 228, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': '~\n228 32768 200 S\n11 10 0 11d11+110 2d5+1\n0 3500\n8 8 0'}
+
+- id: 5206
+  key: "the_mimic"
+  name: "mimic planks"
+  short_desc: "The mimic"
+  long_desc: "A few wooden planks lie stacked on a low shelf."
+  keywords: ['mimic', 'planks']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 228, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': '~\n228 32768 0 S\n11 9 0 11d11+110 4d3+1\n0 3500\n8 8 0'}
+
+- id: 5207
+  key: "the_horned_lizard"
+  name: "lizard horned"
+  short_desc: "The horned lizard"
+  long_desc: "A small horned lizard flicks his tongue and slithers away."
+  keywords: ['lizard', 'horned']
+  level: 128
+  hp_max: 32
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '1d4+30', 'damage_dice': '1d4+30', 'raw_block': 'A cute little lizard, that is, if you like reptiles!\n~\n128 0 0 S\n3 17 4 1d4+30 1d4+0\n0 300\n8 8 0'}
+
+- id: 5208
+  key: "the_stone_golem"
+  name: "golem stone"
+  short_desc: "The stone golem"
+  long_desc: "In the corner you see a large, stone golem faithfully standing watch."
+  keywords: ['golem', 'stone']
+  level: 2
+  hp_max: 633
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 600
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '6d10+600', 'damage_dice': '6d10+600', 'raw_block': 'It is a big chunk of rock that has been magically formed into a giant\nstone creature. He stands here still guarding the city.\n~\n2 8192 600 S\n25 0 0 6d10+600 3d7+15\n4250 80000\n8 8 0'}
+

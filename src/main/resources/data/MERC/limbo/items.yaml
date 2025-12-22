@@ -1,0 +1,247 @@
+items:
+  - id: 2
+    key: coin_gold
+    name: a gold coin
+    description: One miserable gold coin.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coin, gold]
+    template_json:
+      raw_block: |
+        #2
+        coin gold~
+        a gold coin~
+        One miserable gold coin.~
+        ~
+        20 0 1
+        1 0 0 0
+        1 0 0
+      type_line: 20 0 1
+  - id: 3
+    key: coins_gold
+    name: %d gold coins
+    description: A pile of gold coins.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins, gold]
+    template_json:
+      raw_block: |
+        #3
+        coins gold~
+        %d gold coins~
+        A pile of gold coins.~
+        ~
+        20 0 1
+        0 0 0 0
+        1 0 0
+      type_line: 20 0 1
+  - id: 10
+    key: corpse
+    name: corpse of %s
+    description: The corpse of %s is lying here.
+    weight: 100
+    value: 0
+    wear_flags:
+      - TAKE
+    keywords: [corpse]
+    template_json:
+      raw_block: |
+        #10
+        corpse~
+        corpse of %s~
+        The corpse of %s is lying here.~
+        ~
+        23 0 1
+        0 0 0 1
+        100 0 0
+      type_line: 23 0 1
+  - id: 11
+    key: corpse
+    name: corpse of %s
+    description: The corpse of %s is lying here.
+    weight: 100
+    value: 0
+    keywords: [corpse]
+    template_json:
+      raw_block: |
+        #11
+        corpse~
+        corpse of %s~
+        The corpse of %s is lying here.~
+        ~
+        24 0 0
+        0 0 0 1
+        100 0 0
+      type_line: 24 0 0
+  - id: 12
+    key: head
+    name: head of %s
+    description: The severed head of %s is lying here.
+    weight: 5
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [head]
+    template_json:
+      raw_block: |
+        #12
+        head~
+        head of %s~
+        The severed head of %s is lying here.~
+        ~
+        19 0 1
+        10 0 0 0
+        5 0 0
+      type_line: 19 0 1
+  - id: 13
+    key: heart
+    name: heart of %s
+    description: The torn-out heart of %s is lying here.
+    weight: 2
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [heart]
+    template_json:
+      raw_block: |
+        #13
+        heart~
+        heart of %s~
+        The torn-out heart of %s is lying here.~
+        ~
+        19 0 1
+        16 0 0 0
+        2 0 0
+      type_line: 19 0 1
+  - id: 14
+    key: arm
+    name: arm of %s
+    description: The sliced-off arm of %s is lying here.
+    weight: 5
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [arm]
+    template_json:
+      raw_block: |
+        #14
+        arm~
+        arm of %s~
+        The sliced-off arm of %s is lying here.~
+        ~
+        19 0 1
+        20 0 0 0
+        5 0 0
+      type_line: 19 0 1
+  - id: 15
+    key: leg
+    name: leg of %s
+    description: The sliced-off leg of %s is lying here.
+    weight: 5
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [leg]
+    template_json:
+      raw_block: |
+        #15
+        leg~
+        leg of %s~
+        The sliced-off leg of %s is lying here.~
+        ~
+        19 0 1
+        20 0 0 0
+        5 0 0
+      type_line: 19 0 1
+  - id: 16
+    key: turd
+    name: steaming turd
+    description: The steaming turds of %s assail your nostrils.
+    weight: 1
+    value: 0
+    type: trash
+    keywords: [turd]
+    template_json:
+      raw_block: |
+        #16
+        turd~
+        steaming turd~
+        The steaming turds of %s assail your nostrils.~
+        ~
+        13 0 0
+        5 0 0 1
+        1 0 0
+      type_line: 13 0 0
+  - id: 20
+    key: mushroom
+    name: a Magic Mushroom
+    description: A delicious magic mushroom is here.
+    weight: 1
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [mushroom]
+    template_json:
+      raw_block: |
+        mushroom~
+        a Magic Mushroom~
+        A delicious magic mushroom is here.
+        ~
+        ~
+        19 0 1
+        5 0 0 0
+        1 10 10
+      type_line: 19 0 1
+  - id: 21
+    key: ball_light
+    name: a bright ball of light
+    description: A bright ball of light shimmers in the air.
+    weight: 1
+    value: 0
+    type: held
+    wear_flags:
+      - TAKE
+    keywords: [ball, light]
+    template_json:
+      raw_block: |
+        #21
+        ball light~
+        a bright ball of light~
+        A bright ball of light shimmers in the air.~
+        ~
+        1 0 1
+        0 0 -1 0
+        1 0 0
+      type_line: 1 0 1
+  - id: 22
+    key: spring
+    name: a magical spring
+    description: A magical spring flows from the ground here.
+    weight: 5000
+    value: 10
+    type: immobile
+    extra_flags:
+      - MAGIC
+    keywords: [spring]
+    template_json:
+      raw_block: |
+        #22
+        spring~
+        a magical spring~
+        A magical spring flows from the ground here.~
+        ~
+        25 64 0
+        100000 100000 0 0
+        5000 10 100000
+      type_line: 25 64 0

@@ -1,0 +1,168 @@
+items:
+  - id: 2800
+    key: corpse_cadaver
+    name: the cadaver-toy
+    description: A half eaten corpse is laying here
+    weight: 50
+    value: 0
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [corpse, cadaver]
+    template_json:
+      raw_block: |
+        #2800
+        corpse cadaver~
+        the cadaver-toy~
+        A half eaten corpse is laying here~
+        ~
+        15 0 1
+        30 0 0 0
+        50 0 0
+      type_line: 15 0 1
+  - id: 2801
+    key: pile_rotting_heap_bed
+    name: the heap of carnage
+    description: There is a bed made of carnage here.
+    weight: 999
+    value: 0
+    type: container
+    keywords: [pile, rotting, heap, bed]
+    template_json:
+      raw_block: |
+        #2801
+        pile rotting heap bed~
+        the heap of carnage~
+        There is a bed made of carnage here.~
+        ~
+        15 0 0
+        30 0 0 0
+        999 0 0
+      type_line: 15 0 0
+  - id: 2802
+    key: trollskin_troll_skin
+    name: the troll skin
+    description: The filthy hide of a beast is laying here.
+    weight: 50
+    value: 50
+    type: armor
+    slot: back
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [trollskin, troll, skin]
+    applies:
+      - location: 1
+        modifier: 1
+    template_json:
+      raw_block: |
+        50 50 50
+        E
+        troll skin~
+        This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
+        and feels bad.
+        ~
+        A
+        1 1
+      type_line: 9 0 1|1024
+      extra_desc: |
+        This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
+        and feels bad.
+  - id: 2803
+    key: ring_opal
+    name: an opal ring
+    description: A ring of black opal lies here gathering dust.
+    weight: 1
+    value: 1000
+    type: armor
+    slot: finger
+    armor_class: 3
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, opal]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        3 0 0 0
+        1 1000 100
+        E
+        ring opal~
+        It is a full circle of opal, smooth and simple.
+        ~
+        A
+        19 2
+      type_line: 9 64 1|2
+      extra_desc: It is a full circle of opal, smooth and simple.
+  - id: 2804
+    key: leather_belt
+    name: a leather belt
+    description: An old leather belt is left on the floor.
+    weight: 5
+    value: 100
+    type: armor
+    slot: waist
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [leather, belt]
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|2048
+        6 0 0 0
+        5 100 20
+        E
+        leather belt~
+        This old, smelly belt looks like it is barely better than rotting cloth.
+        ~
+      type_line: 9 64 1|2048
+      extra_desc: This old, smelly belt looks like it is barely better than rotting cloth.
+  - id: 2805
+    key: bone_cracked
+    name: a cracked bone
+    description: A cracked piece of bone lies here.
+    weight: 3
+    value: 3
+    type: weapon
+    multiplier: 3
+    base_die: 3
+    damage_bonus: 7
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [bone, cracked]
+    applies:
+      - location: 19
+        modifier: -1
+      - location: 18
+        modifier: -1
+    on_equip_effect_ids:
+      - 509
+      - 505
+    template_json:
+      raw_block: |
+        bone~
+        This piece of bone looks sturdy enough to be used as a weapon, but you
+        wouldn't want to entrust your life to it.
+        ~
+        A
+        19 -1
+        A
+        18 -1
+      type_line: 5 0 1|8192
+      extra_desc: |
+        This piece of bone looks sturdy enough to be used as a weapon, but you
+        wouldn't want to entrust your life to it.

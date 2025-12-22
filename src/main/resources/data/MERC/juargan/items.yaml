@@ -1,0 +1,237 @@
+items:
+  - id: 4700
+    key: key_small
+    name: a small key
+    description: A small key of red rock lies here on the ground.
+    weight: 1
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, small]
+    template_json:
+      raw_block: |
+        #4700
+        key small~
+        a small key~
+        A small key of red rock lies here on the ground.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 10 1
+      type_line: 18 0 1
+  - id: 4701
+    key: pick_mining
+    name: a mining pick
+    description: A small pick lies here on the ground.
+    weight: 10
+    value: 100
+    type: weapon
+    multiplier: 1
+    base_die: 6
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [pick, mining]
+    template_json:
+      raw_block: |
+        #4701
+        pick mining~
+        a mining pick~
+        A small pick lies here on the ground.~
+        ~
+        5 0 8193
+        0 1 6 11
+        10 100 20
+      type_line: 5 0 8193
+  - id: 4702
+    key: helm_dwarven
+    name: a dwarven helm
+    description: A large dwarven helm lies here on the ground.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: head
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, dwarven]
+    template_json:
+      raw_block: |
+        #4702
+        helm dwarven~
+        a dwarven helm~
+        A large dwarven helm lies here on the ground.~
+        ~
+        9 0 17
+        6 0 0 0
+        10 1000 100
+      type_line: 9 0 17
+  - id: 4703
+    key: plate_dwarven_breast
+    name: a dwarven breast plate
+    description: A dwarven breast plate lies here on the ground.
+    weight: 15
+    value: 1500
+    type: armor
+    slot: chest
+    armor_class: 10
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [plate, dwarven, breast]
+    template_json:
+      raw_block: |
+        #4703
+        plate dwarven breast~
+        a dwarven breast plate~
+        A dwarven breast plate lies here on the ground.~
+        ~
+        9 0 9
+        10 0 0 0
+        15 1500 150
+      type_line: 9 0 9
+  - id: 4704
+    key: shield_large_dwarven
+    name: a large dwarven shield
+    description: A large dwarven shield lies here on the ground.
+    weight: 7
+    value: 2000
+    type: armor
+    slot: off_hand
+    armor_class: 4
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, large, dwarven]
+    applies:
+      - location: 17
+        modifier: -2
+      - location: 24
+        modifier: 4
+    template_json:
+      raw_block: |
+        ~
+        9 1 513
+        4 0 0 0
+        7 2000 200
+        A
+        17 -2
+        A
+        24 4
+      type_line: 9 1 513
+  - id: 4705
+    key: coins_large_pile
+    name: a large pile of coins
+    description: A large pile of coins are piled here.
+    weight: 0
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins, large, pile]
+    template_json:
+      raw_block: |
+        #4705
+        coins large pile~
+        a large pile of coins~
+        A large pile of coins are piled here.~
+        ~
+        20 0 1
+        30000 0 0 0
+        0 0 0
+      type_line: 20 0 1
+  - id: 4706
+    key: dwarven_battle_axe
+    name: a large dwarven battle axe
+    description: A large battle axe lies here on the ground.
+    weight: 5
+    value: 10000
+    type: weapon
+    multiplier: 2
+    base_die: 12
+    damage_bonus: 1
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dwarven, battle, axe]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        5 10000 100
+        E
+        dwarven battle axe~
+        It is engraved with beautiful dwarven runes.~
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 320 8193
+      extra_desc: It is engraved with beautiful dwarven runes.
+  - id: 4707
+    key: large_stone_sarcophagus
+    name: a large stone sarcophagus
+    description: A large stone sarcophagus lies here, the lid fallen on the floor.
+    weight: 1000
+    value: 0
+    type: container
+    keywords: [large, stone, sarcophagus]
+    template_json:
+      raw_block: |
+        #4707
+        large stone sarcophagus~
+        a large stone sarcophagus~
+        A large stone sarcophagus lies here, the lid fallen on the floor.~
+        ~
+        15 0 0
+        1000 1 -1 0
+        1000 0 0
+      type_line: 15 0 0
+  - id: 4708
+    key: staff_ruling_large
+    name: the staff of ruling
+    description: A large and intricate staff rests here.
+    weight: 10
+    value: 10000
+    type: weapon
+    multiplier: 5
+    base_die: 5
+    damage_bonus: 7
+    hands: 2
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - HUM
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff, ruling, large]
+    template_json:
+      raw_block: |
+        #4708
+        staff ruling large~
+        the staff of ruling~
+        A large and intricate staff rests here.~
+        ~
+        4 2 16385
+        25 5 5 7
+        10 10000 100
+      type_line: 4 2 16385

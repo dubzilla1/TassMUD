@@ -1,0 +1,744 @@
+- id: 7000
+  key: "the_horrifying_mudmonster"
+  name: "mud monster mudmonster"
+  short_desc: "the horrifying Mudmonster"
+  long_desc: "A horrifying Mudmonster is slowly evolving from the mud ..."
+  keywords: ['mud', 'monster', 'mudmonster']
+  level: 64
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'It sure looks like something out of a horror movie. It strongly resembles\na huge figure made up from mud alone, and it sure looks like it had human \nflesh for breakfast and is strongly intent on having the same for dinner.\n~\n64 32768 -250 S\n12 9 -2 12d12+120 2d6+5\n100 4000\n5 5 0'}
+
+- id: 7001
+  key: "the_small_bat"
+  name: "bat"
+  short_desc: "the small bat"
+  long_desc: "The small fierce-looking bat is hanging from the ceiling."
+  keywords: ['bat']
+  level: 96
+  hp_max: 13
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 6
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '5d2+6', 'damage_dice': '5d2+6', 'raw_block': "You have never in your entire life seen such a mean looking small creature,\nthough it looks rather peaceful, hanging there. The thought of arousing this\ncruel creature doesn't seem appealing.\n~\n96 32768 -500 S\n1 20 4 5d2+6 1d5+0\n0 20\n4 4 0"}
+
+- id: 7002
+  key: "the_great_sewer_rat"
+  name: "rat"
+  short_desc: "the great sewer rat"
+  long_desc: "The huge hungry-looking sewer rat sits here."
+  keywords: ['rat']
+  level: 32
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': '~\n32 512 -1000 S\n5 16 5 5d5+50 2d4+0\n40 600\n8 8 1'}
+
+- id: 7003
+  key: "the_small_spider"
+  name: "spider"
+  short_desc: "the small spider"
+  long_desc: "The small hairy spider."
+  keywords: ['spider']
+  level: 32
+  hp_max: 14
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '1d12+8', 'damage_dice': '1d12+8', 'raw_block': '~\n32 32768 -700 S\n1 20 3 1d12+8 1d4+0\n1 100\n8 8 1'}
+
+- id: 7004
+  key: "the_giant_earth_beetle"
+  name: "beetle"
+  short_desc: "the giant earth beetle"
+  long_desc: "The giant mean-looking earth beetle crawls towards you."
+  keywords: ['beetle']
+  level: 512
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 51200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 512, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': '~\n0 512 -300 S\n8 13 3 8d8+80 2d5+1\n100 2000\n8 8 1'}
+
+- id: 7005
+  key: "the_maggot"
+  name: "maggot"
+  short_desc: "the maggot"
+  long_desc: "The giant maggot crawls toward you."
+  keywords: ['maggot']
+  level: 512
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 51200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 512, 'hit_dice': '2d5+35', 'damage_dice': '2d5+35', 'raw_block': '~\n0 512 300 S\n3 17 9 2d5+35 1d7+0\n2 350\n8 8 1'}
+
+- id: 7006
+  key: "the_slithering_snake"
+  name: "snake"
+  short_desc: "the slithering snake"
+  long_desc: "The snake slithers towards you."
+  keywords: ['snake']
+  level: 33
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 33, 'hit_dice': '4d4+40', 'damage_dice': '4d4+40', 'raw_block': '~\n33 512 -500 S\n4 16 7 4d4+40 1d9+0\n1 500\n8 8 0'}
+
+- id: 7007
+  key: "the_evil_wanderer"
+  name: "wanderer"
+  short_desc: "the evil wanderer"
+  long_desc: "The evil wanderer stares at you."
+  keywords: ['wanderer']
+  level: 132
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 132, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'The evil wanderer is very thin.  He is dressed in a grey cloak.\n~\n132 512 -1000 S\n10 11 2 10d10+100 2d6+1\n300 2500\n8 8 1'}
+
+- id: 7008
+  key: "the_homonculus"
+  name: "homonculus homo"
+  short_desc: "the homonculus"
+  long_desc: "The homonculus is here, looking at you with an evil look."
+  keywords: ['homonculus', 'homo']
+  level: 18
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 18, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'act_flags': 18, 'raw_block': "The Homonculus appears in a man-like form, about 18'' tall, it has a\ngreenish, reptilian skin, leathery wings, and a bat-like mouth, with\nteeth gleaming yellow.\n~\n0 520 -780 S\n11 10 -1 11d11+110 2d6+2\n500 3500\n8 8 0"}
+
+- id: 7010
+  key: "the_evil_chreffn"
+  name: "chreffn"
+  short_desc: "the evil chreffn"
+  long_desc: "The chreffn are crawling here, looking around with their yellow eyes."
+  keywords: ['chreffn']
+  level: 132
+  hp_max: 175
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 132, 'hit_dice': '2d26+148', 'damage_dice': '2d26+148', 'raw_block': 'The head and torso of a chreffn is copper-covered, with yellow,\nglowing eyes. The lower body is in an orange shading.\n~\n132 32776 -830 S\n12 9 2 2d26+148 2d7+1\n1500 5000\n8 8 0'}
+
+- id: 7011
+  key: "the_shadowy_morkoth"
+  name: "morkoth"
+  short_desc: "the shadowy morkoth"
+  long_desc: "The morkoth is standing here, waiting for someone to KILL!"
+  keywords: ['morkoth']
+  level: 160
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 160, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': "It's a five feet tall, shadow monster. The shape of this creature lies\nsomewhere between a human and a rat. It breaths very heavily, while staring\nat you with such a glint in the eyes that reminds you of immense hunger.\n~\n160 512 -900 S\n10 11 0 10d10+100 2d6+2\n1 3000\n8 8 0"}
+
+- id: 7013
+  key: "the_horrifying_mudmonster"
+  name: "mud monster mudmonster"
+  short_desc: "the horrifying mudmonster"
+  long_desc: "A horrifying mudmonster is slowly evolving from the mud ..."
+  keywords: ['mud', 'monster', 'mudmonster']
+  level: 96
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'It sure looks like something out of a horror movie. It strongly resembles\na huge figure made up from mud alone, and it sure looks like it had human \nflesh for breakfast and is strongly intent on having the same for dinner.\n~\n96 32768 -250 S\n12 9 -2 12d12+120 2d6+5\n1000 8000\n5 5 0'}
+
+- id: 7040
+  key: "the_red_dragon"
+  name: "red dragon"
+  short_desc: "the red dragon"
+  long_desc: "The red fierce-looking dragon stares at you angrily."
+  keywords: ['red', 'dragon']
+  level: 35
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 35, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': "The red dragon stares at you, angrily, as it wakes when you\narrives.  It says 'Oh, human YOU woke me up ... Hsss', while\nit moves closer.  'Can one NEVER sleep in peace ... Hsss'.\n~\n35 520 -1000 S\n30 -10 -10 30d30+300 3d4+30\n100000 450000\n8 8 0"}
+
+- id: 7041
+  key: "the_sea_hag"
+  name: "sea hag"
+  short_desc: "the sea hag"
+  long_desc: "The sea hag is swimming around here."
+  keywords: ['sea', 'hag']
+  level: 32
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 172
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '1d8+172', 'damage_dice': '1d8+172', 'raw_block': 'The sea hag is so ghastly looking that you feel the deepest fear.\nBig yellow eyes and sharp teeth.  Its ears are very big,\nand it has small sharp horns.  It hates beauty.\n~\n32 512 -800 S\n14 7 1 1d8+172 2d8+1\n0 18000\n8 8 2'}
+
+- id: 7042
+  key: "the_guardian_naga"
+  name: "guardian naga"
+  short_desc: "the guardian naga"
+  long_desc: "The guardian naga looks kindly at you."
+  keywords: ['guardian', 'naga']
+  level: 2
+  hp_max: 157
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d18+148', 'damage_dice': '1d18+148', 'raw_block': "The naga are a snake-liked creature. She is covered in green-gold\nscale with silvery triangles along her back. Her eyes are golden.\nShe notice that you look at her, and she says: 'Watch out. This way\nleads to some evil creatures'.\n~\n2 512 700 S\n12 9 2 1d18+148 2d7+1\n100 13500\n8 8 2"}
+
+- id: 7043
+  key: "the_scaled_basilisk"
+  name: "basilisk"
+  short_desc: "the scaled basilisk"
+  long_desc: "The scaled basilisk crawls towards you slowly."
+  keywords: ['basilisk']
+  level: 36
+  hp_max: 166
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 36, 'hit_dice': '1d12+160', 'damage_dice': '1d12+160', 'raw_block': "The basilisk is a reptilian monster. It has eight legs, and a strong\ntoothy jaws. It is dull brown with yellowish underbelly. It's eyes are\nglowing pale green.\n~\n36 520 -250 S\n13 11 0 1d12+160 2d7+2\n350 16000\n8 8 1"}
+
+- id: 7044
+  key: "the_lemure_blob"
+  name: "lemure blob"
+  short_desc: "the lemure blob"
+  long_desc: "The lemure blob slithers terribly precisely towards you for an attack!"
+  keywords: ['lemure', 'blob']
+  level: 32
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 57
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '3d5+57', 'damage_dice': '3d5+57', 'raw_block': "This looks like a vaguely human blob. Big black yellow eyes, and a\nmouth going a little bit out from the face. The lemure does not look\ninterested in you at all, but anyway it attacks. It looks like it's\nmind has been burned out.\n~\n32 32768 -500 S\n5 16 6 3d5+57 2d4+0\n0 1000\n8 8 0"}
+
+- id: 7045
+  key: "jones"
+  name: "jones cruncher ettin"
+  short_desc: "Jones"
+  long_desc: "Jones 'Cruncher' the ettin is standing here glaring at you."
+  keywords: ['jones', 'cruncher', 'ettin']
+  level: 36
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 36, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'At the first sight you thought Jones was an orc, but when it came\ncloser you saw his second head. He wears an animal skin dress,\nfilthy and moth eaten. Jones really stinks...\n~\n36 512 -480 S\n10 11 2 10d10+100 2d6+4\n60 4000\n5 5 1'}
+
+- id: 7046
+  key: "herald"
+  name: "herald mouse killer ettin"
+  short_desc: "Herald"
+  long_desc: "Herald 'Mouse-Killer' the ettin is standing here looking confused at you."
+  keywords: ['herald', 'mouse', 'killer', 'ettin']
+  level: 4
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'When you look at Herald, you feel pity. His dress are really poor,\nand the one of his heads hangs down. At the rope around his stomach\nhangs dead mouses and rats. He does not smell good.\n~\n4 512 +200 S\n6 14 4 6d6+60 1d8+0\n40 1000\n5 5 1'}
+
+- id: 7200
+  key: "the_master_mindflayer"
+  name: "master mind mindflayer"
+  short_desc: "the master mindflayer"
+  long_desc: "The master mindflayer is here, looking at you with an evil look."
+  keywords: ['master', 'mind', 'mindflayer']
+  level: 37
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 37, 'hit_dice': '14d14+140', 'damage_dice': '14d14+140', 'raw_block': "It's a seven foot tall humanoid dressed in a purple cloak, and swinging a\nblack and purple rod above its head as if it was going to attack you any\nmoment now. In the middle of its head are four tentacles with sharp points.\n~\n37 520 -800 S\n14 7 0 14d14+140 3d4+4\n1000 18000\n8 8 0"}
+
+- id: 7201
+  key: "the_senior_mindflayer"
+  name: "senior mind mindflayer"
+  short_desc: "the senior mindflayer"
+  long_desc: "The senior mindflayer walks around here, looking for something useful."
+  keywords: ['senior', 'mind', 'mindflayer']
+  level: 6
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 6, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'act_flags': 6, 'raw_block': 'This is a horrifying monster indeed, 6\'6" high. Dressed in purple and black,\nand carrying a large mace in its hand. In the center of its head are four large\ntentacles with very sharp points.\n~\n37 520 -600 S\n8 13 2 8d8+80 2d4+3\n400 3000\n8 8 0'}
+
+- id: 7202
+  key: "the_junior_mindflayer"
+  name: "junior mind mindflayer"
+  short_desc: "the junior mindflayer"
+  long_desc: "The junior mindflayer is here, watching you carefully from the corner."
+  keywords: ['junior', 'mind', 'mindflayer']
+  level: 37
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 37, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'This mindflayer is six foot high. It has a small mace in its belt, and is\ndressed in purple and black cloth. It has four small tentacles in the \ncenter of its head.\n~\n37 520 -350 S\n6 15 4 6d6+60 1d4+3\n200 1500\n8 8 0'}
+
+- id: 7203
+  key: "the_ugly_wererat"
+  name: "wererat rat were"
+  short_desc: "the ugly wererat"
+  long_desc: "An ugly wererat is here, looking at you with a strange flick in his eyes."
+  keywords: ['wererat', 'rat', 'were']
+  level: 100
+  hp_max: 83
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 69
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '4d6+69', 'damage_dice': '4d6+69', 'raw_block': 'The wererat is about four foot tall. It looks very much like rat, except\nthat it is standing.\n~\n100 512 -700 S\n6 15 3 4d6+69 2d4+2\n50 1200\n8 8 0'}
+
+- id: 7204
+  key: "the_gigantic_rat"
+  name: "rat gigantic"
+  short_desc: "the gigantic rat"
+  long_desc: "There is a gigantic rat here, looking at you with a hungry look."
+  keywords: ['rat', 'gigantic']
+  level: 34
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'The gigantic rat is about ten foot long from head to tail and has claws\nthe size of your head looking very nasty.\n~\n34 512 -800 S\n12 9 -2 12d12+120 2d6+2\n2513 10000\n4 8 1'}
+

@@ -1,0 +1,411 @@
+items:
+  - id: 6502
+    key: key_green
+    name: a deep green key
+    description: A deep green key is on the floor.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, green]
+    template_json:
+      raw_block: |
+        #6502
+        key green~
+        a deep green key~
+        A deep green key is on the floor.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 6504
+    key: dwarven_hammer
+    name: a hammer
+    description: There is a dwarven hammer laying here.
+    weight: 3
+    value: 5500
+    type: weapon
+    multiplier: 3
+    base_die: 6
+    damage_bonus: 8
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dwarven, hammer]
+    template_json:
+      raw_block: |
+        #6504
+        dwarven hammer~
+        a hammer~
+        There is a dwarven hammer laying here.~
+        ~
+        5 0 8193
+        0 3 6 8
+        3 5500 175
+      type_line: 5 0 8193
+  - id: 6505
+    key: dwarven_plate
+    name: dwarven plate mail
+    description: There is dwarven plate mail laying here.
+    weight: 4
+    value: 4500
+    type: armor
+    slot: chest
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [dwarven, plate]
+    template_json:
+      raw_block: |
+        #6505
+        dwarven plate~
+        dwarven plate mail~
+        There is dwarven plate mail laying here.~
+        ~
+        9 0 9
+        8 0 0 0
+        4 4500 500
+      type_line: 9 0 9
+  - id: 6506
+    key: stick
+    name: long, black stick
+    description: There is a long, black stick lying here.
+    weight: 1
+    value: 100
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 15
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stick]
+    template_json:
+      raw_block: |
+        #6506
+        stick~
+        long, black stick~
+        There is a long, black stick lying here.~
+        ~
+        4 0 16385
+        4 10 10 15
+        1 100 10
+      type_line: 4 0 16385
+  - id: 6507
+    key: stick
+    name: long, black stick
+    description: There is a long, black stick here.
+    weight: 1
+    value: 0
+    type: held
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [stick]
+    template_json:
+      raw_block: |
+        #6507
+        stick~
+        long, black stick~
+        There is a long, black stick here.~
+        ~
+        1 0 16385
+        0 0 50 0
+        1 0 0
+      type_line: 1 0 16385
+  - id: 6508
+    key: club
+    name: dwarven club
+    description: There is a dwarven club laying here.
+    weight: 1
+    value: 3000
+    type: weapon
+    multiplier: 2
+    base_die: 6
+    damage_bonus: 8
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [club]
+    template_json:
+      raw_block: |
+        #6508
+        club~
+        dwarven club~
+        There is a dwarven club laying here.~
+        ~
+        5 0 8193
+        0 2 6 8
+        1 3000 400
+      type_line: 5 0 8193
+  - id: 6509
+    key: two_handed_dwarven_axe
+    name: a two-handed dwarven axe
+    description: A two-handed Dwarven axe is here.
+    weight: 5
+    value: 5000
+    type: weapon
+    multiplier: 2
+    base_die: 7
+    damage_bonus: 1
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [two, handed, dwarven, axe]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 1
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        ~
+        5 0 8193
+        0 2 7 1
+        5 5000 50
+        A
+        18 2
+        A
+        1 2
+      type_line: 5 0 8193
+  - id: 6510
+    key: helmet
+    name: A dwarven helmet
+    description: A dwarven helmet is here.
+    weight: 4
+    value: 2500
+    type: armor
+    slot: head
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helmet]
+    template_json:
+      raw_block: |
+        #6510
+        helmet~
+        A dwarven helmet~
+        A dwarven helmet is here.~
+        ~
+        9 0 17
+        8 0 0 0
+        4 2500 300
+      type_line: 9 0 17
+  - id: 6511
+    key: ring_golden_dwarven
+    name: a dwarven golden ring
+    description: A pretty golden ring is here.
+    weight: 1
+    value: 15000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, golden, dwarven]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        8 64 3
+        0 0 0 0 
+        1 15000 200
+        A
+        18 1
+        A
+        19 1
+      type_line: 8 64 3
+  - id: 6512
+    key: gloves
+    name: Dwarven gloves
+    description: Thick dwarven gloves lay here.
+    weight: 2
+    value: 4000
+    type: armor
+    slot: hands
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves]
+    applies:
+      - location: 1
+        modifier: 1
+      - location: 2
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 0 129
+        4 0 0 0
+        2 4000 800
+        A
+        1 1
+        A
+        2 1
+      type_line: 9 0 129
+  - id: 6513
+    key: note
+    name: a note
+    description: A crumpled note is here.
+    weight: 0
+    value: 0
+    type: immobile
+    wear_flags:
+      - TAKE
+    keywords: [note]
+    template_json:
+      raw_block: |
+        12 0 1
+        0 0 0 0
+        0 0 0
+        E
+        note letter letters~
+        It seems to be a hot love letter from the Queen.  Unfortunately,
+        it's not suitable for transmission across a public data network.
+        ~
+      type_line: 12 0 1
+      extra_desc: |
+        It seems to be a hot love letter from the Queen.  Unfortunately,
+        it's not suitable for transmission across a public data network.
+  - id: 6514
+    key: castle_key
+    name: a castle key
+    description: There is a key to Strangelove Castle here.
+    weight: 0
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [castle, key]
+    template_json:
+      raw_block: |
+        #6514
+        castle key~
+        a castle key~
+        There is a key to Strangelove Castle here.~
+        ~
+        18 0 1
+        0 0 0 0
+        0 10 1000000
+      type_line: 18 0 1
+  - id: 6516
+    key: key_mine
+    name: a mine key
+    description: There is a key to the mines here.
+    weight: 0
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, mine]
+    template_json:
+      raw_block: |
+        #6516
+        key mine~
+        a mine key~
+        There is a key to the mines here.~
+        ~
+        18 0 1
+        0 0 0 0
+        0 10 1000000
+      type_line: 18 0 1
+  - id: 6517
+    key: coal
+    name: a chunk of coal
+    description: There is a chunk of coal here.
+    weight: 100
+    value: 0
+    type: trash
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [coal]
+    template_json:
+      raw_block: |
+        #6517
+        coal~
+        a chunk of coal~
+        There is a chunk of coal here.~
+        ~
+        13 0 16385
+        0 0 0 0
+        100 0 0
+      type_line: 13 0 16385
+  - id: 6518
+    key: pick
+    name: a mining pick
+    description: There is a mining pick here.
+    weight: 1
+    value: 300
+    type: weapon
+    multiplier: 2
+    base_die: 3
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [pick]
+    template_json:
+      raw_block: |
+        #6518
+        pick~
+        a mining pick~
+        There is a mining pick here.~
+        ~
+        5 256 8193
+        0 2 3 11
+        1 300 10
+      type_line: 5 256 8193
+  - id: 6519
+    key: pills
+    name: a box of birth control pills
+    description: There is a box of birth control pills here.
+    weight: 1
+    value: 300
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [pills]
+    template_json:
+      raw_block: |
+        20 0 0 82
+        1 300 15
+        E
+        birth control pills pill~
+        They are in a circular container, and there are numbers corresponding
+        to the day that they are to be taken.  You can tell they haven't been
+        used for a while.
+        ~
+      type_line: 26 0 1
+      extra_desc: |
+        They are in a circular container, and there are numbers corresponding
+        to the day that they are to be taken.  You can tell they haven't been
+        used for a while.

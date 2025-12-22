@@ -1,0 +1,16 @@
+effects:
+  - id: "9000"
+    name: "ebony_kris damage +5"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_DAMAGE_BONUS
+      op: ADD
+      value: 5

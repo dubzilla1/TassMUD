@@ -1,0 +1,811 @@
+items:
+  - id: 5000
+    key: pick
+    name: A small mining pick
+    description: A small mining pick made of what appears to be silver lies on the ground.
+    weight: 3
+    value: 600
+    type: weapon
+    multiplier: 1
+    base_die: 9
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [pick]
+    template_json:
+      raw_block: |
+        #5000
+        pick~
+        A small mining pick~
+        A small mining pick made of what appears to be silver lies on the ground.~
+        ~
+        5 512 8193
+        0 1 9 11
+        3 600 200
+      type_line: 5 512 8193
+  - id: 5001
+    key: banded_mail
+    name: A glowing suit of banded mail
+    description: A glowing suit of banded mail lies on the ground.
+    weight: 0
+    value: 75000
+    type: armor
+    slot: chest
+    armor_class: 7
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [banded, mail]
+    applies:
+      - location: 2
+        modifier: 2
+      - location: 17
+        modifier: -4
+    template_json:
+      raw_block: |
+        ~
+        9 65 9
+        7 0 0 0
+        0 75000 20000
+        A
+        2 2
+        A
+        17 -4
+      type_line: 9 65 9
+  - id: 5002
+    key: halberd
+    name: the halberd
+    description: A mighty halberd lies against the wall.
+    weight: 16
+    value: 12000
+    type: weapon
+    multiplier: 3
+    base_die: 7
+    damage_bonus: 2
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [halberd]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 320 8193
+        0 3 7 2
+        16 12000 4000
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 320 8193
+  - id: 5003
+    key: amulet
+    name: the amulet
+    description: A mushroom shaped amulet lies on the ground.
+    weight: 2
+    value: 1500
+    type: armor
+    slot: neck
+    armor_class: 0
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [amulet]
+    applies:
+      - location: 5
+        modifier: 2
+    template_json:
+      raw_block: |
+        the amulet~
+        A mushroom shaped amulet lies on the ground.~
+        ~
+        9 64 5
+        0 0 0 0
+        2 1500 500
+        A
+        5 2
+      type_line: 9 64 5
+  - id: 5005
+    key: bone
+    name: A large leg bone
+    description: A large leg bone rests on the ground.
+    weight: 5
+    value: 300
+    type: weapon
+    multiplier: 1
+    base_die: 4
+    damage_bonus: 7
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [bone]
+    template_json:
+      raw_block: |
+        #5005
+        bone~
+        A large leg bone~
+        A large leg bone rests on the ground.~
+        ~
+        5 0 8193
+        0 1 4 7
+        5 300 60
+      type_line: 5 0 8193
+  - id: 5006
+    key: cactus
+    name: a small cactus cup
+    description: A small cactus cup lies on the ground.
+    weight: 6
+    value: 30
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [cactus]
+    template_json:
+      raw_block: |
+        #5006
+        cactus~
+        a small cactus cup~
+        A small cactus cup lies on the ground.~
+        ~
+        17 0 1
+        5 5 0 0
+        6 30 5
+      type_line: 17 0 1
+  - id: 5007
+    key: basket
+    name: a small wicker basket
+    description: A small wicker basket sits on the ground.
+    weight: 50
+    value: 5000
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [basket]
+    template_json:
+      raw_block: |
+        #5007
+        basket~
+        a small wicker basket~
+        A small wicker basket sits on the ground.~
+        ~
+        15 0 1
+        100 5 -1 0
+        50 5000 500
+      type_line: 15 0 1
+  - id: 5008
+    key: basket
+    name: a small wicker basket
+    description: A small wicker basket sits on the ground.
+    weight: 50
+    value: 5000
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [basket]
+    template_json:
+      raw_block: |
+        #5008
+        basket~
+        a small wicker basket~
+        A small wicker basket sits on the ground.~
+        ~
+        15 0 1
+        100 5 -1 0
+        50 5000 500
+      type_line: 15 0 1
+  - id: 5009
+    key: basket
+    name: a small wicker basket
+    description: A small wicker basket sits on the ground.
+    weight: 50
+    value: 5000
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [basket]
+    template_json:
+      raw_block: |
+        #5009
+        basket~
+        a small wicker basket~
+        A small wicker basket sits on the ground.~
+        ~
+        15 0 1
+        100 5 -1 0
+        50 5000 500
+      type_line: 15 0 1
+  - id: 5010
+    key: basket
+    name: a small wicker basket
+    description: A small wicker basket sits on the ground.
+    weight: 50
+    value: 5000
+    type: container
+    keywords: [basket]
+    template_json:
+      raw_block: |
+        #5010
+        basket~
+        a small wicker basket~
+        A small wicker basket sits on the ground.~
+        ~
+        15 0 0
+        100 5 -1 0
+        50 5000 500
+      type_line: 15 0 0
+  - id: 5011
+    key: rope
+    name: a coil of rope
+    description: A long coil of rope lies on the ground.
+    weight: 12
+    value: 450
+    type: immobile
+    wear_flags:
+      - TAKE
+    keywords: [rope]
+    template_json:
+      raw_block: |
+        #5011
+        rope~
+        a coil of rope~
+        A long coil of rope lies on the ground.~
+        ~
+        12 0 1
+        0 0 0 0
+        12 450 45
+      type_line: 12 0 1
+  - id: 5012
+    key: stakes
+    name: a bunch of stakes
+    description: A small bundle of stakes lies here.
+    weight: 6
+    value: 250
+    type: immobile
+    wear_flags:
+      - TAKE
+    keywords: [stakes]
+    template_json:
+      raw_block: |
+        #5012
+        stakes~
+        a bunch of stakes~
+        A small bundle of stakes lies here.~
+        ~
+        12 0 1
+        0 0 0 0
+        6 250 30
+      type_line: 12 0 1
+  - id: 5013
+    key: map
+    name: an old, tattered map
+    description: An old, tattered, and much faded map lies here.
+    weight: 1
+    value: 300
+    type: immobile
+    wear_flags:
+      - TAKE
+    keywords: [map]
+    template_json:
+      raw_block: |
+        #5013
+        map~
+        an old, tattered map~
+        An old, tattered, and much faded map lies here.~
+        ~
+        12 0 1
+        0 0 0 0
+        1 300 20
+      type_line: 12 0 1
+  - id: 5014
+    key: turban
+    name: a thick padded turban
+    description: A thick padded turban lies here.
+    weight: 15
+    value: 4300
+    type: armor
+    slot: head
+    armor_class: 0
+    extra_flags:
+      - MAGIC
+      - NODROP
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [turban]
+    applies:
+      - location: 17
+        modifier: 1
+    template_json:
+      raw_block: |
+        a thick padded turban~
+        A thick padded turban lies here.~
+        ~
+        9 192 17
+        0 0 0 0
+        15 4300 1200
+        A
+        17 1
+      type_line: 9 192 17
+  - id: 5015
+    key: coins
+    name: a great pile of treasure
+    description: A great, gleaming pile of treasure lies at your feet.
+    weight: 0
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins]
+    template_json:
+      raw_block: |
+        #5015
+        coins~
+        a great pile of treasure~
+        A great, gleaming pile of treasure lies at your feet.~
+        ~
+        20 0 1
+        46270 0 0 0
+        0 0 0
+      type_line: 20 0 1
+  - id: 5016
+    key: sabre
+    name: a long, curved sabre
+    description: A long, curved sabre stands upright in the ground.
+    weight: 7
+    value: 1050
+    type: weapon
+    multiplier: 2
+    base_die: 8
+    damage_bonus: 3
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sabre]
+    applies:
+      - location: 18
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        a long, curved sabre~
+        A long, curved sabre stands upright in the ground.~
+        ~
+        5 2048 8193
+        0 2 8 3
+        7 1050 230
+        A
+        18 2
+      type_line: 5 2048 8193
+  - id: 5017
+    key: scimitar
+    name: a curved scimitar
+    description: A curved scimitar lies at your feet.
+    weight: 6
+    value: 600
+    type: weapon
+    multiplier: 2
+    base_die: 7
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [scimitar]
+    applies:
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        a curved scimitar~
+        A curved scimitar lies at your feet.~
+        ~
+        5 2048 8193
+        0 2 7 3
+        6 600 150
+        A
+        18 1
+      type_line: 5 2048 8193
+  - id: 5018
+    key: cutlass
+    name: a long, pointed cutlass
+    description: A long, pointed cutlass lies here.
+    weight: 5
+    value: 550
+    type: weapon
+    multiplier: 2
+    base_die: 7
+    damage_bonus: 3
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [cutlass]
+    template_json:
+      raw_block: |
+        #5018
+        cutlass~
+        a long, pointed cutlass~
+        A long, pointed cutlass lies here.~
+        ~
+        5 2048 8193
+        0 2 7 3
+        5 550 120
+      type_line: 5 2048 8193
+  - id: 5019
+    key: potion_pink
+    name: a pink potion
+    description: A pink potion stands here.
+    weight: 6
+    value: 600
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [potion, pink]
+    spell_ids:
+      - 25
+      - 28
+      - 35
+    template_json:
+      raw_block: |
+        #5019
+        potion pink~
+        a pink potion~
+        A pink potion stands here.~
+        ~
+        10 0 1
+        25 28 35 -1
+        6 600 110
+      type_line: 10 0 1
+  - id: 5020
+    key: wand_platinum
+    name: a platinum wand
+    description: A platinum wand lies here.
+    weight: 8
+    value: 1900
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 32
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - HUM
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [wand, platinum]
+    template_json:
+      raw_block: |
+        #5020
+        wand platinum~
+        a platinum wand~
+        A platinum wand lies here.~
+        ~
+        3 2 16385
+        30 10 10 32
+        8 1900 900
+      type_line: 3 2 16385
+  - id: 5021
+    key: bow_energy_strange
+    name: a strange energy bow
+    description: A strange energy bow lies here.
+    weight: 0
+    value: 4
+    type: unknown
+    keywords: [bow, energy, strange]
+    template_json:
+      raw_block: |
+        #5021
+        bow energy strange~
+        a strange energy bow~
+        A strange energy bow lies here.~
+        blast~
+        5 1|2|64|256 8193
+        0 4 5 6
+        20 150000 10000
+      type_line: blast~
+  - id: 5022
+    key: scroll_encrypted
+    name: An encrypted scroll
+    description: An encrypted scroll lies at your feet.
+    weight: 7
+    value: 1500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [scroll, encrypted]
+    spell_ids:
+      - 22
+      - 14
+      - 35
+      - 43
+    template_json:
+      raw_block: |
+        #5022
+        scroll encrypted~
+        An encrypted scroll~
+        An encrypted scroll lies at your feet.~
+        ~
+        2 0 1
+        22 14 35 43
+        7 1500 540
+      type_line: 2 0 1
+  - id: 5023
+    key: chest
+    name: an iron bound chest
+    description: An iron bound chest with a shiny lock sits here.
+    weight: 200
+    value: 1000
+    type: container
+    keywords: [chest]
+    template_json:
+      raw_block: |
+        #5023
+        chest~
+        an iron bound chest~
+        An iron bound chest with a shiny lock sits here.~
+        ~
+        15 0 0
+        200 13 5024 0
+        200 1000 100
+      type_line: 15 0 0
+  - id: 5024
+    key: key_golden
+    name: a golden key
+    description: A shiny golden key lies here.
+    weight: 1
+    value: 150
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, golden]
+    template_json:
+      raw_block: |
+        #5024
+        key golden~
+        a golden key~
+        A shiny golden key lies here.~
+        ~
+        18 0 1
+        10 0 0 0
+        1 150 15
+      type_line: 18 0 1
+  - id: 5025
+    key: bracelet_copper
+    name: a copper bracelet
+    description: A tarnished copper bracelet lies at your feet.
+    weight: 10
+    value: 23000
+    type: armor
+    slot: wrist
+    armor_class: 5
+    extra_flags:
+      - MAGIC
+      - NODROP
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracelet, copper]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        9 192 4097
+        5 0 0 0
+        10 23000 2500
+        A
+        13 10
+        A
+        19 2
+      type_line: 9 192 4097
+  - id: 5026
+    key: gem_ruby
+    name: A large ruby
+    description: A large ruby lies on the ground collecting dust.
+    weight: 9
+    value: 4000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [gem, ruby]
+    template_json:
+      raw_block: |
+        #5026
+        gem ruby~
+        A large ruby~
+        A large ruby lies on the ground collecting dust.~
+        ~
+        8 64 1
+        20 0 0 0
+        9 4000 1500
+      type_line: 8 64 1
+  - id: 5027
+    key: gem_diamond
+    name: A glittering diamond
+    description: A glittering diamond lies at your feet.
+    weight: 10
+    value: 9500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [gem, diamond]
+    template_json:
+      raw_block: |
+        #5027
+        gem diamond~
+        A glittering diamond~
+        A glittering diamond lies at your feet.~
+        ~
+        8 64 1
+        21 0 0 0
+        10 9500 3200
+      type_line: 8 64 1
+  - id: 5028
+    key: gem_sapphire
+    name: A brilliant sapphire
+    description: A brilliant sapphire lies here twinkling.
+    weight: 7
+    value: 3500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [gem, sapphire]
+    template_json:
+      raw_block: |
+        #5028
+        gem sapphire~
+        A brilliant sapphire~
+        A brilliant sapphire lies here twinkling.~
+        ~
+        8 64 1
+        22 0 0 0
+        7 3500 1100
+      type_line: 8 64 1
+  - id: 5029
+    key: gem_lapis
+    name: a deep blue lapis lazuli
+    description: A deep blue lapis lazuli gem lies here.
+    weight: 11
+    value: 8500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [gem, lapis]
+    template_json:
+      raw_block: |
+        #5029
+        gem lapis~
+        a deep blue lapis lazuli~
+        A deep blue lapis lazuli gem lies here.~
+        ~
+        8 64 1
+        24 0 0 0
+        11 8500 2400
+      type_line: 8 64 1
+  - id: 5030
+    key: jewel_tiger
+    name: the tiger jewel
+    description: The Tiger Jewel lies here blazing.
+    weight: 23
+    value: 3000
+    type: inventory
+    extra_flags:
+      - BLESS
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [jewel, tiger]
+    applies:
+      - location: 2
+        modifier: 1
+    template_json:
+      raw_block: |
+        the tiger jewel~
+        The Tiger Jewel lies here blazing.~
+        ~
+        8 256 16385
+        0 0 0 0
+        23 3000 4500
+        A
+        2 1
+      type_line: 8 256 16385
+  - id: 5031
+    key: jewel_red_eyed
+    name: the red-eyed jewel
+    description: The red-eyed jewel glares at you greedily.
+    weight: 30
+    value: 5000
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [jewel, red, eyed]
+    applies:
+      - location: 3
+        modifier: 2
+    template_json:
+      raw_block: |
+        the red-eyed jewel~
+        The red-eyed jewel glares at you greedily.~
+        ~
+        8 0 16385
+        0 0 0 0
+        30 5000 2600
+        A
+        3 2
+      type_line: 8 0 16385
+  - id: 5032
+    key: gem_emerald
+    name: a fiery green emerald
+    description: A fiery green emerald sits here.
+    weight: 7
+    value: 5500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [gem, emerald]
+    template_json:
+      raw_block: |
+        #5032
+        gem emerald~
+        a fiery green emerald~
+        A fiery green emerald sits here.~
+        ~
+        8 64 1
+        23 0 0 0
+        7 5500 1550
+      type_line: 8 64 1

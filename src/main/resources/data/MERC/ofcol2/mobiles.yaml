@@ -1,0 +1,1085 @@
+- id: 600
+  key: "the_ofcol_cityguard"
+  name: "cityguard guard"
+  short_desc: "the Ofcol cityguard"
+  long_desc: "An Ofcol cityguard is standing here, making sure there is no trouble."
+  keywords: ['cityguard', 'guard']
+  level: 4
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': 'This guard is surely a trained and skilled fighter.  He is fully armed and\narmored, and he uses his equipment with a practiced precision.  Luckily for \nyou, this guard will only use his deadly skills for the good of the citizens of\nOfcol.\n~\n4 8192 1000 S\n19 6 -4 18d18+180 1d4+12\n1000 29000\n8 8 1'}
+
+- id: 601
+  key: "marshall_diana"
+  name: "marshall diana"
+  short_desc: "Marshall Diana"
+  long_desc: "Diana, the Marshall of Ofcol, stands here proudly."
+  keywords: ['marshall', 'diana']
+  level: 2
+  hp_max: 961
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '33d33+400', 'damage_dice': '33d33+400', 'raw_block': 'Diana is a beautiful, powerfully built woman.  She wears platinum armor for\nthree reasons.  The first is to show she is strong enough to withstand the\nweight.  The second is to show her rank of office.  The third is that platinum\nis the hardest metal she can find.  She is willing to defend Ofcol to her \ndeath.\n~\n2 8328 1000 S\n33 -10 -10 33d33+400 1d4+30\n5000 200000\n8 8 2'}
+
+- id: 602
+  key: "captain_derrick"
+  name: "derrick captain guard cityguard"
+  short_desc: "Captain Derrick"
+  long_desc: "Derrick, Captain of the Guard, is here disciplining his guards."
+  keywords: ['derrick', 'captain', 'guard', 'cityguard']
+  level: 64
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '27d27+270', 'damage_dice': '27d27+270', 'raw_block': 'Derrick is a very big man.  He has acquired this station, not by brains or\ncharm, but by brute strength.  He had fought in three orc wars and is a\ndescendent of a surviving cityguard of old Thalos.  He believes that everything\nhas to be hard won to be kept, and that laxity is for the weak.\n~\n64 8|128|8192 1000 S\n27 -3 -7 27d27+270 1d4+20\n5000 100000\n8 8 1'}
+
+- id: 603
+  key: "captain_jacklyn"
+  name: "jacklyn captain guard cityguard"
+  short_desc: "Captain Jacklyn"
+  long_desc: "Jacklyn, Captain of the Citadel Guard, is here\nbringing her soldiers' morale up."
+  keywords: ['jacklyn', 'captain', 'guard', 'cityguard']
+  level: 2
+  hp_max: 558
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '27d27+180', 'damage_dice': '27d27+180', 'raw_block': "Jacklyn is pale and wiry, but then, so are most other witches.  The fact that\nJacklyn is a mage and a warrior makes her the perfect captain of the citadel\nguards.  Jacklyn is very beautiful, but whether it is due to her pale softness\nor her magic, no one has ever found out.  She isn't very strong physically, but\nshe need not be.\n~\n2 8200 1000 S\n27 0 -8 27d27+180 1d4+17\n5000 100000\n8 8 2"}
+
+- id: 604
+  key: "jim_the_blacksmith"
+  name: "jim blacksmith"
+  short_desc: "Jim the Blacksmith"
+  long_desc: "Jim the Blacksmith is here, selling his latest works of metal."
+  keywords: ['jim', 'blacksmith']
+  level: 2
+  hp_max: 2001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 2000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d1+2000', 'damage_dice': '1d1+2000', 'raw_block': "Jim is big and brawny, just like what you'd expect of a blacksmith.  He is\nsmiling a very big smile, as he looks at your coins.  You wonder if he likes\nthe metals or the value of the coins.\n~\n2 8192 1000 S\n30 -5 -10 1d1+2000 1d4+25\n75000 150000\n8 8 1"}
+
+- id: 605
+  key: "sam"
+  name: "sam"
+  short_desc: "Sam"
+  long_desc: "Sam is here, selling his leather works."
+  keywords: ['sam']
+  level: 2
+  hp_max: 2001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 2000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d1+2000', 'damage_dice': '1d1+2000', 'raw_block': 'Sam is a middle-aged workman.  He looks tired, but never too tired to get that\nlast sale from you.  He grins at you slightly.\n~\n2 8192 1000 S\n30 -2 -10 1d1+2000 1d4+20\n15000 120000\n8 8 1'}
+
+- id: 606
+  key: "madam_tracy"
+  name: "madam tracy"
+  short_desc: "Madam Tracy"
+  long_desc: "Madam Tracy is here, selling and buying little treasures."
+  keywords: ['madam', 'tracy']
+  level: 2
+  hp_max: 1501
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d1+1500', 'damage_dice': '1d1+1500', 'raw_block': 'Madam Tracy is a bit old, but not to the point of senility.  Besides, she knows\nthe hard ways of this world and is ready for it.  She spends her time at the\nshop, trading little things (for a wee bit of profit).\n~\n2 8192 1000 S\n20 1 -10 1d1+1500 1d4+15\n25000 20000\n8 8 2'}
+
+- id: 607
+  key: "marty"
+  name: "marty"
+  short_desc: "Marty"
+  long_desc: "Marty the meat store owner is here, selling you his choice meats."
+  keywords: ['marty']
+  level: 2
+  hp_max: 2001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 2000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d1+2000', 'damage_dice': '1d1+2000', 'raw_block': 'Marty is a big man.  He used to hunt the animals he sells, but now he lets his\nson, Jim, raise and slaughter the animals for him.  Marty still knows how to\nkill, though.\n~\n2 8192 1000 S\n30 -5 -10 1d1+2000 1d4+20\n5000 120000\n8 8 1'}
+
+- id: 608
+  key: "farmer_elizabeth"
+  name: "elizabeth farmer"
+  short_desc: "Farmer Elizabeth"
+  long_desc: "Farmer Elizabeth is here, selling the latest crop."
+  keywords: ['elizabeth', 'farmer']
+  level: 2
+  hp_max: 1001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d1+1000', 'damage_dice': '1d1+1000', 'raw_block': "Elizabeth is a very happy woman.  She can't believe the nice weather here in\nOfcol, and the great vegetables this land produces is unbelievable to her too.\nFarmer Elizabeth smiles at you nicely, but you bet she is doing that just to\nget a good price off of you!\n~\n2 8192 1000 S\n20 1 -10 1d1+1000 1d4+15\n5000 20000\n8 8 2"}
+
+- id: 609
+  key: "granny_jenkins"
+  name: "granny jenkins"
+  short_desc: "Granny Jenkins"
+  long_desc: "Granny Jenkins is here, running the still."
+  keywords: ['granny', 'jenkins']
+  level: 2
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '4d4+40', 'damage_dice': '4d4+40', 'raw_block': 'Granny Jenkins is a feeble woman, but she knows her brew.  She might be very\nold, but she is still in charge of the still.  She cackles lightly at herself\nevery time she tastes her whiskey, which is quite often!\nGranny Jenkins cackles again.\n~\n2 8192 500 S\n6 17 6 4d4+40 1d4+4\n100 500\n8 8 2'}
+
+- id: 610
+  key: "jack"
+  name: "jack"
+  short_desc: "Jack"
+  long_desc: "Jack is here slaughtering away at the animals."
+  keywords: ['jack']
+  level: 162
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 162, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'Jack is the son of Marty, and you can see the family resemblance (especially in\ntheir shared affinity for slaughtering animals.)  Jack leers at you as you\nenter.  "Came by to watch, eh?", he asks.\n~\n162 0 200 S\n12 8 -3 12d12+120 1d4+10\n100 10000\n8 8 1'}
+
+- id: 611
+  key: "farmer_sara"
+  name: "sara farmer"
+  short_desc: "Farmer Sara"
+  long_desc: "Farmer Sara is here, milking the cows."
+  keywords: ['sara', 'farmer']
+  level: 130
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 130, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': "Farmer Sara is all covered with bits of straw and grime, but underneath all\nthat, she doesn't look that bad.  She smiles at you demurely, and goes back to\nher work.\n~\n130 0 800 S\n5 16 5 5d5+50 1d4+3\n100 600\n8 8 2"}
+
+- id: 612
+  key: "a_hen"
+  name: "chicken hen"
+  short_desc: "a hen"
+  long_desc: "A hen is here, squawking at your intrusion."
+  keywords: ['chicken', 'hen']
+  level: 128
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '1d1+10', 'damage_dice': '1d1+10', 'raw_block': "The hen has yellow feathers and small wings.  It looks like a chicken, if\nyou've ever seen one.\n~\n128 0 0 S\n1 20 10 1d1+10 1d5+0\n0 50\n8 8 2"}
+
+- id: 613
+  key: "the_cow"
+  name: "cow"
+  short_desc: "the cow"
+  long_desc: "A cow is here, munching on grass."
+  keywords: ['cow']
+  level: 5
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 5, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'The cow is here happily grazing.  It moos at you and goes back to grazing.\n~\n0 0 0 S\n5 16 5 5d5+50 1d8+3\n0 600\n8 8 0'}
+
+- id: 614
+  key: "the_cow"
+  name: "cow"
+  short_desc: "the cow"
+  long_desc: "A cow is here, waiting to be milked."
+  keywords: ['cow']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'The cow is just standing here.  She moos at you and otherwise ignores you.\n~\n2 0 0 S\n5 16 5 5d5+50 1d8+3\n0 600\n8 8 2'}
+
+- id: 615
+  key: "the_young_horse"
+  name: "horse young"
+  short_desc: "the young horse"
+  long_desc: "A young horse is here, grazing."
+  keywords: ['horse', 'young']
+  level: 160
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 160, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'The horse whinnies at you, then runs around you a few times, then just goes\nback to grazing.\n~\n160 0 0 S\n6 15 4 6d6+60 1d8+4\n0 750\n8 8 0'}
+
+- id: 616
+  key: "the_pig"
+  name: "pig"
+  short_desc: "the pig"
+  long_desc: "A pig is playing here, getting itself and you dirty."
+  keywords: ['pig']
+  level: 2
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '4d4+40', 'damage_dice': '4d4+40', 'raw_block': 'The pig looks dirty.  It snorts and sniffs at you, then goes back to its slop.\n~\n2 0 0 S\n4 17 6 4d4+40 1d4+3\n0 400\n8 8 0'}
+
+- id: 617
+  key: "the_citizen"
+  name: "citizen man"
+  short_desc: "the citizen"
+  long_desc: "A citizen is here, smiling at you."
+  keywords: ['citizen', 'man']
+  level: 128
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'The citizen smiles at you.  He is having a great day, and he wishes the same\nfor you.  He looks at you strangely, though, wondering why you are so armed and\narmored.\n~\n128 0 500 S\n5 16 5 5d5+50 1d6+3\n100 600\n8 8 1'}
+
+- id: 618
+  key: "the_citizen"
+  name: "citizen woman"
+  short_desc: "the citizen"
+  long_desc: "A citizen is here, smiling at you."
+  keywords: ['citizen', 'woman']
+  level: 128
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'The citizen smiles at you.  She is having a great day, and she wishes the same\nfor you.  She looks at you strangely, though, wondering why you are so armed\nand armored.\n~\n128 0 500 S\n5 16 5 5d5+50 1d6+3\n100 600\n8 8 2'}
+
+- id: 619
+  key: "the_boy"
+  name: "child boy"
+  short_desc: "the boy"
+  long_desc: "A boy is here, playing tag and other kids' games."
+  keywords: ['child', 'boy']
+  level: 128
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '3d3+30', 'damage_dice': '3d3+30', 'raw_block': "The little boy looks up at you and says, 'Hi.  Can I have a piece of candy?'\nHe then smiles and runs away, remembering his game.\n~\n128 0 500 S\n3 18 7 3d3+30 1d4+2\n10 200\n8 8 1"}
+
+- id: 620
+  key: "the_girl"
+  name: "child girl"
+  short_desc: "the girl"
+  long_desc: "A girl is here, playing jump jacks and other kids' games."
+  keywords: ['child', 'girl']
+  level: 128
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '3d3+30', 'damage_dice': '3d3+30', 'raw_block': "The little girl looks up at you and says, 'Hi.  Can I have a pretty little\ncoin?'  She then smiles and runs away, remembering her game.\n~\n128 0 500 S\n3 18 7 3d3+30 1d4+2\n10 200\n8 8 2"}
+
+- id: 621
+  key: "the_maid"
+  name: "maid woman"
+  short_desc: "the maid"
+  long_desc: "A maid is here, cleaning the house and preparing the next meal."
+  keywords: ['maid', 'woman']
+  level: 128
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': "The maid startles at your presence.  'You are ruining my floors!  Wait till\nMaster and Mistress come back.  You will get me in trouble!  Shoo!', she says.\nShe hits you with her broom.\n~\n128 0 500 S\n5 16 5 5d5+50 1d6+3\n50 600\n8 8 2"}
+
+- id: 622
+  key: "nyles_the_bartender"
+  name: "Nyles"
+  short_desc: "Nyles the Bartender"
+  long_desc: "Nyles the Bartender is here, ready to serve you up a good brew."
+  keywords: ['Nyles']
+  level: 2
+  hp_max: 3465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 3000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+3000', 'damage_dice': '30d30+3000', 'raw_block': "Nyles is a hefty guy, who looks like he's waiting for the next bar fight to\njoin in.  He keeps an eye on you and his glasses, making sure you don't steal\nany.\n~\n2 0 1000 S\n30 0 -15 30d30+3000 1d5+15\n1000 100000\n8 8 1"}
+
+- id: 623
+  key: "the_ofcol_cityguard"
+  name: "cityguard guard"
+  short_desc: "the Ofcol cityguard"
+  long_desc: "An Ofcol cityguard is posted here to guard the gate."
+  keywords: ['cityguard', 'guard']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': 'This guard is surely a trained and skilled fighter.  He is fully armed and\narmored, and he uses his equipment with a practiced precision.  Luckily for \nyou, this guard will only use his deadly skills for the good of the citizens of\nOfcol.\n~\n2 8192 1000 S\n19 6 -4 18d18+180 1d4+12\n1000 29000\n8 8 1'}
+
+- id: 624
+  key: "a_bard"
+  name: "bard"
+  short_desc: "a bard"
+  long_desc: "A bard is here, singing of the glories of Ofcol."
+  keywords: ['bard']
+  level: 2
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'After years of traveling around the world, this bard has decided to stay in the\npeaceful city of Ofcol, and to sing of its unmatched glories.  He smiles at\nyou, hinting toward a tip from you in ever a subtle way.\n~\n2 8192 800 S\n13 7 -3 13d13+130 1d4+8\n1000 15000\n8 8 1'}
+
+- id: 625
+  key: "a_servant"
+  name: "servant"
+  short_desc: "a servant"
+  long_desc: "A servant is here, carrying the duties of the Keeper of the Golden Citadel."
+  keywords: ['servant']
+  level: 64
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'The servant smiles good-naturedly at you, then goes on his duties.\n~\n64 8192 1000 S\n6 14 4 6d6+60 1d4+4\n100 800\n8 8 1'}
+
+- id: 626
+  key: "a_squire"
+  name: "squire"
+  short_desc: "a squire"
+  long_desc: "A squire is here, scurrying from duty to duty."
+  keywords: ['squire']
+  level: 64
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'This young man smiles at you, but is too busy to chat.\n~\n64 8192 1000 S\n7 13 3 7d7+70 1d4+5\n100 1000\n8 8 1'}
+
+- id: 627
+  key: "a_page"
+  name: "page"
+  short_desc: "a page"
+  long_desc: "A page is here, sending a message to his knight."
+  keywords: ['page']
+  level: 64
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'The page smiles for you, asking if he can do you a favor too.\n~\n64 8192 1000 S\n5 15 5 5d5+50 1d4+3\n100 600\n8 8 1'}
+
+- id: 628
+  key: "the_priestess_of_ofcol"
+  name: "priestess"
+  short_desc: "the Priestess of Ofcol"
+  long_desc: "The Priestess of Ofcol is here, blessing you \nwith her beatific smile."
+  keywords: ['priestess']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'The Priestess of Ofcol is an old woman, perfectly at peace with herself and \nwith the world.  She devotes all her time to help teach you the ways of her\ngod, Bahamut.  The dragon symbol around her neck looks almost alive.\n~\n2 2|128|8192 1000 S\n30 -10 -20 30d30+300 1d4+20\n1000 120000\n8 8 2'}
+
+- id: 629
+  key: "chaplain_jerrold"
+  name: "chaplain Jerrold"
+  short_desc: "Chaplain Jerrold"
+  long_desc: "Jerrold, the chaplain of this Citadel, is here \ndirecting the activities of the people around here."
+  keywords: ['chaplain', 'Jerrold']
+  level: 64
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'He smiles at you, with the enthusiasm of a little kid.  "What\'re you doing just\nSTANDING here, young man?  Go help that other squire there!", he yells.  He\nturns to you and with a consipatory tone, whispers, "Kids!"\n~\n64 2|128|8192 1000 S\n20 0 -10 20d20+200 1d4+15\n1000 50000\n8 8 1'}
+
+- id: 630
+  key: "a_dragonlord"
+  name: "dragonlord lord dragon"
+  short_desc: "a Dragonlord"
+  long_desc: "A knight wearing the scales of a dragon stands here."
+  keywords: ['dragonlord', 'lord', 'dragon']
+  level: 2
+  hp_max: 725
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '29d29+290', 'damage_dice': '29d29+290', 'raw_block': "This person looks almost like a dragon itself.  His golden scales gleam with\npower.  He smiles at you with a vicious grin.  You're happy that he doesn't\nlook upset at your presence. \n~\n2 2|128|8192 1000 S\n29 -9 -19 29d29+290 1d4+20\n1000 120000\n8 8 1"}
+
+- id: 631
+  key: "the_ancient_gold_dragon"
+  name: "dragon gold"
+  short_desc: "The Ancient Gold Dragon"
+  long_desc: "An old dragon shimmering with the colors of this \ncavern peers at you sleepily."
+  keywords: ['dragon', 'gold']
+  level: 2
+  hp_max: 1073
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 37
+  damage_bonus: 370
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '37d37+370', 'damage_dice': '37d37+370', 'raw_block': "This dragon's head is taller than you.  He is annoyed at your disturbance, but\nrealizing that you're no danger to him, he ignores you.  He waves to one of\nhis attendants to escort you away.\n~\n2|4 2|128|512|8192 1000 S\n37 -15 -25 37d37+370 1d4+30\n100000 1000000\n8 8 1"}
+
+- id: 632
+  key: "an_attendant_of_the_dragon"
+  name: "attendant"
+  short_desc: "an attendant of the dragon"
+  long_desc: "A person robed in gold is attending to the Keeper of the Citadel."
+  keywords: ['attendant']
+  level: 2
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '21d21+210', 'damage_dice': '21d21+210', 'raw_block': 'This elder servant to the Gold Dragon is very loyal to him, willing to risk\nhis life for his liege.\n~\n2 2|8192 1000 S\n21 -1 -11 21d21+210 1d4+15\n5000 50000\n8 8 1'}
+
+- id: 633
+  key: "a_dragonknight"
+  name: "dragonknight knight dragon"
+  short_desc: "a Dragonknight"
+  long_desc: "A person dressed in the scales of a gold dragon \nstands here, guarding the Golden Citadel."
+  keywords: ['dragonknight', 'knight', 'dragon']
+  level: 64
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '21d21+210', 'damage_dice': '21d21+210', 'raw_block': 'This person looks like a dragon itself.  His golden scales gleam with power.\nHe smiles at you, showing very sharp teeth.\n~\n64 2|8192 1000 S\n21 -1 -11 21d21+210 1d4+15\n5000 50000\n8 8 1'}
+
+- id: 634
+  key: "the_ofcol_cityguard"
+  name: "cityguard guard"
+  short_desc: "the Ofcol cityguard"
+  long_desc: "An Ofcol cityguard is posted here to guard the gate."
+  keywords: ['cityguard', 'guard']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': 'This guard is surely a trained and skilled fighter.  He is fully armed and\narmored, and he uses his equipment with a practiced precision.  Luckily for \nyou, this guard will only use his deadly skills for the good of the citizens of\nOfcol.\n~\n2 8192 1000 S\n19 6 -4 18d18+180 1d4+12\n1000 29000\n8 8 1'}
+

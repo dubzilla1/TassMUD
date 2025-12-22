@@ -1,0 +1,248 @@
+- id: 3500
+  key: "the_wyvern"
+  name: "wyvern"
+  short_desc: "the wyvern"
+  long_desc: "A monstrous wyvern slowly circles just above your head."
+  keywords: ['wyvern']
+  level: 65
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 65, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': "This huge winged creature looks really menacing.  You are happy it doesn't\nAPPEAR to be very hungry ... yet.\n~\n65 8 -200 S\n8 10 1 8d8+80 2d6+1\n0 3575\n8 8 0"}
+
+- id: 3501
+  key: "the_goblin"
+  name: "goblin mountain"
+  short_desc: "the goblin"
+  long_desc: "A mountain goblin is wandering about, mumbling to himself."
+  keywords: ['goblin', 'mountain']
+  level: 608
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 60800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 608, 'hit_dice': '4d4+60', 'damage_dice': '4d4+60', 'raw_block': 'You see before you a small and twisted creature with knotted muscles.\n~\n608 0 -500 S\n6 15 6 4d4+60 1d8+4\n150 800\n8 8 1'}
+
+- id: 3502
+  key: "the_small_boy"
+  name: "boy small"
+  short_desc: "the small boy"
+  long_desc: "A small boy sits here, licking his wounds."
+  keywords: ['boy', 'small']
+  level: 146
+  hp_max: 53
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 47
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 146, 'hit_dice': '1d12+47', 'damage_dice': '1d12+47', 'raw_block': 'The poor boy has numerous cuts and scratches, but appears to be all right.\nHe is apparently the only survivor of the ambush.\n~\n146 0 500 S\n4 17 6 1d12+47 1d8+0\n0 600\n5 5 1'}
+
+- id: 3503
+  key: "the_innkeeper"
+  name: "innkeeper"
+  short_desc: "the Innkeeper"
+  long_desc: "The Innkeeper stands here, cleaning glasses."
+  keywords: ['innkeeper']
+  level: 66
+  hp_max: 206
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '1d12+200', 'damage_dice': '1d12+200', 'raw_block': 'The Innkeeper now spends most of his days waiting for customers, while the\nnights are spent watching out for goblins.  His inn is no longer the happy\nplace that is used to be in days past.\n~\n66 0 400 S\n10 8 1 1d12+200 2d8+1\n1500 7000\n8 8 1'}
+
+- id: 3504
+  key: "the_bard"
+  name: "bard"
+  short_desc: "the bard"
+  long_desc: "A sullen bard is here, drinking away his problems."
+  keywords: ['bard']
+  level: 66
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '1d12+110', 'damage_dice': '1d12+110', 'raw_block': 'You can smell the alcohol on his breath from across the room.  This poor bard\nhas been sitting here quite a while, drinking himself into oblivion.\n~\n66 8 600 S\n8 13 3 1d12+110 2d6+0\n1500 3750\n6 6 1'}
+
+- id: 3505
+  key: "the_dark_horseman"
+  name: "horseman dark"
+  short_desc: "the dark horseman"
+  long_desc: "A dark horseman is here, mounted on his black steed."
+  keywords: ['horseman', 'dark']
+  level: 196
+  hp_max: 103
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 97
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 196, 'hit_dice': '1d12+97', 'damage_dice': '1d12+97', 'raw_block': 'The man is obviously an outlaw, and has no qualms about slashing you into\nlittle bits.\n~\n196 32768 -900 S\n8 12 4 1d12+97 1d5+7\n1000 4000\n8 8 1'}
+
+- id: 3506
+  key: "the_goblin_lieutenant"
+  name: "goblin lieutenant"
+  short_desc: "the goblin lieutenant"
+  long_desc: "A goblin lieutenant stands here, attempting to get his men in order."
+  keywords: ['goblin', 'lieutenant']
+  level: 608
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 60800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 608, 'hit_dice': '1d12+100', 'damage_dice': '1d12+100', 'raw_block': 'The goblin lieutenant is rather angry, and looking for one of his men to\nbeat up upon, but maybe you will do just fine ...\n~\n608 0 -600 S\n7 15 3 1d12+100 2d5+1\n300 2000\n8 8 1'}
+
+- id: 3507
+  key: "the_goblin_leader"
+  name: "goblin leader"
+  short_desc: "the goblin leader"
+  long_desc: "The goblin leader surveys the room."
+  keywords: ['goblin', 'leader']
+  level: 614
+  hp_max: 126
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 61400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 614, 'hit_dice': '1d12+120', 'damage_dice': '1d12+120', 'raw_block': "The leader doesn't look too happy that you have found him here.  He grabs\nfor his shortsword and lunges for your neck.\n~\n614 8 -900 S\n9 10 1 1d12+120 2d5+3\n1000 8000\n8 8 1"}
+

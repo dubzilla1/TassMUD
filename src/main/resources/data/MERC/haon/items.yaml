@@ -1,0 +1,505 @@
+items:
+  - id: 6000
+    key: axe_lumber
+    name: a lumber axe
+    description: A heavy lumber axe lies here.
+    weight: 0
+    value: 2
+    type: unknown
+    keywords: [axe, lumber]
+    template_json:
+      raw_block: |
+        chop~
+        5 0 8193
+        0 2 6 1
+        10 50 15
+        E
+        axe lumber~
+        It is a heavy axe of the kind lumberjacks use to chop down trees.
+        ~
+      type_line: chop~
+      extra_desc: It is a heavy axe of the kind lumberjacks use to chop down trees.
+  - id: 6001
+    key: shirt
+    name: a chequered shirt
+    description: A chequered shirt lies here.
+    weight: 2
+    value: 20
+    type: armor
+    slot: chest
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [shirt]
+    template_json:
+      raw_block: |
+        ~
+        9 0 9
+        3 0 0 0
+        2 20 8
+        E
+        shirt~
+        It is an extra large, chequered shirt made from heavy cloth.
+        ~
+      type_line: 9 0 9
+      extra_desc: It is an extra large, chequered shirt made from heavy cloth.
+  - id: 6002
+    key: boots
+    name: a pair of leather boots
+    description: A pair of leather boots lies here.
+    weight: 4
+    value: 60
+    type: armor
+    slot: boots
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots]
+    template_json:
+      raw_block: |
+        9 0 65
+        3 0 0 0
+        4 60 20
+        E
+        boots~
+        They are fashioned from rough leather that has been oiled frequently to make
+        it stay waterproof.  They look worn but quite functional.
+        ~
+      type_line: 9 0 65
+      extra_desc: |
+        They are fashioned from rough leather that has been oiled frequently to make
+        it stay waterproof.  They look worn but quite functional.
+  - id: 6003
+    key: fireplace
+    name: a fireplace
+    description: A fireplace made from stone is set against the east wall.
+    weight: 0
+    value: 0
+    type: container
+    keywords: [fireplace]
+    template_json:
+      raw_block: |
+        200 0 0 0
+        0 0 0
+        E
+        fireplace~
+        It is fashioned from stones of various sizes that have been stacked on top of
+        each other and fastened with mortar.  Its chimney is constructed likewise and
+        leads the smoke out through the low cabin ceiling.
+        ~
+      type_line: 15 0 0
+      extra_desc: |
+        It is fashioned from stones of various sizes that have been stacked on top of
+        each other and fastened with mortar.  Its chimney is constructed likewise and
+        leads the smoke out through the low cabin ceiling.
+  - id: 6005
+    key: chest
+    name: a wooden chest
+    description: A wooden chest stands in the corner.
+    weight: 40
+    value: 100
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [chest]
+    template_json:
+      raw_block: |
+        15 0 1
+        100 13 6006 0
+        40 100 30
+        E
+        chest~
+        It is a robust chest made from short, heavy planks that have been fastened
+        together with tenons.  It is equipped with a simple brass lock.
+        ~
+      type_line: 15 0 1
+      extra_desc: |
+        It is a robust chest made from short, heavy planks that have been fastened
+        together with tenons.  It is equipped with a simple brass lock.
+  - id: 6006
+    key: key
+    name: a small brass key
+    description: A small brass key lies here.
+    weight: 1
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1
+        6005 0 0 0
+        1 10 4
+        E
+        key~
+        It is a small, simple brass key with no inscriptions or marks of any kind.
+        ~
+      type_line: 18 0 1
+      extra_desc: It is a small, simple brass key with no inscriptions or marks of any kind.
+  - id: 6007
+    key: coins_gold
+    name: a heap of gold coins
+    description: Some gold coins lie piled up in a heap on the floor.
+    weight: 0
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins, gold]
+    template_json:
+      raw_block: |
+        ~
+        20 0 1
+        100 0 0 0
+        0 0 0
+        E
+        coins~
+        The coins seem to be gold.  They are obviously valuable.
+        ~
+      type_line: 20 0 1
+      extra_desc: The coins seem to be gold.  They are obviously valuable.
+  - id: 6010
+    key: blackberries
+    name: some blackberries
+    description: Some blackberries grow on a bush nearby.
+    weight: 1
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [blackberries]
+    template_json:
+      raw_block: |
+        ~
+        19 0 1
+        3 0 0 0
+        1 10 10
+        E
+        blackberries~
+        They look very tasty indeed.
+        ~
+      type_line: 19 0 1
+      extra_desc: They look very tasty indeed.
+  - id: 6011
+    key: mushroom
+    name: a mushroom
+    description: A small mushroom grows nearby.
+    weight: 1
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [mushroom]
+    template_json:
+      raw_block: |
+        ~
+        19 0 1
+        6 0 0 0
+        1 10 10
+        E
+        mushroom~
+        It is a tasty little thing.
+        ~
+      type_line: 19 0 1
+      extra_desc: It is a tasty little thing.
+  - id: 6013
+    key: water_barrel
+    name: the barrel
+    description: A water barrel has been left here.
+    weight: 65
+    value: 60
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [water, barrel]
+    template_json:
+      raw_block: |
+        #6013
+        water barrel~
+        the barrel~
+        A water barrel has been left here.~
+        ~
+        17 0 1
+        50 50 0 0
+        65 60 20
+      type_line: 17 0 1
+  - id: 6102
+    key: tree_opening
+    name: a colossal tree
+    description: A colossal tree blocks the way westwards.
+    weight: 0
+    value: 0
+    type: container
+    keywords: [tree, opening]
+    template_json:
+      raw_block: |
+        and pale and is decorated with scratches and claw marks.  On its west side is a
+        small opening just above ground level.
+        ~
+        E
+        opening~
+        The opening is far too narrow for you to squeeze through but it looks as if the
+        tree is hollow.
+        ~
+      type_line: 15 0 0
+      extra_desc: |
+        The opening is far too narrow for you to squeeze through but it looks as if the
+        tree is hollow.
+  - id: 6103
+    key: branch
+    name: a long, grey branch
+    description: A long, grey branch rests heavily on the ground.
+    weight: 20
+    value: 1
+    type: held
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [branch]
+    template_json:
+      raw_block: |
+        #6103
+        branch~
+        a long, grey branch~
+        A long, grey branch rests heavily on the ground.~
+        ~
+        1 0 16385
+        0 0 25 0
+        20 1 3
+      type_line: 1 0 16385
+  - id: 6104
+    key: branch
+    name: a long, grey branch
+    description: A long, grey branch rests heavily on the ground.
+    weight: 0
+    value: 2
+    type: unknown
+    keywords: [branch]
+    applies:
+      - location: 18
+        modifier: -2
+    on_equip_effect_ids:
+      - 506
+    template_json:
+      raw_block: |
+        a long, grey branch~
+        A long, grey branch rests heavily on the ground.~
+        pound~
+        5 0 8193
+        0 2 5 7
+        30 60 20
+        A
+        18 -2
+      type_line: pound~
+  - id: 6105
+    key: branch
+    name: a long, grey branch
+    description: A long, grey branch rests heavily on the ground.
+    weight: 40
+    value: 0
+    type: trash
+    wear_flags:
+      - TAKE
+    keywords: [branch]
+    template_json:
+      raw_block: |
+        #6105
+        branch~
+        a long, grey branch~
+        A long, grey branch rests heavily on the ground.~
+        ~
+        13 0 1
+        0 0 0 0
+        40 0 0
+      type_line: 13 0 1
+  - id: 6106
+    key: toadstool
+    name: a toadstool
+    description: A large toadstool grows nearby.
+    weight: 5
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [toadstool]
+    template_json:
+      raw_block: |
+        12 0 0 0
+        5 20 20
+        E
+        toadstool~
+        It is a large, brown boletus that must weigh nearly five pounds.  The top
+        surface is covered in a thin layer of transparent slime that emits a weak,
+        musty smell.  Not the most delicious thing you have seen.
+        ~
+      type_line: 19 0 1
+      extra_desc: |
+        It is a large, brown boletus that must weigh nearly five pounds.  The top
+        surface is covered in a thin layer of transparent slime that emits a weak,
+        musty smell.  Not the most delicious thing you have seen.
+  - id: 6107
+    key: toadstool
+    name: a toadstool
+    description: A large toadstool grows nearby.
+    weight: 5
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [toadstool]
+    template_json:
+      raw_block: |
+        12 0 0 1
+        5 20 20
+        E
+        toadstool~
+        It is a large, brown boletus that must weigh nearly five pounds.  It has small
+        white spots and the top surface is covered in a thin layer of transparent slime
+        that emits a weak, musty smell.  Not the most delicious thing you have seen.
+        ~
+      type_line: 19 0 1
+      extra_desc: |
+        It is a large, brown boletus that must weigh nearly five pounds.  It has small
+        white spots and the top surface is covered in a thin layer of transparent slime
+        that emits a weak, musty smell.  Not the most delicious thing you have seen.
+  - id: 6110
+    key: potion_yellow
+    name: a yellow potion
+    description: A yellow potion has been left here.
+    weight: 2
+    value: 1000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion, yellow]
+    spell_ids:
+      - 15
+      - 39
+    template_json:
+      raw_block: |
+        ~
+        10 64 1
+        15 39 -1 -1
+        2 1000 300
+        E
+        potion yellow~
+        It has a deep yellow colour and and a strong spicy smell.
+        ~
+      type_line: 10 64 1
+      extra_desc: It has a deep yellow colour and and a strong spicy smell.
+  - id: 6111
+    key: shield_large
+    name: a large round shield
+    description: A large round shield has been left here.
+    weight: 15
+    value: 300
+    type: armor
+    slot: off_hand
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, large]
+    template_json:
+      raw_block: |
+        ~
+        9 0 513
+        5 0 0 0
+        15 300 100
+        E
+        shield large~
+        It is made from hard wood that has been reinforced with heavy iron bands.
+        ~
+      type_line: 9 0 513
+      extra_desc: It is made from hard wood that has been reinforced with heavy iron bands.
+  - id: 6112
+    key: crown_iron
+    name: an iron crown
+    description: An iron crown rests on the ground.
+    weight: 10
+    value: 5000
+    type: armor
+    slot: head
+    armor_class: 4
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [crown, iron]
+    template_json:
+      raw_block: |
+        ~
+        9 64 17
+        4 0 0 0
+        10 5000 1500
+        E
+        crown iron~
+        It is a heavy human-sized crown made from solid iron.
+        ~
+      type_line: 9 64 17
+      extra_desc: It is a heavy human-sized crown made from solid iron.
+  - id: 6114
+    key: ring_iron
+    name: an iron ring
+    description: An iron ring has been left here.
+    weight: 1
+    value: 5000
+    type: armor
+    slot: finger
+    armor_class: 1
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, iron]
+    template_json:
+      raw_block: |
+        9 64 3
+        1 0 0 0
+        1 5000 1500
+        E
+        ring iron~
+        It is a quite heavy human-sized ring made from solid iron.  It lacks
+        decorations of any kind.
+        ~
+      type_line: 9 64 3
+      extra_desc: |
+        It is a quite heavy human-sized ring made from solid iron.  It lacks
+        decorations of any kind.
+  - id: 6155
+    key: morning_star_star_morning
+    name: the morning star
+    description: the morning star is here collecting dust while it lies on the ground.
+    weight: 10
+    value: 15000
+    type: weapon
+    multiplier: 2
+    base_die: 8
+    damage_bonus: 8
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [morning, star, star, morning]
+    template_json:
+      raw_block: |
+        #6155
+        morning-star star morning~
+        the morning star~
+        the morning star is here collecting dust while it lies on the ground.~
+        ~
+        5 64 8193
+        0 2 8 8
+        10 15000 2500
+      type_line: 5 64 8193

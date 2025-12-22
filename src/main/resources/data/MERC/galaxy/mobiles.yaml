@@ -1,0 +1,992 @@
+- id: 9301
+  key: "a_poor_mudder"
+  name: "poor mudder"
+  short_desc: "a poor mudder"
+  long_desc: "A poor mudder, lost in this place."
+  keywords: ['poor', 'mudder']
+  level: 68
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '10d5+20', 'damage_dice': '10d5+20', 'raw_block': 'You will become him if you are not careful.\n~\n68 0 0 S\n4 16 8 10d5+20 1d6+3\n100 600\n8 8 1'}
+
+- id: 9302
+  key: "a_beautiful_star"
+  name: "star"
+  short_desc: "a beautiful star"
+  long_desc: "A beautiful white star smiles at you."
+  keywords: ['star']
+  level: 66
+  hp_max: 92
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '4d5+80', 'damage_dice': '4d5+80', 'raw_block': "You can't tell what the star looks like, she is too bright!\n~\n66 0 500 S\n8 15 4 4d5+80 2d3+3 \n500 2000\n8 8 2"}
+
+- id: 9303
+  key: "a_young_nebula"
+  name: "nebula young"
+  short_desc: "a young nebula"
+  long_desc: "A young nebula, waiting to become a star."
+  keywords: ['nebula', 'young']
+  level: 64
+  hp_max: 250
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '3d6+240', 'damage_dice': '3d6+240', 'raw_block': "It hasn't got a definite shape, it is just a cloud of mist.\n~\n64 0 200 S\n10 10 2 3d6+240 2d4+4\n1000 5000\n8 8 2"}
+
+- id: 9304
+  key: "a_speedy_comet"
+  name: "comet speedy"
+  short_desc: "a speedy comet"
+  long_desc: "A speedy comet is waiting to crush your head in."
+  keywords: ['comet', 'speedy']
+  level: 100
+  hp_max: 174
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '4d6+160', 'damage_dice': '4d6+160', 'raw_block': "You see the offspring of Halley's comet, here just to wipe everything out.\n~\n100 0 -500 S\n10 9 2 4d6+160 2d6+4\n1500 5000\n8 8 1"}
+
+- id: 9305
+  key: "a_red_supergiant"
+  name: "red supergiant"
+  short_desc: "a red supergiant"
+  long_desc: "An enormous, red supergiant is forced to protect the galaxy."
+  keywords: ['red', 'supergiant']
+  level: 194
+  hp_max: 215
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '5d5+200', 'damage_dice': '5d5+200', 'raw_block': 'You notice the giant is not as tough as his name sounds ...\nStill he can be very powerful.\n~\n194 0 0 S\n15 3 6 5d5+200 6d3+2\n2000 12000\n4 4 1'}
+
+- id: 9306
+  key: "a_white_dwarf"
+  name: "white dwarf"
+  short_desc: "a white dwarf"
+  long_desc: "A tiny white dwarf is trying to sneak away from duty."
+  keywords: ['white', 'dwarf']
+  level: 68
+  hp_max: 304
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 280
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '8d5+280', 'damage_dice': '8d5+280', 'raw_block': 'Like the red giant, he is also appointed to stand guard for the galaxy.\nBut somehow he manages to escape.  Though tiny, it can take a lot of hits!\n~\n68 0 0 S\n15 8 3 8d5+280 4d2+10  \n2000 19000\n8 8 1'}
+
+- id: 9307
+  key: "a_horsehead_nebula"
+  name: "horsehead nebula"
+  short_desc: "a horsehead nebula"
+  long_desc: "A huge nebula is here, resembling a horsehead."
+  keywords: ['horsehead', 'nebula']
+  level: 66
+  hp_max: 324
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '8d5+300', 'damage_dice': '8d5+300', 'raw_block': 'You can only make out its shape from the darkness.  He was cursed to stay in\nhere and his face may never be seen by anyone again.\n~\n66 32768|65536 -1000 S\n18 0 0 8d5+300 4d5+1\n6000 30000\n6 6 1'}
+
+- id: 9308
+  key: "poor_andromeda"
+  name: "andromeda"
+  short_desc: "poor Andromeda"
+  long_desc: "The poor Andromeda is chained to the wall, suffering ..."
+  keywords: ['andromeda']
+  level: 82
+  hp_max: 324
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 82, 'hit_dice': '8d5+300', 'damage_dice': '8d5+300', 'raw_block': "She was once a princess of beauty.  However, her beauty has led to a Goddess's\njealousy and she has to suffer here endlessly until Perseus comes.\n~ \n82 128 1000 S\n18 0 0 8d5+300 4d4+0\n7500 30000  \n8 8 2"}
+
+- id: 9309
+  key: "the_mighty_hercules"
+  name: "hercules"
+  short_desc: "the mighty Hercules"
+  long_desc: "The Mighty Hercules is working hard on his extra Labours for the Gods."
+  keywords: ['hercules']
+  level: 66
+  hp_max: 418
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '6d5+400', 'damage_dice': '6d5+400', 'raw_block': 'He has been put to do the Ten Labours -- ten impossible tasks, by Hera, the\nqueen goddess, who disliked him.  But he finished them all and at the end was\ngranted immortality. He is a very brave and strong fighter.\n~\n66 128 1000 S\n19 0 -3 6d5+400 5d4+10\n7500 60000\n8 8 1'}
+
+- id: 9310
+  key: "the_wild_pegasus"
+  name: "pegasus"
+  short_desc: "the wild Pegasus"
+  long_desc: "The wild pegasus is grazing peacefully."
+  keywords: ['pegasus']
+  level: 194
+  hp_max: 182
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 194, 'hit_dice': '5d4+170', 'damage_dice': '5d4+170', 'raw_block': 'It is the legendary horse with wings on its back.\n~ \n194 0 300 S\n17 3 2 5d4+170 2d7+0\n5000 20000\n8 8 0'}
+
+- id: 9311
+  key: "orion_the_hunter"
+  name: "orion"
+  short_desc: "Orion the hunter"
+  long_desc: "Orion is still hunting for Scorpio."
+  keywords: ['orion']
+  level: 66
+  hp_max: 412
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '6d3+400', 'damage_dice': '6d3+400', 'raw_block': 'He is the legendary hunter who almost defeated Taurus the bull, but got\nkilled by Scorpio.  The gods put them both up as constellations but one\nappears on one side of the sky and the other the other side so they will\nnever meet. \n~\n66 128 300 S\n19 0 0 6d3+400 4d4+2\n7500 40000\n8 8 1'}
+
+- id: 9312
+  key: "the_pleiades"
+  name: "pleiades"
+  short_desc: "the Pleiades"
+  long_desc: "The Pleiades are here, weeping for the loss of their sisters."
+  keywords: ['pleiades']
+  level: 66
+  hp_max: 127
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '3d4+120', 'damage_dice': '3d4+120', 'raw_block': 'These are the seven sisters of the Myths, and as for why they are here, no\none knows; even the Gods themselves have forgotten.\n~\n66 0 300 S\n11 5 3 3d4+120 2d7+0\n3000 7000\n8 8 2'}
+
+- id: 9313
+  key: "the_head_of_draco"
+  name: "draco head"
+  short_desc: "the Head of Draco"
+  long_desc: "The gigantic Head of Draco lurks out from beneath and prepares to roast you."
+  keywords: ['draco', 'head']
+  level: 98
+  hp_max: 610
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 600
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '4d4+600', 'damage_dice': '4d4+600', 'raw_block': 'This evil-looking head is even larger than a giant.  He is the last guardian \nbefore entering the inner galaxy.  His neck is flexing in a random fashion so \nhitting the head is certainly not easy.\n~\n98 136 -1000 S\n25 0 -5 4d4+600 5d5+3\n15000 100000\n8 8 0'}
+
+- id: 9314
+  key: "a_baby_draco"
+  name: "draco baby"
+  short_desc: "a baby draco"
+  long_desc: "A baby draco is crawling on the Draco's body."
+  keywords: ['draco', 'baby']
+  level: 196
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 196, 'hit_dice': '3d3+100', 'damage_dice': '3d3+100', 'raw_block': 'You see a tiny creature which looks like a dragon except that its body\nresembles a snake.  Gosh, is this a draco, you wonder, is this the thing\nwe are on now?\n~\n196 0 -700 S\n9 6 3 3d3+100 2d5+0\n4000 6000\n8 8 0'}
+
+- id: 9315
+  key: "aries"
+  name: "aries"
+  short_desc: "Aries"
+  long_desc: "Aries is sitting here, welcoming you."
+  keywords: ['aries']
+  level: 66
+  hp_max: 515
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '6d4+500', 'damage_dice': '6d4+500', 'raw_block': 'You see a white goat here, the first guardian of the Zodiac,\nalso the ruler of Spring. He looks as if he is expecting you.\n~\n66 128 700 S\n22 0 -5 6d4+500 4d5+3\n10000 80000\n6 6 1'}
+
+- id: 9316
+  key: "taurus"
+  name: "taurus"
+  short_desc: "Taurus"
+  long_desc: "Taurus wants to leave, but has been forced to stay as a guardian here."
+  keywords: ['taurus']
+  level: 98
+  hp_max: 510
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '5d3+500', 'damage_dice': '5d3+500', 'raw_block': 'You see a wild-looking bull with a bad temper.  He is well-built and looks like \nhe can fight well ... indeed he has fought with Orion before and survived.\n~\n98 136 -100 S\n22 0 0 5d3+500 4d6+1\n10000 80000\n8 8 1'}
+
+- id: 9317
+  key: "gemini"
+  name: "gemini"
+  short_desc: "Gemini"
+  long_desc: "Gemini is looking for his brother; have you seen him?"
+  keywords: ['gemini']
+  level: 66
+  hp_max: 414
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '7d3+400', 'damage_dice': '7d3+400', 'raw_block': "As soon as you see him you know that he is the most perfect man you have seen.\nYou can't find any imperfections on him.\n~\n66 128 1000 S\n22 0 -5 7d3+400 5d4+2\n10000 80000\n8 8 1"}
+
+- id: 9318
+  key: "gemini"
+  name: "gemini"
+  short_desc: "Gemini"
+  long_desc: "Gemini is hiding from his brother, grinning evilly at you."
+  keywords: ['gemini']
+  level: 230
+  hp_max: 207
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 230, 'hit_dice': '3d4+200', 'damage_dice': '3d4+200', 'raw_block': 'As soon as you see him you see the most imperfect man you have ever seen.\nHow can there be such a contrast?  You wonder ...\n~\n230 1048712 -1000 S\n15 5 5 3d4+200 3d4+2\n5000 20000\n8 8 1'}
+
+- id: 9319
+  key: "cancer"
+  name: "cancer"
+  short_desc: "Cancer"
+  long_desc: "Cancer the crab is here, hoarding the treasure away from you."
+  keywords: ['cancer']
+  level: 66
+  hp_max: 511
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '2d10+500', 'damage_dice': '2d10+500', 'raw_block': 'You see a gigantic crab (YES, it is bigger than you!) with a crushed shell.\nLegend is that he was crushed by Hercules when he was sent by Hera to kill him.\nSo Hera made Cancer a constellation for his work. \n~\n66 128 0 S\n22 0 -5 2d10+500 4d4+3\n12000 80000\n8 8 1'}
+
+- id: 9320
+  key: "leo"
+  name: "leo"
+  short_desc: "Leo"
+  long_desc: "Leo the lion is roaring at you, ready for a strike!"
+  keywords: ['leo']
+  level: 98
+  hp_max: 521
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '2d20+500', 'damage_dice': '2d20+500', 'raw_block': 'His metallic skin means that he could be the one which was killed by Hercules\nduring his first Labour.  His skin is so weapon-proof that Hercules had to use\nhis bare hands to tear the lion into two from its mouth!\n~\n98 136 -100 S\n22 0 -7 2d20+500 5d3+3\n10000 80000\n8 8 1'}
+
+- id: 9321
+  key: "virgo"
+  name: "virgo"
+  short_desc: "Virgo"
+  long_desc: "Virgo is sitting here, winking at you suggestively ... you are alarmed!"
+  keywords: ['virgo']
+  level: 66
+  hp_max: 463
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 450
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '3d8+450', 'damage_dice': '3d8+450', 'raw_block': 'From what you have seen, you now realize that legends are legends, and Virgo\nmay not be the maid of chastity and purity at all!  But still she looks\ngorgeous and is waiting for your first move, whatever it is ...\n~\n66 128 1000 S\n22 0 -5 3d8+450 4d5+1\n10000 80000\n6 6 2'}
+
+- id: 9322
+  key: "libra"
+  name: "libra"
+  short_desc: "Libra"
+  long_desc: "Libra, the fair and just, is staring at you, weighing up the sins of your past."
+  keywords: ['libra']
+  level: 66
+  hp_max: 512
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '4d5+500', 'damage_dice': '4d5+500', 'raw_block': "He is a wise old man and can see people's thoughts through their eyes....\nNow all he can see from you is greed and bloodshed.\n~\n66 128 1000 S\n22 0 -5 4d5+500 5d4+2\n10000 80000\n8 8 1"}
+
+- id: 9323
+  key: "scorpio"
+  name: "scorpio"
+  short_desc: "Scorpio"
+  long_desc: "Scorpio is moving his tail towards you, waiting to put an end to some mortals."
+  keywords: ['scorpio']
+  level: 98
+  hp_max: 478
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 470
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '4d3+470', 'damage_dice': '4d3+470', 'raw_block': "Ever since he killed Orion in the myths, he has been punished by having \nSagittarius' arrow aimed at his heart forever.\n~\n98 136 -200 S\n22 0 -5 4d3+470 3d7+1\n10000 80000\n8 8 1"}
+
+- id: 9324
+  key: "sagittarius"
+  name: "sagittarius"
+  short_desc: "Sagittarius"
+  long_desc: "Sagittarius the centaur is waiting to let go of his well aimed arrow ..."
+  keywords: ['sagittarius']
+  level: 66
+  hp_max: 517
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '5d6+500', 'damage_dice': '5d6+500', 'raw_block': 'He is a centaur and a well trained archer. No one can escape his arrows.\n~\n66 128 1000 S\n22 0 -5 5d6+500 3d9+2\n10000 80000\n8 8 1'}
+
+- id: 9325
+  key: "capricon"
+  name: "capricon"
+  short_desc: "Capricon"
+  long_desc: "Capricon is here, feeling bored ... he wants a fight!"
+  keywords: ['capricon']
+  level: 66
+  hp_max: 536
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 520
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '4d7+520', 'damage_dice': '4d7+520', 'raw_block': 'You see a mean-looking ram here.  He used to be a fierce fighter in the ancient\nwar but now the gods have decided to put him here, to live out the rest of his \ndays in peace.\n~\n66 128 700 S\n22 0 -5 4d7+520 3d10+0\n10000 80000\n8 8 1'}
+
+- id: 9326
+  key: "aquarius"
+  name: "aquarius"
+  short_desc: "Aquarius"
+  long_desc: "The beautiful Aquarius is standing here, holding THE vessel."
+  keywords: ['aquarius']
+  level: 66
+  hp_max: 509
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '3d5+500', 'damage_dice': '3d5+500', 'raw_block': "The pretty Water Bearer is smiling at you, you think you'd better give her a \nhand with holding the vessel. \n~\n66 128 1000 S\n22 0 -5 3d5+500 2d10+1\n10000 80000\n8 8 2"}
+
+- id: 9327
+  key: "pisces_the_mermaid"
+  name: "pisces mermaid"
+  short_desc: "Pisces the mermaid"
+  long_desc: "Pisces the mermaid is sitting here, waiting for your help."
+  keywords: ['pisces', 'mermaid']
+  level: 66
+  hp_max: 512
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '4d5+500', 'damage_dice': '4d5+500', 'raw_block': 'She has been forced to serve her husband, who had been cursed to turn into a\nfish and she deserves your pity.\n~\n66 128 1000 S\n22 0 -5 4d5+500 3d7+0\n10000 80000\n6 6 2'}
+
+- id: 9328
+  key: "pisces_the_fish"
+  name: "pisces fish"
+  short_desc: "Pisces the fish"
+  long_desc: "Pisces the fish, is jealous of your approach..."
+  keywords: ['pisces', 'fish']
+  level: 98
+  hp_max: 406
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '3d3+400', 'damage_dice': '3d3+400', 'raw_block': 'He was once a very handsome man but now has turned into an ugly big fish.\nSo he becomes jealous of any living thing which is more handsome than him.\n~\n98 128 -1000 S\n22 4 0 3d3+400 3d6+2 \n10000 80000\n8 8 1'}
+
+- id: 9329
+  key: "ursa_major_the_bear"
+  name: "bear ursa major"
+  short_desc: "Ursa Major the bear"
+  long_desc: "Ursa Major the bear is the last defense against any intruders."
+  keywords: ['bear', 'ursa', 'major']
+  level: 98
+  hp_max: 805
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 800
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '2d4+800', 'damage_dice': '2d4+800', 'raw_block': "The Huge Bear which resides in the northern skies is here. \nYou think you'd better turn back.  At least you have got a chance of survival.\n~\n98 136 0 S\n27 0 -7 2d4+800 5d5+3\n15000 120000\n8 8 0"}
+
+- id: 9330
+  key: "cassiopeia_the_queen"
+  name: "cassiopeia queen"
+  short_desc: "Cassiopeia the Queen"
+  long_desc: "Cassiopeia, the queen of the Universe, is sitting on her throne."
+  keywords: ['cassiopeia', 'queen']
+  level: 66
+  hp_max: 720
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '10d3+700', 'damage_dice': '10d3+700', 'raw_block': 'She is the Queen of Dignity; facing her you feel all your dignity has gone.\n~\n66 128 700 S\n26 0 -6 10d3+700 4d7+2\n12000 110000\n6 6 2'}
+
+- id: 9331
+  key: "cepheus_the_king"
+  name: "cepheus king"
+  short_desc: "Cepheus the King"
+  long_desc: "Cepheus, the king of the Universe, is sitting on his throne."
+  keywords: ['cepheus', 'king']
+  level: 66
+  hp_max: 725
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '10d4+700', 'damage_dice': '10d4+700', 'raw_block': 'He is the King of Might as well as of the Universe. You suddenly feel very\nweak and useless in front of him.\n~\n66 128 700 S\n26 0 -6 10d4+700 4d8+1\n12000 110000\n6 6 1'}
+
+- id: 9332
+  key: "polaris_the_polar_star"
+  name: "polaris polar star"
+  short_desc: "Polaris, the polar star"
+  long_desc: "Polaris, the polar star, who commands the whole Universe, stands before you!"
+  keywords: ['polaris', 'polar', 'star']
+  level: 66
+  hp_max: 1500
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '0d0+1500', 'damage_dice': '0d0+1500', 'raw_block': "He is the Master of the Universe, (NOT He-Man!), the most powerful!  \nEven the King and the Queen obey him.  As you look at him you notice he is \nactually a STAR, with dazzling bright light ... maybe you shouldn't have come\nhere at all?\n~\n66 138 1000 S\n30 0 -10 0d0+1500 6d6+3\n20000 200000\n8 8 1"}
+

@@ -1,0 +1,303 @@
+items:
+  - id: 300
+    key: herbs_herb_timian
+    name: a small dusk of timian herbs
+    description: Some herbs are lying here, small green leaves and tiny pink flowers.
+    weight: 1
+    value: 5
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [herbs, herb, timian]
+    template_json:
+      raw_block: |
+        ~
+        19 0 1
+        1 0 0 0
+        1 5 1
+        E
+        herbs herb timian~
+        This herb smells rather spicy; maybe you should try it?
+        ~
+      type_line: 19 0 1
+      extra_desc: This herb smells rather spicy; maybe you should try it?
+  - id: 301
+    key: herbs_herb_gyvel
+    name: a small dusk of black gyvel
+    description: |
+      Some black gyvel is lying here, dark green with black leaves and tiny
+      blood red flowers.
+    weight: 1
+    value: 50
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [herbs, herb, gyvel]
+    template_json:
+      raw_block: |
+        ~
+        19 0 1
+        1 0 0 0
+        1 50 25
+        E
+        herbs herb gyvel~
+        This herb smells rather special, but is it poisonous?
+        ~
+      type_line: 19 0 1
+      extra_desc: This herb smells rather special, but is it poisonous?
+  - id: 302
+    key: plant_ivy
+    name: a small dusk of poison ivy
+    description: Some poison ivy is growing here.
+    weight: 1
+    value: 5
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [plant, ivy]
+    template_json:
+      raw_block: |
+        ~
+        19 0 1
+        1 0 0 1
+        1 5 100
+        E
+        plant ivy~
+        This plant has dark green juicy leaves.
+        You notice some small white thorns on it.~
+      type_line: 19 0 1
+      extra_desc: |
+        This plant has dark green juicy leaves.
+        You notice some small white thorns on it.
+  - id: 303
+    key: blood_jar
+    name: a dark red jar
+    description: A small jar in a dark, red colour.
+    weight: 2
+    value: 50
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [blood, jar]
+    template_json:
+      raw_block: |
+        17 0 1
+        2 2 13 0
+        2 50 10
+        E
+        blood jar~
+        The jar is made of dry clay, covered with markings suggesting its
+        occult origin.
+        ~
+      type_line: 17 0 1
+      extra_desc: |
+        The jar is made of dry clay, covered with markings suggesting its
+        occult origin.
+  - id: 304
+    key: wild_flowers
+    name: wild flowers
+    description: A bunch of pretty wild flowers is here.
+    weight: 1
+    value: 10
+    type: trash
+    extra_flags:
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+      - HOLD
+    keywords: [wild, flowers]
+    template_json:
+      raw_block: |
+        ~
+        13 1024 16401
+        0 0 0 0
+        1 10 50
+        E
+        wild flowers~
+        These wild flowers are really pretty.
+        Just like the flowers you would wear in your hair.~
+      type_line: 13 1024 16401
+      extra_desc: |
+        These wild flowers are really pretty.
+        Just like the flowers you would wear in your hair.
+  - id: 307
+    key: amulet
+    name: a strange amulet
+    description: A strange looking amulet is lying here, half covered with dust.
+    weight: 1
+    value: 500
+    type: armor
+    slot: neck
+    armor_class: 2
+    extra_flags:
+      - MAGIC
+      - NODROP
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [amulet]
+    applies:
+      - location: 21
+        modifier: 5
+    template_json:
+      raw_block: |
+        E
+        amulet~
+        Judging from the signs inscripted in the amulet, you gather it must
+        have belonged to a druid.  It is weird looking with symbols from nature
+        dominating it.
+        ~
+        A
+        21 5
+      type_line: 9 192 5
+      extra_desc: |
+        Judging from the signs inscripted in the amulet, you gather it must
+        have belonged to a druid.  It is weird looking with symbols from nature
+        dominating it.
+  - id: 308
+    key: staff_stick
+    name: a druish staff
+    description: A staff with druidic marks have been left here.
+    weight: 4
+    value: 15
+    type: immobile
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff, stick]
+    template_json:
+      raw_block: |
+        12 0 16385
+        0 0 0 0
+        4 15 5
+        E
+        staff stick~
+        Then staff is about 5 ft long, engraved with mythical signs and figures.
+        Otherwise the staff seems of no real interest.
+        ~
+      type_line: 12 0 16385
+      extra_desc: |
+        Then staff is about 5 ft long, engraved with mythical signs and figures.
+        Otherwise the staff seems of no real interest.
+  - id: 309
+    key: rabbit_roast_wabbit
+    name: a rabbit roast
+    description: You see a deliciously looking rabbit roast.
+    weight: 5
+    value: 40
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [rabbit, roast, wabbit]
+    template_json:
+      raw_block: |
+        24 0 0 0
+        5 40 10
+        E
+        roast rabbit wabbit~
+        Well the rabbit looks rather dead.
+        You guess that this once was a ferocious rabbit who's life now has
+        changed to that of a tasty wabbit woast.
+        ~
+      type_line: 19 0 1
+      extra_desc: |
+        Well the rabbit looks rather dead.
+        You guess that this once was a ferocious rabbit who's life now has
+        changed to that of a tasty wabbit woast.
+  - id: 310
+    key: template_scroll
+    name: a strange template
+    description: A strange template made of an exotic green metal is placed here
+    weight: 1
+    value: 15000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [template, scroll]
+    spell_ids:
+      - 15
+      - 38
+      - 4
+      - 26
+    template_json:
+      raw_block: |
+        E
+        template scroll metal~
+        The template is made of an exotic green metal and looks
+        centuries old.
+        Inscripted upon is the words 'Ep ep fi'hur G'harne
+                                     G'harne fhtagn Shudde-M'ell hyas Negg'h'
+        And beneath the inscription you see horrifying death scenes depicted.
+        ~
+      type_line: 2 64 16385
+      extra_desc: |
+        The template is made of an exotic green metal and looks
+        centuries old.
+        Inscripted upon is the words 'Ep ep fi'hur G'harne
+                                     G'harne fhtagn Shudde-M'ell hyas Negg'h'
+        And beneath the inscription you see horrifying death scenes depicted.
+  - id: 311
+    key: potion_clear
+    name: a clear potion
+    description: A clear potion wrapped in leather is unnoticed placed here.
+    weight: 2
+    value: 2500
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion, clear]
+    spell_ids:
+      - 20
+      - 18
+      - 19
+      - 20
+    template_json:
+      raw_block: |
+        As you examine the potion more, you notice the oddities of this
+        potion. When you look through it you notice strange things...
+        The clear potion is certainly not of this world.
+        ~
+        E
+        leather~
+        The leather wrapped around the potion is old and decayed, originating
+        from an, to you, unknown creature.~
+      type_line: 10 64 1
+      extra_desc: |
+        The leather wrapped around the potion is old and decayed, originating
+        from an, to you, unknown creature.
+  - id: 312
+    key: scroll_jhyfrdow
+    name: a scroll titled 'jhyfrdow'
+    description: An odd looking scroll is here.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [scroll, jhyfrdow]
+    spell_ids:
+      - 0
+      - 0
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        men doing some kind of a ritual.
+        ~
+        E
+        ritual men drawings~
+        The drawing pictures people gathered round giant stone formations,
+        worshipping a giant worm like creature.
+        It seems they are sacrificing some of their own species.
+        ~
+      type_line: 2 0 1
+      extra_desc: |
+        The drawing pictures people gathered round giant stone formations,
+        worshipping a giant worm like creature.
+        It seems they are sacrificing some of their own species.

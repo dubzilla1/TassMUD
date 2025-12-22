@@ -1,0 +1,217 @@
+- id: 9401
+  key: "the_mutant_beastly_fido"
+  name: "mutant fido dog"
+  short_desc: "The mutant beastly fido"
+  long_desc: "The mutant beastly fido is here, his eyes glowing green!"
+  keywords: ['mutant', 'fido', 'dog']
+  level: 481
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 48100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 481, 'hit_dice': '3d6+20', 'damage_dice': '3d6+20', 'raw_block': 'You see a mutant beastly fido, glaring at you with green eyes!  You wonder if\nthis factory meets ASPCA guidlines....\n~\n481 8 -700 S\n6 18 -3 3d6+20 2d4+1\n5 2000\n8 8 1'}
+
+- id: 9402
+  key: "foreman_floyd"
+  name: "foreman floyd"
+  short_desc: "Foreman Floyd"
+  long_desc: "Foreman Floyd is here, making plans for the factory's future."
+  keywords: ['foreman', 'floyd']
+  level: 66
+  hp_max: 201
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 100
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '2d100+100', 'damage_dice': '2d100+100', 'raw_block': 'You see Foreman Floyd of the Mob factory -- a sterling example of what comes\nof dedicated Mudding!  Rewarded for his years of dedication as a monster\nslayer, Floyd now creates the beasts for other adventurers to fight.\n~\n66 168 2 S\n12 10 -4 2d100+100 2d7+2\n1000 3500\n6 8 1'}
+
+- id: 9403
+  key: "the_cityguard_head"
+  name: "cityguard guard head"
+  short_desc: "The Cityguard head"
+  long_desc: "The Cityguard head floats around aimlessly."
+  keywords: ['cityguard', 'guard', 'head']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '3d15+30', 'damage_dice': '3d15+30', 'raw_block': 'You see a Cityguard head floating around without a care in the world.\nObviously, this one got past quality control!  Careful, those teeth look\nsharp...\n~\n64 524288 0 S\n9 12 0 3d15+30 2d6+2\n0 2000\n8 8 0'}
+
+- id: 9404
+  key: "the_revolving_drunk"
+  name: "revolving drunk"
+  short_desc: "The revolving drunk"
+  long_desc: "The Revolving drunk is here, spinning in place."
+  keywords: ['revolving', 'drunk']
+  level: 196
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 196, 'hit_dice': '2d4+10', 'damage_dice': '2d4+10', 'raw_block': 'You see and smell a drunk who looks much like other drunks...but he is spinning\nin place!  Someone should tell him that he is a REVOLTING drunk.\n~\n196 0 1 S\n2 20 4 2d4+10 1d6+1\n50 150\n8 8 1'}
+
+- id: 9405
+  key: "the_toxic_slime"
+  name: "toxic slime"
+  short_desc: "The toxic slime"
+  long_desc: "A pool of toxic slime lies on  the floor."
+  keywords: ['toxic', 'slime']
+  level: 6
+  hp_max: 46
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 6, 'hit_dice': '3d10+30', 'damage_dice': '3d10+30', 'raw_block': 'yick.  Looks like someone had digestion problems!  Either that, or the \nhydraulic fluid is leaking again.\n~\n6 0 0 S\n4 17 8 3d10+30 2d4+0\n0 650\n6 6 0'}
+
+- id: 9406
+  key: "the_factory_worker"
+  name: "worker"
+  short_desc: "The factory worker"
+  long_desc: "A Mob Factory worker is standing here, looking bored."
+  keywords: ['worker']
+  level: 192
+  hp_max: 47
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 5
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '4d20+5', 'damage_dice': '4d20+5', 'raw_block': 'The worker wears a bright orange pair of overalls, with the words "Mob\nFactory" written in a bright purple starburst.  Fashion plate, he\'s not.\n~\n192 0 100 S\n3 18  6 4d20+5 1d4+1\n50 325\n8 8 1'}
+
+- id: 9407
+  key: "the_factory_worker"
+  name: "worker"
+  short_desc: "The factory worker"
+  long_desc: "A Mob Factory worker is here, asleep in a chair."
+  keywords: ['worker']
+  level: 130
+  hp_max: 47
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 5
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 130, 'hit_dice': '4d20+5', 'damage_dice': '4d20+5', 'raw_block': "If Floyd walks in, you can bet there'll be trouble.  Guess she shouldn't have\nworked the late shift!\n~\n130 0 150 S\n3 18 6 4d20+5 1d4+1\n75 300\n4 4 2"}
+

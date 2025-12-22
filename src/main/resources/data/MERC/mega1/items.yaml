@@ -1,0 +1,415 @@
+items:
+  - id: 8000
+    key: spit_gun
+    name: a spit gun
+    description: There is a spit gun laying here.
+    weight: 2
+    value: 0
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 501
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [spit, gun]
+    template_json:
+      raw_block: |
+        3 0 1|16384
+        37 10 10 501
+        2 0 0
+        E
+        spit gun~
+        A standard weapon in Mega-City One.  It uses general
+        purpose ammunition.
+        ~
+      type_line: 3 0 1|16384
+      extra_desc: |
+        A standard weapon in Mega-City One.  It uses general
+        purpose ammunition.
+  - id: 8001
+    key: knee_pads
+    name: a set of knee pads
+    description: There are some knee pads laying here.
+    weight: 3
+    value: 0
+    type: armor
+    slot: legs
+    armor_class: 0
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [knee, pads]
+    template_json:
+      raw_block: |
+        9 0 1|32
+        0 0 0 0
+        3 0 0
+        E
+        knee pads~
+        It is a set of Grak Brothers knee pads.  They are currently
+        popular with the juve and punk gangs.
+        ~
+      type_line: 9 0 1|32
+      extra_desc: |
+        It is a set of Grak Brothers knee pads.  They are currently
+        popular with the juve and punk gangs.
+  - id: 8002
+    key: stooky_gland
+    name: a stooky gland
+    description: There is a stooky gland laying here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [stooky, gland]
+    applies:
+      - location: 9
+        modifier: -1
+    template_json:
+      raw_block: |
+        20 0 43 28
+        1 0 0
+        E
+        stooky gland~
+        Stooky glands are known for the restorative properties.
+        ~
+        A
+        9 -1
+      type_line: 26 0 1
+      extra_desc: Stooky glands are known for the restorative properties.
+  - id: 8003
+    key: lawgiver
+    name: a lawgiver
+    description: There is a lawgiver laying here.
+    weight: 2
+    value: 0
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 502
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [lawgiver]
+    template_json:
+      raw_block: |
+        3 0 1|16384
+        37 10 10 502
+        2 0 0
+        E
+        lawgiver gun~
+        The standard weapon for the city's Judges.  It uses general
+        high explosive ammunition.
+        ~
+      type_line: 3 0 1|16384
+      extra_desc: |
+        The standard weapon for the city's Judges.  It uses general
+        high explosive ammunition.
+  - id: 8004
+    key: safe
+    name: the magnetically shielded safe
+    description: A indestructible, immobile safe is here.
+    weight: 1000
+    value: 0
+    type: container
+    extra_flags:
+      - HUM
+    keywords: [safe]
+    template_json:
+      raw_block: |
+        15 2 0
+        1005 1|4|8 8005 0
+        1000 0 0
+        E
+        safe~
+        This safe looks like not even a Sov-Cit Nuke could open it.
+        You better find the code box.
+        ~
+      type_line: 15 2 0
+      extra_desc: |
+        This safe looks like not even a Sov-Cit Nuke could open it.
+        You better find the code box.
+  - id: 8005
+    key: code_box
+    name: a code box
+    description: A code box of indeterminate use is here.
+    weight: 1
+    value: 0
+    type: inventory
+    extra_flags:
+      - HUM
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [code, box]
+    template_json:
+      raw_block: |
+        ~
+        18 2 1|16384
+        0 0 0 0
+        1 0 0
+        E
+        code box~
+        The box looks like some kind of access device.
+        ~
+      type_line: 18 2 1|16384
+      extra_desc: The box looks like some kind of access device.
+  - id: 8006
+    key: bashball_bat
+    name: a bashball bat
+    description: A bashball bat is laying here.
+    weight: 3
+    value: 0
+    type: weapon
+    multiplier: 0
+    base_die: 0
+    damage_bonus: 7
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [bashball, bat]
+    template_json:
+      raw_block: |
+        5 0 1|8192
+        0 0 0 7
+        3 0 0
+        E
+        bashball bat~
+        This is the same type of bat used by the little spuggers
+        to play bashball.
+        ~
+      type_line: 5 0 1|8192
+      extra_desc: |
+        This is the same type of bat used by the little spuggers
+        to play bashball.
+  - id: 8007
+    key: vibroblade
+    name: the Vibroblade
+    description: The Vibroblade is here.
+    weight: 2
+    value: 0
+    type: weapon
+    multiplier: 0
+    base_die: 0
+    damage_bonus: 3
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - HUM
+      - INVIS
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [vibroblade]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+      - location: 5
+        modifier: 1
+      - location: 2
+        modifier: 1
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        A
+        18 2
+        A
+        19 2
+        A
+        5 1
+        A
+        2 1
+      type_line: 5 1|2|32 1|8192
+      extra_desc: |
+        Obviously of alien manufacture, this blade enhances fighting
+        and survival skills.
+  - id: 8008
+    key: vacuum_cleaner
+    name: a Hoover vacuum cleaner
+    description: A Hoover vacuum cleaner is here idling.
+    weight: 10
+    value: 0
+    type: weapon
+    multiplier: 0
+    base_die: 0
+    damage_bonus: 12
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - HUM
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [vacuum, cleaner]
+    template_json:
+      raw_block: |
+        5 2 1|8192
+        0 0 0 12
+        10 0 0
+        E
+        vacuum cleaner~
+        This vacuum looks well built and will last you many years of
+        cleaning pleasure.
+        ~
+      type_line: 5 2 1|8192
+      extra_desc: |
+        This vacuum looks well built and will last you many years of
+        cleaning pleasure.
+  - id: 8009
+    key: knife
+    name: a knife
+    description: A knife is sitting here...contemplating life.
+    weight: 3
+    value: 0
+    type: weapon
+    multiplier: 0
+    base_die: 0
+    damage_bonus: 1
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [knife]
+    template_json:
+      raw_block: |
+        ~
+        5 0 1|8192
+        0 0 0 1
+        3 0 0
+        E
+        knife~
+        It is a knife. 'Nuff said. (Marvel joke).
+        ~
+      type_line: 5 0 1|8192
+      extra_desc: It is a knife. 'Nuff said. (Marvel joke).
+  - id: 8010
+    key: wet_noodle
+    name: a wet noodle
+    description: A wet noodle is laying here with clam sauce on it.
+    weight: 1
+    value: 0
+    type: weapon
+    multiplier: 0
+    base_die: 0
+    damage_bonus: 4
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+      - WIELD
+    keywords: [wet, noodle]
+    applies:
+      - location: 3
+        modifier: 1
+    template_json:
+      raw_block: |
+        0 0 0 4
+        1 0 0
+        E
+        noodle~
+        It looks like a noodle freshly made at the Olive Garden.
+        ~
+        A
+        3 1
+      type_line: 5 0 1|4|8192
+      extra_desc: It looks like a noodle freshly made at the Olive Garden.
+  - id: 8011
+    key: judge_club
+    name: a Judge's club
+    description: A Judge's club is resting here.
+    weight: 3
+    value: 0
+    type: weapon
+    multiplier: 0
+    base_die: 0
+    damage_bonus: 7
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [judge, club]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        3 0 0
+        E
+        judge club~
+        It is a standard Justice Hall issue club.  Many a Perp's
+        head has been bashed with this baby.
+        ~
+        A
+        19 2
+      type_line: 5 0 1|8192
+      extra_desc: |
+        It is a standard Justice Hall issue club.  Many a Perp's
+        head has been bashed with this baby.
+  - id: 8012
+    key: vault_key
+    name: a vault key
+    description: A vault key is here.
+    weight: 1
+    value: 0
+    type: inventory
+    extra_flags:
+      - HUM
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [vault, key]
+    template_json:
+      raw_block: |
+        ~
+        18 2 1|16384
+        0 0 0 0
+        1 0 0
+        E
+        vault key~
+        The key looks like it could be useful.
+        ~
+      type_line: 18 2 1|16384
+      extra_desc: The key looks like it could be useful.
+  - id: 8013
+    key: key_card
+    name: a key card
+    description: A key card is laying here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [key, card]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1|16384
+        0 0 0 0
+        1 0 0
+        E
+        key card~
+        It looks like it fits a slot somewhere.
+        ~
+      type_line: 18 0 1|16384
+      extra_desc: It looks like it fits a slot somewhere.

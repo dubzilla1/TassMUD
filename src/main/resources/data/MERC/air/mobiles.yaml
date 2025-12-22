@@ -1,0 +1,62 @@
+- id: 1000
+  key: "a_fairy_dragon"
+  name: "fairy dragon"
+  short_desc: "A fairy dragon"
+  long_desc: "A fairy dragon is fluttering around here looking for something to do..."
+  keywords: ['fairy', 'dragon']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'act_flags': 2, 'raw_block': "It's a cute little multi-colored dragon...about 2 foot long.\nIt gracefully dances around your head.\n~\n65 24 500 S\n5 16 5 5d5+50 2d4+1\n20 900\n8 8 0"}
+
+- id: 1001
+  key: "a_griffin"
+  name: "griffin"
+  short_desc: "A griffin"
+  long_desc: "A large black winged griffin swoops into an attack."
+  keywords: ['griffin']
+  level: 96
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 104
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '1d1+104', 'damage_dice': '1d1+104', 'raw_block': "Golden maned and black all over.  It's quite a beautiful creature if not\nfor the fact it is hungry and is attacking you!\n~\n96 0 300 S\n8 14 4 1d1+104 2d5+2\n500 3750\n8 8 1"}
+

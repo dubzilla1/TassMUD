@@ -1,0 +1,1147 @@
+- id: 9201
+  key: "the_mountain_climber"
+  name: "mountain climber mountainclimber"
+  short_desc: "the mountain climber"
+  long_desc: "A mountain climber is making the same trek that you are."
+  keywords: ['mountain', 'climber', 'mountainclimber']
+  level: 68
+  hp_max: 45
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 15
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 68, 'hit_dice': '10d5+15', 'damage_dice': '10d5+15', 'raw_block': "He wants to see what's on the other side of the mountain too.\n~\n68 0 500 S\n3 16 8 10d5+15 1d6+1\n100 500\n8 8 1"}
+
+- id: 9202
+  key: "the_cyclops"
+  name: "cyclops"
+  short_desc: "the cyclops"
+  long_desc: "A hungry cyclops snarls at you!"
+  keywords: ['cyclops']
+  level: 98
+  hp_max: 1102
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 1100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '1d4+1100', 'damage_dice': '1d4+1100', 'raw_block': "He looks like he's about to have dinner (maybe it's you?).\n~\n98 128 -700 S\n22 0 -5 1d4+1100 1d4+25\n1000 80000\n8 8 0"}
+
+- id: 9203
+  key: "a_tiny_elemental"
+  name: "tiny elemental"
+  short_desc: "a tiny elemental"
+  long_desc: "A tiny elemental form wanders about."
+  keywords: ['tiny', 'elemental']
+  level: 64
+  hp_max: 10
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d20+0', 'damage_dice': '1d20+0', 'raw_block': 'Rather small for an elemental form, looks like a reject.\n~\n64 0 0 S\n1 20 9 1d20+0 1d3+1\n11 100\n8 8 0'}
+
+- id: 9204
+  key: "the_elemental_guardian"
+  name: "elemental guardian"
+  short_desc: "the elemental guardian"
+  long_desc: "The elemental guardian of the canyon."
+  keywords: ['elemental', 'guardian']
+  level: 2
+  hp_max: 1000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '0d0+1000', 'damage_dice': '0d0+1000', 'raw_block': "You can't tell which kind of elemental it is, maybe it's a bit o' all of them?\n~\n2 0 0 S\n20 5 -5 0d0+1000 4d4+5\n10000 100000\n8 8 0"}
+
+- id: 9205
+  key: "a_small_elemental"
+  name: "small elemental"
+  short_desc: "a small elemental"
+  long_desc: "A small, rather non-descript elemental."
+  keywords: ['small', 'elemental']
+  level: 66
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '0d0+60', 'damage_dice': '0d0+60', 'raw_block': 'A small elemental, a resident of the canyon.\n~\n66 0 0 S\n5 16 5 0d0+60 2d4+0\n250 800\n8 8 0'}
+
+- id: 9206
+  key: "a_medium_elemental"
+  name: "medium elemental"
+  short_desc: "a medium elemental"
+  long_desc: "A medium-sized elemental."
+  keywords: ['medium', 'elemental']
+  level: 66
+  hp_max: 180
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 125
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '10d10+125', 'damage_dice': '10d10+125', 'raw_block': 'A medium elemental, a resident of the canyon.\n~\n66 0 10 S\n10 11 2 10d10+125 2d6+1\n750 4000\n8 8 0'}
+
+- id: 9207
+  key: "a_large_elemental"
+  name: "large elemental"
+  short_desc: "a large elemental"
+  long_desc: "A large elemental."
+  keywords: ['large', 'elemental']
+  level: 66
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 190
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '10d10+190', 'damage_dice': '10d10+190', 'raw_block': 'A large elemental, a resident of the canyon.~\n66 0 20 S\n15 6 0 10d10+190 2d8+2\n2000 21000\n8 8 0'}
+
+- id: 9208
+  key: "the_earth_ruler"
+  name: "earth elemental ruler"
+  short_desc: "the Earth Ruler"
+  long_desc: "The Ruler of the earth elementals."
+  keywords: ['earth', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+1000', 'damage_dice': '30d30+1000', 'raw_block': "He looks as old as the earth itself.  He seems to know all the \nsecrets and knowledge of the Earth.  You can't really tell where \nhe begins and the rock wall ends.\n~\n2 128 0 S\n30 -2 -13 30d30+1000 2d6+25\n100000 400000\n8 8 0"}
+
+- id: 9209
+  key: "the_fire_ruler"
+  name: "fire elemental ruler"
+  short_desc: "the Fire Ruler"
+  long_desc: "The Ruler of the fire elementals."
+  keywords: ['fire', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+1000', 'damage_dice': '30d30+1000', 'raw_block': 'As you look at him he seems to blend in with the fire in his throne.\n~\n2 128 0 S\n30 -5 -10 30d30+1000 4d5+5\n100000 300000\n8 8 0'}
+
+- id: 9210
+  key: "the_air_ruler"
+  name: "air elemental ruler"
+  short_desc: "The Air Ruler"
+  long_desc: "The Ruler of the air elementals."
+  keywords: ['air', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+1000', 'damage_dice': '30d30+1000', 'raw_block': 'As you peer at him you seem to be looking at the sky itself.\n~\n2 128 0 S\n30 0 -10 30d30+1000 9d3+9\n100000 350000\n8 8 0'}
+
+- id: 9211
+  key: "the_lightning_ruler"
+  name: "lightning elemental ruler"
+  short_desc: "The Lightning Ruler"
+  long_desc: "The Ruler of the lightning elementals."
+  keywords: ['lightning', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+1000', 'damage_dice': '30d30+1000', 'raw_block': 'As you examine him there is a blinding flash of light and a deafening boom!\nYou rub your eyes and look and the ruler is there grinning at you.\n~\n2 128 0 S\n30 0 -6 30d30+1000 4d6+15\n100000 350000\n8 8 0'}
+
+- id: 9212
+  key: "the_water_ruler"
+  name: "water elemental ruler"
+  short_desc: "The Water Ruler"
+  long_desc: "The Ruler of the water elementals."
+  keywords: ['water', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+1000', 'damage_dice': '30d30+1000', 'raw_block': 'As you look at him he changes to mist, which swirls around you.  Just\nas you get scared, it reforms in elemental form.\n~\n2 128 0 S\n30 0 -10 30d30+1000 7d3+5\n100000 350000\n8 8 0'}
+
+- id: 9214
+  key: "a_puddle"
+  name: "water puddle elemental"
+  short_desc: "a puddle"
+  long_desc: "A small puddle of water elemental."
+  keywords: ['water', 'puddle', 'elemental']
+  level: 64
+  hp_max: 255
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '10d10+200', 'damage_dice': '10d10+200', 'raw_block': 'It trickles along the ground and gets your feet wet.\n~\n64 0 0 S\n8 13 3 10d10+200 2d5+1\n225 4000\n8 8 0'}
+
+- id: 9215
+  key: "a_flame"
+  name: "fire flame elemental"
+  short_desc: "a flame"
+  long_desc: "A small flickering flame elemental."
+  keywords: ['fire', 'flame', 'elemental']
+  level: 64
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '5d10+0', 'damage_dice': '5d10+0', 'raw_block': 'It smolders along the grass aimlessly.\n~\n64 0 0 S\n4 17 6 5d10+0 2d4+0\n150 500\n8 8 0'}
+
+- id: 9216
+  key: "a_small_snowflake"
+  name: "snowflake snow flake ice elemental"
+  short_desc: "a small snowflake"
+  long_desc: "A frozen snowflake water elemental."
+  keywords: ['snowflake', 'snow', 'flake', 'ice', 'elemental']
+  level: 64
+  hp_max: 33
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d5+30', 'damage_dice': '1d5+30', 'raw_block': 'It looks a little blue.\n~\n64 0 520 S\n3 19 8 1d5+30 1d5+0\n0 200\n8 8 0'}
+
+- id: 9217
+  key: "a_small_rock"
+  name: "pebble rock earth stone elemental"
+  short_desc: "a small rock"
+  long_desc: "A small rock."
+  keywords: ['pebble', 'rock', 'earth', 'stone', 'elemental']
+  level: 64
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 5
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '4d10+5', 'damage_dice': '4d10+5', 'raw_block': 'It seems to be a small living pebble!\n~\n64 0 0 S\n3 18 6 4d10+5 1d6+1\n98 350\n8 8 0'}
+
+- id: 9218
+  key: "a_small_spark"
+  name: "spark lightning energy elemental"
+  short_desc: "a small spark"
+  long_desc: "A small spark of electricity fizzles here."
+  keywords: ['spark', 'lightning', 'energy', 'elemental']
+  level: 64
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '10d5+0', 'damage_dice': '10d5+0', 'raw_block': 'Zipping from place to place at the speed of light is tough work.\n~\n64 0 0 S\n4 16 6 10d5+0 1d8+1\n150 500\n8 8 0'}
+
+- id: 9219
+  key: "a_small_blob_of_acid"
+  name: "acid blob elemental"
+  short_desc: "a small blob of acid"
+  long_desc: "A small blob of acid eats away at the stone aimlessly."
+  keywords: ['acid', 'blob', 'elemental']
+  level: 64
+  hp_max: 125
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d10+120', 'damage_dice': '1d10+120', 'raw_block': 'The magical blob of acid is a cross between lightning and water.\n~\n64 0 0 S\n9 11 2 1d10+120 5d2+2\n1000 4000\n8 8 0'}
+
+- id: 9220
+  key: "a_lava_beast"
+  name: "lava elemental"
+  short_desc: "a lava beast"
+  long_desc: "A lava beast spews from place to place."
+  keywords: ['lava', 'elemental']
+  level: 64
+  hp_max: 125
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d10+120', 'damage_dice': '1d10+120', 'raw_block': 'The magical lava beast is a cross between fire and earth.\n~\n64 0 0 S\n8 13 3 1d10+120 5d2+2\n313 4000\n8 8 0'}
+
+- id: 9221
+  key: "a_mud_monster"
+  name: "mud elemental"
+  short_desc: "a mud monster"
+  long_desc: "A mud monster slops around."
+  keywords: ['mud', 'elemental']
+  level: 64
+  hp_max: 92
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 86
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d12+86', 'damage_dice': '1d12+86', 'raw_block': 'The magical mud monster is a cross between water and earth.\n~\n64 0 0 S\n7 14 4 1d12+86 2d4+1\n400 1000\n8 8 0'}
+
+- id: 9222
+  key: "an_elemental_mist_the_air_is_magically_misty_here"
+  name: "mist elemental"
+  short_desc: "an elemental mist~ \nThe air is magically misty here."
+  long_desc: "The magical mist is a cross between water and air."
+  keywords: ['mist', 'elemental']
+  level: 64
+  hp_max: 53
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '6d10+20', 'damage_dice': '6d10+20', 'act_flags': 64, 'raw_block': '64 0 0 S\n6 16 50 6d10+20 1d8+0\n300 1000\n8 8 0'}
+
+- id: 9223
+  key: "a_particle"
+  name: "particle elemental"
+  short_desc: "a particle"
+  long_desc: "A sub-atomic particle is too small for you to see."
+  keywords: ['particle', 'elemental']
+  level: 64
+  hp_max: 82
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '5d4+70', 'damage_dice': '5d4+70', 'raw_block': 'The magical manifestation of energy.\n~\n64 0 0 S\n5 16 6 5d4+70 1d5+5\n10 800\n8 8 0'}
+
+- id: 9224
+  key: "a_dust_cloud"
+  name: "dust elemental"
+  short_desc: "a dust cloud"
+  long_desc: "A dust cloud blowing by makes you sneeze."
+  keywords: ['dust', 'elemental']
+  level: 64
+  hp_max: 49
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 4
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '9d9+4', 'damage_dice': '9d9+4', 'raw_block': 'The magical dust cloud is a cross between air and earth.\n~\n64 0 0 S\n6 15 4 9d9+4 1d8+1\n100 980\n8 8 0'}
+
+- id: 9225
+  key: "an_eddie"
+  name: "eddie elemental"
+  short_desc: "an eddie"
+  long_desc: "A small eddie current swirls junk around here."
+  keywords: ['eddie', 'elemental']
+  level: 64
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '5d5+0', 'damage_dice': '5d5+0', 'raw_block': 'The magical eddie current is a manifestation of an air elemental.\n~\n64 0 0 S\n2 19 8 5d5+0 1d6+0\n30 150\n8 8 0'}
+
+- id: 9226
+  key: "the_blue_flame"
+  name: "blue flame"
+  short_desc: "the Blue Flame"
+  long_desc: "The Blue Flame burns mysteriously here."
+  keywords: ['blue', 'flame']
+  level: 66
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 100
+  damage_bonus: 550
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '1d100+550', 'damage_dice': '1d100+550', 'raw_block': 'As you look you see what seems to be a face and almost a \nhumanoid figure somehow trapped in the fire.\n~\n66 0 -100 S\n26 -3 -4 1d100+550 6d3+12\n25000 100000\n8 8 0'}
+
+- id: 9227
+  key: "the_magneto"
+  name: "magneto"
+  short_desc: "the Magneto"
+  long_desc: "The Magneto considers zapping you for the heck of it."
+  keywords: ['magneto']
+  level: 66
+  hp_max: 366
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 350
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '3d10+350', 'damage_dice': '3d10+350', 'raw_block': 'A humanoid figure seems to be trapped in the field of the Magneto.\n~\n66 0 -150 S\n22 0 -8 3d10+350 3d8+5\n10000 75000\n8 8 0'}
+
+- id: 9228
+  key: "the_ice_bandit"
+  name: "ice bandit"
+  short_desc: "the Ice Bandit"
+  long_desc: "The Ice Bandit strikes cold fear in your heart."
+  keywords: ['ice', 'bandit']
+  level: 2
+  hp_max: 491
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 480
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '2d10+480', 'damage_dice': '2d10+480', 'raw_block': 'A humanoid figure encased in ice but still apparently alive.\n~\n2|64|128 32768 -250 S\n24 -2 -9 2d10+480 2d8+13\n30000 150000\n8 8 0'}
+
+- id: 9229
+  key: "the_rock_monster"
+  name: "rock monster"
+  short_desc: "the Rock Monster"
+  long_desc: "The Rock Monster considers you in stoney silence."
+  keywords: ['rock', 'monster']
+  level: 66
+  hp_max: 770
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 550
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '40d10+550', 'damage_dice': '40d10+550', 'raw_block': 'A humanoid figure trapped in stone seems alive.\n~\n66 0 -310 S\n23 0 -6 40d10+550 3d8+4\n19000 60000\n8 8 0'}
+
+- id: 9230
+  key: "the_hurricane"
+  name: "hurricane"
+  short_desc: "the Hurricane"
+  long_desc: "A Hurricane rages across the sky."
+  keywords: ['hurricane']
+  level: 66
+  hp_max: 700
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '0d0+700', 'damage_dice': '0d0+700', 'raw_block': 'A humanoid figure is trapped in the rushing wind.\n~\n66 32768 -10 S\n28 -4 -7 0d0+700 4d6+6\n41082 350000\n8 8 0'}
+
+- id: 9231
+  key: "an_elemental_magician"
+  name: "magician"
+  short_desc: "an elemental magician"
+  long_desc: "An elemental magician seeks magical stones for a spell."
+  keywords: ['magician']
+  level: 66
+  hp_max: 206
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '1d11+200', 'damage_dice': '1d11+200', 'raw_block': 'The elemental magician has come here in search of the fabled\nStone of Surrender which can be used to render opponents senseless.\n~\n66 2 -50 S\n17 6 2 1d11+200 3d5+3\n8000 30000\n8 8 0'}
+
+- id: 9232
+  key: "a_rainbow_warrior"
+  name: "rainbow warrior"
+  short_desc: "a rainbow warrior"
+  long_desc: "A warrior of the Rainbow Cult swears his loyalty."
+  keywords: ['rainbow', 'warrior']
+  level: 64
+  hp_max: 340
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 340
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '0d0+340', 'damage_dice': '0d0+340', 'raw_block': 'The Rainbow Cult has received special powers for their service to \nthe elemental forces.\n~\n64 0 150 S\n18 1 0 0d0+340 3d6+4\n8000 35000\n8 8 0'}
+
+- id: 9233
+  key: "an_illusionist_the_illusionist_seeks_the_aid_of_the_elemental_forces"
+  name: "illusionist"
+  short_desc: "an illusionist~	\nThe illusionist seeks the aid of the elemental forces."
+  long_desc: "He seeks their aid for a powerful new spell of deception.\n\n<wielded>            The Sword of Illusions"
+  keywords: ['illusionist']
+  level: 66
+  hp_max: 185
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '10d6+150', 'damage_dice': '10d6+150', 'act_flags': 66, 'raw_block': '66 0 -50 S\n12 10 3 10d6+150 2d7+0\n1900 13900\n8 8 0'}
+
+- id: 9234
+  key: "an_alchemist"
+  name: "alchemist"
+  short_desc: "an alchemist"
+  long_desc: "An alchemist wanders by in search of magical herbs."
+  keywords: ['alchemist']
+  level: 64
+  hp_max: 271
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d2+270', 'damage_dice': '1d2+270', 'raw_block': 'Rare herbs are rumored to grow only in the canyon.\n~\n64 0 -50 S\n13 8 1 1d2+270 2d7+1\n1900 15000\n8 8 0'}
+
+- id: 9235
+  key: "a_baby_rainbow_dragon"
+  name: "baby rainbow dragon"
+  short_desc: "a baby rainbow dragon"
+  long_desc: "A baby rainbow dragon plays among the elements here."
+  keywords: ['baby', 'rainbow', 'dragon']
+  level: 66
+  hp_max: 400
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '0d0+400', 'damage_dice': '0d0+400', 'raw_block': "It's only a baby by dragon standards.\n~\n66 40 0 S\n16 4 -1 0d0+400 1d16+6\n10000 25000\n8 8 0"}
+
+- id: 9236
+  key: "a_little_imp"
+  name: "imp"
+  short_desc: "a little imp"
+  long_desc: "A little imp runs along being annoying."
+  keywords: ['imp']
+  level: 4
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '1d10+100', 'damage_dice': '1d10+100', 'raw_block': 'The little bugger steals stuff and is generally obnoxious.\n~\n4|64|128 32768|65536 -500 S\n5 15 1 1d10+100 1d4+3\n1 1000\n8 8 0'}
+
+- id: 9237
+  key: "a_huge_elemental"
+  name: "HUGE elemental"
+  short_desc: "a HUGE elemental"
+  long_desc: "A HUGE elemental form stands here."
+  keywords: ['HUGE', 'elemental']
+  level: 66
+  hp_max: 750
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 750
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 66, 'hit_dice': '0d0+750', 'damage_dice': '0d0+750', 'raw_block': 'HUGE, need i say more?\n~\n66 0 30 S\n20 1 0 0d0+750 3d6+4\n10000 40000\n8 8 0'}
+
+- id: 9238
+  key: "the_elixir_vendor"
+  name: "vendor"
+  short_desc: "the elixir vendor"
+  long_desc: "A vendor is willing to sell you elixirs."
+  keywords: ['vendor']
+  level: 82
+  hp_max: 10000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 10000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 82, 'hit_dice': '0d0+10000', 'damage_dice': '0d0+10000', 'raw_block': 'I WOULD NOT suggest you attack me ...!\n~\n82 0 900 S\n30 -20 -10 0d0+10000 0d0+300\n0 1\n8 8 1'}
+

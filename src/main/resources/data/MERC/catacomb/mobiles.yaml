@@ -1,0 +1,527 @@
+- id: 2001
+  key: "a_bat"
+  name: "bat"
+  short_desc: "a bat"
+  long_desc: "A bat flaps wildly at you!"
+  keywords: ['bat']
+  level: 34
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'Your typical smelly, blind flying mammal.\n~\n34 32 0 S\n5 18 5 5d5+50 2d3+3\n0 500\n8 8 0'}
+
+- id: 2002
+  key: "a_templar_page"
+  name: "page templar"
+  short_desc: "a templar page"
+  long_desc: "A templar page in training is here looking mildly confused."
+  keywords: ['page', 'templar']
+  level: 128
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'He has lost his family and everything of his former life.\n~\n128 0 200 S\n7 14 4 7d7+70 1d9+4\n600 1500\n8 8 1'}
+
+- id: 2003
+  key: "a_spelunker"
+  name: "spelunker explorer"
+  short_desc: "a spelunker"
+  long_desc: "A spelunker knows his way around these tunnels."
+  keywords: ['spelunker', 'explorer']
+  level: 132
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 132, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': "He recently discovered these catacombs and wants to see where they lead.\nHe just hopes he doesn't get killed in the process.  He carries only\nessential exploration gear; if there IS anything down here, he\nprobably won't last long.\n~\n132 32 100 S\n8 13 4 8d8+80 2d5+1\n800 2000\n8 8 1"}
+
+- id: 2004
+  key: "a_graverobber"
+  name: "gravedigger digger robber graverobber"
+  short_desc: "a graverobber"
+  long_desc: "A graverobber uncovers dead bodies."
+  keywords: ['gravedigger', 'digger', 'robber', 'graverobber']
+  level: 36
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 36, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': "Working for an evil necromancer isn't the greatest thing in the world.\nThey seem like little more than zombie servants themselves.\n~\n36 0 -500 S\n9 12 3 9d9+90 2d6+1\n100 2000\n8 8 1"}
+
+- id: 2005
+  key: "some_mist"
+  name: "mist swirling"
+  short_desc: "some mist"
+  long_desc: "Some mist swirls about you here ... it seems ALIVE!"
+  keywords: ['mist', 'swirling']
+  level: 128
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'In fact it IS alive in a magical sort of sense.\n~\n0 128|32768|1048576 0 S\n10 10 6 10d10+100 2d6+4\n200 2500\n8 8 0'}
+
+- id: 2006
+  key: "it"
+  name: ""
+  short_desc: "It"
+  long_desc: ""
+  keywords: []
+  level: 32
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': '~\n32 0 0 S\n10 10 2 10d10+100 3d3+6\n1000 3000\n8 8 0'}
+
+- id: 2007
+  key: "a_skeleton"
+  name: "skeleton skeletal soldier"
+  short_desc: "a skeleton"
+  long_desc: "A skeletal soldier fights in the battle of the underworld."
+  keywords: ['skeleton', 'skeletal', 'soldier']
+  level: 36
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 36, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': 'Even though he has died in the physical sense of the word, the battle\ncontinues for him in his charmed state.\n~\n36 0 -290 S\n11 10 4 11d11+110 2d8+1\n1100 4000\n8 8 1'}
+
+- id: 2008
+  key: "a_templar"
+  name: "templar"
+  short_desc: "a templar"
+  long_desc: "A templar shouts "AKK! SLAY THE INFIDEL!""
+  keywords: ['templar']
+  level: 36
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 36, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'As you peer closely he peers back at you\n\nA templar peers closely at you.\nA templar tells you, "You are an evil force trying to spread your ways!".\nA templar tells you, "You must die for your sin!".\n~\n36 0 600 S\n12 9 3 12d12+120 1d4+8\n500 5000\n8 8 1'}
+
+- id: 2009
+  key: "a_mysterious_wraith"
+  name: "wraith"
+  short_desc: "a mysterious wraith"
+  long_desc: "A mysterious ghostly wraith forms before your eyes."
+  keywords: ['wraith']
+  level: 36
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 36, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'Hard to tell much about the mysterious form even upon further inspection.\n~\n36 32|1048576 0 S\n12 9 2 12d12+120 2d7+1\n600 5000\n8 8 1'}
+
+- id: 2010
+  key: "the_templar_officer"
+  name: "officer templar"
+  short_desc: "the templar officer"
+  long_desc: "A templar officer keeps an eye on things here."
+  keywords: ['officer', 'templar']
+  level: 32
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'A templar officer tells you "Better move along evil one!"\n~\n32 8 700 S\n13 8 2 13d13+130 1d6+8\n600 7000\n8 8 1'}
+
+- id: 2011
+  key: "zombie"
+  name: "zombie mage"
+  short_desc: "zombie"
+  long_desc: "A blank-faced zombie mage joins the battle."
+  keywords: ['zombie', 'mage']
+  level: 36
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 36, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'He seems to lack real interest in what he is doing.\n~\n36 0 -100 S\n13 8 5 13d13+130 1d4+8\n550 9000\n8 8 1'}
+
+- id: 2012
+  key: "the_shadow"
+  name: "shadow shadows"
+  short_desc: "the shadow"
+  long_desc: "Eerie shadows fill the room."
+  keywords: ['shadow', 'shadows']
+  level: 32
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '14d14+140', 'damage_dice': '14d14+140', 'raw_block': 'Looks vaguely you-shaped.\n~\n0 32|32768|1048576 0 S\n14 6 1 14d14+140 2d9+1\n800 10900\n8 8 0'}
+
+- id: 2013
+  key: "the_vampire"
+  name: "bat vampire"
+  short_desc: "The vampire"
+  long_desc: "A bat flaps wildly at you!"
+  keywords: ['bat', 'vampire']
+  level: 34
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'A rather LARGE "bat" ...\n~\n34 32 -100 S\n15 6 5 15d15+150 1d10+7\n1000 17000\n8 8 1'}
+
+- id: 2014
+  key: "the_evil_necromancer"
+  name: "necromancer necro cleric"
+  short_desc: "the evil necromancer"
+  long_desc: "The evil necromancer makes undead soldiers from corpses."
+  keywords: ['necromancer', 'necro', 'cleric']
+  level: 34
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': "Though he seems absorbed in his work, you'd bet he'd take the time out\nto kill you to get a fresh corpse!\n~\n34 0 -888 S\n15 8 -5 15d15+150 1d8+8\n1100 15000\n8 8 1"}
+
+- id: 2015
+  key: "the_grand_templar"
+  name: "grand templar leader"
+  short_desc: "the grand templar"
+  long_desc: "The grand templar stands here quietly observing your actions"
+  keywords: ['grand', 'templar', 'leader']
+  level: 2
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '16d16+160', 'damage_dice': '16d16+160', 'raw_block': 'A slight, tolerant smile comes briefly across his face.  In the blink\nof an eye he seems stern again.\n~\n2 168 1000 S\n16 5 -5 16d16+160 1d8+12\n1500 20000\n8 8 1'}
+
+- id: 2016
+  key: "the_prism_dragon"
+  name: "prism dragon prismdragon"
+  short_desc: "the prism dragon"
+  long_desc: "The light shines off a beautiful but dangerous dragon lurking here."
+  keywords: ['prism', 'dragon', 'prismdragon']
+  level: 34
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'The spray of colored light bouncing off his scales is almost blinding.\n~\n34 40 -303 S\n20 0 -5 20d20+200 6d3+14\n30000 30000\n8 8 1'}
+
+- id: 2017
+  key: "the_darkenbeast"
+  name: "darken dark beast darkenbeast"
+  short_desc: "The DarkenBeast"
+  long_desc: "You hear and smell the presense of the darkenbeast."
+  keywords: ['darken', 'dark', 'beast', 'darkenbeast']
+  level: 34
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '24d24+240', 'damage_dice': '24d24+240', 'raw_block': 'You see nothing more than the sense of darkness and evil.\n~\n34 0 -1000 S\n24 -2 -12 24d24+240 3d7+7\n20000 80000\n8 8 0'}
+

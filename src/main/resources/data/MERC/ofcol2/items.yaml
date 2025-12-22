@@ -1,0 +1,1980 @@
+items:
+  - id: 600
+    key: handaxe_hand_axe
+    name: a handaxe
+    description: A handaxe is on the floor here.
+    weight: 10
+    value: 100
+    type: weapon
+    multiplier: 1
+    base_die: 8
+    damage_bonus: 3
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [handaxe, hand, axe]
+    template_json:
+      raw_block: |
+        5 0 1|8192
+        0 1 8 3
+        10 100 20
+        E
+        handaxe hand axe~
+        You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
+        withstand years of use.
+        ~
+      type_line: 5 0 1|8192
+      extra_desc: |
+        You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
+        withstand years of use.
+  - id: 601
+    key: meat_cleaver
+    name: a meat cleaver
+    description: A sharp meat cleaver is just lying on the floor here!
+    weight: 5
+    value: 150
+    type: weapon
+    multiplier: 2
+    base_die: 4
+    damage_bonus: 3
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [meat, cleaver]
+    template_json:
+      raw_block: |
+        ~
+        5 0 8193
+        0 2 4 3
+        5 150 20
+        E
+        meat cleaver~
+        This meat cleaver is made of good steel.
+        ~
+      type_line: 5 0 8193
+      extra_desc: This meat cleaver is made of good steel.
+  - id: 602
+    key: side_meat_beef
+    name: a side of beef
+    description: A side of beef is here on the floor.
+    weight: 10
+    value: 50
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [side, meat, beef]
+    template_json:
+      raw_block: |
+        #602
+        side meat beef~
+        a side of beef~
+        A side of beef is here on the floor.~
+        ~
+        19 0 1
+        24 0 0 0
+        10 50 10
+      type_line: 19 0 1
+  - id: 603
+    key: side_meat_pork
+    name: a side of pork
+    description: A side of pork is here on the floor.
+    weight: 10
+    value: 45
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [side, meat, pork]
+    template_json:
+      raw_block: |
+        #603
+        side meat pork~
+        a side of pork~
+        A side of pork is here on the floor.~
+        ~
+        19 0 1
+        23 0 0 0
+        10 45 10
+      type_line: 19 0 1
+  - id: 604
+    key: side_meat_horse
+    name: a side of horse
+    description: A side of horse is here on the floor.
+    weight: 12
+    value: 60
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [side, meat, horse]
+    template_json:
+      raw_block: |
+        #604
+        side meat horse~
+        a side of horse~
+        A side of horse is here on the floor.~
+        ~
+        19 0 1
+        30 0 0 0
+        12 60 12
+      type_line: 19 0 1
+  - id: 605
+    key: meat_chicken
+    name: a defeathered chicken
+    description: A defeathered chicken is here on the floor.
+    weight: 5
+    value: 30
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [meat, chicken]
+    template_json:
+      raw_block: |
+        #605
+        meat chicken~
+        a defeathered chicken~
+        A defeathered chicken is here on the floor.~
+        ~
+        19 0 1
+        16 0 0 0
+        5 30 6
+      type_line: 19 0 1
+  - id: 606
+    key: emerald_ring
+    name: an emerald ring
+    description: An emerald ring is on the floor, gathering dust.
+    weight: 1
+    value: 10000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [emerald, ring]
+    template_json:
+      raw_block: |
+        #606
+        emerald ring~
+        an emerald ring~
+        An emerald ring is on the floor, gathering dust.~
+        ~
+        8 64 3
+        0 0 0 0
+        1 10000 100
+      type_line: 8 64 3
+  - id: 607
+    key: glass_trinket
+    name: a glass trinket
+    description: A glass trinket is on the floor, gathering dust.
+    weight: 1
+    value: 100
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [glass, trinket]
+    applies:
+      - location: 24
+        modifier: -1
+    template_json:
+      raw_block: |
+        a glass trinket~
+        A glass trinket is on the floor, gathering dust.~
+        ~
+        8 0 16385
+        0 0 0 0
+        1 100 10
+        A
+        24 -1
+      type_line: 8 0 16385
+  - id: 608
+    key: golden_necklace
+    name: a golden necklace
+    description: A golden necklace is on the floor, gathering dust.
+    weight: 2
+    value: 10000
+    type: inventory
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [golden, necklace]
+    applies:
+      - location: 4
+        modifier: -1
+      - location: 9
+        modifier: 10
+    template_json:
+      raw_block: |
+        ~
+        8 0 5
+        0 0 0 0
+        2 10000 10
+        A
+        4 -1
+        A
+        9 10
+      type_line: 8 0 5
+  - id: 609
+    key: cabbage
+    name: a head of cabbage
+    description: Some fresh cabbage is here, get it while it lasts!
+    weight: 2
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [cabbage]
+    template_json:
+      raw_block: |
+        #609
+        cabbage~
+        a head of cabbage~
+        Some fresh cabbage is here, get it while it lasts!~
+        ~
+        19 0 1
+        12 0 0 0
+        2 20 5
+      type_line: 19 0 1
+  - id: 610
+    key: lettuce
+    name: a head of lettuce
+    description: Some fresh lettuce is here, get it while it lasts!
+    weight: 2
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [lettuce]
+    template_json:
+      raw_block: |
+        #610
+        lettuce~
+        a head of lettuce~
+        Some fresh lettuce is here, get it while it lasts!~
+        ~
+        19 0 1
+        12 0 0 0
+        2 20 5
+      type_line: 19 0 1
+  - id: 611
+    key: milk_bottle
+    name: a bottle of milk
+    description: A glass bottle of milk is on a shelf here, fresh from the cow.
+    weight: 5
+    value: 40
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [milk, bottle]
+    template_json:
+      raw_block: |
+        #611
+        milk bottle~
+        a bottle of milk~
+        A glass bottle of milk is on a shelf here, fresh from the cow.~
+        ~
+        17 0 1
+        20 20 10 0
+        5 40 10
+      type_line: 17 0 1
+  - id: 612
+    key: apple
+    name: an apple
+    description: An apple is on the ground.
+    weight: 1
+    value: 5
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [apple]
+    template_json:
+      raw_block: |
+        #612
+        apple~
+        an apple~
+        An apple is on the ground.~
+        ~
+        19 0 1
+        8 0 0 0
+        1 5 1
+      type_line: 19 0 1
+  - id: 613
+    key: corn
+    name: an ear of corn
+    description: An ear of corn is on the ground.
+    weight: 1
+    value: 5
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [corn]
+    template_json:
+      raw_block: |
+        #613
+        corn~
+        an ear of corn~
+        An ear of corn is on the ground.~
+        ~
+        19 0 1
+        8 0 0 0
+        1 5 1
+      type_line: 19 0 1
+  - id: 614
+    key: hay_pile
+    name: a pile of hay
+    description: There is a big pile of hay here.
+    weight: 20
+    value: 0
+    type: trash
+    wear_flags:
+      - TAKE
+    keywords: [hay, pile]
+    template_json:
+      raw_block: |
+        #614
+        hay pile~
+        a pile of hay~
+        There is a big pile of hay here.~
+        ~
+        13 0 1
+        0 0 0 0
+        20 0 50
+      type_line: 13 0 1
+  - id: 615
+    key: pitchfork_fork
+    name: a pitchfork
+    description: A pitchfork is on the floor.
+    weight: 10
+    value: 50
+    type: weapon
+    multiplier: 3
+    base_die: 3
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [pitchfork, fork]
+    template_json:
+      raw_block: |
+        #615
+        pitchfork fork~
+        a pitchfork~
+        A pitchfork is on the floor.~
+        ~
+        5 0 8193
+        0 3 3 11
+        10 50 10
+      type_line: 5 0 8193
+  - id: 616
+    key: vest
+    name: a leather vest
+    description: A leather vest is on the floor.
+    weight: 10
+    value: 50
+    type: armor
+    slot: chest
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [vest]
+    template_json:
+      raw_block: |
+        #616
+        vest~
+        a leather vest~
+        A leather vest is on the floor.~
+        ~
+        9 0 1|8
+        2 0 0 0
+        10 50 10
+      type_line: 9 0 1|8
+  - id: 617
+    key: sleeves
+    name: some leather sleeves
+    description: Some leather sleeves are on the floor.
+    weight: 5
+    value: 50
+    type: armor
+    slot: arms
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves]
+    template_json:
+      raw_block: |
+        #617
+        sleeves~
+        some leather sleeves~
+        Some leather sleeves are on the floor.~
+        ~
+        9 0 1|256
+        2 0 0 0
+        5 50 10
+      type_line: 9 0 1|256
+  - id: 618
+    key: leggings
+    name: some leather leggings
+    description: Some leather leggings are on the floor.
+    weight: 5
+    value: 50
+    type: armor
+    slot: legs
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings]
+    template_json:
+      raw_block: |
+        #618
+        leggings~
+        some leather leggings~
+        Some leather leggings are on the floor.~
+        ~
+        9 0 1|32
+        2 0 0 0
+        5 50 10
+      type_line: 9 0 1|32
+  - id: 619
+    key: boots
+    name: some leather boots
+    description: Some leather boots are on the floor.
+    weight: 5
+    value: 50
+    type: armor
+    slot: boots
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots]
+    template_json:
+      raw_block: |
+        #619
+        boots~
+        some leather boots~
+        Some leather boots are on the floor.~
+        ~
+        9 0 1|64
+        2 0 0 0
+        5 50 10
+      type_line: 9 0 1|64
+  - id: 620
+    key: signet_ring
+    name: an Ofcol signet ring
+    description: A shiny ring of gold is in the dirt.
+    weight: 1
+    value: 1000
+    type: armor
+    slot: finger
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [signet, ring]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|2
+        6 0 0 0
+        1 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|2
+  - id: 621
+    key: plate_brass
+    name: brass plate
+    description: A pile of brass plates is against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: chest
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [plate, brass]
+    applies:
+      - location: 24
+        modifier: -2
+      - location: 13
+        modifier: 10
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|8
+        6 0 0 0
+        10 1000 100
+        A
+        24 -2
+        A
+        13 10
+      type_line: 9 64 1|8
+  - id: 622
+    key: helm_brass
+    name: a brass helm
+    description: A brass helm is against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: head
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|16
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|16
+  - id: 623
+    key: leggings_brass
+    name: brass leggings
+    description: A pile of brass plates is against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: legs
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|32
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|32
+  - id: 624
+    key: boots_brass
+    name: brass boots
+    description: Some brass boots are against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: boots
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|64
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|64
+  - id: 625
+    key: gauntlets_brass
+    name: brass gauntlets
+    description: Some brass gauntlets are against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: hands
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|128
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|128
+  - id: 626
+    key: sleeves_brass
+    name: brass sleeves
+    description: A pile of brass plates is against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: arms
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|256
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|256
+  - id: 627
+    key: shield_brass
+    name: a brass shield
+    description: A big plate of brass is against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: off_hand
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|512
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|512
+  - id: 628
+    key: girth_brass
+    name: a brass girth
+    description: A brass girth is against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: waist
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [girth, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|2048
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|2048
+  - id: 629
+    key: bracer_brass
+    name: a brass bracer
+    description: A brass bracer is against the wall here.
+    weight: 10
+    value: 1000
+    type: armor
+    slot: wrist
+    armor_class: 6
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracer, brass]
+    applies:
+      - location: 24
+        modifier: -1
+      - location: 13
+        modifier: 5
+    template_json:
+      raw_block: |
+        ~
+        9 64 1|4096
+        6 0 0 0
+        10 1000 100
+        A
+        24 -1
+        A
+        13 5
+      type_line: 9 64 1|4096
+  - id: 630
+    key: claymore_sword
+    name: a claymore
+    description: A VERY big sword is against the wall here.
+    weight: 16
+    value: 1000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 1
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [claymore, sword]
+    applies:
+      - location: 18
+        modifier: -2
+      - location: 19
+        modifier: 5
+    on_equip_effect_ids:
+      - 506
+      - 510
+    template_json:
+      raw_block: |
+        ~
+        5 64 1|8192
+        0 4 4 1
+        16 1000 100
+        A
+        18 -2
+        A
+        19 5
+      type_line: 5 64 1|8192
+  - id: 631
+    key: plate_silver
+    name: silver plate
+    description: A pile of silver plating and chain is on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: chest
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [plate, silver]
+    applies:
+      - location: 12
+        modifier: 10
+      - location: 1
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|8
+        8 0 0 0
+        20 2000 100
+        A
+        12 10
+        A
+        1 1
+      type_line: 9 64|1024 1|8
+  - id: 632
+    key: helm_silver
+    name: A silver helm
+    description: A shiny helm is on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: head
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, silver]
+    applies:
+      - location: 12
+        modifier: 5
+      - location: 2
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|16
+        8 0 0 0
+        20 2000 100
+        A
+        12 5
+        A
+        2 1
+      type_line: 9 64|1024 1|16
+  - id: 633
+    key: leggings_silver
+    name: silver leggings
+    description: Some shiny leggings are on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: legs
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings, silver]
+    applies:
+      - location: 12
+        modifier: 5
+      - location: 3
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|32
+        8 0 0 0
+        20 2000 100
+        A
+        12 5
+        A
+        3 1
+      type_line: 9 64|1024 1|32
+  - id: 634
+    key: boots_silver
+    name: silver boots
+    description: Some shiny boots are on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: boots
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, silver]
+    applies:
+      - location: 12
+        modifier: 5
+      - location: 4
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|64
+        8 0 0 0
+        20 2000 100
+        A
+        12 5
+        A
+        4 1
+      type_line: 9 64|1024 1|64
+  - id: 635
+    key: gauntlets_silver
+    name: silver gauntlets
+    description: Some shiny gauntlets are on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: hands
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, silver]
+    applies:
+      - location: 12
+        modifier: 5
+      - location: 5
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|128
+        8 0 0 0
+        20 2000 100
+        A
+        12 5
+        A
+        5 1
+      type_line: 9 64|1024 1|128
+  - id: 636
+    key: sleeves_silver
+    name: silver sleeves
+    description: Some shiny sleeves are on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: arms
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, silver]
+    applies:
+      - location: 12
+        modifier: 5
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|256
+        8 0 0 0
+        20 2000 100
+        A
+        12 5
+        A
+        18 1
+      type_line: 9 64|1024 1|256
+  - id: 637
+    key: shield_silver
+    name: the silver shield
+    description: A shiny shield is on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: off_hand
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, silver]
+    applies:
+      - location: 12
+        modifier: 5
+      - location: 17
+        modifier: -3
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|512
+        8 0 0 0
+        20 2000 100
+        A
+        12 5
+        A
+        17 -3
+      type_line: 9 64|1024 1|512
+  - id: 638
+    key: girth_silver
+    name: the silver girth
+    description: A shiny girth is on the floor.
+    weight: 20
+    value: 2000
+    type: armor
+    slot: waist
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [girth, silver]
+    applies:
+      - location: 12
+        modifier: 5
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|2048
+        8 0 0 0
+        20 2000 100
+        A
+        12 5
+        A
+        19 1
+      type_line: 9 64|1024 1|2048
+  - id: 639
+    key: plate_platinum
+    name: platinum plate
+    description: A pile of silvery metal is on the floor.
+    weight: 50
+    value: 10000
+    type: armor
+    slot: chest
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [plate, platinum]
+    applies:
+      - location: 13
+        modifier: 15
+      - location: 5
+        modifier: 2
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|8
+        9 0 0 0
+        50 10000 100
+        A
+        13 15
+        A
+        5 2
+      type_line: 9 64|1024 1|8
+  - id: 640
+    key: helmet_platinum
+    name: the platinum helmet
+    description: A silvery helmet is on the floor.
+    weight: 30
+    value: 10000
+    type: armor
+    slot: head
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helmet, platinum]
+    applies:
+      - location: 12
+        modifier: 10
+      - location: 4
+        modifier: 2
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|16
+        9 0 0 0
+        30 10000 100
+        A
+        12 10
+        A
+        4 2
+      type_line: 9 64|1024 1|16
+  - id: 641
+    key: leggings_platinum
+    name: platinum leggings
+    description: Some silvery leggings are on the floor.
+    weight: 40
+    value: 10000
+    type: armor
+    slot: legs
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings, platinum]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 2
+        modifier: 2
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|32
+        9 0 0 0
+        40 10000 100
+        A
+        13 10
+        A
+        2 2
+      type_line: 9 64|1024 1|32
+  - id: 642
+    key: boots_platinum
+    name: platinum boots
+    description: Some silvery boots are on the floor.
+    weight: 40
+    value: 10000
+    type: armor
+    slot: boots
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, platinum]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 14
+        modifier: 100
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|64
+        9 0 0 0
+        40 10000 100
+        A
+        13 10
+        A
+        14 100
+      type_line: 9 64|1024 1|64
+  - id: 643
+    key: gauntlets_platinum
+    name: platinum gauntlets
+    description: A pair of silvery gauntlets are on the floor.
+    weight: 40
+    value: 10000
+    type: armor
+    slot: hands
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, platinum]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 18
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|128
+        9 0 0 0
+        40 10000 100
+        A
+        13 10
+        A
+        18 2
+      type_line: 9 64|1024 1|128
+  - id: 644
+    key: sleeves_platinum
+    name: platinum sleeves
+    description: A pair of silvery sleeves are on the floor.
+    weight: 40
+    value: 10000
+    type: armor
+    slot: arms
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, platinum]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 1
+        modifier: 2
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|256
+        9 0 0 0
+        40 10000 100
+        A
+        13 10
+        A
+        1 2
+      type_line: 9 64|1024 1|256
+  - id: 645
+    key: shield_spiked_platinum
+    name: the platinum spiked shield
+    description: A jagged, silvery shield is on the floor.
+    weight: 40
+    value: 10000
+    type: armor
+    slot: off_hand
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, spiked, platinum]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 507
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|512
+        9 0 0 0
+        40 10000 100
+        A
+        13 10
+        A
+        19 3
+      type_line: 9 64|1024 1|512
+  - id: 646
+    key: girth_platinum
+    name: the platinum girth
+    description: A silvery girth is on the floor.
+    weight: 40
+    value: 10000
+    type: armor
+    slot: waist
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [girth, platinum]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 24
+        modifier: -5
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|2048
+        9 0 0 0
+        40 10000 100
+        A
+        13 10
+        A
+        24 -5
+      type_line: 9 64|1024 1|2048
+  - id: 647
+    key: avenger_holy_sword
+    name: Holy Avenger
+    description: A glowing silvery sword is hovering here, ready to possess an owner.
+    weight: 25
+    value: 10000
+    type: weapon
+    multiplier: 5
+    base_die: 6
+    damage_bonus: 1
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [avenger, holy, sword]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 6
+    on_equip_effect_ids:
+      - 202
+      - 513
+    template_json:
+      raw_block: |
+        ~
+        5 64|1024 1|8192
+        0 5 6 1
+        25 10000 10000
+        A
+        18 1
+        A
+        19 6
+      type_line: 5 64|1024 1|8192
+  - id: 648
+    key: whiskey_shot
+    name: a shot of whiskey
+    description: A shot of whiskey is on the table.
+    weight: 1
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [whiskey, shot]
+    template_json:
+      raw_block: |
+        #648
+        whiskey shot~
+        a shot of whiskey~
+        A shot of whiskey is on the table.~
+        ~
+        17 0 1
+        5 5 5 0
+        1 10 10
+      type_line: 17 0 1
+  - id: 649
+    key: ale_quart
+    name: a quart of ale
+    description: A quart of ale is on the table.
+    weight: 8
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [ale, quart]
+    template_json:
+      raw_block: |
+        #649
+        ale quart~
+        a quart of ale~
+        A quart of ale is on the table.~
+        ~
+        17 0 1
+        50 50 3 0
+        8 20 20
+      type_line: 17 0 1
+  - id: 650
+    key: port_brew_quart
+    name: a quart of port brew
+    description: A quart of port brew is on the table.
+    weight: 8
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [port, brew, quart]
+    template_json:
+      raw_block: |
+        #650
+        port brew quart~
+        a quart of port brew~
+        A quart of port brew is on the table.~
+        ~
+        17 0 1
+        50 50 4 0
+        8 20 20
+      type_line: 17 0 1
+  - id: 651
+    key: key_citadel
+    name: the citadel key
+    description: A key is on the floor.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, citadel]
+    template_json:
+      raw_block: |
+        #651
+        key citadel~
+        the citadel key~
+        A key is on the floor.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 100
+      type_line: 18 0 1
+  - id: 652
+    key: symbol_holy
+    name: the Holy Symbol of Bahamut
+    description: A very shiny symbol is on the floor.
+    weight: 5
+    value: 1000
+    type: armor
+    slot: neck
+    armor_class: 8
+    extra_flags:
+      - MAGIC
+      - BLESS
+      - ANTI_EVIL
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [symbol, holy]
+    applies:
+      - location: 12
+        modifier: 10
+      - location: 4
+        modifier: 2
+    template_json:
+      raw_block: |
+        ~
+        9 64|256|1024|2048 1|4
+        8 0 0 0
+        5 1000 1000
+        A
+        12 10
+        A
+        4 2
+      type_line: 9 64|256|1024|2048 1|4
+  - id: 653
+    key: ranseur_polearm
+    name: a ranseur
+    description: A heavy polearm is against the wall here, ready to inflict damage.
+    weight: 20
+    value: 10000
+    type: weapon
+    multiplier: 5
+    base_die: 6
+    damage_bonus: 2
+    weapon_family: GLAIVES
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [ranseur, polearm]
+    applies:
+      - location: 18
+        modifier: 5
+      - location: 19
+        modifier: -1
+    on_equip_effect_ids:
+      - 512
+      - 509
+    template_json:
+      raw_block: |
+        ~
+        5 64|1024 1|8192
+        0 5 6 2
+        20 10000 10000
+        A
+        18 5
+        A
+        19 -1
+      type_line: 5 64|1024 1|8192
+  - id: 654
+    key: torso_dragonscale_golden
+    name: a golden dragonscale torso
+    description: A golden dragonscale torso is on the floor!
+    weight: 25
+    value: 5000
+    type: armor
+    slot: chest
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [torso, dragonscale, golden]
+    applies:
+      - location: 17
+        modifier: -5
+      - location: 18
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|8
+        9 0 0 0
+        25 5000 5000
+        A
+        17 -5
+        A
+        18 2
+      type_line: 9 64|1024 1|8
+  - id: 655
+    key: dragonhelm_golden
+    name: a golden dragonhelm
+    description: A golden dragonhelm is on the floor!
+    weight: 10
+    value: 5000
+    type: armor
+    slot: head
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [dragonhelm, golden]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|16
+        9 0 0 0
+        10 5000 5000
+        A
+        17 -3
+        A
+        18 1
+      type_line: 9 64|1024 1|16
+  - id: 656
+    key: leggings_golden
+    name: golden dragonscale leggings
+    description: Some golden dragonscale leggings are on the floor!
+    weight: 10
+    value: 5000
+    type: armor
+    slot: legs
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings, golden]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|32
+        9 0 0 0
+        10 5000 5000
+        A
+        17 -3
+        A
+        18 1
+      type_line: 9 64|1024 1|32
+  - id: 657
+    key: boots_golden
+    name: golden dragonscale boots
+    description: Some golden dragonscale boots are on the floor!
+    weight: 10
+    value: 5000
+    type: armor
+    slot: boots
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, golden]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|64
+        9 0 0 0
+        10 5000 5000
+        A
+        17 -3
+        A
+        18 1
+      type_line: 9 64|1024 1|64
+  - id: 658
+    key: gauntlets_golden
+    name: golden dragonscale gauntlets
+    description: Some golden dragonscale gauntlets are on the floor!
+    weight: 10
+    value: 5000
+    type: armor
+    slot: hands
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, golden]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|128
+        9 0 0 0
+        10 5000 5000
+        A
+        17 -3
+        A
+        18 1
+      type_line: 9 64|1024 1|128
+  - id: 659
+    key: sleeves_golden
+    name: golden dragonscale sleeves
+    description: Some golden dragonscale sleeves are on the floor!
+    weight: 10
+    value: 5000
+    type: armor
+    slot: arms
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, golden]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|256
+        9 0 0 0
+        10 5000 5000
+        A
+        17 -3
+        A
+        18 1
+      type_line: 9 64|1024 1|256
+  - id: 660
+    key: shield_golden
+    name: a golden dragonscale shield
+    description: A golden dragonscale shield is on the floor!
+    weight: 10
+    value: 5000
+    type: armor
+    slot: off_hand
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, golden]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|512
+        9 0 0 0
+        10 5000 5000
+        A
+        17 -3
+        A
+        18 1
+      type_line: 9 64|1024 1|512
+  - id: 661
+    key: girth_golden
+    name: a golden dragonscale girth
+    description: A golden dragonscale girth is on the floor!
+    weight: 10
+    value: 5000
+    type: armor
+    slot: waist
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [girth, golden]
+    applies:
+      - location: 17
+        modifier: -3
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        ~
+        9 64|1024 1|2048
+        9 0 0 0
+        10 5000 5000
+        A
+        17 -3
+        A
+        18 1
+      type_line: 9 64|1024 1|2048
+  - id: 662
+    key: claw_golden
+    name: the Golden Claw
+    description: A huge golden claw is on the floor
+    weight: 20
+    value: 5000
+    type: weapon
+    multiplier: 5
+    base_die: 5
+    damage_bonus: 5
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [claw, golden]
+    applies:
+      - location: 19
+        modifier: 6
+    on_equip_effect_ids:
+      - 513
+    template_json:
+      raw_block: |
+        the Golden Claw~
+        A huge golden claw is on the floor~
+        ~
+        5 64|1024 1|8192
+        0 5 5 5
+        20 5000 5000
+        A
+        19 6
+      type_line: 5 64|1024 1|8192
+  - id: 663
+    key: orb_dragonorb
+    name: the Gold Dragon Orb
+    description: A very large pearl-like sphere is in the center of this room.
+    weight: 30
+    value: 100000
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 28
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [orb, dragonorb]
+    applies:
+      - location: 3
+        modifier: 3
+      - location: 4
+        modifier: 3
+    template_json:
+      raw_block: |
+        ~
+        4 64|1024|2048 1|16384
+        14 10 10 28
+        30 100000 100000
+        A
+        3 3
+        A
+        4 3
+      type_line: 4 64|1024|2048 1|16384
+  - id: 664
+    key: robe_golden
+    name: a golden robe
+    description: A golden robe is on the floor.
+    weight: 10
+    value: 5000
+    type: armor
+    slot: back
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [robe, golden]
+    applies:
+      - location: 3
+        modifier: 3
+    template_json:
+      raw_block: |
+        a golden robe~
+        A golden robe is on the floor.~
+        ~
+        9 64|1024 1|1024
+        9 0 0 0
+        10 5000 5000
+        A
+        3 3
+      type_line: 9 64|1024 1|1024
+  - id: 665
+    key: house_key
+    name: a house key
+    description: A house key is on the floor.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [house, key]
+    template_json:
+      raw_block: |
+        #665
+        house key~
+        a house key~
+        A house key is on the floor.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 666
+    key: broom
+    name: a broom
+    description: A broom is against the wall here.
+    weight: 8
+    value: 100
+    type: weapon
+    multiplier: 2
+    base_die: 3
+    damage_bonus: 7
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [broom]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: -3
+    on_equip_effect_ids:
+      - 508
+      - 514
+    template_json:
+      raw_block: |
+        ~
+        5 0 1|8192
+        0 2 3 7
+        8 100 10
+        A
+        18 3
+        A
+        19 -3
+      type_line: 5 0 1|8192
+  - id: 667
+    key: chest
+    name: a chest
+    description: A chest is on the floor here.
+    weight: 10
+    value: 100
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [chest]
+    template_json:
+      raw_block: |
+        #667
+        chest~
+        a chest~
+        A chest is on the floor here.~
+        ~
+        15 0 1
+        100 0 0 0
+        10 100 100
+      type_line: 15 0 1

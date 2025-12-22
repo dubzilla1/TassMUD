@@ -1,0 +1,2682 @@
+items:
+  - id: 2300
+    key: gloves_combat
+    name: a pair of minotaur combat gloves
+    description: A pair of metal plated gloves lie here.
+    weight: 6
+    value: 10000
+    type: armor
+    slot: hands
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves, combat]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        gloves combat~
+        These gloves are plated with metal plates that provide strength and 
+        protection.
+        ~
+        A
+        18 1
+        A
+        19 1
+      type_line: 9 0 129
+      extra_desc: |
+        These gloves are plated with metal plates that provide strength and 
+        protection.
+  - id: 2301
+    key: spiked_armor_garde
+    name: a suit of spiked garde armor
+    description: A pile of spiked chainmail lies here.
+    weight: 8
+    value: 25000
+    type: armor
+    slot: chest
+    armor_class: 7
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [spiked, armor, garde]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        a suit of spiked garde armor~
+        A pile of spiked chainmail lies here.~
+        ~
+        9 0 9
+        7 0 0 0
+        8 25000 5000
+        A
+        19 2
+      type_line: 9 0 9
+  - id: 2302
+    key: greaves_black
+    name: A pair of black minotaur greaves
+    description: Some black metal greaves lie here.
+    weight: 9
+    value: 25000
+    type: armor
+    slot: legs
+    armor_class: 9
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [greaves, black]
+    template_json:
+      raw_block: |
+        #2302
+        greaves black~
+        A pair of black minotaur greaves~
+        Some black metal greaves lie here.~
+        ~
+        9 0 33
+        9 0 0 0
+        9 25000 5000
+      type_line: 9 0 33
+  - id: 2303
+    key: vambraces_black
+    name: A pair of black minotaur vambraces
+    description: Some black metal vambraces lie here.
+    weight: 9
+    value: 25000
+    type: armor
+    slot: arms
+    armor_class: 9
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [vambraces, black]
+    template_json:
+      raw_block: |
+        #2303
+        vambraces black~
+        A pair of black minotaur vambraces~
+        Some black metal vambraces lie here.~
+        ~
+        9 0 257
+        9 0 0 0
+        9 25000 5000
+      type_line: 9 0 257
+  - id: 2304
+    key: rod_weaponry
+    name: the rod of weaponry
+    description: A shiny metal rod lies here.
+    weight: 24
+    value: 50000
+    type: weapon
+    multiplier: 5
+    base_die: 5
+    damage_bonus: 6
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [rod, weaponry]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 508
+      - 507
+    template_json:
+      raw_block: |
+        ~
+        5 321 8193
+        0 5 5 6
+        24 50000 10000
+        A
+        18 3
+        A
+        19 3
+      type_line: 5 321 8193
+  - id: 2305
+    key: cloak_pitch_black
+    name: a pitch black cloak
+    description: A pile of black cloth lies here.
+    weight: 3
+    value: 25000
+    type: container
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [cloak, pitch, black]
+    applies:
+      - location: 23
+        modifier: -3
+    template_json:
+      raw_block: |
+        150 0 0 0
+        3 25000 2500
+        E
+        cloak pitch black~
+        It appears to have pockets inside it.
+        ~
+        A
+        23 -3
+      type_line: 15 64 1025
+      extra_desc: It appears to have pockets inside it.
+  - id: 2306
+    key: neckguard_neck_guard_black_plate
+    name: a black plate neckguard
+    description: A black plate collar rests here.
+    weight: 10
+    value: 10000
+    type: armor
+    slot: neck
+    armor_class: 9
+    extra_flags:
+      - MAGIC
+      - ANTI_GOOD
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [neckguard, neck, guard, black, plate]
+    applies:
+      - location: 4
+        modifier: 1
+    template_json:
+      raw_block: |
+        a black plate neckguard~
+        A black plate collar rests here.~
+        ~
+        9 2624 5
+        9 0 0 0
+        10 10000 1500
+        A
+        4 1
+      type_line: 9 2624 5
+  - id: 2307
+    key: spiked_gauntlets
+    name: a pair of spiked gauntlets
+    description: A pair of spiked gauntlets lies here.
+    weight: 10
+    value: 15000
+    type: armor
+    slot: hands
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [spiked, gauntlets]
+    applies:
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 507
+    template_json:
+      raw_block: |
+        3 0 0 0
+        10 15000 2500
+        E
+        spiked gauntlets~
+        They look pretty damaging.
+        ~
+        A
+        19 3
+      type_line: 9 0 129
+      extra_desc: They look pretty damaging.
+  - id: 2308
+    key: shield_shadow
+    name: the shadow shield
+    description: A shadowy shield rests here.
+    weight: 15
+    value: 50000
+    type: armor
+    slot: off_hand
+    armor_class: 15
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_GOOD
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, shadow]
+    applies:
+      - location: 23
+        modifier: -3
+    template_json:
+      raw_block: |
+        15 0 0 0
+        15 50000 7500
+        E
+        shield shadow~
+        You look into the depths of the shield and shiver at the evil it contains.
+        ~
+        A
+        23 -3
+      type_line: 9 2625 513
+      extra_desc: You look into the depths of the shield and shiver at the evil it contains.
+  - id: 2309
+    key: nightbringer_short_sword_shortsword
+    name: a shortsword named "Nightbringer"
+    description: A very evil looking shortsword lies here.
+    weight: 9
+    value: 75000
+    type: weapon
+    multiplier: 5
+    base_die: 4
+    damage_bonus: 11
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - DARK
+      - MAGIC
+      - ANTI_GOOD
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [nightbringer, short, sword, shortsword]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 508
+      - 507
+    template_json:
+      raw_block: |
+        E
+        nightbringer short sword shortsword~
+        The runes "NiGHtBrINgeR" are scrawled along the blade.
+        ~
+        A
+        18 3
+        A
+        19 3
+      type_line: 5 4|64|512|2048 8193
+      extra_desc: The runes "NiGHtBrINgeR" are scrawled along the blade.
+  - id: 2310
+    key: visor_helm_golden
+    name: a golden helm and visor
+    description: A helm and visor made of pure gold rests here.
+    weight: 15
+    value: 25000
+    type: armor
+    slot: head
+    armor_class: 7
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [visor, helm, golden]
+    applies:
+      - location: 4
+        modifier: 1
+      - location: 3
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 3137 17
+        7 0 0 0
+        15 25000 5000
+        A
+        4 1
+        A
+        3 1
+      type_line: 9 3137 17
+  - id: 2311
+    key: breast_plate_gilded_gold
+    name: a gilded gold breast plate
+    description: A large golden breast plate lies here.
+    weight: 18
+    value: 35000
+    type: armor
+    slot: chest
+    armor_class: 15
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [breast, plate, gilded, gold]
+    applies:
+      - location: 13
+        modifier: 25
+    template_json:
+      raw_block: |
+        a gilded gold breast plate~
+        A large golden breast plate lies here.~
+        ~
+        9 3137 9
+        15 0 0 0
+        18 35000 6500
+        A
+        13 25
+      type_line: 9 3137 9
+  - id: 2312
+    key: cape_white_billowing_silk
+    name: a billowing white cape 
+    description: A pile of white silk lies here.
+    weight: 5
+    value: 15000
+    type: armor
+    slot: neck
+    armor_class: 5
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [cape, white, billowing, silk]
+    applies:
+      - location: 9
+        modifier: 20
+    template_json:
+      raw_block: |
+        a billowing white cape ~
+        A pile of white silk lies here.~
+        ~
+        9 1|64 5
+        5 0 0 0
+        5 15000 3500
+        A
+        9 20
+      type_line: 9 1|64 5
+  - id: 2313
+    key: shield_huge_tower
+    name: a huge tower shield
+    description: A huge shield lies here.
+    weight: 14
+    value: 10000
+    type: armor
+    slot: off_hand
+    armor_class: 10
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, huge, tower]
+    template_json:
+      raw_block: |
+        ~
+        9 65 513
+        10 0 0 0
+        14 10000 1500
+        E
+        shield huge tower~
+        A pure white shield with a gold cross emblazoned across it.
+        ~
+      type_line: 9 65 513
+      extra_desc: A pure white shield with a gold cross emblazoned across it.
+  - id: 2314
+    key: dawnbringer_mace_huge
+    name: a huge mace named "Dawnbringer"
+    description: A huge mace lies here. It radiates an aura of power.
+    weight: 24
+    value: 50000
+    type: weapon
+    multiplier: 5
+    base_die: 5
+    damage_bonus: 6
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - ANTI_EVIL
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dawnbringer, mace, huge]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 508
+      - 507
+    template_json:
+      raw_block: |
+        E
+        dawnbringer mace huge~
+        The runes "DAwNbRIngER" are scrawled along the handle.
+        ~
+        A
+        18 3
+        A
+        19 3
+      type_line: 5 1|64|1024|2048 8193
+      extra_desc: The runes "DAwNbRIngER" are scrawled along the handle.
+  - id: 2315
+    key: spectacles_wire_rimmed
+    name: a pair of wire rimmed spectacles
+    description: A small pair of wire rimmed spectacles rests here.
+    weight: 2
+    value: 25000
+    type: armor
+    slot: head
+    armor_class: 1
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [spectacles, wire, rimmed]
+    applies:
+      - location: 3
+        modifier: 4
+    template_json:
+      raw_block: |
+        1 0 0 0
+        2 25000 2500
+        E
+        spectacles wire rimmed~
+        They'll make you look smart.
+        ~
+        A
+        3 4
+      type_line: 9 64 17
+      extra_desc: They'll make you look smart.
+  - id: 2316
+    key: ring_banded
+    name: a banded ring
+    description: A small ring made of gold and silver bands lies here.
+    weight: 2
+    value: 25000
+    type: armor
+    slot: finger
+    armor_class: 1
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, banded]
+    applies:
+      - location: 12
+        modifier: 30
+      - location: 9
+        modifier: 10
+    template_json:
+      raw_block: |
+        E
+        ring banded~
+        The ring has entwined bands of gold and silver.
+        ~
+        A
+        12 30
+        A
+        9 10
+      type_line: 9 65 3
+      extra_desc: The ring has entwined bands of gold and silver.
+  - id: 2317
+    key: globe_minor
+    name: a minor globe of invulnerability
+    description: A small globe rests here. It shimmers and radiates power.
+    weight: 1
+    value: 50000
+    type: armor
+    slot: back
+    armor_class: 10
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [globe, minor]
+    applies:
+      - location: 25
+        modifier: -5
+      - location: 23
+        modifier: -5
+    template_json:
+      raw_block: |
+        E
+        globe minor~
+        Shimmering colors move inside the globe.
+        ~
+        A
+        25 -5
+        A
+        23 -5
+      type_line: 9 65 1025
+      extra_desc: Shimmering colors move inside the globe.
+  - id: 2318
+    key: staff_gnarled_magius
+    name: a gnarled magius staff
+    description: A gnarled staff lies here.
+    weight: 10
+    value: 35000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 6
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [staff, gnarled, magius]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 508
+      - 507
+    template_json:
+      raw_block: |
+        E
+        staff gnarled magius~
+        It appears to be simply a gnarled old limb. It feels powerful though.
+        ~
+        A
+        18 3
+        A
+        19 3
+      type_line: 5 64 8193
+      extra_desc: It appears to be simply a gnarled old limb. It feels powerful though.
+  - id: 2319
+    key: girdle_pouches_many
+    name: a girdle of many pouches
+    description: A girdle lies here.
+    weight: 5
+    value: 15000
+    type: container
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [girdle, pouches, many]
+    template_json:
+      raw_block: |
+        ~
+        15 0 2049
+        500 0 0 0
+        5 15000 1500
+        E
+        girdle pouches many~
+        It appears to be full of tiny pockets.
+        ~
+      type_line: 15 0 2049
+      extra_desc: It appears to be full of tiny pockets.
+  - id: 2320
+    key: robe_heavy_woolen
+    name: a heavy woolen robe
+    description: A heavy pile of wool lies here.
+    weight: 10
+    value: 15000
+    type: armor
+    slot: back
+    armor_class: 15
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [robe, heavy, woolen]
+    template_json:
+      raw_block: |
+        #2320
+        robe heavy woolen~
+        a heavy woolen robe~
+        A heavy pile of wool lies here.~
+        ~
+        9 64 1025
+        15 0 0 0
+        10 15000 1000
+      type_line: 9 64 1025
+  - id: 2321
+    key: broach_ivory
+    name: a broach of life
+    description: A small ivory broach lies here.
+    weight: 5
+    value: 50000
+    type: armor
+    slot: neck
+    armor_class: 2
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [broach, ivory]
+    applies:
+      - location: 13
+        modifier: 50
+    template_json:
+      raw_block: |
+        a broach of life~
+        A small ivory broach lies here.~
+        ~
+        9 321 5
+        2 0 0 0
+        5 50000 10000
+        A
+        13 50
+      type_line: 9 321 5
+  - id: 2322
+    key: manual_arts_healing_book
+    name: a manual of healing arts
+    description: A small book lies here.
+    weight: 5
+    value: 15000
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [manual, arts, healing, book]
+    spell_ids:
+      - 30
+      - 16
+      - 16
+      - 16
+    template_json:
+      raw_block: |
+        ~
+        2 0 16385
+        30 16 16 16
+        5 15000 2500
+        E
+        manual arts healing book~
+        It appears to be a book of anatomy and medicine.
+        ~
+      type_line: 2 0 16385
+      extra_desc: It appears to be a book of anatomy and medicine.
+  - id: 2323
+    key: mace_huge_mithril
+    name: a huge mithril mace
+    description: A huge mace made of mithril metal lies here.
+    weight: 13
+    value: 25000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 6
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [mace, huge, mithril]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 1|64 8193
+        0 4 4 6
+        13 25000 5000
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 1|64 8193
+  - id: 2324
+    key: symbol_holy_golden
+    name: a golden holy symbol
+    description: A small holy symbol on a golden chain lies here.
+    weight: 3
+    value: 10000
+    type: armor
+    slot: neck
+    armor_class: 2
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [symbol, holy, golden]
+    applies:
+      - location: 12
+        modifier: 10
+    template_json:
+      raw_block: |
+        a golden holy symbol~
+        A small holy symbol on a golden chain lies here.~
+        ~
+        9 64 5
+        2 0 0 0
+        3 10000 1000
+        A
+        12 10
+      type_line: 9 64 5
+  - id: 2325
+    key: ring_marble_thick
+    name: a thick marble ring
+    description: A thick ring made of marble
+    weight: 5
+    value: 10000
+    type: armor
+    slot: finger
+    armor_class: 4
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, marble, thick]
+    template_json:
+      raw_block: |
+        #2325
+        ring marble thick~
+        a thick marble ring~
+        A thick ring made of marble~
+        ~
+        9 64 3
+        4 0 0 0
+        5 10000 1000
+      type_line: 9 64 3
+  - id: 2326
+    key: bracelet_thick_marble
+    name: a thick marble bracelet
+    description: A thick bracelet made of marble lies here.
+    weight: 8
+    value: 30000
+    type: armor
+    slot: wrist
+    armor_class: 4
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracelet, thick, marble]
+    applies:
+      - location: 5
+        modifier: 1
+    template_json:
+      raw_block: |
+        a thick marble bracelet~
+        A thick bracelet made of marble lies here.~
+        ~
+        9 64 4097
+        4 0 0 0
+        8 30000 3000
+        A
+        5 1
+      type_line: 9 64 4097
+  - id: 2327
+    key: boots_striding
+    name: boots of striding
+    description: A lithe pair of leather boots have been left here.
+    weight: 5
+    value: 45000
+    type: armor
+    slot: boots
+    armor_class: 5
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, striding]
+    applies:
+      - location: 14
+        modifier: 30
+    template_json:
+      raw_block: |
+        5 0 0 0
+        5 45000 4500
+        E
+        boots striding~
+        They look comfortable to walk in.
+        ~
+        A
+        14 30
+      type_line: 9 64 65
+      extra_desc: They look comfortable to walk in.
+  - id: 2328
+    key: cloak_icy_white
+    name: an icy white cloak
+    description: A cold pile of white cloth lies here.
+    weight: 5
+    value: 25000
+    type: armor
+    slot: back
+    armor_class: 8
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [cloak, icy, white]
+    template_json:
+      raw_block: |
+        ~
+        9 65 1025
+        8 0 0 0
+        5 25000 2500
+        E
+        cloak icy white~
+        Smoke rises from it almost like it's made of dry ice.
+        ~
+      type_line: 9 65 1025
+      extra_desc: Smoke rises from it almost like it's made of dry ice.
+  - id: 2329
+    key: staff_ice
+    name: an ice staff
+    description: A staff made of ice rests here.
+    weight: 13
+    value: 45000
+    type: weapon
+    multiplier: 6
+    base_die: 3
+    damage_bonus: 6
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [staff, ice]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 12
+        modifier: 20
+    on_equip_effect_ids:
+      - 501
+    template_json:
+      raw_block: |
+        E
+        staff ice~
+        The runes "FrIgID" are inscribed in the icy staff.
+        ~
+        A
+        18 2
+        A
+        12 20
+      type_line: 5 64 8193
+      extra_desc: The runes "FrIgID" are inscribed in the icy staff.
+  - id: 2330
+    key: ring_carved_wooden
+    name: a carved wooden ring
+    description: A wooden ring is on the floor.
+    weight: 3
+    value: 25000
+    type: armor
+    slot: finger
+    armor_class: 1
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, carved, wooden]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        9 64 3
+        1 0 0 0
+        3 25000 2500
+        A
+        18 1
+        A
+        19 1
+      type_line: 9 64 3
+  - id: 2331
+    key: horn_life
+    name: the horn of life
+    description: A severed minotaur horn lies here.
+    weight: 5
+    value: 25000
+    type: weapon
+    multiplier: 8
+    base_die: 8
+    damage_bonus: 16
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [horn, life]
+    template_json:
+      raw_block: |
+        ~
+        3 64 16385
+        30 8 8 16
+        5 25000 2500
+        E
+        horn life~
+        The horn is capped at both ends with gold. Unreadable runes are scrawled on it.
+        ~
+      type_line: 3 64 16385
+      extra_desc: The horn is capped at both ends with gold. Unreadable runes are scrawled on it.
+  - id: 2332
+    key: belt_life
+    name: the belt of life
+    description: A strange belt lies here.
+    weight: 9
+    value: 50000
+    type: armor
+    slot: waist
+    armor_class: 3
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [belt, life]
+    applies:
+      - location: 5
+        modifier: 3
+    template_json:
+      raw_block: |
+        the belt of life~
+        A strange belt lies here.~
+        ~
+        9 64 2049
+        3 0 0 0
+        9 50000 5500
+        A
+        5 3
+      type_line: 9 64 2049
+  - id: 2333
+    key: stone_blood_red
+    name: a blood red stone
+    description: A blood red stone lies here collecting dust.
+    weight: 2
+    value: 45000
+    type: armor
+    slot: off_hand
+    armor_class: 3
+    extra_flags:
+      - HUM
+      - MAGIC
+    wear_flags:
+      - HOLD
+    keywords: [stone, blood, red]
+    applies:
+      - location: 13
+        modifier: 20
+    template_json:
+      raw_block: |
+        3 0 0 0
+        2 45000 4500
+        E
+        stone blood red~
+        The stone pulses with your own heart beat.
+        ~
+        A
+        13 20
+      type_line: 9 66 16384
+      extra_desc: The stone pulses with your own heart beat.
+  - id: 2334
+    key: crossbow_huge
+    name: a huge crossbow
+    description: A huge crossbow rests here.
+    weight: 15
+    value: 35000
+    type: weapon
+    multiplier: 3
+    base_die: 7
+    damage_bonus: 7
+    weapon_family: BOWS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [crossbow, huge]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        5 64 8193
+        0 3 7 7
+        15 35000 3500
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 64 8193
+  - id: 2335
+    key: pack_leather_small
+    name: a small leather pack
+    description: A small leather pack rests here.
+    weight: 9
+    value: 1000
+    type: container
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [pack, leather, small]
+    template_json:
+      raw_block: |
+        ~
+        15 64 1025
+        200 0 0 0
+        9 1000 250
+        E
+        pack leather small~
+        It looks pretty big on the inside.
+        ~
+      type_line: 15 64 1025
+      extra_desc: It looks pretty big on the inside.
+  - id: 2336
+    key: hood_black_leather
+    name: a black leather hood
+    description: A hood made of black leather rests here.
+    weight: 5
+    value: 25000
+    type: armor
+    slot: head
+    armor_class: 5
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [hood, black, leather]
+    template_json:
+      raw_block: |
+        #2336
+        hood black leather~
+        a black leather hood~
+        A hood made of black leather rests here.~
+        ~
+        9 64 17
+        5 0 0 0
+        5 25000 2500
+      type_line: 9 64 17
+  - id: 2337
+    key: sleeves_black_leather
+    name: a pair of black leather sleeves
+    description: Some leather sleeves lie here.
+    weight: 5
+    value: 3500
+    type: armor
+    slot: arms
+    armor_class: 7
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, black, leather]
+    template_json:
+      raw_block: |
+        #2337 
+        sleeves black leather~
+        a pair of black leather sleeves~
+        Some leather sleeves lie here.~
+        ~
+        9 0 257
+        7 0 0 0
+        5 3500 1000
+      type_line: 9 0 257
+  - id: 2338
+    key: pants_black_leather
+    name: a pair of black leather pants
+    description: Some leather pants lie here.
+    weight: 5
+    value: 15000
+    type: armor
+    slot: legs
+    armor_class: 7
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [pants, black, leather]
+    template_json:
+      raw_block: |
+        ~
+        9 64 33
+        7 0 0 0
+        5 15000 1500
+        E
+        pants black leather~
+        They look sneaky.
+        ~
+      type_line: 9 64 33
+      extra_desc: They look sneaky.
+  - id: 2339
+    key: sword_wicked_short_shortsword
+    name: a wicked shortsword
+    description: A wicked looking shortsword lies here.
+    weight: 11
+    value: 50000
+    type: weapon
+    multiplier: 3
+    base_die: 5
+    damage_bonus: 11
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, wicked, short, shortsword]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        E
+        sword wicked short shortsword~
+        It looks just perfect for backstabbing.
+        ~
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 64 8193
+      extra_desc: It looks just perfect for backstabbing.
+  - id: 2340
+    key: globe_major
+    name: a major globe of invulnerability
+    description: A large globe rests here, pulsing uneasily.
+    weight: 1
+    value: 100000
+    type: armor
+    slot: back
+    armor_class: 15
+    extra_flags:
+      - GLOW
+      - HUM
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [globe, major]
+    applies:
+      - location: 24
+        modifier: -5
+    template_json:
+      raw_block: |
+        15 0 0 0
+        1 100000 25000
+        E
+        globe major~
+        Shimmering colors move inside the globe.
+        ~
+        A
+        24 -5
+      type_line: 9 1|2|64 1025
+      extra_desc: Shimmering colors move inside the globe.
+  - id: 2341
+    key: chain_chainmail_black_suit
+    name: a suit of black minotaur chainmail
+    description: A huge pile of black chainmail rests here.
+    weight: 12
+    value: 100000
+    type: armor
+    slot: chest
+    armor_class: 15
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [chain, chainmail, black, suit]
+    applies:
+      - location: 1
+        modifier: 1
+      - location: 5
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        9 64 9
+        15 0 0 0
+        12 100000 10000
+        A
+        1 1
+        A
+        5 1
+      type_line: 9 64 9
+  - id: 2342
+    key: buckler_spiked
+    name: a spiked buckler
+    description: A small spiked buckler rests here.
+    weight: 5
+    value: 22500
+    type: armor
+    slot: off_hand
+    armor_class: 10
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [buckler, spiked]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        a spiked buckler~
+        A small spiked buckler rests here.~
+        ~
+        9 0 513
+        10 0 0 0
+        5 22500 5000
+        A
+        19 2
+      type_line: 9 0 513
+  - id: 2343
+    key: ring_studded
+    name: a studded ring
+    description: A small studded ring lies here.
+    weight: 1
+    value: 5000
+    type: armor
+    slot: finger
+    armor_class: 5
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, studded]
+    applies:
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 503
+    template_json:
+      raw_block: |
+        a studded ring~
+        A small studded ring lies here.~
+        ~
+        9 64 3
+        5 0 0 0
+        1 5000 1000
+        A
+        19 1
+      type_line: 9 64 3
+  - id: 2344
+    key: helm_horned
+    name: a horned minotaur helm
+    description: A small horned helm rests here.
+    weight: 8
+    value: 20000
+    type: armor
+    slot: head
+    armor_class: 10
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, horned]
+    template_json:
+      raw_block: |
+        #2344
+        helm horned~
+        a horned minotaur helm~
+        A small horned helm rests here.~
+        ~
+        9 0 17
+        10 0 0 0
+        8 20000 2000
+      type_line: 9 0 17
+  - id: 2345
+    key: axe_great
+    name: Mahn-Tor's Great Axe
+    description: An extremely huge axe is resting here.
+    weight: 26
+    value: 100000
+    type: weapon
+    multiplier: 5
+    base_die: 5
+    damage_bonus: 3
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - HUM
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [axe, great]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        E
+        axe great~
+        The runes "DeAtH" are scrawled along the blade.
+        ~
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 2|64 8193
+      extra_desc: The runes "DeAtH" are scrawled along the blade.
+  - id: 2346
+    key: plate_ethereal_suit
+    name: a suit of ethereal plate
+    description: A suit of shimmering plate rests here.
+    weight: 2
+    value: 50000
+    type: armor
+    slot: chest
+    armor_class: 10
+    extra_flags:
+      - GLOW
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [plate, ethereal, suit]
+    applies:
+      - location: 24
+        modifier: -3
+    template_json:
+      raw_block: |
+        10 0 0 0
+        2 50000 10000
+        E
+        plate ethereal suit~
+        You can almost see through it.
+        ~
+        A
+        24 -3
+      type_line: 9 513 9
+      extra_desc: You can almost see through it.
+  - id: 2347
+    key: helm_ethereal
+    name: an ethereal helm
+    description: A shimmering helm rests here.
+    weight: 5
+    value: 15000
+    type: armor
+    slot: head
+    armor_class: 8
+    extra_flags:
+      - GLOW
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, ethereal]
+    template_json:
+      raw_block: |
+        ~
+        9 513 17
+        8 0 0 0
+        5 15000 3500
+        E
+        helm ethereal~
+        You can almost see through it.
+        ~
+      type_line: 9 513 17
+      extra_desc: You can almost see through it.
+  - id: 2348
+    key: blade_ethereal
+    name: an ethereal blade
+    description: A shimmering blade lies here.
+    weight: 3
+    value: 10000
+    type: weapon
+    multiplier: 4
+    base_die: 3
+    damage_bonus: 3
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [blade, ethereal]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        E
+        blade ethereal~
+        You can almost see through it.
+        ~
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 513 8193
+      extra_desc: You can almost see through it.
+  - id: 2349
+    key: branch_willow
+    name: a willow branch
+    description: A small willow branch lies here.
+    weight: 3
+    value: 10000
+    type: weapon
+    multiplier: 0
+    base_die: 0
+    damage_bonus: 0
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [branch, willow]
+    template_json:
+      raw_block: |
+        #2349
+        branch willow~
+        a willow branch~
+        A small willow branch lies here.~
+        ~
+        3 64 16385
+        20 0 0 0
+        3 10000 1000
+      type_line: 3 64 16385
+  - id: 2350
+    key: key_keep
+    name: the keep key
+    description: A small key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, keep]
+    template_json:
+      raw_block: |
+        #2350
+        key keep~
+        the keep key~
+        A small key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2351
+    key: key_red
+    name: a red key
+    description: A small red key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, red]
+    template_json:
+      raw_block: |
+        #2351
+        key red~
+        a red key~
+        A small red key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2352
+    key: key_black
+    name: a black key
+    description: A small black key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, black]
+    template_json:
+      raw_block: |
+        #2352
+        key black~
+        a black key~
+        A small black key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2353
+    key: key_white
+    name: a white key
+    description: A small white key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, white]
+    template_json:
+      raw_block: |
+        #2353
+        key white~
+        a white key~
+        A small white key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2354
+    key: key_brown
+    name: a brown key
+    description: A small brown key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, brown]
+    template_json:
+      raw_block: |
+        #2354
+        key brown~
+        a brown key~
+        A small brown key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2355
+    key: key_yellow
+    name: a yellow key
+    description: A small yellow key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, yellow]
+    template_json:
+      raw_block: |
+        #2355
+        key yellow~
+        a yellow key~
+        A small yellow key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2356
+    key: key_maroon
+    name: a maroon key
+    description: A small maroon key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, maroon]
+    template_json:
+      raw_block: |
+        #2356
+        key maroon~
+        a maroon key~
+        A small maroon key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2357
+    key: key_green
+    name: a green key
+    description: A small green key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, green]
+    template_json:
+      raw_block: |
+        #2357
+        key green~
+        a green key~
+        A small green key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2358
+    key: key_grey
+    name: a grey key
+    description: A small grey key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, grey]
+    template_json:
+      raw_block: |
+        #2358
+        key grey~
+        a grey key~
+        A small grey key lies here.~
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 2359
+    key: key_runed
+    name: a runed key
+    description: A small runed key lies here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, runed]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1
+        2 0 0 0
+        1 0 0
+        E
+        key runed~
+        The key looks like it was made for royalty.
+        ~
+      type_line: 18 0 1
+      extra_desc: The key looks like it was made for royalty.
+  - id: 2360
+    key: boots_fur_lined
+    name: a pair of fur lined boots
+    description: A pair of boots are on the floor.
+    weight: 5
+    value: 10000
+    type: armor
+    slot: boots
+    armor_class: 3
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, fur, lined]
+    applies:
+      - location: 14
+        modifier: 10
+    template_json:
+      raw_block: |
+        a pair of fur lined boots~
+        A pair of boots are on the floor.~
+        ~
+        9 64 65
+        3 0 0 0
+        5 10000 1500
+        A
+        14 10
+      type_line: 9 64 65
+  - id: 2361
+    key: pelt_yeti_white
+    name: the white pelt of a yeti
+    description: A white pelt lies here.
+    weight: 9
+    value: 5000
+    type: armor
+    slot: back
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [pelt, yeti, white]
+    template_json:
+      raw_block: |
+        #2361
+        pelt yeti white~
+        the white pelt of a yeti~
+        A white pelt lies here.~
+        ~
+        9 0 1025
+        8 0 0 0
+        9 5000 750
+      type_line: 9 0 1025
+  - id: 2362
+    key: sword_kopesh
+    name: a kopesh sword
+    description: A sword with a curved blade lies here.
+    weight: 13
+    value: 10000
+    type: weapon
+    multiplier: 5
+    base_die: 3
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, kopesh]
+    template_json:
+      raw_block: |
+        5 0 8193
+        0 5 3 3
+        13 10000 1000
+        E
+        sword kopesh~
+        The sword looks like it would be grasped so that the blade extended along the
+        forearm of the wielder.
+        ~
+      type_line: 5 0 8193
+      extra_desc: |
+        The sword looks like it would be grasped so that the blade extended along the
+        forearm of the wielder.
+  - id: 2363
+    key: vambraces_steel
+    name: a pair of steel vambraces
+    description: A gleaming pair of vambraces lies here.
+    weight: 7
+    value: 5000
+    type: armor
+    slot: arms
+    armor_class: 6
+    wear_flags:
+      - WEAR_ARMS
+    keywords: [vambraces, steel]
+    template_json:
+      raw_block: |
+        #2363
+        vambraces steel~
+        a pair of steel vambraces~
+        A gleaming pair of vambraces lies here.~
+        ~
+        9 0 256
+        6 0 0 0
+        7 5000 450
+      type_line: 9 0 256
+  - id: 2364
+    key: greaves_steel
+    name: a pair of steel greaves
+    description: A gleaming pair of greaves lie here.
+    weight: 7
+    value: 5000
+    type: armor
+    slot: legs
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [greaves, steel]
+    template_json:
+      raw_block: |
+        #2364
+        greaves steel~
+        a pair of steel greaves~
+        A gleaming pair of greaves lie here.~
+        ~
+        9 0 33
+        6 0 0 0
+        7 5000 450
+      type_line: 9 0 33
+  - id: 2365
+    key: axe_battle_battleaxe
+    name: a battle axe
+    description: A dangerous looking battle axe rests here.
+    weight: 18
+    value: 7500
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 3
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [axe, battle, battleaxe]
+    template_json:
+      raw_block: |
+        #2365
+        axe battle battleaxe~
+        a battle axe~
+        A dangerous looking battle axe rests here.~
+        ~
+        5 0 8193
+        0 4 4 3
+        18 7500 1250
+      type_line: 5 0 8193
+  - id: 2366
+    key: plate_steel_breast
+    name: a steel breast plate
+    description: A breast plate of thick steel rests here.
+    weight: 10
+    value: 8000
+    type: armor
+    slot: chest
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [plate, steel, breast]
+    template_json:
+      raw_block: |
+        #2366
+        plate steel breast~
+        a steel breast plate~
+        A breast plate of thick steel rests here.~
+        ~
+        9 0 9
+        6 0 0 0
+        10 8000 1000
+      type_line: 9 0 9
+  - id: 2367
+    key: helm_steel
+    name: a steel helm
+    description: A steel helm has been left here.
+    weight: 6
+    value: 3000
+    type: armor
+    slot: head
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, steel]
+    template_json:
+      raw_block: |
+        #2367
+        helm steel~
+        a steel helm~
+        A steel helm has been left here.~
+        ~
+        9 0 17
+        6 0 0 0
+        6 3000 450
+      type_line: 9 0 17
+  - id: 2368
+    key: halberd_huge
+    name: a huge halberd
+    description: A huge halberd has been left here.
+    weight: 18
+    value: 20000
+    type: weapon
+    multiplier: 9
+    base_die: 2
+    damage_bonus: 3
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [halberd, huge]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        5 64 8193
+        0 9 2 3
+        18 20000 5000
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 64 8193
+  - id: 2369
+    key: visor_blue_steel_helm
+    name: a blue steel helm and visor
+    description: A helm and visor of blue steel rests here.
+    weight: 8
+    value: 10000
+    type: armor
+    slot: head
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [visor, blue, steel, helm]
+    template_json:
+      raw_block: |
+        #2369
+        visor blue steel helm~
+        a blue steel helm and visor~
+        A helm and visor of blue steel rests here.~
+        ~
+        9 0 17
+        8 0 0 0
+        8 10000 2500
+      type_line: 9 0 17
+  - id: 2370
+    key: greaves_blue_steel
+    name: a pair of blue steel greaves
+    description: Some greaves made of blue steel rest here.
+    weight: 8
+    value: 10000
+    type: armor
+    slot: legs
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [greaves, blue, steel]
+    template_json:
+      raw_block: |
+        #2370
+        greaves blue steel~
+        a pair of blue steel greaves~
+        Some greaves made of blue steel rest here.~
+        ~
+        9 0 33
+        8 0 0 0
+        8 10000 2500
+      type_line: 9 0 33
+  - id: 2371
+    key: vambraces_blue_steel
+    name: a pair of blue steel vambraces
+    description: Some vambraces made of blue steel rest here.
+    weight: 8
+    value: 10000
+    type: armor
+    slot: arms
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [vambraces, blue, steel]
+    template_json:
+      raw_block: |
+        #2371
+        vambraces blue steel~
+        a pair of blue steel vambraces~
+        Some vambraces made of blue steel rest here.~
+        ~
+        9 0 257
+        8 0 0 0
+        8 10000 2500
+      type_line: 9 0 257
+  - id: 2372
+    key: sword_two_two_handed
+    name: a two-handed sword
+    description: A large sword lies here.
+    weight: 18
+    value: 20000
+    type: weapon
+    multiplier: 6
+    base_die: 3
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, two, two, handed]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 64 8193
+        0 6 3 3
+        18 20000 2000
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 64 8193
+  - id: 2373
+    key: visor_helm_steel_red
+    name: a red steel helm and visor
+    description: A helm and visor made of red steel rests here.
+    weight: 8
+    value: 20000
+    type: armor
+    slot: head
+    armor_class: 9
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [visor, helm, steel, red]
+    template_json:
+      raw_block: |
+        #2373
+        visor helm steel red~
+        a red steel helm and visor~
+        A helm and visor made of red steel rests here.~
+        ~
+        9 0 17
+        9 0 0 0
+        8 20000 5000
+      type_line: 9 0 17
+  - id: 2374
+    key: greaves_red_steel
+    name: a pair of red steel greaves
+    description: Some greaves made of red steel rest here.
+    weight: 8
+    value: 20000
+    type: armor
+    slot: legs
+    armor_class: 9
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [greaves, red, steel]
+    template_json:
+      raw_block: |
+        #2374
+        greaves red steel~
+        a pair of red steel greaves~
+        Some greaves made of red steel rest here.~
+        ~
+        9 0 33
+        9 0 0 0
+        8 20000 5000
+      type_line: 9 0 33
+  - id: 2375
+    key: vambraces_red_steel
+    name: a pair of red steel vambraces
+    description: Some vambraces made of red steel rest here.
+    weight: 8
+    value: 20000
+    type: armor
+    slot: arms
+    armor_class: 9
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [vambraces, red, steel]
+    template_json:
+      raw_block: |
+        #2375
+        vambraces red steel~
+        a pair of red steel vambraces~
+        Some vambraces made of red steel rest here.~
+        ~
+        9 0 257
+        9 0 0 0
+        8 20000 5000
+      type_line: 9 0 257
+  - id: 2376
+    key: glaive
+    name: a minotaur glaive
+    description: A very large glaive rests here.
+    weight: 19
+    value: 45000
+    type: weapon
+    multiplier: 5
+    base_die: 4
+    damage_bonus: 3
+    weapon_family: GLAIVES
+    weapon_category: EXOTIC
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [glaive]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        5 64 8193
+        0 5 4 3
+        19 45000 5000
+        A
+        18 1
+        A 
+        19 1
+      type_line: 5 64 8193
+  - id: 2377
+    key: visor_helm_crimson_steel
+    name: a crimson steel helm and visor
+    description: A helm and visor made of crimson steel rests here.
+    weight: 8
+    value: 40000
+    type: armor
+    slot: head
+    armor_class: 10
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [visor, helm, crimson, steel]
+    template_json:
+      raw_block: |
+        #2377
+        visor helm crimson steel~
+        a crimson steel helm and visor~
+        A helm and visor made of crimson steel rests here.~
+        ~
+        9 0 17
+        10 0 0 0
+        8 40000 7500
+      type_line: 9 0 17
+  - id: 2378
+    key: greaves_crimson_steel
+    name: a pair of crimson steel greaves
+    description: Some greaves made of crimson steel rest here.
+    weight: 8
+    value: 40000
+    type: armor
+    slot: legs
+    armor_class: 10
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [greaves, crimson, steel]
+    template_json:
+      raw_block: |
+        #2378
+        greaves crimson steel~
+        a pair of crimson steel greaves~
+        Some greaves made of crimson steel rest here.~
+        ~
+        9 0 33
+        10 0 0 0
+        8 40000 7500
+      type_line: 9 0 33
+  - id: 2379
+    key: vambraces_crimson_steel
+    name: a pair of crimson steel vambraces
+    description: Some vambraces made of crimson steel rest here.
+    weight: 8
+    value: 40000
+    type: armor
+    slot: arms
+    armor_class: 10
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [vambraces, crimson, steel]
+    template_json:
+      raw_block: |
+        #2379
+        vambraces crimson steel~
+        a pair of crimson steel vambraces~
+        Some vambraces made of crimson steel rest here.~
+        ~
+        9 0 257
+        10 0 0 0
+        8 40000 7500
+      type_line: 9 0 257
+  - id: 2380
+    key: star_morning_morningstar
+    name: a huge morningstar
+    description: A huge morningstar rests here.
+    weight: 20
+    value: 65000
+    type: weapon
+    multiplier: 7
+    base_die: 3
+    damage_bonus: 6
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [star, morning, morningstar]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        E
+        star morning morningstar~
+        It looks damaging.
+        ~
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 64 8193
+      extra_desc: It looks damaging.
+  - id: 2381
+    key: spiked_brass_knuckles
+    name: some huge spiked brass knuckles
+    description: A set of spiked brass knuckles lies here.
+    weight: 9
+    value: 15000
+    type: weapon
+    multiplier: 4
+    base_die: 3
+    damage_bonus: 1
+    weapon_family: GLAIVES
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [spiked, brass, knuckles]
+    template_json:
+      raw_block: |
+        ~
+        5 0 8193
+        0 4 3 1
+        9 15000 1500
+        E
+        spiked brass knuckles~
+        A band held in the hand that has spikes on the front side.
+        ~
+      type_line: 5 0 8193
+      extra_desc: A band held in the hand that has spikes on the front side.
+  - id: 2382
+    key: ring_key_multi_colored_multi_colored
+    name: a multi-colored key ring
+    description: A ring of multi-colored keys rests here.
+    weight: 3
+    value: 500
+    type: container
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [ring, key, multi, colored, multi, colored]
+    template_json:
+      raw_block: |
+        ~
+        15 0 5
+        10 0 0 0
+        3 500 250
+        E
+        ring key multi colored multi-colored~
+        It has several keys of different colors on it.
+        ~
+      type_line: 15 0 5
+      extra_desc: It has several keys of different colors on it.
+  - id: 2383
+    key: maul_huge_wooden
+    name: a huge wooden maul
+    description: A huge wooden maul rests here.
+    weight: 22
+    value: 100000
+    type: weapon
+    multiplier: 5
+    base_die: 5
+    damage_bonus: 6
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [maul, huge, wooden]
+    template_json:
+      raw_block: |
+        #2383
+        maul huge wooden~
+        a huge wooden maul~
+        A huge wooden maul rests here.~
+        ~
+        5 0 8193
+        0 5 5 6 
+        22 100000 20000
+      type_line: 5 0 8193
+  - id: 2384
+    key: potion_misty
+    name: a misty potion
+    description: A small misty potion rests here.
+    weight: 3
+    value: 5000
+    type: inventory
+    extra_flags:
+      - GLOW
+      - MAGIC
+      - INVENTORY
+    wear_flags:
+      - TAKE
+    keywords: [potion, misty]
+    spell_ids:
+      - 20
+      - 28
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #2384
+        potion misty~
+        a misty potion~
+        A small misty potion rests here.~
+        ~
+        10 8257 1
+        20 28 0 0
+        3 5000 650
+      type_line: 10 8257 1
+  - id: 2385
+    key: pouch_belt
+    name: a belt pouch
+    description: A belt pouch lies here.
+    weight: 5
+    value: 3500
+    type: container
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [pouch, belt]
+    template_json:
+      raw_block: |
+        #2385
+        pouch belt~
+        a belt pouch~
+        A belt pouch lies here.~
+        ~
+        15 0 2049
+        75 0 0 0
+        5 3500 850
+      type_line: 15 0 2049
+  - id: 2386
+    key: spear_ogre
+    name: an ogre spear
+    description: A crude spear rests here.
+    weight: 8
+    value: 1000
+    type: weapon
+    multiplier: 2
+    base_die: 5
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [spear, ogre]
+    template_json:
+      raw_block: |
+        #2386
+        spear ogre~
+        an ogre spear~
+        A crude spear rests here.~
+        ~
+        5 0 8193
+        0 2 5 11
+        8 1000 500
+      type_line: 5 0 8193
+  - id: 2387
+    key: club_ogre_war
+    name: an ogre war club
+    description: A large, crude club rests here.
+    weight: 10
+    value: 2500
+    type: weapon
+    multiplier: 2
+    base_die: 6
+    damage_bonus: 6
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [club, ogre, war]
+    template_json:
+      raw_block: |
+        #2387
+        club ogre war~
+        an ogre war club~
+        A large, crude club rests here.~
+        ~
+        5 0 8193
+        0 2 6 6
+        10 2500 750
+      type_line: 5 0 8193
+  - id: 2388
+    key: cloak_bear_skin_bearskin
+    name: a bearskin cloak
+    description: A rough bearskin rests here.
+    weight: 12
+    value: 3500
+    type: armor
+    slot: back
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [cloak, bear, skin, bearskin]
+    template_json:
+      raw_block: |
+        #2388
+        cloak bear skin bearskin~
+        a bearskin cloak~
+        A rough bearskin rests here.~
+        ~
+        9 0 1025
+        8 0 0 0
+        12 3500 900
+      type_line: 9 0 1025
+  - id: 2389
+    key: ear_ring_earring_feathered
+    name: a pair of feathered earrings
+    description: Some feathered earrings rest here.
+    weight: 2
+    value: 15000
+    type: armor
+    slot: head
+    armor_class: 1
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [ear, ring, earring, feathered]
+    template_json:
+      raw_block: |
+        #2389
+        ear ring earring feathered~
+        a pair of feathered earrings~
+        Some feathered earrings rest here.~
+        ~
+        9 65 17
+        1 0 0 0
+        2 15000 5000
+      type_line: 9 65 17
+  - id: 2390
+    key: gauntlets_ogre_power
+    name: gauntlets of ogre power
+    description: Some heavy gauntlets lie here.
+    weight: 13
+    value: 75000
+    type: armor
+    slot: hands
+    armor_class: 7
+    extra_flags:
+      - HUM
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, ogre, power]
+    applies:
+      - location: 1
+        modifier: 4
+      - location: 19
+        modifier: 3
+      - location: 17
+        modifier: 10
+    on_equip_effect_ids:
+      - 507
+    template_json:
+      raw_block: |
+        They look very "handy".
+        ~
+        A
+        1 4
+        A
+        19 3
+        A
+        17 10
+      type_line: 9 2|64 129
+      extra_desc: They look very "handy".
+  - id: 2391
+    key: club_massive
+    name: a massive club
+    description: A massive club lies here, discarded.
+    weight: 19
+    value: 15000
+    type: weapon
+    multiplier: 5
+    base_die: 3
+    damage_bonus: 6
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [club, massive]
+    template_json:
+      raw_block: |
+        #2391
+        club massive~
+        a massive club~
+        A massive club lies here, discarded.~
+        ~
+        5 0 8193
+        0 5 3 6
+        19 15000 3500
+      type_line: 5 0 8193
+  - id: 2392
+    key: cape_thick_fur
+    name: a thick fur cape
+    description: A thick pile of fur lies here.
+    weight: 5
+    value: 2500
+    type: armor
+    slot: neck
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [cape, thick, fur]
+    template_json:
+      raw_block: |
+        #2392
+        cape thick fur~
+        a thick fur cape~
+        A thick pile of fur lies here.~
+        ~
+        9 0 5
+        6 0 0 0
+        5 2500 550
+      type_line: 9 0 5
+  - id: 2393
+    key: tunic_fur_lined
+    name: a fur lined tunic
+    description: A fur lined tunic rests here.
+    weight: 6
+    value: 1500
+    type: armor
+    slot: chest
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [tunic, fur, lined]
+    template_json:
+      raw_block: |
+        #2393
+        tunic fur lined~
+        a fur lined tunic~
+        A fur lined tunic rests here.~
+        ~
+        9 0 9
+        6 0 0 0
+        6 1500 450
+      type_line: 9 0 9

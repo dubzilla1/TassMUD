@@ -1,0 +1,115 @@
+items:
+  - id: 6303
+    key: headress_pontiff_s
+    name: a pontiff's headress
+    description: A white cone-shaped head ornament with religious symbols lies here.
+    weight: 5
+    value: 20000
+    type: armor
+    slot: head
+    armor_class: 6
+    extra_flags:
+      - INVIS
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [headress, pontiff, s]
+    applies:
+      - location: 4
+        modifier: 3
+      - location: 17
+        modifier: -2
+    template_json:
+      raw_block: |
+        ~
+        9 96 17
+        6 0 0 0
+        5 20000 5000
+        A
+        4 3
+        A
+        17 -2
+      type_line: 9 96 17
+  - id: 6304
+    key: visor_black_knight_s
+    name: a black knight's visor
+    description: A black visor sits here.
+    weight: 5
+    value: 20000
+    type: armor
+    slot: head
+    armor_class: 6
+    extra_flags:
+      - INVIS
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [visor, black, knight, s]
+    applies:
+      - location: 1
+        modifier: 1
+      - location: 5
+        modifier: 2
+    template_json:
+      raw_block: |
+        ~
+        9 96 17
+        6 0 0 0
+        5 20000 5000
+        A
+        1 1
+        A
+        5 2
+      type_line: 9 96 17
+  - id: 6308
+    key: coins_gold
+    name: a big pile of gold coins
+    description: A big pile of gold coins is lying here.
+    weight: 0
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins, gold]
+    template_json:
+      raw_block: |
+        #6308
+        coins gold~
+        a big pile of gold coins~
+        A big pile of gold coins is lying here.~
+        ~
+        20 0 1
+        10000 0 0 0
+        0 0 0
+      type_line: 20 0 1
+  - id: 6309
+    key: potion_blue
+    name: a blue potion
+    description: A blue potion has been left here.
+    weight: 2
+    value: 1000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion, blue]
+    spell_ids:
+      - 15
+      - 43
+      - 15
+      - 15
+    template_json:
+      raw_block: |
+        ~
+        10 64 1
+        15 43 15 15
+        2 1000 300
+        E
+        potion blue~
+        It has a nice sky blue colour and a smell like peppermint.
+        ~
+      type_line: 10 64 1
+      extra_desc: It has a nice sky blue colour and a smell like peppermint.

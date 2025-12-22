@@ -1,0 +1,248 @@
+- id: 2101
+  key: "a_gang_member"
+  name: "ogre gang member"
+  short_desc: "a gang member"
+  long_desc: "A member of the Ogres wanders about here."
+  keywords: ['ogre', 'gang', 'member']
+  level: 84
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 84, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': "He's lived a life of violence ever since he was little.\n~\n84 0 -100 S\n5 15 5 5d5+50 1d5+5\n200 600\n8 8 1"}
+
+- id: 2102
+  key: "a_gang_member"
+  name: "troll gang member"
+  short_desc: "a gang member"
+  long_desc: "A member of the Trolls wanders about here."
+  keywords: ['troll', 'gang', 'member']
+  level: 84
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 84, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'He wants to rid the world of every last Ogre gang member.\n~\n84 0 +100 S\n5 15 5 5d5+50 1d7+5\n210 700\n8 8 1'}
+
+- id: 2103
+  key: "the_gang_leader"
+  name: "gang leader"
+  short_desc: "the gang leader"
+  long_desc: "The gang leader is not pleased you found his hideout!"
+  keywords: ['gang', 'leader']
+  level: 98
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': "He's risen to be leader through brute force and cunning leadership.\n~\n98 0 0 S\n13 8 2 13d13+130 1d10+12\n2000 10000\n8 8 1"}
+
+- id: 2104
+  key: "a_bruiser"
+  name: "bruiser"
+  short_desc: "a bruiser"
+  long_desc: "A big, mean bruiser is looking for limbs to break."
+  keywords: ['bruiser']
+  level: 6
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 6, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'act_flags': 6, 'raw_block': 'He\'s 6\'6" 245 pounds and enough muscle to bash your head in.\n~\n228 8 -333 S\n10 9 -1 10d10+100 1d6+10\n1500 4500\n8 8 1'}
+
+- id: 2105
+  key: "a_doll"
+  name: "doll"
+  short_desc: "a doll"
+  long_desc: "A gang doll looks naughty and nice."
+  keywords: ['doll']
+  level: 212
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 21200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 212, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': "She's a beauty (ok in RELATIVE terms) but you better not touch!\n~\n212 0 0 S\n7 8 3 7d7+70 1d6+4\n1000 1500\n8 8 2"}
+
+- id: 2106
+  key: "a_patrolman"
+  name: "patrolman patrol man"
+  short_desc: "a patrolman"
+  long_desc: "A patrolman is trying to keep the peace."
+  keywords: ['patrolman', 'patrol', 'man']
+  level: 64
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': "He'd rather be at the local pub then out here with these nasty kids.\n~\n64 0 +700 S\n8 13 4 8d8+80 1d6+8\n7000 2000\n8 8 1"}
+
+- id: 2107
+  key: "a_vandal"
+  name: "vandal"
+  short_desc: "a vandal"
+  long_desc: "A vandal is spray painting pro-gang slogans on the wall here."
+  keywords: ['vandal']
+  level: 128
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'He has a wary eye and a fine hand for art.\n~\n128 32768 -400 S\n10 10 1 10d10+100 1d6+6\n500 3800\n8 8 1'}
+
+- id: 2108
+  key: "a_pitbull"
+  name: "dog pit bull pitbull"
+  short_desc: "a pitbull"
+  long_desc: "A vicious pitbull is foaming at the mouth in rabid anticipation."
+  keywords: ['dog', 'pit', 'bull', 'pitbull']
+  level: 98
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 98, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': "You get a nice close look at him while he's tearing at your throat.\nHis fangs are blood-stained from hearty meals of ... steak?!\n~\n98 65536|8 -100 S\n5 10 2 5d5+50 1d6+3\n10 700\n8 8 1"}
+

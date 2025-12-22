@@ -1,0 +1,31 @@
+- id: 1
+  key: "puff"
+  name: "Puff"
+  short_desc: "Puff"
+  long_desc: "Puff the Fractal Dragon is here, contemplating a higher reality."
+  keywords: ['Puff']
+  level: 1
+  hp_max: 577
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 550
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 1, 'hit_dice': '5d10+550', 'damage_dice': '5d10+550', 'raw_block': '~\n1 0 1000 S\n26 1 -1 5d10+550 4d6+3\n10000 155000\n8 8 2'}
+

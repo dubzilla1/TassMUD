@@ -1,0 +1,1083 @@
+items:
+  - id: 2200
+    key: spear_jagged
+    name: a jagged spear
+    description: A jagged spear has been left here.
+    weight: 15
+    value: 4000
+    type: weapon
+    multiplier: 2
+    base_die: 5
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [spear, jagged]
+    template_json:
+      raw_block: |
+        #2200
+        spear jagged~
+        a jagged spear~
+        A jagged spear has been left here.~
+        ~
+        5 0 8193
+        0 2 5 11
+        15 4000 1500
+      type_line: 5 0 8193
+  - id: 2201
+    key: dagger_silver
+    name: a silver dagger
+    description: A silver dagger is lying here.
+    weight: 10
+    value: 1000
+    type: weapon
+    multiplier: 2
+    base_die: 4
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dagger, silver]
+    template_json:
+      raw_block: |
+        #2201
+        dagger silver~
+        a silver dagger~
+        A silver dagger is lying here.~
+        ~
+        5 0 8193
+        0 2 4 11
+        10 1000 200
+      type_line: 5 0 8193
+  - id: 2202
+    key: knife_tooth_dragon
+    name: a dragon's tooth knife
+    description: A dangerous looking knife made from a dragon's tooth has been left here.
+    weight: 8
+    value: 100000
+    type: weapon
+    multiplier: 3
+    base_die: 5
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [knife, tooth, dragon]
+    applies:
+      - location: 2
+        modifier: 1
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 0 8193
+        0 3 5 11
+        8 100000 50000
+        A
+        2 1
+        A
+        19 2
+      type_line: 5 0 8193
+  - id: 2203
+    key: bracelet_dragon
+    name: a dragon skin bracelet
+    description: A scaly bracelet lies on the ground.
+    weight: 10
+    value: 40000
+    type: armor
+    slot: wrist
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracelet, dragon]
+    template_json:
+      raw_block: |
+        #2203
+        bracelet dragon~
+        a dragon skin bracelet~
+        A scaly bracelet lies on the ground.~
+        ~
+        9 0 4097  
+        6 0 0 0
+        10 40000 10000
+      type_line: 9 0 4097
+  - id: 2204
+    key: belt_silk_black
+    name: a black silk belt
+    description: A black belt made of the finest silk is hanging here.
+    weight: 25
+    value: 10000
+    type: armor
+    slot: waist
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [belt, silk, black]
+    applies:
+      - location: 5
+        modifier: 2
+    template_json:
+      raw_block: |
+        a black silk belt~
+        A black belt made of the finest silk is hanging here.~
+        ~
+        9 0 2049
+        6 0 0 0
+        25 10000 4000
+        A
+        5 2
+      type_line: 9 0 2049
+  - id: 2210
+    key: belt_silk_white
+    name: a white silk belt.
+    description: A white belt made of the finest silk is hanging here.
+    weight: 25
+    value: 10000
+    type: container
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [belt, silk, white]
+    applies:
+      - location: 1
+        modifier: 2
+    template_json:
+      raw_block: |
+        a white silk belt.~
+        A white belt made of the finest silk is hanging here.~
+        ~
+        15 0 2049
+        6 0 0 0
+        25 10000 4000
+        A
+        1 2
+      type_line: 15 0 2049
+  - id: 2211
+    key: bracelet_platinum
+    name: a platinum bracelet.
+    description: A tarnished platinum bracelet has been dropped here.
+    weight: 5
+    value: 50000
+    type: armor
+    slot: wrist
+    armor_class: 7
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracelet, platinum]
+    template_json:
+      raw_block: |
+        #2211
+        bracelet platinum~
+        a platinum bracelet.~
+        A tarnished platinum bracelet has been dropped here.~
+        ~
+        9 1 4097
+        7 0 0 0
+        5 50000 25000
+      type_line: 9 1 4097
+  - id: 2220
+    key: symbol_holy
+    name: a holy symbol
+    description: A golden holy symbol is here.
+    weight: 2
+    value: 50000
+    type: armor
+    slot: neck
+    armor_class: 4
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+      - HOLD
+    keywords: [symbol, holy]
+    applies:
+      - location: 12
+        modifier: 15
+    template_json:
+      raw_block: |
+        a holy symbol~
+        A golden holy symbol is here.~
+        ~
+        9 1 16389
+        4 0 0 0
+        2 50000 5000
+        A
+        12 15
+      type_line: 9 1 16389
+  - id: 2221
+    key: robe_black
+    name: a plain black robe
+    description: A black robe is hanging on a hook on the wall.
+    weight: 3
+    value: 50000
+    type: armor
+    slot: back
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [robe, black]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        a plain black robe~
+        A black robe is hanging on a hook on the wall.~
+        ~
+        9 0 1025
+        5 0 0 0
+        3 50000 5000
+        A
+        19 2
+      type_line: 9 0 1025
+  - id: 2222
+    key: sword_emerald
+    name: an emerald sword
+    description: An emerald long sword is leaning against the wall.
+    weight: 24
+    value: 200000
+    type: weapon
+    multiplier: 3
+    base_die: 6
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, emerald]
+    template_json:
+      raw_block: |
+        #2222
+        sword emerald~
+        an emerald sword~
+        An emerald long sword is leaning against the wall.~
+        ~
+        5 0 8193
+        0 3 6 3
+        24 200000 100000
+      type_line: 5 0 8193
+  - id: 2223
+    key: club_stone
+    name: a stone club
+    description: A heavy looking stone club is here.
+    weight: 18
+    value: 7500
+    type: weapon
+    multiplier: 3
+    base_die: 5
+    damage_bonus: 8
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [club, stone]
+    template_json:
+      raw_block: |
+        #2223
+        club stone~
+        a stone club~
+        A heavy looking stone club is here.~
+        ~
+        5 0 8193
+        0 3 5 8
+        18 7500 5000
+      type_line: 5 0 8193
+  - id: 2224
+    key: ring_diamond
+    name: a diamond ring
+    description: A diamond ring lies gleaming on the ground.
+    weight: 6
+    value: 50000
+    type: armor
+    slot: finger
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, diamond]
+    applies:
+      - location: 18
+        modifier: 3
+      - location: 19
+        modifier: 3
+    on_equip_effect_ids:
+      - 508
+      - 507
+    template_json:
+      raw_block: |
+        ~
+        9 0 3
+        4 0 0 0
+        6 50000 10000
+        A
+        18 3
+        A
+        19 3
+      type_line: 9 0 3
+  - id: 2230
+    key: ring_copper
+    name: a copper ring
+    description: A copper ring is here.
+    weight: 1
+    value: 100000
+    type: armor
+    slot: finger
+    armor_class: 1
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, copper]
+    applies:
+      - location: 4
+        modifier: 2
+    template_json:
+      raw_block: |
+        a copper ring~
+        A copper ring is here.~
+        ~
+        9 0 3
+        1 0 0 0
+        1 100000 25000
+        A
+        4 2
+      type_line: 9 0 3
+  - id: 2231
+    key: key_steel
+    name: a steel key
+    description: A steel key.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, steel]
+    template_json:
+      raw_block: |
+        #2231
+        key steel~
+        a steel key~
+        A steel key.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 500 1000
+      type_line: 18 0 1
+  - id: 2232
+    key: key_ruby
+    name: A ruby key
+    description: A ruby key.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, ruby]
+    template_json:
+      raw_block: |
+        #2232
+        key ruby~
+        A ruby key~
+        A ruby key.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 500 1000
+      type_line: 18 0 1
+  - id: 2233
+    key: key_white
+    name: a white key
+    description: A white key.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, white]
+    template_json:
+      raw_block: |
+        #2233
+        key white~
+        a white key~
+        A white key.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 500 1000
+      type_line: 18 0 1
+  - id: 2234
+    key: key_grey
+    name: a grey key
+    description: A grey key is resting on the ground here.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, grey]
+    template_json:
+      raw_block: |
+        #2234
+        key grey~
+        a grey key~
+        A grey key is resting on the ground here.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 500 1000
+      type_line: 18 0 1
+  - id: 2237
+    key: key_stone
+    name: a stone key
+    description: A stone key.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, stone]
+    template_json:
+      raw_block: |
+        #2237
+        key stone~
+        a stone key~
+        A stone key.~
+        ~
+        18 0 1
+        0 0 0 0 
+        1 500 1000
+      type_line: 18 0 1
+  - id: 2240
+    key: key_black
+    name: a black key
+    description: A black key.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, black]
+    template_json:
+      raw_block: |
+        #2240
+        key black~
+        a black key~
+        A black key.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 500 1000
+      type_line: 18 0 1
+  - id: 2241
+    key: key_platinum
+    name: a platinum key
+    description: A platinum key.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, platinum]
+    template_json:
+      raw_block: |
+        #2241
+        key platinum~
+        a platinum key~
+        A platinum key.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 500 1000
+      type_line: 18 0 1
+  - id: 2242
+    key: shield_crested
+    name: a crested shield
+    description: A large crested shield draws your attention.
+    weight: 20
+    value: 200000
+    type: armor
+    slot: off_hand
+    armor_class: 8
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, crested]
+    applies:
+      - location: 5
+        modifier: 1
+    template_json:
+      raw_block: |
+        a crested shield~
+        A large crested shield draws your attention.~
+        ~
+        9 0 513
+        8 0 0 0
+        20 200000 100000
+        A
+        5 1
+      type_line: 9 0 513
+  - id: 2243
+    key: wand_golden
+    name: a golden wand
+    description: A golden wand has been dropped here.
+    weight: 5
+    value: 10000
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 59
+    hands: 1
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [wand, golden]
+    template_json:
+      raw_block: |
+        #2243
+        wand golden~
+        a golden wand~
+        A golden wand has been dropped here.~
+        ~
+        3 1 16385
+        25 10 10 59
+        5 10000 5000
+      type_line: 3 1 16385
+  - id: 2244
+    key: staff_silver
+    name: a silver staff
+    description: A silver staff.
+    weight: 5
+    value: 10000
+    type: weapon
+    multiplier: 20
+    base_die: 20
+    damage_bonus: 73
+    hands: 2
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff, silver]
+    template_json:
+      raw_block: |
+        #2244
+        staff silver~
+        a silver staff~
+        A silver staff.~
+        ~
+        4 65 16385
+        25 20 20 73
+        5 10000 5000
+      type_line: 4 65 16385
+  - id: 2245
+    key: staff_dragon
+    name: the staff of the dragon
+    description: A powerful oak staff has been left here.
+    weight: 5
+    value: 10000
+    type: weapon
+    multiplier: 10
+    base_die: 10
+    damage_bonus: 6
+    hands: 2
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff, dragon]
+    template_json:
+      raw_block: |
+        #2245
+        staff dragon~
+        the staff of the dragon~
+        A powerful oak staff has been left here.~
+        ~
+        4 65 16385
+        25 10 10 6
+        5 10000 3000
+      type_line: 4 65 16385
+  - id: 2246
+    key: mail_scale
+    name: scale mail
+    description: A set of scale mail has been abandoned here.
+    weight: 20
+    value: 100000
+    type: armor
+    slot: chest
+    armor_class: 8
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [mail, scale]
+    template_json:
+      raw_block: |
+        #2246
+        mail scale~
+        scale mail~
+        A set of scale mail has been abandoned here.~
+        ~
+        9 1 9
+        8 0 0 0
+        20 100000 20000
+      type_line: 9 1 9
+  - id: 2250
+    key: staff_black
+    name: a black staff
+    description: You notice the faint outline of a staff.
+    weight: 25
+    value: 75000
+    type: weapon
+    multiplier: 3
+    base_die: 3
+    damage_bonus: 25
+    hands: 2
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - GLOW
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff, black]
+    template_json:
+      raw_block: |
+        #2250
+        staff black~
+        a black staff~
+        You notice the faint outline of a staff.~
+        ~
+        4 1|512 16385 
+        30 3 3 25 
+        25 75000 5000 
+      type_line: 4 1|512 16385
+  - id: 2251
+    key: potion_cyan
+    name: a cyan potion
+    description: A small cyan potion has been left here.
+    weight: 1
+    value: 40000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [potion, cyan]
+    spell_ids:
+      - 30
+      - 4
+      - 27
+      - 0
+    template_json:
+      raw_block: |
+        #2251 
+        potion cyan~
+        a cyan potion~
+        A small cyan potion has been left here.~
+        ~
+        10 0 1 
+        30 4 27 0
+        1 40000 1000 
+      type_line: 10 0 1
+  - id: 2252
+    key: potion_magenta
+    name: a magenta potion
+    description: A magenta potion.
+    weight: 1
+    value: 2000
+    type: inventory
+    extra_flags:
+      - NODROP
+    wear_flags:
+      - TAKE
+    keywords: [potion, magenta]
+    spell_ids:
+      - 30
+      - 15
+      - 34
+      - 0
+    template_json:
+      raw_block: |
+        #2252 
+        potion magenta~
+        a magenta potion~
+        A magenta potion.~
+        ~
+        10 128 1 
+        30 15 34 0
+        1 2000 100 
+      type_line: 10 128 1
+  - id: 2254
+    key: gauntlets_spiked
+    name: a pair of spiked gauntlets
+    description: A pair of spiked gauntlets.
+    weight: 10
+    value: 50000
+    type: armor
+    slot: hands
+    armor_class: 4
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, spiked]
+    applies:
+      - location: 19
+        modifier: 2
+      - location: 1
+        modifier: 1
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        9 65 129 
+        4 0 0 0 
+        10 50000 5000
+        A
+        19 2
+        A
+        1 1                
+      type_line: 9 65 129
+  - id: 2260
+    key: scimitar_golden
+    name: a golden scimitar
+    description: A golden scimitar.
+    weight: 10
+    value: 40000
+    type: weapon
+    multiplier: 3
+    base_die: 5
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - GLOW
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [scimitar, golden]
+    applies:
+      - location: 3
+        modifier: 1
+      - location: 4
+        modifier: 1
+    template_json:
+      raw_block: |
+        ~
+        5 1 8193 
+        0 3 5 3 
+        10 40000 7000 
+        A
+        3 1
+        A
+        4 1      
+      type_line: 5 1 8193
+  - id: 2261
+    key: brooch_diamond
+    name: a diamond brooch
+    description: A diamond brooch.
+    weight: 2
+    value: 10000
+    type: armor
+    slot: neck
+    armor_class: 4
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [brooch, diamond]
+    applies:
+      - location: 12
+        modifier: 25
+    template_json:
+      raw_block: |
+        a diamond brooch~
+        A diamond brooch.~
+        ~
+        9 64 5 
+        4 0 0 0 
+        2 10000 4000
+        A
+        12 25 
+      type_line: 9 64 5
+  - id: 2270
+    key: scroll
+    name: a runed scroll
+    description: A runed scroll.
+    weight: 1
+    value: 5000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [scroll]
+    spell_ids:
+      - 30
+      - 1
+      - 34
+      - 67
+    template_json:
+      raw_block: |
+        #2270 
+        scroll~
+        a runed scroll~
+        A runed scroll.~
+        ~
+        2 64 16385 
+        30 1 34 67
+        1 5000 500 
+      type_line: 2 64 16385
+  - id: 2271
+    key: gloves_dragon
+    name: a pair of dragon skin gloves
+    description: A pair of dragon skin gloves are lying on the ground.
+    weight: 5
+    value: 40000
+    type: armor
+    slot: hands
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves, dragon]
+    applies:
+      - location: 2
+        modifier: 2
+    template_json:
+      raw_block: |
+        a pair of dragon skin gloves~
+        A pair of dragon skin gloves are lying on the ground.~
+        ~
+        9 0 129
+        6 0 0 0
+        5 40000 15000
+        A
+        2 2
+      type_line: 9 0 129
+  - id: 2275
+    key: helm_dragon
+    name: a helm of dragon kind
+    description: A helm made of a dragon's skull is lying on the ground.
+    weight: 15
+    value: 30000
+    type: armor
+    slot: head
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helm, dragon]
+    applies:
+      - location: 13
+        modifier: 15
+    template_json:
+      raw_block: |
+        a helm of dragon kind~
+        A helm made of a dragon's skull is lying on the ground.~
+        ~
+        9 0 17
+        5 0 0 0 
+        15 30000 6000
+        A
+        13 15
+      type_line: 9 0 17
+  - id: 2276
+    key: fur_cloak
+    name: a fur cloak
+    description: A large mound of fur is lying here.
+    weight: 10
+    value: 25000
+    type: armor
+    slot: back
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [fur, cloak]
+    applies:
+      - location: 1
+        modifier: 1
+      - location: 13
+        modifier: 10
+    template_json:
+      raw_block: |
+        ~
+        9 0 1025
+        6 0 0 0 
+        10 25000 10000
+        A
+        1 1
+        A
+        13 10               
+      type_line: 9 0 1025
+  - id: 2280
+    key: leggings_dragon_scale
+    name: a pair of dragon scale leggings
+    description: A pair of dragon scale leggings is lying on the ground.
+    weight: 15
+    value: 35000
+    type: armor
+    slot: legs
+    armor_class: 7
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings, dragon, scale]
+    template_json:
+      raw_block: |
+        #2280
+        leggings dragon scale~
+        a pair of dragon scale leggings~
+        A pair of dragon scale leggings is lying on the ground.~
+        ~
+        9 0 33
+        7 0 0 0 
+        15 35000 4000 
+      type_line: 9 0 33
+  - id: 2281
+    key: sleeves_dragon_scale
+    name: a set of dragon scale sleeves
+    description: A set of dragon scale sleeves is lying on the ground.
+    weight: 12
+    value: 30000
+    type: armor
+    slot: arms
+    armor_class: 7
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, dragon, scale]
+    template_json:
+      raw_block: |
+        #2281
+        sleeves dragon scale~
+        a set of dragon scale sleeves~
+        A set of dragon scale sleeves is lying on the ground.~
+        ~
+        9 0 257 
+        7 0 0 0 
+        12 30000 3000 
+      type_line: 9 0 257
+  - id: 2285
+    key: whip_dragon_tail
+    name: a dragon tailed whip
+    description: A dragon tailed whip is lying on the ground.
+    weight: 14
+    value: 40000
+    type: weapon
+    multiplier: 4
+    base_die: 5
+    damage_bonus: 4
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - HUM
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [whip, dragon, tail]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        5 2|512 8193 
+        0 4 5 4
+        14 40000 20500
+        A
+        18 2
+        A
+        19 2                 
+      type_line: 5 2|512 8193
+  - id: 2286
+    key: hammer_copper
+    name: a copper hammer
+    description: A copper hammer is lying on the ground.
+    weight: 12
+    value: 30000
+    type: weapon
+    multiplier: 3
+    base_die: 5
+    damage_bonus: 8
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [hammer, copper]
+    template_json:
+      raw_block: |
+        #2286
+        hammer copper~
+        a copper hammer~
+        A copper hammer is lying on the ground.~
+        ~
+        5 0 8193 
+        0 3 5 8 
+        12 30000 15000 
+      type_line: 5 0 8193
+  - id: 2299
+    key: key_gold_tarnished
+    name: a tarnished gold key
+    description: A tarnished gold key lies here.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, gold, tarnished]
+    template_json:
+      raw_block: |
+        #2299
+        key gold tarnished~
+        a tarnished gold key~
+        A tarnished gold key lies here.~
+        ~
+        18 0 1 
+        0 0 0 0
+        1 500 1000
+      type_line: 18 0 1

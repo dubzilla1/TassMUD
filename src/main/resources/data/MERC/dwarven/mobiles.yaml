@@ -1,0 +1,558 @@
+- id: 6500
+  key: "the_dwarven_guard"
+  name: "dwarf guard"
+  short_desc: "the dwarven guard"
+  long_desc: "A dwarven guard is here."
+  keywords: ['dwarf', 'guard']
+  level: 8
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 8, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'The guard looks very tough and mean.\n~\n2050 8 500 S\n20 0 -2 20d20+200 2d4+18\n10000 40000\n8 8 1'}
+
+- id: 6501
+  key: "the_dwarven_worker"
+  name: "dwarf worker miner"
+  short_desc: "the dwarven worker"
+  long_desc: "A dwarven mining worker is here."
+  keywords: ['dwarf', 'worker', 'miner']
+  level: 900
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 900, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'He is very dirty, and looks extremely over-worked.\n~\n2112 0 900 S\n12 4 1 12d12+120 1d7+7\n3500 6000\n8 8 1'}
+
+- id: 6502
+  key: "the_wraith"
+  name: "wraith"
+  short_desc: "the wraith"
+  long_desc: "A wraith is awaiting your first move here."
+  keywords: ['wraith']
+  level: 2
+  hp_max: 725
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '29d29+290', 'damage_dice': '29d29+290', 'raw_block': 'A black, almost transparent wraith.\n~\n2 40 -900 S\n29 -5 -10 29d29+290 4d6+15\n50000 125000\n8 8 1'}
+
+- id: 6503
+  key: "the_storekeeper"
+  name: "storekeeper"
+  short_desc: "the storekeeper"
+  long_desc: "There is the Hide & Tooth storekeeper standing here, waiting patiently."
+  keywords: ['storekeeper']
+  level: 900
+  hp_max: 1023
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 990
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 900, 'hit_dice': '6d10+990', 'damage_dice': '6d10+990', 'raw_block': 'The storekeeper is very rotund, but looks like a sharp guy.\n~\n2050 0 900 S\n35 2 2 6d10+990 2d9+20\n100000 80000\n8 8 1'}
+
+- id: 6504
+  key: "the_baker"
+  name: "baker"
+  short_desc: "the baker"
+  long_desc: "Granite Head, the baker, is waiting for a customer here."
+  keywords: ['baker']
+  level: 900
+  hp_max: 1028
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 990
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 900, 'hit_dice': '7d10+990', 'damage_dice': '7d10+990', 'raw_block': 'Granite Head is covered with flour and grains.\n~\n2050 0 900 S\n35 2 2 7d10+990 2d9+19\n1000 80000\n8 8 1'}
+
+- id: 6505
+  key: "the_giant_lizard"
+  name: "lizard"
+  short_desc: "the giant lizard"
+  long_desc: "A giant lizard is here."
+  keywords: ['lizard']
+  level: 64
+  hp_max: 605
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '10d20+500', 'damage_dice': '10d20+500', 'raw_block': "This scaly creature looks like it is well adapted to it's underground\nhabitat.  He looks very powerful.\n~\n64 8 100 S\n18 7 2 10d20+500 4d4+5\n1200 25000\n8 8 1"}
+
+- id: 6506
+  key: "the_giant"
+  name: "giant"
+  short_desc: "the giant"
+  long_desc: "A giant is here."
+  keywords: ['giant']
+  level: 8
+  hp_max: 342
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 8, 'hit_dice': '4d20+300', 'damage_dice': '4d20+300', 'act_flags': 8, 'raw_block': 'The giant is about 8 feet tall, with arms of steel, and looks very strong.\n~\n64 0 0 S\n16 5 1 4d20+300 3d7+5\n2000 24000\n8 8 1'}
+
+- id: 6507
+  key: "the_dwarven_miner"
+  name: "dwarf miner"
+  short_desc: "the dwarven miner"
+  long_desc: "A dwarven miner is here."
+  keywords: ['dwarf', 'miner']
+  level: 8
+  hp_max: 136
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 8, 'hit_dice': '8d8+100', 'damage_dice': '8d8+100', 'raw_block': 'The mineworker is very tired, and very dirty, and he has bulging muscles.\n~\n2050 0 0 S\n8 14 7 8d8+100 2d9+9\n40 1000\n8 8 1'}
+
+- id: 6508
+  key: "the_dwarven_mine_leader"
+  name: "dwarf leader"
+  short_desc: "the dwarven mine leader"
+  long_desc: "A dwarven mine leader is here."
+  keywords: ['dwarf', 'leader']
+  level: 21
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 21, 'hit_dice': '5d3+400', 'damage_dice': '5d3+400', 'raw_block': 'The mine leader is very big and very strong.\n~\n2050 0 0 S\n21 0 -8 5d3+400 3d9+3\n20000 52000\n8 8 1'}
+
+- id: 6509
+  key: "the_dwarven_doctor"
+  name: "dwarf doctor"
+  short_desc: "the dwarven doctor"
+  long_desc: "The dwarven doctor is here."
+  keywords: ['dwarf', 'doctor']
+  level: 136
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 136, 'hit_dice': '9d9+99', 'damage_dice': '9d9+99', 'raw_block': 'He is a very skilled surgeon, with hands of steel.\n~\n2050 136 1000 S\n9 15 4 9d9+99 3d4+12\n1500 15000\n8 8 1'}
+
+- id: 6510
+  key: "the_dwarven_peon"
+  name: "dwarf peon"
+  short_desc: "the dwarven peon"
+  long_desc: "A dwarven peon is awaiting help here."
+  keywords: ['dwarf', 'peon']
+  level: 500
+  hp_max: 43
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 500, 'hit_dice': '5d3+33', 'damage_dice': '5d3+33', 'raw_block': '~\n2050 0 500 S\n3 16 6 5d3+33 2d4+3\n75 400\n8 8 1'}
+
+- id: 6511
+  key: "the_dwarf"
+  name: "dwarf"
+  short_desc: "the dwarf"
+  long_desc: "A grinning dwarf is here."
+  keywords: ['dwarf']
+  level: 500
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 500, 'hit_dice': '9d9+99', 'damage_dice': '9d9+99', 'raw_block': '~\n2050 0 500 S\n9 10 2 9d9+99 3d4+1\n1250 6000\n8 8 1'}
+
+- id: 6512
+  key: "the_unwanted_son"
+  name: "dwarf son"
+  short_desc: "the unwanted son"
+  long_desc: "An unwanted son is here.  You feel sorry for the guy."
+  keywords: ['dwarf', 'son']
+  level: 64
+  hp_max: 132
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 125
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '3d4+125', 'damage_dice': '3d4+125', 'raw_block': '~\n64 0 250 S\n9 12 3 3d4+125 3d5+5\n50 5000\n8 8 1'}
+
+- id: 6513
+  key: "the_unwanted_daughter"
+  name: "dwarf daughter"
+  short_desc: "the unwanted daughter"
+  long_desc: "An unwanted daughter is here.  You feel sorry for her."
+  keywords: ['dwarf', 'daughter']
+  level: 64
+  hp_max: 142
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 135
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '3d4+135', 'damage_dice': '3d4+135', 'raw_block': '~\n64 0 250 S\n10 11 2 3d4+135 3d5+7\n50 5000\n8 8 1'}
+
+- id: 6514
+  key: "the_barracks_guard"
+  name: "dwarf guard"
+  short_desc: "the barracks guard"
+  long_desc: "A barrack guard is here."
+  keywords: ['dwarf', 'guard']
+  level: 100
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 100, 'hit_dice': '16d16+160', 'damage_dice': '16d16+160', 'raw_block': '~\n2050 0 100 S\n16 5 1 16d16+160 3d6+8\n3000 18000\n8 8 1'}
+
+- id: 6515
+  key: "the_man_in_waiting"
+  name: "man"
+  short_desc: "the man in waiting"
+  long_desc: "A man in waiting is here.  He looks nervous and unsure of himself."
+  keywords: ['man']
+  level: 300
+  hp_max: 207
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 30000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 300, 'hit_dice': '6d8+180', 'damage_dice': '6d8+180', 'raw_block': '~\n2050 0 300 S\n15 12 7 6d8+180 3d7+5\n6969 20000\n8 8 1'}
+
+- id: 6516
+  key: "the_mazekeeper"
+  name: "mazekeeper"
+  short_desc: "the mazekeeper"
+  long_desc: "A mazekeeper is here."
+  keywords: ['mazekeeper']
+  level: 128
+  hp_max: 665
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 128, 'hit_dice': '25d29+290', 'damage_dice': '25d29+290', 'raw_block': 'He looks VERY tough.\n~\n2082 128 -1000 S\n29 0 -9 25d29+290 4d8+15\n80000 200000\n8 8 1'}
+
+- id: 6517
+  key: "the_giant_snake"
+  name: "snake"
+  short_desc: "the giant snake"
+  long_desc: "There is a giant snake here."
+  keywords: ['snake']
+  level: 34
+  hp_max: 444
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 432
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '3d7+432', 'damage_dice': '3d7+432', 'raw_block': '~\n34 0 -1000 S\n15 7 2 3d7+432 3d7+6\n3000 30000\n8 8 1'}
+

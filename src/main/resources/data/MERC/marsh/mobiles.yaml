@@ -1,0 +1,527 @@
+- id: 8301
+  key: "a_swamp_troll"
+  name: "troll"
+  short_desc: "a swamp troll"
+  long_desc: "A swamp troll charges towards you."
+  keywords: ['troll']
+  level: 15
+  hp_max: 252
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 15, 'hit_dice': '5d20+200', 'damage_dice': '5d20+200', 'act_flags': 15, 'raw_block': 'This huge behemoth towers to a height of 15 feet.  He sneers at you \nas he approaches and raises two black taloned claws to strike you.\n~\n2|4|32|64 0 -600 S\n16 5 1 5d20+200 4d4+8 \n10000 20000\n8 5 1'}
+
+- id: 8302
+  key: "a_green_troll"
+  name: "troll"
+  short_desc: "a green troll"
+  long_desc: "A green troll attempts to get a hold on you."
+  keywords: ['troll']
+  level: 4
+  hp_max: 181
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '3d20+150', 'damage_dice': '3d20+150', 'raw_block': 'This big troll towers several feet over you.  He has a large spear\nwhich he seems to ply with utmost prowess.  He jabs his spear at you\nand cackles with glee.\n~\n4|32|64 0 -400 S\n14 7 3 3d20+150 2d4+6\n8000 12000\n8 8 1'}
+
+- id: 8303
+  key: "an_ogre"
+  name: "ogre"
+  short_desc: "an ogre"
+  long_desc: "An ogre stands here getting ready to beat in your face."
+  keywords: ['ogre']
+  level: 4
+  hp_max: 260
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '1d20+250', 'damage_dice': '1d20+250', 'raw_block': 'This mean bastard looks like he could tear you limb from limb.\n~\n4|32|64 0 -500 S\n20 1 0 1d20+250 5d5+8\n10000 11000\n8 8 1'}
+
+- id: 8304
+  key: "the_swamp_thing"
+  name: "thing"
+  short_desc: "the Swamp Thing"
+  long_desc: "the Swamp Thing shambles about here.  It seems hungry."
+  keywords: ['thing']
+  level: 4
+  hp_max: 555
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '10d10+500', 'damage_dice': '10d10+500', 'raw_block': 'The Swamp Thing has huge fists, which look like they could pound you flat.\n~\n4|32|64 0 -700 S\n24 1 8 10d10+500 4d5+10\n25000 60000\n8 5 0'}
+
+- id: 8305
+  key: "a_gnoll"
+  name: "gnoll"
+  short_desc: "a gnoll"
+  long_desc: "There is a mean looking gnoll here."
+  keywords: ['gnoll']
+  level: 4
+  hp_max: 761
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 750
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '2d10+750', 'damage_dice': '2d10+750', 'raw_block': 'The Gnoll seems annoyed at your presence.\n~\n4|64 8|32 -1000 S\n30 0 -3 2d10+750 2d8+15\n25000 100000\n8 8 1'}
+
+- id: 8306
+  key: "a_huge_hairy_beast"
+  name: "beast"
+  short_desc: "a huge hairy beast"
+  long_desc: "A huge hairy beast shambles towards you with death in his eyes."
+  keywords: ['beast']
+  level: 20
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 20, 'hit_dice': '21d21+210', 'damage_dice': '21d21+210', 'act_flags': 20, 'raw_block': 'This huge beast stands about 20 feet in height and has huge green clawed\nappendages. \n~\n4|32|64 8|32 -450 S\n21 0 0 21d21+210 2d4+15\n10000 40000\n8 8 1'}
+
+- id: 8307
+  key: "a_rather_small_beast"
+  name: "beast"
+  short_desc: "a rather small beast"
+  long_desc: "A rather small beast cringes in terror as it notices you."
+  keywords: ['beast']
+  level: 4
+  hp_max: 56
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '3d10+40', 'damage_dice': '3d10+40', 'raw_block': 'This rather small beast looks like you could take it out with a single\nsword blow.\n~\n4|64|128 32768 0 S\n3 18 9 3d10+40 1d20+1\n500 200\n8 8 1'}
+
+- id: 8308
+  key: "the_will_o_wisp"
+  name: "will will-o-wisp"
+  short_desc: "the Will-O-Wisp"
+  long_desc: "A Will-O-Wisp darts hear and there, making fun of you."
+  keywords: ['will', 'will-o-wisp']
+  level: 4
+  hp_max: 115
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '5d5+100', 'damage_dice': '5d5+100', 'raw_block': 'This strange little creature seems very hard to keep your eyes on.\nYou stare as hard as you can at the glowing ball of floating light and\nare just able to notice a small pair of glowing eyes.\n~\n4|64|128 32768 0 S\n10 11 -5 5d5+100 3d3+3\n3000 5000\n8 8 0'}
+
+- id: 8309
+  key: "the_monstrous_snake"
+  name: "snake anaconda"
+  short_desc: "the monstrous snake"
+  long_desc: "A monstrous snake slithers towards you, thinking 'breakfast'."
+  keywords: ['snake', 'anaconda']
+  level: 10
+  hp_max: 336
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 10, 'hit_dice': '16d16+200', 'damage_dice': '16d16+200', 'act_flags': 10, 'raw_block': 'This 10 meter anaconda looks rather hungry.\n~\n4|32|64|128 32768|65536 -100 S\n16 5 1 16d16+200 4d4+6\n10000 26000\n8 8 1'}
+
+- id: 8310
+  key: "a_large_snake"
+  name: "snake python"
+  short_desc: "a large snake"
+  long_desc: "A rather large python rests in a coil here."
+  keywords: ['snake', 'python']
+  level: 4
+  hp_max: 122
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '4d10+100', 'damage_dice': '4d10+100', 'raw_block': "It's the largest Amazon python you have ever seen.\n~\n4|32|64|128 32768|65536 -100 S\n11 10 2 4d10+100 3d3+5\n0 9000\n8 8 2"}
+
+- id: 8312
+  key: "the_marsh_hag"
+  name: "hag"
+  short_desc: "the Marsh Hag"
+  long_desc: "A Marsh Hag is here."
+  keywords: ['hag']
+  level: 4
+  hp_max: 311
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '2d10+300', 'damage_dice': '2d10+300', 'raw_block': "Yech!  She manages to make even Smurfette look attractive.  That's ok,\nbecause she thinks you stink too, and she's about to do something about it.\n~\n4|64 0 -200 S\n9 12 3 2d10+300 3d5+10\n1000 6000\n8 8 2"}
+
+- id: 8313
+  key: "a_death_slaad"
+  name: "slaad"
+  short_desc: "a Death Slaad"
+  long_desc: "A Death Slaad is standing here distraught.  He seems lost."
+  keywords: ['slaad']
+  level: 13
+  hp_max: 352
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 13, 'hit_dice': '5d20+300', 'damage_dice': '5d20+300', 'act_flags': 13, 'raw_block': 'This dark apparition stands a meager 13 feet in height.  Even in the dim\nswamp light, the blade of his scythe gleams.\n~\n4|64 40 -200 S\n20 1 -2 5d20+300 5d5+15\n14000 40000\n8 8 1'}
+
+- id: 8314
+  key: "a_marsh_wolf"
+  name: "wolf"
+  short_desc: "a marsh wolf"
+  long_desc: "A marsh wolf sniffs the ground has followed your scent."
+  keywords: ['wolf']
+  level: 4
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '10d10+50', 'damage_dice': '10d10+50', 'raw_block': 'This wolf looks plump.  She probably ate a friend or two of yours who came\ninto the marsh.\n~\n4|32|64 0 -200 S\n8 13 3 10d10+50 3d5+1\n0 2000\n8 8 2'}
+
+- id: 8318
+  key: "a_shambling_mound"
+  name: "mound shambling"
+  short_desc: "a shambling mound"
+  long_desc: "A heap of garbage shambles towards you."
+  keywords: ['mound', 'shambling']
+  level: 4
+  hp_max: 205
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '10d10+150', 'damage_dice': '10d10+150', 'raw_block': 'This grotesque pile of plant matter fills you with utmost horror.\n~\n4|64 65536 -100 S\n13 8 10 10d10+150 3d6+2\n0 10000\n8 8 0'}
+
+- id: 8319
+  key: "the_orc_shaman"
+  name: "shaman orc"
+  short_desc: "the orc shaman"
+  long_desc: "An orc shaman stands before you holding a staff and wearing robes."
+  keywords: ['shaman', 'orc']
+  level: 110
+  hp_max: 137
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 110, 'hit_dice': '5d6+120', 'damage_dice': '5d6+120', 'raw_block': 'This old orc has an array of bones stuck in his hair and strange symbols\npainted on his face and hands.\n~\n110 40 -100 S\n12 10 7 5d6+120 3d4+1\n350 10000\n8 8 1'}
+
+- id: 8320
+  key: "a_marsh_giant"
+  name: "giant"
+  short_desc: "a marsh giant"
+  long_desc: "A marsh giant stomps towards you."
+  keywords: ['giant']
+  level: 110
+  hp_max: 321
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 110, 'hit_dice': '6d6+300', 'damage_dice': '6d6+300', 'raw_block': 'This huge monster of a man has green gnarly teeth and a BIG stick.\n~\n110 40 -100 S\n15 8 5 6d6+300 2d4+10\n12000 18000\n8 8 1'}
+
+- id: 8321
+  key: "a_gargoyle"
+  name: "gargoyle"
+  short_desc: "a gargoyle"
+  long_desc: "A large gargoyle lands next to you, baring his fangs at you."
+  keywords: ['gargoyle']
+  level: 110
+  hp_max: 212
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 110, 'hit_dice': '4d5+200', 'damage_dice': '4d5+200', 'raw_block': 'This creepy fellow looks like he could use you as a meal.\n~\n110 40 -100 S\n12 4 0 4d5+200 4d4+4\n2000 12000\n8 8 0'}
+

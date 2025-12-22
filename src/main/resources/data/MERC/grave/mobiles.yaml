@@ -1,0 +1,186 @@
+- id: 3600
+  key: "henry_the_gardener"
+  name: "henry gardener"
+  short_desc: "Henry the Gardener"
+  long_desc: "Henry the Gardener is sitting here, looking drunk."
+  keywords: ['henry', 'gardener']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 48
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d12+48', 'damage_dice': '1d12+48', 'raw_block': 'He is a tall but bulky man in his late fifties.  His features are worn with\ndecades of hard work and his somewhat crouched expression is one of deep\nsorrow and depression.  He is haunted by a memory of a lost paradise.\n~\n64 0 350 S\n4 15 8 1d12+48 1d6+1\n50 800\n6 6 1'}
+
+- id: 3601
+  key: "the_rotting_zombie"
+  name: "zombie"
+  short_desc: "the rotting zombie"
+  long_desc: "A rotting zombie is staggering towards you with outstretched hands."
+  keywords: ['zombie']
+  level: 34
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '2d6+60', 'damage_dice': '2d6+60', 'raw_block': 'Maggots crawl all over its decaying body.\n~\n34 512 -750 S\n4 16 5 2d6+60 1d8+2\n50 800\n8 8 1'}
+
+- id: 3602
+  key: "the_ghastly_ghoul"
+  name: "ghoul"
+  short_desc: "the ghastly ghoul"
+  long_desc: "A ghastly ghoul is here."
+  keywords: ['ghoul']
+  level: 34
+  hp_max: 79
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 72
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '2d6+72', 'damage_dice': '2d6+72', 'raw_block': 'It is a walking corpse with long fangs and long, sharp nails that most of\nresemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.\n~\n34 512 -750 S\n6 15 4 2d6+72 1d10+2\n100 1500\n8 8 1'}
+
+- id: 3603
+  key: "a_dusty_skeleton"
+  name: "skeleton"
+  short_desc: "a dusty skeleton"
+  long_desc: "A dusty skeleton lies here."
+  keywords: ['skeleton']
+  level: 34
+  hp_max: 42
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '1d12+36', 'damage_dice': '1d12+36', 'raw_block': 'The dusty bones are almost brown.  It must have been buried for a very long\ntime.\n~\n34 512 -750 S\n3 17 7 1d12+36 1d6+2\n10 600\n8 8 1'}
+
+- id: 3604
+  key: "a_dusty_skeleton"
+  name: "skeleton"
+  short_desc: "a dusty skeleton"
+  long_desc: "A dusty skeleton lies here."
+  keywords: ['skeleton']
+  level: 32
+  hp_max: 42
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '1d12+36', 'damage_dice': '1d12+36', 'raw_block': 'The dusty bones are almost brown.  It must have been buried for a very long\ntime.\n~\n32 512 -750 S\n3 17 7 1d12+36 1d6+2\n10 600\n8 8 1'}
+
+- id: 3605
+  key: "the_rotting_zombie"
+  name: "zombie"
+  short_desc: "the rotting zombie"
+  long_desc: "A rotting zombie is staggering towards you with outstretched hands."
+  keywords: ['zombie']
+  level: 32
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 32, 'hit_dice': '2d6+60', 'damage_dice': '2d6+60', 'raw_block': 'Maggots crawl all over its decaying body.\n~\n32 512 -750 S\n4 16 5 2d6+60 1d8+2\n100 800\n8 8 1'}
+

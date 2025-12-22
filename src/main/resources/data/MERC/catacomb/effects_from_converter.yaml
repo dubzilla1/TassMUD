@@ -1,0 +1,31 @@
+effects:
+  - id: "9000"
+    name: "sword_excalibur hit +3"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_HIT_BONUS
+      op: ADD
+      value: 3
+  - id: "9001"
+    name: "shield_defense damage +-1"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_DAMAGE_BONUS
+      op: ADD
+      value: -1

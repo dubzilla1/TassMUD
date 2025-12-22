@@ -1,0 +1,806 @@
+- id: 901
+  key: "zeus"
+  name: "zeus god"
+  short_desc: "Zeus"
+  long_desc: "Zeus sits here on a throne."
+  keywords: ['zeus', 'god']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '35d35+1000', 'damage_dice': '35d35+1000', 'raw_block': 'You see before you the greatest of the Olympians.  It seems as if he could\ndestroy you with a thought.  Every glance penetrates deep into your soul.\nYou now know what true fear is.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 35d35+1000 20d3+25\n100000 2000000\n8 8 1'}
+
+- id: 902
+  key: "prometheus"
+  name: "prometheus"
+  short_desc: "Prometheus"
+  long_desc: "Prometheus is here, playing with a match."
+  keywords: ['prometheus']
+  level: 2
+  hp_max: 806
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 31
+  damage_bonus: 310
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '31d31+310', 'damage_dice': '31d31+310', 'raw_block': 'This mortal risked the wrath of Zeus to give the gift of fire to humans.  He\nlooks up at you and smiles.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n31 0 -7 31d31+310 15d2+20\n40000 300000\n8 8 1'}
+
+- id: 903
+  key: "hermes"
+  name: "hermes"
+  short_desc: "Hermes"
+  long_desc: "Hermes is busy, delivering a message."
+  keywords: ['hermes']
+  level: 4
+  hp_max: 891
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 330
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '33d33+330', 'damage_dice': '33d33+330', 'raw_block': "This is the messenger of the Gods.  He wears a winged helm and boots, and\ndarts from place to place.  He looks very busy, and it seems as if he doesn't\neven notice your presence.\n~\n4 2|8|32|128|8192|32768|524288 1000 S\n33 0 -7 33d33+330 20d2+20\n50000 400000\n8 8 1"}
+
+- id: 904
+  key: "poseidon"
+  name: "poseidon"
+  short_desc: "Poseidon"
+  long_desc: "Poseidon is dining here."
+  keywords: ['poseidon']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '35d35+1000', 'damage_dice': '35d35+1000', 'raw_block': 'He is the brother of Zeus himself, chosen to rule the seas.  He must be\nvisiting Mount Olympus.  He nods at you and motions for you to enter and\nhave a seat.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 35d35+1000 20d3+25\n100000 2000000\n6 8 1'}
+
+- id: 905
+  key: "apollo"
+  name: "apollo"
+  short_desc: "Apollo"
+  long_desc: "Apollo is here, playing a tune."
+  keywords: ['apollo']
+  level: 2
+  hp_max: 935
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 34
+  damage_bonus: 340
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '34d34+340', 'damage_dice': '34d34+340', 'raw_block': 'This jovial God is strumming on a lyre.  He smiles at you and asks you to\njoin him.  You notice a dangerous looking bow by his side, however, and think\nthat he knows more than music.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n34 0 -8 34d34+340 15d3+25\n40000 550000\n8 8 1'}
+
+- id: 906
+  key: "ares"
+  name: "ares"
+  short_desc: "Ares"
+  long_desc: "Ares is here, kicking your ass."
+  keywords: ['ares']
+  level: 2
+  hp_max: 2130
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '35d35+1500', 'damage_dice': '35d35+1500', 'raw_block': "The God of War is here, studying some maps.  He scowls at you as you enter\nand says 'I am very busy.  What do you want?'\n~\n2|4|32 2|8|32|128|524288 -1000 S\n35 0 -10 35d35+1500 10d2+25\n50000 2000000\n8 8 1"}
+
+- id: 907
+  key: "athena"
+  name: "athena"
+  short_desc: "Athena"
+  long_desc: "Athena is relaxing here."
+  keywords: ['athena']
+  level: 2
+  hp_max: 891
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 330
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '33d33+330', 'damage_dice': '33d33+330', 'raw_block': "Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at\nyou and invites you to join her.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n33 0 -7 33d33+330 15d2+10\n60000 300000\n8 8 2"}
+
+- id: 908
+  key: "hephaestus"
+  name: "hephaestus smith"
+  short_desc: "Hephaestus"
+  long_desc: "Hephaestus the Smith is here, crafting a fine weapon."
+  keywords: ['hephaestus', 'smith']
+  level: 2
+  hp_max: 891
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 330
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '33d33+330', 'damage_dice': '33d33+330', 'raw_block': 'This God is the only one who is not physically perfect.  He is lame and very\nugly.  You get the impression that he is kind, however, and would go out of his\nway to help you.  He is attended by three golden maidens.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n33 0 -7 33d33+330 12d2+26\n60000 550000\n8 8 1'}
+
+- id: 909
+  key: "a_golden_maiden"
+  name: "handmaid golden"
+  short_desc: "A Golden Maiden"
+  long_desc: "A Handmaid of gold is here, assisting the smith."
+  keywords: ['handmaid', 'golden']
+  level: 2
+  hp_max: 259
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '2d8+250', 'damage_dice': '2d8+250', 'raw_block': 'As you gaze upon this creation, you realize that she is made from solid\ngold.  She seems to be very lifelike as she assists the smith in his work.\n~\n2|4 2|8|32|128|8192|524288 0 S\n15 0 0 2d8+250 2d8+2\n1000 21000\n8 8 2'}
+
+- id: 910
+  key: "a_soldier"
+  name: "soldier"
+  short_desc: "A Soldier"
+  long_desc: "A soldier is here, assisting Ares."
+  keywords: ['soldier']
+  level: 2
+  hp_max: 259
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '2d8+250', 'damage_dice': '2d8+250', 'raw_block': 'This man is waiting on Ares.  Although he does not look very strong, you\nrealize that Ares would not have any weaklings working for him.\n~\n2|4|32 2|8|32|128|524288 0 S\n20 0 0 2d8+250 3d6+12\n5000 15000\n8 8 1'}
+
+- id: 911
+  key: "an_apprentice_musician"
+  name: "musician apprentice"
+  short_desc: "an apprentice musician"
+  long_desc: "A musician is here, learning from Apollo."
+  keywords: ['musician', 'apprentice']
+  level: 2
+  hp_max: 89
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '2d8+80', 'damage_dice': '2d8+80', 'raw_block': 'This man has mastered his first profession, and is now studying music from the\nimmortal Apollo.\n~\n2|4|1024 2|8|32|128|524288 1000 S\n8 9 4 2d8+80 2d5+2\n2500 2000\n8 8 1'}
+
+- id: 912
+  key: "a_serving_boy"
+  name: "boy serving servant"
+  short_desc: "A serving boy"
+  long_desc: "A servant is here, feeding Athena her grapes."
+  keywords: ['boy', 'serving', 'servant']
+  level: 2
+  hp_max: 209
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '2d8+200', 'damage_dice': '2d8+200', 'raw_block': 'This boy is truly lucky to be able to serve Athena herself.\n~\n2|4 2|8|32|128|524288 1000 S\n6 15 7 2d8+200 2d3+2\n500 1000\n8 8 1'}
+
+- id: 913
+  key: "a_hound_of_war"
+  name: "hound dog war"
+  short_desc: "A hound of war"
+  long_desc: "A large hound snarls at you."
+  keywords: ['hound', 'dog', 'war']
+  level: 2
+  hp_max: 454
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 450
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d8+450', 'damage_dice': '1d8+450', 'raw_block': 'This great beast can barely be called a dog.  It has been bred to cause fear\non the battle field, and you have no doubt that it does its job well.\n~\n2|4|32 2|8|32|128|524288 -600 S\n20 0 0 1d8+450 2d12+10\n0 45000\n8 8 0'}
+
+- id: 914
+  key: "odin"
+  name: "Odin"
+  short_desc: "Odin"
+  long_desc: "Odin is resting here."
+  keywords: ['Odin']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '35d35+1000', 'damage_dice': '35d35+1000', 'raw_block': 'As you gaze at Odin, you realize how insignificant you truly are.  He towers\nover you, and is so intent on his activities that he barely recognizes your\npresence.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 35d35+1000 10d2+25\n100000 2000000\n8 8 1'}
+
+- id: 915
+  key: "julius_the_green_grocer"
+  name: "grocer greengrocer julius"
+  short_desc: "Julius the Green Grocer"
+  long_desc: "Julius the Green Grocer stands here."
+  keywords: ['grocer', 'greengrocer', 'julius']
+  level: 2
+  hp_max: 2000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d1+1999', 'damage_dice': '1d1+1999', 'raw_block': 'This jovial man has devoted his life to selling fruit and other foods to the\ninhabitants of this city.  Although he may seem like a wimp, it would be wise\nnot to underestimate him.  He smiles warmly at you and shows you his selection\nof delicious looking foods.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n30 0 -4 1d1+1999 3d10+10\n10000 110000\n8 8 1'}
+
+- id: 916
+  key: "the_alchemist"
+  name: "alchemist"
+  short_desc: "the Alchemist"
+  long_desc: "The ancient, wizened Alchemist stands here."
+  keywords: ['alchemist']
+  level: 2
+  hp_max: 2000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d1+1999', 'damage_dice': '1d1+1999', 'raw_block': 'Skilled in all manner of magic, as well as the ancient art of alchemy, he\nstands ready to supply the citizens here (but not you) with all manner of\narcane supplies.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n34 0 -8 1d1+1999 25d2+50\n10000 100000\n8 8 1'}
+
+- id: 917
+  key: "clive_the_weapons_master"
+  name: "clive"
+  short_desc: "Clive the Weapons Master"
+  long_desc: "Clive the Weapons Master is practicing with his bow and axe."
+  keywords: ['clive']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'Clive looks VERY big and VERY tough.  All those years in the army must have\npaid off.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n30 0 -10 30d30+300 10d3+20\n40000 200000\n8 8 1'}
+
+- id: 918
+  key: "samuel_the_armourer"
+  name: "armourer samuel"
+  short_desc: "Samuel the Armourer"
+  long_desc: "Samuel the Armourer glares at you."
+  keywords: ['armourer', 'samuel']
+  level: 2
+  hp_max: 404
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d8+400', 'damage_dice': '1d8+400', 'raw_block': "Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.\nHe doesn't like what you've been doing in his city.\n~\n2|4|32 2|8|32|128|8192|524288 1000 S\n20 0 -3 1d8+400 10d3+20\n10000 60000\n8 8 1"}
+
+- id: 919
+  key: "ra_the_sun_god"
+  name: "ra sun god"
+  short_desc: "Ra the Sun God"
+  long_desc: "Ra the Egyptian Sun God is resting here."
+  keywords: ['ra', 'sun', 'god']
+  level: 2
+  hp_max: 2504
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 2500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d8+2500', 'damage_dice': '1d8+2500', 'raw_block': 'Ra is very bright!  It hurts your eyes to look at him, so you can tell little\nabout his appearance.  What you can tell, however, suggests that he is no one\nto be trifled with.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 1d8+2500 25d2+25\n100000 3000000\n8 8 1'}
+
+- id: 920
+  key: "a_chimera"
+  name: "chimera"
+  short_desc: "a chimera"
+  long_desc: "A chimera prowls the cell."
+  keywords: ['chimera']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'This bizarre creature has three heads - one of a goat, one of a lion, and one\nof a dragon.  It growls at you as you enter the cell, then suddenly attacks!\n~\n2|4|32 2|8|32|128|524288 -1000 S\n20 0 -3 20d20+200 5d5+15\n1000 75000\n8 8 1'}
+
+- id: 921
+  key: "hera"
+  name: "hera"
+  short_desc: "Hera"
+  long_desc: "Hera is here."
+  keywords: ['hera']
+  level: 2
+  hp_max: 1504
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d8+1500', 'damage_dice': '1d8+1500', 'raw_block': 'Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you\nto rest and sit for a while.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 1d8+1500 15d3+15\n100000 1500000\n8 8 2'}
+
+- id: 922
+  key: "a_roc"
+  name: "roc"
+  short_desc: "a roc"
+  long_desc: "A roc is here."
+  keywords: ['roc']
+  level: 4
+  hp_max: 404
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '1d8+400', 'damage_dice': '1d8+400', 'raw_block': 'This is a giant bird.  It looks at you quizzically, then makes a noise and\nlooks away.\n~\n4 2|8|32|128|8192|524288 0 S\n15 0 0 1d8+400 3d8+6\n5000 40000\n8 8 0'}
+
+- id: 923
+  key: "a_citizen"
+  name: "citizen resident"
+  short_desc: "A citizen"
+  long_desc: "A citizen of this town is strolling down the street here."
+  keywords: ['citizen', 'resident']
+  level: 4
+  hp_max: 64
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '1d8+60', 'damage_dice': '1d8+60', 'raw_block': 'He looks happy and carefree.  He smiles and tips his hat to you.\n~\n4 2|8|32|128|8192|524288 1000 S\n4 16 6 1d8+60 2d4+1\n69 500\n8 8 1'}
+
+- id: 924
+  key: "a_pegasus"
+  name: "pegasus horse"
+  short_desc: "a pegasus"
+  long_desc: "A large horse with wings is here."
+  keywords: ['pegasus', 'horse']
+  level: 4
+  hp_max: 114
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 4, 'hit_dice': '1d8+110', 'damage_dice': '1d8+110', 'raw_block': "This horse is snow white with large wings.  Although it doesn't look very\nthreatening, it seems as though it would be dangerous if provoked.\n~\n4 2|8|32|128|8192|524288 0 S\n8 12 4 1d8+110 2d5+3\n800 3000\n8 8 0"}
+
+- id: 925
+  key: "a_cook"
+  name: "cook"
+  short_desc: "A Cook"
+  long_desc: "A cook is here, hard at work."
+  keywords: ['cook']
+  level: 2
+  hp_max: 79
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d8+75', 'damage_dice': '1d8+75', 'raw_block': 'This man looks as is he has been spending WAY too much time in the kitchen.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n5 15 5 1d8+75 2d4+2\n100 1000\n8 8 1'}
+
+- id: 926
+  key: "the_jailer"
+  name: "jailer"
+  short_desc: "The Jailer"
+  long_desc: "The jailer is here, watching for intruders."
+  keywords: ['jailer']
+  level: 2
+  hp_max: 624
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 620
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '1d8+620', 'damage_dice': '1d8+620', 'raw_block': 'He looks as though he has spent a lot of time underground, guarding the\nprisoners.\n~\n2|4 2|8|32|128|8192|524288 0 S\n13 8 2 1d8+620 2d6+1\n1000 13000\n8 8 1'}
+

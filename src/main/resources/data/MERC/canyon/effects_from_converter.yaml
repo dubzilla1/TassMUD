@@ -1,0 +1,61 @@
+effects:
+  - id: "9000"
+    name: "dagger_fiery damage +4"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_DAMAGE_BONUS
+      op: ADD
+      value: 4
+  - id: "9001"
+    name: "sword_lightning_bolt hit +-1"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_HIT_BONUS
+      op: ADD
+      value: -1
+  - id: "9002"
+    name: "cloak_waterfall hit +-2"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_HIT_BONUS
+      op: ADD
+      value: -2
+  - id: "9003"
+    name: "shock_whip damage +3"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_DAMAGE_BONUS
+      op: ADD
+      value: 3

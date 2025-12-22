@@ -1,0 +1,104 @@
+items:
+  - id: 8600
+    key: bells
+    name: morris bells
+    description: A set of leggings with a dozen brass bells sewn on has been left here.
+    weight: 5
+    value: 100
+    type: armor
+    slot: legs
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [bells]
+    template_json:
+      raw_block: |
+        They look like the leggings worn by Morris dancers.  There is a motto tooled
+        into the leather.
+        ~
+        E
+        motto~
+        'Time on the ground is time wasted.'
+        ~
+      type_line: 9 0 1|32
+      extra_desc: 'Time on the ground is time wasted.'
+  - id: 8601
+    key: handkerchief_hankie_kerchief
+    name: a morris handkerchief
+    description: A white handkerchief is here.
+    weight: 5
+    value: 100
+    type: armor
+    slot: wrist
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [handkerchief, hankie, kerchief]
+    template_json:
+      raw_block: |
+        9 0 1|4096
+        3 0 0 0
+        5 100 100
+        E
+        handkerchief hankie kerchief~
+        This is a fine linen handkerchief used for ritual Morris dances.
+        ~
+      type_line: 9 0 1|4096
+      extra_desc: This is a fine linen handkerchief used for ritual Morris dances.
+  - id: 8602
+    key: sash
+    name: a morris sash
+    description: A white sash is here.
+    weight: 5
+    value: 100
+    type: armor
+    slot: waist
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [sash]
+    template_json:
+      raw_block: |
+        9 0 1|2048
+        3 0 0 0
+        5 100 100
+        E
+        sash~
+        This is a fine linen sash used for ritual Morris dances.
+        ~
+      type_line: 9 0 1|2048
+      extra_desc: This is a fine linen sash used for ritual Morris dances.
+  - id: 8603
+    key: staff
+    name: a morris staff
+    description: A short, stout staff made of polished wood is here.
+    weight: 5
+    value: 10000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 34
+    hands: 2
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff]
+    template_json:
+      raw_block: |
+        4 0 1|16384
+        10 4 4 34
+        5 10000 10000
+        E
+        stick staff~
+        Made from the wood of a Yule Tree, this staff is about one meter long and
+        highly polished.  It looks more like a ritual device than a weapon.
+        ~
+      type_line: 4 0 1|16384
+      extra_desc: |
+        Made from the wood of a Yule Tree, this staff is about one meter long and
+        highly polished.  It looks more like a ritual device than a weapon.

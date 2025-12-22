@@ -1,0 +1,2017 @@
+items:
+  - id: 3000
+    key: barrel_beer
+    name: a barrel of beer
+    description: A beer barrel has been left here.
+    weight: 65
+    value: 300
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [barrel, beer]
+    template_json:
+      raw_block: |
+        #3000
+        barrel beer~
+        a barrel of beer~
+        A beer barrel has been left here.~
+        ~
+        17 0 1
+        50 50 1 0
+        65 300 100
+      type_line: 17 0 1
+  - id: 3001
+    key: bottle_beer
+    name: a bottle of beer
+    description: A beer bottle has been left here.
+    weight: 10
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [bottle, beer]
+    template_json:
+      raw_block: |
+        #3001
+        bottle beer~
+        a bottle of beer~
+        A beer bottle has been left here.~
+        ~
+        17 0 1
+        8 8 1 0
+        10 20 8
+      type_line: 17 0 1
+  - id: 3002
+    key: bottle_ale
+    name: a bottle of ale
+    description: A dark bottle of ale has been left here.
+    weight: 10
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [bottle, ale]
+    template_json:
+      raw_block: |
+        #3002
+        bottle ale~
+        a bottle of ale~
+        A dark bottle of ale has been left here.~
+        ~
+        17 0 1
+        8 8 3 0
+        10 10 3
+      type_line: 17 0 1
+  - id: 3003
+    key: bottle_firebreather
+    name: a bottle of firebreather
+    description: A firebreather has been left here.
+    weight: 10
+    value: 50
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [bottle, firebreather]
+    template_json:
+      raw_block: |
+        #3003
+        bottle firebreather~
+        a bottle of firebreather~
+        A firebreather has been left here.~
+        ~
+        17 0 1
+        8 8 7 0
+        10 50 17
+      type_line: 17 0 1
+  - id: 3004
+    key: bottle_local
+    name: a bottle of local specialty
+    description: A dark bottle has been left here.
+    weight: 10
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [bottle, local]
+    template_json:
+      raw_block: |
+        #3004
+        bottle local~
+        a bottle of local specialty~
+        A dark bottle has been left here.~
+        ~
+        17 0 1
+        8 8 8 0
+        10 20 7
+      type_line: 17 0 1
+  - id: 3005
+    key: axe_blade
+    name: an executioner's axe
+    description: An executioner's axe is here waiting to possess its next user.
+    weight: 60
+    value: 30000
+    type: weapon
+    multiplier: 5
+    base_die: 6
+    damage_bonus: 1
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - ANTI_EVIL
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [axe, blade]
+    template_json:
+      raw_block: |
+        0 5 6 1
+        60 30000 10000
+        E
+        axe blade~
+        It is quite heavy.  The blade is made of some metal that you can't even
+        spell.  The edge of the blade looks as if it could cut through anything
+        or anyone.
+        ~
+      type_line: 5 1024|2048 1|8192
+      extra_desc: |
+        It is quite heavy.  The blade is made of some metal that you can't even
+        spell.  The edge of the blade looks as if it could cut through anything
+        or anyone.
+  - id: 3009
+    key: potpie_pot_pie
+    name: a big pot pie
+    description: A big pot pie has been left here.
+    weight: 5
+    value: 100
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [potpie, pot, pie]
+    template_json:
+      raw_block: |
+        #3009
+        potpie pot pie~
+        a big pot pie~
+        A big pot pie has been left here.~
+        ~
+        19 0 1
+        40 0 0 0
+        5 100 10
+      type_line: 19 0 1
+  - id: 3010
+    key: pit
+    name: the donation pit
+    description: A pit for sacrifices is in front of the altar.
+    weight: 0
+    value: 0
+    type: container
+    keywords: [pit]
+    template_json:
+      raw_block: |
+        15 0 0
+        10000 0 0 0
+        0 0 0
+        E
+        pit~
+        This is where you put money and items to help Doz expand this shrine and
+        convert more people to the belief of Eru our creator.
+        ~
+      type_line: 15 0 0
+      extra_desc: |
+        This is where you put money and items to help Doz expand this shrine and
+        convert more people to the belief of Eru our creator.
+  - id: 3020
+    key: dagger
+    name: a dagger
+    description: A dagger with a long thin blade is here.
+    weight: 1
+    value: 10
+    type: weapon
+    multiplier: 2
+    base_die: 4
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dagger]
+    template_json:
+      raw_block: |
+        #3020
+        dagger~
+        a dagger~
+        A dagger with a long thin blade is here.~
+        ~
+        5 0 8193
+        0 2 4 11
+        1 10 3
+      type_line: 5 0 8193
+  - id: 3021
+    key: sword_small
+    name: a small sword
+    description: A small sword lies here.
+    weight: 3
+    value: 60
+    type: weapon
+    multiplier: 2
+    base_die: 5
+    damage_bonus: 11
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, small]
+    template_json:
+      raw_block: |
+        #3021
+        sword small~
+        a small sword~
+        A small sword lies here.~
+        ~
+        5 0 8193
+        0 2 5 11
+        3 60 20
+      type_line: 5 0 8193
+  - id: 3022
+    key: sword_long
+    name: a long sword
+    description: A long sword has been left here.
+    weight: 8
+    value: 100
+    type: weapon
+    multiplier: 2
+    base_die: 6
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, long]
+    template_json:
+      raw_block: |
+        #3022
+        sword long~
+        a long sword~
+        A long sword has been left here.~
+        ~
+        5 0 8193
+        0 2 6 3
+        8 100 200
+      type_line: 5 0 8193
+  - id: 3030
+    key: torch
+    name: a torch
+    description: A large torch.
+    weight: 1
+    value: 10
+    type: held
+    wear_flags:
+      - TAKE
+    keywords: [torch]
+    template_json:
+      raw_block: |
+        #3030
+        torch~
+        a torch~
+        A large torch.~
+        ~
+        1 0 65537
+        0 0 24 0
+        1 10 3
+      type_line: 1 0 65537
+  - id: 3031
+    key: lantern
+    name: a hooded brass lantern
+    description: A hooded brass lantern has been left here.
+    weight: 4
+    value: 60
+    type: held
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [lantern]
+    template_json:
+      raw_block: |
+        It is a large and robust but somewhat battered oil lantern made from brass,
+        equipped with a handle to make it handy and a hood to protect its flame.
+        Some letters have been scratched on its bottom.
+        ~
+        E
+        letters~
+        They say, "Use 'hold lantern' to activate."
+        ~
+      type_line: 1 0 16385
+      extra_desc: They say, "Use 'hold lantern' to activate."
+  - id: 3032
+    key: bag
+    name: a bag
+    description: A small bag.
+    weight: 2
+    value: 20
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [bag]
+    template_json:
+      raw_block: |
+        #3032
+        bag~
+        a bag~
+        A small bag.~
+        ~
+        15 0 1
+        50 0 0 0
+        2 20 7
+      type_line: 15 0 1
+  - id: 3033
+    key: box
+    name: a box
+    description: A small box.
+    weight: 5
+    value: 50
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [box]
+    template_json:
+      raw_block: |
+        #3033
+        box~
+        a box~
+        A small box.~
+        ~
+        15 0 1
+        10 0 0 0
+        5 50 7
+      type_line: 15 0 1
+  - id: 3040
+    key: scroll_identify
+    name: a scroll of identify
+    description: A scroll has carelessly been left here.
+    weight: 1
+    value: 2000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll, identify]
+    spell_ids:
+      - 12
+      - 53
+    template_json:
+      raw_block: |
+        The scroll has a magic formula drawn upon it:
+             ???
+            ?   ?
+               ?
+              ?
+              ?
+              *
+        ~
+      type_line: 2 64 1
+      extra_desc: |
+        The scroll has a magic formula drawn upon it:
+             ???
+            ?   ?
+               ?
+              ?
+              ?
+              *
+  - id: 3041
+    key: potion_yellow
+    name: a yellow potion of see invisible
+    description: A small yellow potion has carelessly been left here.
+    weight: 1
+    value: 400
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion, yellow]
+    spell_ids:
+      - 12
+      - 19
+    template_json:
+      raw_block: |
+        ~
+        10 64 1
+        12 19 -1 -1
+        1 400 50
+        E
+        potion yellow~
+        The potion has a small label 'Detect The Invisible'.
+        ~
+      type_line: 10 64 1
+      extra_desc: The potion has a small label 'Detect The Invisible'.
+  - id: 3042
+    key: scroll_recall
+    name: a scroll of recall
+    description: A scroll has carelessly been left here.
+    weight: 4
+    value: 2000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll, recall]
+    spell_ids:
+      - 12
+      - 42
+    template_json:
+      raw_block: |
+        ~
+        2 64 1
+        12 42 -1 -1
+        4 2000 100
+        E
+        scroll~
+        The scroll has written a formulae of 'Word of Recall' upon it.
+        ~
+      type_line: 2 64 1
+      extra_desc: The scroll has written a formulae of 'Word of Recall' upon it.
+  - id: 3045
+    key: jacket_scale_mail
+    name: a scale mail jacket
+    description: A scale mail jacket is lying on the ground.
+    weight: 40
+    value: 1000
+    type: armor
+    slot: chest
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [jacket, scale, mail]
+    template_json:
+      raw_block: |
+        #3045
+        jacket scale mail~
+        a scale mail jacket~
+        A scale mail jacket is lying on the ground.~
+        ~
+        9 0 9
+        4 0 0 0
+        40 1000 300
+      type_line: 9 0 9
+  - id: 3046
+    key: bronze_breast_plate
+    name: a bronze breast plate
+    description: A bronze breast plate is lying on the ground.
+    weight: 80
+    value: 7000
+    type: armor
+    slot: chest
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [bronze, breast, plate]
+    template_json:
+      raw_block: |
+        #3046
+        bronze breast plate~
+        a bronze breast plate~
+        A bronze breast plate is lying on the ground.~
+        ~
+        9 0 9
+        6 0 0 0
+        80 7000 2250
+      type_line: 9 0 9
+  - id: 3050
+    key: raft
+    name: a raft
+    description: A raft has been left here.
+    weight: 75
+    value: 400
+    type: immobile
+    wear_flags:
+      - TAKE
+    keywords: [raft]
+    template_json:
+      raw_block: |
+        ~
+        22 0 1
+        0 0 0 0
+        75 400 20000
+        E
+        raft~
+        The raft looks very primitive.
+        ~
+      type_line: 22 0 1
+      extra_desc: The raft looks very primitive.
+  - id: 3051
+    key: canoe
+    name: a canoe
+    description: A canoe has been left here.
+    weight: 32
+    value: 1000
+    type: immobile
+    wear_flags:
+      - TAKE
+    keywords: [canoe]
+    template_json:
+      raw_block: |
+        ~
+        22 0 1
+        0 0 0 0
+        32 1000 10000
+        E
+        canoe~
+        The canoe is fairly light.
+        ~
+      type_line: 22 0 1
+      extra_desc: The canoe is fairly light.
+  - id: 3060
+    key: jerkin
+    name: a leather jerkin
+    description: A leather jerkin is lying on the ground.
+    weight: 5
+    value: 100
+    type: armor
+    slot: chest
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [jerkin]
+    template_json:
+      raw_block: |
+        #3060
+        jerkin~
+        a leather jerkin~
+        A leather jerkin is lying on the ground.~
+        ~
+        9 0 9
+        2 0 0 0
+        5 100 20
+      type_line: 9 0 9
+  - id: 3061
+    key: cap
+    name: a leather cap
+    description: A leather cap is lying on the ground.
+    weight: 1
+    value: 50
+    type: armor
+    slot: head
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [cap]
+    template_json:
+      raw_block: |
+        #3061
+        cap~
+        a leather cap~
+        A leather cap is lying on the ground.~
+        ~
+        9 0 17
+        2 0 0 0
+        1 50 10
+      type_line: 9 0 17
+  - id: 3062
+    key: pants
+    name: a pair of leather pants
+    description: A pair of leather pants is lying on the ground.
+    weight: 5
+    value: 50
+    type: armor
+    slot: legs
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [pants]
+    template_json:
+      raw_block: |
+        #3062
+        pants~
+        a pair of leather pants~
+        A pair of leather pants is lying on the ground.~
+        ~
+        9 0 33
+        2 0 0 0
+        5 50 10
+      type_line: 9 0 33
+  - id: 3063
+    key: boots
+    name: a pair of leather boots
+    description: A pair of leather boots lies here.
+    weight: 3
+    value: 50
+    type: armor
+    slot: boots
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots]
+    template_json:
+      raw_block: |
+        #3063
+        boots~
+        a pair of leather boots~
+        A pair of leather boots lies here.~
+        ~
+        9 0 65
+        2 0 0 0
+        3 50 10
+      type_line: 9 0 65
+  - id: 3064
+    key: gloves
+    name: a pair of leather gloves
+    description: A pair of leather gloves is lying on the ground.
+    weight: 1
+    value: 50
+    type: armor
+    slot: hands
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves]
+    template_json:
+      raw_block: |
+        #3064
+        gloves~
+        a pair of leather gloves~
+        A pair of leather gloves is lying on the ground.~
+        ~
+        9 0 129
+        2 0 0 0
+        1 50 10
+      type_line: 9 0 129
+  - id: 3065
+    key: sleeves
+    name: a pair of leather sleeves
+    description: A pair of leather sleeves is lying on the ground.
+    weight: 3
+    value: 50
+    type: armor
+    slot: arms
+    armor_class: 2
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves]
+    template_json:
+      raw_block: |
+        #3065
+        sleeves~
+        a pair of leather sleeves~
+        A pair of leather sleeves is lying on the ground.~
+        ~
+        9 0 257
+        2 0 0 0
+        3 50 10
+      type_line: 9 0 257
+  - id: 3066
+    key: jerkin
+    name: a studded leather jerkin
+    description: A studded leather jerkin is lying on the ground.
+    weight: 10
+    value: 200
+    type: armor
+    slot: chest
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [jerkin]
+    template_json:
+      raw_block: |
+        #3066
+        jerkin~
+        a studded leather jerkin~
+        A studded leather jerkin is lying on the ground.~
+        ~
+        9 0 9
+        3 0 0 0
+        10 200 40
+      type_line: 9 0 9
+  - id: 3067
+    key: cap
+    name: a hard leather cap
+    description: A hard leather cap is lying on the ground.
+    weight: 2
+    value: 100
+    type: armor
+    slot: head
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [cap]
+    template_json:
+      raw_block: |
+        #3067
+        cap~
+        a hard leather cap~
+        A hard leather cap is lying on the ground.~
+        ~
+        9 0 17
+        3 0 0 0
+        2 100 20
+      type_line: 9 0 17
+  - id: 3068
+    key: pants
+    name: a pair of studded leather pants
+    description: A pair of studded leather pants is lying on the ground.
+    weight: 8
+    value: 100
+    type: armor
+    slot: legs
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [pants]
+    template_json:
+      raw_block: |
+        #3068
+        pants~
+        a pair of studded leather pants~
+        A pair of studded leather pants is lying on the ground.~
+        ~
+        9 0 33
+        3 0 0 0
+        8 100 20
+      type_line: 9 0 33
+  - id: 3069
+    key: boots
+    name: a pair of hard leather boots
+    description: A pair of hard leather boots lies here.
+    weight: 4
+    value: 100
+    type: armor
+    slot: boots
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots]
+    template_json:
+      raw_block: |
+        #3069
+        boots~
+        a pair of hard leather boots~
+        A pair of hard leather boots lies here.~
+        ~
+        9 0 65
+        3 0 0 0
+        4 100 20
+      type_line: 9 0 65
+  - id: 3070
+    key: gloves
+    name: a pair of hard leather gloves
+    description: A pair of hard leather gloves is lying on the ground.
+    weight: 1
+    value: 100
+    type: armor
+    slot: hands
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves]
+    template_json:
+      raw_block: |
+        #3070
+        gloves~
+        a pair of hard leather gloves~
+        A pair of hard leather gloves is lying on the ground.~
+        ~
+        9 0 129
+        3 0 0 0
+        1 100 20
+      type_line: 9 0 129
+  - id: 3071
+    key: sleeves
+    name: a pair of studded leather sleeves
+    description: A pair of studded leather sleeves is lying on the ground.
+    weight: 4
+    value: 100
+    type: armor
+    slot: arms
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves]
+    template_json:
+      raw_block: |
+        #3071
+        sleeves~
+        a pair of studded leather sleeves~
+        A pair of studded leather sleeves is lying on the ground.~
+        ~
+        9 0 257
+        3 0 0 0
+        4 100 20
+      type_line: 9 0 257
+  - id: 3072
+    key: jerkin_scale_mail
+    name: a scale mail jerkin
+    description: A scale mail jerkin is lying on the ground.
+    weight: 20
+    value: 500
+    type: armor
+    slot: chest
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [jerkin, scale, mail]
+    template_json:
+      raw_block: |
+        #3072
+        jerkin scale mail~
+        a scale mail jerkin~
+        A scale mail jerkin is lying on the ground.~
+        ~
+        9 0 9
+        4 0 0 0
+        20 500 100
+      type_line: 9 0 9
+  - id: 3073
+    key: coif_scale_mail
+    name: a scale mail coif
+    description: A scale mail coif is lying on the ground.
+    weight: 4
+    value: 250
+    type: armor
+    slot: head
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [coif, scale, mail]
+    template_json:
+      raw_block: |
+        #3073
+        coif scale mail~
+        a scale mail coif~
+        A scale mail coif is lying on the ground.~
+        ~
+        9 0 17
+        4 0 0 0
+        4 250 50
+      type_line: 9 0 17
+  - id: 3074
+    key: skirt_scale_mail
+    name: a long scale mail skirt
+    description: A long scale mail skirt is lying on the ground.
+    weight: 20
+    value: 250
+    type: armor
+    slot: legs
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [skirt, scale, mail]
+    template_json:
+      raw_block: |
+        #3074
+        skirt scale mail~
+        a long scale mail skirt~
+        A long scale mail skirt is lying on the ground.~
+        ~
+        9 0 33
+        4 0 0 0
+        20 250 50
+      type_line: 9 0 33
+  - id: 3075
+    key: boots_reinforced
+    name: a pair of reinforced boots
+    description: A pair of reinforced boots lies here.
+    weight: 6
+    value: 250
+    type: armor
+    slot: boots
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots, reinforced]
+    template_json:
+      raw_block: |
+        #3075
+        boots reinforced~
+        a pair of reinforced boots~
+        A pair of reinforced boots lies here.~
+        ~
+        9 0 65
+        4 0 0 0
+        6 250 50
+      type_line: 9 0 65
+  - id: 3076
+    key: gloves_reinforced
+    name: a pair of reinforced gloves
+    description: A pair of reinforced gloves is lying on the ground.
+    weight: 2
+    value: 250
+    type: armor
+    slot: hands
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves, reinforced]
+    template_json:
+      raw_block: |
+        #3076
+        gloves reinforced~
+        a pair of reinforced gloves~
+        A pair of reinforced gloves is lying on the ground.~
+        ~
+        9 0 129
+        4 0 0 0
+        2 250 50
+      type_line: 9 0 129
+  - id: 3077
+    key: sleeves_scale_mail
+    name: a pair of scale mail sleeves
+    description: A pair of scale mail sleeves is lying on the ground.
+    weight: 8
+    value: 250
+    type: armor
+    slot: arms
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves, scale, mail]
+    template_json:
+      raw_block: |
+        #3077
+        sleeves scale mail~
+        a pair of scale mail sleeves~
+        A pair of scale mail sleeves is lying on the ground.~
+        ~
+        9 0 257
+        4 0 0 0
+        8 250 50
+      type_line: 9 0 257
+  - id: 3097
+    key: shield_small_metal
+    name: a small metal shield
+    description: A small metal shield is lying on the ground.
+    weight: 3
+    value: 500
+    type: armor
+    slot: off_hand
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, small, metal]
+    template_json:
+      raw_block: |
+        #3097
+        shield small metal~
+        a small metal shield~
+        A small metal shield is lying on the ground.~
+        ~
+        9 0 513
+        4 0 0 0
+        3 500 100
+      type_line: 9 0 513
+  - id: 3100
+    key: tea_cup
+    name: a cup of tea
+    description: A cup has been set here.
+    weight: 3
+    value: 5
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [tea, cup]
+    template_json:
+      raw_block: |
+        ~
+        17 0 1
+        2 2 11 0
+        3 5 1
+        E
+        cup~
+        It is a small simple cup.
+        ~
+      type_line: 17 0 1
+      extra_desc: It is a small simple cup.
+  - id: 3101
+    key: coffee_cup
+    name: a cup of coffee
+    description: A cup has been set here.
+    weight: 3
+    value: 7
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coffee, cup]
+    template_json:
+      raw_block: |
+        ~
+        17 0 1
+        2 2 12 0
+        3 7 1
+        E
+        cup~
+        It is a small simple cup.
+        ~
+      type_line: 17 0 1
+      extra_desc: It is a small simple cup.
+  - id: 3102
+    key: water_cup
+    name: a cup of water
+    description: A cup has been set here.
+    weight: 3
+    value: 2
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [water, cup]
+    template_json:
+      raw_block: |
+        ~
+        17 0 1
+        2 2 0 0
+        3 2 1
+        E
+        cup~
+        It is a large simple cup.
+        ~
+      type_line: 17 0 1
+      extra_desc: It is a large simple cup.
+  - id: 3105
+    key: bracer_bronze
+    name: a bronze bracer
+    description: A bronze bracer is lying on the ground.
+    weight: 8
+    value: 2500
+    type: armor
+    slot: wrist
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracer, bronze]
+    template_json:
+      raw_block: |
+        #3105
+        bracer bronze~
+        a bronze bracer~
+        A bronze bracer is lying on the ground.~
+        ~
+        9 0 4097
+        6 0 0 0
+        8 2500 500
+      type_line: 9 0 4097
+  - id: 3106
+    key: bracer_iron
+    name: an iron bracer
+    description: An iron bracer is lying on the ground.
+    weight: 8
+    value: 5000
+    type: armor
+    slot: wrist
+    armor_class: 7
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracer, iron]
+    template_json:
+      raw_block: |
+        #3106
+        bracer iron~
+        an iron bracer~
+        An iron bracer is lying on the ground.~
+        ~
+        9 0 4097
+        7 0 0 0
+        8 5000 1000
+      type_line: 9 0 4097
+  - id: 3120
+    key: key_iron
+    name: a key
+    description: An iron key has been left here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, iron]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 10
+        E
+        key iron~
+        The iron key is not special.
+        ~
+      type_line: 18 0 1
+      extra_desc: The iron key is not special.
+  - id: 3121
+    key: key_rusty
+    name: a key
+    description: A rusty key has been left here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, rusty]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 10
+        E
+        key rusty~
+        The key is a fairly large rusty key.  You notice some fresh dirt on it.
+        ~
+      type_line: 18 0 1
+      extra_desc: The key is a fairly large rusty key.  You notice some fresh dirt on it.
+  - id: 3122
+    key: key_wooden
+    name: a key
+    description: A wooden key has been left here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, wooden]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 10
+        E
+        key wooden~
+        The wooden key is not special.
+        ~
+      type_line: 18 0 1
+      extra_desc: The wooden key is not special.
+  - id: 3123
+    key: key_brass
+    name: a key
+    description: A brass key has been left here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, brass]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 10
+        E
+        key brass~
+        The brass key is small and looks like it fits a very complicated lock.
+        ~
+      type_line: 18 0 1
+      extra_desc: The brass key is small and looks like it fits a very complicated lock.
+  - id: 3124
+    key: sword_long
+    name: a long sword
+    description: A long sword has been left here.
+    weight: 8
+    value: 600
+    type: weapon
+    multiplier: 3
+    base_die: 8
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword, long]
+    template_json:
+      raw_block: |
+        ~
+        5 0 8193
+        0 3 8 3
+        8 600 200
+        E
+        sword long~
+        This is the ceremonial sword of the Mayor of Midgaard.
+        ~
+      type_line: 5 0 8193
+      extra_desc: This is the ceremonial sword of the Mayor of Midgaard.
+  - id: 3129
+    key: hand_cuffs
+    name: a pair of hand cuffs
+    description: A pair of hand cuffs has been left here.
+    weight: 4
+    value: 200
+    type: trash
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [hand, cuffs]
+    template_json:
+      raw_block: |
+        #3129
+        hand cuffs~
+        a pair of hand cuffs~
+        A pair of hand cuffs has been left here.~
+        ~
+        13 0 16385
+        0 0 0 0
+        4 200 40
+      type_line: 13 0 16385
+  - id: 3130
+    key: desk_drawer
+    name: the desk
+    description: A desk is set against the western wall.
+    weight: 15
+    value: 0
+    type: unknown
+    keywords: [desk, drawer]
+    template_json:
+      raw_block: |
+        ~
+        15 0 0
+        34 15 3122 0
+        100 0 100000
+        E
+        drawer~
+        You notice a keyhole in the drawer.
+        ~
+      type_line: The desk looks very sparse, there is a drawer in the left side.
+      extra_desc: You notice a keyhole in the drawer.
+  - id: 3131
+    key: safe
+    name: the safe
+    description: A safe is placed in a dark corner of the room.
+    weight: 15
+    value: 0
+    type: unknown
+    keywords: [safe]
+    template_json:
+      raw_block: |
+        ~
+        15 0 0
+        34 15 3123 0
+        100 0 100000
+        E
+        safe~
+        The safe is very heavy.
+        ~
+      type_line: The safe has a keyhole.
+      extra_desc: The safe is very heavy.
+  - id: 3132
+    key: gold_coins
+    name: the gold
+    description: A lot of gold is here.
+    weight: 20
+    value: 0
+    type: unknown
+    keywords: [gold, coins]
+    template_json:
+      raw_block: |
+        gold coins~
+        the gold~
+        A lot of gold is here.~
+        Looks like at least 10,000 coins.
+        ~
+        20 0 1
+        52385 0 0 0
+        0 52385 0
+      type_line: Looks like at least 10,000 coins.
+  - id: 3133
+    key: city_key
+    name: the City Key
+    description: The very big City Key is lying here.
+    weight: Arms.
+    value: 0
+    type: unknown
+    keywords: [city, key]
+    template_json:
+      raw_block: |
+        The very big City Key is lying here.~
+        It is probably the biggest key you have seen in your life.  It is made from
+        polished gold and has various patterns on it along with the Midgaard Coat of
+        Arms.
+        ~
+        18 0 1
+        0 0 0 0
+        10 10000 5000
+      type_line: It is probably the biggest key you have seen in your life.  It is made from
+  - id: 3134
+    key: bench
+    name: the Bench
+    description: A white-painted wooden bench is standing here.
+    weight: 100
+    value: 600
+    type: immobile
+    keywords: [bench]
+    template_json:
+      raw_block: |
+        0 0 0 0
+        100 600 200
+        E
+        bench~
+        It is a quite heavy but very comfortable bench.  It is placed with its front
+        towards the river so you can sit and watch the river and the houses on the
+        other side.
+        ~
+      type_line: 12 0 0
+      extra_desc: |
+        It is a quite heavy but very comfortable bench.  It is placed with its front
+        towards the river so you can sit and watch the river and the houses on the
+        other side.
+  - id: 3135
+    key: fountain_water
+    name: a fountain
+    description: A small white fountain gushes forth here.
+    weight: 500
+    value: 3000
+    type: immobile
+    keywords: [fountain, water]
+    template_json:
+      raw_block: |
+        ~
+        25 0 0
+        50 50 0 0
+        500 3000 1000
+        E
+        fountain~
+        It is very nice.  Made from fine white marble.
+        ~
+      type_line: 25 0 0
+      extra_desc: It is very nice.  Made from fine white marble.
+  - id: 3136
+    key: coins_gold
+    name: a small pile of gold coins
+    description: A small pile of gold coins lies here.
+    weight: 0
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins, gold]
+    template_json:
+      raw_block: |
+        #3136
+        coins gold~
+        a small pile of gold coins~
+        A small pile of gold coins lies here.~
+        ~
+        20 0 1
+        20 0 0 0
+        0 0 0
+      type_line: 20 0 1
+  - id: 3137
+    key: key_steel
+    name: a steel key
+    description: A large steel key has been left here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, steel]
+    template_json:
+      raw_block: |
+        ~
+        18 0 1
+        0 0 0 0
+        1 0 10
+        E
+        key steel~
+        A key of this size must fit a very strong lock.
+        ~
+      type_line: 18 0 1
+      extra_desc: A key of this size must fit a very strong lock.
+  - id: 3138
+    key: skin_water_buffalo
+    name: a buffalo water skin
+    description: A bloated dead buffalo is on the floor.
+    weight: 5
+    value: 30
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [skin, water, buffalo]
+    template_json:
+      raw_block: |
+        #3138
+        skin water buffalo~
+        a buffalo water skin~
+        A bloated dead buffalo is on the floor.~
+        ~
+        17 0 1
+        100 100 0 0
+        5 30 5
+      type_line: 17 0 1
+  - id: 3139
+    key: letter_resignation
+    name: the receptionist's letter of resignation
+    description: The receptionist's letter of resignation is taped to the wall.
+    weight: 999
+    value: 0
+    type: immobile
+    keywords: [letter, resignation]
+    template_json:
+      raw_block: |
+        
+                Merc Industries has installed a new no-rent save and quit
+                system.  Apparently one can now save and quit at any time
+                from anywhere inside a town or out.  My services here are
+                no longer required.
+        
+            Diana the Receptionist
+        ~
+      type_line: 12 0 0
+      extra_desc: |
+        The letter is written in a bold and feminine Carolinian hand.
+        
+            To whom it may concern,
+        
+                Merc Industries has installed a new no-rent save and quit
+                system.  Apparently one can now save and quit at any time
+                from anywhere inside a town or out.  My services here are
+                no longer required.
+        
+            Diana the Receptionist
+  - id: 3140
+    key: notice_liquidation_bank
+    name: the bank's notice of liquidation
+    description: The bank's notice of liquidation is taped to the wall.
+    weight: 999
+    value: 0
+    type: immobile
+    keywords: [notice, liquidation, bank]
+    template_json:
+      raw_block: |
+        
+                Merc Industries has charmed your money.  Apparently one's
+                gold will remain close, even beyond death. We are closing
+                down our offices and ATM machines.  Our services here are
+                no longer required.
+        
+            Midgaard City Bank
+        ~
+      type_line: 12 0 0
+      extra_desc: |
+        The letter is written in a reserved and dignified Spencer hand.
+        
+            To whom it may concern,
+        
+                Merc Industries has charmed your money.  Apparently one's
+                gold will remain close, even beyond death. We are closing
+                down our offices and ATM machines.  Our services here are
+                no longer required.
+        
+            Midgaard City Bank
+  - id: 3350
+    key: sword
+    name: a standard issue sword
+    description: You see a standard issue sword here.
+    weight: 5
+    value: 0
+    type: weapon
+    multiplier: 3
+    base_die: 4
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sword]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        sword~
+        You see a sword of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 64 8193
+      extra_desc: |
+        You see a sword of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3351
+    key: dagger
+    name: a standard issue dagger
+    description: You see a standard issue dagger here.
+    weight: 5
+    value: 0
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dagger]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 501
+      - 503
+    template_json:
+      raw_block: |
+        dagger~
+        You see a dagger of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+        A
+        18 2
+        A
+        19 1
+      type_line: 5 64 8193
+      extra_desc: |
+        You see a dagger of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3352
+    key: mace
+    name: a standard issue mace
+    description: You see a standard issue mace here.
+    weight: 5
+    value: 0
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 7
+    weapon_family: CLUBS
+    weapon_category: SIMPLE
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [mace]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        mace~
+        You see a mace of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+        A
+        18 2
+        A
+        19 2
+      type_line: 5 64 8193
+      extra_desc: |
+        You see a mace of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3353
+    key: vest
+    name: a standard issue vest
+    description: You see a standard issue vest here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: chest
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [vest]
+    template_json:
+      raw_block: |
+        9 0 9
+        5 0 0 0
+        5 0 500
+        E
+        vest~
+        You see a vest of great craftsmanship.  Stamped on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 9
+      extra_desc: |
+        You see a vest of great craftsmanship.  Stamped on the side is:
+        Merc Industries
+  - id: 3354
+    key: shield
+    name: a standard issue shield
+    description: You see a standard issue shield here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: off_hand
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield]
+    template_json:
+      raw_block: |
+        9 0 513
+        5 0 0 0
+        5 0 500
+        E
+        shield~
+        You see a shield of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 513
+      extra_desc: |
+        You see a shield of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3355
+    key: cloak
+    name: a standard issue cloak
+    description: You see a standard issue cloak here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: neck
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [cloak]
+    template_json:
+      raw_block: |
+        9 0 5
+        5 0 0 0
+        5 0 500
+        E
+        cloak~
+        You see a cloak of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 5
+      extra_desc: |
+        You see a cloak of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3356
+    key: helmet
+    name: a standard issue helmet
+    description: You see a standard issue helmet here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: head
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helmet]
+    template_json:
+      raw_block: |
+        9 0 17
+        5 0 0 0
+        5 0 500
+        E
+        helmet~
+        You see a helmet of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 17
+      extra_desc: |
+        You see a helmet of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3357
+    key: leggings
+    name: a pair of standard issue leggings
+    description: You see a pair of standard issue leggings here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: legs
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_LEGS
+    keywords: [leggings]
+    template_json:
+      raw_block: |
+        9 0 33
+        5 0 0 0
+        5 0 500
+        E
+        leggings~
+        You see leggings of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 33
+      extra_desc: |
+        You see leggings of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3358
+    key: boots
+    name: a pair of standard issue boots
+    description: You see a pair of standard issue boots here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: boots
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots]
+    template_json:
+      raw_block: |
+        9 0 65
+        5 0 0 0
+        5 0 500
+        E
+        boots~
+        You see boots of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 65
+      extra_desc: |
+        You see boots of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3359
+    key: gloves
+    name: a pair of standard issue gloves
+    description: You see a pair of standard issue gloves here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: hands
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves]
+    template_json:
+      raw_block: |
+        9 0 129
+        5 0 0 0
+        5 0 500
+        E
+        gloves~
+        You see gloves of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 129
+      extra_desc: |
+        You see gloves of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3360
+    key: sleeves
+    name: a pair of standard issue sleeves
+    description: You see a pair of standard issue sleeves here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: arms
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_ARMS
+    keywords: [sleeves]
+    template_json:
+      raw_block: |
+        9 0 257
+        5 0 0 0
+        5 0 500
+        E
+        sleeves~
+        You see sleeves of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 257
+      extra_desc: |
+        You see sleeves of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3361
+    key: cape
+    name: a standard issue cape
+    description: You see a standard issue cape here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: back
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [cape]
+    template_json:
+      raw_block: |
+        9 0 1025
+        5 0 0 0
+        5 0 500
+        E
+        cape~
+        You see a cape of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 1025
+      extra_desc: |
+        You see a cape of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3362
+    key: belt
+    name: a standard issue belt
+    description: You see a standard issue belt here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: waist
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_WAIST
+    keywords: [belt]
+    template_json:
+      raw_block: |
+        9 0 2049
+        5 0 0 0
+        5 0 500
+        E
+        belt~
+        You see a belt of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 2049
+      extra_desc: |
+        You see a belt of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3363
+    key: bracer
+    name: a standard issue bracer
+    description: You see a standard issue bracer here.
+    weight: 5
+    value: 0
+    type: armor
+    slot: wrist
+    armor_class: 5
+    wear_flags:
+      - TAKE
+      - WEAR_WRIST
+    keywords: [bracer]
+    template_json:
+      raw_block: |
+        9 0 4097
+        5 0 0 0
+        5 0 500
+        E
+        bracer~
+        You see a bracer of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+        ~
+      type_line: 9 0 4097
+      extra_desc: |
+        You see a bracer of great craftsmanship.  Imprinted on the side is:
+        Merc Industries
+  - id: 3364
+    key: ring_signet
+    name: a city guard signet ring
+    description: You see a ring with a strange symbol on the floor.
+    weight: 1
+    value: 0
+    type: armor
+    slot: finger
+    armor_class: 0
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, signet]
+    applies:
+      - location: 17
+        modifier: -6
+      - location: 24
+        modifier: -2
+    template_json:
+      raw_block: |
+        ~
+        9 64 3
+        0 0 0 0
+        1 0 10000
+        A
+        17 -6
+        A
+        24 -2
+      type_line: 9 64 3
+  - id: 3365
+    key: banner
+    name: a war banner
+    description: A war banner is on the floor here.
+    weight: 1
+    value: 0
+    type: held
+    extra_flags:
+      - GLOW
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [banner]
+    applies:
+      - location: 24
+        modifier: -2
+      - location: 17
+        modifier: -2
+    template_json:
+      raw_block: |
+        E
+        banner~
+        This is the official Merc war banner to see you through the darkest realm!
+        ~
+        A
+        24 -2
+        A
+        17 -2
+      type_line: 1 65 1
+      extra_desc: This is the official Merc war banner to see you through the darkest realm!
+  - id: 3371
+    key: ring_diamond_wedding
+    name: a diamond wedding ring.
+    description: Vanya's diamond wedding ring has been left here.
+    weight: 1
+    value: 0
+    type: armor
+    slot: finger
+    armor_class: 1
+    extra_flags:
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, diamond, wedding]
+    template_json:
+      raw_block: |
+        9 256 1|2
+        1 0 0 0
+        1 0 0
+        E
+        ring diamond wedding~
+        A slender gold band set with a marquise-cut four carat blue-white solitaire.
+        Inscribed on the inside of the band is: 'Your loving husband, House'.
+        ~
+      type_line: 9 256 1|2
+      extra_desc: |
+        A slender gold band set with a marquise-cut four carat blue-white solitaire.
+        Inscribed on the inside of the band is: 'Your loving husband, House'.
+  - id: 3372
+    key: band_gold_wedding
+    name: a gold wedding band.
+    description: House's gold wedding band has been left here.
+    weight: 1
+    value: 0
+    type: armor
+    slot: finger
+    armor_class: 1
+    extra_flags:
+      - BLESS
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [band, gold, wedding]
+    template_json:
+      raw_block: |
+        ~
+        9 256 1|2
+        1 0 0 0
+        1 0 0
+        E
+        band gold wedding~
+        A wide, plain circle of gold inscribed: 'Your loving wife, Vanya'.
+        ~
+      type_line: 9 256 1|2
+      extra_desc: A wide, plain circle of gold inscribed: 'Your loving wife, Vanya'.

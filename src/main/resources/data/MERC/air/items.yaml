@@ -1,0 +1,28 @@
+items:
+  - id: 1001
+    key: rose
+    name: a red rose
+    description: A red rose is lying on the ground.
+    weight: 8
+    value: 0
+    type: armor
+    slot: head
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [rose]
+    template_json:
+      raw_block: |
+        9 0 17
+        6 0 0 0
+        8 0 200
+        E
+        rose~
+        This is no ordinary rose, as it is a gift from Dionysus to his
+        dearest, Wendella.
+        ~
+      type_line: 9 0 17
+      extra_desc: |
+        This is no ordinary rose, as it is a gift from Dionysus to his
+        dearest, Wendella.

@@ -1,0 +1,372 @@
+- id: 6000
+  key: "john_the_lumberjack"
+  name: "john lumberjack"
+  short_desc: "John the Lumberjack"
+  long_desc: "John the Lumberjack is here, looking for some trees to chop down."
+  keywords: ['john', 'lumberjack']
+  level: 64
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'He is six feet tall and looks quite strong, muscles bulging under his heavy,\nchequered shirt.  His features are worn with hard work and his expression is\none of a peaceful man leading a simple life.\n~\n64 0 350 S\n5 15 7 5d5+50 1d8+2\n50 600\n8 8 1'}
+
+- id: 6002
+  key: "the_brown_bear"
+  name: "bear"
+  short_desc: "the brown bear"
+  long_desc: "A big, brown, angry-looking bear is here."
+  keywords: ['bear']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': "The bear is a big, brown, furry animal with very large claws and very sharp\nteeth.  It doesn't resemble those cute little thingies from toy shops at all.\n~\n96 0 -50 S\n8 13 3 8d8+80 2d6+2\n0 2000\n4 8 0"}
+
+- id: 6003
+  key: "the_ferocious_rabbit"
+  name: "rabbit"
+  short_desc: "the ferocious rabbit"
+  long_desc: "A ferocious rabbit is here, glaring hungrily at you."
+  keywords: ['rabbit']
+  level: 96
+  hp_max: 28
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 26
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '1d4+26', 'damage_dice': '1d4+26', 'raw_block': 'This small, furry creature with long ears and big feet has been attacked by\nthe dreaded rabbit rabies, a horrible disease that turns helpless and innocent\nrabbits into ferocious and bloodthirsty monsters.\n~\n96 0 -150 S\n3 17 6 1d4+26 1d8+0\n0 350\n4 8 0'}
+
+- id: 6004
+  key: "the_fallow_deer"
+  name: "deer"
+  short_desc: "the fallow deer"
+  long_desc: "A fallow deer is grazing peacefully here."
+  keywords: ['deer']
+  level: 82
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 2
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 82, 'hit_dice': '2d8+2', 'damage_dice': '2d8+2', 'raw_block': 'She is a graceful creature on long, slender legs, and with large, brown eyes\nlooking back at you with an air of watchful interest.\n~\n82 8 350 S\n2 19 2 2d8+2 1d6+0\n0 200\n8 8 2'}
+
+- id: 6005
+  key: "the_brown_fox"
+  name: "fox"
+  short_desc: "the brown fox"
+  long_desc: "A brown fox is here, looking for some rabbits to chew up."
+  keywords: ['fox']
+  level: 64
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 18
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '1d4+18', 'damage_dice': '1d4+18', 'raw_block': 'It is a large fox with beautiful, red-brown fur and a long, thick brush.\n~\n64 0 -50 S\n2 18 6 1d4+18 1d6+0\n0 200\n8 8 0'}
+
+- id: 6100
+  key: "the_vicious_warg"
+  name: "warg vicious"
+  short_desc: "the vicious warg"
+  long_desc: "A vicious warg is here, snarling angrily at you."
+  keywords: ['warg', 'vicious']
+  level: 96
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '1d12+60', 'damage_dice': '1d12+60', 'raw_block': 'It is an exceptionally large wolf with thick, black fur.  Saliva is dripping\nquickly from its long, white fangs.  It looks quite dangerous and very angry.\n~\n96 0 -350 S\n5 16 5 1d12+60 2d4+0\n0 800\n8 8 0'}
+
+- id: 6101
+  key: "the_ferocious_warg"
+  name: "warg ferocious"
+  short_desc: "the ferocious warg"
+  long_desc: "A ferocious warg is here, snarling angrily at you."
+  keywords: ['warg', 'ferocious']
+  level: 96
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '1d12+60', 'damage_dice': '1d12+60', 'raw_block': 'It is an exceptionally large wolf with thick, black fur.  Saliva is dripping\nquickly from its long, white fangs.  It looks quite dangerous and very angry.\n~\n96 0 -350 S\n5 16 5 1d12+60 2d4+0\n0 800\n8 8 0'}
+
+- id: 6102
+  key: "the_large_grey_wolf"
+  name: "wolf grey"
+  short_desc: "the large, grey wolf"
+  long_desc: "A large, grey wolf is here, glaring hungrily at you."
+  keywords: ['wolf', 'grey']
+  level: 96
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '1d12+35', 'damage_dice': '1d12+35', 'raw_block': 'The large, grey wolf eyes you with interest while licking its lips.\n~\n96 0 -150 S\n3 18 7 1d12+35 1d7+0\n0 450\n8 8 0'}
+
+- id: 6103
+  key: "the_large_black_wolf"
+  name: "wolf black"
+  short_desc: "the large, black wolf"
+  long_desc: "A large, black wolf is here, glaring hungrily at you."
+  keywords: ['wolf', 'black']
+  level: 96
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '1d12+35', 'damage_dice': '1d12+35', 'raw_block': 'The large, black wolf eyes you with interest while licking its lips.\n~\n96 0 -150 S\n3 18 7 1d12+35 1d7+0\n0 450\n8 8 0'}
+
+- id: 6112
+  key: "the_huge_green_dragon"
+  name: "dragon green"
+  short_desc: "the huge, green dragon"
+  long_desc: "A huge green dragon is here, its narrow yellow eyes glowing with rage."
+  keywords: ['dragon', 'green']
+  level: 99
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 99, 'hit_dice': '25d25+250', 'damage_dice': '25d25+250', 'raw_block': 'This enormous winged serpent has dark green scales covering most of its\ncolossal body.  Numerous holes in its heavy wings tell of many fights as does\nthe nicks in the horns on its head.  It smells as disgusting as only dragons\ndo.\n~\n99 8 -1000 S\n25 -5 -7 25d25+250 2d6+18\n50000 200000\n8 8 0'}
+
+- id: 6115
+  key: "shargugh"
+  name: "shargugh brownie"
+  short_desc: "Shargugh"
+  long_desc: "Shargugh the Forest Brownie is here, grinning broadly at you."
+  keywords: ['shargugh', 'brownie']
+  level: 148
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 148, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'This little fellow is only three foot tall with wild matted brown hair and long\ntangled brown beard.  He wears ragged brown and green clothing and looks as if\nhe is having great fun.\n~\n148 32778 1000 S\n10 1 -10 10d10+100 1d8+2\n1000 3000\n8 8 1'}
+
+- id: 6116
+  key: "the_elder_druid"
+  name: "elder druid"
+  short_desc: "the elder druid"
+  long_desc: "The elder druid is here ... he looks very upset at your presence in his home."
+  keywords: ['elder', 'druid']
+  level: 38
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 38, 'hit_dice': '17d17+170', 'damage_dice': '17d17+170', 'raw_block': 'The druid looks quite old.  You would think him venerable, but you know\nhe would be a tough foe.\n~\n38 8 0 S\n17 4 -7 17d17+170 2d8+2\n5000 20000\n8 8 1'}
+

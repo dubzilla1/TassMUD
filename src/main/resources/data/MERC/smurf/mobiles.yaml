@@ -1,0 +1,372 @@
+- id: 101
+  key: "a_smurf"
+  name: "smurf"
+  short_desc: "a smurf"
+  long_desc: "A smurf is singing and walking along."
+  keywords: ['smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 2
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '10d2+2', 'damage_dice': '10d2+2', 'raw_block': 'A cute little blue smurf with a white hat and white boots.  You have a sudden\nurge to crush him.\n~\n192 0 100 S\n1 19 8 10d2+2 1d2+1\n20 200\n8 8 1'}
+
+- id: 102
+  key: "a_smurf"
+  name: "smurf"
+  short_desc: "a smurf"
+  long_desc: "A smurf is here, picking berries."
+  keywords: ['smurf']
+  level: 130
+  hp_max: 26
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 130, 'hit_dice': '2d5+20', 'damage_dice': '2d5+20', 'raw_block': 'A small smurf is quietly picking berries.  He seems to hardly notice you.\n~\n130 0 100 S\n1 19 8 2d5+20 1d2+1\n20 200\n8 8 1'}
+
+- id: 103
+  key: "brainy_smurf"
+  name: "brainy smurf"
+  short_desc: "Brainy Smurf"
+  long_desc: "Brainy Smurf is here, mumbling something to himself."
+  keywords: ['brainy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '3d10+1', 'damage_dice': '3d10+1', 'raw_block': "Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the\nother smurfs.  They fear his knowledge.  Knowledge is power!\n~\n192 0 100 S\n3 18 7 3d10+1 1d4+1\n30 300\n8 8 1"}
+
+- id: 104
+  key: "handy_smurf"
+  name: "handy smurf"
+  short_desc: "Handy Smurf"
+  long_desc: "Handy Smurf is building something here."
+  keywords: ['handy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '3d10+1', 'damage_dice': '3d10+1', 'raw_block': "Handy is always building something.  He never takes a break.  Why don't you\ngive him a break, like all of his bones.\n~\n192 0 100 S\n3 18 7 3d10+1 1d4+1\n30 300\n8 8 1"}
+
+- id: 105
+  key: "sleepy_smurf"
+  name: "sleepy smurf"
+  short_desc: "Sleepy Smurf"
+  long_desc: "Sleepy Smurf is sleep walking here."
+  keywords: ['sleepy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '3d10+1', 'damage_dice': '3d10+1', 'raw_block': 'Sleepy never gets enough sleep.  You would think he goes to college.  I wonder\nif he has ever stayed up a whole night without sleeping.\n~\n192 0 100 S\n3 18 7 3d10+1 1d4+1\n30 300\n8 8 1'}
+
+- id: 106
+  key: "hefty_smurf"
+  name: "hefty smurf"
+  short_desc: "Hefty Smurf"
+  long_desc: "Hefty Smurf is lifting weights here."
+  keywords: ['hefty', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '3d10+1', 'damage_dice': '3d10+1', 'raw_block': "Hefty is a total health nut.  He lifts weights, eats right, and exercises all\nthe time.  Won't do him much good when he's DEAD.\n~\n192 0 100 S\n3 18 7 3d10+1 1d4+1\n30 300\n8 8 1"}
+
+- id: 107
+  key: "grumpy_smurf"
+  name: "grumpy smurf"
+  short_desc: "Grumpy Smurf"
+  long_desc: "Grumpy Smurf is here, swearing."
+  keywords: ['grumpy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '3d10+1', 'damage_dice': '3d10+1', 'raw_block': "Grumpy has never been happy in his whole life.  So why don't you just end it?\n~\n192 0 100 S\n3 18 7 3d10+1 1d4+1\n30 300\n8 8 1"}
+
+- id: 108
+  key: "jokey_smurf"
+  name: "jokey smurf"
+  short_desc: "Jokey Smurf"
+  long_desc: "Jokey Smurf is here, holding a present."
+  keywords: ['jokey', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '3d10+1', 'damage_dice': '3d10+1', 'raw_block': 'Jokey loves to give people presents.  Too bad the present explodes when opened.\nOh well, to each his own.\n~\n192 0 100 S\n3 18 7 3d10+1 1d4+1\n30 300\n8 8 1'}
+
+- id: 109
+  key: "smurfette"
+  name: "smurfette"
+  short_desc: "Smurfette"
+  long_desc: "Smurfette is here, looking beautiful."
+  keywords: ['smurfette']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '3d10+1', 'damage_dice': '3d10+1', 'raw_block': "Smurfette is the cutest little smurf you've ever seen.  If only she were your\nsize.  I wonder how much she charges the other smurfs.\n~\n192 0 100 S\n3 18 7 3d10+1 1d4+1\n30 300\n8 8 2"}
+
+- id: 110
+  key: "papa_smurf"
+  name: "papa smurf"
+  short_desc: "Papa Smurf"
+  long_desc: "Papa Smurf is practicing magic here."
+  keywords: ['papa', 'smurf']
+  level: 192
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '10d10+50', 'damage_dice': '10d10+50', 'raw_block': 'Yep, its Papa Smurf all right.  Red hat and boots and the funny little white\nbeard.  Papa Smurf treats his fellow smurfs with dignity and respect.  That\nis why Papa Smurf is so popular among the ladies.\n~\n192 0 100 S\n10 10 0 10d10+50 2d2+12\n50 4000\n8 8 1'}
+
+- id: 111
+  key: "gargamel"
+  name: "gargamel"
+  short_desc: "Gargamel"
+  long_desc: "Gargamel is here, cursing out the smurfs."
+  keywords: ['gargamel']
+  level: 130
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 130, 'hit_dice': '10d10+50', 'damage_dice': '10d10+50', 'raw_block': 'Gargamel has never done anything right in his life.  He has caught smurfs\nbefore but always lets them escape.  He brings true meaning to the word moron.\n~\n130 0 -100 S\n10 10 0 10d10+50 2d2+12\n50 4000\n8 8 1'}
+
+- id: 112
+  key: "azreal"
+  name: "azreal cat"
+  short_desc: "Azreal"
+  long_desc: "Azreal is here, licking himself."
+  keywords: ['azreal', 'cat']
+  level: 130
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 130, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': "Gargamel's worthless cat.  He is just about as dumb as Gargamel.  He should\njust grab a smurf in his teeth and chew away.\n~\n130 0 -100 S\n8 12 2 8d8+80 1d4+5\n20 2000\n8 8 1"}
+

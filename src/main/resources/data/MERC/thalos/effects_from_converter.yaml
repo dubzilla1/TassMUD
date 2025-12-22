@@ -1,0 +1,31 @@
+effects:
+  - id: "9000"
+    name: "breast_plate_iron hit +-6"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_HIT_BONUS
+      op: ADD
+      value: -6
+  - id: "9001"
+    name: "stone_pink_green hit +-5"
+    type: MODIFIER
+    duration: 0
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ATTACK_HIT_BONUS
+      op: ADD
+      value: -5

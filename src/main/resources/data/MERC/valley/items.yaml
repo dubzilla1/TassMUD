@@ -1,0 +1,698 @@
+items:
+  - id: 7800
+    key: chainmail_chain_mail
+    name: elven chainmail
+    description: A shiny metallic shirt is on the floor.
+    weight: 3
+    value: 50
+    type: armor
+    slot: chest
+    armor_class: 4
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [chainmail, chain, mail]
+    template_json:
+      raw_block: |
+        #7800
+        chainmail chain mail~
+        elven chainmail~
+        A shiny metallic shirt is on the floor.~
+        ~
+        9 0 1|8
+        4 0 0 0
+        3 50 50
+      type_line: 9 0 1|8
+  - id: 7801
+    key: boots
+    name: elven boots
+    description: Some soft boots are on the floor.
+    weight: 3
+    value: 10
+    type: armor
+    slot: boots
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [boots]
+    applies:
+      - location: 14
+        modifier: 50
+    template_json:
+      raw_block: |
+        elven boots~
+        Some soft boots are on the floor.~
+        ~
+        9 0 1|64
+        3 0 0 0
+        3 10 10
+        A
+        14 50
+      type_line: 9 0 1|64
+  - id: 7802
+    key: longsword_sword_long
+    name: an elven longsword
+    description: A shiny blade is on the floor.
+    weight: 3
+    value: 50
+    type: weapon
+    multiplier: 3
+    base_die: 3
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [longsword, sword, long]
+    applies:
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+    template_json:
+      raw_block: |
+        an elven longsword~
+        A shiny blade is on the floor.~
+        ~
+        5 64 1|8192
+        0 3 3 3
+        3 50 50
+        A
+        18 1
+      type_line: 5 64 1|8192
+  - id: 7803
+    key: cloak_brown
+    name: a brown cloak
+    description: A pile of brown cloth is on the floor.
+    weight: 3
+    value: 50
+    type: armor
+    slot: neck
+    armor_class: 3
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [cloak, brown]
+    applies:
+      - location: 2
+        modifier: 1
+    template_json:
+      raw_block: |
+        a brown cloak~
+        A pile of brown cloth is on the floor.~
+        ~
+        9 64 1|4
+        3 0 0 0
+        3 50 50
+        A
+        2 1
+      type_line: 9 64 1|4
+  - id: 7804
+    key: key
+    name: a key
+    description: A shiny key is on the floor.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key]
+    template_json:
+      raw_block: |
+        #7804
+        key~
+        a key~
+        A shiny key is on the floor.~
+        ~
+        18 0 1
+        7846 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 7805
+    key: key
+    name: a key
+    description: A shiny key is on the floor.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key]
+    template_json:
+      raw_block: |
+        #7805
+        key~
+        a key~
+        A shiny key is on the floor.~
+        ~
+        18 0 1
+        7880 0 0 0
+        1 0 0
+      type_line: 18 0 1
+  - id: 7806
+    key: ring
+    name: a gold ring
+    description: A shiny ring is on the floor.
+    weight: 1
+    value: 1000
+    type: armor
+    slot: finger
+    armor_class: 3
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring]
+    applies:
+      - location: 12
+        modifier: 10
+    template_json:
+      raw_block: |
+        a gold ring~
+        A shiny ring is on the floor.~
+        ~
+        9 64 1|2
+        3 0 0 0
+        1 1000 10
+        A
+        12 10
+      type_line: 9 64 1|2
+  - id: 7807
+    key: quarterstaff_staff
+    name: a quarterstaff
+    description: A quarterstaff is on the floor.
+    weight: 5
+    value: 1000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 8
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [quarterstaff, staff]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        a quarterstaff~
+        A quarterstaff is on the floor.~
+        ~
+        5 64 1|8192
+        0 4 4 8
+        5 1000 10
+        A
+        19 2
+      type_line: 5 64 1|8192
+  - id: 7808
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 1
+      - 29
+      - 0
+    template_json:
+      raw_block: |
+        #7808
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 1 29 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7809
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 25
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7809
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 25 0 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7810
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 44
+      - 20
+      - 0
+    template_json:
+      raw_block: |
+        #7810
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 44 20 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7811
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 50
+      - 59
+      - 59
+      - 59
+    template_json:
+      raw_block: |
+        #7811
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        50 59 59 59
+        1 200 10
+      type_line: 10 64 1
+  - id: 7812
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 81
+      - 34
+      - 0
+    template_json:
+      raw_block: |
+        #7812
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 81 34 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7813
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 38
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7813
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 38 0 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7814
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 3
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7814
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 3 0 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7815
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 15
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7815
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 15 0 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7816
+    key: potion
+    name: a potion
+    description: A potion is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [potion]
+    spell_ids:
+      - 10
+      - 0
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7816
+        potion~
+        a potion~
+        A potion is on the floor.~
+        ~
+        10 64 1
+        10 0 0 0
+        1 200 10
+      type_line: 10 64 1
+  - id: 7817
+    key: scroll
+    name: a scroll
+    description: A scroll is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll]
+    spell_ids:
+      - 10
+      - 15
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7817
+        scroll~
+        a scroll~
+        A scroll is on the floor.~
+        ~
+        2 64 1
+        10 15 0 0
+        1 200 10
+      type_line: 2 64 1
+  - id: 7818
+    key: scroll
+    name: a scroll
+    description: A scroll is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll]
+    spell_ids:
+      - 10
+      - 0
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7818
+        scroll~
+        a scroll~
+        A scroll is on the floor.~
+        ~
+        2 64 1
+        10 0 0 0
+        1 200 10
+      type_line: 2 64 1
+  - id: 7819
+    key: scroll
+    name: a scroll
+    description: A scroll is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll]
+    spell_ids:
+      - 10
+      - 18
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7819
+        scroll~
+        a scroll~
+        A scroll is on the floor.~
+        ~
+        2 64 1
+        10 18 0 0
+        1 200 10
+      type_line: 2 64 1
+  - id: 7820
+    key: scroll
+    name: a scroll
+    description: A scroll is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll]
+    spell_ids:
+      - 10
+      - 13
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7820
+        scroll~
+        a scroll~
+        A scroll is on the floor.~
+        ~
+        2 64 1
+        10 13 0 0
+        1 200 10
+      type_line: 2 64 1
+  - id: 7821
+    key: scroll
+    name: a scroll
+    description: A scroll is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll]
+    spell_ids:
+      - 10
+      - 32
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7821
+        scroll~
+        a scroll~
+        A scroll is on the floor.~
+        ~
+        2 64 1
+        10 32 0 0
+        1 200 10
+      type_line: 2 64 1
+  - id: 7822
+    key: scroll
+    name: a scroll
+    description: A scroll is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll]
+    spell_ids:
+      - 10
+      - 8
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7822
+        scroll~
+        a scroll~
+        A scroll is on the floor.~
+        ~
+        2 64 1
+        10 8 0 0
+        1 200 10
+      type_line: 2 64 1
+  - id: 7823
+    key: scroll
+    name: a scroll
+    description: A scroll is on the floor.
+    weight: 1
+    value: 200
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+    keywords: [scroll]
+    spell_ids:
+      - 10
+      - 28
+      - 0
+      - 0
+    template_json:
+      raw_block: |
+        #7823
+        scroll~
+        a scroll~
+        A scroll is on the floor.~
+        ~
+        2 64 1
+        10 28 0 0
+        1 200 10
+      type_line: 2 64 1
+  - id: 7824
+    key: rod_light
+    name: the Rod of Neutrality
+    description: A dull iron shaft is on the floor.
+    weight: 1
+    value: 1000
+    type: held
+    extra_flags:
+      - MAGIC
+      - ANTI_GOOD
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+    keywords: [rod, light]
+    applies:
+      - location: 19
+        modifier: 5
+    on_equip_effect_ids:
+      - 510
+    template_json:
+      raw_block: |
+        the Rod of Neutrality~
+        A dull iron shaft is on the floor.~
+        ~
+        1 64|512|1024 1
+        0 0 -1 0
+        1 1000 10
+        A
+        19 5
+      type_line: 1 64|512|1024 1

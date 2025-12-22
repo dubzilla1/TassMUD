@@ -1,0 +1,527 @@
+- id: 5000
+  key: "the_dervish"
+  name: "dervish raggity"
+  short_desc: "The dervish"
+  long_desc: "The raggity dervish walks on aimlessly."
+  keywords: ['dervish', 'raggity']
+  level: 196
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 196, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'Dressed in loose fitting rags, this man looks like he could use\nsome rest.\n~\n196 32768 900 S\n5 15 5 5d5+50 2d4+0\n70 700\n8 8 1'}
+
+- id: 5001
+  key: "the_dervish"
+  name: "dervish large"
+  short_desc: "The dervish"
+  long_desc: "The large dervish watches for signs of trouble."
+  keywords: ['dervish', 'large']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'Dressed in loose fitting rags, this man looks like he could use\nLOTS of rest.\n~\n96 32768 650 S\n8 11 1 8d8+80 2d6+1\n150 2000\n8 8 1'}
+
+- id: 5002
+  key: "the_coral_snake"
+  name: "snake coral"
+  short_desc: "The coral snake"
+  long_desc: "A brightly colored snake slithers along the sands."
+  keywords: ['snake', 'coral']
+  level: 64
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '4d4+40', 'damage_dice': '4d4+40', 'raw_block': 'This relatively harmless snake has bright alternating bands of red, yellow\nand black.\n~\n64 0 -10 S\n4 17 4 4d4+40 1d9+0\n0 500\n8 8 0'}
+
+- id: 5003
+  key: "the_small_scorpion"
+  name: "scorpion small"
+  short_desc: "The small scorpion"
+  long_desc: "A small, red scorpion scuttles away at your approach."
+  keywords: ['scorpion', 'small']
+  level: 64
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 64, 'hit_dice': '3d3+30', 'damage_dice': '3d3+30', 'raw_block': 'The little tail is mighty dangerous for such a small creature.\n~\n64 0 -50 S\n3 17 1 3d3+30 1d8+0\n0 500\n8 8 0'}
+
+- id: 5004
+  key: "the_giant_purple_sand_worm"
+  name: "worm giant"
+  short_desc: "The giant, purple sand worm"
+  long_desc: "A giant, purple sand worm thrusts up out of the sand and attacks!"
+  keywords: ['worm', 'giant']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': "He's big, mean, and purple. Watch out!\n~\n2|32 0 -100 S\n18 -1 0 18d18+180 3d6+4\n2540 50000\n8 8 0"}
+
+- id: 5005
+  key: "the_brass_dragon"
+  name: "dragon brass"
+  short_desc: "the brass dragon"
+  long_desc: "The brass dragon steps out of the darkness and says 'Hello'.\nThen adds to it, 'Prepare to die, have a nice day!'"
+  keywords: ['dragon', 'brass']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': '~\n2|4|32 8|128 450 S\n30 -10 -10 30d30+300 1d9+25\n5500 295000\n8 8 2'}
+
+- id: 5006
+  key: "the_nomad_leader"
+  name: "nomad leader"
+  short_desc: "The nomad leader"
+  long_desc: "The nomad leader sits silently in prayer."
+  keywords: ['nomad', 'leader']
+  level: 950
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 95000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 950, 'hit_dice': '14d14+140', 'damage_dice': '14d14+140', 'raw_block': 'He is clad in silk robes lined with gold thread. At his side\nis a large, engraved cutlass. He has an especially haughty air\nabout him.\n~\n2240 0 950 S\n14 7 0 14d14+140 3d8+2\n1000 17000\n6 6 1'}
+
+- id: 5007
+  key: "the_nomad_commander"
+  name: "nomad commander"
+  short_desc: "The nomad commander"
+  long_desc: "The nomad commander stands here staring suspiciously at you."
+  keywords: ['nomad', 'commander']
+  level: 900
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 900, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': "This is the nomad leader's second in command. His clothes are richly\nwoven of silk and gold thread. A nasty cutlass hangs at his side.\n~\n2050 0 900 S\n12 8 1 12d12+120 3d5+1\n600 11000\n8 8 1"}
+
+- id: 5008
+  key: "the_nomad_warrior"
+  name: "nomad warrior"
+  short_desc: "The nomad warrior"
+  long_desc: "A proud nomad warrior stands here."
+  keywords: ['nomad', 'warrior']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 2, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': '~\n2 0 700 S\n10 10 0 10d10+100 4d3+0\n300 4000\n8 8 1'}
+
+- id: 5009
+  key: "the_slave"
+  name: "slave young"
+  short_desc: "The slave"
+  long_desc: "A young slave sits here staring at you with pleading eyes."
+  keywords: ['slave', 'young']
+  level: 130
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 130, 'hit_dice': '3d3+30', 'damage_dice': '3d3+30', 'raw_block': '~\n130 0 1000 S\n3 18 9 3d3+30 1d5+0\n0 200\n5 5 2'}
+
+- id: 5010
+  key: "the_dracolich"
+  name: "dracolich lich"
+  short_desc: "The dracolich"
+  long_desc: "A pile of bones rises up to form a skeletal dracolich."
+  keywords: ['dracolich', 'lich']
+  level: 136
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 136, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'The dracolich is now only bone with pieces of flesh hanging from it.\nObviously it no longer fears death.\n~\n2083 136 -1000 S\n20 1 -2 20d20+200 25d2+0\n75000 50000\n8 8 0'}
+
+- id: 5011
+  key: "the_drider"
+  name: "drider drow"
+  short_desc: "The drider"
+  long_desc: "The drider looks at you viciously while it draws its sword."
+  keywords: ['drider', 'drow']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'This half-spider, half-drow creature is a formidable opponent.\n~\n96 8 -1000 S\n8 12 2 8d8+80 2d6+2\n200 2000\n8 8 2'}
+
+- id: 5012
+  key: "the_dark_dwarf"
+  name: "duergar dwarf"
+  short_desc: "The dark dwarf"
+  long_desc: "A duergar is here mining precious stones with his pick."
+  keywords: ['duergar', 'dwarf']
+  level: 96
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 96, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'The duergar could crush your head as easily as it does those rocks.\n~\n96 8 -850 S\n5 16 3 5d5+50 2d5+1\n170 750\n8 8 1'}
+
+- id: 5013
+  key: "the_myconoid"
+  name: "myconoid"
+  short_desc: "the myconoid"
+  long_desc: "A myconoid lumbers along peacefully."
+  keywords: ['myconoid']
+  level: 192
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 192, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'The myconoid looks something like a giant mushroom (and probably\nhas the same effect).\n~\n192 8 850 S\n6 15 4 6d6+60 2d7+0\n50 700\n8 8 1'}
+
+- id: 5014
+  key: "the_myconoid_shaman"
+  name: "myconoid shaman"
+  short_desc: "The myconoid shaman"
+  long_desc: "A rather large myconoid stands here chanting in a strange tongue."
+  keywords: ['myconoid', 'shaman']
+  level: 130
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 130, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'The shaman shoots spores into the air.\n~\n130 136 850 S\n8 13 2 8d8+80 2d7+2\n1500 3000\n8 8 1'}
+
+- id: 5015
+  key: "the_dustdigger"
+  name: "dustdigger"
+  short_desc: "The dustdigger"
+  long_desc: "A small oasis invites you to dive in."
+  keywords: ['dustdigger']
+  level: 38
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 38, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': '~\n38 65536 -200 S\n7 10 1 7d7+70 3d4+0\n450 1500\n8 8 0'}
+
+- id: 5017
+  key: "the_rabid_camel"
+  name: "camel"
+  short_desc: "The rabid camel"
+  long_desc: "A very dangerous rabid camel snorts at you."
+  keywords: ['camel']
+  level: 34
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  template_json: {'level': 34, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': "Don't mess with this animal.\n~\n34 0 -351 S\n5 12 6 6d6+60 2d4+3\n270 700\n8 8 0"}
+

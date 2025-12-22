@@ -1,0 +1,798 @@
+items:
+  - id: 900
+    key: aegis_plate
+    name: The Aegis
+    description: A powerful breast plate has been left here.
+    weight: 50
+    value: 300000
+    type: armor
+    slot: chest
+    armor_class: 10
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [aegis, plate]
+    applies:
+      - location: 1
+        modifier: 1
+    template_json:
+      raw_block: |
+        The Aegis~
+        A powerful breast plate has been left here.~
+        ~
+        9 32|64|1024 1|8
+        10 0 0 0
+        50 300000 50000
+        A
+        1 1
+      type_line: 9 32|64|1024 1|8
+  - id: 901
+    key: hammer_thunder_bolt_thunderbolt
+    name: The Thunder Bolt
+    description: A huge hammer has been carelessly dropped here.
+    weight: 24
+    value: 200000
+    type: weapon
+    multiplier: 6
+    base_die: 5
+    damage_bonus: 8
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [hammer, thunder, bolt, thunderbolt]
+    applies:
+      - location: 18
+        modifier: 3
+    on_equip_effect_ids:
+      - 508
+    template_json:
+      raw_block: |
+        The Thunder Bolt~
+        A huge hammer has been carelessly dropped here.~
+        ~
+        5 32|64|1024 1|8192
+        0 6 5 8
+        24 200000 150000
+        A
+        18 3
+      type_line: 5 32|64|1024 1|8192
+  - id: 902
+    key: helmet_winged
+    name: A Winged Helmet
+    description: A helmet with small wings lies here.
+    weight: 5
+    value: 150000
+    type: armor
+    slot: head
+    armor_class: 10
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [helmet, winged]
+    applies:
+      - location: 2
+        modifier: 2
+    template_json:
+      raw_block: |
+        A Winged Helmet~
+        A helmet with small wings lies here.~
+        ~
+        9 32|64|1024 1|16
+        10 0 0 0
+        5 150000 5000
+        A
+        2 2
+      type_line: 9 32|64|1024 1|16
+  - id: 903
+    key: spear_ares
+    name: the Spear of Ares
+    description: A wicked spear rests on the ground here.
+    weight: 18
+    value: 200000
+    type: armor
+    slot: main_hand
+    armor_class: 0
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [spear, ares]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 501
+      - 502
+    template_json:
+      raw_block: |
+        ~
+        9 32|64|512 1|8192
+        0 5 5 2
+        18 200000 10000
+        A
+        18 2
+        A
+        19 2
+      type_line: 9 32|64|512 1|8192
+  - id: 904
+    key: sandals_winged
+    name: a pair of winged sandals
+    description: A pair of well made sandals lies here.
+    weight: 5
+    value: 100000
+    type: armor
+    slot: boots
+    armor_class: 8
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FEET
+    keywords: [sandals, winged]
+    template_json:
+      raw_block: |
+        #904
+        sandals winged~
+        a pair of winged sandals~
+        A pair of well made sandals lies here.~
+        ~
+        9 32|64|1024 1|64
+        8 0 0 0
+        5 100000 2500
+      type_line: 9 32|64|1024 1|64
+  - id: 905
+    key: staff_ivory
+    name: an ivory staff
+    description: An ivory staff.
+    weight: 8
+    value: 70000
+    type: weapon
+    multiplier: 3
+    base_die: 3
+    damage_bonus: 36
+    hands: 2
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff, ivory]
+    template_json:
+      raw_block: |
+        #905
+        staff ivory~
+        an ivory staff~
+        An ivory staff.~
+        ~
+        4 32|64|1024 1|16384
+        30 3 3 36
+        8 70000 2500
+      type_line: 4 32|64|1024 1|16384
+  - id: 906
+    key: trident_poseidon
+    name: Poseidon's Trident
+    description: A huge three pronged spear lies here.
+    weight: 16
+    value: 100000
+    type: weapon
+    multiplier: 3
+    base_die: 8
+    damage_bonus: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [trident, poseidon]
+    applies:
+      - location: 4
+        modifier: 2
+    template_json:
+      raw_block: |
+        Poseidon's Trident~
+        A huge three pronged spear lies here.~
+        ~
+        5 32|64|1024 1|8192
+        0 3 8 2
+        16 100000 35000
+        A
+        4 2
+      type_line: 5 32|64|1024 1|8192
+  - id: 907
+    key: bow_silver
+    name: a silver bow
+    description: A silver bow.
+    weight: 15
+    value: 40000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 7
+    weapon_family: BOWS
+    weapon_category: MARTIAL
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [bow, silver]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+      - 503
+    template_json:
+      raw_block: |
+        ~
+        5 32|64|1024 1|8192
+        0 4 4 7
+        15 40000 20000
+        A
+        18 1
+        A
+        19 1
+      type_line: 5 32|64|1024 1|8192
+  - id: 908
+    key: gauntlets_flaming
+    name: flaming gauntlets
+    description: A pair of metal gauntlets flame here.
+    weight: 6
+    value: 60000
+    type: armor
+    slot: hands
+    armor_class: 7
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gauntlets, flaming]
+    applies:
+      - location: 13
+        modifier: 25
+    template_json:
+      raw_block: |
+        flaming gauntlets~
+        A pair of metal gauntlets flame here.~
+        ~
+        9 32|64|1024 1|128
+        7 0 0 0
+        6 60000 30000
+        A
+        13 25
+      type_line: 9 32|64|1024 1|128
+  - id: 909
+    key: vial_potion_ambrosia
+    name: ambrosia
+    description: A vial of ambrosia lies here.
+    weight: 1
+    value: 20000
+    type: inventory
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+    keywords: [vial, potion, ambrosia]
+    spell_ids:
+      - 30
+      - 22
+      - 28
+      - 28
+    template_json:
+      raw_block: |
+        #909
+        vial potion ambrosia~
+        ambrosia~
+        A vial of ambrosia lies here.~
+        ~
+        10 32|64|1024 1
+        30 22 28 28
+        1 20000 1000
+      type_line: 10 32|64|1024 1
+  - id: 910
+    key: necklace_glowing
+    name: a glowing necklace
+    description: A necklace with an inner glow lies here.
+    weight: 2
+    value: 10000
+    type: armor
+    slot: neck
+    armor_class: 4
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [necklace, glowing]
+    applies:
+      - location: 12
+        modifier: 25
+    template_json:
+      raw_block: |
+        a glowing necklace~
+        A necklace with an inner glow lies here.~
+        ~
+        9 32|64|1024 1|4
+        4 0 0 0
+        2 10000 4000
+        A
+        12 25
+      type_line: 9 32|64|1024 1|4
+  - id: 911
+    key: ring_sapphire
+    name: a sapphire ring
+    description: A sapphire ring lies here.
+    weight: 1
+    value: 40000
+    type: armor
+    slot: finger
+    armor_class: 5
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, sapphire]
+    applies:
+      - location: 4
+        modifier: 2
+      - location: 19
+        modifier: 4
+    on_equip_effect_ids:
+      - 504
+    template_json:
+      raw_block: |
+        ~
+        9 32|64|1024 1|2
+        5 0 0 0
+        1 40000 5000
+        A
+        4 2
+        A
+        19 4
+      type_line: 9 32|64|1024 1|2
+  - id: 912
+    key: shield_glowing
+    name: a brightly glowing shield
+    description: A shield lies here, filling the room with its aura.
+    weight: 10
+    value: 200000
+    type: armor
+    slot: off_hand
+    armor_class: 9
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_SHIELD
+    keywords: [shield, glowing]
+    applies:
+      - location: 4
+        modifier: 1
+    template_json:
+      raw_block: |
+        a brightly glowing shield~
+        A shield lies here, filling the room with its aura.~
+        ~
+        9 32|64|1024 1|512
+        9 0 0 0
+        10 200000 50000
+        A
+        4 1
+      type_line: 9 32|64|1024 1|512
+  - id: 913
+    key: axe_notched
+    name: a notched axe
+    description: A notched axe.
+    weight: 12
+    value: 10000
+    type: weapon
+    multiplier: 4
+    base_die: 4
+    damage_bonus: 1
+    weapon_family: AXES
+    weapon_category: MARTIAL
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [axe, notched]
+    template_json:
+      raw_block: |
+        #913
+        axe notched~
+        a notched axe~
+        A notched axe.~
+        ~
+        5 32|64|1024 1|8192
+        0 4 4 1
+        12 10000 5000
+      type_line: 5 32|64|1024 1|8192
+  - id: 914
+    key: grapes
+    name: a bunch of grapes
+    description: A bunch of grapes.
+    weight: 1
+    value: 50
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [grapes]
+    template_json:
+      raw_block: |
+        #914
+        grapes~
+        a bunch of grapes~
+        A bunch of grapes.~
+        ~
+        19 0 1
+        24 0 0 0
+        1 50 25
+      type_line: 19 0 1
+  - id: 915
+    key: fan
+    name: a fan made of peacock feathers
+    description: A fan made of peacock feathers.
+    weight: 1
+    value: 1
+    type: trash
+    wear_flags:
+      - TAKE
+    keywords: [fan]
+    template_json:
+      raw_block: |
+        #915
+        fan~
+        a fan made of peacock feathers~
+        A fan made of peacock feathers.~
+        ~
+        13 0 1
+        0 0 0 0
+        1 1 1
+      type_line: 13 0 1
+  - id: 916
+    key: lute
+    name: a lute
+    description: A lute.
+    weight: 1
+    value: 1
+    type: trash
+    wear_flags:
+      - TAKE
+    keywords: [lute]
+    template_json:
+      raw_block: |
+        #916
+        lute~
+        a lute~
+        A lute.~
+        ~
+        13 0 1
+        0 0 0 0
+        1 1 1
+      type_line: 13 0 1
+  - id: 917
+    key: nugget_gold
+    name: a gold nugget
+    description: A gold nugget lies gleaming here.
+    weight: 5
+    value: 10000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [nugget, gold]
+    template_json:
+      raw_block: |
+        #917
+        nugget gold~
+        a gold nugget~
+        A gold nugget lies gleaming here.~
+        ~
+        8 0 1
+        0 0 0 0
+        5 10000 1
+      type_line: 8 0 1
+  - id: 918
+    key: apple
+    name: an apple
+    description: An apple is here.
+    weight: 1
+    value: 1000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [apple]
+    template_json:
+      raw_block: |
+        #918
+        apple~
+        an apple~
+        An apple is here.~
+        ~
+        26 0 1
+        24 0 0 16
+        1 1000 25
+      type_line: 26 0 1
+  - id: 919
+    key: pear
+    name: a pear
+    description: A pear is here.
+    weight: 1
+    value: 1000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [pear]
+    template_json:
+      raw_block: |
+        #919
+        pear~
+        a pear~
+        A pear is here.~
+        ~
+        26 0 1
+        24 0 0 43
+        1 1000 25
+      type_line: 26 0 1
+  - id: 920
+    key: orange
+    name: a orange
+    description: A orange is here.
+    weight: 1
+    value: 1000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [orange]
+    template_json:
+      raw_block: |
+        #920
+        orange~
+        a orange~
+        A orange is here.~
+        ~
+        26 0 1
+        24 0 0 1
+        1 1000 25
+      type_line: 26 0 1
+  - id: 921
+    key: kiwi
+    name: a kiwi
+    description: A kiwi is here.
+    weight: 1
+    value: 1000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [kiwi]
+    template_json:
+      raw_block: |
+        #921
+        kiwi~
+        a kiwi~
+        A kiwi is here.~
+        ~
+        26 0 1
+        24 0 0 43
+        1 1000 25
+      type_line: 26 0 1
+  - id: 922
+    key: amulet
+    name: the Amulet of Ra
+    description: A sun shaped medallion is lying here.
+    weight: 1
+    value: 10000
+    type: armor
+    slot: neck
+    armor_class: 2
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_NECK
+    keywords: [amulet]
+    applies:
+      - location: 12
+        modifier: 50
+    template_json:
+      raw_block: |
+        the Amulet of Ra~
+        A sun shaped medallion is lying here.~
+        ~
+        9 32|64|1024 1|4
+        2 0 0 0
+        1 10000 2000
+        A
+        12 50
+      type_line: 9 32|64|1024 1|4
+  - id: 923
+    key: sun_sword
+    name: the Sword of the Sun
+    description: A beautiful sword with the rising sun etched on the pommel is lying here.
+    weight: 20
+    value: 1000000
+    type: weapon
+    multiplier: 6
+    base_die: 5
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [sun, sword]
+    applies:
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 502
+    template_json:
+      raw_block: |
+        the Sword of the Sun~
+        A beautiful sword with the rising sun etched on the pommel is lying here.~
+        ~
+        5 32|64|1024 1|8192
+        0 6 5 3
+        20 1000000 150000
+        A
+        19 2
+      type_line: 5 32|64|1024 1|8192
+  - id: 924
+    key: robe_blue
+    name: a blue robe
+    description: A deep blue robe is on the ground here.
+    weight: 10
+    value: 50000
+    type: armor
+    slot: back
+    armor_class: 6
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [robe, blue]
+    applies:
+      - location: 13
+        modifier: 15
+    template_json:
+      raw_block: |
+        a blue robe~
+        A deep blue robe is on the ground here.~
+        ~
+        9 32|64|1024 1|1024
+        6 0 0 0
+        10 50000 15000
+        A
+        13 15
+      type_line: 9 32|64|1024 1|1024
+  - id: 925
+    key: hat
+    name: a wide brimmed hat
+    description: A hat is lying here.
+    weight: 5
+    value: 5000
+    type: armor
+    slot: head
+    armor_class: 4
+    extra_flags:
+      - INVIS
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+    keywords: [hat]
+    template_json:
+      raw_block: |
+        #925
+        hat~
+        a wide brimmed hat~
+        A hat is lying here.~
+        ~
+        9 32|64|1024 1|16
+        4 0 0 0
+        5 5000 2000
+      type_line: 9 32|64|1024 1|16
+  - id: 926
+    key: nectar
+    name: nectar
+    description: A vial of nectar is lying here.
+    weight: 1
+    value: 80000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [nectar]
+    spell_ids:
+      - 12
+      - 36
+      - 39
+      - 1
+    template_json:
+      raw_block: |
+        #926
+        nectar~
+        nectar~
+        A vial of nectar is lying here.~
+        ~
+        10 0 1
+        12 36 39 1
+        1 80000 500
+      type_line: 10 0 1
+  - id: 927
+    key: key_cell
+    name: A Cell key
+    description: A key has been left here.
+    weight: 1
+    value: 100
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, cell]
+    template_json:
+      raw_block: |
+        #927
+        key cell~
+        A Cell key~
+        A key has been left here.~
+        ~
+        18 0 1
+        0 0 0 0
+        1 100 1000
+      type_line: 18 0 1
