@@ -1,0 +1,3389 @@
+rooms:
+  - id: 5300
+    key: mirror_room_5300
+    name: "The Grand Gate of Thalos"
+    area_id: 32
+    short_desc: "The Grand Gate of Thalos"
+    long_desc: |
+      You stand in the archway of a gigantic stone archway. The two
+      steel gates look indestructible, yet they are elaborate in engravings.  You can
+      hear laughter and good cheer from the other side of these gates.  Obviously, 
+      the city is teeming with activity!  There is a small gold plaque on mounted
+      on the archway.
+    exits:
+      east: 5356
+      west: 5301
+    sector_type: CITY
+    doors:
+      east:
+        to: 5356
+        description: "You are saddened at the thought of leaving this beautiful place."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5301
+        description: "You see happiness everywhere. Houses cover your vision. You see strange cute
+beasts walking hand in hand with people."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      plaque: |
+        This zone has been heavily modified by Kahn and Hatchet of MERC Industries
+        and integrated by Kahn of MERC Industries.
+        copyright 1993
+
+  - id: 5301
+    key: mirror_room_5301
+    name: "Main Street"
+    area_id: 32
+    short_desc: "Main Street"
+    long_desc: |
+      This is a magnificent street, immaculate all over. The streets are filled
+      with people rushing from building to building and a balmy zephyr blows by
+      you.  The whole city is teeming with activity.  A cobbled alley leads north
+      and south.  Children run pass you as they play tag.
+    exits:
+      north: 5339
+      east: 5300
+      south: 5355
+      west: 5302
+    sector_type: CITY
+    doors:
+      north:
+        to: 5339
+        description: "It's a cobbled alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5300
+        description: "The entrance to the city lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5355
+        description: "It's a cobbled alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5302
+        description: "Main Street lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5302
+    key: mirror_room_5302
+    name: "Main Street"
+    area_id: 32
+    short_desc: "Main Street"
+    long_desc: |
+      This is a magnificent street, immaculate all over.  The streets are filled
+      with people rushing from building to building and a balmy zephyr blows by you.
+      The whole city is teeming with activity.  On one side is a beautiful house 
+      while on the other is the entrance to a large mansion.  Sounds of people hard
+      at work echo within the mansion.  Near the center of town you see a large 
+      domed building, magnificent and immense.
+    exits:
+      north: 5336
+      east: 5301
+      south: 5332
+      west: 5303
+    sector_type: CITY
+    doors:
+      north:
+        to: 5336
+        description: "A store lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5301
+        description: "Main Street continues back east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5332
+        description: "The main building in the city, the City Hall is there."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5303
+        description: "A lush, green garden path lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5303
+    key: mirror_room_5303
+    name: "A Garden Path"
+    area_id: 32
+    short_desc: "A Garden Path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center
+      of the city. Flowers grow on the sides of the path and the lush trees are 
+      laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+      temple truly a blend of nature and man's work of art.
+    exits:
+      north: 5304
+      east: 5302
+      south: 5306
+      west: 5350
+    sector_type: CITY
+    doors:
+      north:
+        to: 5304
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5302
+        description: "This is the main street leading to the city's entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5306
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5350
+        description: "You can hear music coming from within the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5304
+    key: mirror_room_5304
+    name: "A Garden Path"
+    area_id: 32
+    short_desc: "A Garden Path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center
+      of the city. Flowers grow on the sides of the path and the lush trees are
+      laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+      temple truly a blend of nature and man's work of art.
+    exits:
+      north: 5311
+      south: 5303
+      west: 5305
+    sector_type: CITY
+    doors:
+      north:
+        to: 5311
+        description: "A side street leads off to the northern half of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5303
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5305
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5305
+    key: mirror_room_5305
+    name: "A garden path"
+    area_id: 32
+    short_desc: "A garden path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center
+      of the city. Flowers grow on the sides of the path and the lush trees are
+      laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+      temple truly a blend of nature and man's work of art.
+    exits:
+      east: 5304
+      south: 5350
+    sector_type: CITY
+    doors:
+      east:
+        to: 5304
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5350
+        description: "You can hear music coming from within the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5306
+    key: mirror_room_5306
+    name: "A Garden Path"
+    area_id: 32
+    short_desc: "A Garden Path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center
+      of the city. Flowers grow on the sides of the path and the lush trees are
+      laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+      temple truly a blend of nature and man's work of art.
+    exits:
+      north: 5303
+      south: 5312
+    sector_type: CITY
+    doors:
+      north:
+        to: 5303
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5312
+        description: "A small side street leads to the southern half of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5307
+    key: mirror_room_5307
+    name: "The market place"
+    area_id: 32
+    short_desc: "The market place"
+    long_desc: |
+      You stand in the middle of a large square lined on each side with
+      baskets, carts, and stands of all shapes and sizes.  The little shops are 
+      filled with goods sold to the demanding public.
+    exits:
+      north: 5325
+      south: 5320
+      west: 5308
+    sector_type: CITY
+    doors:
+      north:
+        to: 5325
+        description: "A small table is here, laden with fine jewelery and gems sold by the jeweler."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5320
+        description: "Fruits and vegetables are piled on boxes waiting to be sold and eaten."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5308
+        description: "The market place continues."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5308
+    key: mirror_room_5308
+    name: "The market place"
+    area_id: 32
+    short_desc: "The market place"
+    long_desc: |
+      You stand in the middle of a large square lined on each side with
+      baskets, carts, and stands of all shapes and sizes.  The little shops are
+      filled with goods sold to the demanding public.
+    exits:
+      north: 5322
+      east: 5307
+      south: 5317
+    sector_type: CITY
+    doors:
+      north:
+        to: 5322
+        description: "Beautiful carpets and enormous bales of silk are being stared with awe by
+the citizens."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5307
+        description: "The center of the market lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5317
+        description: ">From the great smell, the meat and poultry stand must be south!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5309
+    key: mirror_room_5309
+    name: "A Side Street"
+    area_id: 32
+    short_desc: "A Side Street"
+    long_desc: |
+      This small side street leads east and west into back alleys while
+      to the south you see a beautifully designed temple. Shrieks of little
+      children playing games in the distance catch your attention.
+    exits:
+      east: 5343
+      south: 5310
+      west: 5328
+    sector_type: CITY
+    doors:
+      east:
+        to: 5343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5328
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5310
+    key: mirror_room_5310
+    name: "A Side Street"
+    area_id: 32
+    short_desc: "A Side Street"
+    long_desc: |
+      You are in the common section of the city. More buildings made of
+      clay and stone be dazzles you. Most of these homes are designed so
+      beautifully you just cant keep your eyes off them.  The street
+      continues north and south and buildings line the street.
+    exits:
+      north: 5309
+      east: 5344
+      south: 5311
+      west: 5326
+    sector_type: CITY
+    doors:
+      north:
+        to: 5309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5344
+        description: "A small doorway leads into a little humble dwelling."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5311
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5326
+        description: "A small clay dwelling sits here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5311
+    key: mirror_room_5311
+    name: "A Side Street"
+    area_id: 32
+    short_desc: "A Side Street"
+    long_desc: |
+      This small side street leads away from the garden path to the south.
+      Around you stand large numbers of commoners' houses.  Many citizens
+      pass by you with a friendly hello.  You almost feel like home here.
+    exits:
+      north: 5310
+      east: 5337
+      south: 5304
+      west: 5327
+    sector_type: CITY
+    doors:
+      north:
+        to: 5310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5337
+        description: "An unusually tall dwelling stands looming over you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5304
+        description: "A garden path circles around the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5327
+        description: "Here lies a small stone house with a thatched roof."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5312
+    key: mirror_room_5312
+    name: "A side street"
+    area_id: 32
+    short_desc: "A side street"
+    long_desc: |
+      This small side street leads south away from the temple into the
+      business section of town. To the east is the famous City Hall of Thalos.  
+      Well disciplined guards stand at attention, watching over the city hall, but
+      you don't see any source of threats in THIS city.  North is a garden path,
+      west is a smithy, and this side street continues south.
+    exits:
+      north: 5306
+      east: 5332
+      south: 5313
+      west: 5321
+    sector_type: CITY
+    doors:
+      north:
+        to: 5306
+        description: "A small garden path encircles the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5332
+        description: "You see what is most definitely city hall.  This building is the most
+elaborate of all the building here in Thalos."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5321
+        description: "Inside the building you see long pieces of metal, an oven, and some
+anvils.  Obviously a smithy."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5313
+    key: mirror_room_5313
+    name: "A side street"
+    area_id: 32
+    short_desc: "A side street"
+    long_desc: |
+      This small side street is lined with great beautifully designed
+      buildings. To the north is the magnificent temple while to the
+      south lies the entrance to a small friendly tavern. The street continues
+      north and south.
+    exits:
+      north: 5312
+      east: 5330
+      south: 5314
+      west: 5319
+    sector_type: CITY
+    doors:
+      north:
+        to: 5312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5330
+        description: ">From the looks of it, this is a very impressive two story abode.
+The entire first floor is covered with a huge marble bar with merry men
+telling tall tales and drinking their fill."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5319
+        description: "This seems to be the only guild house in the entire city. You feel uneasy
+about this building.  For some reason it seems not to belong."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5314
+    key: mirror_room_5314
+    name: "A side street"
+    area_id: 32
+    short_desc: "A side street"
+    long_desc: |
+      You are at the end of a long street leading to the center of the city.
+      A long alley runs east and west.
+    exits:
+      north: 5313
+      east: 5351
+      south: 5329
+      west: 5318
+    sector_type: CITY
+    doors:
+      north:
+        to: 5313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5329
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5315
+    key: mirror_room_5315
+    name: "Under another grand watchtower"
+    area_id: 32
+    short_desc: "Under another grand watchtower"
+    long_desc: |
+      You stand at the base of a tall ivy covered watchtower built to
+      protect the city from invaders.  You get the feeling of safety here in
+      Thalos.
+    exits:
+      north: 5316
+      east: 5318
+      up: 5347
+    sector_type: CITY
+    doors:
+      north:
+        to: 5316
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5347
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5316
+    key: mirror_room_5316
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      This alley leads to the rear of meat stand. The aroma of fresh and
+      char-broiled meat catches your sense of smell.  You wipe the drool
+      off your chin the instant you know it is there.
+    exits:
+      north: 5317
+      south: 5315
+    sector_type: CITY
+    doors:
+      north:
+        to: 5317
+        description: "You see the back-side of the market place meat stand."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5315
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5317
+    key: mirror_room_5317
+    name: "The meat stand"
+    area_id: 32
+    short_desc: "The meat stand"
+    long_desc: |
+      A large stand has been set up here with metal hooks and wooden racks
+      in the background.  Hanging on the hooks are huge slabs of meat
+      and other game.  This stand is packed with produce, and a sudden burst
+      of laughter catches you by surprise as little children play around
+      your ankles.
+    exits:
+      north: 5308
+      east: 5320
+      south: 5316
+    sector_type: CITY
+    doors:
+      north:
+        to: 5308
+        description: "The market place lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5320
+        description: "This is a cart full of fresh vegetables and fruits.  You are almost
+tempted to take some."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5316
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5318
+    key: mirror_room_5318
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads east to a wider street and west to one of
+      the city watchtowers.
+    exits:
+      east: 5314
+      west: 5315
+    sector_type: CITY
+    doors:
+      east:
+        to: 5314
+        description: "A small side street welcomes you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5315
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5319
+    key: mirror_room_5319
+    name: "The guild house"
+    area_id: 32
+    short_desc: "The guild house"
+    long_desc: |
+      You are standing in this city's ONLY guild house.  Tables and chairs
+      are set about for the occupants' comfort.  Weapons are stacked neatly on the
+      weapons rack.  Each weapon looks polished, sharpened, and oiled.
+      Draped along the back wall is the proud banner of Thalos in all its glory.
+    exits:
+      east: 5313
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5313
+        description: "A small side street runs past the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5320
+    key: mirror_room_5320
+    name: "The produce stand"
+    area_id: 32
+    short_desc: "The produce stand"
+    long_desc: |
+      A large cart sits here carrying fresh fruit and vegetables.
+      Hungry children swarm all about the tasty treats the merchants are
+      giving out for free.
+    exits:
+      north: 5307
+      west: 5317
+    sector_type: CITY
+    doors:
+      north:
+        to: 5307
+        description: "The market place is jammed packed with people scurrying about."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5317
+        description: "A strong aromatic smell emanates from the meat stand next to you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5321
+    key: mirror_room_5321
+    name: "The smithy"
+    area_id: 32
+    short_desc: "The smithy"
+    long_desc: |
+      In here you find tools and anvils used to make various weapons
+      and items. The walls are fully stocked with pieces of armor and weaponry.
+    exits:
+      east: 5312
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5312
+        description: "A small side street runs past the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5322
+    key: mirror_room_5322
+    name: "The tapestry stand"
+    area_id: 32
+    short_desc: "The tapestry stand"
+    long_desc: |
+      Beautiful tapestries and rugs hang all over the walls.  Fancy
+      robes and various articles of clothing hang about for sale. You stare with
+      awe at how much work must have been put into these cloths.
+    exits:
+      north: 5323
+      east: 5325
+      south: 5308
+    sector_type: CITY
+    doors:
+      north:
+        to: 5323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5325
+        description: "A fine jewelry stand lies majestically next to you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5308
+        description: "The market place is swarming with people scurrying about."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5323
+    key: mirror_room_5323
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads north to one of the city watchtowers while
+      to the south there lies a market stand full of expensive clothes and rugs.
+    exits:
+      north: 5324
+      south: 5322
+    sector_type: CITY
+    doors:
+      north:
+        to: 5324
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5324
+    key: mirror_room_5324
+    name: "Under the watchtower"
+    area_id: 32
+    short_desc: "Under the watchtower"
+    long_desc: |
+      You stand under one of the city watchtowers built to protect
+      the city from invaders.  You know that you are safe from any danger.
+    exits:
+      east: 5328
+      south: 5323
+      up: 5346
+    sector_type: CITY
+    doors:
+      east:
+        to: 5328
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5346
+        description: "Above you stands a tall watchtower."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5325
+    key: mirror_room_5325
+    name: "The jewelery stand"
+    area_id: 32
+    short_desc: "The jewelery stand"
+    long_desc: |
+      A table stands covered with fine jewelery and gems.  The jeweler
+      stands proudly over his collection as he polishes and cleans each one.
+    exits:
+      south: 5307
+      west: 5322
+    sector_type: CITY
+    doors:
+      south:
+        to: 5307
+        description: "The market place is packed with people scurrying about doing their
+business."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5322
+        description: "Next to you is a stand full of fine clothes and expensive rugs."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5326
+    key: mirror_room_5326
+    name: "A simple clay dwelling"
+    area_id: 32
+    short_desc: "A simple clay dwelling"
+    long_desc: |
+      This is a very plain house with a few chairs and a bed.
+      A warmed and lit fireplace suggests that the dwelling is currently
+      occupied.  You should leave before the owner finds you here.
+    exits:
+      east: 5310
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5310
+        description: "Outside is a small side street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5327
+    key: mirror_room_5327
+    name: "A stone dwelling"
+    area_id: 32
+    short_desc: "A stone dwelling"
+    long_desc: |
+      This small house is the dwelling of a humble citizen of Thalos.
+      A few rafters stand with thatched straw blowing with the wind gusts
+      blowing through the city.
+    exits:
+      east: 5311
+    sector_type: CITY
+    doors:
+      east:
+        to: 5311
+        description: "A small side street runs past the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5328
+    key: mirror_room_5328
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads east to one of the city watchtowers and west to
+      a small side street.
+    exits:
+      east: 5309
+      west: 5324
+    sector_type: CITY
+    doors:
+      east:
+        to: 5309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5329
+    key: mirror_room_5329
+    name: "A busy shop"
+    area_id: 32
+    short_desc: "A busy shop"
+    long_desc: |
+      From the outside this place looks like an ordinary building,
+      but inside these cramped quarters you discover a shop filled with
+      armor, weapons, and various other goods. A small sign posted on the wall
+      flutters in the wind.
+    exits:
+      north: 5314
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5314
+        description: "A small side street runs past the shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5330
+    key: mirror_room_5330
+    name: "The Tavern of the Sun"
+    area_id: 32
+    short_desc: "The Tavern of the Sun"
+    long_desc: |
+      A glorious place, this tavern is second home for many citizens of
+      Thalos.  Tables and chairs are set in rows, bottles and glasses filled, and
+      a small performance stage teaming with dazzling entertainment. Musical
+      instruments and personal belongings lie in piles belonging to each member
+      of this room.
+    exits:
+      west: 5313
+    sector_type: CITY
+    doors:
+      west:
+        to: 5313
+        description: "A small side street runs past the tavern."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5331
+    key: mirror_room_5331
+    name: "South wing of the city hall"
+    area_id: 32
+    short_desc: "South wing of the city hall"
+    long_desc: |
+      You stand in a large room attached to this end of the hallway which
+      leads back north to the reception area. Pedestals and columns stand
+      faithfully.  Valuable items hang from the walls each to be admired
+      by onlookers.  Chairs lie around, and a large curved desk. To the east
+      is a vine-covered archway leading out into a private courtyard.
+    exits:
+      north: 5332
+      east: 5334
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5332
+        description: "The long hallway leads back to the main reception area of the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5332
+    key: mirror_room_5332
+    name: "The city hall"
+    area_id: 32
+    short_desc: "The city hall"
+    long_desc: |
+      This is the main reception area of Thalos' city hall. The walls have
+      been painted in pure white and thick lush carpet line the floor wall to wall.
+      A side door on the west wall allows you to go out to one of the city's side 
+      streets.  Hallways lead south and east.
+    exits:
+      north: 5302
+      east: 5333
+      south: 5331
+      west: 5312
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5302
+        description: "Main street runs past the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5333
+        description: "A hallway leads to the east wing of the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5331
+        description: "A hallway leads to the south wing of the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5333
+    key: mirror_room_5333
+    name: "East wing of the city hall"
+    area_id: 32
+    short_desc: "East wing of the city hall"
+    long_desc: |
+      Here lies fancy office, possibly the mayor's. A few green plants
+      and pieces of furniture make this place breathtaking.  There is a large
+      glass cabinet along the wall. A long hallway leads west back to the
+      reception area and an ivy-covered archway leads south into a private
+      courtyard.
+    exits:
+      south: 5334
+      west: 5332
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5334
+    key: mirror_room_5334
+    name: "The private gardens and courtyard of Thalos"
+    area_id: 32
+    short_desc: "The private gardens and courtyard of Thalos"
+    long_desc: |
+      You stare in awe as the beauty of this place takes you by
+      surprise.  Exotic flowers and trees are planted in neat rows and lawn
+      benches line the walk ways.  A large marble fountain in the center of the
+      courtyard stands. Above stands one of the four watchtowers. Archways
+      north and west lead back into the city hall.
+    exits:
+      north: 5333
+      west: 5331
+    sector_type: CITY
+    doors:
+      north:
+        to: 5333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5335
+    key: mirror_room_5335
+    name: "A small guard house"
+    area_id: 32
+    short_desc: "A small guard house"
+    long_desc: |
+      This is the barracks for Thalos' cityguards.  Guards populate this
+      shack ready, willing, and able to ward off any trouble.  This small
+      shack stands guarding both to the entrance to the city and to the city hall.
+    exits:
+      east: 5355
+    sector_type: CITY
+    doors:
+      east:
+        to: 5355
+        description: "The alley runs by this building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5336
+    key: mirror_room_5336
+    name: "An impressive house"
+    area_id: 32
+    short_desc: "An impressive house"
+    long_desc: |
+      This house houses the Defender of Thalos.  He represents all that
+      is good and right in this city.  As the most skilled fighting machine,
+      he is the commander of the guard.
+    exits:
+      south: 5302
+    sector_type: CITY
+    doors:
+      south:
+        to: 5302
+        description: "Main street runs past this dwelling."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5337
+    key: mirror_room_5337
+    name: "A Public Library"
+    area_id: 32
+    short_desc: "A Public Library"
+    long_desc: |
+      This seems to be the tallest structure in the city.  Rows and rows of books
+      line the 20 foot tall bookcases, and a quiet serenity can be felt by all here.
+    exits:
+      east: 5338
+      west: 5311
+      up: 5345
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5338
+        description: "Another room in the library is here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5311
+        description: "A small side street winds past this building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5345
+        description: "You see a second floor to the library."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5338
+    key: mirror_room_5338
+    name: "The Library Addition"
+    area_id: 32
+    short_desc: "The Library Addition"
+    long_desc: |
+      There are more shelves and tables here.  Vials of strange potions line a
+      section of the wall, and books and other items of power line another.  The exit
+      is to the west.
+    exits:
+      west: 5337
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 5337
+        description: "The main room of the library is there."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5339
+    key: mirror_room_5339
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow back alley goes south to main street and north towards
+      a watchtower.  People quietly pass you by.
+    exits:
+      north: 5340
+      south: 5301
+    sector_type: CITY
+    doors:
+      north:
+        to: 5340
+        description: "You see a mighty watchtower north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5301
+        description: "Main street runs past here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5340
+    key: mirror_room_5340
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow back alley leads north to one of the city watchtowers
+      and south towards main street.  The shade cast by the watchtower is very
+      refreshing.
+    exits:
+      north: 5341
+      south: 5339
+    sector_type: CITY
+    doors:
+      north:
+        to: 5341
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5339
+        description: "The cobbled alley continues on."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5341
+    key: mirror_room_5341
+    name: "Under a watchtower"
+    area_id: 32
+    short_desc: "Under a watchtower"
+    long_desc: |
+      You stand under a tall watchtower. Narrow back alleys lead west and
+      south and a sturdy ladder leads up into the tower.
+    exits:
+      south: 5340
+      west: 5343
+      up: 5348
+    sector_type: CITY
+    doors:
+      south:
+        to: 5340
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5348
+        description: "You see up the powerful watchtower."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5342
+    key: mirror_room_5342
+    name: "A bath house"
+    area_id: 32
+    short_desc: "A bath house"
+    long_desc: |
+      This is the bath house for the commoners of the city. Hot steamy water 
+      wells up from a hole in the floor. Obviously there is a hot spring located 
+      under the city (making the decision to put a city here seem much more 
+      reasonable). To the west is another room.
+    exits:
+      north: 5343
+      west: 5344
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5343
+        description: "A cobbled alley is there."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5344
+        description: "Another resting room is here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5343
+    key: mirror_room_5343
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow back alley leads west to a small side street and east to one
+      of the city watchtowers. Great amounts of steam issue forth from the
+      building to the south.  It looks very inviting.
+    exits:
+      east: 5341
+      south: 5342
+      west: 5309
+    sector_type: CITY
+    doors:
+      east:
+        to: 5341
+        description: "A watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5342
+        description: "You hear laughter and splashing."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5309
+        description: "A side street greets you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5344
+    key: mirror_room_5344
+    name: "A Resting Room"
+    area_id: 32
+    short_desc: "A Resting Room"
+    long_desc: |
+      You are in a resting room.  Soft mats line the floor, and you see many
+      people just relaxing on them.  The comfort of this place is so inviting, you 
+      want to join them.  Great amounts of steam issue forth from the hole in the 
+      east wall.
+    exits:
+      east: 5342
+      west: 5310
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5342
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5310
+        description: "A small side street runs past the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5345
+    key: mirror_room_5345
+    name: "On the second floor of the library"
+    area_id: 32
+    short_desc: "On the second floor of the library"
+    long_desc: |
+      You see more books here.  Through windows, you have a glorious view of
+      a nearby bay.  Birds fly by your window.
+    exits:
+      down: 5337
+    sector_type: CITY
+    doors:
+      down:
+        to: 5337
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5346
+    key: mirror_room_5346
+    name: "The north-west watchtower"
+    area_id: 32
+    short_desc: "The north-west watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here and you can see all the way to the western mountains.  You are 
+      confident nothing can touch this tower.
+    exits:
+      down: 5324
+    sector_type: CITY
+    doors:
+      down:
+        to: 5324
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5347
+    key: mirror_room_5347
+    name: "The south-west watchtower"
+    area_id: 32
+    short_desc: "The south-west watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here and you can see all the way to the western mountains. To the
+      south bay stretches to the horizon.  You are confident nothing can touch this
+      tower.
+    exits:
+      down: 5315
+    sector_type: CITY
+    doors:
+      down:
+        to: 5315
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5348
+    key: mirror_room_5348
+    name: "The north-east watchtower"
+    area_id: 32
+    short_desc: "The north-east watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here.  Green fields stretch to the horizon.  You are confident nothing
+      can touch this tower.
+    exits:
+      down: 5341
+    sector_type: CITY
+    doors:
+      down:
+        to: 5341
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5350
+    key: mirror_room_5350
+    name: "The Temple of Thalos"
+    area_id: 32
+    short_desc: "The Temple of Thalos"
+    long_desc: |
+      You stand within one of the most holy places in the realm. This stunning 
+      domed temple houses the city's worshipers en masse. Long benches line the 
+      aisles and the altar glistens with the gold and platinum inlay.The walls and 
+      roof are all made of ceramic, making this place reflect the sun well.  
+          The greenery around the temple itself makes this place a great blend of
+      nature and man's works of art.
+    exits:
+      north: 5305
+      east: 5303
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5305
+        description: "A side street leads to the northern half of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5303
+        description: "Main street leads out to the main gate of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5351
+    key: mirror_room_5351
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads east to a wider street and west to one of
+      the city watchtowers.  Little kids play tag around you.
+    exits:
+      west: 5314
+      east: 5352
+    sector_type: CITY
+    doors:
+      west:
+        to: 5314
+        description: "A small side street greets you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5352
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5352
+    key: mirror_room_5352
+    name: "Under a watchtower"
+    area_id: 32
+    short_desc: "Under a watchtower"
+    long_desc: |
+      You stand at the base of a tall watchtower built to protect the city
+      from invaders.  From the looks of things, its doing a great job.
+    exits:
+      north: 5353
+      west: 5351
+      up: 5354
+    sector_type: CITY
+    doors:
+      north:
+        to: 5353
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5354
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5353
+    key: mirror_room_5353
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads south to one of the city watchtowers.
+    exits:
+      north: 5355
+      south: 5352
+    sector_type: CITY
+    doors:
+      north:
+        to: 5355
+        description: "The alley continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5352
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5354
+    key: mirror_room_5354
+    name: "The south-east watchtower"
+    area_id: 32
+    short_desc: "The south-east watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here and you can see all the way to the western mountains. To the
+      south the you see the bay.  You're confident nothing can touch this tower.
+    exits:
+      down: 5352
+    sector_type: CITY
+    doors:
+      down:
+        to: 5352
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5355
+    key: mirror_room_5355
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads north to the main street, and south toward a tall
+      watchtower.  A building is to the west.
+    exits:
+      north: 5301
+      south: 5353
+      west: 5335
+    sector_type: CITY
+    doors:
+      north:
+        to: 5301
+        description: "You see main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5353
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5335
+        description: "You see a little building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5356
+    key: mirror_room_5356
+    name: "A trail at the end of the dwarf forest"
+    area_id: 32
+    short_desc: "A trail at the end of the dwarf forest"
+    long_desc: |
+      The trail ends here, with tall, leafy, green trees all around you.
+      To the west, you can see a huge beautiful and radiant city.  Something
+      about it gives you a relaxed feeling.  To the east is your way back home.
+    exits:
+      west: 5300
+      east: 5357
+    sector_type: FIELD
+    doors:
+      west:
+        to: 5300
+        description: "You see Thalos!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5357
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5357
+    key: mirror_room_5357
+    name: "A trail at the end of the dwarf forest"
+    area_id: 32
+    short_desc: "A trail at the end of the dwarf forest"
+    long_desc: |
+      A side trail here leads from the dwarf forest.  It is definitely milder
+      here.  The trail continues to the east from here.
+    exits:
+      west: 5356
+      east: 5358
+    sector_type: FIELD
+    doors:
+      west:
+        to: 5356
+        description: "You see the trail continue on."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5358
+        description: "You see the bend ahead of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5358
+    key: mirror_room_5358
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see tall, healthy green trees here.  The trail bends north to
+      west from here.
+    exits:
+      west: 5357
+      north: 5359
+    sector_type: FOREST
+    doors:
+      west:
+        to: 5357
+        description: "You see the trail bend west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 5359
+        description: "You see the trail bend north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5359
+    key: mirror_room_5359
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see more big green trees here.  It looks almost as if this place was
+      blessed by a god to be green and mild.  The trail leads north and south.
+    exits:
+      north: 5360
+      south: 5358
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5360
+        description: "You see the trail continue north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5358
+        description: "You see the trail continue south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5360
+    key: mirror_room_5360
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see more big green trees here.  It looks almost as if this place was
+      blessed by a god to be green and mild.  The trail leads north and south.
+    exits:
+      north: 5361
+      south: 5359
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5361
+        description: "You see the trail continue north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5359
+        description: "You see the trail continue south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5361
+    key: mirror_room_5361
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see many big green trees here.  You see many leaves on these huge
+      trees.  Grass layer the ground with 2 inches of padding.
+    exits:
+      north: 5362
+      south: 5360
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5362
+        description: "You see the trail continue north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5360
+        description: "You see the trail continue south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5362
+    key: mirror_room_5362
+    name: "The Cross Roads"
+    area_id: 32
+    short_desc: "The Cross Roads"
+    long_desc: |
+      The roads cross here.  Midgaard is to the west.  To the east, you see the
+      stately oaks and poplars of the holy grove.  A wide path leads south through
+      the dwarven forest.  To the north is a very desolate trail.
+    exits:
+      north: 5363
+      east: 5369
+      south: 5361
+      west: 5364
+    sector_type: CITY
+    doors:
+      north:
+        to: 5363
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5361
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5364
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5363
+    key: mirror_room_5363
+    name: "The Lane"
+    area_id: 32
+    short_desc: "The Lane"
+    long_desc: |
+      You are strolling along a pleasant, shady lane. The road is lined on both
+      sides by tall, stately trees which lend the scene with a sense of quiet
+      serenity. You can follow the road north or south.
+    exits:
+      north: 5365
+      south: 5362
+    sector_type: CITY
+    doors:
+      north:
+        to: 5365
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5362
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5364
+    key: mirror_room_5364
+    name: "City Entrance"
+    area_id: 32
+    short_desc: "City Entrance"
+    long_desc: |
+      You stand on the outskirts of a construction site - Midgaard; the capital
+      of this land. The road leads east into the peace and quiet - and dangers -
+      of the forest; and to the west it becomes the main street of the town;
+      surrounded by building foundations of unfinished shops, houses, and temple.
+    exits:
+      east: 5362
+      west: 5385
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 5362
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5385
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5365
+    key: mirror_room_5365
+    name: "The Plains"
+    area_id: 32
+    short_desc: "The Plains"
+    long_desc: |
+      You are standing on the plains. This is a vast desolate place where the
+      wind can howl undisturbed since nothing but you bars its way. However you
+      are not the first to wander here. Before you somebody has left footprints.
+      The footprints make a path that looks rather bewildered and is not the kind
+      of path to lead to anywhere significant or important but it seems to have
+      made up its mind to enter the hills far away north.  A little distance
+      further, you lose the trail and decide not to get lost.
+    exits:
+      south: 5363
+    sector_type: CITY
+    doors:
+      south:
+        to: 5363
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5366
+    key: mirror_room_5366
+    name: "The holy grove"
+    area_id: 32
+    short_desc: "The holy grove"
+    long_desc: |
+      You are standing amidst the ancient oaks and poplars in the holy grove. You
+      can feel a strange sensation of contentedness and relief seeping through You,
+      as if great burdens have been lifted from Your shoulders. From here, friendly-
+      looking paths lead east and south.
+    exits:
+      east: 5367
+      south: 5369
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5367
+        description: "The path wind its way through the tall trees, disappearing out of sight."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5369
+        description: "The path wind its way through the tall trees, disappearing out of sight."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5367
+    key: mirror_room_5367
+    name: "The holy grove"
+    area_id: 32
+    short_desc: "The holy grove"
+    long_desc: |
+      You are standing amidst the ancient oaks and poplars in the holy grove. You
+      feel unusually happy here, as if great burdens have been lifted from Your
+      shoulders. From here, pleasant-looking paths lead east, west and south.
+    exits:
+      east: 5368
+      west: 5366
+      south: 5370
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5368
+        description: "The path wind its way through the tall trees, towards a clearing faintly seen."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5366
+        description: "The path wind its way through the tall trees, disappearing out of sight."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5370
+        description: "The path wind its way through the tall trees, towards an open area barely
+visible in the distance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5368
+    key: mirror_room_5368
+    name: "A clearing in the woods"
+    area_id: 32
+    short_desc: "A clearing in the woods"
+    long_desc: |
+      You are standing in a clearing in the light woods. Somehow, this place
+      seems powerfully DIFFERENT from the rest of the forest, as if something is
+      severely strained in the fabric of reality here.
+    exits:
+      north: 5375
+      south: 5371
+      west: 5367
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 5375
+        description: "A small, narrow path winds north, and is quickly lost in the bushes. It
+looks quite a wilderness there!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5371
+        description: "There is a path winding its way south through the tall poplars, disappearing
+out of sight some 100 yds. away."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5367
+        description: "There is a friendly-looking path leading west through the tall trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5369
+    key: mirror_room_5369
+    name: "The holy grove"
+    area_id: 32
+    short_desc: "The holy grove"
+    long_desc: |
+      You are standing amidst the ancient oaks and poplars in the holy grove. You
+      feel calm and relaxed here, as if great burdens have been lifted from Your
+      shoulders. From here, pleasant-looking paths lead east, north and south. To
+      the west, through the trees, You can see the road to Midgaard's construction
+      site.
+    exits:
+      east: 5370
+      north: 5366
+      south: 5372
+      west: 5362
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 5370
+        description: "The path wind its way through the tall trees, towards a clearing faintly seen."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 5366
+        description: "The path wind its way through the tall trees, disappearing out of sight."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5372
+        description: "The path wind its way through the tall trees, into the grove."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5362
+        description: "Through the trees, you can see the Midgaard road. Far to the west, You can
+barely glimpse the construction of the city itself."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5370
+    key: mirror_room_5370
+    name: "The sacred glade"
+    area_id: 32
+    short_desc: "The sacred glade"
+    long_desc: |
+      You are standing in the middle of the sacred glades, where the citizens of
+      Thalos come to celebrate the spring, where farmers give thanks for bountiful
+      harvest in the fall, and where lovers stroll in summer. You feel seasons of
+      remembered happiness and joy taking Your sorrows and worries away from You,
+      leaving You calm and invigorate, ready for the world. Paths lead into the
+      holy grove to the east, north and west, while to the south a wide, sunny field
+      slopes down to a sparkling lake.
+    exits:
+      north: 5367
+      east: 5371
+      west: 5369
+      south: 5373
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5367
+        description: "The path wind its way north, disappearing through the tall trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5371
+        description: "The path wind its way through the tall trees, disappearing out of sight."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5369
+        description: "The path wind its way west between stately poplars and oaks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5373
+        description: "To the south, a wide, sunny field stretch out, sloping down towards a brightly
+glittering lake."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5371
+    key: mirror_room_5371
+    name: "The holy grove"
+    area_id: 32
+    short_desc: "The holy grove"
+    long_desc: |
+      You are standing amidst the ancient oaks and poplars in the holy grove. You
+      can feel a strange sensation of joy and calm seeping through You, as if great
+      burdens have been lifted from Your shoulders. To the south, You glimpse an open
+      area through the trees, while paths lead away north and west.
+    exits:
+      north: 5368
+      west: 5370
+      south: 5374
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5368
+        description: "The path wind its way through the tall trees, disappearing out of sight."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5370
+        description: "The path wind its way through the tall trees, disappearing out of sight."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5374
+        description: "To the south, just beyond the trees, you can see a wide green lawn, and past
+the lawn, a softly shimmering, rainbow-colored dome covering the foundation
+for a structure."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      foundation: |
+        The foundation looks like it is for a sprawling, two-story affair with three
+        wings.  On the ground is some building material, marble would do, if marble
+        changed color slowly, continuously, through the entire spectrum.  There are
+        also large panes of glass stacked over near one of the corners of the
+        foundation.
+
+  - id: 5372
+    key: mirror_room_5372
+    name: "The holy grove"
+    area_id: 32
+    short_desc: "The holy grove"
+    long_desc: |
+      You are standing amidst the tall, majestic trees in the southern end of the
+      holy grove. Paths lead north and east. To the east, You can see a wide, open
+      field, sloping gently down towards a bright, glittering lake. Somehow, here
+      you feel an inexplicable happiness, as if the world's troubles no longer
+      really matter to you.
+    exits:
+      north: 5369
+      east: 5373
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5369
+        description: "The path leading north is soon lost out of sight amongst the ancient oaks and
+poplars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5373
+        description: "To the east, the path leads out into a wide, sunny summer's field, sloping
+south towards a beautiful lake. Past the field You can see the construction
+of a large foundation for a structure shimmering gently in all the rainbow's
+colours."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      foundation: |
+        The foundation looks like it is for a sprawling, two-story affair with three
+        wings.  On the ground is some building material, marble would do, if marble
+        changed color slowly, continuously, through the entire spectrum.  There are
+        also large panes of glass stacked over near one of the corners of the
+        foundation.
+
+  - id: 5373
+    key: mirror_room_5373
+    name: "The sunny field"
+    area_id: 32
+    short_desc: "The sunny field"
+    long_desc: |
+      You are standing in the middle of a wide, summery, sunlit field. There is a
+      fragrance of spring in the air, a sound of summer and a feeling of eternal
+      Saturday afternoon. To the south is a clear, sparkling lake, and to the north
+      and west is the holy grove. In the wood's edge, to the east, is construction,
+      shimmering softly through the colors of the rainbow. You feel as if You
+      could spend the rest of your life here, lying on your back and looking at the
+      patterns of the clouds as they gently drift across the sky.
+    exits:
+      north: 5370
+      west: 5372
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5370
+        description: "There is a path leading north towards the sacred glade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5372
+        description: "There is a small path leading into the woods to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      dome: |
+        The foundation looks like it is for a sprawling, two-story affair with three
+        wings.  On the ground is some building material, marble would do, if marble
+        changed color slowly, continuously, through the entire spectrum.  There are
+        also large panes of glass stacked over near one of the corners of the
+        foundation.
+
+  - id: 5374
+    key: mirror_room_5374
+    name: "The croquet lawn"
+    area_id: 32
+    short_desc: "The croquet lawn"
+    long_desc: |
+      You are standing on a immaculately manicured green lawn, the kind you only
+      get after 200 years of meticulous work. There is a winding stone path leading
+      from the wood's edge to the north, to the softly shimmering, rainbow-colored
+      dome covering construction to the south. This place enjoys a perpetual cool,
+      sunny summers after-noon.
+    exits:
+      north: 5371
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 5371
+        description: "To the north, the winding stone path leads into the holy grove."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      dome: |
+        The foundation looks like it is for a sprawling, two-story affair with three
+        wings.  On the ground is some building material, marble would do, if marble
+        changed color slowly, continuously, through the entire spectrum.  There are
+        also large panes of glass stacked over near one of the corners of the
+        foundation.
+
+  - id: 5375
+    key: mirror_room_5375
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are standing in the middle of something you cannot explain.  You see
+      stars yet you cannot see what you are standing on.  You are not standing
+      on any sort of physical 'ground' as you can see yet you are not floating
+      either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+      rainbow then back to its normal state.  In the middle of this room is
+      a ladder standing vertical.
+    exits:
+      east: 5378
+      south: 5368
+      west: 5378
+      up: 5376
+      down: 5376
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5378
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5368
+        description: "You see a fuzzy portal of some sort and a little green."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5378
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5376
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5376
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5376
+    key: mirror_room_5376
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are standing in the middle of something you cannot explain.  You see
+      stars yet you cannot see what you are standing on.  You are not standing
+      on any sort of physical 'ground' as you can see yet you are not floating
+      either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+      rainbow then back to its normal state.
+    exits:
+      north: 5377
+      east: 5376
+      south: 5377
+      west: 5376
+      up: 5375
+      down: 5375
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5377
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5376
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5377
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5376
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5375
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5375
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5377
+    key: mirror_room_5377
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are standing in the middle of something you cannot explain.  You see
+      stars yet you cannot see what you are standing on.  You are not standing
+      on any sort of physical 'ground' as you can see yet you are not floating
+      either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+      rainbow then back to its normal state.
+    exits:
+      north: 5376
+      east: 5377
+      south: 5376
+      west: 5377
+      up: 5378
+      down: 5378
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5376
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5377
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5376
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5377
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5378
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5378
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5378
+    key: mirror_room_5378
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are standing in the middle of something you cannot explain.  You see
+      stars yet you cannot see what you are standing on.  You are not standing
+      on any sort of physical 'ground' as you can see yet you are not floating
+      either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+      rainbow then back to its normal state.  In the middle of this room is
+      a ladder standing vertical.
+    exits:
+      east: 5375
+      south: 8903
+      west: 5375
+      up: 5377
+      down: 5377
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5375
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8903
+        description: "You see a fuzzy portal of some sort and a little green."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5375
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5377
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5377
+        description: "You see stars."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5379
+    key: mirror_room_5379
+    name: "The Temple Of Midgaard"
+    area_id: 32
+    short_desc: "The Temple Of Midgaard"
+    long_desc: |
+      You are in the southern end of the temple hall in the Temple of Midgaard.
+      The temple has been constructed from giant marble blocks, eternal in
+      appearance, and most of the walls are covered by ancient wall paintings
+      picturing Gods, Giants and peasants.
+         Large steps lead down through the grand temple gate, descending the huge
+      mound upon which the temple is built and ends on the temple square below.
+         You notice that this building is quite new.  A small plaque is on this wall.
+    exits:
+      north: 5386
+      south: 5380
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 5386
+        description: "At the northern end of the temple hall is a statue and a huge altar."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5380
+        description: "You see the temple square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      plaque: |
+        This entire world has been integrated, modified, debugged, and enhanced by
+        Hatchet, Kahn, and Furey of MERC Industries to be run by any MERC Mud.
+        1992 December 17
+
+  - id: 5380
+    key: mirror_room_5380
+    name: "The Temple Square"
+    area_id: 32
+    short_desc: "The Temple Square"
+    long_desc: |
+      You are standing on the temple square.  Huge marble steps lead up to the
+      temple gate.  The ground is just dirt but there are plans to make the road
+      cobble stone.  Just south of here you see a blooming market square, the
+      center of Midgaard.
+    exits:
+      north: 5379
+      south: 5381
+    sector_type: CITY
+    doors:
+      north:
+        to: 5379
+        description: "You see the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5381
+        description: "You see the Market Square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5381
+    key: mirror_room_5381
+    name: "Market Square"
+    area_id: 32
+    short_desc: "Market Square"
+    long_desc: |
+      You are standing on the market square, the Square of Midgaard.  It seems
+      that a large, peculiar looking statue is being built here in the middle of
+      the square.  Roads lead to the north and east, north to the temple square,
+      east is the main street.
+    exits:
+      north: 5380
+      east: 5382
+    sector_type: CITY
+    doors:
+      north:
+        to: 5380
+        description: "You see the temple square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5382
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      statue: |
+        What you see is an uncompleted statue of what you think is the Midgaard
+        mascot.
+
+  - id: 5382
+    key: mirror_room_5382
+    name: "The Main Street"
+    area_id: 32
+    short_desc: "The Main Street"
+    long_desc: |
+      You are on Main Street crossing through this booming town.  The main
+      street continues east.  To the west you see and hear a small market place.
+    exits:
+      east: 5383
+      west: 5381
+    sector_type: CITY
+    doors:
+      east:
+        to: 5383
+        description: "You see Main Street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5381
+        description: "You see the market square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5383
+    key: mirror_room_5383
+    name: "The Main Street"
+    area_id: 32
+    short_desc: "The Main Street"
+    long_desc: |
+      The main street, to the east you leave town and to the west the street
+      leads to the market square.
+    exits:
+      east: 5384
+      west: 5382
+    sector_type: CITY
+    doors:
+      east:
+        to: 5384
+        description: "You see the city gate."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5382
+        description: "You see the main street leading to the market square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5384
+    key: mirror_room_5384
+    name: "Inside the East Gate of Midgaard"
+    area_id: 32
+    short_desc: "Inside the East Gate of Midgaard"
+    long_desc: |
+      You are by two small newly built towers that have been built into the
+      city wall and connected with a footbridge across the heavy wooden gate.
+      Main Street leads west from here.
+    exits:
+      east: 5385
+      west: 5383
+    sector_type: CITY
+    doors:
+      east:
+        to: 5385
+        description: "You see the city gate."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3133
+      west:
+        to: 5383
+        description: "You see Main Street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      bridge: |
+        It is too high up to reach but it looks as if one easily could walk across it
+        from one tower to the other.
+      gate: |
+        It is a set of very big double doors made from hard wood.  They have been
+        reinforced with large iron bands to make them even more sturdy.  One of the
+        doors is equipped with a very big lock.
+      tower: |
+        Both of the towers are built from large grey rocks that have been fastened to
+        each other with some kind of mortar, just like the city wall.
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 5385
+    key: mirror_room_5385
+    name: "Outside the East Gate of Midgaard"
+    area_id: 32
+    short_desc: "Outside the East Gate of Midgaard"
+    long_desc: |
+      You are by two small towers that have been built into the city wall and
+      connected with a footbridge across the heavy wooden gate.  To the east the
+      plains stretch out in the distance.
+    exits:
+      east: 5364
+      west: 5384
+    sector_type: CITY
+    doors:
+      east:
+        to: 5364
+        description: "You see the plains."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5384
+        description: "You see the city gate."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3133
+    extras:
+      bridge: |
+        It is too high up to reach but it looks as if one easily could walk across it
+        from one tower to the other.
+      gate: |
+        It is a set of very big double doors made from hard wood.  They have been
+        reinforced with large iron bands to make them even more sturdy.  One of the
+        doors is equipped with a very big lock.
+      tower: |
+        Both of the towers are built from large grey rocks that have been fastened to
+        each other with some kind of mortar, just like the city wall.
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 5386
+    key: mirror_room_5386
+    name: "By the Temple Altar"
+    area_id: 32
+    short_desc: "By the Temple Altar"
+    long_desc: |
+      You are by the temple altar in the northern end of the Temple of Midgaard.
+      A huge altar made from white polished marble is standing in front of you and
+      behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
+    exits:
+      south: 5379
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 5379
+        description: "You see the southern end of the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      altar: |
+        Even though the altar is more than ten feet long it appears to be made from a
+        single block of white virgin marble.
+      statue: |
+        The statue represents the one-eyed Odin sitting on a his throne.  He has
+        long, grey hair and beard and a strict look on his face.  On top of the
+        throne, just above his shoulders, his two ravens Hugin and Munin are sitting
+        and at his feet are his wolves Gere and Freke.
+

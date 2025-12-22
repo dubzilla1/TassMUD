@@ -1,0 +1,1686 @@
+rooms:
+  - id: 901
+    key: olympus_room_901
+    name: "Mountain"
+    area_id: 30
+    short_desc: "Mountain"
+    long_desc: |
+      You are climbing a large mountain which towers over Ofcol.  The path
+      continues up the mountain, but part of it is gone.  There is no way to
+      continue by land.
+    exits:
+      up: 902
+      south: 324
+    sector_type: MOUNTAIN
+    doors:
+      up:
+        to: 902
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 902
+    key: olympus_room_902
+    name: "Mountain"
+    area_id: 30
+    short_desc: "Mountain"
+    long_desc: |
+      You are making your way up the mountain.  The rigorous climb has left you
+      tired, and you are ready to take a break.
+    exits:
+      up: 903
+      down: 901
+    sector_type: AIR
+    doors:
+      up:
+        to: 903
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 901
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 903
+    key: olympus_room_903
+    name: "Mountain"
+    area_id: 30
+    short_desc: "Mountain"
+    long_desc: |
+      You have finally reached the top of the mountain.  The air here is so thin
+      that you must gasp for breath.  To the north, you see what seems to be the
+      entrance to a city.
+    exits:
+      north: 904
+      down: 902
+    sector_type: AIR
+    doors:
+      north:
+        to: 904
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 902
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 904
+    key: olympus_room_904
+    name: "Entrance"
+    area_id: 30
+    short_desc: "Entrance"
+    long_desc: |
+      You are at the entrance to a huge city.  As you look around, you realize
+      that the inhabitants of this city must be very wealthy indeed - you have never
+      seen a city with such beautiful buildings.
+    exits:
+      north: 905
+      south: 903
+    sector_type: CITY
+    doors:
+      north:
+        to: 905
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 903
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 905
+    key: olympus_room_905
+    name: "Zeus Street"
+    area_id: 30
+    short_desc: "Zeus Street"
+    long_desc: |
+      You are walking down a huge street.  You notice that there are not many
+      people in this town.  On a corner, you see a sign marked 'Zeus Street'.
+      To the west, you see a small store.
+    exits:
+      north: 906
+      south: 904
+      west: 924
+    sector_type: CITY
+    doors:
+      north:
+        to: 906
+        description: "The street continues."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 904
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 924
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 906
+    key: olympus_room_906
+    name: "Zeus Street"
+    area_id: 30
+    short_desc: "Zeus Street"
+    long_desc: |
+      You are walking down what appears to be the main street of this city.
+      You see large residences to the east and west, while the street continues
+      to the north and south.
+    exits:
+      north: 907
+      south: 905
+      east: 925
+      west: 926
+    sector_type: CITY
+    doors:
+      north:
+        to: 907
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 905
+        description: "The street continues."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 925
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 926
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 907
+    key: olympus_room_907
+    name: "Zeus Street"
+    area_id: 30
+    short_desc: "Zeus Street"
+    long_desc: |
+      You are on the main street of this town, called Zeus street.
+    exits:
+      north: 908
+      south: 906
+      west: 927
+    sector_type: CITY
+    doors:
+      north:
+        to: 908
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 906
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 927
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 908
+    key: olympus_room_908
+    name: "Zeus Street"
+    area_id: 30
+    short_desc: "Zeus Street"
+    long_desc: |
+      You are still on the main thoroughfare of this town.  To the north, you see
+      a large castle.  To the east there is a smaller road, while there is some sort
+      of store to the west.
+    exits:
+      north: 909
+      south: 907
+      east: 928
+    sector_type: CITY
+    doors:
+      north:
+        to: 909
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 907
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 928
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 909
+    key: olympus_room_909
+    name: "Castle Entryway"
+    area_id: 30
+    short_desc: "Castle Entryway"
+    long_desc: |
+      You are in the entryway of a large castle.  It is very beautiful, with
+      large paintings and a lovely carpet.  You hear jovial laughter to the north,
+      while smaller corridors branch off to the east and west.
+    exits:
+      north: 910
+      south: 908
+      west: 911
+      east: 915
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 910
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 908
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 911
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 915
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 910
+    key: olympus_room_910
+    name: "Throne Room"
+    area_id: 30
+    short_desc: "Throne Room"
+    long_desc: |
+      You stop dead in your tracks as you enter this room.  Before you is Zeus,
+      in all his glory, sitting on a huge golden throne.  You had thought him to be 
+      just a myth, but here he is ... you wonder who else lives in this castle.
+    exits:
+      north: 923
+      south: 909
+      down: 918
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 923
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 909
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 918
+        description: ""
+        keywords: "throne trapdoor"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      throne: |
+        This huge golden throne looks as if it has been here for ages.  As you study it
+        carefully, you notice that it is not firmly attached to the floor ... perhaps
+        you could slide it?
+
+  - id: 911
+    key: olympus_room_911
+    name: "Western Wing"
+    area_id: 30
+    short_desc: "Western Wing"
+    long_desc: |
+      You are in the western wing of the castle.  You see the entrance to the
+      east, while this hallway continues to the west.
+    exits:
+      east: 909
+      west: 912
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 909
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 912
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 912
+    key: olympus_room_912
+    name: "Western Wing"
+    area_id: 30
+    short_desc: "Western Wing"
+    long_desc: |
+      You are in the western wing of the castle.  The hallway continues to the
+      north, while there are private rooms to the west and south.
+    exits:
+      east: 911
+      west: 929
+      south: 930
+      north: 913
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 911
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 929
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 930
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 913
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 913
+    key: olympus_room_913
+    name: "Western Wing"
+    area_id: 30
+    short_desc: "Western Wing"
+    long_desc: |
+      You are in the western wing of the castle.  This hallway continues to the
+      south, and you hear pots and pans rattling to the north.
+    exits:
+      south: 912
+      north: 914
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 912
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 914
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 914
+    key: olympus_room_914
+    name: "Kitchen"
+    area_id: 30
+    short_desc: "Kitchen"
+    long_desc: |
+      You have entered the kitchen of this castle, and it is a hotbed of
+      activity.  Servants are bustling about, preparing food for the Gods themselves.
+    exits:
+      south: 913
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 913
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 915
+    key: olympus_room_915
+    name: "Eastern Wing"
+    area_id: 30
+    short_desc: "Eastern Wing"
+    long_desc: |
+      You are in the eastern wing of the castle.  The hall continues to the
+      east, while the entrance is back to the west.
+    exits:
+      west: 909
+      east: 916
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 909
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 916
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 916
+    key: olympus_room_916
+    name: "Eastern Wing"
+    area_id: 30
+    short_desc: "Eastern Wing"
+    long_desc: |
+      You are in the eastern wing of the castle.  The hall turns to the north
+      here, while there are private rooms to the east and the south.
+    exits:
+      west: 915
+      east: 931
+      north: 917
+      south: 932
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 915
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 931
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 917
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 932
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 917
+    key: olympus_room_917
+    name: "Eastern Wing"
+    area_id: 30
+    short_desc: "Eastern Wing"
+    long_desc: |
+      You are in the eastern wing of the castle.  You hear animals to the north,
+      while the hallway continues to the south.
+    exits:
+      north: 933
+      south: 916
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 933
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 916
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 918
+    key: olympus_room_918
+    name: "Dungeon"
+    area_id: 30
+    short_desc: "Dungeon"
+    long_desc: |
+      You are in Zeus's Dungeon.  You wonder what creatures are so terrible that
+      even mighty Zeus fears them enough to imprison them.
+    exits:
+      north: 919
+      up: 910
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 919
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 910
+        description: ""
+        keywords: "trapdoor throne"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 919
+    key: olympus_room_919
+    name: "Dungeon"
+    area_id: 30
+    short_desc: "Dungeon"
+    long_desc: |
+      You are in Zeus's Dungeon.  There are cells to the north, west, and east. 
+      From the east and west, you hear guttural noises.  From the north, nothing ...
+    exits:
+      north: 920
+      east: 922
+      west: 921
+      south: 918
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 920
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 927
+      east:
+        to: 922
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 927
+      west:
+        to: 921
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 927
+      south:
+        to: 918
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 920
+    key: olympus_room_920
+    name: "Cell"
+    area_id: 30
+    short_desc: "Cell"
+    long_desc: |
+      You are in a small, cramped, dirty cell.  It is a horrid place.
+    exits:
+      south: 919
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 919
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 927
+
+  - id: 921
+    key: olympus_room_921
+    name: "Cell"
+    area_id: 30
+    short_desc: "Cell"
+    long_desc: |
+      You are in a small, cramped, dirty cell.  It is a horrid place.
+    exits:
+      east: 919
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 919
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 927
+
+  - id: 922
+    key: olympus_room_922
+    name: "Cell"
+    area_id: 30
+    short_desc: "Cell"
+    long_desc: |
+      You are in a small, cramped, dirty cell.  It is a horrid place.
+    exits:
+      west: 919
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 919
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 927
+
+  - id: 923
+    key: olympus_room_923
+    name: "Stairway"
+    area_id: 30
+    short_desc: "Stairway"
+    long_desc: |
+      You have come to a large stairway leading up.  To the south, you see the
+      throne room of Zeus.
+    exits:
+      up: 939
+      south: 910
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 939
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 910
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 924
+    key: olympus_room_924
+    name: "Bakery"
+    area_id: 30
+    short_desc: "Bakery"
+    long_desc: |
+      You are in the small store which supplies the residents of this town with
+      their food.  It smells wonderful in here!
+    exits:
+      east: 905
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 905
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 925
+    key: olympus_room_925
+    name: "Residence"
+    area_id: 30
+    short_desc: "Residence"
+    long_desc: |
+      You are in the residence of one of the inhabitants of this town.  She
+      looks vaguely familiar, but you can't place her name ...
+    exits:
+      west: 906
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 906
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 926
+    key: olympus_room_926
+    name: "Residence"
+    area_id: 30
+    short_desc: "Residence"
+    long_desc: |
+      You are in the residence of one of the inhabitants of this town.  He looks
+      vaguely familiar, but you can't place his name ...
+    exits:
+      east: 906
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 906
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 927
+    key: olympus_room_927
+    name: "Mystic Shop"
+    area_id: 30
+    short_desc: "Mystic Shop"
+    long_desc: |
+      You are in the store which provides the citizens here with whichever
+      arcane objects they may need.
+    exits:
+      east: 907
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 907
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 928
+    key: olympus_room_928
+    name: "Ares Street"
+    area_id: 30
+    short_desc: "Ares Street"
+    long_desc: |
+      You are on a smaller road which branches off from the main street.  On a
+      sign, you notice that the name of this road is Ares Street.
+    exits:
+      west: 908
+      east: 934
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 908
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 934
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 929
+    key: olympus_room_929
+    name: "Guest Quarters"
+    area_id: 30
+    short_desc: "Guest Quarters"
+    long_desc: |
+      You have entered private quarters which are reserved for visitors to the
+      castle.  You nearly faint as you recognize the occupant of this chamber as Odin
+      himself, patron God of Midgaard.  He must be visiting Zeus.
+    exits:
+      east: 912
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 912
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 930
+    key: olympus_room_930
+    name: "Storage Room"
+    area_id: 30
+    short_desc: "Storage Room"
+    long_desc: |
+      You are in a storage room of the castle.  There isn't much here, just a
+      few boxes filled with old junk.
+    exits:
+      north: 912
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 912
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 931
+    key: olympus_room_931
+    name: "Guest Quarters"
+    area_id: 30
+    short_desc: "Guest Quarters"
+    long_desc: |
+      You have entered a room reserved for visitors to this castle.  You are
+      amazed as you recognize the occupant - Ra, the Egyptian Sun God.  He must be
+      visiting Zeus.
+    exits:
+      west: 916
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 916
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 932
+    key: olympus_room_932
+    name: "Storage Room"
+    area_id: 30
+    short_desc: "Storage Room"
+    long_desc: |
+      You are in a storage room of the castle.  There isn't much here, just a lot
+      of dust.
+    exits:
+      north: 916
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 916
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 933
+    key: olympus_room_933
+    name: "Stable"
+    area_id: 30
+    short_desc: "Stable"
+    long_desc: |
+      You are in the stable of the castle.  Rather than the horses which you
+      expected to find, it is filled with a wide variety of creatures which you
+      thought were mythical.  Obviously, you were wrong.
+    exits:
+      south: 917
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 917
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 934
+    key: olympus_room_934
+    name: "Ares Street"
+    area_id: 30
+    short_desc: "Ares Street"
+    long_desc: |
+      You have reached the end of Ares Street.  To the south you see an armoury,
+      while there is a weapons shop to the east.  To the north, you hear the sounds
+      of a blacksmith.
+    exits:
+      west: 928
+      north: 937
+      east: 936
+      south: 935
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 928
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 937
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 936
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 935
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 935
+    key: olympus_room_935
+    name: "Armoury"
+    area_id: 30
+    short_desc: "Armoury"
+    long_desc: |
+      This small store is almost empty.  It seems as if there is not much here,
+      but the shopkeeper doesn't want to do business with you anyways.
+    exits:
+      north: 934
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 934
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 936
+    key: olympus_room_936
+    name: "Weapon Shop"
+    area_id: 30
+    short_desc: "Weapon Shop"
+    long_desc: |
+      You have entered a small store with a modest selection of weapons.  You
+      get the feeling that there is not a very wide selection here, but the
+      shopkeeper doesn't want to do business with you anyways.
+    exits:
+      west: 934
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 934
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 937
+    key: olympus_room_937
+    name: "Smithy"
+    area_id: 30
+    short_desc: "Smithy"
+    long_desc: |
+      This large room is so noisy, you can barely hear yourself think.  All the
+      occupants are hard at work, crafting high quality weapons and armor.  Something
+      is strange about the west wall, although you can't quite tell what it is.
+    exits:
+      south: 934
+      west: 938
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 934
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 938
+        description: "You see a concealed door!"
+        keywords: "door concealed"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 938
+    key: olympus_room_938
+    name: "The Planning Room"
+    area_id: 30
+    short_desc: "The Planning Room"
+    long_desc: |
+      You have entered a large room dominated by a huge table with a large map
+      on it.  Several men are gathered around the table, studying the map carefully.
+      You hear the barking of dogs to the north.
+    exits:
+      east: 937
+      north: 954
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 937
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 954
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 939
+    key: olympus_room_939
+    name: "Second Floor"
+    area_id: 30
+    short_desc: "Second Floor"
+    long_desc: |
+      You are on the second floor of this castle.  You are numb from your
+      discoveries on the first floor, and wonder what secrets the upper floor of this
+      castle holds.  Hallways extend in all directions, and you see a small, closed 
+      hatch above you.
+    exits:
+      down: 923
+      up: 948
+      north: 940
+      east: 943
+      west: 942
+      south: 941
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 923
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 948
+        description: "You see a sign on the hatch.  It reads 'Private Property. No trespassing!'"
+        keywords: "hatch"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 940
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 943
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 942
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 941
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 940
+    key: olympus_room_940
+    name: "Northern Hall"
+    area_id: 30
+    short_desc: "Northern Hall"
+    long_desc: |
+      You are in the northern hallway.  There is a private room to the north,
+      and the stairs leading down are to the south.
+    exits:
+      south: 939
+      north: 947
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 939
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 947
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 941
+    key: olympus_room_941
+    name: "Southern Hall"
+    area_id: 30
+    short_desc: "Southern Hall"
+    long_desc: |
+      You are in the southern hallway.  There is a private room to the south,
+      and the stairs leading down are to the north.
+    exits:
+      south: 944
+      north: 939
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 944
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 939
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 942
+    key: olympus_room_942
+    name: "Western Hall"
+    area_id: 30
+    short_desc: "Western Hall"
+    long_desc: |
+      You are in the western hallway.  There is a private room to the west, and
+      the stairs leading down are to the east.
+    exits:
+      east: 939
+      west: 945
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 939
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 945
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 943
+    key: olympus_room_943
+    name: "Eastern Hall"
+    area_id: 30
+    short_desc: "Eastern Hall"
+    long_desc: |
+      You are in the eastern hallway.  There is a private room to the east, and
+      the stairs leading down are to the west.
+    exits:
+      east: 946
+      west: 939
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 946
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 939
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 944
+    key: olympus_room_944
+    name: "Bed Room"
+    area_id: 30
+    short_desc: "Bed Room"
+    long_desc: |
+      You are in the bed room of a God!  This one seems to be empty.
+    exits:
+      north: 941
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 941
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 945
+    key: olympus_room_945
+    name: "Bed Room"
+    area_id: 30
+    short_desc: "Bed Room"
+    long_desc: |
+      You are in the bed room of a God!
+    exits:
+      east: 942
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 942
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 946
+    key: olympus_room_946
+    name: "Bed Room"
+    area_id: 30
+    short_desc: "Bed Room"
+    long_desc: |
+      You are in the bed room of a God!
+    exits:
+      west: 943
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 943
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 947
+    key: olympus_room_947
+    name: "Bed Room"
+    area_id: 30
+    short_desc: "Bed Room"
+    long_desc: |
+      You are in the bed room of a God!
+    exits:
+      south: 940
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 940
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 948
+    key: olympus_room_948
+    name: "Hall of Gods"
+    area_id: 30
+    short_desc: "Hall of Gods"
+    long_desc: |
+      You have entered the most sacred of places, the hall of true Gods.  If you
+      are a mortal, it would probably be a good idea to leave NOW!  Exits leave in
+      all directions.
+    exits:
+      down: 939
+      north: 951
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 939
+        description: ""
+        keywords: "hatch"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 951
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 951
+    key: olympus_room_951
+    name: "The Portal"
+    area_id: 30
+    short_desc: "The Portal"
+    long_desc: |
+      A sign reads: Beware of the unexpected and don't expect too much.
+    exits:
+      south: 948
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 948
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 954
+    key: olympus_room_954
+    name: "The Believer"
+    area_id: 30
+    short_desc: "The Believer"
+    long_desc: |
+      A voice whispers, 'before the time has passed, enjoy your life.'
+    exits:
+      south: 938
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 938
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

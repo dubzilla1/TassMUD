@@ -1,0 +1,9 @@
+areas:
+  - id: 34
+    name: "Chapel"
+    description: "Converted from chapel.are"
+    sector_type: "CITY"
+    author: "MERC"
+    source_file: "chapel.are"
+    vnum_range: "3405-3475"
+

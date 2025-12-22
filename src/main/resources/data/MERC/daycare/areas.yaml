@@ -1,0 +1,9 @@
+areas:
+  - id: 66
+    name: "Daycare"
+    description: "Converted from daycare.are"
+    sector_type: "INSIDE"
+    author: "MERC"
+    source_file: "daycare.are"
+    vnum_range: "6601-6631"
+

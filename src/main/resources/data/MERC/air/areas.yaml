@@ -1,0 +1,9 @@
+areas:
+  - id: 10
+    name: "Air"
+    description: "Converted from air.are"
+    sector_type: "AIR"
+    author: "MERC"
+    source_file: "air.are"
+    vnum_range: "1001-1040"
+

@@ -1,0 +1,1179 @@
+rooms:
+  - id: 3600
+    key: grave_room_3600
+    name: "A Gravel Road on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Road on the Graveyard"
+    long_desc: |
+      You are on a well-kept gravel road that leads north-south through the
+      graveyard.  On both sides of the road grow dark evergreen trees.  An iron
+      grate is to the north and narrow gravel paths lead east and west.
+    exits:
+      north: 3129
+      east: 3650
+      south: 3601
+      west: 3606
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3129
+        description: "Through the solid iron bars you see the Concourse."
+        keywords: "grate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3121
+      east:
+        to: 3650
+        description: "The gravel path leads eastwards between the dark evergreen trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3601
+        description: "The gravel road continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3606
+        description: "The gravel path leads westwards between the dark evergreen trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3601
+    key: grave_room_3601
+    name: "A Gravel Road on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Road on the Graveyard"
+    long_desc: |
+      You are on a well-kept gravel road that leads north-south through the
+      graveyard.  On both sides of the road grow dark evergreen trees.
+    exits:
+      north: 3600
+      south: 3602
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3600
+        description: "The gravel road continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3602
+        description: "The gravel road continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3602
+    key: grave_room_3602
+    name: "A Gravel Road on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Road on the Graveyard"
+    long_desc: |
+      You are on a well-kept gravel road that leads north-south through the
+      graveyard.  On both sides of the road grow dark evergreen trees.
+    exits:
+      north: 3601
+      south: 3603
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3601
+        description: "The gravel road continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3603
+        description: "The gravel road continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3603
+    key: grave_room_3603
+    name: "A Gravel Road on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Road on the Graveyard"
+    long_desc: |
+      You are on a well-kept gravel road that leads north-south through the
+      graveyard.  On both sides of the road grow dark evergreen trees.
+    exits:
+      north: 3602
+      south: 3604
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3602
+        description: "The gravel road continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3604
+        description: "The gravel road continues southwards to an open space before a small
+building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3604
+    key: grave_room_3604
+    name: "In front of the Chapel"
+    area_id: 32
+    short_desc: "In front of the Chapel"
+    long_desc: |
+      You are on an open space before a small chapel.  A gravel road leads north
+      through the graveyard and the chapel entrance is to the south.
+    exits:
+      north: 3603
+      east: 3638
+      south: 3405
+      west: 3618
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3603
+        description: "The gravel road continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3638
+        description: "The gravel path leads eastwards between the dark evergreen trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3405
+        description: "The chapel door is made of dark wood."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3618
+        description: "The gravel path leads westwards between the dark evergreen trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3606
+    key: grave_room_3606
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  An old tomb is here.
+    exits:
+      east: 3600
+      south: 3608
+      down: 3607
+    sector_type: FIELD
+    doors:
+      east:
+        to: 3600
+        description: "The gravel path continues eastwards towards a gravel road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3608
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3607
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3607
+    key: grave_room_3607
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3606
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3606
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3608
+    key: grave_room_3608
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and west.  An old tomb is here.
+    exits:
+      north: 3606
+      west: 3610
+      down: 3609
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3606
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3610
+        description: "The gravel path continues westwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3609
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3609
+    key: grave_room_3609
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3608
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3608
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3610
+    key: grave_room_3610
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads east and south.  An old tomb is here.
+    exits:
+      east: 3608
+      south: 3612
+      down: 3611
+    sector_type: FIELD
+    doors:
+      east:
+        to: 3608
+        description: "The gravel path continues eastwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3612
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3611
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3611
+    key: grave_room_3611
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3610
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3610
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3612
+    key: grave_room_3612
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and east.  A small shed is to the west.
+    exits:
+      north: 3610
+      east: 3614
+      west: 3613
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3610
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3614
+        description: "The gravel path continues eastwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3613
+        description: "It is a small black-painted shed with a wooden door."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3613
+    key: grave_room_3613
+    name: "In a shed on the Graveyard"
+    area_id: 32
+    short_desc: "In a shed on the Graveyard"
+    long_desc: |
+      You are in a small shed that looks as if it is used to store all sorts of
+      gardening equipment.  The only exit appears to be through a door to the east.
+    exits:
+      east: 3612
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3612
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3614
+    key: grave_room_3614
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads south and west.  An old tomb is here.
+    exits:
+      south: 3616
+      west: 3612
+      down: 3615
+    sector_type: FIELD
+    doors:
+      south:
+        to: 3616
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3612
+        description: "The gravel path continues westwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3615
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3615
+    key: grave_room_3615
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3614
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3614
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3616
+    key: grave_room_3616
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and south.  An old tomb is here.
+    exits:
+      north: 3614
+      south: 3618
+      down: 3617
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3614
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3618
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3617
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3617
+    key: grave_room_3617
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3616
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3616
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3618
+    key: grave_room_3618
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and east.  An old tomb is here.
+    exits:
+      north: 3616
+      east: 3604
+      down: 3619
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3616
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3604
+        description: "The gravel path continues eastwards towards a building of some sort."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3619
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3619
+    key: grave_room_3619
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3618
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3618
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3638
+    key: grave_room_3638
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and west.  An old tomb is here.
+    exits:
+      north: 3640
+      west: 3604
+      down: 3639
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3640
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3604
+        description: "The gravel path continues westwards towards a building of some sort."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3639
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3639
+    key: grave_room_3639
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3638
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3638
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3640
+    key: grave_room_3640
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and south.  An old tomb is here.
+    exits:
+      north: 3642
+      south: 3638
+      down: 3641
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3642
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3638
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3641
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3641
+    key: grave_room_3641
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3640
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3640
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3642
+    key: grave_room_3642
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads east and south.  An old tomb is here.
+    exits:
+      east: 3644
+      south: 3640
+      down: 3643
+    sector_type: FIELD
+    doors:
+      east:
+        to: 3644
+        description: "The gravel path continues eastwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3640
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3643
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3643
+    key: grave_room_3643
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3642
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3642
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3644
+    key: grave_room_3644
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and west.  An old tomb is here.
+    exits:
+      north: 3646
+      west: 3642
+      down: 3645
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3646
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3642
+        description: "The gravel path continues westwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3645
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3645
+    key: grave_room_3645
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3644
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3644
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3646
+    key: grave_room_3646
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads south and west.  An old tomb is here.
+    exits:
+      south: 3644
+      west: 3648
+      down: 3647
+    sector_type: FIELD
+    doors:
+      south:
+        to: 3644
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3648
+        description: "The gravel path continues westwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3647
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3647
+    key: grave_room_3647
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3646
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3646
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3648
+    key: grave_room_3648
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads north and east.  An old tomb is here.
+    exits:
+      north: 3650
+      east: 3646
+      down: 3649
+    sector_type: FIELD
+    doors:
+      north:
+        to: 3650
+        description: "The gravel path continues northwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3646
+        description: "The gravel path continues eastwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3649
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3649
+    key: grave_room_3649
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3648
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3648
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3650
+    key: grave_room_3650
+    name: "A Gravel Path on the Graveyard"
+    area_id: 32
+    short_desc: "A Gravel Path on the Graveyard"
+    long_desc: |
+      You are on a gravel path winding its way between dark evergreen trees on
+      the graveyard.  The path leads south and west.  An old tomb is here.
+    exits:
+      south: 3648
+      west: 3600
+      down: 3651
+    sector_type: FIELD
+    doors:
+      south:
+        to: 3648
+        description: "The gravel path continues southwards."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3600
+        description: "The gravel path continues westwards towards a gravel road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3651
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      tomb: |
+        It is a large rectangular slab of dark grey stone that has been placed face
+        up in the ground.  The name has been erased by the ravages of time.
+
+  - id: 3651
+    key: grave_room_3651
+    name: "In a dusty Tomb"
+    area_id: 32
+    short_desc: "In a dusty Tomb"
+    long_desc: |
+      You are in a dark burial chamber beneath a large tomb stone.
+      The only exit appears to be up.
+    exits:
+      up: 3650
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3650
+        description: ""
+        keywords: "tomb stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

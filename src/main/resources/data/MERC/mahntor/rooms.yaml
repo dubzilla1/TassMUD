@@ -1,0 +1,4180 @@
+rooms:
+  - id: 2300
+    key: mahntor_room_2300
+    name: "The dark woods"
+    area_id: 30
+    short_desc: "The dark woods"
+    long_desc: |
+      You are travelling through woods that are as dark as night. The trees above
+      block all light and wind. The air is stagnant and smells of death and decay.
+      The lack of sounds and other signs of life make your skin crawl and you feel
+      very much like turning back and heading for safer areas. The path leads north
+      into more open lands while it also leads south into the darkness of the forest.
+      A small sign is posted here.
+    exits:
+      north: 5280
+      south: 2301
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 5280
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2301
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        []================================[]
+             |      BEWARE!      | Hope you   |
+             |   Travellers are  | enjoy it!  |
+             |  advised to stay  | <------->  |
+             |   in groups for   |  Skurge    |
+             |      safety.      | Ragnarok   |
+            []================================[]
+
+  - id: 2301
+    key: mahntor_room_2301
+    name: "The dark woods"
+    area_id: 30
+    short_desc: "The dark woods"
+    long_desc: |
+      You wearily travel through the darkness of the forest. Huge skeletal trees
+      line the edges of the path and tower above you. Errant rays of light spear
+      down through the gaps in the canopy above and provide small spots of light
+      that seem to attract what little foliage can grow on the dark forest floor.
+      The path winds north and south into darkness.
+    exits:
+      north: 2300
+      south: 2302
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 2300
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2302
+    key: mahntor_room_2302
+    name: "The small intersection in the forest"
+    area_id: 30
+    short_desc: "The small intersection in the forest"
+    long_desc: |
+      The forest path splits here in three directions. Small paths lead to the east,
+      north, and south. The trees above leave a gap which allows light to fill the
+      intersection. It is almost as though you are in a circle of light that
+      provides sanctuary in this land of darkness.
+      Something has been scrawled in the dirt in blood here.
+    exits:
+      north: 2301
+      east: 2304
+      south: 2303
+    sector_type: FOREST
+    doors:
+      north:
+        to: 2301
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2304
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2303
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      blood: |
+        BeWAre tHe SwAmP oGreS......
+
+  - id: 2303
+    key: mahntor_room_2303
+    name: "The edge of the forest and hills"
+    area_id: 30
+    short_desc: "The edge of the forest and hills"
+    long_desc: |
+      You stand at the edge of a dark forest. A path leads north into the forest and
+      its deadly darkness and silence. Looking west, you see a path that leads up
+      into a foothills region. Standing here on the boundary between light and
+      darkness, you feel very vulnerable and alone.
+    exits:
+      north: 2302
+      west: 2309
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2304
+    key: mahntor_room_2304
+    name: "In the dense forest"
+    area_id: 30
+    short_desc: "In the dense forest"
+    long_desc: |
+      You walk along a small path leading through a dark forest. No sounds can be
+      heard and little light penetrates the canopy of trees above you. The air here
+      smells musty and you long for a fresh breath. You see an intersection of paths
+      to the west. The path you are on leads south into the darkening woods.
+    exits:
+      south: 2305
+      west: 2302
+    sector_type: FOREST
+    doors:
+      south:
+        to: 2305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2305
+    key: mahntor_room_2305
+    name: "The dark forest path"
+    area_id: 30
+    short_desc: "The dark forest path"
+    long_desc: |
+      You continue on through darkness and gloom. The path below you has become a
+      wet quagmire. It is difficult to walk, and you make squishing sounds as you
+      move on. Looking east, you see a swampy path. The main path leads north and
+      south into darkness.
+    exits:
+      north: 2304
+      east: 2327
+      south: 2306
+    sector_type: FOREST
+    doors:
+      north:
+        to: 2304
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2327
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2306
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2306
+    key: mahntor_room_2306
+    name: "A turn in the path"
+    area_id: 30
+    short_desc: "A turn in the path"
+    long_desc: |
+      The forest path turns here towards the north and west. To the north, you see
+      that the ground has become dank and swampy, while the western path appears
+      to be entering a hilly area. You hear sounds of swamp creatures to the north
+      east.
+    exits:
+      north: 2305
+      west: 2307
+    sector_type: FOREST
+    doors:
+      north:
+        to: 2305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2307
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2307
+    key: mahntor_room_2307
+    name: "The bloody intersection"
+    area_id: 30
+    short_desc: "The bloody intersection"
+    long_desc: |
+      This is a small intersection. Paths lead east, west, and south. You are struck
+      by the carnage here when you enter the clearing. There appears to have been a
+      great battle here. Blood is everywhere and the ground is all torn up. Pieces
+      of beaten armour and broken blades lie all around. Examining the tracks here
+      lead you to believe that the dead and wounded were dragged off in two 
+      directions, south and east.
+    exits:
+      east: 2306
+      south: 2310
+      west: 2308
+    sector_type: HILLS
+    doors:
+      east:
+        to: 2306
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2308
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2308
+    key: mahntor_room_2308
+    name: "The rocky path"
+    area_id: 30
+    short_desc: "The rocky path"
+    long_desc: |
+      The path here winds among the low rocky hills. The long trek up and down the
+      hills begins to tire you greatly. Looking east, you see a small clearing. More
+      hills are to the north of here.
+    exits:
+      north: 2309
+      east: 2307
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2307
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2309
+    key: mahntor_room_2309
+    name: "The rocky path"
+    area_id: 30
+    short_desc: "The rocky path"
+    long_desc: |
+      The path here is very rocky and treacherous. The travelling is rough and you
+      slip and fall often. Looking south, you see that the path continues into the
+      hills. Smoother ground is to the east, but the path seems to lead into a dark
+      forest in that direction.
+    exits:
+      east: 2303
+      south: 2308
+    sector_type: HILLS
+    doors:
+      east:
+        to: 2303
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2308
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2310
+    key: mahntor_room_2310
+    name: "Up the rocky hillside"
+    area_id: 30
+    short_desc: "Up the rocky hillside"
+    long_desc: |
+      You are climbing on a rocky hillside. As you scramble about, loose rocks and
+      small boulders bounce and fall down below you. Looking to the east and west,
+      you see more stable ground. The hillside itself goes on higher to the south
+      and it drops away to the north.
+    exits:
+      north: 2307
+      east: 2312
+      south: 2314
+      west: 2311
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 2307
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2311
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2311
+    key: mahntor_room_2311
+    name: "The sparse foothills"
+    area_id: 30
+    short_desc: "The sparse foothills"
+    long_desc: |
+      You are in foothills that are sparsely covered by scraggly bushes and weather
+      beaten trees. There are little signs of life here. Only bare rock and dry dirt
+      can be seen. Looking east, you see a small pass that will allow you to leave
+      the foothills. The foothills themselves extend to the south.
+    exits:
+      east: 2310
+      south: 2313
+    sector_type: HILLS
+    doors:
+      east:
+        to: 2310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2312
+    key: mahntor_room_2312
+    name: "Standing on level ground"
+    area_id: 30
+    short_desc: "Standing on level ground"
+    long_desc: |
+      You are standing at the edge of a steep set of foothills. Looking down, you
+      see what appears to be a marshy, dark forest. It reeks of death and decay.
+      Even here, you catch its scent on the winds. From here, you can travel south
+      deeper into the foothills or to the west where a small pass will allow you to
+      climb down.
+    exits:
+      south: 2315
+      west: 2310
+    sector_type: HILLS
+    doors:
+      south:
+        to: 2315
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2313
+    key: mahntor_room_2313
+    name: "In the foothills"
+    area_id: 30
+    short_desc: "In the foothills"
+    long_desc: |
+      You are in a barren set of foothills. Looking around, all you see are dead
+      plants and boulders. From the south, you get a whiff of salty air. Barren paths
+      lead east, north, and south into more barren hills.
+    exits:
+      north: 2311
+      east: 2314
+      south: 2317
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2311
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2317
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2314
+    key: mahntor_room_2314
+    name: "Before the huge tree"
+    area_id: 30
+    short_desc: "Before the huge tree"
+    long_desc: |
+      You enter a large ring of boulders. Sheltered by this wall of stones, a small
+      cluster of plants have sprung up. In the center of this group of trees and
+      bushes is a huge gnarled tree. It appears to have been twisted and torn by
+      the forces of nature. It sways and moans as a strong wind from the south tears
+      through its old feeble branches. The hills themselves lead in all directions.
+    exits:
+      north: 2310
+      east: 2315
+      south: 2318
+      west: 2313
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2315
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2315
+    key: mahntor_room_2315
+    name: "Before the dark cave"
+    area_id: 30
+    short_desc: "Before the dark cave"
+    long_desc: |
+      You stand directly before a huge dark cave. The rocks and boulders outside the
+      cave are covered with blood stains and all types of broken and shattered bones
+      lie around. An unbearable stench comes from within the cave itself. The dark
+      cave entrance looms to the east. The hills themselves lead towards the
+      north, south, and west.
+    exits:
+      north: 2312
+      east: 2316
+      south: 2319
+      west: 2314
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2316
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2319
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2316
+    key: mahntor_room_2316
+    name: "Inside the horrid cave"
+    area_id: 30
+    short_desc: "Inside the horrid cave"
+    long_desc: |
+      The stench is overwhelming. You can hardly breathe as you enter the cave.
+      Looking around, you realize that some bizarre and horrible creature uses this
+      cave as a home. Skeletal remains lie all over. Several half-eaten corpses are
+      rotting away slowly in the gloomy darkness. In the back of the cave, you see a
+      large pile of rotting cloth, fur, and plant matter. Light and safety is
+      towards the west.
+    exits:
+      west: 2315
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2315
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      pile: |
+        It appears to be some sort of nest......
+
+  - id: 2317
+    key: mahntor_room_2317
+    name: "The hills overlooking the shore"
+    area_id: 30
+    short_desc: "The hills overlooking the shore"
+    long_desc: |
+      Standing at the edge of the foothills, you are able to look down upon a rocky
+      shoreline. It appears as though a vast ocean is to the south. Sea birds have
+      made their nests here in the rocks and you are heartened by the presence of
+      life here. It is possible to climb down to the shore here. The hills
+      themselves are to the north. The edge of the hills leads to the east along the
+      shoreline.
+    exits:
+      north: 2313
+      east: 2318
+      down: 2320
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2318
+    key: mahntor_room_2318
+    name: "The hills overlooking the shoreline"
+    area_id: 30
+    short_desc: "The hills overlooking the shoreline"
+    long_desc: |
+      You stand on a barren section of hills that overlook a rocky shoreline. The
+      stiff ocean wind has blown the rocks smooth here and you have to lean forward
+      a bit to keep your balance. The salty sea air fills your nostrils and you
+      notice signs of life in the rocky crags here. You can climb down towards the
+      shore or head north into the hills themselves. The rocky summit you are
+      standing leads east and west along the shoreline.
+    exits:
+      north: 2314
+      east: 2319
+      west: 2317
+      down: 2321
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2319
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2317
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2319
+    key: mahntor_room_2319
+    name: "The hills above the shoreline"
+    area_id: 30
+    short_desc: "The hills above the shoreline"
+    long_desc: |
+      You stand on a rocky summit overlooking a rough shoreline below. The sea wind
+      blows hard across the rocks here and they have been worn smooth with time.
+      Looking around, you notice that you can safely climb down towards the shore.
+      The hills themselves stretch towards the north. The rough summit you stand
+      upon leads west along the shoreline.
+    exits:
+      north: 2315
+      west: 2318
+      down: 2322
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2315
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2320
+    key: mahntor_room_2320
+    name: "The rocky shore"
+    area_id: 30
+    short_desc: "The rocky shore"
+    long_desc: |
+      You are at the base of the rocky hills. Stretching to the south and east, you
+      see a rocky shore. To the southeast, you see a small altar of some sorts that
+      glows with an eerie blue light. It is possible to climb up into the hills here.
+    exits:
+      east: 2321
+      south: 2323
+      up: 2317
+    sector_type: FIELD
+    doors:
+      east:
+        to: 2321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2317
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2321
+    key: mahntor_room_2321
+    name: "The rocky shoreline"
+    area_id: 30
+    short_desc: "The rocky shoreline"
+    long_desc: |
+      You are on a rocky shore that borders a vast sea. A stiff wind blows here and
+      whistles among the rocks. You see an altar of some sort built on the shore to
+      the south. The shore itself leads east and west. Looking up, you see foothills
+      and rocky crags.
+    exits:
+      east: 2322
+      south: 2324
+      west: 2320
+      up: 2318
+    sector_type: FIELD
+    doors:
+      east:
+        to: 2322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2322
+    key: mahntor_room_2322
+    name: "The rocky shore"
+    area_id: 30
+    short_desc: "The rocky shore"
+    long_desc: |
+      You stand at the base of some rocky hills, where they meet a rocky shore. A
+      vast sea is to your south. Looking to the southwest, you see a small altar
+      that glows with a eerie blue light. The shore stretches out to the south and
+      west. It is possible to climb up into the hills here.
+    exits:
+      south: 2325
+      west: 2321
+      up: 2319
+    sector_type: FIELD
+    doors:
+      south:
+        to: 2325
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2319
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2323
+    key: mahntor_room_2323
+    name: "The edge of the sea"
+    area_id: 30
+    short_desc: "The edge of the sea"
+    long_desc: |
+      You walk along the water's edge. The vastness of the ocean is staggering as
+      you look out across it. You notice a small altar that glows with blue light
+      to the east. The shore itself extends north away from the water's edge.
+    exits:
+      north: 2320
+      east: 2324
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2324
+    key: mahntor_room_2324
+    name: "The Blood Sea Portal"
+    area_id: 30
+    short_desc: "The Blood Sea Portal"
+    long_desc: |
+      You stand on a small pedestal like altar that has been built on the shore here.
+      Standing here, you can look out across the sea. You can almost imagine that
+      you see a far away island. Dominating the altar is a small blue portal of
+      light. It is possible to walk south into the portal. The shore itself extends
+      to the north, east, and west.
+      There are small inscriptions on the rock at the base of the portal.
+    exits:
+      north: 2321
+      east: 2325
+      south: 2326
+      west: 2323
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2325
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2326
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      small: |
+        "Enter all ye who wish to join the Brotherhood!"
+      portal: |
+        You see a swirling blue portal of light. You think you can see glimpses of
+        something moving on the "other side".
+
+  - id: 2325
+    key: mahntor_room_2325
+    name: "The edge of the sea"
+    area_id: 30
+    short_desc: "The edge of the sea"
+    long_desc: |
+      You walk along the water's edge. The tide appears to have risen. Very little
+      debris is washed up on shore. You slip and slide as you tread across the
+      slippery rocks that make up the shore. To the west you see a small altar that
+      radiates blue light. The shore extends north away from the water's edge.
+    exits:
+      north: 2322
+      west: 2324
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2326
+    key: mahntor_room_2326
+    name: "Floating in blue light"
+    area_id: 30
+    short_desc: "Floating in blue light"
+    long_desc: |
+      You seem to be floating in blue weightlessness. You tumble head over heels and
+      finally right yourself. Gaining your bearings, you notice that there are two
+      "windows" in the sea of blue here. One to the south shows an image of a snowy
+      plain. Another window the the north shows an image of a rocky shore.
+    exits:
+      north: 2324
+      south: 2353
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2353
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2327
+    key: mahntor_room_2327
+    name: "The swampy path"
+    area_id: 30
+    short_desc: "The swampy path"
+    long_desc: |
+      This damp path seems to lead into a deep, dark swamp. The trees above block
+      out all light and stifle the wind. You smell swamp gas and hear damp squashing
+      sounds all around you. The path leads east deeper into the swamp. You also see
+      a dark forest to the west.
+    exits:
+      east: 2328
+      west: 2305
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      east:
+        to: 2328
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2328
+    key: mahntor_room_2328
+    name: "The swampy path"
+    area_id: 30
+    short_desc: "The swampy path"
+    long_desc: |
+      You tread lightly in a wet, swampy path. All around you, you see pools of
+      quicksand and rotting vegetation. Unlike the forest to the west, the swamp is
+      teeming with life. Some of it is harmless, some is not. The path leads east
+      and west into more swamp.
+    exits:
+      east: 2329
+      west: 2327
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2329
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2327
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2329
+    key: mahntor_room_2329
+    name: "The swampy path"
+    area_id: 30
+    short_desc: "The swampy path"
+    long_desc: |
+      You weave your way through the treacherous swamp. Gas rises all around you and
+      a damp mist covers the ground, making it impossible to travel safely, without
+      carefully picking your way around obstacles. Large, gnarled trees rise above
+      you. Their moss covered branches block out all traces of the sun. The path
+      here leads east and west.
+    exits:
+      east: 2330
+      west: 2328
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2328
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2330
+    key: mahntor_room_2330
+    name: "The turn in the swampy path"
+    area_id: 30
+    short_desc: "The turn in the swampy path"
+    long_desc: |
+      You come upon a bend in the swampy path. The ground here is fairly sturdy,
+      as this place is elevated above the rest of the swamp. Looking around, you see
+      a dark, mist filled swamp. Small paths lead south and west into the mist.
+    exits:
+      south: 2331
+      west: 2329
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2329
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2331
+    key: mahntor_room_2331
+    name: "The swampy path"
+    area_id: 30
+    short_desc: "The swampy path"
+    long_desc: |
+      You tread lightly through the mirky water and sludge that makes up the path
+      you follow. To the east, there is a thick wall of mist. You can see nothing
+      within it. Harder ground rises to the north.
+    exits:
+      north: 2330
+      east: 2335
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2335
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2332
+    key: mahntor_room_2332
+    name: "Lost in the Mist"
+    area_id: 30
+    short_desc: "Lost in the Mist"
+    long_desc: |
+      You wander, hopelessly lost. Swirling mist obscures your vision and clouds
+      your mind. You lose all concept of direction. Small, silent giggles can be
+      heard all around. You can wander in any direction.
+    exits:
+      north: 2337
+      east: 2334
+      south: 2335
+      west: 2334
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2337
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2335
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2333
+    key: mahntor_room_2333
+    name: "Lost in the Mist"
+    area_id: 30
+    short_desc: "Lost in the Mist"
+    long_desc: |
+      You are in a thick misty area. The mist swirls around you, seeming to taunt
+      you and dare you to escape. You feel a slight electric charge in the mist. It
+      almost caresses your body as it floats about you. You can wander in any
+      direction.......
+    exits:
+      north: 2333
+      east: 2336
+      south: 2333
+      west: 2335
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2336
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2335
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2334
+    key: mahntor_room_2334
+    name: "Lost in the Mist"
+    area_id: 30
+    short_desc: "Lost in the Mist"
+    long_desc: |
+      You try to peer through the mist......You see nothing. It swirls about you,
+      covering you in a damp sheen. There is no sound, all light is eagerly devoured
+      by the mist. You feel totally and hopelessly lost.
+    exits:
+      north: 2338
+      east: 2332
+      south: 2336
+      west: 2332
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2338
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2336
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2335
+    key: mahntor_room_2335
+    name: "Lost in the Mist"
+    area_id: 30
+    short_desc: "Lost in the Mist"
+    long_desc: |
+      You stumble through the marsh here. The swamp seems to have swallowed you up
+      and denied you exit. This mist is your jailor. You cannot tell where you are.
+      You hear quiet laughter all about you.
+    exits:
+      north: 2332
+      east: 2333
+      south: 2337
+      west: 2331
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2337
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2336
+    key: mahntor_room_2336
+    name: "Lost in the Mist"
+    area_id: 30
+    short_desc: "Lost in the Mist"
+    long_desc: |
+      You wander, lost, for what seems an eternity. Then....From nowhere....You see
+      what appears to be trees and hills to the east. The mist itself thickens to
+      the west, while it grows thin to the east.
+    exits:
+      north: 2334
+      east: 2339
+      south: 2338
+      west: 2333
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2339
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2338
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2337
+    key: mahntor_room_2337
+    name: "Lost in the Mist"
+    area_id: 30
+    short_desc: "Lost in the Mist"
+    long_desc: |
+      You wander through the thick mist. It swirls all about you and makes it hard
+      to breathe. The ground below you makes a soft squishing sound as you trudge
+      on, but this noise is absorbed by the mist and does not travel. You can wander
+      in any direction.
+    exits:
+      north: 2335
+      east: 2338
+      south: 2332
+      west: 2338
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2335
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2338
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2338
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2338
+    key: mahntor_room_2338
+    name: "Lost in the Mist"
+    area_id: 30
+    short_desc: "Lost in the Mist"
+    long_desc: |
+      You wander, lost hopelessly. The mist swirls all about you. You can discern no
+      direction. You stumble blindly through the mist, oblivious to your
+      surroundings.
+    exits:
+      north: 2336
+      east: 2337
+      south: 2334
+      west: 2337
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 2336
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2337
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2337
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2339
+    key: mahntor_room_2339
+    name: "The solid path"
+    area_id: 30
+    short_desc: "The solid path"
+    long_desc: |
+      A solid path rises out of the misty swamp. It leads north, into what appears
+      to be a forested area. The trees, above, allow light and air to penetrate and
+      you can see the sky above. A thick bank of mist is to your west.
+    exits:
+      north: 2340
+      west: 2336
+    sector_type: HILLS
+    doors:
+      north:
+        to: 2340
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2336
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2340
+    key: mahntor_room_2340
+    name: "A forested path"
+    area_id: 30
+    short_desc: "A forested path"
+    long_desc: |
+      The path here leads north through a thick forest. High bushes and forest
+      undergrowth line both sides of the trail. Looking north, you see a thin line
+      of smoke rising up above the tree line. You also notice a crude wooden gate
+      farther north on the trail. The trail itself leads south into murky territory.
+    exits:
+      north: 2341
+      south: 2339
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 2341
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2339
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2341
+    key: mahntor_room_2341
+    name: "The gate before the Ogre Village"
+    area_id: 30
+    short_desc: "The gate before the Ogre Village"
+    long_desc: |
+      You stand before a huge pair of crude, wooden gates. They are thrown open.
+      Looking inside the gates, you see a crude village. Large humanoid creatures
+      are milling to and fro.......Ogres! You can head north through the gate or
+      south into the forest.
+    exits:
+      north: 2343
+      south: 2340
+    sector_type: FOREST
+    doors:
+      north:
+        to: 2343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2340
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2342
+    key: mahntor_room_2342
+    name: "Among the crude huts"
+    area_id: 30
+    short_desc: "Among the crude huts"
+    long_desc: |
+      You walk among the huts of the ogre village. The village appears to be cut
+      from the heart of the forest itself. The swamp, nearby, provides the ogres
+      with a prime hunting ground. Small paths lead north and east.
+    exits:
+      north: 2345
+      east: 2343
+    sector_type: CITY
+    doors:
+      north:
+        to: 2345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2343
+    key: mahntor_room_2343
+    name: "Inside the gates"
+    area_id: 30
+    short_desc: "Inside the gates"
+    long_desc: |
+      You stand just north of the gates to the village. Looking around, you see many
+      crude huts and cooking fires. To the north, you see a huge fire pit. Behind 
+      it, there appears to be a hut of sorts. Small paths lead east and west among 
+      the crude huts. The gates to the south provide an exit from the village.
+    exits:
+      north: 2346
+      east: 2344
+      south: 2341
+      west: 2342
+    sector_type: CITY
+    doors:
+      north:
+        to: 2346
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2344
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2341
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2342
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2344
+    key: mahntor_room_2344
+    name: "Among the crude huts"
+    area_id: 30
+    short_desc: "Among the crude huts"
+    long_desc: |
+      You walk through the crude village. Small huts made of wood and thatch
+      surround you. Every so often, you can hear grunts and snarls inside the huts.
+      The smell here is unbearable. You wonder what type of creature could possibly
+      live in such squalor. Small paths lead west and north here.
+    exits:
+      north: 2347
+      west: 2343
+    sector_type: CITY
+    doors:
+      north:
+        to: 2347
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2345
+    key: mahntor_room_2345
+    name: "The gathering place"
+    area_id: 30
+    short_desc: "The gathering place"
+    long_desc: |
+      This appears to be the clearing the ogres use to assemble. It is quite large
+      and has a raised mound in the center that contains a crude throne. The ground
+      in front of the throne is quite worn, as if it is sat on quite often. You get
+      the impression that this place is a crude sort of auditorium. Small paths lead
+      east and south.
+    exits:
+      east: 2346
+      south: 2342
+    sector_type: CITY
+    doors:
+      east:
+        to: 2346
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2342
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2346
+    key: mahntor_room_2346
+    name: "The firepit before the lodge"
+    area_id: 30
+    short_desc: "The firepit before the lodge"
+    long_desc: |
+      You stand at the edge of a huge firepit. The heat from the burning embers
+      makes you sweat as you stand here. Large spits above the pit are empty but
+      they appear to be quite large enough to hold hapless adventurers. A large
+      lodge is towards the north, while paths lead east, west, and south into the
+      village itself.
+    exits:
+      north: 2348
+      east: 2347
+      south: 2343
+      west: 2345
+    sector_type: CITY
+    doors:
+      north:
+        to: 2348
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2347
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2347
+    key: mahntor_room_2347
+    name: "The village dump"
+    area_id: 30
+    short_desc: "The village dump"
+    long_desc: |
+      The smell here overpowers you. All around you are the rotting remains of the
+      village's refuse. Partially eaten corpses, rotting food, and other truly
+      disgusting things have been discarded here. Paths lead south and west towards
+      fresher air.
+    exits:
+      south: 2344
+      west: 2346
+    sector_type: CITY
+    doors:
+      south:
+        to: 2344
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2346
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2348
+    key: mahntor_room_2348
+    name: "The entryway to the lodge"
+    area_id: 30
+    short_desc: "The entryway to the lodge"
+    long_desc: |
+      You are at the entry hall to a large lodge. Animal pelts and other trophies
+      line the walls here. Large chests on either side of the door appear to be
+      locked. The lodge stretches north, while the doors to the south provide an
+      exit into the village.
+    exits:
+      north: 2349
+      south: 2346
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2349
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2346
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2349
+    key: mahntor_room_2349
+    name: "The throne room"
+    area_id: 30
+    short_desc: "The throne room"
+    long_desc: |
+      You stand in a large, crudely decorated throne room. A huge throne adorned
+      with humanoid skulls sits against the west wall. A crude, blood stained altar
+      is against the east wall. A doorway is directly to the north, long strands of
+      beads blocking the view of the other side. Crude torches light the hall and 
+      smoke clings to the ceiling.
+    exits:
+      north: 2350
+      south: 2348
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2350
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2348
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2350
+    key: mahntor_room_2350
+    name: "The chieftain's room"
+    area_id: 30
+    short_desc: "The chieftain's room"
+    long_desc: |
+      This appears to be the ogre chieftain's private quarters. A huge pile of furs
+      is in the far corner. Large chests fill the room. All of them have heavy pad
+      locks. The room is filled with trophies of dead enemies. It is quite lavishly
+      decorated for such a crude inhabitant as an ogre. A beaded doorway is to the
+      south.
+    exits:
+      south: 2349
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2349
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2351
+    key: mahntor_room_2351
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bone. Swirling snow and wind make impossible for you to
+      discern any directions.
+    exits:
+      north: 2353
+      east: 2352
+      south: 2355
+      west: 2354
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2353
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2352
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2354
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2352
+    key: mahntor_room_2352
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bine. Swirling snow and wind make it impossible to
+      discern any directions.
+    exits:
+      north: 2357
+      east: 2354
+      south: 2358
+      west: 2351
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2357
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2354
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2353
+    key: mahntor_room_2353
+    name: "The Glacier Temple"
+    area_id: 30
+    short_desc: "The Glacier Temple"
+    long_desc: |
+      You are in a small temple. It appears to be built entirely from ice. The ice
+      walls are frosted and are opaque. There is a small blue portal here. You can
+      go north, to enter the portal. Looking south, you see a world of white outside
+      the open doorway. Swirling snow and bright light obscure your view.
+    exits:
+      north: 2326
+      south: 2351
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2326
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2354
+    key: mahntor_room_2354
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bone. Swirling snow and wind make it impossible for you
+      to discern any directions.
+    exits:
+      north: 2359
+      east: 2351
+      south: 2356
+      west: 2352
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2359
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2356
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2352
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2355
+    key: mahntor_room_2355
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bone. Swirling snow and wind make it impossible for you
+      to discern any directions.
+    exits:
+      north: 2351
+      east: 2356
+      south: 2357
+      west: 2356
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2356
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2357
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2356
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2356
+    key: mahntor_room_2356
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bone. Swirling snow and wind make it impossible for you
+      to discern any directions.
+    exits:
+      north: 2354
+      east: 2355
+      south: 2359
+      west: 2355
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2354
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2359
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2357
+    key: mahntor_room_2357
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bone. Swirling snow and wind make it impossible for you
+      to discern any directions.
+    exits:
+      north: 2355
+      east: 2358
+      south: 2352
+      west: 2359
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2352
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2359
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2358
+    key: mahntor_room_2358
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bone. Swirling snow and wind make it impossible for you
+      to discern any direction.
+    exits:
+      north: 2352
+      east: 2359
+      south: 2360
+      west: 2357
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2352
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2359
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2360
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2357
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2359
+    key: mahntor_room_2359
+    name: "The frigid wastelands"
+    area_id: 30
+    short_desc: "The frigid wastelands"
+    long_desc: |
+      You wander through the frigid wastelands. Your breath is a cloud before you.
+      The cold cuts to the bone. Swirling snow and wind make it impossible for you
+      to discern any directions.
+    exits:
+      north: 2356
+      east: 2357
+      south: 2354
+      west: 2358
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2356
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2357
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2354
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2360
+    key: mahntor_room_2360
+    name: "The edge of the frigid wastes"
+    area_id: 30
+    short_desc: "The edge of the frigid wastes"
+    long_desc: |
+      You stand at the base of a steep rocky cliff. To the north, a vast arctic
+      wasteland stretches out. The snow falls lightly here and the wind is not
+      very fierce. You can climb up the rocky cliff or head north into the arctic
+      wastes.
+    exits:
+      north: 2358
+      up: 2361
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 2358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2361
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2361
+    key: mahntor_room_2361
+    name: "On the cliffside"
+    area_id: 30
+    short_desc: "On the cliffside"
+    long_desc: |
+      You cling to the side of the cliff. Looking down, you are terrified by the
+      sheer distance to the ground below. You can climb up higher into the cliffs,
+      but the area above is obscured by clouds and you cannot tell what lies waiting
+      above.
+    exits:
+      up: 2362
+      down: 2360
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - NO_MOB
+    doors:
+      up:
+        to: 2362
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2360
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2362
+    key: mahntor_room_2362
+    name: "Before the gates of Mahn-Tor"
+    area_id: 30
+    short_desc: "Before the gates of Mahn-Tor"
+    long_desc: |
+      You stand at the edge of a high cliff. Directly south, set back off the
+      cliff's edge, you see a huge pair of gates. These gates appear to be carved
+      almost completely out of ice. A huge city and keep appear to be on the other
+      side of these gates. There is also a possibility of climbing down the cliff 
+      face.
+    exits:
+      south: 2364
+      down: 2361
+    sector_type: MOUNTAIN
+    doors:
+      south:
+        to: 2364
+        description: ""
+        keywords: "gate huge gates ice"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 2361
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      gate: |
+        The gates to the city are made almost completely of ice. Looking closely, you
+        can see intricate carvings in the gates. They appear to be of creatures that
+        are half man and half bull.
+
+  - id: 2363
+    key: mahntor_room_2363
+    name: "The city streets of Mahn-Tor"
+    area_id: 30
+    short_desc: "The city streets of Mahn-Tor"
+    long_desc: |
+      You walk among the ice and snow covered shops and homes. Most of the doors are
+      closed and only the light from the windows betrays the presence of inhabitants.
+      A cold wind blows through here, scattering fine clouds of snow all about. Small
+      streets lead south and east.
+    exits:
+      east: 2364
+      south: 2366
+    sector_type: CITY
+    doors:
+      east:
+        to: 2364
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2364
+    key: mahntor_room_2364
+    name: "Inside the gates of Mahn-Tor"
+    area_id: 30
+    short_desc: "Inside the gates of Mahn-Tor"
+    long_desc: |
+      You stand just inside the gates to the city of Mahn-Tor. The city itself
+      spreads out in front of you. The buildings are sturdy, as they appear to be
+      made from the very rock of this mountain. Snow falls all around and a fine
+      sheet of ice can be seen covering all but the most used walk ways. Small city
+      streets lead east and west, while a main road appears to lead south.
+    exits:
+      north: 2362
+      east: 2365
+      south: 2367
+      west: 2363
+    sector_type: CITY
+    doors:
+      north:
+        to: 2362
+        description: ""
+        keywords: "gates gate huge ice"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2365
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2363
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2365
+    key: mahntor_room_2365
+    name: "The city streets of Mahn-Tor"
+    area_id: 30
+    short_desc: "The city streets of Mahn-Tor"
+    long_desc: |
+      You trudge among the icy streets of Mahn-Tor. The streets themselves are made
+      of cobblestone and are quite treacherous. Small homes and businesses along
+      the street are closed tight and light from their windows throws eerie shadows
+      across the dark street. Small streets lead west and south here.
+    exits:
+      south: 2368
+      west: 2364
+    sector_type: CITY
+    doors:
+      south:
+        to: 2368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2364
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2366
+    key: mahntor_room_2366
+    name: "The city streets of Mahn-Tor"
+    area_id: 30
+    short_desc: "The city streets of Mahn-Tor"
+    long_desc: |
+      You trudge through the snow covered streets. The street itself is made of
+      cobblestones and the footing is quite treacherous. To the south, you see what
+      appears to be a small tavern. Bright lights shine through the windows. Small
+      streets also lead north and east.
+      A small sign hangs outside the tavern.
+    exits:
+      north: 2363
+      east: 2367
+      south: 2369
+    sector_type: CITY
+    doors:
+      north:
+        to: 2363
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        []=============[]
+         |   The Inn   |
+         |    of the   |
+         |    Broken   |
+         |     Horn    |
+        []=============[]
+
+  - id: 2367
+    key: mahntor_room_2367
+    name: "The Square of Mahn-Tor"
+    area_id: 30
+    short_desc: "The Square of Mahn-Tor"
+    long_desc: |
+      This appears to be the main square of Mahn-Tor. A huge fountain graces the
+      center of the square, but the extreme cold has turned it into an ice
+      sculpture. The water has frozen in arcs through the air. Snow and ice covers
+      the square and small streets lead east and west. To the north, you see
+      the gates to the city. You also notice a small store to the south.
+      A small sign hangs outside the store.
+    exits:
+      north: 2364
+      east: 2368
+      south: 2370
+      west: 2366
+    sector_type: CITY
+    doors:
+      north:
+        to: 2364
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2370
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        []=========[]
+         |  Equip  |
+         |   Shop  |
+        []=========[]
+
+  - id: 2368
+    key: mahntor_room_2368
+    name: "The streets of Mahn-Tor"
+    area_id: 30
+    short_desc: "The streets of Mahn-Tor"
+    long_desc: |
+      You walk among the small stores and homes of Mahn-Tor. The cobblestone streets
+      are covered with ice and snow. Small snow drifts have formed at the edges of
+      the streets. The wind blows fiercely. Small streets lead in all directions.
+      There appears to be a large building to the east, but the snow obscures your
+      view.
+    exits:
+      north: 2365
+      east: 2375
+      south: 2371
+      west: 2367
+    sector_type: CITY
+    doors:
+      north:
+        to: 2365
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2375
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2371
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2369
+    key: mahntor_room_2369
+    name: "The Inn of the Broken Horn"
+    area_id: 30
+    short_desc: "The Inn of the Broken Horn"
+    long_desc: |
+      You enter a warm tavern. The room is lit mainly by two huge fireplaces at each
+      end of the room. Small tables and a large bar furnish the room. The
+      inhabitants of the inn are all minotaurs of varying size and disposition. Most
+      seem to regard you with suspicion. Few approach you. A large door leads
+      north, out of the bar and back out into the cold.
+    exits:
+      north: 2366
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2370
+    key: mahntor_room_2370
+    name: "The Mahn-Tor Equipment Shop"
+    area_id: 30
+    short_desc: "The Mahn-Tor Equipment Shop"
+    long_desc: |
+      You are in a crude equipment shop. The store is filled with racks of various
+      items that adventurers could use. Large fireplaces light and heat the room.
+      A large desk occupies the back of the room. The door to the shop lies to the
+      north.
+    exits:
+      north: 2367
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2371
+    key: mahntor_room_2371
+    name: "The Mahn-Tor General Store"
+    area_id: 30
+    short_desc: "The Mahn-Tor General Store"
+    long_desc: |
+      You enter a small store that is dark and cold. Old empty shelves line the
+      walls and snow blows across the dirty stone floor. It is evident that this
+      store was once used, but it is no more. A small doorway leads north out into
+      the chilling snow and wind.
+    exits:
+      north: 2368
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2372
+    key: mahntor_room_2372
+    name: "Gorak's Training Room"
+    area_id: 30
+    short_desc: "Gorak's Training Room"
+    long_desc: |
+      This room is full of all sorts of weapons and armours. Pieces of old targets
+      and practice dummies lie all around. The walls are chipped and scored from
+      weapon blows. This is obviously the room of an avid warrior. A red door leads
+      east.
+    exits:
+      east: 2388
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2388
+        description: ""
+        keywords: "red"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2351
+    extras:
+      red: |
+        It looks like it leads back to the hall.
+
+  - id: 2373
+    key: mahntor_room_2373
+    name: "Darkoth's Dark Study"
+    area_id: 30
+    short_desc: "Darkoth's Dark Study"
+    long_desc: |
+      This room is dark. It reeks of death and evil. Arcane symbols and a small
+      altar fill the room. Blood runs from the altar. It is evident that this room
+      is used for unholy purposes. A black door leads west.
+    exits:
+      east: 2389
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2389
+        description: ""
+        keywords: "black"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2352
+    extras:
+      black: |
+        It looks like it leads back to the hall.
+
+  - id: 2374
+    key: mahntor_room_2374
+    name: "Tyrgoth's Inner Sanctum"
+    area_id: 30
+    short_desc: "Tyrgoth's Inner Sanctum"
+    long_desc: |
+      Idols to the gods of good fill the room. White furniture and decorations give
+      the room a holy appearance. It is evident that some being of supreme goodness
+      lives here. A white door leads east.
+    exits:
+      east: 2392
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2392
+        description: ""
+        keywords: "white"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2353
+    extras:
+      white: |
+        It looks like it leads out to the hall.
+
+  - id: 2375
+    key: mahntor_room_2375
+    name: "The road to the Keep of Mahn-Tor"
+    area_id: 30
+    short_desc: "The road to the Keep of Mahn-Tor"
+    long_desc: |
+      You walk up a steep rocky road. It leads up a steep grade to the east. At the
+      end of this steep road, you see a huge keep. Snow swirls all about you and you
+      feel your breath freeze as it leaves your lungs. Blurry lights to the east and
+      west are all you can see from here.
+    exits:
+      east: 2377
+      west: 2368
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 2377
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2376
+    key: mahntor_room_2376
+    name: "A small guard house"
+    area_id: 30
+    short_desc: "A small guard house"
+    long_desc: |
+      You enter a small guard house. A huge fireplace lights and warms the room.
+      Looking around, you see that the room is fairly well furnished. Thick rugs
+      and curtains help insulate the room and the beds themselves look quite warm.
+      A table in the center of the room has the remnants of a card game strewn
+      across it. A small door leads south.
+    exits:
+      south: 2377
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2377
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2377
+    key: mahntor_room_2377
+    name: "Before the Keep of Mahn-Tor"
+    area_id: 30
+    short_desc: "Before the Keep of Mahn-Tor"
+    long_desc: |
+      You stand before a huge keep that has been carved into the side of the
+      mountain. Huge wooden gates before you provide entrance to the keep. It
+      appears as though the cold here has convinced the guards to seek warmth
+      inside. You see the lights of the city to the west. You also notice small
+      guard houses to the north and south.
+    exits:
+      north: 2376
+      east: 2379
+      south: 2378
+      west: 2375
+    sector_type: CITY
+    doors:
+      north:
+        to: 2376
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2379
+        description: ""
+        keywords: "gate"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2350
+      south:
+        to: 2378
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2375
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2378
+    key: mahntor_room_2378
+    name: "A small guard house"
+    area_id: 30
+    short_desc: "A small guard house"
+    long_desc: |
+      You enter a small, but warm, guard house. Deep rugs and thick curtains
+      insulate the room. A huge fireplace lights and warms the room. Outside, you
+      hear the roar of the freezing wind. A small door leads north out into the cold.
+    exits:
+      north: 2377
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2377
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2379
+    key: mahntor_room_2379
+    name: "The entryway to the Keep of Mahn-Tor"
+    area_id: 30
+    short_desc: "The entryway to the Keep of Mahn-Tor"
+    long_desc: |
+      You are at the entry hall to the huge keep. The high vaulted ceiling is carved
+      from solid stone. Huge stone pillars rise up from the floor to meet the
+      ceiling far above. The architecture appears to be dwarven. A huge pair of
+      gates stand to the west, protecting the keep from the harsh cold outside. A
+      large hall leads east, deeper into the keep.
+    exits:
+      east: 2380
+      west: 2377
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2380
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2377
+        description: ""
+        keywords: "gate"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2350
+
+  - id: 2380
+    key: mahntor_room_2380
+    name: "The Hall"
+    area_id: 30
+    short_desc: "The Hall"
+    long_desc: |
+      You are in a huge hall. Large tapestries line the walls and huge statues of
+      various make and appearance are spread about. The ceiling above supports huge
+      candelabras, which light the room. To the east, you see a bright light and
+      hear sounds of inhabitation. Looking west, you see the entry gates to the keep.
+    exits:
+      east: 2381
+      west: 2379
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2381
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2379
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2381
+    key: mahntor_room_2381
+    name: "The Grand Hall"
+    area_id: 30
+    short_desc: "The Grand Hall"
+    long_desc: |
+      You are in the main hall of the Keep of Mahn-Tor. This hall is huge. The wide
+      floor of the hall is an expanse of marble. It shimmers in the light thrown
+      off by the torches that line the walls. To the east, you see what appears to
+      be a huge golden throne. The hall itself stretches south and a smaller hall
+      leads to the west.
+    exits:
+      east: 2383
+      south: 2382
+      west: 2380
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2383
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2382
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2380
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2382
+    key: mahntor_room_2382
+    name: "The Great Hall"
+    area_id: 30
+    short_desc: "The Great Hall"
+    long_desc: |
+      You stand in the great hall of the keep. Huge pillars rise up to the vaulted
+      ceiling and torch light glimmers off the marble floor here. You are amazed at
+      the sheer size of the hall. The hall itself leads north and east. You notice a
+      smaller hall leading south, deeper into the keep.
+    exits:
+      north: 2381
+      east: 2384
+      south: 2387
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2381
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2384
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2387
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2383
+    key: mahntor_room_2383
+    name: "Standing before the throne"
+    area_id: 30
+    short_desc: "Standing before the throne"
+    long_desc: |
+      You stand before the throne of Mahn-Tor. This golden throne is so huge that it
+      takes up almost the entire wall, stretching far above the floor. Sitting upon
+      it, you feel small and feeble. It is evident that this throne is more of a
+      decoration than anything else. Only the largest of kings could sit upon it.
+      The hall leads south and west into other parts of the keep.
+    exits:
+      east: 2385
+      south: 2384
+      west: 2381
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2385
+        description: ""
+        keywords: "throne huge golden gold"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2384
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2381
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      throne: |
+        The golden throne is huge. It takes up the whole wall.........
+
+  - id: 2384
+    key: mahntor_room_2384
+    name: "The Great Hall"
+    area_id: 30
+    short_desc: "The Great Hall"
+    long_desc: |
+      You are in a great hall. Huge torches light the room and their light shimmers
+      off the marble floor below you. To the north, you see a huge golden throne.
+      Looking up, you grow dizzy at the height to which the vaulted ceiling rises.
+      The hall itself leads north and west.
+    exits:
+      north: 2383
+      west: 2382
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2383
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2382
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2385
+    key: mahntor_room_2385
+    name: "The secret hallway"
+    area_id: 30
+    short_desc: "The secret hallway"
+    long_desc: |
+      You are in a small, torch lit hall. It leads from east to west. A large gold
+      door is to the west. To the east, you see a heavy stone door.
+    exits:
+      east: 2386
+      west: 2383
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2386
+        description: ""
+        keywords: "door huge stone"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2359
+      west:
+        to: 2383
+        description: ""
+        keywords: "gold throne huge secret"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      gold: |
+        Looks like the back of a secret door of sorts.
+      huge: |
+        A very formidable looking door.
+
+  - id: 2386
+    key: mahntor_room_2386
+    name: "Entry to the Royal Chambers"
+    area_id: 30
+    short_desc: "Entry to the Royal Chambers"
+    long_desc: |
+      You are at the entrance to the royal chambers of the keep. A plush shag rug
+      covers the stone floor. Large candelabras hang from the ceiling, lighting the
+      room. A huge fireplace warms the room. Beaded doorways lead south and east. A
+      huge stone door stands in the west wall.
+    exits:
+      east: 2395
+      south: 2393
+      west: 2385
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2395
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2393
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2385
+        description: ""
+        keywords: "door huge stone"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2359
+    extras:
+      door: |
+        A huge stone door.......
+
+  - id: 2387
+    key: mahntor_room_2387
+    name: "The Guard Post"
+    area_id: 30
+    short_desc: "The Guard Post"
+    long_desc: |
+      The hall here has been built into a guard post of sorts. It appears as though
+      it would be quite easy to defend in times of emergency. Obviously, something
+      important lies beyond. A small hall leads south, while the main hall can be
+      seen to the north.
+    exits:
+      north: 2382
+      south: 2388
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2382
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2388
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2388
+    key: mahntor_room_2388
+    name: "The guarded hall"
+    area_id: 30
+    short_desc: "The guarded hall"
+    long_desc: |
+      You walk down a torch lit hallway. It has been carved out of pure stone. It is
+      very quiet in this hall. You notice rows of colored doors on each wall. To
+      your east, you see a yellow door. To your west, you see a red door. The hall
+      itself leads south and north.
+    exits:
+      north: 2387
+      east: 2390
+      south: 2389
+      west: 2372
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2387
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2390
+        description: ""
+        keywords: "yellow"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2355
+      south:
+        to: 2389
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2372
+        description: ""
+        keywords: "red"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2351
+    extras:
+      red: |
+        You see a red door. It has the name "Gorak" written on it.
+      yellow: |
+        You see a yellow door. It has the name "Sumaron" written on it.
+
+  - id: 2389
+    key: mahntor_room_2389
+    name: "The guarded hall"
+    area_id: 30
+    short_desc: "The guarded hall"
+    long_desc: |
+      You walk down a small, quiet, torch lit hallway. Doors of different colors are
+      in each wall. To your east, you see a maroon door. To your west, you see a
+      black door. The hall itself leads north and south.
+    exits:
+      north: 2388
+      east: 2391
+      south: 2392
+      west: 2373
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2388
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2391
+        description: ""
+        keywords: "maroon"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2356
+      south:
+        to: 2392
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2373
+        description: ""
+        keywords: "black"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2352
+    extras:
+      black: |
+        You see a black door. It has the name "Darkoth" inscribed on it.
+      maroon: |
+        You see a maroon door here. It has the name "Amyrok" written on it.
+
+  - id: 2390
+    key: mahntor_room_2390
+    name: "Sumaron's Sanctum"
+    area_id: 30
+    short_desc: "Sumaron's Sanctum"
+    long_desc: |
+      You enter a temple of sorts. A small altar is here and relics of many
+      religions lie around. It is evident that this is the room of a studying cleric.
+      A yellow door leads west.
+    exits:
+      west: 2388
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2388
+        description: ""
+        keywords: "yellow"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2355
+    extras:
+      yellow: |
+        It looks like it leads back to the hall.
+
+  - id: 2391
+    key: mahntor_room_2391
+    name: "Amyrok's Arcane Study"
+    area_id: 30
+    short_desc: "Amyrok's Arcane Study"
+    long_desc: |
+      This room is full of shelves which hold various spell components. The center
+      of the room is occupied by a huge pentagram. The entire room smells of smoke
+      and incense. The room is obviously used extensively by a practicing mage. A
+      maroon door leads west.
+    exits:
+      west: 2389
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2389
+        description: ""
+        keywords: "maroon"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2356
+    extras:
+      maroon: |
+        It looks like it leads back to the hall.
+
+  - id: 2392
+    key: mahntor_room_2392
+    name: "The guarded hall"
+    area_id: 30
+    short_desc: "The guarded hall"
+    long_desc: |
+      You walk down a quiet hall. The stone walls here are wet with moisture.
+      Colored doors can be seen in the walls here. To your east, you see a green
+      door. To your west, you see a white door. The hall itself leads north and
+      south.
+    exits:
+      north: 2389
+      east: 2394
+      south: 2397
+      west: 2374
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2389
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2394
+        description: ""
+        keywords: "green"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2357
+      south:
+        to: 2397
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2374
+        description: ""
+        keywords: "white"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2353
+    extras:
+      white: |
+        You see a white door here. It has the name "Tyrgoth" inscribed on it.
+      green: |
+        You see a green door here. It has the name "Nasturn" written on it.
+
+  - id: 2393
+    key: mahntor_room_2393
+    name: "The Harem Room"
+    area_id: 30
+    short_desc: "The Harem Room"
+    long_desc: |
+      This appears to be the harem room of the Keep. Huge piles of furs and beds
+      fill the room. The lighting is dim, but the room is very warm. You can hear
+      music playing quietly from somewhere. Beaded doorways lead north and east.
+    exits:
+      north: 2386
+      east: 2396
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2386
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2396
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2394
+    key: mahntor_room_2394
+    name: "Nasturn's Humble Abode"
+    area_id: 30
+    short_desc: "Nasturn's Humble Abode"
+    long_desc: |
+      This room is filled with all types of natural items. Trees and plants have
+      been lovingly cultivated and grown by hand, in large pots. The room is like an
+      indoor garden. A green door leads west.
+    exits:
+      west: 2392
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2392
+        description: ""
+        keywords: "green"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2357
+    extras:
+      green: |
+        It looks like it leads back to the hall.
+
+  - id: 2395
+    key: mahntor_room_2395
+    name: "The main living room"
+    area_id: 30
+    short_desc: "The main living room"
+    long_desc: |
+      This room is decorated with sturdy stone furniture that is carved and gilded.
+      Large candles light the room. A thick rug covers the floor. Thick furs and
+      tapestries decorate the walls. Beaded doorways lead south and west.
+    exits:
+      south: 2396
+      west: 2386
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2396
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2386
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2396
+    key: mahntor_room_2396
+    name: "The Master Bedroom"
+    area_id: 30
+    short_desc: "The Master Bedroom"
+    long_desc: |
+      This appears to be the master bedroom. A huge bed fills the rooms. Piles of
+      furs and other rich furnishings adorn the room. Candles are everywhere and
+      they help a huge fireplace light the room. The lavishness of the room
+      overwhelms you. Beaded doorways lead north and west.
+    exits:
+      north: 2395
+      west: 2393
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2395
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2393
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2397
+    key: mahntor_room_2397
+    name: "The end of the guarded hall"
+    area_id: 30
+    short_desc: "The end of the guarded hall"
+    long_desc: |
+      You are at the end of the hall. Colored doors line the walls to the north. To
+      your west, you see a brown door. To you east, you see a grey door. The hall
+      itself leads north back along the rows of doors.
+    exits:
+      north: 2392
+      east: 2398
+      west: 2399
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2392
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2398
+        description: ""
+        keywords: "grey"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2358
+      west:
+        to: 2399
+        description: ""
+        keywords: "brown"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2354
+    extras:
+      brown: |
+        You see a brown door here. It has the name "Belrak" written on it.
+      grey: |
+        You see a grey door here. It has the name "Dorgar" written on it.
+
+  - id: 2398
+    key: mahntor_room_2398
+    name: "Dorgar's Dismal Domicile"
+    area_id: 30
+    short_desc: "Dorgar's Dismal Domicile"
+    long_desc: |
+      This room is dirty and unkempt. Odds and ends of different items lie all over.
+      It is apparent that some type of pack-rat lives here. It appears as though
+      nothing has ever entered this room and ever left again. A grey door leads west.
+    exits:
+      west: 2397
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2397
+        description: ""
+        keywords: "grey"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2358
+    extras:
+      grey: |
+        It looks like it leads back to the hall.
+
+  - id: 2399
+    key: mahntor_room_2399
+    name: "Belrak's Green Room"
+    area_id: 30
+    short_desc: "Belrak's Green Room"
+    long_desc: |
+      This room is full of green. The furniture and all other items show the color
+      of nature. The room smells of pine and forest odors. From the items here, it
+      appears as though a woodsman of some sorts lives here. A brown door leads east.
+    exits:
+      east: 2397
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2397
+        description: ""
+        keywords: "brown"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2354
+    extras:
+      brown: |
+        It looks like it leads to the hall.
+

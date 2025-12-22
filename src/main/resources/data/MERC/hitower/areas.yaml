@@ -1,0 +1,9 @@
+areas:
+  - id: 12
+    name: "Hitower"
+    description: "Converted from hitower.are"
+    sector_type: "INSIDE"
+    author: "MERC"
+    source_file: "hitower.are"
+    vnum_range: "1200-1499"
+

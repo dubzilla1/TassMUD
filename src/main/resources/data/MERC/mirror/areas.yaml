@@ -1,0 +1,9 @@
+areas:
+  - id: 53
+    name: "Mirror"
+    description: "Converted from mirror.are"
+    sector_type: "CITY"
+    author: "MERC"
+    source_file: "mirror.are"
+    vnum_range: "5300-5386"
+

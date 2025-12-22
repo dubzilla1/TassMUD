@@ -1,0 +1,1013 @@
+rooms:
+  - id: 101
+    key: smurf_room_101
+    name: "Dimly Lit Path"
+    area_id: 30
+    short_desc: "Dimly Lit Path"
+    long_desc: |
+      This path is made of crushed granite with curious blue streaks in it.
+      The path continues north to a village, or south to the west gate.
+    exits:
+      north: 102
+      south: 3040
+    sector_type: FOREST
+    doors:
+      north:
+        to: 102
+        description: "The path continues toward the village."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3040
+        description: "The path back toward the forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 102
+    key: smurf_room_102
+    name: "Dimly Lit Path"
+    area_id: 30
+    short_desc: "Dimly Lit Path"
+    long_desc: |
+      This section of the road is badly worn and frequently traversed.  There is
+      faint singing to the north.  The road back to the forest lies to the south.
+    exits:
+      north: 103
+      south: 101
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 103
+        description: "The path continues toward the village."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 101
+        description: "The dimly lit path."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 103
+    key: smurf_room_103
+    name: "Dimly Lit Path"
+    area_id: 30
+    short_desc: "Dimly Lit Path"
+    long_desc: |
+      This section of the road is badly worn and frequently traversed.  Singing is
+      getting stronger to the north.  The road back to the forest lies to the south.
+    exits:
+      north: 104
+      south: 102
+    sector_type: FOREST
+    doors:
+      north:
+        to: 104
+        description: "The entrance to smurf village."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 102
+        description: "The dimly lit path."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 104
+    key: smurf_room_104
+    name: "Entrance to Smurf Village"
+    area_id: 30
+    short_desc: "Entrance to Smurf Village"
+    long_desc: |
+      You stand at the entrance to a tiny village.  You can see across the whole
+      village easily.  Little blue creatures with white hats and boots and little 
+      fluffy tails scamper about.  They sing continuously.  The singing is getting
+      on your nerves and you have the urge to squash them.
+    exits:
+      north: 105
+      south: 103
+    sector_type: FIELD
+    doors:
+      north:
+        to: 105
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 103
+        description: "Dimly Lit Path"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 105
+    key: smurf_room_105
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      You are way too big to be using this road.  But who cares.  Who's gonna stop
+      you?  These little blue smurfs?  The singing is growing intense.  Your ears
+      are starting to ring.  Smurfy Road continues to the north, west, and east.
+      There is still time to turn back and go south.
+    exits:
+      north: 106
+      east: 110
+      south: 104
+      west: 111
+    sector_type: CITY
+    doors:
+      north:
+        to: 106
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 110
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 104
+        description: "Entrance to smurf village"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 111
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 106
+    key: smurf_room_106
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      You continue to travel down Smurfy Road.  Isn't it just smurfy?  Smurfy road
+      continues its smurfy path to the smurfy north, smurfy west, and smurfy south.
+      A smurfy home lies to the smurfy east.
+    exits:
+      north: 107
+      east: 120
+      south: 105
+      west: 112
+    sector_type: CITY
+    doors:
+      north:
+        to: 107
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 120
+        description: "Smurfy Home"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 105
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 112
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 107
+    key: smurf_room_107
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      Oh boy, another smurfy road!  Smurfy Road goes north and south here.  There
+      is a smurfy, mushroom home to the west.  A beautiful smurfberry patch is to
+      the east.
+    exits:
+      north: 108
+      east: 116
+      south: 106
+      west: 129
+    sector_type: CITY
+    doors:
+      north:
+        to: 108
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 116
+        description: "Smurfberry Patch"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 106
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 129
+        description: "A Smurfy Home"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 108
+    key: smurf_room_108
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      Smurfy Road continues to smurf here.  It smurfs to the south and smurfs to
+      an end to the north.  A smurfberry patch is to the east.  A stone path lies
+      to the west.
+    exits:
+      north: 109
+      east: 117
+      south: 107
+      west: 113
+    sector_type: CITY
+    doors:
+      north:
+        to: 109
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 117
+        description: "Smurfberry patch"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 107
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 113
+        description: "A stone path"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 109
+    key: smurf_room_109
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      A smurfy well lies here in the middle of Smurfy Road.  A fence separates
+      the smurfs from harm to the north.  A berry patch is to the east.  Smurfy
+      Road continues to to the south and west.
+    exits:
+      east: 118
+      south: 108
+      west: 114
+    sector_type: CITY
+    doors:
+      east:
+        to: 118
+        description: "Smurfberry Patch"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 108
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 114
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      smurfy: |
+        A small well is here.  Just the right size if you're a smurf.  But big
+        enough for you to get some water from.  I'm sure the smurfs wont mind.
+
+  - id: 110
+    key: smurf_room_110
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      A corner of smurfy road is where you stand.  A smurfy fence blocks passage
+      to the east or south.  A smurfy home is to the north.  Smurfy Road goes back
+      to the west.
+    exits:
+      north: 119
+      west: 105
+    sector_type: CITY
+    doors:
+      north:
+        to: 119
+        description: "Smurfy Home"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 105
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 111
+    key: smurf_room_111
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      Western corner of Smurfy Road.  You can continue to smurf down the road
+      to the east and north.  You can also smurf into a smurfy home to the south.
+    exits:
+      north: 112
+      east: 105
+      south: 121
+    sector_type: CITY
+    doors:
+      north:
+        to: 112
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 105
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 121
+        description: "Smurfy Home"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 112
+    key: smurf_room_112
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      There's no place like smurf.  There's no place like smurf.  Sorry wrong
+      movie.  A smurfy home is to the west.  Papa Smurf's backyard is to the
+      north but you can't go there.  Smurfy Road continues to the south and
+      east.
+    exits:
+      east: 106
+      south: 111
+      west: 122
+    sector_type: CITY
+    doors:
+      east:
+        to: 106
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 111
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 122
+        description: "Smurfy Home"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 113
+    key: smurf_room_113
+    name: "Stone Path"
+    area_id: 30
+    short_desc: "Stone Path"
+    long_desc: |
+      You are walking along a cute little stone path.  To the south lies Papa
+      Smurf's house.  A Smurfy house is to the west.  Smurfy road is to the east.
+      Everything is so peaceful here.  You could stay forever.
+    exits:
+      east: 108
+      south: 125
+      west: 123
+    sector_type: CITY
+    doors:
+      east:
+        to: 108
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 125
+        description: "Papa Smurf's House"
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 107
+      west:
+        to: 123
+        description: "Smurfy House"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 114
+    key: smurf_room_114
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      Yet another part of Smurfy Road.  Hey if you go west its the last
+      section of Smurfy Road.  You can go back to the smurfy well to the east.
+    exits:
+      east: 109
+      west: 115
+    sector_type: CITY
+    doors:
+      east:
+        to: 109
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 115
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 115
+    key: smurf_room_115
+    name: "Smurfy Road"
+    area_id: 30
+    short_desc: "Smurfy Road"
+    long_desc: |
+      The last piece of Smurfy Road.  You can go back to Smurfy Road to the east.
+      A nice, beautiful, smurfy, mushroom home is to the south.  In the distance to
+      the north you can see Gargamel's Castle.
+    exits:
+      north: 126
+      east: 114
+      south: 124
+    sector_type: CITY
+    doors:
+      north:
+        to: 126
+        description: "Path to Gargamel's Castle"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 114
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 124
+        description: "Smurfy Home"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 116
+    key: smurf_room_116
+    name: "Smurfberry Patch"
+    area_id: 30
+    short_desc: "Smurfberry Patch"
+    long_desc: |
+      Delicious smurfberries grow here.  You could probably eat a year's worth of
+      smurfberries in one sitting.  Smurfy Road is back to the west.  Another
+      smurfberry patch is to the north.
+    exits:
+      north: 117
+      west: 107
+    sector_type: CITY
+    doors:
+      north:
+        to: 117
+        description: "Smurfberry Patch"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 107
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 117
+    key: smurf_room_117
+    name: "Smurfberry Patch"
+    area_id: 30
+    short_desc: "Smurfberry Patch"
+    long_desc: |
+      Another patch of smurfberries is growing here.  The smell is driving your
+      nostrils crazy.  It almost, ALMOST, makes you forget all the singing going
+      on.  Smurfy Road is to the west, while smurfberry patches are to the north
+      and south.
+    exits:
+      north: 118
+      south: 116
+      west: 108
+    sector_type: CITY
+    doors:
+      north:
+        to: 118
+        description: "Smurfberry Patch"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 116
+        description: "Smurfberry Patch"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 108
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 118
+    key: smurf_room_118
+    name: "Smurfberry Patch"
+    area_id: 30
+    short_desc: "Smurfberry Patch"
+    long_desc: |
+      The northernmost of the smurfberry patches grows here.  It looks just
+      as scrumptious as all the rest.  Just take a few; they'll never know.  Smurfy
+      Road is to the west.  A smurfberry patch is to the south.
+    exits:
+      south: 117
+      west: 109
+    sector_type: CITY
+    doors:
+      south:
+        to: 117
+        description: "Smurfberry Patch"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 109
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 119
+    key: smurf_room_119
+    name: "Brainy Smurf's Home"
+    area_id: 30
+    short_desc: "Brainy Smurf's Home"
+    long_desc: |
+      You rip the roof of the home to get a good look inside.  You see
+      many smurfy books.  The print is so small you couldn't even read it
+      with a magnifying glass.  I wonder if Brainy Smurf minds if you
+      destroy his home?  Smurfy Road is back to the south.
+    exits:
+      south: 110
+    sector_type: CITY
+    doors:
+      south:
+        to: 110
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 120
+    key: smurf_room_120
+    name: "Handy Smurf's Home"
+    area_id: 30
+    short_desc: "Handy Smurf's Home"
+    long_desc: |
+      This home was well built.  Of course, until you rip it apart you big meany
+      you.  Tools are all over the place.  Too small for you to use.  Smurfy Road is
+      back to the west.
+    exits:
+      west: 106
+    sector_type: CITY
+    doors:
+      west:
+        to: 106
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 121
+    key: smurf_room_121
+    name: "Hefty Smurf's Home"
+    area_id: 30
+    short_desc: "Hefty Smurf's Home"
+    long_desc: |
+      Hefty is anything but wimpy.  So is his house.  It actually took you a 
+      couple of minutes to destroy his house.  Better watch out -- he might be
+      a little mad at you.  Smurfy Road is back to the north.
+    exits:
+      north: 111
+    sector_type: CITY
+    doors:
+      north:
+        to: 111
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 122
+    key: smurf_room_122
+    name: "Sleepy Smurf's Home"
+    area_id: 30
+    short_desc: "Sleepy Smurf's Home"
+    long_desc: |
+      Be vewy vewy quiet.  Sleepy Smurf is probably sleeping.  You see so many
+      beds you can't even tell if he is here.  Maybe you should quietly go back to
+      Smurfy Road to the east.
+    exits:
+      east: 112
+    sector_type: CITY
+    doors:
+      east:
+        to: 112
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 123
+    key: smurf_room_123
+    name: "Grumpy Smurf's Home"
+    area_id: 30
+    short_desc: "Grumpy Smurf's Home"
+    long_desc: |
+      This is Grumpy Smurf's home.  He is pissed at you.  Of course, he is pissed
+      at everyone.  So don't take it bad.  Maybe you'd better leave before he really
+      gets mad.  Smurfy Road to the east is your only salvation.
+    exits:
+      east: 113
+    sector_type: CITY
+    doors:
+      east:
+        to: 113
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 124
+    key: smurf_room_124
+    name: "Jokey Smurf's Home"
+    area_id: 30
+    short_desc: "Jokey Smurf's Home"
+    long_desc: |
+      You pull the top of his house and it explodes in your face.  That Jokey
+      Smurf, what a kidder.  You can hear his laughter as you wipe the ashes off
+      your face.  You better get even.  Smurfy Road is to the north.
+    exits:
+      north: 115
+    sector_type: CITY
+    doors:
+      north:
+        to: 115
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 125
+    key: smurf_room_125
+    name: "Papa Smurf's Home"
+    area_id: 30
+    short_desc: "Papa Smurf's Home"
+    long_desc: |
+      It's the home of the leader of the smurfs.  Papa Smurf has a nicely decorated
+      home.  He takes pride in his work.  You could get to know him or just squash
+      him.  If Papa Smurf is not here he is probably at Smurfette's putting the
+      moves on her.  A stone path lies to the north.
+    exits:
+      north: 113
+    sector_type: CITY
+    doors:
+      north:
+        to: 113
+        description: "Stone Path"
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 107
+
+  - id: 126
+    key: smurf_room_126
+    name: "Path to Gargamel's Castle"
+    area_id: 30
+    short_desc: "Path to Gargamel's Castle"
+    long_desc: |
+      You are walking along a path to Gargamel's Castle to the North.
+      Smurfy Road lies to the south.
+    exits:
+      north: 127
+      south: 115
+    sector_type: CITY
+    doors:
+      north:
+        to: 127
+        description: "Outside Gargamel's Castle"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 115
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 127
+    key: smurf_room_127
+    name: "Outside Gargamel's Castle"
+    area_id: 30
+    short_desc: "Outside Gargamel's Castle"
+    long_desc: |
+      You are standing outside Gargamel's Castle.  You can hear him screaming at
+      Azreal from inside.  You can also him cursing out those wretched smurfs.
+      His Castle is to the north while Smurfy Road is to the south.
+    exits:
+      north: 128
+      south: 126
+    sector_type: CITY
+    doors:
+      north:
+        to: 128
+        description: "Gargamel's Castle"
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 109
+      south:
+        to: 126
+        description: "Path to Gargamel's Castle"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 128
+    key: smurf_room_128
+    name: "Gargamel's Castle"
+    area_id: 30
+    short_desc: "Gargamel's Castle"
+    long_desc: |
+      This is Gargamel's Castle.  His big black kettle is in the middle of the room.
+      Where else would he put it?  The place has only one room.
+    exits:
+      south: 127
+    sector_type: CITY
+    doors:
+      south:
+        to: 127
+        description: "Outside Gargamel's Castle"
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 109
+
+  - id: 129
+    key: smurf_room_129
+    name: "Smurfette's House"
+    area_id: 30
+    short_desc: "Smurfette's House"
+    long_desc: |
+      This house is conveniently next to Papa Smurfs.  Makes it easier for Papa
+      Smurf to sneak over at night.  I hope he uses protection.  I would hate to
+      have little smurfs running around.  The only exit is to the east.
+    exits:
+      east: 107
+    sector_type: CITY
+    doors:
+      east:
+        to: 107
+        description: "Smurfy Road"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

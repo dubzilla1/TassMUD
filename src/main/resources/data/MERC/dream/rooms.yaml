@@ -1,0 +1,2217 @@
+rooms:
+  - id: 8600
+    key: dream_room_8600
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8606
+      east: 8601
+      south: 8603
+      west: 8602
+      up: 8610
+      down: 8620
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8606
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8601
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8603
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8602
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8610
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8620
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8601
+    key: dream_room_8601
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8607
+      east: 8602
+      south: 8604
+      west: 8600
+      up: 8611
+      down: 8621
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8607
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8602
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8604
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8600
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8611
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8621
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8602
+    key: dream_room_8602
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8608
+      east: 8600
+      south: 8605
+      west: 8601
+      up: 8612
+      down: 8622
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8608
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8600
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8605
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8601
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8612
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8622
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8603
+    key: dream_room_8603
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8600
+      east: 8604
+      south: 8606
+      west: 8605
+      up: 8613
+      down: 8623
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8600
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8604
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8606
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8605
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8613
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8623
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8604
+    key: dream_room_8604
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8601
+      east: 8605
+      south: 8607
+      west: 8603
+      up: 8614
+      down: 3050
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 8601
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8605
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8607
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8603
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8614
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3050
+        description: "You see an abandoned warehouse."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8605
+    key: dream_room_8605
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8602
+      east: 8603
+      south: 8608
+      west: 8604
+      up: 8615
+      down: 8625
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8602
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8603
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8608
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8604
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8615
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8625
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8606
+    key: dream_room_8606
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8603
+      east: 8607
+      south: 8600
+      west: 8608
+      up: 8616
+      down: 8626
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8603
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8607
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8600
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8608
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8616
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8626
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8607
+    key: dream_room_8607
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8604
+      east: 8608
+      south: 8601
+      west: 8606
+      up: 8617
+      down: 8627
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8604
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8608
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8601
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8606
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8617
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8627
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8608
+    key: dream_room_8608
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8605
+      east: 8606
+      south: 8602
+      west: 8607
+      up: 8618
+      down: 8628
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8605
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8606
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8602
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8607
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8618
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8628
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8610
+    key: dream_room_8610
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8616
+      east: 8611
+      south: 8613
+      west: 8612
+      up: 8620
+      down: 8600
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8616
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8611
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8613
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8612
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8620
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8600
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8611
+    key: dream_room_8611
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8630
+      east: 8612
+      south: 8614
+      west: 8610
+      up: 8621
+      down: 8601
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8630
+        description: "You see the Road to Newfane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8612
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8614
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8610
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8621
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8601
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8612
+    key: dream_room_8612
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8618
+      east: 8610
+      south: 8615
+      west: 8611
+      up: 8622
+      down: 8602
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8618
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8610
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8615
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8611
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8622
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8602
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8613
+    key: dream_room_8613
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8610
+      east: 8614
+      south: 8616
+      west: 8636
+      up: 8623
+      down: 8603
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8610
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8614
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8616
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8636
+        description: "You see a road by a pond."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8623
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8603
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8614
+    key: dream_room_8614
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8611
+      east: 8615
+      south: 8617
+      west: 8613
+      up: 8624
+      down: 8604
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8611
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8615
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8617
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8613
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8624
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8604
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8615
+    key: dream_room_8615
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8612
+      east: 8632
+      south: 8618
+      west: 8614
+      up: 8625
+      down: 8605
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8612
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8632
+        description: "You see a large dance hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8618
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8614
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8625
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8605
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8616
+    key: dream_room_8616
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8613
+      east: 8617
+      south: 8610
+      west: 8618
+      up: 8626
+      down: 8606
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8613
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8617
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8610
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8618
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8626
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8606
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8617
+    key: dream_room_8617
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8614
+      east: 8618
+      south: 8634
+      west: 8616
+      up: 8627
+      down: 8607
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8614
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8618
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8634
+        description: "You see a small hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8616
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8627
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8607
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8618
+    key: dream_room_8618
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8615
+      east: 8616
+      south: 8612
+      west: 8617
+      up: 8628
+      down: 8608
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8615
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8616
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8612
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8617
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8628
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8608
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8620
+    key: dream_room_8620
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8626
+      east: 8621
+      south: 8623
+      west: 8622
+      up: 8600
+      down: 8610
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8626
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8621
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8623
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8622
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8600
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8610
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8621
+    key: dream_room_8621
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8627
+      east: 8622
+      south: 8624
+      west: 8620
+      up: 8601
+      down: 8611
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8627
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8622
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8624
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8620
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8601
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8611
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8622
+    key: dream_room_8622
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8628
+      east: 8620
+      south: 8625
+      west: 8621
+      up: 8602
+      down: 8612
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8628
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8620
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8625
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8621
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8602
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8612
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8623
+    key: dream_room_8623
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8620
+      east: 8624
+      south: 8626
+      west: 8625
+      up: 8603
+      down: 8613
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8620
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8624
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8626
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8625
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8603
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8613
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8624
+    key: dream_room_8624
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8621
+      east: 8625
+      south: 8627
+      west: 8623
+      up: 8638
+      down: 8614
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8621
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8625
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8627
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8623
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8638
+        description: "You see a mountain ridge against the sky."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8614
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8625
+    key: dream_room_8625
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8622
+      east: 8623
+      south: 8628
+      west: 8624
+      up: 8605
+      down: 8615
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8622
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8623
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8628
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8624
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8605
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8615
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8626
+    key: dream_room_8626
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8623
+      east: 8627
+      south: 8620
+      west: 8628
+      up: 8606
+      down: 8616
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8623
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8627
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8620
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8628
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8606
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8616
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8627
+    key: dream_room_8627
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8624
+      east: 8628
+      south: 8621
+      west: 8626
+      up: 8607
+      down: 8617
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8624
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8628
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8621
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8626
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8607
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8617
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8628
+    key: dream_room_8628
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+      north: 8625
+      east: 8626
+      south: 8622
+      west: 8627
+      up: 8608
+      down: 8618
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8625
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8626
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8622
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8627
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 8608
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8618
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8630
+    key: dream_room_8630
+    name: "Road to Newfane"
+    area_id: 32
+    short_desc: "Road to Newfane"
+    long_desc: |
+      You are on a gently curving north-south road.  On your east side a youthful
+      river sparkles blue and rushes in the sunlight.  On the west, green leaves and
+      green ferns burst against the rich brown earth.  You feel the heat of your
+      healthy muscles as you travel swiftly down the well-paved road.
+      You may recall now if you like.
+    exits:
+      north: 8631
+      south: 8611
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8631
+        description: "You see a village square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8611
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8631
+    key: dream_room_8631
+    name: "Newfane Village Square"
+    area_id: 32
+    short_desc: "Newfane Village Square"
+    long_desc: |
+      You are on the lawn of the village square of Newfane, resting against an oak
+      after your vigorous journey.  The late spring breeze feels warm and sensuous
+      on your body.  An Ale is in progress: you spy more than a dozen fiddlers and
+      hundreds of Morris Dancers dressed in white cotton and wearing colorful hats
+      and bells.
+    exits:
+      south: 8630
+    sector_type: FIELD
+    doors:
+      south:
+        to: 8630
+        description: "You see the Road to Newfane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8632
+    key: dream_room_8632
+    name: "A Large Dance Hall"
+    area_id: 32
+    short_desc: "A Large Dance Hall"
+    long_desc: |
+      You are inside a large dance hall with a very polished, very slippery wooden
+      floor.  You see three long lines of dancers, alternating men and women, in
+      some sort of progressive country dance.  Two fiddlers, a flautist, and a
+      harpsichord player provide the music.  You hear scattered screams of joy
+      from the dancers.
+      You may recall now if you like.
+    exits:
+      west: 8615
+    sector_type: FIELD
+    doors:
+      west:
+        to: 8615
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      dancer: |
+        The dancers have been here all night and intend to dance until dawn.
+
+  - id: 8634
+    key: dream_room_8634
+    name: "A Small Hall"
+    area_id: 32
+    short_desc: "A Small Hall"
+    long_desc: |
+      You are inside a small hall with a rough wooden floor.  You see dozens of
+      people in the hall chasing one poor man who is yelling at the top of
+      his lungs.  Wait a minute.  These people are all holding hands and smiling!
+      The man in front is leading them in a spiral!  They're DANCING!  And you
+      thought people didn't dance like this any more!
+      You may recall now if you like.
+    exits:
+      north: 8617
+    sector_type: FIELD
+    doors:
+      north:
+        to: 8617
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8636
+    key: dream_room_8636
+    name: "Road by a Pond"
+    area_id: 32
+    short_desc: "Road by a Pond"
+    long_desc: |
+      You are passing by a large pond, almost a small lake.  You notice a small
+      wooden shack by the side of the road.
+      You may recall now if you like.
+    exits:
+      east: 8613
+      west: 8637
+    sector_type: FIELD
+    doors:
+      east:
+        to: 8613
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8637
+        description: "You see a wooden church set back among the trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      shack: |
+        The shack looks hand-made by an amateur.
+
+  - id: 8637
+    key: dream_room_8637
+    name: "An Old Wooden Church"
+    area_id: 32
+    short_desc: "An Old Wooden Church"
+    long_desc: |
+      As you enter the hall, you see the largest crowd of people you've ever seen in
+      your life.  They're also the noisiest crowd you've ever heard, and as they
+      press around you, the SWEATIEST crowd you've ever felt!  At the front of the
+      hall, a group of musicians are playing 'Chorus Jig'.
+    exits:
+      east: 8636
+    sector_type: FIELD
+    doors:
+      east:
+        to: 8636
+        description: "You see a road by a pond."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8638
+    key: dream_room_8638
+    name: "Mountain Road"
+    area_id: 32
+    short_desc: "Mountain Road"
+    long_desc: |
+      You are following a road at the top of a mountain ridge with sky all around
+      you.  Distant valleys are spread out below you on both sides.  There are
+      many horsemen and horsewomen on this road, riding hell-for-leather out of
+      sheer exhilaration.  You wish you had a horse!
+      You may recall now if you like.
+    exits:
+      up: 8639
+      down: 8624
+    sector_type: FIELD
+    doors:
+      up:
+        to: 8639
+        description: "You see several acres of thickly planted, very young Yule Trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 8624
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8639
+    key: dream_room_8639
+    name: "Yule Tree Farm"
+    area_id: 32
+    short_desc: "Yule Tree Farm"
+    long_desc: |
+      This is the Yule Tree Farm at the top of Mountain Road.  All around you,
+      young Yule Trees saturate your senses with dark green needles and pine
+      essence.
+    exits:
+      down: 8638
+    sector_type: FIELD
+    doors:
+      down:
+        to: 8638
+        description: "You see a mountain ridge against the sky."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8699
+    key: dream_room_8699
+    name: "The Void"
+    area_id: 32
+    short_desc: "The Void"
+    long_desc: |
+      You are suspended in cool electric space above a translucent plain.  You feel
+      synesthesia invading your nerves and reshuffling your senses.  The sky is the
+      same obsidian color as the ground and you can't find a horizon.
+    exits:
+    sector_type: FIELD
+

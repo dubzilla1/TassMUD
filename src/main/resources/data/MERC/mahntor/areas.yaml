@@ -1,0 +1,9 @@
+areas:
+  - id: 23
+    name: "Mahntor"
+    description: "Converted from mahntor.are"
+    sector_type: "FOREST"
+    author: "MERC"
+    source_file: "mahntor.are"
+    vnum_range: "2300-2399"
+

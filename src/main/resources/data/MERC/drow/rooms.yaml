@@ -1,0 +1,1820 @@
+rooms:
+  - id: 5100
+    key: drow_room_5100
+    name: "City Entrance"
+    area_id: 32
+    short_desc: "City Entrance"
+    long_desc: |
+      You are at the entrance to a small underground city. A great adamantite
+      gate lies open to the west allowing entrance into the city.
+    exits:
+      west: 5101
+      up: 5270
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 5101
+        description: "A huge gate opens to the west allowing entrance into the city."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5270
+        description: "A small hole in the ceiling leads up into darkness."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      gate: |
+        A large adamantite gate with giant spider shaped emblems stands here.
+      hole: |
+        A small hole that looks to have sealed at one time.
+
+  - id: 5101
+    key: drow_room_5101
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate street going north-south. A large gate
+      lies to the east while a building lies to the west.
+    exits:
+      north: 5123
+      east: 5100
+      south: 5102
+      west: 5122
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5100
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5102
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5102
+    key: drow_room_5102
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street going north and west.
+    exits:
+      north: 5101
+      west: 5103
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5101
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5103
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5103
+    key: drow_room_5103
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street going east-west. A large house
+      stands to the south.
+    exits:
+      east: 5102
+      south: 5104
+      west: 5106
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5102
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5104
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5106
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5104
+    key: drow_room_5104
+    name: "3rd House"
+    area_id: 32
+    short_desc: "3rd House"
+    long_desc: |
+      You stand inside the 3rd house of the city; it is fairly well decorated
+      by drow standards having a few statues, murals and such. A door leads to the
+      south.
+    exits:
+      north: 5103
+      south: 5105
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5103
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5105
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5105
+    key: drow_room_5105
+    name: "Throne Room"
+    area_id: 32
+    short_desc: "Throne Room"
+    long_desc: |
+      The throne room of the 3rd house is about as decorated as the inner
+      courtyard except with a blood covered altar in the center of the room.
+    exits:
+      north: 5104
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5104
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5106
+    key: drow_room_5106
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street going east-west. To the north
+      is a large building.
+    exits:
+      north: 5118
+      east: 5103
+      west: 5107
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5103
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5107
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5107
+    key: drow_room_5107
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street leading north and east. To the
+      south is an extremely large house.
+    exits:
+      north: 5110
+      east: 5106
+      south: 5108
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5110
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5106
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5108
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5108
+    key: drow_room_5108
+    name: "2nd House"
+    area_id: 32
+    short_desc: "2nd House"
+    long_desc: |
+      You stand inside the 2nd house of the city. The room is highly decorated
+      with statues of spiders and murals everywhere.
+    exits:
+      north: 5107
+      west: 5109
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5107
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5109
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5109
+    key: drow_room_5109
+    name: "Throne Room"
+    area_id: 32
+    short_desc: "Throne Room"
+    long_desc: |
+      The throne room of the 2nd house is just a little more decorative than
+      the inner courtyard having an altar in the center of the room.
+    exits:
+      east: 5108
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5108
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5110
+    key: drow_room_5110
+    name: "Main Gate"
+    area_id: 32
+    short_desc: "Main Gate"
+    long_desc: |
+      You are at the entrance to the 1st house of the city. A large gate, almost
+      as big and elegant as the one at the entrance to the city, stands here.
+    exits:
+      north: 5114
+      south: 5107
+      west: 5111
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5107
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5111
+        description: "A large gate lies to the west."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5111
+    key: drow_room_5111
+    name: "1st House"
+    area_id: 32
+    short_desc: "1st House"
+    long_desc: |
+      You stand in the inner courtyard of the 1st and largest house in the city.
+      The room is extremely large and decorative. Mural and paintings hang on the
+      walls depicting some battles and a spider queen.
+    exits:
+      east: 5110
+      west: 5112
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5110
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5112
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5112
+    key: drow_room_5112
+    name: "Throne Room"
+    area_id: 32
+    short_desc: "Throne Room"
+    long_desc: |
+      The throne room of the 1st house is in one word...awesome. It is so
+      horrifying it is almost beautiful.
+    exits:
+      north: 5113
+      east: 5111
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5111
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5113
+    key: drow_room_5113
+    name: "Main Chamber"
+    area_id: 32
+    short_desc: "Main Chamber"
+    long_desc: |
+      This is the council chamber for the Matron Mother herself. A huge table
+      and chairs surrounding it sits in the center of the room.
+    exits:
+      south: 5112
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 5112
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5114
+    key: drow_room_5114
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street leading north-south and east.
+    exits:
+      north: 5115
+      east: 5117
+      south: 5110
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5110
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5115
+    key: drow_room_5115
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street leading south. A building is
+      to the west.
+    exits:
+      south: 5114
+      west: 5116
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5116
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5116
+    key: drow_room_5116
+    name: "Cleric Academy"
+    area_id: 32
+    short_desc: "Cleric Academy"
+    long_desc: |
+      This is the most lavish of the academies being that it is for the clerics.
+    exits:
+      east: 5115
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5117
+    key: drow_room_5117
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street going east-west. To the north
+      is a giant temple.
+    exits:
+      north: 5119
+      east: 5121
+      west: 5114
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5119
+        description: "The entrance to the temple of Lloth."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5118
+    key: drow_room_5118
+    name: "Warrior's Academy"
+    area_id: 32
+    short_desc: "Warrior's Academy"
+    long_desc: |
+      This looks more like a barracks than a school.
+    exits:
+      south: 5106
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5106
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5119
+    key: drow_room_5119
+    name: "Entrance to the Temple of Lloth"
+    area_id: 32
+    short_desc: "Entrance to the Temple of Lloth"
+    long_desc: |
+      The temple is the largest building in the city. Even it's doors are beyond
+      imagination. Inside of the temple entrance, the walls are made of gold and
+      adamantite.
+    exits:
+      south: 5117
+      down: 5126
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 5126
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5120
+    key: drow_room_5120
+    name: "Mage's Academy"
+    area_id: 32
+    short_desc: "Mage's Academy"
+    long_desc: |
+      The mages academy is fairly well decorated see that the drow prefer magic
+      over physical power greatly.
+    exits:
+      south: 5121
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5121
+    key: drow_room_5121
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street going eastward. To the north is
+      a building.
+    exits:
+      north: 5120
+      east: 5123
+      south: 5122
+      west: 5117
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5122
+    key: drow_room_5122
+    name: "Slave Chamber"
+    area_id: 32
+    short_desc: "Slave Chamber"
+    long_desc: |
+      The room is in shambles. Straw is strewn all about the room as beds for the
+      unfortunate creatures who have fallen prey to drow imperialism.
+    exits:
+      north: 5121
+      east: 5101
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5101
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5123
+    key: drow_room_5123
+    name: "City street"
+    area_id: 32
+    short_desc: "City street"
+    long_desc: |
+      You walk along a highly ornate city street leading west and south. To the
+      north is a relatively small house.
+    exits:
+      north: 5124
+      south: 5101
+      west: 5121
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5124
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5101
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5124
+    key: drow_room_5124
+    name: "4th house"
+    area_id: 32
+    short_desc: "4th house"
+    long_desc: |
+      You stand inside the 4th house of the city. Its inner courtyard is rather
+      dull by drow standards and rather small as well.
+    exits:
+      east: 5125
+      south: 5123
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5125
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5125
+    key: drow_room_5125
+    name: "Throne Room"
+    area_id: 32
+    short_desc: "Throne Room"
+    long_desc: |
+      The throne room is basically similar to the inner courtyard in regards
+      to decor. there is a small throne behind the altar but that is about it.
+    exits:
+      west: 5124
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 5124
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5126
+    key: drow_room_5126
+    name: "Entrance Way"
+    area_id: 32
+    short_desc: "Entrance Way"
+    long_desc: |
+      You stand in the entrance way to the temple which opens up to the north
+      into a large hallway going east and west. Small statues of spiders line the
+      entrance way's walls.
+    exits:
+      north: 5127
+      up: 5119
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5119
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5127
+    key: drow_room_5127
+    name: "Hallway"
+    area_id: 32
+    short_desc: "Hallway"
+    long_desc: |
+      You are in a long hallway lined with adamantite. The walls are engraved
+      with pictures of elves and spiders. The hallway continues east and west. As you
+      look down the hallway you can make out one or two figures moving away from you.
+      To the north is a obsidian stairway.
+    exits:
+      north: 5135
+      south: 5126
+      east: 5128
+      west: 5131
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5135
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5126
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5131
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5128
+    key: drow_room_5128
+    name: "Long Hallway"
+    area_id: 32
+    short_desc: "Long Hallway"
+    long_desc: |
+      You are in a long hallway lined with adamantite. The walls are engraved
+      with pictures of elves and spiders. The hallway continues east and west. As you
+      look down the hallway you can make out one or two figures moving away from you.
+    exits:
+      east: 5129
+      west: 5127
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5129
+    key: drow_room_5129
+    name: "Long Hallway"
+    area_id: 32
+    short_desc: "Long Hallway"
+    long_desc: |
+      You are in a long hallway lined with adamantite. The walls are engraved
+      with pictures of elves and spiders. The hallway continues east and west. As you
+      look down the hallway you can make out one or two figures moving away from you.
+      To the north is a door.
+    exits:
+      north: 5150
+      east: 5130
+      west: 5128
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5150
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5130
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5130
+    key: drow_room_5130
+    name: "Long Hallway"
+    area_id: 32
+    short_desc: "Long Hallway"
+    long_desc: |
+      You are in a long hallway lined with adamantite. The walls are engraved
+      with pictures of elves and spiders. The hallway continues east and west. As you
+      look down the hallway you can make out one or two figures moving away from you.
+    exits:
+      east: 5134
+      west: 5129
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5131
+    key: drow_room_5131
+    name: "Long Hallway"
+    area_id: 32
+    short_desc: "Long Hallway"
+    long_desc: |
+      You are in a long hallway lined with adamantite. The walls are engraved
+      with pictures of elves and spiders. The hallway continues east and west. As you
+      look down the hallway you can make out one or two figures moving away from you.
+    exits:
+      east: 5127
+      west: 5132
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5132
+    key: drow_room_5132
+    name: "Long Hallway"
+    area_id: 32
+    short_desc: "Long Hallway"
+    long_desc: |
+      You are in a long hallway lined with adamantite. The walls are engraved
+      with pictures of elves and spiders. The hallway continues east and west. As you
+      look down the hallway you can make out one or two figures moving away from you.
+      To the south is a door.
+    exits:
+      east: 5131
+      south: 5133
+      west: 5134
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5131
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5133
+    key: drow_room_5133
+    name: "Warrior's Barracks"
+    area_id: 32
+    short_desc: "Warrior's Barracks"
+    long_desc: |
+      The room is a complete mess. None of the beds are made, clothes and other
+      items have been left all about the room. Well drow warriors never were known
+      for neatness.
+    exits:
+      north: 5132
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5134
+    key: drow_room_5134
+    name: "Long Hallway"
+    area_id: 32
+    short_desc: "Long Hallway"
+    long_desc: |
+      You are in a long hallway lined with adamantite. The walls are engraved
+      with pictures of elves and spiders. The hallway continues east and west. As you
+      look down the hallway you can make out one or two figures moving away from you.
+    exits:
+      east: 5132
+      west: 5130
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5130
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5135
+    key: drow_room_5135
+    name: "Grand Stairway"
+    area_id: 32
+    short_desc: "Grand Stairway"
+    long_desc: |
+      You are standing at the bottom of a giant obsidian and adamantite
+      stairway. The edges are trimmed with gold.
+    exits:
+      south: 5127
+      up: 5136
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5136
+    key: drow_room_5136
+    name: "Grand Hallway"
+    area_id: 32
+    short_desc: "Grand Hallway"
+    long_desc: |
+      You are standing in the middle of a grand hallway. The walls are
+      of the purest adamantite with gold trim. Mosaics line the walls.
+    exits:
+      north: 5138
+      east: 5137
+      down: 5135
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 5135
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5137
+    key: drow_room_5137
+    name: "Mage's Barracks"
+    area_id: 32
+    short_desc: "Mage's Barracks"
+    long_desc: |
+      The mage's living quarters is rather clean with the exception of a few
+      used component containers. It is rather well decorated as well. Cots line the
+      floor for the mages to sleep on. the only door is to the west.
+    exits:
+      west: 5136
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 5136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5138
+    key: drow_room_5138
+    name: "Grand Hallway"
+    area_id: 32
+    short_desc: "Grand Hallway"
+    long_desc: |
+      You are walking down a grand hallway, heavily decorated with adamantite
+      and gold. To the north the hall goes down a flight of stairs while a door is
+      too the west.
+    exits:
+      south: 5136
+      west: 5139
+      down: 5140
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5139
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 5140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5139
+    key: drow_room_5139
+    name: "Cleric's Barracks"
+    area_id: 32
+    short_desc: "Cleric's Barracks"
+    long_desc: |
+      The bed chamber is brightly decorated with spider shaped statues, murals
+      and the like. Large beds line the floor making this a comfortable room to live
+      in.
+    exits:
+      east: 5138
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5140
+    key: drow_room_5140
+    name: "Grand Stairway"
+    area_id: 32
+    short_desc: "Grand Stairway"
+    long_desc: |
+      You are climbing a set of obsidian stairs surrounded by adamantite walls.
+      To the north are a set of large golden doors.
+    exits:
+      north: 5141
+      up: 5138
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 5138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5141
+    key: drow_room_5141
+    name: "Main Chamber"
+    area_id: 32
+    short_desc: "Main Chamber"
+    long_desc: |
+      This is the south side of a large auditorium used for services by the
+      drow priestesses. In the center is a large sacrificial pit and beyond that is
+      an altar.
+    exits:
+      east: 5142
+      south: 5140
+      west: 5144
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5142
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5144
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5142
+    key: drow_room_5142
+    name: "Eastern side of Chamber"
+    area_id: 32
+    short_desc: "Eastern side of Chamber"
+    long_desc: |
+      You are on the eastern side of the chamber overlooking the pit. To the east
+      is a door while to the north is an altar.
+    exits:
+      north: 5145
+      east: 5146
+      south: 5141
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5146
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5143
+    key: drow_room_5143
+    name: "Sacrificial Pit"
+    area_id: 32
+    short_desc: "Sacrificial Pit"
+    long_desc: |
+      A you climb down into the pit thousands of spiders cover you tearing your
+      body to shreds.
+      
+      Lloth thanks you for your sacrifice.
+      
+      You've fallen, and you can't get up!!!
+    exits:
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+
+  - id: 5144
+    key: drow_room_5144
+    name: "Western side of Chamber"
+    area_id: 32
+    short_desc: "Western side of Chamber"
+    long_desc: |
+      You are on the western side of the main chamber overlooking a sacrificial
+      pit. To the north is an altar.
+    exits:
+      north: 5145
+      south: 5141
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5145
+    key: drow_room_5145
+    name: "The Altar"
+    area_id: 32
+    short_desc: "The Altar"
+    long_desc: |
+      You are standing in front of a highly and freshly bloodstained altar.
+      Engraved on the top of the altar is a giant spider with a human head. Looking
+      down from the altar you see a large sacrificial pit.
+    exits:
+      north: 5148
+      east: 5142
+      west: 5144
+      down: 5143
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5148
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5142
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5144
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5143
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5146
+    key: drow_room_5146
+    name: "Slave Cells"
+    area_id: 32
+    short_desc: "Slave Cells"
+    long_desc: |
+      This is the main room to the cell chambers for the slaves to be
+      sacrificed. You notice there are no guards around.
+    exits:
+      north: 5147
+      west: 5142
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5147
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5142
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5147
+    key: drow_room_5147
+    name: "Slave Pen"
+    area_id: 32
+    short_desc: "Slave Pen"
+    long_desc: |
+      Rotten meat and breads lie about the floor while shackles hang from the
+      walls. The room wreaks of death. You almost become nauseous and decide to leave
+      the room since you were obviously too late to save the slave.
+    exits:
+      south: 5146
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5146
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5148
+    key: drow_room_5148
+    name: "Dais"
+    area_id: 32
+    short_desc: "Dais"
+    long_desc: |
+      You stand upon a dais behind the altar. Above you is a enormous illusion
+      of a female drow turning into a giant spider and back again. There is a door
+      to the west.
+    exits:
+      south: 5145
+      west: 5149
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5149
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5149
+    key: drow_room_5149
+    name: "The Treasury"
+    area_id: 32
+    short_desc: "The Treasury"
+    long_desc: |
+      This is obviously only a temporary storage place for the collected
+      treasure being rather bare.
+    exits:
+      east: 5148
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5148
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5150
+    key: drow_room_5150
+    name: "Weaponsmaster's Chamber"
+    area_id: 32
+    short_desc: "Weaponsmaster's Chamber"
+    long_desc: |
+      This one person bedchamber is very elegant. The owner must be held in high
+      to get this kind of treatment.
+    exits:
+      south: 5129
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

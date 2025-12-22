@@ -1,0 +1,2937 @@
+rooms:
+  - id: 5200
+    key: thalos_room_5200
+    name: "The Grand Gate of Thalos"
+    area_id: 32
+    short_desc: "The Grand Gate of Thalos"
+    long_desc: |
+      You stand in the archway of a gigantic stone archway. The two
+      steel gates have been forced open and have rusted in place. A hollow
+      gust of wind blows by you into the deserted, and seemingly destroyed,
+      city.
+    exits:
+      east: 5256
+      west: 5201
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 5256
+        description: "You see a trail out of this blasted place."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5201
+        description: "You see devastation everywhere. Houses lie in ruin and skeletons litter
+the streets. You see strange beasts stalking the shadows."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5201
+    key: thalos_room_5201
+    name: "Main Street"
+    area_id: 32
+    short_desc: "Main Street"
+    long_desc: |
+      This was once a magnificent street, but now is in total ruin. The
+      streets are barren and windswept and the silence is unending.  A dark alley
+      leads north and south.  Howls and screams echo through the deserted city.
+    exits:
+      north: 5239
+      east: 5200
+      south: 5255
+      west: 5202
+    sector_type: CITY
+    doors:
+      north:
+        to: 5239
+        description: "It's a dark alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5200
+        description: "The entrance to the city lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5255
+        description: "It's a dark alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5202
+        description: "Main Street lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5202
+    key: thalos_room_5202
+    name: "Main Street"
+    area_id: 32
+    short_desc: "Main Street"
+    long_desc: |
+      This was once a magnificent street, but now is in total ruin. The
+      streets are barren and windswept and the silence is unending. On one
+      side is a collapsed house while on the other is the entrance to a large
+      ruined mansion. Eerie sounds echo within the mansion. Near the center of
+      town you see a large domed building, relatively intact.
+    exits:
+      north: 5236
+      east: 5201
+      south: 5232
+      west: 5203
+    sector_type: CITY
+    doors:
+      north:
+        to: 5236
+        description: "The remnants of a store lie this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5201
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5232
+        description: "It looks like what used to be the main building in the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5203
+        description: "A withered garden path lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5203
+    key: thalos_room_5203
+    name: "A Garden Path"
+    area_id: 32
+    short_desc: "A Garden Path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center of
+      the city. Flowers have withered away and the once lush trees are bare.
+      Vines and ivy snake up the sides of the temple and entangle themselves
+      around your feet. A sudden volley of howls pierces the air.
+    exits:
+      north: 5204
+      east: 5202
+      south: 5206
+      west: 5250
+    sector_type: CITY
+    doors:
+      north:
+        to: 5204
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5202
+        description: "This is the main street leading to the city's entrance"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5206
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5250
+        description: "Inside the temple, small patches of light shoot through each doorway as
+well as a few holes in the ceiling."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5204
+    key: thalos_room_5204
+    name: "A Garden Path"
+    area_id: 32
+    short_desc: "A Garden Path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center of
+      the city. Flowers have withered away and the once lush trees are bare.
+      Vines and ivy snake up the sides of the temple and entangle themselves
+      around your feet. A sudden volley of howls pierces the air.
+    exits:
+      north: 5211
+      south: 5203
+      west: 5205
+    sector_type: CITY
+    doors:
+      north:
+        to: 5211
+        description: "A side street leads off to the northern half of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5203
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5205
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5205
+    key: thalos_room_5205
+    name: "A Garden Path"
+    area_id: 32
+    short_desc: "A Garden Path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center of
+      the city. Flowers have withered away and the once lush trees are bare.
+      Vines and ivy snake up the sides of the temple and entangle themselves
+      around your feet. A sudden volley of howls pierces the air.
+    exits:
+      east: 5204
+      south: 5250
+    sector_type: CITY
+    doors:
+      east:
+        to: 5204
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5250
+        description: "Inside the temple, small patches of light shoot through each doorway as
+well as a few holes in the ceiling."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5206
+    key: thalos_room_5206
+    name: "A Garden Path"
+    area_id: 32
+    short_desc: "A Garden Path"
+    long_desc: |
+      A circular path surrounds a magnificent domed temple in the center of
+      the city. Flowers have withered away and the once lush trees are bare.
+      Vines and ivy snake up the sides of the temple and entangle themselves
+      around your feet. A sudden volley of howls pierces the air.
+    exits:
+      north: 5203
+      south: 5212
+    sector_type: CITY
+    doors:
+      north:
+        to: 5203
+        description: "The garden path continues around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5212
+        description: "A small side street leads to the southern half of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5207
+    key: thalos_room_5207
+    name: "The market place"
+    area_id: 32
+    short_desc: "The market place"
+    long_desc: |
+      You stand in the middle of a large square lined on each side with
+      baskets, carts, and stands of all shapes and sizes. Abandoned, these
+      little shops still contain some of their goods once sold to a demanding
+      public.
+    exits:
+      north: 5225
+      south: 5220
+      west: 5208
+    sector_type: CITY
+    doors:
+      north:
+        to: 5225
+        description: "A small table has been toppled over, spilling fine jewelery and gems
+onto the ground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5220
+        description: "Rotted remains of fruits and vegetables lie strewn about."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5208
+        description: "The market place continues."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5208
+    key: thalos_room_5208
+    name: "The market place"
+    area_id: 32
+    short_desc: "The market place"
+    long_desc: |
+      You stand at the end of the market square. Stands and carts line
+      each side, filled with remnants of fine foods and exquisite goods.
+    exits:
+      north: 5222
+      east: 5207
+      south: 5217
+    sector_type: CITY
+    doors:
+      north:
+        to: 5222
+        description: "Tattered carpets and ruined bales of silk sit idly by a run down stand."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5207
+        description: "The center of the market lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5217
+        description: "From the massive stench, this must have been a meat and poultry stand.
+It lies totally bare."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5209
+    key: thalos_room_5209
+    name: "A Side Street"
+    area_id: 32
+    short_desc: "A Side Street"
+    long_desc: |
+      This small side street leads east and west into back alleys while
+      to the south you see the temple. The incessant howling tears at your mind.
+    exits:
+      east: 5243
+      south: 5210
+      west: 5228
+    sector_type: CITY
+    doors:
+      east:
+        to: 5243
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5210
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5228
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5210
+    key: thalos_room_5210
+    name: "A Side Street"
+    area_id: 32
+    short_desc: "A Side Street"
+    long_desc: |
+      You are in the common section of the city. Ruined buildings made of
+      clay and stone is all the view has to offer. Most of these homes are
+      nothing but piles of rubble, but some look almost safe enough to venture
+      into. The street continues north and south and buildings line the street.
+    exits:
+      north: 5209
+      east: 5244
+      south: 5211
+      west: 5226
+    sector_type: CITY
+    doors:
+      north:
+        to: 5209
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5244
+        description: "A small doorway leads into a partially collapsed house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5211
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5226
+        description: "A small clay dwelling sits here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5211
+    key: thalos_room_5211
+    name: "A Side Street"
+    area_id: 32
+    short_desc: "A Side Street"
+    long_desc: |
+      This small side street leads away from the garden path to the south.
+      Around you stand large piles or rubble where the houses of commoners
+      used to be. A lone howl makes you worry greatly about your safety here.
+    exits:
+      north: 5210
+      east: 5237
+      south: 5204
+      west: 5227
+    sector_type: CITY
+    doors:
+      north:
+        to: 5210
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5237
+        description: "An unusually tall dwelling stands looming over you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5204
+        description: "A garden path circles around the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5227
+        description: "Here lies a small stone house with a thatched roof."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5212
+    key: thalos_room_5212
+    name: "A side street"
+    area_id: 32
+    short_desc: "A side street"
+    long_desc: |
+      This small side street leads south away from the temple into the
+      business section of town. The destruction that leveled this city was not
+      biased; these important looking buildings have been almost totally
+      destroyed. There is a hole in the wall of a very large structure to the
+      east.
+    exits:
+      north: 5206
+      east: 5232
+      south: 5213
+      west: 5221
+    sector_type: CITY
+    doors:
+      north:
+        to: 5206
+        description: "A small garden path encircles the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5232
+        description: "This possibly could be the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5213
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5221
+        description: "Inside the building you see long pieces of metal, an oven, and some
+anvils."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5213
+    key: thalos_room_5213
+    name: "A side street"
+    area_id: 32
+    short_desc: "A side street"
+    long_desc: |
+      This small side street is lined with the remains of once great
+      buildings. To the north is a dark, foreboding structure while to the
+      south lies the entrance to a small tavern. The street continues north
+      and south.
+    exits:
+      north: 5212
+      east: 5230
+      south: 5214
+      west: 5219
+    sector_type: CITY
+    doors:
+      north:
+        to: 5212
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5230
+        description: "From the looks of it, this was once a two story abode. The entire second
+floor has collapsed leaving a very little part of the bar still free
+from debris."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5214
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5219
+        description: "This seems to be the only guild house in the entire city. Its dark nature
+makes you wonder about its origins."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5214
+    key: thalos_room_5214
+    name: "A side street"
+    area_id: 32
+    short_desc: "A side street"
+    long_desc: |
+      You are at the end of a long street leading to the center of the city.
+      A long dark alley runs east and west.
+    exits:
+      north: 5213
+      east: 5251
+      south: 5229
+      west: 5218
+    sector_type: CITY
+    doors:
+      north:
+        to: 5213
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5251
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5229
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5218
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5215
+    key: thalos_room_5215
+    name: "Under a ruined watchtower"
+    area_id: 32
+    short_desc: "Under a ruined watchtower"
+    long_desc: |
+      You stand at the base of a tall watchtower built to protect the city
+      from invaders. From the looks of things, it did not do a good job.
+    exits:
+      north: 5216
+      east: 5218
+      up: 5247
+    sector_type: CITY
+    doors:
+      north:
+        to: 5216
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5218
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5247
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5216
+    key: thalos_room_5216
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      This alley leads to the rear of what used to be a meat stand. You wince
+      at the stench. South is one of the city watchtowers.
+    exits:
+      north: 5217
+      south: 5215
+    sector_type: CITY
+    doors:
+      north:
+        to: 5217
+        description: "You see the back-side of the market place meat stand."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5215
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5217
+    key: thalos_room_5217
+    name: "The meat stand"
+    area_id: 32
+    short_desc: "The meat stand"
+    long_desc: |
+      A large stand has been set up here with metal hooks and wooden racks
+      in the background. Hanging on the hooks are very small scraps of meat
+      and other game. This stand is relatively empty, and a sudden burst of
+      howling and screaming makes you realize why this is so.
+    exits:
+      north: 5208
+      east: 5220
+      south: 5216
+    sector_type: CITY
+    doors:
+      north:
+        to: 5208
+        description: "The market place lies this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5220
+        description: "This is a cart full of rotted vegetables and fruits."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5216
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5218
+    key: thalos_room_5218
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads east to a wider street and west to one of
+      the city watchtowers.
+    exits:
+      east: 5214
+      west: 5215
+    sector_type: CITY
+    doors:
+      east:
+        to: 5214
+        description: "A small side street greets you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5215
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5219
+    key: thalos_room_5219
+    name: "The guild house"
+    area_id: 32
+    short_desc: "The guild house"
+    long_desc: |
+      You are standing in what once was this city's ONLY guild house.
+      Tables and chairs have been smashed and broken weapons lie strewn about
+      the floor as if some massive battle had taken place here. Draped along
+      the back wall is a tattered, jet-black banner with the symbol of the
+      Darkside set upon it.
+    exits:
+      east: 5213
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5213
+        description: "A small side street runs past the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5220
+    key: thalos_room_5220
+    name: "The produce stand"
+    area_id: 32
+    short_desc: "The produce stand"
+    long_desc: |
+      A large cart sits here carrying rotted fruit and vegetables. Flys
+      swarm all about what seems to be the last remaining bits of food left
+      in the city.
+    exits:
+      north: 5207
+      west: 5217
+    sector_type: CITY
+    doors:
+      north:
+        to: 5207
+        description: "The market place is deserted."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5217
+        description: "A strong stench emanates from the meat stand next to you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5221
+    key: thalos_room_5221
+    name: "The smithy"
+    area_id: 32
+    short_desc: "The smithy"
+    long_desc: |
+      In here you find tools and anvils used to make various weapons
+      and items. The walls have been stripped clean and only a few incomplete
+      pieces of armor and weaponry are left.
+    exits:
+      east: 5212
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5212
+        description: "A small side street runs past the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5222
+    key: thalos_room_5222
+    name: "The tapestry stand"
+    area_id: 32
+    short_desc: "The tapestry stand"
+    long_desc: |
+      Tattered and torn tapestries and rugs lie heaped in piles. Fancy
+      robes and various articles of clothing are now just rags. You stare at
+      the strange piles for a long time until a piercing howl makes you
+      think these might be beds.
+    exits:
+      north: 5223
+      east: 5225
+      south: 5208
+    sector_type: CITY
+    doors:
+      north:
+        to: 5223
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5225
+        description: "A fine jewelry stand lies in ruin next to you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5208
+        description: "The market place is deserted."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5223
+    key: thalos_room_5223
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads north to one of the city watchtowers while
+      to the south there lies a market stand full of torn clothes and rugs.
+    exits:
+      north: 5224
+      south: 5222
+    sector_type: CITY
+    doors:
+      north:
+        to: 5224
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5222
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5224
+    key: thalos_room_5224
+    name: "Under the watchtower"
+    area_id: 32
+    short_desc: "Under the watchtower"
+    long_desc: |
+      You stand under one of the city watchtowers built to protect
+      the city from invaders. Obviously, it failed.
+    exits:
+      east: 5228
+      south: 5223
+      up: 5246
+    sector_type: CITY
+    doors:
+      east:
+        to: 5228
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5223
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5246
+        description: "Above you looms a tall watchtower."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5225
+    key: thalos_room_5225
+    name: "The jewelery stand"
+    area_id: 32
+    short_desc: "The jewelery stand"
+    long_desc: |
+      A table has been tipped over, spilling fine jewelery and gems
+      across the market place. Most of these trinkets are battered and
+      tarnished and few would have any value anymore.
+    exits:
+      south: 5207
+      west: 5222
+    sector_type: CITY
+    doors:
+      south:
+        to: 5207
+        description: "The market place is deserted."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5222
+        description: "Next to you is a stand full of ruined clothes and rugs."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5226
+    key: thalos_room_5226
+    name: "A ruined clay dwelling"
+    area_id: 32
+    short_desc: "A ruined clay dwelling"
+    long_desc: |
+      This was once a very plain house with nothing more than a few chairs
+      and a bed. A cold fireplace suggests that the city has been abandoned
+      for quite a while. Almost nothing remains of this humble abode.
+    exits:
+      east: 5210
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5210
+        description: "Outside is a small side street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5227
+    key: thalos_room_5227
+    name: "A collapsed stone dwelling"
+    area_id: 32
+    short_desc: "A collapsed stone dwelling"
+    long_desc: |
+      This small house has completely collapsed upon itself leaving piles
+      of debris here and there. A few rafters still stand with thatched straw
+      hanging down and a hot wind gusts through the hollow dwelling.
+    exits:
+      east: 5211
+    sector_type: CITY
+    doors:
+      east:
+        to: 5211
+        description: "A small side street runs past the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5228
+    key: thalos_room_5228
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads east to one of the city watchtowers and west to
+      a small side street.
+    exits:
+      east: 5209
+      west: 5224
+    sector_type: CITY
+    doors:
+      east:
+        to: 5209
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5224
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5229
+    key: thalos_room_5229
+    name: "An abandoned shop"
+    area_id: 32
+    short_desc: "An abandoned shop"
+    long_desc: |
+      From the outside this place looks like an ordinary pile of rubble,
+      but inside these cramped quarters you discover what used to be a shop
+      filled with armor, weapons, and various other goods. A small sign flutters
+      in the wind.
+    exits:
+      north: 5214
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5214
+        description: "A small side street runs past the shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5230
+    key: thalos_room_5230
+    name: "The Tavern of the Sun"
+    area_id: 32
+    short_desc: "The Tavern of the Sun"
+    long_desc: |
+      A glorious place in it's prime, this tavern now lies in ruin; tables
+      and chairs are broken scattered, bottles and glasses shattered, and
+      a small performance stage crushed. Musical instruments and personal
+      belongings lie under the rubble, but the people they once belonged to are
+      not with them. Looking up you see that the entire second floor and roof
+      has fallen in, leaving a gaping hole above.
+    exits:
+      west: 5213
+    sector_type: CITY
+    doors:
+      west:
+        to: 5213
+        description: "A small side street runs past the tavern."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5231
+    key: thalos_room_5231
+    name: "South wing of the city hall"
+    area_id: 32
+    short_desc: "South wing of the city hall"
+    long_desc: |
+      You stand in a large room attached to this end of the hallway which
+      leads back north to the reception area.  Pedestals and columns have fallen
+      and most of the valuable items have been taken, leaving worthless debris.
+      A few chairs have survived, as well as a large curved desk. To the east
+      is a vine-covered archway leading out into a private courtyard.
+    exits:
+      north: 5232
+      east: 5234
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5232
+        description: "The long hallway leads back to the main reception area of the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5234
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5232
+    key: thalos_room_5232
+    name: "The city hall"
+    area_id: 32
+    short_desc: "The city hall"
+    long_desc: |
+      This is the main reception area of Thalos' city hall. The walls have
+      been charred and scored massively and debris is spread from wall to wall.
+      A large gaping hole in the west wall allows you to see out to one of
+      the city's side streets. Obviously no one will be seeing you through today.
+      Hallways lead south and east.
+    exits:
+      north: 5202
+      east: 5233
+      south: 5231
+      west: 5212
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5202
+        description: "Main street runs past the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5233
+        description: "A hallway leads to the east wing of the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5231
+        description: "A hallway leads to the south wing of the city hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5212
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5233
+    key: thalos_room_5233
+    name: "East wing of the city hall"
+    area_id: 32
+    short_desc: "East wing of the city hall"
+    long_desc: |
+      Here lies the remnants of a fancy office, possibly the mayor's. A few
+      withered plants and broken pieces of furniture make this place anything
+      but fancy, though. The only thing remaining intact here is a large
+      glass cabinet. A long hallway leads west back to the reception area and
+      an ivy-covered archway leads south into a private courtyard.
+    exits:
+      south: 5234
+      west: 5232
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5234
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5232
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5234
+    key: thalos_room_5234
+    name: "The private gardens and courtyard of Thalos"
+    area_id: 32
+    short_desc: "The private gardens and courtyard of Thalos"
+    long_desc: |
+      What a shame that this mass destruction also touched this once
+      beautiful place. The temple's garden path has nothing on this garden.
+      Flowers and trees have been smashed into the ground and lawn benches
+      thrown through walls. A large marble fountain in the center of the
+      courtyard still stands, though, defying any attempts to destroy its
+      beauty. Above stands the remnants of one of the watchtowers. Archways
+      north and west lead back into the city hall.
+    exits:
+      north: 5233
+      west: 5231
+    sector_type: CITY
+    doors:
+      north:
+        to: 5233
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5231
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5235
+    key: thalos_room_5235
+    name: "A small guard house"
+    area_id: 32
+    short_desc: "A small guard house"
+    long_desc: |
+      This was once the barracks for Thalos' cityguards. Now just an empty
+      shell, this small shack still stands guarding the entrance both to the
+      city and to the city hall.
+    exits:
+      east: 5255
+    sector_type: CITY
+    doors:
+      east:
+        to: 5255
+        description: "The alley runs by this building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5236
+    key: thalos_room_5236
+    name: "A collapsed home"
+    area_id: 32
+    short_desc: "A collapsed home"
+    long_desc: |
+      All that's left of this house is a few scattered piles of rubble
+      and a very large blast crater. Obviously someone or something important
+      was once housed here. A shrieking howl chills your blood.
+    exits:
+      south: 5202
+    sector_type: CITY
+    doors:
+      south:
+        to: 5202
+        description: "Main street runs past this ruined home."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5237
+    key: thalos_room_5237
+    name: "A tall dwelling"
+    area_id: 32
+    short_desc: "A tall dwelling"
+    long_desc: |
+      This seems to be the tallest structure remaining in the city. At
+      one time this could have been an inn of some sort, but now it's just
+      a mess. The back wall as been completely knocked down revealing an
+      entrance into another building through yet another collapsed wall.
+      Between the two buildings are a few blast craters and boulders. An old
+      set of wooden steps leads up to a creaking second floor.
+    exits:
+      east: 5238
+      west: 5211
+      up: 5245
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5238
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5211
+        description: "A small side street winds past the dwelling."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5245
+        description: "The stairs and even the entire second floor itself looks very unsafe
+for travel. Gusts of wind make them creak and shudder."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5238
+    key: thalos_room_5238
+    name: "A small shack"
+    area_id: 32
+    short_desc: "A small shack"
+    long_desc: |
+      This cramped dwelling could not have housed more than one person. Now
+      with the back wall missing, it could hold many more. Looking around you
+      find broken shelves and workbenches with various vials and pouches spilling
+      contents all across the floor. This was possibly the magic shop of the
+      city. The doorway to the east is blocked, making the only exit back west.
+    exits:
+      west: 5237
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 5237
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5239
+    key: thalos_room_5239
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow back alley goes south to main street and north towards
+      a watchtower. A mass of howls catches you of guard.
+    exits:
+      north: 5240
+      south: 5201
+    sector_type: CITY
+    doors:
+      north:
+        to: 5240
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5201
+        description: "Main street runs past here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5240
+    key: thalos_room_5240
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow back alley leads north to one of the city watchtowers
+      and south towards main street. To the west is a doorway to a small
+      house blocked by debris.
+    exits:
+      north: 5241
+      south: 5239
+    sector_type: CITY
+    doors:
+      north:
+        to: 5241
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5239
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5241
+    key: thalos_room_5241
+    name: "Under a watchtower"
+    area_id: 32
+    short_desc: "Under a watchtower"
+    long_desc: |
+      You stand under a tall watchtower. Narrow back alleys lead west and
+      south and a very weak looking ladder leads up into the tower.
+    exits:
+      south: 5240
+      west: 5243
+      up: 5248
+    sector_type: CITY
+    doors:
+      south:
+        to: 5240
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5243
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5248
+        description: "Winds howl high above your head in the tower above."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5242
+    key: thalos_room_5242
+    name: "A bath house"
+    area_id: 32
+    short_desc: "A bath house"
+    long_desc: |
+      This was once the bath house for the commoners of the city. Hot
+      steamy water still wells up from a hole in the floor. Obviously there
+      is a hot spring located under the city (making the decision to put
+      a city here seem much more reasonable). Closer inspection of the water
+      yields a dead body floating around in it, skin melted away from months
+      of floating in there. The west wall has collapsed revealing another
+      collapsed house.
+    exits:
+      north: 5243
+      west: 5244
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5243
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5244
+        description: "The wall has collapsed on the adjoining house, creating a new opening
+in it."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5243
+    key: thalos_room_5243
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow back alley leads west to a small side street and east to one
+      of the city watchtowers. Great amounts of steam issue forth from the
+      building to the south.
+    exits:
+      east: 5241
+      south: 5242
+      west: 5209
+    sector_type: CITY
+    doors:
+      east:
+        to: 5241
+        description: "A watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5242
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5209
+        description: "A side street runs by here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5244
+    key: thalos_room_5244
+    name: "An upright house"
+    area_id: 32
+    short_desc: "An upright house"
+    long_desc: |
+      This home is practically the only one around that is still standing.
+      Except for the massive hole in the east wall, everything else looks
+      intact, including the windows. Great amounts of steam issue forth from
+      the hole in the east wall.
+    exits:
+      east: 5242
+      west: 5210
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5242
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5210
+        description: "A small side street runs past the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5245
+    key: thalos_room_5245
+    name: "On the second floor"
+    area_id: 32
+    short_desc: "On the second floor"
+    long_desc: |
+      The minute you step off onto this floor you realize it was a mistake.
+      The old rotted floorboards suddenly give way and you fall down, impaling
+      yourself on jagged boards below.
+      
+      You've fallen, and you can't get up!!!
+    exits:
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+
+  - id: 5246
+    key: thalos_room_5246
+    name: "The north-west watchtower"
+    area_id: 32
+    short_desc: "The north-west watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here and you can see all the way to the western mountains. No wonder
+      this place stood for so long.
+    exits:
+      down: 5224
+    sector_type: CITY
+    doors:
+      down:
+        to: 5224
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5247
+    key: thalos_room_5247
+    name: "The south-west watchtower"
+    area_id: 32
+    short_desc: "The south-west watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here and you can see all the way to the western mountains. To the
+      south the desert stretches to the horizon. No wonder this place stood
+      for so long.
+    exits:
+      down: 5215
+    sector_type: CITY
+    doors:
+      down:
+        to: 5215
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5248
+    key: thalos_room_5248
+    name: "The north-east watchtower"
+    area_id: 32
+    short_desc: "The north-east watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here and you can see a great floating pyramid to the north-east.
+      Desert sand stretches to the horizon. No wonder this place stood for so
+      long.
+    exits:
+      down: 5241
+    sector_type: CITY
+    doors:
+      down:
+        to: 5241
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5250
+    key: thalos_room_5250
+    name: "The Temple of Thalos"
+    area_id: 32
+    short_desc: "The Temple of Thalos"
+    long_desc: |
+      You stand within one of the most holy places in the realm. This
+      stunning domed temple once housed the city's worshipers en masse.
+      Unfortunately, it succumbed to the destruction brought on this city.
+      Long benches lie toppled and the altar desecrated. Large chunks of stone
+      have fallen from the walls and roof, sending sunlight streaming in on
+      you. A few books lie about, conveying to you a holy message in a
+      strange tongue.
+           Wind gusts through the four archways and howls and screams can be
+      heard from all parts of the city.
+    exits:
+      north: 5205
+      east: 5203
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5205
+        description: "A side street leads to the northern half of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5203
+        description: "Main street leads out to the main gate of the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5251
+    key: thalos_room_5251
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads east to a wider street and west to one of
+      the city watchtowers.
+    exits:
+      west: 5214
+      east: 5252
+    sector_type: CITY
+    doors:
+      west:
+        to: 5214
+        description: "A small side street greets you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5252
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5252
+    key: thalos_room_5252
+    name: "Under a ruined watchtower"
+    area_id: 32
+    short_desc: "Under a ruined watchtower"
+    long_desc: |
+      You stand at the base of a tall watchtower built to protect the city
+      from invaders. From the looks of things, it did not do a good job.
+    exits:
+      north: 5253
+      west: 5251
+      up: 5254
+    sector_type: CITY
+    doors:
+      north:
+        to: 5253
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5251
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5254
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5253
+    key: thalos_room_5253
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads south to one of the city watchtowers.
+    exits:
+      north: 5255
+      south: 5252
+    sector_type: CITY
+    doors:
+      north:
+        to: 5255
+        description: "The alley continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5252
+        description: "A tall watchtower stands a silent vigil over the city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5254
+    key: thalos_room_5254
+    name: "The south-east watchtower"
+    area_id: 32
+    short_desc: "The south-east watchtower"
+    long_desc: |
+      You stand atop one of the city watchtowers. The view is magnificent
+      from here and you can see all the way to the western mountains. To the
+      south the desert stretches to the horizon. No wonder this place stood
+      for so long.  There is a small plaque on the stones.
+    exits:
+      down: 5252
+    sector_type: CITY
+    doors:
+      down:
+        to: 5252
+        description: "The city lies below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        This extension to Thalos, along with the dwarf forest, is made by Hatchet for
+        any Merc Mud.
+        copyright 1992
+
+  - id: 5255
+    key: thalos_room_5255
+    name: "A back alley"
+    area_id: 32
+    short_desc: "A back alley"
+    long_desc: |
+      A narrow alley leads north to the main street, and south toward a tall
+      watchtower.  A ruined building is to the west.
+    exits:
+      north: 5201
+      south: 5253
+      west: 5235
+    sector_type: CITY
+    doors:
+      north:
+        to: 5201
+        description: "You see main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5253
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5235
+        description: "It looks in bad shape inside, but structurally intact."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5256
+    key: thalos_room_5256
+    name: "A trail at the end of the dwarf forest"
+    area_id: 32
+    short_desc: "A trail at the end of the dwarf forest"
+    long_desc: |
+      The trail ends here, with short, dry stumps of trees all around you.
+      To the west, you can see the ruins of a huge city.  Something about it gives
+      you an uneasy feeling.  To the east is your way back to home and safety.
+    exits:
+      west: 5200
+      east: 5257
+    sector_type: FIELD
+    doors:
+      west:
+        to: 5200
+        description: "You see Thalos!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5257
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5257
+    key: thalos_room_5257
+    name: "A trail at the end of the dwarf forest"
+    area_id: 32
+    short_desc: "A trail at the end of the dwarf forest"
+    long_desc: |
+      A side trail here leads from the dwarf forest.  It is definitely drier
+      and hotter here.  The trail continues to the west, and to the east, you see
+      the T-intersection.
+    exits:
+      west: 5256
+      east: 5258
+    sector_type: FIELD
+    doors:
+      west:
+        to: 5256
+        description: "You see the trail continue on."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5258
+        description: "You see the intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5258
+    key: thalos_room_5258
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see more stunted trees here.  A side trail leads west from here.
+      To the east, you THINK you see a trail, but you can never be sure.
+    exits:
+      west: 5257
+      east: 5262
+      north: 5259
+    sector_type: FOREST
+    doors:
+      west:
+        to: 5257
+        description: "You see the trail branch off."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5262
+        description: "You can't see into the gloom of this forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 5259
+        description: "You see the trail lead back north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5259
+    key: thalos_room_5259
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see more stunted trees here.  It looks almost as if this place was
+      cursed by a god to be short and dry.  The trail leads north and south.
+    exits:
+      north: 5260
+      south: 5258
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5260
+        description: "You see the trail continue north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5258
+        description: "You see the trail continue south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5260
+    key: thalos_room_5260
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see more stunted trees here.  It looks almost as if this place was
+      cursed by a god to be short and dry.  The trail leads north and south.
+    exits:
+      north: 5261
+      south: 5259
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5261
+        description: "You see the trail continue north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5259
+        description: "You see the trail continue south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5261
+    key: thalos_room_5261
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see many stunted trees here.  You don't see any leaves on these barren
+      trees.  No grass grows on the ground.
+    exits:
+      north: 3502
+      south: 5260
+    sector_type: FOREST
+    doors:
+      north:
+        to: 3502
+        description: "You see the trail continue north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5260
+        description: "You see the trail continue south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5262
+    key: thalos_room_5262
+    name: "The dwarf forest"
+    area_id: 32
+    short_desc: "The dwarf forest"
+    long_desc: |
+      You see more stunted trees here.  It looks almost as if this place was
+      cursed by a god to be short and dry.  The trail leads east and west.  It looks
+      dark toward the east.
+    exits:
+      west: 5258
+      east: 5263
+    sector_type: FOREST
+    doors:
+      west:
+        to: 5258
+        description: "You see the lighter forest and the T-intersection west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5263
+        description: "You see a darker part of the forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5263
+    key: thalos_room_5263
+    name: "The darker dwarf forest"
+    area_id: 32
+    short_desc: "The darker dwarf forest"
+    long_desc: |
+      You see a more dense foliage in these stunted trees.  The gloom caused
+      by them is enhanced by a draft coming from all around.  The trail turns south
+      from the west.
+    exits:
+      west: 5262
+      south: 5264
+    sector_type: FOREST
+    doors:
+      west:
+        to: 5262
+        description: "You see the dwarf forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5264
+        description: "You see nothing in the gloom south of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5264
+    key: thalos_room_5264
+    name: "The darker dwarf forest"
+    area_id: 32
+    short_desc: "The darker dwarf forest"
+    long_desc: |
+      You see a more dense foliage in these stunted trees.  The gloom caused
+      by them is enhanced by a draft coming from all around.  The trail turns east
+      from the north.
+    exits:
+      north: 5263
+      east: 5265
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5263
+        description: "You see nothing in the gloom north of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5265
+        description: "You see nothing in the gloom east of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5265
+    key: thalos_room_5265
+    name: "The darker dwarf forest"
+    area_id: 32
+    short_desc: "The darker dwarf forest"
+    long_desc: |
+      You see a more dense foliage in these stunted trees.  The gloom caused
+      by them is enhanced by a draft coming from all around.  The trail leads
+      east and west.
+    exits:
+      west: 5264
+      east: 5266
+    sector_type: FOREST
+    doors:
+      west:
+        to: 5264
+        description: "You see nothing in the gloom west of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5266
+        description: "You see nothing in the gloom east of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5266
+    key: thalos_room_5266
+    name: "The darker dwarf forest"
+    area_id: 32
+    short_desc: "The darker dwarf forest"
+    long_desc: |
+      You see a more dense foliage in these stunted trees.  The gloom caused
+      by them is enhanced by a draft coming from all around.  The trail leads
+      down into a valley and west.
+    exits:
+      west: 5265
+      down: 5267
+    sector_type: FOREST
+    doors:
+      west:
+        to: 5265
+        description: "You see nothing in the gloom west of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5267
+        description: "You see the trail lead down into gloom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5267
+    key: thalos_room_5267
+    name: "A valley in the dark dwarf forest"
+    area_id: 32
+    short_desc: "A valley in the dark dwarf forest"
+    long_desc: |
+      You are in a valley in the dark dwarf forest.  Short black grass grows
+      around you.  Trails lead in all directions.
+    exits:
+      up: 5266
+      north: 5271
+      east: 1701
+      west: 5268
+      south: 9201
+    sector_type: FOREST
+    doors:
+      up:
+        to: 5266
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 5271
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1701
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5268
+        description: "You see a dark fox hole."
+        keywords: "hole fox"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9201
+        description: "You see a large mountain on the far side of a canyon."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5268
+    key: thalos_room_5268
+    name: "A small ugly cave"
+    area_id: 32
+    short_desc: "A small ugly cave"
+    long_desc: |
+      You see a small cave.  Skeletons of many types of creatures litter the area.
+      Obviously, no fox lives here!  The oppression makes you want to leave and
+      vomit.
+    exits:
+      east: 5267
+      south: 5269
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5267
+        description: "You see the exit from here!"
+        keywords: "fox hole"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5269
+        description: "You see more of the cave."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      skeleton: |
+        Something is strange about these skeletons.  Upon further investigation, these
+        skeletons appear illusionary.
+
+  - id: 5269
+    key: thalos_room_5269
+    name: "A small ugly cave"
+    area_id: 32
+    short_desc: "A small ugly cave"
+    long_desc: |
+      You are in a small ugly cave.  More skeletons lie around.  It is obvious
+      that the owner doesn't want you here.  The exit north is still visible.
+      Some writings are on this wall.
+    exits:
+      north: 5268
+      down: 5270
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5268
+        description: "You see more of the cave."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5270
+        description: "You see a path leading down into the dark gloom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      writings: |
+        This cave along with the valley and dwarf forest is made by Hatchet for any
+        Merc Mud.
+        copyright 1992
+      skeleton: |
+        Something is strange about these skeletons.  Upon further investigation, these
+        skeletons appear illusionary.
+
+  - id: 5270
+    key: thalos_room_5270
+    name: "Down the path into a dead end"
+    area_id: 32
+    short_desc: "Down the path into a dead end"
+    long_desc: |
+      You are down the path.  There is no obvious exit in this place, exit the
+      one back up north.  All around you, you see skeletons.
+    exits:
+      up: 5269
+      down: 5100
+    sector_type: FOREST
+    doors:
+      up:
+        to: 5269
+        description: "You see your only way back up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5100
+        description: "You see nothing on the floor except skeletons."
+        keywords: "secret"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      skeleton: |
+        Something is strange about these skeletons.  Upon further investigation, these
+        skeletons appear illusionary.  In fact, through the skeletons, you see a
+        secret door!!
+
+  - id: 5271
+    key: thalos_room_5271
+    name: "The Valley in the dark dwarf forest"
+    area_id: 32
+    short_desc: "The Valley in the dark dwarf forest"
+    long_desc: |
+      You are in a valley in the forest.  To the north is a trail out of this
+      dark valley.  South is more of this valley.
+    exits:
+      south: 5267
+      north: 5272
+    sector_type: FOREST
+    doors:
+      south:
+        to: 5267
+        description: "You see more of this gloomy valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 5272
+        description: "You see a trail away from this gloomy valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5272
+    key: thalos_room_5272
+    name: "A dim trail in the dwarf forest"
+    area_id: 32
+    short_desc: "A dim trail in the dwarf forest"
+    long_desc: |
+      You are in a dim trail in the dwarf forest.  Not much light passes through
+      here.  To the south is a gloomy valley, while to the north the light grows
+      brighter.
+    exits:
+      north: 5273
+      south: 5271
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5273
+        description: "You can actually see the trail north of you!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5271
+        description: "You can barely see the gloomy valley south of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5273
+    key: thalos_room_5273
+    name: "A dim trail in the dwarf forest"
+    area_id: 32
+    short_desc: "A dim trail in the dwarf forest"
+    long_desc: |
+      You are in a dim trail in the dwarf forest.  Not much light passes through
+      here.  The trail runs north and south, and the light seems to come from the
+      north.  To the east, you see a small path into darkness.
+    exits:
+      north: 5274
+      east: 5280
+      south: 5272
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5274
+        description: "You see the dim trail lead north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5280
+        description: "You see the small path."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5272
+        description: "You see the dim trail lead south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5274
+    key: thalos_room_5274
+    name: "A dim trail in the dwarf forest"
+    area_id: 32
+    short_desc: "A dim trail in the dwarf forest"
+    long_desc: |
+      You are in a dim trail in the dwarf forest.  Not much light passes through
+      here.  The trail runs north and south, and the light seems to come from the
+      north.
+    exits:
+      north: 5275
+      south: 5273
+    sector_type: FOREST
+    doors:
+      north:
+        to: 5275
+        description: "You see the dim trail lead north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5273
+        description: "You see the dim trail lead south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5275
+    key: thalos_room_5275
+    name: "A bend in the dim trail in the dwarf forest"
+    area_id: 32
+    short_desc: "A bend in the dim trail in the dwarf forest"
+    long_desc: |
+      You are in a dim trail in the dwarf forest.  Not much light passes through
+      here.  The trail runs south and west.  The trail west looks much friendlier
+      than the one leading south.
+    exits:
+      south: 5274
+      west: 5276
+    sector_type: FOREST
+    doors:
+      south:
+        to: 5274
+        description: "You see the dim trail lead south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5276
+        description: "You see the trail lead west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5276
+    key: thalos_room_5276
+    name: "A trail in the dwarf forest"
+    area_id: 32
+    short_desc: "A trail in the dwarf forest"
+    long_desc: |
+      You are in a trail in the dwarf forest.  The trees are stunted and it
+      looks dry around here.  The trail leads east and west.  It looks dimmer to
+      the east.
+    exits:
+      east: 5275
+      west: 5277
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5275
+        description: "The trail continues east to the dimmer parts of the forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5277
+        description: "The trail continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5277
+    key: thalos_room_5277
+    name: "A trail in the dwarf forest"
+    area_id: 32
+    short_desc: "A trail in the dwarf forest"
+    long_desc: |
+      You are in a trail in the dwarf forest.  The trees are stunted and it
+      looks dry around here.  The trail leads east and west.
+    exits:
+      east: 5276
+      west: 5278
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5276
+        description: "The trail continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5278
+        description: "The trail continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5278
+    key: thalos_room_5278
+    name: "A trail in the dwarf forest"
+    area_id: 32
+    short_desc: "A trail in the dwarf forest"
+    long_desc: |
+      You are in a trail in the dwarf forest.  The trees are stunted and it
+      looks dry around here.  The trail leads east and west.
+    exits:
+      east: 5277
+      west: 5279
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5277
+        description: "The trail continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5279
+        description: "The trail continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5279
+    key: thalos_room_5279
+    name: "The bend in the trail in the dwarf forest"
+    area_id: 32
+    short_desc: "The bend in the trail in the dwarf forest"
+    long_desc: |
+      You are in a bend in the trail in the forest.  The trees are stunted, but
+      not so dry around here.  The trail leads east, and to the south, you see a
+      waterfall.
+    exits:
+      east: 5278
+      south: 4774
+    sector_type: FOREST
+    doors:
+      east:
+        to: 5278
+        description: "The trail continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 4774
+        description: "You see the waterfall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5280
+    key: thalos_room_5280
+    name: "A dark bend in the forest"
+    area_id: 32
+    short_desc: "A dark bend in the forest"
+    long_desc: |
+      You are in a dark bend in the forest.  To the west, you see the trail
+      leading back to the dwarven forest, and to the south, you see a dark and
+      dismal path.
+    exits:
+      south: 2300
+      west: 5273
+    sector_type: FOREST
+    doors:
+      south:
+        to: 2300
+        description: "You see the dark path."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5273
+        description: "You see the trail back to the Dwarven Forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

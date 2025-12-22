@@ -1,0 +1,992 @@
+rooms:
+  - id: 8001
+    key: mega1_room_8001
+    name: "Entrance to Mega-City One"
+    area_id: 32
+    short_desc: "Entrance to Mega-City One"
+    long_desc: |
+      A road begins here in the glowing sands.  You follow it through a gate
+      in a Plasteen wall onto the Megway of Mega-City One.
+    exits:
+      north: 5062
+      south: 8002
+    sector_type: CITY
+    doors:
+      north:
+        to: 5062
+        description: "You see the glowing sand of the badlands."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8002
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8002
+    key: mega1_room_8002
+    name: "Mahmount Allesh Megway"
+    area_id: 32
+    short_desc: "Mahmount Allesh Megway"
+    long_desc: |
+      You are on one mile of over 13 and a half billion kilometers of
+      roadway in Mega-City One.  The Megway continues north and south.
+    exits:
+      north: 8001
+      south: 8003
+    sector_type: CITY
+    doors:
+      north:
+        to: 8001
+        description: "The entrance to Mega-City One is in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8003
+        description: "There is an intersection ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8003
+    key: mega1_room_8003
+    name: "Intersection of Junket Way and Megway"
+    area_id: 32
+    short_desc: "Intersection of Junket Way and Megway"
+    long_desc: |
+      The Megway intersects with Junket Way here.  Junket Way is to the east,
+      the Megway continues north and south, and the Pustule Palace Cafe is
+      to the west.
+    exits:
+      north: 8002
+      east: 8010
+      south: 8004
+      west: 8021
+    sector_type: CITY
+    doors:
+      north:
+        to: 8002
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8010
+        description: "Junket way continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8004
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8021
+        description: "The Pustule Palace Cafe is in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8004
+    key: mega1_room_8004
+    name: "Mahmount Allesh Megway"
+    area_id: 32
+    short_desc: "Mahmount Allesh Megway"
+    long_desc: |
+      The traffic here is really congested due in part to the over 11 million
+      people driving Mo-Pads, the mobile homes which are constantly on the
+      move until their owners can find an apartment in one of the City-blocks.
+      The Megway continues north and south.
+    exits:
+      north: 8003
+      south: 8005
+    sector_type: CITY
+    doors:
+      north:
+        to: 8003
+        description: "An intersection lies in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8005
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8005
+    key: mega1_room_8005
+    name: "Mahmount Allesh Megway"
+    area_id: 32
+    short_desc: "Mahmount Allesh Megway"
+    long_desc: |
+      The Megway continues north and south.  On the off-ramps here you see
+      many of the citizens of Mega-City One doing nothing.  You see of
+      every hundred citizens, it can be guaranteed that 87 of them will
+      be totally unemployed, and that a further five will not work more
+      than ten hours a week.  To the east there is a dark alley and to the
+      west is Rietzik's Shuggy Hall.
+    exits:
+      north: 8004
+      east: 8011
+      south: 8006
+      west: 8022
+    sector_type: CITY
+    doors:
+      north:
+        to: 8004
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8011
+        description: "A dark alley lies to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8006
+        description: "A large plaza is in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8022
+        description: "A building is in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8006
+    key: mega1_room_8006
+    name: "Central Plaza"
+    area_id: 32
+    short_desc: "Central Plaza"
+    long_desc: |
+      You are at the Central Plaza of the downtown district.  There are a couple
+      of juves Boingging (tm) in the air above you.  Max Jaffa Boulevard goes
+      east, the Megway continues north and south, and Bazza's Home for the
+      Terminally Sarky is to the west.
+    exits:
+      north: 8005
+      east: 8012
+      south: 8007
+      west: 8023
+    sector_type: CITY
+    doors:
+      north:
+        to: 8005
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8012
+        description: "Max Jaffa Boulevard goes in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8007
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8023
+        description: "A home for Sarky people is to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8007
+    key: mega1_room_8007
+    name: "Corner of Ed Hilldreth Memorial Parkway and Megway"
+    area_id: 32
+    short_desc: "Corner of Ed Hilldreth Memorial Parkway and Megway"
+    long_desc: |
+      Another major intersection which is being negotiated by vehicles that
+      are bound to minimum speed limits.  Many Slow Driving offenses are being
+      handed out by the Judges.  The Megway goes north and south, a Parkway
+      goes east, and Nu Phisog Parlour is west.
+    exits:
+      north: 8006
+      east: 8013
+      south: 8008
+      west: 8024
+    sector_type: CITY
+    doors:
+      north:
+        to: 8006
+        description: "A plaza is to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8013
+        description: "Ed Hilldreth Mem. Parkwy is to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8008
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8024
+        description: "A City Block lies to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8008
+    key: mega1_room_8008
+    name: "Mahmount Allesh Megway"
+    area_id: 32
+    short_desc: "Mahmount Allesh Megway"
+    long_desc: |
+      As you travel the Megway you notice many citizens participating in their
+      favorite hobbies such as spot welding and metalwork, scratch building
+      fashion Kneepads, giving blood, or just looking out the window.  The
+      Megway continues north and south.
+    exits:
+      north: 8007
+      south: 8009
+    sector_type: CITY
+    doors:
+      north:
+        to: 8007
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8009
+        description: "The Megway continues in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8009
+    key: mega1_room_8009
+    name: "Mahmount Allesh Megway"
+    area_id: 32
+    short_desc: "Mahmount Allesh Megway"
+    long_desc: |
+      The Megway ends here.  To the west is Ziggi Piggi's Home for the
+      Semi-Stiff, to the east and south are construction areas, and the
+      Megway goes north.
+    exits:
+      north: 8008
+      east: 8014
+      south: 8020
+      west: 8025
+    sector_type: CITY
+    doors:
+      north:
+        to: 8008
+        description: "The Megway is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8014
+        description: "There is construction this way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8020
+        description: "There is construction ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8025
+        description: "Ziggi Piggi's Home the Semi-Stiff is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8010
+    key: mega1_room_8010
+    name: "Junket Way"
+    area_id: 32
+    short_desc: "Junket Way"
+    long_desc: |
+      Junket Way a small Skedway continues east and west.
+    exits:
+      east: 8015
+      west: 8003
+    sector_type: CITY
+    doors:
+      east:
+        to: 8015
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8003
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8011
+    key: mega1_room_8011
+    name: "Davies Alley"
+    area_id: 32
+    short_desc: "Davies Alley"
+    long_desc: |
+      You are in a very dark and seedy alley.  This is just the right place for
+      a bite fight.  Bite fighting is an illegal activity where both combatants
+      can only use their sharpened teeth as weapons.
+    exits:
+      east: 8017
+      west: 8005
+    sector_type: CITY
+    doors:
+      east:
+        to: 8017
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8005
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8012
+    key: mega1_room_8012
+    name: "Max Jaffa Boulevard"
+    area_id: 32
+    short_desc: "Max Jaffa Boulevard"
+    long_desc: |
+      Max Jaffa Boulevard continues east and west.
+    exits:
+      east: 8018
+      west: 8006
+    sector_type: CITY
+    doors:
+      east:
+        to: 8018
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8006
+        description: "A large plaza is to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8013
+    key: mega1_room_8013
+    name: "Ed Hilldreth Memorial Parkway"
+    area_id: 32
+    short_desc: "Ed Hilldreth Memorial Parkway"
+    long_desc: |
+      The Parkway goes east and west.
+    exits:
+      east: 8019
+      west: 8007
+    sector_type: CITY
+    doors:
+      east:
+        to: 8019
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8007
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8014
+    key: mega1_room_8014
+    name: "Construction site of the Harold Finkelbaum Block."
+    area_id: 32
+    short_desc: "Construction site of the Harold Finkelbaum Block."
+    long_desc: |
+      A Mega-City One City Block is being constructed at this site.  A
+      typical block is from 100 to 1000 stories high with hundreds of
+      thousands inhabitants.
+    exits:
+      west: 8009
+    sector_type: CITY
+    doors:
+      west:
+        to: 8009
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8015
+    key: mega1_room_8015
+    name: "Corner of Junket Way and Threep Lane"
+    area_id: 32
+    short_desc: "Corner of Junket Way and Threep Lane"
+    long_desc: |
+      There is a second-hand kneepad stall is doing a brisk business with a
+      group of juves on their way to school.  Junket Way goes west and Threep
+      Lane travels south.
+    exits:
+      south: 8016
+      west: 8010
+    sector_type: CITY
+    doors:
+      south:
+        to: 8016
+        description: "Threep Lane continues ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8010
+        description: "Junket Way is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8016
+    key: mega1_room_8016
+    name: "Threep Lane"
+    area_id: 32
+    short_desc: "Threep Lane"
+    long_desc: |
+      Threep Lane continues north and south.  There is a building to the east
+      with a sign next to the door.
+    exits:
+      north: 8015
+      east: 8026
+      south: 8017
+    sector_type: CITY
+    doors:
+      north:
+        to: 8015
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 8026
+        description: "A door to the east bodes ill."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8017
+        description: "Threep Lane continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Throt and Gleep's Megger Store est. 2107
+
+  - id: 8017
+    key: mega1_room_8017
+    name: "Threep Lane"
+    area_id: 32
+    short_desc: "Threep Lane"
+    long_desc: |
+      Threep Lane continues north and south.  There is a dark alley to the west.
+    exits:
+      north: 8016
+      south: 8018
+      west: 8011
+    sector_type: CITY
+    doors:
+      north:
+        to: 8016
+        description: "Threep Lane continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8018
+        description: "An intersection is ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8011
+        description: "A dark alley is west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8018
+    key: mega1_room_8018
+    name: "Corner of Max Jaffa Blvd and Threep Way"
+    area_id: 32
+    short_desc: "Corner of Max Jaffa Blvd and Threep Way"
+    long_desc: |
+      A proprietor of Uncle Sumpty's Ugly Emporium meanders by.  Threep Lane
+      continues north and south while Max Jaffa Boulevard goes west.
+    exits:
+      north: 8017
+      south: 8019
+      west: 8012
+    sector_type: CITY
+    doors:
+      north:
+        to: 8017
+        description: "Threep Lane continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 8019
+        description: "Threep Lane continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8012
+        description: "Max Jaffa Blvd continues west"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8019
+    key: mega1_room_8019
+    name: "Corner of Ed Hilldreth Mem. Prkwy and Threep Lane"
+    area_id: 32
+    short_desc: "Corner of Ed Hilldreth Mem. Prkwy and Threep Lane"
+    long_desc: |
+      Threep Lane goes north from here while Ed Hilldreth Memorial Parkway goes
+      west.
+    exits:
+      north: 8018
+      west: 8013
+    sector_type: CITY
+    doors:
+      north:
+        to: 8018
+        description: "Threep Lane continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 8013
+        description: "Ed Hilldreth continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8020
+    key: mega1_room_8020
+    name: "Construction Site for the Brit-Cit One tunnel."
+    area_id: 32
+    short_desc: "Construction Site for the Brit-Cit One tunnel."
+    long_desc: |
+      Construction is under way for the Black Atlantic Tunnel to connect
+      Mega-City One and Brit-Cit One.
+    exits:
+      north: 8009
+    sector_type: CITY
+    doors:
+      north:
+        to: 8009
+        description: "An intersection lies north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8021
+    key: mega1_room_8021
+    name: "Pustule Palace Cafe"
+    area_id: 32
+    short_desc: "Pustule Palace Cafe"
+    long_desc: |
+      A scabrous hole.  Run by Ernie Ramirez, an ex-perp, it is a meeting place
+      for the low-life in the area.
+    exits:
+      east: 8003
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 8003
+        description: "An intersection lies east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8022
+    key: mega1_room_8022
+    name: "Rietzik's Shuggy Hall"
+    area_id: 32
+    short_desc: "Rietzik's Shuggy Hall"
+    long_desc: |
+      A sleazy dive and the meeting place of a lot of perps.  Shuggy is a
+      twenty-second Century version of pool, played on a hilly table, usually
+      with large side bets.
+    exits:
+      east: 8005
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 8005
+        description: "An intersection lies east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8023
+    key: mega1_room_8023
+    name: "Bazza's Home for the Terminally Sarky"
+    area_id: 32
+    short_desc: "Bazza's Home for the Terminally Sarky"
+    long_desc: |
+      This is an experimental psychiatric home.  Named after a 20th Century
+      vid-critic, the home attempts, by various methods, to readjust the
+      socially unacceptable attitudes of the inmates.
+    exits:
+      east: 8006
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 8006
+        description: "A large plaza lies east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8024
+    key: mega1_room_8024
+    name: "Nu Phisog Parlour"
+    area_id: 32
+    short_desc: "Nu Phisog Parlour"
+    long_desc: |
+      Opened as a direct rival to the New You Face Parlour chain to offer quick
+      and cheap face-changing facilities to the general public.  However,
+      since the closure of Sump's Ugly clinics, the craze for face-changing has
+      died down.
+    exits:
+      east: 8007
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 8007
+        description: "An intersection lies east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8025
+    key: mega1_room_8025
+    name: "Ziggi Piggi's Home for the Semi-Stiff"
+    area_id: 32
+    short_desc: "Ziggi Piggi's Home for the Semi-Stiff"
+    long_desc: |
+      The only suspended animation parlour in the area.  It has a high turnover
+      rate.  It is rumored that the patrons are being used in body sharking and
+      organ legging activities.
+    exits:
+      east: 8009
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 8009
+        description: "An intersection lies east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 8026
+    key: mega1_room_8026
+    name: "Throt & Gleep's Megger Store"
+    area_id: 32
+    short_desc: "Throt & Gleep's Megger Store"
+    long_desc: |
+      This place promises to provide everything that the citizens don't need,
+      with the utmost discourtesy.  Of course, something as crazy as this was
+      bound to succeed.  There is a door to the north with a slot next to it.
+      There is also a sign next to the slot.
+    exits:
+      north: 8027
+      west: 8016
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 8027
+        description: ""
+        keywords: "door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 8013
+      west:
+        to: 8016
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        To open insert card.
+
+  - id: 8027
+    key: mega1_room_8027
+    name: "Stockroom of Throt & Gleep's Megger Store"
+    area_id: 32
+    short_desc: "Stockroom of Throt & Gleep's Megger Store"
+    long_desc: |
+      Many useless items stock the shelves of this stockroom.  A door leads
+      south and large vault door is to the north.
+    exits:
+      north: 8028
+      south: 8026
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 8028
+        description: ""
+        keywords: "vault door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 8012
+      south:
+        to: 8026
+        description: ""
+        keywords: "door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 8013
+    extras:
+      vault: |
+        This vault seems impervious to breaking.  There is a keyhole in the lock
+        however.
+
+  - id: 8028
+    key: mega1_room_8028
+    name: "Throt & Gleep's Vault"
+    area_id: 32
+    short_desc: "Throt & Gleep's Vault"
+    long_desc: |
+      The vault is musty with a slight smell of ozone in the air.
+    exits:
+      south: 8027
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 8027
+        description: ""
+        keywords: "vault door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 8012
+

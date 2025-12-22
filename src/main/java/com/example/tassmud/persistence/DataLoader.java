@@ -12,9 +12,19 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 public class DataLoader {
 
+    // Mapping from MERC-specified area id -> persisted DB area id when importing MERC dirs
+    private static final Map<Integer,Integer> mercAreaIdMap = new HashMap<>();
     // Simple CSV loader for initial data. Files are in classpath under /data/
     // - skills.csv: name,description
     // - spells.csv: name,description
@@ -515,12 +525,105 @@ public class DataLoader {
     }
 
     private static Map<String,Integer> loadAreas(CharacterDAO dao) {
-        // Try YAML first, fall back to CSV
-        Map<String,Integer> map = loadAreasFromYaml(dao);
+        // Prefer MERC-format areas under /data/MERC/*/areas.yaml, then regular YAML, then CSV
+        Map<String,Integer> map = loadAreasFromMercDirs(dao);
+        if (!map.isEmpty()) return map;
+
+        map = loadAreasFromYaml(dao);
         if (map.isEmpty()) {
             map = loadAreasFromCsv(dao);
         }
         return map;
+    }
+
+    /**
+     * Discover MERC subdirectories under /data/MERC and attempt to load any areas.yaml files there.
+     * Supports running from the filesystem during development and from a shaded JAR at runtime.
+     */
+    @SuppressWarnings("unchecked")
+    private static Map<String,Integer> loadAreasFromMercDirs(CharacterDAO dao) {
+        Map<String,Integer> map = new HashMap<>();
+        List<String> dirs = listMercAreaDirs();
+        if (dirs.isEmpty()) return map;
+
+        for (String dir : dirs) {
+            String resourcePath = "/data/MERC/" + dir + "/areas.yaml";
+            try (InputStream in = DataLoader.class.getResourceAsStream(resourcePath)) {
+                if (in == null) continue;
+                org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+                Map<String, Object> root = yaml.load(in);
+                if (root == null) continue;
+                List<Map<String, Object>> areaList = (List<Map<String, Object>>) root.get("areas");
+                if (areaList == null) continue;
+                for (Map<String, Object> areaData : areaList) {
+                    int id = getInt(areaData, "id", -1);
+                    String name = getString(areaData, "name", "");
+                    String desc = getString(areaData, "description", "");
+                    String sectorStr = getString(areaData, "sector_type", "FIELD");
+                    SectorType sectorType = SectorType.fromString(sectorStr);
+                    if (id < 0 || name.isEmpty()) continue;
+                    int used = dao.addAreaWithId(id, name, desc, sectorType);
+                    if (used > 0) {
+                        map.put(name, used);
+                        // record mapping from MERC area id -> actual persisted id (may differ if name conflict)
+                        mercAreaIdMap.put(id, used);
+                    }
+                }
+            } catch (Exception e) {
+                System.err.println("[DataLoader] Failed to load MERC areas from " + resourcePath + ": " + e.getMessage());
+            }
+        }
+        if (!map.isEmpty()) System.out.println("[DataLoader] Loaded " + map.size() + " MERC areas");
+        return map;
+    }
+
+    /**
+     * List subdirectories directly under /data/MERC/ by inspecting the resource URL.
+     * Works when resources are files on disk or packaged inside a JAR.
+     */
+    private static List<String> listMercAreaDirs() {
+        List<String> out = new ArrayList<>();
+        try {
+            URL url = DataLoader.class.getResource("/data/MERC/");
+            if (url == null) url = DataLoader.class.getResource("/data/MERC");
+            if (url == null) return out;
+            String protocol = url.getProtocol();
+            try { System.out.println("[DataLoader.debug] /data/MERC URL=" + url + " protocol=" + protocol); } catch (Exception ignored) {}
+            if ("file".equals(protocol)) {
+                Path p = Paths.get(url.toURI());
+                try (DirectoryStream<Path> ds = Files.newDirectoryStream(p)) {
+                    for (Path child : ds) {
+                        if (Files.isDirectory(child)) out.add(child.getFileName().toString());
+                    }
+                }
+            } else if ("jar".equals(protocol)) {
+                // url looks like: jar:file:/path/to/jar.jar!/data/MERC/
+                String s = url.toString();
+                int bang = s.indexOf('!');
+                String jarPart = s.substring("jar:file:".length(), bang);
+                String jarPath = URLDecoder.decode(jarPart, "UTF-8");
+                try (JarFile jf = new JarFile(jarPath)) {
+                    java.util.Enumeration<JarEntry> entries = jf.entries();
+                    java.util.Set<String> dirs = new java.util.HashSet<>();
+                    while (entries.hasMoreElements()) {
+                        String name = entries.nextElement().getName();
+                        if (name.startsWith("data/MERC/")) {
+                            String rest = name.substring("data/MERC/".length());
+                            int idx = rest.indexOf('/');
+                            if (idx > 0) {
+                                String dir = rest.substring(0, idx);
+                                dirs.add(dir);
+                            }
+                        }
+                    }
+                    out.addAll(dirs);
+                    try { System.out.println("[DataLoader.debug] found MERC dirs: " + dirs); } catch (Exception ignored) {}
+                }
+            }
+        } catch (Exception e) {
+            // ignore
+        }
+        return out;
     }
     
     @SuppressWarnings("unchecked")
@@ -603,12 +706,74 @@ public class DataLoader {
     }
 
     private static Map<String,Integer> loadRoomsFirstPass(CharacterDAO dao, Map<String,Integer> areaMap) {
-        // Try YAML first, fall back to CSV
-        List<RoomTemplate> templates = loadRoomTemplatesFromYaml(areaMap);
+        // Prefer MERC-format room templates under /data/MERC/*/rooms.yaml, then regular YAML, then CSV
+        List<RoomTemplate> templates = loadRoomTemplatesFromMercDirs(areaMap);
+        if (templates.isEmpty()) {
+            templates = loadRoomTemplatesFromYaml(areaMap);
+        }
         if (templates.isEmpty()) {
             templates = loadRoomTemplatesFromCsv(areaMap, dao);
         }
         return insertRoomTemplates(dao, templates);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static List<RoomTemplate> loadRoomTemplatesFromMercDirs(Map<String,Integer> areaMap) {
+        List<RoomTemplate> templates = new ArrayList<>();
+        List<String> dirs = listMercAreaDirs();
+        if (dirs.isEmpty()) return templates;
+
+        for (String dir : dirs) {
+            String resourcePath = "/data/MERC/" + dir + "/rooms.yaml";
+            try (InputStream in = DataLoader.class.getResourceAsStream(resourcePath)) {
+                if (in == null) continue;
+                org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+                Map<String, Object> root = yaml.load(in);
+                if (root == null) continue;
+                List<Map<String, Object>> roomList = (List<Map<String, Object>>) root.get("rooms");
+                if (roomList == null) continue;
+                for (Map<String, Object> roomData : roomList) {
+                    RoomTemplate t = new RoomTemplate();
+                    t.explicitId = getInt(roomData, "id", -1);
+                    t.key = getString(roomData, "key", "");
+                    t.name = getString(roomData, "name", "");
+                    t.areaId = getInt(roomData, "area_id", 0);
+                    // If this MERC room referenced a MERC area id, remap to the persisted DB area id
+                    if (t.areaId > 0 && mercAreaIdMap.containsKey(t.areaId)) {
+                        int orig = t.areaId;
+                        t.areaId = mercAreaIdMap.get(orig);
+                    }
+                    t.shortDesc = getString(roomData, "short_desc", "");
+                    t.longDesc = getString(roomData, "long_desc", "");
+                    Object exitsObj = roomData.get("exits");
+                    if (exitsObj instanceof Map) {
+                        Map<String, Object> exits = (Map<String, Object>) exitsObj;
+                        t.exitN = getExitId(exits, "north");
+                        t.exitE = getExitId(exits, "east");
+                        t.exitS = getExitId(exits, "south");
+                        t.exitW = getExitId(exits, "west");
+                        t.exitU = getExitId(exits, "up");
+                        t.exitD = getExitId(exits, "down");
+                    }
+
+                    Object spawnsObj = roomData.get("spawns");
+                    if (spawnsObj instanceof List) {
+                        List<Map<String, Object>> spawnsList = (List<Map<String, Object>>) spawnsObj;
+                        for (Map<String, Object> spawnData : spawnsList) {
+                            SpawnConfig spawn = parseSpawnConfig(spawnData, t.explicitId);
+                            if (spawn != null) t.spawns.add(spawn);
+                        }
+                    }
+
+                    if (t.key.isEmpty() || t.name.isEmpty()) continue;
+                    templates.add(t);
+                }
+            } catch (Exception e) {
+                System.err.println("[DataLoader] Failed to load MERC rooms from " + resourcePath + ": " + e.getMessage());
+            }
+        }
+        if (!templates.isEmpty()) System.out.println("[DataLoader] Loaded " + templates.size() + " MERC room templates");
+        return templates;
     }
     
     @SuppressWarnings("unchecked")
@@ -678,12 +843,12 @@ public class DataLoader {
             int quantity = getInt(data, "quantity", 1);
             int frequency = getInt(data, "frequency", 1);
             int containerId = getInt(data, "container", 0);
-            
+
             if (templateId < 0) {
                 System.err.println("[DataLoader] Spawn missing template id in room " + roomId);
                 return null;
             }
-            
+
             return new SpawnConfig(type, templateId, quantity, frequency, roomId, containerId);
         } catch (IllegalArgumentException e) {
             System.err.println("[DataLoader] Invalid spawn type in room " + roomId + ": " + e.getMessage());
@@ -747,8 +912,28 @@ public class DataLoader {
         for (RoomTemplate t : templates) {
             int roomId;
             if (t.explicitId >= 0) {
+                // Ensure the referenced area exists; if not, attempt to create it so FK won't fail
+                if (t.areaId > 0) {
+                    try {
+                        com.example.tassmud.model.Area a = dao.getAreaById(t.areaId);
+                        if (a == null) {
+                            // create a minimal MERC area placeholder with the explicit id
+                            int res = dao.addAreaWithId(t.areaId, "Imported MERC area " + t.areaId, "Imported from MERC");
+                            if (res <= 0) {
+                                System.err.println("[DataLoader] addAreaWithId placeholder failed for areaId=" + t.areaId);
+                            } else {
+                                System.out.println("[DataLoader] Created placeholder area id=" + t.areaId);
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.err.println("[DataLoader] Exception while ensuring area " + t.areaId + ": " + e.getMessage());
+                    }
+                }
                 roomId = dao.addRoomWithId(t.explicitId, t.areaId, t.name, t.shortDesc, t.longDesc, 
                     t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
+                if (roomId <= 0) {
+                    System.err.println("[DataLoader] Failed to insert room with explicit id " + t.explicitId + " key=" + t.key + " name=" + t.name);
+                }
             } else {
                 int nextLocal = areaCounters.getOrDefault(t.areaId, 0);
                 if (nextLocal > 999) {
@@ -757,6 +942,9 @@ public class DataLoader {
                     int computed = t.areaId * 1000 + nextLocal;
                     roomId = dao.addRoomWithId(computed, t.areaId, t.name, t.shortDesc, t.longDesc,
                         t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
+                    if (roomId <= 0) {
+                        System.err.println("[DataLoader] Failed to insert room with computed id " + computed + " key=" + t.key + " name=" + t.name);
+                    }
                     if (roomId > 0) areaCounters.put(t.areaId, nextLocal + 1);
                 }
             }
@@ -791,123 +979,108 @@ public class DataLoader {
     }
 
     private static void loadRoomsSecondPass(CharacterDAO dao, Map<String,Integer> keyToId) {
-        // Second pass: process CSV fallback, but prefer YAML for door metadata parsing.
-        // If rooms.yaml exists, parse it and persist any `doors` blocks which may reference room keys.
-        try (InputStream in = DataLoader.class.getResourceAsStream("/data/rooms.yaml")) {
-            if (in != null) {
-                try {
-                    org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
-                    Map<String, Object> root = yaml.load(in);
-                    if (root != null) {
+        // Second pass: process MERC-specific rooms.yaml files under /data/MERC/* first,
+        // then fall back to the global /data/rooms.yaml if present.
+        List<String> mercDirs = listMercAreaDirs();
+        if (!mercDirs.isEmpty()) {
+            for (String dir : mercDirs) {
+                String resourcePath = "/data/MERC/" + dir + "/rooms.yaml";
+                try (InputStream in = DataLoader.class.getResourceAsStream(resourcePath)) {
+                    if (in == null) continue;
+                    try {
+                        org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+                        Map<String, Object> root = yaml.load(in);
+                        if (root == null) continue;
                         List<Map<String, Object>> roomList = (List<Map<String, Object>>) root.get("rooms");
-                        if (roomList != null) {
-                            for (Map<String, Object> roomData : roomList) {
-                                String key = getString(roomData, "key", "");
-                                if (key.isEmpty()) continue;
-                                Integer roomId = keyToId.get(key);
-                                if (roomId == null) continue;
+                        if (roomList == null) continue;
+                        for (Map<String, Object> roomData : roomList) {
+                            String key = getString(roomData, "key", "");
+                            if (key.isEmpty()) continue;
+                            Integer roomId = keyToId.get(key);
+                            if (roomId == null) continue;
 
-                                // If the room has explicit exits as tokens (string keys), resolve and write them
-                                Object exitsObj = roomData.get("exits");
-                                if (exitsObj instanceof Map) {
-                                    Map<String, Object> exits = (Map<String, Object>) exitsObj;
-                                    Integer exitN = resolveExitTokenFromYaml(exits.get("north"), keyToId);
-                                    Integer exitE = resolveExitTokenFromYaml(exits.get("east"), keyToId);
-                                    Integer exitS = resolveExitTokenFromYaml(exits.get("south"), keyToId);
-                                    Integer exitW = resolveExitTokenFromYaml(exits.get("west"), keyToId);
-                                    Integer exitU = resolveExitTokenFromYaml(exits.get("up"), keyToId);
-                                    Integer exitD = resolveExitTokenFromYaml(exits.get("down"), keyToId);
-                                    dao.updateRoomExits(roomId, exitN, exitE, exitS, exitW, exitU, exitD);
-                                }
+                            // Exits
+                            Object exitsObj = roomData.get("exits");
+                            if (exitsObj instanceof Map) {
+                                Map<String, Object> exits = (Map<String, Object>) exitsObj;
+                                Integer exitN = resolveExitTokenFromYaml(exits.get("north"), keyToId);
+                                Integer exitE = resolveExitTokenFromYaml(exits.get("east"), keyToId);
+                                Integer exitS = resolveExitTokenFromYaml(exits.get("south"), keyToId);
+                                Integer exitW = resolveExitTokenFromYaml(exits.get("west"), keyToId);
+                                Integer exitU = resolveExitTokenFromYaml(exits.get("up"), keyToId);
+                                Integer exitD = resolveExitTokenFromYaml(exits.get("down"), keyToId);
+                                dao.updateRoomExits(roomId, exitN, exitE, exitS, exitW, exitU, exitD);
+                            }
 
-                                // Parse doors block if present
-                                Object doorsObj = roomData.get("doors");
-                                if (doorsObj instanceof Map) {
-                                    Map<String, Object> doors = (Map<String, Object>) doorsObj;
-                                    for (Map.Entry<String, Object> e : doors.entrySet()) {
-                                        String dir = e.getKey();
-                                        Object v = e.getValue();
-                                        Integer toId = null;
-                                        String state = "OPEN";
-                                        boolean locked = false, hidden = false, blocked = false;
-                                        Integer keyItem = null;
+                            // Doors
+                            Object doorsObj = roomData.get("doors");
+                            if (doorsObj instanceof Map) {
+                                Map<String, Object> doors = (Map<String, Object>) doorsObj;
+                                for (Map.Entry<String, Object> e : doors.entrySet()) {
+                                    String doorDir = e.getKey();
+                                    Object v = e.getValue();
+                                    Integer toId = null;
+                                    String state = "OPEN";
+                                    boolean locked = false, hidden = false, blocked = false;
+                                    Integer keyItem = null;
 
-                                        if (v instanceof Map) {
-                                            Map<String, Object> props = (Map<String, Object>) v;
-                                            // 'to' may be a room key or numeric id
-                                            Object toToken = props.get("to");
-                                            toId = resolveExitTokenFromYaml(toToken, keyToId);
-                                            // If no explicit 'to', fall back to exits mapping
-                                            if (toId == null) {
-                                                Object exitsObj2 = roomData.get("exits");
-                                                if (exitsObj2 instanceof Map) {
-                                                    Map<String, Object> exits2 = (Map<String, Object>) exitsObj2;
-                                                    toId = resolveExitTokenFromYaml(exits2.get(dir), keyToId);
-                                                }
-                                            }
-                                            state = getString(props, "state", state).toUpperCase();
-                                            locked = getBoolean(props, "locked", false);
-                                            hidden = getBoolean(props, "hidden", false);
-                                            blocked = getBoolean(props, "blocked", false);
-                                            keyItem = getInt(props, "key", 0);
-                                            if (keyItem != null && keyItem == 0) keyItem = null;
-                                        } else {
-                                            // Simple boolean or token: attempt to use exit mapping
+                                    if (v instanceof Map) {
+                                        Map<String, Object> props = (Map<String, Object>) v;
+                                        Object toToken = props.get("to");
+                                        toId = resolveExitTokenFromYaml(toToken, keyToId);
+                                        if (toId == null) {
                                             Object exitsObj2 = roomData.get("exits");
                                             if (exitsObj2 instanceof Map) {
                                                 Map<String, Object> exits2 = (Map<String, Object>) exitsObj2;
-                                                toId = resolveExitTokenFromYaml(exits2.get(dir), keyToId);
+                                                toId = resolveExitTokenFromYaml(exits2.get(doorDir), keyToId);
                                             }
                                         }
-
-                                        dao.upsertDoor(roomId, dir, toId, state, locked, hidden, blocked, keyItem);
+                                        state = getString(props, "state", state).toUpperCase();
+                                        locked = getBoolean(props, "locked", false);
+                                        hidden = getBoolean(props, "hidden", false);
+                                        blocked = getBoolean(props, "blocked", false);
+                                        keyItem = getInt(props, "key", 0);
+                                        String doorDesc = getString(props, "description", "");
+                                        if (keyItem != null && keyItem == 0) keyItem = null;
+                                        dao.upsertDoor(roomId, doorDir, toId, state, locked, hidden, blocked, keyItem, doorDesc);
+                                    } else {
+                                        Object exitsObj2 = roomData.get("exits");
+                                        if (exitsObj2 instanceof Map) {
+                                            Map<String, Object> exits2 = (Map<String, Object>) exitsObj2;
+                                            toId = resolveExitTokenFromYaml(exits2.get(doorDir), keyToId);
+                                        }
+                                    }
+                                    if (!(v instanceof Map)) {
+                                        dao.upsertDoor(roomId, doorDir, toId, state, locked, hidden, blocked, keyItem, null);
                                     }
                                 }
                             }
+
+                            // Extras
+                            Object extrasObj = roomData.get("extras");
+                            if (extrasObj instanceof Map) {
+                                Map<String, Object> extras = (Map<String, Object>) extrasObj;
+                                for (Map.Entry<String, Object> ex : extras.entrySet()) {
+                                    String exKey = ex.getKey();
+                                    Object exVal = ex.getValue();
+                                    String exDesc = exVal == null ? "" : exVal.toString();
+                                    dao.upsertRoomExtra(roomId, exKey, exDesc);
+                                }
+                            }
                         }
+                    
+                    } catch (Exception e) {
+                        System.err.println("Failed to process doors from " + resourcePath + ": " + e.getMessage());
                     }
-                } catch (Exception e) {
-                    System.err.println("Failed to process doors from rooms.yaml: " + e.getMessage());
                 }
-                return;
-            }
-        } catch (Exception ignored) {}
-
-        // Fallback: process CSV rooms (legacy)
-        try (InputStream inCsv = DataLoader.class.getResourceAsStream("/data/rooms.csv")) {
-            if (inCsv == null) return;
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(inCsv, StandardCharsets.UTF_8))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    line = line.trim();
-                    if (line.isEmpty() || line.startsWith("#")) continue;
-                    String[] p = line.split(",", 12);
-                    int idx = 0;
-                    try {
-                        Integer.parseInt(p[0].trim());
-                        idx = 1;
-                    } catch (Exception ignored) { idx = 0; }
-                    String key = p[idx + 0].trim();
-                    Integer roomId = keyToId.get(key);
-                    if (roomId == null) continue;
-                    String en = p.length > idx + 5 ? emptyToNull(p[idx + 5]) : null;
-                    String ee = p.length > idx + 6 ? emptyToNull(p[idx + 6]) : null;
-                    String es = p.length > idx + 7 ? emptyToNull(p[idx + 7]) : null;
-                    String ew = p.length > idx + 8 ? emptyToNull(p[idx + 8]) : null;
-                    String eu = p.length > idx + 9 ? emptyToNull(p[idx + 9]) : null;
-                    String ed = p.length > idx + 10 ? emptyToNull(p[idx + 10]) : null;
-                    Integer exitN = resolveExitToken(en, keyToId);
-                    Integer exitE = resolveExitToken(ee, keyToId);
-                    Integer exitS = resolveExitToken(es, keyToId);
-                    Integer exitW = resolveExitToken(ew, keyToId);
-                    Integer exitU = resolveExitToken(eu, keyToId);
-                    Integer exitD = resolveExitToken(ed, keyToId);
-                    dao.updateRoomExits(roomId, exitN, exitE, exitS, exitW, exitU, exitD);
+            
+                catch (Exception e) {
+                    System.err.println("[DataLoader] Failed to load MERC rooms from " + resourcePath + ": " + e.getMessage());
                 }
             }
-        } catch (Exception ignored) {}
+        } 
     }
-
+    
     private static Integer resolveExitTokenFromYaml(Object tokenObj, Map<String,Integer> keyToId) {
         if (tokenObj == null) return null;
         if (tokenObj instanceof Number) return ((Number) tokenObj).intValue();

@@ -1,0 +1,28 @@
+rooms:
+  - id: 1
+    key: limbo_room_1
+    name: "The Void"
+    area_id: 30
+    short_desc: "The Void"
+    long_desc: |
+      You are floating in nothing.
+    exits:
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+
+  - id: 2
+    key: limbo_room_2
+    name: "Limbo"
+    area_id: 30
+    short_desc: "Limbo"
+    long_desc: |
+      You are floating in a formless void, detached from all sensation of physical
+      matter, surrounded by swirling glowing light, which fades into the relative
+      darkness around you without any trace of edges or shadow.
+         There is a "No Tipping" notice pinned to the darkness.
+    exits:
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+

@@ -1,0 +1,9 @@
+areas:
+  - id: 78
+    name: "Valley"
+    description: "Converted from valley.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "valley.are"
+    vnum_range: "7800-7883"
+

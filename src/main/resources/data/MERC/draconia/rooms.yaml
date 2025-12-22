@@ -1,0 +1,1237 @@
+rooms:
+  - id: 2201
+    key: draconia_room_2201
+    name: "The Tower Gates"
+    area_id: 30
+    short_desc: "The Tower Gates"
+    long_desc: |
+      You are at the entrance to a tall tower.  Lightning flashes periodically and
+      it is raining.  You think it might be a good idea to turn back into the grove.
+    exits:
+      north: 2202
+      east: 1304
+    sector_type: CITY
+    doors:
+      north:
+        to: 2202
+        description: "You see a large steel gate.  Beyond is the Foyer of the Tower."
+        keywords: "gate steel"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2231
+      east:
+        to: 1304
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      gate: |
+        The gate is tall and secure.  Whoever built it values privacy.
+
+  - id: 2202
+    key: draconia_room_2202
+    name: "The Foyer"
+    area_id: 30
+    short_desc: "The Foyer"
+    long_desc: |
+      This is the entrance to the Tower.  The hallway continues to the north,
+      leading towards a staircase.  You notice a grim painting on the wall,  and 
+      quickly look away.
+    exits:
+      north: 2207
+      east: 2223
+      west: 2218
+      up: 2210
+      south: 2211
+      down: 2207
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 2207
+        description: "The hall continues."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2223
+        description: "You see a large stone door."
+        keywords: "door stone"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2297
+      west:
+        to: 2218
+        description: "You see a ruby door!"
+        keywords: "door ruby"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2232
+      up:
+        to: 2210
+        description: "The second floor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2211
+        description: "You see the court."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1
+      down:
+        to: 2207
+        description: "You see the first floor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      painting: |
+        This painting depicts the grisly death of a foolish human.  You hope you do 
+        not share his fate.
+      inscription: |
+        It says "STORAGE"
+      dust: |
+        As you look closely at the dust, you notice the outline of a trapdoor!
+
+  - id: 2211
+    key: draconia_room_2211
+    name: "The Court"
+    area_id: 30
+    short_desc: "The Court"
+    long_desc: |
+      You have entered what seems to be a large court.  The people guarding it
+      don't seem happy to see you ...
+    exits:
+      north: 2210
+      south: 2213
+      east: 2212
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2210
+        description: "You see nothing special."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2213
+        description: "You see the court."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2212
+        description: "You see a wooden door."
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2212
+    key: draconia_room_2212
+    name: "Hall O' Pleasure"
+    area_id: 30
+    short_desc: "Hall O' Pleasure"
+    long_desc: |
+      You stop dead in your tracks as you enter this ornately decorated room - it
+      is populated with the king's harem.
+    exits:
+      west: 2211
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2211
+        description: "You see the Court."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2213
+    key: draconia_room_2213
+    name: "The Court"
+    area_id: 30
+    short_desc: "The Court"
+    long_desc: |
+      You are continuing down the hall.  To the east and west you see ornate doors.
+    exits:
+      north: 2211
+      east: 2214
+      south: 2216
+      west: 2215
+    sector_type: CITY
+    doors:
+      north:
+        to: 2211
+        description: "You see the court."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2214
+        description: "You see a black door."
+        keywords: "door black"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2240
+      south:
+        to: 2216
+        description: "You see the court."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2215
+        description: "You see a white door."
+        keywords: "door white"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2233
+
+  - id: 2214
+    key: draconia_room_2214
+    name: "The Library"
+    area_id: 30
+    short_desc: "The Library"
+    long_desc: |
+      You have entered a huge room, filled with books.  A peaceful man is
+      sitting at a table, studying.
+    exits:
+      west: 2213
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2213
+        description: "You see the court."
+        keywords: "door black"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2240
+
+  - id: 2215
+    key: draconia_room_2215
+    name: "The Sanctum"
+    area_id: 30
+    short_desc: "The Sanctum"
+    long_desc: |
+      This small room is modestly decorated with small dragon icons.  Its sole
+      occupant is deep in thought.
+    exits:
+      east: 2213
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2213
+        description: "You see the Court."
+        keywords: "door white"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2233
+
+  - id: 2216
+    key: draconia_room_2216
+    name: "The Court Ends"
+    area_id: 30
+    short_desc: "The Court Ends"
+    long_desc: |
+      You have reached the end of the court.  A huge Draconian is sitting in a
+      chair here.  As you enter, he motions with his hand and you are rushed by three
+      of his bodyguards.
+    exits:
+      north: 2213
+      east: 2217
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2213
+        description: "You see the court."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2217
+        description: "You see a private chamber."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2217
+    key: draconia_room_2217
+    name: "bedroom"
+    area_id: 30
+    short_desc: "bedroom"
+    long_desc: |
+      This is the personal room of the draconian king.  It is not empty.
+    exits:
+      west: 2216
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2216
+        description: "You see Court."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2218
+    key: draconia_room_2218
+    name: "Entrance to the Crypt"
+    area_id: 30
+    short_desc: "Entrance to the Crypt"
+    long_desc: |
+      You have entered a large room which smells heavily of reptile.  You wonder
+      what awaits you here.
+    exits:
+      east: 2209
+      west: 2219
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2209
+        description: "You see the Treasure Vault."
+        keywords: "door ruby"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2232
+      west:
+        to: 2219
+        description: "You see the Crypt."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2219
+    key: draconia_room_2219
+    name: "Crypt"
+    area_id: 30
+    short_desc: "Crypt"
+    long_desc: |
+      You are in a large room which continues to the west.  You notice many
+      coffins here.  Open coffins reveal remains of something other than man.  
+      The smell of reptile is very strong here.
+    exits:
+      east: 2218
+      west: 2222
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2218
+        description: "You see the entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2222
+        description: "You see nothing special."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2220
+    key: draconia_room_2220
+    name: "The Lair"
+    area_id: 30
+    short_desc: "The Lair"
+    long_desc: |
+      You have entered a large room dominated by a great white dragon.  It growls
+      at you before it attacks.
+    exits:
+      south: 2235
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2235
+        description: "You the cave opening."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2221
+    key: draconia_room_2221
+    name: "A Lair"
+    area_id: 30
+    short_desc: "A Lair"
+    long_desc: |
+      You have entered a large room dominated by a great black dragon.  It looks
+      as though it is amused by your presence.
+    exits:
+      north: 2241
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2241
+        description: "You the cave opening."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2222
+    key: draconia_room_2222
+    name: "The Crypt Ends"
+    area_id: 30
+    short_desc: "The Crypt Ends"
+    long_desc: |
+      You have come to the end of the Crypt.  It seems deserted.  There is a 
+      strange coffin lying against the wall.
+    exits:
+      east: 2219
+      west: 2232
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2219
+        description: "You see the Crypt."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2232
+        description: ""
+        keywords: "coffin"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      coffin: |
+        A coffin lies a against the east wall.  It is closed.
+
+  - id: 2223
+    key: draconia_room_2223
+    name: "Entrance to the Great Hall"
+    area_id: 30
+    short_desc: "Entrance to the Great Hall"
+    long_desc: |
+      You have entered a huge hall.  It has been carefully decorated with
+      beautiful tapestries depicting a great battle between dragons and men.  The
+      dragons appear to be the victors.
+    exits:
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+
+  - id: 2224
+    key: draconia_room_2224
+    name: "The Great Hall"
+    area_id: 30
+    short_desc: "The Great Hall"
+    long_desc: |
+      You are working your way down the Hall.  To the north, you notice a smaller
+      passageway, while the main hall continues to the east.
+    exits:
+      north: 2225
+      east: 2229
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2225
+        description: "You see a narrow passageway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2229
+        description: "You see the Hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2225
+    key: draconia_room_2225
+    name: "A Narrow Passageway"
+    area_id: 30
+    short_desc: "A Narrow Passageway"
+    long_desc: |
+      This Passageway branches off from the main hall and leads somewhere ... where?
+    exits:
+      north: 2226
+      south: 2224
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2226
+        description: "You see a large Lair.  It looks dangerous."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2224
+        description: "You see the great hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2226
+    key: draconia_room_2226
+    name: "Lair"
+    area_id: 30
+    short_desc: "Lair"
+    long_desc: |
+      You have entered a large lair with bones strewn about the ground.  You
+      notice the source of these as you come face to face with a rather large red
+      dragon.  You notice a trap door in the floor.
+    exits:
+      south: 2225
+      down: 2227
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2225
+        description: "The narrow passageway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 2227
+        description: "You see a trap door."
+        keywords: "door trap trapdoor"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2227
+    key: draconia_room_2227
+    name: "Underground Tunnel"
+    area_id: 30
+    short_desc: "Underground Tunnel"
+    long_desc: |
+      You have entered an underground tunnel.  It is dark and dirty, and you find
+      yourself wishing you were back in Midgaard.
+    exits:
+      north: 2228
+      up: 2226
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2228
+        description: "You see the tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 2226
+        description: "You see the red dragon's lair."
+        keywords: "door trap trapdoor"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2228
+    key: draconia_room_2228
+    name: "Underground Tunnel"
+    area_id: 30
+    short_desc: "Underground Tunnel"
+    long_desc: |
+      This tunnel has come to a dead end.  You feel nervous about being trapped here.
+    exits:
+      south: 2227
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      south:
+        to: 2227
+        description: "You see the tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2229
+    key: draconia_room_2229
+    name: "The Great Hall Ends."
+    area_id: 30
+    short_desc: "The Great Hall Ends."
+    long_desc: |
+      You have come to the end of the great hall.  You see before you a huge
+      golden door, it must be at least twenty feet tall!  It has beautiful etchings
+      of dragons.  You see a sign on the door.
+    exits:
+      west: 2224
+      east: 2230
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2224
+        description: "You see the hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2230
+        description: "You see a great golden door."
+        keywords: "door great golden"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2299
+    extras:
+      sign: |
+        Congratulations on making it this far!  Watch out, it gets a little
+            nasty here... :) - Wench
+
+  - id: 2230
+    key: draconia_room_2230
+    name: "THE Lair"
+    area_id: 30
+    short_desc: "THE Lair"
+    long_desc: |
+      You have entered a huge lair.  You feel that something big lives here or at least did.  The golden door lies back to the west.
+    exits:
+      west: 2229
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2229
+        description: "You see a great golden door."
+        keywords: "door golden great"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2299
+
+  - id: 2231
+    key: draconia_room_2231
+    name: "The End..."
+    area_id: 30
+    short_desc: "The End..."
+    long_desc: |
+      You have reached the final lair.  It is dominated by a huge five headed
+      dragon.  You suddenly realize that you have SERIOUS problems...
+    exits:
+      south: 2243
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2243
+        description: "You see the top of the mountain."
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2241
+
+  - id: 2232
+    key: draconia_room_2232
+    name: "Stairwell"
+    area_id: 30
+    short_desc: "Stairwell"
+    long_desc: |
+      This is an old decrepit stairwell that leads to the wine cellar.  It looks
+      like it hasn't been used for decades.  Well, at least not by anything living.
+    exits:
+      east: 2222
+      down: 2233
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2222
+        description: "The crypt"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2233
+        description: "A wine cellar"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2233
+    key: draconia_room_2233
+    name: "Wine cellar"
+    area_id: 30
+    short_desc: "Wine cellar"
+    long_desc: |
+      This is the old wine cellar of the Dragon Tower.  The shelves are empty.
+      Nothing living has been in here for a long time.  You see a tunnel leading
+      off to the east and boy does it smell bad.  Kinda of like rotting flesh.
+    exits:
+      up: 2232
+      east: 2234
+    sector_type: FIELD
+    doors:
+      up:
+        to: 2232
+        description: "The stairwell"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2234
+        description: "A tunnel"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2234
+    key: draconia_room_2234
+    name: "Tunnel"
+    area_id: 30
+    short_desc: "Tunnel"
+    long_desc: |
+      This tunnel seems to stretch for miles.  You try to distinguish the end but
+      your eyes soon tire from the strain.  The smell here has increased two fold.
+      The tunnel continues to go to the east.  The wine cellar lies back to the 
+      west.
+    exits:
+      north: 2235
+      west: 2233
+      east: 2236
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2235
+        description: "A cave opening"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2233
+        description: "A tunnel"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2236
+        description: "A tunnel"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2235
+    key: draconia_room_2235
+    name: "A cave opening"
+    area_id: 30
+    short_desc: "A cave opening"
+    long_desc: |
+      You stand at the opening of a giant cave.  There are many bones strewn across
+      the room.  Some human, some indistinguishable.  It smells very bad in here.
+      You can hear movement in the cave to the north.  The tunnel goes back to the
+      south.
+    exits:
+      north: 2220
+      south: 2234
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2220
+        description: "The lair"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2234
+        description: "The tunnel"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2236
+    key: draconia_room_2236
+    name: "The End of the tunnel"
+    area_id: 30
+    short_desc: "The End of the tunnel"
+    long_desc: |
+      You have finally come to the end of the tunnel.  Back to the west lies
+      the miles of tunnels you have walked through.  You see the faint outline of
+      a trapdoor above you.  A bride over an underground river lies to the south.
+    exits:
+      west: 2234
+      up: 2202
+      south: 2237
+    sector_type: FIELD
+    doors:
+      west:
+        to: 2234
+        description: "The tunnel"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2202
+        description: "trapdoor"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2237
+        description: "bridge"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2237
+    key: draconia_room_2237
+    name: "The Bridge"
+    area_id: 30
+    short_desc: "The Bridge"
+    long_desc: |
+      You are walking along an old wooden bridge.  Its not that secure.  You 
+      might want to hurry along.  To the south, on the other side of the bridge,
+      lies a small opening.
+    exits:
+      north: 2236
+      south: 2238
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2236
+        description: "The tunnel end"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2238
+        description: "A small opening"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2238
+    key: draconia_room_2238
+    name: "A small opening"
+    area_id: 30
+    short_desc: "A small opening"
+    long_desc: |
+      You are standing in a small opening.  To the north lies the old wooden
+      bridge.  To your south the you can see a clearing.  You can see sunlight
+      again.  What a welcome relief!
+    exits:
+      north: 2237
+      south: 2239
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2237
+        description: "bridge"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2239
+        description: "clearing"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2239
+    key: draconia_room_2239
+    name: "Clearing"
+    area_id: 30
+    short_desc: "Clearing"
+    long_desc: |
+      You stand out in a clearing.  Mountains are all around you.  There is a 
+      well in the middle of the clearing.  Lying against the well is a sign.  A
+      path leads up the mountain.  The small opening is back to the north.
+    exits:
+      north: 2238
+      up: 2240
+      down: 2244
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2238
+        description: "the small opening"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2240
+        description: "A path"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2244
+        description: "The well"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      well: |
+        You peer over the side of the well.  It looks VERY, VERY deep.  It appears
+        to be ENDLESS.
+      sign: |
+        The sign reads:
+                 This is a bottomless pit cleverly disguised as a well.  People have
+        fallen in and never been heard from again.  Trust me, you don't want to go 
+        down there.
+                                The All Powerful Well Keeper
+
+  - id: 2240
+    key: draconia_room_2240
+    name: "A path"
+    area_id: 30
+    short_desc: "A path"
+    long_desc: |
+      This path leads up the side of the mountain.  A clearing lies below you.
+      There is a cave opening to the west.  The path continues up the mountain.
+    exits:
+      west: 2241
+      down: 2239
+      up: 2242
+    sector_type: FIELD
+    doors:
+      west:
+        to: 2241
+        description: "cave opening"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2239
+        description: "clearing"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2242
+        description: "the path continues"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2241
+    key: draconia_room_2241
+    name: "A cave opening"
+    area_id: 30
+    short_desc: "A cave opening"
+    long_desc: |
+      You stand before a huge cave opening.  You hearing heavy breathing from
+      within the cave.  There are a few skeletons lying about.  The cave lies to 
+      the south.  The path is back to the east.
+    exits:
+      south: 2221
+      east: 2240
+    sector_type: FIELD
+    doors:
+      south:
+        to: 2221
+        description: "A lair"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2240
+        description: "the path"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2242
+    key: draconia_room_2242
+    name: "The path continues"
+    area_id: 30
+    short_desc: "The path continues"
+    long_desc: |
+      The path continues up the mountain to the top.  The path also goes down.
+      Thats it, nothing more to see.
+    exits:
+      up: 2243
+      down: 2240
+    sector_type: FIELD
+    doors:
+      up:
+        to: 2243
+        description: "top of the mountain"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 2240
+        description: "path"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2243
+    key: draconia_room_2243
+    name: "The top of the mountain"
+    area_id: 30
+    short_desc: "The top of the mountain"
+    long_desc: |
+      You are standing at the top of the mountain.  It feels more like the top of
+      the world.  To your north lies a huge platinum door.  You hear very pronounced
+      grumbling from behind the doors.  It sounds like something huge and hungry.
+      But if you don't have the key you don't have to worry because you can't get it.
+      If you do have the key I would suggest not going in.  Some believe the Five
+      Headed dragon Tiamat was imprisoned here by the gods.  But who believes in 
+      fairy tales.  Well, if you're scared, you can always go down the mountain.
+    exits:
+      down: 2242
+      north: 2231
+    sector_type: FIELD
+    doors:
+      down:
+        to: 2242
+        description: "The path continues"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2231
+        description: "The platinum door"
+        keywords: "door platinum"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 2241
+    extras:
+      door: |
+        A huge platinum door separates you from harm
+
+  - id: 2244
+    key: draconia_room_2244
+    name: "Well"
+    area_id: 30
+    short_desc: "Well"
+    long_desc: |
+      O
+       h
+         !
+      
+           N
+            o
+             !
+      
+         I warned you!  You have fallen into the bottomless pit.  You life flashes
+      right before your eyes.  Pretty pathetic isn't it?  Next time you'll know
+      to listen to the God of Laughs.
+    exits:
+    sector_type: INSIDE
+

@@ -1,0 +1,1835 @@
+rooms:
+  - id: 6200
+    key: arachnos_room_6200
+    name: "On the spider web"
+    area_id: 32
+    short_desc: "On the spider web"
+    long_desc: |
+      You are balancing carefully on the giant sticky threads that holds the giant
+      web in place.  To the south leads a strand to a cave-like structure made from
+      many layers of a spider web.  Another silky strand continues to the north.
+    exits:
+      north: 6203
+      south: 6133
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6203
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      web: |
+        The immense spider web moves softly.
+
+  - id: 6201
+    key: arachnos_room_6201
+    name: "On the spider web"
+    area_id: 32
+    short_desc: "On the spider web"
+    long_desc: |
+      You are balancing carefully on the giant sticky threads that holds the giant
+      web in place.  To the north leads a strand to a cave-like structure made from
+      many layers of a spider web.
+    exits:
+      north: 6134
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      web: |
+        The immense spider web moves softly.
+
+  - id: 6202
+    key: arachnos_room_6202
+    name: "On the spider web"
+    area_id: 32
+    short_desc: "On the spider web"
+    long_desc: |
+      You are balancing carefully on the giant sticky threads that holds the giant
+      web in place.  To the east leads a strand to a cave-like structure made from
+      many layers of a spider web.
+    exits:
+      east: 6134
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 6134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      web: |
+        The immense spider web moves softly.
+
+  - id: 6203
+    key: arachnos_room_6203
+    name: "On the spider web"
+    area_id: 32
+    short_desc: "On the spider web"
+    long_desc: |
+      You are balancing carefully on the giant sticky threads that holds the giant
+      web in place. A single silky strand lead to the south, while another leads
+      off into the northern direction.
+    exits:
+      north: 6301
+      south: 6200
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6301
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6200
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      web: |
+        The immense spider web moves softly.
+
+  - id: 6301
+    key: arachnos_room_6301
+    name: "Webbed Entrance"
+    area_id: 32
+    short_desc: "Webbed Entrance"
+    long_desc: |
+      Sticky, sticky, sticky!  The ground is cluttered with leaves, decayed
+      remains of webbed crickets, beetle, rats, dogs (?), and even humans.
+      You begin to wonder about what lies ahead.  The air is damp here,
+      and even the little light that shines through the canopy seems
+      absorbed into the webbing.
+    exits:
+      north: 6302
+      south: 6203
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 6302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6203
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6302
+    key: arachnos_room_6302
+    name: "Webby Passage"
+    area_id: 32
+    short_desc: "Webby Passage"
+    long_desc: |
+      You find that footing here is very good, almost too good.  The
+      limbs are coated with cobwebs and seem unusually strong for tree
+      branches.  Paths lead in four directions.  The eastward path goes
+      down a bit.
+    exits:
+      north: 6304
+      east: 6305
+      south: 6301
+      west: 6303
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6304
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6301
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6303
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6303
+    key: arachnos_room_6303
+    name: "Wasp Hive"
+    area_id: 32
+    short_desc: "Wasp Hive"
+    long_desc: |
+      Drones scuttle about in this room.  The cells on the walls
+      are honeycomb in shape and many of the maggots and wasps you see
+      have fang-marks on there bodies.  You sense some order in their markings.
+    exits:
+      east: 6302
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6304
+    key: arachnos_room_6304
+    name: "Webby Passage"
+    area_id: 32
+    short_desc: "Webby Passage"
+    long_desc: |
+      Another webby passage, all sticky and wet.  Tiny ballooning
+      spiders fill the air.  It seems that these young ones are newborns.
+    exits:
+      south: 6302
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6305
+    key: arachnos_room_6305
+    name: "Beneath the Busy Path"
+    area_id: 32
+    short_desc: "Beneath the Busy Path"
+    long_desc: |
+      You hear the sounds of crawling arachnids above.  The rhythms of
+      the footsteps suggest a primitive order in there movement.  The light
+      seems brighter upwards.
+    exits:
+      west: 6302
+      up: 6306
+    sector_type: FIELD
+    doors:
+      west:
+        to: 6302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 6306
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6306
+    key: arachnos_room_6306
+    name: "On the Busy Path"
+    area_id: 32
+    short_desc: "On the Busy Path"
+    long_desc: |
+      Spiders, spiders, everywhere!  It is almost ant-like in efficiency
+      with one big difference.  The spiders here are carrying ant-corpses,
+      as well as rats, wolves, and humans.
+    exits:
+      south: 6307
+      down: 6305
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6307
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6307
+    key: arachnos_room_6307
+    name: "On the Busy Path"
+    area_id: 32
+    short_desc: "On the Busy Path"
+    long_desc: |
+      Spiders, spiders, everywhere!  It is almost ant-like in efficiency
+      with one big difference.  The spiders here are carrying ant-corpses,
+      as well as cats, wolves, and humans.
+    exits:
+      north: 6306
+      east: 6308
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6306
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6308
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6308
+    key: arachnos_room_6308
+    name: "On the Busy Path"
+    area_id: 32
+    short_desc: "On the Busy Path"
+    long_desc: |
+      Spiders, spiders, everywhere!  It is almost ant-like in efficiency
+      with one big difference.  The spiders here are carrying ant-corpses,
+      as well as cats, dogs, and humans.
+    exits:
+      east: 6309
+      west: 6307
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6307
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6309
+    key: arachnos_room_6309
+    name: "A Split in the Path"
+    area_id: 32
+    short_desc: "A Split in the Path"
+    long_desc: |
+      As always, there is a split in the road.  One road is strewn
+      with cricket feelers.  The other is well-kept and suitable for smooth
+      travelling.  The webbing that was prevalent in earlier rooms is almost
+      non-existent now.
+    exits:
+      north: 6310
+      south: 6320
+      west: 6308
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6308
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6310
+    key: arachnos_room_6310
+    name: "Fuzzy Tree Limb"
+    area_id: 32
+    short_desc: "Fuzzy Tree Limb"
+    long_desc: |
+      You are on a "fuzzy" tree limb.  Interesting, since the branches
+      seem to have "hairs" sprouting from its bark.  As you look
+      closer you see millions of aphids covering each limb.
+    exits:
+      south: 6309
+      west: 6311
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6311
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6311
+    key: arachnos_room_6311
+    name: "Tree Trunk"
+    area_id: 32
+    short_desc: "Tree Trunk"
+    long_desc: |
+      You feel that you can rest here safely.  There is evidence of
+      webbing here, but it is of a finer quality.
+    exits:
+      east: 6310
+      south: 6312
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6312
+    key: arachnos_room_6312
+    name: "Tree Lair Entrance"
+    area_id: 32
+    short_desc: "Tree Lair Entrance"
+    long_desc: |
+      It seems the inhabitant of this place does not web her
+      victims, as evidenced by the remains before you.  The area
+      is cluttered with desiccated corpses, apparently bitten
+      but unwebbed, and drained of their life juices.
+    exits:
+      north: 6311
+      west: 6313
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6311
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6313
+    key: arachnos_room_6313
+    name: "Wolf Spider Lair"
+    area_id: 32
+    short_desc: "Wolf Spider Lair"
+    long_desc: |
+      Very dark, as all lairs of spiders are.  Not much of furnishings
+      save an exit.  The wolf spider keeps no corpses here, but rather
+      throws them out at her leisure.
+    exits:
+      east: 6312
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6320
+    key: arachnos_room_6320
+    name: "The Webless Path"
+    area_id: 32
+    short_desc: "The Webless Path"
+    long_desc: |
+      Strange.  No webbing here.  In fact, no sounds whatsoever.
+      The path continues northward, where you find that you may have to
+      tightrope your way across a ravine.
+    exits:
+      north: 6309
+      west: 6321
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6321
+    key: arachnos_room_6321
+    name: "Above the Ravine"
+    area_id: 32
+    short_desc: "Above the Ravine"
+    long_desc: |
+      Stranger still.  Your feet get a real firm grip on the spiderline.
+      You are above a deep ravine.  This line connects you between two trees.
+      Below you can see a prismatic web with lots of animal bones caught in it:
+      some bear and small deer bones in fact.  No human skeletons are visible
+      (yet).
+    exits:
+      east: 6320
+      south: 6323
+      down: 6322
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6322
+    key: arachnos_room_6322
+    name: "The Rainbow Web"
+    area_id: 32
+    short_desc: "The Rainbow Web"
+    long_desc: |
+      This is the rainbow web--each strand, each link, a hue of violently
+      sharp colors and contrasts.  The resident here seems to have a command
+      of light as well.
+    exits:
+      up: 6321
+    sector_type: FIELD
+    doors:
+      up:
+        to: 6321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6323
+    key: arachnos_room_6323
+    name: "The Web Forest"
+    area_id: 32
+    short_desc: "The Web Forest"
+    long_desc: |
+      The trees here take on a different appearance--they are not trees
+      anymore, but disjointed make-shift silken made shafts, sticky to the touch,
+      and webby in texture.  This is another world it would appear.
+    exits:
+      north: 6321
+      down: 6324
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6324
+    key: arachnos_room_6324
+    name: "The Slave Pit"
+    area_id: 32
+    short_desc: "The Slave Pit"
+    long_desc: |
+      You have entered the slave pit.  A voice blares in the distance,
+      "Get back to work, maggots!"  Rails upon rails of mined gold and silver
+      clutter the trail beneath you.
+    exits:
+      north: 6325
+      up: 6323
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6325
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 6323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6325
+    key: arachnos_room_6325
+    name: "The Tether Path"
+    area_id: 32
+    short_desc: "The Tether Path"
+    long_desc: |
+      Another tether path just like the rest of them.  Surprisingly well
+      -lit by the golden orbs that hang from the sides, you can see the paths
+      become finer and finer in quality.
+    exits:
+      east: 6326
+      west: 6324
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6326
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6326
+    key: arachnos_room_6326
+    name: "A Road Crossing"
+    area_id: 32
+    short_desc: "A Road Crossing"
+    long_desc: |
+      Another shifty little strand of webs, almost ethereal in nature.
+    exits:
+      west: 6325
+      up: 6327
+    sector_type: FIELD
+    doors:
+      west:
+        to: 6325
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 6327
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6327
+    key: arachnos_room_6327
+    name: "A Leader Strand"
+    area_id: 32
+    short_desc: "A Leader Strand"
+    long_desc: |
+      This strand is weightier, more sturdy.  It shimmers as you step on
+      it.  You are definitely not in the Midgaardian realms anymore.  Just
+      where you are you can't tell.  It feels like you're moving through
+      ether.  You can still get back down to more surer lands.
+    exits:
+      north: 6328
+      down: 6326
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6328
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6326
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6328
+    key: arachnos_room_6328
+    name: "The Entrance of the Ethereal Web"
+    area_id: 32
+    short_desc: "The Entrance of the Ethereal Web"
+    long_desc: |
+      You are at the entrance to ethereal web.  Flickering in and out,
+      in and out, each strand reveals a different hue from black to green
+      to blue.
+    exits:
+      south: 6327
+      down: 6331
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6327
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6330
+    key: arachnos_room_6330
+    name: "The Young Wormkin's Crib"
+    area_id: 32
+    short_desc: "The Young Wormkin's Crib"
+    long_desc: |
+      A playpen of sorts, with maggots of wasps and other baby vermin
+      lying about.  You feel that humans have been played with here too,
+      and eaten later.  You sense that the maker of this place has
+      an appetite for dragon meat, and uses this room as a breeding
+      area.
+    exits:
+      south: 6331
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6331
+    key: arachnos_room_6331
+    name: "The Base of the Web"
+    area_id: 32
+    short_desc: "The Base of the Web"
+    long_desc: |
+      Large strands connect at this point.  The node shimmers and
+      flickers within the ether.  You see many flying creatures--
+      insects, pegasi, and dragon wormkins--navigate the dangerous
+      passages of the web.  Exits go in many directions.
+    exits:
+      north: 6330
+      east: 6332
+      south: 6333
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6332
+    key: arachnos_room_6332
+    name: "Through the Trees"
+    area_id: 32
+    short_desc: "Through the Trees"
+    long_desc: |
+      This part of the web intersects through the branches of some
+      trees.  Various leaves and other debris that the many drones
+      have not picked up yet lie here.
+    exits:
+      west: 6331
+    sector_type: FIELD
+    doors:
+      west:
+        to: 6331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6333
+    key: arachnos_room_6333
+    name: "Above the Clouds"
+    area_id: 32
+    short_desc: "Above the Clouds"
+    long_desc: |
+      You can see all of Midgaard in this ethereal web.  Many
+      of the larger dragons that do wish to fly seem to fly
+      away from the sticky strands of the web.
+    exits:
+      north: 6331
+      south: 6334
+      west: 6335
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6335
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6334
+    key: arachnos_room_6334
+    name: "On A Cloud"
+    area_id: 32
+    short_desc: "On A Cloud"
+    long_desc: |
+      Rather thick in consistency.  You realize this is not
+      a typical cloud, but it might be the nest of an aerial creature.
+    exits:
+      north: 6333
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6335
+    key: arachnos_room_6335
+    name: "A Link in the Ethereal Web"
+    area_id: 32
+    short_desc: "A Link in the Ethereal Web"
+    long_desc: |
+      This is another link in the ethereal web.  Various creatures
+      seem to get caught (or hypnotized) by its sticky strands.
+    exits:
+      east: 6333
+      west: 6336
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6336
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6336
+    key: arachnos_room_6336
+    name: "The Tenuous Strand"
+    area_id: 32
+    short_desc: "The Tenuous Strand"
+    long_desc: |
+      Very windy here since it goes up into the sky somewhat.
+      Still, it's safe enough to move around.
+    exits:
+      east: 6335
+      south: 6340
+      west: 6341
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6335
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6340
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6341
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6340
+    key: arachnos_room_6340
+    name: "The Elder Wormkin's Room"
+    area_id: 32
+    short_desc: "The Elder Wormkin's Room"
+    long_desc: |
+      A more mature wormkin it seems resides here.  Various tomes of
+      arcane lore clutter the area, along with shards of armor and weaponry.
+    exits:
+      north: 6336
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6336
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6341
+    key: arachnos_room_6341
+    name: "Another Tree Limb"
+    area_id: 32
+    short_desc: "Another Tree Limb"
+    long_desc: |
+      Once again the web crosses another tree limb.  To the side you
+      see the possible entrance to another creatures lair.
+    exits:
+      east: 6336
+      south: 6342
+      west: 6345
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6336
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6342
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6342
+    key: arachnos_room_6342
+    name: "The Bird Spider's Lair"
+    area_id: 32
+    short_desc: "The Bird Spider's Lair"
+    long_desc: |
+      This is a big game hunter among most spiders.  Crush jewels
+      and other weapons suggest the inhabitant must have powerful jaws.
+      Beware!
+    exits:
+      north: 6341
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6341
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6345
+    key: arachnos_room_6345
+    name: "A Link in the Ethereal Web"
+    area_id: 32
+    short_desc: "A Link in the Ethereal Web"
+    long_desc: |
+      This is another link in the ethereal web.  Various creatures
+      seem to get caught (or hypnotized) by its sticky strands.
+    exits:
+      east: 6341
+      south: 6350
+      west: 6346
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6341
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6350
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6346
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6346
+    key: arachnos_room_6346
+    name: "The Quiet Tree Top"
+    area_id: 32
+    short_desc: "The Quiet Tree Top"
+    long_desc: |
+      Here is a quiet tree top.
+    exits:
+      east: 6345
+      west: 6347
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6347
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6347
+    key: arachnos_room_6347
+    name: "On The Web"
+    area_id: 32
+    short_desc: "On The Web"
+    long_desc: |
+      RRRRRRRRRRROOOOOOOOOOOOOAAAAAAAAAAAAAARR!  You hear the roar
+      of a powerful beast.  Dragon, you think.  You shiver in your boots
+      as you tiptoe on this section of the web.
+    exits:
+      east: 6346
+      south: 6355
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6346
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6350
+    key: arachnos_room_6350
+    name: "The Ki-Rin Chamber"
+    area_id: 32
+    short_desc: "The Ki-Rin Chamber"
+    long_desc: |
+      A wise ki-rin was entrapped here many years ago.  It is from her
+      that the ruler of this realm steals his magical strength.
+    exits:
+      north: 6345
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6355
+    key: arachnos_room_6355
+    name: "A Link in the Ethereal Web"
+    area_id: 32
+    short_desc: "A Link in the Ethereal Web"
+    long_desc: |
+      This is another link in the ethereal web.  Various creatures
+      seem to get caught (or hypnotized) by its sticky strands.  To
+      the north you sense the heavy breathing of a fiery animal.
+    exits:
+      north: 6347
+      west: 6360
+      up: 6365
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6347
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6360
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 6365
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6360
+    key: arachnos_room_6360
+    name: "Yevaud's Lair"
+    area_id: 32
+    short_desc: "Yevaud's Lair"
+    long_desc: |
+      Yevaud, the Usurper of Midgaard, resides here.  A voice cries
+      out, "BEWARE, the Usurper of Midgaard lives here!  FLEE while you can!"
+      But even Yevaud has his master...or so you deduce.
+    exits:
+      east: 6355
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6365
+    key: arachnos_room_6365
+    name: "A Link in the Ethereal Web"
+    area_id: 32
+    short_desc: "A Link in the Ethereal Web"
+    long_desc: |
+      This is another link in the ethereal web.  Various creatures
+      seem to get caught (or hypnotized) by its sticky strands.  A single
+      spider line lies to the north, while ghastly seemings are due
+      southward.  The grim entrance of Arachnos' Lair is downward.
+    exits:
+      north: 6371
+      south: 6366
+      down: 6355
+      up: 6390
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6371
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 6390
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6366
+    key: arachnos_room_6366
+    name: "Entrance to the Donjonkeep"
+    area_id: 32
+    short_desc: "Entrance to the Donjonkeep"
+    long_desc: |
+      A dark path at the end of the web strand, you see ahead
+      a torch lit chamber where the souls of unavenged adventurers
+      come and gnash their teeth.  The howls and screams of many echo
+      through the hall ways.  You see one definite path ahead.
+    exits:
+      east: 6367
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6367
+    key: arachnos_room_6367
+    name: "The Guardian's Room"
+    area_id: 32
+    short_desc: "The Guardian's Room"
+    long_desc: |
+      A chair sits here for a tireless guardian who ensures that no
+      soul escapes.  The room is undecorated.
+    exits:
+      east: 6368
+      west: 6366
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      chair: |
+        An ordinary chair, well used, glued to the ground by spiderweb.
+
+  - id: 6368
+    key: arachnos_room_6368
+    name: "Realm of the Hopeless"
+    area_id: 32
+    short_desc: "Realm of the Hopeless"
+    long_desc: |
+      Here you see many misguided souls who think they still live.
+      They search for those who killed them without warrant, and seek the
+      free souls of living beings to inhabit and perhaps adventure once
+      more.
+    exits:
+      east: 6369
+      west: 6367
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6369
+    key: arachnos_room_6369
+    name: "Realm of the Hopeless"
+    area_id: 32
+    short_desc: "Realm of the Hopeless"
+    long_desc: |
+      Here you see many misguided souls who think they still live.
+      They search for those who killed them without warrant, and seek the
+      free souls of living beings to inhabit and perhaps adventure once
+      more.
+    exits:
+      west: 6368
+      east: 6370
+    sector_type: FIELD
+    doors:
+      west:
+        to: 6368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6370
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6370
+    key: arachnos_room_6370
+    name: "The Donjonkeep"
+    area_id: 32
+    short_desc: "The Donjonkeep"
+    long_desc: |
+      No souls have ever lived in this place.  The wails of slaves
+      and the howls of wolves are the only way you can describe the sounds
+      you hear.  The walls are thin and wispy.  The only light you receive
+      is the shimmering from the strand of the ethereal web you used to get
+      here.
+    exits:
+      east: 6371
+      west: 6369
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6371
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6371
+    key: arachnos_room_6371
+    name: "The Single Spider Line"
+    area_id: 32
+    short_desc: "The Single Spider Line"
+    long_desc: |
+      A single spider line supports you once more.  As you look
+      across the ether you seen a single shack up ahead with a light in
+      the window.  You sense a great evil coming from the east and feel
+      inclined to go back on the ethereal web and take your chances there.
+    exits:
+      east: 6372
+      west: 6370
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6372
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6370
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6372
+    key: arachnos_room_6372
+    name: "The Single Spider Line"
+    area_id: 32
+    short_desc: "The Single Spider Line"
+    long_desc: |
+      A single spider line supports you once more.  The shack comes
+      closer into view and you are even more inclined to go back now.
+    exits:
+      west: 6371
+      east: 6373
+    sector_type: FIELD
+    doors:
+      west:
+        to: 6371
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6373
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6373
+    key: arachnos_room_6373
+    name: "The Hermit's Corner"
+    area_id: 32
+    short_desc: "The Hermit's Corner"
+    long_desc: |
+      Here you see evidence of a vagrant's abode.  The shack is to the
+      east, if you dare enter it.  You get the sneaking feeling you should
+      go back now.  The skies above you darken and roar with the laughter
+      of thunder.
+    exits:
+      west: 6372
+      east: 6380
+    sector_type: FIELD
+    doors:
+      west:
+        to: 6372
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6380
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6380
+    key: arachnos_room_6380
+    name: "Mahatma's Inescapable Trap"
+    area_id: 32
+    short_desc: "Mahatma's Inescapable Trap"
+    long_desc: |
+      Mahatma, that silly thief, is here, and he steals everything you
+      have.  He says, 'Here, have a quick trip to the Temple of Midgaard.'
+      He plunges a black dagger into your back ...
+    exits:
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+
+  - id: 6390
+    key: arachnos_room_6390
+    name: "The Entrance to the Arachnos' Lair"
+    area_id: 32
+    short_desc: "The Entrance to the Arachnos' Lair"
+    long_desc: |
+      All strands inevitably lead here, the center of the web, the
+      entrance to Arachnos' Lair.
+    exits:
+      north: 6391
+      down: 6365
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6391
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6365
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6391
+    key: arachnos_room_6391
+    name: "The Sticky Chamber"
+    area_id: 32
+    short_desc: "The Sticky Chamber"
+    long_desc: |
+      You can still bail out since your knees are shaking from the
+      anticipation (or is it fear?).  The sky is clear on this strand of
+      web, surprisingly unsticky.  The strand does not vibrate like the
+      others.  A few ballooning spiders pass by, cackling "You're gonna
+      die, you're gonna fry.  Good bye!"
+    exits:
+      south: 6390
+      north: 6392
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6390
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 6392
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6392
+    key: arachnos_room_6392
+    name: "The Great Door"
+    area_id: 32
+    short_desc: "The Great Door"
+    long_desc: |
+      Before you you see a large, web-like door.  Various designs
+      of ancient runes and names of Midgaard heroes are etched into
+      the webwork.  Perhaps lists of victims?  You can't tell.
+    exits:
+      north: 6399
+      south: 6391
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6399
+        description: ""
+        keywords: "door north"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 6391
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6399
+    key: arachnos_room_6399
+    name: "The Lair of Arachnos"
+    area_id: 32
+    short_desc: "The Lair of Arachnos"
+    long_desc: |
+      This is the lair of the Empress Spider, Arachnos.  A lavishly
+      adorned rainbow web, her lair allows her to move to any universe
+      she wishes by using her magical strands to the Prime Material Plane.
+      Coffers upon coffers of gold, magical jewels and gems await.  Unfor-
+      tunately Arachnos is a baggy spider too, and webs all her treasures
+      to her beautiful silken body.
+    exits:
+      south: 6392
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6392
+        description: ""
+        keywords: "door south"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

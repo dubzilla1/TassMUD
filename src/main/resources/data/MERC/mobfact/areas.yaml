@@ -1,0 +1,9 @@
+areas:
+  - id: 94
+    name: "Mobfact"
+    description: "Converted from mobfact.are"
+    sector_type: "INSIDE"
+    author: "MERC"
+    source_file: "mobfact.are"
+    vnum_range: "9400-9424"
+

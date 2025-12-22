@@ -1,0 +1,6917 @@
+rooms:
+  - id: 1200
+    key: hitower_room_1200
+    name: "The Chat Room"
+    area_id: 30
+    short_desc: "The Chat Room"
+    long_desc: |
+      You are lounging in a quiet cosy parlour, warmed by a gentle magical fire
+      which twinkles happily in a warm fireplace.  There are no doors out.  Clearly
+      the owner of this room needs none.
+    exits:
+    sector_type: INSIDE
+
+  - id: 1300
+    key: hitower_room_1300
+    name: "Entrance to the Shadow Grove"
+    area_id: 30
+    short_desc: "Entrance to the Shadow Grove"
+    long_desc: |
+      Before you, the grove of shadows lies. Giant grey trees are all that
+      can be seen through the thick shadows. A great sense of both power and
+      menace permeates the surrounding area. You have a strange urge to turn
+      back and go back the way you've come.
+        A small path leads north into the shadows and back south to the road.
+    exits:
+      south: 6137
+      north: 1308
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      south:
+        to: 6137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 1308
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1301
+    key: hitower_room_1301
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1307
+      east: 1302
+      south: 1304
+      west: 1303
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1307
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1302
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1304
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1303
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1302
+    key: hitower_room_1302
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1311
+      east: 1303
+      south: 1305
+      west: 1301
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1311
+        description: "You see a small clearing in the shadows."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1303
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1305
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1301
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1303
+    key: hitower_room_1303
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem the glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1309
+      east: 1301
+      south: 1306
+      west: 1302
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1309
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1301
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1306
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1302
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1304
+    key: hitower_room_1304
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1301
+      east: 1305
+      south: 1307
+      west: 2201
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1301
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1305
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1307
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2201
+        description: "Dark gates loom in the mist."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1305
+    key: hitower_room_1305
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1302
+      east: 1306
+      south: 1308
+      west: 1304
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1302
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1306
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1308
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1304
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1306
+    key: hitower_room_1306
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1303
+      east: 9301
+      south: 1309
+      west: 1305
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1303
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9301
+        description: "You see a shadowy tavern."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1309
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1305
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1307
+    key: hitower_room_1307
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1304
+      east: 1308
+      south: 1301
+      west: 1309
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1304
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1308
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1301
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1309
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1308
+    key: hitower_room_1308
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All exits lead into shadows, you are very confused.
+    exits:
+      north: 1305
+      east: 1309
+      south: 1300
+      west: 1307
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1305
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1309
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1300
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1307
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1309
+    key: hitower_room_1309
+    name: "The Shadow Grove"
+    area_id: 30
+    short_desc: "The Shadow Grove"
+    long_desc: |
+      You are inside the shadow grove. Giant trees seem to glare at you
+      from all sides. The shadowy mist obscures most of your vision. Strange
+      sounds of moaning and growling come from all directions.
+        All directions lead into shadows, you are very confused.
+    exits:
+      north: 1306
+      east: 1307
+      south: 1303
+      west: 1308
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1306
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1307
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1303
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1308
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1311
+    key: hitower_room_1311
+    name: "A small clearing"
+    area_id: 30
+    short_desc: "A small clearing"
+    long_desc: |
+      You are in a small clearing in the shadow grove. There is charred grass
+      underfoot, and the signs of fire here and there. It is almost as if the
+      plant life shuns this spot. The shadowy mist hovers all around, obscuring
+      your view into the grove.
+        A small path leads north to some shadowy structure. All other exits are
+      shrouded in shadowy mist.
+    exits:
+      north: 1312
+      south: 1302
+    sector_type: FOREST
+    doors:
+      north:
+        to: 1312
+        description: "You can barely make out some sort of building to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1302
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1312
+    key: hitower_room_1312
+    name: "Entrance to the High Tower"
+    area_id: 30
+    short_desc: "Entrance to the High Tower"
+    long_desc: |
+      You have reached the entrance to the high tower of sorcerery. The
+      tower looms above you at an incredible height. It seems to disappear
+      into the storm clouds above.
+        A diamond gate is to the north, guarded by a huge golem. The trail
+      back south has disappeared behind you.
+    exits:
+      north: 1313
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1313
+        description: "The diamond gate looks incredibly strong."
+        keywords: "gate diamond"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1313
+    key: hitower_room_1313
+    name: "Inside the High Tower of Sorcerery"
+    area_id: 30
+    short_desc: "Inside the High Tower of Sorcerery"
+    long_desc: |
+      You are inside the high tower of sorcery. The sight is truly amazing.
+      From here, it is obvious that somehow, the tower is much larger on the
+      inside than it is on the outside. Young mages walk about, completely
+      oblivious to your presence.
+        Exits lead north to the common room, west to the dinning room, east to
+      a plain hallway and back south through the gate.
+    exits:
+      north: 1314
+      east: 1315
+      south: 1312
+      west: 1316
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1314
+        description: "The common room looks quite busy and noisy."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1315
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1312
+        description: ""
+        keywords: "diamond gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1316
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1314
+    key: hitower_room_1314
+    name: "Common Room"
+    area_id: 30
+    short_desc: "Common Room"
+    long_desc: |
+      You are in the common room. There are many apprentice warlocks here
+      talking and resting, playing games, comparing notes. Obviously they
+      are taking a break from their rigorous studies. There are benches,
+      tables and a small water fountain here, otherwise the room is quite
+      unremarkable.
+        Exits lead off in all directions.
+    exits:
+      north: 1317
+      east: 1318
+      south: 1313
+      west: 1319
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1317
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1318
+        description: "The mages bar can be seen to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1319
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1315
+    key: hitower_room_1315
+    name: "The Hallway"
+    area_id: 30
+    short_desc: "The Hallway"
+    long_desc: |
+      You are in a long hallway, it seems rather unremarkable.
+        The hallway continues east and back west.
+    exits:
+      east: 1330
+      west: 1313
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1316
+    key: hitower_room_1316
+    name: "Dining Room"
+    area_id: 30
+    short_desc: "Dining Room"
+    long_desc: |
+      You are in the dining area of the student mages. From the number of
+      tables and chairs here, you can see that this room could easily seat
+      several hundred people. It is oddly deserted here, obviously not meal time.
+        Exits lead west to the kitchen, and back east.
+    exits:
+      east: 1313
+      west: 1320
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1320
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1317
+    key: hitower_room_1317
+    name: "Dark Hallway"
+    area_id: 30
+    short_desc: "Dark Hallway"
+    long_desc: |
+      You are in a dark hallway. It is apparent that this area is seldom
+      used by the regular occupants of the tower. Dust covers the floors
+      here.
+        The faint outline of a trapdoor can be seen in the dust.
+    exits:
+      south: 1314
+      down: 1321
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1321
+        description: ""
+        keywords: "trapdoor"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1318
+    key: hitower_room_1318
+    name: "Mages Tavern"
+    area_id: 30
+    short_desc: "Mages Tavern"
+    long_desc: |
+      You are in mages tavern. The air is smokey and filled with the smells
+      of foreign food and drink. The other patrons pay you little heed, as
+      they obviously have more interesting things to contemplate. Strick the
+      bartender is here waiting to take your order.
+        The only exit leads back west.
+    exits:
+      west: 1314
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1319
+    key: hitower_room_1319
+    name: "The Magic Shop"
+    area_id: 30
+    short_desc: "The Magic Shop"
+    long_desc: |
+      You are in the High Tower's store of magic. Tatorious stands behind
+      the counter, selling all sorts of herbs, parchment and other reagents
+      used in magical studies.
+        The only exit leads back east to the common room.
+    exits:
+      east: 1314
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1320
+    key: hitower_room_1320
+    name: "the kitchen"
+    area_id: 30
+    short_desc: "the kitchen"
+    long_desc: |
+      You are in a small kitchen. All the usual kitchen type utensils and
+      equipment is here, including some not so usual ones. Among the later,
+      a huge black oven against one wall, it must be at least 12 feet high.
+      Opposite the oven is an equally enormous meat locker, large enough to
+      comfortably store several hapless adventurers no doubt. In the middle of
+      the room, hanging in mid-air is a spice rack.
+    exits:
+      east: 1316
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1316
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1321
+    key: hitower_room_1321
+    name: "Below the trapdoor"
+    area_id: 30
+    short_desc: "Below the trapdoor"
+    long_desc: |
+      You are below the trapdoor. It is very dark and dusty here, very little
+      light filters through from above. A faint sound of dripping water can be
+      heard in the distance below.
+        A rope ladder leads down.
+    exits:
+      up: 1317
+      down: 1322
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 1317
+        description: ""
+        keywords: "trapdoor"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1322
+    key: hitower_room_1322
+    name: "A damp intersection"
+    area_id: 30
+    short_desc: "A damp intersection"
+    long_desc: |
+      You are in a damp intersection of what seems to be the basement of the
+      tower. The sound of running water can be heard coming from the south,
+      other than that, an almost tangible stillness fills the air.
+        Passages lead off in all directions, and a ladder leads up.
+    exits:
+      north: 1323
+      east: 1324
+      south: 1325
+      west: 1326
+      up: 1321
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1324
+        description: "A faint light can be seen in the distance up the east passage."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1325
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1326
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1323
+    key: hitower_room_1323
+    name: "A dark passage"
+    area_id: 30
+    short_desc: "A dark passage"
+    long_desc: |
+      You are at the end of a dark passage which ends in a stout wooden door.
+      Other then through the door, the only apparent exit is back the way you
+      came.
+    exits:
+      north: 1327
+      south: 1322
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1327
+        description: ""
+        keywords: "oak door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1323
+      south:
+        to: 1322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1324
+    key: hitower_room_1324
+    name: "A dark passage"
+    area_id: 30
+    short_desc: "A dark passage"
+    long_desc: |
+      You are at the end of a dark passage. A half opened door is to the east,
+      shedding soft light around the edges. Faint snoring sounds can be heard
+      behind the door.
+        Exits lead east through the door, or back west.
+    exits:
+      east: 1328
+      west: 1322
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1328
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1325
+    key: hitower_room_1325
+    name: "The stagnant pool"
+    area_id: 30
+    short_desc: "The stagnant pool"
+    long_desc: |
+      You are at the edge of a stagnant pool of water. The smell here is quite
+      nauseating. This is apparently where the denizens of the tower dispose of
+      their garbage. Faint gurgling can be heard from beneath the surface of the
+      pool.
+        Exits lead back north, or perhaps for the very adventurous, down into the
+      pool.
+    exits:
+      north: 1322
+      down: 1329
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1329
+        description: "No light penetrates the gloom of the stagnant pool."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1326
+    key: hitower_room_1326
+    name: "A dark passage"
+    area_id: 30
+    short_desc: "A dark passage"
+    long_desc: |
+      You are in a dark passage, which comes to an abrupt stop at what appears
+      to be a cave-in to the west. It is certainly unpassable, and perhaps quite
+      dangerous just being this close.
+        The only exit leads back east.
+    exits:
+      east: 1322
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1327
+    key: hitower_room_1327
+    name: "A dark cell"
+    area_id: 30
+    short_desc: "A dark cell"
+    long_desc: |
+      You are in a dark cell. Straw and dirt cover the floors here, it is
+      very dark. Someone, or something seems to be chained to the far wall.
+        The only exit is back south.
+    exits:
+      south: 1323
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1323
+        description: ""
+        keywords: "oak door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1328
+    key: hitower_room_1328
+    name: "The Jailor's office"
+    area_id: 30
+    short_desc: "The Jailor's office"
+    long_desc: |
+      You are in the Jailor's office. It is rather messy here. Judging by the
+      sleeping form of the Jailor on duty, you can surmise that very few, if any
+      prisoners survive long enough to spend much time in these dank dungeons.
+        The only exit leads back west.
+    exits:
+      west: 1324
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1324
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1329
+    key: hitower_room_1329
+    name: "Below the stagnant pool"
+    area_id: 30
+    short_desc: "Below the stagnant pool"
+    long_desc: |
+      As you dive beneath the putrid waters, you feel a strong tug and a whirlpool
+      drags you under.  You are sucked into blackness.  You feel your lungs burst
+      from lack of oxygen.  Just as you feel your life fading, you notice a change in
+      direction ... and are sucked under by a rip tide.
+    exits:
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+
+  - id: 1330
+    key: hitower_room_1330
+    name: "The hallway"
+    area_id: 30
+    short_desc: "The hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      east: 1331
+      west: 1315
+      north: 1332
+      south: 1333
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1315
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 1332
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1333
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1331
+    key: hitower_room_1331
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the hallway. The walls emit a faint magical glow
+      which provides enough light to see by.
+    exits:
+      north: 1334
+      east: 1336
+      south: 1335
+      west: 1330
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1334
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1336
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1335
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1332
+    key: hitower_room_1332
+    name: "A store room"
+    area_id: 30
+    short_desc: "A store room"
+    long_desc: |
+      You are in a small store room. Assorted junk is piled on shelves or
+      leaning against walls.
+        The only apparent exit it back south.
+    exits:
+      south: 1330
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1330
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1333
+    key: hitower_room_1333
+    name: "A broom closet"
+    area_id: 30
+    short_desc: "A broom closet"
+    long_desc: |
+      You are in a dark broom closet. Many straw brooms and other cleaning
+      instruments have been left here, apparently unused (perhaps the maid quit?).
+        The only exit leads back north to the hallway.
+    exits:
+      north: 1330
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1330
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1334
+    key: hitower_room_1334
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a
+      faint magical glow which provides enough light to see by.
+    exits:
+      east: 1337
+      north: 1338
+      south: 1331
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1337
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 1338
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1331
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      walls: |
+        The walls shed a warm light
+
+  - id: 1335
+    key: hitower_room_1335
+    name: "Guardians chamber"
+    area_id: 30
+    short_desc: "Guardians chamber"
+    long_desc: |
+      You are in the chamber of the tower guardians. It is rather sparsely
+      furnished, but then again the odd occupants don't look to need furniture.
+      Here and there a disembodied pair of hands or eyes flits about.
+    exits:
+      north: 1331
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1331
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1336
+    key: hitower_room_1336
+    name: "A guest bedroom"
+    area_id: 30
+    short_desc: "A guest bedroom"
+    long_desc: |
+      You are in a small guest bedroom. A small cot is in one corner, and a
+      dusty mirror on one wall, other than that the room looks quite bare, and
+      unused.
+        The only apparent exit leads back west to the hallway.
+    exits:
+      west: 1331
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1331
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      mirror: |
+        Why, someone seems to be looking back at you from the other side!
+
+  - id: 1337
+    key: hitower_room_1337
+    name: "A guest bedroom"
+    area_id: 30
+    short_desc: "A guest bedroom"
+    long_desc: |
+      You are in a comfortable looking bedroom. A small globe of magical energy
+      floats overhead, providing light. A small cot is in one corner looking
+      ever so comfortable, so comfortable in fact ...someone is sleeping in it.
+        The only apparent exit leads back west to the hallway.
+    exits:
+      west: 1334
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1334
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1338
+    key: hitower_room_1338
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading from the south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        Stairs lead up to the next level and the hallway leads back south.
+    exits:
+      east: 1339
+      south: 1334
+      up: 1340
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1339
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1340
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1339
+    key: hitower_room_1339
+    name: "The burnt room"
+    area_id: 30
+    short_desc: "The burnt room"
+    long_desc: |
+      You are in what looks to have once been a guest bed room. The walls are
+      blackened and burnt by what you could only imagine to be magical fire.
+      There is no sign of the previous occupant, undoubtedly he left in a hurry.
+        The only exit leads back west to the hallway.
+    exits:
+      west: 1338
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1338
+        description: ""
+        keywords: "door charred"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1340
+    key: hitower_room_1340
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading west from here. The walls emit a faint
+      magical glow which provides enough light to see by. Some faint moonlight
+      can be seen in the culdesac to the east.
+        The hallway continues west and stairs lead down to the level below.
+    exits:
+      north: 1342
+      east: 1341
+      west: 1343
+      down: 1338
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1342
+        description: ""
+        keywords: "door oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1341
+        description: "Faint moonlight can be seen to the east"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1338
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1341
+    key: hitower_room_1341
+    name: "A culdesac"
+    area_id: 30
+    short_desc: "A culdesac"
+    long_desc: |
+      You are in a small culdesac. A window to the east is letting in moonlight
+      and a pleasant breeze. Through it, the surrounding country side can be seen.
+        The only apparent exit leads back west to the hallway.
+    exits:
+      west: 1340
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1340
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      window: |
+        Stretching out as far as the eye can see is a canopy of dark tree tops
+        which can only be the Haon-Dor-Dark Forest. A faint light in the distance
+        to the northeast marks what is probably the city of midgaard.
+
+  - id: 1342
+    key: hitower_room_1342
+    name: "The Apprentice's Barracks"
+    area_id: 30
+    short_desc: "The Apprentice's Barracks"
+    long_desc: |
+      You are in the barracks of the apprentice magic users. Here and there, a
+      young apprentice sits engrossed in magical study, or practicing a feeble
+      cantrip. Cots line the walls, and the room continues west.
+    exits:
+      south: 1340
+      west: 1344
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1340
+        description: ""
+        keywords: "door oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1344
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1343
+    key: hitower_room_1343
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        There is a door to the north, and the hallway continues west or back east.
+    exits:
+      north: 1344
+      east: 1340
+      west: 1345
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1344
+        description: ""
+        keywords: "door oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1340
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1344
+    key: hitower_room_1344
+    name: "The Apprentice's barracks"
+    area_id: 30
+    short_desc: "The Apprentice's barracks"
+    long_desc: |
+      You are in the barracks of the apprentice magic users. Here and there, a
+      young apprentice sits engrossed in magical study, or practicing a feeble
+      cantrip. Cots line the walls, and the room continues east.
+    exits:
+      east: 1342
+      south: 1343
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1342
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1343
+        description: ""
+        keywords: "door oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1345
+    key: hitower_room_1345
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by. Flashes of light can
+      be seen under the doorway to the north.
+    exits:
+      north: 1346
+      east: 1343
+      west: 1347
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1346
+        description: "A flash of blue light momentarily lights up the doors outline"
+        keywords: "door oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1347
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1346
+    key: hitower_room_1346
+    name: "The apprentice's workshop"
+    area_id: 30
+    short_desc: "The apprentice's workshop"
+    long_desc: |
+      You are in a small workshop. Writing implements and parchment are strewn
+      about on a few worktables. In the far corner several young mages have a
+      small kitten cornered and seem to be testing spells upon it.
+        The only apparent exit leads back south to the hallway.
+    exits:
+      south: 1345
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1345
+        description: ""
+        keywords: "door oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1347
+    key: hitower_room_1347
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the hallway. The walls emit a faint magical glow
+      which provides enough light to see by.
+        The hallway continues south and back east.
+    exits:
+      east: 1345
+      south: 1348
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1348
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1348
+    key: hitower_room_1348
+    name: "The hallway"
+    area_id: 30
+    short_desc: "The hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        There is a closed metal door to the west.
+    exits:
+      north: 1347
+      south: 1350
+      west: 1349
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1347
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1350
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1349
+        description: ""
+        keywords: "door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1349
+    key: hitower_room_1349
+    name: "A classroom"
+    area_id: 30
+    short_desc: "A classroom"
+    long_desc: |
+      You are in a large classroom filled with bored looking students of the
+      art. The instructor stops in his lecture on the fine uses of magic missile
+      at your entry and lunges to attack you.
+        The only apparent exit is back east to the hallway.
+    exits:
+      east: 1348
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1348
+        description: ""
+        keywords: "door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1350
+    key: hitower_room_1350
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1348
+      south: 1351
+      west: 1352
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1348
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1352
+        description: ""
+        keywords: "door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1351
+    key: hitower_room_1351
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1350
+      south: 1353
+      west: 1354
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1350
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1353
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1354
+        description: ""
+        keywords: "door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1352
+    key: hitower_room_1352
+    name: "An empty classroom"
+    area_id: 30
+    short_desc: "An empty classroom"
+    long_desc: |
+      You are in an empty classroom. Some strange sigils are written on a
+      blackboard which is floating in the air here. Other than a few desks,
+      it is bare of furnishings.
+        The only apparent exit leads back east to the hallway.
+    exits:
+      east: 1350
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1350
+        description: ""
+        keywords: "door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1353
+    key: hitower_room_1353
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the hallway. The walls emit a faint magical glow
+      which provides enough light to see by.
+        The hallway continues east and north.
+    exits:
+      north: 1351
+      east: 1355
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1354
+    key: hitower_room_1354
+    name: "An empty classroom"
+    area_id: 30
+    short_desc: "An empty classroom"
+    long_desc: |
+      You are in an apparently empty classroom. A strange feeling of being
+      watched comes over you, and you hear the faint rustle of robes.
+        The only apparent exit is back east to the hallway.
+    exits:
+      east: 1351
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1351
+        description: ""
+        keywords: "door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1355
+    key: hitower_room_1355
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A sturdy iron door can be seen to the south.
+    exits:
+      east: 1356
+      south: 1357
+      west: 1353
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1356
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1357
+        description: ""
+        keywords: "door sturdy iron"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1353
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1356
+    key: hitower_room_1356
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        There is a large oaken door to the south.
+    exits:
+      east: 1358
+      south: 1359
+      west: 1355
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1359
+        description: ""
+        keywords: "door large oaken"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1357
+    key: hitower_room_1357
+    name: "The Amphitheater"
+    area_id: 30
+    short_desc: "The Amphitheater"
+    long_desc: |
+      You are in a small amphitheater. Rows of comfortable looking chairs circle
+      a large podium. The echos of your footsteps seem very loud here.
+        The only apparent exit leads north to the hallway.
+    exits:
+      north: 1355
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1355
+        description: ""
+        keywords: "door sturdy iron"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1358
+    key: hitower_room_1358
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow providing enough light to see by.
+        A small door can be seen to the south.
+    exits:
+      east: 1360
+      south: 1361
+      west: 1356
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1360
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1361
+        description: ""
+        keywords: "door small"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1356
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1359
+    key: hitower_room_1359
+    name: "The training room"
+    area_id: 30
+    short_desc: "The training room"
+    long_desc: |
+      You are in a large training room. It is filled with battle scared manikins
+      , and many other devices used in the practice of fighting.
+    exits:
+      north: 1356
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1356
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1360
+    key: hitower_room_1360
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the hallway. The walls emit a faint magical glow
+      which provides enough light to see by.
+        The hallway continues north and west.
+    exits:
+      north: 1362
+      west: 1358
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1362
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1361
+    key: hitower_room_1361
+    name: "A dueling room"
+    area_id: 30
+    short_desc: "A dueling room"
+    long_desc: |
+      You are in a large room used for duals arcane. The walls, ceiling and
+      floor all bare the scars of many fiery spells, but still look quite strong
+      and hold fast.
+        The only exit leads north to the hallway.
+    exits:
+      north: 1358
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1358
+        description: ""
+        keywords: "door small"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1362
+    key: hitower_room_1362
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A doorway can be seen to the east.
+    exits:
+      north: 1363
+      east: 1364
+      south: 1360
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1363
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1364
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1360
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1363
+    key: hitower_room_1363
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A wooden door can been seen to the east.
+    exits:
+      north: 1366
+      east: 1365
+      south: 1362
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1365
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1362
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1364
+    key: hitower_room_1364
+    name: "The spellmaster's lounge"
+    area_id: 30
+    short_desc: "The spellmaster's lounge"
+    long_desc: |
+      You are in a large comfortable looking lounge. Off duty spell teachers
+      are here relaxing in their idle time. A large coffee machine is against
+      the far wall.
+        The only apparent exit leads back west to the hallway.
+    exits:
+      west: 1362
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1362
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1365
+    key: hitower_room_1365
+    name: "A bedroom"
+    area_id: 30
+    short_desc: "A bedroom"
+    long_desc: |
+      You are in a large, plush bedroom. The owner is obviously someone of high
+      standing in the magical community here. An ice mirror is on one wall, and
+      a scrying globe sit on a stand in the middle of the room. An enormous bed
+      can be seen floating about a meter above the floor.
+        The only exit leads back west to the hallway.
+    exits:
+      west: 1363
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1363
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1366
+    key: hitower_room_1366
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow providing enough light to see by.
+        A glass door can be seen to the east.
+    exits:
+      north: 1368
+      east: 1367
+      south: 1363
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1367
+        description: ""
+        keywords: "door glass"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1363
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1367
+    key: hitower_room_1367
+    name: "The study"
+    area_id: 30
+    short_desc: "The study"
+    long_desc: |
+      You are in a small, well kept study. Ancient tomes are on shelves on the
+      walls, A huge table sits in the middle of the room, with maps weighted
+      down upon it. The only light source here comes from an interestingly non-
+      magical oil lamp.
+        The only apparent exit leads back west to the hallway.
+    exits:
+      west: 1366
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1366
+        description: ""
+        keywords: "door glass"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1368
+    key: hitower_room_1368
+    name: "Below the stairs"
+    area_id: 30
+    short_desc: "Below the stairs"
+    long_desc: |
+      You are at the end of a long hallway. The walls emit a faint magical glow
+      which provides enough light to see by. A lesser guardian is here keeping
+      silent watch on the entrance to the levels above.
+        Stairs lead up and the hallway continues back south.
+    exits:
+      south: 1366
+      up: 1369
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1369
+    key: hitower_room_1369
+    name: "Atop the stairway"
+    area_id: 30
+    short_desc: "Atop the stairway"
+    long_desc: |
+      You are atop a stairway. The halls here look quite a bit less used than
+      those below. Obviously access to these magic filled corridors is limited
+      to those of the upper echelon of mages. The walls here emit a faint blue
+      magical aura which provides some light.
+        The hallway leads west from here and the stairs go down.
+    exits:
+      west: 1370
+      down: 1368
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1370
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1370
+    key: hitower_room_1370
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway stretching east and west. The walls here emit
+      a faint magical energy providing enough light to see by.
+        There is a thick looking wooden door to the north.
+    exits:
+      north: 1371
+      east: 1369
+      west: 1372
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1371
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1372
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1371
+    key: hitower_room_1371
+    name: "A small office"
+    area_id: 30
+    short_desc: "A small office"
+    long_desc: |
+      You are in a small office. It looks like a calligrapher's study, there
+      are quills, inkpots and parchments all about on desks and worktables.
+      A section to the west seems to be curtained off, but the flicker of a
+      candle can be seen through the curtain.
+    exits:
+      south: 1370
+      west: 1373
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1370
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1373
+        description: ""
+        keywords: "curtain"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1372
+    key: hitower_room_1372
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      east: 1370
+      west: 1374
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1370
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1374
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1373
+    key: hitower_room_1373
+    name: "The master scribe's workshop"
+    area_id: 30
+    short_desc: "The master scribe's workshop"
+    long_desc: |
+      You are in the workshop of the tower's master scribe. Many half finished
+      scrolls lay on the writing table in the center of the room. A giant candle
+      flickering with soft blue flames provides the only light here.
+        The only apparent exit is the way you came in.
+    exits:
+      east: 1371
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1371
+        description: ""
+        keywords: "curtain"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1374
+    key: hitower_room_1374
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A half closed door can be seen to the north.
+    exits:
+      north: 1375
+      east: 1372
+      west: 1376
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1375
+        description: "A dark room can be seen through the half opened door"
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1372
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1376
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1375
+    key: hitower_room_1375
+    name: "A store room"
+    area_id: 30
+    short_desc: "A store room"
+    long_desc: |
+      You are in a small dark store room. A few common items are stacked upon
+      the shelves here, but very little looks interesting.
+    exits:
+      south: 1374
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1374
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1376
+    key: hitower_room_1376
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the long hallway. The walls emit a faint magical
+      glow which provides enough light to see by.
+        The hallway continues south and east from here.
+    exits:
+      east: 1374
+      south: 1377
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1374
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1377
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1377
+    key: hitower_room_1377
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        An iron bound door can be seen to the west.
+    exits:
+      north: 1376
+      south: 1378
+      west: 1379
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1376
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1378
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1379
+        description: ""
+        keywords: "door iron"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1378
+    key: hitower_room_1378
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        The sharp sound of metal on metal can be heard to the west.
+    exits:
+      north: 1377
+      south: 1380
+      west: 1381
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1377
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1380
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1381
+        description: ""
+        keywords: "door iron"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1379
+    key: hitower_room_1379
+    name: "A store room"
+    area_id: 30
+    short_desc: "A store room"
+    long_desc: |
+      You are in a large store room. Bins of ores, minerals and other rare
+      materials are here along with many neatly stacked piles of precious metals.
+      A large cabinet with sigils of warding is bolted to one wall.
+        The ring of metal on metal can be heard to the south.
+    exits:
+      east: 1377
+      south: 1381
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1377
+        description: ""
+        keywords: "door iron"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1381
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1380
+    key: hitower_room_1380
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1378
+      south: 1383
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1378
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1383
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1381
+    key: hitower_room_1381
+    name: "A very hot room"
+    area_id: 30
+    short_desc: "A very hot room"
+    long_desc: |
+      You are in a very hot room. Against one wall is a large forge, magical
+      fires crackle within and heavy blue smoke pours into a vent in the ceiling.
+      A rune-encrusted mithril anvil is in the center of the room, looking well
+      used. Other tools of metallurgy hang on a rack which floats about three
+      meters in the air of its own force.
+    exits:
+      north: 1379
+      east: 1378
+      south: 1382
+      up: 1412
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1379
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1378
+        description: ""
+        keywords: "door iron"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1382
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1412
+        description: ""
+        keywords: "vent"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1382
+    key: hitower_room_1382
+    name: "The master Enchanter's chamber"
+    area_id: 30
+    short_desc: "The master Enchanter's chamber"
+    long_desc: |
+      You have entered the master enchanter's chamber. Upon all the walls here
+      are racks of finely crafted weapons. A huge chest with a glowing lock is
+      set to one side. Several unfinished looking blades rest atop a small work
+      table.
+    exits:
+      north: 1381
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1381
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1383
+    key: hitower_room_1383
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in a long hallway. The walls emit a faint magical glow
+      which provides enough light to see by.
+        The hallway continues north and east.
+    exits:
+      north: 1380
+      east: 1384
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1380
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1384
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1384
+    key: hitower_room_1384
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A steel door can be seen to the south.
+    exits:
+      east: 1385
+      south: 1386
+      west: 1383
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1385
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1386
+        description: ""
+        keywords: "door steel"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1383
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1385
+    key: hitower_room_1385
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      east: 1387
+      west: 1384
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1387
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1384
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1386
+    key: hitower_room_1386
+    name: "A laboratory"
+    area_id: 30
+    short_desc: "A laboratory"
+    long_desc: |
+      You are in a small laboratory. Many strange instruments, vials, bottles
+      and some scrawled notes are piled about a workbench. This room is very
+      untidy, looking almost abandoned, or used by a madman.
+        The only apparent exits are east and north.
+    exits:
+      north: 1384
+      east: 1388
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1384
+        description: ""
+        keywords: "door steel"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1388
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1387
+    key: hitower_room_1387
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        You can see a steel door to the south.
+    exits:
+      east: 1389
+      south: 1390
+      west: 1385
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1389
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1390
+        description: ""
+        keywords: "door steel"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1385
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1388
+    key: hitower_room_1388
+    name: "The Mad Alchemist's workroom"
+    area_id: 30
+    short_desc: "The Mad Alchemist's workroom"
+    long_desc: |
+      You are in the workroom of The Mad Alchemist. Bubbling braziers, long
+      glass tubes and scores of oddly shaped vials and bottles are everywhere.
+      It is incredibly messy here, crushed glass and other trash litter the floor.
+        The only apparent exit is the one you entered by.
+    exits:
+      west: 1386
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1386
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1389
+    key: hitower_room_1389
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in a long hallway. The walls emit a faint magical glow
+      which provides enough light to see by.
+        The hallway continues north and west.
+    exits:
+      north: 1391
+      west: 1387
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1391
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1387
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1390
+    key: hitower_room_1390
+    name: "The pentagram chamber"
+    area_id: 30
+    short_desc: "The pentagram chamber"
+    long_desc: |
+      You are in a large room with a five pointed star etched into the floor.
+      A crackling energy field can be seen to the south, it looks quite dangerous.
+    exits:
+      north: 1387
+      south: 1392
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1387
+        description: ""
+        keywords: "door steel"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1392
+        description: "The energy field crackles and glows, nothing seems to be beyond."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1391
+    key: hitower_room_1391
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A bronze door can be seen to the east.
+    exits:
+      north: 1393
+      east: 1394
+      south: 1389
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1393
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1394
+        description: ""
+        keywords: "door bronze"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1389
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1392
+    key: hitower_room_1392
+    name: "Inside the Energy Field"
+    area_id: 30
+    short_desc: "Inside the Energy Field"
+    long_desc: |
+      You feel a stomach twisting sensation as you enter the energy field.
+      Nice going!  You might as well wait here until the wizard who built this
+      trap comes back to imprison your soul as well as your body.
+    exits:
+      east: 5113
+      south: 9141
+      west: 7428
+      up: 938
+      down: 3460
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 5113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7428
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 938
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3460
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1393
+    key: hitower_room_1393
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A bronze door can be seen to the east.
+    exits:
+      north: 1396
+      east: 1395
+      south: 1391
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1396
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1395
+        description: ""
+        keywords: "door bronze"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1391
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1394
+    key: hitower_room_1394
+    name: "An empty room"
+    area_id: 30
+    short_desc: "An empty room"
+    long_desc: |
+      You are in an empty room. It is both quiet and comfortable here, it looks
+      like a safe place to rest.
+    exits:
+      west: 1391
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      west:
+        to: 1391
+        description: ""
+        keywords: "door bronze"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1395
+    key: hitower_room_1395
+    name: "The charm master's chamber"
+    area_id: 30
+    short_desc: "The charm master's chamber"
+    long_desc: |
+      You are in the chambers of the tower's master of charm. Some straw and
+      dirt litters the floor here, it looks to have been recently used by wild
+      animals.
+        Strange sounds can be heard through the bars to the north.
+    exits:
+      north: 1397
+      west: 1393
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1397
+        description: ""
+        keywords: "cage bars"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1393
+        description: ""
+        keywords: "door bronze"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1396
+    key: hitower_room_1396
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1398
+      south: 1393
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1398
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1393
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1397
+    key: hitower_room_1397
+    name: "The animal pens"
+    area_id: 30
+    short_desc: "The animal pens"
+    long_desc: |
+      You are in the animal pens. Many caged animals are here looking unhappy.
+      Obviously they are destined to be enslaved, or used in some cruel magical
+      experimentation.
+    exits:
+      south: 1395
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1395
+        description: ""
+        keywords: "cage bars"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1398
+    key: hitower_room_1398
+    name: "The end of the hallway"
+    area_id: 30
+    short_desc: "The end of the hallway"
+    long_desc: |
+      You are at the end of a long north-south hallway. The walls emit a faint
+      magical glow which provides enough light to see by.
+        Stairs here lead up to the next level, and the hallway continues south.
+    exits:
+      south: 1396
+      up: 1399
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1396
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1399
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1399
+    key: hitower_room_1399
+    name: "Atop the stairway"
+    area_id: 30
+    short_desc: "Atop the stairway"
+    long_desc: |
+      You are atop the stairway to the upper levels of the high tower. The walls
+      emit a faint magical glow which provides enough light to see by.
+        A hallway leads west from here, and the stairs lead down.
+    exits:
+      west: 1400
+      down: 1398
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1400
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1398
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1400
+    key: hitower_room_1400
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A silver door can be seen to the north.
+    exits:
+      north: 1401
+      east: 1399
+      west: 1404
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1401
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1399
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1404
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1401
+    key: hitower_room_1401
+    name: "A store room"
+    area_id: 30
+    short_desc: "A store room"
+    long_desc: |
+      You are in a large store room. Raw materials are neatly bundled and piled
+      here and here. Many freshly cut staves rods and wands of different sizes
+      are here.
+        You can see a silver door to the west.
+    exits:
+      south: 1400
+      west: 1402
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1400
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1402
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1402
+    key: hitower_room_1402
+    name: "The master spellbinder's chamber"
+    area_id: 30
+    short_desc: "The master spellbinder's chamber"
+    long_desc: |
+      You are in the chambers of the master spell binder. Unlike other work
+      shops of similar nature, this one is without furnishings or tools. The
+      spell binder obviously needs none for the working of his art.
+        A silver door can be seen to the west.
+    exits:
+      east: 1401
+      west: 1403
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1401
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1403
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1403
+    key: hitower_room_1403
+    name: "The spellbinder's cache"
+    area_id: 30
+    short_desc: "The spellbinder's cache"
+    long_desc: |
+      You have discovered the cache of the master spell binder. There are three
+      very large silver chased cabinets here, other than that, the room is bare.
+        A silver door can be seen to the south.
+    exits:
+      east: 1402
+      south: 1405
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1402
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1405
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1404
+    key: hitower_room_1404
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      east: 1400
+      west: 1405
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1400
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1405
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1405
+    key: hitower_room_1405
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A silver door can be seen to the north.
+    exits:
+      north: 1403
+      east: 1404
+      west: 1406
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1403
+        description: ""
+        keywords: "door silver"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1404
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1406
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1406
+    key: hitower_room_1406
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the long hallway. The walls emit a faint magical
+      glow which provides enough light to see by.
+        The hallway continues east and south.
+    exits:
+      east: 1405
+      south: 1407
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1405
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1407
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1407
+    key: hitower_room_1407
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1406
+      south: 1408
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1406
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1408
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1408
+    key: hitower_room_1408
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A rusty old door can be seen to the west.
+    exits:
+      north: 1407
+      south: 1413
+      west: 1409
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1407
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1413
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1409
+        description: ""
+        keywords: "door rusty"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1409
+    key: hitower_room_1409
+    name: "The golem master's workshop"
+    area_id: 30
+    short_desc: "The golem master's workshop"
+    long_desc: |
+      You are in the golem master's workshop. A few unfinished looking humanoid
+      forms of different make are here, some moving, some not. The animated forms
+      lunge to attack you.
+    exits:
+      north: 1410
+      east: 1408
+      south: 1411
+      down: 1412
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1410
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1408
+        description: ""
+        keywords: "door rusty"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1411
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1412
+        description: ""
+        keywords: "trapdoor"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1410
+    key: hitower_room_1410
+    name: "A store room"
+    area_id: 30
+    short_desc: "A store room"
+    long_desc: |
+      You are in a small store room. Large chunks of clay, stone, wood and many
+      other raw materials are here.
+    exits:
+      south: 1409
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1409
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1411
+    key: hitower_room_1411
+    name: "The golem chamber"
+    area_id: 30
+    short_desc: "The golem chamber"
+    long_desc: |
+      You are in the golem chamber. Golems made of every imaginable material
+      are here, ranging in size from a hand-span to nearly the ceiling. They all
+      seem to be sleeping.
+    exits:
+      north: 1409
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1409
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1412
+    key: hitower_room_1412
+    name: "It is very dark here..."
+    area_id: 30
+    short_desc: "It is very dark here..."
+    long_desc: |
+      It is very dark here...
+    exits:
+      up: 1409
+      down: 1381
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 1409
+        description: ""
+        keywords: "trapdoor"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1381
+        description: ""
+        keywords: "vent"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1413
+    key: hitower_room_1413
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1408
+      south: 1414
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1408
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1414
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1414
+    key: hitower_room_1414
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the long hallway. The walls emit a faint magical
+      glow which provides enough light to see by.
+        The hallway continues north and east from here.
+    exits:
+      north: 1413
+      east: 1415
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1413
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1415
+    key: hitower_room_1415
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      east: 1416
+      west: 1414
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1416
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1414
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1416
+    key: hitower_room_1416
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        An emerald door can be seen to the south.
+    exits:
+      east: 1419
+      south: 1417
+      west: 1415
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1419
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1417
+        description: ""
+        keywords: "door emerald"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1417
+    key: hitower_room_1417
+    name: "The master of illusion's chamber"
+    area_id: 30
+    short_desc: "The master of illusion's chamber"
+    long_desc: |
+      You are in the chamber of the master of illusions. The walls here are
+      every changing in color and texture, as if they were reforming before your
+      very eyes. Many splendorous treasures lie all around in heaps and piles, or
+      at least they seem to be treasures...
+    exits:
+      north: 1416
+      west: 1418
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1416
+        description: ""
+        keywords: "door emerald"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1418
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1418
+    key: hitower_room_1418
+    name: "A bedroom"
+    area_id: 30
+    short_desc: "A bedroom"
+    long_desc: |
+      You are in the bedroom of the master of illusions. Strange looking items
+      and artifacts float here and there in the air. The ripples of strong magic
+      can be felt everywhere.
+        The room seems much larger than it looks...
+    exits:
+      north: -1
+      east: 1417
+      west: -1
+      south: -1
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: -1
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1417
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: -1
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: -1
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1419
+    key: hitower_room_1419
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading east and west. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A glass door can be seen to the south.
+    exits:
+      east: 1421
+      south: 1420
+      west: 1416
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1421
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1420
+        description: ""
+        keywords: "door glass"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1416
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1420
+    key: hitower_room_1420
+    name: "The meditation chamber"
+    area_id: 30
+    short_desc: "The meditation chamber"
+    long_desc: |
+      You are in a meditation chamber. It is very silent here, in fact you
+      can not even hear your own footsteps.
+        You feel very peaceful.
+    exits:
+      north: 1419
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 1419
+        description: ""
+        keywords: "door glass"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1421
+    key: hitower_room_1421
+    name: "A bend in the hallway"
+    area_id: 30
+    short_desc: "A bend in the hallway"
+    long_desc: |
+      You are at a bend in the long hallway. The walls emit a faint magical
+      glow which provides enough light to see by.
+        The hallway continues north and west from here.
+    exits:
+      north: 1422
+      west: 1419
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1422
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1419
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1422
+    key: hitower_room_1422
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+        A blackened door can be seen to the east.
+    exits:
+      north: 1426
+      east: 1423
+      south: 1421
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1426
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1423
+        description: ""
+        keywords: "door black"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1421
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1423
+    key: hitower_room_1423
+    name: "A dark room"
+    area_id: 30
+    short_desc: "A dark room"
+    long_desc: |
+      You are in a large dark room. The air here seems quite stale, and a sense
+      of extreme dread comes over you. The stench of rotten flesh seems to be
+      wafting in from the open doorway to the north.
+    exits:
+      north: 1424
+      west: 1422
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1424
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1422
+        description: ""
+        keywords: "door black"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1424
+    key: hitower_room_1424
+    name: "A dark room"
+    area_id: 30
+    short_desc: "A dark room"
+    long_desc: |
+      You are in a large dark room. The stench here makes you gag and wretch.
+      There are body parts and half rotted corpses strewn about with complete
+      abandon. Several operating tables with still forms that resemble nothing
+      you've ever seen alive are here.
+        Tortured screams can be heard from the north.
+    exits:
+      north: 1425
+      south: 1423
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1425
+        description: "Upon gazing northwards, you are filled with deep dread"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1423
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1425
+    key: hitower_room_1425
+    name: "The Necromancer's Lair"
+    area_id: 30
+    short_desc: "The Necromancer's Lair"
+    long_desc: |
+      You are in the lair of the evil Necromancer. Undead minions of all types,
+      human and otherwise stand here waiting to do their master's bidding. Some
+      glowing arcane sigils have been etched into walls and floor, no doubt to
+      protect the evil master from his own ungodly creations.
+    exits:
+      south: 1424
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1424
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1426
+    key: hitower_room_1426
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1427
+      south: 1422
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1427
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1422
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1427
+    key: hitower_room_1427
+    name: "A hallway"
+    area_id: 30
+    short_desc: "A hallway"
+    long_desc: |
+      You are in a long hallway leading north and south. The walls emit a faint
+      magical glow which provides enough light to see by.
+    exits:
+      north: 1428
+      south: 1426
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1428
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1426
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1428
+    key: hitower_room_1428
+    name: "The end of the hallway"
+    area_id: 30
+    short_desc: "The end of the hallway"
+    long_desc: |
+      You are at the end of a long hallway. The walls here glow with a faint
+      magical energy which provides plenty of light.
+        Stairs lead up to the next level here and the hallway continues south.
+    exits:
+      south: 1427
+      up: 1429
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1427
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1429
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1429
+    key: hitower_room_1429
+    name: "A corridor"
+    area_id: 30
+    short_desc: "A corridor"
+    long_desc: |
+      You are at the east end of a long corridor. Obsidian walls engraved with
+      ancient runes of power stretch out before you. Magical energies seem to
+      crackle with power all around and whisper in tongues long forgotten, almost
+      as if the corridor it self were alive.
+    exits:
+      west: 1430
+      down: 1428
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1430
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1428
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1430
+    key: hitower_room_1430
+    name: "A corridor"
+    area_id: 30
+    short_desc: "A corridor"
+    long_desc: |
+      You are in a long corridor. Obsidian walls engraved with ancient runes
+      of power stretch out before you. Magical energies seem to crackle with
+      power all around and whisper in tongues long forgotten, almost as if the
+      corridor itself were alive.
+    exits:
+      east: 1429
+      west: 1431
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1429
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1431
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1431
+    key: hitower_room_1431
+    name: "A bend in the corridor"
+    area_id: 30
+    short_desc: "A bend in the corridor"
+    long_desc: |
+      You are at a bend in the long corridor. Obsidian walls engraved with
+      ancient runes of power stretch out before you. Magical energies seem to
+      crackle with power all around and whisper in tongues long forgotten, almost
+      as if the corridor itself were alive.
+    exits:
+      east: 1430
+      south: 1432
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1430
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1432
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1432
+    key: hitower_room_1432
+    name: "A corridor"
+    area_id: 30
+    short_desc: "A corridor"
+    long_desc: |
+      You are in a long corridor leading north and south. Obsidian walls
+      engraved with ancient runes of power stretch out before you. Magical
+      energies seem to crackle with power all around and whisper in tongues
+      long forgotten, almost as if the corridor itself were alive.
+    exits:
+      north: 1431
+      south: 1433
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1431
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1433
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1433
+    key: hitower_room_1433
+    name: "An intersection"
+    area_id: 30
+    short_desc: "An intersection"
+    long_desc: |
+      You are at an intersection in the corridor. The obsidian walled halls
+      lead off in every direction from here, pulsing with the power of their
+      ancient runes.
+    exits:
+      north: 1432
+      east: 1434
+      south: 1446
+      west: 1436
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1432
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1434
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1446
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1436
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1434
+    key: hitower_room_1434
+    name: "A corridor"
+    area_id: 30
+    short_desc: "A corridor"
+    long_desc: |
+      You are at the end of a long corridor. Obsidian walls engraved with
+      ancient runes of power stretch out before you. A darkened door is to the
+      east. Tendrils of mist cling to the floor here, they seem to be seeping
+      from under the door.
+    exits:
+      east: 1435
+      west: 1433
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1435
+        description: ""
+        keywords: "door black"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1433
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1435
+    key: hitower_room_1435
+    name: "The scrying chamber"
+    area_id: 30
+    short_desc: "The scrying chamber"
+    long_desc: |
+      You are in the scrying chamber of the high tower of sorcerery. It is here
+      that arcane rituals are performed to enable those of the art to look in
+      upon denizens throughout the world and spy out their darkest secrets.
+        A huge black cauldron is in the center of the room, bubbling and gurgling,
+      it pours forth a constant stream of smokey fog into the air about you. Here
+      and there on stands of different sizes are crystal balls and oddly shaped
+      mirrors.
+    exits:
+      west: 1434
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1434
+        description: ""
+        keywords: "door black"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1436
+    key: hitower_room_1436
+    name: "A corridor"
+    area_id: 30
+    short_desc: "A corridor"
+    long_desc: |
+      You have reached an end in the long corridor. Obsidian walls engraved
+      with ancient runes of power stretch out before you. The sound of snoring
+      can barely be heard through the door to the west.
+    exits:
+      east: 1433
+      west: 1437
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1433
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1437
+        description: ""
+        keywords: "door wooden"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1437
+    key: hitower_room_1437
+    name: "The entrance to the library"
+    area_id: 30
+    short_desc: "The entrance to the library"
+    long_desc: |
+      You are in the entrance to the great library of magic. A giant desk is
+      here, covered with books parchments and scrolls. Long shelves loaded with
+      row upon row of books stretch out in every direction as far as the eye can
+      see.
+    exits:
+      north: 1439
+      east: 1436
+      south: 1440
+      west: 1438
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1439
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1436
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1440
+        description: "All you can see are books"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1438
+        description: "All you can see are books"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1438
+    key: hitower_room_1438
+    name: "In the library"
+    area_id: 30
+    short_desc: "In the library"
+    long_desc: |
+      You are in the great library of magic. A strong musty smell permeates the
+      entire area. Upon shelves which float just out of reach are hundreds of
+      books, tomes and scrolls of every possible shape size and color. The elusive
+      books seem to wink in and out of existence before your untrained eyes.
+        It is very quiet here.
+    exits:
+      north: 1441
+      east: 1437
+      south: 1442
+      west: 1443
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1441
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1437
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1442
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1443
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1439
+    key: hitower_room_1439
+    name: "In the library"
+    area_id: 30
+    short_desc: "In the library"
+    long_desc: |
+      You are in the great library of magic. A strong musty smell permeates the
+      entire area. Upon shelves which float just out of reach are hundreds of
+      books, tomes and scrolls of every possible shape size and color. The elusive
+      books seem to wink in and out of existence before your untrained eyes.
+        It is very quiet here.
+    exits:
+      north: 1440
+      east: 1442
+      south: 1437
+      west: 1441
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1440
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1442
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1437
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1441
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1440
+    key: hitower_room_1440
+    name: "In the library"
+    area_id: 30
+    short_desc: "In the library"
+    long_desc: |
+      You are in the great library of magic. A strong musty smell permeates the
+      entire area. Upon shelves which float just out of reach are hundreds of
+      books, tomes and scrolls of every possible shape size and color. The elusive
+      books seem to wink in and out of existence before your untrained eyes.
+        It is very quiet here.
+    exits:
+      north: 1437
+      east: 1441
+      south: 1439
+      west: 1442
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1437
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1441
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1439
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1442
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1441
+    key: hitower_room_1441
+    name: "In the library"
+    area_id: 30
+    short_desc: "In the library"
+    long_desc: |
+      You are in the great library of magic. A strong musty smell permeates the
+      entire area. Upon shelves which float just out of reach are hundreds of
+      books, tomes and scrolls of every possible shape size and color. The elusive
+      books seem to wink in and out of existence before your untrained eyes.
+        It is very quiet here.
+    exits:
+      north: 1442
+      east: 1439
+      south: 1438
+      west: 1440
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1442
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1439
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1438
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1440
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1442
+    key: hitower_room_1442
+    name: "In the library"
+    area_id: 30
+    short_desc: "In the library"
+    long_desc: |
+      You are in the great library of magic. A strong musty smell permeates the
+      entire area. Upon shelves which float just out of reach are hundreds of
+      books, tomes and scrolls of every possible shape size and color. The elusive
+      books seem to wink in and out of existence before your untrained eyes.
+        It is very quiet here.
+    exits:
+      north: 1438
+      east: 1440
+      south: 1441
+      west: 1439
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1438
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1440
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1441
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1439
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1443
+    key: hitower_room_1443
+    name: "In the library"
+    area_id: 30
+    short_desc: "In the library"
+    long_desc: |
+      You are in the great library of magic. A strong musty smell permeates the
+      entire area. Upon shelves which float just out of reach are hundreds of
+      books, tomes and scrolls of every possible shape size and color. The elusive
+      books seem to wink in and out of existence before your untrained eyes.
+        It is very quiet here.
+    exits:
+      east: 1438
+      west: 1444
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1438
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1444
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1444
+    key: hitower_room_1444
+    name: "Between the shelves"
+    area_id: 30
+    short_desc: "Between the shelves"
+    long_desc: |
+      You are in the great library of magic. The shelves seem uncomfortably
+      close here, you can barely maneuver between them. The musty smell is still
+      strong, and the elusive books still hover just out of reach.
+        A faint flicker of light can barely be made out to the north.
+    exits:
+      north: 1445
+      east: 1443
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1445
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1443
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1445
+    key: hitower_room_1445
+    name: "The reading room"
+    area_id: 30
+    short_desc: "The reading room"
+    long_desc: |
+      You are in a small room completely devoid of furnishings. The only thing
+      here is an enormous tome, lying face open on the floor. The great book looks
+      both heavy and ancient. Its jewel encrusted bindings are well worn as the
+      bark of a tree. Spidery writings seem to crawls across the pages, totally
+      incomprehensible to your mortal eye. Something seems to be wedged between
+      the pages.
+    exits:
+      south: 1444
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1444
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1446
+    key: hitower_room_1446
+    name: "A corridor"
+    area_id: 30
+    short_desc: "A corridor"
+    long_desc: |
+      You are in a long corridor leading north and south. Obsidian walls
+      engraved with ancient runes of power stretch out before you. Magical
+      energies seem to crackle with power all around and whisper in tongues
+      long forgotten, almost as if the corridor itself were alive.
+    exits:
+      north: 1433
+      south: 1447
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1433
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1447
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1447
+    key: hitower_room_1447
+    name: "The end of the corridor"
+    area_id: 30
+    short_desc: "The end of the corridor"
+    long_desc: |
+      You are at the end of a long corridor. The obsidian walls come to an
+      abrupt halt at the edge of a golden archway here. The hum of power is so
+      strong it nearly numbs your body.
+        The archway lies before you, glowing and pulsing with energy.
+    exits:
+      north: 1446
+      south: 1448
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1446
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1448
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1448
+    key: hitower_room_1448
+    name: "The arched entrance"
+    area_id: 30
+    short_desc: "The arched entrance"
+    long_desc: |
+      You feel a slight tingle as you pass through the archway, as if the living
+      magical energies here had infused your body, found it wanting and left. The
+      intense glow from the arch above you is almost blinding. Through the light
+      you can barely make out a stairway leading up.
+    exits:
+      north: 1447
+      up: 1449
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1447
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1449
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1449
+    key: hitower_room_1449
+    name: "The landing"
+    area_id: 30
+    short_desc: "The landing"
+    long_desc: |
+      You are on a small landing in the middle of a long stairway leading up.
+      Your senses seem dulled here, no sound or smell can be detected at all, and
+      the only thing you can see in any direction is endless stairway.
+    exits:
+      down: 1448
+      up: 1450
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 1448
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1450
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1450
+    key: hitower_room_1450
+    name: "An intersection"
+    area_id: 30
+    short_desc: "An intersection"
+    long_desc: |
+      You are at an intersection of several hallways. You feel as if strange
+      mystical forces are pushing and pulling at each other from all around you.
+      The sensation of being trapped, in the middle is almost tangible in the air
+      here.
+        A grey tiled hallway leads south, black tiled east, white tiled west, and
+      a multi-colored hallway swirling with patterns that remain just barely
+      unrecognizable is to the north.
+    exits:
+      north: 1473
+      east: 1458
+      south: 1451
+      west: 1465
+      down: 1449
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1473
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1458
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1451
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1465
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1449
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1451
+    key: hitower_room_1451
+    name: "A grey tiled hallway"
+    area_id: 30
+    short_desc: "A grey tiled hallway"
+    long_desc: |
+      You are in a grey tiled hallway leading north and south. Dim balls of
+      energy float here and there shedding a warm light, and showing the way.
+      A feeling of peace and balance comes over you.
+    exits:
+      north: 1450
+      south: 1452
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1450
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1452
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1452
+    key: hitower_room_1452
+    name: "A grey tiled hallway"
+    area_id: 30
+    short_desc: "A grey tiled hallway"
+    long_desc: |
+      You are in a grey tiled hallway leading north and south. Dim balls of
+      energy float here and there shedding a warm light, and showing the way.
+      A feeling of peace and balance comes over you.
+        Large grey metal double doors can be seen to the south.
+    exits:
+      north: 1451
+      south: 1453
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1451
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1453
+        description: ""
+        keywords: "door grey"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1453
+    key: hitower_room_1453
+    name: "The antechamber"
+    area_id: 30
+    short_desc: "The antechamber"
+    long_desc: |
+      You are in the antechamber of the master magician of the grey light. A
+      feeling of strong magic floats in the air about you, almost as if you could
+      taste the power held within these walls.
+        Once your eyes adjust to the semi-light, you can make out a larger room
+      to the south.
+    exits:
+      north: 1452
+      south: 1454
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1452
+        description: ""
+        keywords: "door grey"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1454
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1454
+    key: hitower_room_1454
+    name: "The main chamber"
+    area_id: 30
+    short_desc: "The main chamber"
+    long_desc: |
+      A feeling of tranquility comes over you as you enter the main chamber of
+      neutrality. Some artifacts are hung on the walls here, or set on stands.
+      The room in general looks both comfortable and official. Probably where the
+      master of neutrality holds audience.
+    exits:
+      north: 1453
+      east: 1456
+      south: 1457
+      west: 1455
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1453
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1456
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1457
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1455
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1455
+    key: hitower_room_1455
+    name: "The study"
+    area_id: 30
+    short_desc: "The study"
+    long_desc: |
+      You are in a large study. Shelves filled with many books or arcane
+      knowledge are on every wall. A large oaken desk is in the center, with
+      many parchments and scrolls on it. The most notable thing in the room is
+      a small set of scales, which floats about eye level. In perfect balance,
+      the scales are no doubt a sign of the master's neutrality.
+    exits:
+      east: 1454
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1454
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1456
+    key: hitower_room_1456
+    name: "A closet"
+    area_id: 30
+    short_desc: "A closet"
+    long_desc: |
+      You are in a small closet. It is filled with many cloaks, and some other
+      apparel.
+    exits:
+      west: 1454
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1454
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1457
+    key: hitower_room_1457
+    name: "A bedroom"
+    area_id: 30
+    short_desc: "A bedroom"
+    long_desc: |
+      You are in the bedroom of the master magician of neutrality. Curtained
+      windows can be seen on the south wall. A large comfortable looking bed
+      takes up most of the room.
+    exits:
+      north: 1454
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1454
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1458
+    key: hitower_room_1458
+    name: "A dark hallway"
+    area_id: 30
+    short_desc: "A dark hallway"
+    long_desc: |
+      You are in a long dark hallway leading east and west. Not much can be
+      seen in the unnatural darkness here, but you get a deep sense of dread
+      the further you go.
+    exits:
+      west: 1450
+      east: 1459
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1450
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1459
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1459
+    key: hitower_room_1459
+    name: "A dark hallway"
+    area_id: 30
+    short_desc: "A dark hallway"
+    long_desc: |
+      You are in a long dark hallway leading east and west. Not much can be
+      seen in the unnatural darkness here, but you get a deep sense of dread
+      the further you go.
+    exits:
+      east: 1460
+      west: 1458
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1460
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1458
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1460
+    key: hitower_room_1460
+    name: "The end of the hallway"
+    area_id: 30
+    short_desc: "The end of the hallway"
+    long_desc: |
+      You are at the end of a long dark hallway. The darkness here is almost
+      tangible in its thickness. A deep sense of fear and loathing comes over
+      you.
+        A pair of obsidian doors can be seen to the east.
+    exits:
+      east: 1461
+      west: 1459
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1461
+        description: ""
+        keywords: "door obsidian"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1459
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1461
+    key: hitower_room_1461
+    name: "The chamber of darkness"
+    area_id: 30
+    short_desc: "The chamber of darkness"
+    long_desc: |
+      You are in a vast chamber. The walls fade into darkness, leaving you
+      with a very vague idea of the actual size of the room. Swirling here and
+      there in the dark, are patches of pure black which seem to suck in your
+      light and leave it that much darker here.
+    exits:
+      north: 1462
+      south: 1463
+      east: 1464
+      west: 1460
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1462
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1463
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1464
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1460
+        description: ""
+        keywords: "door obsidian"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1462
+    key: hitower_room_1462
+    name: "It is very dark here..."
+    area_id: 30
+    short_desc: "It is very dark here..."
+    long_desc: |
+      It is very dark here...
+    exits:
+      south: 1461
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1461
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1463
+    key: hitower_room_1463
+    name: "Torture chamber"
+    area_id: 30
+    short_desc: "Torture chamber"
+    long_desc: |
+      You are in an ill lit chamber. Instruments of torture hang from a rack
+      on the wall, they seem to quiver with anticipation of a victim as if they
+      had a mind of their own. An operating table is here, though it is bare.
+        An extreme feeling of evil permeates the entire area.
+    exits:
+      north: 1461
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1461
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1464
+    key: hitower_room_1464
+    name: "The inner chamber"
+    area_id: 30
+    short_desc: "The inner chamber"
+    long_desc: |
+      You are in a small dark chamber. Upon the walls are glowing sigils of
+      dark power, scrawled and traced in an evil language no longer known to most
+      of this plane of existence. There is an obsidian altar here which seems to
+      glow, but does not shed any light, in fact it seems to be taking light in.
+    exits:
+      west: 1461
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1461
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1465
+    key: hitower_room_1465
+    name: "A bright hallway"
+    area_id: 30
+    short_desc: "A bright hallway"
+    long_desc: |
+      You are in a long well lit hallway leading east and west. The walls here
+      are a milky white color, and glow with a warm luminescence, as does the
+      floor. A feeling of goodness permeates the area, and you feel unworthy to
+      tread upon these sacred floors.
+    exits:
+      east: 1450
+      west: 1466
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1450
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1466
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1466
+    key: hitower_room_1466
+    name: "A bright hallway"
+    area_id: 30
+    short_desc: "A bright hallway"
+    long_desc: |
+      You are in a long well lit hallway leading east and west. The walls here
+      are a milky white color, and glow with a warm luminescence, as does the
+      floor. A feeling of goodness permeates the area, and you feel unworthy to
+      tread upon these sacred floors.
+        A huge set of double doors in finely worked ivory can be seen to the west.
+    exits:
+      east: 1465
+      west: 1467
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1465
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1467
+        description: ""
+        keywords: "door ivory"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1467
+    key: hitower_room_1467
+    name: "An antechamber"
+    area_id: 30
+    short_desc: "An antechamber"
+    long_desc: |
+      You are in a small antechamber. It is well lit here, though the source
+      of light cannot be seen. It is almost as if the room itself exudes a warm
+      glow of goodness. A larger chamber can be seen to the west, but you do not
+      feel worthy to pass into it.
+    exits:
+      east: 1466
+      west: 1469
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1466
+        description: ""
+        keywords: "door ivory"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1469
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1469
+    key: hitower_room_1469
+    name: "The chamber of the white light"
+    area_id: 30
+    short_desc: "The chamber of the white light"
+    long_desc: |
+      You are in a vast chamber, its walls floor and ceiling are of an unknown
+      metallic material, the brightest white, almost blindingly stark. A flickering
+      flame is in the center of the room, seeming to feed off of darkness and
+      cleansing the room of any evil. You feel a slight tug at your being as the
+      flame flickers towards you.
+    exits:
+      north: 1470
+      south: 1471
+      east: 1467
+      west: 1472
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1470
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1471
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1467
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1472
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1470
+    key: hitower_room_1470
+    name: "The meditation chamber"
+    area_id: 30
+    short_desc: "The meditation chamber"
+    long_desc: |
+      You are in a small meditation chamber. White silk cushions are everywhere,
+      looking very comfortable. You get an easy peaceful feeling of relaxation
+      here, almost making you want to lie down and fall asleep.
+    exits:
+      south: 1469
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1469
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1471
+    key: hitower_room_1471
+    name: "A study"
+    area_id: 30
+    short_desc: "A study"
+    long_desc: |
+      You are in a spacious study. It is extremely tidy here, to an almost
+      antiseptic nature. One would wonder how anyone could study without a
+      mess all around them, the master of this chamber obviously can.
+    exits:
+      north: 1469
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1469
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1472
+    key: hitower_room_1472
+    name: "A closet"
+    area_id: 30
+    short_desc: "A closet"
+    long_desc: |
+      You are in a small closet. Cloaks and vests hang from hooks in the wall,
+      and a few old boots are all that can be seen here. Rather featureless.
+    exits:
+      east: 1469
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1469
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1473
+    key: hitower_room_1473
+    name: "A wide hallway"
+    area_id: 30
+    short_desc: "A wide hallway"
+    long_desc: |
+      You are in a large hallway, wide enough to accommodate several people
+      standing abreast. The floor here is a swirl of multicolored patterns, in
+      constant motion.
+        A huge grey metal door blocks the way north, it looks quite sturdy.
+    exits:
+      north: 1474
+      south: 1450
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1474
+        description: ""
+        keywords: "door metal grey"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1473
+      south:
+        to: 1450
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1474
+    key: hitower_room_1474
+    name: "A wide hallway"
+    area_id: 30
+    short_desc: "A wide hallway"
+    long_desc: |
+      You are in a large hallway, wide enough to accommodate several people
+      standing abreast. The floor here is a swirl of multicolored patterns, in
+      constant motion.
+        A huge black obsidian door blocks the way north, it looks quite sturdy.
+    exits:
+      north: 1475
+      south: 1473
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1475
+        description: ""
+        keywords: "door obsidian black"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1474
+      south:
+        to: 1473
+        description: ""
+        keywords: "door metal grey"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1473
+
+  - id: 1475
+    key: hitower_room_1475
+    name: "A wide hallway"
+    area_id: 30
+    short_desc: "A wide hallway"
+    long_desc: |
+      You are in a large hallway, wide enough to accommodate several people
+      standing abreast. The floor here is a swirl of multicolored patterns, in
+      constant motion.
+        A huge white ivory door blocks the way north, it looks quite sturdy.
+    exits:
+      north: 1476
+      south: 1474
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1476
+        description: ""
+        keywords: "door ivory white"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1475
+      south:
+        to: 1474
+        description: ""
+        keywords: "door obsidian black"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1474
+
+  - id: 1476
+    key: hitower_room_1476
+    name: "The entranceway"
+    area_id: 30
+    short_desc: "The entranceway"
+    long_desc: |
+      You are at the entrance to the audience chamber of the grand master of
+      magic. Beautiful tapestries displaying the ancient masters of lore are on
+      the walls, and the floor is covered with a plush multicolored carpet, which
+      seems to rustle and move at the touch of your boots.
+    exits:
+      north: 1477
+      south: 1475
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1477
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1475
+        description: ""
+        keywords: "door white ivory"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 1475
+
+  - id: 1477
+    key: hitower_room_1477
+    name: "The audience chamber"
+    area_id: 30
+    short_desc: "The audience chamber"
+    long_desc: |
+      You are in a large chamber. Small bolts of energy leap from wall to wall,
+      crackling with power. The floor is a swirl of indeterminable colors and
+      patterns ever changing. Bright bursts of color seem to explode into the air
+      and fade again at random times. All this splendor plays about and draws
+      attention to a large throne in the center of the room, it seems to be cut
+      from a single enormous emerald.
+    exits:
+      north: 1480
+      east: 1478
+      south: 1476
+      west: 1479
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1480
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1478
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1476
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1479
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      throne: |
+        The giant emerald is flawless, and must be incredibly valuable.
+
+  - id: 1478
+    key: hitower_room_1478
+    name: "A dressing room"
+    area_id: 30
+    short_desc: "A dressing room"
+    long_desc: |
+      You are in a plush dressing room. Fine garments of many styles and some
+      outlandish colors hang from a rack suspended in mid air at eye level. The
+      only other interesting feature in the room is a large silver mirror on a
+      finely crafted gold stand.
+    exits:
+      west: 1477
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1477
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1479
+    key: hitower_room_1479
+    name: "The library"
+    area_id: 30
+    short_desc: "The library"
+    long_desc: |
+      You are in a small cozy looking library. A few well made books sit atop
+      shelves which span every wall. A large oaken writing table is in the center
+      of the room with odd papers and parchments on it. The illumination here,
+      to your surprise is a quite un-magical oil lamp.
+    exits:
+      east: 1477
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1477
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1480
+    key: hitower_room_1480
+    name: "The altar"
+    area_id: 30
+    short_desc: "The altar"
+    long_desc: |
+      You are in a small chapel designed around a beautifully crafted golden
+      altar. Many icons to lesser deities line the room, but it is obvious by one
+      glance at the symbols on the altar, that this room was designed for the
+      worship of Mystra, the goddess of magic.
+    exits:
+      east: 1481
+      south: 1477
+      west: 1482
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1481
+        description: ""
+        keywords: "door secret"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1477
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1482
+        description: ""
+        keywords: "door secret"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1481
+    key: hitower_room_1481
+    name: "The treasury"
+    area_id: 30
+    short_desc: "The treasury"
+    long_desc: |
+      You are in a small chamber, the stale air here is testament to the fact
+      that it has gone undisturbed for many years.
+    exits:
+      west: 1480
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1480
+        description: ""
+        keywords: "door secret"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1482
+    key: hitower_room_1482
+    name: "A passage"
+    area_id: 30
+    short_desc: "A passage"
+    long_desc: |
+      You are in a small dark passage, which would be unremarkable if not for
+      the fact that it ends in a blinding blue light to the west. On hooks set
+      into the wall here there hang several travel worthy cloaks, and a small
+      leather backpack.  It looks as if someone has prepared this room to be used
+      in the event speedy of a evacuation.
+    exits:
+      west: 1483
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1483
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1483
+    key: hitower_room_1483
+    name: "In the light"
+    area_id: 30
+    short_desc: "In the light"
+    long_desc: |
+      You seem to be floating in a magical energy field, though you cannot see
+      the source of the energy, you can feel its power pushing at you from all
+      sides, completely negating the effects of gravity.
+        An imperfection in the uniform blue can be seen overhead, it might be an
+      exit.
+    exits:
+      up: 3001
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3001
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1499
+    key: hitower_room_1499
+    name: "Skylar's Hideout"
+    area_id: 30
+    short_desc: "Skylar's Hideout"
+    long_desc: |
+      You are in a small, very messy room. An unmade bed is against one wall, and
+      books and papers cover every available flat surface. Empty beer cans lie here
+      and there, discarded with total abandon. A few over full ashtrays can be seen
+      on a desk.
+    exits:
+      down: -1
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      down:
+        to: -1
+        description: "You can see mortals pitifully begging for help below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

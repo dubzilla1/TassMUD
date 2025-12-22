@@ -1,0 +1,2120 @@
+rooms:
+  - id: 9301
+    key: galaxy_room_9301
+    name: "Inside a Tavern"
+    area_id: 32
+    short_desc: "Inside a Tavern"
+    long_desc: |
+      You are inside a dimly-lit room.  The atmosphere makes you feel uncomfortable.
+      In front of you stands a mysterious gypsy.  She whispers 'Your fate and
+      destiny lie beyond this world.'  You are still wondering what she means when
+      you suddenly notice the crystal ball ... it glows fiercely and displays the
+      Universe!
+    exits:
+      down: 9302
+      west: 1306
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 9302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1306
+        description: "The shadows cloud your vision."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9302
+    key: galaxy_room_9302
+    name: "Inside the Crystal Ball"
+    area_id: 32
+    short_desc: "Inside the Crystal Ball"
+    long_desc: |
+      You have touched the crystal ball and find that you have gone inside it:
+      a world of stars and wonders!  As you look back you figure out there is no
+      choice but to go forward.
+      ~ 
+      93 0 2
+      D0
+    exits:
+    sector_type: INSIDE
+
+  - id: 9303
+    key: galaxy_room_9303
+    name: "Inside the Galaxy"
+    area_id: 32
+    short_desc: "Inside the Galaxy"
+    long_desc: |
+      You are now inside the galaxy, around you you see stars and nebulae smiling
+      at your presence, and comets and meteors wandering around you.  You realize
+      that this world may not be the true galaxy after all, but just another
+      fantasy zone.  Exits lie virtually in all directions.
+    exits:
+      north: 9304
+      east: 9308
+      south: 9302
+      west: 9321
+    sector_type: CITY
+    doors:
+      north:
+        to: 9304
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9308
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9302
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9304
+    key: galaxy_room_9304
+    name: "On an InterGalactic Walkway"
+    area_id: 32
+    short_desc: "On an InterGalactic Walkway"
+    long_desc: |
+      You are on a well-paved path which seems that it was made deliberately for
+      visitors like you.  The walkway continues north and a small exit lies west.
+    exits:
+      north: 9305
+      south: 9303
+      west: 9322
+    sector_type: CITY
+    doors:
+      north:
+        to: 9305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9303
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9305
+    key: galaxy_room_9305
+    name: "End of the InterGalactic Walkway"
+    area_id: 32
+    short_desc: "End of the InterGalactic Walkway"
+    long_desc: |
+      You notice the walkway has come to an abrupt end and you wonder why. You see
+      that there is still a small path which leads north and one to the west.
+      To the east lies a bridge.
+    exits:
+      north: 9306
+      east: 9309
+      south: 9304
+      west: 9323
+    sector_type: CITY
+    doors:
+      north:
+        to: 9306
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9304
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9306
+    key: galaxy_room_9306
+    name: "At the Undeveloped Part of the Galaxy"
+    area_id: 32
+    short_desc: "At the Undeveloped Part of the Galaxy"
+    long_desc: |
+      This place looks deserted, covered with space debris.  Not a sign of life
+      is around.
+    exits:
+      south: 9305
+      west: 9324
+    sector_type: CITY
+    doors:
+      south:
+        to: 9305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9308
+    key: galaxy_room_9308
+    name: "On the Bridge of Stars"
+    area_id: 32
+    short_desc: "On the Bridge of Stars"
+    long_desc: |
+      This bridge has been made by the stars to honour their ancestors.  The
+      bridge itself shines brightly and makes you feel that you are walking on
+      a path of light.  An entrance to an ancient building lies north and to
+      the east lies the Milky Way.
+    exits:
+      north: 9331
+      east: 9312
+      west: 9303
+    sector_type: CITY
+    doors:
+      north:
+        to: 9331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9303
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9309
+    key: galaxy_room_9309
+    name: "On the Bridge of Nebulae"
+    area_id: 32
+    short_desc: "On the Bridge of Nebulae"
+    long_desc: |
+      This bridge, like the other, was made as a memorial.  The nebulae had to
+      make one just to show that they are as capable as the stars.  North lies
+      a throne room.
+    exits:
+      north: 9310
+      east: 9314
+      west: 9305
+    sector_type: CITY
+    doors:
+      north:
+        to: 9310
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9310
+    key: galaxy_room_9310
+    name: "The Throne Room of the Nebula King"
+    area_id: 32
+    short_desc: "The Throne Room of the Nebula King"
+    long_desc: |
+      You can only faintly make out that it is a throne room as it is too
+      dark in here.  In the middle is an empty throne.  You wonder where
+      the King has gone, maybe he is hiding from you?
+    exits:
+      south: 9309
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 9309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9312
+    key: galaxy_room_9312
+    name: "At the Start of the Milky Way"
+    area_id: 32
+    short_desc: "At the Start of the Milky Way"
+    long_desc: |
+      It is here that the famous old Milky Way starts flowing.  You are surrounded
+      by streams of mist the moment you tread on it.  You can't see well in
+      here ... luckily you haven't fallen yet!
+    exits:
+      north: 9313
+      west: 9308
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9308
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9313
+    key: galaxy_room_9313
+    name: "Along the Milky Way"
+    area_id: 32
+    short_desc: "Along the Milky Way"
+    long_desc: |
+      You are still travelling inside this path of mist.  You notice a small
+      opening to the east.
+    exits:
+      north: 9314
+      east: 9317
+      south: 9312
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9317
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9312
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9314
+    key: galaxy_room_9314
+    name: "At the End of the Milky Way"
+    area_id: 32
+    short_desc: "At the End of the Milky Way"
+    long_desc: |
+      Just as you started enjoying this journey inside the mist, you have come to
+      the end of it.  West leads to a bridge and east leads to somewhere else.
+    exits:
+      east: 9318
+      south: 9313
+      west: 9309
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9309
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9317
+    key: galaxy_room_9317
+    name: "A Small Clearing"
+    area_id: 32
+    short_desc: "A Small Clearing"
+    long_desc: |
+      You are inside a small clearing.  You can see that there are signs of a
+      living creature nearby.
+    exits:
+      north: 9318
+      west: 9313
+    sector_type: FIELD
+    doors:
+      north:
+        to: 9318
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9313
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9318
+    key: galaxy_room_9318
+    name: "An Edge of the Galaxy"
+    area_id: 32
+    short_desc: "An Edge of the Galaxy"
+    long_desc: |
+      You are on the very edge of the galaxy.  Nothing is here except that there
+      is a path which leads down.
+    exits:
+      south: 9317
+      west: 9314
+      down: 9319
+    sector_type: CITY
+    doors:
+      south:
+        to: 9317
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9314
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9319
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9319
+    key: galaxy_room_9319
+    name: "Very Near to a Gigantic Star"
+    area_id: 32
+    short_desc: "Very Near to a Gigantic Star"
+    long_desc: |
+      You are very near to a gigantic red star.  While you are still fascinated
+      by its beauty, the star keeps on growing ... suddenly you realize that you'd
+      better leave.
+    exits:
+      north: 9320
+      east: 9320
+      south: 9320
+      west: 9320
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 9320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9320
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9320
+    key: galaxy_room_9320
+    name: "Too Bright to Tell"
+    area_id: 32
+    short_desc: "Too Bright to Tell"
+    long_desc: |
+      Indeed it is too bright to tell.  Because what you are witnessing is the
+      rare event of a Supernova, how a star explodes itself into galactic dust.
+      You may find yourself lucky to witness this rare event but even luckier,
+      you have finally got out of this galaxy as your body turns into dust.
+      That really HURTS!
+    exits:
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+
+  - id: 9321
+    key: galaxy_room_9321
+    name: "The Star Cluster"
+    area_id: 32
+    short_desc: "The Star Cluster"
+    long_desc: |
+      You are inside the home of the stars.  All you can see around you are stars
+      and nothing else.  You eyes become pretty hurt as you look at them.
+    exits:
+      north: 9322
+      east: 9303
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9303
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9322
+    key: galaxy_room_9322
+    name: "Another Edge of the Galaxy"
+    area_id: 32
+    short_desc: "Another Edge of the Galaxy"
+    long_desc: |
+      This is another uninhabited place.  Exits lie north, east and south.
+    exits:
+      north: 9323
+      east: 9304
+      south: 9321
+    sector_type: FIELD
+    doors:
+      north:
+        to: 9323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9304
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9321
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9323
+    key: galaxy_room_9323
+    name: "Corner of the Galaxy"
+    area_id: 32
+    short_desc: "Corner of the Galaxy"
+    long_desc: |
+      You wonder why the galaxy is limited.  All you have done in Astronomy
+      courses now prove worthless.  Well who told you to take one at the start?
+    exits:
+      north: 9324
+      east: 9305
+      south: 9322
+    sector_type: CITY
+    doors:
+      north:
+        to: 9324
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9305
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9322
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9324
+    key: galaxy_room_9324
+    name: "Lost in Space"
+    area_id: 32
+    short_desc: "Lost in Space"
+    long_desc: |
+      You are now lost in space.  Compasses don't work here, sorry.  What's more
+      you can sense darkness engulfing you.  You'd better get out quick.
+    exits:
+      north: 9325
+      east: 9306
+      south: 9323
+    sector_type: FIELD
+    doors:
+      north:
+        to: 9325
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9306
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9323
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9325
+    key: galaxy_room_9325
+    name: "Black Hole"
+    area_id: 32
+    short_desc: "Black Hole"
+    long_desc: |
+      Well you have chosen the wrong path, sorry.  Nothing can escape from this
+      monster, not even light.
+      PANIC!  You can't escape!
+    exits:
+    sector_type: INSIDE
+
+  - id: 9326
+    key: galaxy_room_9326
+    name: "The Homes of the Pleiades"
+    area_id: 32
+    short_desc: "The Homes of the Pleiades"
+    long_desc: |
+      This is where the famous Seven Sisters live.  You'd better not disturb them.
+    exits:
+      east: 9329
+      south: 9327
+    sector_type: CITY
+    doors:
+      east:
+        to: 9329
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9327
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9327
+    key: galaxy_room_9327
+    name: "Western Side of the Temple"
+    area_id: 32
+    short_desc: "Western Side of the Temple"
+    long_desc: |
+      You are still wandering around this temple.  You notice exits lie in all
+      directions except west.
+    exits:
+      north: 9326
+      east: 9330
+      south: 9328
+    sector_type: CITY
+    doors:
+      north:
+        to: 9326
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9328
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9328
+    key: galaxy_room_9328
+    name: "Orion's Hunting Lodge"
+    area_id: 32
+    short_desc: "Orion's Hunting Lodge"
+    long_desc: |
+      This is dedicated to the Great Hunter of all time -- Orion.
+      Scattered on the floor is the famous hunting equipment used by him.
+    exits:
+      north: 9327
+      east: 9331
+    sector_type: CITY
+    doors:
+      north:
+        to: 9327
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9329
+    key: galaxy_room_9329
+    name: "Northern Side of the Temple"
+    area_id: 32
+    short_desc: "Northern Side of the Temple"
+    long_desc: |
+      You are still wandering around this temple.  You notice exits lie in all
+      directions except north.
+    exits:
+      east: 9332
+      south: 9330
+      west: 9326
+    sector_type: CITY
+    doors:
+      east:
+        to: 9332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9326
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9330
+    key: galaxy_room_9330
+    name: "The Offering Chamber"
+    area_id: 32
+    short_desc: "The Offering Chamber"
+    long_desc: |
+      This is the sacred offering chamber in which sacrifices are made.  You see a
+      young girl here, chained to the wall, as if she is waiting for execution.
+      You look up and realize the chains are sent down directly from above.
+      Below you recognize the temple of Thalos.
+    exits:
+      north: 9329
+      east: 9333
+      south: 9331
+      west: 9327
+      up: 9339
+      down: 5250
+    sector_type: CITY
+    doors:
+      north:
+        to: 9329
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9327
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9339
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 5250
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9331
+    key: galaxy_room_9331
+    name: "The Entrance of the Ancient Temple"
+    area_id: 32
+    short_desc: "The Entrance of the Ancient Temple"
+    long_desc: |
+      You have entered into this old temple, which was built originally for the gods
+      in Mount Olympia, but it is now deserted as someone took over this part of the
+      Universe.
+    exits:
+      north: 9330
+      east: 9334
+      south: 9308
+      west: 9328
+    sector_type: CITY
+    doors:
+      north:
+        to: 9330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9308
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9328
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9332
+    key: galaxy_room_9332
+    name: "Hercules' Mighty Throne"
+    area_id: 32
+    short_desc: "Hercules' Mighty Throne"
+    long_desc: |
+      You stand before the throne of a long-forgotten hero.  It is full of bounty
+      that he got from the Ten Labours.
+    exits:
+      south: 9333
+      west: 9329
+    sector_type: CITY
+    doors:
+      south:
+        to: 9333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9329
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9333
+    key: galaxy_room_9333
+    name: "Eastern Side of the Temple"
+    area_id: 32
+    short_desc: "Eastern Side of the Temple"
+    long_desc: |
+      You are still wandering around this temple.  You notice exits lie in all
+      directions except east.
+    exits:
+      north: 9332
+      south: 9334
+      west: 9330
+    sector_type: CITY
+    doors:
+      north:
+        to: 9332
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9334
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9334
+    key: galaxy_room_9334
+    name: "Perseus' Chamber"
+    area_id: 32
+    short_desc: "Perseus' Chamber"
+    long_desc: |
+      It is the chamber of the prince, Perseus.  However, he seems not to be here.
+      Maybe he has gone to get Pegasus to save Andromeda?
+    exits:
+      north: 9333
+      west: 9331
+    sector_type: CITY
+    doors:
+      north:
+        to: 9333
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9331
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9339
+    key: galaxy_room_9339
+    name: "On the Mystic Chains"
+    area_id: 32
+    short_desc: "On the Mystic Chains"
+    long_desc: |
+      You are dangling on the chains.  You notice exits lie in all directions.
+      Up above you see the chains continue upwards.  But a forcefield prevents
+      you from going further upwards.
+    exits:
+      north: 9348
+      east: 9351
+      south: 9342
+      west: 9345
+      up: 9354
+      down: 9330
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 9348
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9342
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9354
+        description: "You see the forcefield of Spring."
+        keywords: "forcefield"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9324
+      down:
+        to: 9330
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9342
+    key: galaxy_room_9342
+    name: "On a Hill"
+    area_id: 32
+    short_desc: "On a Hill"
+    long_desc: |
+      Suddenly you find yourself on a hillside.  As you look around, you notice
+      that Spring has descended upon you.
+    exits:
+      north: 9339
+      east: 9353
+      west: 9343
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9339
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9353
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9343
+    key: galaxy_room_9343
+    name: "Inside a Spanish Bull-Ring"
+    area_id: 32
+    short_desc: "Inside a Spanish Bull-Ring"
+    long_desc: |
+      You are inside what used to be a ground for bull fighting.  But you notice
+      there are no Matadors around.  Maybe they are all dead?
+    exits:
+      east: 9343
+      west: 9344
+    sector_type: FIELD
+    doors:
+      east:
+        to: 9343
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9344
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9345
+    key: galaxy_room_9345
+    name: "Along the seashore"
+    area_id: 32
+    short_desc: "Along the seashore"
+    long_desc: |
+      You start to feel the heat of Summer.  Amongst the rocky beach you notice
+      hidden forms which could be camouflaged crabs.
+    exits:
+      east: 9339
+      west: 9346
+    sector_type: FIELD
+    doors:
+      east:
+        to: 9339
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9346
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9346
+    key: galaxy_room_9346
+    name: "Within the Deep Jungle"
+    area_id: 32
+    short_desc: "Within the Deep Jungle"
+    long_desc: |
+      Nearby you can hear the roar of an animal.  Peering through the dense
+      overgrowth you think you glimpse a pair of menacing eyes.
+    exits:
+      east: 9345
+    sector_type: FOREST
+    doors:
+      east:
+        to: 9345
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9347
+    key: galaxy_room_9347
+    name: "Inside a Luxurious Bedroom"
+    area_id: 32
+    short_desc: "Inside a Luxurious Bedroom"
+    long_desc: |
+      A peaceful feeling overtakes you.  You see a magnificent four-poster bed.
+      It's a double bed and there is only room for one more!  Well, what now ... ?
+    exits:
+      west: 9348
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9348
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9348
+    key: galaxy_room_9348
+    name: "The Supreme Court"
+    area_id: 32
+    short_desc: "The Supreme Court"
+    long_desc: |
+      You are standing inside the dock of a court.  You feel an overwhelming
+      sense of guilt and you want to protest your innocence!  You fear retribution
+      and feel yourself exposed, just like the trees in Autumn.
+    exits:
+      south: 9339
+      west: 9349
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 9339
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9349
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9349
+    key: galaxy_room_9349
+    name: "In the Dry Desert"
+    area_id: 32
+    short_desc: "In the Dry Desert"
+    long_desc: |
+      You are confused by the shifting sands around you.  Through the shimmering
+      heat you see the hazy outline of a giant scorpion ... is this a mirage?
+    exits:
+      east: 9348
+      west: 9350
+    sector_type: FIELD
+    doors:
+      east:
+        to: 9348
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9350
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9350
+    key: galaxy_room_9350
+    name: "In the Woods"
+    area_id: 32
+    short_desc: "In the Woods"
+    long_desc: |
+      You find yourself in the center of a Centaurion hunting party.  You'd better
+      hide yourself before you become the 'center attraction'!
+    exits:
+      east: 9349
+    sector_type: FOREST
+    doors:
+      east:
+        to: 9349
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9351
+    key: galaxy_room_9351
+    name: "On a Mountain Peak"
+    area_id: 32
+    short_desc: "On a Mountain Peak"
+    long_desc: |
+      You are on the highest peak of the Universe.  You look around and notice
+      clouds below you.  One of the clouds resembles a goat-like form.
+    exits:
+      east: 9352
+      west: 9339
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9352
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9339
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9352
+    key: galaxy_room_9352
+    name: "Inside a Waterfall"
+    area_id: 32
+    short_desc: "Inside a Waterfall"
+    long_desc: |
+      The noise is deafening.  You are about to take a drink when you realize
+      that the water is being poured out of a vessel of mind-boggling proportions!
+    exits:
+      west: 9351
+    sector_type: MOUNTAIN
+    doors:
+      west:
+        to: 9351
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9353
+    key: galaxy_room_9353
+    name: "Inside a Gigantic Clam"
+    area_id: 32
+    short_desc: "Inside a Gigantic Clam"
+    long_desc: |
+      You feel uneasy here as if some evil magic is being cast on you.
+      You suspect something fishy is going on in here.
+    exits:
+      west: 9342
+    sector_type: MOUNTAIN
+    doors:
+      west:
+        to: 9342
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9354
+    key: galaxy_room_9354
+    name: "End of the Mystic Chains"
+    area_id: 32
+    short_desc: "End of the Mystic Chains"
+    long_desc: |
+      You have reached the end of the mystic chains.  Looking up, you notice a
+      small landing on which you can climb.  However, there seems to be another
+      forcefield blocking your way.
+    exits:
+      up: 9355
+      down: 9339
+    sector_type: MOUNTAIN
+    doors:
+      up:
+        to: 9355
+        description: "You see the forcefield of Summer."
+        keywords: "forcefield"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9325
+      down:
+        to: 9339
+        description: "You see the forcefield of Spring."
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9324
+
+  - id: 9355
+    key: galaxy_room_9355
+    name: "On the Draco"
+    area_id: 32
+    short_desc: "On the Draco"
+    long_desc: |
+      You realize you are standing on scaly ground.  As you wonder what the ground
+      is made of, you feel the ground move.
+    exits:
+      north: 9356
+      down: 9354
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9356
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9354
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9325
+
+  - id: 9356
+    key: galaxy_room_9356
+    name: "Tail of the Draco"
+    area_id: 32
+    short_desc: "Tail of the Draco"
+    long_desc: |
+      At last you realize that you are on a giant snake-like dragon called the
+      Draco, the guardian of the inner galaxy.  You realize that the Draco is
+      actually flying now!
+    exits:
+      south: 9355
+      north: 9357
+    sector_type: HILLS
+    doors:
+      south:
+        to: 9355
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 9357
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9357
+    key: galaxy_room_9357
+    name: "Path of the Draco"
+    area_id: 32
+    short_desc: "Path of the Draco"
+    long_desc: |
+      As you struggle along this scaly creature you realize that the only way
+      you can reach to the inner galaxy is by going all the way to the head.
+    exits:
+      north: 9358
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9358
+    key: galaxy_room_9358
+    name: "Near the Legs of Draco"
+    area_id: 32
+    short_desc: "Near the Legs of Draco"
+    long_desc: |
+      You are approaching the leg part of this creature.  You look around and see
+      that the surrounding is all dark except for some faint lights from the
+      distant stars.
+    exits:
+      north: 9359
+      south: 9357
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9359
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9357
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9359
+    key: galaxy_room_9359
+    name: "On the Back of Draco"
+    area_id: 32
+    short_desc: "On the Back of Draco"
+    long_desc: |
+      At last you are half way through this long, weary journey. You can see
+      the wings are to the east but it seems that another forcefield is in the way.
+    exits:
+      east: 9360
+      south: 9358
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9360
+        description: "You see the forcefield of Autumn."
+        keywords: "forcefield"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9326
+      south:
+        to: 9358
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9360
+    key: galaxy_room_9360
+    name: "Between the Wings of Draco"
+    area_id: 32
+    short_desc: "Between the Wings of Draco"
+    long_desc: |
+      You hear some giant flapping sounds nearby.  You desperately try to get hold
+      of something as the forceful gusts sweep you away.
+    exits:
+      east: 9361
+      west: 9359
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9361
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9359
+        description: ""
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9326
+
+  - id: 9361
+    key: galaxy_room_9361
+    name: "Near the Arms of Draco"
+    area_id: 32
+    short_desc: "Near the Arms of Draco"
+    long_desc: |
+      From above you can faintly make out the gigantic arms which extend far
+      beyond into the darkness.
+    exits:
+      south: 9362
+      west: 9360
+    sector_type: HILLS
+    doors:
+      south:
+        to: 9362
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9360
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9362
+    key: galaxy_room_9362
+    name: "On the Neck of Draco"
+    area_id: 32
+    short_desc: "On the Neck of Draco"
+    long_desc: |
+      Your journey is now approaching the end.  However, this neck seems to be
+      endless.
+    exits:
+      north: 9361
+      west: 9363
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9361
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9363
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9363
+    key: galaxy_room_9363
+    name: "Approaching the Head of Draco"
+    area_id: 32
+    short_desc: "Approaching the Head of Draco"
+    long_desc: |
+      You have come to the end of Draco, but you can't find the head!
+      You see a forcefield to the south, some distance away, beyond reach.
+      If only the head were here ...
+    exits:
+      east: 9362
+      south: 9364
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9362
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9364
+        description: "You see the forcefield of Winter."
+        keywords: "forcefield"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9327
+
+  - id: 9364
+    key: galaxy_room_9364
+    name: "At the Entrance of the Great Dipper"
+    area_id: 32
+    short_desc: "At the Entrance of the Great Dipper"
+    long_desc: |
+      Now you are in the innermost part of the galaxy.  What you are walking on now
+      is the path of the Great Dipper or the Plough.  You notice that there are
+      seven rooms in this zone, representing the seven stars of the Dipper.
+    exits:
+      north: 9363
+      south: 9365
+      west: 9366
+    sector_type: CITY
+    doors:
+      north:
+        to: 9363
+        description: "You see the forcefield of Winter."
+        keywords: "forcefield"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 9327
+      south:
+        to: 9365
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9365
+    key: galaxy_room_9365
+    name: "Cassiopeia's Throne"
+    area_id: 32
+    short_desc: "Cassiopeia's Throne"
+    long_desc: |
+      This is the Throne room of the Queen of the Universe.  From here you can see
+      every star and constellation in the Universe.
+    exits:
+      north: 9364
+      west: 9367
+    sector_type: CITY
+    doors:
+      north:
+        to: 9364
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9366
+    key: galaxy_room_9366
+    name: "Along the Path of the Dipper"
+    area_id: 32
+    short_desc: "Along the Path of the Dipper"
+    long_desc: |
+      You see stars around you but nothing of special interest.
+    exits:
+      east: 9364
+      south: 9367
+    sector_type: CITY
+    doors:
+      east:
+        to: 9364
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9367
+    key: galaxy_room_9367
+    name: "Cepheus' Throne"
+    area_id: 32
+    short_desc: "Cepheus' Throne"
+    long_desc: |
+      This is the Throne room of the King of the Universe.  From here you can see
+      every star and constellation in the Universe.
+    exits:
+      north: 9366
+      south: 9368
+    sector_type: CITY
+    doors:
+      north:
+        to: 9366
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9368
+    key: galaxy_room_9368
+    name: "Along the path of the Dipper"
+    area_id: 32
+    short_desc: "Along the path of the Dipper"
+    long_desc: |
+      You see stars around you but nothing of special interest.
+    exits:
+      north: 9367
+      west: 9369
+    sector_type: CITY
+    doors:
+      north:
+        to: 9367
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9369
+    key: galaxy_room_9369
+    name: "Along the path of the Dipper"
+    area_id: 32
+    short_desc: "Along the path of the Dipper"
+    long_desc: |
+      You see stars around you but nothing of special interest.
+    exits:
+      east: 9368
+      south: 9370
+    sector_type: CITY
+    doors:
+      east:
+        to: 9368
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9370
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9370
+    key: galaxy_room_9370
+    name: "End of the Dipper"
+    area_id: 32
+    short_desc: "End of the Dipper"
+    long_desc: |
+      You have finished the path of the Dipper.  Here, the most prominent feature
+      is a set of claw-marks.  You also notice a room to the south; it looks as
+      if Polaris could lie here.
+    exits:
+      north: 9369
+      south: 9371
+    sector_type: CITY
+    doors:
+      north:
+        to: 9369
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9371
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9371
+    key: galaxy_room_9371
+    name: "The Polar Star"
+    area_id: 32
+    short_desc: "The Polar Star"
+    long_desc: |
+      You have entered the private chamber of Polaris.  This is a room of great
+      significance.  You can see a powerful telescope pointing down towards the
+      Universe (SNOOPING!).  It is from here that Polaris commands the Universe.
+      You feel you have come to end of your search in this galaxy ...
+    exits:
+      north: 9370
+    sector_type: CITY
+    doors:
+      north:
+        to: 9370
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

@@ -1,0 +1,9 @@
+areas:
+  - id: 1
+    name: "Smurf"
+    description: "Converted from smurf.are"
+    sector_type: "FOREST"
+    author: "MERC"
+    source_file: "smurf.are"
+    vnum_range: "101-129"
+

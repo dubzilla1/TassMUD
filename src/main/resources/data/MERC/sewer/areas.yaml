@@ -1,0 +1,9 @@
+areas:
+  - id: 70
+    name: "Sewer"
+    description: "Converted from sewer.are"
+    sector_type: "MOUNTAIN"
+    author: "MERC"
+    source_file: "sewer.are"
+    vnum_range: "7001-7445"
+

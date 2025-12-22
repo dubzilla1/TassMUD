@@ -1,0 +1,1126 @@
+rooms:
+  - id: 9400
+    key: mobfact_room_9400
+    name: "Entrance to the Mob Factory"
+    area_id: 32
+    short_desc: "Entrance to the Mob Factory"
+    long_desc: |
+      You find that you have entered a strange factory. This factory doesn't
+      make cars or computers or something - it makes mobs! The sound of
+      machinery can be heard in the background; the grinding gears drive you
+      crazy! To the north you see the storage area, to the south the
+      foreman's office, to the east the entrance hallway, and to the west the
+      eastern end of alley.
+    exits:
+      north: 9401
+      east: 9407
+      south: 9403
+      west: 3046
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9401
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9407
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9403
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3046
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9401
+    key: mobfact_room_9401
+    name: "Mob Factory Storage Area"
+    area_id: 32
+    short_desc: "Mob Factory Storage Area"
+    long_desc: |
+      This is where the raw materials from which mobs are manufactured are
+      stored. You see sacks of sawdust, cans of pink paint, a large box
+      containing wigs and a bottle mysteriously labelled "solution x". Exits
+      are more of storage to the east and north, and entrance to the mob
+      factory to the south.
+    exits:
+      north: 9402
+      east: 9406
+      south: 9400
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9402
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9406
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9400
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9402
+    key: mobfact_room_9402
+    name: "Mob Factory Storage Area"
+    area_id: 32
+    short_desc: "Mob Factory Storage Area"
+    long_desc: |
+      This is where the raw materials from which mobs are manufactured are
+      stored. You see sacks of sawdust, cans of pink paint, a large box
+      containing wigs and a bottle mysteriously labelled "solution X". Exits
+      are more of storage to the east and south.
+    exits:
+      east: 9405
+      south: 9401
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9405
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9401
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9403
+    key: mobfact_room_9403
+    name: "Foreman's Office"
+    area_id: 32
+    short_desc: "Foreman's Office"
+    long_desc: |
+      This is the ofice of the mob factory foreman. The room is sparsely
+      furnished with a metal desk, a couple of chairs, a shelf with helmets
+      of various sizes and a Sports Illustrated Swimsuit calendar on the west
+      wall. Exits lead north to the mob factory entrance and south to the
+      foreman's bathroom.
+    exits:
+      north: 9400
+      south: 9404
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9400
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9404
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9404
+    key: mobfact_room_9404
+    name: "Foreman's Bathroom"
+    area_id: 32
+    short_desc: "Foreman's Bathroom"
+    long_desc: |
+      This is the place where the foreman makes frequent visits. The smell
+      here is very strong and reminds you of bovine excrement! There is a
+      shower to the back, and a urinal to the left. On the floor you can
+      see stains of a very suspicious nature. The only exit leads north to
+      the foreman's office.
+    exits:
+      north: 9403
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9403
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9405
+    key: mobfact_room_9405
+    name: "Mob Factory Storage Area"
+    area_id: 32
+    short_desc: "Mob Factory Storage Area"
+    long_desc: |
+      This is where the raw materials from which mobs are manufactured are
+      stored. You see sacks of sawdust, cans of pink paint, a large box
+      containing wigs and a bottle mysteriously labelled "solution X". Exits
+      are more of storage to the west and south, and an inspection room to
+      the east.
+    exits:
+      east: 9410
+      south: 9406
+      west: 9402
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9410
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9406
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9402
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9406
+    key: mobfact_room_9406
+    name: "Mob Factory Storage Area"
+    area_id: 32
+    short_desc: "Mob Factory Storage Area"
+    long_desc: |
+      This is where the raw materials from which mobs are manufactured are
+      stored. You see sacks of sawdust, cans of pink paint, a large box
+      containing wigs and a bottle mysteriously labelled "solution X". Exits
+      are more of storage to the west and north, an inspection room to the
+      east and the entrance hallway to the south.
+    exits:
+      north: 9405
+      east: 9411
+      south: 9407
+      west: 9401
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9405
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9411
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9407
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9401
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9407
+    key: mobfact_room_9407
+    name: "Entrance Hallway to Mob Factoy"
+    area_id: 32
+    short_desc: "Entrance Hallway to Mob Factoy"
+    long_desc: |
+      You are standing in the entrance hallway of the mob factory. The sound
+      of machinery gets louder now, and you can hear people shouting in the
+      distance. Every once in a while you get creepy feeling that a pair of
+      eyes is observing you...... Exits are north to the storage area, east
+      to the entrance hallway, south to the cafeteria and west to the mob
+      factory entrance.
+    exits:
+      north: 9406
+      east: 9412
+      south: 9408
+      west: 9400
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9406
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9412
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9408
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9400
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9408
+    key: mobfact_room_9408
+    name: "Mob Factory Cafeteria"
+    area_id: 32
+    short_desc: "Mob Factory Cafeteria"
+    long_desc: |
+      You find that you have entered the cafeteria of the mob factory. There
+      are many workers eating at the numerous tables placed around the room.
+      The food doesn't look too appetising, but the factory workers don't
+      seem to care. There are many places where food and drink have been
+      spilled on the ground. Exits are north to the entrance hallway and
+      south to the mob factory cafeteria.
+    exits:
+      north: 9407
+      south: 9409
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9407
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9409
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9409
+    key: mobfact_room_9409
+    name: "Mob Factory Cafeteria"
+    area_id: 32
+    short_desc: "Mob Factory Cafeteria"
+    long_desc: |
+      You find that you have entered the cafeteria of the mob factory. There
+      are many workers eating at the numerous tables placed around the room.
+      The food doesn't look too appetising, but the factory workers don't
+      seem to care. There are many places where food and drink have been
+      spilled on the ground. The only exit is north to the mob factory
+      cafeteria.
+    exits:
+      north: 9408
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9408
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9410
+    key: mobfact_room_9410
+    name: "Mob Factory Inspection Room"
+    area_id: 32
+    short_desc: "Mob Factory Inspection Room"
+    long_desc: |
+      You have entered the mob factory inspections room. This is where the
+      mobs manufactured on the assembly lines are inspected for defects. A
+      whole team of inspectors from the Midgaard Inspections Bureau is
+      standing around, trying to look busy. Exits are south to the mob
+      factory inspection room, east to the primary assembly line and west to
+      the storage area.
+    exits:
+      east: 9415
+      south: 9411
+      west: 9405
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9411
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9405
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9411
+    key: mobfact_room_9411
+    name: "Mob Factory Inspection Room"
+    area_id: 32
+    short_desc: "Mob Factory Inspection Room"
+    long_desc: |
+      You have entered the mob factory inspections room. This is where the
+      mobs manufactured on the assembly lines are inspected for defects. A
+      whole team of inspectors from the Midgaard Inspections Bureau is
+      standing around, trying to look busy. Exits are south to the mob
+      factory inspection room, east to the primary assembly line and west to
+      the storage area.
+    exits:
+      north: 9410
+      east: 9416
+      south: 9412
+      west: 9406
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9410
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9416
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9412
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9406
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9412
+    key: mobfact_room_9412
+    name: "Entrance Hallway to Mob Factoy"
+    area_id: 32
+    short_desc: "Entrance Hallway to Mob Factoy"
+    long_desc: |
+      You are standing in the entrance hallway of the mob factory. The sound
+      of machinery gets louder now, and you can hear people shouting in the
+      distance. Every once in a while you get creepy feeling that a pair of
+      eyes is observing you...... Exits are north to the inspection room,
+      east to the primary assembly line, south to the reject room and west
+      to the entrance hallway.
+    exits:
+      north: 9411
+      east: 9417
+      south: 9413
+      west: 9407
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9411
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9417
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9413
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9407
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9413
+    key: mobfact_room_9413
+    name: "Mob Factory Reject Room"
+    area_id: 32
+    short_desc: "Mob Factory Reject Room"
+    long_desc: |
+      This is the factory reject room. All the mobs that are manufactured
+      incorrectly or have some defect are placed here before subsequent
+      destruction. You shudder at the many deformed and grotesque shapes
+      present before you. Exits are south to the reject room and north to
+      the entrance hallway.
+    exits:
+      north: 9412
+      south: 9414
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9412
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9414
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9414
+    key: mobfact_room_9414
+    name: "Mob Factory Reject Room"
+    area_id: 32
+    short_desc: "Mob Factory Reject Room"
+    long_desc: |
+      This is the factory reject room. All the mobs that are manufactured
+      incorrectly or have some defect are placed here before subsequent
+      destruction. You shudder at the many deformed and grotesque shapes
+      present before you. The only exit is north to the reject room.
+    exits:
+      north: 9413
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9413
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9415
+    key: mobfact_room_9415
+    name: "Primary Assembly Line"
+    area_id: 32
+    short_desc: "Primary Assembly Line"
+    long_desc: |
+      This is the primary assembly line of the mob factory. Here, all the
+      mobs seen roaming around the city of Midgaard are manufactured from
+      raw materials. There is a big conveyor belt present which makes a lot
+      of noise! It seems that the workers are making drunks today. Exits are
+      east to the secondary assembly line, south to the primary assembly
+      line and west to the inspection room.
+    exits:
+      east: 9420
+      south: 9416
+      west: 9410
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9420
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9416
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9410
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9416
+    key: mobfact_room_9416
+    name: "Primary Assembly Line"
+    area_id: 32
+    short_desc: "Primary Assembly Line"
+    long_desc: |
+      This is the primary assembly line of the mob factory. Here, all the
+      mobs seen roaming around the city of Midgaard are manufactured from
+      raw materials. There is a big conveyor belt present which makes a lot
+      of noise! It seems that the workers are making drunks today. Exits are
+      east to the secondary assembly line, north and south to the primary
+      assembly line and west to the inspection room.
+    exits:
+      north: 9415
+      east: 9421
+      south: 9417
+      west: 9411
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9421
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9417
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9411
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9417
+    key: mobfact_room_9417
+    name: "Primary Assembly Line"
+    area_id: 32
+    short_desc: "Primary Assembly Line"
+    long_desc: |
+      This is the primary assembly line of the mob factory. Here, all the
+      mobs seen roaming around the city of Midgaard are manufactured from
+      raw materials. There is a big conveyor belt present which makes a lot
+      of noise! It seems that the workers are making drunks today. Exits are
+      east to the secondary assembly line, north and south to the primary
+      assembly line and west to the entrance hallway.
+    exits:
+      north: 9416
+      east: 9422
+      south: 9418
+      west: 9412
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9416
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9422
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9418
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9412
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9418
+    key: mobfact_room_9418
+    name: "Primary Assembly Line"
+    area_id: 32
+    short_desc: "Primary Assembly Line"
+    long_desc: |
+      This is the primary assembly line of the mob factory. Here, all the
+      mobs seen roaming around the city of Midgaard are manufactured from
+      raw materials. There is a big conveyor belt present which makes a lot
+      of noise! It seems that the workers are making drunks today. Exits are
+      east to the secondary assembly line, north and south to the primary
+      assembly line.
+    exits:
+      north: 9417
+      east: 9423
+      south: 9419
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9417
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9423
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9419
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9419
+    key: mobfact_room_9419
+    name: "Primary Assembly Line"
+    area_id: 32
+    short_desc: "Primary Assembly Line"
+    long_desc: |
+      This is the primary assembly line of the mob factory. Here, all the
+      mobs seen roaming around the city of Midgaard are manufactured from
+      raw materials. There is a big conveyor belt present which makes a lot
+      of noise! It seems that the workers are making drunks today. Exits are
+      east to the secondary assembly line and north to the primary
+      assembly line.
+    exits:
+      north: 9418
+      east: 9424
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9418
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 9424
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9420
+    key: mobfact_room_9420
+    name: "Secondary Assembly Line"
+    area_id: 32
+    short_desc: "Secondary Assembly Line"
+    long_desc: |
+      This is the secondary asembly line of the mob factory. You are
+      surprised to see cityguard heads come floating on the conveyor belt!
+      The very sight is sickening, but the workers seem to be quite
+      cheerful about their work. Exits are south to the secondary assembly
+      line and west to the primary assembly line.
+    exits:
+      south: 9421
+      west: 9415
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 9421
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9421
+    key: mobfact_room_9421
+    name: "Secondary Assembly Line"
+    area_id: 32
+    short_desc: "Secondary Assembly Line"
+    long_desc: |
+      This is the secondary asembly line of the mob factory. You are
+      surprised to see cityguard heads come floating on the conveyor belt!
+      The very sight is sickening, but the workers seem to be quite
+      cheerful about their work. Exits are north and south to the secondary
+      assembly line and west to the primary assembly line.
+    exits:
+      north: 9420
+      south: 9422
+      west: 9416
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9420
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9422
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9416
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9422
+    key: mobfact_room_9422
+    name: "Secondary Assembly Line"
+    area_id: 32
+    short_desc: "Secondary Assembly Line"
+    long_desc: |
+      This is the secondary asembly line of the mob factory. You are
+      surprised to see cityguard heads come floating on the conveyor belt!
+      The very sight is sickening, but the workers seem to be quite
+      cheerful about their work. Exits are north and south to the secondary
+      assembly line and west to the primary assembly line.
+    exits:
+      north: 9421
+      south: 9423
+      west: 9417
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9421
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9423
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9417
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9423
+    key: mobfact_room_9423
+    name: "Secondary Assembly Line"
+    area_id: 32
+    short_desc: "Secondary Assembly Line"
+    long_desc: |
+      This is the secondary asembly line of the mob factory. You are
+      surprised to see cityguard heads come floating on the conveyor belt!
+      The very sight is sickening, but the workers seem to be quite
+      cheerful about their work. Exits are north and south to the secondary
+      assembly line and west to the primary assembly line.
+    exits:
+      north: 9422
+      south: 9424
+      west: 9418
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9422
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 9424
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9418
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 9424
+    key: mobfact_room_9424
+    name: "Secondary Assembly Line"
+    area_id: 32
+    short_desc: "Secondary Assembly Line"
+    long_desc: |
+      This is the secondary asembly line of the mob factory. You are
+      surprised to see cityguard heads come floating on the conveyor belt!
+      The very sight is sickening, but the workers seem to be quite
+      cheerful about their work. Exits are north to the secondary
+      assembly line and west to the primary assembly line.
+    exits:
+      north: 9423
+      west: 9419
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9423
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 9419
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

@@ -1,0 +1,9 @@
+areas:
+  - id: 51
+    name: "Drow"
+    description: "Converted from drow.are"
+    sector_type: "INSIDE"
+    author: "MERC"
+    source_file: "drow.are"
+    vnum_range: "5100-5150"
+

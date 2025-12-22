@@ -1,0 +1,2171 @@
+rooms:
+  - id: 1001
+    key: air_room_1001
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the ground north of the city.
+      It seems like you can see forever!
+    exits:
+      east: 1006
+      south: 1002
+      up: 1021
+    sector_type: AIR
+    doors:
+      east:
+        to: 1006
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1002
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1021
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1002
+    key: air_room_1002
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 20 meters above the inside wall of West Midgaard.
+      It seems like you can see forever!
+    exits:
+      north: 1001
+      east: 1007
+      south: 1003
+      up: 1022
+    sector_type: AIR
+    doors:
+      north:
+        to: 1001
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1007
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1003
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1022
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1003
+    key: air_room_1003
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 20 meters above the west gate of Midgaard.
+      It seems like you can see forever!
+    exits:
+      north: 1002
+      east: 1008
+      south: 1004
+      up: 1023
+    sector_type: AIR
+    doors:
+      north:
+        to: 1002
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1008
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1004
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1023
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1004
+    key: air_room_1004
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Wall Road.
+      It seems like you can see forever!
+    exits:
+      north: 1003
+      east: 1009
+      south: 1005
+      up: 1024
+    sector_type: AIR
+    doors:
+      north:
+        to: 1003
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1009
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1005
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1024
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1005
+    key: air_room_1005
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Wall Road.
+      It seems like you can see forever!
+    exits:
+      north: 1004
+      east: 1010
+      up: 1025
+    sector_type: AIR
+    doors:
+      north:
+        to: 1004
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1010
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1025
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1006
+    key: air_room_1006
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the ground north of Midgaard.
+      It seems like you can see forever!
+    exits:
+      east: 1011
+      south: 1007
+      west: 1001
+      up: 1026
+    sector_type: AIR
+    doors:
+      east:
+        to: 1011
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1007
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1001
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1026
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1007
+    key: air_room_1007
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 20 meters above the magic shop.
+      It seems like you can see forever!
+    exits:
+      north: 1006
+      east: 1012
+      south: 1008
+      west: 1002
+      up: 1027
+    sector_type: AIR
+    doors:
+      north:
+        to: 1006
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1012
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1008
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1002
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1027
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1008
+    key: air_room_1008
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Main Street.
+      It seems like you can see forever!
+    exits:
+      north: 1007
+      east: 1013
+      south: 1009
+      west: 1003
+      up: 1028
+    sector_type: AIR
+    doors:
+      north:
+        to: 1007
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1013
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1009
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1003
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1028
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1009
+    key: air_room_1009
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 20 meters above the Mage Guild Hall.
+      It seems like you can see forever!
+    exits:
+      north: 1008
+      east: 1014
+      south: 1010
+      west: 1004
+      up: 1029
+    sector_type: AIR
+    doors:
+      north:
+        to: 1008
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1014
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1010
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1004
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1029
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1010
+    key: air_room_1010
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Poor Alley.
+      It seems like you can see forever!
+    exits:
+      north: 1009
+      east: 1015
+      west: 1005
+      up: 1030
+    sector_type: AIR
+    doors:
+      north:
+        to: 1009
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1015
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1005
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1030
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1011
+    key: air_room_1011
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the ground north of Midgaard.
+      It seems like you can see forever!
+    exits:
+      east: 1016
+      south: 1012
+      west: 1006
+      up: 1031
+    sector_type: AIR
+    doors:
+      east:
+        to: 1016
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1012
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1006
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1031
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1012
+    key: air_room_1012
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 20 meters above the bakery.
+      It seems like you can see forever!
+    exits:
+      north: 1011
+      east: 1017
+      south: 1013
+      west: 1007
+      up: 1032
+    sector_type: AIR
+    doors:
+      north:
+        to: 1011
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1017
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1013
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1007
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1032
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1013
+    key: air_room_1013
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Main Street.
+      It seems like you can see forever!
+    exits:
+      north: 1012
+      east: 1018
+      south: 1014
+      west: 1008
+      up: 1033
+    sector_type: AIR
+    doors:
+      north:
+        to: 1012
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1018
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1014
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1008
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1033
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1014
+    key: air_room_1014
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 20 meters above Armoury.
+      It seems like you can see forever!
+    exits:
+      north: 1013
+      east: 1019
+      south: 1015
+      west: 1009
+      up: 1034
+    sector_type: AIR
+    doors:
+      north:
+        to: 1013
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1019
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1015
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1009
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1034
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1015
+    key: air_room_1015
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Poor Alley.
+      It seems like you can see forever!
+    exits:
+      north: 1014
+      east: 1020
+      west: 1010
+      up: 1035
+    sector_type: AIR
+    doors:
+      north:
+        to: 1014
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1020
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1010
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1035
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1016
+    key: air_room_1016
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 10 meters above the temple spire of Midgaard
+      It seems like you can see forever!
+    exits:
+      south: 1017
+      west: 1011
+      up: 1036
+    sector_type: AIR
+    doors:
+      south:
+        to: 1017
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1011
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1036
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1017
+    key: air_room_1017
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the Temple Square.
+      It seems like you can see forever!
+    exits:
+      north: 1016
+      south: 1018
+      west: 1012
+      up: 1037
+      down: 3057
+    sector_type: AIR
+    doors:
+      north:
+        to: 1016
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1018
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1012
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1037
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3057
+        description: "More of the same"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1018
+    key: air_room_1018
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Market Square.
+      It seems like you can see forever!
+    exits:
+      north: 1017
+      south: 1019
+      west: 1013
+      up: 1038
+    sector_type: AIR
+    doors:
+      north:
+        to: 1017
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1019
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1013
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1038
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1019
+    key: air_room_1019
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above Market and Commons.
+      It seems like you can see forever!
+    exits:
+      north: 1018
+      south: 1020
+      west: 1014
+      up: 1039
+    sector_type: AIR
+    doors:
+      north:
+        to: 1018
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1020
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1014
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1039
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1020
+    key: air_room_1020
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above ground, overlooking the Common Square.
+      It seems like you can see forever!
+    exits:
+      north: 1019
+      west: 1015
+      up: 1040
+    sector_type: AIR
+    doors:
+      north:
+        to: 1019
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1015
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 1040
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1021
+    key: air_room_1021
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above the ground just north of Midgaard.
+      It seems like you can see forever!
+    exits:
+      east: 1026
+      south: 1022
+      down: 1001
+    sector_type: AIR
+    doors:
+      east:
+        to: 1026
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1022
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1001
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1022
+    key: air_room_1022
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the west gate of Midgaard.
+      It seems like you can see forever!
+    exits:
+      north: 1021
+      east: 1027
+      south: 1023
+      down: 1002
+    sector_type: AIR
+    doors:
+      north:
+        to: 1021
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1027
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1023
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1002
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1023
+    key: air_room_1023
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above west gate of Midgaard.
+      It seems like you can see forever!
+    exits:
+      north: 1022
+      east: 1028
+      south: 1024
+      down: 1003
+    sector_type: AIR
+    doors:
+      north:
+        to: 1022
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1028
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1024
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1003
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1024
+    key: air_room_1024
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above wall road.
+      It seems like you can see forever!
+    exits:
+      north: 1023
+      east: 1029
+      south: 1025
+      down: 1004
+    sector_type: AIR
+    doors:
+      north:
+        to: 1023
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1029
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1025
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1004
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1025
+    key: air_room_1025
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above wall road.
+      It seems like you can see forever!
+    exits:
+      north: 1024
+      east: 1030
+      down: 1005
+    sector_type: AIR
+    doors:
+      north:
+        to: 1024
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1030
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1005
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1026
+    key: air_room_1026
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above the ground north of Midgaard.
+      It seems like you can see forever!
+    exits:
+      east: 1031
+      south: 1027
+      west: 1021
+      down: 1006
+    sector_type: AIR
+    doors:
+      east:
+        to: 1031
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1027
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1021
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1006
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1027
+    key: air_room_1027
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the magic shop.
+      It seems like you can see forever!
+    exits:
+      north: 1026
+      east: 1032
+      south: 1028
+      west: 1022
+      down: 1007
+    sector_type: AIR
+    doors:
+      north:
+        to: 1026
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1032
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1028
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1022
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1007
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1028
+    key: air_room_1028
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above main street.
+      It seems like you can see forever!
+    exits:
+      north: 1027
+      east: 1033
+      south: 1029
+      west: 1023
+      down: 1008
+    sector_type: AIR
+    doors:
+      north:
+        to: 1027
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1033
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1029
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1023
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1008
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1029
+    key: air_room_1029
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the mage guild.
+      It seems like you can see forever!
+    exits:
+      north: 1028
+      east: 1034
+      south: 1030
+      west: 1024
+      down: 1009
+    sector_type: AIR
+    doors:
+      north:
+        to: 1028
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1034
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1030
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1024
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1009
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1030
+    key: air_room_1030
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above poor alley.
+      It seems like you can see forever!
+    exits:
+      north: 1029
+      east: 1035
+      west: 1025
+      down: 1010
+    sector_type: AIR
+    doors:
+      north:
+        to: 1029
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1035
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1025
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1010
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1031
+    key: air_room_1031
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above the ground north of Midgaard.
+      It seems like you can see forever!
+    exits:
+      east: 1036
+      south: 1032
+      west: 1026
+      down: 1011
+    sector_type: AIR
+    doors:
+      east:
+        to: 1036
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1032
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1026
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1011
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1032
+    key: air_room_1032
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above bakery and cleric guild.
+      It seems like you can see forever!
+    exits:
+      north: 1031
+      east: 1037
+      south: 1033
+      west: 1027
+      down: 1012
+    sector_type: AIR
+    doors:
+      north:
+        to: 1031
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1037
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1033
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1027
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1012
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1033
+    key: air_room_1033
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above main street.
+      It seems like you can see forever!
+    exits:
+      north: 1032
+      east: 1038
+      south: 1034
+      west: 1028
+      down: 1013
+    sector_type: AIR
+    doors:
+      north:
+        to: 1032
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1038
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1034
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1028
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1013
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1034
+    key: air_room_1034
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 40 meters above the armoury.
+      It seems like you can see forever!
+    exits:
+      north: 1033
+      east: 1039
+      south: 1035
+      west: 1029
+      down: 1014
+    sector_type: AIR
+    doors:
+      north:
+        to: 1033
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1039
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1035
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1029
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1014
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1035
+    key: air_room_1035
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above poor alley.
+      It seems like you can see forever!
+    exits:
+      north: 1034
+      east: 1040
+      west: 1030
+      down: 1015
+    sector_type: AIR
+    doors:
+      north:
+        to: 1034
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 1040
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1030
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1015
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1036
+    key: air_room_1036
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 30 meters above the temple spire.
+      It seems like you can see forever!
+    exits:
+      south: 1037
+      west: 1031
+      down: 1016
+    sector_type: AIR
+    doors:
+      south:
+        to: 1037
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1031
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1016
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1037
+    key: air_room_1037
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above the temple square.
+      It seems like you can see forever!
+    exits:
+      north: 1036
+      south: 1038
+      west: 1032
+      down: 1017
+    sector_type: AIR
+    doors:
+      north:
+        to: 1036
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1038
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1032
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1017
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1038
+    key: air_room_1038
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above market square.
+      It seems like you can see forever!
+    exits:
+      north: 1037
+      south: 1039
+      west: 1033
+      down: 1018
+    sector_type: AIR
+    doors:
+      north:
+        to: 1037
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1039
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1033
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1018
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1039
+    key: air_room_1039
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above market square and commons square.
+      It seems like you can see forever!
+    exits:
+      north: 1038
+      south: 1040
+      west: 1034
+      down: 1019
+    sector_type: AIR
+    doors:
+      north:
+        to: 1038
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 1040
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1034
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1019
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1040
+    key: air_room_1040
+    name: "In the air ..."
+    area_id: 30
+    short_desc: "In the air ..."
+    long_desc: |
+      You are flying!
+      Currently you are about 60 meters above commoners square and the dump.
+      It seems like you can see forever!
+    exits:
+      north: 1039
+      west: 1035
+      down: 1020
+    sector_type: AIR
+    doors:
+      north:
+        to: 1039
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 1035
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 1020
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

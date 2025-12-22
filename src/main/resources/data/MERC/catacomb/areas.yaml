@@ -1,0 +1,9 @@
+areas:
+  - id: 20
+    name: "Catacomb"
+    description: "Converted from catacomb.are"
+    sector_type: "CITY"
+    author: "MERC"
+    source_file: "catacomb.are"
+    vnum_range: "2001-2069"
+

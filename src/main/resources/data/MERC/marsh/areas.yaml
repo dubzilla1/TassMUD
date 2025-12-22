@@ -1,0 +1,9 @@
+areas:
+  - id: 83
+    name: "Marsh"
+    description: "Converted from marsh.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "marsh.are"
+    vnum_range: "8301-8318"
+

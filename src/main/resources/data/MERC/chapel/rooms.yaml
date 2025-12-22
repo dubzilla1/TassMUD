@@ -1,0 +1,2354 @@
+rooms:
+  - id: 3405
+    key: chapel_room_3405
+    name: "Inside the Chapel"
+    area_id: 32
+    short_desc: "Inside the Chapel"
+    long_desc: |
+      You are in a small, dark chapel.  The dark brown glass in the tiny windows
+      do not let much light through.  A few rows of worn wooden benches stand here.
+    exits:
+      north: 3604
+      down: 3421
+    sector_type: CITY
+    doors:
+      north:
+        to: 3604
+        description: "The chapel door is made of dark wood."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3421
+        description: ""
+        keywords: "altar"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3430
+    extras:
+      glass: |
+        The windows must be meant to be dark.  At least they are completely clean.
+      benches: |
+        The benches are not of the comfortable kind.
+
+  - id: 3408
+    key: chapel_room_3408
+    name: "Stairwell into Darkness"
+    area_id: 32
+    short_desc: "Stairwell into Darkness"
+    long_desc: |
+      You sense even more danger coming from below but are urged onward ...
+    exits:
+      west: 3449
+      down: 3450
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3449
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3411
+      down:
+        to: 3450
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3409
+    key: chapel_room_3409
+    name: "The Acolyte's Bedroom"
+    area_id: 32
+    short_desc: "The Acolyte's Bedroom"
+    long_desc: |
+      This is why you were not welcomed at the entrance by the tomb's faithful
+      servants ... blood and gore is ankle deep in here.
+      Oh NO! the door shut behind you!  It's a trap!
+      A bloodied corpse of an acolyte is lying here ...
+      A bloodied corpse of an acolyte is lying here ...
+      A bloodied corpse of an acolyte is lying here ...
+    exits:
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    extras:
+      corpse: |
+        Mauled and torn apart ... throats were ripped out and guts spilled on the
+        floor ... you slip and land, planting yourself firmly in the slick wetness
+        and splattering yourself with offal.
+
+  - id: 3410
+    key: chapel_room_3410
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3415
+      south: 3411
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3411
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3411
+    key: chapel_room_3411
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3410
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3410
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3412
+    key: chapel_room_3412
+    name: "The Grand Hall of Kings"
+    area_id: 32
+    short_desc: "The Grand Hall of Kings"
+    long_desc: |
+      You are at the west end of the Grand Hall of Kings.  There is a doorway to the
+      south with something strange written above it.  Also on the floor are dried
+      blood stains, but their color seems a little wrong.
+    exits:
+      east: 3417
+      south: 3413
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3417
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3413
+        description: "A door to the south"
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      stain: |
+        That's odd ... they seem a little GREEN.
+      door: |
+        Above the door is some strange writing!  It is worn with age, but it refers
+        to an ancient ruler named 'Shohan'.
+
+  - id: 3413
+    key: chapel_room_3413
+    name: "The Shrine of Shohan"
+    area_id: 32
+    short_desc: "The Shrine of Shohan"
+    long_desc: |
+      BLOOD EVERYWHERE!
+      The walls are coated with blood, bits of bloody flesh lie at your feet,
+      and torn clothing is scattered about.  It wouldn't disturb you in the least
+      except that it is all FRESH!  What ever used to pass as an altar here,
+      lies overturned and smashed.  Doors lead to the south and to the north.
+    exits:
+      north: 3412
+      south: 3414
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3412
+        description: ""
+        keywords: "north"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3414
+        description: ""
+        keywords: "south"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3414
+    key: chapel_room_3414
+    name: "The Tomb of Shohan"
+    area_id: 32
+    short_desc: "The Tomb of Shohan"
+    long_desc: |
+      Once beautiful, this place has been turned into a slaughterhouse by the hands
+      of evil beings ... even more blood and dead, rotting flesh.  This place looks
+      like the feeding grounds of beasts and monsters.  The overturned sarcophagus
+      of the once powerful King Shohan lies here.  A door leads to the north and a
+      doorway has been hewn to the east.
+    exits:
+      north: 3413
+      east: 3419
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3413
+        description: ""
+        keywords: "door north"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3419
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      coffin: |
+        Now destroyed ... there is writing on it: 'All hail the new king; we serve
+        the Roch'tar, the Undying One!  Those who decline his worship shall be
+        slaughtered!'
+
+  - id: 3415
+    key: chapel_room_3415
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3420
+      south: 3416
+      west: 3410
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3420
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3416
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3410
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3416
+    key: chapel_room_3416
+    name: "Entrance to the Lower Chambers"
+    area_id: 32
+    short_desc: "Entrance to the Lower Chambers"
+    long_desc: |
+      You can tell that this area wasn't a part of the original construction.
+      The walls have been hewn by a mighty force look as though they were CLAWED.
+      The passage slopes upward here and also continues to the north.
+    exits:
+      north: 3415
+      up: 3418
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3418
+        description: ""
+        keywords: "tunnel"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      walls: |
+        Something BIG must have done this job!  There are traces of BLOOD in the
+        claw marks.
+
+  - id: 3417
+    key: chapel_room_3417
+    name: "The Grand Hall of Kings"
+    area_id: 32
+    short_desc: "The Grand Hall of Kings"
+    long_desc: |
+      This is the western wing of the Grand Hall of Kings.  Your only exits are to
+      the east and west in this gloomy hallway.
+    exits:
+      east: 3422
+      west: 3412
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3422
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3412
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3418
+    key: chapel_room_3418
+    name: "The Shrine of Cristis"
+    area_id: 32
+    short_desc: "The Shrine of Cristis"
+    long_desc: |
+      Different than the rest, this place has not been desecrated.  An altar still
+      stands here and the walls show scenes from the life of Cristis the Kind,
+      a ruler of the outlying regions west of Midgaard.  There is a stone staircase
+      leading down.  The Ghost of Cristis the Kind stands here.
+    exits:
+      south: 3419
+      down: 3416
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3419
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3416
+        description: ""
+        keywords: "staircase"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      altar: |
+        It stands 2 feet high with the remnants of candle-wax on top.  There is
+        an inscription on the side:  'Praise the almighty Cristis the bringer of
+        good and justice to the world.  He who fought the evilest finally is at
+        peace.  May the Gods remember him forever ...'
+      ghost: |
+        His rest has been disturbed by evil creatures who have invaded his domain
+        and grave.  He holds up a parchment for you to read:
+        
+             Hello stranger and last hope for Midgaard and this tomb!
+           This is a plea for aid by a man long since dead from this Earth.
+             The forces of evil have taken control of this tomb and the
+           Kings of old need your aid to free us and deliver us to peace
+           once again.  I think that I alone have been able to appear and
+           communicate with the mortal world.
+             Roch'tar, the reincarnate Vampire, now rules these tombs.
+           You must find and defeat him and his minions!
+             May God bless you on your Quest!
+
+  - id: 3419
+    key: chapel_room_3419
+    name: "The Tomb of Cristis"
+    area_id: 32
+    short_desc: "The Tomb of Cristis"
+    long_desc: |
+      Everything here has simply been destroyed.   Exits lead north and west.
+    exits:
+      north: 3418
+      west: 3414
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3418
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3414
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3420
+    key: chapel_room_3420
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3425
+      west: 3415
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3425
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3415
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3421
+    key: chapel_room_3421
+    name: "Entrance Chamber to the Grand Hall of Kings"
+    area_id: 32
+    short_desc: "Entrance Chamber to the Grand Hall of Kings"
+    long_desc: |
+      Whoever built this place must have been very rich indeed!  Though you did
+      enter through a rather small door this place has enough room to hold several
+      score of people.  The floor has a beautifully woven carpet, and the walls are
+      covered in finely crafted tapestries. You can tell that these things must have
+      been worth much but they have not lasted well throughout the ages.  Massive
+      doors lead off to the south and a large stone staircase leads up.
+    exits:
+      south: 3422
+      up: 3405
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3422
+        description: "Finely polished oak doors stand to the south."
+        keywords: "oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 3405
+        description: "You see a large set of stone stairs leading upwards to a small stone door at
+the top."
+        keywords: "stone trapdoor door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3410
+    extras:
+      stone: |
+        It's rather small and looks quite heavy but maybe with some kind of leverage
+        you could move it.  It has a queerly shaped hole that looks big enough
+        for an equally queerly shaped pole to fit inside.  If only you had it!
+      tapestry: |
+        The tapestries were woven into beautiful and exciting scenes of battles
+        long ago.  One on the left your shows the historic battle between Jubal the
+        Benevolent and Hroth Kragen's forces that eventually Jubal's army won (of
+        course).
+      staircase: |
+        Though quite cracked they do look very stable.
+      oak: |
+        They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
+        If not for one thing they would be perfectly preserved.  There appears
+        to be some letters crudely scratched into the wood.
+      letters: |
+        'Beware here all of man, because past here lies only death.'
+        
+            Insho'rkthon brsskra-lehsn Roch'tar
+        
+        Beneath, there are two criss-crossing scratchmarks in an X formation that
+        look like someone (or something) raked their claws across the wood.
+
+  - id: 3422
+    key: chapel_room_3422
+    name: "The Grand Hall of Kings"
+    area_id: 32
+    short_desc: "The Grand Hall of Kings"
+    long_desc: |
+      A long hallway stretches east and west.  On the southern side of the hall
+      there are many doors, each with the name of a king who has died and is
+      entombed here.  The hallway is beautiful yet chilling.  Even though the area
+      has been kept well by acolytes, there remains a stench of the undead.
+    exits:
+      north: 3421
+      east: 3427
+      south: 3423
+      west: 3417
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3421
+        description: ""
+        keywords: "oak"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3427
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3423
+        description: "The door has written above it: 'May all the lands thank Crotus the Victor.
+Without his guidance this kingdom would not have stood.'"
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3417
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3423
+    key: chapel_room_3423
+    name: "The Shrine of Crotus"
+    area_id: 32
+    short_desc: "The Shrine of Crotus"
+    long_desc: |
+      Mostly rubble, this place used to be the shrine of the famous king Crotus,
+      who saved the northern regions from being overrun by the goblin hordes of
+      100 years ago.  If not for him, Midgaard of course would have eventually been
+      conquered as well.  Though Crotus was a goodly king, it was rumored that he
+      turned to the dark ways in his dying years ... and died an evil man.
+    exits:
+      north: 3422
+      south: 3424
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3422
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3424
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3424
+    key: chapel_room_3424
+    name: "The Tomb of Crotus"
+    area_id: 32
+    short_desc: "The Tomb of Crotus"
+    long_desc: |
+      A sarcophagus lies in the middle of the room and seems undisturbed.
+      A hole has been knocked into the east wall.
+    exits:
+      north: 3423
+      east: 3429
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3423
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3429
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3425
+    key: chapel_room_3425
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      south: 3426
+      west: 3420
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3426
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3420
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3426
+    key: chapel_room_3426
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3425
+      east: 3430
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3425
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3430
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3427
+    key: chapel_room_3427
+    name: "The Grand Hall of Kings"
+    area_id: 32
+    short_desc: "The Grand Hall of Kings"
+    long_desc: |
+      You are in the western part of the Grand Hall of Kings.  To the south is a
+      door and to the east and west the hall continues.
+    exits:
+      east: 3432
+      south: 3428
+      west: 3422
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3432
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3428
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3422
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3428
+    key: chapel_room_3428
+    name: "The Shrine of Mitnar"
+    area_id: 32
+    short_desc: "The Shrine of Mitnar"
+    long_desc: |
+      Mitnar was a gruesome beast of a man ... he loved battle ... and nothing
+      else.  Warriors did love Mitnar, and all fighting men honored him.
+      On the wall is depicted battle after battle after battle.
+      A small opening has been shaped carefully to the east.
+    exits:
+      north: 3427
+      east: 3433
+      south: 3429
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3427
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3433
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3429
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3429
+    key: chapel_room_3429
+    name: "The Tomb of Mitnar"
+    area_id: 32
+    short_desc: "The Tomb of Mitnar"
+    long_desc: |
+      The wall paintings show men and women warriors alike bowing down to Mitnar,
+      prisoners of war being put to the sword by Mitnar, and great heaps of gold
+      and weapons under the feet of Mitnar.  Where his coffin was, there is now
+      only a rectangular blemish on the floor of the dusty room.
+    exits:
+      north: 3428
+      west: 3424
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3428
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3424
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3430
+    key: chapel_room_3430
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3435
+      south: 3431
+      west: 3426
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3435
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3431
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3426
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3431
+    key: chapel_room_3431
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3430
+      east: 3436
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3430
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3436
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3432
+    key: chapel_room_3432
+    name: "The Grand Hall of Kings"
+    area_id: 32
+    short_desc: "The Grand Hall of Kings"
+    long_desc: |
+      You are still walking through the gloomy hallway.
+    exits:
+      east: 3437
+      west: 3427
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3437
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3427
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3433
+    key: chapel_room_3433
+    name: "The Shrine of Frath"
+    area_id: 32
+    short_desc: "The Shrine of Frath"
+    long_desc: |
+      Little chunks of dried meat are spattered throughout this room.  The walls
+      are covered in gore.  Almost as if they were painted ... ICK!  You can
+      almost make out the design!
+    exits:
+      east: 3438
+      west: 3428
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3438
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3428
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3434
+    key: chapel_room_3434
+    name: "The Tomb of Frath"
+    area_id: 32
+    short_desc: "The Tomb of Frath"
+    long_desc: |
+      UGH!  The sarcophagus is opened up and the mummified body lies out in the
+      open, ripped to pieces.  Gnawed pieces of flesh and bone are strewn here.
+    exits:
+      down: 3439
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 3439
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3435
+    key: chapel_room_3435
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3440
+      south: 3436
+      west: 3430
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3440
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3436
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3430
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3436
+    key: chapel_room_3436
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3435
+      east: 3441
+      west: 3431
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3435
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3441
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3431
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3437
+    key: chapel_room_3437
+    name: "The Grand Hall of Kings"
+    area_id: 32
+    short_desc: "The Grand Hall of Kings"
+    long_desc: |
+      You are at the western end of the Grand Hall of Kings.  There is a
+      door leading north and the hallway continues west.
+    exits:
+      north: 3409
+      west: 3432
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3409
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3432
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3438
+    key: chapel_room_3438
+    name: "The Shrine of Jubal"
+    area_id: 32
+    short_desc: "The Shrine of Jubal"
+    long_desc: |
+      This was once beautiful.  Now the huge tapestries have been torn down and the
+      carpeting pulled up ... the paintings on the ceiling are unreadable and the
+      altar is crumbled.
+    exits:
+      south: 3439
+      west: 3433
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3439
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3433
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3439
+    key: chapel_room_3439
+    name: "The Tomb of Jubal"
+    area_id: 32
+    short_desc: "The Tomb of Jubal"
+    long_desc: |
+      The smell coming off of the opened sarcophagus is nauseating.  The floor is
+      slightly crumpled and walls are raked ... but the worst part is the mummy ...
+      Jubal the Benevolent is missing his head!
+    exits:
+      north: 3438
+      up: 3434
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3438
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3434
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3440
+    key: chapel_room_3440
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3445
+      south: 3441
+      west: 3435
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3445
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3441
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3435
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3441
+    key: chapel_room_3441
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3440
+      east: 3446
+      west: 3436
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3440
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3446
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3436
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3442
+    key: chapel_room_3442
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3447
+      south: 3443
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3447
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3443
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3443
+    key: chapel_room_3443
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3442
+      south: 3444
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3442
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3444
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3444
+    key: chapel_room_3444
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3443
+      east: 3449
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3443
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3449
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3445
+    key: chapel_room_3445
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      south: 3446
+      west: 3440
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3446
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3440
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3446
+    key: chapel_room_3446
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3445
+      south: 3447
+      west: 3441
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3445
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3447
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3441
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3447
+    key: chapel_room_3447
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      north: 3446
+      south: 3448
+      west: 3442
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3446
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3448
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3442
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3448
+    key: chapel_room_3448
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      This room has been totally hollowed out and smoothed, and a pit has been
+      drilled in the center of the floor.  There are extensive gruesome paintings
+      of beasts and monsters terrorizing the countryside; vampires sucking the
+      blood of beasts and humans alike.
+    exits:
+      north: 3447
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3447
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      painting: |
+        There is a tiny painting of a vault in this mural ... and it seems to be a
+        reflected picture of the vault ... the word in tiny print is 'rathcor'.
+
+  - id: 3449
+    key: chapel_room_3449
+    name: "The Lower Chambers and Tombs of the Undead"
+    area_id: 32
+    short_desc: "The Lower Chambers and Tombs of the Undead"
+    long_desc: |
+      The stench of death is heavy in these caverns.
+    exits:
+      east: 3408
+      west: 3444
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3408
+        description: ""
+        keywords: "door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3411
+      west:
+        to: 3444
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3450
+    key: chapel_room_3450
+    name: "Entrance to the Forbidden Catacombs"
+    area_id: 32
+    short_desc: "Entrance to the Forbidden Catacombs"
+    long_desc: |
+      You have entered the forbidden catacombs.  This cave system must have been
+      built long ago.  The air is dank and smells of something dead ...  or maybe
+      undead.  Enter here at your own risk ... something evil abides.
+    exits:
+      north: 3451
+      east: 3452
+      south: 3453
+      west: 3454
+      up: 3408
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3451
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3452
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3453
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3454
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 3408
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3451
+    key: chapel_room_3451
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      east: 3455
+      south: 3450
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3455
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3450
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3452
+    key: chapel_room_3452
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      north: 3461
+      west: 3450
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3461
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3450
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3453
+    key: chapel_room_3453
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      north: 3450
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3450
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3454
+    key: chapel_room_3454
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      east: 3450
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3450
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3455
+    key: chapel_room_3455
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      south: 3456
+      west: 3451
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3456
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3451
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3456
+    key: chapel_room_3456
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      north: 3455
+      east: 3457
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3455
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3457
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3457
+    key: chapel_room_3457
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      south: 3458
+      west: 3456
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3458
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3456
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3458
+    key: chapel_room_3458
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      north: 3457
+      south: 3472
+      west: 3459
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3457
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3472
+        description: "You see unfathomable blackness to the south ..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3459
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3459
+    key: chapel_room_3459
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      east: 3458
+      west: 3460
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3458
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3460
+        description: "You see something's den."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3460
+    key: chapel_room_3460
+    name: "Den of the Vampire"
+    area_id: 32
+    short_desc: "Den of the Vampire"
+    long_desc: |
+      Your mind whirls in the hideous madness of this place.  The stench
+      is horrendous and dead bodies, sucked of life, lay all over.  One coffin
+      lies in the center of the room ... waiting for YOU!
+    exits:
+      east: 3459
+      down: 3475
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3459
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3475
+        description: "A jet black coffin ... who knows what lurks beneath."
+        keywords: "coffin"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3419
+
+  - id: 3461
+    key: chapel_room_3461
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      east: 3462
+      south: 3452
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3462
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3452
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3462
+    key: chapel_room_3462
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      south: 3463
+      west: 3461
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3463
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3461
+        description: "Too dark too tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3463
+    key: chapel_room_3463
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      north: 3462
+      east: 3464
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3462
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3464
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3464
+    key: chapel_room_3464
+    name: "The Catacombs"
+    area_id: 32
+    short_desc: "The Catacombs"
+    long_desc: |
+      Stone walls, musty air ... the earth seems to moan softly.
+    exits:
+      east: 3470
+      south: 3465
+      west: 3463
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3470
+        description: "There is a secret door here."
+        keywords: "secret"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3465
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3463
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3465
+    key: chapel_room_3465
+    name: "The Gilded Hallway"
+    area_id: 32
+    short_desc: "The Gilded Hallway"
+    long_desc: |
+      Wow!  Although this hallway is quite filthy and dusty, it is noticeably
+      different than the rest of the catacombs ... but you don't feel safe yet.
+      The walls faintly show ancient detailed etchings in gold and silver of
+      ancient rituals ... not all of which seem pleasant.  The hallway continues
+      north into the catacombs and further south as long as you can see.
+    exits:
+      north: 3464
+      south: 3466
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3464
+        description: "The glow of your light reflects off the walls and you see the catacombs."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3466
+        description: "The glow of your light reflects off the walls ... the gilded hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      etchings: |
+        Beautiful yet disturbing, they urge you to move onward.
+
+  - id: 3466
+    key: chapel_room_3466
+    name: "The Gilded Hallway"
+    area_id: 32
+    short_desc: "The Gilded Hallway"
+    long_desc: |
+      Ancient etchings and writing in intricate gold and silver designs fill these
+      walls.  You are tempted to linger and examine them closely.  Your light source
+      flickers off the walls showing you exits north and south.
+    exits:
+      north: 3465
+      south: 3467
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3465
+        description: "Your light reveals more of the hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3467
+        description: "Your light reveals more of the hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      etchings: |
+        Beautiful yet disturbing, they urge you to move onward.
+
+  - id: 3467
+    key: chapel_room_3467
+    name: "The Gilded Hallway"
+    area_id: 32
+    short_desc: "The Gilded Hallway"
+    long_desc: |
+      Ancient etchings and writing in intricate gold and silver designs fill these
+      walls.  You are tempted to linger and examine them closely.  Your light source
+      flickers off the walls showing you exits north and south.
+    exits:
+      north: 3466
+      south: 3468
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3466
+        description: "Your light reveals more of the hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3468
+        description: "Your light reveals more of the hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      etchings: |
+        Beautiful yet disturbing, they urge you to move onward.
+
+  - id: 3468
+    key: chapel_room_3468
+    name: "The Gilded Hallway"
+    area_id: 32
+    short_desc: "The Gilded Hallway"
+    long_desc: |
+      Ancient etchings and writing in intricate gold and silver designs fill these
+      walls.  You are tempted to linger and examine them closely.  Your light source
+      flickers off the walls showing you exits north and south.
+    exits:
+      north: 3467
+      south: 3469
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3467
+        description: "Your light reveals more of the hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3469
+        description: "Your light reveals more of the hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      etchings: |
+        Beautiful yet disturbing, they urge you to move onward.
+
+  - id: 3469
+    key: chapel_room_3469
+    name: "The Gilded Hallway"
+    area_id: 32
+    short_desc: "The Gilded Hallway"
+    long_desc: |
+      Ancient etchings and writing in intricate gold and silver designs fill these
+      walls.  You are tempted to linger and examine them closely.  Your light source
+      flickers off the walls showing you exits north.
+    exits:
+      north: 3468
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3468
+        description: "Your light reveals more of the hallway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      etchings: |
+        Beautiful yet disturbing, they urge you to move onward.
+
+  - id: 3470
+    key: chapel_room_3470
+    name: "A Secret Passageway"
+    area_id: 32
+    short_desc: "A Secret Passageway"
+    long_desc: |
+      A secret passage!  You wonder where it may lead!
+    exits:
+      south: 3471
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3471
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      east: |
+        The door closed on you so softly that you didn't even notice!
+
+  - id: 3471
+    key: chapel_room_3471
+    name: "A Secret Passageway"
+    area_id: 32
+    short_desc: "A Secret Passageway"
+    long_desc: |
+      A secret passage!  You wonder where it may lead!
+    exits:
+      north: 3470
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3470
+        description: "Too dark to tell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3472
+    key: chapel_room_3472
+    name: "The Short Way to Hell ..."
+    area_id: 32
+    short_desc: "The Short Way to Hell ..."
+    long_desc: |
+      You fall ...
+                  hmm .... it's getting really HOT!
+      You fall ...
+                              you fall ...
+           Slowly you are cooking as you fall further ... your skin is burning and
+      your hair evaporates ...
+      
+                                                 you fall ...
+      
+                       and fall ...
+      
+                                           AND STOP!
+      
+      Welcome to HELL!
+      
+      But even in Hell we give you another chance.
+    exits:
+    sector_type: INSIDE
+
+  - id: 3475
+    key: chapel_room_3475
+    name: "Inside the coffin"
+    area_id: 32
+    short_desc: "Inside the coffin"
+    long_desc: |
+      You are inside a coffin.  It seems rather cramped in here.  You can climb
+      up out of the coffin, or you can wait for here the real occupant to join you.
+    exits:
+      up: 3460
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3460
+        description: ""
+        keywords: "lid coffin"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3419
+

@@ -1,0 +1,3020 @@
+rooms:
+  - id: 4700
+    key: juargan_room_4700
+    name: "The Spiral Stair"
+    area_id: 32
+    short_desc: "The Spiral Stair"
+    long_desc: |
+      A spiral stone stair leads up higher in the mountain, spiraling into the
+      spine of the Dra-Korrin.  A small glint of light can be seen far up the
+      stair shaft.
+    exits:
+      west: 4701
+      up: 4772
+    sector_type: CITY
+    doors:
+      west:
+        to: 4701
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 4772
+        description: ""
+        keywords: "stone"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4701
+    key: juargan_room_4701
+    name: "Mines"
+    area_id: 32
+    short_desc: "Mines"
+    long_desc: |
+      A small glint of the burning torches is all that lights the way here.  Spots
+      along the jagged wall show that these mines are rich as gold and silver glitters
+      all around you.
+    exits:
+      east: 4700
+      west: 4702
+    sector_type: CITY
+    doors:
+      east:
+        to: 4700
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4702
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4702
+    key: juargan_room_4702
+    name: "Mines"
+    area_id: 32
+    short_desc: "Mines"
+    long_desc: |
+      This small dark tunnel continues to the north where to light no longer allows
+      normal sight.  To the east the small mine leads a a better lit area and you can
+      smell a brisk fresh air.
+    exits:
+      north: 4703
+      east: 4701
+    sector_type: CITY
+    doors:
+      north:
+        to: 4703
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4701
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4703
+    key: juargan_room_4703
+    name: "Mines"
+    area_id: 32
+    short_desc: "Mines"
+    long_desc: |
+      This small tunnel is only five to six feet high and possibly the same
+      dimensions wide.  It travels on a slight downslope to the west and to the south
+      some light can be seen.
+    exits:
+      south: 4702
+      west: 4704
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4702
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4704
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4704
+    key: juargan_room_4704
+    name: "Mines"
+    area_id: 32
+    short_desc: "Mines"
+    long_desc: |
+      The small mine continues east and west here, small rocks and precious jewels
+      scattered about.  There is a small tunnel that leads to the south here.
+    exits:
+      east: 4703
+      south: 4705
+      west: 4706
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4703
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4705
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4706
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4705
+    key: juargan_room_4705
+    name: "Unfinished Mine"
+    area_id: 32
+    short_desc: "Unfinished Mine"
+    long_desc: |
+      This is a small area that has been left unfinished at the moment.  It would
+      have continued south from the main shaft that is to the north of here.
+    exits:
+      north: 4704
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4704
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4706
+    key: juargan_room_4706
+    name: "Mines"
+    area_id: 32
+    short_desc: "Mines"
+    long_desc: |
+      This small shaft of the mines continues its tunneling east and west.  Small
+      glints of metal can be seen within the walls.
+    exits:
+      east: 4704
+      west: 4707
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4704
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4707
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4707
+    key: juargan_room_4707
+    name: "Turn in the Mine"
+    area_id: 32
+    short_desc: "Turn in the Mine"
+    long_desc: |
+      The small shaft travels east and south here, the masterful mining skills that
+      made this turn possible are evidently by the smooth cuts in the walls.  Almost
+      as if a hot knife made its way through some warm butter.
+    exits:
+      east: 4706
+      south: 4708
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4706
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4708
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4708
+    key: juargan_room_4708
+    name: "Mines"
+    area_id: 32
+    short_desc: "Mines"
+    long_desc: |
+      This is a three-way intersection in these mazes of mines with directions
+      going north, west, and south which travels further down into the heart of the
+      mountain itself.
+    exits:
+      north: 4707
+      south: 4709
+      west: 4736
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4707
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4709
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4736
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4709
+    key: juargan_room_4709
+    name: "Dwarven mine"
+    area_id: 32
+    short_desc: "Dwarven mine"
+    long_desc: |
+      The walls of this mine are chipped and cut to perfection.  Workmanship of
+      this type could only have been done by the masterful Dwarven race.  Tunnels
+      continue to the south and east, and the tunnel travels upward to the north.
+    exits:
+      north: 4708
+      east: 4724
+      south: 4710
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4708
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4724
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4710
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4710
+    key: juargan_room_4710
+    name: "Dwarven mine"
+    area_id: 32
+    short_desc: "Dwarven mine"
+    long_desc: |
+      Tunnels spread off in all directions except to the west where the wall is made
+      of a dark and bleak stone.  A small glow emanates from the walls of the mines,
+      but not enough to see by.
+    exits:
+      north: 4709
+      east: 4712
+      south: 4711
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4709
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4712
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4711
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4711
+    key: juargan_room_4711
+    name: "Dwarven mine"
+    area_id: 32
+    short_desc: "Dwarven mine"
+    long_desc: |
+      The small shaft ends abruptly at a jewel encrusted wall.  To the north the
+      small shaft continues some past some small rocks.
+    exits:
+      north: 4710
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4710
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4712
+    key: juargan_room_4712
+    name: "Dwarven mine"
+    area_id: 32
+    short_desc: "Dwarven mine"
+    long_desc: |
+      This section of small shaft is a turning point and continues to the west and to
+      the south.  Small glints of gold and silver can be seen in the walls.
+    exits:
+      south: 4713
+      west: 4710
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4713
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4710
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4713
+    key: juargan_room_4713
+    name: "Dwarven mine"
+    area_id: 32
+    short_desc: "Dwarven mine"
+    long_desc: |
+      The small shaft continues north and south deep inside this large mountain.  A
+      light glow can be seen in the walls, but not enough to see by.
+    exits:
+      north: 4712
+      south: 4714
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4712
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4714
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4714
+    key: juargan_room_4714
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      This section of the small shafts is a intersection of three separate tunnels.
+      They lead north, east, and west.  A faint glow is within the walls of this
+      small intersection.
+    exits:
+      north: 4713
+      east: 4719
+      west: 4715
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4713
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4719
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4715
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4715
+    key: juargan_room_4715
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      The small shaft of glittering gold and silver travels east and south here.
+      The faint glow from within the walls give you a sense of safety.
+    exits:
+      east: 4714
+      south: 4716
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4714
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4716
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4716
+    key: juargan_room_4716
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      The small Dwarven carved shaft continues to the north and to the east here.
+      Small clumps of precious metals can be seen within the rocky walls.
+    exits:
+      north: 4715
+      east: 4717
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4715
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4717
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4717
+    key: juargan_room_4717
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      The small shaft of the mine continues to the west and to the south here.  A
+      small amount of light can be seen to the south.
+    exits:
+      south: 4718
+      west: 4716
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4718
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4716
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4718
+    key: juargan_room_4718
+    name: "End of the mine"
+    area_id: 32
+    short_desc: "End of the mine"
+    long_desc: |
+      The south section of the small tunnel is covered in a blue light, and also
+      radiating a aura of heat.  The eastern and western walls also glow but not as
+      fierce as the southern section.
+    exits:
+      north: 4717
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 4717
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4719
+    key: juargan_room_4719
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      Small shafts lead off in all directions except northerly, where the wall seems
+      to have a tinted blue color to it.  The southern tunnel seems to end a small
+      ways down.
+    exits:
+      east: 4721
+      south: 4720
+      west: 4714
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4721
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4720
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4714
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4720
+    key: juargan_room_4720
+    name: "Unfinished shaft"
+    area_id: 32
+    short_desc: "Unfinished shaft"
+    long_desc: |
+      The walls here are jagged and unfinished in there cuts, leaving sharp and
+      jagged edges at every turn.  The only exit appears to be to the north.
+    exits:
+      north: 4719
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4719
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4721
+    key: juargan_room_4721
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      This small shaft travels to the west and to the south, sporting small clumps
+      of precious metals as they go.
+    exits:
+      south: 4722
+      west: 4719
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4722
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4719
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4722
+    key: juargan_room_4722
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      A slight downslope is present as this tunnel continues to the south and to the
+      north.  To the south is where the small slope is present, traveling slightly
+      further down into the depths of the mountain.
+    exits:
+      north: 4721
+      south: 4723
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4721
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4723
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4723
+    key: juargan_room_4723
+    name: "Unfinished mine"
+    area_id: 32
+    short_desc: "Unfinished mine"
+    long_desc: |
+      The southern wall of this mine has been left uncarved and unfinished as you
+      can see that the amount of metals in the walls have decreased slightly here.
+      The tunnel leads to the north out of this dead end.
+    exits:
+      north: 4722
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4722
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4724
+    key: juargan_room_4724
+    name: "Dwarven mine"
+    area_id: 32
+    short_desc: "Dwarven mine"
+    long_desc: |
+      This small shaft travels to the east and west while along the way several
+      spots of precious metal and rock jut forth from the red rock.
+    exits:
+      east: 4725
+      west: 4709
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4725
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4709
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4725
+    key: juargan_room_4725
+    name: "Dwarven mine"
+    area_id: 32
+    short_desc: "Dwarven mine"
+    long_desc: |
+      The small tunnel continues to the west and to the south from this turning
+      point.  Small spots of gold and silver can be seen in the walls.
+    exits:
+      south: 4726
+      west: 4724
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4726
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4724
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4726
+    key: juargan_room_4726
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      This is a north and south shaft that has been carved to perfection.  The walls
+      are almost square here, giving it a hall like appearance.
+    exits:
+      north: 4725
+      south: 4727
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4725
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4727
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4727
+    key: juargan_room_4727
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      The small shaft here continues to the north and to the east. As it slopes
+      slightly downward to the east, the walls have a more unfinished look to them.
+    exits:
+      north: 4726
+      east: 4728
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4726
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4728
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4728
+    key: juargan_room_4728
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      This small east-west shaft, which travels slightly downward to the east, has
+      a distinct smell to it.  The smell is revolting, coming close to that of rotting
+      flesh.
+    exits:
+      east: 4729
+      west: 4727
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4729
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4727
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4729
+    key: juargan_room_4729
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      This intersection combines three tunnels, the western tunnel leading up.  To
+      the south is darkness, but there is a disgusting stench emanating from a very
+      large cavern.
+    exits:
+      north: 4732
+      south: 4730
+      west: 4728
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4732
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4730
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4728
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4730
+    key: juargan_room_4730
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      This is a small north and south passage that is bleak and void of any gold or
+      silver in the walls.  It continues into darkness to the south.
+    exits:
+      north: 4729
+      south: 4731
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4729
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4731
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4731
+    key: juargan_room_4731
+    name: "Dwarven mines"
+    area_id: 32
+    short_desc: "Dwarven mines"
+    long_desc: |
+      This small shaft ends abruptly at the southern wall.  There is a faint blue
+      glow to the southern wall but no metals of jewels are present.
+    exits:
+      north: 4730
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4730
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4732
+    key: juargan_room_4732
+    name: "Duergar Outcamp"
+    area_id: 32
+    short_desc: "Duergar Outcamp"
+    long_desc: |
+      This is a large cavern that stinks of decay and death.  To the north there is
+      a rather large hut, while to the west there is a small fire and several big
+      boulders.
+    exits:
+      north: 4733
+      south: 4729
+      west: 4735
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4733
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4729
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4735
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4733
+    key: juargan_room_4733
+    name: "Duergar Barracks"
+    area_id: 32
+    short_desc: "Duergar Barracks"
+    long_desc: |
+      Several small cots line the walls here  inside this large thatched hut.  Small
+      scraps of food and several small disfigured bodies lie about, no doubt the
+      remains of some unfortunate dwarf.
+    exits:
+      south: 4732
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4732
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4734
+    key: juargan_room_4734
+    name: "Small cave"
+    area_id: 32
+    short_desc: "Small cave"
+    long_desc: |
+      Many small and disfigured bodies have been piled up here stinking up the whole
+      cavern.  Blood stains line the walls and entrails are strewn about the floor.
+    exits:
+      south: 4735
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4735
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4735
+    key: juargan_room_4735
+    name: "By a small fire"
+    area_id: 32
+    short_desc: "By a small fire"
+    long_desc: |
+      Several large rocks surround a petty little fire that has formed a cloud in
+      the ceiling of this large cavern.  A window of the hut looks out over this small
+      meeting area.  To the north a small dark cave can be seen.
+    exits:
+      east: 4732
+      north: 4734
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4732
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 4734
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4736
+    key: juargan_room_4736
+    name: "Carved Tunnel"
+    area_id: 32
+    short_desc: "Carved Tunnel"
+    long_desc: |
+      This small tunnel has been carved to perfection, the walls are smooth and the
+      floor has been worn soft through years of passage.  The red coloring of the
+      rock gives this small tunnel a soft glow.
+    exits:
+      north: 4737
+      east: 4708
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4737
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4708
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4737
+    key: juargan_room_4737
+    name: "Carved Tunnel"
+    area_id: 32
+    short_desc: "Carved Tunnel"
+    long_desc: |
+      The walls of the small tunnel have been carved to perfection as well as the
+      floor that has been worn smooth.  It travels south and west leading off into
+      darkness.
+    exits:
+      south: 4736
+      west: 4738
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4736
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4738
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4738
+    key: juargan_room_4738
+    name: "Carved Tunnel"
+    area_id: 32
+    short_desc: "Carved Tunnel"
+    long_desc: |
+      The walls here are red and smooth as they have been carved into perfection.
+      The floor has been worm smooth with use and clear of any rubble.
+    exits:
+      east: 4737
+      south: 4739
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4737
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4739
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4739
+    key: juargan_room_4739
+    name: "Stone Gates"
+    area_id: 32
+    short_desc: "Stone Gates"
+    long_desc: |
+      Two monstrous pillars of stone support a great stone gate that leads south
+      into a gigantic cavern with a small city inside.  The redden rock of the of
+      mountain gives this small gate and cavern within a slight reddish glow.
+    exits:
+      north: 4738
+      south: 4740
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4738
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4740
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4740
+    key: juargan_room_4740
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A small stone walkway leads its way through the immense cavern and all of its
+      scattered boulders and misplaced stalagmites.  To the south you can see a large
+      area of many multicolored rock, rising up in the center of which is a small
+      building.
+    exits:
+      north: 4739
+      south: 4741
+      west: 4750
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4739
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4741
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4750
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4741
+    key: juargan_room_4741
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way through all types of multicolored boulders of all
+      sizes and shapes.  Despite it's hardness and great size it has a certain
+      beauty to it.
+    exits:
+      north: 4740
+      east: 4742
+      west: 4748
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4740
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4742
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4748
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4742
+    key: juargan_room_4742
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way south and west from this section of a enormously
+      large, yet beautiful conglomeration of rocks and boulders.
+    exits:
+      south: 4743
+      west: 4741
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4743
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4741
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4743
+    key: juargan_room_4743
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way north and south through this large display of many
+      different colored boulders and rocks.  A large building can be seen rising above
+      the boulders directly to the west.
+    exits:
+      north: 4742
+      south: 4744
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4742
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4744
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4744
+    key: juargan_room_4744
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way to the north and to the west as the many different
+      colored boulders and rocks perform a array of beauty before you.
+    exits:
+      north: 4743
+      west: 4745
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4743
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4745
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4745
+    key: juargan_room_4745
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way west and east through this array of multicolored
+      boulders and rocks.  To the north a smooth path leads to a large and immaculate
+      stone building.
+    exits:
+      north: 4749
+      east: 4744
+      west: 4746
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4749
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4744
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4746
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4746
+    key: juargan_room_4746
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way east and north through this small section of the
+      large array of boulders and rocks of all different colors.
+    exits:
+      north: 4747
+      east: 4745
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4747
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4745
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4747
+    key: juargan_room_4747
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way north and south through this small section of the
+      large garden of multicolored boulders.  Directly to the east a large building
+      can be seen rising above the piles of boulders.
+    exits:
+      north: 4748
+      south: 4746
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4748
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4746
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4748
+    key: juargan_room_4748
+    name: "Rock Garden"
+    area_id: 32
+    short_desc: "Rock Garden"
+    long_desc: |
+      A small path works its way east and south through this section of the great
+      multicolored array of boulders and rock formations.
+    exits:
+      east: 4741
+      south: 4747
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4741
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4747
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4749
+    key: juargan_room_4749
+    name: "Temple of Juargan"
+    area_id: 32
+    short_desc: "Temple of Juargan"
+    long_desc: |
+      This large building is circular in shape and open on all sides, as the ceiling
+      is supported by pillars made of the deep red stone from the heart of the
+      Dra-Korrin.
+        In the center there is rests a large throne, formed of red rock.
+    exits:
+      south: 4745
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 4745
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      throne: |
+        The throne is made of deep red rock from the core of the Dra-Korrin.
+
+  - id: 4750
+    key: juargan_room_4750
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A small stone walkway travels east and west through the many stalagmites and
+      stray boulders that scatter the floor of the great cavern.
+    exits:
+      east: 4740
+      west: 4751
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4740
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4751
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4751
+    key: juargan_room_4751
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A small stone walkway travels east and south through the debris of many
+      boulders and stalagmites.  Another small walkway leads west to a small building
+      pushing a black smoke from its roof.
+    exits:
+      east: 4750
+      south: 4753
+      west: 4752
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4750
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4753
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4752
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4752
+    key: juargan_room_4752
+    name: "Blacksmith's Home"
+    area_id: 32
+    short_desc: "Blacksmith's Home"
+    long_desc: |
+      A large black forge lies in the center of this small house pushing waves of
+      heat into your face, barley allowing you to stand within the entranceway.  A
+      large trough of water and several anvils are resting here as well.
+    exits:
+      east: 4751
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4751
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4753
+    key: juargan_room_4753
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A small walkway travels north and south through the many scattered boulders
+      and stalagmites.  A separate, less used path leads to the west.
+    exits:
+      north: 4751
+      south: 4759
+      west: 4754
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4751
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4759
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4754
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4754
+    key: juargan_room_4754
+    name: "Path in the Rock"
+    area_id: 32
+    short_desc: "Path in the Rock"
+    long_desc: |
+      A small path leads west further into the less carved rock while to the east
+      the larger walkway can be seen.
+    exits:
+      east: 4753
+      west: 4755
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4753
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4755
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4755
+    key: juargan_room_4755
+    name: "Path in the Rock"
+    area_id: 32
+    short_desc: "Path in the Rock"
+    long_desc: |
+      This small uncarved path travels south and east as the edge of the cavern
+      blocks any travel further west.  The wall of the cavern has a deep red color to
+      it and with the many stalactites parts resemble dripping blood.
+    exits:
+      east: 4754
+      south: 4756
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4754
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4756
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4756
+    key: juargan_room_4756
+    name: "Path in the Rock"
+    area_id: 32
+    short_desc: "Path in the Rock"
+    long_desc: |
+      This small, uncarved path leads north and south along the cavern wall, over
+      many boulders at points.  To the east you can see a path leading up to a small
+      hole in a large boulder.
+    exits:
+      north: 4755
+      east: 4771
+      south: 4757
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4755
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4771
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4757
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4757
+    key: juargan_room_4757
+    name: "Path in the Rock"
+    area_id: 32
+    short_desc: "Path in the Rock"
+    long_desc: |
+      A small path travels over boulders and crevices to the north and east.  The
+      edge of the cavern lies to the west while mounds of boulders are heaped to the
+      south.
+    exits:
+      north: 4756
+      east: 4758
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4756
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4758
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4758
+    key: juargan_room_4758
+    name: "Path in the Rock"
+    area_id: 32
+    short_desc: "Path in the Rock"
+    long_desc: |
+      A small and unused path travels over boulders and by many large hole as it
+      makes its way to the west.  To the east the small path ends in the larger walk-
+      way of the city.  To the south a path leads to a small hut perched on top of a
+      large boulder.
+    exits:
+      east: 4760
+      south: 4761
+      west: 4757
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4760
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4761
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4757
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4759
+    key: juargan_room_4759
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A stone walkway travels north and south through this section of this rocky
+      city.  To the west you can see a uncarved and hug mound of rock and boulder.
+    exits:
+      north: 4753
+      south: 4760
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4753
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4760
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4760
+    key: juargan_room_4760
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A stone walkway travels north and south through this section of the city.  A
+      small and unused path can be seen traveling west into the uncut and jagged rock.
+    exits:
+      north: 4759
+      south: 4762
+      west: 4758
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4759
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4762
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4758
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4761
+    key: juargan_room_4761
+    name: "Pasty's Dwelling"
+    area_id: 32
+    short_desc: "Pasty's Dwelling"
+    long_desc: |
+      This is a small stone dwelling with a large oven on the south wall.  There are
+      many tables and chairs placed about the place and by the oven there is a table
+      piled with grains and a small bowl of dough.
+    exits:
+      north: 4758
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4758
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4762
+    key: juargan_room_4762
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A stone walkway travels north and east through this section of the stone city.
+      A small path leads south to a small rock dwelling.
+    exits:
+      north: 4760
+      east: 4763
+      south: 4764
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4760
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4763
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4764
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4763
+    key: juargan_room_4763
+    name: "Walkway"
+    area_id: 32
+    short_desc: "Walkway"
+    long_desc: |
+      A stone walkway leads west from here.  To the east the small walkway ends in a
+      large building, and to the south a small path leads to a small stone dwelling.
+    exits:
+      east: 4766
+      south: 4765
+      west: 4762
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4766
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4765
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4762
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4764
+    key: juargan_room_4764
+    name: "Leatherbies Home"
+    area_id: 32
+    short_desc: "Leatherbies Home"
+    long_desc: |
+      This is a small stone dwelling with many sizes of leather strewn about the
+      place.  A small table with a few chairs sits in the center of the house.
+    exits:
+      north: 4762
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4762
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4765
+    key: juargan_room_4765
+    name: "The Stone Jewel"
+    area_id: 32
+    short_desc: "The Stone Jewel"
+    long_desc: |
+      Many different colors and sizes of jewels hang from the walls of this well
+      kept dwelling.  A small counter sits on the far wall with other small tables
+      lining the walls.
+    exits:
+      north: 4763
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4763
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4766
+    key: juargan_room_4766
+    name: "Guard Barrack"
+    area_id: 32
+    short_desc: "Guard Barrack"
+    long_desc: |
+      Many small cots line the walls of this large building as it serves for the
+      homes of many brave Dwarven men who pledge their lives to the suppression of
+      their Duergar enemies.  A small archway leads south to a lower level.
+    exits:
+      west: 4763
+      south: 4767
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 4763
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 4767
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4767
+    key: juargan_room_4767
+    name: "Alcove"
+    area_id: 32
+    short_desc: "Alcove"
+    long_desc: |
+      A small alcove serves as a turning point for this small, dark tunnel that goes
+      north and west from here.
+    exits:
+      north: 4766
+      west: 4768
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 4766
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4768
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4768
+    key: juargan_room_4768
+    name: "Entrance to Tomb"
+    area_id: 32
+    short_desc: "Entrance to Tomb"
+    long_desc: |
+      A large archway leads north to a dark vault.  An old stench emanates from it,
+      as dust seems to continually flow from the old arch.  There is a small tunnel
+      that travels east into a darkness.
+    exits:
+      north: 4769
+      east: 4767
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 4769
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 4767
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4769
+    key: juargan_room_4769
+    name: "Ancients Tomb"
+    area_id: 32
+    short_desc: "Ancients Tomb"
+    long_desc: |
+      Two large stone sarcophagus's lie stagnant in the center of this small tomb.
+      The walls are lined with holes that contain many coffers containing, no doubt,
+      the remains of some ancient dwarf.
+        A great stone door leads to the west, it has many inscriptions upon it.
+    exits:
+      south: 4768
+      west: 4770
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      south:
+        to: 4768
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4770
+        description: ""
+        keywords: "tomb vault door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 4700
+
+  - id: 4770
+    key: juargan_room_4770
+    name: "Ancients Vault"
+    area_id: 32
+    short_desc: "Ancients Vault"
+    long_desc: |
+      This is more of a small alcove than anything else.  The ceiling is covered
+      with many descriptive carvings, as are the walls and floor.  Where it not for
+      the years of decay and no upkeep, this would be a glamorous chamber.
+    exits:
+      east: 4769
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 4769
+        description: ""
+        keywords: "tomb vault door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 4700
+
+  - id: 4771
+    key: juargan_room_4771
+    name: "Siven's Stone"
+    area_id: 32
+    short_desc: "Siven's Stone"
+    long_desc: |
+      A small and dark little room entombed within a large boulder, a very strange
+      place to want to live.  There is a small table in the center, but the room is
+      void of any other objects.
+    exits:
+      west: 4756
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 4756
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4772
+    key: juargan_room_4772
+    name: "The small cave"
+    area_id: 32
+    short_desc: "The small cave"
+    long_desc: |
+      You barely squeeze through into this cave, and you don't see much to it
+      either.  All you see are piles of stones.  At least none of the stones has
+      fallen over your exit north.
+    exits:
+      north: 4773
+      down: 4700
+    sector_type: HILLS
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 4773
+        description: "You see a sparkling light north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 4700
+        description: "You see rocks and stones."
+        keywords: "stone stones rock rocks"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4773
+    key: juargan_room_4773
+    name: "Beneath the waterfall"
+    area_id: 32
+    short_desc: "Beneath the waterfall"
+    long_desc: |
+      As you wring your clothes, you see sunlight reflect beautifully off the
+      waterfall, forming at rainbow.  With the sparkling illumination, you think you
+      see a cave to the south.
+    exits:
+      south: 4772
+      west: 4774
+    sector_type: HILLS
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      south:
+        to: 4772
+        description: "You think you hear a small noise coming from there too."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 4774
+        description: "You see fish falling down the waterfall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 4774
+    key: juargan_room_4774
+    name: "By the beautiful waterfall"
+    area_id: 32
+    short_desc: "By the beautiful waterfall"
+    long_desc: |
+      You see a VERY beautiful waterfall here.  It looks almost as if diamonds are
+      falling down the mountain.  (You reach out and grab and no, it IS only water.)
+      It looks so nice here, you feel like taking a nap.
+      The trail leads north and south.
+    exits:
+      north: 5279
+      east: 4773
+      south: 4775
+    sector_type: HILLS
+    doors:
+      north:
+        to: 5279
+        description: "You see the trail leading north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 4773
+        description: "You see fish falling down the waterfall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 4775
+        description: "You see the trail leading back to the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4775
+    key: juargan_room_4775
+    name: "A valley"
+    area_id: 32
+    short_desc: "A valley"
+    long_desc: |
+      You see a fresh green valley.  Flowers blossom everywhere around you, and you
+      have a big urge to giggle.  To the north, you can see the source of this
+      greenness, a waterfall.  To the west, you see the trail along the valley.
+    exits:
+      north: 4774
+      west: 4776
+    sector_type: FIELD
+    doors:
+      north:
+        to: 4774
+        description: "You hear the rush of a waterfall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 4776
+        description: "You see the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4776
+    key: juargan_room_4776
+    name: "A valley"
+    area_id: 32
+    short_desc: "A valley"
+    long_desc: |
+      You see a fresh green valley.  Flowers blossom everywhere around you, and you
+      have a big urge to giggle.  The valley continues to the east, or you can take
+      a steep trail up.
+    exits:
+      east: 4775
+      up: 4777
+    sector_type: FIELD
+    doors:
+      east:
+        to: 4775
+        description: "You see the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 4777
+        description: "You see the trail up to the uncomfortable hills."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4777
+    key: juargan_room_4777
+    name: "At the end of the hills"
+    area_id: 32
+    short_desc: "At the end of the hills"
+    long_desc: |
+      What a view!  From here, you can see a waterfall toward the east, and lush
+      green forests south-east.  To the north, you see the Mountains of Moria.  To
+      the west, you see the dirty trail again.  A trail leads down to the valley
+      below.
+    exits:
+      down: 4776
+      west: 4778
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+    doors:
+      down:
+        to: 4776
+        description: "You see the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 4778
+        description: "You see the trail continue west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4778
+    key: juargan_room_4778
+    name: "A trail along the hills"
+    area_id: 32
+    short_desc: "A trail along the hills"
+    long_desc: |
+      The dirt road you are treading on is as gentle as you can believe.  Rocks
+      catch on you as you try to keep your balance.  The trail continues east and
+      back west to relative safety.
+    exits:
+      east: 4777
+      west: 4779
+    sector_type: HILLS
+    doors:
+      east:
+        to: 4777
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 4779
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4779
+    key: juargan_room_4779
+    name: "A trail along the hills"
+    area_id: 32
+    short_desc: "A trail along the hills"
+    long_desc: |
+      The trail flattens out a bit, giving you time to breathe.  You don't see much
+      water and don't think the sun is going to help your thirst.  The closest shade
+      appears to be the dwarf forest, which is VERY far away.
+    exits:
+      east: 4778
+      down: 4780
+    sector_type: HILLS
+    doors:
+      east:
+        to: 4778
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 4780
+        description: "You see the scary cliff down, but at least you know you can climb it."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4780
+    key: juargan_room_4780
+    name: "Up the hill"
+    area_id: 32
+    short_desc: "Up the hill"
+    long_desc: |
+      You continue to climb this hill as sweat breaks out upon your forehead.  It
+      looks like you are close to the plateau.  Down is the relative comfort of
+      ground again, but you are SO close to the top!
+    exits:
+      up: 4779
+      down: 4781
+    sector_type: MOUNTAIN
+    doors:
+      up:
+        to: 4779
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 4781
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4781
+    key: juargan_room_4781
+    name: "Up the hill"
+    area_id: 32
+    short_desc: "Up the hill"
+    long_desc: |
+      You continue to climb this hill as sweat breaks out upon your forehead.  It
+      looks like you are close to the plateau.  Down is the relative comfort of
+      ground again, but you are SO close to the top!
+    exits:
+      up: 4780
+      down: 4782
+    sector_type: MOUNTAIN
+    doors:
+      up:
+        to: 4780
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 4782
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4782
+    key: juargan_room_4782
+    name: "Up the hill"
+    area_id: 32
+    short_desc: "Up the hill"
+    long_desc: |
+      You continue to climb this hill as sweat breaks out upon your forehead.  It
+      looks like you are close to the plateau.  Down is the relative comfort of
+      ground again, but you are SO close to the top!
+    exits:
+      up: 4781
+      down: 4783
+    sector_type: MOUNTAIN
+    doors:
+      up:
+        to: 4781
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 4783
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4783
+    key: juargan_room_4783
+    name: "Up the hill"
+    area_id: 32
+    short_desc: "Up the hill"
+    long_desc: |
+      You continue to climb this hill as sweat breaks out upon your forehead.  It
+      looks like you are close to the plateau.  Down is the relative comfort of
+      ground again, but you are SO close to the top!
+    exits:
+      up: 4782
+      down: 4784
+    sector_type: MOUNTAIN
+    doors:
+      up:
+        to: 4782
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 4784
+        description: "You see the floor again!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4784
+    key: juargan_room_4784
+    name: "The hills"
+    area_id: 32
+    short_desc: "The hills"
+    long_desc: |
+      You sigh as the trail continues straight up into the mountain.  West leads
+      back to the more stable ground, but you wonder what's on the other side of this
+      little hill.....
+    exits:
+      west: 4785
+      up: 4783
+    sector_type: HILLS
+    doors:
+      west:
+        to: 4785
+        description: "You see the trail back."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 4783
+        description: "You see rocks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 4785
+    key: juargan_room_4785
+    name: "The hills"
+    area_id: 32
+    short_desc: "The hills"
+    long_desc: |
+      You see all around you ... hills.  You're lucky you get to get so much
+      exercise today!  You wonder if you should save your breath and go back west or
+      continue east toward the hills.  There is a trail leading south towards
+      a black glassy mountain range.  A small plaque is on the rock.
+    exits:
+      east: 4784
+      west: 4000
+      south: 2900
+    sector_type: HILLS
+    doors:
+      east:
+        to: 4784
+        description: "You see the trail along the hills."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 4000
+        description: "You see the dirty hills still."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2900
+        description: "You see a black glassy mountain range."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      plaque: |
+        This extension (hills and dwarf forest) is made my Hatchet for any Merc Mud.
+        copyright 1992
+

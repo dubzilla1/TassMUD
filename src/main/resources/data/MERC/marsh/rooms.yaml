@@ -1,0 +1,675 @@
+rooms:
+  - id: 8301
+    key: marsh_room_8301
+    name: "Muddy Path"
+    area_id: 32
+    short_desc: "Muddy Path"
+    long_desc: |
+      This section of the path is slowly being drowned by the nearby swamp to the
+      south, which is creeping slowly inland.  Several caved-in buildings sprawl
+      here, torn apart both by battle and the elements.
+    exits:
+      south: 8302
+    sector_type: FIELD
+    doors:
+      south:
+        to: 8302
+        description: "A broken road leading southward into the marsh."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      swamp: |
+        The swamp to the south even reaches as far as this point ... it makes the
+        ground and air about you moist and fetid.
+
+  - id: 8302
+    key: marsh_room_8302
+    name: "Swamp's Edge"
+    area_id: 32
+    short_desc: "Swamp's Edge"
+    long_desc: |
+      Briars and marsh plants stick to your boots and clothes, and clouds cover the
+      skies above the murky marsh, leaving the path before you dark and sinister.
+      You see some disturbances in the marsh, but after a few strangled screams,
+      the sounds stop.
+    exits:
+      north: 8301
+      east: 8303
+      south: 8304
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 8301
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 8303
+        description: "To the east lies a series of bogs and shallows that look rather threatening."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 8304
+        description: "You notice a large hill rising out of the marsh to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 8303
+    key: marsh_room_8303
+    name: "Marshy Forest"
+    area_id: 32
+    short_desc: "Marshy Forest"
+    long_desc: |
+      This area is by no means a forest, but for those who dwell in these sparse
+      trees it is one.  Occasionally you see a whole humanoid form floating face down
+      in the water, but mostly you only find pieces.  You hear a loud bellow in the
+      distance.  And feel fear creep into your heart.
+    exits:
+      east: 8305
+      west: 8302
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 8305
+        description: "Eastward is the thick bog of ooze..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8302
+        description: "Westward lies the remanents of a broken and shattered roadway being swallowed
+by the marsh."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      pieces: |
+        You see severed limbs and spongy intestines.
+
+  - id: 8304
+    key: marsh_room_8304
+    name: "On a hill."
+    area_id: 32
+    short_desc: "On a hill."
+    long_desc: |
+      You stand atop a hill on the northwestern side of the evil swamp. Dark
+      clouds whip around you and the wind raises its voice and assails you.
+    exits:
+      north: 8302
+      east: 8309
+      south: 8310
+    sector_type: HILLS
+    doors:
+      north:
+        to: 8302
+        description: "To the north lies a damp broken roadway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 8309
+        description: "A dark pool congeals to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 8310
+        description: "A gloomy path leads down the hill into the swamp."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 8305
+    key: marsh_room_8305
+    name: "An Oozing Bog"
+    area_id: 32
+    short_desc: "An Oozing Bog"
+    long_desc: |
+      You stand in an oozing quagmire.  A creaking beat fills the air, 
+      accompanied by groans and soughing of the air.  Several large winged
+      beasts flap over you and send chilling glares your way.  You feel out
+      of place, and feel that the occupants of this realm will soon 
+      have you for a feast.
+    exits:
+      east: 8306
+      west: 8303
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 8306
+        description: "Eastward lies a horde of disgusting looking monsters."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8303
+        description: "Westward lies a marshy area."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 8306
+    key: marsh_room_8306
+    name: "An Oozing Bog"
+    area_id: 32
+    short_desc: "An Oozing Bog"
+    long_desc: |
+      The ground here is soft and oozing.  You feel slimy water seeping into your
+      boots.  Better stop and check for leeches when you get out of here.
+    exits:
+      west: 8305
+    sector_type: MOUNTAIN
+    doors:
+      west:
+        to: 8305
+        description: "You see a large tree limb that looks easily moved."
+        keywords: "limb"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      limb: |
+        The limb looks like it is attached to a trap door in the ground.
+
+  - id: 8307
+    key: marsh_room_8307
+    name: "Swamp Thing's Lair"
+    area_id: 32
+    short_desc: "Swamp Thing's Lair"
+    long_desc: |
+      A horrible swamp thing resides here.  Mutilated corpses suffuse the air with
+      the overwhelming stench of putrid flesh.
+    exits:
+      west: 8308
+    sector_type: WATER_SWIM
+    doors:
+      west:
+        to: 8308
+        description: "A pool of quick sand lies to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      corpses: |
+        You notice a note on one of the corpses reading:  'Best ye forget the temple,
+        it is not for the likes of you...'
+
+  - id: 8308
+    key: marsh_room_8308
+    name: "Pool of Quick Sand"
+    area_id: 32
+    short_desc: "Pool of Quick Sand"
+    long_desc: |
+      You stand by a large oozing pool of quick sand.  Luckily only a complete
+      klutz could not avoid it.  Dancing lights fly about you and one seems to
+      be taunting you towards the pool.
+    exits:
+      east: 8307
+      south: 8314
+      west: 8309
+    sector_type: WATER_SWIM
+    doors:
+      east:
+        to: 8307
+        description: "The swamp thing's lair."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 8314
+        description: "A murky bog."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8309
+        description: "A dark pool lies to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      lights: |
+        From the stories you have heard, you recognize them as will-o-wisps.
+      quicksand: |
+        It looks deadly to the foolish.
+
+  - id: 8309
+    key: marsh_room_8309
+    name: "A Dark Pool."
+    area_id: 32
+    short_desc: "A Dark Pool."
+    long_desc: |
+      You stand beside a large dark pond.  The water boils not with heat, but with
+      motion, as if it is alive.  A creaking beat pulses through the air, leaving
+      you with a cold sweat and fear in your heart.
+    exits:
+      east: 8308
+      south: 8311
+      west: 8304
+    sector_type: WATER_SWIM
+    doors:
+      east:
+        to: 8308
+        description: "A large pool of quicksand lies to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 8311
+        description: "You see a cloud of darkness to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8304
+        description: "A hill rises out of the swamp to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      pond: |
+        It looks ALIVE ...
+
+  - id: 8310
+    key: marsh_room_8310
+    name: "Gloomy Path Through the Marsh."
+    area_id: 32
+    short_desc: "Gloomy Path Through the Marsh."
+    long_desc: |
+      To the north lies a hill, shrouded in dark clouds, and to the south lies
+      a huge patch of vegetation.  You sense an evil presence and notice 
+      a beast flying overhead to the south east, towards what looks to be a 
+      huge fortress, half buried in the marsh.
+    exits:
+      north: 8304
+      south: 8312
+    sector_type: WATER_SWIM
+    doors:
+      north:
+        to: 8304
+        description: "To the north a hill protrudes from the marshes."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 8312
+        description: "To the south a huge mass of vegetation seems to quiver with life."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      clouds: |
+        The clouds look dark and foreboding.
+      beast: |
+        It looks to be a demon of some foul breed.
+      fortress: |
+        It is surrounded by walls nearly 20 meters high.  In a tall tower on the
+        northeast side, a window glows blue with magical energy.
+      vegetation: |
+        It looks sentient.
+
+  - id: 8311
+    key: marsh_room_8311
+    name: "Cloud of Darkness."
+    area_id: 32
+    short_desc: "Cloud of Darkness."
+    long_desc: |
+      As you travel through this cloud of darkness, a fear such as you have never
+      known before assails you.
+    exits:
+      north: 8309
+      south: 8313
+    sector_type: WATER_SWIM
+    doors:
+      north:
+        to: 8309
+        description: "A dark pool lies to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 8313
+        description: "An obelisk lies to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 8312
+    key: marsh_room_8312
+    name: "Near Vegetation from Hell."
+    area_id: 32
+    short_desc: "Near Vegetation from Hell."
+    long_desc: |
+      You stand near some of the strangest plant life you have ever seen, a mixture
+      of tumescent vegetables, evil-smelling fruit trees, and malignant ferns.
+    exits:
+      north: 8310
+      east: 8313
+    sector_type: WATER_SWIM
+    doors:
+      north:
+        to: 8310
+        description: "To the north is a gloomy path through the marsh."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 8313
+        description: "Eastward is a large, black stone monolith."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      plant: |
+        They look rather violent, and snap at you when you come near.
+
+  - id: 8313
+    key: marsh_room_8313
+    name: "By the Monolith."
+    area_id: 32
+    short_desc: "By the Monolith."
+    long_desc: |
+      You are standing near a monolith which protrudes some 20 feet from the
+      marsh into the air.  Its black obsidian surface shines darkly in the 
+      strange, almost unearthly light that enters through the clouds above.
+    exits:
+      north: 8311
+      east: 8314
+      west: 8312
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 8311
+        description: "To the north is a cloud of darkest evil."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 8314
+        description: "Eastward lies a murky bog."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8312
+        description: "Near Vegetation from Hell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      monolith: |
+        This huge monolith resembles nothing you have ever seen before.
+        You have a strong feeling not to go within.
+
+  - id: 8314
+    key: marsh_room_8314
+    name: "Murky Bog."
+    area_id: 32
+    short_desc: "Murky Bog."
+    long_desc: |
+      A murky bog surrounds you.  To the east a black monolith juts forth from the
+      ground.  Far to the north lies a huge pool of quicksand.  Snarls can be heard
+      echoing as if from a great distance.
+    exits:
+      north: 8308
+      east: 8315
+      west: 8313
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 8308
+        description: "To the north lies a huge pool of quicksand."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 8315
+        description: "To the east the marsh turns into a small lake."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8313
+        description: "Westward a large monolith awaits adventurers."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      monolith: |
+        This is a huge obsidian stone block stuck in the marsh.
+
+  - id: 8315
+    key: marsh_room_8315
+    name: "Northern Lake Side."
+    area_id: 32
+    short_desc: "Northern Lake Side."
+    long_desc: |
+      Floating on this boiling lake is not what you would consider an enjoyable 
+      experience.  Many a creature bumps the bottom of your boat, and glares 
+      at you through unblinking eyes from the waters below.  The southern 
+      portion of the lake looks calm and serene compared to this wild place.
+    exits:
+      south: 8316
+      west: 8314
+    sector_type: WATER_NOSWIM
+    doors:
+      south:
+        to: 8316
+        description: "The southern portion of the lake lies to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8314
+        description: "To the west lies a murky bog."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 8316
+    key: marsh_room_8316
+    name: "Southern Lake Side."
+    area_id: 32
+    short_desc: "Southern Lake Side."
+    long_desc: |
+      You are floating on a calm section of blue crystal water.  You feel much more
+      at ease then you were before in this area.  Then a wave of fear passes over
+      you.  You are not alone.
+    exits:
+      north: 8315
+      west: 8317
+    sector_type: WATER_NOSWIM
+    doors:
+      north:
+        to: 8315
+        description: "Northern lake side."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8317
+        description: "To the west is a beach where your boat can land."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      north: |
+        The way to the north seems to be impassable, due to the rough water and
+        strange wild life.
+
+  - id: 8317
+    key: marsh_room_8317
+    name: "Beach"
+    area_id: 32
+    short_desc: "Beach"
+    long_desc: |
+      You are on a sandy shore.  Marsh life creeps across the surface.  To the west
+      lies an evil fortress.  You see figures walking along the battlements.
+    exits:
+      east: 8316
+      west: 8318
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 8316
+        description: "To the east lies the southern portion of a small lake."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 8318
+        description: "The great gates."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      fortress: |
+        It is hewn of black stone and heavily fortified.
+
+  - id: 8318
+    key: marsh_room_8318
+    name: "Before the Great Gates."
+    area_id: 32
+    short_desc: "Before the Great Gates."
+    long_desc: |
+      You stand before the gates of a huge fortress.  The drawbridge is up, the
+      gates closed, and the portcullis down.  This place looks very dangerous,
+      and you decide not to continue onward.
+    exits:
+      east: 8317
+      south: -1
+    sector_type: FOREST
+    doors:
+      east:
+        to: 8317
+        description: "To the east is a marshy beach."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: -1
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

@@ -1,0 +1,9 @@
+areas:
+  - id: 37
+    name: "School"
+    description: "Converted from school.are"
+    sector_type: "INSIDE"
+    author: "MERC"
+    source_file: "school.are"
+    vnum_range: "3700-3760"
+

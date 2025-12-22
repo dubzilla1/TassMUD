@@ -1,0 +1,9 @@
+areas:
+  - id: 21
+    name: "Hood"
+    description: "Converted from hood.are"
+    sector_type: "CITY"
+    author: "MERC"
+    source_file: "hood.are"
+    vnum_range: "2101-2172"
+

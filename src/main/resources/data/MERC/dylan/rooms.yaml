@@ -1,0 +1,3145 @@
+rooms:
+  - id: 9101
+    key: dylan_room_9101
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+      
+      A floating sign says:
+      
+      "Scubdu's Area--Tread carefully! Only high levels should attempt
+      this place. Leave messages on the board if you have problems."
+    exits:
+      north: 7900
+      up: 9102
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 7900
+        description: "The way back to solid footing, it seems."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9102
+        description: "There is another cloud above you.  If you jump you might make it..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9102
+    key: dylan_room_9102
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      east: 9103
+      down: 9101
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9103
+        description: "There is another cloud east of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9101
+        description: "There is another cloud below you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9103
+    key: dylan_room_9103
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      north: 9128
+      south: 9104
+      west: 9102
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9128
+        description: "You can barely make out a cloud to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9104
+        description: "You see a cloud somewhere south of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9102
+        description: "You see a cloud somewhere west of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9104
+    key: dylan_room_9104
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      north: 9103
+      east: 9105
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9103
+        description: "You can barely make out a cloud to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9105
+        description: "There is another cloud east of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9105
+    key: dylan_room_9105
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      east: 9106
+      west: 9104
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9106
+        description: "There is another cloud east of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9104
+        description: "You spy a tiny cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9106
+    key: dylan_room_9106
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      north: 9107
+      west: 9105
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9107
+        description: "You can barely make out a cloud to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9105
+        description: "You spy a tiny cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9107
+    key: dylan_room_9107
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      east: 9108
+      south: 9106
+      down: 9126
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9108
+        description: "There is another cloud east of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9106
+        description: "You see a cloud somewhere south of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9126
+        description: "There is another cloud below you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9108
+    key: dylan_room_9108
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      east: 9109
+      west: 9107
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9109
+        description: "An ominous storm cloud looms to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9107
+        description: "You spy a tiny cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9109
+    key: dylan_room_9109
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      west: 9108
+      down: 9110
+    sector_type: INSIDE
+    doors:
+      west:
+        to: 9108
+        description: "You spy a tiny cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9110
+        description: "An ominous storm cloud looms below you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9110
+    key: dylan_room_9110
+    name: "An ominous storm cloud."
+    area_id: 32
+    short_desc: "An ominous storm cloud."
+    long_desc: |
+      You find yourself in a storm.  Lightning flashes and thunder
+      crashes, making you wish you were dry and warm.
+    exits:
+      east: 9111
+      west: 9125
+      up: 9109
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9111
+        description: "There is a crag, high and rocky."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9125
+        description: "You spy a tiny cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9109
+        description: "There is another cloud above you.  If you jump you might make it..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9111
+    key: dylan_room_9111
+    name: "High and perilous cliff"
+    area_id: 32
+    short_desc: "High and perilous cliff"
+    long_desc: |
+      You are on a high and rocky cliff.  To the west you see a huge
+      ominous storm cloud moving this way.  You might want to take cover
+      before the storm hits.  You think that there is a narrow trail
+      leading to the south.
+    exits:
+      south: 9112
+      west: 9110
+    sector_type: MOUNTAIN
+    doors:
+      south:
+        to: 9112
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9110
+        description: "An ominous storm cloud looms to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9112
+    key: dylan_room_9112
+    name: "Narrow rocky trail."
+    area_id: 32
+    short_desc: "Narrow rocky trail."
+    long_desc: |
+      A narrow trail leads down towards the mountain and north toward the
+      cliff.  It seems to fade in and out as it winds up the hill.
+      Obviously, it has not been maintained in years.
+    exits:
+      north: 9111
+      down: 9113
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 9111
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9113
+    key: dylan_room_9113
+    name: "Small valley."
+    area_id: 32
+    short_desc: "Small valley."
+    long_desc: |
+      You are in a lush valley full of trees and other vegetation and the
+      odd carcass or two.  The trail leads south and it leads up.
+    exits:
+      south: 9114
+      up: 9112
+    sector_type: MOUNTAIN
+    doors:
+      south:
+        to: 9114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9112
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9114
+    key: dylan_room_9114
+    name: "Small valley."
+    area_id: 32
+    short_desc: "Small valley."
+    long_desc: |
+      You are in a lush valley full of trees and other vegetation and the
+      odd carcass or three.  The trail leads north and it leads down into
+      a crevasse.
+    exits:
+      north: 9113
+      down: 9115
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 9113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9115
+        description: "The crevice looks a little slippery."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9115
+    key: dylan_room_9115
+    name: "Deep, slippery crevice."
+    area_id: 32
+    short_desc: "Deep, slippery crevice."
+    long_desc: |
+      The crevice is deep and a little dim and it is hard to make your
+      way around.  A mist makes everything a little damp and slippery.
+      Better take your time climbing through here.
+    exits:
+      south: 9117
+      west: 9116
+      up: 9114
+    sector_type: MOUNTAIN
+    doors:
+      south:
+        to: 9117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9116
+        description: "The mist looks thicker in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9116
+    key: dylan_room_9116
+    name: "Incredibly slippery crevice."
+    area_id: 32
+    short_desc: "Incredibly slippery crevice."
+    long_desc: |
+      The crevice is getting more and more slippery.  You are getting
+      incredibly nervous and want to turn back.  To the east is the
+      crevice and trail you were following.  Below, you can just see the
+      edge of a cliff through the mist.  There is no trail leading there,
+      just a smooth, flat, dew-covered rock that almost resembles a
+      slide ...
+    exits:
+      east: 9115
+      down: 9199
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9115
+        description: "The way back to safety."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9199
+        description: "Only fools would dare tread here!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9117
+    key: dylan_room_9117
+    name: "Steep mountainside."
+    area_id: 32
+    short_desc: "Steep mountainside."
+    long_desc: |
+      From here, you can see forever.  Clouds, birds, the forest.
+      Midgaard is far, far to the west.  What a postcard perfect view!
+    exits:
+      north: 9115
+      up: 9118
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 9115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9118
+    key: dylan_room_9118
+    name: "Steep mountainside."
+    area_id: 32
+    short_desc: "Steep mountainside."
+    long_desc: |
+      From here, you can see forever.  Clouds, birds, the forest.
+      Midgaard is far, far to the west.  What a postcard perfect view!
+    exits:
+      east: 9119
+      down: 9117
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9119
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9119
+    key: dylan_room_9119
+    name: "Treacherous Cliff."
+    area_id: 32
+    short_desc: "Treacherous Cliff."
+    long_desc: |
+      The cliff is rocky and difficult to negotiate.  One wrong slip and
+      you could fall and break a leg or impale yourself or something else
+      nasty.
+    exits:
+      west: 9118
+      up: 9120
+    sector_type: MOUNTAIN
+    doors:
+      west:
+        to: 9118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9120
+        description: "Above you is an almost vertical cliff.  It looks dangerous but
+climbable."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9120
+    key: dylan_room_9120
+    name: "Cliff Face."
+    area_id: 32
+    short_desc: "Cliff Face."
+    long_desc: |
+      You are more than a little nervous climbing on this almost vertical
+      cliff face.  You miraculously find places to grab onto and little
+      ledges to rest on.  You see a small cave here.
+    exits:
+      east: 9121
+      up: 9122
+      down: 9119
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9121
+        description: "A dank, dark, smelly hole."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9122
+        description: "A large ledge that looks pretty safe."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9119
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9121
+    key: dylan_room_9121
+    name: "Dank, dark, smelly hole."
+    area_id: 32
+    short_desc: "Dank, dark, smelly hole."
+    long_desc: |
+      This hole must have been used as a lair or nest.  There are
+      feathers and bones everywhere and the floor is covered with
+      something disgusting.
+    exits:
+      west: 9120
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9122
+    key: dylan_room_9122
+    name: "Large, sturdy ledge."
+    area_id: 32
+    short_desc: "Large, sturdy ledge."
+    long_desc: |
+      You are on a ledge above a steep cliff face.  You can climb down
+      if you want, but be careful!  After viewing the scenery, you notice
+      two small caves here, one north and one west.
+    exits:
+      north: 9124
+      west: 9123
+      down: 9120
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 9124
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9123
+    key: dylan_room_9123
+    name: "Absolutely disgusting lair."
+    area_id: 32
+    short_desc: "Absolutely disgusting lair."
+    long_desc: |
+      The stench in here is quite foul.  There are feathers, bones and
+      rotting carcasses everywhere.  This place is absolutely gross and
+      you have to strain yourself not to lose your lunch.
+    exits:
+      east: 9122
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9122
+        description: "Your only hope to keep your lunch down is to head this way..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9124
+    key: dylan_room_9124
+    name: "Absolutely disgusting lair."
+    area_id: 32
+    short_desc: "Absolutely disgusting lair."
+    long_desc: |
+      The stench in here is quite foul.  There are feathers, bones and
+      rotting carcasses everywhere.  This place is absolutely gross and
+      you have to strain yourself not to lose your lunch.
+    exits:
+      south: 9122
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 9122
+        description: "Your only hope to keep your lunch down is to head this way..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9125
+    key: dylan_room_9125
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      east: 9110
+      up: 9126
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9110
+        description: "An ominous storm cloud looms to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9126
+        description: "There is another cloud above you.  If you jump you might make it..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9126
+    key: dylan_room_9126
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      north: 9131
+      west: 9127
+      up: 9107
+      down: 9125
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9131
+        description: "A cirrus cloud hums peacefully to itself."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9127
+        description: "You spy a tiny cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9107
+        description: "There is another cloud above you.  If you jump you might make it..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9125
+        description: "There is another cloud below you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9127
+    key: dylan_room_9127
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      north: 9130
+      east: 9126
+      up: 9128
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9130
+        description: "To the north you see an angry cloud lashing out."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9126
+        description: "There is another cloud east of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9128
+        description: "There is another cloud above you.  If you jump you might make it..."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9128
+    key: dylan_room_9128
+    name: "A fluffy white cloud."
+    area_id: 32
+    short_desc: "A fluffy white cloud."
+    long_desc: |
+      You find yourself standing on a small cloud.  The cloud feels kind
+      of spongy beneath your feet.  You find it hard to see anything in
+      the distance as wisps of cloud blow over your face.
+    exits:
+      south: 9103
+      down: 9127
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 9103
+        description: "You see a cloud somewhere south of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9127
+        description: "There is another cloud below you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9129
+    key: dylan_room_9129
+    name: "Sleepy little cloud."
+    area_id: 32
+    short_desc: "Sleepy little cloud."
+    long_desc: |
+      This cloud is peacefully snoozing away, enjoying himself.  There
+      is grumpy cloud to the east and a rather shy cloud north of here.
+    exits:
+      north: 9132
+      east: 9130
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9132
+        description: "The cloud to the north blushes and tries to hide when you look at
+it."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9130
+        description: "The cloud to the east mutters and grumbles at you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9130
+    key: dylan_room_9130
+    name: "Grumpy little cloud."
+    area_id: 32
+    short_desc: "Grumpy little cloud."
+    long_desc: |
+      This cloud mutters and grumbles at you.  You have to jump quickly
+      to avoid a lightning bolt that passes by your toe.  Your aren't
+      sure but you think you hear the cloud snicker.
+    exits:
+      east: 9131
+      south: 9127
+      west: 9129
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9131
+        description: "A happy little cloud is humming peacefully to itself."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9127
+        description: "You see a cloud somewhere south of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9129
+        description: "A sleepy little cloud to the west yawns and rolls over.  You hear
+snoring."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9131
+    key: dylan_room_9131
+    name: "Happy little cloud."
+    area_id: 32
+    short_desc: "Happy little cloud."
+    long_desc: |
+      You hear the cloud humming a little song to itself, but you can't
+      figure out the song.
+    exits:
+      north: 9136
+      south: 9126
+      west: 9130
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9136
+        description: "There is a pure white cloud north of you.  It is snowing!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9126
+        description: "You see a cloud somewhere south of you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9130
+        description: "You see an angry little cloud muttering and grumbling to itself."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9132
+    key: dylan_room_9132
+    name: "Bashful little cloud."
+    area_id: 32
+    short_desc: "Bashful little cloud."
+    long_desc: |
+      This cloud blushes and tries to avoid your glance as you look at
+      your surroundings.  You decide that overall it is a peaceful little
+      cloud.
+    exits:
+      north: 9133
+      south: 9129
+      west: 9142
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9133
+        description: "The cloud to the north sneezes!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9129
+        description: "A sleepy little cloud to the south yawns and rolls over.  You hear
+snoring."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9142
+        description: "An isolated little raincloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9133
+    key: dylan_room_9133
+    name: "Sneezing little cloud."
+    area_id: 32
+    short_desc: "Sneezing little cloud."
+    long_desc: |
+      The cloud is wracked with sneezes.  At first you thought you were
+      in an earthquake before you realize where you are!
+    exits:
+      north: 9145
+      east: 9134
+      south: 9132
+      west: 9143
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9134
+        description: "This cloud is, like, totally lost, you know?"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9132
+        description: "The cloud to the south blushes and tries to hide when you look at
+it."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9143
+        description: "You see a cirrus maximus cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9134
+    key: dylan_room_9134
+    name: "Dopey little cloud."
+    area_id: 32
+    short_desc: "Dopey little cloud."
+    long_desc: |
+      This cloud is too busy daydreaming to watch where its going.  It
+      doesn't even notice you landing on it.  It looks like it couldn't
+      figure its way out of an open box.
+    exits:
+      east: 9135
+      west: 9133
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9135
+        description: "You see a very scientific cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9133
+        description: "The cloud sneezes!  Yuck."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9135
+    key: dylan_room_9135
+    name: "Doc-like little cloud."
+    area_id: 32
+    short_desc: "Doc-like little cloud."
+    long_desc: |
+      The cloud looks at you through its Lennon like specs and examines
+      you quite scientifically.
+    exits:
+      south: 9136
+      west: 9134
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 9136
+        description: "There is a pure white cloud south of you.  It is snowing!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9134
+        description: "This cloud is, like, totally lost, you know?"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9136
+    key: dylan_room_9136
+    name: "Snowy, white cloud."
+    area_id: 32
+    short_desc: "Snowy, white cloud."
+    long_desc: |
+      You shiver as you stand here.  This beautiful, fluffy, pure white
+      cloud is snowing.  The snow is pure and sweet as it melts in your
+      mouth.  What a nifty cloud to be on.
+    exits:
+      north: 9135
+      south: 9131
+      west: 9137
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9135
+        description: "You see a very scientific cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9131
+        description: "A happy, peaceful little cloud humming to itself."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9137
+    key: dylan_room_9137
+    name: "Cold, damp cloud."
+    area_id: 32
+    short_desc: "Cold, damp cloud."
+    long_desc: |
+      Your mood grows grumpy as you find yourself cold and wet from this
+      dismal cloud.  You notice a rock outcropping above you.
+    exits:
+      east: 9136
+      up: 9138
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9136
+        description: "There is a pure white cloud east of you.  It is snowing!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9138
+    key: dylan_room_9138
+    name: "Mysterious rock outcropping."
+    area_id: 32
+    short_desc: "Mysterious rock outcropping."
+    long_desc: |
+      This rock outcropping just seems to hang in midair.  To the north
+      you see a house and if you ease yourself down, you can land on a
+      rather damp, dismal cloud.  The door to the house is closed.
+    exits:
+      north: 9139
+      down: 9137
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 9139
+        description: "Eerie looking house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9139
+    key: dylan_room_9139
+    name: "Foyer."
+    area_id: 32
+    short_desc: "Foyer."
+    long_desc: |
+      Shadows play tricks on your eyes.  Everytime you think you see
+      something in a corner and turn to get a better look, nothing is
+      there.  The place is very dark.  Even with a torch, you have
+      trouble making out the room to the east.
+    exits:
+      east: 9140
+      south: 9138
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9140
+    key: dylan_room_9140
+    name: "Tower."
+    area_id: 32
+    short_desc: "Tower."
+    long_desc: |
+      You are in a musty old tower.  The smell of mold and mildew is
+      almost overpowering.  You hear strange creaks and groans ... is it
+      the wind or did someone (something?) make that noise.  To the west
+      is the house and there is a stairway leading up into the tower.
+    exits:
+      west: 9139
+      up: 9141
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9139
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9141
+    key: dylan_room_9141
+    name: "Witches Tower"
+    area_id: 32
+    short_desc: "Witches Tower"
+    long_desc: |
+      Here you see strange things of arcane value.  There is a cauldron in the
+      corner bubbling madly, belching a foul brew that must have come from hell.
+      On shelves lie jars of strange creatures you have never seen before, or
+      hope to again.  A picture of a familiar temple hangs on the east wall.
+    exits:
+      east: 3001
+      down: 9140
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3001
+        description: ""
+        keywords: "picture"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      picture: |
+        The picture is in on the east wall.  It is very complex in detail, and you
+        almost see people walking around the temple in the picture.
+
+  - id: 9142
+    key: dylan_room_9142
+    name: "Suspicious little raincloud."
+    area_id: 32
+    short_desc: "Suspicious little raincloud."
+    long_desc: |
+      On second glance, this cloud doesn't seem much like a raincloud.
+      A balloon sticks out of the top and you think you hear it humming
+      something like, 'Tut, tut!  It looks like rain!'
+    exits:
+      north: 9143
+      east: 9132
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9143
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9132
+        description: "A bashful little cloud that tries to avoid your notice."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9143
+    key: dylan_room_9143
+    name: "Cirrus maximus cloud."
+    area_id: 32
+    short_desc: "Cirrus maximus cloud."
+    long_desc: |
+      This cloud looks like it is of the cirrus maximus genre of clouds.
+    exits:
+      east: 9133
+      south: 9142
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9133
+        description: "The cloud to the east sneezes!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9142
+        description: "A suspicious little raincloud with a balloon."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9144
+    key: dylan_room_9144
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      north: 9148
+      down: 9146
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9148
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9146
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9145
+    key: dylan_room_9145
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      south: 9133
+      west: 9150
+      down: 9148
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 9133
+        description: "You see a sneezy little cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9150
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9148
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9146
+    key: dylan_room_9146
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      north: 9147
+      east: 9144
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9147
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9144
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9147
+    key: dylan_room_9147
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      south: 9146
+      east: 9148
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 9146
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9148
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9148
+    key: dylan_room_9148
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      up: 9145
+      south: 9144
+      west: 9147
+    sector_type: INSIDE
+    doors:
+      up:
+        to: 9145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9144
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9147
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9149
+    key: dylan_room_9149
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      north: 9152
+      east: 9150
+      down: 9157
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9152
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9150
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9157
+        description: "You see a cumulative nimbus cloud."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9150
+    key: dylan_room_9150
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      north: 9151
+      east: 9145
+      west: 9149
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9151
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9149
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9151
+    key: dylan_room_9151
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      south: 9150
+      west: 9152
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 9150
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9152
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9152
+    key: dylan_room_9152
+    name: "Raging hurricane."
+    area_id: 32
+    short_desc: "Raging hurricane."
+    long_desc: |
+      You are buffeted and knocked about by the almost godlike strength
+      of the raging hurricane.  It is hard to see and hear anything.
+      Your only thought is to seek refuge from the storm.
+    exits:
+      east: 9151
+      south: 9149
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9151
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9149
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9153
+    key: dylan_room_9153
+    name: "Calm cloud."
+    area_id: 32
+    short_desc: "Calm cloud."
+    long_desc: |
+      This cloud is just outside the hurricane.  It looks like it might
+      get sucked in, but you feel safe for the moment.
+    exits:
+      west: 9154
+      up: 9152
+    sector_type: INSIDE
+    doors:
+      west:
+        to: 9154
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9152
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9154
+    key: dylan_room_9154
+    name: "Mountainside."
+    area_id: 32
+    short_desc: "Mountainside."
+    long_desc: |
+      You find yourself on the side of a huge granite mountain.  The air
+      is quite thin so you know you are at a very high altitude.  There
+      is no plant life beyond moss and lichen in this lonely, barren
+      place.
+    exits:
+      east: 9153
+      west: 9155
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9153
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9155
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9155
+    key: dylan_room_9155
+    name: "Mountainside."
+    area_id: 32
+    short_desc: "Mountainside."
+    long_desc: |
+      You find yourself on the side of a huge granite mountain.  The air
+      is quite thin so you know you are at a very high altitude.  There
+      is no plant life beyond moss and lichen in this lonely, barren
+      place.
+    exits:
+      east: 9154
+      up: 9156
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9154
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9156
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9156
+    key: dylan_room_9156
+    name: "Roc's Nest."
+    area_id: 32
+    short_desc: "Roc's Nest."
+    long_desc: |
+      You are standing in a nest.  It is huge, at least two spear-lengths
+      wide.  You see three eggs in the center.  They are knee high, brown
+      and look almost leathery.  Better hope mom isn't around!
+    exits:
+      down: 9155
+    sector_type: MOUNTAIN
+    doors:
+      down:
+        to: 9155
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9157
+    key: dylan_room_9157
+    name: "Cumulative nimbus cloud."
+    area_id: 32
+    short_desc: "Cumulative nimbus cloud."
+    long_desc: |
+      This cloud looks like it belongs to the phylum of cumulative nimbus clouds.
+    exits:
+      south: 9159
+      west: 9158
+      up: 9149
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 9159
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9158
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9149
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9158
+    key: dylan_room_9158
+    name: "Dark hidden cloud."
+    area_id: 32
+    short_desc: "Dark hidden cloud."
+    long_desc: |
+      This cloud looks like the perfect place to hide.
+    exits:
+      east: 9157
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 9157
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9159
+    key: dylan_room_9159
+    name: "Yet another cloud"
+    area_id: 32
+    short_desc: "Yet another cloud"
+    long_desc: |
+      You find yourself in yet another cloud.  Will the madness never
+      end?  There is a rope ladder leading up.
+    exits:
+      north: 9157
+      up: 9160
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 9157
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9160
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9160
+    key: dylan_room_9160
+    name: "Front gate"
+    area_id: 32
+    short_desc: "Front gate"
+    long_desc: |
+      There is a gate here.  It is huge, towering over you.  It creaks
+      as it sways in the breeze.  To the south you see a huge lawn.
+      There is a rope ladder leading down.
+    exits:
+      south: 9161
+      down: 9159
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+    doors:
+      south:
+        to: 9161
+        description: "You see a huge lawn."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9159
+        description: "There is a rope ladder leading down."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9161
+    key: dylan_room_9161
+    name: "Lawn"
+    area_id: 32
+    short_desc: "Lawn"
+    long_desc: |
+      The lawn seems to stretch and stretch to the south and to the west.
+      North of you is a gate.  The grass is emerald green and luscious,
+      obviously well cared for.
+    exits:
+      north: 9160
+      south: 9163
+      west: 9162
+    sector_type: FIELD
+    doors:
+      north:
+        to: 9160
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9163
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9162
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9162
+    key: dylan_room_9162
+    name: "Croquet game"
+    area_id: 32
+    short_desc: "Croquet game"
+    long_desc: |
+      A croquet game has been set up and carelessly left out.  Who ever
+      was playing blue was in the lead before they quit.  Benches have
+      been set up for spectators and players to enjoy themselves.
+    exits:
+      east: 9161
+      south: 9164
+    sector_type: FIELD
+    doors:
+      east:
+        to: 9161
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9164
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9163
+    key: dylan_room_9163
+    name: "Huge, gorgeous fountain."
+    area_id: 32
+    short_desc: "Huge, gorgeous fountain."
+    long_desc: |
+      An enormous golden fountain is here.  You see swans, angels,
+      gryphons and a host of other creatures in the fountain.  The
+      fountain empties into a huge pool that looks quite inviting.
+    exits:
+      north: 9161
+      west: 9164
+    sector_type: FIELD
+    doors:
+      north:
+        to: 9161
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9164
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9164
+    key: dylan_room_9164
+    name: "Patio."
+    area_id: 32
+    short_desc: "Patio."
+    long_desc: |
+      A huge patio overlooks the lawn area.  There are enough tables and
+      chairs for a party of 100.  The tables and chairs are ornate and
+      expensive, tasteful and elegant.  Stairs lead up to the main
+      house.
+    exits:
+      north: 9162
+      east: 9163
+      up: 9165
+    sector_type: FIELD
+    doors:
+      north:
+        to: 9162
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9163
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9165
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9165
+    key: dylan_room_9165
+    name: "Long stairway."
+    area_id: 32
+    short_desc: "Long stairway."
+    long_desc: |
+      This stairway is suspended on clouds.  It leads from the house to
+      the front lawn.  The banisters are made of ornate gold and silver
+      inlays.
+    exits:
+      up: 9166
+      down: 9164
+    sector_type: CITY
+    doors:
+      up:
+        to: 9166
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9164
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9166
+    key: dylan_room_9166
+    name: "Front door"
+    area_id: 32
+    short_desc: "Front door"
+    long_desc: |
+      You stand at the front door of an immense, sprawling mansion made
+      of granite and marble.  The door is at least 10 feet high and is
+      made of oak.
+    exits:
+      east: 9173
+      south: 9177
+      west: 9167
+      down: 9165
+    sector_type: CITY
+    doors:
+      east:
+        to: 9173
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9177
+        description: "You see an ornate oak door."
+        keywords: "oak door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9167
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9165
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9167
+    key: dylan_room_9167
+    name: "Lawn northwest of house."
+    area_id: 32
+    short_desc: "Lawn northwest of house."
+    long_desc: |
+      You stand just outside the northwest corner of the house.  You try
+      to peek in a window, but it is a little too high to see anything.
+    exits:
+      east: 9166
+      south: 9168
+    sector_type: CITY
+    doors:
+      east:
+        to: 9166
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9168
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9168
+    key: dylan_room_9168
+    name: "Lawn west of house."
+    area_id: 32
+    short_desc: "Lawn west of house."
+    long_desc: |
+      You stand just outside the west corner of the house.  You try to
+      peek in a window, but it is a little too high to see anything.
+    exits:
+      north: 9167
+      south: 9169
+    sector_type: CITY
+    doors:
+      north:
+        to: 9167
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9169
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9169
+    key: dylan_room_9169
+    name: "Lawn southwest of house."
+    area_id: 32
+    short_desc: "Lawn southwest of house."
+    long_desc: |
+      You stand just outside the southwest corner of the house.  You try
+      to peek in a window, but it is a little too high to see anything.
+    exits:
+      north: 9168
+      east: 9170
+      down: 9174
+    sector_type: CITY
+    doors:
+      north:
+        to: 9168
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9170
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9174
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9170
+    key: dylan_room_9170
+    name: "Lawn south of house."
+    area_id: 32
+    short_desc: "Lawn south of house."
+    long_desc: |
+      You stand just outside the south corner of the house.  You try to
+      peek in a window, but it is a little too high to see anything.
+    exits:
+      east: 9171
+      west: 9169
+    sector_type: CITY
+    doors:
+      east:
+        to: 9171
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9169
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9171
+    key: dylan_room_9171
+    name: "Lawn southeast of house."
+    area_id: 32
+    short_desc: "Lawn southeast of house."
+    long_desc: |
+      You stand just outside the southeast corner of the house.  You try
+      to peek in a window, but it is a little too high to see anything.
+    exits:
+      north: 9172
+      west: 9170
+    sector_type: CITY
+    doors:
+      north:
+        to: 9172
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9170
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9172
+    key: dylan_room_9172
+    name: "Lawn east of house."
+    area_id: 32
+    short_desc: "Lawn east of house."
+    long_desc: |
+      You stand just outside the east corner of the house.  You try to
+      peek in a window, but it is a little too high to see anything.
+    exits:
+      north: 9173
+      south: 9171
+    sector_type: CITY
+    doors:
+      north:
+        to: 9173
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9171
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9173
+    key: dylan_room_9173
+    name: "Lawn northeast of house."
+    area_id: 32
+    short_desc: "Lawn northeast of house."
+    long_desc: |
+      You stand just outside the northeast corner of the house.  You try
+      to peek in a window, but it is a little too high to see anything.
+    exits:
+      south: 9172
+      west: 9166
+    sector_type: CITY
+    doors:
+      south:
+        to: 9172
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9166
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9174
+    key: dylan_room_9174
+    name: "Dirty, dusty tunnel."
+    area_id: 32
+    short_desc: "Dirty, dusty tunnel."
+    long_desc: |
+      This dirty dusty tunnel must lead somewhere.
+    exits:
+      east: 9175
+      up: 9169
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9175
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9169
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9175
+    key: dylan_room_9175
+    name: "Basement."
+    area_id: 32
+    short_desc: "Basement."
+    long_desc: |
+      This seems like your average basement.  Old Christmas decorations,
+      suitcases, bicycles litter your way.  You hear the squeaking of
+      rats in the corners.
+    exits:
+      north: 9176
+      west: 9174
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9176
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9174
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9176
+    key: dylan_room_9176
+    name: "Bottom of the stairs."
+    area_id: 32
+    short_desc: "Bottom of the stairs."
+    long_desc: |
+      You stand at the bottom of a long staircase leading up to the main
+      house.  To the south you can barely make out the accumulated
+      clutter gathered throughout the years.
+    exits:
+      south: 9175
+      up: 9177
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 9175
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9177
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9177
+    key: dylan_room_9177
+    name: "Foyer."
+    area_id: 32
+    short_desc: "Foyer."
+    long_desc: |
+      "Magnificent" does not even begin to describe the foyer.  Lavishly
+      decorated, yet elegant, it gives an impression of indescribable
+      wealth.  Paintings and tapestries line the walls depicting scenes
+      from throughout history.  Antiques furnitures and oriental rugs are
+      tastefully placed in ideal spots.  The door is at least 10 feet
+      high and is made of oak.
+    exits:
+      north: 9166
+      east: 9183
+      west: 9178
+      down: 9176
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9166
+        description: "You see an ornate oak door."
+        keywords: "oak door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9183
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9178
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9176
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9178
+    key: dylan_room_9178
+    name: "Elegant hallway."
+    area_id: 32
+    short_desc: "Elegant hallway."
+    long_desc: |
+      You are in a long, sprawling hallway connecting the eastern and
+      western wings of the house.  There are several chairs and sofas in
+      the hallway and some gorgeous, handwoven drapes.
+    exits:
+      east: 9177
+      south: 9179
+      west: 9180
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9177
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9179
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9180
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9179
+    key: dylan_room_9179
+    name: "Library"
+    area_id: 32
+    short_desc: "Library"
+    long_desc: |
+      You are overwhelmed by the sheer volumes of books here.  The
+      shelves stretch all the way to the ceiling and are on every wall,
+      even above the doorway.  There are chairs for sitting and reading
+      and a desk for more intense studies.
+    exits:
+      north: 9178
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9178
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9180
+    key: dylan_room_9180
+    name: "Arboretum."
+    area_id: 32
+    short_desc: "Arboretum."
+    long_desc: |
+      A small indoor garden so that the residents don't have to go
+      outside to enjoy plants and commune with nature.  There are several
+      trees, a small pond and flowers of every kind.
+    exits:
+      east: 9178
+      south: 9181
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      east:
+        to: 9178
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9181
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9181
+    key: dylan_room_9181
+    name: "Western tower."
+    area_id: 32
+    short_desc: "Western tower."
+    long_desc: |
+      You are in the bottom part of a tower.  A draft brings a chill to
+      your spine and causes creaks and groans.  Curtains flutter in the
+      wind, causing quite a distraction.  When you go to shut the window,
+      you see that the window is closed.  An old, wooden staircase leads
+      up into darkness.
+    exits:
+      north: 9180
+      up: 9182
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9180
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9182
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9182
+    key: dylan_room_9182
+    name: "Western tower."
+    area_id: 32
+    short_desc: "Western tower."
+    long_desc: |
+      The tower creaks and groans, almost as if it were muttering to
+      itself.  There are windows displaying a full moon, reigning over
+      the night sky.  The room is dark and there is almost a musty odor
+      to it.  You are surprised that you can't detect any dust or dirt,
+      although there are a couple of cobwebs in the corner.
+    exits:
+      down: 9181
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 9181
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9183
+    key: dylan_room_9183
+    name: "Elegant hallway."
+    area_id: 32
+    short_desc: "Elegant hallway."
+    long_desc: |
+      You are in a long, sprawling hallway connecting the eastern and
+      western wings of the house.  There are several chairs and sofas in
+      the hallway and some gorgeous, handwoven drapes.
+    exits:
+      east: 9185
+      west: 9177
+      south: 9184
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 9185
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9177
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9184
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9184
+    key: dylan_room_9184
+    name: "Conservatory"
+    area_id: 32
+    short_desc: "Conservatory"
+    long_desc: |
+      Here was the rehearsal and recital room for the residents of the
+      estate.  There is a Steinway piano in the corner and various gilded
+      instruments are on display in a glass cabinet.
+    exits:
+      north: 9183
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9183
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9185
+    key: dylan_room_9185
+    name: "Office"
+    area_id: 32
+    short_desc: "Office"
+    long_desc: |
+      You find yourself in a lavish office.  The desk is absolutely huge,
+      at least ten feet by five feet and made of ebony and inlaid with
+      mother of pearl.  A grandfather clock towers over the room,
+      mechanically ticking and tocking the hours away.
+    exits:
+      south: 9186
+      west: 9183
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 9186
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9183
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9186
+    key: dylan_room_9186
+    name: "Eastern tower."
+    area_id: 32
+    short_desc: "Eastern tower."
+    long_desc: |
+      You are in the bottom part of a tower.  A draft brings a chill to
+      your spine and causes creaks and groans.  Curtains flutter in the
+      wind, causing quite a distraction.  When you go to shut the window,
+      you see that the window is closed.  An old, wooden staircase leads
+      up into darkness.
+    exits:
+      north: 9185
+      up: 9187
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9185
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9187
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9187
+    key: dylan_room_9187
+    name: "Eastern tower."
+    area_id: 32
+    short_desc: "Eastern tower."
+    long_desc: |
+      The tower creaks and groans, almost as if it were muttering to
+      itself.  There are windows displaying a full moon, reigning over
+      the night sky.  The room is dark and there is almost a musty odor
+      to it.  You are surprised that you can't detect any dust or dirt,
+      although there are a couple of cobwebs in the corner.
+    exits:
+      down: 9186
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 9186
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9199
+    key: dylan_room_9199
+    name: "Mid-Air."
+    area_id: 32
+    short_desc: "Mid-Air."
+    long_desc: |
+      You slide down the moisture covered rock, gaining speed as you
+      approach the cliff.  Realizing your foolish error, you madly claw
+      at the rock, vainly trying to get a precious hold and save your
+      worthless hide.  Next time, heed your conscience.
+      
+      You've fallen, and you can't get up!!!
+    exits:
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+

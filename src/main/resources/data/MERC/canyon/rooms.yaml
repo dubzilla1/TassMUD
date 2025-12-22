@@ -1,0 +1,2142 @@
+rooms:
+  - id: 9201
+    key: canyon_room_9201
+    name: "A Mountain Path"
+    area_id: 32
+    short_desc: "A Mountain Path"
+    long_desc: |
+      You are on a mountain path which ascends a steep mountainside.  The trail
+      curves around the mountain so that you cannot really see what lies ahead.
+      You do sense great power though coming from the area behind the mountain.
+    exits:
+      north: 5267
+      up: 9202
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 5267
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9202
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9202
+    key: canyon_room_9202
+    name: "A Mountain Path"
+    area_id: 32
+    short_desc: "A Mountain Path"
+    long_desc: |
+      You are on a rocky mountain path leading up and around a steep mountainside.
+      You sense a glow from the area beyond the mountain, which you cannot see yet.
+    exits:
+      down: 9201
+      up: 9203
+    sector_type: MOUNTAIN
+    doors:
+      down:
+        to: 9201
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9203
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9203
+    key: canyon_room_9203
+    name: "Mountainside Tombs"
+    area_id: 32
+    short_desc: "Mountainside Tombs"
+    long_desc: |
+      There are a few stone heaps here and there, the tombs of those who did not
+      last the arduous journey up the mountain.  Curiously you notice a few
+      uncovered bodies which don't seem to have died of exhaustion.  The path curves
+      east around the mountain.
+    exits:
+      down: 9202
+      up: 9204
+    sector_type: MOUNTAIN
+    doors:
+      down:
+        to: 9202
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9204
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      heaps: |
+        You are sure glad that YOU aren't under one of those piles!
+        Many of the tombstones have the same name on them, 'Raff'.  He must come
+        here a lot.
+      bodies: |
+        They look as if their necks have been broken and their flesh, chewed.
+
+  - id: 9204
+    key: canyon_room_9204
+    name: "A Blind Curve on the Mountain Path."
+    area_id: 32
+    short_desc: "A Blind Curve on the Mountain Path."
+    long_desc: |
+      This looks like a normal mountain path, but it is NOT!  This section of the
+      path is habitated by a huge (and of course, man-eating) Cyclops.  The path
+      makes its final ascent to an overlook.
+    exits:
+      down: 9203
+      up: 9205
+    sector_type: MOUNTAIN
+    doors:
+      down:
+        to: 9203
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9205
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9205
+    key: canyon_room_9205
+    name: "Vista"
+    area_id: 32
+    short_desc: "Vista"
+    long_desc: |
+      This is a stunning vista overlooking a canyon.  There is a sign here that says:
+      
+      	BEHOLD -- ELEMENTAL CANYON
+      
+      Fire leaps up from firepits in the western part of the canyon.  The sky looks
+      funny, and the air seems hazy to the northwest.  Electricity sparks
+      intermittently in the northeast.  To the east you see a strong, magic-looking
+      river flowing through the canyon.  Also to the east you spy a cave entrance
+      leading into the canyon wall.  The path descends to the north to another
+      overlook.
+    exits:
+      down: 9204
+      north: 9206
+    sector_type: MOUNTAIN
+    doors:
+      down:
+        to: 9204
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 9206
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9206
+    key: canyon_room_9206
+    name: "The Overlook"
+    area_id: 32
+    short_desc: "The Overlook"
+    long_desc: |
+      You see various elemental servants wandering around the canyon.  The noise of
+      humming coming from the canyon gets louder.  The path makes a steep descent
+      into the canyon here.
+    exits:
+      south: 9205
+      down: 9207
+    sector_type: MOUNTAIN
+    doors:
+      south:
+        to: 9205
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9207
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9207
+    key: canyon_room_9207
+    name: "Entrance to Elemental Canyon"
+    area_id: 32
+    short_desc: "Entrance to Elemental Canyon"
+    long_desc: |
+      You are awed by the sounds and sights of great powers at works here.
+      Elemental servants bustle back and forth doing the biddings of the elemental
+      rulers.  You see a sort of cross roads to the north, and you can climb up to
+      the overlook here.
+    exits:
+      up: 9206
+      north: 9209
+    sector_type: FOREST
+    doors:
+      up:
+        to: 9206
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 9209
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9208
+    key: canyon_room_9208
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at all.
+      In general, it is calm, yet there is always a incessant buzz of things
+      going on about.  The canyon continues north and east.
+    exits:
+      north: 9211
+      east: 9209
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9211
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9209
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9209
+    key: canyon_room_9209
+    name: "Elemental Gateway"
+    area_id: 32
+    short_desc: "Elemental Gateway"
+    long_desc: |
+      To the west a path dips and winds among some flowing firepits.  To the
+      northeast a path goes toward the river.  Beyond toward the northeast and
+      northwest are outcrops which rise up from the canyon floor. To the east there
+      is a cave mouth which leads into the canyon wall.  And to the south the path
+      leads up, away, and out of the canyon.  Various pure and cross-breeds of
+      elemental forms wander the canyon floor, which extends in a wide swath
+      northwards.
+    exits:
+      south: 9207
+      west: 9208
+      north: 9212
+      east: 9210
+    sector_type: FOREST
+    doors:
+      south:
+        to: 9207
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9208
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 9212
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9210
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9210
+    key: canyon_room_9210
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always a incessant buzz of
+      things going on about.  The canyon floor extends north and west.  There is a
+      cave mouth set into the canyon wall to the east.
+    exits:
+      north: 9213
+      west: 9209
+      east: 9220
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9213
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9209
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9220
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9211
+    key: canyon_room_9211
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about.  The canyon floor extends off to the north, east,
+      and south.
+    exits:
+      north: 9214
+      east: 9212
+      south: 9208
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9214
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9212
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9208
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9212
+    key: canyon_room_9212
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about.  The canyon floor extends in all directions.
+    exits:
+      north: 9215
+      east: 9213
+      south: 9209
+      west: 9211
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9215
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9213
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9209
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9211
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9213
+    key: canyon_room_9213
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about.  The canyon floor extends north, south, and west.
+      A path follows a stream to the east.
+    exits:
+      north: 9216
+      east: 9228
+      south: 9210
+      west: 9212
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9216
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9228
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9210
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9212
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9214
+    key: canyon_room_9214
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about. The canyon floor extends north, east, and south.
+      To the west a garden is on fire.
+    exits:
+      north: 9217
+      east: 9215
+      south: 9211
+      west: 9237
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9217
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9215
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9211
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9237
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9215
+    key: canyon_room_9215
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about.  The canyon floor extends in all directions.
+    exits:
+      north: 9218
+      east: 9216
+      south: 9212
+      west: 9214
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9218
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9216
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9212
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9214
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9216
+    key: canyon_room_9216
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about.  The Canyon floor extends north, south and west.
+    exits:
+      north: 9219
+      south: 9213
+      west: 9215
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9219
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9213
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9215
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9217
+    key: canyon_room_9217
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about. The canyon floor extends east and south.  You can
+      climb a rise in the canyon floor to the north.
+    exits:
+      north: 9253
+      east: 9218
+      south: 9214
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9253
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9218
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9214
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9218
+    key: canyon_room_9218
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about.  The canyon floor extends east, south, and west.
+    exits:
+      east: 9219
+      south: 9215
+      west: 9217
+    sector_type: FOREST
+    doors:
+      east:
+        to: 9219
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9215
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9217
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9219
+    key: canyon_room_9219
+    name: "The Floor of the Canyon"
+    area_id: 32
+    short_desc: "The Floor of the Canyon"
+    long_desc: |
+      Various elemental forms wander the floor of the canyon.  Some seem to be
+      going about their business, while others seem to have no business at
+      all.  In general, it is calm, yet there is always an incessant buzz of
+      things going on about.  The canyon floor extends south and west.  You can
+      climb a rise in the canyon floor to the north.
+    exits:
+      north: 9254
+      south: 9216
+      west: 9218
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9254
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9216
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9218
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9220
+    key: canyon_room_9220
+    name: "Dark Cave"
+    area_id: 32
+    short_desc: "Dark Cave"
+    long_desc: |
+      You notice a path winding east among some huge boulders.  You feel a powerful
+      source of energy from that direction.
+    exits:
+      west: 9210
+      east: 9221
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9210
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9221
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9221
+    key: canyon_room_9221
+    name: "Darker Caves"
+    area_id: 32
+    short_desc: "Darker Caves"
+    long_desc: |
+      You can barely see your way even with a light source.  The rocks of the cave
+      are even darker than the darkness.  You hear a powerful humming all around
+      you.  Cave paths go south and east roughly, its hard to tell exactly when you
+      can't see where you are going.
+    exits:
+      west: 9220
+      east: 9222
+      south: 9223
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9220
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9222
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9223
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9222
+    key: canyon_room_9222
+    name: "Darker Caves"
+    area_id: 32
+    short_desc: "Darker Caves"
+    long_desc: |
+      You can barely see your way even with a light source.  The rocks of the cave
+      are even darker than the darkness.  You hear a powerful humming all around
+      you.  Cave paths go south and west roughly; it's hard to tell exactly when you
+      can't see where you are going.
+    exits:
+      west: 9221
+      south: 9224
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9221
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9224
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9223
+    key: canyon_room_9223
+    name: "Darker Caves"
+    area_id: 32
+    short_desc: "Darker Caves"
+    long_desc: |
+      You can barely see your way even with a light source.  The rocks of the cave
+      are even darker than the darkness.  You hear a powerful humming all around you.
+      Cave paths go north, south and east roughly; it's hard to tell exactly when
+      you can't see where you are going.
+    exits:
+      north: 9221
+      east: 9224
+      south: 9225
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9221
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9224
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9225
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9224
+    key: canyon_room_9224
+    name: "Darker Caves"
+    area_id: 32
+    short_desc: "Darker Caves"
+    long_desc: |
+      You can barely see your way even with a light source.  The rocks of the cave
+      are even darker than the darkness.  You hear a powerful humming all around you.
+      Cave paths go north, south and west roughly, it's hard to tell exactly when you
+      can't see where you are going.
+    exits:
+      north: 9222
+      south: 9226
+      west: 9223
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9222
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9226
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9223
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9225
+    key: canyon_room_9225
+    name: "Darkest Caves"
+    area_id: 32
+    short_desc: "Darkest Caves"
+    long_desc: |
+      Your light doesn't even seem to work here.  Even magical light sources seem
+      only to illuminate about a foot ahead of you.  You suddenly realize that the
+      path has descended quite a bit but you didn't notice before because of the
+      darkness.  You sense a great presence off to the east aways.
+    exits:
+      north: 9223
+      east: 9226
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9223
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9226
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9226
+    key: canyon_room_9226
+    name: "Darkest Caves"
+    area_id: 32
+    short_desc: "Darkest Caves"
+    long_desc: |
+      Your light doesn't even seem to work here.  Even magical light sources seem
+      only to illuminate about a foot ahead of you.  You suddenly realize that the
+      path has descended quite a bit but you didn't notice before because of the
+      darkness.  You sense a great presence directly to the east.
+    exits:
+      north: 9224
+      east: 9227
+      west: 9225
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 9224
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9227
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9225
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9227
+    key: canyon_room_9227
+    name: "Earth Chamber"
+    area_id: 32
+    short_desc: "Earth Chamber"
+    long_desc: |
+      This is the abode of the Earth Ruler.  He decides about earthquakes,
+      landslides, and avalanches.  The Earth Ruler sits upon a huge marble throne
+      carved into the wall.
+    exits:
+      west: 9226
+    sector_type: FOREST
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9226
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      marble: |
+        The ruler notices your stare, and doesn't like it one bit!  The whole
+        earth seems to shake with his emotion.
+
+  - id: 9228
+    key: canyon_room_9228
+    name: "By the River"
+    area_id: 32
+    short_desc: "By the River"
+    long_desc: |
+      The water in the river seems to bubble and froth with magic.  Though it
+      splashes playfully on you, it does not seem wet.  The path leads north closer
+      to the water. To the west you see a T-intersection.
+    exits:
+      west: 9213
+      north: 9229
+    sector_type: FOREST
+    doors:
+      west:
+        to: 9213
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 9229
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9229
+    key: canyon_room_9229
+    name: "In the River"
+    area_id: 32
+    short_desc: "In the River"
+    long_desc: |
+      To continue you had to walk right in the river.  Though you walk along in
+      water up to your knees, you do not seem to get wet.  A bay stretches out to
+      the north and the river goes south.
+    exits:
+      south: 9228
+      north: 9230
+    sector_type: WATER_SWIM
+    doors:
+      south:
+        to: 9228
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 9230
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9230
+    key: canyon_room_9230
+    name: "Elemental Bay"
+    area_id: 32
+    short_desc: "Elemental Bay"
+    long_desc: |
+      The water is crystal clear here and you can see the bottom of the bay 30 feet
+      below you.  Then you realize you are walking on the water itself.  Truly
+      magical water indeed.  Though you splash through the bay you do not get wet.
+    exits:
+      north: 9233
+      east: 9231
+      south: 9229
+    sector_type: WATER_SWIM
+    doors:
+      north:
+        to: 9233
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9231
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9229
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9231
+    key: canyon_room_9231
+    name: "Elemental Bay"
+    area_id: 32
+    short_desc: "Elemental Bay"
+    long_desc: |
+      The water is crystal clear here and you can see the bottom of the bay 30 feet
+      below you.  Then you realize you are walking on the water itself.  Truly
+      magical water indeed.  Though you splash through the bay you do not get wet.
+    exits:
+      north: 9234
+      east: 9232
+      west: 9230
+    sector_type: WATER_SWIM
+    doors:
+      north:
+        to: 9234
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9232
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9230
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9232
+    key: canyon_room_9232
+    name: "Elemental Bay"
+    area_id: 32
+    short_desc: "Elemental Bay"
+    long_desc: |
+      The water is crystal clear here and you can see the bottom of the bay 30 feet
+      below you.  Then you realize you are walking on the water itself.  Truly
+      magical water indeed.  Though you splash through the bay you do not get wet.
+    exits:
+      north: 9235
+      west: 9231
+    sector_type: WATER_SWIM
+    doors:
+      north:
+        to: 9235
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9231
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9233
+    key: canyon_room_9233
+    name: "Elemental Bay"
+    area_id: 32
+    short_desc: "Elemental Bay"
+    long_desc: |
+      The water is crystal clear here and you can see the bottom of the bay 30 feet
+      below you.  Then you realize you are walking on the water itself.  Truly
+      magical water indeed.  Though you splash through the bay you do not get wet.
+    exits:
+      east: 9234
+      south: 9230
+    sector_type: WATER_SWIM
+    doors:
+      east:
+        to: 9234
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9230
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9234
+    key: canyon_room_9234
+    name: "Elemental Bay"
+    area_id: 32
+    short_desc: "Elemental Bay"
+    long_desc: |
+      The water is crystal clear here and you can see the bottom of the bay 30 feet
+      below you.  Then you realize you are walking on the water itself.  Truly
+      magical water indeed.  Though you splash through the bay you do not get wet.
+    exits:
+      east: 9235
+      south: 9231
+      west: 9233
+    sector_type: WATER_SWIM
+    doors:
+      east:
+        to: 9235
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9231
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9233
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9235
+    key: canyon_room_9235
+    name: "Elemental Bay"
+    area_id: 32
+    short_desc: "Elemental Bay"
+    long_desc: |
+      The water is crystal clear here and you can see the bottom of the bay 30 feet
+      below you.  Then you realize you are walking on the water itself.  Truly
+      magical water indeed.  Though you splash through the bay you do not get wet.
+    exits:
+      south: 9232
+      west: 9234
+      down: 9236
+    sector_type: WATER_SWIM
+    doors:
+      south:
+        to: 9232
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9234
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 9236
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9236
+    key: canyon_room_9236
+    name: "Water Chamber"
+    area_id: 32
+    short_desc: "Water Chamber"
+    long_desc: |
+      This chamber was magically created here on the floor of the bay.  It looks
+      like it's been here for a long, long time.  Though you are 'under water' there
+      is no difficulty breathing normally, and oddly you do not feel the pressure of
+      the water above you.
+    exits:
+      up: 9235
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 9235
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9237
+    key: canyon_room_9237
+    name: "A Fiery Pathway"
+    area_id: 32
+    short_desc: "A Fiery Pathway"
+    long_desc: |
+      You tread carefully along a path which dips and turns among geysers of fire.
+      Miniature volcanoes spew lava in rivers.  The fire is hot but not altogether
+      dangerous.  The path extends east and south.
+    exits:
+      east: 9214
+      south: 9238
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9214
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9238
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9238
+    key: canyon_room_9238
+    name: "A Fiery Pathway"
+    area_id: 32
+    short_desc: "A Fiery Pathway"
+    long_desc: |
+      You tread carefully along a path which dips and turns among pits of fire and
+      beds of coals.  A garden to the west glows with an everlasting fire.
+    exits:
+      north: 9237
+      west: 9242
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 9237
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9242
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9242
+    key: canyon_room_9242
+    name: "The Burning Gardens"
+    area_id: 32
+    short_desc: "The Burning Gardens"
+    long_desc: |
+      Everywhere around you the landscape is afire; the rocks, the shrubs and even
+      the air seems to be aflame.  Curiously, the magical fire does not seem to
+      consume its hosts.  A path leads east among some fire pits.
+    exits:
+      east: 9238
+      west: 9245
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 9238
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9245
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9245
+    key: canyon_room_9245
+    name: "The Fire Chamber"
+    area_id: 32
+    short_desc: "The Fire Chamber"
+    long_desc: |
+      The fire ruler sits upon a throne made of blue flame.  Little flickers of
+      flame dance to and fro for the entertainment of the ruler.
+    exits:
+      east: 9242
+    sector_type: FOREST
+    doors:
+      east:
+        to: 9242
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9246
+    key: canyon_room_9246
+    name: "Electric Pathway"
+    area_id: 32
+    short_desc: "Electric Pathway"
+    long_desc: |
+      The pathway glows and hums because of the electricity pulsing through it.
+      It seems almost soothing to your weary feet.  To the north there is a
+      sunken-in area.  A path leads east also.
+    exits:
+      north: 9248
+      east: 9253
+    sector_type: FOREST
+    doors:
+      north:
+        to: 9248
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9253
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9247
+    key: canyon_room_9247
+    name: "The Electric Playground"
+    area_id: 32
+    short_desc: "The Electric Playground"
+    long_desc: |
+      Though there is a seemingly carefree atmosphere here, you sense that
+      something much more important takes place near by.  The electric playground
+      extends north and east.
+    exits:
+      north: 9249
+      east: 9248
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9249
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9248
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9248
+    key: canyon_room_9248
+    name: "The Electric Playground"
+    area_id: 32
+    short_desc: "The Electric Playground"
+    long_desc: |
+      Though there is a seemingly carefree atmosphere here, you sense that
+      something much more important takes place near by.  There is an electric
+      path heading away south.  The playground extends north and west.
+    exits:
+      north: 9250
+      south: 9246
+      west: 9247
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9250
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9246
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9247
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9249
+    key: canyon_room_9249
+    name: "The Electric Playground"
+    area_id: 32
+    short_desc: "The Electric Playground"
+    long_desc: |
+      Though there is a seemingly carefree atmosphere here, you sense that
+      something much more important takes place near by.  The playground continues
+      south and east.
+    exits:
+      east: 9250
+      south: 9247
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9250
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9247
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9250
+    key: canyon_room_9250
+    name: "The Electric Playground"
+    area_id: 32
+    short_desc: "The Electric Playground"
+    long_desc: |
+      Though there is a seemingly carefree atmosphere here, you sense that
+      something much more important takes place near by.  The playground is
+      south and west.  Something more important catches your eye to the east.
+    exits:
+      east: 9251
+      south: 9248
+      west: 9249
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9251
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9248
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9249
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9251
+    key: canyon_room_9251
+    name: "Lightning Causeway"
+    area_id: 32
+    short_desc: "Lightning Causeway"
+    long_desc: |
+      Up a set of stairs carved into the hill you see intermittent flashes of
+      lightning.  A continuous hum also comes form that direction.  To the west
+      is the electric playground.
+    exits:
+      west: 9250
+      up: 9252
+    sector_type: HILLS
+    doors:
+      west:
+        to: 9250
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 9252
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9252
+    key: canyon_room_9252
+    name: "Lightning Chamber"
+    area_id: 32
+    short_desc: "Lightning Chamber"
+    long_desc: |
+      There is some sort of control panel here. Apparently the Lightning Ruler
+      observes and controls electric forces from here.  A set of steps carved into
+      the hill lead down to a causeway.
+    exits:
+      down: 9251
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 9251
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9253
+    key: canyon_room_9253
+    name: "Mesa West"
+    area_id: 32
+    short_desc: "Mesa West"
+    long_desc: |
+      An electric path starts to the west.  The mesa continues to the east.
+      Or you can climb down to the canyon floor to the south.
+    exits:
+      east: 9254
+      south: 9217
+      west: 9246
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9254
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9217
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9246
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9254
+    key: canyon_room_9254
+    name: "Mesa East"
+    area_id: 32
+    short_desc: "Mesa East"
+    long_desc: |
+      A path starts to the north.  The mesa continues to the west.
+      Or you can climb down to the canyon floor to the south.
+    exits:
+      north: 9255
+      south: 9219
+      west: 9253
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9255
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9219
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9253
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9255
+    key: canyon_room_9255
+    name: "Floating in Air"
+    area_id: 32
+    short_desc: "Floating in Air"
+    long_desc: |
+      Last you knew, you were walking on the mesa.  Abruptly the path dropped
+      from beneath your feet much to quick for you to recover.  Instead of
+      plunging to your death, you seemingly miss the ground and begin walking
+      on air.  The space to the north and east seems just thin air, but you can
+      walk there.  The pathway you came from is to the south.
+    exits:
+      north: 9257
+      east: 9256
+      south: 9254
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9257
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 9256
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9254
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9256
+    key: canyon_room_9256
+    name: "Floating in Air"
+    area_id: 32
+    short_desc: "Floating in Air"
+    long_desc: |
+      You look down and see the ground 100 feet below you.  The wind whispering
+      in your ear seems to reassure you that this is fine.  To the north aways
+      you spy a portal of sorts.  To the west is more thin air.
+    exits:
+      north: 9258
+      west: 9255
+    sector_type: HILLS
+    doors:
+      north:
+        to: 9258
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9255
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9257
+    key: canyon_room_9257
+    name: "Floating in Air"
+    area_id: 32
+    short_desc: "Floating in Air"
+    long_desc: |
+      You look down and see the ground 100 feet below you.  The wind whispering
+      in your ear seems to reassure you that this is fine.  To the east aways
+      you spy a portal of sorts.  To the south is more thin air.
+    exits:
+      east: 9258
+      south: 9255
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9258
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9255
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 9258
+    key: canyon_room_9258
+    name: "Floating in Air"
+    area_id: 32
+    short_desc: "Floating in Air"
+    long_desc: |
+      You look down and see the ground 100 feet below you.  The wind whispering
+      in your ear seems to reassure you that this is fine. There is a portal
+      hanging in midair here. It is to the east.  You can float south or west
+      if you'd like.
+    exits:
+      east: 9259
+      south: 9256
+      west: 9257
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9259
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 9256
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9257
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      portal: |
+        Through the portal you see a tunnel.
+
+  - id: 9259
+    key: canyon_room_9259
+    name: "Windy Tunnel"
+    area_id: 32
+    short_desc: "Windy Tunnel"
+    long_desc: |
+      A tunnel leads east.  To the west you can enter a portal. The wind in
+      this tunnel is quite fierce, it seems as if it's forced.
+    exits:
+      east: 9260
+      west: 9258
+    sector_type: HILLS
+    doors:
+      east:
+        to: 9260
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 9258
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      portal: |
+        Through the portal you see nothing but sky.
+
+  - id: 9260
+    key: canyon_room_9260
+    name: "Air Chamber"
+    area_id: 32
+    short_desc: "Air Chamber"
+    long_desc: |
+      Tiny tornadoes come and go and dance along the ground here.  At the back
+      of the chamber you notice a huge throne made of swirling clouds.
+      A tunnel leads west.
+    exits:
+      west: 9259
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 9259
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      throne: |
+        Although the cloud throne appears solid enough to sit on, I wouldn't try
+        it if I were you!
+

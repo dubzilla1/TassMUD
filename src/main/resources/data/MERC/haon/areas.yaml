@@ -1,0 +1,9 @@
+areas:
+  - id: 60
+    name: "Haon"
+    description: "Converted from haon.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "haon.are"
+    vnum_range: "6000-6155"
+

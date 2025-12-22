@@ -1,0 +1,9 @@
+areas:
+  - id: 65
+    name: "Dwarven"
+    description: "Converted from dwarven.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "dwarven.are"
+    vnum_range: "6500-6554"
+

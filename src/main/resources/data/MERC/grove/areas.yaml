@@ -1,0 +1,9 @@
+areas:
+  - id: 89
+    name: "Grove"
+    description: "Converted from grove.are"
+    sector_type: "FOREST"
+    author: "MERC"
+    source_file: "grove.are"
+    vnum_range: "8901-8999"
+

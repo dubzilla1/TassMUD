@@ -1,0 +1,9 @@
+areas:
+  - id: 0
+    name: "Help"
+    description: "Converted from help.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "help.are"
+    vnum_range: "0-0"
+

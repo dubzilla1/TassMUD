@@ -54,31 +54,19 @@ public class ClientHandler implements Runnable {
     private final Socket socket;
     private final GameClock gameClock;
     // Registry of active sessions
-    public static final Set<ClientHandler> sessions = ConcurrentHashMap.newKeySet();
+    private static final Set<ClientHandler> sessions = ConcurrentHashMap.newKeySet();
     private static final ConcurrentHashMap<String, ClientHandler> nameToSession = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<Integer, ClientHandler> charIdToSession = new ConcurrentHashMap<>();
 
     // Per-session state used for routing messages
     private volatile PrintWriter out = null;
-    public volatile String playerName = null;
+    private volatile String playerName = null;
     private volatile Integer currentRoomId = null;
     private volatile Integer characterId = null;
     private volatile String promptFormat = "<%h/%Hhp %m/%Mmp %v/%Vmv> ";
     private volatile boolean debugChannelEnabled = false;  // GM-only debug output
-    public volatile boolean gmInvisible = false;  // GM-only perfect invisibility
+    private volatile boolean gmInvisible = false;  // GM-only perfect invisibility
     
-    public Socket getSocket() {
-        return this.socket;
-    }
-
-    public String getPromptFormat() {
-        return this.promptFormat;
-    }
-
-    public void setPromptFormat(String promptFormat) {
-        this.promptFormat = promptFormat;
-    }
-
     public ClientHandler(Socket socket, GameClock gameClock) {
         this.socket = socket;
         this.gameClock = gameClock;
@@ -409,50 +397,7 @@ public class ClientHandler implements Runnable {
                 }
 
                 if (!found) {
-                    // Check for door/exits (direction look) and room extras (plaques, signs)
-                    String st = lookArgs.trim().toLowerCase();
-                    String dirToken = null;
-                    switch (st) {
-                        case "n": case "north": dirToken = "north"; break;
-                        case "e": case "east": dirToken = "east"; break;
-                        case "s": case "south": dirToken = "south"; break;
-                        case "w": case "west": dirToken = "west"; break;
-                        case "u": case "up": dirToken = "up"; break;
-                        case "d": case "down": dirToken = "down"; break;
-                    }
-                    if (dirToken != null) {
-                        // Try to fetch door metadata and show its description if present
-                        com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
-                        com.example.tassmud.model.Door door = dao2.getDoor(lookRoomId, dirToken);
-                        if (door != null && door.description != null && !door.description.isEmpty()) {
-                            out.println(door.description);
-                            found = true;
-                        }
-                    }
-
-                    if (!found) {
-                        // Check room extras (plaques, signs, etc.)
-                        com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
-                        java.util.Map<String,String> extras = dao2.getRoomExtras(lookRoomId);
-                        if (extras != null && !extras.isEmpty()) {
-                            // direct key match or prefix match
-                            String matchKey = null;
-                            for (String k : extras.keySet()) {
-                                if (k.equalsIgnoreCase(st) || k.toLowerCase().startsWith(st)) { matchKey = k; break; }
-                            }
-                            if (matchKey != null) {
-                                String val = extras.get(matchKey);
-                                if (val != null && !val.isEmpty()) {
-                                    out.println(val);
-                                    found = true;
-                                }
-                            }
-                        }
-                    }
-
-                    if (!found) {
-                        out.println("You don't see '" + lookArgs.trim() + "' here.");
-                    }
+                    out.println("You don't see '" + lookArgs.trim() + "' here.");
                 }
 
                 return rec;
@@ -577,6 +522,179 @@ public class ClientHandler implements Runnable {
                 return rec;
             }
 
+            // Additional movement/stance/prompt commands handled here (moved from main switch)
+            switch (cmdName) {
+                case "recall": {
+                    // Teleport back to the Mead-Gaard Inn (home base)
+                    if (rec == null) {
+                        out.println("No character record found.");
+                        break;
+                    }
+
+                    // Check stance - can't recall while sleeping
+                    Stance recallStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                    if (!recallStance.canMove()) {
+                        if (recallStance == Stance.SLEEPING) {
+                            out.println("You are asleep! Type 'wake' to wake up first.");
+                        } else {
+                            out.println("You must stand up first. Type 'stand'.");
+                        }
+                        break;
+                    }
+
+                    final int MEAD_GAARD_INN = 3041;
+
+                    // Already at the inn?
+                    if (rec.currentRoom != null && rec.currentRoom == MEAD_GAARD_INN) {
+                        out.println("You are already at the Mead-Gaard Inn.");
+                        break;
+                    }
+
+                    // Verify the destination exists
+                    Room innRoom = dao.getRoomById(MEAD_GAARD_INN);
+                    if (innRoom == null) {
+                        out.println("The Mead-Gaard Inn seems to have vanished from reality. Something is very wrong.");
+                        break;
+                    }
+
+                    // Announce magical departure from old room (respecting invisibility)
+                    Integer recallOldRoom = rec.currentRoom;
+                    roomAnnounceFromActor(recallOldRoom, name + " closes their eyes and vanishes in a shimmer of light.", this.characterId);
+
+                    // Teleport the character
+                    dao.updateCharacterRoom(name, MEAD_GAARD_INN);
+                    this.currentRoomId = MEAD_GAARD_INN;
+                    rec = dao.findByName(name);
+
+                    // Announce magical arrival in new room (respecting invisibility)
+                    roomAnnounceFromActor(MEAD_GAARD_INN, name + " appears in a shimmer of light.", this.characterId);
+
+                    out.println();
+                    out.println("You close your eyes and think of home...");
+                    out.println("A warm sensation envelops you, and when you open your eyes, you find yourself at the Mead-Gaard Inn.");
+                    out.println();
+                    showRoom(innRoom, MEAD_GAARD_INN);
+                    break;
+                }
+                case "sit": {
+                    Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                    if (currentStance == Stance.SITTING) {
+                        out.println("You are already sitting.");
+                        break;
+                    }
+                    if (currentStance == Stance.SLEEPING) {
+                        out.println("You wake up and sit up.");
+                    } else {
+                        out.println("You sit down.");
+                    }
+                    RegenerationService.getInstance().setPlayerStance(characterId, Stance.SITTING);
+                    roomAnnounceFromActor(currentRoomId, name + " sits down.", this.characterId);
+                    break;
+                }
+                case "sleep":
+                case "rest": {
+                    Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                    if (currentStance == Stance.SLEEPING) {
+                        out.println("You are already sleeping.");
+                        break;
+                    }
+                    if (currentStance == Stance.STANDING) {
+                        out.println("You lie down and go to sleep.");
+                    } else {
+                        out.println("You close your eyes and drift off to sleep.");
+                    }
+                    RegenerationService.getInstance().setPlayerStance(characterId, Stance.SLEEPING);
+                    roomAnnounceFromActor(currentRoomId, name + " lies down and goes to sleep.", this.characterId);
+                    break;
+                }
+                case "stand":
+                case "wake": {
+                    // Check if in combat - combat stand from prone is a special skill
+                    CombatManager combatMgr = CombatManager.getInstance();
+                    Combat activeCombat = combatMgr.getCombatForCharacter(characterId);
+
+                    if (activeCombat != null) {
+                        Combatant userCombatant = activeCombat.findByCharacterId(characterId);
+                        if (userCombatant == null) {
+                            out.println("Combat error: could not find your combatant.");
+                            break;
+                        }
+
+                        if (!userCombatant.isProne()) {
+                            out.println("You are already standing.");
+                            break;
+                        }
+
+                        // Combat stand from prone - this is an innate skill
+                        CharacterClassDAO standClassDao = new CharacterClassDAO();
+                        int userLevel = rec.currentClassId != null 
+                            ? standClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
+
+                        int opponentLevel = 1;
+                        for (Combatant c : activeCombat.getCombatants()) {
+                            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                                int cLevel;
+                                if (c.isPlayer()) {
+                                    Integer cCharId = c.getCharacterId();
+                                    CharacterRecord cRec = dao.getCharacterById(cCharId);
+                                    cLevel = cRec != null && cRec.currentClassId != null 
+                                        ? standClassDao.getCharacterClassLevel(cCharId, cRec.currentClassId) : 1;
+                                } else if (c.getMobile() != null) {
+                                    cLevel = c.getMobile().getLevel();
+                                } else {
+                                    cLevel = 1;
+                                }
+                                if (cLevel > opponentLevel) opponentLevel = cLevel;
+                            }
+                        }
+
+                        int roll = (int)(Math.random() * 100) + 1;
+                        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
+                            userLevel, opponentLevel, 100);
+
+                        boolean standSucceeded = roll <= successChance;
+
+                        userCombatant.setAttacksRemaining(0);
+                        userCombatant.setHasActedThisRound(true);
+
+                        if (standSucceeded) {
+                            userCombatant.standUp();
+                            out.println("You manage to get to your feet!");
+                            roomAnnounce(currentRoomId, name + " scrambles to their feet.", this.characterId, true);
+                        } else {
+                            out.println("You struggle to stand but fail to get up.");
+                            roomAnnounce(currentRoomId, name + " struggles to stand but remains on the ground.", this.characterId, true);
+                        }
+                        break;
+                    }
+
+                    Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
+                    if (currentStance == Stance.STANDING) {
+                        out.println("You are already standing.");
+                        break;
+                    }
+                    if (currentStance == Stance.SLEEPING) {
+                        out.println("You wake up and stand up.");
+                        roomAnnounce(currentRoomId, name + " wakes up and stands up.", this.characterId, true);
+                    } else {
+                        out.println("You stand up.");
+                        roomAnnounce(currentRoomId, name + " stands up.", this.characterId, true);
+                    }
+                    RegenerationService.getInstance().setPlayerStance(characterId, Stance.STANDING);
+                    break;
+                }
+                case "prompt": {
+                    String promptArgs = cmd.getArgs();
+                    if (promptArgs == null || promptArgs.trim().isEmpty()) {
+                        out.println("Prompt: " + promptFormat);
+                    } else {
+                        promptFormat = promptArgs;
+                        out.println("Prompt set.");
+                    }
+                    break;
+                }
+            }
+
         } catch (Exception ex) {
             out.println("An error occurred while processing the command.");
         }
@@ -654,8 +772,17 @@ public class ClientHandler implements Runnable {
      */
     public void handleCommunication(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
         try {
+            System.out.println("[Handler-enter] handleCommunication cmd='" + (cmd == null ? "<null>" : cmd.getName()) + "' args='" + (cmd == null ? "" : cmd.getArgs()) + "' player='" + name + "'");
             String cmdName = cmd.getName().toLowerCase();
             switch (cmdName) {
+                case "say": {
+                    handleSay(cmd, name, rec, dao);
+                    return;
+                }
+                case "groupchat": {
+                    out.println("Group chat is not implemented yet.");
+                    return;
+                }
                 case "chat": {
                     String t = cmd.getArgs();
                     if (t == null || t.trim().isEmpty()) { out.println("Usage: chat <message>"); return; }
@@ -695,6 +822,7 @@ public class ClientHandler implements Runnable {
                 }
                 default:
                     // Not a communication command; fall through to caller
+                    System.out.println("[Handler-exit] handleCommunication not-handled cmd='" + cmd.getName() + "'");
                     return;
             }
         } catch (Exception ignored) {}
@@ -724,6 +852,7 @@ public class ClientHandler implements Runnable {
      */
     public CharacterRecord handleGmCommand(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
         if (cmd == null) return rec;
+        System.out.println("[Handler-enter] handleGmCommand cmd='" + (cmd == null ? "<null>" : cmd.getName()) + "' args='" + (cmd == null ? "" : cmd.getArgs()) + "' player='" + name + "'");
         String cmdName = cmd.getName().toLowerCase();
         try {
             switch (cmdName) {
@@ -2053,7 +2182,7 @@ public class ClientHandler implements Runnable {
      * @param ri the RoomItem containing both instance and template
      * @return the display name to show players
      */
-    public static String getItemDisplayName(ItemDAO.RoomItem ri) {
+    private static String getItemDisplayName(ItemDAO.RoomItem ri) {
         if (ri == null) return "an item";
         String name;
         if (ri.instance != null && ri.instance.customName != null && !ri.instance.customName.isEmpty()) {
@@ -2078,7 +2207,7 @@ public class ClientHandler implements Runnable {
      * @param tmpl the ItemTemplate (may be null)
      * @return the display name to show players
      */
-    public static String getItemDisplayName(ItemInstance inst, ItemTemplate tmpl) {
+    private static String getItemDisplayName(ItemInstance inst, ItemTemplate tmpl) {
         String name;
         if (inst != null && inst.customName != null && !inst.customName.isEmpty()) {
             name = inst.customName;
@@ -2156,8 +2285,17 @@ public class ClientHandler implements Runnable {
         return out.toString();
     }
 
-    private CharacterDAO runLogin(BufferedReader in, PrintWriter pw) throws Exception {
-        try {
+    @Override
+    public void run() {
+            try (
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                PrintWriter pw = new PrintWriter(socket.getOutputStream(), true)
+        ) {
+            this.out = pw;
+            registerSession();
+            
+            // Display ASCII art title screen
+            try {
                 java.io.InputStream titleStream = getClass().getClassLoader().getResourceAsStream("asciiart/title.txt");
                 if (titleStream != null) {
                     try (BufferedReader titleReader = new BufferedReader(new InputStreamReader(titleStream))) {
@@ -2180,18 +2318,18 @@ public class ClientHandler implements Runnable {
             } catch (InterruptedException ignored) {
             }
 
-            CharacterDAO dao = new CharacterDAO();
+                CharacterDAO dao = new CharacterDAO();
 
             // Login / character creation flow
             out = this.out; // local alias
             out.print("Enter character name: "); out.flush();
             String name = in.readLine();
-            if (name == null) return dao;
+            if (name == null) return;
             name = name.trim();
             if (name.isEmpty()) {
                 out.println("Invalid name. Disconnecting.");
                 socket.close();
-                return dao;
+                return;
             }
 
             CharacterRecord rec = dao.findByName(name);
@@ -2201,7 +2339,7 @@ public class ClientHandler implements Runnable {
                 if (rec == null) {
                     // Creation failed or was aborted
                     socket.close();
-                    return dao;
+                    return;
                 }
             } else {
                 // login flow
@@ -2209,7 +2347,7 @@ public class ClientHandler implements Runnable {
                 for (int tries = 3; tries > 0; tries--) {
                     out.print("Password: "); out.flush();
                     String pwAttempt = in.readLine();
-                    if (pwAttempt == null) return dao;
+                    if (pwAttempt == null) return;
                     if (dao.verifyPassword(name, pwAttempt.toCharArray())) {
                         authenticated = true;
                         out.println("Welcome back, " + name + "!");
@@ -2221,7 +2359,7 @@ public class ClientHandler implements Runnable {
                 if (!authenticated) {
                     out.println("Too many failed attempts. Goodbye.");
                     socket.close();
-                    return dao;
+                    return;
                 }
             }
 
@@ -2259,21 +2397,7 @@ public class ClientHandler implements Runnable {
             } catch (Exception ignored) {}
 
             out.println("Type 'look', 'say <text>', 'chat <text>', 'yell <text>', 'whisper <who> <text>', 'motd', or 'quit'");
-            return dao;
-    }
-    
-    @Override
-    public void run() {
-            try (
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                PrintWriter pw = new PrintWriter(socket.getOutputStream(), true)
-        ) {
-            this.out = pw;
-            registerSession();
-            CharacterDAO dao = runLogin(in, pw);
-            String name = this.playerName;
-            CharacterRecord rec = dao.findByName(name);
-            
+
             while (true) {
                 // print blank line before prompt for cleaner separation
                 out.println();
@@ -2332,6 +2456,37 @@ public class ClientHandler implements Runnable {
                 boolean moved = false;
                 Room newRoom = null;
                 switch (cmdName) {
+                    case "help":
+                        String a = cmd.getArgs();
+                        boolean isGm = dao.isCharacterFlagTrueByName(name, "is_gm");
+                        if (a == null || a.trim().isEmpty()) {
+                            // Display categorized command list
+                            displayHelpCommandList(isGm);
+                        } else {
+                            String arg0 = a.trim().split("\\s+",2)[0];
+                            if (arg0.equalsIgnoreCase("commands")) {
+                                displayHelpCommandList(isGm);
+                                break;
+                            }
+                            if (arg0.equalsIgnoreCase("reload")) {
+                                if (!isGm) {
+                                    out.println("You do not have permission to reload help files.");
+                                } else {
+                                    HelpManager.reloadPages();
+                                    out.println("Help pages reloaded.");
+                                }
+                            } else {
+                                String page = HelpManager.getPage(arg0, isGm);
+                                if (page == null) {
+                                    out.println("No help available for '" + a + "'");
+                                } else {
+                                    // print man-style page
+                                    String[] lines = page.split("\\n");
+                                    for (String L : lines) out.println(L);
+                                }
+                            }
+                        }
+                        break;
                     case "look":
                         rec = handleLookAndMovement(cmd, name, rec, dao);
                         break;
@@ -2389,9 +2544,7 @@ public class ClientHandler implements Runnable {
                         rec = dao.findByName(name);
                         break;
                     }
-                    case "say":
-                        handleSay(cmd, name, rec, dao);
-                        break;
+                    // 'say' is handled by CommunicationCommandHandler -> handleCommunication
                     case "north":
                     case "n":
                     case "east":
@@ -2407,188 +2560,17 @@ public class ClientHandler implements Runnable {
                         rec = handleLookAndMovement(cmd, name, rec, dao);
                         break;
                     
-                    case "recall": {
-                        // Teleport back to the Mead-Gaard Inn (home base)
-                        if (rec == null) {
-                            out.println("No character record found.");
-                            break;
-                        }
-                        
-                        // Check stance - can't recall while sleeping
-                        Stance recallStance = RegenerationService.getInstance().getPlayerStance(characterId);
-                        if (!recallStance.canMove()) {
-                            if (recallStance == Stance.SLEEPING) {
-                                out.println("You are asleep! Type 'wake' to wake up first.");
-                            } else {
-                                out.println("You must stand up first. Type 'stand'.");
-                            }
-                            break;
-                        }
-                        
-                        final int MEAD_GAARD_INN = 3041;
-                        
-                        // Already at the inn?
-                        if (rec.currentRoom != null && rec.currentRoom == MEAD_GAARD_INN) {
-                            out.println("You are already at the Mead-Gaard Inn.");
-                            break;
-                        }
-                        
-                        // Verify the destination exists
-                        Room innRoom = dao.getRoomById(MEAD_GAARD_INN);
-                        if (innRoom == null) {
-                            out.println("The Mead-Gaard Inn seems to have vanished from reality. Something is very wrong.");
-                            break;
-                        }
-                        
-                        // Announce magical departure from old room (respecting invisibility)
-                        Integer recallOldRoom = rec.currentRoom;
-                        roomAnnounceFromActor(recallOldRoom, name + " closes their eyes and vanishes in a shimmer of light.", this.characterId);
-                        
-                        // Teleport the character
-                        dao.updateCharacterRoom(name, MEAD_GAARD_INN);
-                        this.currentRoomId = MEAD_GAARD_INN;
-                        rec = dao.findByName(name);
-                        
-                        // Announce magical arrival in new room (respecting invisibility)
-                        roomAnnounceFromActor(MEAD_GAARD_INN, name + " appears in a shimmer of light.", this.characterId);
-                        
-                        out.println();
-                        out.println("You close your eyes and think of home...");
-                        out.println("A warm sensation envelops you, and when you open your eyes, you find yourself at the Mead-Gaard Inn.");
-                        out.println();
-                        showRoom(innRoom, MEAD_GAARD_INN);
-                        break;
-                    }
+                    // 'recall' moved to handleLookAndMovement
                         
                     // ===== STANCE COMMANDS =====
-                    case "sit": {
-                        Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
-                        if (currentStance == Stance.SITTING) {
-                            out.println("You are already sitting.");
-                            break;
-                        }
-                        if (currentStance == Stance.SLEEPING) {
-                            out.println("You wake up and sit up.");
-                        } else {
-                            out.println("You sit down.");
-                        }
-                        RegenerationService.getInstance().setPlayerStance(characterId, Stance.SITTING);
-                        roomAnnounceFromActor(currentRoomId, name + " sits down.", this.characterId);
-                        break;
-                    }
-                    case "sleep":
-                    case "rest": {
-                        Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
-                        if (currentStance == Stance.SLEEPING) {
-                            out.println("You are already sleeping.");
-                            break;
-                        }
-                        if (currentStance == Stance.STANDING) {
-                            out.println("You lie down and go to sleep.");
-                        } else {
-                            out.println("You close your eyes and drift off to sleep.");
-                        }
-                        RegenerationService.getInstance().setPlayerStance(characterId, Stance.SLEEPING);
-                        roomAnnounceFromActor(currentRoomId, name + " lies down and goes to sleep.", this.characterId);
-                        break;
-                    }
-                    case "stand":
-                    case "wake": {
-                        // Check if in combat - combat stand from prone is a special skill
-                        CombatManager combatMgr = CombatManager.getInstance();
-                        Combat activeCombat = combatMgr.getCombatForCharacter(characterId);
+                    // Stance commands moved to handleLookAndMovement
                         
-                        if (activeCombat != null) {
-                            // In combat - check if prone
-                            Combatant userCombatant = activeCombat.findByCharacterId(characterId);
-                            if (userCombatant == null) {
-                                out.println("Combat error: could not find your combatant.");
-                                break;
-                            }
-                            
-                            if (!userCombatant.isProne()) {
-                                out.println("You are already standing.");
-                                break;
-                            }
-                            
-                            // Combat stand from prone - this is an innate skill
-                            // Get user's level for opposed check
-                            CharacterClassDAO standClassDao = new CharacterClassDAO();
-                            int userLevel = rec.currentClassId != null 
-                                ? standClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
-                            
-                            // Find an opponent to make the opposed check against
-                            // Use the highest level opponent
-                            int opponentLevel = 1;
-                            Combatant mainOpponent = null;
-                            for (Combatant c : activeCombat.getCombatants()) {
-                                if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
-                                    int cLevel;
-                                    if (c.isPlayer()) {
-                                        Integer cCharId = c.getCharacterId();
-                                        CharacterRecord cRec = dao.getCharacterById(cCharId);
-                                        cLevel = cRec != null && cRec.currentClassId != null 
-                                            ? standClassDao.getCharacterClassLevel(cCharId, cRec.currentClassId) : 1;
-                                    } else if (c.getMobile() != null) {
-                                        cLevel = c.getMobile().getLevel();
-                                    } else {
-                                        cLevel = 1;
-                                    }
-                                    if (cLevel > opponentLevel) {
-                                        opponentLevel = cLevel;
-                                        mainOpponent = c;
-                                    }
-                                }
-                            }
-                            
-                            // Perform opposed check at 100% proficiency (innate skill)
-                            int roll = (int)(Math.random() * 100) + 1;
-                            int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
-                                userLevel, opponentLevel, 100); // 100% proficiency for innate skills
-                            
-                            boolean standSucceeded = roll <= successChance;
-                            
-                            // Regardless of success/failure, forfeit all attacks this round
-                            userCombatant.setAttacksRemaining(0);
-                            userCombatant.setHasActedThisRound(true);
-                            
-                            if (standSucceeded) {
-                                // Success! Remove prone status
-                                userCombatant.standUp();
-                                out.println("You manage to get to your feet!");
-                                roomAnnounce(currentRoomId, name + " scrambles to their feet.", this.characterId, true);
-                            } else {
-                                // Failure - remain prone
-                                out.println("You struggle to stand but fail to get up.");
-                                roomAnnounce(currentRoomId, name + " struggles to stand but remains on the ground.", this.characterId, true);
-                            }
-                            break;
-                        }
-                        
-                        // Not in combat - normal stand behavior
-                        Stance currentStance = RegenerationService.getInstance().getPlayerStance(characterId);
-                        if (currentStance == Stance.STANDING) {
-                            out.println("You are already standing.");
-                            break;
-                        }
-                        if (currentStance == Stance.SLEEPING) {
-                            out.println("You wake up and stand up.");
-                            roomAnnounce(currentRoomId, name + " wakes up and stands up.", this.characterId, true);
-                        } else {
-                            out.println("You stand up.");
-                            roomAnnounce(currentRoomId, name + " stands up.", this.characterId, true);
-                        }
-                        RegenerationService.getInstance().setPlayerStance(characterId, Stance.STANDING);
-                        break;
-                    }
-                        
-                    case "prompt": {
-
-                    }
-                    case "autoflee": {
-                        // AUTOFLEE - Set/view automatic flee threshold
+                    // 'prompt' moved to handleLookAndMovement
+                    // 'autoflee' moved to handleCombatCommand
+                    case "autoloot": {
+                        // AUTOLOOT - Toggle automatic looting of items from corpses
                         if (rec == null) {
-                            out.println("You must be logged in to use autoflee.");
+                            out.println("You must be logged in to use autoloot.");
                             break;
                         }
                         Integer charId = this.characterId;
@@ -2600,37 +2582,92 @@ public class ClientHandler implements Runnable {
                             break;
                         }
                         
-                        String autofleeArgs = cmd.getArgs();
-                        if (autofleeArgs == null || autofleeArgs.trim().isEmpty()) {
-                            // Display current autoflee value
-                            int currentAutoflee = dao.getAutoflee(charId);
-                            if (currentAutoflee <= 0) {
-                                out.println("Autoflee is disabled (set to 0).");
+                        // Toggle current value
+                        boolean currentValue = rec.autoloot;
+                        boolean newValue = !currentValue;
+                        boolean success = dao.setAutoloot(charId, newValue);
+                        if (success) {
+                            if (newValue) {
+                                out.println("Autoloot enabled. You will automatically loot items from corpses.");
                             } else {
-                                out.println("Autoflee is set to " + currentAutoflee + "% HP.");
+                                out.println("Autoloot disabled. You must manually loot items from corpses.");
                             }
+                            // Refresh rec
+                            rec = dao.findByName(name);
                         } else {
-                            // Set new autoflee value
-                            try {
-                                int newValue = Integer.parseInt(autofleeArgs.trim());
-                                if (newValue < 0 || newValue > 100) {
-                                    out.println("Autoflee must be between 0 and 100.");
-                                    break;
-                                }
-                                boolean success = dao.setAutoflee(charId, newValue);
-                                if (success) {
-                                    if (newValue == 0) {
-                                        out.println("Autoflee disabled.");
-                                    } else {
-                                        out.println("Autoflee set to " + newValue + "% HP.");
-                                        out.println("You will automatically attempt to flee when HP drops below " + newValue + "%.");
-                                    }
-                                } else {
-                                    out.println("Failed to set autoflee.");
-                                }
-                            } catch (NumberFormatException e) {
-                                out.println("Usage: autoflee <0-100>");
+                            out.println("Failed to toggle autoloot.");
+                        }
+                        break;
+                    }
+                    case "autogold": {
+                        // AUTOGOLD - Toggle automatic looting of gold from corpses
+                        if (rec == null) {
+                            out.println("You must be logged in to use autogold.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        if (charId == null) {
+                            out.println("Unable to find your character.");
+                            break;
+                        }
+                        
+                        // Toggle current value
+                        boolean currentValue = rec.autogold;
+                        boolean newValue = !currentValue;
+                        boolean success = dao.setAutogold(charId, newValue);
+                        if (success) {
+                            if (newValue) {
+                                out.println("Autogold enabled. You will automatically loot gold from corpses.");
+                            } else {
+                                out.println("Autogold disabled. You must manually loot gold from corpses.");
                             }
+                            // Refresh rec
+                            rec = dao.findByName(name);
+                        } else {
+                            out.println("Failed to toggle autogold.");
+                        }
+                        break;
+                    }
+                    case "autosac": {
+                        // AUTOSAC - Toggle automatic sacrifice of empty corpses
+                        // Requires both autoloot and autogold to be enabled
+                        if (rec == null) {
+                            out.println("You must be logged in to use autosac.");
+                            break;
+                        }
+                        Integer charId = this.characterId;
+                        if (charId == null && name != null) {
+                            charId = dao.getCharacterIdByName(name);
+                        }
+                        if (charId == null) {
+                            out.println("Unable to find your character.");
+                            break;
+                        }
+                        
+                        // Toggle current value
+                        boolean currentValue = rec.autosac;
+                        boolean newValue = !currentValue;
+                        
+                        // If trying to enable, check that autoloot and autogold are both enabled
+                        if (newValue && (!rec.autoloot || !rec.autogold)) {
+                            out.println("You must enable both autoloot and autogold before you can enable autosac.");
+                            break;
+                        }
+                        
+                        boolean success = dao.setAutosac(charId, newValue);
+                        if (success) {
+                            if (newValue) {
+                                out.println("Autosac enabled. You will automatically sacrifice empty corpses for 1 XP.");
+                            } else {
+                                out.println("Autosac disabled. Corpses will remain after looting.");
+                            }
+                            // Refresh rec
+                            rec = dao.findByName(name);
+                        } else {
+                            out.println("Failed to toggle autosac.");
                         }
                         break;
                     }
@@ -2774,109 +2811,345 @@ public class ClientHandler implements Runnable {
                     case "infuse":
                         rec = handleCombatCommand(cmd, name, rec, dao);
                         break;
-                    case "hide": {
-                        // HIDE - Skill-based invisibility (requires hide skill, has cooldown)
+                    // 'hide' moved to handleCombatCommand
+                    // 'visible'/'unhide' moved to handleCombatCommand
+                    case "quit":
+                        out.println("Goodbye!");
+                        socket.close();
+                        return;
+                    case "train": {
+                        // TRAIN [ability|skill|spell] <name> - Spend talent points
                         if (rec == null) {
-                            out.println("You must be logged in to hide.");
+                            out.println("You must be logged in to train.");
                             break;
                         }
-                        Integer charId = this.characterId;
-                        if (charId == null) {
-                            charId = dao.getCharacterIdByName(name);
-                        }
-                        
-                        // Look up the hide skill (id=305)
-                        Skill hideSkill = dao.getSkillById(305);
-                        if (hideSkill == null) {
-                            out.println("Hide skill not found in database.");
+                        Integer trainCharId = dao.getCharacterIdByName(name);
+                        if (trainCharId == null) {
+                            out.println("Failed to find your character.");
                             break;
                         }
                         
-                        // Check if character knows the hide skill
-                        CharacterSkill charHide = dao.getCharacterSkill(charId, 305);
-                        if (charHide == null) {
-                            out.println("You don't know how to hide.");
-                            break;
-                        }
+                        String trainArgs = cmd.getArgs();
+                        int talentPoints = dao.getTalentPoints(trainCharId);
                         
-                        // Check cooldown using unified check
-                        com.example.tassmud.util.AbilityCheck.CheckResult hideCheck = 
-                            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, hideSkill);
-                        if (hideCheck.isFailure()) {
-                            out.println(hideCheck.getFailureMessage());
-                            break;
-                        }
-                        
-                        // Check if already invisible
-                        if (com.example.tassmud.effect.EffectRegistry.isInvisible(charId)) {
-                            out.println("You are already invisible.");
-                            break;
-                        }
-                        
-                        // Perform proficiency roll to determine success
-                        // Success chance = proficiency%
-                        int roll = (int)(Math.random() * 100) + 1;
-                        int proficiency = charHide.getProficiency();
-                        boolean hideSucceeded = roll <= proficiency;
-                        
-                        if (hideSucceeded) {
-                            // Apply invisibility effect (id 110)
-                            com.example.tassmud.effect.EffectInstance inst = 
-                                com.example.tassmud.effect.EffectRegistry.apply("110", charId, charId, null);
+                        // No args: show status
+                        if (trainArgs == null || trainArgs.trim().isEmpty()) {
+                            // Display talent points, ability scores, and trainable skills/spells
+                            StringBuilder trainInfo = new StringBuilder();
+                            trainInfo.append("\n===================================================================\n");
+                            trainInfo.append("  TRAINING STATUS\n");
+                            trainInfo.append("===================================================================\n");
+                            trainInfo.append(String.format("  Talent Points Available: %d\n", talentPoints));
+                            trainInfo.append("-------------------------------------------------------------------\n");
+                            trainInfo.append("  [ ABILITY SCORES ] (base + trained = total)\n");
                             
-                            if (inst != null) {
-                                out.println("You fade from view, becoming invisible.");
-                                // Announce to room only if others can see invisible
-                                roomAnnounceFromActor(currentRoomId, name + " fades from view.", this.characterId);
-                            } else {
-                                out.println("You try to hide but fail.");
+                            // Calculate modifiers for display
+                            int strTotal = rec.getStrTotal();
+                            int dexTotal = rec.getDexTotal();
+                            int conTotal = rec.getConTotal();
+                            int intTotal = rec.getIntTotal();
+                            int wisTotal = rec.getWisTotal();
+                            int chaTotal = rec.getChaTotal();
+                            
+                            trainInfo.append(String.format("  STR: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.str, rec.trainedStr, strTotal, (strTotal - 10) / 2, formatTrainCost(strTotal)));
+                            trainInfo.append(String.format("  DEX: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.dex, rec.trainedDex, dexTotal, (dexTotal - 10) / 2, formatTrainCost(dexTotal)));
+                            trainInfo.append(String.format("  CON: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.con, rec.trainedCon, conTotal, (conTotal - 10) / 2, formatTrainCost(conTotal)));
+                            trainInfo.append(String.format("  INT: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.intel, rec.trainedInt, intTotal, (intTotal - 10) / 2, formatTrainCost(intTotal)));
+                            trainInfo.append(String.format("  WIS: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.wis, rec.trainedWis, wisTotal, (wisTotal - 10) / 2, formatTrainCost(wisTotal)));
+                            trainInfo.append(String.format("  CHA: %2d + %d = %2d (%+d)    Cost: %s\n",
+                                rec.cha, rec.trainedCha, chaTotal, (chaTotal - 10) / 2, formatTrainCost(chaTotal)));
+                            
+                            // Show trainable skills (under 80%)
+                            java.util.List<CharacterSkill> trainSkills = dao.getAllCharacterSkills(trainCharId);
+                            java.util.List<String> trainableSkills = new java.util.ArrayList<>();
+                            for (CharacterSkill cs : trainSkills) {
+                                if (cs.getProficiency() < 80) {
+                                    Skill skillDef = dao.getSkillById(cs.getSkillId());
+                                    String skillName = skillDef != null ? skillDef.getName() : "Skill #" + cs.getSkillId();
+                                    trainableSkills.add(String.format("%-22s %3d%%", skillName, cs.getProficiency()));
+                                }
                             }
-                        } else {
-                            out.println("You attempt to hide but fail to conceal yourself.");
+                            if (!trainableSkills.isEmpty()) {
+                                trainInfo.append("-------------------------------------------------------------------\n");
+                                trainInfo.append("  [ TRAINABLE SKILLS ] (< 80%: costs 1 point for +5%)\n");
+                                java.util.Collections.sort(trainableSkills, String.CASE_INSENSITIVE_ORDER);
+                                for (String s : trainableSkills) {
+                                    trainInfo.append("  ").append(s).append("\n");
+                                }
+                            }
+                            
+                            // Show trainable spells (under 80%)
+                            java.util.List<CharacterSpell> trainSpells = dao.getAllCharacterSpells(trainCharId);
+                            java.util.List<String> trainableSpells = new java.util.ArrayList<>();
+                            for (CharacterSpell cs : trainSpells) {
+                                if (cs.getProficiency() < 80) {
+                                    Spell spellDef = dao.getSpellById(cs.getSpellId());
+                                    String spellName = spellDef != null ? spellDef.getName() : "Spell #" + cs.getSpellId();
+                                    trainableSpells.add(String.format("%-22s %3d%%", spellName, cs.getProficiency()));
+                                }
+                            }
+                            if (!trainableSpells.isEmpty()) {
+                                trainInfo.append("-------------------------------------------------------------------\n");
+                                trainInfo.append("  [ TRAINABLE SPELLS ] (< 80%: costs 1 point for +5%)\n");
+                                java.util.Collections.sort(trainableSpells, String.CASE_INSENSITIVE_ORDER);
+                                for (String s : trainableSpells) {
+                                    trainInfo.append("  ").append(s).append("\n");
+                                }
+                            }
+                            
+                            trainInfo.append("===================================================================\n");
+                            trainInfo.append("  Usage: TRAIN ABILITY <str|dex|con|int|wis|cha>\n");
+                            trainInfo.append("         TRAIN SKILL <skill_name>\n");
+                            trainInfo.append("         TRAIN SPELL <spell_name>\n");
+                            trainInfo.append("===================================================================\n");
+                            out.print(trainInfo.toString());
+                            break;
                         }
                         
-                        // Record skill use (applies cooldown and checks proficiency growth)
-                        com.example.tassmud.util.SkillExecution.Result hideResult = 
-                            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
-                                name, charId, hideSkill, charHide, dao, hideSucceeded);
+                        // Parse args: train ability|skill|spell <name>
+                        String[] trainParts = trainArgs.trim().split("\\s+", 2);
+                        if (trainParts.length < 2) {
+                            out.println("Usage: TRAIN ABILITY <str|dex|con|int|wis|cha>");
+                            out.println("       TRAIN SKILL <skill_name>");
+                            out.println("       TRAIN SPELL <spell_name>");
+                            break;
+                        }
                         
-                        // Debug channel output for proficiency check
-                        sendDebug("Hide proficiency check:");
-                        sendDebug("  Skill progression: " + hideSkill.getProgression());
-                        sendDebug("  Current proficiency: " + proficiency + "%");
-                        sendDebug("  Roll: " + roll + " (needed <= " + proficiency + ")");
-                        sendDebug("  Skill succeeded: " + hideSucceeded);
-                        sendDebug("  Proficiency improved: " + hideResult.didProficiencyImprove());
+                        String trainType = trainParts[0].toLowerCase();
+                        String trainTarget = trainParts[1].trim();
                         
-                        if (hideResult.didProficiencyImprove()) {
-                            out.println(hideResult.getProficiencyMessage());
+                        if (talentPoints < 1) {
+                            out.println("You have no talent points to spend.");
+                            break;
+                        }
+                        
+                        switch (trainType) {
+                            case "ability":
+                            case "stat":
+                            case "attr":
+                            case "attribute": {
+                                // Train an ability score
+                                String abilityName = trainTarget.toLowerCase();
+                                int currentTotal = 0;
+                                String displayName = null;
+                                switch (abilityName) {
+                                    case "str": case "strength": 
+                                        currentTotal = rec.getStrTotal(); displayName = "Strength"; break;
+                                    case "dex": case "dexterity": 
+                                        currentTotal = rec.getDexTotal(); displayName = "Dexterity"; break;
+                                    case "con": case "constitution": 
+                                        currentTotal = rec.getConTotal(); displayName = "Constitution"; break;
+                                    case "int": case "intel": case "intelligence": 
+                                        currentTotal = rec.getIntTotal(); displayName = "Intelligence"; break;
+                                    case "wis": case "wisdom": 
+                                        currentTotal = rec.getWisTotal(); displayName = "Wisdom"; break;
+                                    case "cha": case "charisma": 
+                                        currentTotal = rec.getChaTotal(); displayName = "Charisma"; break;
+                                }
+                                
+                                if (displayName == null) {
+                                    out.println("Unknown ability: " + trainTarget);
+                                    out.println("Valid abilities: STR, DEX, CON, INT, WIS, CHA");
+                                    break;
+                                }
+                                
+                                int cost = CharacterDAO.getAbilityTrainingCost(currentTotal);
+                                if (cost < 0) {
+                                    out.println("Your " + displayName + " is already at maximum (20). You cannot train it further with talent points.");
+                                    break;
+                                }
+                                if (talentPoints < cost) {
+                                    out.println("Training " + displayName + " from " + currentTotal + " to " + (currentTotal + 1) + " costs " + cost + " talent points.");
+                                    out.println("You only have " + talentPoints + " talent point" + (talentPoints == 1 ? "" : "s") + ".");
+                                    break;
+                                }
+                                
+                                // Deduct points and increment ability
+                                dao.setTalentPoints(trainCharId, talentPoints - cost);
+                                dao.incrementTrainedAbility(trainCharId, abilityName);
+                                
+                                int newTotal = currentTotal + 1;
+                                int newMod = (newTotal - 10) / 2;
+                                out.println("You train your " + displayName + "!");
+                                out.println(displayName + " increased from " + currentTotal + " to " + newTotal + " (" + (newMod >= 0 ? "+" : "") + newMod + " modifier).");
+                                out.println("Spent " + cost + " talent point" + (cost == 1 ? "" : "s") + ". Remaining: " + (talentPoints - cost));
+                                break;
+                            }
+                            case "skill": {
+                                // Train a skill
+                                Skill targetSkill = null;
+                                CharacterSkill charSkill = null;
+                                java.util.List<CharacterSkill> allSkills = dao.getAllCharacterSkills(trainCharId);
+                                for (CharacterSkill cs : allSkills) {
+                                    Skill def = dao.getSkillById(cs.getSkillId());
+                                    if (def != null && def.getName().equalsIgnoreCase(trainTarget)) {
+                                        targetSkill = def;
+                                        charSkill = cs;
+                                        break;
+                                    }
+                                }
+                                
+                                // Try partial match if exact match failed
+                                if (targetSkill == null) {
+                                    String targetLower = trainTarget.toLowerCase();
+                                    for (CharacterSkill cs : allSkills) {
+                                        Skill def = dao.getSkillById(cs.getSkillId());
+                                        if (def != null && def.getName().toLowerCase().startsWith(targetLower)) {
+                                            targetSkill = def;
+                                            charSkill = cs;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                if (targetSkill == null || charSkill == null) {
+                                    out.println("You don't know a skill called '" + trainTarget + "'.");
+                                    break;
+                                }
+                                
+                                int currentProf = charSkill.getProficiency();
+                                if (currentProf >= 80) {
+                                    out.println(targetSkill.getName() + " is already at " + currentProf + "%. Skills cannot be trained above 80% - you must practice them in use.");
+                                    break;
+                                }
+                                
+                                // Training costs 1 point for +5% proficiency
+                                int newProf = Math.min(80, currentProf + 5);
+                                dao.setCharacterSkillLevel(trainCharId, charSkill.getSkillId(), newProf);
+                                dao.setTalentPoints(trainCharId, talentPoints - 1);
+                                
+                                out.println("You train " + targetSkill.getName() + "!");
+                                out.println("Proficiency increased from " + currentProf + "% to " + newProf + "%.");
+                                out.println("Spent 1 talent point. Remaining: " + (talentPoints - 1));
+                                break;
+                            }
+                            case "spell": {
+                                // Train a spell
+                                Spell targetSpell = null;
+                                CharacterSpell charSpell = null;
+                                java.util.List<CharacterSpell> allSpells = dao.getAllCharacterSpells(trainCharId);
+                                for (CharacterSpell cs : allSpells) {
+                                    Spell def = dao.getSpellById(cs.getSpellId());
+                                    if (def != null && def.getName().equalsIgnoreCase(trainTarget)) {
+                                        targetSpell = def;
+                                        charSpell = cs;
+                                        break;
+                                    }
+                                }
+                                
+                                // Try partial match if exact match failed
+                                if (targetSpell == null) {
+                                    String targetLower = trainTarget.toLowerCase();
+                                    for (CharacterSpell cs : allSpells) {
+                                        Spell def = dao.getSpellById(cs.getSpellId());
+                                        if (def != null && def.getName().toLowerCase().startsWith(targetLower)) {
+                                            targetSpell = def;
+                                            charSpell = cs;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                if (targetSpell == null || charSpell == null) {
+                                    out.println("You don't know a spell called '" + trainTarget + "'.");
+                                    break;
+                                }
+                                
+                                int currentProf = charSpell.getProficiency();
+                                if (currentProf >= 80) {
+                                    out.println(targetSpell.getName() + " is already at " + currentProf + "%. Spells cannot be trained above 80% - you must practice them in use.");
+                                    break;
+                                }
+                                
+                                // Training costs 1 point for +5% proficiency
+                                int newProf = Math.min(80, currentProf + 5);
+                                dao.setCharacterSpellLevel(trainCharId, charSpell.getSpellId(), newProf);
+                                dao.setTalentPoints(trainCharId, talentPoints - 1);
+                                
+                                out.println("You train " + targetSpell.getName() + "!");
+                                out.println("Proficiency increased from " + currentProf + "% to " + newProf + "%.");
+                                out.println("Spent 1 talent point. Remaining: " + (talentPoints - 1));
+                                break;
+                            }
+                            default:
+                                out.println("Unknown training type: " + trainType);
+                                out.println("Usage: TRAIN ABILITY <str|dex|con|int|wis|cha>");
+                                out.println("       TRAIN SKILL <skill_name>");
+                                out.println("       TRAIN SPELL <spell_name>");
                         }
                         break;
                     }
-                    case "visible":
-                    case "unhide": {
-                        // VISIBLE/UNHIDE - Drop invisibility
-                        if (rec == null) {
-                            out.println("You must be logged in to become visible.");
-                            break;
-                        }
-                        Integer charId = this.characterId;
-                        if (charId == null) {
-                            charId = dao.getCharacterIdByName(name);
+                    case "who": {
+                        // WHO - List all connected players
+                        out.println();
+                        out.println("===================================================================");
+                        out.println("  Players Online");
+                        out.println("===================================================================");
+                        
+                        CharacterClassDAO classDao = new CharacterClassDAO();
+                        try {
+                            classDao.loadClassesFromYamlResource("/data/classes.yaml");
+                        } catch (Exception ignored) {}
+                        
+                        // Check if I'm a GM (for seeing GM-invisible players)
+                        boolean iAmGm = dao.isCharacterFlagTrueByName(name, "is_gm");
+                        
+                        int count = 0;
+                        for (ClientHandler session : sessions) {
+                            String pName = session.playerName;
+                            if (pName == null) continue; // Not yet logged in
+                            
+                            // Look up character info
+                            CharacterRecord pRec = dao.findByName(pName);
+                            if (pRec == null) continue;
+                            
+                            Integer pCharId = dao.getCharacterIdByName(pName);
+                            
+                            // Check GM invisibility - only other GMs can see GM-invisible players
+                            if (session.gmInvisible && session != this && !iAmGm) {
+                                continue; // Can't see GM-invisible players in who list
+                            }
+                            
+                            // Check normal invisibility - skip if we can't see them (unless it's ourselves)
+                            boolean isInvis = com.example.tassmud.effect.EffectRegistry.isInvisible(pCharId);
+                            boolean canSee = session == this || com.example.tassmud.effect.EffectRegistry.canSee(this.characterId, pCharId);
+                            if (isInvis && !canSee) {
+                                continue; // Can't see them in who list
+                            }
+                            
+                            Integer pClassId = pRec.currentClassId;
+                            CharacterClass pClass = pClassId != null ? classDao.getClassById(pClassId) : null;
+                            int pLevel = (pClassId != null && pCharId != null) 
+                                ? classDao.getCharacterClassLevel(pCharId, pClassId) : 0;
+                            
+                            String className = pClass != null ? pClass.name : "Adventurer";
+                            String desc = pRec.description != null && !pRec.description.isEmpty() 
+                                ? pRec.description : "";
+                            
+                            // Add invisibility tag if invisible but we can see them
+                            String invisTag = "";
+                            if (session.gmInvisible && session != this) {
+                                invisTag = " (GM-INVIS)";
+                            } else if (isInvis && canSee && session != this) {
+                                invisTag = " (INVIS)";
+                            }
+                            
+                            // Format: [Lv ##] ClassName     PlayerName - Description
+                            out.println(String.format("  [Lv %2d] %-12s  %-15s%s %s",
+                                pLevel, className, pName, invisTag,
+                                desc.isEmpty() ? "" : "- " + truncate(desc, 30)));
+                            count++;
                         }
                         
-                        // Check if currently invisible
-                        if (!com.example.tassmud.effect.EffectRegistry.isInvisible(charId)) {
-                            out.println("You are already visible.");
-                            break;
-                        }
-                        
-                        // Remove invisibility effect
-                        com.example.tassmud.effect.EffectRegistry.removeInvisibility(charId);
-                        
-                        out.println("You become visible again.");
-                        // Announce to room
-                        roomAnnounce(currentRoomId, name + " fades into view.", this.characterId, true);
+                        out.println("-------------------------------------------------------------------");
+                        out.println(String.format("  %d player%s online", count, count == 1 ? "" : "s"));
+                        out.println("===================================================================");
+                        out.println();
                         break;
                     }
                     case "chat":
@@ -2934,6 +3207,49 @@ public class ClientHandler implements Runnable {
                     case "genmap":
                         rec = handleGmCommand(cmd, name, rec, dao);
                         break;
+                    case "motd": {
+                        String margs = cmd.getArgs();
+                        if (margs == null || margs.trim().isEmpty()) {
+                            String motd = dao.getSetting("motd");
+                            if (motd == null || motd.trim().isEmpty()) out.println("No MOTD is set.");
+                            else {
+                                out.println("--- Message of the Day ---");
+                                String[] motdLines = motd.split("\\r?\\n");
+                                for (String ml : motdLines) out.println(ml);
+                                out.println("--- End of MOTD ---");
+                            }
+                        } else {
+                            // GM-only: motd set <message>
+                            String[] ma = margs.trim().split("\\s+", 2);
+                            String verb = ma[0].toLowerCase();
+                            if (verb.equals("set")) {
+                                if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to set the MOTD."); break; }
+                                String val = ma.length > 1 ? ma[1] : "";
+                                // support literal "\n" sequences for multi-line MOTD
+                                try {
+                                    if (val != null) {
+                                        val = val.replace("\\r\\n", "\n").replace("\\n", "\n");
+                                    }
+                                } catch (Exception ignored) {}
+                                boolean ok = dao.setSetting("motd", val == null ? "" : val);
+                                if (ok) out.println("MOTD updated (\n sequences allowed for newlines)."); else out.println("Failed to update MOTD.");
+                            } else if (verb.equals("clear") || verb.equals("remove")) {
+                                if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to clear the MOTD."); break; }
+                                boolean ok = dao.setSetting("motd", "");
+                                if (ok) out.println("MOTD cleared."); else out.println("Failed to clear MOTD.");
+                            } else {
+                                out.println("Usage: motd [set <message>|clear]");
+                            }
+                        }
+                        break;
+                    }
+                    case "save": {
+                        // Persist mutable character state for this player
+                        if (rec == null) { out.println("No character record found."); break; }
+                        boolean ok = dao.saveCharacterStateByName(name, rec.hpCur, rec.mpCur, rec.mvCur, rec.currentRoom);
+                        if (ok) out.println("Character saved."); else out.println("Failed to save character.");
+                        break;
+                    }
                     case "spawn": {
                         // GM-only: SPAWN ITEM <template_id> [level]   or   SPAWN MOB <mob_id> [room_id]   or   SPAWN GOLD <amount>
                         if (!dao.isCharacterFlagTrueByName(name, "is_gm")) {
@@ -3385,10 +3701,7 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
-                    case "groupchat": {
-                        out.println("Group chat is not implemented yet.");
-                        break;
-                    }
+                    // 'groupchat' moved to handleCommunication
                     case "get":
                     case "pickup": {
                         // GET <item_name>  or  GET ALL  or  GET <item> <container>  or  GET ALL <container>
@@ -3619,85 +3932,7 @@ public class ClientHandler implements Runnable {
                         // Priority 2: Name contains the search term as a word
                         if (matched == null) {
                             for (ItemDAO.RoomItem ri : roomItems) {
-                                if (ri.template.name != null) {
-                                    String nameLower = ri.template.name.toLowerCase();
-                                    // Check if any word in the name matches
-                                    String[] nameWords = nameLower.split("\\s+");
-                                    for (String w : nameWords) {
-                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                                            matched = ri;
-                                            break;
-                                        }
-                                    }
-                                    if (matched != null) break;
-                                }
-                            }
-                        }
-
-                        // Priority 3: Keyword match
-                        if (matched == null) {
-                            for (ItemDAO.RoomItem ri : roomItems) {
-                                if (ri.template.keywords != null) {
-                                    for (String kw : ri.template.keywords) {
-                                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                                            matched = ri;
-                                            break;
-                                        }
-                                    }
-                                    if (matched != null) break;
-                                }
-                            }
-                        }
-
-                        // Priority 4: Partial name match (name starts with search term)
-                        if (matched == null) {
-                            for (ItemDAO.RoomItem ri : roomItems) {
-                                if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
-                                    matched = ri;
-                                    break;
-                                }
-                            }
-                        }
-
-                        // Priority 5: Name contains search term anywhere
-                        if (matched == null) {
-                            for (ItemDAO.RoomItem ri : roomItems) {
-                                if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
-                                    matched = ri;
-                                    break;
-                                }
-                            }
-                        }
-
-                        if (matched == null) {
-                            out.println("You don't see '" + itemArg + "' here.");
-                            break;
-                        }
-
-                        // Check if item is immobile
-                        if (matched.template.isImmobile()) {
-                            out.println("You can't pick that up.");
-                            break;
-                        }
-
-                        // Move item to character's inventory
-                        itemDao.moveInstanceToCharacter(matched.instance.instanceId, charId);
-                        out.println("You pick up " + (matched.template.name != null ? matched.template.name : "an item") + ".");
-                        break;
-                    }
-                    case "drop": {
-                        // DROP <item_name>  or  DROP ALL
-                        if (rec == null || rec.currentRoom == null) {
-                            out.println("You are nowhere to drop anything.");
-                            break;
-                        }
-                        String dropArgs = cmd.getArgs();
-                        if (dropArgs == null || dropArgs.trim().isEmpty()) {
-                            out.println("Usage: drop <item_name>  or  drop all");
-                            break;
-                        }
-                        String dropArg = dropArgs.trim();
-                        ItemDAO itemDao = new ItemDAO();
+                                // 'hide' moved to handleCombatCommand
                         Integer charId = dao.getCharacterIdByName(name);
                         if (charId == null) {
                             out.println("Failed to locate your character record.");
@@ -4007,32 +4242,7 @@ public class ClientHandler implements Runnable {
                         break;
                     }
                     case "sacrifice":
-                    case "sac": {
-                        // SACRIFICE <item> - sacrifice an item on the ground for 1 XP
-                        // Corpses must be empty to be sacrificed
-                        if (rec == null || rec.currentRoom == null) {
-                            out.println("You are nowhere.");
-                            break;
-                        }
-                        String sacArgs = cmd.getArgs();
-                        if (sacArgs == null || sacArgs.trim().isEmpty()) {
-                            out.println("Usage: sacrifice <item>");
-                            out.println("Sacrifice an item on the ground to gain 1 experience point.");
-                            out.println("Corpses must be empty (looted) before they can be sacrificed.");
-                            break;
-                        }
-                        
-                        String sacArg = sacArgs.trim().toLowerCase();
-                        ItemDAO itemDao = new ItemDAO();
-                        Integer charId = dao.getCharacterIdByName(name);
-                        if (charId == null) {
-                            out.println("Failed to locate your character record.");
-                            break;
-                        }
-                        
-                        // Get items in the room
-                        java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(rec.currentRoom);
-                        if (roomItems.isEmpty()) {
+                    // 'visible'/'unhide' moved to handleCombatCommand
                             out.println("There is nothing here to sacrifice.");
                             break;
                         }
@@ -4859,6 +5069,754 @@ public class ClientHandler implements Runnable {
                         }
                         break;
                     }
+                    case "sell": {
+                        // SELL <item> [quantity] - sell an item to a shopkeeper (half value)
+                        if (rec == null || rec.currentRoom == null) {
+                            out.println("You must be in a room to sell items.");
+                            break;
+                        }
+                        String sellArgs = cmd.getArgs();
+                        if (sellArgs == null || sellArgs.trim().isEmpty()) {
+                            out.println("Usage: sell <item> [quantity]");
+                            break;
+                        }
+                        
+                        // Parse args: item name and optional quantity
+                        String sellArg = sellArgs.trim();
+                        int quantity = 1;
+                        String itemSearchStr;
+                        
+                        // Check if last word is a number (quantity)
+                        String[] parts = sellArg.split("\\s+");
+                        if (parts.length > 1) {
+                            String lastPart = parts[parts.length - 1];
+                            try {
+                                quantity = Integer.parseInt(lastPart);
+                                if (quantity < 1) quantity = 1;
+                                if (quantity > 100) {
+                                    out.println("You can only sell up to 100 items at once.");
+                                    break;
+                                }
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 0; i < parts.length - 1; i++) {
+                                    if (i > 0) sb.append(" ");
+                                    sb.append(parts[i]);
+                                }
+                                itemSearchStr = sb.toString();
+                            } catch (NumberFormatException e) {
+                                itemSearchStr = sellArg;
+                            }
+                        } else {
+                            itemSearchStr = sellArg;
+                        }
+                        
+                        // Find shopkeepers (must be one present to sell)
+                        MobileDAO mobileDao = new MobileDAO();
+                        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                        boolean hasShopkeeper = false;
+                        
+                        for (Mobile mob : mobsInRoom) {
+                            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
+                                hasShopkeeper = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!hasShopkeeper) {
+                            out.println("There are no shopkeepers here.");
+                            break;
+                        }
+                        
+                        // Get player's inventory
+                        ItemDAO itemDao = new ItemDAO();
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get equipped items to exclude
+                        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+                        java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
+                        for (Long iid : equippedMap.values()) {
+                            if (iid != null) equippedInstanceIds.add(iid);
+                        }
+                        
+                        // Get all items in inventory (not equipped, not in containers)
+                        java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
+                        java.util.List<ItemDAO.RoomItem> inventoryItems = new java.util.ArrayList<>();
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
+                            if (ri.instance.containerInstanceId != null) continue;
+                            inventoryItems.add(ri);
+                        }
+                        
+                        if (inventoryItems.isEmpty()) {
+                            out.println("You have nothing to sell.");
+                            break;
+                        }
+                        
+                        // Smart match the item by name/keywords
+                        String searchLower = itemSearchStr.toLowerCase();
+                        java.util.List<ItemDAO.RoomItem> matchingItems = new java.util.ArrayList<>();
+                        
+                        // Find all items matching the search term
+                        for (ItemDAO.RoomItem ri : inventoryItems) {
+                            boolean match = false;
+                            
+                            // Check customName first (for generated/renamed items)
+                            if (ri.instance.customName != null && !ri.instance.customName.isEmpty()) {
+                                String customLower = ri.instance.customName.toLowerCase();
+                                if (customLower.equalsIgnoreCase(itemSearchStr) ||
+                                    customLower.startsWith(searchLower) ||
+                                    customLower.contains(searchLower)) {
+                                    match = true;
+                                } else {
+                                    // Check customName words
+                                    String[] customWords = customLower.split("\\s+");
+                                    for (String w : customWords) {
+                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                            match = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Check template name
+                            if (!match && ri.template.name != null) {
+                                String nameLower = ri.template.name.toLowerCase();
+                                if (nameLower.equalsIgnoreCase(itemSearchStr) ||
+                                    nameLower.startsWith(searchLower) ||
+                                    nameLower.contains(searchLower)) {
+                                    match = true;
+                                } else {
+                                    // Check name words
+                                    String[] nameWords = nameLower.split("\\s+");
+                                    for (String w : nameWords) {
+                                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                            match = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Check keywords
+                            if (!match && ri.template.keywords != null) {
+                                for (String kw : ri.template.keywords) {
+                                    if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
+                                        match = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (match) {
+                                matchingItems.add(ri);
+                            }
+                        }
+                        
+                        if (matchingItems.isEmpty()) {
+                            out.println("You don't have '" + itemSearchStr + "' to sell.");
+                            break;
+                        }
+                        
+                        // Limit to requested quantity
+                        int actualQuantity = Math.min(quantity, matchingItems.size());
+                        java.util.List<ItemDAO.RoomItem> toSell = matchingItems.subList(0, actualQuantity);
+                        
+                        // Calculate sell value (half of item value, minimum 1)
+                        ItemDAO.RoomItem soldItem = toSell.get(0);
+                        int sellPrice = Math.max(1, soldItem.template.value / 2);
+                        long totalGold = (long) sellPrice * actualQuantity;
+                        
+                        // Delete items and add gold
+                        for (ItemDAO.RoomItem ri : toSell) {
+                            itemDao.deleteInstance(ri.instance.instanceId);
+                        }
+                        dao.addGold(charId, totalGold);
+                        
+                        String itemName = getItemDisplayName(soldItem);
+                        if (actualQuantity == 1) {
+                            out.println("You sell " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
+                        } else {
+                            out.println("You sell " + actualQuantity + " " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
+                        }
+                        
+                        if (actualQuantity < quantity) {
+                            out.println("(You only had " + actualQuantity + " to sell.)");
+                        }
+                        break;
+                    }
+                    case "inventory":
+                    case "i": {
+                        // INVENTORY - list items in inventory (not equipped, not in containers)
+                        if (rec == null) {
+                            out.println("No character record found.");
+                            break;
+                        }
+                        ItemDAO itemDao = new ItemDAO();
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+
+                        // Get equipped item instance IDs to exclude
+                        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+                        java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
+                        for (Long iid : equippedMap.values()) {
+                            if (iid != null) equippedInstanceIds.add(iid);
+                        }
+
+                        // Get all items owned by character
+                        java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
+
+                        // Filter: exclude equipped items and items inside containers
+                        java.util.List<String> itemNames = new java.util.ArrayList<>();
+                        for (ItemDAO.RoomItem ri : allItems) {
+                            // Skip equipped items
+                            if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
+                            // Skip items inside containers (container_instance_id is set)
+                            if (ri.instance.containerInstanceId != null) continue;
+                            // Add name (prefer customName for generated items)
+                            itemNames.add(getItemDisplayName(ri));
+                        }
+
+                        // Get gold amount
+                        long gold = dao.getGold(charId);
+
+                        if (itemNames.isEmpty()) {
+                            out.println("You are not carrying anything.");
+                        } else {
+                            // Sort alphabetically
+                            java.util.Collections.sort(itemNames, String.CASE_INSENSITIVE_ORDER);
+
+                            out.println("You are carrying:");
+                            for (String n : itemNames) {
+                                out.println("  " + n);
+                            }
+                        }
+
+                        // Always show gold
+                        out.println("");
+                        out.println("Gold: " + gold + " gp");
+                        break;
+                    }
+                    case "score":
+                    case "stats": {
+                        // CHARACTER SHEET - Display full character information
+                        if (rec == null) {
+                            out.println("You must be logged in to view your character sheet.");
+                            break;
+                        }
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get class information
+                        CharacterClassDAO classDao = new CharacterClassDAO();
+                        try {
+                            classDao.loadClassesFromYamlResource("/data/classes.yaml");
+                        } catch (Exception ignored) {}
+                        
+                        Integer currentClassId = rec.currentClassId;
+                        CharacterClass currentClass = currentClassId != null ? classDao.getClassById(currentClassId) : null;
+                        int classLevel = currentClassId != null ? classDao.getCharacterClassLevel(charId, currentClassId) : 0;
+                        int classXp = currentClassId != null ? classDao.getCharacterClassXp(charId, currentClassId) : 0;
+                        // classXp is progress within current level (0 to XP_PER_LEVEL-1), so xpToNext is simply the remainder
+                        int xpToNext = classLevel < CharacterClass.MAX_HERO_LEVEL ? CharacterClass.XP_PER_LEVEL - classXp : 0;
+                        
+                        // Get all class progress for multiclass display
+                        java.util.List<CharacterClassDAO.ClassProgress> allProgress = classDao.getCharacterClassProgress(charId);
+                        
+                        // Get equipment for AC and weapon damage
+                        ItemDAO itemDao = new ItemDAO();
+                        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+                        
+                        // Calculate ability modifiers using totals (base + trained)
+                        int strTotal = rec.getStrTotal();
+                        int dexTotal = rec.getDexTotal();
+                        int conTotal = rec.getConTotal();
+                        int intTotal = rec.getIntTotal();
+                        int wisTotal = rec.getWisTotal();
+                        int chaTotal = rec.getChaTotal();
+                        int strMod = (strTotal - 10) / 2;
+                        int dexMod = (dexTotal - 10) / 2;
+                        int conMod = (conTotal - 10) / 2;
+                        int intMod = (intTotal - 10) / 2;
+                        int wisMod = (wisTotal - 10) / 2;
+                        int chaMod = (chaTotal - 10) / 2;
+                        
+                        // Build the character sheet
+                        StringBuilder sheet = new StringBuilder();
+                        String divider = "===================================================================";
+                        String thinDiv = "-------------------------------------------------------------------";
+                        
+                        // === HEADER ===
+                        sheet.append("\n").append(divider).append("\n");
+                        sheet.append(String.format("  %-30s %35s\n", name.toUpperCase(), "Age: " + rec.age));
+                        sheet.append(String.format("  %-30s %35s\n", 
+                            currentClass != null ? currentClass.name + " Level " + classLevel : "(No Class)",
+                            rec.description != null && !rec.description.isEmpty() ? "\"" + truncate(rec.description, 30) + "\"" : ""));
+                        sheet.append(divider).append("\n");
+                        
+                        // ═══ VITALS ═══
+                        sheet.append("\n  [ VITALS ]\n");
+                        sheet.append(String.format("  HP: %4d / %-4d    MP: %4d / %-4d    MV: %4d / %-4d\n",
+                            rec.hpCur, rec.hpMax, rec.mpCur, rec.mpMax, rec.mvCur, rec.mvMax));
+                        
+                        // Stance info
+                        Stance playerStance = RegenerationService.getInstance().getPlayerStance(charId);
+                        String stanceLabel = playerStance.getDisplayName().substring(0, 1).toUpperCase() + playerStance.getDisplayName().substring(1);
+                        int regenPct = playerStance.getRegenPercent();
+                        sheet.append(String.format("  Stance: %-10s (%d%% regen out of combat)\n", stanceLabel, regenPct));
+                        
+                        // XP bar - shows progress within current level (0 to XP_PER_LEVEL)
+                        if (currentClass != null && classLevel < CharacterClass.MAX_HERO_LEVEL) {
+                            // classXp is already the progress within the current level (resets to 0 on level-up)
+                            int xpNeeded = CharacterClass.XP_PER_LEVEL;
+                            int pct = (classXp * 100) / xpNeeded;
+                            sheet.append(String.format("  XP: %d / %d  [%s%s] %d%%  (%d TNL)\n",
+                                classXp, xpNeeded,
+                                repeat("#", pct / 5), repeat(".", 20 - pct / 5),
+                                pct, xpToNext));
+                        } else if (currentClass != null) {
+                            sheet.append(String.format("  XP: %d  [MAX LEVEL]\n", classXp));
+                        }
+                        
+                        // ═══ ABILITY SCORES ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ ABILITY SCORES ]");
+                        if (rec.talentPoints > 0) {
+                            sheet.append("  (").append(rec.talentPoints).append(" Talent Point").append(rec.talentPoints == 1 ? "" : "s").append(")");
+                        }
+                        sheet.append("\n");
+                        sheet.append(String.format("  STR: %2d (%+d)    DEX: %2d (%+d)    CON: %2d (%+d)\n",
+                            strTotal, strMod, dexTotal, dexMod, conTotal, conMod));
+                        sheet.append(String.format("  INT: %2d (%+d)    WIS: %2d (%+d)    CHA: %2d (%+d)\n",
+                            intTotal, intMod, wisTotal, wisMod, chaTotal, chaMod));
+                        
+                        // ═══ SAVES & DEFENSES ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ SAVES & DEFENSES ]\n");
+                        sheet.append(String.format("  Armor: %2d (%+d equip)    Fortitude: %2d (%+d equip)\n",
+                            rec.getArmorTotal(), rec.armorEquipBonus, rec.getFortitudeTotal(), rec.fortitudeEquipBonus));
+                        sheet.append(String.format("  Reflex: %2d (%+d equip)   Will: %2d (%+d equip)\n",
+                            rec.getReflexTotal(), rec.reflexEquipBonus, rec.getWillTotal(), rec.willEquipBonus));
+                        
+                        // ═══ COMBAT ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ COMBAT ]\n");
+                        
+                        // Get weapon info from hands
+                        Long mainHandId = equippedMap.get(EquipmentSlot.MAIN_HAND.getId());
+                        Long offHandId = equippedMap.get(EquipmentSlot.OFF_HAND.getId());
+                        
+                        boolean hasWeapon = false;
+                        boolean isTwoHanded = mainHandId != null && mainHandId.equals(offHandId);
+                        
+                        if (mainHandId != null) {
+                            ItemInstance mainInst = itemDao.getInstance(mainHandId);
+                            if (mainInst != null) {
+                                ItemTemplate mainTmpl = itemDao.getTemplateById(mainInst.templateId);
+                                // Use effective stats (instance overrides if present, otherwise template)
+                                int effectiveBaseDie = mainInst.getEffectiveBaseDie(mainTmpl);
+                                int effectiveMultiplier = mainInst.getEffectiveMultiplier(mainTmpl);
+                                double effectiveAbilityMult = mainInst.getEffectiveAbilityMultiplier(mainTmpl);
+                                String abilityScore = mainTmpl != null ? mainTmpl.abilityScore : "STR";
+                                if (effectiveBaseDie > 0) {
+                                    // Hit bonus: stat modifier (same stat as damage)
+                                    int hitBonus = getStatModifier(abilityScore, rec);
+                                    String hitStr = formatHitBonus(hitBonus);
+                                    String dmgStr = formatDamage(effectiveMultiplier, effectiveBaseDie, 
+                                        getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
+                                    String handLabel = isTwoHanded ? "Both Hands:" : "Main Hand: ";
+                                    String weaponName = getItemDisplayName(mainInst, mainTmpl);
+                                    sheet.append(String.format("  %s %-16s  Hit: %-9s  Damage: %s\n", 
+                                        handLabel, truncate(weaponName, 16), hitStr, dmgStr));
+                                    hasWeapon = true;
+                                }
+                            }
+                        }
+                        if (offHandId != null && !isTwoHanded) {
+                            ItemInstance offInst = itemDao.getInstance(offHandId);
+                            if (offInst != null) {
+                                ItemTemplate offTmpl = itemDao.getTemplateById(offInst.templateId);
+                                // Use effective stats (instance overrides if present, otherwise template)
+                                int effectiveBaseDie = offInst.getEffectiveBaseDie(offTmpl);
+                                int effectiveMultiplier = offInst.getEffectiveMultiplier(offTmpl);
+                                double effectiveAbilityMult = offInst.getEffectiveAbilityMultiplier(offTmpl);
+                                String abilityScore = offTmpl != null ? offTmpl.abilityScore : "STR";
+                                if (effectiveBaseDie > 0) {
+                                    // Hit bonus: stat modifier (same stat as damage)
+                                    int hitBonus = getStatModifier(abilityScore, rec);
+                                    String hitStr = formatHitBonus(hitBonus);
+                                    String dmgStr = formatDamage(effectiveMultiplier, effectiveBaseDie,
+                                        getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
+                                    String weaponName = getItemDisplayName(offInst, offTmpl);
+                                    sheet.append(String.format("  Off Hand:  %-16s  Hit: %-9s  Damage: %s\n",
+                                        truncate(weaponName, 16), hitStr, dmgStr));
+                                } else {
+                                    // Shield or non-weapon (show armor bonus)
+                                    String itemName = getItemDisplayName(offInst, offTmpl);
+                                    sheet.append(String.format("  Off Hand:  %-16s  (Shield)\n",
+                                        truncate(itemName, 16)));
+                                }
+                                hasWeapon = true;
+                            }
+                        }
+                        if (!hasWeapon) {
+                            // Unarmed combat - 1d4 + STR
+                            String hitStr = formatHitBonus(strMod);
+                            String unarmedDmg = formatDamage(1, 4, strMod);
+                            sheet.append(String.format("  Unarmed:   %-16s  Hit: %-9s  Damage: %s\n", "Fists", hitStr, unarmedDmg));
+                        }
+                        
+                        // ═══ CLASS PROGRESSION ═══
+                        if (!allProgress.isEmpty()) {
+                            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                            sheet.append("  [ CLASS PROGRESSION ]\n");
+                            for (CharacterClassDAO.ClassProgress cp : allProgress) {
+                                CharacterClass cls = classDao.getClassById(cp.classId);
+                                String className = cls != null ? cls.name : "Unknown";
+                                String marker = cp.isCurrent ? " *" : "";
+                                sheet.append(String.format("  %-15s Lv %2d  XP: %5d%s\n", 
+                                    className, cp.level, cp.xp, marker));
+                            }
+                            sheet.append("  (* = active class)\n");
+                        }
+                        
+                        // ═══ SKILLS ═══
+                        java.util.List<CharacterSkill> knownSkills = dao.getAllCharacterSkills(charId);
+                        if (!knownSkills.isEmpty()) {
+                            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                            sheet.append("  [ SKILLS ]\n");
+                            // Sort by name
+                            java.util.List<String> skillLines = new java.util.ArrayList<>();
+                            for (CharacterSkill cs : knownSkills) {
+                                Skill skillDef = dao.getSkillById(cs.getSkillId());
+                                String skillName = skillDef != null ? skillDef.getName() : "Skill #" + cs.getSkillId();
+                                int prof = cs.getProficiency();
+                                String profStr = prof >= 100 ? "MASTERED" : prof + "%";
+                                skillLines.add(String.format("%-22s %8s", truncate(skillName, 22), profStr));
+                            }
+                            java.util.Collections.sort(skillLines, String.CASE_INSENSITIVE_ORDER);
+                            // Print in 2 columns
+                            for (int i = 0; i < skillLines.size(); i += 2) {
+                                String col1 = skillLines.get(i);
+                                String col2 = i + 1 < skillLines.size() ? skillLines.get(i + 1) : "";
+                                sheet.append(String.format("  %s  %s\n", col1, col2));
+                            }
+                        } else {
+                            sheet.append("\n  [ SKILLS ]\n");
+                            sheet.append("  No skills learned yet.\n");
+                        }
+                        
+                        // ═══ SPELLS ═══
+                        java.util.List<CharacterSpell> knownSpells = dao.getAllCharacterSpells(charId);
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ SPELLS ]\n");
+                        if (!knownSpells.isEmpty()) {
+                            // Group by spell level
+                            java.util.Map<Integer, java.util.List<String>> spellsByLevel = new java.util.TreeMap<>();
+                            for (CharacterSpell cs : knownSpells) {
+                                Spell spellDef = dao.getSpellById(cs.getSpellId());
+                                if (spellDef != null) {
+                                    int lvl = spellDef.getLevel();
+                                    spellsByLevel.computeIfAbsent(lvl, k -> new java.util.ArrayList<>());
+                                    int prof = cs.getProficiency();
+                                    String profStr = prof >= 100 ? "M" : prof + "%";
+                                    spellsByLevel.get(lvl).add(spellDef.getName() + " [" + profStr + "]");
+                                }
+                            }
+                            for (java.util.Map.Entry<Integer, java.util.List<String>> entry : spellsByLevel.entrySet()) {
+                                sheet.append(String.format("  Level %d: ", entry.getKey()));
+                                java.util.Collections.sort(entry.getValue(), String.CASE_INSENSITIVE_ORDER);
+                                sheet.append(String.join(", ", entry.getValue())).append("\n");
+                            }
+                        } else {
+                            sheet.append("  No spells known yet.\n");
+                        }
+                        
+                        // ═══ AUTO SETTINGS ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ AUTO SETTINGS ]\n");
+                        int autoflee = rec.autoflee;
+                        if (autoflee > 0) {
+                            sheet.append(String.format("  Autoflee: %d%% HP\n", autoflee));
+                        } else {
+                            sheet.append("  Autoflee: disabled\n");
+                        }
+                        sheet.append(String.format("  Autoloot: %s    Autogold: %s    Autosac: %s\n",
+                            rec.autoloot ? "ON" : "OFF", rec.autogold ? "ON" : "OFF", rec.autosac ? "ON" : "OFF"));
+                        
+                        // ═══ ACTIVE EFFECTS ═══
+                        sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
+                        sheet.append("  [ ACTIVE EFFECTS ]\n");
+                        // Attempt to get live modifiers (combat) else load from DB
+                        java.util.List<com.example.tassmud.model.Modifier> activeMods = new java.util.ArrayList<>();
+                        com.example.tassmud.combat.Combatant combatant = com.example.tassmud.combat.CombatManager.getInstance().getCombatantForCharacter(charId);
+                        if (combatant != null && combatant.getAsCharacter() != null) {
+                            activeMods = combatant.getAsCharacter().getAllModifiers();
+                        } else {
+                            activeMods = dao.getModifiersForCharacter(charId);
+                        }
+                        // Filter expired
+                        long nowMs = System.currentTimeMillis();
+                        activeMods.removeIf(com.example.tassmud.model.Modifier::isExpired);
+                        
+                        // Also get flag-based effects from EffectRegistry (e.g., Insight, Invisibility)
+                        java.util.List<com.example.tassmud.effect.EffectInstance> flagEffects = 
+                            com.example.tassmud.effect.EffectRegistry.getActiveForTarget(charId);
+                        // Filter to only show flag-based effects (those without stat modifiers)
+                        // Stat-modifying effects are already shown via activeMods
+                        flagEffects.removeIf(ei -> {
+                            com.example.tassmud.effect.EffectDefinition def = 
+                                com.example.tassmud.effect.EffectRegistry.getDefinition(ei.getDefId());
+                            if (def == null) return true;
+                            java.util.Map<String, String> params = def.getParams();
+                            // If it has stat and value params, it's a stat modifier (shown elsewhere)
+                            return params != null && params.containsKey("stat") && params.containsKey("value");
+                        });
+
+                        if (activeMods.isEmpty() && flagEffects.isEmpty()) {
+                            sheet.append("  (No active spell effects)\n");
+                        } else {
+                            // Show stat modifiers
+                            for (com.example.tassmud.model.Modifier m : activeMods) {
+                                long remaining = Math.max(0, m.expiresAtMillis() - nowMs) / 1000L;
+                                String timeStr = formatDuration(remaining);
+                                String sign = m.op() == com.example.tassmud.model.Modifier.Op.ADD && m.value() > 0 ? "+" : "";
+                                sheet.append(String.format("  - %s : %s%1.0f %s  (%s)\n",
+                                    m.source(), sign, m.value(), m.stat().name(), timeStr));
+                            }
+                            // Show flag-based effects (Insight, Invisibility, etc.)
+                            for (com.example.tassmud.effect.EffectInstance ei : flagEffects) {
+                                com.example.tassmud.effect.EffectDefinition def = 
+                                    com.example.tassmud.effect.EffectRegistry.getDefinition(ei.getDefId());
+                                String effectName = def != null ? def.getName() : "Unknown Effect";
+                                long remaining = Math.max(0, ei.getExpiresAtMs() - nowMs) / 1000L;
+                                String timeStr = formatDuration(remaining);
+                                sheet.append(String.format("  - %s  (%s)\n", effectName, timeStr));
+                            }
+                        }
+                        
+                        // ═══ FOOTER ═══
+                        sheet.append("\n").append(divider).append("\n");
+                        
+                        out.print(sheet.toString());
+                        break;
+                    }
+                    case "spells": {
+                        // List all spells the character knows
+                        if (rec == null) {
+                            out.println("You must be logged in to view spells.");
+                            break;
+                        }
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        java.util.List<CharacterSpell> knownSpells = dao.getAllCharacterSpells(charId);
+                        if (knownSpells.isEmpty()) {
+                            out.println("You don't know any spells yet.");
+                            break;
+                        }
+                        
+                        // Group spells by school for nice display
+                        java.util.Map<Spell.SpellSchool, java.util.List<Spell>> bySchool = new java.util.LinkedHashMap<>();
+                        for (Spell.SpellSchool school : Spell.SpellSchool.values()) {
+                            bySchool.put(school, new java.util.ArrayList<>());
+                        }
+                        
+                        for (CharacterSpell cs : knownSpells) {
+                            Spell spellDef = dao.getSpellById(cs.getSpellId());
+                            if (spellDef != null) {
+                                bySchool.get(spellDef.getSchool()).add(spellDef);
+                            }
+                        }
+                        
+                        out.println("=== Known Spells ===");
+                        boolean anySpells = false;
+                        for (java.util.Map.Entry<Spell.SpellSchool, java.util.List<Spell>> entry : bySchool.entrySet()) {
+                            if (!entry.getValue().isEmpty()) {
+                                anySpells = true;
+                                out.println("\n" + entry.getKey().displayName + " Magic:");
+                                // Sort by level then name
+                                entry.getValue().sort((sp1, sp2) -> {
+                                    int cmp = Integer.compare(sp1.getLevel(), sp2.getLevel());
+                                    return cmp != 0 ? cmp : sp1.getName().compareToIgnoreCase(sp2.getName());
+                                });
+                                for (Spell sp : entry.getValue()) {
+                                    // Find proficiency
+                                    CharacterSpell cs = null;
+                                    for (CharacterSpell csp : knownSpells) {
+                                        if (csp.getSpellId() == sp.getId()) {
+                                            cs = csp;
+                                            break;
+                                        }
+                                    }
+                                    String prof = cs != null ? cs.getProficiencyDisplay() : "";
+                                    out.println(String.format("  [%d] %-20s %s", sp.getLevel(), sp.getName(), prof));
+                                }
+                            }
+                        }
+                        if (!anySpells) {
+                            out.println("You don't know any spells yet.");
+                        }
+                        break;
+                    }
+                    case "skills": {
+                        // List all skills the character knows with proficiency %
+                        if (rec == null) {
+                            out.println("You must be logged in to view skills.");
+                            break;
+                        }
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        java.util.List<CharacterSkill> knownSkills = dao.getAllCharacterSkills(charId);
+                        if (knownSkills.isEmpty()) {
+                            out.println("You don't know any skills yet.");
+                            break;
+                        }
+                        
+                        // Build list of skill name + proficiency pairs
+                        java.util.List<String> skillDisplays = new java.util.ArrayList<>();
+                        for (CharacterSkill cs : knownSkills) {
+                            Skill skillDef = dao.getSkillById(cs.getSkillId());
+                            if (skillDef != null) {
+                                String display = String.format("%s %3d%%", skillDef.getName(), cs.getProficiency());
+                                skillDisplays.add(display);
+                            }
+                        }
+                        
+                        // Sort alphabetically
+                        skillDisplays.sort(String::compareToIgnoreCase);
+                        
+                        out.println();
+                        out.println("===================================================================");
+                        out.println("                          KNOWN SKILLS");
+                        out.println("===================================================================");
+                        out.println();
+                        
+                        // Print in rows of 3, formatted nicely
+                        for (int i = 0; i < skillDisplays.size(); i += 3) {
+                            String c1 = skillDisplays.get(i);
+                            String c2 = (i + 1 < skillDisplays.size()) ? skillDisplays.get(i + 1) : "";
+                            String c3 = (i + 2 < skillDisplays.size()) ? skillDisplays.get(i + 2) : "";
+                            out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                        }
+                        
+                        out.println();
+                        out.println("-------------------------------------------------------------------");
+                        out.println(String.format("  Total: %d skill%s known", skillDisplays.size(), skillDisplays.size() == 1 ? "" : "s"));
+                        out.println("===================================================================");
+                        out.println();
+                        break;
+                    }
+                    case "consider":
+                    case "con": {
+                        // CONSIDER <target> - evaluate how dangerous a target would be
+                        if (rec == null) {
+                            out.println("You must be logged in to consider targets.");
+                            break;
+                        }
+                        String conArgs = cmd.getArgs();
+                        if (conArgs == null || conArgs.trim().isEmpty()) {
+                            out.println("Consider whom?");
+                            break;
+                        }
+                        
+                        Integer charId = dao.getCharacterIdByName(name);
+                        if (charId == null) {
+                            out.println("Failed to locate your character record.");
+                            break;
+                        }
+                        
+                        // Get player's level
+                        CharacterClassDAO classDao = new CharacterClassDAO();
+                        Integer currentClassId = rec.currentClassId;
+                        int playerLevel = currentClassId != null ? classDao.getCharacterClassLevel(charId, currentClassId) : 1;
+                        
+                        // Search for target mob in the room
+                        String targetName = conArgs.trim().toLowerCase();
+                        MobileDAO mobileDao = new MobileDAO();
+                        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+                        
+                        Mobile targetMob = null;
+                        for (Mobile mob : mobsInRoom) {
+                            String mobNameLower = mob.getName().toLowerCase();
+                            if (mobNameLower.equals(targetName) || 
+                                mobNameLower.startsWith(targetName) || 
+                                mobNameLower.contains(targetName)) {
+                                targetMob = mob;
+                                break;
+                            }
+                        }
+                        
+                        if (targetMob == null) {
+                            out.println("You don't see '" + conArgs.trim() + "' here.");
+                            break;
+                        }
+                        
+                        // Calculate level difference: player - target
+                        int targetLevel = targetMob.getLevel();
+                        int levelDiff = playerLevel - targetLevel;
+                        
+                        // Clamp to -5 to +5 range
+                        levelDiff = Math.max(-5, Math.min(5, levelDiff));
+                        
+                        String opponentName = targetMob.getName();
+                        String message;
+                        switch (levelDiff) {
+                            case 5:
+                                message = "Don't bother, " + opponentName + " is not worth your time.";
+                                break;
+                            case 4:
+                                message = "You would wipe the floor with " + opponentName + ".";
+                                break;
+                            case 3:
+                                message = "It should be an easy fight.";
+                                break;
+                            case 2:
+                                message = opponentName + " wouldn't pose much trouble.";
+                                break;
+                            case 1:
+                                message = "You're stronger than " + opponentName + ", but not by much.";
+                                break;
+                            case 0:
+                                message = "You and " + opponentName + " are well matched.";
+                                break;
+                            case -1:
+                                message = "You're at a disadvantage, but you can probably swing it.";
+                                break;
+                            case -2:
+                                message = opponentName + " would be a tough fight.";
+                                break;
+                            case -3:
+                                message = "You should pass on this one if you know what's good for you.";
+                                break;
+                            case -4:
+                                message = "Not a chance in hell, which is where you'd end up.";
+                                break;
+                            case -5:
+                            default:
+                                message = "Death appreciates your sacrifice.";
+                                break;
+                        }
+                        out.println(message);
+                        break;
+                    }
                     case "cast": {
                         // CAST <spell_name> [target]
                         // Spells with EXPLICIT_MOB_TARGET or ITEM targets require a target name
@@ -5150,8 +6108,6 @@ public class ClientHandler implements Runnable {
             }
         } catch (IOException e) {
             System.err.println("Client connection error: " + e.getMessage());
-        } catch (Exception e) {
-            System.err.println("Generic error: " + e.getMessage());
         } finally {
             // Attempt to persist character state and modifiers on disconnect
             try {
@@ -5199,7 +6155,7 @@ public class ClientHandler implements Runnable {
      * Runs the full character creation flow.
      * Returns the CharacterRecord if successful, null if creation failed/aborted.
      */
-    public CharacterRecord runCharacterCreation(String name, BufferedReader in, CharacterDAO dao) throws IOException {
+    private CharacterRecord runCharacterCreation(String name, BufferedReader in, CharacterDAO dao) throws IOException {
         out.println("Character '" + name + "' not found. Creating new character.");
         out.println();
 
@@ -5313,7 +6269,7 @@ public class ClientHandler implements Runnable {
      * Handles class selection during character creation.
      * Returns the selected CharacterClass, or null if selection failed.
      */
-    public CharacterClass runClassSelection(BufferedReader in) throws IOException {
+    private CharacterClass runClassSelection(BufferedReader in) throws IOException {
         CharacterClassDAO classDao = new CharacterClassDAO();
         
         // Load classes from YAML if not already loaded
@@ -5417,7 +6373,7 @@ public class ClientHandler implements Runnable {
     /**
      * Display detailed information about a character class.
      */
-    public void showClassDetails(CharacterClass cls) {
+    private void showClassDetails(CharacterClass cls) {
         out.println();
         out.println("=== " + cls.name.toUpperCase() + " ===");
         out.println(cls.description);
@@ -5445,7 +6401,7 @@ public class ClientHandler implements Runnable {
     /**
      * Truncate a string to a maximum length, adding "..." if truncated.
      */
-    public static String truncate(String s, int maxLen) {
+    private static String truncate(String s, int maxLen) {
         if (s == null) return "";
         if (s.length() <= maxLen) return s;
         return s.substring(0, maxLen - 3) + "...";
@@ -5454,7 +6410,7 @@ public class ClientHandler implements Runnable {
     /**
      * Format the talent point cost to train an ability from its current total.
      */
-    public static String formatTrainCost(int currentTotal) {
+    private static String formatTrainCost(int currentTotal) {
         int cost = CharacterDAO.getAbilityTrainingCost(currentTotal);
         if (cost < 0) return "MAX";
         return cost + " pt" + (cost == 1 ? "" : "s");
@@ -5463,7 +6419,7 @@ public class ClientHandler implements Runnable {
     /**
      * Get an HP bar visual based on percentage.
      */
-    public static String getHpBar(int hpPct) {
+    private static String getHpBar(int hpPct) {
         if (hpPct > 75) return "[####]";      // Healthy
         if (hpPct > 50) return "[### ]";      // Hurt
         if (hpPct > 25) return "[##  ]";      // Wounded
@@ -5474,7 +6430,7 @@ public class ClientHandler implements Runnable {
     /**
      * Repeat a string n times.
      */
-    public static String repeat(String s, int count) {
+    private static String repeat(String s, int count) {
         if (count <= 0) return "";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < count; i++) sb.append(s);
@@ -5484,7 +6440,7 @@ public class ClientHandler implements Runnable {
     /**
      * Format damage as dice notation (e.g., "2d6 + 5").
      */
-    public static String formatDamage(int multiplier, int baseDie, int bonus) {
+    private static String formatDamage(int multiplier, int baseDie, int bonus) {
         if (multiplier <= 0) multiplier = 1;
         if (baseDie <= 0) return "0";
         
@@ -5501,7 +6457,7 @@ public class ClientHandler implements Runnable {
     /**
      * Format a duration (seconds) into H:MM:SS or M:SS depending on length.
      */
-    public static String formatDuration(long seconds) {
+    private static String formatDuration(long seconds) {
         if (seconds <= 0) return "0s";
         long hrs = seconds / 3600;
         long mins = (seconds % 3600) / 60;
@@ -5513,7 +6469,7 @@ public class ClientHandler implements Runnable {
     /**
      * Get the ability bonus for a weapon based on its ability score scaling.
      */
-    public static int getAbilityBonus(String abilityScore, double multiplier, CharacterDAO.CharacterRecord rec) {
+    private static int getAbilityBonus(String abilityScore, double multiplier, CharacterDAO.CharacterRecord rec) {
         if (abilityScore == null || abilityScore.isEmpty() || multiplier == 0) return 0;
         
         int abilityValue = 10;
@@ -5533,7 +6489,7 @@ public class ClientHandler implements Runnable {
     /**
      * Get the stat modifier for a given ability score (for hit bonus display).
      */
-    public static int getStatModifier(String abilityScore, CharacterDAO.CharacterRecord rec) {
+    private static int getStatModifier(String abilityScore, CharacterDAO.CharacterRecord rec) {
         if (abilityScore == null || abilityScore.isEmpty()) return 0;
         
         int abilityValue = 10;
@@ -5552,7 +6508,7 @@ public class ClientHandler implements Runnable {
     /**
      * Format a hit bonus as "1d20+X" or "1d20-X" for display.
      */
-    public static String formatHitBonus(int bonus) {
+    private static String formatHitBonus(int bonus) {
         if (bonus >= 0) {
             return "1d20+" + bonus;
         } else {
@@ -5561,9 +6517,53 @@ public class ClientHandler implements Runnable {
     }
 
     /**
+     * Display a formatted, categorized list of available commands.
+     */
+    private void displayHelpCommandList(boolean isGm) {
+        out.println();
+        out.println("===================================================================");
+        out.println("                        AVAILABLE COMMANDS");
+        out.println("===================================================================");
+        
+        // Display commands by category from the registry
+        for (CommandDefinition.Category category : CommandDefinition.Category.values()) {
+            // Skip GM category if not a GM
+            if (category == CommandDefinition.Category.GM && !isGm) {
+                continue;
+            }
+            
+            java.util.List<CommandDefinition> cmds = CommandRegistry.getCommandsByCategory(category);
+            if (cmds.isEmpty()) continue;
+            
+            out.println();
+            out.println("  [ " + category.getDisplayName() + " ]");
+            
+            // Collect display names
+            java.util.List<String> displayNames = new java.util.ArrayList<>();
+            for (CommandDefinition cmd : cmds) {
+                displayNames.add(cmd.getDisplayName());
+            }
+            
+            // Print in rows of 3
+            for (int i = 0; i < displayNames.size(); i += 3) {
+                String c1 = displayNames.get(i);
+                String c2 = (i + 1 < displayNames.size()) ? displayNames.get(i + 1) : "";
+                String c3 = (i + 2 < displayNames.size()) ? displayNames.get(i + 2) : "";
+                printCommandRow(c1, c2, c3);
+            }
+        }
+        
+        out.println();
+        out.println("-------------------------------------------------------------------");
+        out.println("  Type 'help <command>' for detailed information on any command.");
+        out.println("===================================================================");
+        out.println();
+    }
+
+    /**
      * Print a row of up to 3 commands, evenly spaced.
      */
-    public void printCommandRow(String cmd1, String cmd2, String cmd3) {
+    private void printCommandRow(String cmd1, String cmd2, String cmd3) {
         out.println(String.format("    %-20s %-20s %-20s", cmd1, cmd2, cmd3));
     }
 
@@ -5572,9 +6572,53 @@ public class ClientHandler implements Runnable {
      */
     public CharacterRecord handleCombatCommand(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
         if (cmd == null) return rec;
+        System.out.println("[Handler-enter] handleCombatCommand cmd='" + (cmd == null ? "<null>" : cmd.getName()) + "' args='" + (cmd == null ? "" : cmd.getArgs()) + "' player='" + name + "'");
         String cmdName = cmd.getName().toLowerCase();
         try {
             switch (cmdName) {
+                case "autoflee": {
+                    // AUTOFLEE - Set/view automatic flee threshold
+                    if (rec == null) {
+                        out.println("You must be logged in to use autoflee.");
+                        break;
+                    }
+                    Integer charId = this.characterId;
+                    if (charId == null && name != null) {
+                        charId = dao.getCharacterIdByName(name);
+                    }
+                    if (charId == null) {
+                        out.println("Unable to find your character.");
+                        break;
+                    }
+
+                    String autofleeArgs = cmd.getArgs();
+                    if (autofleeArgs == null || autofleeArgs.trim().isEmpty()) {
+                        int currentAutoflee = dao.getAutoflee(charId);
+                        if (currentAutoflee <= 0) {
+                            out.println("Autoflee is disabled (set to 0).");
+                        } else {
+                            out.println("Autoflee is set to " + currentAutoflee + "% HP.");
+                        }
+                    } else {
+                        try {
+                            int newValue = Integer.parseInt(autofleeArgs.trim());
+                            if (newValue < 0 || newValue > 100) {
+                                out.println("Autoflee must be between 0 and 100.");
+                                break;
+                            }
+                            boolean success = dao.setAutoflee(charId, newValue);
+                            if (success) {
+                                if (newValue == 0) out.println("Autoflee disabled.");
+                                else out.println("Autoflee set to " + newValue + "% HP.");
+                            } else {
+                                out.println("Failed to set autoflee.");
+                            }
+                        } catch (NumberFormatException e) {
+                            out.println("Usage: autoflee <0-100>");
+                        }
+                    }
+                    break;
+                }
                 case "combat": {
                     // COMBAT - show current combat status
                     Integer charId = this.characterId;
@@ -5609,29 +6653,8 @@ public class ClientHandler implements Runnable {
                     if (!log.isEmpty()) {
                         for (String logLine : log.split("\n")) {
                             out.println("  " + logLine);
-                        }
-                    } else {
-                        out.println("  (no events yet)");
-                    }
-                    break;
-                }
-                case "flee": {
-                    // FLEE - innate combat skill to escape from combat
-                    Integer charId = this.characterId;
-                    if (charId == null && name != null) {
-                        charId = dao.getCharacterIdByName(name);
-                    }
-                    CombatManager combatMgr = CombatManager.getInstance();
-                    Combat activeCombat = combatMgr.getCombatForCharacter(charId);
-                    if (activeCombat == null) {
-                        out.println("You are not in combat.");
-                        break;
-                    }
-
-                    Combatant userCombatant = activeCombat.findByCharacterId(charId);
-                    if (userCombatant == null) {
-                        out.println("Combat error: could not find your combatant.");
-                        break;
+                                // HIDE - Skill-based invisibility (requires hide skill, has cooldown)
+                                // 'hide' and 'visible/unhide' moved to handleCombatCommand
                     }
 
                     // Get current room and available exits
@@ -6189,17 +7212,9 @@ public class ClientHandler implements Runnable {
             }
         } catch (Exception ignored) {}
         return rec;
-    }
 
-    public CharacterRecord handleSystemCommand(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
-        if (cmd == null) return rec;
-        String cmdName = cmd.getName().toLowerCase();
-        try {
-            switch (cmdName) {
-                case "test":
-                    break;
-                } 
-            } catch (Exception ignored) {}
-        return rec; 
     }
 }
+
+}
+

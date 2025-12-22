@@ -1,0 +1,2026 @@
+rooms:
+  - id: 1100
+    key: shire_room_1100
+    name: "A dimly lit path"
+    area_id: 30
+    short_desc: "A dimly lit path"
+    long_desc: |
+      You tread through the deep, dark forest on a dimly lit path.  Up ahead you
+      can hear the faint sounds of a village.
+    exits:
+      south: 6000
+      north: 1101
+    sector_type: FOREST
+    doors:
+      south:
+        to: 6000
+        description: "The dimly lit path leads south through the light forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 1101
+        description: "The dimly lit path leads north through the dense forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1101
+    key: shire_room_1101
+    name: "A dimly lit path"
+    area_id: 30
+    short_desc: "A dimly lit path"
+    long_desc: |
+      You tread through the deep, dark forest on a dimly lit path.  Up ahead you
+      can hear the faint sounds of a village.
+    exits:
+      north: 1102
+      south: 1100
+    sector_type: FOREST
+    doors:
+      north:
+        to: 1102
+        description: "The dimly lit path leads north through the dense forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1100
+        description: "The dimly lit path leads south through the dense forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1102
+    key: shire_room_1102
+    name: "A dimly lit path"
+    area_id: 30
+    short_desc: "A dimly lit path"
+    long_desc: |
+      You tread through the deep, dark forest on a dimly lit path.  The forest
+      here seems less dense than to the south.  Northward you see the faint outline
+      of a village.
+    exits:
+      south: 1101
+      north: 1103
+    sector_type: FOREST
+    doors:
+      south:
+        to: 1101
+        description: "The dimly lit path leads south through the dense forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 1103
+        description: "The dimly lit path leads to a village."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1103
+    key: shire_room_1103
+    name: "Entrance to the Shire"
+    area_id: 30
+    short_desc: "Entrance to the Shire"
+    long_desc: |
+      You stand at the entrance to the Shire.  You see halflings, no more than
+      wee tall, every which way you look. Bywater Road leads east and west.
+    exits:
+      south: 1102
+      east: 1104
+      west: 1118
+    sector_type: CITY
+    doors:
+      south:
+        to: 1102
+        description: "To the south you see a dimly lit path which leads to a dense forest."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1104
+        description: "To the east runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1118
+        description: "To the west runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1104
+    key: shire_room_1104
+    name: "Bywater Road"
+    area_id: 30
+    short_desc: "Bywater Road"
+    long_desc: |
+      You stand on Bywater Road, the busiest street in all of Shiredom.  The road
+      continues to the east and west while to the north lies the general store.
+    exits:
+      west: 1103
+      north: 1105
+      east: 1106
+    sector_type: CITY
+    doors:
+      west:
+        to: 1103
+        description: "To the west you see the entrance to the Shire."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 1105
+        description: "The general store lies to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1106
+        description: "To the east runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1105
+    key: shire_room_1105
+    name: "The General Store"
+    area_id: 30
+    short_desc: "The General Store"
+    long_desc: |
+      You are inside the general store.  All sorts of goodies are stacked on the
+      many shelves.  Your local friendly shopkeeper is smiling patiently, waiting to 
+      serve you to the best of his abilities.  The only exit is to the south.
+    exits:
+      south: 1104
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1104
+        description: "The only exit lies to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1106
+    key: shire_room_1106
+    name: "Bywater Road"
+    area_id: 30
+    short_desc: "Bywater Road"
+    long_desc: |
+      You stand on Bywater Road, the busiest street in all of Shiredom.  The road
+      continues to the east and west.  To the north, steps lead to a friendly looking
+      weaponry/armory while a nursery lies to the south.
+    exits:
+      west: 1104
+      east: 1109
+      north: 1107
+      south: 1108
+    sector_type: CITY
+    doors:
+      west:
+        to: 1104
+        description: "To the west runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1109
+        description: "To the east runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 1107
+        description: "Steps lead to a friendly looking weaponry and armory."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1108
+        description: "To the south lies Kid'n Keep, the local nursery."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1107
+    key: shire_room_1107
+    name: "The House of Arms"
+    area_id: 30
+    short_desc: "The House of Arms"
+    long_desc: |
+      You are inside the finest weapons and armour shop in all of Shiredom.  The
+      shopkeeper proudly displays his fine wares and humbly offers the best daggers
+      that you have ever laid eyes on.
+    exits:
+      south: 1106
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1106
+        description: "The only exit lies to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1108
+    key: shire_room_1108
+    name: "Kid'n Keep"
+    area_id: 30
+    short_desc: "Kid'n Keep"
+    long_desc: |
+      You are inside Kid'n Keep, the convenient one-stop nursery that maintains
+      the youth of the Shire.  Toddlers run every which way while their nursemaids
+      sigh in exasperation.  The only exit lies to the north.
+    exits:
+      north: 1106
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1106
+        description: "The only exit lies to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1109
+    key: shire_room_1109
+    name: "A bend in the road"
+    area_id: 30
+    short_desc: "A bend in the road"
+    long_desc: |
+      Bywater Road continues west and south.  A large, imposing building lies
+      to the east.  Farther to the south, you can see an Inn of some sort.
+    exits:
+      west: 1106
+      south: 1112
+      east: 1110
+    sector_type: CITY
+    doors:
+      west:
+        to: 1106
+        description: "To the west runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1112
+        description: "To the south runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1110
+        description: "A large, imposing building lies to the east.  A sign reads 'Shiriff Post'."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1110
+    key: shire_room_1110
+    name: "Shiriff Post of the Eastern Shire"
+    area_id: 30
+    short_desc: "Shiriff Post of the Eastern Shire"
+    long_desc: |
+      You are in the Shiriff Post which acts as the nucleus for the three shiriffs
+      of the Eastern Shire.  As you examine the shiriffs on duty, you come to realize
+      that the halflings of the Shire are not to be reckoned with.  You cower with 
+      awe.  A door offers passage to the east.
+    exits:
+      west: 1109
+      east: 1111
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1109
+        description: "To the west you can see Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1111
+        description: "A door offers passage to the office of the Thain."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1111
+    key: shire_room_1111
+    name: "Thain's Office"
+    area_id: 30
+    short_desc: "Thain's Office"
+    long_desc: |
+      You stand inside the office of the Thain, the police protectorate of the
+      great Shire.  The Thain has sworn to protect the Shire from all thieves and
+      murderers with his life, and so eyes you suspiciously.  A door to the west
+      leads to the Shiriff Post.
+    exits:
+      west: 1110
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1110
+        description: "A door offers passage to the Shiriff Post."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1112
+    key: shire_room_1112
+    name: "Bywater Road"
+    area_id: 30
+    short_desc: "Bywater Road"
+    long_desc: |
+      You stand on Bywater Road, the busiest street in all of Shiredom.  The road
+      continues to the north and south.  To the east you spy the training grounds for
+      shiriffs in training.
+    exits:
+      north: 1109
+      south: 1113
+      east: 1117
+    sector_type: CITY
+    doors:
+      north:
+        to: 1109
+        description: "To the north runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1113
+        description: "To the south runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1117
+        description: "The Shiriff Training Grounds lies to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1113
+    key: shire_room_1113
+    name: "Bywater Road"
+    area_id: 30
+    short_desc: "Bywater Road"
+    long_desc: |
+      You stand on Bywater Road, the busiest street in all of Shiredom.  The road
+      continues to the north.  The private residences of Shire inhabitants are to
+      the east and west while to the south lies the Ivy Bush, second only to the
+      Green Dragon for its hospitality and service.
+    exits:
+      north: 1112
+      east: 1115
+      south: 1116
+      west: 1114
+    sector_type: CITY
+    doors:
+      north:
+        to: 1112
+        description: "To the north runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1115
+        description: "You spy the private dwelling of a Shire folk to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1116
+        description: "To the south you see the Ivy Bush, a favorite haunt of Shire urbanites and
+seasoned travelers."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1114
+        description: "You spy the private dwelling of a Shire folk to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1114
+    key: shire_room_1114
+    name: "A smial"
+    area_id: 30
+    short_desc: "A smial"
+    long_desc: |
+      You are inside a smial, a hole in the ground which serves as the proper
+      dwelling place for halflings.  As you look around this private abode, you feel
+      as if you were intruding and so quickly cover your eyes.  The only exit lies
+      to the east.
+    exits:
+      east: 1113
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1113
+        description: "The only exit lies to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1115
+    key: shire_room_1115
+    name: "A smial"
+    area_id: 30
+    short_desc: "A smial"
+    long_desc: |
+      You are inside a smial, a hole in the ground which serves as the proper
+      dwelling place for halflings.  As you look around this private abode, you feel
+      as if you were intruding and so quickly cover your eyes.  The only exit lies
+      to the west.
+    exits:
+      west: 1113
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1113
+        description: "The only exit lies to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1116
+    key: shire_room_1116
+    name: "The Ivy Bush"
+    area_id: 30
+    short_desc: "The Ivy Bush"
+    long_desc: |
+      You are in the Ivy Bush, one of the most famous inns in all of Shiredom.
+      Chique Shire urbanites and seasoned travelers fill the confines of the room
+      with gay and lively talk.  A jovial innkeeper stops all that he is doing to
+      await your command.  The only exit lies to the north.
+    exits:
+      north: 1113
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1113
+        description: "The only exit lies to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1117
+    key: shire_room_1117
+    name: "Shiriff Training Grounds"
+    area_id: 30
+    short_desc: "Shiriff Training Grounds"
+    long_desc: |
+      The sounds of mock battle and feigned death cries fill your ears.  Every
+      which way you turn you see halfling trainees at the prime of their youth.  A
+      wizened old battle instructor meets your gaze and asks if he may be of 
+      service.  The only exit lies to the west.
+    exits:
+      west: 1112
+    sector_type: INSIDE
+    doors:
+      west:
+        to: 1112
+        description: "The only exit lies to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1118
+    key: shire_room_1118
+    name: "Bywater Road"
+    area_id: 30
+    short_desc: "Bywater Road"
+    long_desc: |
+      You stand on Bywater Road, the busiest street in all of Shiredom.  The road
+      continues to the east and west.  A large, imposing building lies to the south.
+      You catch a glimpse of the Brandywine River to the north.
+    exits:
+      east: 1103
+      south: 1119
+      west: 1120
+    sector_type: CITY
+    doors:
+      east:
+        to: 1103
+        description: "To the east you see the entrance to the Shire."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1119
+        description: "A large, imposing building lies to the south.  A sign reads 'Shiriff Post'."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1120
+        description: "To the west runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1119
+    key: shire_room_1119
+    name: "Shiriff Post of the Bridge"
+    area_id: 30
+    short_desc: "Shiriff Post of the Bridge"
+    long_desc: |
+      You are in the Shiriff Post which acts as the nucleus for the three shiriffs
+      of the Bridge.  As you examine the shiriffs on duty, you come to realize that
+      the halflings of the Shire are not to be reckoned with.  You cower with awe.
+      The only exit is to the north.
+    exits:
+      north: 1118
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1118
+        description: "The only exit is to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1120
+    key: shire_room_1120
+    name: "Bywater Road"
+    area_id: 30
+    short_desc: "Bywater Road"
+    long_desc: |
+      You stand on Bywater Road, the busiest street in all of Shiredom.  The road
+      continues to the east and west.  To the south you spy the Grocer's Delight,
+      the premium grocer's shop in all the realm while to the north lies Brandywine
+      Bridge.
+    exits:
+      north: 1131
+      east: 1118
+      south: 1121
+      west: 1122
+    sector_type: CITY
+    doors:
+      north:
+        to: 1131
+        description: "Brandywine Bridge offers safe passage across the tumultuous river."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1118
+        description: "To the east runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1121
+        description: "You see the Grocer's Delight to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1122
+        description: "To the west runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1121
+    key: shire_room_1121
+    name: "The Grocer's Delight"
+    area_id: 30
+    short_desc: "The Grocer's Delight"
+    long_desc: |
+      You tremble with ecstasy as the tempting odors of freshly made pipeweed
+      bread fill your lungs.  Rumor has it that the pipeweed bread sold here can
+      restore vitality.  You look around but find no one to take your order.  
+      You then peep over the counter and discover a friendly grocer who is too 
+      short to be seen over the counter.  The only exit is to the north.
+    exits:
+      north: 1120
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1120
+        description: "The only exit is to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1122
+    key: shire_room_1122
+    name: "Bywater Road"
+    area_id: 30
+    short_desc: "Bywater Road"
+    long_desc: |
+      You stand on Bywater Road, the busiest street in all of Shiredom.  The road
+      continues to the east.  A small hill lies to the west while you can see a
+      watermill to the far south.  You catch a glimpse of the Brandywine River to
+      the north.
+    exits:
+      east: 1120
+      south: 1123
+      west: 1126
+    sector_type: CITY
+    doors:
+      east:
+        to: 1120
+        description: "To the east runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1123
+        description: "An entrance to the watermill lies to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1126
+        description: "A small hill to the west blocks your view."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1123
+    key: shire_room_1123
+    name: "Entrance to Watermill"
+    area_id: 30
+    short_desc: "Entrance to Watermill"
+    long_desc: |
+      You stand at the entrance to a watermill.  You hear the bustle of busy
+      workers and the sound of a creaking mill.  Bywater Road is to the north while
+      the watermill continues to the south.
+    exits:
+      north: 1122
+      south: 1124
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 1122
+        description: "You see Bywater Road to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1124
+        description: "A watermill meets your gaze."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1124
+    key: shire_room_1124
+    name: "The Watermill"
+    area_id: 30
+    short_desc: "The Watermill"
+    long_desc: |
+      Halfling workers are scattered everywhere, busy at work.  You see the river
+      to the west and get a compelling urge to grab the nearest worker and to toss
+      him into the river.  The entrance stands to the north while a door offers
+      passage to the south.
+    exits:
+      north: 1123
+      south: 1125
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1123
+        description: "You see the entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1125
+        description: "A wooden door leads to the rear of the watermill."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 1125
+    key: shire_room_1125
+    name: "Rear of watermill"
+    area_id: 30
+    short_desc: "Rear of watermill"
+    long_desc: |
+      You stand in a damp, dimly lit room.  Mildew clings to the walls and it
+      appears as if you were the first person to enter the room in ages.  A barely
+      visible portal in the ground catches your eye.
+    exits:
+      north: 1124
+      down: 1146
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1124
+        description: "A watermill meets your gaze."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1146
+        description: "A hidden portal reveals a passageway down."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1126
+    key: shire_room_1126
+    name: "Took Hill"
+    area_id: 30
+    short_desc: "Took Hill"
+    long_desc: |
+      You stand on top of Took Hill, named after the legendary Bandobras Took.
+      You feel honored to be standing on a hill named after your hero.  From this
+      vantage point you can see all of shiredom.  You get the feeling that with
+      one stomp you could eliminate their great city.  You can see the outline of
+      Midgaard to the far east.  Sounds of joyful celebration are heard from the
+      fields west of here.  The Brandywine flows by lazily nearby.
+    exits:
+      east: 1122
+      west: 1128
+    sector_type: HILLS
+    doors:
+      east:
+        to: 1122
+        description: "To the east runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1128
+        description: "You see a grassy field to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1127
+    key: shire_room_1127
+    name: "Northern end of grassy field"
+    area_id: 30
+    short_desc: "Northern end of grassy field"
+    long_desc: |
+      You stand in a grassy field--nothing to get too excited about.  The field
+      extends toward the south and the west.  To the east you see Took Hill.
+    exits:
+      south: 1128
+    sector_type: FIELD
+    doors:
+      south:
+        to: 1128
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1128
+    key: shire_room_1128
+    name: "A grassy field"
+    area_id: 30
+    short_desc: "A grassy field"
+    long_desc: |
+      You stand in the center of a grassy field.  A great birthday party appears
+      to be taking place.  Great tables of food are spread out and a young halfling
+      beauty offers you welcome.  You are enticed by her generosity and suggestive
+      winks.
+    exits:
+      north: 1127
+      east: 1126
+      south: 1129
+      west: 1130
+    sector_type: FIELD
+    doors:
+      north:
+        to: 1127
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1126
+        description: "A small hill to the east blocks your view."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1129
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1130
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1129
+    key: shire_room_1129
+    name: "Southern end of grassy field"
+    area_id: 30
+    short_desc: "Southern end of grassy field"
+    long_desc: |
+      You stand in a grassy field--nothing to get too excited about.  The field
+      extends toward the north and the west.  To the east you see Took Hill.
+    exits:
+      north: 1128
+    sector_type: FIELD
+    doors:
+      north:
+        to: 1128
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1130
+    key: shire_room_1130
+    name: "Western end of grassy field"
+    area_id: 30
+    short_desc: "Western end of grassy field"
+    long_desc: |
+      You stand in a grassy field--nothing to get too excited about.  The field
+      extends every which way but west.
+    exits:
+      east: 1128
+    sector_type: FIELD
+    doors:
+      east:
+        to: 1128
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1131
+    key: shire_room_1131
+    name: "Brandywine Bridge"
+    area_id: 30
+    short_desc: "Brandywine Bridge"
+    long_desc: |
+      You stand on a solidly built bridge.  As you look down you spy gaily
+      colored fish swimming with the current of Brandywine River.  The cool water
+      looks invitingly refreshing and you get a sudden urge to strip and bathe in
+      the river, but you hear the laughter of women nearby and so resist the urge.
+      Delving Lane extends to the north while Bywater Road can be seen to the south.
+    exits:
+      north: 1132
+      south: 1120
+    sector_type: CITY
+    doors:
+      north:
+        to: 1132
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1120
+        description: "To the south runs Bywater Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1132
+    key: shire_room_1132
+    name: "Delving Lane"
+    area_id: 30
+    short_desc: "Delving Lane"
+    long_desc: |
+      Delving Lane runs north and south in this small borough of the Shire.  To 
+      the south stands Brandywine Bridge.  The Green Dragon, the undisputed leader
+      in the art of innkeeping, offers rest and comfort to the east.  You hear the
+      bray of horses from the west.
+    exits:
+      north: 1133
+      south: 1131
+      east: 1144
+    sector_type: CITY
+    doors:
+      north:
+        to: 1133
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1131
+        description: "Brandywine Bridge offers safe passage across the tumultuous river."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1144
+        description: "The Green Dragon offers food, drink, and above all hospitality for mere gold."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1133
+    key: shire_room_1133
+    name: "Delving Lane"
+    area_id: 30
+    short_desc: "Delving Lane"
+    long_desc: |
+      Delving Lane runs north and south in this small borough of the Shire.  A 
+      large, imposing building lies to the east.  You hear the bray of horses from
+      the west.
+    exits:
+      north: 1134
+      east: 1145
+      south: 1132
+      west: 1138
+    sector_type: CITY
+    doors:
+      north:
+        to: 1134
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1145
+        description: "A large, imposing building lies to the east.  A sign reads 'Shiriff Post'."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1132
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1138
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1134
+    key: shire_room_1134
+    name: "Delving Lane"
+    area_id: 30
+    short_desc: "Delving Lane"
+    long_desc: |
+      Delving Lane runs north and south in this small borough of the Shire. There
+      is a small house to the west, nothing to the east, and up ahead you see a round
+      door which leads to a rather impressive abode.
+    exits:
+      north: 1135
+      south: 1133
+    sector_type: CITY
+    doors:
+      north:
+        to: 1135
+        description: "A large, magnificent house meets your steady gaze.  Above the round door a
+sign reads 'Bag End'."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1133
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1135
+    key: shire_room_1135
+    name: "Bag End"
+    area_id: 30
+    short_desc: "Bag End"
+    long_desc: |
+      You stand in a comfortably well-equipped house, a palace by humble halfling
+      standards.  On the wall you see a banner which reads "Home Sweet Home".
+      A solid oak door to the east leads to a pantry while you see a cozy bedroom
+      to the west.
+    exits:
+      east: 1137
+      south: 1134
+      west: 1136
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1137
+        description: "Through the keyhole you see what looks like a well stocked pantry."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1134
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1136
+        description: "You see a bedroom.  It looks like the beds have recently been slept in."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1136
+    key: shire_room_1136
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You stand in the private bedroom of Bag End.  There are two beds to the
+      side, neither of which are made.  Portraits of halflings hang on the wall,
+      and as you gaze upon them you come to the conclusion that the owner of
+      Bag End comes from a long line of distinguished halflings.  A cozy fire
+      in the fireplace keeps the room warm and comfortable.
+    exits:
+      east: 1135
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1135
+        description: "Through the doorway you see the main room of Bag End."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1137
+    key: shire_room_1137
+    name: "Pantry"
+    area_id: 30
+    short_desc: "Pantry"
+    long_desc: |
+      You are inside the pantry.  Shelves filled with food and drink surround
+      you on all sides.  You wonder why a halfling would need so much to eat.
+      The presence of something unseen chills you to your bones.  On the floor
+      you spy a trapdoor.
+    exits:
+      west: 1135
+      down: 1156
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1135
+        description: "Beyond the door you see the main room of Bag End."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 1156
+        description: "It's anyone's guess as to where the trapdoor leads."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1138
+    key: shire_room_1138
+    name: "A grassy field"
+    area_id: 30
+    short_desc: "A grassy field"
+    long_desc: |
+      You stand upon a grassy field.  A bull stands grazing not far away and
+      out of the corner of your eye you can see him considering you.  The sound
+      of animals fill the air from the north.  To the south you see a pig pen.
+    exits:
+      north: 1142
+      east: 1133
+      south: 1139
+    sector_type: FIELD
+    doors:
+      north:
+        to: 1142
+        description: "You see a large barn."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1133
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1139
+        description: "A rather large pig pen is to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1139
+    key: shire_room_1139
+    name: "Pig pen"
+    area_id: 30
+    short_desc: "Pig pen"
+    long_desc: |
+      You feel your boots sinking into the mud.  Numerous pigs roam about,
+      oblivious to your company.  A grassy field is to the north while you see
+      a small path winding to the west.
+    exits:
+      north: 1138
+      west: 1140
+    sector_type: CITY
+    doors:
+      north:
+        to: 1138
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1140
+        description: "A small path winds its way eastward."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1140
+    key: shire_room_1140
+    name: "A stony path"
+    area_id: 30
+    short_desc: "A stony path"
+    long_desc: |
+      You walk on a stony path which leads to a small residence to the north.
+      From the east you hear the noisy din of pigs.
+    exits:
+      north: 1141
+      east: 1139
+    sector_type: CITY
+    doors:
+      north:
+        to: 1141
+        description: "To the north you see a modest house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1139
+        description: "A rather large pig pen is to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1141
+    key: shire_room_1141
+    name: "Gamgee Residence"
+    area_id: 30
+    short_desc: "Gamgee Residence"
+    long_desc: |
+      You stand inside a modest home.  You deduce that this is indeed the home
+      of whomever owns the surrounding lands.  The air is somewhat musty and 
+      the smell reminds you of a stable.  As you look around disdainfully, you
+      think to yourself that this is more of a shack than a proper residence and
+      you long for the urban riches of the Shire proper.
+    exits:
+      south: 1140
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1140
+        description: "You see a small path winding its way southward."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1142
+    key: shire_room_1142
+    name: "A barn"
+    area_id: 30
+    short_desc: "A barn"
+    long_desc: |
+      Animals of every sort fill the small barn.  You feel the hot breath of
+      horses and cows on your neck and you feel the sudden need for fresh air.
+      Other than that, you feel cozy and protected and don't mind staying for a
+      bit longer.  All the warmth and good vibes remind you of the days when your
+      mother would hold you in her arms and sing you to sleep.  You find yourself
+      wanting to cradle all the animals.
+    exits:
+      north: 1143
+      south: 1138
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1143
+        description: "You see a chicken coop to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1138
+        description: "You see a grassy field."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1143
+    key: shire_room_1143
+    name: "A chicken coop"
+    area_id: 30
+    short_desc: "A chicken coop"
+    long_desc: |
+      You stand inside a rather crowded chicken coop.  The cackle of hens fill
+      the air.  The only exit is to the south.
+    exits:
+      south: 1142
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1142
+        description: "You see a large barn."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1144
+    key: shire_room_1144
+    name: "The Green Dragon"
+    area_id: 30
+    short_desc: "The Green Dragon"
+    long_desc: |
+      Welcome to the Green Dragon, the undisputed leader in the art of
+      innkeeping.  A rather charming and friendly hostess stands to the side,
+      ready to offer you food and drink.  While most of the patrons are halfling
+      locals, you spy an occasional human or two.  As you listen more closely
+      to the conversations that fill the inn, you hear the tales of great and
+      seasoned adventurers as well as the usual gossip.  You feel as if you've
+      found your second home in the Green Dragon.  You see a stairway leading
+      upwards.
+    exits:
+      west: 1132
+      up: 1157
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1132
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1157
+        description: "You see the reception."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1145
+    key: shire_room_1145
+    name: "Shiriff Post of Delving Lane"
+    area_id: 30
+    short_desc: "Shiriff Post of Delving Lane"
+    long_desc: |
+      You are in the Shiriff Post which acts as the nucleus for the three shiriffs
+      of Delving Lane.  As you examine the shiriffs on duty, you come to realize
+      that the halflings of the Shire are not to be reckoned with.  You cower with
+      awe.  The only exit is to the west.
+    exits:
+      west: 1133
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1133
+        description: "You see Delving Lane."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1146
+    key: shire_room_1146
+    name: "A dark tunnel"
+    area_id: 30
+    short_desc: "A dark tunnel"
+    long_desc: |
+      You stand inside a small underground tunnel.  The ceiling is so low that
+      you must crouch to avoid hitting your head.  You see light from a small
+      hole in the ceiling while to the east you see nothing but darkness.
+    exits:
+      east: 1147
+      up: 1125
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1147
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1125
+        description: "You see a portal which leads to a small room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1147
+    key: shire_room_1147
+    name: "A dark tunnel"
+    area_id: 30
+    short_desc: "A dark tunnel"
+    long_desc: |
+      You stand inside a small underground tunnel.  The ceiling is so low that
+      you must crouch to avoid hitting your head.  The tunnel continues east and
+      west.  All you can see is darkness.
+    exits:
+      east: 1148
+      west: 1146
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1148
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1146
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1148
+    key: shire_room_1148
+    name: "A dark tunnel"
+    area_id: 30
+    short_desc: "A dark tunnel"
+    long_desc: |
+      You stand inside a small underground tunnel.  The ceiling is so low that
+      you must crouch to avoid hitting your head.  The tunnel continues east and
+      west.  All you can see is darkness.
+    exits:
+      east: 1149
+      west: 1147
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1149
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1147
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1149
+    key: shire_room_1149
+    name: "A three way intersection"
+    area_id: 30
+    short_desc: "A three way intersection"
+    long_desc: |
+      You stand at an intersection.  The tunnel continues east and west while
+      to the north you can barely make out a smaller trail.
+    exits:
+      north: 1151
+      east: 1150
+      west: 1148
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1151
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1150
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1148
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1150
+    key: shire_room_1150
+    name: "End of a dark tunnel"
+    area_id: 30
+    short_desc: "End of a dark tunnel"
+    long_desc: |
+      You stand at the end of a dark tunnel.  The underground tunnel continues
+      to the west.  From a trapdoor in the ceiling you can hear the din of
+      adventurers.
+    exits:
+      west: 1149
+      up: 3001
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1149
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 3001
+        description: "You hear the din of adventurers."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1151
+    key: shire_room_1151
+    name: "A dark tunnel"
+    area_id: 30
+    short_desc: "A dark tunnel"
+    long_desc: |
+      You stand inside a small underground tunnel.  The ceiling is so low that
+      you must crouch to avoid hitting your head.  The tunnel continues north and
+      south.  To the west you see a Shirriff Post while to the east lies a small
+      home.  All you can see is darkness.
+    exits:
+      north: 1152
+      east: 1154
+      south: 1149
+      west: 1153
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1152
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 1154
+        description: "You see a halfling hole."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1149
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1153
+        description: "Above a great oak door you see a sign which reads 'Shirriff Post'."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1152
+    key: shire_room_1152
+    name: "A dark tunnel"
+    area_id: 30
+    short_desc: "A dark tunnel"
+    long_desc: |
+      You stand inside a small underground tunnel.  The ceiling is so low that 
+      you must crouch to avoid hitting your head.  The tunnel continues north and
+      south.  To the west lies a small home.  All you can see is darkness.
+    exits:
+      north: 1156
+      south: 1151
+      west: 1155
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 1156
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 1151
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 1155
+        description: "You see a halfling hole."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1153
+    key: shire_room_1153
+    name: "Shiriff Post of the Lower Shire"
+    area_id: 30
+    short_desc: "Shiriff Post of the Lower Shire"
+    long_desc: |
+      You are in the shiriff Post which acts as the nucleus for the three shiriffs 
+      of the Lower Shire.  As you examine the shiriffs on duty, you come to realize
+      that the halflings of the Shire are not to be reckoned with.  You cower with
+      awe.  The only exit is to the east.
+    exits:
+      east: 1151
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1151
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1154
+    key: shire_room_1154
+    name: "A halfling hole"
+    area_id: 30
+    short_desc: "A halfling hole"
+    long_desc: |
+      You stand inside a rather crudely built halfling hole.  The many passageways
+      and winding paths remind you of a rodent's lair.  The air is musty and damp
+      and you feel the need for fresh air.
+    exits:
+      west: 1151
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 1151
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1155
+    key: shire_room_1155
+    name: "A halfling hole"
+    area_id: 30
+    short_desc: "A halfling hole"
+    long_desc: |
+      You stand inside a rather crudely built halfling hole.  The many passageways
+      and winding paths remind you of a rodent's lair.  The air is musty and damp
+      and you feel the need for fresh air.
+    exits:
+      east: 1152
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 1152
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1156
+    key: shire_room_1156
+    name: "End of a dark tunnel"
+    area_id: 30
+    short_desc: "End of a dark tunnel"
+    long_desc: |
+      You are at one end of a dark tunnel.  The tunnel continues to the south
+      while on the ceiling you can make out a trapdoor.
+    exits:
+      south: 1152
+      up: 1137
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 1152
+        description: "You see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 1137
+        description: "A trapdoor on the ceiling reveals a passageway."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 1157
+    key: shire_room_1157
+    name: "The Inn of the Green Dragon"
+    area_id: 30
+    short_desc: "The Inn of the Green Dragon"
+    long_desc: |
+      You are standing in the Inn of the Green dragon.  Large paintings of 
+      halflings at work, and halflings at play adorn the walls.  Comfortable 
+      benches and seats line the walls.  A stairway leads down.
+    exits:
+      down: 1144
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 1144
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

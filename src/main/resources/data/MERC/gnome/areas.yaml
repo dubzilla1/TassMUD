@@ -1,0 +1,9 @@
+areas:
+  - id: 15
+    name: "Gnome"
+    description: "Converted from gnome.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "gnome.are"
+    vnum_range: "1501-1590"
+

@@ -1,0 +1,9 @@
+areas:
+  - id: 55
+    name: "Ofcol"
+    description: "Converted from ofcol.are"
+    sector_type: "CITY"
+    author: "MERC"
+    source_file: "ofcol.are"
+    vnum_range: "5550-5577"
+

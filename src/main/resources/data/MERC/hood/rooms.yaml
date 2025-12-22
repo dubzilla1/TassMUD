@@ -1,0 +1,2780 @@
+rooms:
+  - id: 2101
+    key: hood_room_2101
+    name: "A Dark Alleyway"
+    area_id: 30
+    short_desc: "A Dark Alleyway"
+    long_desc: |
+      The walls of the alleyway have been spray-painted over many times
+      over the years.  One section of graffiti actually looks legible,
+      it says:    This section has been designed for levels 5 through 10
+                  If you are above level 15 please don't expect much fun.
+                  If you are below level 5 enter at your own risk.
+      Another section of graffiti says "Raff Rules!"
+      There is a boulevard to the east and Wall Road East is to the west.
+    exits:
+      west: 2172
+      east: 2102
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      west:
+        to: 2172
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2102
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2102
+    key: hood_room_2102
+    name: "Beginning of White Dragon Boulevard"
+    area_id: 30
+    short_desc: "Beginning of White Dragon Boulevard"
+    long_desc: |
+      This section of town has been overrun by the Troll gang.  Even the
+      police stay out of here for fear of being brutalized.  This was once
+      a nice lower-middleclass neighborhood, but know the gangs run the
+      streets.  All the shops and homes have been boarded up and abandoned.
+      An alleyway is to the west and the street continues east.  An over-
+      grown lot is to the south.
+    exits:
+      east: 2103
+      south: 2109
+      west: 2101
+    sector_type: CITY
+    doors:
+      east:
+        to: 2103
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2109
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2101
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2103
+    key: hood_room_2103
+    name: "Along White Dragon Boulevard"
+    area_id: 30
+    short_desc: "Along White Dragon Boulevard"
+    long_desc: |
+      Everywhere you look you see signs of recent violence.  Patches of blood
+      lie everywhere and broken sticks and abandoned knifes are strewn here
+      and there.  An over-grown lot is to the south.  White Dragon Boulevard leads
+      east and west.
+    exits:
+      east: 2104
+      south: 2110
+      west: 2102
+    sector_type: CITY
+    doors:
+      east:
+        to: 2104
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2110
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2102
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2104
+    key: hood_room_2104
+    name: "White Dragon Boulevard at Armory"
+    area_id: 30
+    short_desc: "White Dragon Boulevard at Armory"
+    long_desc: |
+      Only gang members dare wander the streets here.
+      What used to be the armory lies to the south.  White Dragon Boulevard
+      leads east and west.
+    exits:
+      east: 2105
+      south: 2111
+      west: 2103
+    sector_type: CITY
+    doors:
+      east:
+        to: 2105
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2111
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2103
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2105
+    key: hood_room_2105
+    name: "White Dragon Blvd."
+    area_id: 30
+    short_desc: "White Dragon Blvd."
+    long_desc: |
+      Black Dragon Avenue used to run south from here but the way has been
+      blocked by the toppling of a building into the street.  White Dragon
+      boulevard continues east and west.
+    exits:
+      east: 2106
+      west: 2104
+    sector_type: CITY
+    doors:
+      east:
+        to: 2106
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2104
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2106
+    key: hood_room_2106
+    name: "Corner of Ice and White Dragon"
+    area_id: 30
+    short_desc: "Corner of Ice and White Dragon"
+    long_desc: |
+      Ice Dragon Way leads south from here.  It used to run the whole length
+      of the neighborhood and way lined with beautiful crystal sculptures.
+      White Dragon boulevard leads east and west from here.
+    exits:
+      east: 2107
+      south: 2113
+      west: 2105
+    sector_type: CITY
+    doors:
+      east:
+        to: 2107
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2105
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2107
+    key: hood_room_2107
+    name: "White Dragon Boulevard"
+    area_id: 30
+    short_desc: "White Dragon Boulevard"
+    long_desc: |
+      A once majestic inn with a white marble facade lies to the south.
+      Unfortunately, it has fallen into disrepair and decay.  You can continue
+      east or west.
+    exits:
+      east: 2108
+      west: 2106
+    sector_type: CITY
+    doors:
+      east:
+        to: 2108
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2106
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2108
+    key: hood_room_2108
+    name: "Corner of Bronze and White Dragon"
+    area_id: 30
+    short_desc: "Corner of Bronze and White Dragon"
+    long_desc: |
+      This is the north-east corner of the neighborhood. White Dragon
+      boulevard heads west and Bronze Dragon street heads south.
+    exits:
+      south: 2115
+      west: 2107
+    sector_type: CITY
+    doors:
+      south:
+        to: 2115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2107
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2109
+    key: hood_room_2109
+    name: "An over-grown lot"
+    area_id: 30
+    short_desc: "An over-grown lot"
+    long_desc: |
+      A huge building was going to be built here, but they gave the
+      project up when violence took over the town.  Now it is just a
+      weed-strewn plot of land.  The lot continues east and there is a road north.
+    exits:
+      north: 2102
+      east: 2110
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2102
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2110
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2110
+    key: hood_room_2110
+    name: "East end of an over-grown plot of land"
+    area_id: 30
+    short_desc: "East end of an over-grown plot of land"
+    long_desc: |
+      This was planned to be a park, but the developer was scared out
+      of town by the gang.  Now it is just a dusty square of land. The
+      park was started to the south.  The lot continues west and there
+      is a street to the north.
+    exits:
+      north: 2103
+      south: 2116
+      west: 2109
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2103
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2116
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2109
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2111
+    key: hood_room_2111
+    name: "Armory"
+    area_id: 30
+    short_desc: "Armory"
+    long_desc: |
+      Well actually, this is what USED to be the armory.  The equipment has
+      all been stolen or broken beyond repair. The back wall of the
+      building has been bashed down, allowing you to go south.  White
+      Dragon Boulevard is north.
+    exits:
+      north: 2104
+      south: 2117
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2104
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2112
+    key: hood_room_2112
+    name: "A Bend in the Way"
+    area_id: 30
+    short_desc: "A Bend in the Way"
+    long_desc: |
+      Ice Dragon Way bends east and south from here.  You notice a lot of
+      blood dried into the dirt here.
+    exits:
+      east: 2113
+      south: 2118
+    sector_type: CITY
+    doors:
+      east:
+        to: 2113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2113
+    key: hood_room_2113
+    name: "Ice Dragon Bend"
+    area_id: 30
+    short_desc: "Ice Dragon Bend"
+    long_desc: |
+      Ice Dragon Way bends to the north and west here.  There are footprints
+      here.  They seem to indicate a large struggle took place here
+      recently.  What used to be the town Magic shop is to the east.
+    exits:
+      north: 2106
+      east: 2114
+      west: 2112
+    sector_type: CITY
+    doors:
+      north:
+        to: 2106
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2112
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2114
+    key: hood_room_2114
+    name: "The remains of the magic shop"
+    area_id: 30
+    short_desc: "The remains of the magic shop"
+    long_desc: |
+      The wizard was tough but he couldn't take on 50 of them at once.  So he
+      died and they took all his stuff and used it on their fellowmen.
+      The front door leads west back out to the street.  There is a back
+      door leading to another street to the east.
+    exits:
+      east: 2115
+      west: 2113
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2115
+    key: hood_room_2115
+    name: "Bronze Dragon Street at wizard's back door"
+    area_id: 30
+    short_desc: "Bronze Dragon Street at wizard's back door"
+    long_desc: |
+      Bronze Dragon street goes north and south.  The back door to what
+      remains of the magic shop is west.
+    exits:
+      north: 2108
+      south: 2120
+      west: 2114
+    sector_type: CITY
+    doors:
+      north:
+        to: 2108
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2116
+    key: hood_room_2116
+    name: "Dracolich Plaza"
+    area_id: 30
+    short_desc: "Dracolich Plaza"
+    long_desc: |
+      They began construction of a pleasant plaza here.  You wouldn't have
+      known it though if i hadn't told you.  It has been renamed in honor
+      of the Dragon gang's idol, the Dracolich.  It has become sort of a
+      training ground.  There is a short cut to the east and an overgrown
+      lot of land to the north.
+    exits:
+      north: 2110
+      east: 2117
+    sector_type: FIELD
+    doors:
+      north:
+        to: 2110
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2117
+    key: hood_room_2117
+    name: "Shortcut"
+    area_id: 30
+    short_desc: "Shortcut"
+    long_desc: |
+      This is a shortcut between Dracolich Plaza and the center of town.
+      Dracolich Plaza is to the west and the shortcut continues south.
+    exits:
+      north: 2111
+      south: 2121
+      west: 2116
+    sector_type: CITY
+    doors:
+      north:
+        to: 2111
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2116
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2118
+    key: hood_room_2118
+    name: "Ice Dragon Way"
+    area_id: 30
+    short_desc: "Ice Dragon Way"
+    long_desc: |
+      Several smashed crystal statues line the Way here.  You begin to wonder
+      who smashed them, and with what.  The Way bends out of sight to the north
+      and continues south.  To the east is a courtyard.
+    exits:
+      north: 2112
+      east: 2119
+      south: 2122
+    sector_type: CITY
+    doors:
+      north:
+        to: 2112
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2119
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2119
+    key: hood_room_2119
+    name: "Courtyard North"
+    area_id: 30
+    short_desc: "Courtyard North"
+    long_desc: |
+      Once it was the courtyard of a beautiful building complex.  But alas,
+      someone forgot to water the plants and they all died.  Then again,
+      you wonder how many people have died here too.  The courtyard extends
+      to the south and there is a road to the west.
+    exits:
+      south: 2123
+      west: 2118
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2120
+    key: hood_room_2120
+    name: "Bronze Dragon Street"
+    area_id: 30
+    short_desc: "Bronze Dragon Street"
+    long_desc: |
+      There used to be a gate out to the east here which led to distant lands.
+      The gate has rusted permanently shut.  The street goes north and south.
+    exits:
+      north: 2115
+      south: 2125
+    sector_type: CITY
+    doors:
+      north:
+        to: 2115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2125
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2121
+    key: hood_room_2121
+    name: "Shortcut"
+    area_id: 30
+    short_desc: "Shortcut"
+    long_desc: |
+      The shortcut extends north.  There is a street to the east.
+    exits:
+      north: 2117
+      east: 2122
+    sector_type: CITY
+    doors:
+      north:
+        to: 2117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2122
+    key: hood_room_2122
+    name: "Ice Dragon Way"
+    area_id: 30
+    short_desc: "Ice Dragon Way"
+    long_desc: |
+      The Way continues north and intersects with Yellow Dragon Avenue
+      to the south.  For some reason, you somehow realize that there is a
+      shortcut to the west that leads to Dracolich Plaza.
+    exits:
+      north: 2118
+      south: 2127
+      west: 2121
+    sector_type: CITY
+    doors:
+      north:
+        to: 2118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2123
+    key: hood_room_2123
+    name: "Courtyard South"
+    area_id: 30
+    short_desc: "Courtyard South"
+    long_desc: |
+      Once full of lush green plants, it is now barren of growth.  A set of
+      stairs used to extend up to a suite of rooms but the set is missing
+      stairs 3-15.  The courtyard extends north and there is a street to
+      the south.
+    exits:
+      north: 2119
+      south: 2128
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2119
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2124
+    key: hood_room_2124
+    name: "Old Abandoned Warehouse"
+    area_id: 30
+    short_desc: "Old Abandoned Warehouse"
+    long_desc: |
+      Once the center of a lucrative storage business, it has fallen to
+      disrepair like everything else.  It is now the hideout of the
+      Dragon gang.  The gang leader runs his reign of terror from here.
+      There is a wooden door barely on the hinges to the east.
+    exits:
+      east: 2125
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2125
+        description: ""
+        keywords: "wooden door east"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2125
+    key: hood_room_2125
+    name: "Bronze Dragon Street at Warehouse"
+    area_id: 30
+    short_desc: "Bronze Dragon Street at Warehouse"
+    long_desc: |
+      The street runs north and south.  There is an old wooden door leading
+      to a warehouse to the west.  The warehouse LOOKS abandoned. . .
+    exits:
+      north: 2120
+      south: 2130
+      west: 2124
+    sector_type: CITY
+    doors:
+      north:
+        to: 2120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2130
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2124
+        description: ""
+        keywords: "wooden door west"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2126
+    key: hood_room_2126
+    name: "Yellow Dragon Road"
+    area_id: 30
+    short_desc: "Yellow Dragon Road"
+    long_desc: |
+      Yellow Dragon Road is the southern boundary of Troll Territory.  The
+      road extends east.  You enter "no-man's land" to the south.
+    exits:
+      east: 2127
+      south: 2131
+    sector_type: CITY
+    doors:
+      east:
+        to: 2127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2131
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2127
+    key: hood_room_2127
+    name: "Yellow Dragon Road"
+    area_id: 30
+    short_desc: "Yellow Dragon Road"
+    long_desc: |
+      The road runs east and west.  Ice Dragon Way leads north from here.
+    exits:
+      north: 2122
+      east: 2128
+      west: 2126
+    sector_type: CITY
+    doors:
+      north:
+        to: 2122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2126
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2128
+    key: hood_room_2128
+    name: "Yellow Dragon Road"
+    area_id: 30
+    short_desc: "Yellow Dragon Road"
+    long_desc: |
+      The roads continues east and west.  There is a courtyard to the north.
+      You enter "no man's land" to the south.
+    exits:
+      north: 2123
+      east: 2129
+      south: 2133
+      west: 2127
+    sector_type: CITY
+    doors:
+      north:
+        to: 2123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2129
+    key: hood_room_2129
+    name: "Yellow Dragon Road"
+    area_id: 30
+    short_desc: "Yellow Dragon Road"
+    long_desc: |
+      There is a barred window to the north.  There appears to be a light
+      coming from the cracks around it.  The road extends east and west
+      from here.  Or you can enter "no man's land" south from here.
+    exits:
+      east: 2130
+      south: 2134
+      west: 2128
+    sector_type: CITY
+    doors:
+      east:
+        to: 2130
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2130
+    key: hood_room_2130
+    name: "Yellow Dragon Road"
+    area_id: 30
+    short_desc: "Yellow Dragon Road"
+    long_desc: |
+      Bronze Dragon Street intersects here and runs north.  Yellow Dragon ends
+      here but continues to the west.
+    exits:
+      north: 2125
+      west: 2129
+    sector_type: CITY
+    doors:
+      north:
+        to: 2125
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2131
+    key: hood_room_2131
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues south
+      and east; or there is a street to the north.
+    exits:
+      north: 2126
+      east: 2132
+      south: 2136
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2126
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2132
+    key: hood_room_2132
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues south
+      east and west.
+    exits:
+      east: 2133
+      south: 2137
+      west: 2131
+    sector_type: MOUNTAIN
+    doors:
+      east:
+        to: 2133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2131
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2133
+    key: hood_room_2133
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues south,
+      east and west; or there is a street to the north.
+    exits:
+      north: 2128
+      east: 2134
+      south: 2138
+      west: 2132
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2134
+    key: hood_room_2134
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues south,
+      east, and west; or there is a street to the north.
+    exits:
+      north: 2129
+      east: 2135
+      south: 2139
+      west: 2133
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2135
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2139
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2135
+    key: hood_room_2135
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues south
+      and west.
+    exits:
+      south: 2140
+      west: 2134
+    sector_type: MOUNTAIN
+    doors:
+      south:
+        to: 2140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2136
+    key: hood_room_2136
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues north
+      and east; or there is a street to the south.
+    exits:
+      north: 2131
+      east: 2137
+      south: 2141
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2131
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2137
+    key: hood_room_2137
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues north,
+      east and west.
+    exits:
+      north: 2132
+      east: 2138
+      west: 2136
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2138
+    key: hood_room_2138
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues north,
+      east, and west; or there is a street to the south.
+    exits:
+      north: 2133
+      east: 2139
+      south: 2143
+      west: 2137
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2139
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2143
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2139
+    key: hood_room_2139
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues north,
+      east, and west.
+    exits:
+      north: 2134
+      east: 2140
+      west: 2138
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2140
+    key: hood_room_2140
+    name: "NO MAN'S LAND"
+    area_id: 30
+    short_desc: "NO MAN'S LAND"
+    long_desc: |
+      This is the section of town between the two gang's territories.  This
+      is usually where the violence starts.  No Man's land continues south
+      and west; or there is a street to the south.
+    exits:
+      north: 2135
+      south: 2145
+      west: 2139
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 2135
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2139
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2141
+    key: hood_room_2141
+    name: "Bend in Hector Street"
+    area_id: 30
+    short_desc: "Bend in Hector Street"
+    long_desc: |
+      Hector street bends to the east and the south here.  "No Man's Land"
+      entrance is to the north.
+    exits:
+      north: 2136
+      east: 2142
+      south: 2146
+    sector_type: CITY
+    doors:
+      north:
+        to: 2136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2142
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2146
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2142
+    key: hood_room_2142
+    name: "Hector Street at Bakery"
+    area_id: 30
+    short_desc: "Hector Street at Bakery"
+    long_desc: |
+      Hector street runs east and west.  The Bakery used to be to the south
+      but the entrance is sealed off.  Probably just a bunch of stale pies in
+      there anyways.
+    exits:
+      east: 2143
+      west: 2141
+    sector_type: CITY
+    doors:
+      east:
+        to: 2143
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2143
+    key: hood_room_2143
+    name: "Another corner of Hector and Achilles streets"
+    area_id: 30
+    short_desc: "Another corner of Hector and Achilles streets"
+    long_desc: |
+      Achilles street heads to the south and Hector runs east and west.
+      There is an entrance to "No Man's Land" to the north.  On the
+      southwest corner of this intersection, it looks like a building
+      was recently burned down.
+    exits:
+      north: 2138
+      east: 2144
+      south: 2147
+      west: 2142
+    sector_type: CITY
+    doors:
+      north:
+        to: 2138
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2144
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2147
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2142
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2144
+    key: hood_room_2144
+    name: "Hector Street at Jeweler"
+    area_id: 30
+    short_desc: "Hector Street at Jeweler"
+    long_desc: |
+      Once a bright spot in the town, it now looks like one of the
+      hardest hit by the violence.  The building could collapse at any
+      moment.  The street continues east and west.
+    exits:
+      east: 2145
+      west: 2143
+    sector_type: CITY
+    doors:
+      east:
+        to: 2145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2143
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2145
+    key: hood_room_2145
+    name: "Corner of Ajax and Hector"
+    area_id: 30
+    short_desc: "Corner of Ajax and Hector"
+    long_desc: |
+      There is a grand fountain to the east but the water doesn't
+      look good to drink.  Ajax street heads south and Hector
+      goes back west.  "No Man's Land" is to the north.
+    exits:
+      north: 2140
+      south: 2149
+      west: 2144
+    sector_type: CITY
+    doors:
+      north:
+        to: 2140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2149
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2144
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2146
+    key: hood_room_2146
+    name: "Hector Street"
+    area_id: 30
+    short_desc: "Hector Street"
+    long_desc: |
+      The street is full of garbage here.  An odd building lies to the west,
+      but you don't seem to be able to find a way into it.  The street
+      runs north and south here.
+    exits:
+      north: 2141
+      south: 2150
+    sector_type: CITY
+    doors:
+      north:
+        to: 2141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2150
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2147
+    key: hood_room_2147
+    name: "Achilles Avenue"
+    area_id: 30
+    short_desc: "Achilles Avenue"
+    long_desc: |
+      The town bards sang of the victory parades that used to pass along this
+      route.  It was once a major way through the center of town.  The street
+      goes south to a bend and north to an intersection.
+    exits:
+      north: 2143
+      south: 2152
+    sector_type: CITY
+    doors:
+      north:
+        to: 2143
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2152
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2148
+    key: hood_room_2148
+    name: "A small ruined chapel"
+    area_id: 30
+    short_desc: "A small ruined chapel"
+    long_desc: |
+      This was a small temple built to honor the minor gods and goddesses.
+      It is now desecrated by graffiti and vandalism.  Perhaps its worst
+      defilement is that it is the hangout of the Ogre gang.  There is a street to
+      the east through a rusty metal door.
+    exits:
+      east: 2149
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2149
+        description: ""
+        keywords: "rusted door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2149
+    key: hood_room_2149
+    name: "Ajax Avenue at chapel"
+    area_id: 30
+    short_desc: "Ajax Avenue at chapel"
+    long_desc: |
+      The temple to honor the minor gods is through a rusty metal door
+      to the west.  The street continues north and south.  You hear the
+      muffled sounds of screams coming from the chapel.
+    exits:
+      north: 2145
+      south: 2154
+      west: 2148
+    sector_type: CITY
+    doors:
+      north:
+        to: 2145
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2154
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2148
+        description: ""
+        keywords: "rusted door metal"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2150
+    key: hood_room_2150
+    name: "First intersection of Hector and Achilles"
+    area_id: 30
+    short_desc: "First intersection of Hector and Achilles"
+    long_desc: |
+      There is a large statue here depicting a battle between two
+      great warriors.  You think it's odd that it has not been defiled,
+      but then you sense a aura protecting it.  Achilles runs east
+      and south, while Hector heads out to the north.
+    exits:
+      north: 2146
+      east: 2151
+      south: 2156
+    sector_type: CITY
+    doors:
+      north:
+        to: 2146
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2151
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2156
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2151
+    key: hood_room_2151
+    name: "Hector street"
+    area_id: 30
+    short_desc: "Hector street"
+    long_desc: |
+      A large open space, possibly a cemetery, lies to the south.
+      There is a large wrought-iron fence with spikes on top
+      which prevents you from entering the area.  The street
+      continues east and west.
+    exits:
+      east: 2152
+      west: 2150
+    sector_type: CITY
+    doors:
+      east:
+        to: 2152
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2150
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2152
+    key: hood_room_2152
+    name: "A bend in the road"
+    area_id: 30
+    short_desc: "A bend in the road"
+    long_desc: |
+      Achilles Avenue bends to the north and west here.  There
+      is also a narrow alley to the south.
+    exits:
+      north: 2147
+      south: 2157
+      west: 2151
+    sector_type: CITY
+    doors:
+      north:
+        to: 2147
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2157
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2151
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2153
+    key: hood_room_2153
+    name: "What is left of the weaponshop"
+    area_id: 30
+    short_desc: "What is left of the weaponshop"
+    long_desc: |
+      It doesn't even look like those punks gave the weaponsmith a
+      proper burial.  But what a going away present he seems to have
+      received!  Blood is splattered and dried all over the walls here.
+      It looks like a great deal of carnage happened here.  The way
+      out to the east leads out onto a street.
+    exits:
+      east: 2154
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2154
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2154
+    key: hood_room_2154
+    name: "Ajax street at Weaponshop (or whats left of it)"
+    area_id: 30
+    short_desc: "Ajax street at Weaponshop (or whats left of it)"
+    long_desc: |
+      The street goes north and south.  The stables used to be to the
+      east, but I bet all the horses are dead or gone.
+    exits:
+      north: 2149
+      south: 2159
+      west: 2153
+    sector_type: CITY
+    doors:
+      north:
+        to: 2149
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2159
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2153
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2155
+    key: hood_room_2155
+    name: "Khan Park"
+    area_id: 30
+    short_desc: "Khan Park"
+    long_desc: |
+      Not really a "park" as you and i would think of it but
+      it seems queerly peaceful here in comparison to the rest of
+      the area.  There seems to be some kind of memorial to the
+      great Mongol warrior Khan being crudely constructed here.
+      There is a street to the east and another to the south.
+    exits:
+      east: 2156
+      south: 2162
+    sector_type: FIELD
+    doors:
+      east:
+        to: 2156
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2162
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2156
+    key: hood_room_2156
+    name: "Achilles avenue at entrance to park"
+    area_id: 30
+    short_desc: "Achilles avenue at entrance to park"
+    long_desc: |
+      A ... park?! lies to the west.  The street runs south to an
+      intersection and curves to the north.
+    exits:
+      north: 2150
+      south: 2163
+      west: 2155
+    sector_type: CITY
+    doors:
+      north:
+        to: 2150
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2163
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2155
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2157
+    key: hood_room_2157
+    name: "A bend in Ajax"
+    area_id: 30
+    short_desc: "A bend in Ajax"
+    long_desc: |
+      The roads bends south and east here.  You barely notice
+      a small alley leading north.  Some kind of tunnel entrance
+      is to the west but it has been crushed under its own weight.
+    exits:
+      north: 2152
+      east: 2158
+      south: 2164
+    sector_type: CITY
+    doors:
+      north:
+        to: 2152
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2158
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2164
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2158
+    key: hood_room_2158
+    name: "Ajax street"
+    area_id: 30
+    short_desc: "Ajax street"
+    long_desc: |
+      A once prideful guildhouse was on the northeast corner of
+      this intersection.  Most of the walls and ceiling have long since
+      been demolished.  An inn/pub is to the south.  The street bends
+      to the east or west.
+    exits:
+      east: 2159
+      south: 2165
+      west: 2157
+    sector_type: CITY
+    doors:
+      east:
+        to: 2159
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2165
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2157
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2159
+    key: hood_room_2159
+    name: "Curve in the road"
+    area_id: 30
+    short_desc: "Curve in the road"
+    long_desc: |
+      The street goes north or west from here.  A narrow street once
+      headed southeast from here.
+    exits:
+      north: 2154
+      west: 2158
+    sector_type: CITY
+    doors:
+      north:
+        to: 2154
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2158
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2160
+    key: hood_room_2160
+    name: "A wide alleyway"
+    area_id: 30
+    short_desc: "A wide alleyway"
+    long_desc: |
+      The sides of the alleyway have been vandalized many times.
+      One patch of graffiti actually looks readable:
+                  This section has been designed for levels 5 through 10
+                  If you are above level 10 please don't expect much.
+                  If you are below level 5 enter at your own risk.
+      In another spot it says "now entering Ogre territory..."
+      A street lies to the west and a major road to the east.
+    exits:
+      east: 2161
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 2161
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2161
+    key: hood_room_2161
+    name: "Alexander Road"
+    area_id: 30
+    short_desc: "Alexander Road"
+    long_desc: |
+      You see many gang members walking around looking for
+      fights to pick and things to break.  It seems as if all of the
+      other citizens have been run out of town.  All the former
+      homes are boarded up and uninhabitable.  The road continues
+      east and west.
+    exits:
+      east: 2162
+      west: 2160
+    sector_type: CITY
+    doors:
+      east:
+        to: 2162
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2160
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2162
+    key: hood_room_2162
+    name: "Alexander Street at park entrance"
+    area_id: 30
+    short_desc: "Alexander Street at park entrance"
+    long_desc: |
+      A park-looking area lies to the north and a passage between
+      two buildings leads to another street to the south.
+    exits:
+      north: 2155
+      south: 2166
+      west: 2161
+    sector_type: CITY
+    doors:
+      north:
+        to: 2155
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2166
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2161
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2163
+    key: hood_room_2163
+    name: "Achilles Avenue"
+    area_id: 30
+    short_desc: "Achilles Avenue"
+    long_desc: |
+      The Avenue Runs north and south.  You sense you are deep within
+      Ogre gang territory, and a chill goes up your spine.
+    exits:
+      north: 2156
+      south: 2167
+    sector_type: CITY
+    doors:
+      north:
+        to: 2156
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2167
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2164
+    key: hood_room_2164
+    name: "Ajax Street"
+    area_id: 30
+    short_desc: "Ajax Street"
+    long_desc: |
+      You can see a sinister black wrought-iron fence to the west.
+      You wonder if it's keeping you out, or the ghouls in?
+    exits:
+      north: 2157
+      south: 2169
+    sector_type: CITY
+    doors:
+      north:
+        to: 2157
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2169
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2165
+    key: hood_room_2165
+    name: "The inn/pub"
+    area_id: 30
+    short_desc: "The inn/pub"
+    long_desc: |
+      The inn actually looks fairly functional despite its lack
+      of repair.  The boys come here to hoot it up and drink them selves
+      into oblivion sometimes.  It looks as if the beer is still on tap!!!
+      A hallway leads south and you spy a street through the doorway
+      to the north.
+    exits:
+      north: 2158
+      south: 2170
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2158
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2170
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2166
+    key: hood_room_2166
+    name: "Solomon Street"
+    area_id: 30
+    short_desc: "Solomon Street"
+    long_desc: |
+      This street forms the southern boundary of Ogre territory.  The
+      street extends far to the east.  There is also a pathway between
+      buildings which leads to another street to the north.
+    exits:
+      north: 2162
+      east: 2167
+    sector_type: CITY
+    doors:
+      north:
+        to: 2162
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2167
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2167
+    key: hood_room_2167
+    name: "Intersection of Achilles and Solomon"
+    area_id: 30
+    short_desc: "Intersection of Achilles and Solomon"
+    long_desc: |
+      Solomon street is to the east and west.  The other part of the
+      T is Achilles Avenue, starting here and winding to the north.
+    exits:
+      north: 2163
+      east: 2168
+      west: 2166
+    sector_type: CITY
+    doors:
+      north:
+        to: 2163
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2168
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2166
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2168
+    key: hood_room_2168
+    name: "Solomon Street"
+    area_id: 30
+    short_desc: "Solomon Street"
+    long_desc: |
+      A wrought-iron fence blocks off what used to be an entrance to the
+      cemetery here to the north.  The evil just seems too strong to
+      to consider entering.  You feel you should stick with the "lesser"
+      evils along the road to the east and west.
+    exits:
+      east: 2169
+      west: 2167
+    sector_type: CITY
+    doors:
+      east:
+        to: 2169
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2167
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2169
+    key: hood_room_2169
+    name: "Intersection of Ajax and Solomon"
+    area_id: 30
+    short_desc: "Intersection of Ajax and Solomon"
+    long_desc: |
+      The two roads meet at a corner here.  Ajax runs north and
+      Solomon heads west.  An inn/pub is through a back doorway
+      to the east.
+    exits:
+      north: 2164
+      east: 2170
+      west: 2168
+    sector_type: CITY
+    doors:
+      north:
+        to: 2164
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2170
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2168
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2170
+    key: hood_room_2170
+    name: "Hallway"
+    area_id: 30
+    short_desc: "Hallway"
+    long_desc: |
+      The hallway heads back north to the main part of the inn/pub.
+      The stairs leading up to the guest rooms here do not seem
+      advisable to climb.  A doorway empties out into Solomon
+      street to the west.
+    exits:
+      north: 2165
+      west: 2169
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2165
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2169
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2171
+    key: hood_room_2171
+    name: "Wall Road"
+    area_id: 30
+    short_desc: "Wall Road"
+    long_desc: |
+      The road extends south along the inside of the wall surrounding
+      the city.  You spy a city gate to the north.
+    exits:
+      north: 3041
+      south: 2172
+    sector_type: CITY
+    doors:
+      north:
+        to: 3041
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2172
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 2172
+    key: hood_room_2172
+    name: "Wall Road"
+    area_id: 30
+    short_desc: "Wall Road"
+    long_desc: |
+      Wall road extends north along the inside of the city wall.  A dark
+      alley lies to the east.
+    exits:
+      north: 2171
+      east: 2101
+    sector_type: CITY
+    doors:
+      north:
+        to: 2171
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 2101
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

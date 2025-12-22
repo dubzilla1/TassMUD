@@ -1,0 +1,3660 @@
+rooms:
+  - id: 600
+    key: ofcol2_room_600
+    name: "Granny's Still Room"
+    area_id: 30
+    short_desc: "Granny's Still Room"
+    long_desc: |
+      You are in Granny Jenkins' still room.  The smell of whiskey is heady, and
+      the bottles of it on the floor make your mouth water and your mind swirl.  You
+      also see a very large still.  So THIS is why there are so many grain fields!
+      The exit is to the east.
+    exits:
+      east: 616
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 616
+        description: "You see the storage shed."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 601
+    key: ofcol2_room_601
+    name: "The Big Intersection"
+    area_id: 30
+    short_desc: "The Big Intersection"
+    long_desc: |
+      You are in the big intersection between Raff Way and Impy Way.  Crowds 
+      of people walk past you as they go on their daily tasks.  Raff Way continues
+      east and west, and Impy Way runs north and south.
+    exits:
+      north: 625
+      east: 666
+      south: 602
+      west: 5553
+    sector_type: CITY
+    doors:
+      north:
+        to: 625
+        description: "Impy Way continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 666
+        description: "Raff Way continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 602
+        description: "Impy Way continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5553
+        description: "Raff Way continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 602
+    key: ofcol2_room_602
+    name: "Impy Way"
+    area_id: 30
+    short_desc: "Impy Way"
+    long_desc: |
+      You are on Impy Way.  You can see a leather shop east and a blacksmith
+      west.  To the north you see a big intersection, and Impy Way continues south.
+    exits:
+      north: 601
+      east: 604
+      south: 605
+      west: 603
+    sector_type: CITY
+    doors:
+      north:
+        to: 601
+        description: "You see the big intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 604
+        description: "You see the leather shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 605
+        description: "Impy Way continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 603
+        description: "You see the blacksmith."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 603
+    key: ofcol2_room_603
+    name: "The Blacksmith"
+    area_id: 30
+    short_desc: "The Blacksmith"
+    long_desc: |
+      You are in a black and smelly room.  Pieces of metal are strewn all over
+      the floor, and a wave of heat from a big furnace hits you.  An anvil sits on 
+      one side of the room, and on the other side is a workbench.  The exit is east.
+    exits:
+      east: 602
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 602
+        description: "You see Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 604
+    key: ofcol2_room_604
+    name: "The Leather Shop"
+    area_id: 30
+    short_desc: "The Leather Shop"
+    long_desc: |
+      You are in a brown and smelly room.  Pieces of leather are strewn all over
+      the floor.  The smell of burnt hide assaults your nose.  You can tell by the
+      looks that the tanning is done VERY CLOSE to here!   A table is near the
+      entrance.  The exit is west.
+    exits:
+      west: 602
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 602
+        description: "You see Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 605
+    key: ofcol2_room_605
+    name: "Impy Way"
+    area_id: 30
+    short_desc: "Impy Way"
+    long_desc: |
+      You are on Impy Way.  To the east is a meat store, and to the west is a
+      pawn shop.  Impy Way continues north and south.  People are rushing around you
+      to go to these stores.
+    exits:
+      north: 602
+      east: 607
+      south: 608
+      west: 606
+    sector_type: CITY
+    doors:
+      north:
+        to: 602
+        description: "Impy Way continues North."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 607
+        description: "You see the Meat Store."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 608
+        description: "Impy Way continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 606
+        description: "You see the Pawn Shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 606
+    key: ofcol2_room_606
+    name: "The Pawn Shop."
+    area_id: 30
+    short_desc: "The Pawn Shop."
+    long_desc: |
+      You are in a little shop filled with a lot of knick knacks and semi-
+      valuable goods.  There is a display case full of little treasures that you are
+      sure that you or any other little kid would like to touch!  The exit is east.
+    exits:
+      east: 605
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 605
+        description: "You see Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 607
+    key: ofcol2_room_607
+    name: "The Meat Store"
+    area_id: 30
+    short_desc: "The Meat Store"
+    long_desc: |
+      You are in a meat store.  Hanging on hooks are meats of many kinds of
+      animals.  In the background, you can hear the sound of blade against flesh.
+      It smells like meat here (which is not a good smell).  The exit is west.
+    exits:
+      west: 605
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 605
+        description: "You see Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 608
+    key: ofcol2_room_608
+    name: "Impy Way"
+    area_id: 30
+    short_desc: "Impy Way"
+    long_desc: |
+      You are on Impy Way.  To the east is Farmer's Market, and to the west is
+      Nyles' House of Ale.  Impy Way runs north and ends south of here.  You can hear
+      the sound of housewives gossiping at the market.
+    exits:
+      north: 605
+      east: 610
+      south: 611
+      west: 609
+    sector_type: CITY
+    doors:
+      north:
+        to: 605
+        description: "Impy Way continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 610
+        description: "You see the Farmer's Market."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 611
+        description: "You see the end of Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 609
+        description: "You see Nyles' House of Ale."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 609
+    key: ofcol2_room_609
+    name: "Nyles' House of Ale"
+    area_id: 30
+    short_desc: "Nyles' House of Ale"
+    long_desc: |
+      This is a very busy bar, with everyone holding homemade bottles of
+      ale.  You see even the more gentile persons here, laughing along with
+      Nyles, who offers you a quart of ale too.
+    exits:
+      east: 608
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 608
+        description: "You see Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 610
+    key: ofcol2_room_610
+    name: "Farmer's Market"
+    area_id: 30
+    short_desc: "Farmer's Market"
+    long_desc: |
+      You see many carts filled with fruits and vegetables.  Many farmers are
+      all trying to sell you their produce, each saying their's is better.  The exit
+      is west.
+    exits:
+      west: 608
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 608
+        description: "You see Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 611
+    key: ofcol2_room_611
+    name: "The End of Impy Way"
+    area_id: 30
+    short_desc: "The End of Impy Way"
+    long_desc: |
+      You are at the end of Impy and of the city part of Ofcol.  To the east is
+      a dirt road leading toward the farm animals.  West from here are fields.  Impy
+      Way continues north.
+    exits:
+      north: 608
+      east: 668
+      west: 612
+    sector_type: CITY
+    doors:
+      north:
+        to: 608
+        description: "Impy Way continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 668
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 612
+        description: "You see the fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 612
+    key: ofcol2_room_612
+    name: "Fields"
+    area_id: 30
+    short_desc: "Fields"
+    long_desc: |
+      You are in a corn field.  You can't see far, since the corn stalks are
+      taller than you are.  You remember that the end of Impy Way is east of here, 
+      and you think you see a building to the north.  The field continues south and 
+      west.
+    exits:
+      north: 616
+      east: 611
+      south: 613
+      west: 615
+    sector_type: FIELD
+    doors:
+      north:
+        to: 616
+        description: "You think you see a building north of here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 611
+        description: "You remember that the end of Impy Way is east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 613
+        description: "You can make a path to the fields south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 615
+        description: "You can make a path to the fields west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 613
+    key: ofcol2_room_613
+    name: "Fields"
+    area_id: 30
+    short_desc: "Fields"
+    long_desc: |
+      You are among fruit trees in a field.  You see many apple and orange 
+      trees.  You can make out the corn fields north and some vegetable patches west.
+      The sight of the fruit makes your mouth water.
+    exits:
+      north: 612
+      west: 614
+    sector_type: FIELD
+    doors:
+      north:
+        to: 612
+        description: "You see the corn fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 614
+        description: "You see the vegetable fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 614
+    key: ofcol2_room_614
+    name: "Fields"
+    area_id: 30
+    short_desc: "Fields"
+    long_desc: |
+      You are among the vegetable fields.  You see many cabbage and lettuce
+      patches, along with tomato bushes and potato plants.  To the east are some
+      fruit trees, and north are some wheat fields.
+    exits:
+      north: 615
+      east: 613
+    sector_type: FIELD
+    doors:
+      north:
+        to: 615
+        description: "You see the wheat fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 613
+        description: "You see the fruit trees."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 615
+    key: ofcol2_room_615
+    name: "Fields"
+    area_id: 30
+    short_desc: "Fields"
+    long_desc: |
+      You are among the wheat fields.  The gentle caress of the wheat and the
+      cool shadow from the tall stalks and scarecrow lulls you to sleep and dream
+      of a little girl and little dog from a faraway place.  To the east are the corn
+      stalks, and south of you are the vegetable patches.
+    exits:
+      east: 612
+      south: 614
+    sector_type: FIELD
+    doors:
+      east:
+        to: 612
+        description: "You see the corn fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 614
+        description: "You see the vegetable patches."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 616
+    key: ofcol2_room_616
+    name: "The Shed"
+    area_id: 30
+    short_desc: "The Shed"
+    long_desc: |
+      You are in the storage shed.  Bales of wheat, corn and hay are piled
+      against the wall, and some vegetables are in carts.  You see a small door
+      on the west door.  The main exit is south.
+    exits:
+      south: 612
+      west: 600
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 612
+        description: "You see the corn fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 600
+        description: "You see the door."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 617
+    key: ofcol2_room_617
+    name: "Slaughterhouse"
+    area_id: 30
+    short_desc: "Slaughterhouse"
+    long_desc: |
+      You are in the slaughterhouse, where all the animals are slaughtered so
+      that they can be sold or their skins be tanned.  The scream of dying animals
+      makes your stomach churn.  The exit is to the west.
+    exits:
+      west: 668
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 668
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 618
+    key: ofcol2_room_618
+    name: "Dirt Road"
+    area_id: 30
+    short_desc: "Dirt Road"
+    long_desc: |
+      You are on a dirt road.  To the east is a barn, and you see a big chicken
+      coop south of you.  The dirt road continues north and west.
+    exits:
+      north: 668
+      east: 620
+      south: 619
+      west: 621
+    sector_type: FIELD
+    doors:
+      north:
+        to: 668
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 620
+        description: "You see the barn."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 619
+        description: "You see the chicken coop."
+        keywords: "coop"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 621
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 619
+    key: ofcol2_room_619
+    name: "Chicken Coop"
+    area_id: 30
+    short_desc: "Chicken Coop"
+    long_desc: |
+      You are in the chicken coop.  The smell of chickens and chicken droppings
+      makes you gasp.  The exit is north.
+    exits:
+      north: 618
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 618
+        description: "You can sense the fresh air."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 620
+    key: ofcol2_room_620
+    name: "Barn"
+    area_id: 30
+    short_desc: "Barn"
+    long_desc: |
+      You are in a barn.  There are some cows here, munching on mounds of hay.
+      Milk is milked and bottled here.  You see the exit west.
+    exits:
+      west: 618
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 618
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 621
+    key: ofcol2_room_621
+    name: "Dirt Road"
+    area_id: 30
+    short_desc: "Dirt Road"
+    long_desc: |
+      You are on a dirt road.  To the north and south, you see some grass 
+      fields.  There is a pigsty west, and the dirt road continues east.
+    exits:
+      north: 622
+      east: 618
+      south: 623
+      west: 624
+    sector_type: FIELD
+    doors:
+      north:
+        to: 622
+        description: "You see some grass fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 618
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 623
+        description: "You see some grass fields."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 624
+        description: "You see the pigsty."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 622
+    key: ofcol2_room_622
+    name: "Grass Field"
+    area_id: 30
+    short_desc: "Grass Field"
+    long_desc: |
+      You are in a grass field.  Fences block the way north, east, and west.
+      The dirt road is to the south.
+    exits:
+      south: 621
+    sector_type: FIELD
+    doors:
+      south:
+        to: 621
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 623
+    key: ofcol2_room_623
+    name: "Grass Field"
+    area_id: 30
+    short_desc: "Grass Field"
+    long_desc: |
+      You are in a grass field.  Fences block the way south, east, and west.
+      The dirt road is to the north.
+    exits:
+      north: 621
+    sector_type: FIELD
+    doors:
+      north:
+        to: 621
+        description: "You see the dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 624
+    key: ofcol2_room_624
+    name: "Pig Sty"
+    area_id: 30
+    short_desc: "Pig Sty"
+    long_desc: |
+      For some reason, you are in a pig sty.  You wonder why you are standing in
+      muck.  To realize your senses and notice the dirt road is to the east.
+    exits:
+      east: 621
+    sector_type: FIELD
+    doors:
+      east:
+        to: 621
+        description: "You see the dry dirt road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 625
+    key: ofcol2_room_625
+    name: "Impy Way"
+    area_id: 30
+    short_desc: "Impy Way"
+    long_desc: |
+      You are on Impy Way.  East and west of you are big houses.  Impy Way
+      continues north and reaches a big intersection south.  Children are running to
+      from home to home.
+    exits:
+      north: 632
+      east: 626
+      south: 601
+      west: 629
+    sector_type: CITY
+    doors:
+      north:
+        to: 632
+        description: "Impy Way continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 626
+        description: "You see a big house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 665
+      south:
+        to: 601
+        description: "You see a big intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 629
+        description: "You see a big house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 665
+
+  - id: 626
+    key: ofcol2_room_626
+    name: "Big House"
+    area_id: 30
+    short_desc: "Big House"
+    long_desc: |
+      You are in a big house.  Evidently, the owners of this house are richer
+      than the average citizen, since there is more than one room to this house.  A
+      door leads to the kitchen east, and a bedroom is upstairs.  The exit is to the
+      west.
+    exits:
+      east: 628
+      west: 625
+      up: 627
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 628
+        description: "You see the kitchen."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 625
+        description: "You see Impy Way."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 665
+      up:
+        to: 627
+        description: "You see the bedroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 627
+    key: ofcol2_room_627
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You are in the bedroom.  There isn't much of interest except for a bed and
+      a closet.  The stairs lead back down.
+    exits:
+      down: 626
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 626
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 628
+    key: ofcol2_room_628
+    name: "Kitchen"
+    area_id: 30
+    short_desc: "Kitchen"
+    long_desc: |
+      You are in a kitchen.  There isn't much of interest here.  The main room
+      is west of here.
+    exits:
+      west: 626
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 626
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 629
+    key: ofcol2_room_629
+    name: "Big House"
+    area_id: 30
+    short_desc: "Big House"
+    long_desc: |
+      You are in a big house.  Evidently, the owners of this house are richer
+      than the average citizen, since there is more than one room to this house.  A
+      door leads to the kitchen west, and a bedroom is upstairs.  The exit is to the
+      east.
+    exits:
+      west: 631
+      east: 625
+      up: 630
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 631
+        description: "You see the kitchen."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 625
+        description: "You see Impy Way."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 665
+      up:
+        to: 630
+        description: "You see the bedroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 630
+    key: ofcol2_room_630
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You are in the bedroom.  There isn't much of interest except for a bed and
+      a closet.  The stairs lead back down.
+    exits:
+      down: 629
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 629
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 631
+    key: ofcol2_room_631
+    name: "Kitchen"
+    area_id: 30
+    short_desc: "Kitchen"
+    long_desc: |
+      You are in a kitchen.  There isn't much of interest here.  The main room
+      is east of here.
+    exits:
+      east: 629
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 629
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 632
+    key: ofcol2_room_632
+    name: "Impy Way"
+    area_id: 30
+    short_desc: "Impy Way"
+    long_desc: |
+      You are on Impy Way.  Houses are to the east and west of here.  Impy Way
+      continues north and south.  There are many people walking along the streets.
+    exits:
+      north: 637
+      east: 633
+      south: 625
+      west: 635
+    sector_type: CITY
+    doors:
+      north:
+        to: 637
+        description: "Impy Way continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 633
+        description: "You see a house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 625
+        description: "Impy Way continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 635
+        description: "You see a house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 633
+    key: ofcol2_room_633
+    name: "House"
+    area_id: 30
+    short_desc: "House"
+    long_desc: |
+      You are in a house.  The living room and kitchen are all bundled into
+      this room.  There is a bedroom south of here.  The exit is west.
+    exits:
+      south: 634
+      west: 632
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 634
+        description: "You see the bedroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 632
+        description: "You see Impy Way."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 634
+    key: ofcol2_room_634
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You are in a bedroom.  There isn't much of interest here except for a bed
+      and a dresser.  The main room of the house is north of here.
+    exits:
+      north: 633
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 633
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 635
+    key: ofcol2_room_635
+    name: "House"
+    area_id: 30
+    short_desc: "House"
+    long_desc: |
+      You are in a house.  The living room and kitchen are all bundled into
+      this room.  There is a bedroom south of here.  The exit is east.
+    exits:
+      south: 636
+      east: 632
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 636
+        description: "You see the bedroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 632
+        description: "You see Impy Way."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 636
+    key: ofcol2_room_636
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You are in a bedroom.  There isn't much of interest here except for a bed
+      and a dresser.  The main room of the house is north of here.
+    exits:
+      north: 635
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 635
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 637
+    key: ofcol2_room_637
+    name: "Impy Way"
+    area_id: 30
+    short_desc: "Impy Way"
+    long_desc: |
+      You are on Impy Way.  Houses are to the east and west of here.  Impy Way
+      continues south.  To the north is a big intersection.  There are many people
+      walking along the streets.
+    exits:
+      north: 642
+      east: 638
+      south: 632
+      west: 640
+    sector_type: CITY
+    doors:
+      north:
+        to: 642
+        description: "You see a big intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 638
+        description: "You see a house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 632
+        description: "Impy Way continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 640
+        description: "You see a house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 638
+    key: ofcol2_room_638
+    name: "House"
+    area_id: 30
+    short_desc: "House"
+    long_desc: |
+      You are in a house.  The living room and kitchen are all bundled into
+      this room.  There is a bedroom south of here.  The exit is west.
+    exits:
+      south: 639
+      west: 637
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 639
+        description: "You see the bedroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 637
+        description: "You see Impy Way."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 639
+    key: ofcol2_room_639
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You are in a bedroom.  There isn't much of interest here except for a bed
+      and a dresser.  The main room of the house is north of here.
+    exits:
+      north: 638
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 638
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 640
+    key: ofcol2_room_640
+    name: "House"
+    area_id: 30
+    short_desc: "House"
+    long_desc: |
+      You are in a house.  The living room and kitchen are all bundled into
+      this room.  There is a bedroom south of here.  The exit is east.
+    exits:
+      south: 641
+      east: 637
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 641
+        description: "You see the bedroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 637
+        description: "You see Impy Way."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 641
+    key: ofcol2_room_641
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You are in a bedroom.  There isn't much of interest here except for a bed
+      and a dresser.  The main room of the house is north of here.
+    exits:
+      north: 640
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 640
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 642
+    key: ofcol2_room_642
+    name: "The Big Intersection"
+    area_id: 30
+    short_desc: "The Big Intersection"
+    long_desc: |
+      You are on the intersection of Impy Way and Swiftest Way.  To the north of
+      you is a big house.  Swiftest Way runs east and west, and Impy way continues
+      south.  There are quite a few people on this intersection.
+    exits:
+      north: 643
+      east: 646
+      south: 637
+      west: 649
+    sector_type: CITY
+    doors:
+      north:
+        to: 643
+        description: "You see the big house."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 665
+      east:
+        to: 646
+        description: "Swiftest Way continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 637
+        description: "Impy Way continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 649
+        description: "Swiftest Way continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 643
+    key: ofcol2_room_643
+    name: "Big House"
+    area_id: 30
+    short_desc: "Big House"
+    long_desc: |
+      You are in a big house.  Evidently, the owners of this house are richer
+      than the average citizen, since there is more than one room to this house.  A
+      door leads to the kitchen north, and a bedroom is upstairs.  The exit is to 
+      the south.
+    exits:
+      north: 645
+      south: 642
+      up: 644
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 645
+        description: "You see the kitchen."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 642
+        description: "You see Impy Way."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 665
+      up:
+        to: 644
+        description: "You see the bedroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 644
+    key: ofcol2_room_644
+    name: "Bedroom"
+    area_id: 30
+    short_desc: "Bedroom"
+    long_desc: |
+      You are in the bedroom.  There isn't much of interest except for a bed 
+      and a closet.  The stairs lead back down.
+    exits:
+      down: 643
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 643
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 645
+    key: ofcol2_room_645
+    name: "Kitchen"
+    area_id: 30
+    short_desc: "Kitchen"
+    long_desc: |
+      You are in a kitchen.  There isn't much of interest here.  The main room
+      is east of here.
+    exits:
+      south: 643
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 643
+        description: "You see the main room of the house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 646
+    key: ofcol2_room_646
+    name: "Swiftest Way"
+    area_id: 30
+    short_desc: "Swiftest Way"
+    long_desc: |
+      You are on Swiftest Way, the commoner's residential area.  Small houses
+      are north and south of you.  Swiftest Way continues east, and west is a big
+      intersection.
+    exits:
+      north: 652
+      east: 647
+      south: 653
+      west: 642
+    sector_type: CITY
+    doors:
+      north:
+        to: 652
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 647
+        description: "Swiftest Way continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 653
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 642
+        description: "You see a big intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 647
+    key: ofcol2_room_647
+    name: "Swiftest Way"
+    area_id: 30
+    short_desc: "Swiftest Way"
+    long_desc: |
+      You are on Swiftest Way, the commoner's residential area.  Small houses
+      are north and south of you.  Swiftest Way continues east and west.
+    exits:
+      north: 654
+      east: 648
+      south: 655
+      west: 646
+    sector_type: CITY
+    doors:
+      north:
+        to: 654
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 648
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 655
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 646
+        description: "Swiftest Way continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 648
+    key: ofcol2_room_648
+    name: "End of Swiftest Way"
+    area_id: 30
+    short_desc: "End of Swiftest Way"
+    long_desc: |
+      You are on Swiftest Way, the commoner's residential area.  Small houses
+      are north, south, and east of you.  Swiftest Way continues west.
+    exits:
+      north: 656
+      east: 657
+      south: 658
+      west: 647
+    sector_type: CITY
+    doors:
+      north:
+        to: 656
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 657
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 658
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 647
+        description: "Swiftest Way continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 649
+    key: ofcol2_room_649
+    name: "Swiftest Way"
+    area_id: 30
+    short_desc: "Swiftest Way"
+    long_desc: |
+      You are on Swiftest Way, the commoner's residential area.  Small houses
+      are north and south of you.  Swiftest Way continues west, and to the east you
+      see a big intersection.
+    exits:
+      north: 659
+      east: 642
+      south: 660
+      west: 650
+    sector_type: CITY
+    doors:
+      north:
+        to: 659
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 642
+        description: "You see the big intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 660
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 650
+        description: "Swiftest Way continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 650
+    key: ofcol2_room_650
+    name: "Swiftest Way"
+    area_id: 30
+    short_desc: "Swiftest Way"
+    long_desc: |
+      You are on Swiftest Way, the commoner's residential area.  Small houses
+      are north and south of you.  Swiftest Way continues east and west.
+    exits:
+      north: 661
+      east: 649
+      south: 662
+      west: 651
+    sector_type: CITY
+    doors:
+      north:
+        to: 661
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 649
+        description: "Swiftest Way continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 662
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 651
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 651
+    key: ofcol2_room_651
+    name: "The end of Swiftest Way"
+    area_id: 30
+    short_desc: "The end of Swiftest Way"
+    long_desc: |
+      You are on Swiftest Way, the commoner's residential area.  Small houses
+      are north, south, and west of you.  Swiftest Way continues east.
+    exits:
+      north: 663
+      east: 650
+      south: 664
+      west: 665
+    sector_type: CITY
+    doors:
+      north:
+        to: 663
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 650
+        description: "Swiftest Way continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 664
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 665
+        description: "You see a small house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 652
+    key: ofcol2_room_652
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the south.
+    exits:
+      south: 646
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 646
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 653
+    key: ofcol2_room_653
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the north.
+    exits:
+      north: 646
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 646
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 654
+    key: ofcol2_room_654
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the south.
+    exits:
+      south: 647
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 647
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 655
+    key: ofcol2_room_655
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the north.
+    exits:
+      north: 647
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 647
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 656
+    key: ofcol2_room_656
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the south.
+    exits:
+      south: 648
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 648
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 657
+    key: ofcol2_room_657
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the west.
+    exits:
+      west: 648
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 648
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 658
+    key: ofcol2_room_658
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the north.
+    exits:
+      north: 648
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 648
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 659
+    key: ofcol2_room_659
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the south.
+    exits:
+      south: 649
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 649
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 660
+    key: ofcol2_room_660
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the north.
+    exits:
+      north: 649
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 649
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 661
+    key: ofcol2_room_661
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the south.
+    exits:
+      south: 650
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 650
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 662
+    key: ofcol2_room_662
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the north.
+    exits:
+      north: 650
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 650
+        description: "You see Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 663
+    key: ofcol2_room_663
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the south.
+    exits:
+      south: 651
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 651
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 664
+    key: ofcol2_room_664
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the north.
+    exits:
+      north: 651
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 651
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 665
+    key: ofcol2_room_665
+    name: "Small House"
+    area_id: 30
+    short_desc: "Small House"
+    long_desc: |
+      You are in a small house, owned by a commoner of Ofcol.  There isn't much
+      of value here to you, but you'd bet that the owner really cherishes the pile
+      of stuff here.  The exit is to the east.
+    exits:
+      east: 651
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 651
+        description: "You see the end of Swiftest Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 666
+    key: ofcol2_room_666
+    name: "Raff Way"
+    area_id: 30
+    short_desc: "Raff Way"
+    long_desc: |
+      You are on Raff Way.  To the west, you can see a big intersection.  To 
+      the east, you see Raff Way continue toward the Golden Citadel.  There are 
+      beautiful flowers growing along the rode here, making this more of a garden
+      than a rode.
+    exits:
+      east: 667
+      west: 601
+    sector_type: CITY
+    doors:
+      east:
+        to: 667
+        description: "Raff Way continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 601
+        description: "You see the big intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 667
+    key: ofcol2_room_667
+    name: "Raff Way"
+    area_id: 30
+    short_desc: "Raff Way"
+    long_desc: |
+      You are on Raff Way.  Raff Way continues west to the city of Ofcol.  To 
+      the east, you see Raff Way continue toward the Golden Citadel.  There are 
+      beautiful flowers growing along the rode here, making this more of a garden
+      than a rode.
+    exits:
+      east: 699
+      west: 666
+    sector_type: CITY
+    doors:
+      east:
+        to: 699
+        description: "You see the entrance of the Golden Citadel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 666
+        description: "Raff Way continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 668
+    key: ofcol2_room_668
+    name: "Dirt Road"
+    area_id: 30
+    short_desc: "Dirt Road"
+    long_desc: |
+      You are on a dirt road.  To the east is a large building with a bad smell
+      emanating from it.  To the west is the end of Impy Way, and this road continues
+      south.
+    exits:
+      east: 617
+      south: 618
+      west: 611
+    sector_type: FIELD
+    doors:
+      east:
+        to: 617
+        description: "You see the large building with the bad smell."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 618
+        description: "The dirt road continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 611
+        description: "You see the end of Impy Way."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 669
+    key: ofcol2_room_669
+    name: "The Temple of Ofcol"
+    area_id: 30
+    short_desc: "The Temple of Ofcol"
+    long_desc: |
+      You are in the Temple of Ofcol.  Golden tiles cover the floor, and solid
+      gold columns reach the twelve foot ceiling of this vast chamber.  Servants in
+      golden livery wander this place, making even the raggiest messenger boy look
+      richer than you are.  Exits lead to the anterooms in the cardinal directions.
+    exits:
+      north: 670
+      east: 672
+      south: 673
+      west: 671
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 670
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 672
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 673
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 671
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 670
+    key: ofcol2_room_670
+    name: "The Anteroom to the Temple of Ofcol"
+    area_id: 30
+    short_desc: "The Anteroom to the Temple of Ofcol"
+    long_desc: |
+      You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
+      floor, and servants in golden livery pass you by peaceably.  The temple is to
+      the south, and to the north is a hallway.  A stairways leads up.
+    exits:
+      north: 675
+      south: 669
+      up: 686
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 675
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 669
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 686
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 671
+    key: ofcol2_room_671
+    name: "The Anteroom to the Temple of Ofcol"
+    area_id: 30
+    short_desc: "The Anteroom to the Temple of Ofcol"
+    long_desc: |
+      You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
+      floor, and servants in golden livery pass you by peaceably.  The temple is to
+      the east, and to the west is a hallway.  A stairways leads up.
+    exits:
+      east: 669
+      west: 679
+      up: 687
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 669
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 679
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 687
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 672
+    key: ofcol2_room_672
+    name: "The Anteroom to the Temple of Ofcol"
+    area_id: 30
+    short_desc: "The Anteroom to the Temple of Ofcol"
+    long_desc: |
+      You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
+      floor, and servants in golden livery pass you by peaceably.  The temple is to
+      the west, and to the east is a hallway.  A stairways leads up.
+    exits:
+      east: 680
+      west: 669
+      up: 689
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 680
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 669
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 689
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 673
+    key: ofcol2_room_673
+    name: "The Anteroom to the Temple of Ofcol"
+    area_id: 30
+    short_desc: "The Anteroom to the Temple of Ofcol"
+    long_desc: |
+      You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
+      floor, and servants in golden livery pass you by peaceably.  The temple is to
+      the north, and to the south is a hallway.  A stairways leads up.
+    exits:
+      north: 669
+      south: 684
+      up: 690
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 669
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 684
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 690
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 674
+    key: ofcol2_room_674
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead east and south.
+    exits:
+      east: 675
+      south: 677
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 675
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 677
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 675
+    key: ofcol2_room_675
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead east, west, and south.
+    exits:
+      east: 676
+      south: 670
+      west: 674
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 676
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 670
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 674
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 676
+    key: ofcol2_room_676
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead west and south.
+    exits:
+      south: 678
+      west: 675
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 678
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 675
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 677
+    key: ofcol2_room_677
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead north and south.
+    exits:
+      north: 674
+      south: 679
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 674
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 679
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 678
+    key: ofcol2_room_678
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead north and south.
+    exits:
+      north: 676
+      south: 680
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 676
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 680
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 679
+    key: ofcol2_room_679
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead to the cardinal directions, with the east leading
+      toward the Temple of Ofcol, and west leading toward the City of Ofcol.
+    exits:
+      north: 677
+      east: 671
+      south: 681
+      west: 698
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 677
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 671
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 681
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 698
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 680
+    key: ofcol2_room_680
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead west, north and south.
+    exits:
+      north: 678
+      south: 682
+      west: 672
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 678
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 682
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 672
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 681
+    key: ofcol2_room_681
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead north and south.
+    exits:
+      north: 679
+      south: 683
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 679
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 683
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 682
+    key: ofcol2_room_682
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead north and south.
+    exits:
+      north: 680
+      south: 685
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 680
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 685
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 683
+    key: ofcol2_room_683
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead north and east.
+    exits:
+      north: 681
+      east: 684
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 681
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 684
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 684
+    key: ofcol2_room_684
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead east, west, and north.
+    exits:
+      north: 673
+      east: 685
+      west: 683
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 673
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 685
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 683
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 685
+    key: ofcol2_room_685
+    name: "A Hallway of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Hallway of the Golden Citadel"
+    long_desc: |
+      You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+      and rich golden tapestries drape the walls.  Servants in golden livery pass you
+      by peaceably.  Exits lead west and north.
+    exits:
+      north: 682
+      west: 684
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 682
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 684
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 686
+    key: ofcol2_room_686
+    name: "An Upper Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "An Upper Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the upper chambers of the Golden Citadel.  The decora-
+      tions of this place surpass even those of the first floor.  Gold tiles etched
+      with platinum cover the floor, walls and the ceiling.  The lights from numerous
+      torches reflect from these shimmering planes, giving the illusion that you are
+      standing in a gem.  Stairways lead up and down, and the hall leads south.
+    exits:
+      south: 688
+      up: 691
+      down: 670
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 688
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 691
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 670
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 687
+    key: ofcol2_room_687
+    name: "An Upper Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "An Upper Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the upper chambers of the Golden Citadel.  The decora-
+      tions of this place surpass even those of the first floor.  Gold tiles etched
+      with platinum cover the floor, walls and the ceiling.  The lights from numerous
+      torches reflect from these shimmering planes, giving the illusion that you are
+      standing in a gem.  Stairways lead up and down, and the hall leads east.
+    exits:
+      east: 688
+      up: 692
+      down: 671
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 688
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 692
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 671
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 688
+    key: ofcol2_room_688
+    name: "The Hall of the DragonLords"
+    area_id: 30
+    short_desc: "The Hall of the DragonLords"
+    long_desc: |
+      You are in a vast hall, filled with the commanders of the Golden Citadel.
+      Golden tiles etched with platinum cover the floors, and weapons of all types
+      are mounted on the walls of this meeting hall.  Surrounding a solid gold table
+      are four sons of the Keeper of the Golden Citadel.  They smile at you and ask 
+      you to join them in lunch.  Exits lead to the cardinal directions.
+    exits:
+      north: 686
+      east: 689
+      south: 690
+      west: 687
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 686
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 689
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 690
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 687
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 689
+    key: ofcol2_room_689
+    name: "An Upper Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "An Upper Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the upper chambers of the Golden Citadel.  The decora-
+      tions of this place surpass even those of the first floor.  Gold tiles etched
+      with platinum cover the floor, walls and the ceiling.  The lights from numerous
+      torches reflect from these shimmering planes, giving the illusion that you are
+      standing in a gem.  Stairways lead up and down, and the hall leads west.
+    exits:
+      west: 688
+      up: 694
+      down: 672
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 688
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 694
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 672
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 690
+    key: ofcol2_room_690
+    name: "An Upper Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "An Upper Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the upper chambers of the Golden Citadel.  The decora-
+      tions of this place surpass even those of the first floor.  Gold tiles etched
+      with platinum cover the floor, walls and the ceiling.  The lights from numerous
+      torches reflect from these shimmering planes, giving the illusion that you are
+      standing in a gem.  Stairways lead up and down, and the hall leads north.
+    exits:
+      north: 688
+      up: 695
+      down: 673
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 688
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 695
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 673
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 691
+    key: ofcol2_room_691
+    name: "A Top Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Top Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the top chambers of the Golden Citadel.  The decorations
+      of this room looks like a dragon's hoard.  The whole room is carved out of pure
+      gold, and gems of all types glitter from the walls, ceiling, even the floor.
+      It is obvious that this room was not meant for you to intrude upon.  A stair-
+      case leads back down, and a doorway leads south.
+    exits:
+      south: 693
+      down: 686
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 693
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 686
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 692
+    key: ofcol2_room_692
+    name: "A Top Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Top Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the top chambers of the Golden Citadel.  The decorations
+      of this room looks like a dragon's hoard.  The whole room is carved out of pure
+      gold, and gems of all types glitter from the walls, ceiling, even the floor.
+      It is obvious that this room was not meant for you to intrude upon.  A stair-
+      case leads back down, and a doorway leads east.
+    exits:
+      east: 693
+      down: 687
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 693
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 687
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 693
+    key: ofcol2_room_693
+    name: "The Dragon Chamber"
+    area_id: 30
+    short_desc: "The Dragon Chamber"
+    long_desc: |
+      You are in a vast chamber carved from gold and platinum.  Gems the size of
+      a man's fist protrude from the walls, ceiling, and the floor, making your step
+      painful.  A vast open sky-light lets fresh air come in from the top.  In the
+      center of this chamber, you see a great wealth of coins, and on top of that
+      pile of coins, you see a golden dragon squinting at you.  Exits lead to the
+      cardinal directions to the anterooms.
+    exits:
+      north: 691
+      east: 694
+      south: 695
+      west: 692
+      up: 696
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 691
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 694
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 695
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 692
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 696
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 694
+    key: ofcol2_room_694
+    name: "A Top Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Top Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the top chambers of the Golden Citadel.  The decorations
+      of this room looks like a dragon's hoard.  The whole room is carved out of pure
+      gold, and gems of all types glitter from the walls, ceiling, even the floor.
+      It is obvious that this room was not meant for you to intrude upon.  A stair-
+      case leads back down, and a doorway leads west.
+    exits:
+      west: 693
+      down: 689
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 693
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 689
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 695
+    key: ofcol2_room_695
+    name: "A Top Chamber of the Golden Citadel"
+    area_id: 30
+    short_desc: "A Top Chamber of the Golden Citadel"
+    long_desc: |
+      You are in one of the top chambers of the Golden Citadel.  The decorations
+      of this room looks like a dragon's hoard.  The whole room is carved out of pure
+      gold, and gems of all types glitter from the walls, ceiling, even the floor.
+      It is obvious that this room was not meant for you to intrude upon.  A stair-
+      case leads back down, and a doorway leads north.
+    exits:
+      east: 695
+      down: 690
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 695
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 690
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 696
+    key: ofcol2_room_696
+    name: "Above the Dragon Chamber"
+    area_id: 30
+    short_desc: "Above the Dragon Chamber"
+    long_desc: |
+      You are above the Dragon Chamber.  You curiously note that this shaft that
+      connects the chamber to the sky is wide enough that even a dragon can fit
+      through.  This shaft leads up and down.
+    exits:
+      up: 697
+      down: 693
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 697
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 693
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 697
+    key: ofcol2_room_697
+    name: "In the Shaft from the Dragon Chamber"
+    area_id: 30
+    short_desc: "In the Shaft from the Dragon Chamber"
+    long_desc: |
+      You are in the shaft leading from the Dragon Chamber.  Below you lies the
+      Dragon Chamber of the Golden Citadel.  Above you, you see the sky, but 
+      currently, the way out is sealed by a layer of diamond that looks impenetrable.
+    exits:
+      down: 696
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 696
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 698
+    key: ofcol2_room_698
+    name: "Inside the Entrance to the Golden Citadel"
+    area_id: 30
+    short_desc: "Inside the Entrance to the Golden Citadel"
+    long_desc: |
+      You are inside the entrance to the Golden Citadel.  Rich golden tapestries
+      line the walls, and golden tiles cover the floors.  The exit to this citadel is
+      to the west, while the citadel itself is to the east.
+    exits:
+      east: 679
+      west: 699
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 679
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 699
+        description: ""
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 651
+
+  - id: 699
+    key: ofcol2_room_699
+    name: "Outside the Entrance to the Golden Citadel"
+    area_id: 30
+    short_desc: "Outside the Entrance to the Golden Citadel"
+    long_desc: |
+      You are outside the entrance to the Golden Citadel.  A great gate is to
+      to the east, marking the entranceway into the citadel.  The road also leads
+      back west to Raff Way.
+    exits:
+      east: 698
+      west: 667
+    sector_type: FIELD
+    doors:
+      east:
+        to: 698
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 651
+      west:
+        to: 667
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

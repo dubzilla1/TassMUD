@@ -1,0 +1,690 @@
+rooms:
+  - id: 6601
+    key: daycare_room_6601
+    name: "The Dwarven Drop Off"
+    area_id: 32
+    short_desc: "The Dwarven Drop Off"
+    long_desc: |
+      This is where the dwarven mommies and daddies come to drop off their
+      annoying little brats.  You have the urge to leave.  There is a sign here.
+    exits:
+      south: 6602
+      north: 6500
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      south:
+        to: 6602
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 6500
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        This is an area for newbies, so have fun.  -- Sandman
+
+  - id: 6602
+    key: daycare_room_6602
+    name: "Day Care Center"
+    area_id: 32
+    short_desc: "Day Care Center"
+    long_desc: |
+      You are in the north-east corner of the main part of the center.  Toys and
+      toddlers are all over the room.  There is a kitchen to the east.
+    exits:
+      north: 6601
+      west: 6603
+      south: 6604
+      east: 6626
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6601
+        description: "You see the drop off."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6603
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6604
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6626
+        description: "You see an extremely messy kitchen."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6603
+    key: daycare_room_6603
+    name: "Day Care Center"
+    area_id: 32
+    short_desc: "Day Care Center"
+    long_desc: |
+      You are in the north-west corner of the main part of the center.  Toys and
+      toddlers are all over the room.  There is a bathroom to the west.
+    exits:
+      east: 6602
+      south: 6605
+      west: 6606
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 6602
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6605
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6606
+        description: "You see a messy bathroom."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6604
+    key: daycare_room_6604
+    name: "Day Care Center"
+    area_id: 32
+    short_desc: "Day Care Center"
+    long_desc: |
+      You are in the south-east corner of the main part of the center.  Toys and
+      toddlers are all over the room.  There is a playground to the east.
+    exits:
+      north: 6602
+      east: 6610
+      west: 6605
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6602
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6610
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6605
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6605
+    key: daycare_room_6605
+    name: "Day Care Center"
+    area_id: 32
+    short_desc: "Day Care Center"
+    long_desc: |
+      You are in the south-west corner of the main part of the center.  Toys and
+      toddlers are all over the room.  There is a staircase to the west.
+    exits:
+      north: 6603
+      east: 6604
+      west: 6607
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6603
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6604
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6607
+        description: "You see a staircase leading down."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6606
+    key: daycare_room_6606
+    name: "The Messy Bathroom"
+    area_id: 32
+    short_desc: "The Messy Bathroom"
+    long_desc: |
+      You hold your nose as you realize you have made the worst mistake of your
+      life.  The air is rancid and the walls are stained.
+    exits:
+      east: 6603
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 6603
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6607
+    key: daycare_room_6607
+    name: "The Staircase"
+    area_id: 32
+    short_desc: "The Staircase"
+    long_desc: |
+      You stand on top of a staircase leading down, and wonder what mystery could
+      lie down under.  Beware!
+    exits:
+      east: 6605
+      down: 6612
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 6605
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 6612
+        description: "You see the entrance to something."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6608
+    key: daycare_room_6608
+    name: "The Playground"
+    area_id: 32
+    short_desc: "The Playground"
+    long_desc: |
+      You are in the north-west corner of the playground.
+    exits:
+      east: 6609
+      south: 6610
+    sector_type: FIELD
+    doors:
+      east:
+        to: 6609
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6610
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6609
+    key: daycare_room_6609
+    name: "The Playground"
+    area_id: 32
+    short_desc: "The Playground"
+    long_desc: |
+      You are in the north-east corner of the playground.
+    exits:
+      south: 6611
+      west: 6608
+    sector_type: FIELD
+    doors:
+      south:
+        to: 6611
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6608
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6610
+    key: daycare_room_6610
+    name: "The Playground"
+    area_id: 32
+    short_desc: "The Playground"
+    long_desc: |
+      You are in the south-west corner of the playground.
+    exits:
+      north: 6608
+      east: 6611
+      west: 6604
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6608
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6611
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6604
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6611
+    key: daycare_room_6611
+    name: "The Playground"
+    area_id: 32
+    short_desc: "The Playground"
+    long_desc: |
+      You are in the south-east corner of the playground.
+    exits:
+      north: 6609
+      west: 6610
+    sector_type: FIELD
+    doors:
+      north:
+        to: 6609
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6610
+        description: "You see the playground."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6612
+    key: daycare_room_6612
+    name: "Entrance to the Mini-Maze"
+    area_id: 32
+    short_desc: "Entrance to the Mini-Maze"
+    long_desc: |
+      You stand in the entrance to a small, but confusing maze.  You really hope
+      that you don't get lost.
+    exits:
+      east: 6613
+      up: 6607
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      east:
+        to: 6613
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 6607
+        description: "You see some stairs."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6613
+    key: daycare_room_6613
+    name: "Mini-Maze"
+    area_id: 32
+    short_desc: "Mini-Maze"
+    long_desc: |
+      You are in a small passage that looks just like every other one.
+    exits:
+      west: 6612
+      south: 6615
+      east: 6614
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 6612
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6615
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6614
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6614
+    key: daycare_room_6614
+    name: "Mini-Maze"
+    area_id: 32
+    short_desc: "Mini-Maze"
+    long_desc: |
+      You are in a small passage that looks just like every other one.
+    exits:
+      south: 6616
+      west: 6613
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 6616
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 6613
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6615
+    key: daycare_room_6615
+    name: "Mini-Maze"
+    area_id: 32
+    short_desc: "Mini-Maze"
+    long_desc: |
+      You are in a small passage that looks just like every other one.
+    exits:
+      north: 6613
+      east: 6616
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6613
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 6616
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6616
+    key: daycare_room_6616
+    name: "Mini-Maze"
+    area_id: 32
+    short_desc: "Mini-Maze"
+    long_desc: |
+      You are in a small passage that looks just like every other one.
+    exits:
+      west: 6615
+      north: 6614
+      south: 6624
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 6615
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 6614
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6624
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6624
+    key: daycare_room_6624
+    name: "End of the Mini-Maze"
+    area_id: 32
+    short_desc: "End of the Mini-Maze"
+    long_desc: |
+      You stand at the end of your journey.  There is a big sign here and you had
+      better read it!
+    exits:
+      north: 6616
+      south: 6631
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6616
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 6631
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        If you are not level 6 or above, then don't go south!!!!  It is a dangerous
+        area, but congrats for getting this far - Sandman
+
+  - id: 6626
+    key: daycare_room_6626
+    name: "Messy Kitchen"
+    area_id: 32
+    short_desc: "Messy Kitchen"
+    long_desc: |
+      You stand in the kitchen and eating area of the day care center.  Pots and
+      pans are everywhere, while the toddlers continue to create chaos.
+    exits:
+      west: 6602
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 6602
+        description: "You see a large room full of noisy brats."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 6631
+    key: daycare_room_6631
+    name: "The End?"
+    area_id: 32
+    short_desc: "The End?"
+    long_desc: |
+      You have reached the final lair.  It is dominated by a huge five headed
+      dragon (actually an overgrown brat with a Halloween mask).
+    exits:
+      north: 6624
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 6624
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

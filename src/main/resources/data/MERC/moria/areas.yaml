@@ -1,0 +1,9 @@
+areas:
+  - id: 39
+    name: "Moria"
+    description: "Converted from moria.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "moria.are"
+    vnum_range: "3900-4172"
+

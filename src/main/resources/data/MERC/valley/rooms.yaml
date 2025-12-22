@@ -1,0 +1,3262 @@
+rooms:
+  - id: 7800
+    key: valley_room_7800
+    name: "A Path from the Plains"
+    area_id: 32
+    short_desc: "A Path from the Plains"
+    long_desc: |
+      You are on a path away from the Plains of Ofcol.  The path doesn't look well
+      tread, but it is relatively well kept.  To the south are the Plains of Ofcol,
+      while this path leads north.
+    exits:
+      north: 7801
+      south: 323
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7801
+        description: "The path continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 323
+        description: "You see the Plains of Ofcol."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7801
+    key: valley_room_7801
+    name: "Along the Path"
+    area_id: 32
+    short_desc: "Along the Path"
+    long_desc: |
+      You are on the path away from the Plains of Ofcol.  The main path leads north
+      to an overlook and south back toward the Plains of Ofcol.  Western and eastern
+      side paths can be seen, probably deer trails by the width of them.
+    exits:
+      north: 7804
+      east: 7803
+      south: 7800
+      west: 7802
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7804
+        description: "You see the overlook."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7803
+        description: "You see the small trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7800
+        description: "You see the path back toward Ofcol."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7802
+        description: "You see the small trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7802
+    key: valley_room_7802
+    name: "A Small Trail"
+    area_id: 32
+    short_desc: "A Small Trail"
+    long_desc: |
+      This small deer trail leads north and east.
+    exits:
+      north: 7867
+      east: 7801
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7867
+        description: "The trail continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7801
+        description: "The main path is to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7803
+    key: valley_room_7803
+    name: "A Small Trail"
+    area_id: 32
+    short_desc: "A Small Trail"
+    long_desc: |
+      This small deer trail leads north and west.
+    exits:
+      north: 7849
+      west: 7801
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7849
+        description: "The trail continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7801
+        description: "The main path is to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7804
+    key: valley_room_7804
+    name: "The Overlook"
+    area_id: 32
+    short_desc: "The Overlook"
+    long_desc: |
+      You are above a large valley.  Below you, you see humanoid forms wandering
+      around the valley.  Rich green grass covers the valley, with some small trees
+      dotting the landscape.  To the south is the trail back toward Ofcol.
+    exits:
+      south: 7801
+      down: 7805
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7801
+        description: "You see the path back toward Ofcol."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7805
+        description: "You see the entrance to the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7805
+    key: valley_room_7805
+    name: "The Entrance to the Valley of the Elves"
+    area_id: 32
+    short_desc: "The Entrance to the Valley of the Elves"
+    long_desc: |
+      You are at the entrance to the Valley of the Elves.  Elves stare at your
+      intrusion, but most are too busy to bother with you.  The valley spreads to
+      the north, while enlarging toward the east and west.
+    exits:
+      north: 7810
+      east: 7807
+      west: 7806
+      up: 7804
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7810
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7807
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7806
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 7804
+        description: "The overlook is above you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7806
+    key: valley_room_7806
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a small
+      trail circling the entire valley.  The valley continues north and east.
+    exits:
+      north: 7809
+      east: 7805
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7809
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7805
+        description: "The entrance to the valley is to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7807
+    key: valley_room_7807
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a small
+      trail circling the entire valley.  The valley continues north and west.
+    exits:
+      north: 7811
+      west: 7805
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7811
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7805
+        description: "The entrance to the valley is to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7808
+    key: valley_room_7808
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a small
+      trail circling the entire valley.  The valley continues north and east.
+    exits:
+      north: 7813
+      east: 7809
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7813
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7809
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7809
+    key: valley_room_7809
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7814
+      east: 7810
+      south: 7806
+      west: 7808
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7814
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7810
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7806
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7808
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7810
+    key: valley_room_7810
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+      The entrance to the valley is towards the south.
+    exits:
+      north: 7815
+      east: 7811
+      south: 7805
+      west: 7809
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7815
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7811
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7805
+        description: "You see the entrance to the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7809
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7811
+    key: valley_room_7811
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7816
+      east: 7812
+      south: 7807
+      west: 7810
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7816
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7812
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7807
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7810
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7812
+    key: valley_room_7812
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a small
+      trail circling the entire valley.  The valley continues north and west.
+    exits:
+      north: 7817
+      west: 7811
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7817
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7811
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7813
+    key: valley_room_7813
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  A steep trail leads up toward
+      the deer trail circling the valley.  The valley continues north, south, and
+      east.
+    exits:
+      north: 7818
+      east: 7814
+      south: 7808
+      up: 7863
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7818
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7814
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7808
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 7863
+        description: "The steep trail leads up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7814
+    key: valley_room_7814
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7819
+      east: 7815
+      south: 7809
+      west: 7813
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7819
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7815
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7809
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7813
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7815
+    key: valley_room_7815
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7820
+      east: 7816
+      south: 7810
+      west: 7814
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7820
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7816
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7810
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7814
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7816
+    key: valley_room_7816
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7821
+      east: 7817
+      south: 7811
+      west: 7815
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7821
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7817
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7811
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7815
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7817
+    key: valley_room_7817
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  A steep trail leads up toward
+      the deer trail circling the valley.  The valley continues north, south, and
+      west.
+    exits:
+      north: 7822
+      south: 7812
+      west: 7816
+      up: 7853
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7822
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7812
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7816
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 7853
+        description: "The steep trail leads up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7818
+    key: valley_room_7818
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a
+      small trail circling the entire valley.  The valley continues south and east.
+    exits:
+      east: 7819
+      south: 7813
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7819
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7813
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7819
+    key: valley_room_7819
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7823
+      east: 7820
+      south: 7814
+      west: 7818
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7823
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7820
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7814
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7818
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7820
+    key: valley_room_7820
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7824
+      east: 7821
+      south: 7815
+      west: 7819
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7824
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7821
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7815
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7819
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7821
+    key: valley_room_7821
+    name: "The Valley of the Elves"
+    area_id: 32
+    short_desc: "The Valley of the Elves"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+    exits:
+      north: 7825
+      east: 7822
+      south: 7816
+      west: 7820
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7825
+        description: "The valley continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7822
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7816
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7820
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7822
+    key: valley_room_7822
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a small
+      trail circling the entire valley.  The valley continues south and west.
+    exits:
+      south: 7817
+      west: 7821
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7817
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7821
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7823
+    key: valley_room_7823
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a small
+      trail circling the entire valley.  The valley continues south and east.
+    exits:
+      east: 7824
+      south: 7819
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7824
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7819
+        description: "The valley continues south"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7824
+    key: valley_room_7824
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are in the Valley of the Elves.  The valley continues in all directions.
+      To the north, a small, narrow trail leads away from the valley.
+    exits:
+      north: 7826
+      east: 7825
+      south: 7820
+      west: 7823
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7826
+        description: "A small trail leads away from the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7825
+        description: "The valley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7820
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7823
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7825
+    key: valley_room_7825
+    name: "The Edge of the Valley"
+    area_id: 32
+    short_desc: "The Edge of the Valley"
+    long_desc: |
+      You are at the edge of the Valley of the Elves.  High above you, you see a small
+      trail circling the entire valley.  The valley continues south and west.
+    exits:
+      south: 7821
+      west: 7824
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7821
+        description: "The valley continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7824
+        description: "The valley continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7826
+    key: valley_room_7826
+    name: "A Trail Leading from the Valley"
+    area_id: 32
+    short_desc: "A Trail Leading from the Valley"
+    long_desc: |
+      You are on a narrow trail leading away from the Valley of the Elves.  This
+      trail leads north and south.  A rope ladder leads up to a rope bridge.
+    exits:
+      north: 7827
+      south: 7824
+      up: 7858
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7827
+        description: "The trail continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7824
+        description: "The trail leads back to the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 7858
+        description: "You see the rope bridge above you."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7827
+    key: valley_room_7827
+    name: "Along the Trail"
+    area_id: 32
+    short_desc: "Along the Trail"
+    long_desc: |
+      You are on the trail away from the Valley of the Elves.  The hills around you
+      keep this trail narrow.  The trail continues east, south, and west.
+    exits:
+      east: 7828
+      south: 7826
+      west: 7868
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7828
+        description: "The trail continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7826
+        description: "The trail continues south back toward the valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7868
+        description: "The trail continues west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7828
+    key: valley_room_7828
+    name: "A Bend in the Trail"
+    area_id: 32
+    short_desc: "A Bend in the Trail"
+    long_desc: |
+      You are on the trail away from the Valley of the Elves.  The hills around you
+      keep this trail narrow.  The trail continues north and back west.
+    exits:
+      north: 7829
+      west: 7827
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7829
+        description: "You see a small valley north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7827
+        description: "The trail goes back to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7829
+    key: valley_room_7829
+    name: "A Smaller Valley"
+    area_id: 32
+    short_desc: "A Smaller Valley"
+    long_desc: |
+      You are in another valley within these hills. To the north, you can see a
+      building, and to the south you see the trail away from this valley.  The
+      west and east paths surround this building.
+    exits:
+      north: 7834
+      east: 7831
+      south: 7828
+      west: 7830
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7834
+        description: "You see the building."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 7831
+        description: "You see the trail around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7828
+        description: "You see the trail leading away from this valley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7830
+        description: "You see the trail around the building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7830
+    key: valley_room_7830
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads north and
+      east.  To the north-east is a building.
+    exits:
+      north: 7832
+      east: 7829
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7832
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7829
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7831
+    key: valley_room_7831
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads west and
+      east.  To the north is a building.
+    exits:
+      east: 7833
+      west: 7829
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7833
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7829
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7832
+    key: valley_room_7832
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads north and
+      south.  To the east is a building.
+    exits:
+      north: 7837
+      south: 7830
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7837
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7830
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7833
+    key: valley_room_7833
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads north and
+      west.  To the north-west is a building.
+    exits:
+      north: 7836
+      west: 7831
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7836
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7831
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7834
+    key: valley_room_7834
+    name: "The Elf Home"
+    area_id: 32
+    short_desc: "The Elf Home"
+    long_desc: |
+      You are in the home of the valley elves.  The building continues to the north
+      and the east, and the exit is to the south.
+    exits:
+      north: 7838
+      east: 7835
+      south: 7829
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 7838
+        description: "The building continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7835
+        description: "The building continues to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7829
+        description: "The exit is to the south."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 7835
+    key: valley_room_7835
+    name: "The Kitchen"
+    area_id: 32
+    short_desc: "The Kitchen"
+    long_desc: |
+      You are in a community kitchen for this valley elven home.  Pots and pans line
+      the walls, along with shelves filled with many foodstuffs.  A big oven is to one
+      side, and you can smell elfcakes being baked.
+      There is a doorway to the north and one to the west.
+    exits:
+      north: 7839
+      west: 7834
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 7839
+        description: "The building continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7834
+        description: "The building continues to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7836
+    key: valley_room_7836
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads north and
+      south.  To the west is a building.
+    exits:
+      north: 7840
+      south: 7833
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7840
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7833
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7837
+    key: valley_room_7837
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads north and
+      south.  To the east is a building.
+    exits:
+      north: 7841
+      south: 7832
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7841
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7832
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7838
+    key: valley_room_7838
+    name: "The Living Room"
+    area_id: 32
+    short_desc: "The Living Room"
+    long_desc: |
+      You are in the living room of the elven home.  Mats cover the floor, and a
+      on a table is a bowl full of fruits.  Through the window you can see the
+      valley, with its wild flowers and tall, green grasses.
+    exits:
+      east: 7839
+      south: 7834
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 7839
+        description: "The building continues to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7834
+        description: "The entrance is to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7839
+    key: valley_room_7839
+    name: "The Storage Room"
+    area_id: 32
+    short_desc: "The Storage Room"
+    long_desc: |
+      You are in the storage room of the elven home.  Sacks of flour cover one side,
+      and cleaning accessories cover the other side.  You find nothing of use here.
+      A staircase leads up.
+    exits:
+      south: 7835
+      west: 7838
+      up: 7848
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 7835
+        description: "The building continues to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7838
+        description: "The building continues to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 7848
+        description: "You see the second floor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7840
+    key: valley_room_7840
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads north and
+      south.  To the west is a building.
+    exits:
+      north: 7844
+      south: 7836
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7844
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7836
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7841
+    key: valley_room_7841
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads south and
+      east.  To the south-east is a building.
+    exits:
+      east: 7842
+      south: 7837
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7842
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7837
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7842
+    key: valley_room_7842
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads west and
+      east.  To the south is a building.
+    exits:
+      east: 7843
+      west: 7841
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7843
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7841
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7843
+    key: valley_room_7843
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads east and
+      west.  To the south is a building.
+    exits:
+      east: 7844
+      west: 7842
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7844
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7842
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7844
+    key: valley_room_7844
+    name: "A Trail in the Valley"
+    area_id: 32
+    short_desc: "A Trail in the Valley"
+    long_desc: |
+      You are on the trail in the Valley of the Elves.  This trail leads south and
+      west.  To the south-west is a building.
+    exits:
+      south: 7840
+      west: 7843
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7840
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7843
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7845
+    key: valley_room_7845
+    name: "The Elders' Room"
+    area_id: 32
+    short_desc: "The Elders' Room"
+    long_desc: |
+      You are in the room of the valley elf elders.  Books written in strange
+      languages line the numerous shelves, and scrolls cover a table.  There is a
+      smooth spheric object in the center of the room.
+    exits:
+      north: 7847
+      east: 7846
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 7847
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 7846
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7804
+
+  - id: 7846
+    key: valley_room_7846
+    name: "The Storage Room"
+    area_id: 32
+    short_desc: "The Storage Room"
+    long_desc: |
+      You are in a storage room.  Many useless (to you) items fill this room.
+    exits:
+      north: 7848
+      west: 7845
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 7848
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7804
+      west:
+        to: 7845
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7804
+
+  - id: 7847
+    key: valley_room_7847
+    name: "The Sleeping Quarters"
+    area_id: 32
+    short_desc: "The Sleeping Quarters"
+    long_desc: |
+      You are in the sleeping quarters of the valley elves.  Cots line the floor,
+      with two windows showing a view of the valley.  Books in strange languages
+      line the shelves, but nothing of interest is here.
+    exits:
+      east: 7848
+      south: 7845
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 7848
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 7845
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 7848
+    key: valley_room_7848
+    name: "Study"
+    area_id: 32
+    short_desc: "Study"
+    long_desc: |
+      You are in the study room of the valley elves.  Comfortable mats are on the
+      floor, and musical instruments are neatly stacked on shelves.  Books in
+      strange languages line some other elves.  A stairway leads down to the
+      first floor.
+    exits:
+      south: 7846
+      west: 7847
+      down: 7839
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 7846
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7804
+      west:
+        to: 7847
+        description: "You see another room."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 7839
+        description: "You see the first floor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7849
+    key: valley_room_7849
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      east: 7850
+      south: 7803
+      down: 7883
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7850
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7803
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7850
+    key: valley_room_7850
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      north: 7851
+      west: 7849
+      down: 7883
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7851
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7849
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7851
+    key: valley_room_7851
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      east: 7852
+      south: 7850
+      down: 7883
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7852
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7850
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7852
+    key: valley_room_7852
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      north: 7853
+      west: 7851
+      down: 7883
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7853
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7851
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7853
+    key: valley_room_7853
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+      A safe trail leads down into the valley.
+    exits:
+      north: 7854
+      south: 7852
+      down: 7817
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7854
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7852
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7817
+        description: "The trail down looks safe."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7854
+    key: valley_room_7854
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      south: 7853
+      west: 7855
+      down: 7883
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7853
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7855
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7855
+    key: valley_room_7855
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      north: 7856
+      east: 7854
+      down: 7883
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7856
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7854
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7856
+    key: valley_room_7856
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      south: 7855
+      west: 7857
+      down: 7883
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7855
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7857
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7857
+    key: valley_room_7857
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      east: 7856
+      west: 7858
+      down: 7883
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7856
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7858
+        description: "You see a rope bridge"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7858
+    key: valley_room_7858
+    name: "On the Rope Bridge"
+    area_id: 32
+    short_desc: "On the Rope Bridge"
+    long_desc: |
+      You are on the rope bridge.  From here, you can see the whole Valley of the
+      Elves.  To the south, you see the main valley.  To the north-east, you see a
+      smaller valley with a building in the center of it.  To the north-west, you
+      can see a very small valley with a shack in it's center.  A rope ladder
+      leads down into a trail.
+    exits:
+      east: 7857
+      west: 7859
+      down: 7826
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7857
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7859
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7826
+        description: "You see the trail."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7859
+    key: valley_room_7859
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      east: 7858
+      west: 7860
+      down: 7883
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7858
+        description: "You see a rope bridge."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7860
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7860
+    key: valley_room_7860
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      east: 7859
+      south: 7861
+      down: 7883
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7859
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7861
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7861
+    key: valley_room_7861
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      north: 7860
+      west: 7862
+      down: 7883
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7860
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7862
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7862
+    key: valley_room_7862
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      east: 7861
+      south: 7863
+      down: 7883
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7861
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7863
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7863
+    key: valley_room_7863
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+      A safe trail leads down into the valley.
+    exits:
+      north: 7862
+      south: 7864
+      down: 7813
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7862
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7864
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7813
+        description: "The trail down looks safe."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7864
+    key: valley_room_7864
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      north: 7863
+      east: 7865
+      down: 7883
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7863
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7865
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7865
+    key: valley_room_7865
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      south: 7866
+      west: 7864
+      down: 7883
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7866
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7864
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7866
+    key: valley_room_7866
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      north: 7865
+      east: 7867
+      down: 7883
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7865
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7867
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7867
+    key: valley_room_7867
+    name: "Along a Windy Trail on the Rim of the Valley"
+    area_id: 32
+    short_desc: "Along a Windy Trail on the Rim of the Valley"
+    long_desc: |
+      You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+      you can see the valley, filled with wild flowers and tall, green grasses.
+    exits:
+      south: 7802
+      west: 7866
+      down: 7883
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7802
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7866
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 7883
+        description: "The trail down doesn't look safe to travel on at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7868
+    key: valley_room_7868
+    name: "A Bend in the Trail"
+    area_id: 32
+    short_desc: "A Bend in the Trail"
+    long_desc: |
+      You are on a bend in the trail leading from the main valley.  The hills around
+      you make this trail quite narrow.
+    exits:
+      north: 7869
+      east: 7827
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7869
+        description: "The trail continues north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7827
+        description: "The trail continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7869
+    key: valley_room_7869
+    name: "A Bend in the Trail"
+    area_id: 32
+    short_desc: "A Bend in the Trail"
+    long_desc: |
+      You are on a bend in the trail leading from the main valley.  The hills around
+      you make this trail quite narrow.  To the west, you can see an even smaller
+      valley, with looks like a small shack in the center of it.
+    exits:
+      south: 7868
+      west: 7870
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7868
+        description: "The trail continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7870
+        description: "The entrance to the small valley is to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7870
+    key: valley_room_7870
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  The exit from this valley is to the east, and
+      the entrance to the shack is to the west.
+    exits:
+      north: 7871
+      east: 7869
+      south: 7872
+      west: 7878
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7871
+        description: "The valley continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7869
+        description: "The exit from this small valley is to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7872
+        description: "The valley continues to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7878
+        description: "You see the small shack."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 7871
+    key: valley_room_7871
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  To the south-west is a small shack.
+    exits:
+      south: 7870
+      west: 7873
+    sector_type: FIELD
+    doors:
+      south:
+        to: 7870
+        description: "The valley continues to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7873
+        description: "The valley continues to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7872
+    key: valley_room_7872
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  To the north-west is a small shack.
+    exits:
+      north: 7870
+      west: 7877
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7870
+        description: "The valley continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7877
+        description: "The valley continues to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7873
+    key: valley_room_7873
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  To the south is a small shack.
+    exits:
+      east: 7871
+      west: 7874
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7871
+        description: "The valley continues to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7874
+        description: "The valley continues to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7874
+    key: valley_room_7874
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  To the south-east is a small shack.
+    exits:
+      east: 7873
+      south: 7875
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7873
+        description: "The valley continues to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7875
+        description: "The valley continues to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7875
+    key: valley_room_7875
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  To the east is a small shack.
+    exits:
+      north: 7874
+      south: 7876
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7874
+        description: "The valley continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 7876
+        description: "The valley continues to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7876
+    key: valley_room_7876
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  To the north-east is a small shack.
+    exits:
+      north: 7875
+      east: 7877
+    sector_type: FIELD
+    doors:
+      north:
+        to: 7875
+        description: "The valley continues to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7877
+        description: "The valley continues to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7877
+    key: valley_room_7877
+    name: "The Small Valley"
+    area_id: 32
+    short_desc: "The Small Valley"
+    long_desc: |
+      You are in the small valley.  Strangely, tall trees grow here, almost as if some
+      magic was used to help them grow.  To the north is a small shack.
+    exits:
+      east: 7872
+      west: 7876
+    sector_type: FIELD
+    doors:
+      east:
+        to: 7872
+        description: "The valley continues to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 7876
+        description: "The valley continues to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 7878
+    key: valley_room_7878
+    name: "Inside the Small Shack"
+    area_id: 32
+    short_desc: "Inside the Small Shack"
+    long_desc: |
+      You are inside the small shack.  A small stove is on the side, with soup
+      cooking over it.  You see nothing valuable.
+    exits:
+      east: 7870
+      down: 7879
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 7870
+        description: "You see the valley outside."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 7879
+        description: "You see a trap door!"
+        keywords: "trap door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 7879
+    key: valley_room_7879
+    name: "Beneath the Small Shack"
+    area_id: 32
+    short_desc: "Beneath the Small Shack"
+    long_desc: |
+      You are beneath the small shack, in a tunnel that leads south.  It feels
+      quite warm down here.
+    exits:
+      south: 7880
+      up: 7878
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 7880
+        description: "The room looks reddish down there."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 7878
+        description: "Back to known territory!"
+        keywords: "trap door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 7880
+    key: valley_room_7880
+    name: "The Den of the Pyrohydra"
+    area_id: 32
+    short_desc: "The Den of the Pyrohydra"
+    long_desc: |
+      You are in the den of the pyrohydra.  All the walls are charred, and this
+      room is filled with a smell close to that of burning tar.
+    exits:
+      north: 7879
+      east: 7882
+      west: 7881
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 7879
+        description: "You see the relative safety to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 7882
+        description: "You see breaks in the charred rock to the east."
+        keywords: "secret"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7805
+      west:
+        to: 7881
+        description: "You see a door to the west."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7805
+
+  - id: 7881
+    key: valley_room_7881
+    name: "The Workroom"
+    area_id: 32
+    short_desc: "The Workroom"
+    long_desc: |
+      This room looks like it is used for magical studies.  Potions bubble over
+      burners, and the whole room spells of herbs and dead animal flesh.  A furnace
+      to the side casts a bright light in this room.  The whole room radiates with
+      a magical aura.
+    exits:
+      east: 7880
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 7880
+        description: ""
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7805
+
+  - id: 7882
+    key: valley_room_7882
+    name: "The Storage Room"
+    area_id: 32
+    short_desc: "The Storage Room"
+    long_desc: |
+      This room is used to store scrolls, potions, and other magical items.  The
+      whole room radiates with a magical aura.
+    exits:
+      west: 7880
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 7880
+        description: ""
+        keywords: "secret door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 7805
+
+  - id: 7883
+    key: valley_room_7883
+    name: "WAY Far Down into the Valley"
+    area_id: 32
+    short_desc: "WAY Far Down into the Valley"
+    long_desc: |
+      You have fallen trying to go down this steep hill.  Maybe that wasn't that
+      good an idea, huh?
+      
+      
+      You've fallen, and you can't get up!
+    exits:
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+

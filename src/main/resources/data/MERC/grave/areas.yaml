@@ -1,0 +1,9 @@
+areas:
+  - id: 36
+    name: "Grave"
+    description: "Converted from grave.are"
+    sector_type: "FIELD"
+    author: "MERC"
+    source_file: "grave.are"
+    vnum_range: "3600-3651"
+

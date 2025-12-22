@@ -1,0 +1,265 @@
+rooms:
+  - id: 5550
+    key: ofcol_room_5550
+    name: "Village street"
+    area_id: 32
+    short_desc: "Village street"
+    long_desc: |
+      You stand at the small village street in Ofcol.
+      From here you see small houses and only few people.
+      North of here the village street continues up to the small
+      square where some people are gathered as always.
+    exits:
+      north: 5551
+      south: 314
+    sector_type: CITY
+    doors:
+      north:
+        to: 5551
+        description: "You look up the village street noticing nothing special at all."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 314
+        description: "The wide road leads south here towards the T-crossing."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5551
+    key: ofcol_room_5551
+    name: "Village street"
+    area_id: 32
+    short_desc: "Village street"
+    long_desc: |
+      You are standing on the village street of Ofcol.
+      East from here is a small alley and north you enter the village
+      square. Towards the south you can leave Ofcol.
+    exits:
+      north: 5552
+      east: 5553
+      south: 5550
+    sector_type: CITY
+    doors:
+      north:
+        to: 5552
+        description: "The village square is as usual not overcrowded."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 5553
+        description: "The small alley looks relative peaceful."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5550
+        description: "You see the village street eventually becoming the wide road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5552
+    key: ofcol_room_5552
+    name: "Village square"
+    area_id: 32
+    short_desc: "Village square"
+    long_desc: |
+      The village square is a place where inhabitants of Ofcol gather
+      to talk, trade and sell items and just have a good time.
+      You see a small shop to the west and the local inn to the north.
+      If you leave south you go to village street.
+    exits:
+      north: 5556
+      south: 5551
+      west: 5555
+    sector_type: CITY
+    doors:
+      north:
+        to: 5556
+        description: "You see a local inn called 'The Ofcol Local Inn'. Looks nice."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 5551
+        description: "You see the village street of Ofcol."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5555
+        description: "A small shop with the sign 'Luxan's Mixed goods' hanging in front of it."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5553
+    key: ofcol_room_5553
+    name: "The small alley"
+    area_id: 32
+    short_desc: "The small alley"
+    long_desc: |
+      You are in a small, quiet alley.  From here you see the village street
+      to the west and a small room lies to the south.
+    exits:
+      east: 601
+      south: 5554
+      west: 5551
+    sector_type: CITY
+    doors:
+      east:
+        to: 601
+        description: "You see a big intersection."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5554
+        description: "It looks like the future site of a training room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 5551
+        description: "You notice nothing but the village street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5554
+    key: ofcol_room_5554
+    name: "The future training room"
+    area_id: 32
+    short_desc: "The future training room"
+    long_desc: |
+      This is the future site of a training room.  The only exit is north
+      leading to the small alley.
+    exits:
+      north: 5553
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5553
+        description: "You are able to see the small alley, really not very interesting."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5555
+    key: ofcol_room_5555
+    name: "Luxan's mixed shop"
+    area_id: 32
+    short_desc: "Luxan's mixed shop"
+    long_desc: |
+      You are standing in a small shop, filled with all kinds of goods.
+      Here you might be able to find just the thing you're looking for.
+      The only exit is east to village square.
+    exits:
+      east: 5552
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5552
+        description: "The village square is as usual not overcrowded."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5556
+    key: ofcol_room_5556
+    name: "The Local Inn"
+    area_id: 32
+    short_desc: "The Local Inn"
+    long_desc: |
+      You are in the local inn, where the peaceful citizens of Ofcol
+      gather to have a drink or 5 if they have dry throats.
+      You can't help thinking that Ofcol is a dry city, when you see the
+      many people here.
+      The only exit is south to the village square.
+    exits:
+      south: 5552
+    sector_type: CITY
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5552
+        description: "The village square is as usual not overcrowded."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 5577
+    key: ofcol_room_5577
+    name: "Ravan's hideout"
+    area_id: 32
+    short_desc: "Ravan's hideout"
+    long_desc: |
+      This place is a small, cosy place where no one disturbs you all
+      the time. The room has little decoration except for some pictures
+      on the wall.
+      You notice that there are no exits from this room.
+    exits:
+    sector_type: INSIDE
+    extras:
+      pictures: |
+        These pictures show the friend's and foe's of Ravan.
+        They are easy to separate, as most of the foe's have the letters
+        R.I.P. inscripted underneath them.
+      foe: |
+        There is only one picture yet... Dim.
+        It pictures him hanging from a gallow, north of the town.
+        It has the letters R.I.P. inscripted underneath.
+      friend: |
+        The list include such prominent names as : God, Lottie, Kurgan,
+        Ezzard, Mike, Sprocket and Stormbringer.
+

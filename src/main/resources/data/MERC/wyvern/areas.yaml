@@ -1,0 +1,9 @@
+areas:
+  - id: 16
+    name: "Wyvern"
+    description: "Converted from wyvern.are"
+    sector_type: "HILLS"
+    author: "MERC"
+    source_file: "wyvern.are"
+    vnum_range: "1601-1720"
+

@@ -1,0 +1,9 @@
+areas:
+  - id: 22
+    name: "Draconia"
+    description: "Converted from draconia.are"
+    sector_type: "CITY"
+    author: "MERC"
+    source_file: "draconia.are"
+    vnum_range: "2201-2244"
+

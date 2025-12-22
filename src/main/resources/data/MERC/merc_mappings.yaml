@@ -1,0 +1,37 @@
+# MERC -> TASSMUD mapping reference
+# Generated from MERC 2.1 headers (merc.h)
+
+sector_types:
+  0: INSIDE
+  1: CITY
+  2: FIELD
+  3: FOREST
+  4: HILLS
+  5: MOUNTAIN
+  6: WATER_SWIM
+  7: WATER_NOSWIM
+  8: UNUSED
+  9: AIR
+  10: DESERT
+
+room_flags:
+  1: ROOM_DARK
+  4: ROOM_NO_MOB
+  8: ROOM_INDOORS
+  512: ROOM_PRIVATE
+  1024: ROOM_SAFE
+  2048: ROOM_SOLITARY
+  4096: ROOM_PET_SHOP
+  8192: ROOM_NO_RECALL
+
+exit_flags:
+  1: EX_ISDOOR
+  2: EX_CLOSED
+  4: EX_LOCKED
+  32: EX_PICKPROOF
+
+# Notes:
+# - Use these mappings when converting numeric MERC bitvectors (e.g., "4|8|1024")
+#   into human-readable flags or into your game's canonical enums.
+# - TASSMUD currently stores area-wide SectorType; consider using room-level
+#   moveCost overrides when individual room sector differs from its area.

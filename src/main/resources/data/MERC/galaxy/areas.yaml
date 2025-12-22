@@ -1,0 +1,9 @@
+areas:
+  - id: 93
+    name: "Galaxy"
+    description: "Converted from galaxy.are"
+    sector_type: "INSIDE"
+    author: "MERC"
+    source_file: "galaxy.are"
+    vnum_range: "9301-9371"
+

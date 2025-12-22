@@ -1,0 +1,9 @@
+areas:
+  - id: 52
+    name: "Thalos"
+    description: "Converted from thalos.are"
+    sector_type: "CITY"
+    author: "MERC"
+    source_file: "thalos.are"
+    vnum_range: "5200-5280"
+

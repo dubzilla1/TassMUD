@@ -9,8 +9,9 @@ public class Door {
     public final boolean hidden;
     public final boolean blocked;
     public final Integer keyItemId;
+    public final String description;
 
-    public Door(int fromRoomId, String direction, Integer toRoomId, String state, boolean locked, boolean hidden, boolean blocked, Integer keyItemId) {
+    public Door(int fromRoomId, String direction, Integer toRoomId, String state, boolean locked, boolean hidden, boolean blocked, Integer keyItemId, String description) {
         this.fromRoomId = fromRoomId;
         this.direction = direction == null ? "" : direction.toLowerCase();
         this.toRoomId = toRoomId;
@@ -19,6 +20,7 @@ public class Door {
         this.hidden = hidden;
         this.blocked = blocked;
         this.keyItemId = keyItemId;
+        this.description = description == null ? "" : description;
     }
 
     public boolean isOpen() {

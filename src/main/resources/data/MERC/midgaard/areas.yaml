@@ -1,0 +1,9 @@
+areas:
+  - id: 30
+    name: "Midgaard"
+    description: "Converted from midgaard.are"
+    sector_type: "INSIDE"
+    author: "MERC"
+    source_file: "midgaard.are"
+    vnum_range: "3001-3205"
+

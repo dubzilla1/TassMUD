@@ -1,0 +1,2788 @@
+rooms:
+  - id: 3700
+    key: school_room_3700
+    name: "Entrance to Mud School"
+    area_id: 32
+    short_desc: "Entrance to Mud School"
+    long_desc: |
+      This is the entrance to the Merc Mud School.  Go north to go through mud
+      school.  If you have been here before and want to go directly to the arena,
+      go south.
+    exits:
+      down: 3001
+      north: 3757
+      south: 3744
+    sector_type: INSIDE
+    doors:
+      down:
+        to: 3001
+        description: "You see the Temple of Midgaard."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 3757
+        description: "You see the doorway into the Mud School Building."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3744
+        description: "You see the one way door into the Arena of Mud School."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3701
+    key: school_room_3701
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  The exits are west and south.  A small plaque is on the
+      wall.
+    exits:
+      south: 3757
+      west: 3702
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3757
+        description: "You see a path into another room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3702
+        description: "You see a path into another room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      plaque: |
+        This zone (Mud School) is created by Hatchet for any Merc Mud.
+        Copyright 1992, 1993.
+      sign: |
+        Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
+        now, you have just a vest, a shield, and a weapon.  As you go through Mud
+        School you will acquire a complete set of equipment.
+        
+        To pick up items on the ground as you see them, type 'GET item'.
+        To wear a piece of armor, type 'WEAR item'.
+        To hold a light source, type 'HOLD item'.
+        To wield a weapon, type 'WIELD weapon'.
+        To wear, hold, and wield everything you have, type 'WEAR ALL'.
+        To stop using a piece of equipment, type 'REMOVE item'.
+        Finally, to see the items in your inventory, type 'INVENTORY'.
+        
+        When you are ready to continue, go west.
+
+  - id: 3702
+    key: school_room_3702
+    name: "The Center Room"
+    area_id: 32
+    short_desc: "The Center Room"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  Exits lead in ALL directions.
+    exits:
+      north: 3703
+      east: 3701
+      south: 3705
+      west: 3704
+      down: 3707
+      up: 3708
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3703
+        description: "You see the room north that will lead you to the next section."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3701
+        description: "You see a room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3705
+        description: "You see a room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3704
+        description: "You see a room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3707
+        description: "You see a room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3708
+        description: "You see a room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        This is the direction practicing room.  The directions you can go in any
+        room are: north, south, east, west, up, or down.  Of course, not all rooms
+        have all exits available.
+        
+        To see the obvious exits in a room, type 'EXITS'.
+        
+        Sometimes doors are closed, or locked, or secret.  Then you have to notice
+        clues in the room description, or try going into that direction and seeing
+        if you bump into a door.
+        
+        Try going into each direction from here.  When you are done, go NORTH.
+
+  - id: 3703
+    key: school_room_3703
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  Exits lead north and south.
+    exits:
+      north: 3709
+      south: 3702
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3709
+        description: "You see the next station ahead."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3702
+        description: "You see the central room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Since you are here, let us have another lesson.  You can see the statistics on
+        yourself by typing 'SCORE'.  Do that right now.  At higher levels, 'SCORE'
+        gives you more information.
+
+  - id: 3704
+    key: school_room_3704
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  The only exit is east.
+    exits:
+      east: 3702
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3702
+        description: "You see the central room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Just go east to the central room.
+
+  - id: 3705
+    key: school_room_3705
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  The only exit is north.
+    exits:
+      north: 3702
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3702
+        description: "You see the central room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Just go north to the central room.
+
+  - id: 3707
+    key: school_room_3707
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  The only exit is up.
+    exits:
+      up: 3702
+    sector_type: INSIDE
+    doors:
+      up:
+        to: 3702
+        description: "You see the central room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Just go up to the central room.
+
+  - id: 3708
+    key: school_room_3708
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  The only exit is down.
+    exits:
+      down: 3702
+    sector_type: INSIDE
+    doors:
+      down:
+        to: 3702
+        description: "You see the central room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Just go down to the central room.
+
+  - id: 3709
+    key: school_room_3709
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  Exits reach west and down.
+    exits:
+      down: 3710
+      west: 3711
+    sector_type: INSIDE
+    doors:
+      down:
+        to: 3710
+        description: "You see a cage."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3711
+        description: "You see the next station of Mud School."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        Welcome to combat training.
+        
+        The first lesson is knowing whom to fight.  Use the command 'CONSIDER' to
+        consider killing a monster.  Avoid fighting monsters that will kill you
+        easily.
+        
+        The second lesson is running away.  There is a monster in the room down.
+        He is too strong for you to kill, but he won't kill you.  So go 'DOWN' from
+        here, then 'CONSIDER' him, then 'KILL' him.  After a while, type 'FLEE' to
+        escape from him.
+        
+        You can also set your character to flee automatically with the 'WIMPY' command.
+        Type 'HELP WIMPY' to find out more about 'WIMPY'.
+        
+        After you flee, you will be back in this room.  When you are ready to go on
+        to the next station, go 'WEST'.
+
+  - id: 3710
+    key: school_room_3710
+    name: "The Blob Cage"
+    area_id: 32
+    short_desc: "The Blob Cage"
+    long_desc: |
+      You are in a smelly cage.  Strangely, the walls are still clean!
+      You see a sign here.  The only exit is up.
+    exits:
+      up: 3709
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3709
+        description: "You see a safe room up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Remember, don't fight the blob to the finish!  Just type 'KILL BLOB', then
+        when you are fighting, type 'FLEE', until you flee and are out of here.
+
+  - id: 3711
+    key: school_room_3711
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.
+    exits:
+      east: 3709
+      down: 3712
+    sector_type: INSIDE
+    doors:
+      east:
+        to: 3709
+        description: "You see the next station of Mud School."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3712
+        description: "You see the combat hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Welcome to the next station.  Here, you will actually fight real monsters,
+        without fleeing!  Kill every mob, since they hold some equipment you need.
+        To start, go down.
+
+  - id: 3712
+    key: school_room_3712
+    name: "The Cage Room"
+    area_id: 32
+    short_desc: "The Cage Room"
+    long_desc: |
+      You are in the cage room.  All around are 4 cages.  Light fluoresces off the
+      ceiling in soft white tones.  Of course, there is a big sign on the wall.
+      Exits lead into the cardinal directions plus down.
+    exits:
+      north: 3713
+      east: 3716
+      south: 3715
+      west: 3714
+      down: 3717
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3713
+        description: "You see the aggressive monster inside!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3716
+        description: "You see the unmodified monster inside!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3715
+        description: "You see the wimpy monster inside!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3714
+        description: "You see the aggressive wimpy monster inside!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 3717
+        description: "You see the next station below."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        Welcome to the cage room.  The adepts of mud school have captured some
+        monsters for you to kill.  In the four cages are four monsters of various
+        types.  Kill them all!
+        
+        After you kill each monster, get all of the equipment from their corpses
+        with the command 'GET ALL CORPSE'.  You can then use the command 'WEAR ALL'
+        to wear your newly won equipment.
+        
+        When you are done with the corpse, 'SACRIFICE CORPSE' to give it to your God.
+        God will reward you for this.
+        
+        Between combat, you may need to rest or sleep to regenerate hit points.
+        You can 'REST' to regenerate hit points, or you can 'SLEEP'.  'SLEEP' will
+        refresh you faster than 'REST', but you will be less aware of your
+        surroundings.
+
+  - id: 3713
+    key: school_room_3713
+    name: "A Cage"
+    area_id: 32
+    short_desc: "A Cage"
+    long_desc: |
+      You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+      in the upkeep here!  There is a sign on the wall.  The only exit is south.
+    exits:
+      south: 3712
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3712
+        description: "You see the Cage Room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        There is an aggressive monster in this room.  Kill him and get out of here
+        fast!  Remember to loot and sacrifice the corpse.
+
+  - id: 3714
+    key: school_room_3714
+    name: "A Cage"
+    area_id: 32
+    short_desc: "A Cage"
+    long_desc: |
+      You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+      in the upkeep here!  There is a sign on the wall.  The only exit is east.
+    exits:
+      east: 3712
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3712
+        description: "You see the Cage Room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        There is a wimpy, aggressive monster in this room.  Kill him and get out of
+        here fast!  Remember to loot and sacrifice the corpse.
+
+  - id: 3715
+    key: school_room_3715
+    name: "A Cage"
+    area_id: 32
+    short_desc: "A Cage"
+    long_desc: |
+      You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+      in the upkeep here!  There is a sign on the wall.  The only exit is north.
+    exits:
+      north: 3712
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3712
+        description: "You see the Cage Room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        There is a wimpy monster in this room.  Kill him and get out of here fast!
+        Remember to loot and sacrifice the corpse.
+
+  - id: 3716
+    key: school_room_3716
+    name: "A Cage"
+    area_id: 32
+    short_desc: "A Cage"
+    long_desc: |
+      You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+      in the upkeep here!  There is a sign on the wall.  The only exit is west.
+    exits:
+      west: 3712
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3712
+        description: "You see the Cage Room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        There is a monster in this room.  Kill him and get out of here fast!
+        Remember to loot and sacrifice the corpse.
+
+  - id: 3717
+    key: school_room_3717
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  Find your own exit here.
+    exits:
+      up: 3712
+      south: 3718
+      east: 3719
+    sector_type: INSIDE
+    doors:
+      up:
+        to: 3712
+        description: "You see the Cage room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3718
+        description: "You see the Shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3719
+        description: "You see the next station of Mud School."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        By now, you must be hungry and thirsty.  Time to buy groceries!
+        To the south is a store.  Inside the store, you can use these commands:
+        
+            BUY    Buy an item
+            LIST   List what is for sale
+        
+        After buying some food and drink, you can 'EAT' and 'DRINK' it.
+        
+        After that, find the next exit yourself.
+
+  - id: 3718
+    key: school_room_3718
+    name: "The Store in Mud School"
+    area_id: 32
+    short_desc: "The Store in Mud School"
+    long_desc: |
+      You are in a cramped room.  Stacked neatly on shelves everywhere are items
+      and packages.  Light fluoresces off the ceiling in soft white tones.  Of
+      course, there is a sign on the wall.  The only exit is north.
+    exits:
+      north: 3717
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3717
+        description: "You see the only exit out of here."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        The sign reads:
+        
+           Buy   - Buy something from the storekeeper.
+           List  - The storekeeper will tell you what's for sale.
+           Value - The storekeeper will tell you how much he will give to you for
+                   that item.
+           Sell  - Sell that item to the storekeeper.
+
+  - id: 3719
+    key: school_room_3719
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a square white room.  The walls are all blank, with no windows.
+      Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+      sign on the wall.  The exits are north and west, with a door to the east.
+    exits:
+      west: 3717
+      north: 3720
+      east: 3721
+    sector_type: INSIDE
+    doors:
+      west:
+        to: 3717
+        description: "You see the room you just came from."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 3720
+        description: "You see a darkened room inside."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3721
+        description: "You see the next station of Mud School."
+        keywords: "door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3714
+    extras:
+      sign: |
+        North of you is a dark room.  I hope you still have the lantern!  If not,
+        you have to back to the store and buy one.
+        
+        In the room is a monster with a key that you need.  After killing the
+        monster and getting the key, come back here, UNLOCK EAST, OPEN EAST,
+        and continue east.
+
+  - id: 3720
+    key: school_room_3720
+    name: "The Darkened Room"
+    area_id: 32
+    short_desc: "The Darkened Room"
+    long_desc: |
+      This room was purposefully darkened so that you would need to hold on to a
+      light source to go through.  The walls are, of course, blank, and white.
+      The only exit is south.
+    exits:
+      south: 3719
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3719
+        description: "You see the room that you have come from."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3721
+    key: school_room_3721
+    name: "The End of Mud School!"
+    area_id: 32
+    short_desc: "The End of Mud School!"
+    long_desc: |
+      This is a very bright room, with a marble pedestal in the center.  Behind
+      the pedestal stands a person cloaked in Silver.  Tapestries flow from every
+      wall, and you feel very happy to be here right now.  There is a big sign here.
+      The only exit is on the other side of the gate north of you.
+    exits:
+      north: 3722
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3722
+        description: "You see the Arena ahead."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        You have graduated from Mud School!  Get your diploma.  Go 'NORTH' from here
+        to visit our arena.  There are plenty of low-level monsters, but DON'T attack
+        other players.
+        
+        If you want to go directly back to the temple at any time, type 'RECALL'.
+        
+        After you raise to level two, you can 'SAVE' your character.  Your character
+        will be automatically SAVE'd every few minutes.
+        
+        If you need more help during the game, type 'HELP'.  If you see something
+        wrong or have comments, use 'BUG', 'IDEA', or 'TYPO' to report them.
+        
+        May your visit here be ... mercenary.
+
+  - id: 3722
+    key: school_room_3722
+    name: "South Wall of Arena"
+    area_id: 32
+    short_desc: "South Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      west: 3723
+      north: 3729
+      east: 3725
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3723
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 3729
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3725
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3723
+    key: school_room_3723
+    name: "South Wall of Arena"
+    area_id: 32
+    short_desc: "South Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      west: 3724
+      north: 3728
+      east: 3722
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3724
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 3728
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3722
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3724
+    key: school_room_3724
+    name: "South West Corner of Arena"
+    area_id: 32
+    short_desc: "South West Corner of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3727
+      east: 3723
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3727
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3723
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3725
+    key: school_room_3725
+    name: "South Wall of Arena"
+    area_id: 32
+    short_desc: "South Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      west: 3722
+      north: 3730
+      east: 3726
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3722
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 3730
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3726
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3726
+    key: school_room_3726
+    name: "South East Corner of Arena"
+    area_id: 32
+    short_desc: "South East Corner of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3731
+      west: 3725
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3731
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3725
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3727
+    key: school_room_3727
+    name: "West Wall of Arena"
+    area_id: 32
+    short_desc: "West Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3732
+      east: 3728
+      south: 3724
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3732
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3728
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3724
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3728
+    key: school_room_3728
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3733
+      east: 3729
+      south: 3723
+      west: 3727
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3733
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3729
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3723
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3727
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3729
+    key: school_room_3729
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3734
+      east: 3730
+      south: 3722
+      west: 3728
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3734
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3730
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3722
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3728
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3730
+    key: school_room_3730
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3735
+      east: 3731
+      south: 3725
+      west: 3729
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3735
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3731
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3725
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3729
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3731
+    key: school_room_3731
+    name: "East Wall of Arena"
+    area_id: 32
+    short_desc: "East Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3736
+      south: 3726
+      west: 3730
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3736
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3726
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3730
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3732
+    key: school_room_3732
+    name: "West Wall of Arena"
+    area_id: 32
+    short_desc: "West Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3737
+      east: 3733
+      south: 3727
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3737
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3733
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3727
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3733
+    key: school_room_3733
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3738
+      east: 3734
+      south: 3728
+      west: 3732
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3738
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3734
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3728
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3732
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3734
+    key: school_room_3734
+    name: "Center of Arena"
+    area_id: 32
+    short_desc: "Center of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.  There is a BIG SIGN here.
+    exits:
+      north: 3739
+      east: 3735
+      south: 3729
+      west: 3733
+      up: 3760
+      down: 3748
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3739
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3735
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3729
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3733
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3748
+        description: "You see a dark murky dungeon below."
+        keywords: "grate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        Those with high bravery or low senses of cautiousness might wish to go below
+        to the Dungeon.  However, know that there are aggressive monsters down there,
+        and there is no quick escape back out of here when you are in the dungeon.
+
+  - id: 3735
+    key: school_room_3735
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3740
+      east: 3736
+      south: 3730
+      west: 3734
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3740
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3736
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3730
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3734
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3736
+    key: school_room_3736
+    name: "East Wall of Arena"
+    area_id: 32
+    short_desc: "East Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3741
+      south: 3731
+      west: 3735
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3741
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3731
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3735
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3737
+    key: school_room_3737
+    name: "West Wall of Arena"
+    area_id: 32
+    short_desc: "West Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3742
+      east: 3738
+      south: 3732
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3742
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3738
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3732
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3738
+    key: school_room_3738
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3743
+      east: 3739
+      south: 3733
+      west: 3737
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3743
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3739
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3733
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3737
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3739
+    key: school_room_3739
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3744
+      east: 3740
+      south: 3734
+      west: 3738
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3744
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3740
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3734
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3738
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3740
+    key: school_room_3740
+    name: "Arena"
+    area_id: 32
+    short_desc: "Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3745
+      east: 3741
+      south: 3735
+      west: 3739
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3745
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3741
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3735
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3739
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3741
+    key: school_room_3741
+    name: "East Wall of Arena"
+    area_id: 32
+    short_desc: "East Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      north: 3746
+      south: 3736
+      west: 3740
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3746
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3736
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3740
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3742
+    key: school_room_3742
+    name: "North West Corner of Arena"
+    area_id: 32
+    short_desc: "North West Corner of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      east: 3743
+      south: 3737
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3743
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3737
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3743
+    key: school_room_3743
+    name: "North Wall of Arena"
+    area_id: 32
+    short_desc: "North Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  You can barely see the ceiling.  You feel as if you are being watched
+      by some divine being.
+    exits:
+      east: 3744
+      south: 3738
+      west: 3742
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3744
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3738
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3742
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3744
+    key: school_room_3744
+    name: "North Wall of Arena"
+    area_id: 32
+    short_desc: "North Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      east: 3745
+      south: 3739
+      west: 3743
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3745
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3739
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3743
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3745
+    key: school_room_3745
+    name: "North Wall of Arena"
+    area_id: 32
+    short_desc: "North Wall of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      east: 3746
+      south: 3740
+      west: 3744
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3746
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3740
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3744
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3746
+    key: school_room_3746
+    name: "North East Corner of Arena"
+    area_id: 32
+    short_desc: "North East Corner of Arena"
+    long_desc: |
+      You are in the Arena.  Remember, if you wish to get out of this Arena, just
+      go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+      being watched by some divine being.
+    exits:
+      south: 3741
+      west: 3745
+      up: 3760
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3741
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3745
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 3760
+        description: "You see the EXIT."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3748
+    key: school_room_3748
+    name: "The Center of the Dungeon"
+    area_id: 32
+    short_desc: "The Center of the Dungeon"
+    long_desc: |
+      You are in the center of a large room.  A faint light from above shows that
+      the floors are all covered with slime.  A feeling of dread comes over you as
+      you notice that this is NOT a great place to go.  Exits go in all directions.
+      Of special note is the one that brings you back up!!!
+    exits:
+      up: 3734
+      north: 3750
+      east: 3753
+      south: 3755
+      west: 3752
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 3734
+        description: "You see safety!"
+        keywords: "grate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      north:
+        to: 3750
+        description: "You see the north wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3753
+        description: "You see the east wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3755
+        description: "You see the south wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3752
+        description: "You see the west wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3749
+    key: school_room_3749
+    name: "The North West Corner of the Dungeon"
+    area_id: 32
+    short_desc: "The North West Corner of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      east: 3750
+      south: 3752
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3750
+        description: "You see the north wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3752
+        description: "You see the south wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3750
+    key: school_room_3750
+    name: "The North Wall of the Dungeon"
+    area_id: 32
+    short_desc: "The North Wall of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      east: 3751
+      south: 3748
+      west: 3749
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3751
+        description: "You see the north east corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3748
+        description: "You see the center of the dungeon."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3749
+        description: "You see the north west corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3751
+    key: school_room_3751
+    name: "The North East Corner of the Dungeon"
+    area_id: 32
+    short_desc: "The North East Corner of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      south: 3753
+      west: 3750
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3753
+        description: "You see the east wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3750
+        description: "You see the north wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3752
+    key: school_room_3752
+    name: "The West Wall of the Dungeon"
+    area_id: 32
+    short_desc: "The West Wall of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      north: 3749
+      east: 3748
+      south: 3754
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3749
+        description: "You see the north west corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3748
+        description: "You see the center of the dungeon."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3754
+        description: "You see the south west corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3753
+    key: school_room_3753
+    name: "The East Wall of the Dungeon"
+    area_id: 32
+    short_desc: "The East Wall of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      north: 3751
+      south: 3756
+      west: 3748
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3751
+        description: "You see the north east corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3756
+        description: "You see the south east corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3748
+        description: "You see the center of the dungeon."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3754
+    key: school_room_3754
+    name: "The South West Corner of the Dungeon"
+    area_id: 32
+    short_desc: "The South West Corner of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      north: 3752
+      east: 3755
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3752
+        description: "You see the north wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3755
+        description: "You see the south wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3755
+    key: school_room_3755
+    name: "The South Wall of the Dungeon"
+    area_id: 32
+    short_desc: "The South Wall of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      north: 3748
+      east: 3756
+      west: 3754
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3748
+        description: "You see the center of the dungeon."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3756
+        description: "You see the south east corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3754
+        description: "You see the south west corner."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3756
+    key: school_room_3756
+    name: "The South East Corner of the Dungeon"
+    area_id: 32
+    short_desc: "The South East Corner of the Dungeon"
+    long_desc: |
+      You are against a wall in the dungeon.  It is quite dark here.  The lack of
+      any windows in the area explains the smell around you.
+    exits:
+      north: 3753
+      west: 3755
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3753
+        description: "You see the east wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3755
+        description: "You see the south wall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3757
+    key: school_room_3757
+    name: "A Room in Mud School"
+    area_id: 32
+    short_desc: "A Room in Mud School"
+    long_desc: |
+      You are in a room in Mud School.  Pastels cover these walls, due to Hatchet's
+      mood for the day.  To the west is Furey's Training Room, and to the east is
+      Hatchet's Guild Room.  North of you is the next Station of Mud School.
+      There is a sign on the wall (type 'LOOK SIGN' to read it).
+    exits:
+      north: 3701
+      east: 3759
+      south: 3700
+      west: 3758
+    sector_type: CITY
+    doors:
+      north:
+        to: 3701
+        description: "You see the next station of Mud School."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3759
+        description: "You see Hatchet's Guild Room.  Go there to practice your skills."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 3700
+        description: "You see the entrance to Mud School."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3758
+        description: "You see Furey's Training Room.  Go there to train your attributes."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        To find out your attributes, type 'score'.  You can improve your attributes
+        in Furey's Training Room to the west.  You can practice your skills and spells
+        in Hatchet's Guild Room to the east.  You can continue through mud school by
+        going north.
+        
+        If you are a new character, you should go 'WEST' from here, train your
+        abilities, and then come back here and go 'NORTH'.
+
+  - id: 3758
+    key: school_room_3758
+    name: "Furey's Training Room"
+    area_id: 32
+    short_desc: "Furey's Training Room"
+    long_desc: |
+      You are in Furey's Training Room.  Around you are all sorts of physical
+      and mental training tools.  The whole room is filled with magic, holiness, 
+      and sweat.  There is a sign on the wall.
+    exits:
+      east: 3757
+    sector_type: CITY
+    doors:
+      east:
+        to: 3757
+        description: "You see the room you came from, and the room you should go to."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Welcome to Furey's Training Room.  Here you can train your attributes.  To 
+        train an attribute, you need enough practices.  To find out how many practice
+        sessions you have, type 'train' while you are in this room.  To train for a 
+        specific attribute, type 'train <attr>' where attr is the first 3 letters of
+        the attribute you want increased.  Type 'help train' for more information.
+
+  - id: 3759
+    key: school_room_3759
+    name: "Hatchet's Guild Room"
+    area_id: 32
+    short_desc: "Hatchet's Guild Room"
+    long_desc: |
+      You are in a room filled with weapons, books, and many combat dummies, some
+      cut and stabbed many times, others burnt to a crisp.  The room is filled with
+      sweat and an aura of magic.  There is a sign on the wall.
+    exits:
+      west: 3757
+    sector_type: CITY
+    doors:
+      west:
+        to: 3757
+        description: "You see the room you came from and the room you should go to."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      sign: |
+        Welcome to Hatchet's Guild Room.  Here you will learn your skills and spells.
+        To find out what skills and spells you can practice and how many practice
+        sessions you have, type 'practice'.  To practice the specific skill, type
+        'practice <skill>', where 'skill' is the skill or spell you wish to practice.
+        Practicing increases the amount you know of that skill or spell, up to a
+        certain maximum.  When you have practiced all you wish to practice, go west.
+
+  - id: 3760
+    key: school_room_3760
+    name: "A Safe Room"
+    area_id: 32
+    short_desc: "A Safe Room"
+    long_desc: |
+      You are in a safe room, away from all the mean rabbits and snails of the Arena.
+      You can rest here, and go up to go back to the Temple of Midgaard.
+    exits:
+      up: 3001
+    sector_type: INSIDE
+    doors:
+      up:
+        to: 3001
+        description: "You see the Temple of Midgaard."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

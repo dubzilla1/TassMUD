@@ -1,0 +1,9 @@
+areas:
+  - id: 62
+    name: "Arachnos"
+    description: "Converted from arachnos.are"
+    sector_type: "WATER_SWIM"
+    author: "MERC"
+    source_file: "arachnos.are"
+    vnum_range: "6200-6399"
+

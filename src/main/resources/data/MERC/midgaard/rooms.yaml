@@ -1,0 +1,3966 @@
+rooms:
+  - id: 3001
+    key: midgaard_room_3001
+    name: "The Temple Of Midgaard"
+    area_id: 30
+    short_desc: "The Temple Of Midgaard"
+    long_desc: |
+      You are in the southern end of the temple hall in the Temple of Midgaard.
+      The temple has been constructed from giant marble blocks, eternal in
+      appearance, and most of the walls are covered by ancient wall paintings
+      picturing Gods, Giants and peasants.
+         Large steps lead down through the grand temple gate, descending the huge
+      mound upon which the temple is built and ends on the temple square below.
+         Equally large steps lead UP through a small door into the ENTRANCE to MUD 
+      SCHOOL.  (type 'up' to go to MUD SCHOOL.)  A small plaque is on this wall.
+    exits:
+      north: 3054
+      south: 3005
+      up: 3700
+    sector_type: INSIDE
+    doors:
+      north:
+        to: 3054
+        description: "At the northern end of the temple hall is a statue and a huge altar."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3005
+        description: "You see the temple square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 3700
+        description: "You see the entrance to Mud School."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      plaque: |
+        This entire world has been integrated, modified, debugged, and enhanced by
+        Hatchet, Kahn, and Furey of MERC Industries to be run by any MERC Mud.
+        1992 December 17
+
+  - id: 3002
+    key: midgaard_room_3002
+    name: "Cleric's Inner Sanctum"
+    area_id: 30
+    short_desc: "Cleric's Inner Sanctum"
+    long_desc: |
+      This is the inner sanctum.  A picture of the mighty Thor, is hanging on
+      the wall, just above the altar which is set against the western wall.  A well
+      in the middle of the floor leads down into darkness.  Vile smells waft from
+      the depths.
+    exits:
+      east: 3003
+      down: 7026
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      east:
+        to: 3003
+        description: "You see your favorite place, the bar of divination."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 7026
+        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3003
+    key: midgaard_room_3003
+    name: "Cleric's Bar"
+    area_id: 30
+    short_desc: "Cleric's Bar"
+    long_desc: |
+      The bar is one of the finest in the land, lucky it is members only.  Fine
+      furniture is set all around the room.  A small sign is hanging on the wall.
+    exits:
+      south: 3004
+      west: 3002
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      south:
+        to: 3004
+        description: "You see the entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3002
+        description: "You see the inner sanctum."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        The sign reads:
+        Free instructions provided by the waiter:
+        
+           Buy  - Buy something (drinkable) from the waiter.
+           List - The waiter will show you all the different drinks and
+                  specialties, and tell the price of each.
+
+  - id: 3004
+    key: midgaard_room_3004
+    name: "Entrance to Cleric's Guild"
+    area_id: 30
+    short_desc: "Entrance to Cleric's Guild"
+    long_desc: |
+      The entrance hall is a small modest room, reflecting the true nature of
+      the Clerics.  The exit leads east to the temple square.  A small entrance to
+      the bar is in the northern wall.
+    exits:
+      north: 3003
+      east: 3005
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3003
+        description: "You see the bar, richly decorated with really stylish furniture."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3005
+        description: "You see the Temple Square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3005
+    key: midgaard_room_3005
+    name: "The Temple Square"
+    area_id: 30
+    short_desc: "The Temple Square"
+    long_desc: |
+      You are standing on the temple square.  Huge marble steps lead up to the
+      temple gate.  The entrance to the Clerics Guild is to the west, and the old
+      Grunting Boar Inn, is to the east.  Just south of here you see the market
+      square, the center of Midgaard.
+    exits:
+      north: 3001
+      east: 3006
+      south: 3014
+      west: 3004
+      up: 3057
+    sector_type: CITY
+    doors:
+      north:
+        to: 3001
+        description: "You see the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3006
+        description: "You see the good old Grunting Boar Inn."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3014
+        description: "You see the Market Square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3004
+        description: "You see the entrance to the Clerics Guild."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 3057
+        description: "You see the air."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3006
+    key: midgaard_room_3006
+    name: "Entrance to the Grunting Boar Inn"
+    area_id: 30
+    short_desc: "Entrance to the Grunting Boar Inn"
+    long_desc: |
+      You are standing in the entrance hall of the Grunting Boar Inn.  The hall
+      has been wisely decorated with simple but functional furniture.  A small
+      staircase leads up to the defunct reception room and the bar is to the east.
+    exits:
+      east: 3007
+      west: 3005
+      up: 3008
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3007
+        description: "Surprise! You see the bar."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3005
+        description: "You see the temple square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 3008
+        description: "You see the defunct reception room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3007
+    key: midgaard_room_3007
+    name: "The Grunting Boar"
+    area_id: 30
+    short_desc: "The Grunting Boar"
+    long_desc: |
+      You are standing in the bar.  The bar is set against the northern wall, old
+      archaic writing, carvings and symbols cover its top.  A fireplace is built into
+      the western wall, and through the southeastern windows you can see the temple
+      square.  This place makes you feel like home.
+      A small sign with big letters is fastened to the bar.
+    exits:
+      west: 3006
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3006
+        description: "You see the exit to the entrance hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        The sign reads:
+        Free instructions provided by the Grunting Boar Inn.
+        
+           Buy  - Buy something (drinkable) from the bartender.
+           List - The bartender will show you all the different drinks and
+                  specialties, and tell the price of each.
+      writing: |
+        Although it is very hard to understand, you think it looks a lot like beer,
+        poems about beer, and small beer-mugs.
+
+  - id: 3008
+    key: midgaard_room_3008
+    name: "The Defunct Reception"
+    area_id: 30
+    short_desc: "The Defunct Reception"
+    long_desc: |
+      You are standing in a dusty, defunct reception.  The staircase leads
+      down to the entrance hall.
+    exits:
+      down: 3006
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 3006
+        description: "You see the entrance hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3009
+    key: midgaard_room_3009
+    name: "The Bakery"
+    area_id: 30
+    short_desc: "The Bakery"
+    long_desc: |
+      You are standing inside the small bakery.  A sweet scent of Danish and
+      fine bread fills the room.  The bread and Danish are arranged in fine order
+      on the shelves, and seem to be of the finest quality.
+      A small sign is on the counter.
+    exits:
+      south: 3013
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3013
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      danish: |
+        You see that this is truly delicious pastry.  Must be made by a Dane from
+        Denmark (which surely is not the capital of Sweden!).  Former ruler of
+        Scandinavia, England, Northern Germany, Northern France, Russia, Greenland,
+        Iceland, Estonia etc. etc.
+           The sight of those large, wholesome chokoladeboller makes your mouth water
+        and your soul sing.
+      sign: |
+        Free instructions provided by the store:
+        
+           Buy  - Will buy you some bread or pastry.
+           List - The baker will kindly tell you the price and sort of the bread in
+                  his bakery.
+
+  - id: 3010
+    key: midgaard_room_3010
+    name: "The General Store"
+    area_id: 30
+    short_desc: "The General Store"
+    long_desc: |
+      You are inside the general store.  All sorts of items are stacked on shelves
+      behind the counter, safely out of your reach.
+      A small note hangs on the wall.
+    exits:
+      south: 3015
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3015
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      note: |
+        The note reads:
+        
+          List  - Show which various items are in the store.
+          Buy   - Buy an item.
+          Value - The shopkeeper will (free of charge) tell how much he will
+                  pay for your item.
+          Sell  - Sell an item.
+
+  - id: 3011
+    key: midgaard_room_3011
+    name: "The Weapon Shop"
+    area_id: 30
+    short_desc: "The Weapon Shop"
+    long_desc: |
+      You are inside the weapon shop.  There is a small note on the counter.
+    exits:
+      south: 3016
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3016
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      note: |
+        The note reads:
+        
+          List  - Show which various items are in the store.
+          Buy   - Buy an item.
+          Value - The shopkeeper will (free of charge) tell how much he will
+                  pay for your item.
+          Sell  - Sell an item.
+
+  - id: 3012
+    key: midgaard_room_3012
+    name: "Main Street"
+    area_id: 30
+    short_desc: "Main Street"
+    long_desc: |
+      You are at the end of the main street of Midgaard.  South of here is the
+      entrance to the Guild of Magic Users.  The street continues east towards the
+      market square.  The magic shop is to the north and to the west is the city
+      gate.
+    exits:
+      north: 3033
+      east: 3013
+      south: 3017
+      west: 3040
+    sector_type: CITY
+    doors:
+      north:
+        to: 3033
+        description: "You see the magic shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3013
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3017
+        description: "You see the entrance to the Guild of Magic Users."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3040
+        description: "You see the city gate."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3013
+    key: midgaard_room_3013
+    name: "Main Street"
+    area_id: 30
+    short_desc: "Main Street"
+    long_desc: |
+      You are on the main street passing through the City of Midgaard.  South of
+      here is the entrance to the Armoury, and the bakery is to the north.  East of
+      here is the market square.
+    exits:
+      north: 3009
+      east: 3014
+      south: 3020
+      west: 3012
+    sector_type: CITY
+    doors:
+      north:
+        to: 3009
+        description: "You see the bakery."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3014
+        description: "You see the market square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3020
+        description: "You see the armoury."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3012
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3014
+    key: midgaard_room_3014
+    name: "Market Square"
+    area_id: 30
+    short_desc: "Market Square"
+    long_desc: |
+      You are standing on the market square, the famous Square of Midgaard.
+      A large, peculiar looking statue is standing in the middle of the square.
+      Roads lead in every direction, north to the temple square, south to the
+      common square, east and westbound is the main street.
+    exits:
+      north: 3005
+      east: 3015
+      south: 3025
+      west: 3013
+    sector_type: CITY
+    doors:
+      north:
+        to: 3005
+        description: "You see the temple square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3015
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3025
+        description: "You see the common square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3013
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      statue: |
+        What you see is the Midgaard Worm, stretching around the Palace of Midgaard.
+
+  - id: 3015
+    key: midgaard_room_3015
+    name: "The Main Street"
+    area_id: 30
+    short_desc: "The Main Street"
+    long_desc: |
+      You are on Main Street crossing through town.  To the north is the general
+      store, and the main street continues east.  To the west you see and hear the
+      market place and to the south is the Jeweller's Shop.
+    exits:
+      north: 3010
+      east: 3016
+      south: 3034
+      west: 3014
+    sector_type: CITY
+    doors:
+      north:
+        to: 3010
+        description: "You see the general store."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3016
+        description: "You see Main Street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3034
+        description: "You see the Jeweller's Shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3014
+        description: "You see the market square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3016
+    key: midgaard_room_3016
+    name: "The Main Street"
+    area_id: 30
+    short_desc: "The Main Street"
+    long_desc: |
+      The main street, to the north is the weapon shop and to the south is the
+      Guild of Swordsmen.  To the east you leave town and to the west the street
+      leads to the market square.
+    exits:
+      north: 3011
+      east: 3041
+      south: 3021
+      west: 3015
+    sector_type: CITY
+    doors:
+      north:
+        to: 3011
+        description: "You see the weapon shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3041
+        description: "You see the city gate."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3021
+        description: "You see the swordsmen's guild."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3015
+        description: "You see the main street leading to the market square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3017
+    key: midgaard_room_3017
+    name: "Entrance to Mage's Guild"
+    area_id: 30
+    short_desc: "Entrance to Mage's Guild"
+    long_desc: |
+      The entrance hall is a small, poor lighted room.
+    exits:
+      north: 3012
+      south: 3018
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3012
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3018
+        description: "You see your favorite place, the Mage's Bar."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3018
+    key: midgaard_room_3018
+    name: "Mage's Bar"
+    area_id: 30
+    short_desc: "Mage's Bar"
+    long_desc: |
+      The bar is one of the wierdest in the land.  Mystical images float around
+      the air.  Illusions of fine furniture appear all around the room.
+    exits:
+      north: 3017
+      east: 3019
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 3017
+        description: "You see the lobby."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3019
+        description: "You see the laboratory."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3019
+    key: midgaard_room_3019
+    name: "Mage's Laboratory"
+    area_id: 30
+    short_desc: "Mage's Laboratory"
+    long_desc: |
+      This is the Magical Experiments Laboratory.  Dark smoke-stained stones
+      arch over numerous huge oaken tables, most of these cluttered with strange-
+      looking pipes and flasks.  The floor is covered with half-erased pentagrams
+      and even weirder symbols, and a blackboard in a dark corner has only been
+      partially cleaned, some painful-looking letters faintly visible.  A well in
+      the middle of the floor leads down into darkness.  Vile smells waft from the
+      depths.
+    exits:
+      west: 3018
+      down: 7017
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      west:
+        to: 3018
+        description: "You see the bar."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 7017
+        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3020
+    key: midgaard_room_3020
+    name: "The Armoury"
+    area_id: 30
+    short_desc: "The Armoury"
+    long_desc: |
+      The armoury with all kinds of armours on the walls and in the window.  You
+      see helmets, shields and chain mails.  To the north is the main street.
+      On the wall is a small note.
+    exits:
+      north: 3013
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3013
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      note: |
+        You can use these commands for trading:
+        
+          value <item>     To get the price of an item in your possession.
+          sell <item>      To sell something.
+          buy <item>       To buy something (provided that the shop has it in store).
+          list             Gives you a listing of the shop's inventory.
+        
+                WE DON'T GIVE CREDIT; WE DON'T EXPECT TO RECEIVE CREDIT!
+                                     NO HAGGLING
+
+  - id: 3021
+    key: midgaard_room_3021
+    name: "Entrance Hall to the Guild of Swordsmen"
+    area_id: 30
+    short_desc: "Entrance Hall to the Guild of Swordsmen"
+    long_desc: |
+      The entrance hall to the Guild of Swordsmen.  A place where one has to be
+      careful not to say something wrong (or right).  To the east is the bar and to
+      the north is the main street.
+    exits:
+      north: 3016
+      east: 3022
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3016
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3022
+        description: "You see the swordsmen's bar, many noises comes from there."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3022
+    key: midgaard_room_3022
+    name: "The Bar of Swordsmen"
+    area_id: 30
+    short_desc: "The Bar of Swordsmen"
+    long_desc: |
+      The bar of swordsmen, once upon a time beautifully furnished.  But now the
+      furniture is all around you in small pieces.  To the south is the yard, and
+      to the west is the entrance hall.
+    exits:
+      south: 3023
+      west: 3021
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      south:
+        to: 3023
+        description: "You see the practice yard."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3021
+        description: "You see the entrance hall to the thieves guild."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3023
+    key: midgaard_room_3023
+    name: "The Tournament and Practice Yard"
+    area_id: 30
+    short_desc: "The Tournament and Practice Yard"
+    long_desc: |
+      The practice yard of the fighters.  To the north is the bar.  A well leads
+      down into darkness.
+    exits:
+      north: 3022
+      down: 7048
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 3022
+        description: "You see the bar."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 7048
+        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3024
+    key: midgaard_room_3024
+    name: "Eastern End of Poor Alley"
+    area_id: 30
+    short_desc: "Eastern End of Poor Alley"
+    long_desc: |
+      You are at the poor alley.  South of here is the Grubby Inn and to the
+      east you see common square.  The alley continues further west.
+    exits:
+      east: 3025
+      south: 3048
+      west: 3044
+    sector_type: CITY
+    doors:
+      east:
+        to: 3025
+        description: "You see the common square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3048
+        description: "You see the Inn."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3044
+        description: "You see the poor alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3025
+    key: midgaard_room_3025
+    name: "The Common Square"
+    area_id: 30
+    short_desc: "The Common Square"
+    long_desc: |
+      The common square, people pass you, talking to each other.  To the west is
+      the poor alley and to the east is the dark alley.  To the north, this square
+      is connected to the market square.  From the south you notice a nasty smell.
+    exits:
+      north: 3014
+      east: 3026
+      south: 3030
+      west: 3024
+    sector_type: CITY
+    doors:
+      north:
+        to: 3014
+        description: "You see the market square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3026
+        description: "You see the dark alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3030
+        description: "You see the city dump."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3024
+        description: "You see the poor alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3026
+    key: midgaard_room_3026
+    name: "The Dark Alley"
+    area_id: 30
+    short_desc: "The Dark Alley"
+    long_desc: |
+      The dark alley, to the west is the common square and to the south is the
+      Guild of Thieves.  The alley continues east.
+    exits:
+      east: 3045
+      south: 3027
+      west: 3025
+    sector_type: CITY
+    doors:
+      east:
+        to: 3045
+        description: "The alley continues east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3027
+        description: "You see the entrance to the thieves guild."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3025
+        description: "You see the common square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      guild: |
+        It is the thieves guild, don't enter if you care about your health or money.
+
+  - id: 3027
+    key: midgaard_room_3027
+    name: "Entrance Hall to the Guild of Thieves"
+    area_id: 30
+    short_desc: "Entrance Hall to the Guild of Thieves"
+    long_desc: |
+      The entrance hall to the thieves' and assassins' guild.  A place where you
+      can lose both your life and your money, if you are not careful.  To the north
+      is the dark alley and to the east is the thieves' bar.
+    exits:
+      north: 3026
+      east: 3028
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3026
+        description: "You see the alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3028
+        description: "You see the thieves bar, where everything disappears."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3028
+    key: midgaard_room_3028
+    name: "The Thieves Bar"
+    area_id: 30
+    short_desc: "The Thieves Bar"
+    long_desc: |
+      The bar of the thieves.  Once upon a time this place was beautifully
+      furnished, but now it seems almost empty.  To the south is the yard, and to
+      the west is the entrance hall.
+         (Maybe the furniture has been stolen?!)
+    exits:
+      south: 3029
+      west: 3027
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      south:
+        to: 3029
+        description: "You see the secret yard."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3027
+        description: "You see the entrance hall to the thieves guild."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      furniture: |
+        As you look at the furniture, the chair you sit on disappears.
+
+  - id: 3029
+    key: midgaard_room_3029
+    name: "The Secret Yard"
+    area_id: 30
+    short_desc: "The Secret Yard"
+    long_desc: |
+      The secret practice yard of thieves and assassins.  To the north is the
+      bar.  A well leads down into darkness.
+    exits:
+      north: 3028
+      down: 7043
+    sector_type: INSIDE
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      north:
+        to: 3028
+        description: "You see the bar."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 7043
+        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3030
+    key: midgaard_room_3030
+    name: "The Dump"
+    area_id: 30
+    short_desc: "The Dump"
+    long_desc: |
+      The dump, where the people from the city drop their garbage.  Through the
+      garbage you can see a large junction of pipes, looks like the entrance to the
+      sewer system.  South of here you see the river and to the north is the common
+      square.
+    exits:
+      north: 3025
+      south: 3504
+      down: 7030
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 3025
+        description: "You see the common square."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3504
+        description: "You see the river slowly flowing west, but notice that it would be nearly impossible to reach the river due to all the garbage and a steep river bank."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 7030
+        description: "You see the sewers."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3031
+    key: midgaard_room_3031
+    name: "The Pet Shop"
+    area_id: 30
+    short_desc: "The Pet Shop"
+    long_desc: |
+      The Pet Shop is a small crowded store, full of cages and animals of
+      various sorts and sizes.  There is a sign on the wall.
+    exits:
+      south: 3045
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3045
+        description: "You see the Alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        The sign reads:
+        
+          Use 'List' to see the available pets.
+          Use 'Buy <pet> <name>' to buy yourself a pet and name it.
+        
+          You can use 'order <pet> <instructions>' to order your pets around.
+          If you abuse your pet, it will no longer regard you as its master.
+          If you have several pets you may use 'order all <instructions>'
+        
+         Regards,
+        
+           The Shopkeeper
+
+  - id: 3032
+    key: midgaard_room_3032
+    name: "Pet Shop Store"
+    area_id: 30
+    short_desc: "Pet Shop Store"
+    long_desc: |
+      This is the small dark room in which the Pet Shop Boy keeps his pets.
+      It is vital that this room be immediately after the pet shop.
+    exits:
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+
+  - id: 3033
+    key: midgaard_room_3033
+    name: "The Magic Shop"
+    area_id: 30
+    short_desc: "The Magic Shop"
+    long_desc: |
+      You are in a small room that smells of rare chemicals and spices.
+      Dividing the room in two is a large desk, and on the wall behind it are
+      numerous shelves crammed with jars, bottles, books and scrolls of all
+      sorts and sizes.
+    exits:
+      south: 3012
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3012
+        description: "You see the main street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      jars: |
+        Some of them are transparent enabling you to see that some contain colored
+        powders while others contain body parts of various animals.
+      books: |
+        Most of them appear to be very old and dusty.
+      scrolls: |
+        Each scroll is stored in a leather tube that protects it from moist.
+
+  - id: 3034
+    key: midgaard_room_3034
+    name: "The Jeweller's Shop"
+    area_id: 30
+    short_desc: "The Jeweller's Shop"
+    long_desc: |
+      You are in a small, beautifully furnished room.  The warm light emanating
+      from the small oil lamps on the walls is reflected in the hard, polished
+      surface of the big mahogany desk that stands in the centre of the room.
+      A small sign with golden letters stands on the desk.
+    exits:
+      north: 3015
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3015
+        description: "You see Main Street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      oil: |
+        They are made from polished gold and looks as if they are securely fastened
+        to the smooth stone walls.
+      desk: |
+        Your face is reflected in its surface.
+      sign: |
+        The golden letters say :-
+        
+            Use 'list' to see what is in store,
+                'buy <item>' to buy an item,
+                'sell <item>' to sell an item and
+                'value <item>' to make the jeweller evaluate an item.
+
+  - id: 3035
+    key: midgaard_room_3035
+    name: "The Leather Shop"
+    area_id: 30
+    short_desc: "The Leather Shop"
+    long_desc: |
+      An acrid smell fills this large room.  Along the walls are numerous
+      shelves containing all sorts of animal hide and in the crackling fireplace
+      hangs a big iron pot with boiling water.  In the middle of the room is a
+      large oak table.
+      A wooden sign is hanging above the fireplace.
+    exits:
+      south: 3044
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 3044
+        description: "You see the alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      fireplace: |
+        It is a rather large fireplace made from heavy granite rocks.
+      table: |
+        It is made from solid oak but appears to be very used.  Its surface is
+        covered in marks and scratches.  A large burning candle stands directly on
+        the table surface, tallow flowing down its sides.
+      pot: |
+        Several large pieces of leather hide are boiling in the iron pot.
+      sign: |
+        The wooden sign says :-
+        
+            Use 'list' to see what is in store,
+                'buy <item>' to buy an item,
+                'sell <item>' to sell an item and
+                'value <item>' to make the leather worker evaluate an item.
+
+  - id: 3040
+    key: midgaard_room_3040
+    name: "Inside the West Gate of Midgaard"
+    area_id: 30
+    short_desc: "Inside the West Gate of Midgaard"
+    long_desc: |
+      You are by two small towers that have been built into the city wall and
+      connected with a footbridge across the heavy wooden gate.  Main Street leads
+      east and Wall Road leads south from here.
+    exits:
+      north: 101
+      east: 3012
+      south: 3042
+      west: 3052
+    sector_type: CITY
+    doors:
+      north:
+        to: 101
+        description: "You see a Dimly Lit Path."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3012
+        description: "You see Main Street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3042
+        description: "You see the road running along the inner side of the city wall.  You notice that it is called Wall Road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3052
+        description: "The city gate is to the west."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3133
+    extras:
+      bridge: |
+        It is too high up to reach but it looks as if one easily could walk across it
+        from one tower to the other.
+      gate: |
+        It is a set of very big double doors made from hard wood.  They have been
+        reinforced with large iron bands to make them even more sturdy.  One of the
+        doors is equipped with a very big lock.
+      tower: |
+        Both of the towers are built from large grey rocks that have been fastened to
+        each other with some kind of mortar, just like the city wall.
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3041
+    key: midgaard_room_3041
+    name: "Inside the East Gate of Midgaard"
+    area_id: 30
+    short_desc: "Inside the East Gate of Midgaard"
+    long_desc: |
+      You are by two small towers that have been built into the city wall and
+      connected with a footbridge across the heavy wooden gate.  Main Street leads
+      west from here.  South of here is the wall road, but it looks dirty and 
+      not too safe.
+    exits:
+      east: 3053
+      west: 3016
+      south: 2171
+    sector_type: CITY
+    doors:
+      east:
+        to: 3053
+        description: "You see the city gate."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3133
+      west:
+        to: 3016
+        description: "You see Main Street."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 2171
+        description: "You see the slums of Midgaard."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      bridge: |
+        It is too high up to reach but it looks as if one easily could walk across it
+        from one tower to the other.
+      gate: |
+        It is a set of very big double doors made from hard wood.  They have been
+        reinforced with large iron bands to make them even more sturdy.  One of the
+        doors is equipped with a very big lock.
+      tower: |
+        Both of the towers are built from large grey rocks that have been fastened to
+        each other with some kind of mortar, just like the city wall.
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3042
+    key: midgaard_room_3042
+    name: "Wall Road"
+    area_id: 30
+    short_desc: "Wall Road"
+    long_desc: |
+      You are walking next to the western city wall.  The road continues further
+      south and the city gate is just north of here.
+    exits:
+      north: 3040
+      south: 3043
+    sector_type: CITY
+    doors:
+      north:
+        to: 3040
+        description: "You see the city gate."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3043
+        description: "The road continues further south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3043
+    key: midgaard_room_3043
+    name: "Wall Road"
+    area_id: 30
+    short_desc: "Wall Road"
+    long_desc: |
+      You are walking next to the western city wall.  Wall Road continues further
+      north and south.  A small, poor alley leads east.
+      Some letters have been written on the wall here.
+    exits:
+      north: 3042
+      east: 3044
+      south: 3047
+    sector_type: CITY
+    doors:
+      north:
+        to: 3042
+        description: "The road continues further north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3044
+        description: "The alley leads east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3047
+        description: "The road continues further south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      letters: |
+        It says 'Who watches the watchmen?'
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3044
+    key: midgaard_room_3044
+    name: "Poor Alley"
+    area_id: 30
+    short_desc: "Poor Alley"
+    long_desc: |
+      You are in narrow and dirty alley leading east and west.  The leather shop
+      is to the north.
+    exits:
+      north: 3035
+      east: 3024
+      west: 3043
+    sector_type: CITY
+    doors:
+      north:
+        to: 3035
+        description: "The leather shop is to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3024
+        description: "The alley leads east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3043
+        description: "The alley leads west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3045
+    key: midgaard_room_3045
+    name: "Alley at Levee"
+    area_id: 30
+    short_desc: "Alley at Levee"
+    long_desc: |
+      You are standing in the alley which continues east and west.  South of
+      here you see the levee.  North is the Pet Shop.
+    exits:
+      north: 3031
+      east: 3046
+      south: 3049
+      west: 3026
+    sector_type: CITY
+    doors:
+      north:
+        to: 3031
+        description: "You see, hear, and smell the pet shop."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 3046
+        description: "The alley leads east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3049
+        description: "You see the levee."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3026
+        description: "The alley leads west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3046
+    key: midgaard_room_3046
+    name: "Eastern end of Alley"
+    area_id: 30
+    short_desc: "Eastern end of Alley"
+    long_desc: |
+      You are standing at the eastern end of the alley.  An old three-story
+      warehouse is directly south of here, and the Mob Factory is east.
+    exits:
+      east: 9400
+      south: 3050
+      west: 3045
+    sector_type: CITY
+    doors:
+      east:
+        to: 9400
+        description: "The entrance to the Mob Factory lies east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3050
+        description: "You see the warehouse."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3045
+        description: "You see the alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3047
+    key: midgaard_room_3047
+    name: "Wall Road"
+    area_id: 30
+    short_desc: "Wall Road"
+    long_desc: |
+      You are standing on the road next to the western city wall which
+      continues north.  South of here is a bridge across the river.
+    exits:
+      north: 3043
+      south: 3051
+    sector_type: CITY
+    doors:
+      north:
+        to: 3043
+        description: "You see the road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3051
+        description: "You see the bridge."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3048
+    key: midgaard_room_3048
+    name: "Grubby Inn"
+    area_id: 30
+    short_desc: "Grubby Inn"
+    long_desc: |
+      You are inside the old Grubby Inn.  This place has not been cleaned for
+      several decades, vile smells make you dizzy.
+    exits:
+      north: 3024
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3024
+        description: "You see the alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3049
+    key: midgaard_room_3049
+    name: "Levee"
+    area_id: 30
+    short_desc: "Levee"
+    long_desc: |
+      You are at the levee.  South of here you see the river gently flowing west.
+      The river bank is very low making it possible to enter the river.
+    exits:
+      north: 3045
+      south: 3203
+    sector_type: CITY
+    doors:
+      north:
+        to: 3045
+        description: "You see the Alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3203
+        description: "You see the river flowing west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3050
+    key: midgaard_room_3050
+    name: "Abandoned Warehouse"
+    area_id: 30
+    short_desc: "Abandoned Warehouse"
+    long_desc: |
+      You are inside the only room in the old warehouse.  The place is very dusty
+      and appears to have been unused for many years.  The skylight spills
+      violet-tinged light.
+    exits:
+      north: 3046
+      up: 8604
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3046
+        description: "You see the alley."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 8604
+        description: "You see machine dreams and taste violet phosphor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3051
+    key: midgaard_room_3051
+    name: "On the Bridge"
+    area_id: 30
+    short_desc: "On the Bridge"
+    long_desc: |
+      You are standing on the stone bridge crosses the river.  The bridge is
+      built out from the western city wall and the river flows west through an
+      opening in the wall ten feet below the bridge.
+    exits:
+      north: 3047
+      south: 3100
+    sector_type: CITY
+    doors:
+      north:
+        to: 3047
+        description: "You see the road."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3100
+        description: "You see the Concourse."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      bridge: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar, just like the wall.
+      opening: |
+        You cannot really see it from here as it is somewhere beneath your feet.
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3052
+    key: midgaard_room_3052
+    name: "Outside the West Gate of Midgaard"
+    area_id: 30
+    short_desc: "Outside the West Gate of Midgaard"
+    long_desc: |
+      You are by two small towers that have been built into the city wall and
+      connected with a footbridge across the heavy wooden gate.  To the west you
+      can see the edge of a big forest. A small dusty trail leads north along the
+      wall.
+    exits:
+      north: 3900
+      east: 3040
+      west: 6000
+    sector_type: CITY
+    doors:
+      north:
+        to: 3900
+        description: "The trail continues around the City of Midgaard."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3040
+        description: "The city gate is to the east."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3133
+      west:
+        to: 6000
+        description: "The forest edge is to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      bridge: |
+        It is too high up to reach but it looks as if one easily could walk across it
+        from one tower to the other.
+      gate: |
+        It is a set of very big double doors made from hard wood.  They have been
+        reinforced with large iron bands to make them even more sturdy.  One of the
+        doors is equipped with a very big lock.
+      tower: |
+        Both of the towers are built from large grey rocks that have been fastened to
+        each other with some kind of mortar, just like the city wall.
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3053
+    key: midgaard_room_3053
+    name: "Outside the East Gate of Midgaard"
+    area_id: 30
+    short_desc: "Outside the East Gate of Midgaard"
+    long_desc: |
+      You are by two small towers that have been built into the city wall and
+      connected with a footbridge across the heavy wooden gate.  To the east the
+      plains stretch out in the distance. To the north a small dusty trail follow
+      the city wall.
+    exits:
+      north: 3908
+      east: 3503
+      west: 3041
+    sector_type: CITY
+    doors:
+      north:
+        to: 3908
+        description: "The trail continues around the City of Midgaard."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3503
+        description: "You see the plains."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3041
+        description: "You see the city gate."
+        keywords: "gate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3133
+    extras:
+      bridge: |
+        It is too high up to reach but it looks as if one easily could walk across it
+        from one tower to the other.
+      gate: |
+        It is a set of very big double doors made from hard wood.  They have been
+        reinforced with large iron bands to make them even more sturdy.  One of the
+        doors is equipped with a very big lock.
+      tower: |
+        Both of the towers are built from large grey rocks that have been fastened to
+        each other with some kind of mortar, just like the city wall.
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3054
+    key: midgaard_room_3054
+    name: "By the Temple Altar"
+    area_id: 30
+    short_desc: "By the Temple Altar"
+    long_desc: |
+      You are by the temple altar in the northern end of the Temple of Midgaard.
+      A huge altar made from white polished marble is standing in front of you and
+      behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
+    exits:
+      south: 3001
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 3001
+        description: "You see the southern end of the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      altar: |
+        Even though the altar is more than ten feet long it appears to be made from a
+        single block of white virgin marble.
+      statue: |
+        The statue represents the one-eyed Odin sitting on a his throne.  He has
+        long, grey hair and beard and a strict look on his face.  On top of the
+        throne, just above his shoulders, his two ravens Hugin and Munin are sitting
+        and at his feet are his wolves Gere and Freke.
+
+  - id: 3057
+    key: midgaard_room_3057
+    name: "In the air..."
+    area_id: 30
+    short_desc: "In the air..."
+    long_desc: |
+      WOW you can fly!  You are floating in the air above Temple Square of Midgaard.
+    exits:
+      up: 1017
+      down: 3005
+    sector_type: AIR
+    legacy_flags:
+      - NO_MOB
+    doors:
+      up:
+        to: 1017
+        description: "More of the same."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 3005
+        description: "Back down on the earth where you should be!"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 3100
+    key: midgaard_room_3100
+    name: "Northwest end of Concourse"
+    area_id: 31
+    short_desc: "Northwest end of Concourse"
+    long_desc: |
+      You are at the concourse, the city wall is just west.  A small promenade
+      goes east, and the bridge is just north of here.  The concourse continues
+      south along the city wall.
+    exits:
+      north: 3051
+      east: 3101
+      south: 3127
+    sector_type: CITY
+    doors:
+      north:
+        to: 3051
+        description: "You see the Bridge."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3101
+        description: "You see the promenade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3127
+        description: "The promenade continues far south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3101
+    key: midgaard_room_3101
+    name: "Promenade"
+    area_id: 31
+    short_desc: "Promenade"
+    long_desc: |
+      The river gently flows west just north of here.  The promenade continues
+      further east and to the west you see the city wall.  Park Road leads south
+      from here.
+    exits:
+      east: 3102
+      south: 3131
+      west: 3100
+    sector_type: CITY
+    doors:
+      east:
+        to: 3102
+        description: "The promenade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3131
+        description: "Park Road leads south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3100
+        description: "You see the Concourse."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3102
+    key: midgaard_room_3102
+    name: "Promenade"
+    area_id: 31
+    short_desc: "Promenade"
+    long_desc: |
+      The river gently flows west just north of here.  The promenade continues
+      both east and west.  South of here you see the entrance to the park, and a
+      small building seems to be just west of the entrance.
+    exits:
+      east: 3103
+      south: 3105
+      west: 3101
+    sector_type: CITY
+    doors:
+      east:
+        to: 3103
+        description: "You see the promenade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3105
+        description: "You see the park entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3101
+        description: "You see the promenade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3103
+    key: midgaard_room_3103
+    name: "Promenade"
+    area_id: 31
+    short_desc: "Promenade"
+    long_desc: |
+      The river gently flows west just north of here.  The promenade continues
+      both east and west.  A small path leads south.  Looking across the river you
+      see the levee.
+    exits:
+      east: 3104
+      south: 3132
+      west: 3102
+    sector_type: CITY
+    doors:
+      east:
+        to: 3104
+        description: "You see the Concourse."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3132
+        description: "The small path leads south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3102
+        description: "You see the promenade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3104
+    key: midgaard_room_3104
+    name: "Northeast end of Concourse"
+    area_id: 31
+    short_desc: "Northeast end of Concourse"
+    long_desc: |
+      You are at the Concourse.  The city wall is just east and a small
+      promenade goes west.  Looking across the river you see a building that
+      resembles a warehouse.  The Concourse continues south along the city wall.
+    exits:
+      south: 3130
+      west: 3103
+    sector_type: CITY
+    doors:
+      south:
+        to: 3130
+        description: "The Concourse continues south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3103
+        description: "You see the promenade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  It is far too high to climb.
+
+  - id: 3105
+    key: midgaard_room_3105
+    name: "Park Entrance"
+    area_id: 31
+    short_desc: "Park Entrance"
+    long_desc: |
+      You are standing just inside the small park of Midgaard.  To the north is
+      the promenade and a small path leads south into the park.  To your east is
+      the famous Park Cafe.
+    exits:
+      north: 3102
+      east: 3106
+      south: 3108
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 3102
+        description: "You see the promenade."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3106
+        description: "You see Park Cafe."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3108
+        description: "You see the park."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3106
+    key: midgaard_room_3106
+    name: "Park Cafe"
+    area_id: 31
+    short_desc: "Park Cafe"
+    long_desc: |
+      You are inside Park Cafe, a very well lighted, cosy place. The cafe
+      is built from large logs. Through the windows in the northern wall you
+      see the river, and through the southern window you see many vigorous
+      colorful plants.
+    exits:
+      west: 3105
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3105
+        description: "You see the park entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3107
+    key: midgaard_room_3107
+    name: "Small path through the park"
+    area_id: 31
+    short_desc: "Small path through the park"
+    long_desc: |
+      You are walking along a small path through the park.  The path continues
+      south and east.
+    exits:
+      east: 3108
+      south: 3113
+    sector_type: CITY
+    doors:
+      east:
+        to: 3108
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3108
+    key: midgaard_room_3108
+    name: "Small path in the park"
+    area_id: 31
+    short_desc: "Small path in the park"
+    long_desc: |
+      You are standing on a small path inside the park.  The park entrance is
+      just north of here, and Park Cafe is just east of the entrance.  The path
+      leads further east and west.
+    exits:
+      north: 3105
+      east: 3109
+      west: 3107
+    sector_type: CITY
+    doors:
+      north:
+        to: 3105
+        description: "You see the northern park entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3109
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3107
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3109
+    key: midgaard_room_3109
+    name: "Small path in the park"
+    area_id: 31
+    short_desc: "Small path in the park"
+    long_desc: |
+      You are on a small path running through the park.  It continues west and
+      south and just north of here you see the southern wall of Park Cafe.
+    exits:
+      south: 3115
+      west: 3108
+    sector_type: CITY
+    doors:
+      south:
+        to: 3115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3108
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3110
+    key: midgaard_room_3110
+    name: "Cityguard Head Quarters"
+    area_id: 31
+    short_desc: "Cityguard Head Quarters"
+    long_desc: |
+      You are inside a tidy office.  A big desk made from dark wood is standing
+      in the centre of the room.
+    exits:
+      east: 3111
+      west: 3142
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3111
+        description: "You see Park Road."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3142
+        description: "You see a sign saying 'KEEP OUT'."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3120
+
+  - id: 3111
+    key: midgaard_room_3111
+    name: "Park Road"
+    area_id: 31
+    short_desc: "Park Road"
+    long_desc: |
+      The road continues north and south.  A building is just west of here, you
+      notice a sign on the door.  The park entrance is to the east.
+    exits:
+      north: 3131
+      east: 3112
+      south: 3118
+      west: 3110
+    sector_type: CITY
+    doors:
+      north:
+        to: 3131
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3112
+        description: "You see the park entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3110
+        description: "You see the cityguard head quarters."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      building: |
+        The sign on the door says:-
+        
+                         Cityguard Head Quarters
+
+  - id: 3112
+    key: midgaard_room_3112
+    name: "Western Park Entrance"
+    area_id: 31
+    short_desc: "Western Park Entrance"
+    long_desc: |
+      You are standing at the western end of the park.  A small path leads east
+      into the park and going west through the entrance you will reach Park Road.
+    exits:
+      east: 3113
+      west: 3111
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 3113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3111
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3113
+    key: midgaard_room_3113
+    name: "A path in the park"
+    area_id: 31
+    short_desc: "A path in the park"
+    long_desc: |
+      You are in the park.  The paths lead north and west.  Westwards is the
+      park entrance and to the east you see a small pond.
+    exits:
+      north: 3107
+      east: 3114
+      west: 3112
+    sector_type: CITY
+    doors:
+      north:
+        to: 3107
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3114
+        description: "You see the pond."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3112
+        description: "You see the western park entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3114
+    key: midgaard_room_3114
+    name: "The Pond"
+    area_id: 31
+    short_desc: "The Pond"
+    long_desc: |
+      You are swimming around in the pond, feeling rather stupid.  You can get
+      back on the path from the eastern and western end of the pond.
+    exits:
+      east: 3115
+      west: 3113
+    sector_type: WATER_SWIM
+    doors:
+      east:
+        to: 3115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3113
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3115
+    key: midgaard_room_3115
+    name: "A path in the park"
+    area_id: 31
+    short_desc: "A path in the park"
+    long_desc: |
+      You are in the park.  The paths lead north and east.  Eastwards is the
+      park entrance and to the west you see a small pond.
+    exits:
+      north: 3109
+      east: 3116
+      west: 3114
+    sector_type: CITY
+    doors:
+      north:
+        to: 3109
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3116
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3114
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3116
+    key: midgaard_room_3116
+    name: "Eastern Park Entrance"
+    area_id: 31
+    short_desc: "Eastern Park Entrance"
+    long_desc: |
+      You are standing at the eastern end of the park.  A small path leads west
+      into the park.  Going east through the entrance you will reach Emerald
+      Avenue.
+    exits:
+      east: 3117
+      west: 3115
+    sector_type: CITY
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 3117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3115
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3117
+    key: midgaard_room_3117
+    name: "Emerald Avenue"
+    area_id: 31
+    short_desc: "Emerald Avenue"
+    long_desc: |
+      You are at Emerald Avenue which continues north and south.  To the west is
+      the park entrance and to the east is the not very big Town Hall of Midgaard.
+    exits:
+      north: 3132
+      east: 3137
+      south: 3119
+      west: 3116
+    sector_type: CITY
+    doors:
+      north:
+        to: 3132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3137
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3119
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3116
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3118
+    key: midgaard_room_3118
+    name: "Park Road"
+    area_id: 31
+    short_desc: "Park Road"
+    long_desc: |
+      You are on Park Road which leads north and south.
+    exits:
+      north: 3111
+      south: 3135
+    sector_type: CITY
+    doors:
+      north:
+        to: 3111
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3135
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3119
+    key: midgaard_room_3119
+    name: "Emerald Avenue"
+    area_id: 31
+    short_desc: "Emerald Avenue"
+    long_desc: |
+      You are standing at a bend on Emerald Avenue.  The road leads north and west.
+    exits:
+      north: 3117
+      west: 3133
+    sector_type: CITY
+    doors:
+      north:
+        to: 3117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3120
+    key: midgaard_room_3120
+    name: "Road Crossing"
+    area_id: 31
+    short_desc: "Road Crossing"
+    long_desc: |
+      You are in the middle of the road cross.  Roads lead in all directions.
+      A huge black iron chain as thick as a tree trunk is fastened into the ground
+      at the centre of the road cross.  Its other end leads directly upwards towards
+      the sky.
+      A road sign is here.
+    exits:
+      north: 3133
+      east: 3136
+      south: 3134
+      west: 3135
+      up: 7914
+    sector_type: CITY
+    doors:
+      north:
+        to: 3133
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3135
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 7914
+        description: "The chain disappears in the clouds."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      sign: |
+        The sign points in all directions:
+        
+           North - Emerald Avenue.
+           East  - Park Road.
+           South - Emerald Avenue.
+           West  - Park Road.
+        
+        Someone has added the following with red paint:
+        
+           Up    - Redferne's Flying Citadel.
+      chain: |
+        The the chain reaches the clouds high above you.  It must take some really
+        powerful magic to hold such a chain in place.
+
+  - id: 3121
+    key: midgaard_room_3121
+    name: "Emerald Avenue"
+    area_id: 31
+    short_desc: "Emerald Avenue"
+    long_desc: |
+      You are standing at a bend on Emerald Avenue.  The road leads south and
+      east.
+    exits:
+      east: 3134
+      south: 3125
+    sector_type: CITY
+    doors:
+      east:
+        to: 3134
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3125
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3122
+    key: midgaard_room_3122
+    name: "Park Road"
+    area_id: 31
+    short_desc: "Park Road"
+    long_desc: |
+      You are on Park Road which leads south and north.  Elm Street is east of
+      here.
+    exits:
+      north: 3136
+      east: 3123
+      south: 3126
+    sector_type: CITY
+    doors:
+      north:
+        to: 3136
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3126
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3123
+    key: midgaard_room_3123
+    name: "Elm Street"
+    area_id: 31
+    short_desc: "Elm Street"
+    long_desc: |
+      You are on Elm street.  Park Road is to the west and Elm Street continues
+      in eastward direction.
+    exits:
+      east: 3124
+      west: 3122
+    sector_type: CITY
+    doors:
+      east:
+        to: 3124
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3124
+    key: midgaard_room_3124
+    name: "End of Elm Street"
+    area_id: 31
+    short_desc: "End of Elm Street"
+    long_desc: |
+      You are at the end of Elm Street.  An old elm tree grows here.
+    exits:
+      west: 3123
+    sector_type: CITY
+    doors:
+      west:
+        to: 3123
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      elm: |
+        The fresh young leaves of the elm tree wave gently in the wind.
+
+  - id: 3125
+    key: midgaard_room_3125
+    name: "Emerald Avenue"
+    area_id: 31
+    short_desc: "Emerald Avenue"
+    long_desc: |
+      You are on Emerald Avenue which continues north.
+      The Concourse is south of here.
+    exits:
+      north: 3121
+      south: 3128
+    sector_type: CITY
+    doors:
+      north:
+        to: 3121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3126
+    key: midgaard_room_3126
+    name: "Park Road"
+    area_id: 31
+    short_desc: "Park Road"
+    long_desc: |
+      You are on Park Road which continues north.  The Concourse is south of here.
+    exits:
+      north: 3122
+      south: 3129
+    sector_type: CITY
+    doors:
+      north:
+        to: 3122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3127
+    key: midgaard_room_3127
+    name: "On the Concourse"
+    area_id: 31
+    short_desc: "On the Concourse"
+    long_desc: |
+      You are at the southwest corner of the city wall.  The Concourse leads
+      both north and east.
+    exits:
+      north: 3100
+      east: 3128
+    sector_type: CITY
+    doors:
+      north:
+        to: 3100
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3128
+    key: midgaard_room_3128
+    name: "On the Concourse"
+    area_id: 31
+    short_desc: "On the Concourse"
+    long_desc: |
+      The Concourse continues both east and west.  Emerald Avenue is north of
+      here.
+    exits:
+      north: 3125
+      east: 3129
+      west: 3127
+    sector_type: CITY
+    doors:
+      north:
+        to: 3125
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3127
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3129
+    key: midgaard_room_3129
+    name: "On the Concourse"
+    area_id: 31
+    short_desc: "On the Concourse"
+    long_desc: |
+      The Concourse continues both east and west.  Park Road is north of here
+      and an iron grate leads south to the graveyard.
+      A bronze sign has been set on the wall next to the grate.
+    exits:
+      north: 3126
+      east: 3130
+      south: 3600
+      west: 3128
+    sector_type: CITY
+    doors:
+      north:
+        to: 3126
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3130
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3600
+        description: "Through the solid iron bars you see the graveyard."
+        keywords: "grate"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3121
+      west:
+        to: 3128
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      grate: |
+        Looks heavy.
+      sign: |
+        The sign says :-
+        
+                                  Graveyard of Midgaard
+        
+            Many brave adventurers have found their final resting place here.
+                  Please show respect and do not desecrate their tombs.
+
+  - id: 3130
+    key: midgaard_room_3130
+    name: "On the Concourse"
+    area_id: 31
+    short_desc: "On the Concourse"
+    long_desc: |
+      You are at the southeast corner of the city wall.  The Concourse leads
+      both north and west.
+    exits:
+      north: 3104
+      west: 3129
+    sector_type: CITY
+    doors:
+      north:
+        to: 3104
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3129
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3131
+    key: midgaard_room_3131
+    name: "Park Road"
+    area_id: 31
+    short_desc: "Park Road"
+    long_desc: |
+      You are at Park Road which continues north and south.
+    exits:
+      north: 3101
+      south: 3111
+    sector_type: CITY
+    doors:
+      north:
+        to: 3101
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3111
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3132
+    key: midgaard_room_3132
+    name: "Emerald Avenue"
+    area_id: 31
+    short_desc: "Emerald Avenue"
+    long_desc: |
+      You are standing on the north end of Emerald Avenue.  To the north is the
+      promenade and to the east is the small street Penny Lane.
+    exits:
+      north: 3103
+      east: 3139
+      south: 3117
+    sector_type: CITY
+    doors:
+      north:
+        to: 3103
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3139
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3117
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3133
+    key: midgaard_room_3133
+    name: "Emerald Avenue"
+    area_id: 31
+    short_desc: "Emerald Avenue"
+    long_desc: |
+      You are standing at a bend on Emerald Avenue.  To the east the road goes on
+      and to the south is the Road Crossing.
+    exits:
+      east: 3119
+      south: 3120
+    sector_type: CITY
+    doors:
+      east:
+        to: 3119
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      south:
+        to: 3120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3134
+    key: midgaard_room_3134
+    name: "Emerald Avenue"
+    area_id: 31
+    short_desc: "Emerald Avenue"
+    long_desc: |
+      You are standing at a bend on Emerald Avenue.  To the west the road goes on
+      and to the north is the Road Crossing.
+    exits:
+      north: 3120
+      west: 3121
+    sector_type: CITY
+    doors:
+      north:
+        to: 3120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3121
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3135
+    key: midgaard_room_3135
+    name: "Park Road"
+    area_id: 31
+    short_desc: "Park Road"
+    long_desc: |
+      You are at a bend on Park Road.  To the north the road goes on and to the
+      east is the Road Crossing.  To the south, the ancient cliffs rise from deep
+      under the ground, forming a wall.
+    exits:
+      north: 3118
+      east: 3120
+    sector_type: CITY
+    doors:
+      north:
+        to: 3118
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3136
+    key: midgaard_room_3136
+    name: "Park Road"
+    area_id: 31
+    short_desc: "Park Road"
+    long_desc: |
+      You are at a bend on Park Road.  To the south the road goes on and to the
+      west is the Road Crossing.
+    exits:
+      south: 3122
+      west: 3120
+    sector_type: CITY
+    doors:
+      south:
+        to: 3122
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3120
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3137
+    key: midgaard_room_3137
+    name: "The Waiting Room"
+    area_id: 31
+    short_desc: "The Waiting Room"
+    long_desc: |
+      You are standing in the waiting room at the town hall.  Wooden chairs stand
+      along the walls and a long desk is placed in the middle of the room.
+    exits:
+      east: 3138
+      west: 3117
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3138
+        description: "It looks like some kind of office."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3117
+        description: "The exit west leads to Emerald Avenue."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3138
+    key: midgaard_room_3138
+    name: "The Mayor's Office"
+    area_id: 31
+    short_desc: "The Mayor's Office"
+    long_desc: |
+      You are in the not very big office of the Mayor of Midgaard.  A large and
+      polished but completely empty desk is standing in front of an armchair that
+      looks so comfortable that it most of all resembles a bed with the head end
+      raised slightly.
+    exits:
+      west: 3137
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 3137
+        description: "The waiting room is to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      chair: |
+        This chair is really a masterpiece.  A chair where one can sit as comfortably
+        as in a bed.  All lecture halls should be equipped with these things.
+
+  - id: 3139
+    key: midgaard_room_3139
+    name: "Penny Lane"
+    area_id: 31
+    short_desc: "Penny Lane"
+    long_desc: |
+      You are on Penny Lane.  Emerald Avenue is to the west and Penny Lane
+      continues in eastward direction.
+    exits:
+      east: 3140
+      west: 3132
+    sector_type: CITY
+    doors:
+      east:
+        to: 3140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3132
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3140
+    key: midgaard_room_3140
+    name: "Penny Lane"
+    area_id: 31
+    short_desc: "Penny Lane"
+    long_desc: |
+      You are on Penny Lane.  The narrow road continues north and west.
+    exits:
+      north: 3141
+      west: 3139
+    sector_type: CITY
+    doors:
+      north:
+        to: 3141
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3139
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3141
+    key: midgaard_room_3141
+    name: "End of Penny Lane"
+    area_id: 31
+    short_desc: "End of Penny Lane"
+    long_desc: |
+      You are at the end of Penny Lane.  The only exit appears to be south.
+    exits:
+      south: 3140
+    sector_type: CITY
+    doors:
+      south:
+        to: 3140
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3142
+    key: midgaard_room_3142
+    name: "Captain's Office"
+    area_id: 31
+    short_desc: "Captain's Office"
+    long_desc: |
+      You are in the Office of the Captain of the Guard.  The Midgaard Coat of
+      Arms is hanging on the north wall and a heavy steel door is to the south.
+    exits:
+      east: 3110
+      south: 3143
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 3110
+        description: "You see the Cityguard Head Quarters."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3120
+      south:
+        to: 3143
+        description: "You see the heavy steel door."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3137
+    extras:
+      arms: |
+        Although a bit dusty the Coat of Arms is an excellent piece of work.
+
+  - id: 3143
+    key: midgaard_room_3143
+    name: "The Jail"
+    area_id: 31
+    short_desc: "The Jail"
+    long_desc: |
+      You are in a dark and humid jail.  The dark stone walls are hard and cold
+      to the touch.  A heavy steel door is to the north.
+    exits:
+      north: 3142
+    sector_type: INSIDE
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 3142
+        description: "You see the heavy steel door."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: 3137
+    extras:
+      wall: |
+        The walls are marked with lots of scratches.  Some of them spell sentences
+        like "JAIL IS BETTER THAN SQL" and "INGRES STRIKES AGAIN".
+
+  - id: 3200
+    key: midgaard_room_3200
+    name: "Under the Bridge"
+    area_id: 32
+    short_desc: "Under the Bridge"
+    long_desc: |
+      The arch under the bridge is covered by seaweed for one foot above the
+      surface of the river.  The water gently flows through an opening in the lower
+      part of the city wall.
+    exits:
+      east: 3201
+      west: -1
+    sector_type: WATER_NOSWIM
+    doors:
+      east:
+        to: 3201
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: -1
+        description: "You see the river flowing west into the Forest of Haon-Dor."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+    extras:
+      wall: |
+        It is built from large grey rocks that have been fastened to each other with
+        some kind of mortar.  Looks pretty solid.
+
+  - id: 3201
+    key: midgaard_room_3201
+    name: "On the River"
+    area_id: 32
+    short_desc: "On the River"
+    long_desc: |
+      North of here you see the miserable buildings of the poor alley.  The
+      river flows west towards the bridge.  The riverbanks are too steep to climb.
+    exits:
+      east: 3202
+      west: 3200
+    sector_type: WATER_NOSWIM
+    doors:
+      east:
+        to: 3202
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3200
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3202
+    key: midgaard_room_3202
+    name: "On the River"
+    area_id: 32
+    short_desc: "On the River"
+    long_desc: |
+      North of here you see the dump.  The river flows from east to west.  The
+      riverbanks are too steep to climb.
+    exits:
+      east: 3203
+      west: 3201
+    sector_type: WATER_NOSWIM
+    doors:
+      east:
+        to: 3203
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3201
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3203
+    key: midgaard_room_3203
+    name: "On the River"
+    area_id: 32
+    short_desc: "On the River"
+    long_desc: |
+      The levee is directly north of here.  The river flows in an east west
+      direction.
+    exits:
+      north: 3049
+      east: 3204
+      west: 3202
+    sector_type: WATER_NOSWIM
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 3049
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      east:
+        to: 3204
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3202
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3204
+    key: midgaard_room_3204
+    name: "On the River"
+    area_id: 32
+    short_desc: "On the River"
+    long_desc: |
+      You see the warehouse on the northern riverbank.  East of here you see the
+      city wall.  The river flows west towards the levee.
+    exits:
+      east: 3205
+      west: 3203
+    sector_type: WATER_NOSWIM
+    doors:
+      east:
+        to: 3205
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3203
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
+  - id: 3205
+    key: midgaard_room_3205
+    name: "On the River"
+    area_id: 32
+    short_desc: "On the River"
+    long_desc: |
+      The river enters from a hole in the eastern city wall.  The hole has been
+      blocked by several vertically positioned iron bars set into the wall.
+    exits:
+      east: 5001
+      west: 3204
+    sector_type: WATER_NOSWIM
+    doors:
+      east:
+        to: 5001
+        description: "The iron bars are broken, allowing passage through the hole in the wall. Beyond the bars you see a dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 3204
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+

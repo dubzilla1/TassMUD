@@ -1,0 +1,9 @@
+areas:
+  - id: 11
+    name: "Shire"
+    description: "Converted from shire.are"
+    sector_type: "FOREST"
+    author: "MERC"
+    source_file: "shire.are"
+    vnum_range: "1100-1157"
+

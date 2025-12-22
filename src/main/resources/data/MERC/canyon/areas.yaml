@@ -1,0 +1,9 @@
+areas:
+  - id: 92
+    name: "Canyon"
+    description: "Converted from canyon.are"
+    sector_type: "MOUNTAIN"
+    author: "MERC"
+    source_file: "canyon.are"
+    vnum_range: "9201-9260"
+

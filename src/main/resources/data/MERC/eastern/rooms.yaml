@@ -1,0 +1,1800 @@
+rooms:
+  - id: 5001
+    key: eastern_room_5001
+    name: "A long tunnel"
+    area_id: 32
+    short_desc: "A long tunnel"
+    long_desc: |
+      You encounter some rapids as you enter this tunnel cut out of
+      the mountains by the river.
+    exits:
+      east: 5002
+      west: 3205
+    sector_type: WATER_NOSWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5002
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 3205
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5002
+    key: eastern_room_5002
+    name: "A long tunnel"
+    area_id: 32
+    short_desc: "A long tunnel"
+    long_desc: |
+      The tunnel branches off north.
+    exits:
+      north: 5008
+      east: 5003
+      west: 5001
+    sector_type: WATER_NOSWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5008
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5003
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5001
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5003
+    key: eastern_room_5003
+    name: "A long tunnel"
+    area_id: 32
+    short_desc: "A long tunnel"
+    long_desc: |
+      The tunnel branches off south.
+    exits:
+      east: 5004
+      south: 5017
+      west: 5002
+    sector_type: WATER_NOSWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5004
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5017
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5002
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5004
+    key: eastern_room_5004
+    name: "A long tunnel"
+    area_id: 32
+    short_desc: "A long tunnel"
+    long_desc: |
+      The tunnel branches off to the south.
+    exits:
+      east: 5005
+      south: 5018
+      west: 5003
+    sector_type: WATER_NOSWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5005
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5018
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5003
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5005
+    key: eastern_room_5005
+    name: "An underground lake"
+    area_id: 32
+    short_desc: "An underground lake"
+    long_desc: |
+      You are floating on a jet-black underground lake fed by dripping
+      water and lime from above. The tunnel continues to the east and the river
+      leads back west. To the north is a roughly-hewn hallway. There is also
+      a tunnel south.
+    exits:
+      north: 5016
+      east: 5006
+      south: 5023
+      west: 5004
+    sector_type: WATER_NOSWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5016
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5006
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5023
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5004
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5006
+    key: eastern_room_5006
+    name: "A long narrow tunnel"
+    area_id: 32
+    short_desc: "A long narrow tunnel"
+    long_desc: |
+      The tunnel rises sharply to the east.
+    exits:
+      east: 5007
+      west: 5005
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5007
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5005
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5007
+    key: eastern_room_5007
+    name: "A wide tunnel"
+    area_id: 32
+    short_desc: "A wide tunnel"
+    long_desc: |
+      The tunnel continues east and west. To the east the tunnel dives
+      down into a bright light.
+    exits:
+      east: 5027
+      west: 5006
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5027
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5006
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5008
+    key: eastern_room_5008
+    name: "Cave-in"
+    area_id: 32
+    short_desc: "Cave-in"
+    long_desc: |
+      You stand at the edge of a large pile of rubble created from the last
+      rockslide.
+    exits:
+      south: 5002
+      down: 5009
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5002
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5009
+        description: "You can easily slide down the rocks without getting hurt."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5009
+    key: eastern_room_5009
+    name: "At the foot of the rubble"
+    area_id: 32
+    short_desc: "At the foot of the rubble"
+    long_desc: |
+      You are at the bottom of a large pile of rubble. A tunnel branches
+      off to the north and east.
+    exits:
+      north: 5010
+      east: 5012
+      up: 5008
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5010
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5012
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5008
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5010
+    key: eastern_room_5010
+    name: "Cave entrance"
+    area_id: 32
+    short_desc: "Cave entrance"
+    long_desc: |
+      You stand in the middle of a large and beautiful cave. A path leads
+      deeper into the darkness.
+    exits:
+      south: 5009
+      down: 5011
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5009
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5011
+        description: "You look down into the cave. Bones are strewn about everywhere."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5011
+    key: eastern_room_5011
+    name: "Giant cave"
+    area_id: 32
+    short_desc: "Giant cave"
+    long_desc: |
+      This cavern overwhelms you. The walls and ceiling seem miles away.
+      Bones of previous adventurers lie strewn on the cavern floor.
+    exits:
+      up: 5010
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      up:
+        to: 5010
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5012
+    key: eastern_room_5012
+    name: "Narrow bend"
+    area_id: 32
+    short_desc: "Narrow bend"
+    long_desc: |
+      The tunnel turns to the south and west.
+    exits:
+      south: 5013
+      west: 5009
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5013
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5009
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5013
+    key: eastern_room_5013
+    name: "Large cave"
+    area_id: 32
+    short_desc: "Large cave"
+    long_desc: |
+      You are standing in a large cave. Many furs are spread out on the floor.
+    exits:
+      north: 5012
+      east: 5014
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5012
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5014
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5014
+    key: eastern_room_5014
+    name: "Damp hallway"
+    area_id: 32
+    short_desc: "Damp hallway"
+    long_desc: |
+      The walls here are extremely damp, as well as the floor.
+    exits:
+      east: 5015
+      west: 5013
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5015
+        description: "You hear drops of water."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5013
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5015
+    key: eastern_room_5015
+    name: "Underground pool"
+    area_id: 32
+    short_desc: "Underground pool"
+    long_desc: |
+      You are wading in a knee deep pool of lime-water.
+    exits:
+      south: 5016
+      west: 5014
+    sector_type: WATER_SWIM
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5016
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5014
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5016
+    key: eastern_room_5016
+    name: "Damp hallway"
+    area_id: 32
+    short_desc: "Damp hallway"
+    long_desc: |
+      The walls of the tunnel are extremely damp here. You hear the faint
+      sound of running water to the south.
+    exits:
+      north: 5015
+      south: 5005
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5015
+        description: "You hear drops of water."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5005
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5017
+    key: eastern_room_5017
+    name: "Narrow crawlway"
+    area_id: 32
+    short_desc: "Narrow crawlway"
+    long_desc: |
+      This crawlway is just big enough for a human to crawl through or a
+      halfling to walk through.
+    exits:
+      north: 5003
+      east: 5018
+      south: 5019
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5003
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5018
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5019
+        description: "You smell the fragrant odor of fungus."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5018
+    key: eastern_room_5018
+    name: "Large cavern"
+    area_id: 32
+    short_desc: "Large cavern"
+    long_desc: |
+      You have entered a very large cavern. The rock formations would amaze
+      almost any dwarf.
+    exits:
+      north: 5004
+      west: 5017
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5004
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5017
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5019
+    key: eastern_room_5019
+    name: "Fungus patch"
+    area_id: 32
+    short_desc: "Fungus patch"
+    long_desc: |
+      As you walk through the fungus patch, you are shot at by many millions of
+      spores. You can hardly breathe.
+    exits:
+      north: 5017
+      east: 5020
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5017
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5020
+        description: "The fragrant smell of fungus spores continues to the east"
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5020
+    key: eastern_room_5020
+    name: "Fungus path"
+    area_id: 32
+    short_desc: "Fungus path"
+    long_desc: |
+      As you walk along the path, millions of spores are shot at you. You can
+      hardly breathe.
+    exits:
+      south: 5021
+      west: 5019
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5021
+        description: "A giant mushroom temple stands to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5019
+        description: "The fragrant smell of spores continues to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5021
+    key: eastern_room_5021
+    name: "Fungus temple"
+    area_id: 32
+    short_desc: "Fungus temple"
+    long_desc: |
+      You find yourself standing inside of a giant mushroom. The inside
+      is decorated in the fashion of a temple.
+    exits:
+      north: 5020
+      east: 5022
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5020
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5022
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5022
+    key: eastern_room_5022
+    name: "Sloping passage"
+    area_id: 32
+    short_desc: "Sloping passage"
+    long_desc: |
+      You follow a path sloping down from the fungus temple.
+    exits:
+      west: 5021
+      down: 5023
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 5021
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      down:
+        to: 5023
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5023
+    key: eastern_room_5023
+    name: "Sloping passage"
+    area_id: 32
+    short_desc: "Sloping passage"
+    long_desc: |
+      You are on a path that gently slopes up from the underground pool.
+    exits:
+      north: 5005
+      up: 5022
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5005
+        description: "You hear sounds of trickling water."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5022
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5024
+    key: eastern_room_5024
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5030
+      east: 5025
+      south: 5027
+      west: 5026
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5030
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5025
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5027
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5026
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5025
+    key: eastern_room_5025
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5056
+      east: 5026
+      south: 5028
+      west: 5024
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5056
+        description: "You see a nomad camp by an oasis."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5026
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5028
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5024
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5026
+    key: eastern_room_5026
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5032
+      east: 5024
+      south: 5029
+      west: 5025
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5032
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5024
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5029
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5025
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5027
+    key: eastern_room_5027
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5024
+      east: 5028
+      south: 5030
+      west: 5007
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5024
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5028
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5030
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5007
+        description: "You see a river flowing into the mountain."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5028
+    key: eastern_room_5028
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5025
+      east: 5029
+      south: 5031
+      west: 5027
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5025
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5029
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5031
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5027
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5029
+    key: eastern_room_5029
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5026
+      east: 5062
+      south: 5032
+      west: 5028
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5026
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5062
+        description: "The sand is *glowing* in this direction."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5032
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5028
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5030
+    key: eastern_room_5030
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5027
+      east: 5031
+      south: 5024
+      west: 5032
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5027
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5031
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5024
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5032
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5031
+    key: eastern_room_5031
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5028
+      east: 5032
+      south: 5063
+      west: 5030
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5028
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5032
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5063
+        description: "You see a tiny ledge."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5030
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5032
+    key: eastern_room_5032
+    name: "The Great Eastern Desert"
+    area_id: 32
+    short_desc: "The Great Eastern Desert"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      You feel lost.
+    exits:
+      north: 5029
+      east: 5030
+      south: 5026
+      west: 5031
+    sector_type: DESERT
+    doors:
+      north:
+        to: 5029
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5030
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5026
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5031
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5056
+    key: eastern_room_5056
+    name: "A nomad camp"
+    area_id: 32
+    short_desc: "A nomad camp"
+    long_desc: |
+      This small group of desert nomads has stopped for the day to rest
+      and refresh themselves beside this beautiful oasis. Three tents and some
+      camels make up the party. From within two of the tents you hear muffled
+      voices, obviously surprised at your visit.
+    exits:
+      north: 5058
+      east: 5057
+      south: 5025
+    sector_type: FIELD
+    doors:
+      north:
+        to: 5058
+        description: "You see ill-tempered camels."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5057
+        description: "You see inside one of the tents a huddled mass of people, probably slaves."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5025
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5057
+    key: eastern_room_5057
+    name: "Inside a small tent"
+    area_id: 32
+    short_desc: "Inside a small tent"
+    long_desc: |
+      This is a small and simple tent with few possessions in sight. Lying
+      here and there are young-looking men and women, possibly slaves to the
+      leader of this band.
+    exits:
+      west: 5056
+    sector_type: FIELD
+    doors:
+      west:
+        to: 5056
+        description: "You see the center of the nomad camp."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5058
+    key: eastern_room_5058
+    name: "Beside the camels"
+    area_id: 32
+    short_desc: "Beside the camels"
+    long_desc: |
+      Here stand about ten camels, all hitched to some stakes plugged into
+      the ground. To the east you see a small tent while to the north you see a
+      larger, fancier tent.
+    exits:
+      north: 5060
+      east: 5059
+      south: 5056
+    sector_type: FIELD
+    doors:
+      north:
+        to: 5060
+        description: "This tent seems to be the temporary abode of the nomad leader. You make a
+mental note to visit it before you leave."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5059
+        description: "In this tent there are very large men, all carrying weapons."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5056
+        description: "You see the center of the nomad camp."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5059
+    key: eastern_room_5059
+    name: "The warrior's tent."
+    area_id: 32
+    short_desc: "The warrior's tent."
+    long_desc: |
+      This tent has a few furnishings, but mainly it holds the band's
+      protectors. They all stare at you coldly as you enter.
+    exits:
+      west: 5058
+    sector_type: FIELD
+    doors:
+      west:
+        to: 5058
+        description: "Outside you see some peaceful camels."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5060
+    key: eastern_room_5060
+    name: "The main tent"
+    area_id: 32
+    short_desc: "The main tent"
+    long_desc: |
+      This tent is as lavishly decorated on the inside as it is on the
+      outside. A fancy carpet lies on the sand and numerous baskets line the
+      walls.
+    exits:
+      east: 5061
+      south: 5058
+    sector_type: FIELD
+    doors:
+      east:
+        to: 5061
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5058
+        description: "You see some peaceful camels."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5061
+    key: eastern_room_5061
+    name: "The main tent"
+    area_id: 32
+    short_desc: "The main tent"
+    long_desc: |
+      This is where the leader of this band of nomads resides. He is
+      definitely rich as you inspect the tapestries, baskets, and a few
+      paintings as well.
+    exits:
+      west: 5060
+    sector_type: FIELD
+    doors:
+      west:
+        to: 5060
+        description: "You see the entrance to this tent."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5062
+    key: eastern_room_5062
+    name: "Strange Glowing Sand"
+    area_id: 32
+    short_desc: "Strange Glowing Sand"
+    long_desc: |
+      A vast desert stretches for miles, the sand constantly shifting around you.
+      But this patch of desert looks different ... the sand glows.  You see a
+      futuristic city to the south.
+    exits:
+      south: 8001
+      west: 5029
+    sector_type: INSIDE
+    doors:
+      south:
+        to: 8001
+        description: "You see a futuristic city."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5029
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5063
+    key: eastern_room_5063
+    name: "The wind-swept ledge"
+    area_id: 32
+    short_desc: "The wind-swept ledge"
+    long_desc: |
+      Being very careful not to lose your balance, you look around and
+      find that this canyon is about a half a kilometer deep. To the west is
+      a dark cave leading under the desert sands.
+    exits:
+      north: 5031
+      west: 5064
+    sector_type: MOUNTAIN
+    doors:
+      north:
+        to: 5031
+        description: "Sand as far as the eye can see."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5064
+        description: "You see a dark cave."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5064
+    key: eastern_room_5064
+    name: "The cave mouth"
+    area_id: 32
+    short_desc: "The cave mouth"
+    long_desc: |
+      The air in here is MUCH cooler than outside. From the west you hear
+      strange sounds, but can see nothing. The cave slopes down into the
+      darkness.
+    exits:
+      east: 5063
+      west: 5065
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5063
+        description: "Outside is lighter and very windy."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5065
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5065
+    key: eastern_room_5065
+    name: "The mysterious lair."
+    area_id: 32
+    short_desc: "The mysterious lair."
+    long_desc: |
+      You have stumbled upon the home of something. From the treasure
+      haphazardly strewn about and the rotting carcasses, you would guess that
+      this is a dragon's lair. As to what type, you can't really say. The cave
+      narrows out into a tunnel to the west.
+    exits:
+      east: 5064
+      west: 5066
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5064
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5066
+        description: ""
+        keywords: "door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 5024
+
+  - id: 5066
+    key: eastern_room_5066
+    name: "A wide tunnel"
+    area_id: 32
+    short_desc: "A wide tunnel"
+    long_desc: |
+      This tunnel seems to go on forever into the darkness. You carefully
+      feel your way along the walls.
+    exits:
+      east: 5065
+      west: 5067
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      east:
+        to: 5065
+        description: ""
+        keywords: "door"
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: 5024
+      west:
+        to: 5067
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5067
+    key: eastern_room_5067
+    name: "A narrower tunnel"
+    area_id: 32
+    short_desc: "A narrower tunnel"
+    long_desc: |
+      The tunnel becomes very narrow and you fight to squeeze your way through.
+      The floor seems to level off a little.
+    exits:
+      east: 5066
+      south: 5068
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 5066
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 5068
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5068
+    key: eastern_room_5068
+    name: "A narrow crack"
+    area_id: 32
+    short_desc: "A narrow crack"
+    long_desc: |
+      This part of the tunnel is the hardest to move through as the walls
+      move in to meet you.
+    exits:
+      north: 5067
+      west: 5069
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5067
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 5069
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5069
+    key: eastern_room_5069
+    name: "A small cavern."
+    area_id: 32
+    short_desc: "A small cavern."
+    long_desc: |
+      It is dark and damp and bats hang from the ceiling. A narrow crack is
+      in the east wall. The floor now slopes upwards.
+    exits:
+      north: 5070
+      east: 5068
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 5070
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 5068
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 5070
+    key: eastern_room_5070
+    name: "A small shaft"
+    area_id: 32
+    short_desc: "A small shaft"
+    long_desc: |
+      From within this shaft you can see a narrow hole in the roof just
+      large enough for one person. Back east is the cavern.
+    exits:
+      south: 5069
+      up: 5009
+    sector_type: MOUNTAIN
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 5069
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 5009
+        description: ""
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+

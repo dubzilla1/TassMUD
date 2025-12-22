@@ -786,6 +786,7 @@ public class CharacterDAO {
                               "hidden BOOLEAN DEFAULT FALSE, " +
                               "blocked BOOLEAN DEFAULT FALSE, " +
                               "key_item_id INT, " +
+                              "description VARCHAR(2048) DEFAULT '', " +
                               "PRIMARY KEY (from_room_id, direction), " +
                               "FOREIGN KEY (from_room_id) REFERENCES room(id) " +
                               ")");
@@ -794,6 +795,7 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS locked BOOLEAN DEFAULT FALSE");
                     s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS hidden BOOLEAN DEFAULT FALSE");
                     s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS blocked BOOLEAN DEFAULT FALSE");
+                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS description VARCHAR(2048) DEFAULT ''");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create room table", e);
                 }
@@ -805,6 +807,15 @@ public class CharacterDAO {
             s.execute("CREATE TABLE IF NOT EXISTS settings (k VARCHAR(200) PRIMARY KEY, v VARCHAR(2000))");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create settings table", e);
+        }
+
+        // Room extras table: key/value textual extras for rooms (e.g., plaques, signs)
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             Statement s = c.createStatement()) {
+            s.execute("CREATE TABLE IF NOT EXISTS room_extra (room_id INT NOT NULL, k VARCHAR(200) NOT NULL, v VARCHAR(2048), PRIMARY KEY(room_id, k), FOREIGN KEY(room_id) REFERENCES room(id))");
+            s.execute("ALTER TABLE room_extra ADD COLUMN IF NOT EXISTS v VARCHAR(2048)");
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create room_extra table", e);
         }
 
         // Per-character flag table (expandable key/value toggles)
@@ -1382,6 +1393,8 @@ public class CharacterDAO {
                 if (rs.next()) return rs.getInt(1);
             }
         } catch (SQLException e) {
+            System.err.println("[CharacterDAO] addArea (auto id) failed for name=" + name + ": " + e.getMessage());
+            e.printStackTrace(System.err);
             return -1;
         }
         return -1;
@@ -1404,16 +1417,28 @@ public class CharacterDAO {
             ps.executeUpdate();
             return id;
         } catch (SQLException e) {
-            // fallback: try to find by name
-            String sql2 = "SELECT id FROM area WHERE name = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps2 = c.prepareStatement(sql2)) {
-                ps2.setString(1, name);
-                try (ResultSet rs = ps2.executeQuery()) {
-                    if (rs.next()) return rs.getInt(1);
-                }
-            } catch (SQLException ignored) {}
-            return -1;
+            // If MERGE failed, try a direct INSERT with explicit id as a fallback
+            String insertSql = "INSERT INTO area (id, name, description, sector_type) VALUES (?, ?, ?, ?)";
+            try (Connection c2 = DriverManager.getConnection(URL, USER, PASS);
+                 PreparedStatement psIns = c2.prepareStatement(insertSql)) {
+                psIns.setInt(1, id);
+                psIns.setString(2, name);
+                psIns.setString(3, description == null ? "" : description);
+                psIns.setString(4, sectorType != null ? sectorType.name() : "FIELD");
+                psIns.executeUpdate();
+                return id;
+            } catch (SQLException e2) {
+                // fallback: try to find by name
+                String sql2 = "SELECT id FROM area WHERE name = ?";
+                try (Connection c3 = DriverManager.getConnection(URL, USER, PASS);
+                     PreparedStatement ps2 = c3.prepareStatement(sql2)) {
+                    ps2.setString(1, name);
+                    try (ResultSet rs = ps2.executeQuery()) {
+                        if (rs.next()) return rs.getInt(1);
+                    }
+                } catch (SQLException ignored) {}
+                return -1;
+            }
         }
     }
 
@@ -1455,6 +1480,8 @@ public class CharacterDAO {
                 if (rs.next()) return rs.getInt(1);
             }
         } catch (SQLException e) {
+            System.err.println("[CharacterDAO] addRoom (auto id) failed for areaId=" + areaId + " name=" + name + ": " + e.getMessage());
+            e.printStackTrace(System.err);
             return -1;
         }
         return -1;
@@ -1480,6 +1507,8 @@ public class CharacterDAO {
             ps.executeUpdate();
             return id;
         } catch (SQLException e) {
+            System.err.println("[CharacterDAO] addRoomWithId failed for id=" + id + ": " + e.getMessage());
+            e.printStackTrace(System.err);
             return -1;
         }
     }
@@ -1550,8 +1579,8 @@ public class CharacterDAO {
     /**
      * Insert or update a door record for an exit. Uses MERGE so it's idempotent.
      */
-    public boolean upsertDoor(int fromRoomId, String direction, Integer toRoomId, String state, boolean locked, boolean hidden, boolean blocked, Integer keyItemId) {
-        String sql = "MERGE INTO door (from_room_id, direction, to_room_id, state, locked, hidden, blocked, key_item_id) KEY(from_room_id, direction) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public boolean upsertDoor(int fromRoomId, String direction, Integer toRoomId, String state, boolean locked, boolean hidden, boolean blocked, Integer keyItemId, String description) {
+        String sql = "MERGE INTO door (from_room_id, direction, to_room_id, state, locked, hidden, blocked, key_item_id, description) KEY(from_room_id, direction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, fromRoomId);
@@ -1562,6 +1591,7 @@ public class CharacterDAO {
             ps.setBoolean(6, hidden);
             ps.setBoolean(7, blocked);
             if (keyItemId == null) ps.setNull(8, Types.INTEGER); else ps.setInt(8, keyItemId);
+            if (description == null) ps.setString(9, ""); else ps.setString(9, description);
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -1585,7 +1615,9 @@ public class CharacterDAO {
                     boolean hidden = rs.getBoolean("hidden");
                     boolean blocked = rs.getBoolean("blocked");
                     Integer keyId = rs.getObject("key_item_id") == null ? null : rs.getInt("key_item_id");
-                    out.add(new com.example.tassmud.model.Door(fromRoomId, dir, to, state, locked, hidden, blocked, keyId));
+                    String desc = "";
+                    try { desc = rs.getString("description"); } catch (Exception ignored) {}
+                    out.add(new com.example.tassmud.model.Door(fromRoomId, dir, to, state, locked, hidden, blocked, keyId, desc));
                 }
             }
         } catch (SQLException e) {
@@ -1595,7 +1627,7 @@ public class CharacterDAO {
     }
 
     public com.example.tassmud.model.Door getDoor(int fromRoomId, String direction) {
-        String sql = "SELECT direction, to_room_id, state, locked, hidden, blocked, key_item_id FROM door WHERE from_room_id = ? AND direction = ?";
+        String sql = "SELECT direction, to_room_id, state, locked, hidden, blocked, key_item_id, description FROM door WHERE from_room_id = ? AND direction = ?";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, fromRoomId);
@@ -1608,8 +1640,57 @@ public class CharacterDAO {
                     boolean hidden = rs.getBoolean("hidden");
                     boolean blocked = rs.getBoolean("blocked");
                     Integer keyId = rs.getObject("key_item_id") == null ? null : rs.getInt("key_item_id");
-                    return new com.example.tassmud.model.Door(fromRoomId, direction, to, state, locked, hidden, blocked, keyId);
+                    String desc = "";
+                    try { desc = rs.getString("description"); } catch (Exception ignored) {}
+                    return new com.example.tassmud.model.Door(fromRoomId, direction, to, state, locked, hidden, blocked, keyId, desc);
                 }
+            }
+        } catch (SQLException e) {
+            // ignore
+        }
+        return null;
+    }
+
+    // Room extras accessors
+    public boolean upsertRoomExtra(int roomId, String key, String value) {
+        String sql = "MERGE INTO room_extra (room_id, k, v) KEY(room_id, k) VALUES (?, ?, ?)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            ps.setString(2, key == null ? "" : key);
+            ps.setString(3, value == null ? "" : value);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+    public java.util.Map<String,String> getRoomExtras(int roomId) {
+        java.util.Map<String,String> out = new java.util.HashMap<>();
+        String sql = "SELECT k, v FROM room_extra WHERE room_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    out.put(rs.getString("k"), rs.getString("v"));
+                }
+            }
+        } catch (SQLException e) {
+            // ignore
+        }
+        return out;
+    }
+
+    public String getRoomExtra(int roomId, String key) {
+        String sql = "SELECT v FROM room_extra WHERE room_id = ? AND k = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            ps.setString(2, key == null ? "" : key);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return rs.getString("v");
             }
         } catch (SQLException e) {
             // ignore

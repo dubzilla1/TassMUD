@@ -1,0 +1,1068 @@
+rooms:
+  - id: 2900
+    key: firenewt_room_2900
+    name: "Obsidian hills"
+    area_id: 30
+    short_desc: "Obsidian hills"
+    long_desc: |
+      You see before you some shiny black hills. There is very little vegetation
+      here. The hills appear to lead to a high mountain to the south east
+    exits:
+      north: 4785
+      south: 2901
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 4785
+        description: "You see a path leading back towards the Turning Point."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2901
+        description: "You see some more hills.  They continue south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      hills: |
+        The hills are a very shiny black color.
+
+  - id: 2901
+    key: firenewt_room_2901
+    name: "Obsidian hills"
+    area_id: 30
+    short_desc: "Obsidian hills"
+    long_desc: |
+      You see before you some shiny black hills. There is very little vegetation
+      here. The hills appear to lead to a high mountain to the south east
+    exits:
+      south: 2902
+      north: 2900
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      south:
+        to: 2902
+        description: "You see some more hills to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2900
+        description: "You see some hills to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      hills: |
+        The hills are a very shiny black color.
+
+  - id: 2902
+    key: firenewt_room_2902
+    name: "Obsidian hills"
+    area_id: 30
+    short_desc: "Obsidian hills"
+    long_desc: |
+      You see before you some shiny black hills. There is very little vegetation
+      here. The hills appear to lead to a high mountain to the south east
+    exits:
+      east: 2903
+      north: 2901
+    sector_type: FOREST
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 2903
+        description: "You see the side of the mountain to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2901
+        description: "You see some hills to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      hills: |
+        They are a very shiny black color.
+
+  - id: 2903
+    key: firenewt_room_2903
+    name: "Mountain side"
+    area_id: 30
+    short_desc: "Mountain side"
+    long_desc: |
+      The mountain is very high and looks to be quite old. There are a few cracks
+      in the side of the mountain
+    exits:
+      south: 2904
+      west: null
+    sector_type: HILLS
+    doors:
+      south:
+        to: 2904
+        description: "The mountain continues."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: None
+        description: "You see some hills to the west.
+~"
+        keywords: "0 0 2902 E mountain"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2904
+    key: firenewt_room_2904
+    name: "Mountain side"
+    area_id: 30
+    short_desc: "Mountain side"
+    long_desc: |
+      The mountain is very high and looks to be quite old. There is smoke coming
+      from the top of the mountain.
+    exits:
+      south: 2905
+      north: 2903
+    sector_type: HILLS
+    doors:
+      south:
+        to: 2905
+        description: "The mountain continues."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2903
+        description: "You see mountains to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      smoke: |
+        The smoke is grey and puffs out of the top of the mountain.
+
+  - id: 2905
+    key: firenewt_room_2905
+    name: "Mountain top"
+    area_id: 30
+    short_desc: "Mountain top"
+    long_desc: |
+      You've reached the top of the mountain. You can see more smoke from up here.
+      The smoke seems to come from a hole to the south.
+    exits:
+      south: 2906
+      north: 2904
+    sector_type: HILLS
+    legacy_flags:
+      - NO_MOB
+    doors:
+      south:
+        to: 2906
+        description: "You see a hole to the south. It looks like an entrance."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2904
+        description: "You see the side of the mountain to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      top: |
+        The top of the mountain is a large area with a hole in the middle.
+      smoke: |
+        The smoke is grey and is coming from the hole.
+
+  - id: 2906
+    key: firenewt_room_2906
+    name: "Entrance to the mountain"
+    area_id: 30
+    short_desc: "Entrance to the mountain"
+    long_desc: |
+      The smoke comes from inside the hole.  It also looks like there is a path
+      that leads down.
+    exits:
+      down: 2910
+      north: 2905
+      east: 2907
+      south: 2909
+      west: 2908
+    sector_type: HILLS
+    legacy_flags:
+      - NO_MOB
+    doors:
+      down:
+        to: 2910
+        description: "You can see down inside the mountain."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2905
+        description: "You see the top of the mountain to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2907
+        description: "You see the top of the mountain to the east."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2909
+        description: "You see the top of the mountain to the south."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2908
+        description: "You see the top of the mountain to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2907
+    key: firenewt_room_2907
+    name: "Mountain top"
+    area_id: 30
+    short_desc: "Mountain top"
+    long_desc: |
+      You are standing at the top of the mountain. The mountain looks like it has
+      been ravaged by something.
+    exits:
+      west: 2906
+    sector_type: HILLS
+    legacy_flags:
+      - NO_MOB
+    doors:
+      west:
+        to: 2906
+        description: "You see the entrance to the mountain to the west."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2908
+    key: firenewt_room_2908
+    name: "Mountain top"
+    area_id: 30
+    short_desc: "Mountain top"
+    long_desc: |
+      You are standing at the top of the mountain. There are several cracks in the
+      ground and you don't feel safe!
+    exits:
+      east: 2906
+    sector_type: HILLS
+    legacy_flags:
+      - NO_MOB
+    doors:
+      east:
+        to: 2906
+        description: "You see the entrance to the mountain to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2909
+    key: firenewt_room_2909
+    name: "Mountain top"
+    area_id: 30
+    short_desc: "Mountain top"
+    long_desc: |
+      You are standing on the top of the mountain and think you should move north.
+    exits:
+      north: 2906
+    sector_type: HILLS
+    legacy_flags:
+      - NO_MOB
+    doors:
+      north:
+        to: 2906
+        description: "You see the entrance to the mountain to the north."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2910
+    key: firenewt_room_2910
+    name: "Inside the mountain"
+    area_id: 30
+    short_desc: "Inside the mountain"
+    long_desc: |
+      You are standing inside the mountain.
+    exits:
+      down: 2913
+      up: 2906
+      east: 2911
+      west: 2912
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 2913
+        description: "The shaft continues down."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2906
+        description: "Entrance to the mountain."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2911
+        description: "You see guard barracks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2912
+        description: "You see guard barracks."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2911
+    key: firenewt_room_2911
+    name: "Guard room"
+    area_id: 30
+    short_desc: "Guard room"
+    long_desc: |
+      You are standing in a room with beds, tables, and fire newts!
+      There are paintings on the wall.  They show battle scenes.
+    exits:
+      west: 2910
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2910
+        description: "You see the dark tunnel shaft."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      beds: |
+        The beds are made of metal and rock.
+      chairs: |
+        The chairs are made of stone and look very heavy.
+      tables: |
+        The tables are long and wide.  They are made of stone and obviously too heavy
+        to move.
+
+  - id: 2912
+    key: firenewt_room_2912
+    name: "Guard room"
+    area_id: 30
+    short_desc: "Guard room"
+    long_desc: |
+      You are standing in a room with beds, chairs, tables, and fire newts!
+      There are paintings on the wall that show great leaders.
+    exits:
+      east: 2910
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2910
+        description: "You see the shaft in the mountain."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+    extras:
+      beds: |
+        The beds are made of metal and rock.
+      chairs: |
+        The chairs are made of stone and look very heavy.
+      tables: |
+        The tables are long and wide.  They are made of stone and are obviously to
+        heavy to move.
+
+  - id: 2913
+    key: firenewt_room_2913
+    name: "Inside the mountain"
+    area_id: 30
+    short_desc: "Inside the mountain"
+    long_desc: |
+      You are standing inside the mountain.
+    exits:
+      down: 2916
+      up: 2910
+      north: 2914
+      south: 2915
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      down:
+        to: 2916
+        description: "The shaft continues down."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2910
+        description: "You see the dark mountain shaft."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2914
+        description: "You see a large storage room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2915
+        description: "You see workers' quarters."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2914
+    key: firenewt_room_2914
+    name: "Store room"
+    area_id: 30
+    short_desc: "Store room"
+    long_desc: |
+      You see nothing special in this room.  There are some boxes and fire newt
+      workers here.  There is also some trash piled up in the room.
+    exits:
+      south: 2913
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      south:
+        to: 2913
+        description: "You see the dark mountain shaft."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2915
+    key: firenewt_room_2915
+    name: "Workers' quarters"
+    area_id: 30
+    short_desc: "Workers' quarters"
+    long_desc: |
+      You are standing in the workers' quarters.  There are several workers here.  
+      The room is messy and has nothing of value in it.  The party the night before
+      must have destroyed everything.
+    exits:
+      north: 2913
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2913
+        description: "You see the dark mountain shaft."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2916
+    key: firenewt_room_2916
+    name: "Bottom of the mountain"
+    area_id: 30
+    short_desc: "Bottom of the mountain"
+    long_desc: |
+      You are standing at the bottom of the shaft.
+    exits:
+      north: 2917
+      up: 2913
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2917
+        description: "You see the dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      up:
+        to: 2913
+        description: "You see the mountain shaft."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2917
+    key: firenewt_room_2917
+    name: "The tunnel"
+    area_id: 30
+    short_desc: "The tunnel"
+    long_desc: |
+      You are standing in a dry, dark tunnel.
+    exits:
+      north: 2918
+      south: 2917
+      east: 2919
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2918
+        description: "You see a bend in the tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2917
+        description: "You see that the tunnel leads back."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2919
+        description: "The tunnel continues into the dark."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2919
+    key: firenewt_room_2919
+    name: "The tunnel"
+    area_id: 30
+    short_desc: "The tunnel"
+    long_desc: |
+      You are standing in a dark tunnel.
+    exits:
+      north: 2921
+      west: 2918
+      east: 2920
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      north:
+        to: 2921
+        description: "The tunnel continues into the dark."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2918
+        description: "You see a bend in the tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2920
+        description: "You see a small fire newt house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2920
+    key: firenewt_room_2920
+    name: "Fire Newt House"
+    area_id: 30
+    short_desc: "Fire Newt House"
+    long_desc: |
+      You are standing in a fire newt house.  There is a mother fire newt here
+      playing with her children.  The room is full of newt toys- they look very
+      boring.
+    exits:
+      west: 2919
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2919
+        description: "You see the dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2921
+    key: firenewt_room_2921
+    name: "The tunnel"
+    area_id: 30
+    short_desc: "The tunnel"
+    long_desc: |
+      You are standing in a dark tunnel.
+    exits:
+      west: 2922
+      south: 2919
+      north: 2923
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2922
+        description: "You see a fire newt house."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      south:
+        to: 2919
+        description: "The dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      north:
+        to: 2923
+        description: "The tunnel continues on."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2922
+    key: firenewt_room_2922
+    name: "Fire Newt House"
+    area_id: 30
+    short_desc: "Fire Newt House"
+    long_desc: |
+      You are standing in a fire newt house.  There is a fire newt mother here
+      playing with her children.  The room has several torn baby newt diapers here
+      ... how disgusting!
+    exits:
+      east: 2921
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2921
+        description: "You see the dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2923
+    key: firenewt_room_2923
+    name: "The tunnel"
+    area_id: 30
+    short_desc: "The tunnel"
+    long_desc: |
+      You are standing in the dark tunnel.
+    exits:
+      west: null
+      east: 2927
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: None
+        description: "You see the entrance to the town hall."
+        keywords: "~                  0 0 2924 D2 You see the dark tunnel."
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2927
+        description: "You see a fire newt temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2924
+    key: firenewt_room_2924
+    name: "Entrance to the town hall"
+    area_id: 30
+    short_desc: "Entrance to the town hall"
+    long_desc: |
+      You are standing in the entrance to the town hall.  The room is large and
+      ornate.
+    exits:
+      west: 2925
+      east: 2923
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2925
+        description: "You see a waiting room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2923
+        description: "You see the dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2925
+    key: firenewt_room_2925
+    name: "The Waiting Room"
+    area_id: 30
+    short_desc: "The Waiting Room"
+    long_desc: |
+      You are standing in the waiting room of the town hall.  There is a big door
+      to the west.  The room has pictures of the villages history.
+    exits:
+      west: 2926
+      east: 2924
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2926
+        description: "You see a large office."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      east:
+        to: 2924
+        description: "You see the entrance to the town hall."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2926
+    key: firenewt_room_2926
+    name: "The Leader's Office"
+    area_id: 30
+    short_desc: "The Leader's Office"
+    long_desc: |
+      You are standing in the fire newt leader's office.
+    exits:
+      east: 2925
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2925
+        description: "You see the waiting room."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2927
+    key: firenewt_room_2927
+    name: "Outside the temple"
+    area_id: 30
+    short_desc: "Outside the temple"
+    long_desc: |
+      You are standing outside the fire newt temple.  The temple has some very
+      large arches and towers.
+    exits:
+      east: 2928
+      west: 2923
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2928
+        description: "You see the entrance to the fire newt temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+      west:
+        to: 2923
+        description: "You see the dark tunnel."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2928
+    key: firenewt_room_2928
+    name: "Entrance to the temple"
+    area_id: 30
+    short_desc: "Entrance to the temple"
+    long_desc: |
+      You are standing at the entrance to the temple.  The temple is very neat. 
+      The sates are set in straight rows and the alter is very large.
+    exits:
+      east: 2929
+      west: 2927
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2929
+        description: "You see the door, that leads to the inside of the temple."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      west:
+        to: 2927
+        description: "You see the outside of the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2929
+    key: firenewt_room_2929
+    name: "Inside the Temple"
+    area_id: 30
+    short_desc: "Inside the Temple"
+    long_desc: |
+      You are standing inside the fire newt temple.
+    exits:
+      west: 2928
+      down: 2930
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      west:
+        to: 2928
+        description: "You see the door that leads to the temple entrance."
+        keywords: "door"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      down:
+        to: 2930
+        description: "You see a large trap door."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2930
+    key: firenewt_room_2930
+    name: "The room before the doors"
+    area_id: 30
+    short_desc: "The room before the doors"
+    long_desc: |
+      You are standing before a pair of huge doors.
+    exits:
+      east: 2931
+      up: 2929
+    sector_type: FIELD
+    legacy_flags:
+      - INDOORS
+    doors:
+      east:
+        to: 2931
+        description: "You see two large doors."
+        keywords: "doors"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+      up:
+        to: 2929
+        description: "You see the inside of the temple."
+        keywords: ""
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
+
+  - id: 2931
+    key: firenewt_room_2931
+    name: "The Egg Room"
+    area_id: 30
+    short_desc: "The Egg Room"
+    long_desc: |
+      You are standing in a room that has several dozen piles of eggs.  There is
+      a chest on the floor also.
+    exits:
+      west: 2930
+    sector_type: FIELD
+    legacy_flags:
+      - NO_MOB
+      - INDOORS
+    doors:
+      west:
+        to: 2930
+        description: "You see two large doors."
+        keywords: "doors"
+        state: OPEN
+        locked: false
+        hidden: false
+        blocked: false
+        key: -1
+
