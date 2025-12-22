@@ -1,17 +1,19 @@
 package com.example.tassmud.combat;
 
 import com.example.tassmud.model.ArmorCategory;
-import com.example.tassmud.model.Character;
+import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.LootGenerator;
@@ -689,7 +691,7 @@ public class CombatManager {
         charDAO.setVitals(characterId, 1, 0, 0);
         
         // Update the character's in-memory state
-        Character victimChar = victim.getAsCharacter();
+        GameCharacter victimChar = victim.getAsCharacter();
         if (victimChar != null) {
             victimChar.setHpCur(1);
             victimChar.setMpCur(0);
@@ -796,7 +798,7 @@ public class CombatManager {
             return; // Only players gain skills
         }
         
-        Character killerChar = killer.getAsCharacter();
+        GameCharacter killerChar = killer.getAsCharacter();
         if (killerChar == null) {
             return;
         }
@@ -928,7 +930,7 @@ public class CombatManager {
         CharacterDAO characterDAO = new CharacterDAO();
         
         // Get character's max HP and level
-        Character character = combatant.getAsCharacter();
+        GameCharacter character = combatant.getAsCharacter();
         if (character == null) return;
         
         int maxHp = character.getHpMax();
@@ -1009,7 +1011,7 @@ public class CombatManager {
      * Start combat between a player and a mobile.
      * @return The created Combat, or null if combat couldn't start
      */
-    public Combat initiateCombat(Character attacker, Integer attackerId, Mobile target, int roomId) {
+    public Combat initiateCombat(GameCharacter attacker, Integer attackerId, Mobile target, int roomId) {
         // Remove invisibility from the attacker when they enter combat
         if (attackerId != null) {
             com.example.tassmud.effect.EffectRegistry.removeInvisibility(attackerId);
@@ -1061,7 +1063,7 @@ public class CombatManager {
     /**
      * Have a mobile initiate combat against a player.
      */
-    public Combat mobileInitiateCombat(Mobile attacker, Character target, Integer targetId, int roomId) {
+    public Combat mobileInitiateCombat(Mobile attacker, GameCharacter target, Integer targetId, int roomId) {
         // Remove invisibility from the target (player being attacked) when they enter combat
         if (targetId != null) {
             com.example.tassmud.effect.EffectRegistry.removeInvisibility(targetId);
@@ -1155,7 +1157,7 @@ public class CombatManager {
                 syncPlayerHpToDatabase(c);
                 // Persist any active modifiers the player had during combat
                 if (c.isPlayer() && c.getCharacterId() != null) {
-                    Character ch = c.getAsCharacter();
+                    GameCharacter ch = c.getAsCharacter();
                     if (ch != null) {
                         CharacterDAO dao = new CharacterDAO();
                         dao.saveModifiersForCharacter(c.getCharacterId(), ch);
@@ -1298,7 +1300,7 @@ public class CombatManager {
      */
     private void syncPlayerHpToDatabase(Combatant player) {
         if (!player.isPlayer()) return;
-        Character c = player.getAsCharacter();
+        GameCharacter c = player.getAsCharacter();
         if (c == null) return;
         
         CharacterDAO dao = new CharacterDAO();
@@ -1458,5 +1460,16 @@ public class CombatManager {
         }
         // Damage exceeds all thresholds
         return singular ? DAMAGE_VERB_MAX_SINGULAR : DAMAGE_VERB_MAX_PLURAL;
+    }
+
+    
+
+    public static boolean triggerAutoflee(Integer characterId, Combat combat) {
+        if (characterId == null || combat == null) return false;
+        
+        ClientHandler handler = ClientHandler.charIdToSession.get(characterId);
+        if (handler == null) return false;
+        
+        return handler.executeAutoflee(combat);
     }
 }

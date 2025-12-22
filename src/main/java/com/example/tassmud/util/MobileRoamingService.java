@@ -9,6 +9,7 @@ import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.MobileDAO;
+import com.example.tassmud.model.GameCharacter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -599,7 +600,7 @@ public class MobileRoamingService {
         }
         
         // Build a Character object from the record for combat
-        com.example.tassmud.model.Character playerChar = ClientHandler.buildCharacterForCombat(rec, characterId);
+        GameCharacter playerChar = ClientHandler.buildCharacterForCombat(rec, characterId);
         if (playerChar == null) {
             return;
         }

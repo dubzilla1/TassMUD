@@ -1,6 +1,6 @@
 package com.example.tassmud.combat;
 
-import com.example.tassmud.model.Character;
+import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.Mobile;
 
 import java.util.*;
@@ -125,7 +125,7 @@ public class Combat {
      * Add a player character to combat.
      * @return The Combatant wrapper
      */
-    public Combatant addPlayerCombatant(Character character, Integer characterId) {
+    public Combatant addPlayerCombatant(GameCharacter character, Integer characterId) {
         long id = combatantIdGenerator.getAndIncrement();
         Combatant combatant = new Combatant(id, character, characterId, PLAYER_ALLIANCE);
         combatants.put(id, combatant);

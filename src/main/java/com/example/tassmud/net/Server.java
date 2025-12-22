@@ -121,7 +121,7 @@ public class Server {
             ClientHandler.sendPromptToCharacter(charId);
         });
         combatManager.setPlayerAutofleeCallback((charId, combat) -> {
-            return ClientHandler.triggerAutoflee(charId, combat);
+            return CombatManager.triggerAutoflee(charId, combat);
         });
 
         // Initialize event scheduler for spawn system

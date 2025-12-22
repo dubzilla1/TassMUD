@@ -7,7 +7,7 @@ import java.util.List;
  * A mobile (NPC/monster) that extends Character with mob-specific attributes.
  * This represents a spawned instance of a MobileTemplate in the game world.
  */
-public class Mobile extends Character {
+public class Mobile extends GameCharacter {
     
     private final long instanceId;         // Unique instance ID
     private final int templateId;          // Reference to MobileTemplate

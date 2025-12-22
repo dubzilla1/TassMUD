@@ -2,7 +2,7 @@ package com.example.tassmud.effect;
 
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
-import com.example.tassmud.model.Character;
+import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.persistence.CharacterDAO;
 
 import java.util.HashMap;
@@ -94,7 +94,7 @@ public class InstantHealEffect implements EffectHandler {
 
         if (targetCombatant != null && targetCombatant.getAsCharacter() != null) {
             // Heal the combatant (respects max HP)
-            Character ch = targetCombatant.getAsCharacter();
+            GameCharacter ch = targetCombatant.getAsCharacter();
             int oldHp = ch.getHpCur();
             ch.heal(totalHeal);
             int actualHeal = ch.getHpCur() - oldHp;

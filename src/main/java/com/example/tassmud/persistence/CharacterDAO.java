@@ -2,7 +2,7 @@ package com.example.tassmud.persistence;
 
 import com.example.tassmud.model.Area;
 import com.example.tassmud.model.ArmorCategory;
-import com.example.tassmud.model.Character;
+import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.CharacterSpell;
 import com.example.tassmud.model.EquipmentSlot;
@@ -1309,7 +1309,7 @@ public class CharacterDAO {
     /**
      * Persist all modifiers for a character. Existing rows for the character are replaced.
      */
-    public boolean saveModifiersForCharacter(int characterId, com.example.tassmud.model.Character ch) {
+    public boolean saveModifiersForCharacter(int characterId, GameCharacter ch) {
         // Remove expired modifiers from the Character instance before saving
         java.util.List<Modifier> mods = ch.getAllModifiers();
         mods.removeIf(Modifier::isExpired);
@@ -1698,7 +1698,7 @@ public class CharacterDAO {
         return null;
     }
 
-    public boolean createCharacter(Character ch, String passwordHashBase64, String saltBase64) {
+    public boolean createCharacter(GameCharacter ch, String passwordHashBase64, String saltBase64) {
         String sql = "INSERT INTO characters (name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, current_room) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {

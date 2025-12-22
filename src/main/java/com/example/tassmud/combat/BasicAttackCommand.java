@@ -1,7 +1,7 @@
 package com.example.tassmud.combat;
 
 import com.example.tassmud.effect.WeaponInfusionEffect;
-import com.example.tassmud.model.Character;
+import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
@@ -115,8 +115,8 @@ public class BasicAttackCommand implements CombatCommand {
         }
         
         // Get attacker stats
-        Character attacker = user.getAsCharacter();
-        Character defender = target.getAsCharacter();
+        GameCharacter attacker = user.getAsCharacter();
+        GameCharacter defender = target.getAsCharacter();
         
         if (attacker == null || defender == null) {
             return CombatResult.error("Invalid combatants");
@@ -136,7 +136,7 @@ public class BasicAttackCommand implements CombatCommand {
         // Calculate stat modifiers
         int strMod = (attacker.getStr() - 10) / 2;
         int dexMod = (attacker.getDex() - 10) / 2;
-        int intMod = (attacker.getIntel() - 10) / 2;
+        //int intMod = (attacker.getIntel() - 10) / 2;
         
         // Determine which stat to use for attack/damage
         // Default: STR for melee, DEX for ranged
@@ -611,7 +611,7 @@ public class BasicAttackCommand implements CombatCommand {
      * @param character The attacker's character for stat lookup
      * @return The ability damage bonus, or 0 if no weapon/unarmed
      */
-    private int getWeaponAbilityDamageBonus(Combatant attacker, Character character) {
+    private int getWeaponAbilityDamageBonus(Combatant attacker, GameCharacter character) {
         if (!attacker.isPlayer() || attacker.getCharacterId() == null) {
             return 0; // Mobs don't use this system
         }
@@ -683,7 +683,7 @@ public class BasicAttackCommand implements CombatCommand {
      * @param statName The name of the stat (STRENGTH, DEXTERITY, INTELLIGENCE, WISDOM, CHARISMA, CONSTITUTION)
      * @return The stat modifier (stat - 10) / 2
      */
-    private int getStatMod(Character character, String statName) {
+    private int getStatMod(GameCharacter character, String statName) {
         if (character == null || statName == null) return 0;
         
         int statValue;

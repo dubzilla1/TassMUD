@@ -90,7 +90,7 @@ public class InstantDamageEffect implements EffectHandler {
 
             // Persist HP for players
             if (targetCombatant.isPlayer() && targetCombatant.getCharacterId() != null) {
-                com.example.tassmud.model.Character ch = targetCombatant.getAsCharacter();
+                com.example.tassmud.model.GameCharacter ch = targetCombatant.getAsCharacter();
                 dao.saveCharacterStateByName(ch.getName(), ch.getHpCur(), ch.getMpCur(), ch.getMvCur(), ch.getCurrentRoom());
             }
 

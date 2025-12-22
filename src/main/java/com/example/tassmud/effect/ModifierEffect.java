@@ -3,7 +3,7 @@ package com.example.tassmud.effect;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.model.Modifier;
 import com.example.tassmud.model.Stat;
-import com.example.tassmud.model.Character;
+import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
 import java.util.Map;
@@ -81,7 +81,7 @@ public class ModifierEffect implements EffectHandler {
         CombatManager cm = CombatManager.getInstance();
         Combatant combatant = cm.getCombatantForCharacter(targetId);
         if (combatant != null && combatant.getAsCharacter() != null) {
-            Character ch = combatant.getAsCharacter();
+            GameCharacter ch = combatant.getAsCharacter();
             ch.addModifier(m);
             dao.saveModifiersForCharacter(targetId, ch);
         } else {
@@ -135,7 +135,7 @@ public class ModifierEffect implements EffectHandler {
         // If target has live character, remove modifier from in-memory Character and persist
         com.example.tassmud.combat.Combatant combatant = com.example.tassmud.combat.CombatManager.getInstance().getCombatantForCharacter(targetId);
         if (combatant != null && combatant.getAsCharacter() != null) {
-            Character ch = combatant.getAsCharacter();
+            GameCharacter ch = combatant.getAsCharacter();
             ch.removeModifier(instance.getId());
             dao.saveModifiersForCharacter(targetId, ch);
         } else {

@@ -15,8 +15,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Handles SYSTEM category commands: save, quit, prompt, motd, train, autoloot, autogold, autosac.
-  * This class extracts system-related command logic from ClientHandler to reduce
+ * Handles SYSTEM category commands: save, quit, prompt, motd, train, autoloot, autogold, autosac, autoflee, autojunk.
+* This class extracts system-related command logic from ClientHandler to reduce
  * method size and improve maintainability.
  */
 public class SystemCommandHandler implements CommandHandler {
@@ -53,9 +53,66 @@ public class SystemCommandHandler implements CommandHandler {
                 return handleAutosacCommand(ctx);
             case "autojunk":
                 return handleAutojunkCommand(ctx);
+            case "autoflee":
+                return handleAutofleeCommand(ctx);
             default:
                 return false;
         }
+    }
+
+    private boolean handleAutofleeCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.character;
+        CharacterDAO dao = ctx.dao;
+        String name = ctx.playerName;
+        String autofleeArgs = ctx.getArgs();
+        Integer charId = ctx.characterId;
+        
+        // AUTOFLEE - Set/view automatic flee threshold
+        if (rec == null) {
+            out.println("You must be logged in to use autoflee.");
+            return true;
+        }
+        if (charId == null && name != null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+        if (charId == null) {
+            out.println("Unable to find your character.");
+            return true;
+        }
+        
+        if (autofleeArgs == null || autofleeArgs.trim().isEmpty()) {
+            // Display current autoflee value
+            int currentAutoflee = dao.getAutoflee(charId);
+            if (currentAutoflee <= 0) {
+                out.println("Autoflee is disabled (set to 0).");
+            } else {
+                out.println("Autoflee is set to " + currentAutoflee + "% HP.");
+            }
+        } else {
+            // Set new autoflee value
+            try {
+                int newValue = Integer.parseInt(autofleeArgs.trim());
+                if (newValue < 0 || newValue > 100) {
+                    out.println("Autoflee must be between 0 and 100.");
+                    return true;
+                }
+                boolean success = dao.setAutoflee(charId, newValue);
+                if (success) {
+                    if (newValue == 0) {
+                        out.println("Autoflee disabled.");
+                    } else {
+                        out.println("Autoflee set to " + newValue + "% HP.");
+                        out.println("You will automatically attempt to flee when HP drops below " + newValue + "%.");
+                    }
+                } else {
+                    out.println("Failed to set autoflee.");
+                }
+            } catch (NumberFormatException e) {
+                out.println("Usage: autoflee <0-100>");
+            }
+        }
+        return true;
     }
 
     private boolean handleSaveCommand(CommandContext ctx) {

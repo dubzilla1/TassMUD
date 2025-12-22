@@ -1,7 +1,7 @@
 package com.example.tassmud.combat;
 
 import com.example.tassmud.model.ArmorCategory;
-import com.example.tassmud.model.Character;
+import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.Mobile;
 
 import java.util.EnumMap;
@@ -21,7 +21,7 @@ public class Combatant {
     private final long combatantId;
     
     /** The character (for players) - mutually exclusive with mobile */
-    private final Character character;
+    private final GameCharacter character;
     
     /** The character ID (for players) */
     private final Integer characterId;
@@ -100,7 +100,7 @@ public class Combatant {
     /**
      * Create a combatant for a player character.
      */
-    public Combatant(long combatantId, Character character, Integer characterId, int alliance) {
+    public Combatant(long combatantId, GameCharacter character, Integer characterId, int alliance) {
         this.combatantId = combatantId;
         this.character = character;
         this.characterId = characterId;
@@ -129,7 +129,7 @@ public class Combatant {
     
     public boolean isMobile() { return mobile != null; }
     
-    public Character getCharacter() { return character; }
+    public GameCharacter getCharacter() { return character; }
     
     public Integer getCharacterId() { return characterId; }
     
@@ -138,7 +138,7 @@ public class Combatant {
     /**
      * Get the underlying Character (works for both players and mobiles since Mobile extends Character).
      */
-    public Character getAsCharacter() {
+    public GameCharacter getAsCharacter() {
         return mobile != null ? mobile : character;
     }
     
@@ -181,7 +181,7 @@ public class Combatant {
      */
     public void rollInitiative() {
         // For now: random 1-20 + DEX modifier
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         int dexMod = c != null ? (c.getDex() - 10) / 2 : 0;
         this.initiative = (int)(Math.random() * 20) + 1 + dexMod;
     }
@@ -313,7 +313,7 @@ public class Combatant {
      * Check if this combatant is alive (HP > 0).
      */
     public boolean isAlive() {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         return c != null && c.getHpCur() > 0;
     }
     
@@ -329,17 +329,17 @@ public class Combatant {
     // HP access convenience methods
     
     public int getHpCurrent() {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         return c != null ? c.getHpCur() : 0;
     }
     
     public int getHpMax() {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         return c != null ? c.getHpMax() : 0;
     }
     
     public void damage(int amount) {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         if (c != null) {
             c.setHpCur(c.getHpCur() - amount);
         }
@@ -376,7 +376,7 @@ public class Combatant {
     }
     
     public void heal(int amount) {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         if (c != null) {
             c.setHpCur(c.getHpCur() + amount);
         }
@@ -386,7 +386,7 @@ public class Combatant {
      * Get armor/AC value for defense calculations.
      */
     public int getArmor() {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         return c != null ? c.getArmor() : 10;
     }
     
@@ -394,7 +394,7 @@ public class Combatant {
      * Get reflex defense value for attacks that target reflex instead of armor.
      */
     public int getReflex() {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         return c != null ? c.getReflex() : 10;
     }
     
@@ -403,7 +403,7 @@ public class Combatant {
      * Default is 0 (crit on natural 20). A value of -1 means crit on 19+.
      */
     public int getCriticalThresholdBonus() {
-        Character c = getAsCharacter();
+        GameCharacter c = getAsCharacter();
         return c != null ? c.getCriticalThresholdBonus() : 0;
     }
     

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class Character {
+public class GameCharacter {
     private final String name;
     private final int age;
     private final String description;
@@ -39,7 +39,7 @@ public class Character {
     private final int reflex;
     private final int will;
 
-    public Character(String name, int age, String description,
+    public GameCharacter(String name, int age, String description,
                      int hpMax, int hpCur,
                      int mpMax, int mpCur,
                      int mvMax, int mvCur,
@@ -50,7 +50,7 @@ public class Character {
              str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, Stance.STANDING);
     }
     
-    public Character(String name, int age, String description,
+    public GameCharacter(String name, int age, String description,
                      int hpMax, int hpCur,
                      int mpMax, int mpCur,
                      int mvMax, int mvCur,

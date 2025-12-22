@@ -20,7 +20,6 @@ public class CommandRegistry {
         registerCombat("help", "Display available commands or help on a specific command", Category.INFORMATION);
         registerCombat("score", "Display your character sheet and statistics", Category.INFORMATION, List.of("stats"));
         register("who", "List all players currently online", Category.INFORMATION);
-        registerCombat("look", "Look at your surroundings or examine something", Category.INFORMATION, List.of("l"));
         registerCombat("inventory", "List items you are carrying", Category.INFORMATION, List.of("i"));
         registerCombat("skills", "List skills you have learned", Category.INFORMATION);
         registerCombat("spells", "List spells you have learned", Category.INFORMATION);
@@ -35,6 +34,7 @@ public class CommandRegistry {
         register("up", "Move up", Category.MOVEMENT, List.of("u"));
         register("down", "Move down", Category.MOVEMENT, List.of("d"));
         register("recall", "Teleport back to the Mead-Gaard Inn (home base)", Category.MOVEMENT);
+        registerCombat("look", "Look at your surroundings or examine something", Category.MOVEMENT, List.of("l"));
         
         // ===== STANCE =====
         // Stance changes NOT allowed in combat
@@ -71,7 +71,6 @@ public class CommandRegistry {
         // All combat commands allowed in combat
         registerCombat("kill", "Attack a target and initiate combat", Category.COMBAT, List.of("k", "attack", "fight"));
         registerCombat("combat", "Display current combat status", Category.COMBAT);
-        registerCombat("autoflee", "Configure automatic flee threshold (0-100)", Category.COMBAT);
         registerCombat("flee", "Attempt to escape from combat", Category.COMBAT);
         registerCombat("cast", "Cast a spell", Category.COMBAT);
         registerCombat("kick", "Deliver a powerful kick to your enemy", Category.COMBAT);
@@ -92,6 +91,7 @@ public class CommandRegistry {
         register("autogold", "Toggle automatic looting of gold from corpses", Category.SYSTEM);
         register("autosac", "Toggle automatic sacrifice of empty corpses (requires autoloot and autogold)", Category.SYSTEM);
         register("autojunk", "Toggle automatic sale of junk", Category.SYSTEM);
+        registerCombat("autoflee", "Configure automatic flee threshold (0-100)", Category.SYSTEM);
         
         // ===== GM COMMANDS =====
         // All GM commands allowed in combat (GMs need full control)

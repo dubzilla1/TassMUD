@@ -91,12 +91,21 @@ The server backbone consists of three key files:
 - Each command has: name, description, category, aliases, GM flag, combat flag
 - `CommandParser` resolves input to canonical command names (supports prefix matching and aliases)
 
-**Categories**: `INFORMATION`, `MOVEMENT`, `COMMUNICATION`, `ITEMS`, `COMBAT`, `SYSTEM`, `GM`
+**Command dispatch (refactored)**
 
-**Adding a new command**:
-1. Register in `CommandRegistry.java` static initializer
-2. Add case in `ClientHandler.java` switch statement
-3. Add help entry in `src/main/resources/help/global_commands.yaml`
+- `CommandRegistry` remains the single source of truth for metadata about every command (name, description, category, aliases, GM/combat flags).
+- `CommandParser` still resolves raw input into a canonical command name (supports prefix matching and aliases).
+- A new `CommandDispatcher` inspects the parsed command, looks up its `CommandDefinition` in `CommandRegistry`, and routes execution to a per-category `CommandHandler` implementation (e.g., `ItemCommandHandler`, `MovementCommandHandler`, `CommunicationCommandHandler`, `CombatCommandHandler`, `GmCommandHandler`, `InformationCommandHandler`, `SystemCommandHandler`).
+- Each `CommandHandler` implements a small `supports(String)` check and a `handle(CommandContext)` method. The `CommandContext` bundles everything a handler needs: parsed `Command`, `playerName`, `characterId`, `currentRoomId`, `CharacterRecord`, `CharacterDAO`, `PrintWriter out`, permission flags (`isGm`, `inCombat`) and a reference to the `ClientHandler` instance for helper calls.
+- Dispatch behavior: if the dispatcher finds a handler for the command category and the handler reports it `supports()` the command, the handler's `handle()` is invoked and the main loop in `ClientHandler` does not run the old large switch body for that command. If no handler claims the command, the input falls back to the legacy handling path (or a handler stub), preserving backward compatibility during the refactor.
+
+**Categories**: `INFORMATION`, `MOVEMENT`, `COMMUNICATION`, `ITEMS`, `COMBAT`, `SYSTEM`, `GM` (handlers are mapped by category in `CommandDispatcher`).
+
+**Adding a new command (refactor-aware)**:
+1. Add the command definition in `CommandRegistry.java` (name, category, aliases, flags).
+2. Implement the command in the appropriate `CommandHandler` class (or add a new handler if creating a new category). Use `CommandContext` to access `dao`, `out`, `rec`, etc., and call `ClientHandler` helper methods if needed.
+3. Add a help page in `src/main/resources/help/global_commands.yaml`.
+4. If the command affects persistence or schema, update the relevant DAO and the data migration logic.
 
 ---
 
