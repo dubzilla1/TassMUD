@@ -284,6 +284,24 @@ Loads seed data from YAML resources on startup:
 
 ---
 
+## MERC Conversion Tools
+
+- Location: `tools/merc_room_converter.py`, `tools/run_merc_area.py`, `tools/batch_convert_merc.py`.
+- Purpose: Parse legacy MERC `.are` files and convert rooms/areas into TassMUD YAML (`src/main/resources/data/`), using project-specific mappings and parsing rules.
+- Usage examples:
+  - Single area:
+    - `python tools/run_merc_area.py path/to/area_file.are`
+  - Batch conversion:
+    - `python tools/batch_convert_merc.py path/to/are_directory`
+- Mapping and instructions:
+  - `src/main/resources/data/MERC/merc_mappings.yaml` — maps MERC numeric codes and bitfields (sector types, room flags, door bits) to TassMUD equivalents used by the converter.
+  - `src/main/resources/data/MERC/room_parser_instructions.md` — guidance on how fields from MERC map to TassMUD YAML, special cases, and recommended handling for ambiguous flags (preserve as `legacy_flags` where mapping is lossy).
+  - `src/main/resources/data/MERC/doc/area.txt` — included MERC core documentation used as a reference for parsing area/room syntax; consult when updating or extending the parser.
+- Notes:
+  - The converter uses `merc_mappings.yaml` for lookups; update that file if you need different mappings or to add custom translations.
+  - Stop the running TassMUD server before writing converted YAML into `src/main/resources/data/` if you plan to reload seed data on startup.
+
+
 ## Help System
 
 ### Files
