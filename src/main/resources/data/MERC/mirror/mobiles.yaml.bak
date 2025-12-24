@@ -1,0 +1,1155 @@
+- id: 5300
+  key: |
+  the_baby_beholder:
+  name: |
+  baby_beholder:
+  short_desc: |
+  the_baby_beholder:
+  long_desc: |
+  You_meet_a_baby_beholders_cute_gaze:
+  keywords: ['baby', 'beholder']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5301
+  key: |
+  the_pet_lamia:
+  name: |
+  lamia_pet:
+  short_desc: |
+  the_pet_lamia:
+  long_desc: |
+  A_pet_lamia_stands_here_waiting_for_her_next_command:
+  keywords: ['lamia', 'pet']
+  level: 4
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5302
+  key: |
+  a_citizen_of_thalos:
+  name: |
+  citizen_man:
+  short_desc: |
+  a_citizen_of_Thalos:
+  long_desc: |
+  A_citizen_of_Thalos_is_here_conversing_with_everyone:
+  keywords: ['citizen', 'man']
+  level: 64
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5303
+  key: |
+  an_imperial_cityguard:
+  name: |
+  guard_imperial_cityguard:
+  short_desc: |
+  an_imperial_cityguard:
+  long_desc: |
+  An_imperial_cityguard_is_here_keeping_the_peace_of_Thalos:
+  keywords: ['guard', 'imperial', 'cityguard']
+  level: 4
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5304
+  key: |
+  a_female_citizen_of_thalos:
+  name: |
+  citizen_woman_female:
+  short_desc: |
+  a_female_citizen_of_Thalos:
+  long_desc: |
+  A_female_citizen_of_Thalos_is_here_showing_off_her_new_dress:
+  keywords: ['citizen', 'woman', 'female']
+  level: 64
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5305
+  key: |
+  gordon_the_brave:
+  name: |
+  gordon_defender:
+  short_desc: |
+  Gordon_the_Brave:
+  long_desc: |
+  Gordon_the_Brave_the_Defender_of_Thalos_is_here_looking_at_nonone_but_you_the_only_stranger_in_town:
+  keywords: ['gordon', 'defender']
+  level: 128
+  hp_max: 980
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 350
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5306
+  key: |
+  the_fanatic_priest:
+  name: |
+  priest:
+  short_desc: |
+  the_fanatic_priest:
+  long_desc: |
+  A_fanatic_priest_is_here_foretelling_the_destruction_of_Thalos:
+  keywords: ['priest']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5307
+  key: |
+  the_priest_of_thalos:
+  name: |
+  priest:
+  short_desc: |
+  the_priest_of_Thalos:
+  long_desc: |
+  The_priest_of_Thalos_tells_you_of_the_glories_of_this_city:
+  keywords: ['priest']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5308
+  key: |
+  the_stone_golem:
+  name: |
+  golem_stone:
+  short_desc: |
+  the_stone_golem:
+  long_desc: |
+  In_the_corner_you_see_a_large_stone_golem_faithfully_standing_watch:
+  keywords: ['golem', 'stone']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5309
+  key: |
+  the_mayor_of_thalos:
+  name: |
+  mayor:
+  short_desc: |
+  the_mayor_of_Thalos:
+  long_desc: |
+  The_mayor_of_Thalos_is_sitting_here_doing_his_paperwork:
+  keywords: ['mayor']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5310
+  key: |
+  dan_the_barkeep:
+  name: |
+  dan_barkeep:
+  short_desc: |
+  Dan_the_Barkeep:
+  long_desc: |
+  Dan_the_Barkeep_stands_by_the_counter_wiping_a_glass:
+  keywords: ['dan', 'barkeep']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5311
+  key: |
+  george_the_butcher:
+  name: |
+  george_butcher:
+  short_desc: |
+  George_the_Butcher:
+  long_desc: |
+  George_the_Butcher_is_here_whacking_away_at_a_side_of_beef:
+  keywords: ['george', 'butcher']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5312
+  key: |
+  farmer_betty:
+  name: |
+  farmer_betty:
+  short_desc: |
+  Farmer_Betty:
+  long_desc: |
+  Farmer_Betty_looks_at_you_sweetly_offering_you_some_apples:
+  keywords: ['farmer', 'betty']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5313
+  key: |
+  thaellor_the_dwarf:
+  name: |
+  thaellor_dwarf:
+  short_desc: |
+  Thaellor_the_dwarf:
+  long_desc: |
+  Thaellor_is_here_selling_his_metal_wares:
+  keywords: ['thaellor', 'dwarf']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5314
+  key: |
+  ben_the_smith:
+  name: |
+  ben_smith:
+  short_desc: |
+  Ben_the_Smith:
+  long_desc: |
+  Ben_the_Smith_sells_metal_odds_and_ends_to_anyone_interested:
+  keywords: ['ben', 'smith']
+  level: 2
+  hp_max: 495
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5315
+  key: |
+  the_librarian:
+  name: |
+  librarian:
+  short_desc: |
+  the_librarian:
+  long_desc: |
+  The_librarian_is_here_shelving_books_away_neatly:
+  keywords: ['librarian']
+  level: 2
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5316
+  key: |
+  a_young_scholar:
+  name: |
+  scholar_boy:
+  short_desc: |
+  a_young_scholar:
+  long_desc: |
+  A_young_scholar_studies_quietly_in_the_corner:
+  keywords: ['scholar', 'boy']
+  level: 2
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5317
+  key: |
+  an_old_wizard:
+  name: |
+  wizard:
+  short_desc: |
+  an_old_wizard:
+  long_desc: |
+  An_old_wizard_sits_quietly_at_the_counter_waiting_for_a_sale:
+  keywords: ['wizard']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5318
+  key: |
+  a_beautiful_masseuse:
+  name: |
+  masseuse_woman:
+  short_desc: |
+  a_beautiful_masseuse:
+  long_desc: |
+  A_beautiful_woman_is_here_offering_you_a_massage:
+  keywords: ['masseuse', 'woman']
+  level: 2
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5319
+  key: |
+  a_man:
+  name: |
+  bather_man:
+  short_desc: |
+  a_man:
+  long_desc: |
+  A_man_is_here_bathing:
+  keywords: ['bather', 'man']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5320
+  key: |
+  an_imperial_cityguard:
+  name: |
+  guard_imperial_cityguard:
+  short_desc: |
+  An_imperial_cityguard:
+  long_desc: |
+  An_imperial_cityguard_overseeing_patrols_in_the_city:
+  keywords: ['guard', 'imperial', 'cityguard']
+  level: 2
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5321
+  key: |
+  an_imperial_cityguard:
+  name: |
+  guard_cityguard:
+  short_desc: |
+  an_imperial_cityguard:
+  long_desc: |
+  An_imperial_cityguard_guards_the_Grand_Gate:
+  keywords: ['guard', 'cityguard']
+  level: 2
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5322
+  key: |
+  a_doe:
+  name: |
+  doe:
+  short_desc: |
+  a_doe:
+  long_desc: |
+  A_doe_munches_on_grass:
+  keywords: ['doe']
+  level: 64
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5323
+  key: |
+  a_deer:
+  name: |
+  deer:
+  short_desc: |
+  a_deer:
+  long_desc: |
+  A_deer_stares_back_at_you:
+  keywords: ['deer']
+  level: 64
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5324
+  key: |
+  a_stag:
+  name: |
+  stag_deer:
+  short_desc: |
+  a_stag:
+  long_desc: |
+  A_large_deer_stag_protects_his_territory:
+  keywords: ['stag', 'deer']
+  level: 32
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5325
+  key: |
+  a_small_bunny:
+  name: |
+  bunny_rabbit:
+  short_desc: |
+  a_small_bunny:
+  long_desc: |
+  A_small_bunny_pokes_from_bush_to_bush:
+  keywords: ['bunny', 'rabbit']
+  level: 64
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5326
+  key: |
+  a_harmless_snake:
+  name: |
+  snake:
+  short_desc: |
+  a_harmless_snake:
+  long_desc: |
+  A_small_snake_slithers_between_the_grass:
+  keywords: ['snake']
+  level: 32
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5327
+  key: |
+  a_druid:
+  name: |
+  druid:
+  short_desc: |
+  a_druid:
+  long_desc: |
+  A_druid_is_here_in_meditation:
+  keywords: ['druid']
+  level: 64
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5328
+  key: |
+  a_druidess:
+  name: |
+  druidess:
+  short_desc: |
+  a_druidess:
+  long_desc: |
+  A_druidess_peers_at_you:
+  keywords: ['druidess']
+  level: 64
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5329
+  key: |
+  bard_of_thalos:
+  name: |
+  musician_bard:
+  short_desc: |
+  bard_of_Thalos:
+  long_desc: |
+  A_bard_sings_of_the_glory_of_Thalos:
+  keywords: ['musician', 'bard']
+  level: 2
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5330
+  key: |
+  bard_of_thalos:
+  name: |
+  musician_bard:
+  short_desc: |
+  bard_of_Thalos:
+  long_desc: |
+  This_bard_merrily_skips_along_singing_of_the_glory_of_Thalos:
+  keywords: ['musician', 'bard']
+  level: 4
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5331
+  key: |
+  the_cityguard:
+  name: |
+  cityguard_guard:
+  short_desc: |
+  the_cityguard:
+  long_desc: |
+  A_cityguard_stands_here:
+  keywords: ['cityguard', 'guard']
+  level: 69
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5332
+  key: |
+  the_janitor:
+  name: |
+  janitor:
+  short_desc: |
+  the_janitor:
+  long_desc: |
+  A_janitor_is_walking_around_cleaning_up:
+  keywords: ['janitor']
+  level: 1
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5333
+  key: |
+  the_beastly_fido:
+  name: |
+  fido_dog:
+  short_desc: |
+  the_beastly_fido:
+  long_desc: |
+  Beastly_Fido_is_here:
+  keywords: ['fido', 'dog']
+  level: 161
+  hp_max: 7
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 4
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5334
+  key: |
+  the_cityguard:
+  name: |
+  cityguard_guard:
+  short_desc: |
+  the_cityguard:
+  long_desc: |
+  A_cityguard_is_here_guarding_the_gate:
+  keywords: ['cityguard', 'guard']
+  level: 67
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

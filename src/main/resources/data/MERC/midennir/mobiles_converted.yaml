@@ -1,0 +1,264 @@
+- id: 3500
+  key: the_wyvern
+  name: the wyvern
+  short_desc: A monstrous wyvern slowly circles just above your head.
+  long_desc: |
+    This huge winged creature looks really menacing.  You are happy it doesn't
+    APPEAR to be very hungry ... yet.
+  keywords: ['wyvern']
+  level: 65
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 65 8 -200 S 8 10 1 8d8+80 2d6+1 0 3575 8 8 0
+
+- id: 3501
+  key: the_goblin
+  name: the goblin
+  short_desc: A mountain goblin is wandering about, mumbling to himself.
+  long_desc: |
+    You see before you a small and twisted creature with knotted muscles.
+  keywords: ['goblin', 'mountain']
+  level: 608
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 60800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 608 0 -500 S 6 15 6 4d4+60 1d8+4 150 800 8 8 1
+
+- id: 3502
+  key: the_small_boy
+  name: the small boy
+  short_desc: A small boy sits here, licking his wounds.
+  long_desc: |
+    The poor boy has numerous cuts and scratches, but appears to be all right.
+    He is apparently the only survivor of the ambush.
+  keywords: ['boy', 'small']
+  level: 146
+  hp_max: 53
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 47
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 146 0 500 S 4 17 6 1d12+47 1d8+0 0 600 5 5 1
+
+- id: 3503
+  key: the_innkeeper
+  name: the Innkeeper
+  short_desc: The Innkeeper stands here, cleaning glasses.
+  long_desc: |
+    The Innkeeper now spends most of his days waiting for customers, while the
+    nights are spent watching out for goblins.  His inn is no longer the happy
+    place that is used to be in days past.
+  keywords: ['innkeeper']
+  level: 66
+  hp_max: 206
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 66 0 400 S 10 8 1 1d12+200 2d8+1 1500 7000 8 8 1
+
+- id: 3504
+  key: the_bard
+  name: the bard
+  short_desc: A sullen bard is here, drinking away his problems.
+  long_desc: |
+    You can smell the alcohol on his breath from across the room.  This poor bard
+    has been sitting here quite a while, drinking himself into oblivion.
+  keywords: ['bard']
+  level: 66
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 66 8 600 S 8 13 3 1d12+110 2d6+0 1500 3750 6 6 1
+
+- id: 3505
+  key: the_dark_horseman
+  name: the dark horseman
+  short_desc: A dark horseman is here, mounted on his black steed.
+  long_desc: |
+    The man is obviously an outlaw, and has no qualms about slashing you into
+    little bits.
+  keywords: ['horseman', 'dark']
+  level: 196
+  hp_max: 103
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 97
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 196 32768 -900 S 8 12 4 1d12+97 1d5+7 1000 4000 8 8 1
+
+- id: 3506
+  key: the_goblin_lieutenant
+  name: the goblin lieutenant
+  short_desc: A goblin lieutenant stands here, attempting to get his men in order.
+  long_desc: |
+    The goblin lieutenant is rather angry, and looking for one of his men to
+    beat up upon, but maybe you will do just fine ...
+  keywords: ['goblin', 'lieutenant']
+  level: 608
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 60800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 608 0 -600 S 7 15 3 1d12+100 2d5+1 300 2000 8 8 1
+
+- id: 3507
+  key: the_goblin_leader
+  name: the goblin leader
+  short_desc: The goblin leader surveys the room.
+  long_desc: |
+    The leader doesn't look too happy that you have found him here.  He grabs
+    for his shortsword and lunges for your neck.
+  keywords: ['goblin', 'leader']
+  level: 614
+  hp_max: 126
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 61400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 614 8 -900 S 9 10 1 1d12+120 2d5+3 1000 8000 8 8 1
+

@@ -1,0 +1,594 @@
+- id: 6500
+  key: |
+  the_dwarven_guard:
+  name: |
+  dwarf_guard:
+  short_desc: |
+  the_dwarven_guard:
+  long_desc: |
+  A_dwarven_guard_is_here:
+  keywords: ['dwarf', 'guard']
+  level: 8
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6501
+  key: |
+  the_dwarven_worker:
+  name: |
+  dwarf_worker_miner:
+  short_desc: |
+  the_dwarven_worker:
+  long_desc: |
+  A_dwarven_mining_worker_is_here:
+  keywords: ['dwarf', 'worker', 'miner']
+  level: 900
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6502
+  key: |
+  the_wraith:
+  name: |
+  wraith:
+  short_desc: |
+  the_wraith:
+  long_desc: |
+  A_wraith_is_awaiting_your_first_move_here:
+  keywords: ['wraith']
+  level: 2
+  hp_max: 725
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6503
+  key: |
+  the_storekeeper:
+  name: |
+  storekeeper:
+  short_desc: |
+  the_storekeeper:
+  long_desc: |
+  There_is_the_Hide__Tooth_storekeeper_standing_here_waiting_patiently:
+  keywords: ['storekeeper']
+  level: 900
+  hp_max: 1023
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 990
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6504
+  key: |
+  the_baker:
+  name: |
+  baker:
+  short_desc: |
+  the_baker:
+  long_desc: |
+  Granite_Head_the_baker_is_waiting_for_a_customer_here:
+  keywords: ['baker']
+  level: 900
+  hp_max: 1028
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 990
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6505
+  key: |
+  the_giant_lizard:
+  name: |
+  lizard:
+  short_desc: |
+  the_giant_lizard:
+  long_desc: |
+  A_giant_lizard_is_here:
+  keywords: ['lizard']
+  level: 64
+  hp_max: 605
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6506
+  key: |
+  the_giant:
+  name: |
+  giant:
+  short_desc: |
+  the_giant:
+  long_desc: |
+  A_giant_is_here:
+  keywords: ['giant']
+  level: 8
+  hp_max: 342
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6507
+  key: |
+  the_dwarven_miner:
+  name: |
+  dwarf_miner:
+  short_desc: |
+  the_dwarven_miner:
+  long_desc: |
+  A_dwarven_miner_is_here:
+  keywords: ['dwarf', 'miner']
+  level: 8
+  hp_max: 136
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6508
+  key: |
+  the_dwarven_mine_leader:
+  name: |
+  dwarf_leader:
+  short_desc: |
+  the_dwarven_mine_leader:
+  long_desc: |
+  A_dwarven_mine_leader_is_here:
+  keywords: ['dwarf', 'leader']
+  level: 21
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6509
+  key: |
+  the_dwarven_doctor:
+  name: |
+  dwarf_doctor:
+  short_desc: |
+  the_dwarven_doctor:
+  long_desc: |
+  The_dwarven_doctor_is_here:
+  keywords: ['dwarf', 'doctor']
+  level: 136
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6510
+  key: |
+  the_dwarven_peon:
+  name: |
+  dwarf_peon:
+  short_desc: |
+  the_dwarven_peon:
+  long_desc: |
+  A_dwarven_peon_is_awaiting_help_here:
+  keywords: ['dwarf', 'peon']
+  level: 500
+  hp_max: 43
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6511
+  key: |
+  the_dwarf:
+  name: |
+  dwarf:
+  short_desc: |
+  the_dwarf:
+  long_desc: |
+  A_grinning_dwarf_is_here:
+  keywords: ['dwarf']
+  level: 500
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6512
+  key: |
+  the_unwanted_son:
+  name: |
+  dwarf_son:
+  short_desc: |
+  the_unwanted_son:
+  long_desc: |
+  An_unwanted_son_is_here_You_feel_sorry_for_the_guy:
+  keywords: ['dwarf', 'son']
+  level: 64
+  hp_max: 132
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 125
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6513
+  key: |
+  the_unwanted_daughter:
+  name: |
+  dwarf_daughter:
+  short_desc: |
+  the_unwanted_daughter:
+  long_desc: |
+  An_unwanted_daughter_is_here_You_feel_sorry_for_her:
+  keywords: ['dwarf', 'daughter']
+  level: 64
+  hp_max: 142
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 135
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6514
+  key: |
+  the_barracks_guard:
+  name: |
+  dwarf_guard:
+  short_desc: |
+  the_barracks_guard:
+  long_desc: |
+  A_barrack_guard_is_here:
+  keywords: ['dwarf', 'guard']
+  level: 100
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6515
+  key: |
+  the_man_in_waiting:
+  name: |
+  man:
+  short_desc: |
+  the_man_in_waiting:
+  long_desc: |
+  A_man_in_waiting_is_here_He_looks_nervous_and_unsure_of_himself:
+  keywords: ['man']
+  level: 300
+  hp_max: 207
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 30000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6516
+  key: |
+  the_mazekeeper:
+  name: |
+  mazekeeper:
+  short_desc: |
+  the_mazekeeper:
+  long_desc: |
+  A_mazekeeper_is_here:
+  keywords: ['mazekeeper']
+  level: 128
+  hp_max: 665
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6517
+  key: |
+  the_giant_snake:
+  name: |
+  snake:
+  short_desc: |
+  the_giant_snake:
+  long_desc: |
+  There_is_a_giant_snake_here:
+  keywords: ['snake']
+  level: 34
+  hp_max: 444
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 432
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

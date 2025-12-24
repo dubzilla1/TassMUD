@@ -1,10 +1,12 @@
 - id: 6301
-  key: "the_young_spider"
-  name: "spider young"
-  short_desc: "the young spider"
-  long_desc: "The young spider is ballooning by you."
+  key: the_young_spider_6301
+  name: the young spider
+  short_desc: The young spider is ballooning by you.
+  long_desc: |
+    He looks freshly hatched and sprightly.  His young fangs are just
+    growing in as of late.
   keywords: ['spider', 'young']
-  level: 68
+  level: 8
   hp_max: 62
   mp_max: 0
   mv_max: 100
@@ -23,19 +25,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '5d4+50', 'damage_dice': '5d4+50', 'raw_block': 'He looks freshly hatched and sprightly.  His young fangs are just\ngrowing in as of late.\n~\n68 8 0 S\n5 17 8 5d4+50 2d4+1\n100 600\n8 8 2'}
+  legacy_raw: 68 8 0 S 5 17 8 5d4+50 2d4+1 100 600 8 8 2
 
 - id: 6302
-  key: "yevaud"
-  name: "dragon Yevaud"
-  short_desc: "Yevaud"
-  long_desc: "Yevaud the Usurper of Midgaard is here, grinning evilly at you."
+  key: yevaud_6302
+  name: Yevaud
+  short_desc: Yevaud the Usurper of Midgaard is here, grinning evilly at you.
+  long_desc: |
+    Old, scaly, but still with a lot of bite in him left.
   keywords: ['dragon', 'Yevaud']
-  level: 71
+  level: 8
   hp_max: 540
   mp_max: 0
   mv_max: 100
@@ -54,17 +57,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 7100
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 71, 'hit_dice': '24d24+240', 'damage_dice': '24d24+240', 'raw_block': 'Old, scaly, but still with a lot of bite in him left.\n~\n71 8 -1000 S\n24 2 0 24d24+240 4d6+3\n10000 65100\n8 8 1'}
+  legacy_raw: 71 8 -1000 S 24 2 0 24d24+240 4d6+3 10000 65100 8 8 1
 
 - id: 6303
-  key: "the_wolf_spider"
-  name: "spider wolf"
-  short_desc: "the Wolf Spider"
-  long_desc: "The Wolf Spider is here, licking its bloody fangs."
+  key: the_wolf_spider_6303
+  name: the Wolf Spider
+  short_desc: The Wolf Spider is here, licking its bloody fangs.
+  long_desc: |
+    The Wolf Spider is hairy, very hairy.
   keywords: ['spider', 'wolf']
   level: 34
   hp_max: 83
@@ -89,13 +93,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '3d8+70', 'damage_dice': '3d8+70', 'raw_block': 'The Wolf Spider is hairy, very hairy.\n~\n34 0 -300 S\n6 12 4 3d8+70 2d5+3\n1250 2000\n8 8 2'}
+  legacy_raw: 34 0 -300 S 6 12 4 3d8+70 2d5+3 1250 2000 8 8 2
 
 - id: 6304
-  key: "the_orc"
-  name: "orc"
-  short_desc: "the orc"
-  long_desc: "The orc is stuck in the web and he can't get out."
+  key: the_orc_6304
+  name: the orc
+  short_desc: The orc is stuck in the web and he can't get out.
+  long_desc: |
+    You notice an evil look in his eyes.
   keywords: ['orc']
   level: 2
   hp_max: 41
@@ -120,13 +125,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d10+30', 'damage_dice': '2d10+30', 'raw_block': 'You notice an evil look in his eyes.\n~\n2 0 -400 S\n5 15 5 2d10+30 2d4+0\n100 600\n8 8 1'}
+  legacy_raw: 2 0 -400 S 5 15 5 2d10+30 2d4+0 100 600 8 8 1
 
 - id: 6305
-  key: "the_queen_wasp"
-  name: "wasp queen"
-  short_desc: "the Queen Wasp"
-  long_desc: "The Queen Wasp is here, thinking that you would make a tasty offering\nto her master."
+  key: the_queen_wasp_6305
+  name: the Queen Wasp
+  short_desc: The Queen Wasp is here, thinking that you would make a tasty offering to her master.
+  long_desc: |
+    You notice a glazed look in her eyes.
   keywords: ['wasp', 'queen']
   level: 34
   hp_max: 198
@@ -151,15 +157,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'You notice a glazed look in her eyes.\n~\n34 0 -800 S\n12 7 -3 12d12+120 2d8+5\n1500 8000\n8 8 2'}
+  legacy_raw: 34 0 -800 S 12 7 -3 12d12+120 2d8+5 1500 8000 8 8 2
 
 - id: 6306
-  key: "the_drone_spider"
-  name: "spider drone"
-  short_desc: "the drone spider"
-  long_desc: "The drone spider walks around doing her master's bidding."
+  key: the_drone_spider_6306
+  name: the drone spider
+  short_desc: The drone spider walks around doing her master's bidding.
+  long_desc: |
+    An ordinary drone spider.
   keywords: ['spider', 'drone']
-  level: 68
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -178,19 +185,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'An ordinary drone spider.\n~\n68 0 -300 S\n6 12 4 6d6+60 2d4+0\n200 800\n8 8 1'}
+  legacy_raw: 68 0 -300 S 6 12 4 6d6+60 2d4+0 200 800 8 8 1
 
 - id: 6307
-  key: "the_ethereal_spider"
-  name: "spider ethereal"
-  short_desc: "the ethereal spider"
-  long_desc: "The ethereal spider strides here, traveling to different worlds."
+  key: the_ethereal_spider_6307
+  name: the ethereal spider
+  short_desc: The ethereal spider strides here, traveling to different worlds.
+  long_desc: |
+    She winks in and out.
   keywords: ['spider', 'ethereal']
-  level: 68
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -209,19 +217,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'She winks in and out.\n~\n68 0 1000 S\n10 10 0 10d10+100 2d4+4\n1250 4000\n8 8 2'}
+  legacy_raw: 68 0 1000 S 10 10 0 10d10+100 2d4+4 1250 4000 8 8 2
 
 - id: 6308
-  key: "the_slave_of_arachnos"
-  name: "slave human"
-  short_desc: "the slave of Arachnos"
-  long_desc: "The slave works here relentlessly."
+  key: the_slave_of_arachnos_6308
+  name: the slave of Arachnos
+  short_desc: The slave works here relentlessly.
+  long_desc: |
+    The slave does not mind you, but will fight like a warrior if attacked.
   keywords: ['slave', 'human']
-  level: 68
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -240,19 +249,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'The slave does not mind you, but will fight like a warrior if attacked.\n~\n68 0 0 S\n8 13 1 8d8+80 2d8+1\n500 2000\n8 8 1'}
+  legacy_raw: 68 0 0 S 8 13 1 8d8+80 2d8+1 500 2000 8 8 1
 
 - id: 6309
-  key: "the_quasit"
-  name: "quasit"
-  short_desc: "the quasit"
-  long_desc: "The quasit blinks in and out, grinning at you."
+  key: the_quasit_6309
+  name: the quasit
+  short_desc: The quasit blinks in and out, grinning at you.
+  long_desc: |
+    Demoniac in nature, but more mischievous.  He twiddles his thumbs
+    and creates a magical treasure!
   keywords: ['quasit']
-  level: 148
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -271,17 +282,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 14800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 148, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'Demoniac in nature, but more mischievous.  He twiddles his thumbs\nand creates a magical treasure!\n~\n148 32778 1000 S\n10 1 -7 10d10+100 1d8+3\n1000 3000\n8 8 1'}
+  legacy_raw: 148 32778 1000 S 10 1 -7 10d10+100 1d8+3 1000 3000 8 8 1
 
 - id: 6310
-  key: "the_bird_spider"
-  name: "spider bird"
-  short_desc: "the Bird Spider"
-  long_desc: "The Bird Spider snaps its powerful jaws."
+  key: the_bird_spider_6310
+  name: the Bird Spider
+  short_desc: The Bird Spider snaps its powerful jaws.
+  long_desc: |
+    The Bird Spider has very powerful jaws.
   keywords: ['spider', 'bird']
   level: 34
   hp_max: 245
@@ -306,13 +318,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '14d14+140', 'damage_dice': '14d14+140', 'raw_block': 'The Bird Spider has very powerful jaws.\n~\n34 0 -800 S\n14 7 -3 14d14+140 2d9+2\n1750 8000\n8 8 2'}
+  legacy_raw: 34 0 -800 S 14 7 -3 14d14+140 2d9+2 1750 8000 8 8 2
 
 - id: 6311
-  key: "the_hermit"
-  name: "hermit"
-  short_desc: "the Hermit"
-  long_desc: "The Hermit sits here and warns, "Go back before it's too late!""
+  key: the_hermit_6311
+  name: the Hermit
+  short_desc: The Hermit sits here and warns, "Go back before it's too late!"
+  long_desc: |
+    A dishevelled veteran warrior in disguise is what he is, but he
+    means well.
   keywords: ['hermit']
   level: 6
   hp_max: 96
@@ -337,13 +351,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '3d10+80', 'damage_dice': '3d10+80', 'raw_block': 'A dishevelled veteran warrior in disguise is what he is, but he\nmeans well.\n~\n6 8 -400 S\n7 13 5 3d10+80 2d5+0\n750 1500\n8 8 1'}
+  legacy_raw: 6 8 -400 S 7 13 5 3d10+80 2d5+0 750 1500 8 8 1
 
 - id: 6312
-  key: "the_donjonkeeper"
-  name: "donjonkeeper"
-  short_desc: "the Donjonkeeper"
-  long_desc: "The Donjonkeeper eyes you and wonders how pure your soul is."
+  key: the_donjonkeeper_6312
+  name: the Donjonkeeper
+  short_desc: The Donjonkeeper eyes you and wonders how pure your soul is.
+  long_desc: |
+    He delves deeper into you as you stare at him.
   keywords: ['donjonkeeper']
   level: 6
   hp_max: 575
@@ -368,15 +383,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '25d25+250', 'damage_dice': '25d25+250', 'raw_block': 'He delves deeper into you as you stare at him.\n~\n6 8 1000 S\n25 -1 -10 25d25+250 3d8+10\n6000 65000\n8 8 1'}
+  legacy_raw: 6 8 1000 S 25 -1 -10 25d25+250 3d8+10 6000 65000 8 8 1
 
 - id: 6313
-  key: "the_guardian"
-  name: "guardian"
-  short_desc: "The guardian"
-  long_desc: "The guardian is obviously not doing his job."
+  key: the_guardian_6313
+  name: The guardian
+  short_desc: The guardian is obviously not doing his job.
+  long_desc: |
+    He looks like a lazy bum who sleeps half the time.
   keywords: ['guardian']
-  level: 96
+  level: 17
   hp_max: 323
   mp_max: 0
   mv_max: 100
@@ -395,17 +411,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 9600
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 96, 'hit_dice': '17d17+170', 'damage_dice': '17d17+170', 'raw_block': 'He looks like a lazy bum who sleeps half the time.\n~\n96 32768 250 S\n17 4 -7 17d17+170 2d8+10\n1600 20000\n4 4 1'}
+  legacy_raw: 96 32768 250 S 17 4 -7 17d17+170 2d8+10 1600 20000 4 4 1
 
 - id: 6314
-  key: "arachnos"
-  name: "spider empress arachnos"
-  short_desc: "Arachnos"
-  long_desc: "Arachnos the Empress of Spiders welcomes you with an evil smile."
+  key: arachnos_6314
+  name: Arachnos
+  short_desc: Arachnos the Empress of Spiders welcomes you with an evil smile.
+  long_desc: |
+    She is a very attractive spider with an ornate gown.  She tempts you
+    into being one of her many slaves.  She does not possess the venomous
+    fangs of normal spiders, but then, as you realize, she does not need
+    them.
   keywords: ['spider', 'empress', 'arachnos']
   level: 34
   hp_max: 611
@@ -430,13 +450,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '26d26+260', 'damage_dice': '26d26+260', 'raw_block': 'She is a very attractive spider with an ornate gown.  She tempts you\ninto being one of her many slaves.  She does not possess the venomous\nfangs of normal spiders, but then, as you realize, she does not need\nthem.\n~\n34 10 -1000 S\n26 -2 -8 26d26+260 1d8+20\n10000 65000\n8 8 2'}
+  legacy_raw: 34 10 -1000 S 26 -2 -8 26d26+260 1d8+20 10000 65000 8 8 2
 
 - id: 6315
-  key: "the_ki_rin"
-  name: "ki-rin"
-  short_desc: "the Ki-Rin"
-  long_desc: "The Ki-Rin smiles good-naturedly to you."
+  key: the_ki_rin_6315
+  name: the Ki-Rin
+  short_desc: The Ki-Rin smiles good-naturedly to you.
+  long_desc: |
+    She is the last bastion of good in this realm.  Her mission is to
+    someday free the slaves of the Empress.
   keywords: ['ki-rin']
   level: 6
   hp_max: 611
@@ -461,13 +483,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '26d26+260', 'damage_dice': '26d26+260', 'raw_block': 'She is the last bastion of good in this realm.  Her mission is to\nsomeday free the slaves of the Empress.\n~\n6 8 1000 S\n26 0 -2 26d26+260 3d4+12\n15000 50000\n8 8 2'}
+  legacy_raw: 6 8 1000 S 26 0 -2 26d26+260 3d4+12 15000 50000 8 8 2
 
 - id: 6316
-  key: "the_young_dragon_wormkin"
-  name: "dragon wormkin young"
-  short_desc: "the young dragon wormkin"
-  long_desc: "A wormkin with no teeth plays here."
+  key: the_young_dragon_wormkin_6316
+  name: the young dragon wormkin
+  short_desc: A wormkin with no teeth plays here.
+  long_desc: |
+    Rather small, you almost feel sad in killing it.
   keywords: ['dragon', 'wormkin', 'young']
   level: 3
   hp_max: 175
@@ -492,13 +515,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 3, 'hit_dice': '10d10+120', 'damage_dice': '10d10+120', 'raw_block': 'Rather small, you almost feel sad in killing it.\n~\n3 8 1000 S\n10 2 0 10d10+120 2d6+3\n1000 3700\n8 8 1'}
+  legacy_raw: 3 8 1000 S 10 2 0 10d10+120 2d6+3 1000 3700 8 8 1
 
 - id: 6317
-  key: "the_medium_dragon_wormkin"
-  name: "dragon wormkin medium"
-  short_desc: "the medium dragon wormkin"
-  long_desc: "A wormkin that has grown a bit stares at you inquisitively."
+  key: the_medium_dragon_wormkin_6317
+  name: the medium dragon wormkin
+  short_desc: A wormkin that has grown a bit stares at you inquisitively.
+  long_desc: |
+    A medium-sized dragon--seems it hasn't killed anything yet by itself.
   keywords: ['dragon', 'wormkin', 'medium']
   level: 3
   hp_max: 241
@@ -523,15 +547,18 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 3, 'hit_dice': '13d13+150', 'damage_dice': '13d13+150', 'raw_block': "A medium-sized dragon--seems it hasn't killed anything yet by itself.\n~\n3 8 100 S\n13 2 -2 13d13+150 3d6+5\n5000 9500\n8 8 1"}
+  legacy_raw: 3 8 100 S 13 2 -2 13d13+150 3d6+5 5000 9500 8 8 1
 
 - id: 6318
-  key: "the_huge_poisonous_spider"
-  name: "spider poisonous"
-  short_desc: "the huge, poisonous spider"
-  long_desc: "A huge, poisonous spider is here."
+  key: the_huge_poisonous_spider_6318
+  name: the huge, poisonous spider
+  short_desc: A huge, poisonous spider is here.
+  long_desc: |
+    This disgusting creature is at the size of a human crawling on all four.  It
+    has eight hairy legs that gives it a tremendous speed on almost any surface and
+    sharp poisonous fangs to paralyze or kill its prey.
   keywords: ['spider', 'poisonous']
-  level: 67
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -550,19 +577,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6700
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 67, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'This disgusting creature is at the size of a human crawling on all four.  It\nhas eight hairy legs that gives it a tremendous speed on almost any surface and\nsharp poisonous fangs to paralyze or kill its prey.\n~\n67 0 -350 S\n8 13 2 8d8+80 2d5+1\n0 2500\n8 8 0'}
+  legacy_raw: 67 0 -350 S 8 13 2 8d8+80 2d5+1 0 2500 8 8 0
 
 - id: 6319
-  key: "the_queen_spider"
-  name: "queen spider"
-  short_desc: "the Queen Spider"
-  long_desc: "The huge, bulky Queen Spider is here."
+  key: the_queen_spider_6319
+  name: the Queen Spider
+  short_desc: The huge, bulky Queen Spider is here.
+  long_desc: |
+    This disgusting creature is at the size of a small elephant.  It has eight
+    huge, hairy legs that would give it a tremendous speed on almost any surface
+    if it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.
   keywords: ['queen', 'spider']
-  level: 67
+  level: 8
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -581,9 +611,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6700
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 67, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': "This disgusting creature is at the size of a small elephant.  It has eight\nhuge, hairy legs that would give it a tremendous speed on almost any surface\nif it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.\n~\n67 8 -1000 S\n15 6 -4 15d15+150 2d8+2\n0 12000\n8 8 2"}
+  legacy_raw: 67 8 -1000 S 15 6 -4 15d15+150 2d8+2 0 12000 8 8 2
 

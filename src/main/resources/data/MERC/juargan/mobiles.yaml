@@ -1,8 +1,10 @@
 - id: 4700
-  key: "the_small_dwarf"
-  name: "dwarf"
-  short_desc: "the small dwarf"
-  long_desc: "A small dwarf is here mining at the tunnel walls."
+  key: the_small_dwarf_4700
+  name: the small dwarf
+  short_desc: A small dwarf is here mining at the tunnel walls.
+  long_desc: |
+    The small dwarf is dirty and dressed only in a small tunic and leggings.  His
+    beard is encrusted with cracked rock and dust from the tunnel walls.
   keywords: ['dwarf']
   level: 4
   hp_max: 155
@@ -27,13 +29,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d10+150', 'damage_dice': '1d10+150', 'raw_block': 'The small dwarf is dirty and dressed only in a small tunic and leggings.  His\nbeard is encrusted with cracked rock and dust from the tunnel walls.\n~\n4 0 500 S\n7 13 3 1d10+150 1d8+0\n50 1600\n8 8 1'}
+  legacy_raw: 4 0 500 S 7 13 3 1d10+150 1d8+0 50 1600 8 8 1
 
 - id: 4701
-  key: "the_small_dwarf"
-  name: "dwarf"
-  short_desc: "the small dwarf"
-  long_desc: "A small dwarf is here, on the watch for Duergar."
+  key: the_small_dwarf_4701
+  name: the small dwarf
+  short_desc: A small dwarf is here, on the watch for Duergar.
+  long_desc: |
+    The small dwarf is dressed in colorful clothing and has a full and long beard.
+    His eyes are keen and sharp, well suited for sight in the dark tunnels of the
+    mines.
   keywords: ['dwarf']
   level: 4
   hp_max: 66
@@ -58,13 +63,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d12+60', 'damage_dice': '1d12+60', 'raw_block': 'The small dwarf is dressed in colorful clothing and has a full and long beard.\nHis eyes are keen and sharp, well suited for sight in the dark tunnels of the\nmines.\n~\n4 0 500 S\n5 18 5 1d12+60 1d8+0\n100 900\n8 8 1'}
+  legacy_raw: 4 0 500 S 5 18 5 1d12+60 1d8+0 100 900 8 8 1
 
 - id: 4702
-  key: "the_dwarf_guard"
-  name: "dwarf guard"
-  short_desc: "the dwarf guard"
-  long_desc: "A small dwarf is here, dressed in a makeshift suit of armor."
+  key: the_dwarf_guard_4702
+  name: the dwarf guard
+  short_desc: A small dwarf is here, dressed in a makeshift suit of armor.
+  long_desc: |
+    This small dwarf is the militia of the Dwarven Kingdom it watches over.  The
+    small body is strong which makes him a match for any foe.  The armor of the
+    dwarf is of no use to anyone but him, but provides adequate defense.
   keywords: ['dwarf', 'guard']
   level: 2
   hp_max: 176
@@ -89,13 +97,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d12+170', 'damage_dice': '1d12+170', 'raw_block': 'This small dwarf is the militia of the Dwarven Kingdom it watches over.  The\nsmall body is strong which makes him a match for any foe.  The armor of the\ndwarf is of no use to anyone but him, but provides adequate defense.\n~\n2 0 700 S\n10 10 0 1d12+170 1d8+6\n150 3500\n8 8 1'}
+  legacy_raw: 2 0 700 S 10 10 0 1d12+170 1d8+6 150 3500 8 8 1
 
 - id: 4703
-  key: "yentle_the_dwarf"
-  name: "dwarf yentle"
-  short_desc: "Yentle the dwarf"
-  long_desc: "A small dwarf sits here trying to grow a new rock."
+  key: yentle_the_dwarf_4703
+  name: Yentle the dwarf
+  short_desc: A small dwarf sits here trying to grow a new rock.
+  long_desc: |
+    The insane little dwarf who thinks he can grow a rock.  He is dressed in many
+    yellows and oranges, and seems to have a happy look about him despite his years
+    of failure at growing rocks.
   keywords: ['dwarf', 'yentle']
   level: 4
   hp_max: 155
@@ -120,13 +131,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'The insane little dwarf who thinks he can grow a rock.  He is dressed in many\nyellows and oranges, and seems to have a happy look about him despite his years\nof failure at growing rocks.\n~\n4 8 1000 S\n10 11 2 10d10+100 2d6+1\n300 9000\n6 6 1'}
+  legacy_raw: 4 8 1000 S 10 11 2 10d10+100 2d6+1 300 9000 6 6 1
 
 - id: 4704
-  key: "juargan_the_dwarven_king"
-  name: "juargan dwarf king"
-  short_desc: "Juargan the Dwarven King"
-  long_desc: "Juargan the Dwarven King sits here upon his throne, looking out over his gardens."
+  key: juargan_the_dwarven_king_4704
+  name: Juargan the Dwarven King
+  short_desc: Juargan the Dwarven King sits here upon his throne, looking out over his gardens.
+  long_desc: |
+    The small king is bulging at the seems with muscle.  He is dressed in nothing
+    but a noble robe made of a grey silk.  His face has a visage of stone like his
+    surroundings, as if his burden has become to much for him.
   keywords: ['juargan', 'dwarf', 'king']
   level: 2
   hp_max: 648
@@ -151,13 +165,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '27d27+270', 'damage_dice': '27d27+270', 'raw_block': 'The small king is bulging at the seems with muscle.  He is dressed in nothing\nbut a noble robe made of a grey silk.  His face has a visage of stone like his\nsurroundings, as if his burden has become to much for him.\n~\n2 8 1000 S\n27 -1 -10 27d27+270 3d6+9\n1000 90000\n6 6 1'}
+  legacy_raw: 2 8 1000 S 27 -1 -10 27d27+270 3d6+9 1000 90000 6 6 1
 
 - id: 4705
-  key: "the_duergar_dwarf"
-  name: "duergar dwarf"
-  short_desc: "the duergar dwarf"
-  long_desc: "A repulsive Duergar is here, biting at its own arm."
+  key: the_duergar_dwarf_4705
+  name: the duergar dwarf
+  short_desc: A repulsive Duergar is here, biting at its own arm.
+  long_desc: |
+    The Duergar are the outcast dark dwarves.  They have grown insane through
+    their isolation from the rest of the dwarven population and have become bitter
+    enemies with them.
   keywords: ['duergar', 'dwarf']
   level: 36
   hp_max: 161
@@ -182,13 +199,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 36, 'hit_dice': '2d10+150', 'damage_dice': '2d10+150', 'raw_block': 'The Duergar are the outcast dark dwarves.  They have grown insane through\ntheir isolation from the rest of the dwarven population and have become bitter\nenemies with them.\n~\n36 8 -1000 S\n8 13 3 2d10+150 2d4+0\n100 2900\n8 8 1'}
+  legacy_raw: 36 8 -1000 S 8 13 3 2d10+150 2d4+0 100 2900 8 8 1
 
 - id: 4706
-  key: "grimdale_the_ancient_king"
-  name: "grimdale king dwarf"
-  short_desc: "Grimdale the ancient king"
-  long_desc: "A ancient and partially decayed dwarf lies here ever so silent."
+  key: grimdale_the_ancient_king_4706
+  name: Grimdale the ancient king
+  short_desc: A ancient and partially decayed dwarf lies here ever so silent.
+  long_desc: |
+    The ancient king of the dwarves lies here.  Forgotten over the past decades
+    his once cherished body has fallen into utter decay.  His once cheery face has
+    turned into a crude scowl as you can feel that his soul is not at ease.
   keywords: ['grimdale', 'king', 'dwarf']
   level: 34
   hp_max: 648
@@ -213,13 +233,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '27d27+270', 'damage_dice': '27d27+270', 'raw_block': 'The ancient king of the dwarves lies here.  Forgotten over the past decades\nhis once cherished body has fallen into utter decay.  His once cheery face has\nturned into a crude scowl as you can feel that his soul is not at ease.\n~\n34 40 -999 S\n27 -1 -10 27d27+270 2d10+9\n0 100000\n8 8 1'}
+  legacy_raw: 34 40 -999 S 27 -1 -10 27d27+270 2d10+9 0 100000 8 8 1
 
 - id: 4707
-  key: "the_dreaded_rock_worm"
-  name: "rock worm dreaded"
-  short_desc: "The dreaded rock worm"
-  long_desc: "The dreaded rock worm has blasted through the rock wall, its jaws open wide!"
+  key: the_dreaded_rock_worm_4707
+  name: The dreaded rock worm
+  short_desc: The dreaded rock worm has blasted through the rock wall, its jaws open wide!
+  long_desc: |
+    The jaws of this strange beast are large enough to fit at lease two dwarves
+    into.  Judging by the size you can see that is has been eating quite a few too
+    many dwarves as it's body is at least five feet in diameter.
   keywords: ['rock', 'worm', 'dreaded']
   level: 34
   hp_max: 272
@@ -244,13 +267,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '4d10+250', 'damage_dice': '4d10+250', 'raw_block': "The jaws of this strange beast are large enough to fit at lease two dwarves\ninto.  Judging by the size you can see that is has been eating quite a few too\nmany dwarves as it's body is at least five feet in diameter.\n~\n34 8 0 S\n20 10 5 4d10+250 3d4+6\n4000 28000\n8 8 0"}
+  legacy_raw: 34 8 0 S 20 10 5 4d10+250 3d4+6 4000 28000 8 8 0
 
 - id: 4708
-  key: "a_dwarven_spirit"
-  name: "spirit dwarf"
-  short_desc: "a dwarven spirit"
-  long_desc: "A small dwarven spirit is at unrest here."
+  key: a_dwarven_spirit_4708
+  name: a dwarven spirit
+  short_desc: A small dwarven spirit is at unrest here.
+  long_desc: |
+    The small spirit screams in agony as it is bound to this wretched existence.
+    The soul of some unfortunate dwarf now has to fly aimlessly through this chamber
+    of eternal pain.
   keywords: ['spirit', 'dwarf']
   level: 34
   hp_max: 177
@@ -275,5 +301,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '5d10+150', 'damage_dice': '5d10+150', 'raw_block': 'The small spirit screams in agony as it is bound to this wretched existence.\nThe soul of some unfortunate dwarf now has to fly aimlessly through this chamber\nof eternal pain.\n~\n34 168 -999 S\n15 6 1 5d10+150 2d6+3\n0 28000\n8 8 0'}
+  legacy_raw: 34 168 -999 S 15 6 1 5d10+150 2d6+3 0 28000 8 8 0
 

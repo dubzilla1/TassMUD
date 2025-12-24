@@ -1,8 +1,8 @@
 - id: 1
-  key: "puff"
-  name: "Puff"
-  short_desc: "Puff"
-  long_desc: "Puff the Fractal Dragon is here, contemplating a higher reality."
+  key: puff_1
+  name: Puff
+  short_desc: Puff the Fractal Dragon is here, contemplating a higher reality.
+  long_desc: |
   keywords: ['Puff']
   level: 1
   hp_max: 577
@@ -27,5 +27,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 1, 'hit_dice': '5d10+550', 'damage_dice': '5d10+550', 'raw_block': '~\n1 0 1000 S\n26 1 -1 5d10+550 4d6+3\n10000 155000\n8 8 2'}
+  legacy_raw: 1 0 1000 S 26 1 -1 5d10+550 4d6+3 10000 155000 8 8 2
 

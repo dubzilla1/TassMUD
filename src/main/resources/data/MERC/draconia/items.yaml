@@ -1,6 +1,6 @@
 items:
   - id: 2200
-    key: spear_jagged
+    key: spear_jagged_2200
     name: a jagged spear
     description: A jagged spear has been left here.
     weight: 15
@@ -15,19 +15,18 @@ items:
       - TAKE
       - WIELD
     keywords: [spear, jagged]
-    template_json:
-      raw_block: |
-        #2200
-        spear jagged~
-        a jagged spear~
-        A jagged spear has been left here.~
-        ~
-        5 0 8193
-        0 2 5 11
-        15 4000 1500
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #2200
+      spear jagged~
+      a jagged spear~
+      A jagged spear has been left here.~
+      ~
+      5 0 8193
+      0 2 5 11
+      15 4000 1500
   - id: 2201
-    key: dagger_silver
+    key: dagger_silver_2201
     name: a silver dagger
     description: A silver dagger is lying here.
     weight: 10
@@ -42,19 +41,18 @@ items:
       - TAKE
       - WIELD
     keywords: [dagger, silver]
-    template_json:
-      raw_block: |
-        #2201
-        dagger silver~
-        a silver dagger~
-        A silver dagger is lying here.~
-        ~
-        5 0 8193
-        0 2 4 11
-        10 1000 200
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #2201
+      dagger silver~
+      a silver dagger~
+      A silver dagger is lying here.~
+      ~
+      5 0 8193
+      0 2 4 11
+      10 1000 200
   - id: 2202
-    key: knife_tooth_dragon
+    key: knife_tooth_dragon_2202
     name: a dragon's tooth knife
     description: A dangerous looking knife made from a dragon's tooth has been left here.
     weight: 8
@@ -76,19 +74,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 3 5 11
-        8 100000 50000
-        A
-        2 1
-        A
-        19 2
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 3 5 11
+      8 100000 50000
+      A
+      2 1
+      A
+      19 2
   - id: 2203
-    key: bracelet_dragon
+    key: bracelet_dragon_2203
     name: a dragon skin bracelet
     description: A scaly bracelet lies on the ground.
     weight: 10
@@ -100,19 +97,18 @@ items:
       - TAKE
       - WEAR_WRIST
     keywords: [bracelet, dragon]
-    template_json:
-      raw_block: |
-        #2203
-        bracelet dragon~
-        a dragon skin bracelet~
-        A scaly bracelet lies on the ground.~
-        ~
-        9 0 4097  
-        6 0 0 0
-        10 40000 10000
-      type_line: 9 0 4097
+    legacy_type_line: 9 0 4097
+    legacy_raw: |
+      #2203
+      bracelet dragon~
+      a dragon skin bracelet~
+      A scaly bracelet lies on the ground.~
+      ~
+      9 0 4097  
+      6 0 0 0
+      10 40000 10000
   - id: 2204
-    key: belt_silk_black
+    key: belt_silk_black_2204
     name: a black silk belt
     description: A black belt made of the finest silk is hanging here.
     weight: 25
@@ -127,19 +123,18 @@ items:
     applies:
       - location: 5
         modifier: 2
-    template_json:
-      raw_block: |
-        a black silk belt~
-        A black belt made of the finest silk is hanging here.~
-        ~
-        9 0 2049
-        6 0 0 0
-        25 10000 4000
-        A
-        5 2
-      type_line: 9 0 2049
+    legacy_type_line: 9 0 2049
+    legacy_raw: |
+      a black silk belt~
+      A black belt made of the finest silk is hanging here.~
+      ~
+      9 0 2049
+      6 0 0 0
+      25 10000 4000
+      A
+      5 2
   - id: 2210
-    key: belt_silk_white
+    key: belt_silk_white_2210
     name: a white silk belt.
     description: A white belt made of the finest silk is hanging here.
     weight: 25
@@ -152,19 +147,18 @@ items:
     applies:
       - location: 1
         modifier: 2
-    template_json:
-      raw_block: |
-        a white silk belt.~
-        A white belt made of the finest silk is hanging here.~
-        ~
-        15 0 2049
-        6 0 0 0
-        25 10000 4000
-        A
-        1 2
-      type_line: 15 0 2049
+    legacy_type_line: 15 0 2049
+    legacy_raw: |
+      a white silk belt.~
+      A white belt made of the finest silk is hanging here.~
+      ~
+      15 0 2049
+      6 0 0 0
+      25 10000 4000
+      A
+      1 2
   - id: 2211
-    key: bracelet_platinum
+    key: bracelet_platinum_2211
     name: a platinum bracelet.
     description: A tarnished platinum bracelet has been dropped here.
     weight: 5
@@ -178,19 +172,18 @@ items:
       - TAKE
       - WEAR_WRIST
     keywords: [bracelet, platinum]
-    template_json:
-      raw_block: |
-        #2211
-        bracelet platinum~
-        a platinum bracelet.~
-        A tarnished platinum bracelet has been dropped here.~
-        ~
-        9 1 4097
-        7 0 0 0
-        5 50000 25000
-      type_line: 9 1 4097
+    legacy_type_line: 9 1 4097
+    legacy_raw: |
+      #2211
+      bracelet platinum~
+      a platinum bracelet.~
+      A tarnished platinum bracelet has been dropped here.~
+      ~
+      9 1 4097
+      7 0 0 0
+      5 50000 25000
   - id: 2220
-    key: symbol_holy
+    key: symbol_holy_2220
     name: a holy symbol
     description: A golden holy symbol is here.
     weight: 2
@@ -208,19 +201,18 @@ items:
     applies:
       - location: 12
         modifier: 15
-    template_json:
-      raw_block: |
-        a holy symbol~
-        A golden holy symbol is here.~
-        ~
-        9 1 16389
-        4 0 0 0
-        2 50000 5000
-        A
-        12 15
-      type_line: 9 1 16389
+    legacy_type_line: 9 1 16389
+    legacy_raw: |
+      a holy symbol~
+      A golden holy symbol is here.~
+      ~
+      9 1 16389
+      4 0 0 0
+      2 50000 5000
+      A
+      12 15
   - id: 2221
-    key: robe_black
+    key: robe_black_2221
     name: a plain black robe
     description: A black robe is hanging on a hook on the wall.
     weight: 3
@@ -237,19 +229,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        a plain black robe~
-        A black robe is hanging on a hook on the wall.~
-        ~
-        9 0 1025
-        5 0 0 0
-        3 50000 5000
-        A
-        19 2
-      type_line: 9 0 1025
+    legacy_type_line: 9 0 1025
+    legacy_raw: |
+      a plain black robe~
+      A black robe is hanging on a hook on the wall.~
+      ~
+      9 0 1025
+      5 0 0 0
+      3 50000 5000
+      A
+      19 2
   - id: 2222
-    key: sword_emerald
+    key: sword_emerald_2222
     name: an emerald sword
     description: An emerald long sword is leaning against the wall.
     weight: 24
@@ -264,19 +255,18 @@ items:
       - TAKE
       - WIELD
     keywords: [sword, emerald]
-    template_json:
-      raw_block: |
-        #2222
-        sword emerald~
-        an emerald sword~
-        An emerald long sword is leaning against the wall.~
-        ~
-        5 0 8193
-        0 3 6 3
-        24 200000 100000
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #2222
+      sword emerald~
+      an emerald sword~
+      An emerald long sword is leaning against the wall.~
+      ~
+      5 0 8193
+      0 3 6 3
+      24 200000 100000
   - id: 2223
-    key: club_stone
+    key: club_stone_2223
     name: a stone club
     description: A heavy looking stone club is here.
     weight: 18
@@ -291,19 +281,18 @@ items:
       - TAKE
       - WIELD
     keywords: [club, stone]
-    template_json:
-      raw_block: |
-        #2223
-        club stone~
-        a stone club~
-        A heavy looking stone club is here.~
-        ~
-        5 0 8193
-        0 3 5 8
-        18 7500 5000
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #2223
+      club stone~
+      a stone club~
+      A heavy looking stone club is here.~
+      ~
+      5 0 8193
+      0 3 5 8
+      18 7500 5000
   - id: 2224
-    key: ring_diamond
+    key: ring_diamond_2224
     name: a diamond ring
     description: A diamond ring lies gleaming on the ground.
     weight: 6
@@ -323,19 +312,18 @@ items:
     on_equip_effect_ids:
       - 508
       - 507
-    template_json:
-      raw_block: |
-        ~
-        9 0 3
-        4 0 0 0
-        6 50000 10000
-        A
-        18 3
-        A
-        19 3
-      type_line: 9 0 3
+    legacy_type_line: 9 0 3
+    legacy_raw: |
+      ~
+      9 0 3
+      4 0 0 0
+      6 50000 10000
+      A
+      18 3
+      A
+      19 3
   - id: 2230
-    key: ring_copper
+    key: ring_copper_2230
     name: a copper ring
     description: A copper ring is here.
     weight: 1
@@ -350,19 +338,18 @@ items:
     applies:
       - location: 4
         modifier: 2
-    template_json:
-      raw_block: |
-        a copper ring~
-        A copper ring is here.~
-        ~
-        9 0 3
-        1 0 0 0
-        1 100000 25000
-        A
-        4 2
-      type_line: 9 0 3
+    legacy_type_line: 9 0 3
+    legacy_raw: |
+      a copper ring~
+      A copper ring is here.~
+      ~
+      9 0 3
+      1 0 0 0
+      1 100000 25000
+      A
+      4 2
   - id: 2231
-    key: key_steel
+    key: key_steel_2231
     name: a steel key
     description: A steel key.
     weight: 1
@@ -371,19 +358,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, steel]
-    template_json:
-      raw_block: |
-        #2231
-        key steel~
-        a steel key~
-        A steel key.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2231
+      key steel~
+      a steel key~
+      A steel key.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 500 1000
   - id: 2232
-    key: key_ruby
+    key: key_ruby_2232
     name: A ruby key
     description: A ruby key.
     weight: 1
@@ -392,19 +378,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, ruby]
-    template_json:
-      raw_block: |
-        #2232
-        key ruby~
-        A ruby key~
-        A ruby key.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2232
+      key ruby~
+      A ruby key~
+      A ruby key.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 500 1000
   - id: 2233
-    key: key_white
+    key: key_white_2233
     name: a white key
     description: A white key.
     weight: 1
@@ -413,19 +398,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, white]
-    template_json:
-      raw_block: |
-        #2233
-        key white~
-        a white key~
-        A white key.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2233
+      key white~
+      a white key~
+      A white key.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 500 1000
   - id: 2234
-    key: key_grey
+    key: key_grey_2234
     name: a grey key
     description: A grey key is resting on the ground here.
     weight: 1
@@ -434,19 +418,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, grey]
-    template_json:
-      raw_block: |
-        #2234
-        key grey~
-        a grey key~
-        A grey key is resting on the ground here.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2234
+      key grey~
+      a grey key~
+      A grey key is resting on the ground here.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 500 1000
   - id: 2237
-    key: key_stone
+    key: key_stone_2237
     name: a stone key
     description: A stone key.
     weight: 1
@@ -455,19 +438,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, stone]
-    template_json:
-      raw_block: |
-        #2237
-        key stone~
-        a stone key~
-        A stone key.~
-        ~
-        18 0 1
-        0 0 0 0 
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2237
+      key stone~
+      a stone key~
+      A stone key.~
+      ~
+      18 0 1
+      0 0 0 0 
+      1 500 1000
   - id: 2240
-    key: key_black
+    key: key_black_2240
     name: a black key
     description: A black key.
     weight: 1
@@ -476,19 +458,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, black]
-    template_json:
-      raw_block: |
-        #2240
-        key black~
-        a black key~
-        A black key.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2240
+      key black~
+      a black key~
+      A black key.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 500 1000
   - id: 2241
-    key: key_platinum
+    key: key_platinum_2241
     name: a platinum key
     description: A platinum key.
     weight: 1
@@ -497,19 +478,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, platinum]
-    template_json:
-      raw_block: |
-        #2241
-        key platinum~
-        a platinum key~
-        A platinum key.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2241
+      key platinum~
+      a platinum key~
+      A platinum key.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 500 1000
   - id: 2242
-    key: shield_crested
+    key: shield_crested_2242
     name: a crested shield
     description: A large crested shield draws your attention.
     weight: 20
@@ -524,19 +504,18 @@ items:
     applies:
       - location: 5
         modifier: 1
-    template_json:
-      raw_block: |
-        a crested shield~
-        A large crested shield draws your attention.~
-        ~
-        9 0 513
-        8 0 0 0
-        20 200000 100000
-        A
-        5 1
-      type_line: 9 0 513
+    legacy_type_line: 9 0 513
+    legacy_raw: |
+      a crested shield~
+      A large crested shield draws your attention.~
+      ~
+      9 0 513
+      8 0 0 0
+      20 200000 100000
+      A
+      5 1
   - id: 2243
-    key: wand_golden
+    key: wand_golden_2243
     name: a golden wand
     description: A golden wand has been dropped here.
     weight: 5
@@ -554,19 +533,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand, golden]
-    template_json:
-      raw_block: |
-        #2243
-        wand golden~
-        a golden wand~
-        A golden wand has been dropped here.~
-        ~
-        3 1 16385
-        25 10 10 59
-        5 10000 5000
-      type_line: 3 1 16385
+    legacy_type_line: 3 1 16385
+    legacy_raw: |
+      #2243
+      wand golden~
+      a golden wand~
+      A golden wand has been dropped here.~
+      ~
+      3 1 16385
+      25 10 10 59
+      5 10000 5000
   - id: 2244
-    key: staff_silver
+    key: staff_silver_2244
     name: a silver staff
     description: A silver staff.
     weight: 5
@@ -585,19 +563,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, silver]
-    template_json:
-      raw_block: |
-        #2244
-        staff silver~
-        a silver staff~
-        A silver staff.~
-        ~
-        4 65 16385
-        25 20 20 73
-        5 10000 5000
-      type_line: 4 65 16385
+    legacy_type_line: 4 65 16385
+    legacy_raw: |
+      #2244
+      staff silver~
+      a silver staff~
+      A silver staff.~
+      ~
+      4 65 16385
+      25 20 20 73
+      5 10000 5000
   - id: 2245
-    key: staff_dragon
+    key: staff_dragon_2245
     name: the staff of the dragon
     description: A powerful oak staff has been left here.
     weight: 5
@@ -616,19 +593,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, dragon]
-    template_json:
-      raw_block: |
-        #2245
-        staff dragon~
-        the staff of the dragon~
-        A powerful oak staff has been left here.~
-        ~
-        4 65 16385
-        25 10 10 6
-        5 10000 3000
-      type_line: 4 65 16385
+    legacy_type_line: 4 65 16385
+    legacy_raw: |
+      #2245
+      staff dragon~
+      the staff of the dragon~
+      A powerful oak staff has been left here.~
+      ~
+      4 65 16385
+      25 10 10 6
+      5 10000 3000
   - id: 2246
-    key: mail_scale
+    key: mail_scale_2246
     name: scale mail
     description: A set of scale mail has been abandoned here.
     weight: 20
@@ -642,19 +618,18 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [mail, scale]
-    template_json:
-      raw_block: |
-        #2246
-        mail scale~
-        scale mail~
-        A set of scale mail has been abandoned here.~
-        ~
-        9 1 9
-        8 0 0 0
-        20 100000 20000
-      type_line: 9 1 9
+    legacy_type_line: 9 1 9
+    legacy_raw: |
+      #2246
+      mail scale~
+      scale mail~
+      A set of scale mail has been abandoned here.~
+      ~
+      9 1 9
+      8 0 0 0
+      20 100000 20000
   - id: 2250
-    key: staff_black
+    key: staff_black_2250
     name: a black staff
     description: You notice the faint outline of a staff.
     weight: 25
@@ -673,24 +648,24 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, black]
-    template_json:
-      raw_block: |
-        #2250
-        staff black~
-        a black staff~
-        You notice the faint outline of a staff.~
-        ~
-        4 1|512 16385 
-        30 3 3 25 
-        25 75000 5000 
-      type_line: 4 1|512 16385
+    legacy_type_line: 4 1|512 16385
+    legacy_raw: |
+      #2250
+      staff black~
+      a black staff~
+      You notice the faint outline of a staff.~
+      ~
+      4 1|512 16385 
+      30 3 3 25 
+      25 75000 5000 
   - id: 2251
-    key: potion_cyan
+    key: potion_cyan_2251
     name: a cyan potion
     description: A small cyan potion has been left here.
     weight: 1
     value: 40000
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [potion, cyan]
@@ -699,24 +674,24 @@ items:
       - 4
       - 27
       - 0
-    template_json:
-      raw_block: |
-        #2251 
-        potion cyan~
-        a cyan potion~
-        A small cyan potion has been left here.~
-        ~
-        10 0 1 
-        30 4 27 0
-        1 40000 1000 
-      type_line: 10 0 1
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      #2251 
+      potion cyan~
+      a cyan potion~
+      A small cyan potion has been left here.~
+      ~
+      10 0 1 
+      30 4 27 0
+      1 40000 1000 
   - id: 2252
-    key: potion_magenta
+    key: potion_magenta_2252
     name: a magenta potion
     description: A magenta potion.
     weight: 1
     value: 2000
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - NODROP
     wear_flags:
@@ -727,19 +702,18 @@ items:
       - 15
       - 34
       - 0
-    template_json:
-      raw_block: |
-        #2252 
-        potion magenta~
-        a magenta potion~
-        A magenta potion.~
-        ~
-        10 128 1 
-        30 15 34 0
-        1 2000 100 
-      type_line: 10 128 1
+    legacy_type_line: 10 128 1
+    legacy_raw: |
+      #2252 
+      potion magenta~
+      a magenta potion~
+      A magenta potion.~
+      ~
+      10 128 1 
+      30 15 34 0
+      1 2000 100 
   - id: 2254
-    key: gauntlets_spiked
+    key: gauntlets_spiked_2254
     name: a pair of spiked gauntlets
     description: A pair of spiked gauntlets.
     weight: 10
@@ -761,19 +735,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        ~
-        9 65 129 
-        4 0 0 0 
-        10 50000 5000
-        A
-        19 2
-        A
-        1 1                
-      type_line: 9 65 129
+    legacy_type_line: 9 65 129
+    legacy_raw: |
+      ~
+      9 65 129 
+      4 0 0 0 
+      10 50000 5000
+      A
+      19 2
+      A
+      1 1                
   - id: 2260
-    key: scimitar_golden
+    key: scimitar_golden_2260
     name: a golden scimitar
     description: A golden scimitar.
     weight: 10
@@ -795,19 +768,18 @@ items:
         modifier: 1
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        5 1 8193 
-        0 3 5 3 
-        10 40000 7000 
-        A
-        3 1
-        A
-        4 1      
-      type_line: 5 1 8193
+    legacy_type_line: 5 1 8193
+    legacy_raw: |
+      ~
+      5 1 8193 
+      0 3 5 3 
+      10 40000 7000 
+      A
+      3 1
+      A
+      4 1      
   - id: 2261
-    key: brooch_diamond
+    key: brooch_diamond_2261
     name: a diamond brooch
     description: A diamond brooch.
     weight: 2
@@ -824,24 +796,24 @@ items:
     applies:
       - location: 12
         modifier: 25
-    template_json:
-      raw_block: |
-        a diamond brooch~
-        A diamond brooch.~
-        ~
-        9 64 5 
-        4 0 0 0 
-        2 10000 4000
-        A
-        12 25 
-      type_line: 9 64 5
+    legacy_type_line: 9 64 5
+    legacy_raw: |
+      a diamond brooch~
+      A diamond brooch.~
+      ~
+      9 64 5 
+      4 0 0 0 
+      2 10000 4000
+      A
+      12 25 
   - id: 2270
-    key: scroll
+    key: scroll_2270
     name: a runed scroll
     description: A runed scroll.
     weight: 1
     value: 5000
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -853,19 +825,18 @@ items:
       - 1
       - 34
       - 67
-    template_json:
-      raw_block: |
-        #2270 
-        scroll~
-        a runed scroll~
-        A runed scroll.~
-        ~
-        2 64 16385 
-        30 1 34 67
-        1 5000 500 
-      type_line: 2 64 16385
+    legacy_type_line: 2 64 16385
+    legacy_raw: |
+      #2270 
+      scroll~
+      a runed scroll~
+      A runed scroll.~
+      ~
+      2 64 16385 
+      30 1 34 67
+      1 5000 500 
   - id: 2271
-    key: gloves_dragon
+    key: gloves_dragon_2271
     name: a pair of dragon skin gloves
     description: A pair of dragon skin gloves are lying on the ground.
     weight: 5
@@ -880,19 +851,18 @@ items:
     applies:
       - location: 2
         modifier: 2
-    template_json:
-      raw_block: |
-        a pair of dragon skin gloves~
-        A pair of dragon skin gloves are lying on the ground.~
-        ~
-        9 0 129
-        6 0 0 0
-        5 40000 15000
-        A
-        2 2
-      type_line: 9 0 129
+    legacy_type_line: 9 0 129
+    legacy_raw: |
+      a pair of dragon skin gloves~
+      A pair of dragon skin gloves are lying on the ground.~
+      ~
+      9 0 129
+      6 0 0 0
+      5 40000 15000
+      A
+      2 2
   - id: 2275
-    key: helm_dragon
+    key: helm_dragon_2275
     name: a helm of dragon kind
     description: A helm made of a dragon's skull is lying on the ground.
     weight: 15
@@ -907,19 +877,18 @@ items:
     applies:
       - location: 13
         modifier: 15
-    template_json:
-      raw_block: |
-        a helm of dragon kind~
-        A helm made of a dragon's skull is lying on the ground.~
-        ~
-        9 0 17
-        5 0 0 0 
-        15 30000 6000
-        A
-        13 15
-      type_line: 9 0 17
+    legacy_type_line: 9 0 17
+    legacy_raw: |
+      a helm of dragon kind~
+      A helm made of a dragon's skull is lying on the ground.~
+      ~
+      9 0 17
+      5 0 0 0 
+      15 30000 6000
+      A
+      13 15
   - id: 2276
-    key: fur_cloak
+    key: fur_cloak_2276
     name: a fur cloak
     description: A large mound of fur is lying here.
     weight: 10
@@ -936,19 +905,18 @@ items:
         modifier: 1
       - location: 13
         modifier: 10
-    template_json:
-      raw_block: |
-        ~
-        9 0 1025
-        6 0 0 0 
-        10 25000 10000
-        A
-        1 1
-        A
-        13 10               
-      type_line: 9 0 1025
+    legacy_type_line: 9 0 1025
+    legacy_raw: |
+      ~
+      9 0 1025
+      6 0 0 0 
+      10 25000 10000
+      A
+      1 1
+      A
+      13 10               
   - id: 2280
-    key: leggings_dragon_scale
+    key: leggings_dragon_scale_2280
     name: a pair of dragon scale leggings
     description: A pair of dragon scale leggings is lying on the ground.
     weight: 15
@@ -960,19 +928,18 @@ items:
       - TAKE
       - WEAR_LEGS
     keywords: [leggings, dragon, scale]
-    template_json:
-      raw_block: |
-        #2280
-        leggings dragon scale~
-        a pair of dragon scale leggings~
-        A pair of dragon scale leggings is lying on the ground.~
-        ~
-        9 0 33
-        7 0 0 0 
-        15 35000 4000 
-      type_line: 9 0 33
+    legacy_type_line: 9 0 33
+    legacy_raw: |
+      #2280
+      leggings dragon scale~
+      a pair of dragon scale leggings~
+      A pair of dragon scale leggings is lying on the ground.~
+      ~
+      9 0 33
+      7 0 0 0 
+      15 35000 4000 
   - id: 2281
-    key: sleeves_dragon_scale
+    key: sleeves_dragon_scale_2281
     name: a set of dragon scale sleeves
     description: A set of dragon scale sleeves is lying on the ground.
     weight: 12
@@ -984,19 +951,18 @@ items:
       - TAKE
       - WEAR_ARMS
     keywords: [sleeves, dragon, scale]
-    template_json:
-      raw_block: |
-        #2281
-        sleeves dragon scale~
-        a set of dragon scale sleeves~
-        A set of dragon scale sleeves is lying on the ground.~
-        ~
-        9 0 257 
-        7 0 0 0 
-        12 30000 3000 
-      type_line: 9 0 257
+    legacy_type_line: 9 0 257
+    legacy_raw: |
+      #2281
+      sleeves dragon scale~
+      a set of dragon scale sleeves~
+      A set of dragon scale sleeves is lying on the ground.~
+      ~
+      9 0 257 
+      7 0 0 0 
+      12 30000 3000 
   - id: 2285
-    key: whip_dragon_tail
+    key: whip_dragon_tail_2285
     name: a dragon tailed whip
     description: A dragon tailed whip is lying on the ground.
     weight: 14
@@ -1022,19 +988,18 @@ items:
     on_equip_effect_ids:
       - 501
       - 502
-    template_json:
-      raw_block: |
-        ~
-        5 2|512 8193 
-        0 4 5 4
-        14 40000 20500
-        A
-        18 2
-        A
-        19 2                 
-      type_line: 5 2|512 8193
+    legacy_type_line: 5 2|512 8193
+    legacy_raw: |
+      ~
+      5 2|512 8193 
+      0 4 5 4
+      14 40000 20500
+      A
+      18 2
+      A
+      19 2                 
   - id: 2286
-    key: hammer_copper
+    key: hammer_copper_2286
     name: a copper hammer
     description: A copper hammer is lying on the ground.
     weight: 12
@@ -1049,19 +1014,18 @@ items:
       - TAKE
       - WIELD
     keywords: [hammer, copper]
-    template_json:
-      raw_block: |
-        #2286
-        hammer copper~
-        a copper hammer~
-        A copper hammer is lying on the ground.~
-        ~
-        5 0 8193 
-        0 3 5 8 
-        12 30000 15000 
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #2286
+      hammer copper~
+      a copper hammer~
+      A copper hammer is lying on the ground.~
+      ~
+      5 0 8193 
+      0 3 5 8 
+      12 30000 15000 
   - id: 2299
-    key: key_gold_tarnished
+    key: key_gold_tarnished_2299
     name: a tarnished gold key
     description: A tarnished gold key lies here.
     weight: 1
@@ -1070,14 +1034,13 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, gold, tarnished]
-    template_json:
-      raw_block: |
-        #2299
-        key gold tarnished~
-        a tarnished gold key~
-        A tarnished gold key lies here.~
-        ~
-        18 0 1 
-        0 0 0 0
-        1 500 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #2299
+      key gold tarnished~
+      a tarnished gold key~
+      A tarnished gold key lies here.~
+      ~
+      18 0 1 
+      0 0 0 0
+      1 500 1000

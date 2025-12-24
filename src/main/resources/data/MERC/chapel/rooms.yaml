@@ -11,25 +11,37 @@ rooms:
       north: 3604
       down: 3421
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3400
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3405
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3430
     doors:
       north:
         to: 3604
-        description: "The chapel door is made of dark wood."
-        keywords: "door"
-        state: OPEN
-        locked: false
-        hidden: false
-        blocked: false
-        key: -1
-      down:
-        to: 3421
-        description: ""
-        keywords: "altar"
+        description: "Close Chapel door from inside"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3430
+        key: null
+      down:
+        to: 3421
+        description: "Close alter door down at chap."
+        keywords: ""
+        state: CLOSED
+        locked: false
+        hidden: false
+        blocked: false
+        key: null
     extras:
       glass: |
         The windows must be meant to be dark.  At least they are completely clean.
@@ -52,13 +64,13 @@ rooms:
     doors:
       west:
         to: 3449
-        description: ""
-        keywords: "door"
-        state: OPEN
+        description: "close door other side"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3411
+        key: null
       down:
         to: 3450
         description: ""
@@ -83,6 +95,23 @@ rooms:
       A bloodied corpse of an acolyte is lying here ...
     exits:
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3401
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3401
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3401
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3402
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     extras:
@@ -102,6 +131,15 @@ rooms:
       east: 3415
       south: 3411
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3400
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3421
+              wear_loc: 16
     doors:
       east:
         to: 3415
@@ -132,6 +170,23 @@ rooms:
     exits:
       north: 3410
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3403
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3425
+              wear_loc: 17
+      - type: MOB
+        id: 3416
+        quantity: 4
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3410
+              container_vnum: 3420
     doors:
       north:
         to: 3410
@@ -170,13 +225,13 @@ rooms:
         key: null
       south:
         to: 3413
-        description: "A door to the south"
-        keywords: "door"
+        description: "close shohans"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       stain: |
         That's odd ... they seem a little GREEN.
@@ -204,13 +259,13 @@ rooms:
     doors:
       north:
         to: 3412
-        description: ""
-        keywords: "north"
+        description: "close from other side"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 3414
         description: ""
@@ -236,6 +291,23 @@ rooms:
       north: 3413
       east: 3419
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3401
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3401
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3401
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3401
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -353,6 +425,14 @@ rooms:
       east: 3422
       west: 3412
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3413
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3422
     legacy_flags:
       - INDOORS
     doors:
@@ -389,6 +469,14 @@ rooms:
       south: 3419
       down: 3416
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3413
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3422
     legacy_flags:
       - INDOORS
     doors:
@@ -403,13 +491,13 @@ rooms:
         key: null
       down:
         to: 3416
-        description: ""
-        keywords: "staircase"
+        description: "close down to tombs"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       altar: |
         It stands 2 feet high with the remnants of candle-wax on top.  There is
@@ -441,6 +529,15 @@ rooms:
       north: 3418
       west: 3414
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3400
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3421
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -515,23 +612,22 @@ rooms:
     doors:
       south:
         to: 3422
-        description: "Finely polished oak doors stand to the south."
-        keywords: "oak"
+        description: "close oak door south"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       up:
         to: 3405
-        description: "You see a large set of stone stairs leading upwards to a small stone door at
-the top."
-        keywords: "stone trapdoor door"
+        description: "close entrance to level one"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3410
+        key: null
     extras:
       stone: |
         It's rather small and looks quite heavy but maybe with some kind of leverage
@@ -577,13 +673,13 @@ the top."
     doors:
       north:
         to: 3421
-        description: ""
-        keywords: "oak"
+        description: "close other side"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 3427
         description: ""
@@ -595,14 +691,13 @@ the top."
         key: null
       south:
         to: 3423
-        description: "The door has written above it: 'May all the lands thank Crotus the Victor.
-Without his guidance this kingdom would not have stood.'"
-        keywords: "door"
+        description: "close crotus's"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 3417
         description: ""
@@ -633,13 +728,13 @@ Without his guidance this kingdom would not have stood.'"
     doors:
       north:
         to: 3422
-        description: ""
-        keywords: "door"
+        description: "close other side"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 3424
         description: ""
@@ -662,6 +757,26 @@ Without his guidance this kingdom would not have stood.'"
       north: 3423
       east: 3429
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 3415
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3412
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3416
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 3417
+              container_vnum: 3415
+          -
+              item_vnum: 3418
+              container_vnum: 3415
     legacy_flags:
       - INDOORS
     doors:
@@ -726,6 +841,19 @@ Without his guidance this kingdom would not have stood.'"
       north: 3425
       east: 3430
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3409
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3409
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3416
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 3425
@@ -773,13 +901,13 @@ Without his guidance this kingdom would not have stood.'"
         key: null
       south:
         to: 3428
-        description: ""
-        keywords: "door"
+        description: "close Mitnar's"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 3422
         description: ""
@@ -810,13 +938,13 @@ Without his guidance this kingdom would not have stood.'"
     doors:
       north:
         to: 3427
-        description: ""
-        keywords: "door"
+        description: "close other side"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 3433
         description: ""
@@ -884,6 +1012,15 @@ Without his guidance this kingdom would not have stood.'"
       south: 3431
       west: 3426
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3400
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3421
+              wear_loc: 16
     doors:
       east:
         to: 3435
@@ -955,6 +1092,14 @@ Without his guidance this kingdom would not have stood.'"
       east: 3437
       west: 3427
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3413
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3422
     legacy_flags:
       - INDOORS
     doors:
@@ -1023,6 +1168,21 @@ Without his guidance this kingdom would not have stood.'"
     exits:
       down: 3439
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3411
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3414
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3412
+          -
+              item_vnum: 3413
+              container_vnum: 3412
     legacy_flags:
       - INDOORS
     doors:
@@ -1130,18 +1290,23 @@ Without his guidance this kingdom would not have stood.'"
       north: 3409
       west: 3432
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3402
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 3409
-        description: ""
-        keywords: "door"
+        description: "close door to bedroom"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 3432
         description: ""
@@ -1275,6 +1440,22 @@ Without his guidance this kingdom would not have stood.'"
       east: 3446
       west: 3436
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3400
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3421
+              wear_loc: 16
+      - type: MOB
+        id: 3413
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3422
     doors:
       north:
         to: 3440
@@ -1315,6 +1496,11 @@ Without his guidance this kingdom would not have stood.'"
       east: 3447
       south: 3443
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3416
+        quantity: 4
+        frequency: 1
     doors:
       east:
         to: 3447
@@ -1377,6 +1563,15 @@ Without his guidance this kingdom would not have stood.'"
       north: 3443
       east: 3449
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3409
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3409
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1483,6 +1678,11 @@ Without his guidance this kingdom would not have stood.'"
       south: 3448
       west: 3442
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3402
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 3446
@@ -1525,6 +1725,15 @@ Without his guidance this kingdom would not have stood.'"
     exits:
       north: 3447
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 3420
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3416
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 3447
@@ -1551,18 +1760,33 @@ Without his guidance this kingdom would not have stood.'"
       east: 3408
       west: 3444
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3410
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3414
+              wear_loc: 16
+          -
+              item_vnum: 3429
+              wear_loc: 5
+          -
+              item_vnum: 3411
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 3408
-        description: ""
-        keywords: "door"
+        description: "close door to 2nd level at snapper"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3411
+        key: null
       west:
         to: 3444
         description: ""
@@ -1589,6 +1813,14 @@ Without his guidance this kingdom would not have stood.'"
       west: 3454
       up: 3408
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3413
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3422
     doors:
       north:
         to: 3451
@@ -1678,6 +1910,15 @@ Without his guidance this kingdom would not have stood.'"
       north: 3461
       west: 3450
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3407
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3402
+              wear_loc: 16
     doors:
       north:
         to: 3461
@@ -1708,6 +1949,15 @@ Without his guidance this kingdom would not have stood.'"
     exits:
       north: 3450
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3407
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3402
+              wear_loc: 16
     doors:
       north:
         to: 3450
@@ -1729,6 +1979,11 @@ Without his guidance this kingdom would not have stood.'"
     exits:
       east: 3450
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3402
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 3450
@@ -1751,6 +2006,15 @@ Without his guidance this kingdom would not have stood.'"
       south: 3456
       west: 3451
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3406
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3403
+              wear_loc: 5
     doors:
       south:
         to: 3456
@@ -1813,6 +2077,15 @@ Without his guidance this kingdom would not have stood.'"
       south: 3458
       west: 3456
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3407
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3402
+              wear_loc: 16
     doors:
       south:
         to: 3458
@@ -1918,6 +2191,24 @@ Without his guidance this kingdom would not have stood.'"
       east: 3459
       down: 3475
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3404
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3428
+              wear_loc: 16
+          -
+              item_vnum: 3427
+              wear_loc: 12
+          -
+              item_vnum: 3419
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 3424
     doors:
       east:
         to: 3459
@@ -1930,13 +2221,13 @@ Without his guidance this kingdom would not have stood.'"
         key: -1
       down:
         to: 3475
-        description: "A jet black coffin ... who knows what lurks beneath."
-        keywords: "coffin"
+        description: "close door to 3rd level"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3419
+        key: null
 
   - id: 3461
     key: chapel_room_3461
@@ -1980,6 +2271,11 @@ Without his guidance this kingdom would not have stood.'"
       south: 3463
       west: 3461
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3402
+        quantity: 8
+        frequency: 1
     doors:
       south:
         to: 3463
@@ -2011,6 +2307,15 @@ Without his guidance this kingdom would not have stood.'"
       north: 3462
       east: 3464
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3406
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3403
+              wear_loc: 5
     doors:
       north:
         to: 3462
@@ -2046,13 +2351,13 @@ Without his guidance this kingdom would not have stood.'"
     doors:
       east:
         to: 3470
-        description: "There is a secret door here."
-        keywords: "secret"
+        description: "close secret door in catacombs"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 3465
         description: "Too dark to tell."
@@ -2087,6 +2392,23 @@ Without his guidance this kingdom would not have stood.'"
       north: 3464
       south: 3466
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3407
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3402
+              wear_loc: 16
+      - type: MOB
+        id: 3407
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3402
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2125,6 +2447,15 @@ Without his guidance this kingdom would not have stood.'"
       north: 3465
       south: 3467
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3406
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3403
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -2201,6 +2532,19 @@ Without his guidance this kingdom would not have stood.'"
       north: 3467
       south: 3469
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3414
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3423
+              wear_loc: 5
+      - type: MOB
+        id: 3415
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2290,6 +2634,18 @@ Without his guidance this kingdom would not have stood.'"
     exits:
       north: 3470
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3408
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3425
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 3426
     legacy_flags:
       - INDOORS
     doors:
@@ -2344,11 +2700,11 @@ Without his guidance this kingdom would not have stood.'"
     doors:
       up:
         to: 3460
-        description: ""
-        keywords: "lid coffin"
-        state: OPEN
+        description: "close other side"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3419
+        key: null
 

@@ -49,6 +49,18 @@ public class DataLoader {
         try {
             itemDao = new ItemDAO();
             itemDao.loadTemplatesFromYamlResource("/data/items.yaml");
+            // Also load any MERC-area-specific item template files under /data/MERC/*/items.yaml
+            List<String> mercDirs = listMercAreaDirs();
+            for (String dir : mercDirs) {
+                String mercItemsPath = "/data/MERC/" + dir + "/items.yaml";
+                try (InputStream in = DataLoader.class.getResourceAsStream(mercItemsPath)) {
+                    if (in == null) continue;
+                    itemDao.loadTemplatesFromYamlResource(mercItemsPath);
+                    System.out.println("[DataLoader] Loaded MERC items from " + mercItemsPath);
+                } catch (Exception e) {
+                    System.err.println("[DataLoader] Failed to load MERC items from " + mercItemsPath + ": " + e.getMessage());
+                }
+            }
         } catch (Exception e) {
             System.err.println("Failed to load items.yaml: " + e.getMessage());
         }
@@ -75,6 +87,93 @@ public class DataLoader {
         if (itemDao != null) {
             spawnPermanentRoomItems(itemDao);
         }
+    }
+
+    /**
+     * Sanitize YAML text by converting Python-style `template_json: { ... }` flow maps
+     * into YAML block scalars so SnakeYAML treats them as strings.
+     */
+    private static String sanitizeTemplateJsonFlowMaps(String text) {
+        StringBuilder out = new StringBuilder();
+        int idx = 0;
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile("(^[ \\t]*template_json\\s*:\\s*)\\{", java.util.regex.Pattern.MULTILINE);
+        java.util.regex.Matcher m = p.matcher(text);
+        while (m.find(idx)) {
+            int matchStart = m.start();
+            int braceStart = m.end() - 1; // position of '{'
+            out.append(text, idx, matchStart);
+            // find matching brace
+            int depth = 0;
+            int i = braceStart;
+            for (; i < text.length(); i++) {
+                char ch = text.charAt(i);
+                if (ch == '{') depth++;
+                else if (ch == '}') {
+                    depth--;
+                    if (depth == 0) break;
+                }
+            }
+            if (i >= text.length()) {
+                // unmatched brace; abort
+                return text;
+            }
+            String prefix = m.group(1);
+            String block = text.substring(braceStart, i + 1);
+            // determine indentation for the line
+            int lineStart = text.lastIndexOf('\n', matchStart);
+            String indent = lineStart >= 0 ? text.substring(lineStart + 1, matchStart) : "";
+            String[] lines = block.split("\\r?\\n", -1);
+            StringBuilder indented = new StringBuilder();
+            for (String ln : lines) {
+                indented.append(indent).append("  ").append(ln).append('\n');
+            }
+            out.append(prefix).append("|\n").append(indented.toString());
+            idx = i + 1;
+        }
+        out.append(text.substring(idx));
+        return out.toString();
+    }
+
+    /**
+     * Seed item and mobile templates (including MERC files) into the currently-configured DB
+     * without modifying character or runtime instance tables. After loading templates this
+     * will trigger an initial spawn pass so registered spawns can populate the world.
+     */
+    public static void loadTemplatesOnly() {
+        System.out.println("[DataLoader] Seeding templates only into current DB");
+        // Load item templates
+        try {
+            ItemDAO itemDao = new ItemDAO();
+            itemDao.loadTemplatesFromYamlResource("/data/items.yaml");
+            List<String> mercDirs = listMercAreaDirs();
+            for (String dir : mercDirs) {
+                String mercItemsPath = "/data/MERC/" + dir + "/items.yaml";
+                try (InputStream in = DataLoader.class.getResourceAsStream(mercItemsPath)) {
+                    if (in == null) continue;
+                    itemDao.loadTemplatesFromYamlResource(mercItemsPath);
+                    System.out.println("[DataLoader] Loaded MERC items from " + mercItemsPath);
+                } catch (Exception e) {
+                    System.err.println("[DataLoader] Failed to load MERC items from " + mercItemsPath + ": " + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("[DataLoader] Failed to load item templates: " + e.getMessage());
+        }
+
+        // Load mobile templates
+        try {
+            loadMobileTemplates();
+        } catch (Exception e) {
+            System.err.println("[DataLoader] Failed to load mobile templates: " + e.getMessage());
+        }
+
+        // Trigger initial spawns if any spawns were registered earlier
+        try {
+            com.example.tassmud.event.SpawnManager.getInstance().triggerInitialSpawns();
+        } catch (Exception e) {
+            System.err.println("[DataLoader] Failed to trigger initial spawns: " + e.getMessage());
+        }
+        System.out.println("[DataLoader] Template seeding complete");
     }
     
     /**
@@ -113,108 +212,135 @@ public class DataLoader {
      * Load mobile templates from YAML resource.
      */
     private static void loadMobileTemplates() {
-        try (InputStream in = DataLoader.class.getResourceAsStream("/data/mobiles.yaml")) {
-            if (in == null) {
-                System.out.println("No mobiles.yaml found");
-                return;
-            }
-            
-            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
-            List<Map<String, Object>> mobileList = yaml.load(in);
-            if (mobileList == null) return;
-            
-            MobileDAO mobileDao = new MobileDAO();
-            int count = 0;
-            
-            for (Map<String, Object> mobData : mobileList) {
-                int id = getInt(mobData, "id", -1);
-                if (id < 0) continue;
-                
-                String key = getString(mobData, "key", "mob_" + id);
-                String name = getString(mobData, "name", "Unknown");
-                String shortDesc = getString(mobData, "short_desc", name + " is here.");
-                String longDesc = getString(mobData, "long_desc", "You see nothing special.");
-                
-                // Parse keywords
-                List<String> keywords = new ArrayList<>();
-                Object keywordsObj = mobData.get("keywords");
-                if (keywordsObj instanceof List) {
-                    for (Object kw : (List<?>) keywordsObj) {
-                        keywords.add(String.valueOf(kw));
+        MobileDAO mobileDao = new MobileDAO();
+        java.util.concurrent.atomic.AtomicInteger totalLoaded = new java.util.concurrent.atomic.AtomicInteger(0);
+        // Helper to load a list from an InputStream
+        java.util.function.Consumer<InputStream> loader = (InputStream in) -> {
+            if (in == null) return;
+            try {
+                String content = new String(in.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
+                org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+                @SuppressWarnings("unchecked")
+                List<Map<String, Object>> mobileList = null;
+                try {
+                    mobileList = (List<Map<String, Object>>) yaml.load(content);
+                } catch (Exception parseEx) {
+                    System.err.println("[DataLoader] YAML parse failed, attempting sanitizer: " + parseEx.getMessage());
+                    parseEx.printStackTrace();
+                    // Attempt to sanitize Python-style flow dicts for template_json into block scalars
+                    String sanitized = sanitizeTemplateJsonFlowMaps(content);
+                    try {
+                        mobileList = (List<Map<String, Object>>) yaml.load(sanitized);
+                        System.out.println("[DataLoader] YAML parse succeeded after sanitizing template_json flow maps");
+                    } catch (Exception parseEx2) {
+                        System.err.println("[DataLoader] Sanitized parse also failed: " + parseEx2.getMessage());
+                        parseEx2.printStackTrace();
+                        throw new RuntimeException(parseEx2);
                     }
                 }
-                
-                int level = getInt(mobData, "level", 1);
-                int hpMax = getInt(mobData, "hp_max", 10);
-                int mpMax = getInt(mobData, "mp_max", 0);
-                int mvMax = getInt(mobData, "mv_max", 100);
-                
-                int str = getInt(mobData, "str", 10);
-                int dex = getInt(mobData, "dex", 10);
-                int con = getInt(mobData, "con", 10);
-                int intel = getInt(mobData, "intel", 10);
-                int wis = getInt(mobData, "wis", 10);
-                int cha = getInt(mobData, "cha", 10);
-                
-                int armor = getInt(mobData, "armor", 10);
-                int fortitude = getInt(mobData, "fortitude", 0);
-                int reflex = getInt(mobData, "reflex", 0);
-                int will = getInt(mobData, "will", 0);
-                
-                int baseDamage = getInt(mobData, "base_damage", 4);
-                int damageBonus = getInt(mobData, "damage_bonus", 0);
-                int attackBonus = getInt(mobData, "attack_bonus", 0);
-                
-                // Parse behaviors list (can be single string or list of strings)
-                List<MobileBehavior> behaviors = new ArrayList<>();
-                Object behaviorsObj = mobData.get("behaviors");
-                if (behaviorsObj instanceof List) {
-                    for (Object b : (List<?>) behaviorsObj) {
-                        MobileBehavior behavior = MobileBehavior.fromString(String.valueOf(b));
-                        if (behavior != null) {
-                            behaviors.add(behavior);
+
+                if (mobileList == null) return;
+                for (Map<String,Object> mobData : mobileList) {
+                        int id = getInt(mobData, "id", -1);
+                        if (id < 0) continue;
+                        String name = getString(mobData, "name", "Unknown");
+                        String rawKey = getString(mobData, "key", "");
+                        String keyBase = (rawKey == null || rawKey.isBlank()) ? name : rawKey;
+                        String key = makeTemplateKey(keyBase, id);
+                    String shortDesc = getString(mobData, "short_desc", name + " is here.");
+                    String longDesc = getString(mobData, "long_desc", "You see nothing special.");
+                    List<String> keywords = new ArrayList<>();
+                    Object keywordsObj = mobData.get("keywords");
+                    if (keywordsObj instanceof List) {
+                        for (Object kw : (List<?>) keywordsObj) keywords.add(String.valueOf(kw));
+                    }
+                    int level = getInt(mobData, "level", 1);
+                    int hpMax = getInt(mobData, "hp_max", 10);
+                    int mpMax = getInt(mobData, "mp_max", 0);
+                    int mvMax = getInt(mobData, "mv_max", 100);
+                    int str = getInt(mobData, "str", 10);
+                    int dex = getInt(mobData, "dex", 10);
+                    int con = getInt(mobData, "con", 10);
+                    int intel = getInt(mobData, "intel", 10);
+                    int wis = getInt(mobData, "wis", 10);
+                    int cha = getInt(mobData, "cha", 10);
+                    int armor = getInt(mobData, "armor", 10);
+                    int fortitude = getInt(mobData, "fortitude", 0);
+                    int reflex = getInt(mobData, "reflex", 0);
+                    int will = getInt(mobData, "will", 0);
+                    int baseDamage = getInt(mobData, "base_damage", 4);
+                    int damageBonus = getInt(mobData, "damage_bonus", 0);
+                    int attackBonus = getInt(mobData, "attack_bonus", 0);
+                    List<MobileBehavior> behaviors = new ArrayList<>();
+                    Object behaviorsObj = mobData.get("behaviors");
+                    if (behaviorsObj instanceof List) {
+                        for (Object b : (List<?>) behaviorsObj) {
+                            MobileBehavior behavior = MobileBehavior.fromString(String.valueOf(b));
+                            if (behavior != null) behaviors.add(behavior);
                         }
+                    } else if (behaviorsObj instanceof String) {
+                        MobileBehavior behavior = MobileBehavior.fromString((String) behaviorsObj);
+                        if (behavior != null) behaviors.add(behavior);
                     }
-                } else if (behaviorsObj instanceof String) {
-                    MobileBehavior behavior = MobileBehavior.fromString((String) behaviorsObj);
-                    if (behavior != null) {
-                        behaviors.add(behavior);
+                    if (behaviors.isEmpty()) {
+                        String behaviorStr = getString(mobData, "behavior", "PASSIVE");
+                        MobileBehavior behavior = MobileBehavior.fromString(behaviorStr);
+                        behaviors.add(behavior != null ? behavior : MobileBehavior.PASSIVE);
+                    }
+                    int aggroRange = getInt(mobData, "aggro_range", 0);
+                    int experienceValue = getInt(mobData, "experience_value", 10);
+                    int goldMin = getInt(mobData, "gold_min", 0);
+                    int goldMax = getInt(mobData, "gold_max", 0);
+                    int respawnSeconds = getInt(mobData, "respawn_seconds", 300);
+                    int autoflee = getInt(mobData, "autoflee", 0);
+                    MobileTemplate template = new MobileTemplate(
+                        id, key, name, shortDesc, longDesc, keywords,
+                        level, hpMax, mpMax, mvMax,
+                        str, dex, con, intel, wis, cha,
+                        armor, fortitude, reflex, will,
+                        baseDamage, damageBonus, attackBonus,
+                        behaviors, aggroRange,
+                        experienceValue, goldMin, goldMax,
+                        respawnSeconds, autoflee, null
+                    );
+                    mobileDao.upsertTemplate(template);
+                    totalLoaded.incrementAndGet();
+                    // Diagnostic logging for specific templates or when debug enabled
+                    if (template.getId() == 3011 || "true".equals(System.getProperty("tassmud.debug.templates", "false"))) {
+                        System.out.println("[DataLoader] upserted mobile template id=" + template.getId() + " name='" + template.getName() + "'");
                     }
                 }
-                // Also check legacy "behavior" field for backwards compatibility
-                if (behaviors.isEmpty()) {
-                    String behaviorStr = getString(mobData, "behavior", "PASSIVE");
-                    MobileBehavior behavior = MobileBehavior.fromString(behaviorStr);
-                    behaviors.add(behavior != null ? behavior : MobileBehavior.PASSIVE);
-                }
-                
-                int aggroRange = getInt(mobData, "aggro_range", 0);
-                int experienceValue = getInt(mobData, "experience_value", 10);
-                int goldMin = getInt(mobData, "gold_min", 0);
-                int goldMax = getInt(mobData, "gold_max", 0);
-                int respawnSeconds = getInt(mobData, "respawn_seconds", 300);
-                int autoflee = getInt(mobData, "autoflee", 0);  // Auto-flee threshold (0-100)
-                
-                MobileTemplate template = new MobileTemplate(
-                    id, key, name, shortDesc, longDesc, keywords,
-                    level, hpMax, mpMax, mvMax,
-                    str, dex, con, intel, wis, cha,
-                    armor, fortitude, reflex, will,
-                    baseDamage, damageBonus, attackBonus,
-                    behaviors, aggroRange,
-                    experienceValue, goldMin, goldMax,
-                    respawnSeconds, autoflee, null
-                );
-                
-                mobileDao.upsertTemplate(template);
-                count++;
+            } catch (Exception e) {
+                System.err.println("Failed to parse mobile list: " + e.getMessage());
+                e.printStackTrace();
+                throw new RuntimeException(e);
             }
-            
-            System.out.println("Loaded " + count + " mobile templates from mobiles.yaml");
-            
+        };
+
+        // Load the primary mobiles.yaml
+        try (InputStream in = DataLoader.class.getResourceAsStream("/data/mobiles.yaml")) {
+            if (in != null) loader.accept(in);
+            else System.out.println("No mobiles.yaml found");
         } catch (Exception e) {
-            throw new RuntimeException("Failed to load mobile templates: " + e.getMessage(), e);
+            System.err.println("[DataLoader] Failed to load /data/mobiles.yaml: " + e.getMessage());
+            e.printStackTrace();
         }
+
+        // Also load any MERC mobiles.yaml under /data/MERC/*/mobiles.yaml
+        List<String> mercDirs = listMercAreaDirs();
+        for (String dir : mercDirs) {
+            String path = "/data/MERC/" + dir + "/mobiles.yaml";
+            try (InputStream in = DataLoader.class.getResourceAsStream(path)) {
+                if (in != null) {
+                    loader.accept(in);
+                    System.out.println("[DataLoader] Loaded MERC mobiles from " + path);
+                }
+            } catch (Exception e) {
+                System.err.println("[DataLoader] Failed to load MERC mobiles from " + path + ": " + e.getMessage());
+            }
+        }
+
+        System.out.println("Loaded " + totalLoaded.get() + " mobile templates (including MERC)");
     }
 
     private static void loadSkills(CharacterDAO dao) {
@@ -524,6 +650,22 @@ public class DataLoader {
         return defaultVal;
     }
 
+    private static String makeTemplateKey(String name, int id) {
+        if (name == null) name = "tmpl";
+        String s = name.trim().toLowerCase();
+        // replace non-alphanumeric with underscores
+        s = s.replaceAll("[^a-z0-9]+", "_");
+        // collapse multiple underscores
+        s = s.replaceAll("_+", "_");
+        // trim underscores
+        s = s.replaceAll("^_+|_+$", "");
+        if (s.isEmpty()) s = "tmpl";
+        String key = s + "_" + id;
+        // enforce reasonable length (DB column for mobile template_key was increased to 200)
+        if (key.length() > 190) return key.substring(0, 190);
+        return key;
+    }
+
     private static Map<String,Integer> loadAreas(CharacterDAO dao) {
         // Prefer MERC-format areas under /data/MERC/*/areas.yaml, then regular YAML, then CSV
         Map<String,Integer> map = loadAreasFromMercDirs(dao);
@@ -600,7 +742,10 @@ public class DataLoader {
                 // url looks like: jar:file:/path/to/jar.jar!/data/MERC/
                 String s = url.toString();
                 int bang = s.indexOf('!');
-                String jarPart = s.substring("jar:file:".length(), bang);
+                String jarPart;
+                int fileIdx = s.indexOf("file:");
+                if (fileIdx >= 0) jarPart = s.substring(fileIdx + "file:".length(), bang);
+                else jarPart = s.substring("jar:".length(), bang);
                 String jarPath = URLDecoder.decode(jarPart, "UTF-8");
                 try (JarFile jf = new JarFile(jarPath)) {
                     java.util.Enumeration<JarEntry> entries = jf.entries();
@@ -617,7 +762,10 @@ public class DataLoader {
                         }
                     }
                     out.addAll(dirs);
-                    try { System.out.println("[DataLoader.debug] found MERC dirs: " + dirs); } catch (Exception ignored) {}
+                    try { System.out.println("[DataLoader.debug] found MERC dirs: " + dirs + " jarPath=" + jarPath); } catch (Exception ignored) {}
+                } catch (Exception e) {
+                    System.err.println("[DataLoader] failed to read JAR file for /data/MERC/ listing jarPath=" + jarPath + ": " + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         } catch (Exception e) {
@@ -843,13 +991,35 @@ public class DataLoader {
             int quantity = getInt(data, "quantity", 1);
             int frequency = getInt(data, "frequency", 1);
             int containerId = getInt(data, "container", 0);
+            // Optional equipment list (for mob spawns migrated from MERC resets)
+            java.util.List<java.util.Map<String,Object>> equipment = null;
+            Object equipObj = data.get("equipment");
+            if (equipObj instanceof java.util.List) {
+                equipment = new java.util.ArrayList<>();
+                for (Object o : (java.util.List<?>) equipObj) {
+                    if (o instanceof java.util.Map) {
+                        equipment.add((java.util.Map<String,Object>) o);
+                    }
+                }
+            }
+            // Optional inventory list (for MERC 'G' resets)
+            java.util.List<java.util.Map<String,Object>> inventory = null;
+            Object invObj = data.get("inventory");
+            if (invObj instanceof java.util.List) {
+                inventory = new java.util.ArrayList<>();
+                for (Object o : (java.util.List<?>) invObj) {
+                    if (o instanceof java.util.Map) {
+                        inventory.add((java.util.Map<String,Object>) o);
+                    }
+                }
+            }
 
             if (templateId < 0) {
                 System.err.println("[DataLoader] Spawn missing template id in room " + roomId);
                 return null;
             }
 
-            return new SpawnConfig(type, templateId, quantity, frequency, roomId, containerId);
+            return new SpawnConfig(type, templateId, quantity, frequency, roomId, containerId, equipment, inventory);
         } catch (IllegalArgumentException e) {
             System.err.println("[DataLoader] Invalid spawn type in room " + roomId + ": " + e.getMessage());
             return null;

@@ -1,0 +1,317 @@
+items:
+  - id: 3400
+    key: candlestick
+    name: a candlestick
+    description: A pewter candlestick is standing here.
+    weight: 5
+    value: 150
+    type: held
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [candlestick]
+  - id: 3402
+    key: tickler
+    name: a nightgaunt's tickler
+    description: A nightgaunt's tickler has been left here.
+    weight: 0
+    value: 3
+    type: unknown
+    keywords: [tickler]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 202
+      - 502
+  - id: 3403
+    key: plasma_webbing
+    name: disgusting pinkish plasma webbing
+    description: A pile of pink material is lying here
+    weight: 10
+    value: 5000
+    type: armor
+    slot: chest
+    armor_class: 7
+    extra_flags:
+      - ANTI_GOOD
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [plasma, webbing]
+  - id: 3410
+    key: rod_key
+    name: a queerly shaped rod
+    description: A queerly shaped rod is lying here.
+    weight: 5
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [rod, key]
+  - id: 3411
+    key: large_black_dirty_key
+    name: a large black dirty key
+    description: a large black dirty key is lying here
+    weight: 3
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [large, black, dirty, key]
+  - id: 3412
+    key: head_jubal_mummy
+    name: the mummified head of Jubal the Benevolent
+    description: The mummified head of Jubal the Benevolent is lolling back and forth.
+    weight: 20
+    value: 0
+    type: container
+    extra_flags:
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+    keywords: [head, jubal, mummy]
+  - id: 3413
+    key: ring_black_marble
+    name: a black marble ring
+    description: A black marble ring is lying here on the ground.
+    weight: 2
+    value: 4000
+    type: inventory
+    extra_flags:
+      - MAGIC
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+    keywords: [ring, black, marble]
+    applies:
+      - location: 14
+        modifier: 10
+      - location: 24
+        modifier: 1
+  - id: 3414
+    key: rapier_thin
+    name: a whisper thin rapier
+    description: A rapier is lying here.
+    weight: 0
+    value: 4
+    type: unknown
+    keywords: [rapier, thin]
+    applies:
+      - location: 2
+        modifier: 2
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+  - id: 3415
+    key: sarcophagus_coffin
+    name: a stone sarcophagus
+    description: A stone sarcophagus is sitting here.
+    weight: 2000
+    value: 0
+    type: container
+    keywords: [sarcophagus, coffin]
+  - id: 3416
+    key: iron_heavy_key
+    name: a heavy iron key
+    description: A heavy iron key is lying here.
+    weight: 4
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [iron, heavy, key]
+  - id: 3417
+    key: flask_wineflask
+    name: a wineflask
+    description: A wineflask has been been left here.
+    weight: 5
+    value: 80
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [flask, wineflask]
+  - id: 3418
+    key: coins
+    name: a mound of coins fit for a dead king
+    description: you see a mound of coins fit for a dead king here
+    weight: 50
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins]
+  - id: 3419
+    key: key
+    name: key to the coffin
+    description: The key to the coffin is lying here
+    weight: 3
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key]
+  - id: 3420
+    key: rathcor
+    name: a hidden compartment in the room
+    description: 
+    weight: 1000
+    value: 0
+    type: container
+    extra_flags:
+      - DARK
+    keywords: [rathcor]
+  - id: 3421
+    key: rusty_sword_curved_scimitar
+    name: a rusty curved scimitar
+    description: a sword has been left lying here
+    weight: 0
+    value: 2
+    type: unknown
+    keywords: [rusty, sword, curved, scimitar]
+  - id: 3422
+    key: piece_slime
+    name: a piece of slime
+    description: You step on a piece of slime...your foot squishes a bit
+    weight: 1
+    value: 15
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [piece, slime]
+  - id: 3423
+    key: smock
+    name: an artist's smock
+    description: An artist's smock is lying here on the floor.
+    weight: 7
+    value: 100
+    type: armor
+    slot: chest
+    armor_class: 0
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [smock]
+    applies:
+      - location: 9
+        modifier: -3
+  - id: 3424
+    key: scroll_tightly_rolled
+    name: a tightly rolled scroll
+    description: a yellowing tightly rolled scroll is here
+    weight: 5
+    value: 5000
+    type: inventory
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [scroll, tightly, rolled]
+    spell_ids:
+      - 15
+      - 10
+      - 12
+      - 32
+  - id: 3425
+    key: auburn_orb
+    name: An auburn-colored orb
+    description: An orb is here
+    weight: 10
+    value: 15000
+    type: weapon
+    multiplier: 2
+    base_die: 2
+    damage_bonus: 7
+    hands: 2
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - HUM
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [auburn, orb]
+  - id: 3426
+    key: bar_gold
+    name: A bar of gold
+    description: A bar of gold is lying here
+    weight: 30
+    value: 5000
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [bar, gold]
+  - id: 3427
+    key: cape_dark_black
+    name: a dark black cape
+    description: A dark black cape is lying here
+    weight: 10
+    value: 8000
+    type: armor
+    slot: back
+    armor_class: 5
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WEAR_ABOUT
+    keywords: [cape, dark, black]
+    applies:
+      - location: 13
+        modifier: 10
+      - location: 17
+        modifier: 10
+  - id: 3428
+    key: flaming_sword_long_longsword
+    name: a pitch-black longsword that flames brightly...
+    description: a sword lies here
+    weight: 20
+    value: 7000
+    type: weapon
+    multiplier: 3
+    base_die: 6
+    damage_bonus: 3
+    weapon_family: SWORDS
+    weapon_category: MARTIAL
+    extra_flags:
+      - MAGIC
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [flaming, sword, long, longsword]
+    applies:
+      - location: 18
+        modifier: 1
+    on_equip_effect_ids:
+      - 202
+  - id: 3429
+    key: breast_plate_dented_worn
+    name: a worn and dented breast plate
+    description: A piece of armour is here.
+    weight: 50
+    value: 20000
+    type: armor
+    slot: chest
+    armor_class: 6
+    wear_flags:
+      - TAKE
+      - WEAR_BODY
+    keywords: [breast, plate, dented, worn]
+  - id: 3430
+    key: key_silver
+    name: a silver key
+    description: You see a silver key here.
+    weight: 1
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key, silver]

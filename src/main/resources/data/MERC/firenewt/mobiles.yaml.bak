@@ -1,0 +1,462 @@
+- id: 2901
+  key: |
+  a_mountain_goat:
+  name: |
+  black_mountain_goat:
+  short_desc: |
+  a_mountain_goat:
+  long_desc: |
+  A_mountain_goat_is_standing_here:
+  keywords: ['black', 'mountain', 'goat']
+  level: 2
+  hp_max: 33
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2902
+  key: |
+  a_mountain_ewe:
+  name: |
+  black_mountain_ewe:
+  short_desc: |
+  a_mountain_ewe:
+  long_desc: |
+  A_mountain_ewe_is_standing_here:
+  keywords: ['black', 'mountain', 'ewe']
+  level: 2
+  hp_max: 33
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2903
+  key: |
+  a_mountain_kid:
+  name: |
+  black_mountain_kid:
+  short_desc: |
+  a_mountain_kid:
+  long_desc: |
+  A_mountain_kid_is_standing_here:
+  keywords: ['black', 'mountain', 'kid']
+  level: 2
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2904
+  key: |
+  a_fire_newt_worker:
+  name: |
+  fire_newt_worker:
+  short_desc: |
+  a_fire_newt_worker:
+  long_desc: |
+  A_fire_newt_worker_is_standing_here:
+  keywords: ['fire', 'newt', 'worker']
+  level: 4
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2905
+  key: |
+  a_fire_newt_guard:
+  name: |
+  fire_newt_guard:
+  short_desc: |
+  a_fire_newt_guard:
+  long_desc: |
+  A_fire_newt_guard_is_standing_here:
+  keywords: ['fire', 'newt', 'guard']
+  level: 2
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2906
+  key: |
+  a_fire_newt_worker:
+  name: |
+  fire_newt_worker:
+  short_desc: |
+  a_fire_newt_worker:
+  long_desc: |
+  A_fire_newt_worker_is_standing_here:
+  keywords: ['fire', 'newt', 'worker']
+  level: 2
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2907
+  key: |
+  fire_newt_guard:
+  name: |
+  fire_newt_guard:
+  short_desc: |
+  fire_newt_guard:
+  long_desc: |
+  A_fire_newt_guard_is_standing_here:
+  keywords: ['fire', 'newt', 'guard']
+  level: 32
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2908
+  key: |
+  a_fire_newt_mother_a_fire_newt_mother_is_standing_here:
+  name: |
+  fire_newt_mother:
+  short_desc: |
+  a_fire_newt_mother_nA_fire_newt_mother_is_standing_here:
+  long_desc: |
+  The_fire_newt_mother_is_watching_her_kids:
+  keywords: ['fire', 'newt', 'mother']
+  level: 2
+  hp_max: 24
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2909
+  key: |
+  a_fire_newt_baby:
+  name: |
+  fire_newt_baby:
+  short_desc: |
+  a_fire_newt_baby:
+  long_desc: |
+  A_fire_newt_baby_is_crawling_here:
+  keywords: ['fire', 'newt', 'baby']
+  level: 2
+  hp_max: 5
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2910
+  key: |
+  a_fire_newt_sergeant:
+  name: |
+  fire_newt_sergeant:
+  short_desc: |
+  a_fire_newt_sergeant:
+  long_desc: |
+  A_fire_newt_sergeant_patrols_this_area:
+  keywords: ['fire', 'newt', 'sergeant']
+  level: 2
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2911
+  key: |
+  a_fire_newt_general:
+  name: |
+  fire_newt_general:
+  short_desc: |
+  a_fire_newt_general:
+  long_desc: |
+  A_fire_newt_general_is_standing_here:
+  keywords: ['fire', 'newt', 'general']
+  level: 34
+  hp_max: 136
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2912
+  key: |
+  a_fire_newt_leader:
+  name: |
+  fire_newt_leader:
+  short_desc: |
+  a_fire_newt_leader:
+  long_desc: |
+  A_fire_newt_leader_is_standing_here:
+  keywords: ['fire', 'newt', 'leader']
+  level: 2
+  hp_max: 241
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2913
+  key: |
+  a_fire_newt_priest:
+  name: |
+  fire_newt_priest:
+  short_desc: |
+  a_fire_newt_priest:
+  long_desc: |
+  A_fire_newt_priest_is_standing_here:
+  keywords: ['fire', 'newt', 'priest']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2914
+  key: |
+  a_fire_lizard:
+  name: |
+  fire_lizard:
+  short_desc: |
+  a_fire_lizard:
+  long_desc: |
+  A_fire_lizard_is_crawling_here:
+  keywords: ['fire', 'lizard']
+  level: 2
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

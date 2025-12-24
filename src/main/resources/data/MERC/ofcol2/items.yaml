@@ -1,6 +1,6 @@
 items:
   - id: 600
-    key: handaxe_hand_axe
+    key: handaxe_hand_axe_600
     name: a handaxe
     description: A handaxe is on the floor here.
     weight: 10
@@ -15,22 +15,21 @@ items:
       - TAKE
       - WIELD
     keywords: [handaxe, hand, axe]
-    template_json:
-      raw_block: |
-        5 0 1|8192
-        0 1 8 3
-        10 100 20
-        E
-        handaxe hand axe~
-        You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
-        withstand years of use.
-        ~
-      type_line: 5 0 1|8192
-      extra_desc: |
-        You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
-        withstand years of use.
+    legacy_type_line: 5 0 1|8192
+    legacy_raw: |
+      5 0 1|8192
+      0 1 8 3
+      10 100 20
+      E
+      handaxe hand axe~
+      You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
+      withstand years of use.
+      ~
+    extra_desc: |
+      You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
+      withstand years of use.
   - id: 601
-    key: meat_cleaver
+    key: meat_cleaver_601
     name: a meat cleaver
     description: A sharp meat cleaver is just lying on the floor here!
     weight: 5
@@ -45,20 +44,19 @@ items:
       - TAKE
       - WIELD
     keywords: [meat, cleaver]
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 2 4 3
-        5 150 20
-        E
-        meat cleaver~
-        This meat cleaver is made of good steel.
-        ~
-      type_line: 5 0 8193
-      extra_desc: This meat cleaver is made of good steel.
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 2 4 3
+      5 150 20
+      E
+      meat cleaver~
+      This meat cleaver is made of good steel.
+      ~
+    extra_desc: This meat cleaver is made of good steel.
   - id: 602
-    key: side_meat_beef
+    key: side_meat_beef_602
     name: a side of beef
     description: A side of beef is here on the floor.
     weight: 10
@@ -67,19 +65,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [side, meat, beef]
-    template_json:
-      raw_block: |
-        #602
-        side meat beef~
-        a side of beef~
-        A side of beef is here on the floor.~
-        ~
-        19 0 1
-        24 0 0 0
-        10 50 10
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #602
+      side meat beef~
+      a side of beef~
+      A side of beef is here on the floor.~
+      ~
+      19 0 1
+      24 0 0 0
+      10 50 10
   - id: 603
-    key: side_meat_pork
+    key: side_meat_pork_603
     name: a side of pork
     description: A side of pork is here on the floor.
     weight: 10
@@ -88,19 +85,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [side, meat, pork]
-    template_json:
-      raw_block: |
-        #603
-        side meat pork~
-        a side of pork~
-        A side of pork is here on the floor.~
-        ~
-        19 0 1
-        23 0 0 0
-        10 45 10
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #603
+      side meat pork~
+      a side of pork~
+      A side of pork is here on the floor.~
+      ~
+      19 0 1
+      23 0 0 0
+      10 45 10
   - id: 604
-    key: side_meat_horse
+    key: side_meat_horse_604
     name: a side of horse
     description: A side of horse is here on the floor.
     weight: 12
@@ -109,19 +105,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [side, meat, horse]
-    template_json:
-      raw_block: |
-        #604
-        side meat horse~
-        a side of horse~
-        A side of horse is here on the floor.~
-        ~
-        19 0 1
-        30 0 0 0
-        12 60 12
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #604
+      side meat horse~
+      a side of horse~
+      A side of horse is here on the floor.~
+      ~
+      19 0 1
+      30 0 0 0
+      12 60 12
   - id: 605
-    key: meat_chicken
+    key: meat_chicken_605
     name: a defeathered chicken
     description: A defeathered chicken is here on the floor.
     weight: 5
@@ -130,19 +125,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [meat, chicken]
-    template_json:
-      raw_block: |
-        #605
-        meat chicken~
-        a defeathered chicken~
-        A defeathered chicken is here on the floor.~
-        ~
-        19 0 1
-        16 0 0 0
-        5 30 6
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #605
+      meat chicken~
+      a defeathered chicken~
+      A defeathered chicken is here on the floor.~
+      ~
+      19 0 1
+      16 0 0 0
+      5 30 6
   - id: 606
-    key: emerald_ring
+    key: emerald_ring_606
     name: an emerald ring
     description: An emerald ring is on the floor, gathering dust.
     weight: 1
@@ -154,19 +148,18 @@ items:
       - TAKE
       - WEAR_FINGER
     keywords: [emerald, ring]
-    template_json:
-      raw_block: |
-        #606
-        emerald ring~
-        an emerald ring~
-        An emerald ring is on the floor, gathering dust.~
-        ~
-        8 64 3
-        0 0 0 0
-        1 10000 100
-      type_line: 8 64 3
+    legacy_type_line: 8 64 3
+    legacy_raw: |
+      #606
+      emerald ring~
+      an emerald ring~
+      An emerald ring is on the floor, gathering dust.~
+      ~
+      8 64 3
+      0 0 0 0
+      1 10000 100
   - id: 607
-    key: glass_trinket
+    key: glass_trinket_607
     name: a glass trinket
     description: A glass trinket is on the floor, gathering dust.
     weight: 1
@@ -179,19 +172,18 @@ items:
     applies:
       - location: 24
         modifier: -1
-    template_json:
-      raw_block: |
-        a glass trinket~
-        A glass trinket is on the floor, gathering dust.~
-        ~
-        8 0 16385
-        0 0 0 0
-        1 100 10
-        A
-        24 -1
-      type_line: 8 0 16385
+    legacy_type_line: 8 0 16385
+    legacy_raw: |
+      a glass trinket~
+      A glass trinket is on the floor, gathering dust.~
+      ~
+      8 0 16385
+      0 0 0 0
+      1 100 10
+      A
+      24 -1
   - id: 608
-    key: golden_necklace
+    key: golden_necklace_608
     name: a golden necklace
     description: A golden necklace is on the floor, gathering dust.
     weight: 2
@@ -206,19 +198,18 @@ items:
         modifier: -1
       - location: 9
         modifier: 10
-    template_json:
-      raw_block: |
-        ~
-        8 0 5
-        0 0 0 0
-        2 10000 10
-        A
-        4 -1
-        A
-        9 10
-      type_line: 8 0 5
+    legacy_type_line: 8 0 5
+    legacy_raw: |
+      ~
+      8 0 5
+      0 0 0 0
+      2 10000 10
+      A
+      4 -1
+      A
+      9 10
   - id: 609
-    key: cabbage
+    key: cabbage_609
     name: a head of cabbage
     description: Some fresh cabbage is here, get it while it lasts!
     weight: 2
@@ -227,19 +218,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [cabbage]
-    template_json:
-      raw_block: |
-        #609
-        cabbage~
-        a head of cabbage~
-        Some fresh cabbage is here, get it while it lasts!~
-        ~
-        19 0 1
-        12 0 0 0
-        2 20 5
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #609
+      cabbage~
+      a head of cabbage~
+      Some fresh cabbage is here, get it while it lasts!~
+      ~
+      19 0 1
+      12 0 0 0
+      2 20 5
   - id: 610
-    key: lettuce
+    key: lettuce_610
     name: a head of lettuce
     description: Some fresh lettuce is here, get it while it lasts!
     weight: 2
@@ -248,40 +238,39 @@ items:
     wear_flags:
       - TAKE
     keywords: [lettuce]
-    template_json:
-      raw_block: |
-        #610
-        lettuce~
-        a head of lettuce~
-        Some fresh lettuce is here, get it while it lasts!~
-        ~
-        19 0 1
-        12 0 0 0
-        2 20 5
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #610
+      lettuce~
+      a head of lettuce~
+      Some fresh lettuce is here, get it while it lasts!~
+      ~
+      19 0 1
+      12 0 0 0
+      2 20 5
   - id: 611
-    key: milk_bottle
+    key: milk_bottle_611
     name: a bottle of milk
     description: A glass bottle of milk is on a shelf here, fresh from the cow.
     weight: 5
     value: 40
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [milk, bottle]
-    template_json:
-      raw_block: |
-        #611
-        milk bottle~
-        a bottle of milk~
-        A glass bottle of milk is on a shelf here, fresh from the cow.~
-        ~
-        17 0 1
-        20 20 10 0
-        5 40 10
-      type_line: 17 0 1
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      #611
+      milk bottle~
+      a bottle of milk~
+      A glass bottle of milk is on a shelf here, fresh from the cow.~
+      ~
+      17 0 1
+      20 20 10 0
+      5 40 10
   - id: 612
-    key: apple
+    key: apple_612
     name: an apple
     description: An apple is on the ground.
     weight: 1
@@ -290,19 +279,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [apple]
-    template_json:
-      raw_block: |
-        #612
-        apple~
-        an apple~
-        An apple is on the ground.~
-        ~
-        19 0 1
-        8 0 0 0
-        1 5 1
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #612
+      apple~
+      an apple~
+      An apple is on the ground.~
+      ~
+      19 0 1
+      8 0 0 0
+      1 5 1
   - id: 613
-    key: corn
+    key: corn_613
     name: an ear of corn
     description: An ear of corn is on the ground.
     weight: 1
@@ -311,19 +299,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [corn]
-    template_json:
-      raw_block: |
-        #613
-        corn~
-        an ear of corn~
-        An ear of corn is on the ground.~
-        ~
-        19 0 1
-        8 0 0 0
-        1 5 1
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #613
+      corn~
+      an ear of corn~
+      An ear of corn is on the ground.~
+      ~
+      19 0 1
+      8 0 0 0
+      1 5 1
   - id: 614
-    key: hay_pile
+    key: hay_pile_614
     name: a pile of hay
     description: There is a big pile of hay here.
     weight: 20
@@ -332,19 +319,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [hay, pile]
-    template_json:
-      raw_block: |
-        #614
-        hay pile~
-        a pile of hay~
-        There is a big pile of hay here.~
-        ~
-        13 0 1
-        0 0 0 0
-        20 0 50
-      type_line: 13 0 1
+    legacy_type_line: 13 0 1
+    legacy_raw: |
+      #614
+      hay pile~
+      a pile of hay~
+      There is a big pile of hay here.~
+      ~
+      13 0 1
+      0 0 0 0
+      20 0 50
   - id: 615
-    key: pitchfork_fork
+    key: pitchfork_fork_615
     name: a pitchfork
     description: A pitchfork is on the floor.
     weight: 10
@@ -359,19 +345,18 @@ items:
       - TAKE
       - WIELD
     keywords: [pitchfork, fork]
-    template_json:
-      raw_block: |
-        #615
-        pitchfork fork~
-        a pitchfork~
-        A pitchfork is on the floor.~
-        ~
-        5 0 8193
-        0 3 3 11
-        10 50 10
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #615
+      pitchfork fork~
+      a pitchfork~
+      A pitchfork is on the floor.~
+      ~
+      5 0 8193
+      0 3 3 11
+      10 50 10
   - id: 616
-    key: vest
+    key: vest_616
     name: a leather vest
     description: A leather vest is on the floor.
     weight: 10
@@ -383,19 +368,18 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [vest]
-    template_json:
-      raw_block: |
-        #616
-        vest~
-        a leather vest~
-        A leather vest is on the floor.~
-        ~
-        9 0 1|8
-        2 0 0 0
-        10 50 10
-      type_line: 9 0 1|8
+    legacy_type_line: 9 0 1|8
+    legacy_raw: |
+      #616
+      vest~
+      a leather vest~
+      A leather vest is on the floor.~
+      ~
+      9 0 1|8
+      2 0 0 0
+      10 50 10
   - id: 617
-    key: sleeves
+    key: sleeves_617
     name: some leather sleeves
     description: Some leather sleeves are on the floor.
     weight: 5
@@ -407,19 +391,18 @@ items:
       - TAKE
       - WEAR_ARMS
     keywords: [sleeves]
-    template_json:
-      raw_block: |
-        #617
-        sleeves~
-        some leather sleeves~
-        Some leather sleeves are on the floor.~
-        ~
-        9 0 1|256
-        2 0 0 0
-        5 50 10
-      type_line: 9 0 1|256
+    legacy_type_line: 9 0 1|256
+    legacy_raw: |
+      #617
+      sleeves~
+      some leather sleeves~
+      Some leather sleeves are on the floor.~
+      ~
+      9 0 1|256
+      2 0 0 0
+      5 50 10
   - id: 618
-    key: leggings
+    key: leggings_618
     name: some leather leggings
     description: Some leather leggings are on the floor.
     weight: 5
@@ -431,19 +414,18 @@ items:
       - TAKE
       - WEAR_LEGS
     keywords: [leggings]
-    template_json:
-      raw_block: |
-        #618
-        leggings~
-        some leather leggings~
-        Some leather leggings are on the floor.~
-        ~
-        9 0 1|32
-        2 0 0 0
-        5 50 10
-      type_line: 9 0 1|32
+    legacy_type_line: 9 0 1|32
+    legacy_raw: |
+      #618
+      leggings~
+      some leather leggings~
+      Some leather leggings are on the floor.~
+      ~
+      9 0 1|32
+      2 0 0 0
+      5 50 10
   - id: 619
-    key: boots
+    key: boots_619
     name: some leather boots
     description: Some leather boots are on the floor.
     weight: 5
@@ -455,19 +437,18 @@ items:
       - TAKE
       - WEAR_FEET
     keywords: [boots]
-    template_json:
-      raw_block: |
-        #619
-        boots~
-        some leather boots~
-        Some leather boots are on the floor.~
-        ~
-        9 0 1|64
-        2 0 0 0
-        5 50 10
-      type_line: 9 0 1|64
+    legacy_type_line: 9 0 1|64
+    legacy_raw: |
+      #619
+      boots~
+      some leather boots~
+      Some leather boots are on the floor.~
+      ~
+      9 0 1|64
+      2 0 0 0
+      5 50 10
   - id: 620
-    key: signet_ring
+    key: signet_ring_620
     name: an Ofcol signet ring
     description: A shiny ring of gold is in the dirt.
     weight: 1
@@ -486,19 +467,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|2
-        6 0 0 0
-        1 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|2
+    legacy_type_line: 9 64 1|2
+    legacy_raw: |
+      ~
+      9 64 1|2
+      6 0 0 0
+      1 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 621
-    key: plate_brass
+    key: plate_brass_621
     name: brass plate
     description: A pile of brass plates is against the wall here.
     weight: 10
@@ -517,19 +497,18 @@ items:
         modifier: -2
       - location: 13
         modifier: 10
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|8
-        6 0 0 0
-        10 1000 100
-        A
-        24 -2
-        A
-        13 10
-      type_line: 9 64 1|8
+    legacy_type_line: 9 64 1|8
+    legacy_raw: |
+      ~
+      9 64 1|8
+      6 0 0 0
+      10 1000 100
+      A
+      24 -2
+      A
+      13 10
   - id: 622
-    key: helm_brass
+    key: helm_brass_622
     name: a brass helm
     description: A brass helm is against the wall here.
     weight: 10
@@ -548,19 +527,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|16
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|16
+    legacy_type_line: 9 64 1|16
+    legacy_raw: |
+      ~
+      9 64 1|16
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 623
-    key: leggings_brass
+    key: leggings_brass_623
     name: brass leggings
     description: A pile of brass plates is against the wall here.
     weight: 10
@@ -579,19 +557,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|32
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|32
+    legacy_type_line: 9 64 1|32
+    legacy_raw: |
+      ~
+      9 64 1|32
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 624
-    key: boots_brass
+    key: boots_brass_624
     name: brass boots
     description: Some brass boots are against the wall here.
     weight: 10
@@ -610,19 +587,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|64
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|64
+    legacy_type_line: 9 64 1|64
+    legacy_raw: |
+      ~
+      9 64 1|64
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 625
-    key: gauntlets_brass
+    key: gauntlets_brass_625
     name: brass gauntlets
     description: Some brass gauntlets are against the wall here.
     weight: 10
@@ -641,19 +617,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|128
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|128
+    legacy_type_line: 9 64 1|128
+    legacy_raw: |
+      ~
+      9 64 1|128
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 626
-    key: sleeves_brass
+    key: sleeves_brass_626
     name: brass sleeves
     description: A pile of brass plates is against the wall here.
     weight: 10
@@ -672,19 +647,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|256
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|256
+    legacy_type_line: 9 64 1|256
+    legacy_raw: |
+      ~
+      9 64 1|256
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 627
-    key: shield_brass
+    key: shield_brass_627
     name: a brass shield
     description: A big plate of brass is against the wall here.
     weight: 10
@@ -703,19 +677,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|512
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|512
+    legacy_type_line: 9 64 1|512
+    legacy_raw: |
+      ~
+      9 64 1|512
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 628
-    key: girth_brass
+    key: girth_brass_628
     name: a brass girth
     description: A brass girth is against the wall here.
     weight: 10
@@ -734,19 +707,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|2048
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|2048
+    legacy_type_line: 9 64 1|2048
+    legacy_raw: |
+      ~
+      9 64 1|2048
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 629
-    key: bracer_brass
+    key: bracer_brass_629
     name: a brass bracer
     description: A brass bracer is against the wall here.
     weight: 10
@@ -765,19 +737,18 @@ items:
         modifier: -1
       - location: 13
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 64 1|4096
-        6 0 0 0
-        10 1000 100
-        A
-        24 -1
-        A
-        13 5
-      type_line: 9 64 1|4096
+    legacy_type_line: 9 64 1|4096
+    legacy_raw: |
+      ~
+      9 64 1|4096
+      6 0 0 0
+      10 1000 100
+      A
+      24 -1
+      A
+      13 5
   - id: 630
-    key: claymore_sword
+    key: claymore_sword_630
     name: a claymore
     description: A VERY big sword is against the wall here.
     weight: 16
@@ -802,19 +773,18 @@ items:
     on_equip_effect_ids:
       - 506
       - 510
-    template_json:
-      raw_block: |
-        ~
-        5 64 1|8192
-        0 4 4 1
-        16 1000 100
-        A
-        18 -2
-        A
-        19 5
-      type_line: 5 64 1|8192
+    legacy_type_line: 5 64 1|8192
+    legacy_raw: |
+      ~
+      5 64 1|8192
+      0 4 4 1
+      16 1000 100
+      A
+      18 -2
+      A
+      19 5
   - id: 631
-    key: plate_silver
+    key: plate_silver_631
     name: silver plate
     description: A pile of silver plating and chain is on the floor.
     weight: 20
@@ -834,19 +804,18 @@ items:
         modifier: 10
       - location: 1
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|8
-        8 0 0 0
-        20 2000 100
-        A
-        12 10
-        A
-        1 1
-      type_line: 9 64|1024 1|8
+    legacy_type_line: 9 64|1024 1|8
+    legacy_raw: |
+      ~
+      9 64|1024 1|8
+      8 0 0 0
+      20 2000 100
+      A
+      12 10
+      A
+      1 1
   - id: 632
-    key: helm_silver
+    key: helm_silver_632
     name: A silver helm
     description: A shiny helm is on the floor.
     weight: 20
@@ -866,19 +835,18 @@ items:
         modifier: 5
       - location: 2
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|16
-        8 0 0 0
-        20 2000 100
-        A
-        12 5
-        A
-        2 1
-      type_line: 9 64|1024 1|16
+    legacy_type_line: 9 64|1024 1|16
+    legacy_raw: |
+      ~
+      9 64|1024 1|16
+      8 0 0 0
+      20 2000 100
+      A
+      12 5
+      A
+      2 1
   - id: 633
-    key: leggings_silver
+    key: leggings_silver_633
     name: silver leggings
     description: Some shiny leggings are on the floor.
     weight: 20
@@ -898,19 +866,18 @@ items:
         modifier: 5
       - location: 3
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|32
-        8 0 0 0
-        20 2000 100
-        A
-        12 5
-        A
-        3 1
-      type_line: 9 64|1024 1|32
+    legacy_type_line: 9 64|1024 1|32
+    legacy_raw: |
+      ~
+      9 64|1024 1|32
+      8 0 0 0
+      20 2000 100
+      A
+      12 5
+      A
+      3 1
   - id: 634
-    key: boots_silver
+    key: boots_silver_634
     name: silver boots
     description: Some shiny boots are on the floor.
     weight: 20
@@ -930,19 +897,18 @@ items:
         modifier: 5
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|64
-        8 0 0 0
-        20 2000 100
-        A
-        12 5
-        A
-        4 1
-      type_line: 9 64|1024 1|64
+    legacy_type_line: 9 64|1024 1|64
+    legacy_raw: |
+      ~
+      9 64|1024 1|64
+      8 0 0 0
+      20 2000 100
+      A
+      12 5
+      A
+      4 1
   - id: 635
-    key: gauntlets_silver
+    key: gauntlets_silver_635
     name: silver gauntlets
     description: Some shiny gauntlets are on the floor.
     weight: 20
@@ -962,19 +928,18 @@ items:
         modifier: 5
       - location: 5
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|128
-        8 0 0 0
-        20 2000 100
-        A
-        12 5
-        A
-        5 1
-      type_line: 9 64|1024 1|128
+    legacy_type_line: 9 64|1024 1|128
+    legacy_raw: |
+      ~
+      9 64|1024 1|128
+      8 0 0 0
+      20 2000 100
+      A
+      12 5
+      A
+      5 1
   - id: 636
-    key: sleeves_silver
+    key: sleeves_silver_636
     name: silver sleeves
     description: Some shiny sleeves are on the floor.
     weight: 20
@@ -996,19 +961,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|256
-        8 0 0 0
-        20 2000 100
-        A
-        12 5
-        A
-        18 1
-      type_line: 9 64|1024 1|256
+    legacy_type_line: 9 64|1024 1|256
+    legacy_raw: |
+      ~
+      9 64|1024 1|256
+      8 0 0 0
+      20 2000 100
+      A
+      12 5
+      A
+      18 1
   - id: 637
-    key: shield_silver
+    key: shield_silver_637
     name: the silver shield
     description: A shiny shield is on the floor.
     weight: 20
@@ -1028,19 +992,18 @@ items:
         modifier: 5
       - location: 17
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|512
-        8 0 0 0
-        20 2000 100
-        A
-        12 5
-        A
-        17 -3
-      type_line: 9 64|1024 1|512
+    legacy_type_line: 9 64|1024 1|512
+    legacy_raw: |
+      ~
+      9 64|1024 1|512
+      8 0 0 0
+      20 2000 100
+      A
+      12 5
+      A
+      17 -3
   - id: 638
-    key: girth_silver
+    key: girth_silver_638
     name: the silver girth
     description: A shiny girth is on the floor.
     weight: 20
@@ -1062,19 +1025,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 503
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|2048
-        8 0 0 0
-        20 2000 100
-        A
-        12 5
-        A
-        19 1
-      type_line: 9 64|1024 1|2048
+    legacy_type_line: 9 64|1024 1|2048
+    legacy_raw: |
+      ~
+      9 64|1024 1|2048
+      8 0 0 0
+      20 2000 100
+      A
+      12 5
+      A
+      19 1
   - id: 639
-    key: plate_platinum
+    key: plate_platinum_639
     name: platinum plate
     description: A pile of silvery metal is on the floor.
     weight: 50
@@ -1094,19 +1056,18 @@ items:
         modifier: 15
       - location: 5
         modifier: 2
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|8
-        9 0 0 0
-        50 10000 100
-        A
-        13 15
-        A
-        5 2
-      type_line: 9 64|1024 1|8
+    legacy_type_line: 9 64|1024 1|8
+    legacy_raw: |
+      ~
+      9 64|1024 1|8
+      9 0 0 0
+      50 10000 100
+      A
+      13 15
+      A
+      5 2
   - id: 640
-    key: helmet_platinum
+    key: helmet_platinum_640
     name: the platinum helmet
     description: A silvery helmet is on the floor.
     weight: 30
@@ -1126,19 +1087,18 @@ items:
         modifier: 10
       - location: 4
         modifier: 2
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|16
-        9 0 0 0
-        30 10000 100
-        A
-        12 10
-        A
-        4 2
-      type_line: 9 64|1024 1|16
+    legacy_type_line: 9 64|1024 1|16
+    legacy_raw: |
+      ~
+      9 64|1024 1|16
+      9 0 0 0
+      30 10000 100
+      A
+      12 10
+      A
+      4 2
   - id: 641
-    key: leggings_platinum
+    key: leggings_platinum_641
     name: platinum leggings
     description: Some silvery leggings are on the floor.
     weight: 40
@@ -1158,19 +1118,18 @@ items:
         modifier: 10
       - location: 2
         modifier: 2
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|32
-        9 0 0 0
-        40 10000 100
-        A
-        13 10
-        A
-        2 2
-      type_line: 9 64|1024 1|32
+    legacy_type_line: 9 64|1024 1|32
+    legacy_raw: |
+      ~
+      9 64|1024 1|32
+      9 0 0 0
+      40 10000 100
+      A
+      13 10
+      A
+      2 2
   - id: 642
-    key: boots_platinum
+    key: boots_platinum_642
     name: platinum boots
     description: Some silvery boots are on the floor.
     weight: 40
@@ -1190,19 +1149,18 @@ items:
         modifier: 10
       - location: 14
         modifier: 100
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|64
-        9 0 0 0
-        40 10000 100
-        A
-        13 10
-        A
-        14 100
-      type_line: 9 64|1024 1|64
+    legacy_type_line: 9 64|1024 1|64
+    legacy_raw: |
+      ~
+      9 64|1024 1|64
+      9 0 0 0
+      40 10000 100
+      A
+      13 10
+      A
+      14 100
   - id: 643
-    key: gauntlets_platinum
+    key: gauntlets_platinum_643
     name: platinum gauntlets
     description: A pair of silvery gauntlets are on the floor.
     weight: 40
@@ -1224,19 +1182,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 501
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|128
-        9 0 0 0
-        40 10000 100
-        A
-        13 10
-        A
-        18 2
-      type_line: 9 64|1024 1|128
+    legacy_type_line: 9 64|1024 1|128
+    legacy_raw: |
+      ~
+      9 64|1024 1|128
+      9 0 0 0
+      40 10000 100
+      A
+      13 10
+      A
+      18 2
   - id: 644
-    key: sleeves_platinum
+    key: sleeves_platinum_644
     name: platinum sleeves
     description: A pair of silvery sleeves are on the floor.
     weight: 40
@@ -1256,19 +1213,18 @@ items:
         modifier: 10
       - location: 1
         modifier: 2
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|256
-        9 0 0 0
-        40 10000 100
-        A
-        13 10
-        A
-        1 2
-      type_line: 9 64|1024 1|256
+    legacy_type_line: 9 64|1024 1|256
+    legacy_raw: |
+      ~
+      9 64|1024 1|256
+      9 0 0 0
+      40 10000 100
+      A
+      13 10
+      A
+      1 2
   - id: 645
-    key: shield_spiked_platinum
+    key: shield_spiked_platinum_645
     name: the platinum spiked shield
     description: A jagged, silvery shield is on the floor.
     weight: 40
@@ -1290,19 +1246,18 @@ items:
         modifier: 3
     on_equip_effect_ids:
       - 507
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|512
-        9 0 0 0
-        40 10000 100
-        A
-        13 10
-        A
-        19 3
-      type_line: 9 64|1024 1|512
+    legacy_type_line: 9 64|1024 1|512
+    legacy_raw: |
+      ~
+      9 64|1024 1|512
+      9 0 0 0
+      40 10000 100
+      A
+      13 10
+      A
+      19 3
   - id: 646
-    key: girth_platinum
+    key: girth_platinum_646
     name: the platinum girth
     description: A silvery girth is on the floor.
     weight: 40
@@ -1322,19 +1277,18 @@ items:
         modifier: 10
       - location: 24
         modifier: -5
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|2048
-        9 0 0 0
-        40 10000 100
-        A
-        13 10
-        A
-        24 -5
-      type_line: 9 64|1024 1|2048
+    legacy_type_line: 9 64|1024 1|2048
+    legacy_raw: |
+      ~
+      9 64|1024 1|2048
+      9 0 0 0
+      40 10000 100
+      A
+      13 10
+      A
+      24 -5
   - id: 647
-    key: avenger_holy_sword
+    key: avenger_holy_sword_647
     name: Holy Avenger
     description: A glowing silvery sword is hovering here, ready to possess an owner.
     weight: 25
@@ -1360,82 +1314,81 @@ items:
     on_equip_effect_ids:
       - 202
       - 513
-    template_json:
-      raw_block: |
-        ~
-        5 64|1024 1|8192
-        0 5 6 1
-        25 10000 10000
-        A
-        18 1
-        A
-        19 6
-      type_line: 5 64|1024 1|8192
+    legacy_type_line: 5 64|1024 1|8192
+    legacy_raw: |
+      ~
+      5 64|1024 1|8192
+      0 5 6 1
+      25 10000 10000
+      A
+      18 1
+      A
+      19 6
   - id: 648
-    key: whiskey_shot
+    key: whiskey_shot_648
     name: a shot of whiskey
     description: A shot of whiskey is on the table.
     weight: 1
     value: 10
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [whiskey, shot]
-    template_json:
-      raw_block: |
-        #648
-        whiskey shot~
-        a shot of whiskey~
-        A shot of whiskey is on the table.~
-        ~
-        17 0 1
-        5 5 5 0
-        1 10 10
-      type_line: 17 0 1
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      #648
+      whiskey shot~
+      a shot of whiskey~
+      A shot of whiskey is on the table.~
+      ~
+      17 0 1
+      5 5 5 0
+      1 10 10
   - id: 649
-    key: ale_quart
+    key: ale_quart_649
     name: a quart of ale
     description: A quart of ale is on the table.
     weight: 8
     value: 20
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [ale, quart]
-    template_json:
-      raw_block: |
-        #649
-        ale quart~
-        a quart of ale~
-        A quart of ale is on the table.~
-        ~
-        17 0 1
-        50 50 3 0
-        8 20 20
-      type_line: 17 0 1
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      #649
+      ale quart~
+      a quart of ale~
+      A quart of ale is on the table.~
+      ~
+      17 0 1
+      50 50 3 0
+      8 20 20
   - id: 650
-    key: port_brew_quart
+    key: port_brew_quart_650
     name: a quart of port brew
     description: A quart of port brew is on the table.
     weight: 8
     value: 20
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [port, brew, quart]
-    template_json:
-      raw_block: |
-        #650
-        port brew quart~
-        a quart of port brew~
-        A quart of port brew is on the table.~
-        ~
-        17 0 1
-        50 50 4 0
-        8 20 20
-      type_line: 17 0 1
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      #650
+      port brew quart~
+      a quart of port brew~
+      A quart of port brew is on the table.~
+      ~
+      17 0 1
+      50 50 4 0
+      8 20 20
   - id: 651
-    key: key_citadel
+    key: key_citadel_651
     name: the citadel key
     description: A key is on the floor.
     weight: 1
@@ -1444,19 +1397,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, citadel]
-    template_json:
-      raw_block: |
-        #651
-        key citadel~
-        the citadel key~
-        A key is on the floor.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 0 100
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #651
+      key citadel~
+      the citadel key~
+      A key is on the floor.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 0 100
   - id: 652
-    key: symbol_holy
+    key: symbol_holy_652
     name: the Holy Symbol of Bahamut
     description: A very shiny symbol is on the floor.
     weight: 5
@@ -1478,19 +1430,18 @@ items:
         modifier: 10
       - location: 4
         modifier: 2
-    template_json:
-      raw_block: |
-        ~
-        9 64|256|1024|2048 1|4
-        8 0 0 0
-        5 1000 1000
-        A
-        12 10
-        A
-        4 2
-      type_line: 9 64|256|1024|2048 1|4
+    legacy_type_line: 9 64|256|1024|2048 1|4
+    legacy_raw: |
+      ~
+      9 64|256|1024|2048 1|4
+      8 0 0 0
+      5 1000 1000
+      A
+      12 10
+      A
+      4 2
   - id: 653
-    key: ranseur_polearm
+    key: ranseur_polearm_653
     name: a ranseur
     description: A heavy polearm is against the wall here, ready to inflict damage.
     weight: 20
@@ -1516,19 +1467,18 @@ items:
     on_equip_effect_ids:
       - 512
       - 509
-    template_json:
-      raw_block: |
-        ~
-        5 64|1024 1|8192
-        0 5 6 2
-        20 10000 10000
-        A
-        18 5
-        A
-        19 -1
-      type_line: 5 64|1024 1|8192
+    legacy_type_line: 5 64|1024 1|8192
+    legacy_raw: |
+      ~
+      5 64|1024 1|8192
+      0 5 6 2
+      20 10000 10000
+      A
+      18 5
+      A
+      19 -1
   - id: 654
-    key: torso_dragonscale_golden
+    key: torso_dragonscale_golden_654
     name: a golden dragonscale torso
     description: A golden dragonscale torso is on the floor!
     weight: 25
@@ -1550,19 +1500,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 501
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|8
-        9 0 0 0
-        25 5000 5000
-        A
-        17 -5
-        A
-        18 2
-      type_line: 9 64|1024 1|8
+    legacy_type_line: 9 64|1024 1|8
+    legacy_raw: |
+      ~
+      9 64|1024 1|8
+      9 0 0 0
+      25 5000 5000
+      A
+      17 -5
+      A
+      18 2
   - id: 655
-    key: dragonhelm_golden
+    key: dragonhelm_golden_655
     name: a golden dragonhelm
     description: A golden dragonhelm is on the floor!
     weight: 10
@@ -1584,19 +1533,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|16
-        9 0 0 0
-        10 5000 5000
-        A
-        17 -3
-        A
-        18 1
-      type_line: 9 64|1024 1|16
+    legacy_type_line: 9 64|1024 1|16
+    legacy_raw: |
+      ~
+      9 64|1024 1|16
+      9 0 0 0
+      10 5000 5000
+      A
+      17 -3
+      A
+      18 1
   - id: 656
-    key: leggings_golden
+    key: leggings_golden_656
     name: golden dragonscale leggings
     description: Some golden dragonscale leggings are on the floor!
     weight: 10
@@ -1618,19 +1566,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|32
-        9 0 0 0
-        10 5000 5000
-        A
-        17 -3
-        A
-        18 1
-      type_line: 9 64|1024 1|32
+    legacy_type_line: 9 64|1024 1|32
+    legacy_raw: |
+      ~
+      9 64|1024 1|32
+      9 0 0 0
+      10 5000 5000
+      A
+      17 -3
+      A
+      18 1
   - id: 657
-    key: boots_golden
+    key: boots_golden_657
     name: golden dragonscale boots
     description: Some golden dragonscale boots are on the floor!
     weight: 10
@@ -1652,19 +1599,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|64
-        9 0 0 0
-        10 5000 5000
-        A
-        17 -3
-        A
-        18 1
-      type_line: 9 64|1024 1|64
+    legacy_type_line: 9 64|1024 1|64
+    legacy_raw: |
+      ~
+      9 64|1024 1|64
+      9 0 0 0
+      10 5000 5000
+      A
+      17 -3
+      A
+      18 1
   - id: 658
-    key: gauntlets_golden
+    key: gauntlets_golden_658
     name: golden dragonscale gauntlets
     description: Some golden dragonscale gauntlets are on the floor!
     weight: 10
@@ -1686,19 +1632,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|128
-        9 0 0 0
-        10 5000 5000
-        A
-        17 -3
-        A
-        18 1
-      type_line: 9 64|1024 1|128
+    legacy_type_line: 9 64|1024 1|128
+    legacy_raw: |
+      ~
+      9 64|1024 1|128
+      9 0 0 0
+      10 5000 5000
+      A
+      17 -3
+      A
+      18 1
   - id: 659
-    key: sleeves_golden
+    key: sleeves_golden_659
     name: golden dragonscale sleeves
     description: Some golden dragonscale sleeves are on the floor!
     weight: 10
@@ -1720,19 +1665,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|256
-        9 0 0 0
-        10 5000 5000
-        A
-        17 -3
-        A
-        18 1
-      type_line: 9 64|1024 1|256
+    legacy_type_line: 9 64|1024 1|256
+    legacy_raw: |
+      ~
+      9 64|1024 1|256
+      9 0 0 0
+      10 5000 5000
+      A
+      17 -3
+      A
+      18 1
   - id: 660
-    key: shield_golden
+    key: shield_golden_660
     name: a golden dragonscale shield
     description: A golden dragonscale shield is on the floor!
     weight: 10
@@ -1754,19 +1698,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|512
-        9 0 0 0
-        10 5000 5000
-        A
-        17 -3
-        A
-        18 1
-      type_line: 9 64|1024 1|512
+    legacy_type_line: 9 64|1024 1|512
+    legacy_raw: |
+      ~
+      9 64|1024 1|512
+      9 0 0 0
+      10 5000 5000
+      A
+      17 -3
+      A
+      18 1
   - id: 661
-    key: girth_golden
+    key: girth_golden_661
     name: a golden dragonscale girth
     description: A golden dragonscale girth is on the floor!
     weight: 10
@@ -1788,19 +1731,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        9 64|1024 1|2048
-        9 0 0 0
-        10 5000 5000
-        A
-        17 -3
-        A
-        18 1
-      type_line: 9 64|1024 1|2048
+    legacy_type_line: 9 64|1024 1|2048
+    legacy_raw: |
+      ~
+      9 64|1024 1|2048
+      9 0 0 0
+      10 5000 5000
+      A
+      17 -3
+      A
+      18 1
   - id: 662
-    key: claw_golden
+    key: claw_golden_662
     name: the Golden Claw
     description: A huge golden claw is on the floor
     weight: 20
@@ -1823,19 +1765,18 @@ items:
         modifier: 6
     on_equip_effect_ids:
       - 513
-    template_json:
-      raw_block: |
-        the Golden Claw~
-        A huge golden claw is on the floor~
-        ~
-        5 64|1024 1|8192
-        0 5 5 5
-        20 5000 5000
-        A
-        19 6
-      type_line: 5 64|1024 1|8192
+    legacy_type_line: 5 64|1024 1|8192
+    legacy_raw: |
+      the Golden Claw~
+      A huge golden claw is on the floor~
+      ~
+      5 64|1024 1|8192
+      0 5 5 5
+      20 5000 5000
+      A
+      19 6
   - id: 663
-    key: orb_dragonorb
+    key: orb_dragonorb_663
     name: the Gold Dragon Orb
     description: A very large pearl-like sphere is in the center of this room.
     weight: 30
@@ -1860,19 +1801,18 @@ items:
         modifier: 3
       - location: 4
         modifier: 3
-    template_json:
-      raw_block: |
-        ~
-        4 64|1024|2048 1|16384
-        14 10 10 28
-        30 100000 100000
-        A
-        3 3
-        A
-        4 3
-      type_line: 4 64|1024|2048 1|16384
+    legacy_type_line: 4 64|1024|2048 1|16384
+    legacy_raw: |
+      ~
+      4 64|1024|2048 1|16384
+      14 10 10 28
+      30 100000 100000
+      A
+      3 3
+      A
+      4 3
   - id: 664
-    key: robe_golden
+    key: robe_golden_664
     name: a golden robe
     description: A golden robe is on the floor.
     weight: 10
@@ -1890,19 +1830,18 @@ items:
     applies:
       - location: 3
         modifier: 3
-    template_json:
-      raw_block: |
-        a golden robe~
-        A golden robe is on the floor.~
-        ~
-        9 64|1024 1|1024
-        9 0 0 0
-        10 5000 5000
-        A
-        3 3
-      type_line: 9 64|1024 1|1024
+    legacy_type_line: 9 64|1024 1|1024
+    legacy_raw: |
+      a golden robe~
+      A golden robe is on the floor.~
+      ~
+      9 64|1024 1|1024
+      9 0 0 0
+      10 5000 5000
+      A
+      3 3
   - id: 665
-    key: house_key
+    key: house_key_665
     name: a house key
     description: A house key is on the floor.
     weight: 1
@@ -1911,19 +1850,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [house, key]
-    template_json:
-      raw_block: |
-        #665
-        house key~
-        a house key~
-        A house key is on the floor.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 0 0
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #665
+      house key~
+      a house key~
+      A house key is on the floor.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 0 0
   - id: 666
-    key: broom
+    key: broom_666
     name: a broom
     description: A broom is against the wall here.
     weight: 8
@@ -1946,19 +1884,18 @@ items:
     on_equip_effect_ids:
       - 508
       - 514
-    template_json:
-      raw_block: |
-        ~
-        5 0 1|8192
-        0 2 3 7
-        8 100 10
-        A
-        18 3
-        A
-        19 -3
-      type_line: 5 0 1|8192
+    legacy_type_line: 5 0 1|8192
+    legacy_raw: |
+      ~
+      5 0 1|8192
+      0 2 3 7
+      8 100 10
+      A
+      18 3
+      A
+      19 -3
   - id: 667
-    key: chest
+    key: chest_667
     name: a chest
     description: A chest is on the floor here.
     weight: 10
@@ -1967,14 +1904,13 @@ items:
     wear_flags:
       - TAKE
     keywords: [chest]
-    template_json:
-      raw_block: |
-        #667
-        chest~
-        a chest~
-        A chest is on the floor here.~
-        ~
-        15 0 1
-        100 0 0 0
-        10 100 100
-      type_line: 15 0 1
+    legacy_type_line: 15 0 1
+    legacy_raw: |
+      #667
+      chest~
+      a chest~
+      A chest is on the floor here.~
+      ~
+      15 0 1
+      100 0 0 0
+      10 100 100

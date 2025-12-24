@@ -1,0 +1,363 @@
+- id: 8900
+  key: |
+  the_hierophant:
+  name: |
+  hierophant:
+  short_desc: |
+  The_Hierophant:
+  long_desc: |
+  The_old_Hierophant_of_the_holy_grove_is_here_gathering_hollies:
+  keywords: ['hierophant']
+  level: 64
+  hp_max: 390
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8901
+  key: |
+  the_hierophant:
+  name: |
+  hierophant:
+  short_desc: |
+  The_Hierophant:
+  long_desc: |
+  The_old_Hierophant_of_the_holy_grove_is_here_gathering_ivy:
+  keywords: ['hierophant']
+  level: 64
+  hp_max: 390
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8902
+  key: |
+  an_elder_druid:
+  name: |
+  elder_druid:
+  short_desc: |
+  an_elder_druid:
+  long_desc: |
+  An_elder_druid_stands_here_watching_the_local_flora_and_wildlife:
+  keywords: ['elder', 'druid']
+  level: 64
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8903
+  key: |
+  an_elder_druidess:
+  name: |
+  elder_druidess:
+  short_desc: |
+  an_elder_druidess:
+  long_desc: |
+  An_elder_druidess_stands_here_watching_the_local_fauna_and_feeding_rabbits:
+  keywords: ['elder', 'druidess']
+  level: 64
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8904
+  key: |
+  a_doe:
+  name: |
+  doe:
+  short_desc: |
+  a_doe:
+  long_desc: |
+  A_doe_is_here_munching_on_grass:
+  keywords: ['doe']
+  level: 64
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8905
+  key: |
+  a_deer:
+  name: |
+  deer:
+  short_desc: |
+  a_deer:
+  long_desc: |
+  A_deer_is_here_staring_back_at_you:
+  keywords: ['deer']
+  level: 64
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8906
+  key: |
+  a_stag:
+  name: |
+  stag_deer_large:
+  short_desc: |
+  a_stag:
+  long_desc: |
+  A_large_deer_stag_is_here_protecting_his_territory:
+  keywords: ['stag', 'deer', 'large']
+  level: 32
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8907
+  key: |
+  a_small_bunny:
+  name: |
+  bunny_rabbit:
+  short_desc: |
+  a_small_bunny:
+  long_desc: |
+  A_small_bunny_is_here_poking_from_bush_to_bush:
+  keywords: ['bunny', 'rabbit']
+  level: 64
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8908
+  key: |
+  a_harmless_snake:
+  name: |
+  snake:
+  short_desc: |
+  a_harmless_snake:
+  long_desc: |
+  A_small_snake_slithers_between_the_grass:
+  keywords: ['snake']
+  level: 32
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8909
+  key: |
+  a_druid:
+  name: |
+  druid:
+  short_desc: |
+  a_druid:
+  long_desc: |
+  A_druid_is_here_in_meditation:
+  keywords: ['druid']
+  level: 64
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8910
+  key: |
+  a_druidess:
+  name: |
+  druidess:
+  short_desc: |
+  a_druidess:
+  long_desc: |
+  A_druidess_is_here_peering_at_you:
+  keywords: ['druidess']
+  level: 64
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

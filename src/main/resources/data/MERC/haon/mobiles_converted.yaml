@@ -1,0 +1,398 @@
+- id: 6000
+  key: john_the_lumberjack
+  name: John the Lumberjack
+  short_desc: John the Lumberjack is here, looking for some trees to chop down.
+  long_desc: |
+    He is six feet tall and looks quite strong, muscles bulging under his heavy,
+    chequered shirt.  His features are worn with hard work and his expression is
+    one of a peaceful man leading a simple life.
+  keywords: ['john', 'lumberjack']
+  level: 64
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 350 S 5 15 7 5d5+50 1d8+2 50 600 8 8 1
+
+- id: 6002
+  key: the_brown_bear
+  name: the brown bear
+  short_desc: A big, brown, angry-looking bear is here.
+  long_desc: |
+    The bear is a big, brown, furry animal with very large claws and very sharp
+    teeth.  It doesn't resemble those cute little thingies from toy shops at all.
+  keywords: ['bear']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 0 -50 S 8 13 3 8d8+80 2d6+2 0 2000 4 8 0
+
+- id: 6003
+  key: the_ferocious_rabbit
+  name: the ferocious rabbit
+  short_desc: A ferocious rabbit is here, glaring hungrily at you.
+  long_desc: |
+    This small, furry creature with long ears and big feet has been attacked by
+    the dreaded rabbit rabies, a horrible disease that turns helpless and innocent
+    rabbits into ferocious and bloodthirsty monsters.
+  keywords: ['rabbit']
+  level: 96
+  hp_max: 28
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 26
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 0 -150 S 3 17 6 1d4+26 1d8+0 0 350 4 8 0
+
+- id: 6004
+  key: the_fallow_deer
+  name: the fallow deer
+  short_desc: A fallow deer is grazing peacefully here.
+  long_desc: |
+    She is a graceful creature on long, slender legs, and with large, brown eyes
+    looking back at you with an air of watchful interest.
+  keywords: ['deer']
+  level: 82
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 2
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 82 8 350 S 2 19 2 2d8+2 1d6+0 0 200 8 8 2
+
+- id: 6005
+  key: the_brown_fox
+  name: the brown fox
+  short_desc: A brown fox is here, looking for some rabbits to chew up.
+  long_desc: |
+    It is a large fox with beautiful, red-brown fur and a long, thick brush.
+  keywords: ['fox']
+  level: 64
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 18
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 -50 S 2 18 6 1d4+18 1d6+0 0 200 8 8 0
+
+- id: 6100
+  key: the_vicious_warg
+  name: the vicious warg
+  short_desc: A vicious warg is here, snarling angrily at you.
+  long_desc: |
+    It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
+    quickly from its long, white fangs.  It looks quite dangerous and very angry.
+  keywords: ['warg', 'vicious']
+  level: 96
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 0 -350 S 5 16 5 1d12+60 2d4+0 0 800 8 8 0
+
+- id: 6101
+  key: the_ferocious_warg
+  name: the ferocious warg
+  short_desc: A ferocious warg is here, snarling angrily at you.
+  long_desc: |
+    It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
+    quickly from its long, white fangs.  It looks quite dangerous and very angry.
+  keywords: ['warg', 'ferocious']
+  level: 96
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 0 -350 S 5 16 5 1d12+60 2d4+0 0 800 8 8 0
+
+- id: 6102
+  key: the_large_grey_wolf
+  name: the large, grey wolf
+  short_desc: A large, grey wolf is here, glaring hungrily at you.
+  long_desc: |
+    The large, grey wolf eyes you with interest while licking its lips.
+  keywords: ['wolf', 'grey']
+  level: 96
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 0 -150 S 3 18 7 1d12+35 1d7+0 0 450 8 8 0
+
+- id: 6103
+  key: the_large_black_wolf
+  name: the large, black wolf
+  short_desc: A large, black wolf is here, glaring hungrily at you.
+  long_desc: |
+    The large, black wolf eyes you with interest while licking its lips.
+  keywords: ['wolf', 'black']
+  level: 96
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 0 -150 S 3 18 7 1d12+35 1d7+0 0 450 8 8 0
+
+- id: 6112
+  key: the_huge_green_dragon
+  name: the huge, green dragon
+  short_desc: A huge green dragon is here, its narrow yellow eyes glowing with rage.
+  long_desc: |
+    This enormous winged serpent has dark green scales covering most of its
+    colossal body.  Numerous holes in its heavy wings tell of many fights as does
+    the nicks in the horns on its head.  It smells as disgusting as only dragons
+    do.
+  keywords: ['dragon', 'green']
+  level: 99
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 99 8 -1000 S 25 -5 -7 25d25+250 2d6+18 50000 200000 8 8 0
+
+- id: 6115
+  key: shargugh
+  name: Shargugh
+  short_desc: Shargugh the Forest Brownie is here, grinning broadly at you.
+  long_desc: |
+    This little fellow is only three foot tall with wild matted brown hair and long
+    tangled brown beard.  He wears ragged brown and green clothing and looks as if
+    he is having great fun.
+  keywords: ['shargugh', 'brownie']
+  level: 148
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 148 32778 1000 S 10 1 -10 10d10+100 1d8+2 1000 3000 8 8 1
+
+- id: 6116
+  key: the_elder_druid
+  name: the elder druid
+  short_desc: The elder druid is here ... he looks very upset at your presence in his home.
+  long_desc: |
+    The druid looks quite old.  You would think him venerable, but you know
+    he would be a tough foe.
+  keywords: ['elder', 'druid']
+  level: 38
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 8 0 S 17 4 -7 17d17+170 2d8+2 5000 20000 8 8 1
+

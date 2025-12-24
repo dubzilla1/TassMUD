@@ -1,0 +1,627 @@
+- id: 2200
+  key: |
+  the_dragon_hatchling:
+  name: |
+  hatchling_dragon_baby:
+  short_desc: |
+  the_dragon_hatchling:
+  long_desc: |
+  A_dragon_hatchling_is_here_chewing_on_a_bone:
+  keywords: ['hatchling', 'dragon', 'baby']
+  level: 2
+  hp_max: 118
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2201
+  key: |
+  the_draconian:
+  name: |
+  draconian:
+  short_desc: |
+  the_Draconian:
+  long_desc: |
+  The_Draconian_is_standing_here:
+  keywords: ['draconian']
+  level: 2
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2202
+  key: |
+  the_dragon_master:
+  name: |
+  master:
+  short_desc: |
+  the_dragon_master:
+  long_desc: |
+  The_lord_of_this_crypt_is_here:
+  keywords: ['master']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2203
+  key: |
+  a_powerful_mage:
+  name: |
+  man_mage_wizard:
+  short_desc: |
+  a_powerful_mage:
+  long_desc: |
+  A_man_is_here_studying_some_books:
+  keywords: ['man', 'mage', 'wizard']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 220
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2204
+  key: |
+  the_holy_draconian:
+  name: |
+  cleric_draconian:
+  short_desc: |
+  the_holy_Draconian:
+  long_desc: |
+  A_Draconian_is_here_deep_in_thought:
+  keywords: ['cleric', 'draconian']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 220
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2205
+  key: |
+  the_draconian_king:
+  name: |
+  king_draconian:
+  short_desc: |
+  the_Draconian_King:
+  long_desc: |
+  A_Draconian_wearing_fine_clothes_is_here_pondering_his_greatness:
+  keywords: ['king', 'draconian']
+  level: 2
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2206
+  key: |
+  a_concubine:
+  name: |
+  concubine_draconian:
+  short_desc: |
+  a_concubine:
+  long_desc: |
+  A_concubine_is_resting_here:
+  keywords: ['concubine', 'draconian']
+  level: 2
+  hp_max: 83
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2207
+  key: |
+  a_bodyguard:
+  name: |
+  bodyguard_draconian:
+  short_desc: |
+  A_bodyguard:
+  long_desc: |
+  A_bodyguard_is_here_staring_at_you_menacingly:
+  keywords: ['bodyguard', 'draconian']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2220
+  key: |
+  tiamat:
+  name: |
+  tiamat_dragon:
+  short_desc: |
+  Tiamat:
+  long_desc: |
+  A_five_headed_dragon_hisses_at_you_as_you_enter_this_room:
+  keywords: ['tiamat', 'dragon']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2221
+  key: |
+  the_great_red_dragon:
+  name: |
+  dragon_red:
+  short_desc: |
+  the_Great_Red_Dragon:
+  long_desc: |
+  A_red_dragon_is_here_contemplating_your_existence:
+  keywords: ['dragon', 'red']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2222
+  key: |
+  the_great_black_dragon:
+  name: |
+  dragon_black:
+  short_desc: |
+  the_Great_Black_Dragon:
+  long_desc: |
+  A_black_dragon_is_here_laughing_at_your_insolence:
+  keywords: ['dragon', 'black']
+  level: 2
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2223
+  key: |
+  the_great_white_dragon:
+  name: |
+  dragon_white:
+  short_desc: |
+  the_Great_White_Dragon:
+  long_desc: |
+  A_white_dragon_is_here_waiting_for_you:
+  keywords: ['dragon', 'white']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2225
+  key: |
+  the_ancient_green_dragon:
+  name: |
+  dragon_green:
+  short_desc: |
+  the_Ancient_Green_Dragon:
+  long_desc: |
+  A_green_dragon_is_here_looking_distraught:
+  keywords: ['dragon', 'green']
+  level: 2
+  hp_max: 806
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 31
+  damage_bonus: 310
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2226
+  key: |
+  a_large_hydra:
+  name: |
+  hydra:
+  short_desc: |
+  a_large_hydra:
+  long_desc: |
+  A_hydra_is_here_blocking_the_doorway:
+  keywords: ['hydra']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2227
+  key: |
+  a_human_slave:
+  name: |
+  slave_human:
+  short_desc: |
+  A_human_slave:
+  long_desc: |
+  A_Human_slave_is_here_hard_at_work:
+  keywords: ['slave', 'human']
+  level: 2
+  hp_max: 55
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2240
+  key: |
+  a_draconian_zombie:
+  name: |
+  zombie_draconian:
+  short_desc: |
+  a_Draconian_zombie:
+  long_desc: |
+  A_Draconian_zombie_is_here_staring_at_nothing_in_particular:
+  keywords: ['zombie', 'draconian']
+  level: 2
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 100
+  damage_bonus: 175
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2241
+  key: |
+  the_phase_dragon:
+  name: |
+  dragon_phase:
+  short_desc: |
+  the_phase_dragon:
+  long_desc: |
+  A_Phase_Dragon_is_darting_around_the_room:
+  keywords: ['dragon', 'phase']
+  level: 4
+  hp_max: 205
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2242
+  key: |
+  the_draconian_fool:
+  name: |
+  fool_draconian:
+  short_desc: |
+  the_draconian_fool:
+  long_desc: |
+  A_Fool_is_here_making_fun_of_you:
+  keywords: ['fool', 'draconian']
+  level: 64
+  hp_max: 55
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2243
+  key: |
+  the_draconian_queen:
+  name: |
+  queen_draconian:
+  short_desc: |
+  the_Draconian_Queen:
+  long_desc: |
+  A_Female_Draconian_sits_here_looking_very_important:
+  keywords: ['queen', 'draconian']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

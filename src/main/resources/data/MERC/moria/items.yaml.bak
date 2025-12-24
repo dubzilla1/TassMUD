@@ -1,0 +1,234 @@
+items:
+  - id: 4000
+    key: ring_yellow_green
+    name: a yellow and green ring
+    description: A ring, with yellow and green ornamentation. It looks very old.
+    weight: 1
+    value: 50
+    type: armor
+    slot: finger
+    armor_class: 0
+    wear_flags:
+      - TAKE
+      - WEAR_FINGER
+      - HOLD
+    keywords: [ring, yellow, green]
+    applies:
+      - location: 1
+        modifier: -2
+  - id: 4001
+    key: corpse
+    name: a corpse
+    description: A halfway decayed corpse of a goblin.
+    weight: 10
+    value: 0
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [corpse]
+  - id: 4002
+    key: coins
+    name: some coins
+    description: A small pile of coins.
+    weight: 0
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [coins]
+  - id: 4050
+    key: potion_purple
+    name: a purple potion
+    description: A purple potion is here.
+    weight: 1
+    value: 500
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [potion, purple]
+    spell_ids:
+      - 17
+      - 14
+      - 36
+  - id: 4051
+    key: helmet_metal
+    name: a metal helmet
+    description: A metal helmet is here.
+    weight: 4
+    value: 3000
+    type: armor
+    slot: head
+    armor_class: 3
+    wear_flags:
+      - TAKE
+      - WEAR_HEAD
+      - HOLD
+    keywords: [helmet, metal]
+    applies:
+      - location: 24
+        modifier: -2
+      - location: 23
+        modifier: -2
+  - id: 4052
+    key: mushroom
+    name: a mushroom
+    description: A small mushroom is here.
+    weight: 1
+    value: 9
+    type: inventory
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [mushroom]
+  - id: 4053
+    key: dirk
+    name: a thieves dirk
+    description: A beautifully crafted dirk is lying here.
+    weight: 2
+    value: 850
+    type: weapon
+    multiplier: 2
+    base_die: 6
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dirk]
+    applies:
+      - location: 18
+        modifier: 1
+      - location: 19
+        modifier: 2
+    on_equip_effect_ids:
+      - 202
+      - 502
+  - id: 4100
+    key: blade_black_demon
+    name: a black demon blade
+    description: An evil black demon blade is here.
+    weight: 8
+    value: 10000
+    type: weapon
+    multiplier: 3
+    base_die: 4
+    damage_bonus: 11
+    weapon_family: OTHER
+    weapon_category: EXOTIC
+    extra_flags:
+      - ANTI_GOOD
+      - ANTI_NEUTRAL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [blade, black, demon]
+  - id: 4101
+    key: gloves
+    name: swordsman's gloves
+    description: Some gloves are here.  They look like the right equipment for fighting.
+    weight: 1
+    value: 1500
+    type: armor
+    slot: hands
+    armor_class: 2
+    extra_flags:
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - WEAR_HANDS
+    keywords: [gloves]
+    applies:
+      - location: 18
+        modifier: 2
+      - location: 19
+        modifier: 1
+    on_equip_effect_ids:
+      - 501
+      - 503
+  - id: 4102
+    key: scroll_ysafg
+    name: a scroll which reads "ysafg"
+    description: A scroll which reads "ysafg", it looks very fragile and quite old.
+    weight: 1
+    value: 1500
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [scroll, ysafg]
+    spell_ids:
+      - 1
+      - 53
+      - 0
+      - 0
+  - id: 4103
+    key: slime_mold
+    name: a green slime mold
+    description: A green slime mold is here. Stinks like sh**.
+    weight: 1
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [slime, mold]
+  - id: 4104
+    key: slime_mold
+    name: a green slime mold
+    description: A green slime mold is here. Stinks like sh**.
+    weight: 1
+    value: 20
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [slime, mold]
+  - id: 4150
+    key: black_potion
+    name: a black potion
+    description: A thick black potion is here.
+    weight: 1
+    value: 100
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [black, potion]
+    spell_ids:
+      - 15
+      - 15
+  - id: 4151
+    key: staff_oak
+    name: a heavy oak staff
+    description: A ancient heavy oak staff is here.
+    weight: 10
+    value: 3000
+    type: weapon
+    multiplier: 4
+    base_die: 2
+    damage_bonus: 27
+    hands: 2
+    weapon_family: STAVES
+    weapon_category: SIMPLE
+    extra_flags:
+      - ANTI_GOOD
+    wear_flags:
+      - TAKE
+      - HOLD
+    keywords: [staff, oak]
+  - id: 4152
+    key: dagger_light_silver
+    name: a light silver dagger
+    description: A light silver dagger is here.
+    weight: 4
+    value: 6000
+    type: weapon
+    multiplier: 2
+    base_die: 5
+    damage_bonus: 11
+    weapon_family: DAGGERS
+    weapon_category: SIMPLE
+    extra_flags:
+      - ANTI_EVIL
+    wear_flags:
+      - TAKE
+      - WIELD
+    keywords: [dagger, light, silver]

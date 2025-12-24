@@ -1,0 +1,1056 @@
+- id: 9301
+  key: |
+  a_poor_mudder:
+  name: |
+  poor_mudder:
+  short_desc: |
+  a_poor_mudder:
+  long_desc: |
+  A_poor_mudder_lost_in_this_place:
+  keywords: ['poor', 'mudder']
+  level: 68
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9302
+  key: |
+  a_beautiful_star:
+  name: |
+  star:
+  short_desc: |
+  a_beautiful_star:
+  long_desc: |
+  A_beautiful_white_star_smiles_at_you:
+  keywords: ['star']
+  level: 66
+  hp_max: 92
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9303
+  key: |
+  a_young_nebula:
+  name: |
+  nebula_young:
+  short_desc: |
+  a_young_nebula:
+  long_desc: |
+  A_young_nebula_waiting_to_become_a_star:
+  keywords: ['nebula', 'young']
+  level: 64
+  hp_max: 250
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9304
+  key: |
+  a_speedy_comet:
+  name: |
+  comet_speedy:
+  short_desc: |
+  a_speedy_comet:
+  long_desc: |
+  A_speedy_comet_is_waiting_to_crush_your_head_in:
+  keywords: ['comet', 'speedy']
+  level: 100
+  hp_max: 174
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9305
+  key: |
+  a_red_supergiant:
+  name: |
+  red_supergiant:
+  short_desc: |
+  a_red_supergiant:
+  long_desc: |
+  An_enormous_red_supergiant_is_forced_to_protect_the_galaxy:
+  keywords: ['red', 'supergiant']
+  level: 194
+  hp_max: 215
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9306
+  key: |
+  a_white_dwarf:
+  name: |
+  white_dwarf:
+  short_desc: |
+  a_white_dwarf:
+  long_desc: |
+  A_tiny_white_dwarf_is_trying_to_sneak_away_from_duty:
+  keywords: ['white', 'dwarf']
+  level: 68
+  hp_max: 304
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 280
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9307
+  key: |
+  a_horsehead_nebula:
+  name: |
+  horsehead_nebula:
+  short_desc: |
+  a_horsehead_nebula:
+  long_desc: |
+  A_huge_nebula_is_here_resembling_a_horsehead:
+  keywords: ['horsehead', 'nebula']
+  level: 66
+  hp_max: 324
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9308
+  key: |
+  poor_andromeda:
+  name: |
+  andromeda:
+  short_desc: |
+  poor_Andromeda:
+  long_desc: |
+  The_poor_Andromeda_is_chained_to_the_wall_suffering_:
+  keywords: ['andromeda']
+  level: 82
+  hp_max: 324
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9309
+  key: |
+  the_mighty_hercules:
+  name: |
+  hercules:
+  short_desc: |
+  the_mighty_Hercules:
+  long_desc: |
+  The_Mighty_Hercules_is_working_hard_on_his_extra_Labours_for_the_Gods:
+  keywords: ['hercules']
+  level: 66
+  hp_max: 418
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9310
+  key: |
+  the_wild_pegasus:
+  name: |
+  pegasus:
+  short_desc: |
+  the_wild_Pegasus:
+  long_desc: |
+  The_wild_pegasus_is_grazing_peacefully:
+  keywords: ['pegasus']
+  level: 194
+  hp_max: 182
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9311
+  key: |
+  orion_the_hunter:
+  name: |
+  orion:
+  short_desc: |
+  Orion_the_hunter:
+  long_desc: |
+  Orion_is_still_hunting_for_Scorpio:
+  keywords: ['orion']
+  level: 66
+  hp_max: 412
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9312
+  key: |
+  the_pleiades:
+  name: |
+  pleiades:
+  short_desc: |
+  the_Pleiades:
+  long_desc: |
+  The_Pleiades_are_here_weeping_for_the_loss_of_their_sisters:
+  keywords: ['pleiades']
+  level: 66
+  hp_max: 127
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9313
+  key: |
+  the_head_of_draco:
+  name: |
+  draco_head:
+  short_desc: |
+  the_Head_of_Draco:
+  long_desc: |
+  The_gigantic_Head_of_Draco_lurks_out_from_beneath_and_prepares_to_roast_you:
+  keywords: ['draco', 'head']
+  level: 98
+  hp_max: 610
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 600
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9314
+  key: |
+  a_baby_draco:
+  name: |
+  draco_baby:
+  short_desc: |
+  a_baby_draco:
+  long_desc: |
+  A_baby_draco_is_crawling_on_the_Dracos_body:
+  keywords: ['draco', 'baby']
+  level: 196
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9315
+  key: |
+  aries:
+  name: |
+  aries:
+  short_desc: |
+  Aries:
+  long_desc: |
+  Aries_is_sitting_here_welcoming_you:
+  keywords: ['aries']
+  level: 66
+  hp_max: 515
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9316
+  key: |
+  taurus:
+  name: |
+  taurus:
+  short_desc: |
+  Taurus:
+  long_desc: |
+  Taurus_wants_to_leave_but_has_been_forced_to_stay_as_a_guardian_here:
+  keywords: ['taurus']
+  level: 98
+  hp_max: 510
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9317
+  key: |
+  gemini:
+  name: |
+  gemini:
+  short_desc: |
+  Gemini:
+  long_desc: |
+  Gemini_is_looking_for_his_brother_have_you_seen_him:
+  keywords: ['gemini']
+  level: 66
+  hp_max: 414
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9318
+  key: |
+  gemini:
+  name: |
+  gemini:
+  short_desc: |
+  Gemini:
+  long_desc: |
+  Gemini_is_hiding_from_his_brother_grinning_evilly_at_you:
+  keywords: ['gemini']
+  level: 230
+  hp_max: 207
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9319
+  key: |
+  cancer:
+  name: |
+  cancer:
+  short_desc: |
+  Cancer:
+  long_desc: |
+  Cancer_the_crab_is_here_hoarding_the_treasure_away_from_you:
+  keywords: ['cancer']
+  level: 66
+  hp_max: 511
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9320
+  key: |
+  leo:
+  name: |
+  leo:
+  short_desc: |
+  Leo:
+  long_desc: |
+  Leo_the_lion_is_roaring_at_you_ready_for_a_strike:
+  keywords: ['leo']
+  level: 98
+  hp_max: 521
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9321
+  key: |
+  virgo:
+  name: |
+  virgo:
+  short_desc: |
+  Virgo:
+  long_desc: |
+  Virgo_is_sitting_here_winking_at_you_suggestively__you_are_alarmed:
+  keywords: ['virgo']
+  level: 66
+  hp_max: 463
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 450
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9322
+  key: |
+  libra:
+  name: |
+  libra:
+  short_desc: |
+  Libra:
+  long_desc: |
+  Libra_the_fair_and_just_is_staring_at_you_weighing_up_the_sins_of_your_past:
+  keywords: ['libra']
+  level: 66
+  hp_max: 512
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9323
+  key: |
+  scorpio:
+  name: |
+  scorpio:
+  short_desc: |
+  Scorpio:
+  long_desc: |
+  Scorpio_is_moving_his_tail_towards_you_waiting_to_put_an_end_to_some_mortals:
+  keywords: ['scorpio']
+  level: 98
+  hp_max: 478
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 470
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9324
+  key: |
+  sagittarius:
+  name: |
+  sagittarius:
+  short_desc: |
+  Sagittarius:
+  long_desc: |
+  Sagittarius_the_centaur_is_waiting_to_let_go_of_his_well_aimed_arrow_:
+  keywords: ['sagittarius']
+  level: 66
+  hp_max: 517
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9325
+  key: |
+  capricon:
+  name: |
+  capricon:
+  short_desc: |
+  Capricon:
+  long_desc: |
+  Capricon_is_here_feeling_bored__he_wants_a_fight:
+  keywords: ['capricon']
+  level: 66
+  hp_max: 536
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 520
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9326
+  key: |
+  aquarius:
+  name: |
+  aquarius:
+  short_desc: |
+  Aquarius:
+  long_desc: |
+  The_beautiful_Aquarius_is_standing_here_holding_THE_vessel:
+  keywords: ['aquarius']
+  level: 66
+  hp_max: 509
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9327
+  key: |
+  pisces_the_mermaid:
+  name: |
+  pisces_mermaid:
+  short_desc: |
+  Pisces_the_mermaid:
+  long_desc: |
+  Pisces_the_mermaid_is_sitting_here_waiting_for_your_help:
+  keywords: ['pisces', 'mermaid']
+  level: 66
+  hp_max: 512
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9328
+  key: |
+  pisces_the_fish:
+  name: |
+  pisces_fish:
+  short_desc: |
+  Pisces_the_fish:
+  long_desc: |
+  Pisces_the_fish_is_jealous_of_your_approach:
+  keywords: ['pisces', 'fish']
+  level: 98
+  hp_max: 406
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9329
+  key: |
+  ursa_major_the_bear:
+  name: |
+  bear_ursa_major:
+  short_desc: |
+  Ursa_Major_the_bear:
+  long_desc: |
+  Ursa_Major_the_bear_is_the_last_defense_against_any_intruders:
+  keywords: ['bear', 'ursa', 'major']
+  level: 98
+  hp_max: 805
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 800
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9330
+  key: |
+  cassiopeia_the_queen:
+  name: |
+  cassiopeia_queen:
+  short_desc: |
+  Cassiopeia_the_Queen:
+  long_desc: |
+  Cassiopeia_the_queen_of_the_Universe_is_sitting_on_her_throne:
+  keywords: ['cassiopeia', 'queen']
+  level: 66
+  hp_max: 720
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9331
+  key: |
+  cepheus_the_king:
+  name: |
+  cepheus_king:
+  short_desc: |
+  Cepheus_the_King:
+  long_desc: |
+  Cepheus_the_king_of_the_Universe_is_sitting_on_his_throne:
+  keywords: ['cepheus', 'king']
+  level: 66
+  hp_max: 725
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9332
+  key: |
+  polaris_the_polar_star:
+  name: |
+  polaris_polar_star:
+  short_desc: |
+  Polaris_the_polar_star:
+  long_desc: |
+  Polaris_the_polar_star_who_commands_the_whole_Universe_stands_before_you:
+  keywords: ['polaris', 'polar', 'star']
+  level: 66
+  hp_max: 1500
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

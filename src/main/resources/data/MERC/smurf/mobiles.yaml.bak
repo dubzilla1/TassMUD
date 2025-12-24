@@ -1,0 +1,396 @@
+- id: 101
+  key: |
+  a_smurf:
+  name: |
+  smurf:
+  short_desc: |
+  a_smurf:
+  long_desc: |
+  A_smurf_is_singing_and_walking_along:
+  keywords: ['smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 2
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 102
+  key: |
+  a_smurf:
+  name: |
+  smurf:
+  short_desc: |
+  a_smurf:
+  long_desc: |
+  A_smurf_is_here_picking_berries:
+  keywords: ['smurf']
+  level: 130
+  hp_max: 26
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 103
+  key: |
+  brainy_smurf:
+  name: |
+  brainy_smurf:
+  short_desc: |
+  Brainy_Smurf:
+  long_desc: |
+  Brainy_Smurf_is_here_mumbling_something_to_himself:
+  keywords: ['brainy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 104
+  key: |
+  handy_smurf:
+  name: |
+  handy_smurf:
+  short_desc: |
+  Handy_Smurf:
+  long_desc: |
+  Handy_Smurf_is_building_something_here:
+  keywords: ['handy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 105
+  key: |
+  sleepy_smurf:
+  name: |
+  sleepy_smurf:
+  short_desc: |
+  Sleepy_Smurf:
+  long_desc: |
+  Sleepy_Smurf_is_sleep_walking_here:
+  keywords: ['sleepy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 106
+  key: |
+  hefty_smurf:
+  name: |
+  hefty_smurf:
+  short_desc: |
+  Hefty_Smurf:
+  long_desc: |
+  Hefty_Smurf_is_lifting_weights_here:
+  keywords: ['hefty', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 107
+  key: |
+  grumpy_smurf:
+  name: |
+  grumpy_smurf:
+  short_desc: |
+  Grumpy_Smurf:
+  long_desc: |
+  Grumpy_Smurf_is_here_swearing:
+  keywords: ['grumpy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 108
+  key: |
+  jokey_smurf:
+  name: |
+  jokey_smurf:
+  short_desc: |
+  Jokey_Smurf:
+  long_desc: |
+  Jokey_Smurf_is_here_holding_a_present:
+  keywords: ['jokey', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 109
+  key: |
+  smurfette:
+  name: |
+  smurfette:
+  short_desc: |
+  Smurfette:
+  long_desc: |
+  Smurfette_is_here_looking_beautiful:
+  keywords: ['smurfette']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 110
+  key: |
+  papa_smurf:
+  name: |
+  papa_smurf:
+  short_desc: |
+  Papa_Smurf:
+  long_desc: |
+  Papa_Smurf_is_practicing_magic_here:
+  keywords: ['papa', 'smurf']
+  level: 192
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 111
+  key: |
+  gargamel:
+  name: |
+  gargamel:
+  short_desc: |
+  Gargamel:
+  long_desc: |
+  Gargamel_is_here_cursing_out_the_smurfs:
+  keywords: ['gargamel']
+  level: 130
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 112
+  key: |
+  azreal:
+  name: |
+  azreal_cat:
+  short_desc: |
+  Azreal:
+  long_desc: |
+  Azreal_is_here_licking_himself:
+  keywords: ['azreal', 'cat']
+  level: 130
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

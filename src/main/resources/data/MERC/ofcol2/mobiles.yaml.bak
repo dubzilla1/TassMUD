@@ -1,0 +1,1155 @@
+- id: 600
+  key: |
+  the_ofcol_cityguard:
+  name: |
+  cityguard_guard:
+  short_desc: |
+  the_Ofcol_cityguard:
+  long_desc: |
+  An_Ofcol_cityguard_is_standing_here_making_sure_there_is_no_trouble:
+  keywords: ['cityguard', 'guard']
+  level: 4
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 601
+  key: |
+  marshall_diana:
+  name: |
+  marshall_diana:
+  short_desc: |
+  Marshall_Diana:
+  long_desc: |
+  Diana_the_Marshall_of_Ofcol_stands_here_proudly:
+  keywords: ['marshall', 'diana']
+  level: 2
+  hp_max: 961
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 602
+  key: |
+  captain_derrick:
+  name: |
+  derrick_captain_guard_cityguard:
+  short_desc: |
+  Captain_Derrick:
+  long_desc: |
+  Derrick_Captain_of_the_Guard_is_here_disciplining_his_guards:
+  keywords: ['derrick', 'captain', 'guard', 'cityguard']
+  level: 64
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 603
+  key: |
+  captain_jacklyn:
+  name: |
+  jacklyn_captain_guard_cityguard:
+  short_desc: |
+  Captain_Jacklyn:
+  long_desc: |
+  Jacklyn_Captain_of_the_Citadel_Guard_is_herenbringing_her_soldiers_morale_up:
+  keywords: ['jacklyn', 'captain', 'guard', 'cityguard']
+  level: 2
+  hp_max: 558
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 604
+  key: |
+  jim_the_blacksmith:
+  name: |
+  jim_blacksmith:
+  short_desc: |
+  Jim_the_Blacksmith:
+  long_desc: |
+  Jim_the_Blacksmith_is_here_selling_his_latest_works_of_metal:
+  keywords: ['jim', 'blacksmith']
+  level: 2
+  hp_max: 2001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 2000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 605
+  key: |
+  sam:
+  name: |
+  sam:
+  short_desc: |
+  Sam:
+  long_desc: |
+  Sam_is_here_selling_his_leather_works:
+  keywords: ['sam']
+  level: 2
+  hp_max: 2001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 2000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 606
+  key: |
+  madam_tracy:
+  name: |
+  madam_tracy:
+  short_desc: |
+  Madam_Tracy:
+  long_desc: |
+  Madam_Tracy_is_here_selling_and_buying_little_treasures:
+  keywords: ['madam', 'tracy']
+  level: 2
+  hp_max: 1501
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 607
+  key: |
+  marty:
+  name: |
+  marty:
+  short_desc: |
+  Marty:
+  long_desc: |
+  Marty_the_meat_store_owner_is_here_selling_you_his_choice_meats:
+  keywords: ['marty']
+  level: 2
+  hp_max: 2001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 2000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 608
+  key: |
+  farmer_elizabeth:
+  name: |
+  elizabeth_farmer:
+  short_desc: |
+  Farmer_Elizabeth:
+  long_desc: |
+  Farmer_Elizabeth_is_here_selling_the_latest_crop:
+  keywords: ['elizabeth', 'farmer']
+  level: 2
+  hp_max: 1001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 609
+  key: |
+  granny_jenkins:
+  name: |
+  granny_jenkins:
+  short_desc: |
+  Granny_Jenkins:
+  long_desc: |
+  Granny_Jenkins_is_here_running_the_still:
+  keywords: ['granny', 'jenkins']
+  level: 2
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 610
+  key: |
+  jack:
+  name: |
+  jack:
+  short_desc: |
+  Jack:
+  long_desc: |
+  Jack_is_here_slaughtering_away_at_the_animals:
+  keywords: ['jack']
+  level: 162
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 611
+  key: |
+  farmer_sara:
+  name: |
+  sara_farmer:
+  short_desc: |
+  Farmer_Sara:
+  long_desc: |
+  Farmer_Sara_is_here_milking_the_cows:
+  keywords: ['sara', 'farmer']
+  level: 130
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 612
+  key: |
+  a_hen:
+  name: |
+  chicken_hen:
+  short_desc: |
+  a_hen:
+  long_desc: |
+  A_hen_is_here_squawking_at_your_intrusion:
+  keywords: ['chicken', 'hen']
+  level: 128
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 613
+  key: |
+  the_cow:
+  name: |
+  cow:
+  short_desc: |
+  the_cow:
+  long_desc: |
+  A_cow_is_here_munching_on_grass:
+  keywords: ['cow']
+  level: 5
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 614
+  key: |
+  the_cow:
+  name: |
+  cow:
+  short_desc: |
+  the_cow:
+  long_desc: |
+  A_cow_is_here_waiting_to_be_milked:
+  keywords: ['cow']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 615
+  key: |
+  the_young_horse:
+  name: |
+  horse_young:
+  short_desc: |
+  the_young_horse:
+  long_desc: |
+  A_young_horse_is_here_grazing:
+  keywords: ['horse', 'young']
+  level: 160
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 616
+  key: |
+  the_pig:
+  name: |
+  pig:
+  short_desc: |
+  the_pig:
+  long_desc: |
+  A_pig_is_playing_here_getting_itself_and_you_dirty:
+  keywords: ['pig']
+  level: 2
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 617
+  key: |
+  the_citizen:
+  name: |
+  citizen_man:
+  short_desc: |
+  the_citizen:
+  long_desc: |
+  A_citizen_is_here_smiling_at_you:
+  keywords: ['citizen', 'man']
+  level: 128
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 618
+  key: |
+  the_citizen:
+  name: |
+  citizen_woman:
+  short_desc: |
+  the_citizen:
+  long_desc: |
+  A_citizen_is_here_smiling_at_you:
+  keywords: ['citizen', 'woman']
+  level: 128
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 619
+  key: |
+  the_boy:
+  name: |
+  child_boy:
+  short_desc: |
+  the_boy:
+  long_desc: |
+  A_boy_is_here_playing_tag_and_other_kids_games:
+  keywords: ['child', 'boy']
+  level: 128
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 620
+  key: |
+  the_girl:
+  name: |
+  child_girl:
+  short_desc: |
+  the_girl:
+  long_desc: |
+  A_girl_is_here_playing_jump_jacks_and_other_kids_games:
+  keywords: ['child', 'girl']
+  level: 128
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 621
+  key: |
+  the_maid:
+  name: |
+  maid_woman:
+  short_desc: |
+  the_maid:
+  long_desc: |
+  A_maid_is_here_cleaning_the_house_and_preparing_the_next_meal:
+  keywords: ['maid', 'woman']
+  level: 128
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 622
+  key: |
+  nyles_the_bartender:
+  name: |
+  Nyles:
+  short_desc: |
+  Nyles_the_Bartender:
+  long_desc: |
+  Nyles_the_Bartender_is_here_ready_to_serve_you_up_a_good_brew:
+  keywords: ['Nyles']
+  level: 2
+  hp_max: 3465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 3000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 623
+  key: |
+  the_ofcol_cityguard:
+  name: |
+  cityguard_guard:
+  short_desc: |
+  the_Ofcol_cityguard:
+  long_desc: |
+  An_Ofcol_cityguard_is_posted_here_to_guard_the_gate:
+  keywords: ['cityguard', 'guard']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 624
+  key: |
+  a_bard:
+  name: |
+  bard:
+  short_desc: |
+  a_bard:
+  long_desc: |
+  A_bard_is_here_singing_of_the_glories_of_Ofcol:
+  keywords: ['bard']
+  level: 2
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 625
+  key: |
+  a_servant:
+  name: |
+  servant:
+  short_desc: |
+  a_servant:
+  long_desc: |
+  A_servant_is_here_carrying_the_duties_of_the_Keeper_of_the_Golden_Citadel:
+  keywords: ['servant']
+  level: 64
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 626
+  key: |
+  a_squire:
+  name: |
+  squire:
+  short_desc: |
+  a_squire:
+  long_desc: |
+  A_squire_is_here_scurrying_from_duty_to_duty:
+  keywords: ['squire']
+  level: 64
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 627
+  key: |
+  a_page:
+  name: |
+  page:
+  short_desc: |
+  a_page:
+  long_desc: |
+  A_page_is_here_sending_a_message_to_his_knight:
+  keywords: ['page']
+  level: 64
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 628
+  key: |
+  the_priestess_of_ofcol:
+  name: |
+  priestess:
+  short_desc: |
+  the_Priestess_of_Ofcol:
+  long_desc: |
+  The_Priestess_of_Ofcol_is_here_blessing_you_nwith_her_beatific_smile:
+  keywords: ['priestess']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 629
+  key: |
+  chaplain_jerrold:
+  name: |
+  chaplain_Jerrold:
+  short_desc: |
+  Chaplain_Jerrold:
+  long_desc: |
+  Jerrold_the_chaplain_of_this_Citadel_is_here_ndirecting_the_activities_of_the_people_around_here:
+  keywords: ['chaplain', 'Jerrold']
+  level: 64
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 630
+  key: |
+  a_dragonlord:
+  name: |
+  dragonlord_lord_dragon:
+  short_desc: |
+  a_Dragonlord:
+  long_desc: |
+  A_knight_wearing_the_scales_of_a_dragon_stands_here:
+  keywords: ['dragonlord', 'lord', 'dragon']
+  level: 2
+  hp_max: 725
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 631
+  key: |
+  the_ancient_gold_dragon:
+  name: |
+  dragon_gold:
+  short_desc: |
+  The_Ancient_Gold_Dragon:
+  long_desc: |
+  An_old_dragon_shimmering_with_the_colors_of_this_ncavern_peers_at_you_sleepily:
+  keywords: ['dragon', 'gold']
+  level: 2
+  hp_max: 1073
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 37
+  damage_bonus: 370
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 632
+  key: |
+  an_attendant_of_the_dragon:
+  name: |
+  attendant:
+  short_desc: |
+  an_attendant_of_the_dragon:
+  long_desc: |
+  A_person_robed_in_gold_is_attending_to_the_Keeper_of_the_Citadel:
+  keywords: ['attendant']
+  level: 2
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 633
+  key: |
+  a_dragonknight:
+  name: |
+  dragonknight_knight_dragon:
+  short_desc: |
+  a_Dragonknight:
+  long_desc: |
+  A_person_dressed_in_the_scales_of_a_gold_dragon_nstands_here_guarding_the_Golden_Citadel:
+  keywords: ['dragonknight', 'knight', 'dragon']
+  level: 64
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 634
+  key: |
+  the_ofcol_cityguard:
+  name: |
+  cityguard_guard:
+  short_desc: |
+  the_Ofcol_cityguard:
+  long_desc: |
+  An_Ofcol_cityguard_is_posted_here_to_guard_the_gate:
+  keywords: ['cityguard', 'guard']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

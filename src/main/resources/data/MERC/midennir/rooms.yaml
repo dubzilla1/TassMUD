@@ -287,6 +287,11 @@ rooms:
       south: 3509
       west: 3505
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3501
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 3550
@@ -405,6 +410,11 @@ rooms:
       east: 3512
       south: 3514
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3501
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 3506
@@ -524,6 +534,15 @@ rooms:
       south: 3513
       west: 3509
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3501
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3501
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 3550
@@ -566,6 +585,11 @@ rooms:
       north: 3512
       west: 3514
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3501
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 3512
@@ -913,6 +937,15 @@ rooms:
       east: 3523
       west: 3522
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3500
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 3500
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 3519
@@ -1072,6 +1105,11 @@ rooms:
       south: 3552
       west: 3523
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3506
+        quantity: 4
+        frequency: 1
     doors:
       south:
         to: 3552
@@ -1240,6 +1278,19 @@ rooms:
     exits:
       north: 3555
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3501
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 3506
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3507
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 3555
@@ -1491,6 +1542,11 @@ rooms:
       north: 3572
       west: 3581
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3502
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 3572
@@ -1524,6 +1580,11 @@ rooms:
     exits:
       south: 3574
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3503
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 3574
@@ -1547,6 +1608,11 @@ rooms:
     exits:
       east: 3574
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3504
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1714,6 +1780,15 @@ rooms:
     exits:
       east: 3583
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 3505
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3505
+        quantity: 4
+        frequency: 1
     doors:
       east:
         to: 3583

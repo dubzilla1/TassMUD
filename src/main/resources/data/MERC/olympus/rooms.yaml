@@ -110,6 +110,11 @@ rooms:
       north: 905
       south: 903
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 923
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 905
@@ -144,6 +149,11 @@ rooms:
       south: 904
       west: 924
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 923
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 906
@@ -188,6 +198,11 @@ rooms:
       east: 925
       west: 926
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 923
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 907
@@ -238,6 +253,11 @@ rooms:
       south: 906
       west: 927
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 923
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 908
@@ -281,6 +301,11 @@ rooms:
       south: 907
       east: 928
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 923
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 909
@@ -379,6 +404,23 @@ rooms:
       south: 909
       down: 918
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 901
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 900
+              wear_loc: 5
+          -
+              item_vnum: 901
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
     legacy_flags:
       - INDOORS
     doors:
@@ -403,12 +445,12 @@ rooms:
       down:
         to: 918
         description: ""
-        keywords: "throne trapdoor"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       throne: |
         This huge golden throne looks as if it has been here for ages.  As you study it
@@ -548,6 +590,15 @@ rooms:
     exits:
       south: 913
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 925
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 925
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -695,6 +746,14 @@ rooms:
       north: 919
       up: 910
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 926
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 927
     legacy_flags:
       - INDOORS
     doors:
@@ -742,7 +801,7 @@ rooms:
         locked: false
         hidden: false
         blocked: false
-        key: 927
+        key: null
       east:
         to: 922
         description: ""
@@ -751,7 +810,7 @@ rooms:
         locked: false
         hidden: false
         blocked: false
-        key: 927
+        key: null
       west:
         to: 921
         description: ""
@@ -760,7 +819,7 @@ rooms:
         locked: false
         hidden: false
         blocked: false
-        key: 927
+        key: null
       south:
         to: 918
         description: ""
@@ -781,6 +840,15 @@ rooms:
     exits:
       south: 919
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 902
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 908
+              wear_loc: 9
     legacy_flags:
       - INDOORS
     doors:
@@ -792,7 +860,7 @@ rooms:
         locked: false
         hidden: false
         blocked: false
-        key: 927
+        key: null
 
   - id: 921
     key: olympus_room_921
@@ -804,6 +872,11 @@ rooms:
     exits:
       east: 919
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 920
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -815,7 +888,7 @@ rooms:
         locked: false
         hidden: false
         blocked: false
-        key: 927
+        key: null
 
   - id: 922
     key: olympus_room_922
@@ -827,6 +900,11 @@ rooms:
     exits:
       west: 919
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 920
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -838,7 +916,7 @@ rooms:
         locked: false
         hidden: false
         blocked: false
-        key: 927
+        key: null
 
   - id: 923
     key: olympus_room_923
@@ -885,6 +963,22 @@ rooms:
     exits:
       east: 905
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 915
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 914
+          -
+              item_vnum: 918
+          -
+              item_vnum: 919
+          -
+              item_vnum: 920
+          -
+              item_vnum: 921
     legacy_flags:
       - INDOORS
     doors:
@@ -909,6 +1003,45 @@ rooms:
     exits:
       west: 906
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 907
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 910
+              wear_loc: 3
+          -
+              item_vnum: 905
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
+      - type: MOB
+        id: 912
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 915
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 914
+      - type: MOB
+        id: 912
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 915
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 914
     legacy_flags:
       - INDOORS
     doors:
@@ -933,6 +1066,42 @@ rooms:
     exits:
       east: 906
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 905
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 907
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
+      - type: MOB
+        id: 911
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 916
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 921
+      - type: MOB
+        id: 911
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 916
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 921
     legacy_flags:
       - INDOORS
     doors:
@@ -957,6 +1126,20 @@ rooms:
     exits:
       east: 907
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 916
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 905
+          -
+              item_vnum: 909
+          -
+              item_vnum: 910
+          -
+              item_vnum: 926
     legacy_flags:
       - INDOORS
     doors:
@@ -982,6 +1165,11 @@ rooms:
       west: 908
       east: 934
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 923
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1016,6 +1204,18 @@ rooms:
     exits:
       east: 912
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 914
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 924
+              wear_loc: 12
+          -
+              item_vnum: 925
+              wear_loc: 6
     legacy_flags:
       - INDOORS
     doors:
@@ -1065,6 +1265,18 @@ rooms:
     exits:
       west: 916
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 919
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 922
+              wear_loc: 3
+          -
+              item_vnum: 923
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1114,6 +1326,23 @@ rooms:
     exits:
       south: 917
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 922
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 922
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 924
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 924
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1142,6 +1371,11 @@ rooms:
       east: 936
       south: 935
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 923
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1193,6 +1427,18 @@ rooms:
     exits:
       north: 934
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 918
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 904
+          -
+              item_vnum: 908
+          -
+              item_vnum: 911
     legacy_flags:
       - INDOORS
     doors:
@@ -1218,6 +1464,16 @@ rooms:
     exits:
       west: 934
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 917
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 907
+          -
+              item_vnum: 913
     legacy_flags:
       - INDOORS
     doors:
@@ -1244,6 +1500,34 @@ rooms:
       south: 934
       west: 938
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 908
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 912
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
+      - type: MOB
+        id: 909
+        quantity: 4
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 917
+      - type: MOB
+        id: 909
+        quantity: 4
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 917
     legacy_flags:
       - INDOORS
     doors:
@@ -1258,13 +1542,13 @@ rooms:
         key: -1
       west:
         to: 938
-        description: "You see a concealed door!"
-        keywords: "door concealed"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 938
     key: olympus_room_938
@@ -1279,6 +1563,42 @@ rooms:
       east: 937
       north: 954
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 906
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 903
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
+      - type: MOB
+        id: 910
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 913
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 919
+      - type: MOB
+        id: 910
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 913
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 919
     doors:
       east:
         to: 937
@@ -1331,13 +1651,13 @@ rooms:
         key: -1
       up:
         to: 948
-        description: "You see a sign on the hatch.  It reads 'Private Property. No trespassing!'"
-        keywords: "hatch"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       north:
         to: 940
         description: ""
@@ -1544,6 +1864,20 @@ rooms:
     exits:
       east: 942
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 921
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 911
+              wear_loc: 1
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
     legacy_flags:
       - INDOORS
     doors:
@@ -1567,6 +1901,20 @@ rooms:
     exits:
       west: 943
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 904
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 906
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
     legacy_flags:
       - INDOORS
     doors:
@@ -1590,6 +1938,23 @@ rooms:
     exits:
       south: 940
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 903
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 904
+              wear_loc: 8
+          -
+              item_vnum: 902
+              wear_loc: 6
+        inventory:
+          -
+              item_vnum: 926
+          -
+              item_vnum: 909
     legacy_flags:
       - INDOORS
     doors:
@@ -1671,6 +2036,19 @@ rooms:
     exits:
       south: 938
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 913
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 913
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 913
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

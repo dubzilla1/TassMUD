@@ -1393,6 +1393,7 @@ public class ItemCommandHandler implements CommandHandler {
                     return true;
                 }
                 int count = 0;
+                int skipped = 0;
                 // Take gold first
                 if (containerGold > 0) {
                     long goldTaken = itemDao.takeGoldContents(matchedContainer.instance.instanceId);
@@ -1400,11 +1401,13 @@ public class ItemCommandHandler implements CommandHandler {
                     out.println("You get " + goldTaken + " gold from " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
                 }
                 for (ItemDAO.RoomItem ci : containerContents) {
+                    if (ci.template.isImmobile()) { skipped++; continue; }
                     itemDao.moveInstanceToCharacter(ci.instance.instanceId, charId);
                     out.println("You get " + ClientHandler.getItemDisplayName(ci) + " from " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
                     count++;
                 }
                 if (count > 1) out.println("Got " + count + " items from " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
+                else if (count == 0 && skipped > 0) out.println("There is nothing in " + ClientHandler.getItemDisplayName(matchedContainer) + " you can pick up.");
                 return true;
             } else {
                 // Get specific item from container
@@ -1471,7 +1474,11 @@ public class ItemCommandHandler implements CommandHandler {
                     out.println("You don't see '" + itemSearchPart + "' in " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
                     return true;
                 }
-                
+                if (matchedItem.template.isImmobile()) {
+                    out.println("You can't pick that up.");
+                    return true;
+                }
+
                 itemDao.moveInstanceToCharacter(matchedItem.instance.instanceId, charId);
                 out.println("You get " + ClientHandler.getItemDisplayName(matchedItem) + " from " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
                 return true;

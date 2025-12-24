@@ -73,6 +73,11 @@ rooms:
       east: 9406
       south: 9400
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9405
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -118,6 +123,11 @@ rooms:
       east: 9405
       south: 9401
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9401
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -155,6 +165,11 @@ rooms:
       north: 9400
       south: 9404
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9402
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -191,6 +206,11 @@ rooms:
     exits:
       north: 9403
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9405
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -268,6 +288,11 @@ rooms:
       south: 9407
       west: 9401
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9403
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -382,6 +407,15 @@ rooms:
       north: 9407
       south: 9409
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9405
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9401
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -419,6 +453,11 @@ rooms:
     exits:
       north: 9408
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9405
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -449,6 +488,19 @@ rooms:
       south: 9411
       west: 9405
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9407
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 9404
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 9403
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -498,6 +550,15 @@ rooms:
       south: 9412
       west: 9406
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9407
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 9401
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -611,6 +672,11 @@ rooms:
       north: 9412
       south: 9414
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9404
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -646,6 +712,11 @@ rooms:
     exits:
       north: 9413
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9403
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -676,6 +747,15 @@ rooms:
       south: 9416
       west: 9410
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9405
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -725,6 +805,11 @@ rooms:
       south: 9417
       west: 9411
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -783,6 +868,11 @@ rooms:
       south: 9418
       west: 9412
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -840,6 +930,15 @@ rooms:
       east: 9423
       south: 9419
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 9401
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -887,6 +986,11 @@ rooms:
       north: 9418
       east: 9424
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -924,6 +1028,15 @@ rooms:
       south: 9421
       west: 9415
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 9407
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -962,6 +1075,15 @@ rooms:
       south: 9422
       west: 9416
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9405
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9403
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1009,6 +1131,11 @@ rooms:
       south: 9423
       west: 9417
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9403
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1056,6 +1183,15 @@ rooms:
       south: 9424
       west: 9418
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 9403
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1102,6 +1238,19 @@ rooms:
       north: 9423
       west: 9419
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9403
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 9406
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 9405
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

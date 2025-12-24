@@ -36,13 +36,13 @@ rooms:
         key: -1
       up:
         to: 6524
-        description: ""
-        keywords: "floorboard board"
+        description: "\* closes exit from north entrance *\"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 2002
     key: catacomb_room_2002
@@ -58,6 +58,11 @@ rooms:
       north: 2001
       south: 2007
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2003
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -97,6 +102,18 @@ rooms:
       east: 2004
       south: 2008
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
+          -
+              item_vnum: 2016
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -132,6 +149,15 @@ rooms:
       west: 2003
       east: 2005
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -168,6 +194,11 @@ rooms:
       east: 2006
       south: 2010
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -211,6 +242,15 @@ rooms:
       west: 2005
       east: 2007
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -291,6 +331,27 @@ rooms:
       east: 2009
       north: 2003
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -326,6 +387,39 @@ rooms:
       west: 2008
       south: 2013
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -361,6 +455,11 @@ rooms:
       south: 2014
       north: 2005
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2002
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -559,6 +658,18 @@ rooms:
     exits:
       west: 2014
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2010
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+          -
+              item_vnum: 2009
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -585,6 +696,64 @@ rooms:
       south: 2023
       north: 2013
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
+      - type: MOB
+        id: 2010
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+          -
+              item_vnum: 2009
+              wear_loc: 5
+      - type: MOB
+        id: 2010
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+          -
+              item_vnum: 2009
+              wear_loc: 5
+      - type: MOB
+        id: 2010
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+          -
+              item_vnum: 2009
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -664,6 +833,18 @@ rooms:
     exits:
       west: 2017
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2010
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+          -
+              item_vnum: 2009
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -696,6 +877,11 @@ rooms:
       south: 2026
       north: 2012
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2006
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -865,6 +1051,30 @@ rooms:
       east: 2024
       north: 2016
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2016
+              wear_loc: 16
+      - type: MOB
+        id: 2008
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2010
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
+          -
+              item_vnum: 2016
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -942,6 +1152,21 @@ rooms:
     exits:
       west: 2024
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2015
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2010
+              wear_loc: 3
+          -
+              item_vnum: 2001
+              wear_loc: 0
+          -
+              item_vnum: 2008
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -968,6 +1193,15 @@ rooms:
       south: 2030
       north: 2019
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2012
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2014
+              wear_loc: 12
     legacy_flags:
       - INDOORS
     doors:
@@ -1039,6 +1273,11 @@ rooms:
       south: 2032
       north: 2022
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 2006
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1053,13 +1292,13 @@ rooms:
         key: -1
       south:
         to: 2032
-        description: "a glowing forcefield with a small circular hole in it."
-        keywords: "glow glowing field forcefield door"
+        description: "\* closes and locks entrance to sacred place *\"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2001
+        key: null
       north:
         to: 2022
         description: ""
@@ -1121,6 +1360,25 @@ rooms:
       east: 2031
       north: 2026
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2017
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2003
+              wear_loc: 2
+          -
+              item_vnum: 2002
+              wear_loc: 5
+          -
+              item_vnum: 2006
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 2005
+              container_vnum: 2007
     legacy_flags:
       - INDOORS
     doors:
@@ -1199,18 +1457,23 @@ rooms:
     exits:
       north: 2028
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 2007
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 2028
-        description: "a glowing forcefield with a small circular hole in it."
-        keywords: "glow glowing field forcefield door"
+        description: "\* closes and locks exit from sacred place *\"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2001
+        key: null
 
   - id: 2033
     key: catacomb_room_2033
@@ -1226,6 +1489,19 @@ rooms:
       south: 2042
       north: 2029
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2006
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -1308,6 +1584,15 @@ rooms:
       west: 2034
       east: 2036
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2007
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -1345,6 +1630,19 @@ rooms:
       east: 2037
       south: 2045
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2006
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 2007
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2011
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1389,6 +1687,19 @@ rooms:
       west: 2036
       east: 2038
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2007
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2009
+              wear_loc: 5
+      - type: MOB
+        id: 2011
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1424,6 +1735,11 @@ rooms:
       west: 2037
       east: 2039
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2007
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1459,6 +1775,15 @@ rooms:
       west: 2038
       south: 2047
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2006
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 2009
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1494,6 +1819,27 @@ rooms:
       east: 2041
       south: 2048
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2006
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -1530,6 +1876,23 @@ rooms:
       west: 2040
       east: 2042
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -1565,6 +1928,15 @@ rooms:
       east: 2043
       north: 2033
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -1608,6 +1980,31 @@ rooms:
     exits:
       west: 2042
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
+      - type: MOB
+        id: 2005
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2015
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -1737,6 +2134,15 @@ rooms:
       south: 2053
       north: 2039
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2009
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 2011
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1827,6 +2233,11 @@ rooms:
       west: 2048
       east: 2050
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2006
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1867,6 +2278,18 @@ rooms:
       south: 2057
       north: 2044
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2016
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2012
+              wear_loc: 5
+          -
+              item_vnum: 2013
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -1966,6 +2389,39 @@ rooms:
       up: 2046
       west: 2051
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2001
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2001
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2001
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2013
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2004
+              wear_loc: 16
+      - type: MOB
+        id: 2001
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2001
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2001
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2002,6 +2458,19 @@ rooms:
       south: 2055
       north: 2047
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2004
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2004
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2011
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2082,6 +2551,23 @@ rooms:
       south: 2062
       north: 2053
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2004
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2004
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2014
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2011
+              wear_loc: 11
     legacy_flags:
       - INDOORS
     doors:
@@ -2423,6 +2909,11 @@ rooms:
       south: 2065
       north: 2063
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2003
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2469,13 +2960,13 @@ rooms:
     doors:
       up:
         to: 6527
-        description: ""
-        keywords: "floorboard board"
+        description: "\* closes exit from south entrance *\"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       north:
         to: 2064
         description: ""

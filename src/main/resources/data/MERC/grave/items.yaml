@@ -1,6 +1,6 @@
 items:
   - id: 3600
-    key: candlestick
+    key: candlestick_3600
     name: a candlestick
     description: A pewter candlestick is standing here.
     weight: 5
@@ -10,72 +10,71 @@ items:
       - TAKE
       - HOLD
     keywords: [candlestick]
-    template_json:
-      raw_block: |
-        1 0 16385
-        0 0 24 0
-        5 150 50
-        E
-        candlestick~
-        It is a rather old-looking three-armed candlestick made from pewter.  Its
-        candles are a yellowish white colour.
-        ~
-      type_line: 1 0 16385
-      extra_desc: |
-        It is a rather old-looking three-armed candlestick made from pewter.  Its
-        candles are a yellowish white colour.
+    legacy_type_line: 1 0 16385
+    legacy_raw: |
+      1 0 16385
+      0 0 24 0
+      5 150 50
+      E
+      candlestick~
+      It is a rather old-looking three-armed candlestick made from pewter.  Its
+      candles are a yellowish white colour.
+      ~
+    extra_desc: |
+      It is a rather old-looking three-armed candlestick made from pewter.  Its
+      candles are a yellowish white colour.
   - id: 3601
-    key: brandy_bottle
+    key: brandy_bottle_3601
     name: a brandy bottle
     description: A brandy bottle is lying here.
     weight: 2
     value: 50
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [brandy, bottle]
-    template_json:
-      raw_block: |
-        10 10 5 0
-        2 50 10
-        E
-        brandy bottle~
-        The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
-        like a small dragon's head.  Bottles like these are often worth a small
-        amount money, even when empty.
-        ~
-      type_line: 17 0 1
-      extra_desc: |
-        The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
-        like a small dragon's head.  Bottles like these are often worth a small
-        amount money, even when empty.
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      10 10 5 0
+      2 50 10
+      E
+      brandy bottle~
+      The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+      like a small dragon's head.  Bottles like these are often worth a small
+      amount money, even when empty.
+      ~
+    extra_desc: |
+      The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+      like a small dragon's head.  Bottles like these are often worth a small
+      amount money, even when empty.
   - id: 3602
-    key: brandy_bottle
+    key: brandy_bottle_3602
     name: a brandy bottle
     description: A brandy bottle is lying here.
     weight: 2
     value: 50
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [brandy, bottle]
-    template_json:
-      raw_block: |
-        10 0 5 0
-        2 50 10
-        E
-        brandy bottle~
-        The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
-        like a small dragon's head.  Bottles like these are often worth some money,
-        even when empty.
-        ~
-      type_line: 17 0 1
-      extra_desc: |
-        The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
-        like a small dragon's head.  Bottles like these are often worth some money,
-        even when empty.
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      10 0 5 0
+      2 50 10
+      E
+      brandy bottle~
+      The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+      like a small dragon's head.  Bottles like these are often worth some money,
+      even when empty.
+      ~
+    extra_desc: |
+      The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+      like a small dragon's head.  Bottles like these are often worth some money,
+      even when empty.
   - id: 3603
-    key: wheelbarrow
+    key: wheelbarrow_3603
     name: a wheelbarrow
     description: A green-painted wheelbarrow is standing here.
     weight: 100
@@ -84,22 +83,21 @@ items:
     wear_flags:
       - TAKE
     keywords: [wheelbarrow]
-    template_json:
-      raw_block: |
-        22 0 1
-        0 0 0 0
-        100 100 100
-        E
-        wheelbarrow~
-        It is a heavy wheelbarrow made from solid oaken planks that have been painted
-        a dark, green colour.
-        ~
-      type_line: 22 0 1
-      extra_desc: |
-        It is a heavy wheelbarrow made from solid oaken planks that have been painted
-        a dark, green colour.
+    legacy_type_line: 22 0 1
+    legacy_raw: |
+      22 0 1
+      0 0 0 0
+      100 100 100
+      E
+      wheelbarrow~
+      It is a heavy wheelbarrow made from solid oaken planks that have been painted
+      a dark, green colour.
+      ~
+    extra_desc: |
+      It is a heavy wheelbarrow made from solid oaken planks that have been painted
+      a dark, green colour.
   - id: 3604
-    key: shovel
+    key: shovel_3604
     name: a shovel
     description: A shovel is lying here.
     weight: 8
@@ -114,20 +112,19 @@ items:
       - TAKE
       - WIELD
     keywords: [shovel]
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 1 5 7
-        8 30 10
-        E
-        shovel~
-        It is a large metal shovel with a solid wooden handle.
-        ~
-      type_line: 5 0 8193
-      extra_desc: It is a large metal shovel with a solid wooden handle.
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 1 5 7
+      8 30 10
+      E
+      shovel~
+      It is a large metal shovel with a solid wooden handle.
+      ~
+    extra_desc: It is a large metal shovel with a solid wooden handle.
   - id: 3605
-    key: rake
+    key: rake_3605
     name: a rake
     description: A rake is lying here.
     weight: 8
@@ -142,20 +139,19 @@ items:
       - TAKE
       - WIELD
     keywords: [rake]
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 1 4 5
-        8 30 10
-        E
-        rake~
-        It is a large metal rake with a solid wooden handle.
-        ~
-      type_line: 5 0 8193
-      extra_desc: It is a large metal rake with a solid wooden handle.
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 1 4 5
+      8 30 10
+      E
+      rake~
+      It is a large metal rake with a solid wooden handle.
+      ~
+    extra_desc: It is a large metal rake with a solid wooden handle.
   - id: 3610
-    key: skeleton
+    key: skeleton_3610
     name: a dusty skeleton
     description: A dusty skeleton lies here.
     weight: 15
@@ -164,23 +160,22 @@ items:
     wear_flags:
       - TAKE
     keywords: [skeleton]
-    template_json:
-      raw_block: |
-        0 0 0 0
-        15 0 0
-        E
-        skeleton~
-        The dusty bones are almost brown.  It must have been buried for a very long
-        time.
-        A dusty skeleton is in an excellent condition.
-        ~
-      type_line: 12 0 1
-      extra_desc: |
-        The dusty bones are almost brown.  It must have been buried for a very long
-        time.
-        A dusty skeleton is in an excellent condition.
+    legacy_type_line: 12 0 1
+    legacy_raw: |
+      0 0 0 0
+      15 0 0
+      E
+      skeleton~
+      The dusty bones are almost brown.  It must have been buried for a very long
+      time.
+      A dusty skeleton is in an excellent condition.
+      ~
+    extra_desc: |
+      The dusty bones are almost brown.  It must have been buried for a very long
+      time.
+      A dusty skeleton is in an excellent condition.
   - id: 3611
-    key: amethyst_gem
+    key: amethyst_gem_3611
     name: a amethyst
     description: A large, beautifully polished amethyst has been left here.
     weight: 1
@@ -190,20 +185,19 @@ items:
       - TAKE
       - HOLD
     keywords: [amethyst, gem]
-    template_json:
-      raw_block: |
-        ~
-        8 0 16385
-        0 0 0 0
-        1 3000 40
-        E
-        amethyst~
-        It has a very deep purple colour.
-        ~
-      type_line: 8 0 16385
-      extra_desc: It has a very deep purple colour.
+    legacy_type_line: 8 0 16385
+    legacy_raw: |
+      ~
+      8 0 16385
+      0 0 0 0
+      1 3000 40
+      E
+      amethyst~
+      It has a very deep purple colour.
+      ~
+    extra_desc: It has a very deep purple colour.
   - id: 3612
-    key: pendant_silver
+    key: pendant_silver_3612
     name: a silver pendant
     description: A silver pendant has been left here.
     weight: 1
@@ -215,20 +209,19 @@ items:
       - TAKE
       - WEAR_NECK
     keywords: [pendant, silver]
-    template_json:
-      raw_block: |
-        ~
-        9 0 1|4
-        4 0 0 0
-        1 400 80
-        E
-        pendant silver~
-        It resembles Thor's hammer and appears to be made of solid silver.
-        ~
-      type_line: 9 0 1|4
-      extra_desc: It resembles Thor's hammer and appears to be made of solid silver.
+    legacy_type_line: 9 0 1|4
+    legacy_raw: |
+      ~
+      9 0 1|4
+      4 0 0 0
+      1 400 80
+      E
+      pendant silver~
+      It resembles Thor's hammer and appears to be made of solid silver.
+      ~
+    extra_desc: It resembles Thor's hammer and appears to be made of solid silver.
   - id: 3613
-    key: dagger_silver
+    key: dagger_silver_3613
     name: a silver dagger
     description: A long silver dagger is lying here.
     weight: 0
@@ -240,17 +233,16 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 503
-    template_json:
-      raw_block: |
-        1 100 20
-        E
-        dagger silver~
-        It has a long, sharp blade that is made entirely from silver.  A small rune
-        has been engraved on the blade next to the hilt.
-        ~
-        A
-        19 1
-      type_line: pierce~
-      extra_desc: |
-        It has a long, sharp blade that is made entirely from silver.  A small rune
-        has been engraved on the blade next to the hilt.
+    legacy_type_line: pierce~
+    legacy_raw: |
+      1 100 20
+      E
+      dagger silver~
+      It has a long, sharp blade that is made entirely from silver.  A small rune
+      has been engraved on the blade next to the hilt.
+      ~
+      A
+      19 1
+    extra_desc: |
+      It has a long, sharp blade that is made entirely from silver.  A small rune
+      has been engraved on the blade next to the hilt.

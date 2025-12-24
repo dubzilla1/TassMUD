@@ -12,6 +12,11 @@ rooms:
       north: 5267
       up: 9202
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9201
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 5267
@@ -44,6 +49,18 @@ rooms:
       down: 9201
       up: 9203
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9201
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 9231
+      - type: MOB
+        id: 9236
+        quantity: 15
+        frequency: 1
     doors:
       down:
         to: 9201
@@ -78,6 +95,18 @@ rooms:
       down: 9202
       up: 9204
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9201
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 9238
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 9231
     doors:
       down:
         to: 9202
@@ -118,6 +147,18 @@ rooms:
       down: 9203
       up: 9205
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9202
+        quantity: 0
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9213
+              wear_loc: 10
+          -
+              item_vnum: 9214
+              wear_loc: 7
     doors:
       down:
         to: 9203
@@ -225,6 +266,15 @@ rooms:
       up: 9206
       north: 9209
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9205
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 9236
+        quantity: 15
+        frequency: 1
     doors:
       up:
         to: 9206
@@ -259,6 +309,15 @@ rooms:
       north: 9211
       east: 9209
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9203
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9232
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9211
@@ -298,6 +357,34 @@ rooms:
       north: 9212
       east: 9210
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9204
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9211
+              wear_loc: 3
+          -
+              item_vnum: 9212
+              wear_loc: 14
+      - type: MOB
+        id: 9205
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 9207
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 9232
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9220
+              wear_loc: 16
     doors:
       south:
         to: 9207
@@ -352,6 +439,19 @@ rooms:
       west: 9209
       east: 9220
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9203
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9223
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9221
+              wear_loc: 17
     doors:
       north:
         to: 9213
@@ -397,6 +497,15 @@ rooms:
       east: 9212
       south: 9208
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9231
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9215
+              wear_loc: 17
     doors:
       north:
         to: 9214
@@ -442,6 +551,19 @@ rooms:
       south: 9209
       west: 9211
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9206
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9221
+              wear_loc: 17
+      - type: MOB
+        id: 9216
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 9215
@@ -497,6 +619,11 @@ rooms:
       south: 9210
       west: 9212
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9222
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9216
@@ -606,6 +733,15 @@ rooms:
       south: 9212
       west: 9214
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9203
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9203
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 9218
@@ -659,6 +795,15 @@ rooms:
       south: 9213
       west: 9215
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9231
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9215
+              wear_loc: 17
     doors:
       north:
         to: 9219
@@ -704,6 +849,11 @@ rooms:
       east: 9218
       south: 9214
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9203
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 9253
@@ -748,6 +898,31 @@ rooms:
       south: 9215
       west: 9217
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9203
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9205
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9207
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 9207
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9223
+              wear_loc: 17
+      - type: MOB
+        id: 9233
+        quantity: 7
+        frequency: 1
     doors:
       east:
         to: 9219
@@ -793,6 +968,15 @@ rooms:
       south: 9216
       west: 9218
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9203
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9225
+              wear_loc: 17
     doors:
       north:
         to: 9254
@@ -834,6 +1018,19 @@ rooms:
       west: 9210
       east: 9221
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9236
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9220
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9222
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -871,6 +1068,19 @@ rooms:
       east: 9222
       south: 9223
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9220
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 9223
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -916,6 +1126,35 @@ rooms:
       west: 9221
       south: 9224
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9205
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9224
+              wear_loc: 17
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9221
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 9221
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 9224
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9225
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -953,6 +1192,15 @@ rooms:
       east: 9224
       south: 9225
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9217
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -999,6 +1247,11 @@ rooms:
       south: 9226
       west: 9223
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1044,6 +1297,23 @@ rooms:
       north: 9223
       east: 9226
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9206
+        quantity: 9
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9219
+              wear_loc: 17
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9216
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1081,6 +1351,11 @@ rooms:
       east: 9227
       west: 9225
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1124,6 +1399,34 @@ rooms:
     exits:
       west: 9226
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9208
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9201
+              wear_loc: 1
+          -
+              item_vnum: 9202
+              wear_loc: 5
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9220
+              wear_loc: 16
+      - type: MOB
+        id: 9217
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9224
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1154,6 +1457,15 @@ rooms:
       west: 9213
       north: 9229
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9236
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9219
+        quantity: 8
+        frequency: 1
     doors:
       west:
         to: 9213
@@ -1187,6 +1499,11 @@ rooms:
       south: 9228
       north: 9230
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9219
+        quantity: 8
+        frequency: 1
     doors:
       south:
         to: 9228
@@ -1221,6 +1538,19 @@ rooms:
       east: 9231
       south: 9229
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9234
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9218
+              wear_loc: 16
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 9233
@@ -1264,6 +1594,19 @@ rooms:
       east: 9232
       west: 9230
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9221
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 9221
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9234
@@ -1306,6 +1649,23 @@ rooms:
       north: 9235
       west: 9231
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9216
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 9216
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 9222
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9235
@@ -1339,6 +1699,15 @@ rooms:
       east: 9234
       south: 9230
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9216
+              wear_loc: 17
     doors:
       east:
         to: 9234
@@ -1373,6 +1742,15 @@ rooms:
       south: 9231
       west: 9233
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9205
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
     doors:
       east:
         to: 9235
@@ -1416,6 +1794,15 @@ rooms:
       west: 9234
       down: 9236
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9224
+              wear_loc: 17
     doors:
       south:
         to: 9232
@@ -1458,6 +1845,26 @@ rooms:
     exits:
       up: 9235
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9212
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9209
+              wear_loc: 13
+          -
+              item_vnum: 9210
+              wear_loc: 12
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9214
+        quantity: 15
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1484,6 +1891,11 @@ rooms:
       east: 9214
       south: 9238
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9236
+        quantity: 15
+        frequency: 1
     doors:
       east:
         to: 9214
@@ -1516,6 +1928,39 @@ rooms:
       north: 9237
       west: 9242
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9226
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9226
+              wear_loc: 16
+      - type: MOB
+        id: 9227
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9230
+              wear_loc: 16
+      - type: MOB
+        id: 9234
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9217
+              wear_loc: 16
+      - type: MOB
+        id: 9219
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 9220
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9237
@@ -1549,6 +1994,55 @@ rooms:
       east: 9238
       west: 9245
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9207
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 9228
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9227
+              wear_loc: 16
+      - type: MOB
+        id: 9229
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9228
+              wear_loc: 16
+      - type: MOB
+        id: 9230
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9229
+              wear_loc: 16
+      - type: MOB
+        id: 9215
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9215
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9215
+              wear_loc: 17
+      - type: MOB
+        id: 9215
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9220
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 9238
@@ -1580,6 +2074,34 @@ rooms:
     exits:
       east: 9242
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9209
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9203
+              wear_loc: 16
+          -
+              item_vnum: 9204
+              wear_loc: 3
+      - type: MOB
+        id: 9215
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9215
+              wear_loc: 17
+      - type: MOB
+        id: 9215
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9215
+        quantity: 15
+        frequency: 1
     doors:
       east:
         to: 9242
@@ -1604,6 +2126,23 @@ rooms:
       north: 9248
       east: 9253
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9206
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 9236
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9219
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9248
@@ -1637,6 +2176,11 @@ rooms:
       north: 9249
       east: 9248
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 9249
@@ -1671,6 +2215,15 @@ rooms:
       south: 9246
       west: 9247
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9223
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9250
@@ -1713,6 +2266,15 @@ rooms:
       east: 9250
       south: 9247
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9235
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
     doors:
       east:
         to: 9250
@@ -1747,6 +2309,19 @@ rooms:
       south: 9248
       west: 9249
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9205
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9219
+              wear_loc: 17
     doors:
       east:
         to: 9251
@@ -1789,6 +2364,11 @@ rooms:
       west: 9250
       up: 9252
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
     doors:
       west:
         to: 9250
@@ -1821,6 +2401,30 @@ rooms:
     exits:
       down: 9251
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9211
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9207
+              wear_loc: 16
+          -
+              item_vnum: 9208
+              wear_loc: 11
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9218
+              wear_loc: 17
+      - type: MOB
+        id: 9218
+        quantity: 15
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1847,6 +2451,15 @@ rooms:
       south: 9217
       west: 9246
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9233
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 9223
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 9254
@@ -1889,6 +2502,15 @@ rooms:
       south: 9219
       west: 9253
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9206
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 9222
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9255
@@ -1934,6 +2556,35 @@ rooms:
       east: 9256
       south: 9254
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9233
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9236
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9218
+              wear_loc: 17
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9225
+              wear_loc: 17
+      - type: MOB
+        id: 9222
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 9257
@@ -1976,6 +2627,11 @@ rooms:
       north: 9258
       west: 9255
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 9258
@@ -2009,6 +2665,23 @@ rooms:
       east: 9258
       south: 9255
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9235
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9216
+              wear_loc: 16
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9224
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 9258
@@ -2044,6 +2717,11 @@ rooms:
       south: 9256
       west: 9257
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
     doors:
       east:
         to: 9259
@@ -2088,6 +2766,15 @@ rooms:
       east: 9260
       west: 9258
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9224
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 9260
@@ -2123,6 +2810,34 @@ rooms:
     exits:
       west: 9259
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 9210
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9205
+              wear_loc: 8
+          -
+              item_vnum: 9206
+              wear_loc: 6
+      - type: MOB
+        id: 9207
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9220
+              wear_loc: 16
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
+      - type: MOB
+        id: 9225
+        quantity: 15
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

@@ -1,0 +1,825 @@
+- id: 1500
+  key: |
+  a_gnome_child:
+  name: |
+  child_gnome:
+  short_desc: |
+  a_gnome_child:
+  long_desc: |
+  A_gnome_child_is_playing_around_here:
+  keywords: ['child', 'gnome']
+  level: 20
+  hp_max: 44
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 37
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1501
+  key: |
+  a_gnome_woman:
+  name: |
+  woman_gnome:
+  short_desc: |
+  a_gnome_woman:
+  long_desc: |
+  A_gnome_woman_is_standing_here_trying_to_look_beautiful:
+  keywords: ['woman', 'gnome']
+  level: 20
+  hp_max: 77
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1502
+  key: |
+  a_gnome_man:
+  name: |
+  man_gnome:
+  short_desc: |
+  a_gnome_man:
+  long_desc: |
+  A_gnome_man_is_walking_here_on_his_way_to_work:
+  keywords: ['man', 'gnome']
+  level: 4
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1503
+  key: |
+  a_gnome_scientist:
+  name: |
+  scientist_gnome:
+  short_desc: |
+  a_gnome_scientist:
+  long_desc: |
+  A_scientist_wanders_around_deep_in_thought:
+  keywords: ['scientist', 'gnome']
+  level: 6
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1504
+  key: |
+  a_gnome_guard:
+  name: |
+  guard_gnome:
+  short_desc: |
+  a_gnome_guard:
+  long_desc: |
+  A_gnome_guard_stands_here_guarding_something:
+  keywords: ['guard', 'gnome']
+  level: 2
+  hp_max: 127
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1505
+  key: |
+  the_chief_gnome:
+  name: |
+  chief_gnome:
+  short_desc: |
+  the_chief_gnome:
+  long_desc: |
+  A_powerful_looking_gnome_stands_here_wearing_ornate_clothes:
+  keywords: ['chief', 'gnome']
+  level: 2
+  hp_max: 306
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1507
+  key: |
+  a_small_troll:
+  name: |
+  troll_small:
+  short_desc: |
+  a_small_troll:
+  long_desc: |
+  A_small_troll_grunts_as_he_takes_a_swing_at_you:
+  keywords: ['troll', 'small']
+  level: 38
+  hp_max: 110
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 105
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1508
+  key: |
+  a_field_mouse:
+  name: |
+  mouse_field:
+  short_desc: |
+  a_field_mouse:
+  long_desc: |
+  A_small_mouse_runs_across_your_foot:
+  keywords: ['mouse', 'field']
+  level: 6
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1509
+  key: |
+  a_rat:
+  name: |
+  rat:
+  short_desc: |
+  a_rat:
+  long_desc: |
+  A_small_rat_shrieks_and_runs_around:
+  keywords: ['rat']
+  level: 4
+  hp_max: 29
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 24
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1510
+  key: |
+  a_large_rat:
+  name: |
+  rat_large:
+  short_desc: |
+  a_large_rat:
+  long_desc: |
+  A_large_rat_runs_up_to_you_and_nibbles_on_your_boots:
+  keywords: ['rat', 'large']
+  level: 4
+  hp_max: 55
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 48
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1511
+  key: |
+  a_giant_rat:
+  name: |
+  rat_giant:
+  short_desc: |
+  a_giant_rat:
+  long_desc: |
+  A_giant_rat_growls_at_you_and_prepares_to_attack:
+  keywords: ['rat', 'giant']
+  level: 4
+  hp_max: 78
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 72
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1512
+  key: |
+  the_troll:
+  name: |
+  troll:
+  short_desc: |
+  the_troll:
+  long_desc: |
+  A_giant_troll_lumbers_around:
+  keywords: ['troll']
+  level: 34
+  hp_max: 169
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1513
+  key: |
+  a_black_bat:
+  name: |
+  bat_black:
+  short_desc: |
+  a_black_bat:
+  long_desc: |
+  A_black_bat_hangs_from_the_ceiling:
+  keywords: ['bat', 'black']
+  level: 500
+  hp_max: 77
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1514
+  key: |
+  the_zombie_gnome:
+  name: |
+  zombie_gnome:
+  short_desc: |
+  the_zombie_gnome:
+  long_desc: |
+  A_zombie_gnome_shuffles_his_way_towards_you:
+  keywords: ['zombie', 'gnome']
+  level: 700
+  hp_max: 97
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 70000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1515
+  key: |
+  the_fire_bat:
+  name: |
+  bat_fire:
+  short_desc: |
+  the_fire_bat:
+  long_desc: |
+  The_fire_bat_flames_brightly_and_prepares_to_attack:
+  keywords: ['bat', 'fire']
+  level: 38
+  hp_max: 157
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1516
+  key: |
+  the_hobgoblin_guard:
+  name: |
+  guard_hobgoblin:
+  short_desc: |
+  the_hobgoblin_guard:
+  long_desc: |
+  The_hobgoblin_guard_attacks_first_thinks_later:
+  keywords: ['guard', 'hobgoblin']
+  level: 34
+  hp_max: 108
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 102
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1517
+  key: |
+  the_hobgoblin_soldier:
+  name: |
+  soldier_hobgoblin:
+  short_desc: |
+  the_hobgoblin_soldier:
+  long_desc: |
+  A_hobgoblin_soldier_stands_here:
+  keywords: ['soldier', 'hobgoblin']
+  level: 34
+  hp_max: 43
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1518
+  key: |
+  the_hobgoblin_bodyguard:
+  name: |
+  bodyguard_hobgoblin:
+  short_desc: |
+  the_hobgoblin_bodyguard:
+  long_desc: |
+  A_hobgoblin_bodyguard_guards_the_king_with_his_life:
+  keywords: ['bodyguard', 'hobgoblin']
+  level: 2
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 85
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1519
+  key: |
+  the_king_of_the_hobgoblins:
+  name: |
+  king_hobgoblin:
+  short_desc: |
+  the_king_of_the_hobgoblins:
+  long_desc: |
+  There_is_a_great_king_here_sitting_in_his_throne:
+  keywords: ['king', 'hobgoblin']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1520
+  key: |
+  a_hobgoblin_miner:
+  name: |
+  miner_hobgoblin:
+  short_desc: |
+  a_hobgoblin_miner:
+  long_desc: |
+  A_hobgoblin_miner_stands_here_looking_for_gold:
+  keywords: ['miner', 'hobgoblin']
+  level: 6
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1521
+  key: |
+  the_treasurer:
+  name: |
+  treasurer_hobgoblin:
+  short_desc: |
+  the_treasurer:
+  long_desc: |
+  A_treasurer_is_here_counting_out_money:
+  keywords: ['treasurer', 'hobgoblin']
+  level: 6
+  hp_max: 129
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1522
+  key: |
+  a_gnome_prisoner:
+  name: |
+  prisoner_gnome:
+  short_desc: |
+  a_gnome_prisoner:
+  long_desc: |
+  A_gnome_prisoner_is_here_resting_in_the_straw:
+  keywords: ['prisoner', 'gnome']
+  level: 6
+  hp_max: 19
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1523
+  key: |
+  a_human_prisoner:
+  name: |
+  prisoner_human:
+  short_desc: |
+  a_human_prisoner:
+  long_desc: |
+  A_human_prisoner_is_here_resting_in_the_straw:
+  keywords: ['prisoner', 'human']
+  level: 6
+  hp_max: 19
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1524
+  key: |
+  a_hermit:
+  name: |
+  hermit_crab:
+  short_desc: |
+  a_hermit:
+  long_desc: |
+  A_hermit_crab_crawls_towards_you:
+  keywords: ['hermit', 'crab']
+  level: 5
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 61
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1526
+  key: |
+  the_cook:
+  name: |
+  cook_hobgoblin:
+  short_desc: |
+  the_cook:
+  long_desc: |
+  A_hobgoblin_cook_stands_here_cooking_something:
+  keywords: ['cook', 'hobgoblin']
+  level: 6
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 85
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

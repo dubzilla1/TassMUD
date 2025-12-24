@@ -294,6 +294,21 @@ rooms:
       south: 2310
       west: 2308
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2300
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2346
+              wear_loc: 5
+          -
+              item_vnum: 2347
+              wear_loc: 6
+          -
+              item_vnum: 2348
+              wear_loc: 16
     doors:
       east:
         to: 2306
@@ -460,6 +475,11 @@ rooms:
       east: 2310
       south: 2313
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2303
+        quantity: 4
+        frequency: 1
     doors:
       east:
         to: 2310
@@ -495,6 +515,11 @@ rooms:
       south: 2315
       west: 2310
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2303
+        quantity: 4
+        frequency: 1
     doors:
       south:
         to: 2315
@@ -529,6 +554,11 @@ rooms:
       east: 2314
       south: 2317
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2303
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 2311
@@ -575,6 +605,11 @@ rooms:
       south: 2318
       west: 2313
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2301
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 2310
@@ -683,6 +718,11 @@ rooms:
     exits:
       west: 2315
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2302
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -817,6 +857,11 @@ rooms:
       west: 2318
       down: 2322
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2303
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 2315
@@ -1273,6 +1318,14 @@ rooms:
       south: 2331
       west: 2329
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 2304
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2349
     legacy_flags:
       - INDOORS
     doors:
@@ -1345,6 +1398,11 @@ rooms:
       south: 2335
       west: 2334
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2305
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 2337
@@ -1399,6 +1457,11 @@ rooms:
       south: 2333
       west: 2335
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2305
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 2333
@@ -1558,6 +1621,14 @@ rooms:
       south: 2338
       west: 2333
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2306
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2384
     doors:
       north:
         to: 2334
@@ -1612,6 +1683,11 @@ rooms:
       south: 2332
       west: 2338
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2305
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 2335
@@ -1786,6 +1862,23 @@ rooms:
       north: 2343
       south: 2340
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 2309
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2387
+              wear_loc: 16
+      - type: MOB
+        id: 2309
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2387
+              wear_loc: 16
     doors:
       north:
         to: 2343
@@ -1819,6 +1912,23 @@ rooms:
       north: 2345
       east: 2343
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2308
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2386
+              wear_loc: 16
+      - type: MOB
+        id: 2309
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2387
+              wear_loc: 16
     doors:
       north:
         to: 2345
@@ -1855,6 +1965,15 @@ rooms:
       south: 2341
       west: 2342
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2307
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2385
+              wear_loc: 13
     doors:
       north:
         to: 2346
@@ -1907,6 +2026,11 @@ rooms:
       north: 2347
       west: 2343
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2307
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 2347
@@ -1942,6 +2066,11 @@ rooms:
       east: 2346
       south: 2342
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2307
+        quantity: 5
+        frequency: 1
     doors:
       east:
         to: 2346
@@ -1979,6 +2108,23 @@ rooms:
       south: 2343
       west: 2345
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2307
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2385
+              wear_loc: 13
+      - type: MOB
+        id: 2308
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2386
+              wear_loc: 16
     doors:
       north:
         to: 2348
@@ -2031,6 +2177,15 @@ rooms:
       south: 2344
       west: 2346
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2308
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2386
+              wear_loc: 16
     doors:
       south:
         to: 2344
@@ -2065,6 +2220,27 @@ rooms:
       north: 2349
       south: 2346
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2307
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2308
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2386
+              wear_loc: 16
+      - type: MOB
+        id: 2309
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2387
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2102,6 +2278,18 @@ rooms:
       north: 2350
       south: 2348
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2310
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2388
+              wear_loc: 12
+          -
+              item_vnum: 2389
+              wear_loc: 6
     legacy_flags:
       - INDOORS
     doors:
@@ -2138,6 +2326,18 @@ rooms:
     exits:
       south: 2349
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2311
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2390
+              wear_loc: 9
+          -
+              item_vnum: 2391
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2166,6 +2366,21 @@ rooms:
       south: 2355
       west: 2354
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2312
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2392
+              wear_loc: 4
+          -
+              item_vnum: 2393
+              wear_loc: 5
+          -
+              item_vnum: 2360
+              wear_loc: 8
     doors:
       north:
         to: 2353
@@ -2219,6 +2434,11 @@ rooms:
       south: 2358
       west: 2351
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2314
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 2357
@@ -2308,6 +2528,25 @@ rooms:
       south: 2356
       west: 2352
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2312
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2392
+              wear_loc: 4
+          -
+              item_vnum: 2393
+              wear_loc: 5
+          -
+              item_vnum: 2360
+              wear_loc: 8
+      - type: MOB
+        id: 2314
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 2359
@@ -2361,6 +2600,15 @@ rooms:
       south: 2357
       west: 2356
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2313
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2361
+              wear_loc: 12
     doors:
       north:
         to: 2351
@@ -2414,6 +2662,11 @@ rooms:
       south: 2359
       west: 2355
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2314
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 2354
@@ -2467,6 +2720,15 @@ rooms:
       south: 2352
       west: 2359
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2313
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2361
+              wear_loc: 12
     doors:
       north:
         to: 2355
@@ -2573,6 +2835,29 @@ rooms:
       south: 2354
       west: 2358
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2312
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2392
+              wear_loc: 4
+          -
+              item_vnum: 2393
+              wear_loc: 5
+          -
+              item_vnum: 2360
+              wear_loc: 8
+      - type: MOB
+        id: 2313
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2361
+              wear_loc: 12
     doors:
       north:
         to: 2356
@@ -2698,16 +2983,31 @@ rooms:
       south: 2364
       down: 2361
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2316
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2363
+              wear_loc: 10
+          -
+              item_vnum: 2364
+              wear_loc: 7
+          -
+              item_vnum: 2365
+              wear_loc: 16
     doors:
       south:
         to: 2364
         description: ""
-        keywords: "gate huge gates ice"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 2361
         description: ""
@@ -2737,6 +3037,15 @@ rooms:
       east: 2364
       south: 2366
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2315
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2362
+              wear_loc: 16
     doors:
       east:
         to: 2364
@@ -2774,6 +3083,15 @@ rooms:
       south: 2367
       west: 2363
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2315
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2362
+              wear_loc: 16
     doors:
       north:
         to: 2362
@@ -2826,6 +3144,15 @@ rooms:
       south: 2368
       west: 2364
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2315
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2362
+              wear_loc: 16
     doors:
       south:
         to: 2368
@@ -2862,6 +3189,21 @@ rooms:
       east: 2367
       south: 2369
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2316
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2363
+              wear_loc: 10
+          -
+              item_vnum: 2364
+              wear_loc: 7
+          -
+              item_vnum: 2365
+              wear_loc: 16
     doors:
       north:
         to: 2363
@@ -2917,6 +3259,29 @@ rooms:
       south: 2370
       west: 2366
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2315
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2362
+              wear_loc: 16
+      - type: MOB
+        id: 2317
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2367
+              wear_loc: 6
+          -
+              item_vnum: 2368
+              wear_loc: 16
     doors:
       north:
         to: 2364
@@ -2978,6 +3343,21 @@ rooms:
       south: 2371
       west: 2367
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2316
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2363
+              wear_loc: 10
+          -
+              item_vnum: 2364
+              wear_loc: 7
+          -
+              item_vnum: 2365
+              wear_loc: 16
     doors:
       north:
         to: 2365
@@ -3056,6 +3436,15 @@ rooms:
     exits:
       north: 2367
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2315
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2362
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3108,6 +3497,27 @@ rooms:
     exits:
       east: 2388
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2325
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2300
+              wear_loc: 9
+          -
+              item_vnum: 2301
+              wear_loc: 5
+          -
+              item_vnum: 2302
+              wear_loc: 7
+          -
+              item_vnum: 2303
+              wear_loc: 10
+          -
+              item_vnum: 2304
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3136,6 +3546,27 @@ rooms:
     exits:
       east: 2389
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2326
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2305
+              wear_loc: 12
+          -
+              item_vnum: 2306
+              wear_loc: 4
+          -
+              item_vnum: 2307
+              wear_loc: 9
+          -
+              item_vnum: 2308
+              wear_loc: 11
+          -
+              item_vnum: 2309
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3164,6 +3595,27 @@ rooms:
     exits:
       east: 2392
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2327
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2310
+              wear_loc: 6
+          -
+              item_vnum: 2311
+              wear_loc: 5
+          -
+              item_vnum: 2312
+              wear_loc: 4
+          -
+              item_vnum: 2313
+              wear_loc: 11
+          -
+              item_vnum: 2314
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3230,6 +3682,21 @@ rooms:
     exits:
       south: 2377
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2317
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2367
+              wear_loc: 6
+          -
+              item_vnum: 2368
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3260,6 +3727,14 @@ rooms:
       south: 2378
       west: 2375
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2318
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2350
     doors:
       north:
         to: 2376
@@ -3272,13 +3747,13 @@ rooms:
         key: null
       east:
         to: 2379
-        description: ""
-        keywords: "gate"
+        description: "Set Door States at Reset"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2350
+        key: null
       south:
         to: 2378
         description: ""
@@ -3310,6 +3785,21 @@ rooms:
     exits:
       north: 2377
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2317
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2367
+              wear_loc: 6
+          -
+              item_vnum: 2368
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3338,6 +3828,27 @@ rooms:
       east: 2380
       west: 2377
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2319
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2369
+              wear_loc: 6
+          -
+              item_vnum: 2370
+              wear_loc: 7
+          -
+              item_vnum: 2371
+              wear_loc: 10
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2372
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3353,12 +3864,12 @@ rooms:
       west:
         to: 2377
         description: ""
-        keywords: "gate"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2350
+        key: null
 
   - id: 2380
     key: mahntor_room_2380
@@ -3374,6 +3885,27 @@ rooms:
       east: 2381
       west: 2379
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2319
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2369
+              wear_loc: 6
+          -
+              item_vnum: 2370
+              wear_loc: 7
+          -
+              item_vnum: 2371
+              wear_loc: 10
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2372
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3458,6 +3990,27 @@ rooms:
       east: 2384
       south: 2387
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2320
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2373
+              wear_loc: 6
+          -
+              item_vnum: 2374
+              wear_loc: 7
+          -
+              item_vnum: 2375
+              wear_loc: 10
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2376
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3505,13 +4058,34 @@ rooms:
       south: 2384
       west: 2381
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2320
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2373
+              wear_loc: 6
+          -
+              item_vnum: 2374
+              wear_loc: 7
+          -
+              item_vnum: 2375
+              wear_loc: 10
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2376
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 2385
         description: ""
-        keywords: "throne huge golden gold"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
@@ -3587,18 +4161,62 @@ rooms:
       east: 2386
       west: 2383
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2321
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2377
+              wear_loc: 6
+          -
+              item_vnum: 2378
+              wear_loc: 7
+          -
+              item_vnum: 2379
+              wear_loc: 10
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2380
+              wear_loc: 16
+      - type: MOB
+        id: 2321
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2377
+              wear_loc: 6
+          -
+              item_vnum: 2378
+              wear_loc: 7
+          -
+              item_vnum: 2379
+              wear_loc: 10
+          -
+              item_vnum: 2366
+              wear_loc: 5
+          -
+              item_vnum: 2380
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 2359
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 2386
         description: ""
-        keywords: "door huge stone"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2359
+        key: null
       west:
         to: 2383
         description: ""
@@ -3653,12 +4271,12 @@ rooms:
       west:
         to: 2385
         description: ""
-        keywords: "door huge stone"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2359
+        key: null
     extras:
       door: |
         A huge stone door.......
@@ -3677,6 +4295,46 @@ rooms:
       north: 2382
       south: 2388
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2324
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2381
+              wear_loc: 17
+          -
+              item_vnum: 2382
+              wear_loc: 13
+          -
+              item_vnum: 2383
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 2351
+              container_vnum: 2382
+          -
+              item_vnum: 2352
+              container_vnum: 2382
+          -
+              item_vnum: 2353
+              container_vnum: 2382
+          -
+              item_vnum: 2354
+              container_vnum: 2382
+          -
+              item_vnum: 2355
+              container_vnum: 2382
+          -
+              item_vnum: 2356
+              container_vnum: 2382
+          -
+              item_vnum: 2357
+              container_vnum: 2382
+          -
+              item_vnum: 2358
+              container_vnum: 2382
     legacy_flags:
       - INDOORS
     doors:
@@ -3730,12 +4388,12 @@ rooms:
       east:
         to: 2390
         description: ""
-        keywords: "yellow"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2355
+        key: null
       south:
         to: 2389
         description: ""
@@ -3748,12 +4406,12 @@ rooms:
       west:
         to: 2372
         description: ""
-        keywords: "red"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2351
+        key: null
     extras:
       red: |
         You see a red door. It has the name "Gorak" written on it.
@@ -3790,12 +4448,12 @@ rooms:
       east:
         to: 2391
         description: ""
-        keywords: "maroon"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2356
+        key: null
       south:
         to: 2392
         description: ""
@@ -3808,12 +4466,12 @@ rooms:
       west:
         to: 2373
         description: ""
-        keywords: "black"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2352
+        key: null
     extras:
       black: |
         You see a black door. It has the name "Darkoth" inscribed on it.
@@ -3832,6 +4490,27 @@ rooms:
     exits:
       west: 2388
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2329
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2320
+              wear_loc: 12
+          -
+              item_vnum: 2321
+              wear_loc: 3
+          -
+              item_vnum: 2322
+              wear_loc: 17
+          -
+              item_vnum: 2323
+              wear_loc: 16
+          -
+              item_vnum: 2324
+              wear_loc: 4
     legacy_flags:
       - INDOORS
     doors:
@@ -3861,6 +4540,27 @@ rooms:
     exits:
       west: 2389
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2328
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2315
+              wear_loc: 1
+          -
+              item_vnum: 2316
+              wear_loc: 2
+          -
+              item_vnum: 2317
+              wear_loc: 12
+          -
+              item_vnum: 2318
+              wear_loc: 16
+          -
+              item_vnum: 2319
+              wear_loc: 13
     legacy_flags:
       - INDOORS
     doors:
@@ -3908,12 +4608,12 @@ rooms:
       east:
         to: 2394
         description: ""
-        keywords: "green"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2357
+        key: null
       south:
         to: 2397
         description: ""
@@ -3926,12 +4626,12 @@ rooms:
       west:
         to: 2374
         description: ""
-        keywords: "white"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2353
+        key: null
     extras:
       white: |
         You see a white door here. It has the name "Tyrgoth" inscribed on it.
@@ -3951,6 +4651,27 @@ rooms:
       north: 2386
       east: 2396
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2322
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2322
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2322
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2322
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2322
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3985,6 +4706,27 @@ rooms:
     exits:
       west: 2392
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2330
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2325
+              wear_loc: 1
+          -
+              item_vnum: 2326
+              wear_loc: 15
+          -
+              item_vnum: 2327
+              wear_loc: 8
+          -
+              item_vnum: 2328
+              wear_loc: 12
+          -
+              item_vnum: 2329
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4014,6 +4756,11 @@ rooms:
       south: 2396
       west: 2386
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2323
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4050,6 +4797,30 @@ rooms:
       north: 2395
       west: 2393
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2333
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2340
+              wear_loc: 12
+          -
+              item_vnum: 2341
+              wear_loc: 5
+          -
+              item_vnum: 2342
+              wear_loc: 14
+          -
+              item_vnum: 2343
+              wear_loc: 2
+          -
+              item_vnum: 2344
+              wear_loc: 6
+          -
+              item_vnum: 2345
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4101,12 +4872,12 @@ rooms:
       east:
         to: 2398
         description: ""
-        keywords: "grey"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2358
+        key: null
       west:
         to: 2399
         description: ""
@@ -4134,18 +4905,39 @@ rooms:
     exits:
       west: 2397
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2332
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2335
+              wear_loc: 12
+          -
+              item_vnum: 2336
+              wear_loc: 6
+          -
+              item_vnum: 2337
+              wear_loc: 10
+          -
+              item_vnum: 2338
+              wear_loc: 7
+          -
+              item_vnum: 2339
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 2397
         description: ""
-        keywords: "grey"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2358
+        key: null
     extras:
       grey: |
         It looks like it leads back to the hall.
@@ -4162,6 +4954,27 @@ rooms:
     exits:
       east: 2397
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2331
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2330
+              wear_loc: 2
+          -
+              item_vnum: 2331
+              wear_loc: 17
+          -
+              item_vnum: 2332
+              wear_loc: 13
+          -
+              item_vnum: 2334
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 2333
     legacy_flags:
       - INDOORS
     doors:

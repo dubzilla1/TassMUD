@@ -28,12 +28,15 @@ public class Mobile extends GameCharacter {
     
     // Cached template data for quick access
     private final String shortDesc;
+    private final java.util.List<String> keywords;
     private final List<MobileBehavior> behaviors;
     private final int experienceValue;
     private final int baseDamage;
     private final int damageBonus;
     private final int attackBonus;
     private final int autoflee;            // Auto-flee threshold (0-100)
+    // Runtime tracking of applied equipment modifiers (so they can be removed on death/respawn)
+    private final java.util.List<java.util.UUID> equipModifierIds = new java.util.ArrayList<>();
     
     /**
      * Create a Mobile instance from a template.
@@ -73,6 +76,7 @@ public class Mobile extends GameCharacter {
         
         // Cache template data
         this.shortDesc = template.getShortDesc();
+        this.keywords = template.getKeywords() == null ? java.util.Collections.emptyList() : java.util.Collections.unmodifiableList(new java.util.ArrayList<>(template.getKeywords()));
         this.behaviors = template.getBehaviors();
         this.experienceValue = template.getExperienceValue();
         this.baseDamage = template.getBaseDamage();
@@ -89,7 +93,7 @@ public class Mobile extends GameCharacter {
                   Integer currentRoom, Integer spawnRoomId,
                   int str, int dex, int con, int intel, int wis, int cha,
                   int armor, int fortitude, int reflex, int will,
-                  String shortDesc, List<MobileBehavior> behaviors,
+                  java.util.List<String> keywords, String shortDesc, List<MobileBehavior> behaviors,
                   int experienceValue, int baseDamage, int damageBonus, int attackBonus,
                   int autoflee,
                   String originUuid,
@@ -106,6 +110,7 @@ public class Mobile extends GameCharacter {
           this.isDead = isDead;
         this.diedAt = diedAt;
         this.shortDesc = shortDesc;
+        this.keywords = keywords == null ? java.util.Collections.emptyList() : java.util.Collections.unmodifiableList(new java.util.ArrayList<>(keywords));
         this.behaviors = behaviors == null ? Collections.emptyList() : behaviors;
         this.experienceValue = experienceValue;
         this.baseDamage = baseDamage;
@@ -142,6 +147,8 @@ public class Mobile extends GameCharacter {
     public long getDiedAt() { return diedAt; }
     
     public void die() {
+        // Clear any equipment modifiers applied at spawn time
+        clearEquipModifiers();
         this.isDead = true;
         this.diedAt = System.currentTimeMillis();
         setHpCur(0);
@@ -149,6 +156,8 @@ public class Mobile extends GameCharacter {
     }
     
     public void respawn() {
+        // Ensure old equipment modifiers cleared before respawn
+        clearEquipModifiers();
         this.isDead = false;
         this.diedAt = 0;
         setHpCur(getHpMax());
@@ -157,9 +166,22 @@ public class Mobile extends GameCharacter {
         setCurrentRoom(spawnRoomId);
         clearTarget();
     }
+
+    public void addEquipModifier(java.util.UUID id) {
+        if (id == null) return;
+        equipModifierIds.add(id);
+    }
+
+    public void clearEquipModifiers() {
+        for (java.util.UUID id : new java.util.ArrayList<>(equipModifierIds)) {
+            removeModifier(id);
+        }
+        equipModifierIds.clear();
+    }
     
     // Cached template data
     public String getShortDesc() { return shortDesc; }
+    public java.util.List<String> getKeywords() { return keywords; }
     public List<MobileBehavior> getBehaviors() { return behaviors; }
     public int getExperienceValue() { return experienceValue; }
     public int getBaseDamage() { return baseDamage; }

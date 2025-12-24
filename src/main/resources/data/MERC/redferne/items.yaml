@@ -1,6 +1,6 @@
 items:
   - id: 7909
-    key: treasure_coins
+    key: treasure_coins_7909
     name: a huge treasure
     description: a huge treasure is lying here, looking very valuable.
     weight: 0
@@ -9,20 +9,19 @@ items:
     wear_flags:
       - TAKE
     keywords: [treasure, coins]
-    template_json:
-      raw_block: |
-        E
-        treasure~
-        Looks like a LOT of coins.  One of them has writing on it.
-        ~
-        E
-        writing letters~
-        It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
-        ~
-      type_line: 20 0 1
-      extra_desc: It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
+    legacy_type_line: 20 0 1
+    legacy_raw: |
+      E
+      treasure~
+      Looks like a LOT of coins.  One of them has writing on it.
+      ~
+      E
+      writing letters~
+      It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
+      ~
+    extra_desc: It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
   - id: 7910
-    key: chest
+    key: chest_7910
     name: a wooden chest
     description: A wooden chest stands in the corner.
     weight: 400
@@ -31,22 +30,21 @@ items:
     wear_flags:
       - TAKE
     keywords: [chest]
-    template_json:
-      raw_block: |
-        15 0 1
-        100 15 7911 0
-        400 100 30000
-        E
-        chest~
-        It is a robust chest made from short, heavy planks that have been fastened
-        together with tenons.  It is equipped with a simple brass lock.
-        ~
-      type_line: 15 0 1
-      extra_desc: |
-        It is a robust chest made from short, heavy planks that have been fastened
-        together with tenons.  It is equipped with a simple brass lock.
+    legacy_type_line: 15 0 1
+    legacy_raw: |
+      15 0 1
+      100 15 7911 0
+      400 100 30000
+      E
+      chest~
+      It is a robust chest made from short, heavy planks that have been fastened
+      together with tenons.  It is equipped with a simple brass lock.
+      ~
+    extra_desc: |
+      It is a robust chest made from short, heavy planks that have been fastened
+      together with tenons.  It is equipped with a simple brass lock.
   - id: 7911
-    key: key
+    key: key_7911
     name: a small brass key
     description: A small brass key lies here.
     weight: 1
@@ -55,15 +53,14 @@ items:
     wear_flags:
       - TAKE
     keywords: [key]
-    template_json:
-      raw_block: |
-        ~
-        18 0 1
-        7910 0 0 0
-        1 10 4
-        E
-        key~
-        It is a small, simple brass key with no inscriptions or marks of any kind.
-        ~
-      type_line: 18 0 1
-      extra_desc: It is a small, simple brass key with no inscriptions or marks of any kind.
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      ~
+      18 0 1
+      7910 0 0 0
+      1 10 4
+      E
+      key~
+      It is a small, simple brass key with no inscriptions or marks of any kind.
+      ~
+    extra_desc: It is a small, simple brass key with no inscriptions or marks of any kind.

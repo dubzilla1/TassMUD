@@ -1,0 +1,559 @@
+- id: 2001
+  key: |
+  a_bat:
+  name: |
+  bat:
+  short_desc: |
+  a_bat:
+  long_desc: |
+  A_bat_flaps_wildly_at_you:
+  keywords: ['bat']
+  level: 34
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2002
+  key: |
+  a_templar_page:
+  name: |
+  page_templar:
+  short_desc: |
+  a_templar_page:
+  long_desc: |
+  A_templar_page_in_training_is_here_looking_mildly_confused:
+  keywords: ['page', 'templar']
+  level: 128
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2003
+  key: |
+  a_spelunker:
+  name: |
+  spelunker_explorer:
+  short_desc: |
+  a_spelunker:
+  long_desc: |
+  A_spelunker_knows_his_way_around_these_tunnels:
+  keywords: ['spelunker', 'explorer']
+  level: 132
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2004
+  key: |
+  a_graverobber:
+  name: |
+  gravedigger_digger_robber_graverobber:
+  short_desc: |
+  a_graverobber:
+  long_desc: |
+  A_graverobber_uncovers_dead_bodies:
+  keywords: ['gravedigger', 'digger', 'robber', 'graverobber']
+  level: 36
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2005
+  key: |
+  some_mist:
+  name: |
+  mist_swirling:
+  short_desc: |
+  some_mist:
+  long_desc: |
+  Some_mist_swirls_about_you_here__it_seems_ALIVE:
+  keywords: ['mist', 'swirling']
+  level: 128
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2006
+  key: |
+  it:
+  name: |
+  short_desc: |
+  It:
+  long_desc: |
+  keywords: []
+  level: 32
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2007
+  key: |
+  a_skeleton:
+  name: |
+  skeleton_skeletal_soldier:
+  short_desc: |
+  a_skeleton:
+  long_desc: |
+  A_skeletal_soldier_fights_in_the_battle_of_the_underworld:
+  keywords: ['skeleton', 'skeletal', 'soldier']
+  level: 36
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2008
+  key: |
+  a_templar:
+  name: |
+  templar:
+  short_desc: |
+  a_templar:
+  long_desc: |
+  A_templar_shouts_AKK_SLAY_THE_INFIDEL:
+  keywords: ['templar']
+  level: 36
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2009
+  key: |
+  a_mysterious_wraith:
+  name: |
+  wraith:
+  short_desc: |
+  a_mysterious_wraith:
+  long_desc: |
+  A_mysterious_ghostly_wraith_forms_before_your_eyes:
+  keywords: ['wraith']
+  level: 36
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2010
+  key: |
+  the_templar_officer:
+  name: |
+  officer_templar:
+  short_desc: |
+  the_templar_officer:
+  long_desc: |
+  A_templar_officer_keeps_an_eye_on_things_here:
+  keywords: ['officer', 'templar']
+  level: 32
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2011
+  key: |
+  zombie:
+  name: |
+  zombie_mage:
+  short_desc: |
+  zombie:
+  long_desc: |
+  A_blank-faced_zombie_mage_joins_the_battle:
+  keywords: ['zombie', 'mage']
+  level: 36
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2012
+  key: |
+  the_shadow:
+  name: |
+  shadow_shadows:
+  short_desc: |
+  the_shadow:
+  long_desc: |
+  Eerie_shadows_fill_the_room:
+  keywords: ['shadow', 'shadows']
+  level: 32
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2013
+  key: |
+  the_vampire:
+  name: |
+  bat_vampire:
+  short_desc: |
+  The_vampire:
+  long_desc: |
+  A_bat_flaps_wildly_at_you:
+  keywords: ['bat', 'vampire']
+  level: 34
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2014
+  key: |
+  the_evil_necromancer:
+  name: |
+  necromancer_necro_cleric:
+  short_desc: |
+  the_evil_necromancer:
+  long_desc: |
+  The_evil_necromancer_makes_undead_soldiers_from_corpses:
+  keywords: ['necromancer', 'necro', 'cleric']
+  level: 34
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2015
+  key: |
+  the_grand_templar:
+  name: |
+  grand_templar_leader:
+  short_desc: |
+  the_grand_templar:
+  long_desc: |
+  The_grand_templar_stands_here_quietly_observing_your_actions:
+  keywords: ['grand', 'templar', 'leader']
+  level: 2
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2016
+  key: |
+  the_prism_dragon:
+  name: |
+  prism_dragon_prismdragon:
+  short_desc: |
+  the_prism_dragon:
+  long_desc: |
+  The_light_shines_off_a_beautiful_but_dangerous_dragon_lurking_here:
+  keywords: ['prism', 'dragon', 'prismdragon']
+  level: 34
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2017
+  key: |
+  the_darkenbeast:
+  name: |
+  darken_dark_beast_darkenbeast:
+  short_desc: |
+  The_DarkenBeast:
+  long_desc: |
+  You_hear_and_smell_the_presense_of_the_darkenbeast:
+  keywords: ['darken', 'dark', 'beast', 'darkenbeast']
+  level: 34
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

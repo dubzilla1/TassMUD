@@ -1,0 +1,495 @@
+- id: 7800
+  key: |
+  a_cooshee:
+  name: |
+  cooshee_dog:
+  short_desc: |
+  a_cooshee:
+  long_desc: |
+  A_rather_large_dog_is_here_wandering_the_valley:
+  keywords: ['cooshee', 'dog']
+  level: 64
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7801
+  key: |
+  a_valley_elf:
+  name: |
+  valley_elf:
+  short_desc: |
+  a_valley_elf:
+  long_desc: |
+  A_valley_elf_wanders_here_cautious_of_your_intrusion:
+  keywords: ['valley', 'elf']
+  level: 4
+  hp_max: 108
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7802
+  key: |
+  a_valley_elf:
+  name: |
+  valley_elf:
+  short_desc: |
+  a_valley_elf:
+  long_desc: |
+  A_female_valley_elf_wanders_here_skirting_between_the_tall_grasses:
+  keywords: ['valley', 'elf']
+  level: 4
+  hp_max: 108
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7803
+  key: |
+  a_valley_elf_sentry:
+  name: |
+  sentry_valley_elf:
+  short_desc: |
+  a_valley_elf_sentry:
+  long_desc: |
+  A_valley_elf_sentry_stands_here_then_noticing_you_attacks_quickly:
+  keywords: ['sentry', 'valley', 'elf']
+  level: 2
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7804
+  key: |
+  a_valley_elf_sentry:
+  name: |
+  sentry_valley_elf:
+  short_desc: |
+  a_valley_elf_sentry:
+  long_desc: |
+  A_valley_elf_sentry_stands_here_then_noticing_you_attacks_quickly:
+  keywords: ['sentry', 'valley', 'elf']
+  level: 2
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7805
+  key: |
+  a_valley_elf_scout:
+  name: |
+  scout_valley_elf:
+  short_desc: |
+  a_valley_elf_scout:
+  long_desc: |
+  A_valley_elf_scout_wanders_the_valley_searching_for_intruders_like_you:
+  keywords: ['scout', 'valley', 'elf']
+  level: 4
+  hp_max: 75
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7806
+  key: |
+  a_valley_elf:
+  name: |
+  valley_elf:
+  short_desc: |
+  a_valley_elf:
+  long_desc: |
+  A_valley_elf_is_here_doing_her_duties:
+  keywords: ['valley', 'elf']
+  level: 64
+  hp_max: 75
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7807
+  key: |
+  a_valley_elf_elder:
+  name: |
+  elder_valley_elf:
+  short_desc: |
+  a_valley_elf_elder:
+  long_desc: |
+  A_valley_elf_elder_is_here_studying_He_notices_younA_valley_elf_elder_shouts_You_have_intruded_wrongly_Be_prepared_to_die:
+  keywords: ['elder', 'valley', 'elf']
+  level: 2
+  hp_max: 255
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7808
+  key: |
+  a_valley_elf_elder:
+  name: |
+  elder_valley_elf:
+  short_desc: |
+  a_valley_elf_elder:
+  long_desc: |
+  A_valley_elf_elder_is_here_studying_She_notices_younA_valley_elf_elder_says_Your_arrogance_will_be_your_end_human:
+  keywords: ['elder', 'valley', 'elf']
+  level: 2
+  hp_max: 255
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7809
+  key: |
+  the_pyrohydra:
+  name: |
+  pyrohydra_pyro_hydra:
+  short_desc: |
+  the_pyrohydra:
+  long_desc: |
+  A_big_beast_with_many_heads_each_breathing_fire_stares_at_you_with_malice:
+  keywords: ['pyrohydra', 'pyro', 'hydra']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7810
+  key: |
+  an_old_hermit:
+  name: |
+  hermit_man_old:
+  short_desc: |
+  an_old_hermit:
+  long_desc: |
+  An_old_hermit_sits_here_smoking_a_pipe:
+  keywords: ['hermit', 'man', 'old']
+  level: 2
+  hp_max: 39
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7811
+  key: |
+  talemon:
+  name: |
+  talemon_wizard_mage:
+  short_desc: |
+  Talemon:
+  long_desc: |
+  An_old_mage_busies_himself_with_some_chemicals:
+  keywords: ['talemon', 'wizard', 'mage']
+  level: 2
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7812
+  key: |
+  the_guardian_daemon:
+  name: |
+  guardian_daemon:
+  short_desc: |
+  the_guardian_daemon:
+  long_desc: |
+  A_huge_guardian_daemon_is_here_watching_the_treasure:
+  keywords: ['guardian', 'daemon']
+  level: 2
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7813
+  key: |
+  a_wolf:
+  name: |
+  wolf:
+  short_desc: |
+  a_wolf:
+  long_desc: |
+  A_wolf_is_here_looking_for_small_prey:
+  keywords: ['wolf']
+  level: 32
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7814
+  key: |
+  an_antelope:
+  name: |
+  antelope:
+  short_desc: |
+  an_antelope:
+  long_desc: |
+  An_antelope_is_here_peacefully_munching_on_grass:
+  keywords: ['antelope']
+  level: 128
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

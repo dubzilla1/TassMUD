@@ -146,6 +146,11 @@ rooms:
       north: 6302
       south: 6203
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 6301
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - NO_MOB
     doors:
@@ -234,6 +239,11 @@ rooms:
     exits:
       east: 6302
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6305
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 6302
@@ -256,6 +266,11 @@ rooms:
     exits:
       south: 6302
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6301
+        quantity: 10
+        frequency: 1
     doors:
       south:
         to: 6302
@@ -313,6 +328,15 @@ rooms:
       south: 6307
       down: 6305
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6301
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 6301
+        quantity: 10
+        frequency: 1
     doors:
       south:
         to: 6307
@@ -379,6 +403,27 @@ rooms:
       east: 6309
       west: 6307
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6308
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 6308
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 6308
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 6308
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 6308
+        quantity: 5
+        frequency: 1
     doors:
       east:
         to: 6309
@@ -554,6 +599,11 @@ rooms:
     exits:
       east: 6312
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6303
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 6312
@@ -614,6 +664,11 @@ rooms:
       south: 6323
       down: 6322
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6306
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 6320
@@ -810,6 +865,11 @@ rooms:
       north: 6328
       down: 6326
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6309
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 6328
@@ -877,6 +937,15 @@ rooms:
     exits:
       south: 6331
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6306
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 6316
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 6331
@@ -903,6 +972,11 @@ rooms:
       east: 6332
       south: 6333
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6306
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 6330
@@ -944,6 +1018,11 @@ rooms:
     exits:
       west: 6331
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6304
+        quantity: 1
+        frequency: 1
     doors:
       west:
         to: 6331
@@ -969,6 +1048,11 @@ rooms:
       south: 6334
       west: 6335
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6307
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 6331
@@ -1032,6 +1116,11 @@ rooms:
       east: 6333
       west: 6336
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6307
+        quantity: 5
+        frequency: 1
     doors:
       east:
         to: 6333
@@ -1105,6 +1194,11 @@ rooms:
     exits:
       north: 6336
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6317
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 6336
@@ -1170,6 +1264,11 @@ rooms:
     exits:
       north: 6341
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6310
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 6341
@@ -1298,6 +1397,16 @@ rooms:
     exits:
       north: 6345
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6315
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6309
+          -
+              item_vnum: 6309
     doors:
       north:
         to: 6345
@@ -1364,6 +1473,14 @@ rooms:
     exits:
       east: 6355
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6302
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6304
     doors:
       east:
         to: 6355
@@ -1465,6 +1582,11 @@ rooms:
       east: 6368
       west: 6366
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6313
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 6368
@@ -1571,6 +1693,14 @@ rooms:
       east: 6371
       west: 6369
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6312
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6309
     doors:
       east:
         to: 6371
@@ -1671,6 +1801,11 @@ rooms:
       west: 6372
       east: 6380
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6311
+        quantity: 1
+        frequency: 1
     doors:
       west:
         to: 6372
@@ -1791,8 +1926,8 @@ rooms:
       north:
         to: 6399
         description: ""
-        keywords: "door north"
-        state: OPEN
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
@@ -1822,12 +1957,22 @@ rooms:
     exits:
       south: 6392
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6314
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6303
+          -
+              item_vnum: 6304
     doors:
       south:
         to: 6392
         description: ""
-        keywords: "door south"
-        state: OPEN
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false

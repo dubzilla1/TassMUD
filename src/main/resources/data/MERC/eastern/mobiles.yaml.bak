@@ -1,0 +1,561 @@
+- id: 5000
+  key: |
+  the_dervish:
+  name: |
+  dervish_raggity:
+  short_desc: |
+  The_dervish:
+  long_desc: |
+  The_raggity_dervish_walks_on_aimlessly:
+  keywords: ['dervish', 'raggity']
+  level: 196
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5001
+  key: |
+  the_dervish:
+  name: |
+  dervish_large:
+  short_desc: |
+  The_dervish:
+  long_desc: |
+  The_large_dervish_watches_for_signs_of_trouble:
+  keywords: ['dervish', 'large']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5002
+  key: |
+  the_coral_snake:
+  name: |
+  snake_coral:
+  short_desc: |
+  The_coral_snake:
+  long_desc: |
+  A_brightly_colored_snake_slithers_along_the_sands:
+  keywords: ['snake', 'coral']
+  level: 64
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5003
+  key: |
+  the_small_scorpion:
+  name: |
+  scorpion_small:
+  short_desc: |
+  The_small_scorpion:
+  long_desc: |
+  A_small_red_scorpion_scuttles_away_at_your_approach:
+  keywords: ['scorpion', 'small']
+  level: 64
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5004
+  key: |
+  the_giant_purple_sand_worm:
+  name: |
+  worm_giant:
+  short_desc: |
+  The_giant_purple_sand_worm:
+  long_desc: |
+  A_giant_purple_sand_worm_thrusts_up_out_of_the_sand_and_attacks:
+  keywords: ['worm', 'giant']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5005
+  key: |
+  the_brass_dragon:
+  name: |
+  dragon_brass:
+  short_desc: |
+  the_brass_dragon:
+  long_desc: |
+  The_brass_dragon_steps_out_of_the_darkness_and_says_HellonThen_adds_to_it_Prepare_to_die_have_a_nice_day:
+  keywords: ['dragon', 'brass']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5006
+  key: |
+  the_nomad_leader:
+  name: |
+  nomad_leader:
+  short_desc: |
+  The_nomad_leader:
+  long_desc: |
+  The_nomad_leader_sits_silently_in_prayer:
+  keywords: ['nomad', 'leader']
+  level: 950
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 95000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5007
+  key: |
+  the_nomad_commander:
+  name: |
+  nomad_commander:
+  short_desc: |
+  The_nomad_commander:
+  long_desc: |
+  The_nomad_commander_stands_here_staring_suspiciously_at_you:
+  keywords: ['nomad', 'commander']
+  level: 900
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5008
+  key: |
+  the_nomad_warrior:
+  name: |
+  nomad_warrior:
+  short_desc: |
+  The_nomad_warrior:
+  long_desc: |
+  A_proud_nomad_warrior_stands_here:
+  keywords: ['nomad', 'warrior']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5009
+  key: |
+  the_slave:
+  name: |
+  slave_young:
+  short_desc: |
+  The_slave:
+  long_desc: |
+  A_young_slave_sits_here_staring_at_you_with_pleading_eyes:
+  keywords: ['slave', 'young']
+  level: 130
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5010
+  key: |
+  the_dracolich:
+  name: |
+  dracolich_lich:
+  short_desc: |
+  The_dracolich:
+  long_desc: |
+  A_pile_of_bones_rises_up_to_form_a_skeletal_dracolich:
+  keywords: ['dracolich', 'lich']
+  level: 136
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5011
+  key: |
+  the_drider:
+  name: |
+  drider_drow:
+  short_desc: |
+  The_drider:
+  long_desc: |
+  The_drider_looks_at_you_viciously_while_it_draws_its_sword:
+  keywords: ['drider', 'drow']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5012
+  key: |
+  the_dark_dwarf:
+  name: |
+  duergar_dwarf:
+  short_desc: |
+  The_dark_dwarf:
+  long_desc: |
+  A_duergar_is_here_mining_precious_stones_with_his_pick:
+  keywords: ['duergar', 'dwarf']
+  level: 96
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5013
+  key: |
+  the_myconoid:
+  name: |
+  myconoid:
+  short_desc: |
+  the_myconoid:
+  long_desc: |
+  A_myconoid_lumbers_along_peacefully:
+  keywords: ['myconoid']
+  level: 192
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5014
+  key: |
+  the_myconoid_shaman:
+  name: |
+  myconoid_shaman:
+  short_desc: |
+  The_myconoid_shaman:
+  long_desc: |
+  A_rather_large_myconoid_stands_here_chanting_in_a_strange_tongue:
+  keywords: ['myconoid', 'shaman']
+  level: 130
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5015
+  key: |
+  the_dustdigger:
+  name: |
+  dustdigger:
+  short_desc: |
+  The_dustdigger:
+  long_desc: |
+  A_small_oasis_invites_you_to_dive_in:
+  keywords: ['dustdigger']
+  level: 38
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5017
+  key: |
+  the_rabid_camel:
+  name: |
+  camel:
+  short_desc: |
+  The_rabid_camel:
+  long_desc: |
+  A_very_dangerous_rabid_camel_snorts_at_you:
+  keywords: ['camel']
+  level: 34
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

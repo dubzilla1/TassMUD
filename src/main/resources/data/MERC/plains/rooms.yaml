@@ -595,8 +595,9 @@ rooms:
     doors:
       north:
         to: 5550
-        description: "You notice a sign saying : Stranger we welcome you to the
-                           peaceful city of Ofcol."
+        description: |
+          You notice a sign saying : Stranger we welcome you to the
+                                     peaceful city of Ofcol.
         keywords: ""
         state: OPEN
         locked: false
@@ -689,6 +690,11 @@ rooms:
       north: 318
       east: 300
     sector_type: HILLS
+    spawns:
+      - type: ITEM
+        id: 304
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 318
@@ -767,6 +773,11 @@ rooms:
       east: 315
       south: 316
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 309
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 319
@@ -810,11 +821,17 @@ rooms:
       east: 320
       south: 318
     sector_type: HILLS
+    spawns:
+      - type: ITEM
+        id: 301
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 330
-        description: "To the north, the plains extend into small foothills, behind a small hill
-you notice something ..."
+        description: |
+          To the north, the plains extend into small foothills, behind a small hill
+          you notice something ...
         keywords: ""
         state: OPEN
         locked: false
@@ -979,6 +996,27 @@ you notice something ..."
       east: 324
       south: 330
     sector_type: HILLS
+    spawns:
+      - type: ITEM
+        id: 304
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 300
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 308
+              wear_loc: 17
+          -
+              item_vnum: 307
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 312
+          -
+              item_vnum: 302
     doors:
       north:
         to: 7800
@@ -1023,6 +1061,11 @@ you notice something ..."
       south: 322
       west: 323
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 309
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 901
@@ -1044,8 +1087,9 @@ you notice something ..."
         key: -1
       south:
         to: 322
-        description: "The foothills extend downwards to the south. In the horizon you can
-see the City Of Midgaard."
+        description: |
+          The foothills extend downwards to the south. In the horizon you can
+          see the City Of Midgaard.
         keywords: ""
         state: OPEN
         locked: false
@@ -1161,6 +1205,11 @@ see the City Of Midgaard."
       east: 313
       south: 310
     sector_type: HILLS
+    spawns:
+      - type: ITEM
+        id: 300
+        quantity: 10
+        frequency: 1
     doors:
       east:
         to: 313
@@ -1246,6 +1295,18 @@ see the City Of Midgaard."
     exits:
       east: 330
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 309
+        quantity: 30
+        frequency: 1
+      - type: MOB
+        id: 301
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 303
     legacy_flags:
       - INDOORS
     doors:
@@ -1339,6 +1400,11 @@ see the City Of Midgaard."
       north: 333
       south: 335
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 309
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 333
@@ -1483,6 +1549,11 @@ see the City Of Midgaard."
       north: 321
       west: 317
     sector_type: HILLS
+    spawns:
+      - type: ITEM
+        id: 304
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 321
@@ -1713,6 +1784,16 @@ see the City Of Midgaard."
     exits:
       east: 343
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 305
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 310
+          -
+              item_vnum: 311
     legacy_flags:
       - INDOORS
     doors:

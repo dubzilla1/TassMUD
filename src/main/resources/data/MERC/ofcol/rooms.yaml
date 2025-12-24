@@ -13,6 +13,11 @@ rooms:
       north: 5551
       south: 314
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 303
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 5551
@@ -91,6 +96,15 @@ rooms:
       south: 5551
       west: 5555
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 304
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3020
+              wear_loc: 16
     doors:
       north:
         to: 5556
@@ -133,6 +147,11 @@ rooms:
       south: 5554
       west: 5551
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 304
+        quantity: 5
+        frequency: 1
     doors:
       east:
         to: 601
@@ -198,6 +217,16 @@ rooms:
     exits:
       east: 5552
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 306
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 304
+          -
+              item_vnum: 3030
     legacy_flags:
       - INDOORS
     doors:
@@ -225,6 +254,20 @@ rooms:
     exits:
       south: 5552
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 303
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 308
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3000
+          -
+              item_vnum: 3001
     legacy_flags:
       - INDOORS
     doors:
@@ -250,6 +293,11 @@ rooms:
       You notice that there are no exits from this room.
     exits:
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 350
+        quantity: 1
+        frequency: 1
     extras:
       pictures: |
         These pictures show the friend's and foe's of Ravan.

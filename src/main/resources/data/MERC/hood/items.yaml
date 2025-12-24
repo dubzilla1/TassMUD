@@ -1,6 +1,6 @@
 items:
   - id: 2101
-    key: ogre_jacket
+    key: ogre_jacket_2101
     name: an Ogre gang jacket
     description: An Ogre gang jacket has been carelessly tossed here.
     weight: 2
@@ -12,19 +12,18 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [ogre, jacket]
-    template_json:
-      raw_block: |
-        #2101
-        ogre jacket~
-        an Ogre gang jacket~
-        An Ogre gang jacket has been carelessly tossed here.~
-        ~
-        9 0 9
-        5 0 0 0
-        2 100 10
-      type_line: 9 0 9
+    legacy_type_line: 9 0 9
+    legacy_raw: |
+      #2101
+      ogre jacket~
+      an Ogre gang jacket~
+      An Ogre gang jacket has been carelessly tossed here.~
+      ~
+      9 0 9
+      5 0 0 0
+      2 100 10
   - id: 2102
-    key: troll_jacket
+    key: troll_jacket_2102
     name: a Troll gang jacket
     description: A Troll gang jacket has been carelessly tossed here.
     weight: 2
@@ -36,19 +35,18 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [troll, jacket]
-    template_json:
-      raw_block: |
-        #2102
-        troll jacket~
-        a Troll gang jacket~
-        A Troll gang jacket has been carelessly tossed here.~
-        ~
-        9 0 9
-        5 0 0 0
-        2 100 10
-      type_line: 9 0 9
+    legacy_type_line: 9 0 9
+    legacy_raw: |
+      #2102
+      troll jacket~
+      a Troll gang jacket~
+      A Troll gang jacket has been carelessly tossed here.~
+      ~
+      9 0 9
+      5 0 0 0
+      2 100 10
   - id: 2103
-    key: chain
+    key: chain_2103
     name: a hefty length of chain
     description: A hefty length of chain lies in a heap here on the floor.
     weight: 10
@@ -72,19 +70,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        ~
-        5 1 8193
-        0 2 7 4
-        10 900 30
-        A
-        17 -5
-        A
-        18 1
-      type_line: 5 1 8193
+    legacy_type_line: 5 1 8193
+    legacy_raw: |
+      ~
+      5 1 8193
+      0 2 7 4
+      10 900 30
+      A
+      17 -5
+      A
+      18 1
   - id: 2104
-    key: metal_cover_shield
+    key: metal_cover_shield_2104
     name: a metal shield
     description: A garbage can lid has been dropped on the floor.
     weight: 3
@@ -96,19 +93,18 @@ items:
       - TAKE
       - WEAR_SHIELD
     keywords: [metal, cover, shield]
-    template_json:
-      raw_block: |
-        #2104
-        metal cover shield~
-        a metal shield~
-        A garbage can lid has been dropped on the floor.~
-        ~
-        9 0 513
-        3 0 0 0
-        3 125 1
-      type_line: 9 0 513
+    legacy_type_line: 9 0 513
+    legacy_raw: |
+      #2104
+      metal cover shield~
+      a metal shield~
+      A garbage can lid has been dropped on the floor.~
+      ~
+      9 0 513
+      3 0 0 0
+      3 125 1
   - id: 2105
-    key: spray_paint_can
+    key: spray_paint_can_2105
     name: a spray paint can
     description: A can of spray paint has been discarded here.
     weight: 1
@@ -126,19 +122,18 @@ items:
       - TAKE
       - HOLD
     keywords: [spray, paint, can]
-    template_json:
-      raw_block: |
-        #2105
-        spray paint can~
-        a spray paint can~
-        A can of spray paint has been discarded here.~
-        ~
-        3 2 16385
-        11 2 2 10
-        1 1000 20
-      type_line: 3 2 16385
+    legacy_type_line: 3 2 16385
+    legacy_raw: |
+      #2105
+      spray paint can~
+      a spray paint can~
+      A can of spray paint has been discarded here.~
+      ~
+      3 2 16385
+      11 2 2 10
+      1 1000 20
   - id: 2106
-    key: stiletto
+    key: stiletto_2106
     name: a stiletto
     description: A killer stiletto has been forgotten here.
     weight: 2
@@ -160,19 +155,18 @@ items:
         modifier: 20
     on_equip_effect_ids:
       - 511
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 7 2 11
-        2 600 165
-        A
-        18 4
-        A
-        17 20
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 7 2 11
+      2 600 165
+      A
+      18 4
+      A
+      17 20
   - id: 2107
-    key: spiked_heel_boots
+    key: spiked_heel_boots_2107
     name: spiked heeled boots
     description: A pair of black leather boots with 6 inch spikes have been left here.
     weight: 4
@@ -191,19 +185,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 503
-    template_json:
-      raw_block: |
-        ~
-        9 0 65
-        3 0 0 0
-        4 2000 150
-        A
-        2 -1
-        A
-        19 1
-      type_line: 9 0 65
+    legacy_type_line: 9 0 65
+    legacy_raw: |
+      ~
+      9 0 65
+      3 0 0 0
+      4 2000 150
+      A
+      2 -1
+      A
+      19 1
   - id: 2108
-    key: mirror
+    key: mirror_2108
     name: a mirror
     description: A small mirror has been left here.
     weight: 1
@@ -222,19 +215,18 @@ items:
       - TAKE
       - HOLD
     keywords: [mirror]
-    template_json:
-      raw_block: |
-        #2108
-        mirror~
-        a mirror~
-        A small mirror has been left here.~
-        ~
-        3 65 16385
-        20 10 10 4
-        1 1000 1
-      type_line: 3 65 16385
+    legacy_type_line: 3 65 16385
+    legacy_raw: |
+      #2108
+      mirror~
+      a mirror~
+      A small mirror has been left here.~
+      ~
+      3 65 16385
+      20 10 10 4
+      1 1000 1
   - id: 2109
-    key: gloves
+    key: gloves_2109
     name: comfortable leather gloves
     description: A pair of soft lined leather gloves lie here.
     weight: 2
@@ -249,19 +241,18 @@ items:
     applies:
       - location: 1
         modifier: 1
-    template_json:
-      raw_block: |
-        comfortable leather gloves~
-        A pair of soft lined leather gloves lie here.~
-        ~
-        9 0 129
-        2 0 0 0
-        2 500 50
-        A
-        1 1
-      type_line: 9 0 129
+    legacy_type_line: 9 0 129
+    legacy_raw: |
+      comfortable leather gloves~
+      A pair of soft lined leather gloves lie here.~
+      ~
+      9 0 129
+      2 0 0 0
+      2 500 50
+      A
+      1 1
   - id: 2110
-    key: patrol_club
+    key: patrol_club_2110
     name: a patrol club
     description: A patrolman's club has carelessly been forgotten here.
     weight: 1
@@ -283,19 +274,18 @@ items:
         modifier: 10
     on_equip_effect_ids:
       - 508
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 1 12 7
-        1 200 30
-        A
-        18 3
-        A
-        14 10
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 1 12 7
+      1 200 30
+      A
+      18 3
+      A
+      14 10
   - id: 2111
-    key: signet_ring
+    key: signet_ring_2111
     name: a troll signet ring
     description: A signet ring bearing the crest of a troll lies in the dust here.
     weight: 1
@@ -310,19 +300,18 @@ items:
     applies:
       - location: 1
         modifier: 1
-    template_json:
-      raw_block: |
-        a troll signet ring~
-        A signet ring bearing the crest of a troll lies in the dust here.~
-        ~
-        9 0 3
-        4 0 0 0
-        1 10000 100
-        A
-        1 1
-      type_line: 9 0 3
+    legacy_type_line: 9 0 3
+    legacy_raw: |
+      a troll signet ring~
+      A signet ring bearing the crest of a troll lies in the dust here.~
+      ~
+      9 0 3
+      4 0 0 0
+      1 10000 100
+      A
+      1 1
   - id: 2112
-    key: knuckles_brass
+    key: knuckles_brass_2112
     name: brass knuckles
     description: A set of brass knuckles left from a fight are here on the ground.
     weight: 1
@@ -343,14 +332,13 @@ items:
         modifier: 5
     on_equip_effect_ids:
       - 512
-    template_json:
-      raw_block: |
-        ~
-        9 2 129
-        -15 0 0 0
-        1 2000 100
-        A
-        13 -15
-        A
-        18 5
-      type_line: 9 2 129
+    legacy_type_line: 9 2 129
+    legacy_raw: |
+      ~
+      9 2 129
+      -15 0 0 0
+      1 2000 100
+      A
+      13 -15
+      A
+      18 5

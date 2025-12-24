@@ -1,8 +1,9 @@
 - id: 8600
-  key: "the_keeper"
-  name: "keeper"
-  short_desc: "the keeper"
-  long_desc: "The keeper of the Morris equipment is here."
+  key: the_keeper_8600
+  name: the keeper
+  short_desc: The keeper of the Morris equipment is here.
+  long_desc: |
+    Her job is to set the level for this equipment.
   keywords: ['keeper']
   level: 1
   hp_max: 1000
@@ -27,5 +28,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 1, 'hit_dice': '1d1+999', 'damage_dice': '1d1+999', 'raw_block': 'Her job is to set the level for this equipment.\n~\n1 0 1000 S\n8 1 -1 1d1+999 4d6+3\n100 100\n8 8 2'}
+  legacy_raw: 1 0 1000 S 8 1 -1 1d1+999 4d6+3 100 100 8 8 2
 

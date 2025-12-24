@@ -1,8 +1,11 @@
 - id: 901
-  key: "zeus"
-  name: "zeus god"
-  short_desc: "Zeus"
-  long_desc: "Zeus sits here on a throne."
+  key: zeus_901
+  name: Zeus
+  short_desc: Zeus sits here on a throne.
+  long_desc: |
+    You see before you the greatest of the Olympians.  It seems as if he could
+    destroy you with a thought.  Every glance penetrates deep into your soul.
+    You now know what true fear is.
   keywords: ['zeus', 'god']
   level: 2
   hp_max: 1630
@@ -27,13 +30,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '35d35+1000', 'damage_dice': '35d35+1000', 'raw_block': 'You see before you the greatest of the Olympians.  It seems as if he could\ndestroy you with a thought.  Every glance penetrates deep into your soul.\nYou now know what true fear is.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 35d35+1000 20d3+25\n100000 2000000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 35d35+1000 20d3+25 100000 2000000 8 8 1
 
 - id: 902
-  key: "prometheus"
-  name: "prometheus"
-  short_desc: "Prometheus"
-  long_desc: "Prometheus is here, playing with a match."
+  key: prometheus_902
+  name: Prometheus
+  short_desc: Prometheus is here, playing with a match.
+  long_desc: |
+    This mortal risked the wrath of Zeus to give the gift of fire to humans.  He
+    looks up at you and smiles.
   keywords: ['prometheus']
   level: 2
   hp_max: 806
@@ -58,13 +63,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '31d31+310', 'damage_dice': '31d31+310', 'raw_block': 'This mortal risked the wrath of Zeus to give the gift of fire to humans.  He\nlooks up at you and smiles.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n31 0 -7 31d31+310 15d2+20\n40000 300000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 31 0 -7 31d31+310 15d2+20 40000 300000 8 8 1
 
 - id: 903
-  key: "hermes"
-  name: "hermes"
-  short_desc: "Hermes"
-  long_desc: "Hermes is busy, delivering a message."
+  key: hermes_903
+  name: Hermes
+  short_desc: Hermes is busy, delivering a message.
+  long_desc: |
+    This is the messenger of the Gods.  He wears a winged helm and boots, and
+    darts from place to place.  He looks very busy, and it seems as if he doesn't
+    even notice your presence.
   keywords: ['hermes']
   level: 4
   hp_max: 891
@@ -89,13 +97,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '33d33+330', 'damage_dice': '33d33+330', 'raw_block': "This is the messenger of the Gods.  He wears a winged helm and boots, and\ndarts from place to place.  He looks very busy, and it seems as if he doesn't\neven notice your presence.\n~\n4 2|8|32|128|8192|32768|524288 1000 S\n33 0 -7 33d33+330 20d2+20\n50000 400000\n8 8 1"}
+  legacy_raw: 4 2|8|32|128|8192|32768|524288 1000 S 33 0 -7 33d33+330 20d2+20 50000 400000 8 8 1
 
 - id: 904
-  key: "poseidon"
-  name: "poseidon"
-  short_desc: "Poseidon"
-  long_desc: "Poseidon is dining here."
+  key: poseidon_904
+  name: Poseidon
+  short_desc: Poseidon is dining here.
+  long_desc: |
+    He is the brother of Zeus himself, chosen to rule the seas.  He must be
+    visiting Mount Olympus.  He nods at you and motions for you to enter and
+    have a seat.
   keywords: ['poseidon']
   level: 2
   hp_max: 1630
@@ -120,13 +131,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '35d35+1000', 'damage_dice': '35d35+1000', 'raw_block': 'He is the brother of Zeus himself, chosen to rule the seas.  He must be\nvisiting Mount Olympus.  He nods at you and motions for you to enter and\nhave a seat.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 35d35+1000 20d3+25\n100000 2000000\n6 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 35d35+1000 20d3+25 100000 2000000 6 8 1
 
 - id: 905
-  key: "apollo"
-  name: "apollo"
-  short_desc: "Apollo"
-  long_desc: "Apollo is here, playing a tune."
+  key: apollo_905
+  name: Apollo
+  short_desc: Apollo is here, playing a tune.
+  long_desc: |
+    This jovial God is strumming on a lyre.  He smiles at you and asks you to
+    join him.  You notice a dangerous looking bow by his side, however, and think
+    that he knows more than music.
   keywords: ['apollo']
   level: 2
   hp_max: 935
@@ -151,13 +165,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '34d34+340', 'damage_dice': '34d34+340', 'raw_block': 'This jovial God is strumming on a lyre.  He smiles at you and asks you to\njoin him.  You notice a dangerous looking bow by his side, however, and think\nthat he knows more than music.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n34 0 -8 34d34+340 15d3+25\n40000 550000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 34 0 -8 34d34+340 15d3+25 40000 550000 8 8 1
 
 - id: 906
-  key: "ares"
-  name: "ares"
-  short_desc: "Ares"
-  long_desc: "Ares is here, kicking your ass."
+  key: ares_906
+  name: Ares
+  short_desc: Ares is here, kicking your ass.
+  long_desc: |
+    The God of War is here, studying some maps.  He scowls at you as you enter
+    and says 'I am very busy.  What do you want?'
   keywords: ['ares']
   level: 2
   hp_max: 2130
@@ -182,13 +198,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '35d35+1500', 'damage_dice': '35d35+1500', 'raw_block': "The God of War is here, studying some maps.  He scowls at you as you enter\nand says 'I am very busy.  What do you want?'\n~\n2|4|32 2|8|32|128|524288 -1000 S\n35 0 -10 35d35+1500 10d2+25\n50000 2000000\n8 8 1"}
+  legacy_raw: 2|4|32 2|8|32|128|524288 -1000 S 35 0 -10 35d35+1500 10d2+25 50000 2000000 8 8 1
 
 - id: 907
-  key: "athena"
-  name: "athena"
-  short_desc: "Athena"
-  long_desc: "Athena is relaxing here."
+  key: athena_907
+  name: Athena
+  short_desc: Athena is relaxing here.
+  long_desc: |
+    Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
+    you and invites you to join her.
   keywords: ['athena']
   level: 2
   hp_max: 891
@@ -213,13 +231,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '33d33+330', 'damage_dice': '33d33+330', 'raw_block': "Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at\nyou and invites you to join her.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n33 0 -7 33d33+330 15d2+10\n60000 300000\n8 8 2"}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 33 0 -7 33d33+330 15d2+10 60000 300000 8 8 2
 
 - id: 908
-  key: "hephaestus"
-  name: "hephaestus smith"
-  short_desc: "Hephaestus"
-  long_desc: "Hephaestus the Smith is here, crafting a fine weapon."
+  key: hephaestus_908
+  name: Hephaestus
+  short_desc: Hephaestus the Smith is here, crafting a fine weapon.
+  long_desc: |
+    This God is the only one who is not physically perfect.  He is lame and very
+    ugly.  You get the impression that he is kind, however, and would go out of his
+    way to help you.  He is attended by three golden maidens.
   keywords: ['hephaestus', 'smith']
   level: 2
   hp_max: 891
@@ -244,13 +265,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '33d33+330', 'damage_dice': '33d33+330', 'raw_block': 'This God is the only one who is not physically perfect.  He is lame and very\nugly.  You get the impression that he is kind, however, and would go out of his\nway to help you.  He is attended by three golden maidens.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n33 0 -7 33d33+330 12d2+26\n60000 550000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 33 0 -7 33d33+330 12d2+26 60000 550000 8 8 1
 
 - id: 909
-  key: "a_golden_maiden"
-  name: "handmaid golden"
-  short_desc: "A Golden Maiden"
-  long_desc: "A Handmaid of gold is here, assisting the smith."
+  key: a_golden_maiden_909
+  name: A Golden Maiden
+  short_desc: A Handmaid of gold is here, assisting the smith.
+  long_desc: |
+    As you gaze upon this creation, you realize that she is made from solid
+    gold.  She seems to be very lifelike as she assists the smith in his work.
   keywords: ['handmaid', 'golden']
   level: 2
   hp_max: 259
@@ -275,13 +298,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d8+250', 'damage_dice': '2d8+250', 'raw_block': 'As you gaze upon this creation, you realize that she is made from solid\ngold.  She seems to be very lifelike as she assists the smith in his work.\n~\n2|4 2|8|32|128|8192|524288 0 S\n15 0 0 2d8+250 2d8+2\n1000 21000\n8 8 2'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 0 S 15 0 0 2d8+250 2d8+2 1000 21000 8 8 2
 
 - id: 910
-  key: "a_soldier"
-  name: "soldier"
-  short_desc: "A Soldier"
-  long_desc: "A soldier is here, assisting Ares."
+  key: a_soldier_910
+  name: A Soldier
+  short_desc: A soldier is here, assisting Ares.
+  long_desc: |
+    This man is waiting on Ares.  Although he does not look very strong, you
+    realize that Ares would not have any weaklings working for him.
   keywords: ['soldier']
   level: 2
   hp_max: 259
@@ -306,13 +331,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d8+250', 'damage_dice': '2d8+250', 'raw_block': 'This man is waiting on Ares.  Although he does not look very strong, you\nrealize that Ares would not have any weaklings working for him.\n~\n2|4|32 2|8|32|128|524288 0 S\n20 0 0 2d8+250 3d6+12\n5000 15000\n8 8 1'}
+  legacy_raw: 2|4|32 2|8|32|128|524288 0 S 20 0 0 2d8+250 3d6+12 5000 15000 8 8 1
 
 - id: 911
-  key: "an_apprentice_musician"
-  name: "musician apprentice"
-  short_desc: "an apprentice musician"
-  long_desc: "A musician is here, learning from Apollo."
+  key: an_apprentice_musician_911
+  name: an apprentice musician
+  short_desc: A musician is here, learning from Apollo.
+  long_desc: |
+    This man has mastered his first profession, and is now studying music from the
+    immortal Apollo.
   keywords: ['musician', 'apprentice']
   level: 2
   hp_max: 89
@@ -337,13 +364,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d8+80', 'damage_dice': '2d8+80', 'raw_block': 'This man has mastered his first profession, and is now studying music from the\nimmortal Apollo.\n~\n2|4|1024 2|8|32|128|524288 1000 S\n8 9 4 2d8+80 2d5+2\n2500 2000\n8 8 1'}
+  legacy_raw: 2|4|1024 2|8|32|128|524288 1000 S 8 9 4 2d8+80 2d5+2 2500 2000 8 8 1
 
 - id: 912
-  key: "a_serving_boy"
-  name: "boy serving servant"
-  short_desc: "A serving boy"
-  long_desc: "A servant is here, feeding Athena her grapes."
+  key: a_serving_boy_912
+  name: A serving boy
+  short_desc: A servant is here, feeding Athena her grapes.
+  long_desc: |
+    This boy is truly lucky to be able to serve Athena herself.
   keywords: ['boy', 'serving', 'servant']
   level: 2
   hp_max: 209
@@ -368,13 +396,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d8+200', 'damage_dice': '2d8+200', 'raw_block': 'This boy is truly lucky to be able to serve Athena herself.\n~\n2|4 2|8|32|128|524288 1000 S\n6 15 7 2d8+200 2d3+2\n500 1000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|524288 1000 S 6 15 7 2d8+200 2d3+2 500 1000 8 8 1
 
 - id: 913
-  key: "a_hound_of_war"
-  name: "hound dog war"
-  short_desc: "A hound of war"
-  long_desc: "A large hound snarls at you."
+  key: a_hound_of_war_913
+  name: A hound of war
+  short_desc: A large hound snarls at you.
+  long_desc: |
+    This great beast can barely be called a dog.  It has been bred to cause fear
+    on the battle field, and you have no doubt that it does its job well.
   keywords: ['hound', 'dog', 'war']
   level: 2
   hp_max: 454
@@ -399,13 +429,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d8+450', 'damage_dice': '1d8+450', 'raw_block': 'This great beast can barely be called a dog.  It has been bred to cause fear\non the battle field, and you have no doubt that it does its job well.\n~\n2|4|32 2|8|32|128|524288 -600 S\n20 0 0 1d8+450 2d12+10\n0 45000\n8 8 0'}
+  legacy_raw: 2|4|32 2|8|32|128|524288 -600 S 20 0 0 1d8+450 2d12+10 0 45000 8 8 0
 
 - id: 914
-  key: "odin"
-  name: "Odin"
-  short_desc: "Odin"
-  long_desc: "Odin is resting here."
+  key: odin_914
+  name: Odin
+  short_desc: Odin is resting here.
+  long_desc: |
+    As you gaze at Odin, you realize how insignificant you truly are.  He towers
+    over you, and is so intent on his activities that he barely recognizes your
+    presence.
   keywords: ['Odin']
   level: 2
   hp_max: 1630
@@ -430,13 +463,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '35d35+1000', 'damage_dice': '35d35+1000', 'raw_block': 'As you gaze at Odin, you realize how insignificant you truly are.  He towers\nover you, and is so intent on his activities that he barely recognizes your\npresence.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 35d35+1000 10d2+25\n100000 2000000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 35d35+1000 10d2+25 100000 2000000 8 8 1
 
 - id: 915
-  key: "julius_the_green_grocer"
-  name: "grocer greengrocer julius"
-  short_desc: "Julius the Green Grocer"
-  long_desc: "Julius the Green Grocer stands here."
+  key: julius_the_green_grocer_915
+  name: Julius the Green Grocer
+  short_desc: Julius the Green Grocer stands here.
+  long_desc: |
+    This jovial man has devoted his life to selling fruit and other foods to the
+    inhabitants of this city.  Although he may seem like a wimp, it would be wise
+    not to underestimate him.  He smiles warmly at you and shows you his selection
+    of delicious looking foods.
   keywords: ['grocer', 'greengrocer', 'julius']
   level: 2
   hp_max: 2000
@@ -461,13 +498,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+1999', 'damage_dice': '1d1+1999', 'raw_block': 'This jovial man has devoted his life to selling fruit and other foods to the\ninhabitants of this city.  Although he may seem like a wimp, it would be wise\nnot to underestimate him.  He smiles warmly at you and shows you his selection\nof delicious looking foods.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n30 0 -4 1d1+1999 3d10+10\n10000 110000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 30 0 -4 1d1+1999 3d10+10 10000 110000 8 8 1
 
 - id: 916
-  key: "the_alchemist"
-  name: "alchemist"
-  short_desc: "the Alchemist"
-  long_desc: "The ancient, wizened Alchemist stands here."
+  key: the_alchemist_916
+  name: the Alchemist
+  short_desc: The ancient, wizened Alchemist stands here.
+  long_desc: |
+    Skilled in all manner of magic, as well as the ancient art of alchemy, he
+    stands ready to supply the citizens here (but not you) with all manner of
+    arcane supplies.
   keywords: ['alchemist']
   level: 2
   hp_max: 2000
@@ -492,13 +532,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+1999', 'damage_dice': '1d1+1999', 'raw_block': 'Skilled in all manner of magic, as well as the ancient art of alchemy, he\nstands ready to supply the citizens here (but not you) with all manner of\narcane supplies.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n34 0 -8 1d1+1999 25d2+50\n10000 100000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 34 0 -8 1d1+1999 25d2+50 10000 100000 8 8 1
 
 - id: 917
-  key: "clive_the_weapons_master"
-  name: "clive"
-  short_desc: "Clive the Weapons Master"
-  long_desc: "Clive the Weapons Master is practicing with his bow and axe."
+  key: clive_the_weapons_master_917
+  name: Clive the Weapons Master
+  short_desc: Clive the Weapons Master is practicing with his bow and axe.
+  long_desc: |
+    Clive looks VERY big and VERY tough.  All those years in the army must have
+    paid off.
   keywords: ['clive']
   level: 2
   hp_max: 765
@@ -523,13 +565,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'Clive looks VERY big and VERY tough.  All those years in the army must have\npaid off.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n30 0 -10 30d30+300 10d3+20\n40000 200000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 30 0 -10 30d30+300 10d3+20 40000 200000 8 8 1
 
 - id: 918
-  key: "samuel_the_armourer"
-  name: "armourer samuel"
-  short_desc: "Samuel the Armourer"
-  long_desc: "Samuel the Armourer glares at you."
+  key: samuel_the_armourer_918
+  name: Samuel the Armourer
+  short_desc: Samuel the Armourer glares at you.
+  long_desc: |
+    Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.
+    He doesn't like what you've been doing in his city.
   keywords: ['armourer', 'samuel']
   level: 2
   hp_max: 404
@@ -554,13 +598,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d8+400', 'damage_dice': '1d8+400', 'raw_block': "Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.\nHe doesn't like what you've been doing in his city.\n~\n2|4|32 2|8|32|128|8192|524288 1000 S\n20 0 -3 1d8+400 10d3+20\n10000 60000\n8 8 1"}
+  legacy_raw: 2|4|32 2|8|32|128|8192|524288 1000 S 20 0 -3 1d8+400 10d3+20 10000 60000 8 8 1
 
 - id: 919
-  key: "ra_the_sun_god"
-  name: "ra sun god"
-  short_desc: "Ra the Sun God"
-  long_desc: "Ra the Egyptian Sun God is resting here."
+  key: ra_the_sun_god_919
+  name: Ra the Sun God
+  short_desc: Ra the Egyptian Sun God is resting here.
+  long_desc: |
+    Ra is very bright!  It hurts your eyes to look at him, so you can tell little
+    about his appearance.  What you can tell, however, suggests that he is no one
+    to be trifled with.
   keywords: ['ra', 'sun', 'god']
   level: 2
   hp_max: 2504
@@ -585,13 +632,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d8+2500', 'damage_dice': '1d8+2500', 'raw_block': 'Ra is very bright!  It hurts your eyes to look at him, so you can tell little\nabout his appearance.  What you can tell, however, suggests that he is no one\nto be trifled with.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 1d8+2500 25d2+25\n100000 3000000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 1d8+2500 25d2+25 100000 3000000 8 8 1
 
 - id: 920
-  key: "a_chimera"
-  name: "chimera"
-  short_desc: "a chimera"
-  long_desc: "A chimera prowls the cell."
+  key: a_chimera_920
+  name: a chimera
+  short_desc: A chimera prowls the cell.
+  long_desc: |
+    This bizarre creature has three heads - one of a goat, one of a lion, and one
+    of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
   keywords: ['chimera']
   level: 2
   hp_max: 410
@@ -616,13 +665,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'This bizarre creature has three heads - one of a goat, one of a lion, and one\nof a dragon.  It growls at you as you enter the cell, then suddenly attacks!\n~\n2|4|32 2|8|32|128|524288 -1000 S\n20 0 -3 20d20+200 5d5+15\n1000 75000\n8 8 1'}
+  legacy_raw: 2|4|32 2|8|32|128|524288 -1000 S 20 0 -3 20d20+200 5d5+15 1000 75000 8 8 1
 
 - id: 921
-  key: "hera"
-  name: "hera"
-  short_desc: "Hera"
-  long_desc: "Hera is here."
+  key: hera_921
+  name: Hera
+  short_desc: Hera is here.
+  long_desc: |
+    Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you
+    to rest and sit for a while.
   keywords: ['hera']
   level: 2
   hp_max: 1504
@@ -647,13 +698,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d8+1500', 'damage_dice': '1d8+1500', 'raw_block': 'Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you\nto rest and sit for a while.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n35 0 -10 1d8+1500 15d3+15\n100000 1500000\n8 8 2'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 1d8+1500 15d3+15 100000 1500000 8 8 2
 
 - id: 922
-  key: "a_roc"
-  name: "roc"
-  short_desc: "a roc"
-  long_desc: "A roc is here."
+  key: a_roc_922
+  name: a roc
+  short_desc: A roc is here.
+  long_desc: |
+    This is a giant bird.  It looks at you quizzically, then makes a noise and
+    looks away.
   keywords: ['roc']
   level: 4
   hp_max: 404
@@ -678,13 +731,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d8+400', 'damage_dice': '1d8+400', 'raw_block': 'This is a giant bird.  It looks at you quizzically, then makes a noise and\nlooks away.\n~\n4 2|8|32|128|8192|524288 0 S\n15 0 0 1d8+400 3d8+6\n5000 40000\n8 8 0'}
+  legacy_raw: 4 2|8|32|128|8192|524288 0 S 15 0 0 1d8+400 3d8+6 5000 40000 8 8 0
 
 - id: 923
-  key: "a_citizen"
-  name: "citizen resident"
-  short_desc: "A citizen"
-  long_desc: "A citizen of this town is strolling down the street here."
+  key: a_citizen_923
+  name: A citizen
+  short_desc: A citizen of this town is strolling down the street here.
+  long_desc: |
+    He looks happy and carefree.  He smiles and tips his hat to you.
   keywords: ['citizen', 'resident']
   level: 4
   hp_max: 64
@@ -709,13 +763,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d8+60', 'damage_dice': '1d8+60', 'raw_block': 'He looks happy and carefree.  He smiles and tips his hat to you.\n~\n4 2|8|32|128|8192|524288 1000 S\n4 16 6 1d8+60 2d4+1\n69 500\n8 8 1'}
+  legacy_raw: 4 2|8|32|128|8192|524288 1000 S 4 16 6 1d8+60 2d4+1 69 500 8 8 1
 
 - id: 924
-  key: "a_pegasus"
-  name: "pegasus horse"
-  short_desc: "a pegasus"
-  long_desc: "A large horse with wings is here."
+  key: a_pegasus_924
+  name: a pegasus
+  short_desc: A large horse with wings is here.
+  long_desc: |
+    This horse is snow white with large wings.  Although it doesn't look very
+    threatening, it seems as though it would be dangerous if provoked.
   keywords: ['pegasus', 'horse']
   level: 4
   hp_max: 114
@@ -740,13 +796,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d8+110', 'damage_dice': '1d8+110', 'raw_block': "This horse is snow white with large wings.  Although it doesn't look very\nthreatening, it seems as though it would be dangerous if provoked.\n~\n4 2|8|32|128|8192|524288 0 S\n8 12 4 1d8+110 2d5+3\n800 3000\n8 8 0"}
+  legacy_raw: 4 2|8|32|128|8192|524288 0 S 8 12 4 1d8+110 2d5+3 800 3000 8 8 0
 
 - id: 925
-  key: "a_cook"
-  name: "cook"
-  short_desc: "A Cook"
-  long_desc: "A cook is here, hard at work."
+  key: a_cook_925
+  name: A Cook
+  short_desc: A cook is here, hard at work.
+  long_desc: |
+    This man looks as is he has been spending WAY too much time in the kitchen.
   keywords: ['cook']
   level: 2
   hp_max: 79
@@ -771,13 +828,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d8+75', 'damage_dice': '1d8+75', 'raw_block': 'This man looks as is he has been spending WAY too much time in the kitchen.\n~\n2|4 2|8|32|128|8192|524288 1000 S\n5 15 5 1d8+75 2d4+2\n100 1000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 5 15 5 1d8+75 2d4+2 100 1000 8 8 1
 
 - id: 926
-  key: "the_jailer"
-  name: "jailer"
-  short_desc: "The Jailer"
-  long_desc: "The jailer is here, watching for intruders."
+  key: the_jailer_926
+  name: The Jailer
+  short_desc: The jailer is here, watching for intruders.
+  long_desc: |
+    He looks as though he has spent a lot of time underground, guarding the
+    prisoners.
   keywords: ['jailer']
   level: 2
   hp_max: 624
@@ -802,5 +861,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d8+620', 'damage_dice': '1d8+620', 'raw_block': 'He looks as though he has spent a lot of time underground, guarding the\nprisoners.\n~\n2|4 2|8|32|128|8192|524288 0 S\n13 8 2 1d8+620 2d6+1\n1000 13000\n8 8 1'}
+  legacy_raw: 2|4 2|8|32|128|8192|524288 0 S 13 8 2 1d8+620 2d6+1 1000 13000 8 8 1
 

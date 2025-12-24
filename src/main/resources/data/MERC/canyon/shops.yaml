@@ -1,0 +1,10 @@
+shops:
+  - keeper: 9238
+    trades: [0, 0, 0, 0, 0]
+    profit_buy: 105
+    profit_sell: 15
+    open: 0
+    close: 23
+    comment: "Elixir Vendor"
+    items: [9231]
+

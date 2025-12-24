@@ -1,8 +1,9 @@
 - id: 6500
-  key: "the_dwarven_guard"
-  name: "dwarf guard"
-  short_desc: "the dwarven guard"
-  long_desc: "A dwarven guard is here."
+  key: the_dwarven_guard_6500
+  name: the dwarven guard
+  short_desc: A dwarven guard is here.
+  long_desc: |
+    The guard looks very tough and mean.
   keywords: ['dwarf', 'guard']
   level: 8
   hp_max: 410
@@ -27,15 +28,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 8, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'The guard looks very tough and mean.\n~\n2050 8 500 S\n20 0 -2 20d20+200 2d4+18\n10000 40000\n8 8 1'}
+  legacy_raw: 2050 8 500 S 20 0 -2 20d20+200 2d4+18 10000 40000 8 8 1
 
 - id: 6501
-  key: "the_dwarven_worker"
-  name: "dwarf worker miner"
-  short_desc: "the dwarven worker"
-  long_desc: "A dwarven mining worker is here."
+  key: the_dwarven_worker_6501
+  name: the dwarven worker
+  short_desc: A dwarven mining worker is here.
+  long_desc: |
+    He is very dirty, and looks extremely over-worked.
   keywords: ['dwarf', 'worker', 'miner']
-  level: 900
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -54,17 +56,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 90000
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 900, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'He is very dirty, and looks extremely over-worked.\n~\n2112 0 900 S\n12 4 1 12d12+120 1d7+7\n3500 6000\n8 8 1'}
+  legacy_raw: 2112 0 900 S 12 4 1 12d12+120 1d7+7 3500 6000 8 8 1
 
 - id: 6502
-  key: "the_wraith"
-  name: "wraith"
-  short_desc: "the wraith"
-  long_desc: "A wraith is awaiting your first move here."
+  key: the_wraith_6502
+  name: the wraith
+  short_desc: A wraith is awaiting your first move here.
+  long_desc: |
+    A black, almost transparent wraith.
   keywords: ['wraith']
   level: 2
   hp_max: 725
@@ -89,15 +92,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '29d29+290', 'damage_dice': '29d29+290', 'raw_block': 'A black, almost transparent wraith.\n~\n2 40 -900 S\n29 -5 -10 29d29+290 4d6+15\n50000 125000\n8 8 1'}
+  legacy_raw: 2 40 -900 S 29 -5 -10 29d29+290 4d6+15 50000 125000 8 8 1
 
 - id: 6503
-  key: "the_storekeeper"
-  name: "storekeeper"
-  short_desc: "the storekeeper"
-  long_desc: "There is the Hide & Tooth storekeeper standing here, waiting patiently."
+  key: the_storekeeper_6503
+  name: the storekeeper
+  short_desc: There is the Hide & Tooth storekeeper standing here, waiting patiently.
+  long_desc: |
+    The storekeeper is very rotund, but looks like a sharp guy.
   keywords: ['storekeeper']
-  level: 900
+  level: 35
   hp_max: 1023
   mp_max: 0
   mv_max: 100
@@ -116,19 +120,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 90000
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 900, 'hit_dice': '6d10+990', 'damage_dice': '6d10+990', 'raw_block': 'The storekeeper is very rotund, but looks like a sharp guy.\n~\n2050 0 900 S\n35 2 2 6d10+990 2d9+20\n100000 80000\n8 8 1'}
+  legacy_raw: 2050 0 900 S 35 2 2 6d10+990 2d9+20 100000 80000 8 8 1
 
 - id: 6504
-  key: "the_baker"
-  name: "baker"
-  short_desc: "the baker"
-  long_desc: "Granite Head, the baker, is waiting for a customer here."
+  key: the_baker_6504
+  name: the baker
+  short_desc: Granite Head, the baker, is waiting for a customer here.
+  long_desc: |
+    Granite Head is covered with flour and grains.
   keywords: ['baker']
-  level: 900
+  level: 35
   hp_max: 1028
   mp_max: 0
   mv_max: 100
@@ -147,19 +152,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 90000
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 900, 'hit_dice': '7d10+990', 'damage_dice': '7d10+990', 'raw_block': 'Granite Head is covered with flour and grains.\n~\n2050 0 900 S\n35 2 2 7d10+990 2d9+19\n1000 80000\n8 8 1'}
+  legacy_raw: 2050 0 900 S 35 2 2 7d10+990 2d9+19 1000 80000 8 8 1
 
 - id: 6505
-  key: "the_giant_lizard"
-  name: "lizard"
-  short_desc: "the giant lizard"
-  long_desc: "A giant lizard is here."
+  key: the_giant_lizard_6505
+  name: the giant lizard
+  short_desc: A giant lizard is here.
+  long_desc: |
+    This scaly creature looks like it is well adapted to it's underground
+    habitat.  He looks very powerful.
   keywords: ['lizard']
-  level: 64
+  level: 8
   hp_max: 605
   mp_max: 0
   mv_max: 100
@@ -178,19 +185,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '10d20+500', 'damage_dice': '10d20+500', 'raw_block': "This scaly creature looks like it is well adapted to it's underground\nhabitat.  He looks very powerful.\n~\n64 8 100 S\n18 7 2 10d20+500 4d4+5\n1200 25000\n8 8 1"}
+  legacy_raw: 64 8 100 S 18 7 2 10d20+500 4d4+5 1200 25000 8 8 1
 
 - id: 6506
-  key: "the_giant"
-  name: "giant"
-  short_desc: "the giant"
-  long_desc: "A giant is here."
+  key: the_giant_6506
+  name: the giant
+  short_desc: A giant is here.
+  long_desc: |
+    The giant is about 8 feet tall, with arms of steel, and looks very strong.
   keywords: ['giant']
-  level: 8
+  level: 16
   hp_max: 342
   mp_max: 0
   mv_max: 100
@@ -209,17 +217,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 8, 'hit_dice': '4d20+300', 'damage_dice': '4d20+300', 'act_flags': 8, 'raw_block': 'The giant is about 8 feet tall, with arms of steel, and looks very strong.\n~\n64 0 0 S\n16 5 1 4d20+300 3d7+5\n2000 24000\n8 8 1'}
+  legacy_raw: 64 0 0 S 16 5 1 4d20+300 3d7+5 2000 24000 8 8 1
 
 - id: 6507
-  key: "the_dwarven_miner"
-  name: "dwarf miner"
-  short_desc: "the dwarven miner"
-  long_desc: "A dwarven miner is here."
+  key: the_dwarven_miner_6507
+  name: the dwarven miner
+  short_desc: A dwarven miner is here.
+  long_desc: |
+    The mineworker is very tired, and very dirty, and he has bulging muscles.
   keywords: ['dwarf', 'miner']
   level: 8
   hp_max: 136
@@ -244,13 +253,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 8, 'hit_dice': '8d8+100', 'damage_dice': '8d8+100', 'raw_block': 'The mineworker is very tired, and very dirty, and he has bulging muscles.\n~\n2050 0 0 S\n8 14 7 8d8+100 2d9+9\n40 1000\n8 8 1'}
+  legacy_raw: 2050 0 0 S 8 14 7 8d8+100 2d9+9 40 1000 8 8 1
 
 - id: 6508
-  key: "the_dwarven_mine_leader"
-  name: "dwarf leader"
-  short_desc: "the dwarven mine leader"
-  long_desc: "A dwarven mine leader is here."
+  key: the_dwarven_mine_leader_6508
+  name: the dwarven mine leader
+  short_desc: A dwarven mine leader is here.
+  long_desc: |
+    The mine leader is very big and very strong.
   keywords: ['dwarf', 'leader']
   level: 21
   hp_max: 410
@@ -275,15 +285,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 21, 'hit_dice': '5d3+400', 'damage_dice': '5d3+400', 'raw_block': 'The mine leader is very big and very strong.\n~\n2050 0 0 S\n21 0 -8 5d3+400 3d9+3\n20000 52000\n8 8 1'}
+  legacy_raw: 2050 0 0 S 21 0 -8 5d3+400 3d9+3 20000 52000 8 8 1
 
 - id: 6509
-  key: "the_dwarven_doctor"
-  name: "dwarf doctor"
-  short_desc: "the dwarven doctor"
-  long_desc: "The dwarven doctor is here."
+  key: the_dwarven_doctor_6509
+  name: the dwarven doctor
+  short_desc: The dwarven doctor is here.
+  long_desc: |
+    He is a very skilled surgeon, with hands of steel.
   keywords: ['dwarf', 'doctor']
-  level: 136
+  level: 9
   hp_max: 144
   mp_max: 0
   mv_max: 100
@@ -302,19 +313,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 13600
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 136, 'hit_dice': '9d9+99', 'damage_dice': '9d9+99', 'raw_block': 'He is a very skilled surgeon, with hands of steel.\n~\n2050 136 1000 S\n9 15 4 9d9+99 3d4+12\n1500 15000\n8 8 1'}
+  legacy_raw: 2050 136 1000 S 9 15 4 9d9+99 3d4+12 1500 15000 8 8 1
 
 - id: 6510
-  key: "the_dwarven_peon"
-  name: "dwarf peon"
-  short_desc: "the dwarven peon"
-  long_desc: "A dwarven peon is awaiting help here."
+  key: the_dwarven_peon_6510
+  name: the dwarven peon
+  short_desc: A dwarven peon is awaiting help here.
+  long_desc: |
   keywords: ['dwarf', 'peon']
-  level: 500
+  level: 3
   hp_max: 43
   mp_max: 0
   mv_max: 100
@@ -333,19 +344,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 50000
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 500, 'hit_dice': '5d3+33', 'damage_dice': '5d3+33', 'raw_block': '~\n2050 0 500 S\n3 16 6 5d3+33 2d4+3\n75 400\n8 8 1'}
+  legacy_raw: 2050 0 500 S 3 16 6 5d3+33 2d4+3 75 400 8 8 1
 
 - id: 6511
-  key: "the_dwarf"
-  name: "dwarf"
-  short_desc: "the dwarf"
-  long_desc: "A grinning dwarf is here."
+  key: the_dwarf_6511
+  name: the dwarf
+  short_desc: A grinning dwarf is here.
+  long_desc: |
   keywords: ['dwarf']
-  level: 500
+  level: 9
   hp_max: 144
   mp_max: 0
   mv_max: 100
@@ -364,19 +375,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 50000
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 500, 'hit_dice': '9d9+99', 'damage_dice': '9d9+99', 'raw_block': '~\n2050 0 500 S\n9 10 2 9d9+99 3d4+1\n1250 6000\n8 8 1'}
+  legacy_raw: 2050 0 500 S 9 10 2 9d9+99 3d4+1 1250 6000 8 8 1
 
 - id: 6512
-  key: "the_unwanted_son"
-  name: "dwarf son"
-  short_desc: "the unwanted son"
-  long_desc: "An unwanted son is here.  You feel sorry for the guy."
+  key: the_unwanted_son_6512
+  name: the unwanted son
+  short_desc: An unwanted son is here.  You feel sorry for the guy.
+  long_desc: |
   keywords: ['dwarf', 'son']
-  level: 64
+  level: 9
   hp_max: 132
   mp_max: 0
   mv_max: 100
@@ -395,19 +406,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '3d4+125', 'damage_dice': '3d4+125', 'raw_block': '~\n64 0 250 S\n9 12 3 3d4+125 3d5+5\n50 5000\n8 8 1'}
+  legacy_raw: 64 0 250 S 9 12 3 3d4+125 3d5+5 50 5000 8 8 1
 
 - id: 6513
-  key: "the_unwanted_daughter"
-  name: "dwarf daughter"
-  short_desc: "the unwanted daughter"
-  long_desc: "An unwanted daughter is here.  You feel sorry for her."
+  key: the_unwanted_daughter_6513
+  name: the unwanted daughter
+  short_desc: An unwanted daughter is here.  You feel sorry for her.
+  long_desc: |
   keywords: ['dwarf', 'daughter']
-  level: 64
+  level: 10
   hp_max: 142
   mp_max: 0
   mv_max: 100
@@ -426,19 +437,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '3d4+135', 'damage_dice': '3d4+135', 'raw_block': '~\n64 0 250 S\n10 11 2 3d4+135 3d5+7\n50 5000\n8 8 1'}
+  legacy_raw: 64 0 250 S 10 11 2 3d4+135 3d5+7 50 5000 8 8 1
 
 - id: 6514
-  key: "the_barracks_guard"
-  name: "dwarf guard"
-  short_desc: "the barracks guard"
-  long_desc: "A barrack guard is here."
+  key: the_barracks_guard_6514
+  name: the barracks guard
+  short_desc: A barrack guard is here.
+  long_desc: |
   keywords: ['dwarf', 'guard']
-  level: 100
+  level: 16
   hp_max: 296
   mp_max: 0
   mv_max: 100
@@ -457,19 +468,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 10000
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 100, 'hit_dice': '16d16+160', 'damage_dice': '16d16+160', 'raw_block': '~\n2050 0 100 S\n16 5 1 16d16+160 3d6+8\n3000 18000\n8 8 1'}
+  legacy_raw: 2050 0 100 S 16 5 1 16d16+160 3d6+8 3000 18000 8 8 1
 
 - id: 6515
-  key: "the_man_in_waiting"
-  name: "man"
-  short_desc: "the man in waiting"
-  long_desc: "A man in waiting is here.  He looks nervous and unsure of himself."
+  key: the_man_in_waiting_6515
+  name: the man in waiting
+  short_desc: A man in waiting is here.  He looks nervous and unsure of himself.
+  long_desc: |
   keywords: ['man']
-  level: 300
+  level: 15
   hp_max: 207
   mp_max: 0
   mv_max: 100
@@ -488,19 +499,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 30000
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 300, 'hit_dice': '6d8+180', 'damage_dice': '6d8+180', 'raw_block': '~\n2050 0 300 S\n15 12 7 6d8+180 3d7+5\n6969 20000\n8 8 1'}
+  legacy_raw: 2050 0 300 S 15 12 7 6d8+180 3d7+5 6969 20000 8 8 1
 
 - id: 6516
-  key: "the_mazekeeper"
-  name: "mazekeeper"
-  short_desc: "the mazekeeper"
-  long_desc: "A mazekeeper is here."
+  key: the_mazekeeper_6516
+  name: the mazekeeper
+  short_desc: A mazekeeper is here.
+  long_desc: |
+    He looks VERY tough.
   keywords: ['mazekeeper']
-  level: 128
+  level: 29
   hp_max: 665
   mp_max: 0
   mv_max: 100
@@ -519,17 +531,17 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 12800
+  experience_value: 2900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 128, 'hit_dice': '25d29+290', 'damage_dice': '25d29+290', 'raw_block': 'He looks VERY tough.\n~\n2082 128 -1000 S\n29 0 -9 25d29+290 4d8+15\n80000 200000\n8 8 1'}
+  legacy_raw: 2082 128 -1000 S 29 0 -9 25d29+290 4d8+15 80000 200000 8 8 1
 
 - id: 6517
-  key: "the_giant_snake"
-  name: "snake"
-  short_desc: "the giant snake"
-  long_desc: "There is a giant snake here."
+  key: the_giant_snake_6517
+  name: the giant snake
+  short_desc: There is a giant snake here.
+  long_desc: |
   keywords: ['snake']
   level: 34
   hp_max: 444
@@ -554,5 +566,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '3d7+432', 'damage_dice': '3d7+432', 'raw_block': '~\n34 0 -1000 S\n15 7 2 3d7+432 3d7+6\n3000 30000\n8 8 1'}
+  legacy_raw: 34 0 -1000 S 15 7 2 3d7+432 3d7+6 3000 30000 8 8 1
 

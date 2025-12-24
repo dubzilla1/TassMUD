@@ -1,0 +1,555 @@
+- id: 8301
+  key: a_swamp_troll
+  name: a swamp troll
+  short_desc: A swamp troll charges towards you.
+  long_desc: |
+    This huge behemoth towers to a height of 15 feet.  He sneers at you 
+    as he approaches and raises two black taloned claws to strike you.
+  keywords: ['troll']
+  level: 2
+  hp_max: 252
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32|64 0 -600 S 16 5 1 5d20+200 4d4+8  10000 20000 8 5 1
+
+- id: 8302
+  key: a_green_troll
+  name: a green troll
+  short_desc: A green troll attempts to get a hold on you.
+  long_desc: |
+    This big troll towers several feet over you.  He has a large spear
+    which he seems to ply with utmost prowess.  He jabs his spear at you
+    and cackles with glee.
+  keywords: ['troll']
+  level: 4
+  hp_max: 181
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 0 -400 S 14 7 3 3d20+150 2d4+6 8000 12000 8 8 1
+
+- id: 8303
+  key: an_ogre
+  name: an ogre
+  short_desc: An ogre stands here getting ready to beat in your face.
+  long_desc: |
+    This mean bastard looks like he could tear you limb from limb.
+  keywords: ['ogre']
+  level: 4
+  hp_max: 260
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 0 -500 S 20 1 0 1d20+250 5d5+8 10000 11000 8 8 1
+
+- id: 8304
+  key: the_swamp_thing
+  name: the Swamp Thing
+  short_desc: the Swamp Thing shambles about here.  It seems hungry.
+  long_desc: |
+    The Swamp Thing has huge fists, which look like they could pound you flat.
+  keywords: ['thing']
+  level: 4
+  hp_max: 555
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 0 -700 S 24 1 8 10d10+500 4d5+10 25000 60000 8 5 0
+
+- id: 8305
+  key: a_gnoll
+  name: a gnoll
+  short_desc: There is a mean looking gnoll here.
+  long_desc: |
+    The Gnoll seems annoyed at your presence.
+  keywords: ['gnoll']
+  level: 4
+  hp_max: 761
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 750
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 8|32 -1000 S 30 0 -3 2d10+750 2d8+15 25000 100000 8 8 1
+
+- id: 8306
+  key: a_huge_hairy_beast
+  name: a huge hairy beast
+  short_desc: A huge hairy beast shambles towards you with death in his eyes.
+  long_desc: |
+    This huge beast stands about 20 feet in height and has huge green clawed
+    appendages.
+  keywords: ['beast']
+  level: 4
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 8|32 -450 S 21 0 0 21d21+210 2d4+15 10000 40000 8 8 1
+
+- id: 8307
+  key: a_rather_small_beast
+  name: a rather small beast
+  short_desc: A rather small beast cringes in terror as it notices you.
+  long_desc: |
+    This rather small beast looks like you could take it out with a single
+    sword blow.
+  keywords: ['beast']
+  level: 4
+  hp_max: 56
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64|128 32768 0 S 3 18 9 3d10+40 1d20+1 500 200 8 8 1
+
+- id: 8308
+  key: the_will_o_wisp
+  name: the Will-O-Wisp
+  short_desc: A Will-O-Wisp darts hear and there, making fun of you.
+  long_desc: |
+    This strange little creature seems very hard to keep your eyes on.
+    You stare as hard as you can at the glowing ball of floating light and
+    are just able to notice a small pair of glowing eyes.
+  keywords: ['will', 'will-o-wisp']
+  level: 4
+  hp_max: 115
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64|128 32768 0 S 10 11 -5 5d5+100 3d3+3 3000 5000 8 8 0
+
+- id: 8309
+  key: the_monstrous_snake
+  name: the monstrous snake
+  short_desc: A monstrous snake slithers towards you, thinking 'breakfast'.
+  long_desc: |
+    This 10 meter anaconda looks rather hungry.
+  keywords: ['snake', 'anaconda']
+  level: 4
+  hp_max: 336
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64|128 32768|65536 -100 S 16 5 1 16d16+200 4d4+6 10000 26000 8 8 1
+
+- id: 8310
+  key: a_large_snake
+  name: a large snake
+  short_desc: A rather large python rests in a coil here.
+  long_desc: |
+    It's the largest Amazon python you have ever seen.
+  keywords: ['snake', 'python']
+  level: 4
+  hp_max: 122
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64|128 32768|65536 -100 S 11 10 2 4d10+100 3d3+5 0 9000 8 8 2
+
+- id: 8312
+  key: the_marsh_hag
+  name: the Marsh Hag
+  short_desc: A Marsh Hag is here.
+  long_desc: |
+    Yech!  She manages to make even Smurfette look attractive.  That's ok,
+    because she thinks you stink too, and she's about to do something about it.
+  keywords: ['hag']
+  level: 4
+  hp_max: 311
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 0 -200 S 9 12 3 2d10+300 3d5+10 1000 6000 8 8 2
+
+- id: 8313
+  key: a_death_slaad
+  name: a Death Slaad
+  short_desc: A Death Slaad is standing here distraught.  He seems lost.
+  long_desc: |
+    This dark apparition stands a meager 13 feet in height.  Even in the dim
+    swamp light, the blade of his scythe gleams.
+  keywords: ['slaad']
+  level: 4
+  hp_max: 352
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 40 -200 S 20 1 -2 5d20+300 5d5+15 14000 40000 8 8 1
+
+- id: 8314
+  key: a_marsh_wolf
+  name: a marsh wolf
+  short_desc: A marsh wolf sniffs the ground has followed your scent.
+  long_desc: |
+    This wolf looks plump.  She probably ate a friend or two of yours who came
+    into the marsh.
+  keywords: ['wolf']
+  level: 4
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 0 -200 S 8 13 3 10d10+50 3d5+1 0 2000 8 8 2
+
+- id: 8318
+  key: a_shambling_mound
+  name: a shambling mound
+  short_desc: A heap of garbage shambles towards you.
+  long_desc: |
+    This grotesque pile of plant matter fills you with utmost horror.
+  keywords: ['mound', 'shambling']
+  level: 4
+  hp_max: 205
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 65536 -100 S 13 8 10 10d10+150 3d6+2 0 10000 8 8 0
+
+- id: 8319
+  key: the_orc_shaman
+  name: the orc shaman
+  short_desc: An orc shaman stands before you holding a staff and wearing robes.
+  long_desc: |
+    This old orc has an array of bones stuck in his hair and strange symbols
+    painted on his face and hands.
+  keywords: ['shaman', 'orc']
+  level: 110
+  hp_max: 137
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 110 40 -100 S 12 10 7 5d6+120 3d4+1 350 10000 8 8 1
+
+- id: 8320
+  key: a_marsh_giant
+  name: a marsh giant
+  short_desc: A marsh giant stomps towards you.
+  long_desc: |
+    This huge monster of a man has green gnarly teeth and a BIG stick.
+  keywords: ['giant']
+  level: 110
+  hp_max: 321
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 110 40 -100 S 15 8 5 6d6+300 2d4+10 12000 18000 8 8 1
+
+- id: 8321
+  key: a_gargoyle
+  name: a gargoyle
+  short_desc: A large gargoyle lands next to you, baring his fangs at you.
+  long_desc: |
+    This creepy fellow looks like he could use you as a meal.
+  keywords: ['gargoyle']
+  level: 110
+  hp_max: 212
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 110 40 -100 S 12 4 0 4d5+200 4d4+4 2000 12000 8 8 0
+

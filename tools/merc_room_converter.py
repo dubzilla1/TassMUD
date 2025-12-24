@@ -4,6 +4,9 @@ Produces `src/main/resources/data/MERC/midgaard/rooms.yaml`
 """
 import os
 
+import sys
+
+# default paths (backwards compatible)
 SRC = os.path.join('src','main','resources','MERC','area','midgaard.are')
 OUT = os.path.join('src','main','resources','data','MERC','midgaard','rooms.yaml')
 
@@ -114,20 +117,19 @@ def parse_rooms(are_path):
                     ddesc = '\n'.join(ddesc_lines).strip()
                     # keywords (tilde-terminated)
                     kw = ''
-                    if i < n:
-                        if lines[i].endswith('~'):
-                            kw = lines[i][:-1].strip()
+                    if i < n and lines[i].endswith('~'):
+                        kw = lines[i][:-1].strip()
+                        i += 1
+                    else:
+                        # unlikely, but consume until ~
+                        kw_lines = []
+                        while i < n and not lines[i].endswith('~'):
+                            kw_lines.append(lines[i])
                             i += 1
-                        else:
-                            # unlikely, but consume until ~
-                            kw_lines = []
-                            while i < n and not lines[i].endswith('~'):
-                                kw_lines.append(lines[i])
-                                i += 1
-                            if i < n:
-                                kw_lines.append(lines[i][:-1])
-                                i += 1
-                            kw = ' '.join(kw_lines).strip()
+                        if i < n:
+                            kw_lines.append(lines[i][:-1])
+                            i += 1
+                        kw = ' '.join(kw_lines).strip()
                     # locks line: '<locks:number> <key:number> <to_room:number>'
                     locks = 0
                     keyv = 0
@@ -230,7 +232,163 @@ def parse_rooms(are_path):
             rooms.append(room)
         else:
             i += 1
+    # parse #RESETS and attach mob spawns/equipment into rooms
+    try:
+        parse_resets(lines, rooms)
+    except Exception:
+        # non-fatal: if resets parsing fails, still return rooms
+        pass
     return rooms
+
+
+def parse_resets(lines, rooms):
+    # Build quick lookup by room id
+    room_map = {r['id']: r for r in rooms}
+
+    # find #RESETS
+    i = 0
+    n = len(lines)
+    while i < n and lines[i].strip() != '#RESETS':
+        i += 1
+    if i >= n:
+        return
+    i += 1
+
+    # mapping from MERC wear_loc to our EquipmentSlot keys
+    wear_map = {
+        3: 'NECK', 4: 'NECK', 5: 'CHEST', 6: 'HEAD', 7: 'LEGS', 8: 'BOOTS',
+        9: 'HANDS', 10: 'ARMS', 11: 'OFF_HAND', 12: 'BACK', 13: 'WAIST',
+        14: 'HANDS', 15: 'HANDS', 16: 'MAIN_HAND', 17: 'OFF_HAND'
+    }
+
+    last_mob_ref = None
+
+    # process until 'S'
+    while i < n:
+        ln = lines[i].strip()
+        i += 1
+        if not ln or ln.startswith('*'):
+            continue
+        if ln == 'S':
+            break
+        parts = ln.split()
+        cmd = parts[0]
+        if cmd == 'M' and len(parts) >= 5:
+            # M <ignore> <mob-vnum> <limit> <room-vnum>
+            try:
+                mob_vnum = int(parts[2])
+                limit = int(parts[3])
+                room_vnum = int(parts[4])
+            except Exception:
+                continue
+            room = room_map.get(room_vnum)
+            spawn = {'mob_vnum': mob_vnum, 'limit': limit, 'equipment': [], 'inventory': []}
+            if room is not None:
+                room.setdefault('mobs', []).append(spawn)
+                last_mob_ref = spawn
+            else:
+                last_mob_ref = None
+            continue
+
+        if cmd == 'E' and len(parts) >= 5:
+            # E <ignore> <obj-vnum> <ignore> <wear_loc>
+            try:
+                obj_vnum = int(parts[2])
+                wear_loc = int(parts[4])
+            except Exception:
+                continue
+            if last_mob_ref is not None:
+                slot = wear_map.get(wear_loc, None)
+                last_mob_ref['equipment'].append({'item_vnum': obj_vnum, 'wear_loc': wear_loc, 'slot': slot})
+            continue
+
+        if cmd == 'G' and len(parts) >= 3:
+            # G <ignore> <obj-vnum> <ignore?> - give object to last mob
+            try:
+                obj_vnum = int(parts[2])
+            except Exception:
+                continue
+            if last_mob_ref is not None:
+                last_mob_ref.setdefault('inventory', []).append({'item_vnum': obj_vnum})
+            continue
+
+        if cmd == 'P' and len(parts) >= 5:
+            # P <chance> <obj-vnum> <max_in_container> <container-vnum>
+            # Put object inside a container (container vnum is parts[4])
+            try:
+                obj_vnum = int(parts[2])
+                # parts[3] is max/count in original MERC format; ignore for now
+                container_vnum = int(parts[4])
+            except Exception:
+                continue
+            # Prefer attaching to last mob if present (common pattern: place into mob-carried container)
+            if last_mob_ref is not None:
+                last_mob_ref.setdefault('inventory', []).append({'item_vnum': obj_vnum, 'container_vnum': container_vnum})
+            else:
+                # No preceding mob reference found; skip this P reset since we don't
+                # have a reliable target room/mob to attach the contained object to.
+                # This is safer than attempting to reference an undefined room id.
+                continue
+            continue
+
+        if cmd == 'O' and len(parts) >= 5:
+            # O <ignore> <obj-vnum> <count> <room-vnum>
+            try:
+                obj_vnum = int(parts[2])
+                count = int(parts[3])
+                room_vnum = int(parts[4])
+            except Exception:
+                continue
+            room = room_map.get(room_vnum)
+            if room is not None:
+                # Represent as a SpawnConfig-compatible entry for a room ITEM
+                room.setdefault('spawns', []).append({'type': 'ITEM', 'id': obj_vnum, 'quantity': count, 'frequency': 1})
+            continue
+
+        if cmd == 'D' and len(parts) >= 5:
+            # D <ignore> <room-vnum> <direction> <locks> [description...]
+            try:
+                room_vnum = int(parts[2])
+                dirnum = int(parts[3])
+                locks = int(parts[4])
+            except Exception:
+                continue
+            direction = DIRECTIONS.get(dirnum, f'dir{dirnum}')
+            room = room_map.get(room_vnum)
+            if room is None:
+                continue
+            # derive to_room from existing exits if available
+            to_room = room.get('exits', {}).get(direction)
+            state = 'OPEN'
+            locked = False
+            blocked = False
+            if locks & EX_CLOSED:
+                state = 'CLOSED'
+            if locks & EX_LOCKED:
+                locked = True
+                state = 'CLOSED'
+            if locks & EX_PICKPROOF:
+                blocked = True
+            # optional textual description after the numeric fields
+            desc = ''
+            if len(parts) > 5:
+                desc = ' '.join(parts[5:]).strip()
+            # merge or create door entry
+            room.setdefault('doors', {})
+            room['doors'][direction] = {
+                'to': to_room,
+                'description': desc,
+                'keywords': '',
+                'state': state,
+                'locked': locked,
+                'hidden': False,
+                'blocked': blocked,
+                'key': None
+            }
+            continue
+
+        # Ignore other reset types (D, R, etc.)
+    return
 
 
 def write_yaml(rooms, out_path):
@@ -255,6 +413,58 @@ def write_yaml(rooms, out_path):
                 else:
                     f.write(f"      {dname}: {dval}\n")
             f.write(f"    sector_type: {r['sector_type']}\n")
+            # spawns (from #RESETS -> emit as SpawnConfig compatible with DataLoader)
+            # Combine explicit room ITEM spawns (from O resets) with MOB spawns parsed earlier
+            spawn_entries = []
+            # room-level spawns created from O records (type: ITEM)
+            if r.get('spawns'):
+                for s in r['spawns']:
+                    spawn_entries.append(s)
+            # mob spawns collected under 'mobs' - convert to SpawnConfig-like dicts
+            if r.get('mobs'):
+                for m in r['mobs']:
+                    me = {'type': 'MOB', 'id': m['mob_vnum'], 'quantity': m.get('limit', 1), 'frequency': 1}
+                    if m.get('equipment'):
+                        me['equipment'] = []
+                        for eq in m['equipment']:
+                            me['equipment'].append({'item_vnum': eq['item_vnum'], 'wear_loc': eq.get('wear_loc')})
+                    if m.get('inventory'):
+                        me['inventory'] = []
+                        for it in m['inventory']:
+                            inv_entry = {'item_vnum': it['item_vnum']}
+                            if it.get('container_vnum') is not None:
+                                inv_entry['container_vnum'] = it['container_vnum']
+                            me['inventory'].append(inv_entry)
+                    spawn_entries.append(me)
+            if spawn_entries:
+                f.write('    spawns:\n')
+                for sp in spawn_entries:
+                    if sp.get('type') == 'ITEM':
+                        f.write('      - type: ITEM\n')
+                        f.write(f"        id: {sp['id']}\n")
+                        f.write(f"        quantity: {sp.get('quantity', 1)}\n")
+                        f.write(f"        frequency: {sp.get('frequency', 1)}\n")
+                        # room-level container key expected by DataLoader is 'container'
+                        if sp.get('container') is not None:
+                            f.write(f"        container: {sp.get('container')}\n")
+                    elif sp.get('type') == 'MOB':
+                        f.write('      - type: MOB\n')
+                        f.write(f"        id: {sp['id']}\n")
+                        f.write(f"        quantity: {sp.get('quantity', 1)}\n")
+                        f.write(f"        frequency: {sp.get('frequency', 1)}\n")
+                        if sp.get('equipment'):
+                            f.write('        equipment:\n')
+                            for eq in sp['equipment']:
+                                f.write('          -\n')
+                                f.write(f"              item_vnum: {eq['item_vnum']}\n")
+                                f.write(f"              wear_loc: {eq.get('wear_loc', 'null')}\n")
+                        if sp.get('inventory'):
+                            f.write('        inventory:\n')
+                            for it in sp['inventory']:
+                                f.write('          -\n')
+                                f.write(f"              item_vnum: {it['item_vnum']}\n")
+                                if it.get('container_vnum') is not None:
+                                    f.write(f"              container_vnum: {it['container_vnum']}\n")
             if r['legacy_flags']:
                 f.write('    legacy_flags:\n')
                 for lf in r['legacy_flags']:
@@ -265,9 +475,14 @@ def write_yaml(rooms, out_path):
                 for dn, dv in r['doors'].items():
                     f.write(f"      {dn}:\n")
                     f.write(f"        to: {dv['to']}\n")
-                    # escape double quotes in description
-                    desc = dv['description'].replace('"', '\\"') if dv['description'] else ''
-                    f.write(f"        description: \"{desc}\"\n")
+                    # Use block scalar for potentially multiline door descriptions
+                    if dv['description'] and '\n' in dv['description']:
+                        f.write('        description: |\n')
+                        for dl in dv['description'].split('\n'):
+                            f.write(f"          {dl}\n")
+                    else:
+                        desc = dv['description'].replace('"', '\\"') if dv['description'] else ''
+                        f.write(f"        description: \"{desc}\"\n")
                     kw = dv['keywords'].replace('"', '\\"') if dv['keywords'] else ''
                     f.write(f"        keywords: \"{kw}\"\n")
                     f.write(f"        state: {dv['state']}\n")
@@ -286,7 +501,15 @@ def write_yaml(rooms, out_path):
 
 
 if __name__ == '__main__':
-    rooms = parse_rooms(SRC)
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    write_yaml(rooms, OUT)
-    print(f'Wrote {len(rooms)} rooms to {OUT}')
+    # Accept optional args: <input.are> <output.yaml>
+    in_path = SRC
+    out_path = OUT
+    if len(sys.argv) >= 2:
+        in_path = sys.argv[1]
+    if len(sys.argv) >= 3:
+        out_path = sys.argv[2]
+
+    rooms = parse_rooms(in_path)
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    write_yaml(rooms, out_path)
+    print(f'Wrote {len(rooms)} rooms to {out_path}')

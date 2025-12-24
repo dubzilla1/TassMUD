@@ -1,0 +1,1079 @@
+- id: 1100
+  key: the_elven_wizard
+  name: the Elven Wizard
+  short_desc: An Elven Wizard is here, creating fireworks for the festivities.
+  long_desc: |
+    The Elven Wizard looks at you in a solemn sort of way.  His gaze seems to
+    penetrate through your innermost being.  He is wearing a silvery cloak
+    and holding a multi-colored staff.  Although he appears to be older
+    than the oldest man, he seems to have an inner strength which most mortals
+    cannot overcome.
+  keywords: ['elven', 'wizard']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|64 8 500 S  18 5 0 18d18+180 3d2+15 2109 30000 8 8 1
+
+- id: 1101
+  key: the_keeper_of_the_ring
+  name: the Keeper of the Ring
+  short_desc: The Keeper of the Ring is here, guarding his treasure jealously.
+  long_desc: |
+    The Ring Keeper is a rather big but short halfling.  His short stature and
+    bulbous nose belie his true nature.  An elven sword that glows with a blue
+    light hangs from his belt, and on his finger you see the One Ring.  Although
+    usually a halfling of peace, he will fight you to the death if you attempt
+    to take away that which belongs to him.
+  keywords: ['ring', 'keeper']
+  level: 2
+  hp_max: 380
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 19
+  damage_bonus: 190
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|64 2|8 0 S 19 2 -5 19d19+190 1d8+16 1231 35000 8 8 1
+
+- id: 1102
+  key: farmer_gamgee
+  name: Farmer Gamgee
+  short_desc: Farmer Gamgee sniffs the air, wondering if harvest time is near.
+  long_desc: |
+    Farmer Gamgee is a short, stout halfling of thirty years.  His skin has
+    been tanned from working the fields night and day.  He's quite a jolly
+    chap, always ready to befriend an injured bunny rabbit.
+  keywords: ['farmer', 'gamgee']
+  level: 2
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 77
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|128 0 350 S 7 14 4 7d7+77 1d4+5 0 1000 5 5 1
+
+- id: 1103
+  key: a_toddler
+  name: a toddler
+  short_desc: A toddler crawls about, looking for something to chew on.
+  long_desc: |
+    The toddler is dressed in nothing but his birthday suit.  He crawls about
+    for he hasn't learned to walk yet.  He peers up at you and asks "da da?"
+  keywords: ['toddler']
+  level: 2
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|128 0 100 S 2 19 9 2d2+22 1d3+1 0 100 6 6 1
+
+- id: 1104
+  key: a_nursemaid
+  name: a nursemaid
+  short_desc: A nursemaid wanders about, trying to keep track of all the toddlers.
+  long_desc: |
+    The nursemaid looks rather tired and worn out.  Taking care of so many
+    toddlers for too long has evidently taken its toll.  She looks to you and
+    in her eyes you can see her longing for a better life.
+  keywords: ['nursemaid']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 100 S 5 16 5 5d5+55 1d3+4 30 300 8 8 2
+
+- id: 1105
+  key: a_cow
+  name: a cow
+  short_desc: A cow is here, chewing her cud.
+  long_desc: |
+    The cow looks like it hasn't been milked in quite some time.  Although she
+    is past her prime, you see that she still has a lot of years left, and that
+    if provoked, her rear kick can be quite deadly.
+  keywords: ['cow']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 0 S 4 17 6 4d4+44 1d4+3 0 200 5 5 0
+
+- id: 1106
+  key: a_pig
+  name: a pig
+  short_desc: A pig wallows in the mud and oinks in contentment.
+  long_desc: |
+    The pig appears quite happy to be a pig.  He is oblivious to your presence
+    and cares only for the care-free life that he leads.  It is enormously fat
+    and consequently cannot move around very quickly.
+  keywords: ['pig']
+  level: 64
+  hp_max: 39
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 0 S 3 17 7 3d3+33 2d2+1 0 150 5 5 0
+
+- id: 1107
+  key: a_chicken
+  name: a chicken
+  short_desc: A chicken sits on her nest.
+  long_desc: |
+    The chicken is bright and healthy.  She has no weapons but her beak.
+  keywords: ['chicken']
+  level: 64
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 0 S 2 20 7 2d2+22 1d4+0 0 100 6 6 2
+
+- id: 1108
+  key: a_bull
+  name: a bull
+  short_desc: A bull scratches at the ground and lowers his head.
+  long_desc: |
+    The bull is in top condition.  He looks like quite a fighter, nothing to be
+    reckoned with.  With his horns and his hooves he can attack just about
+    anything.
+  keywords: ['bull']
+  level: 2
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 0 0 S 6 15 4 6d6+66 1d4+4 0 500 8 8 1
+
+- id: 1109
+  key: a_horse
+  name: a horse
+  short_desc: A horse becomes frightened by your presence.
+  long_desc: |
+    The horse looks at you and turns away.  You can tell that it is afraid of you.
+  keywords: ['horse']
+  level: 66
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 66 0 0 S 4 17 6 4d4+44 1d8+0 2 460 8 8 0
+
+- id: 1110
+  key: a_shiriff
+  name: a shiriff
+  short_desc: A shiriff of the Shire looks for signs of trouble.
+  long_desc: |
+    The shiriff is over waist high, quite tall for a halfling.  His eyes are
+    ever roaming, looking for signs of trouble from riff-raff like you.  In
+    his belt is a thin dagger, and on his body he wears a suit of leather armor.
+    This is one halfling you don't want to mess with.
+  keywords: ['shiriff']
+  level: 4
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 0 150 S 8 13 5 8d8+88 1d4+5 50 1000 6 6 1
+
+- id: 1111
+  key: a_shiriff
+  name: a shiriff
+  short_desc: A shiriff of the Shire looks for signs of trouble.
+  long_desc: |
+    The shiriff is over waist high, quite tall for a halfling.  His eyes are
+    ever roaming, looking for signs of trouble from riff raff like you.  In
+    his belt is a thin dagger, and on his body he wears a suit of leather armor.
+    This is one halfling you don't want to mess with.
+  keywords: ['shiriff']
+  level: 4
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 0 150 S 8 13 5 8d8+88 1d4+5 50 1000 6 6 1
+
+- id: 1112
+  key: the_thain
+  name: the Thain
+  short_desc: The Thain commands respect from all Shire folk.
+  long_desc: |
+    A personable yet serious halfling, the Thain looks at you and yells a
+    deep 'Hullo'.  He walks about comfortably, secure in the knowledge that
+    as long as he's in office, the Shire will always remain a safe haven for
+    Shire folk.
+  keywords: ['thain']
+  level: 64
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 400 S 14 7 -3 14d14+140 1d4+12 500 20000 6 6 1
+
+- id: 1113
+  key: the_innkeeper
+  name: the Innkeeper
+  short_desc: The Innkeeper stands here awaiting your order.
+  long_desc: |
+    The Innkeeper is a jolly old halfling who spends his days eavesdropping on
+    local gossip.  In his younger days, he was quite a seasoned traveller.
+  keywords: ['innkeeper']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|64 0 200 S 12 9 2 12d12+120 1d4+10 700 10000 8 8 1
+
+- id: 1114
+  key: the_miller
+  name: the Miller
+  short_desc: The Miller is here, overseeing his busy mill workers.
+  long_desc: |
+    The Miller is an impatient young halfling, always trying to command more
+    respect from his workers than he can get.  He looks like the type of person
+    who deserves a spanking but never got one.
+  keywords: ['miller']
+  level: 4
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64|128 0 50 S 6 15 4 6d6+66 1d4+4 200 500 8 8 1
+
+- id: 1115
+  key: the_mill_worker
+  name: the mill worker
+  short_desc: The mill worker runs to and fro.
+  long_desc: |
+    The mill worker is in fine shape from the hard labor that he does at the
+    mill.  He doesn't notice your presence, but he looks like he could break you
+    in two without thinking about it.
+  keywords: ['mill', 'worker']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 0 S 5 16 5 5d5+55 1d6+3 50 450 8 8 1
+
+- id: 1116
+  key: the_elven_warrior
+  name: the elven warrior
+  short_desc: The elven warrior watches you solemnly.
+  long_desc: |
+    The tall elven warrior is light and fair-skinned.  The expression that he wears
+    on his countenance is solemn and tragic.  He cares not for this world any
+    longer and wearies of it.
+  keywords: ['elven', 'warrior']
+  level: 2
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 17 4 -4 17d17+170 1d4+15 500 30000 6 6 1
+
+- id: 1117
+  key: the_dwarven_prince
+  name: the dwarven prince
+  short_desc: The dwarven prince sits here patiently for the return of his king.
+  long_desc: |
+    Grim and cold, the dwarven prince is quite strong and bulky, even for the
+    dwarves of his land.  His glowing eyes peer out of his bushy face and stare
+    beyond your gaze.
+  keywords: ['dwarven', 'prince']
+  level: 2
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 200 S 17 6 -8 17d17+170 1d4+15 700 30000 6 6 1
+
+- id: 1118
+  key: the_shopkeeper
+  name: the shopkeeper
+  short_desc: the shopkeeper smiles and patiently waits for you to buy something.
+  long_desc: |
+    The shopkeeper will fight like a madman to protect his store from riff-raff
+    like you.
+  keywords: ['shopkeeper']
+  level: 2
+  hp_max: 475
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 222
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 21 -2 -12 22d22+222 2d4+22 12000 40000 8 8 1
+
+- id: 1119
+  key: the_grocer
+  name: the grocer
+  short_desc: The grocer offers you the finest breads in all the land.
+  long_desc: |
+    The grocer is a large, jovial halfling who knows how to enjoy his pipeweed.
+    However, he also knows that it's worth protecting and so will do everything
+    in his power to prevent riff-raff like you from stealing it.
+  keywords: ['grocer']
+  level: 2
+  hp_max: 475
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 222
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 21 -2 -12 22d22+222 2d4+22 1500 40000 8 8 1
+
+- id: 1120
+  key: the_blacksmith
+  name: the blacksmith
+  short_desc: The blacksmith bids you welcome to his humble store.
+  long_desc: |
+    The blacksmith is a lean and mean fighting machine.  His knowledge of weapons
+    and armour would certainly help him in any fight against riff-raff like you.
+  keywords: ['blacksmith']
+  level: 2
+  hp_max: 1775
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 50
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 50 -20 -30 50d50+500 1d6+36 18000 10000 8 8 1
+
+- id: 1121
+  key: the_battle_master
+  name: the battle master
+  short_desc: The battle master offers you the services of his fine trainees.
+  long_desc: |
+    The battle master is a wizened fighter, with many scars to prove his worth.
+  keywords: ['battle', 'master']
+  level: 2
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 350 S 25 -2 -15 25d25+250 2d6+20 1500 40000 8 8 1
+
+- id: 1122
+  key: a_halfling_youth
+  name: a halfling youth
+  short_desc: A halfling youth stands here, waiting for nothing in particular.
+  long_desc: |
+    The halfling youth is not yet quite in the prime of his youth.  He's knee
+    high and you get the sudden urge to step on him.
+  keywords: ['halfling', 'youth']
+  level: 64
+  hp_max: 39
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64|128 0 0 S 3 18 7 3d3+33 1d6+1 0 150 8 8 1
+
+- id: 1123
+  key: a_seasoned_adventurer
+  name: a seasoned adventurer
+  short_desc: A seasoned adventurer sits here, telling tales of fame and fortune.
+  long_desc: |
+    The seasoned adventurer has seen his share of glory days.  Although he is
+    past his prime, he still looks like he could put up more than his share of
+    a good fight.
+  keywords: ['seasoned', 'adventurer']
+  level: 2
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 100 S 8 13 3 8d8+88 2d3+7 170 1000 6 6 1
+
+- id: 1124
+  key: a_local_gossip
+  name: a local gossip
+  short_desc: A local gossip asks you, "Have you heard the latest?"
+  long_desc: |
+    The gossip is all talk and no action.  You're transfixed by her ability to
+    talk so much so quickly.
+  keywords: ['local', 'gossip']
+  level: 2
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|128 0 0 S 4 17 6 4d4+44 1d4+2 25 200 6 6 2
+
+- id: 1125
+  key: a_halfling_beauty
+  name: a halfling beauty
+  short_desc: A halfling beauty stares dreamily into your eyes.
+  long_desc: |
+    She is the most beautiful creature you've seen in quite some time.  As you
+    stare at her, thoughts of all else vanish.  You get the sudden urge to grovel
+    at her feet, hoping she'll take you in like a lost puppy.  You wouldn't dare
+    harm a hair on her precious little head.
+  keywords: ['halfling', 'beauty']
+  level: 2
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 1000 S 6 15 4 6d6+66 1d4+4 75 500 8 8 2
+
+- id: 1126
+  key: a_trainee
+  name: a trainee
+  short_desc: A trainee screams a death cry as he delivers the fatal blow to a dummy.
+  long_desc: |
+    The trainee smiles smugly, aware of your interest in him.  He's a little
+    fresh, but his enthusiasm and desire to please more than make up for what
+    he lacks in skill.
+  keywords: ['trainee']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 0 S 5 16 5 5d5+55 1d6+3 0 400 8 8 1
+
+- id: 1127
+  key: a_chic_urbanite
+  name: a chic urbanite
+  short_desc: A chic urbanite sits here, enjoying his class status.
+  long_desc: |
+    The urbanite seems very much at home in his surroundings.  His clothes are
+    all of the latest fashions and his manners impeccable.  He offers you some
+    coins if you'd be so good as to order a drink for him.
+  keywords: ['chic', 'urbanite']
+  level: 2
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|128 0 0 S 4 17 6 4d4+44 2d2+2 100 200 6 6 1
+
+- id: 1128
+  key: a_country_bumpkin
+  name: a country bumpkin
+  short_desc: A country bumpkin dreams of pipeweed and its many uses.
+  long_desc: |
+    The country bumpkin snores noisily.
+  keywords: ['country', 'bumpkin']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 0 S 5 16 5 5d5+55 1d4+3 70 100 4 4 1
+
+- id: 1130
+  key: the_innkeeper
+  name: the Innkeeper
+  short_desc: The Innkeeper stands here awaiting your order.
+  long_desc: |
+    The Innkeeper is a jolly old halfling who spends his days eavesdropping on
+    local gossip.  In his younger days, he was quite a seasoned traveller.
+  keywords: ['innkeeper']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 200 S 12 9 2 12d12+120 1d4+10 1000 10000 8 8 1
+
+- id: 1131
+  key: the_receptionist
+  name: the receptionist
+  short_desc: The receptionist sits here, signing forms.
+  long_desc: |
+    He is a very professional looking type.
+  keywords: ['receptionist']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 200 S 12 4 -2 12d12+120 1d8+14 70 5000 8 8 1
+
+- id: 1132
+  key: a_shiriff
+  name: a shiriff
+  short_desc: A shiriff of the Shire looks for the lost halfling youth.
+  long_desc: |
+    The shiriff is over waist high, quite tall for a halfling.
+    He looks at you, smiles and asks you if you have seen a halfling youth
+    somewhere outside the shire.
+  keywords: ['shiriff']
+  level: 2
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 150 S 8 13 5 8d8+88 1d4+6 50 1000 8 8 1
+

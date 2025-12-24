@@ -1,0 +1,494 @@
+- id: 7800
+  key: a_cooshee
+  name: a cooshee
+  short_desc: A rather large dog is here, wandering the valley.
+  long_desc: |
+    A beast is the size of the largest common dog.  It has a greenish coat with
+    brown spots.  Its shape, along with its colors, make this cooshee almost
+    undetectable as it moves.
+  keywords: ['cooshee', 'dog']
+  level: 64
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64|128 32768 0 S 5 15 4 4d4+55 2d4+1 0 700 8 8 0
+
+- id: 7801
+  key: a_valley_elf
+  name: a valley elf
+  short_desc: A valley elf wanders here, cautious of your intrusion.
+  long_desc: |
+    This elf is almost as tall as you are, but much slimmer and agile.  You see
+    hatred in his eyes, and you try to avoid his stare.  His tense body looks ready
+    to spring upon you, like a mountain lion stalking its prey.  He sees you
+    noticing him, and quietly disappears.
+  keywords: ['valley', 'elf']
+  level: 4
+  hp_max: 108
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64|128 512|32768 0 S 8 11 0 7d7+80 1d4+6 10 2000 8 8 1
+
+- id: 7802
+  key: a_valley_elf
+  name: a valley elf
+  short_desc: A female valley elf wanders here, skirting between the tall grasses.
+  long_desc: |
+    This elf is almost as tall as you are, but much slimmer and more agile.
+    She glares at you, then quickly disappears before you see more of her.
+  keywords: ['valley', 'elf']
+  level: 4
+  hp_max: 108
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64|128 512|32768 0 S 8 11 0 7d7+80 1d4+6 10 2000 8 8 2
+
+- id: 7803
+  key: a_valley_elf_sentry
+  name: a valley elf sentry
+  short_desc: A valley elf sentry stands here, then noticing you, attacks quickly!
+  long_desc: |
+    This elf is almost as tall as you are, but much slimmer and more agile.
+    He glares at your intrusion and attacks with menace.
+  keywords: ['sentry', 'valley', 'elf']
+  level: 2
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 512|32768 0 S 7 12 1 6d6+70 1d4+5 10 1500 8 8 1
+
+- id: 7804
+  key: a_valley_elf_sentry
+  name: a valley elf sentry
+  short_desc: A valley elf sentry stands here, then noticing you, attacks quickly!
+  long_desc: |
+    This elf is almost as tall as you are, but much slimmer and more agile.
+    She glares at your intrusion and attacks with menace.
+  keywords: ['sentry', 'valley', 'elf']
+  level: 2
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 512|32768 0 S 7 12 1 6d6+70 1d4+5 10 1500 8 8 2
+
+- id: 7805
+  key: a_valley_elf_scout
+  name: a valley elf scout
+  short_desc: A valley elf scout wanders the valley, searching for intruders like you!
+  long_desc: |
+    The elf notices your intrusion and attacks with determination.
+  keywords: ['scout', 'valley', 'elf']
+  level: 4
+  hp_max: 75
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 512|32768 0 S 6 13 2 5d5+60 1d4+4 10 1000 8 8 1
+
+- id: 7806
+  key: a_valley_elf
+  name: a valley elf
+  short_desc: A valley elf is here, doing her duties.
+  long_desc: |
+    She is currently doing some menial chores, and ignores your intrusion except
+    when you are in her way.
+  keywords: ['valley', 'elf']
+  level: 64
+  hp_max: 75
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64|128 512|32768 0 S 6 13 2 5d5+60 1d4+4 10 1000 8 8 2
+
+- id: 7807
+  key: a_valley_elf_elder
+  name: a valley elf elder
+  short_desc: A valley elf elder is here, studying.  He notices you. A valley elf elder shouts 'You have intruded wrongly.  Be prepared to die!'
+  long_desc: |
+    This elf looks quite old, probably twenty or more times your age.  He looks
+    quite potent, though.
+  keywords: ['elder', 'valley', 'elf']
+  level: 2
+  hp_max: 255
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 128|8192 0 S 15 3 -7 14d14+150 1d4+9 10 30000 8 8 1
+
+- id: 7808
+  key: a_valley_elf_elder
+  name: a valley elf elder
+  short_desc: A valley elf elder is here, studying.  She notices you. A valley elf elder says 'Your arrogance will be your end, human.'
+  long_desc: |
+    This elf looks quite old, probably twenty or more times your age.  She looks
+    quite potent, though.
+  keywords: ['elder', 'valley', 'elf']
+  level: 2
+  hp_max: 255
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8192 0 S 15 3 -10 14d14+150 1d4+9 10 30000 8 8 2
+
+- id: 7809
+  key: the_pyrohydra
+  name: the pyrohydra
+  short_desc: A big beast with many heads, each breathing fire, stares at you with malice.
+  long_desc: |
+    This big beast looks like a small red dragon, but has many more heads than a
+    regular dragon, too.  It doesn't look happy.
+  keywords: ['pyrohydra', 'pyro', 'hydra']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 0 0 S 20 2 -5 20d20+200 1d20+12 0 50000 8 8 0
+
+- id: 7810
+  key: an_old_hermit
+  name: an old hermit
+  short_desc: An old hermit sits here, smoking a pipe.
+  long_desc: |
+    He looks old and feeble.
+  keywords: ['hermit', 'man', 'old']
+  level: 2
+  hp_max: 39
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|128 0 0 S 3 17 7 3d3+33 1d4+2 10 300 8 8 1
+
+- id: 7811
+  key: talemon
+  name: Talemon
+  short_desc: An old mage busies himself with some chemicals.
+  long_desc: |
+    Talemon looks harmless, but the fireballs he throws at you don't.
+  keywords: ['talemon', 'wizard', 'mage']
+  level: 2
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 0 0 S 25 0 -10 25d25+250 1d4+10 1000 100000 8 8 1
+
+- id: 7812
+  key: the_guardian_daemon
+  name: the guardian daemon
+  short_desc: A huge guardian daemon is here, watching the treasure.
+  long_desc: |
+    This daemon is unhappy with its summoned job, and is willing to take out it's
+    anger at you!
+  keywords: ['guardian', 'daemon']
+  level: 2
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 0 -500 S 25 -2 -10 25d25+250 2d4+20 0 80000 8 8 0
+
+- id: 7813
+  key: a_wolf
+  name: a wolf
+  short_desc: A wolf is here, looking for small prey.
+  long_desc: |
+    The wolf is covered with brown hair.  It looks at you with fright.
+  keywords: ['wolf']
+  level: 32
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32|128 0 0 S 4 16 6 4d4+40 1d4+3 0 500 8 8 0
+
+- id: 7814
+  key: an_antelope
+  name: an antelope
+  short_desc: An antelope is here, peacefully munching on grass.
+  long_desc: |
+    With horns and spots over coarse, brown hair, this beast is the spit and
+    image of ... an antelope.
+  keywords: ['antelope']
+  level: 128
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 128 0 0 S 6 14 4 6d6+66 1d4+5 0 1000 8 8 0
+

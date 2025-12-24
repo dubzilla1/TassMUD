@@ -89,6 +89,15 @@ rooms:
       south: 1507
       west: 1502
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1502
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1503
+              wear_loc: 16
     doors:
       north:
         to: 1505
@@ -186,6 +195,15 @@ rooms:
       south: 1503
       west: 1510
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1502
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1503
+              wear_loc: 16
     doors:
       east:
         to: 1511
@@ -226,6 +244,15 @@ rooms:
     exits:
       south: 1505
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1502
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1503
+              wear_loc: 16
     doors:
       south:
         to: 1505
@@ -322,6 +349,18 @@ rooms:
     exits:
       south: 1502
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1500
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1502
+      - type: MOB
+        id: 1501
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -346,6 +385,18 @@ rooms:
     exits:
       east: 1505
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1500
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1502
+      - type: MOB
+        id: 1501
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -370,6 +421,18 @@ rooms:
     exits:
       west: 1505
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1500
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1502
+      - type: MOB
+        id: 1501
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -418,6 +481,17 @@ rooms:
     exits:
       north: 1504
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1503
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1511
+          -
+              item_vnum: 1513
+              container_vnum: 1511
     legacy_flags:
       - INDOORS
     doors:
@@ -442,6 +516,17 @@ rooms:
     exits:
       east: 1507
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1503
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1511
+          -
+              item_vnum: 1512
+              container_vnum: 1511
     legacy_flags:
       - INDOORS
     doors:
@@ -466,6 +551,15 @@ rooms:
     exits:
       east: 1508
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1503
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1514
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -610,6 +704,20 @@ rooms:
     exits:
       east: 1518
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1504
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1507
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 1500
+          -
+              item_vnum: 1506
     legacy_flags:
       - INDOORS
     doors:
@@ -714,6 +822,15 @@ rooms:
       north: 1520
       east: 1523
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1508
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1508
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 1520
@@ -777,6 +894,11 @@ rooms:
     exits:
       south: 1523
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 1507
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 1523
@@ -847,6 +969,15 @@ rooms:
       east: 1526
       west: 1528
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1504
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1504
+              wear_loc: 16
     doors:
       east:
         to: 1526
@@ -980,6 +1111,23 @@ rooms:
     exits:
       east: 1531
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1504
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1504
+              wear_loc: 16
+      - type: MOB
+        id: 1504
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1504
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1087,6 +1235,15 @@ rooms:
     exits:
       north: 1529
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1504
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1504
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1151,13 +1308,13 @@ rooms:
     doors:
       east:
         to: 1537
-        description: "You see a rusty door."
-        keywords: "rusty door"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 1500
+        key: null
       up:
         to: 1535
         description: "You see a small room."
@@ -1350,6 +1507,15 @@ rooms:
     exits:
       east: 1539
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1509
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1505
+              wear_loc: 11
     legacy_flags:
       - INDOORS
     doors:
@@ -1374,6 +1540,15 @@ rooms:
     exits:
       west: 1539
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1510
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1503
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1398,6 +1573,11 @@ rooms:
     exits:
       north: 1540
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1511
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1447,6 +1627,14 @@ rooms:
       east: 1540
       west: 1546
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1512
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1501
     legacy_flags:
       - INDOORS
     doors:
@@ -1461,13 +1649,13 @@ rooms:
         key: -1
       west:
         to: 1546
-        description: "You see a decaying door."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 1501
+        key: null
 
   - id: 1546
     key: gnome_room_1546
@@ -1485,13 +1673,13 @@ rooms:
     doors:
       east:
         to: 1545
-        description: "You see a decaying door."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 1501
+        key: null
       down:
         to: 1547
         description: ""
@@ -1549,6 +1737,15 @@ rooms:
       east: 1549
       west: 1551
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1513
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1514
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 1547
@@ -1622,6 +1819,15 @@ rooms:
       north: 1549
       south: 1555
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1513
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1514
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 1549
@@ -1654,6 +1860,15 @@ rooms:
       east: 1548
       south: 1552
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1513
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1514
+        quantity: 10
+        frequency: 1
     doors:
       east:
         to: 1548
@@ -1718,6 +1933,15 @@ rooms:
       north: 1552
       east: 1554
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1513
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1514
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 1552
@@ -1792,6 +2016,15 @@ rooms:
       north: 1550
       west: 1554
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1513
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1514
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 1550
@@ -1824,6 +2057,18 @@ rooms:
       east: 1557
       south: 1554
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1515
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1505
+          -
+              item_vnum: 1512
+          -
+              item_vnum: 1516
     doors:
       east:
         to: 1557
@@ -1855,6 +2100,15 @@ rooms:
     exits:
       west: 1556
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1517
+        quantity: 3
+        frequency: 1
+      - type: ITEM
+        id: 1518
+        quantity: 3
+        frequency: 1
     doors:
       west:
         to: 1556
@@ -1878,6 +2132,21 @@ rooms:
     exits:
       south: 1526
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1505
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1508
+              wear_loc: 1
+          -
+              item_vnum: 1509
+              wear_loc: 3
+          -
+              item_vnum: 1510
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2037,6 +2306,11 @@ rooms:
       south: 1574
       west: 1562
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1520
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2145,6 +2419,11 @@ rooms:
       south: 1572
       west: 1564
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1520
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2292,6 +2571,55 @@ rooms:
     exits:
       north: 1568
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1518
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1518
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1518
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1518
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1518
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1519
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1520
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -2316,6 +2644,19 @@ rooms:
     exits:
       north: 1571
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1516
+        quantity: 10
+        frequency: 1
+      - type: ITEM
+        id: 1517
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1521
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2341,6 +2682,39 @@ rooms:
       north: 1572
       south: 1570
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2375,6 +2749,39 @@ rooms:
       north: 1565
       south: 1571
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
+      - type: MOB
+        id: 1517
+        quantity: 30
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1521
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2408,6 +2815,11 @@ rooms:
     exits:
       north: 1564
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 1521
+        quantity: 40
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2577,6 +2989,11 @@ rooms:
     exits:
       west: 1575
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1522
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2601,6 +3018,11 @@ rooms:
     exits:
       west: 1576
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1522
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2625,6 +3047,11 @@ rooms:
     exits:
       north: 1576
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1522
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2649,6 +3076,11 @@ rooms:
     exits:
       east: 1576
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1523
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2673,6 +3105,11 @@ rooms:
     exits:
       east: 1575
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1523
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2734,6 +3171,15 @@ rooms:
       east: 1585
       south: 1564
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1517
+        quantity: 20
+        frequency: 1
+      - type: MOB
+        id: 1517
+        quantity: 20
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2776,6 +3222,15 @@ rooms:
     exits:
       south: 1583
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1517
+        quantity: 20
+        frequency: 1
+      - type: MOB
+        id: 1517
+        quantity: 20
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2869,6 +3324,11 @@ rooms:
     exits:
       west: 1585
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1526
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2938,6 +3398,11 @@ rooms:
     exits:
       south: 1588
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1524
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2961,6 +3426,11 @@ rooms:
     exits:
       up: 1588
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 1520
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

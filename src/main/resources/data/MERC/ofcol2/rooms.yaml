@@ -12,18 +12,27 @@ rooms:
     exits:
       east: 616
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 649
+        quantity: 99
+        frequency: 1
+      - type: MOB
+        id: 609
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 616
-        description: "You see the storage shed."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 601
     key: ofcol2_room_601
@@ -40,6 +49,63 @@ rooms:
       south: 602
       west: 5553
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 624
+              wear_loc: 8
+      - type: MOB
+        id: 601
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 639
+              wear_loc: 5
+          -
+              item_vnum: 640
+              wear_loc: 6
+          -
+              item_vnum: 641
+              wear_loc: 7
+          -
+              item_vnum: 642
+              wear_loc: 8
+          -
+              item_vnum: 643
+              wear_loc: 9
+          -
+              item_vnum: 644
+              wear_loc: 10
+          -
+              item_vnum: 645
+              wear_loc: 11
+          -
+              item_vnum: 646
+              wear_loc: 13
+          -
+              item_vnum: 647
+              wear_loc: 16
+      - type: MOB
+        id: 617
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 625
@@ -142,6 +208,20 @@ rooms:
     exits:
       east: 602
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 604
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 600
+          -
+              item_vnum: 601
+          -
+              item_vnum: 615
+          -
+              item_vnum: 667
     legacy_flags:
       - INDOORS
     doors:
@@ -168,6 +248,37 @@ rooms:
     exits:
       west: 602
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 623
+              wear_loc: 7
+      - type: MOB
+        id: 605
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 616
+          -
+              item_vnum: 617
+          -
+              item_vnum: 618
+          -
+              item_vnum: 619
     legacy_flags:
       - INDOORS
     doors:
@@ -246,6 +357,18 @@ rooms:
     exits:
       east: 605
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 606
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 606
+          -
+              item_vnum: 607
+          -
+              item_vnum: 608
     legacy_flags:
       - INDOORS
     doors:
@@ -271,6 +394,20 @@ rooms:
     exits:
       west: 605
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 607
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 602
+          -
+              item_vnum: 603
+          -
+              item_vnum: 604
+          -
+              item_vnum: 605
     legacy_flags:
       - INDOORS
     doors:
@@ -299,6 +436,24 @@ rooms:
       south: 611
       west: 609
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 622
+              wear_loc: 6
     doors:
       north:
         to: 605
@@ -349,6 +504,22 @@ rooms:
     exits:
       east: 608
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 622
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 648
+          -
+              item_vnum: 649
+          -
+              item_vnum: 650
+      - type: MOB
+        id: 624
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -374,6 +545,22 @@ rooms:
     exits:
       west: 608
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 608
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 609
+          -
+              item_vnum: 610
+          -
+              item_vnum: 611
+          -
+              item_vnum: 612
+          -
+              item_vnum: 613
     legacy_flags:
       - INDOORS
     doors:
@@ -401,6 +588,11 @@ rooms:
       east: 668
       west: 612
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 618
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 608
@@ -611,13 +803,13 @@ rooms:
         key: null
       west:
         to: 600
-        description: "You see the door."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 617
     key: ofcol2_room_617
@@ -631,6 +823,15 @@ rooms:
     exits:
       west: 668
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 610
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 601
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -679,13 +880,13 @@ rooms:
         key: null
       south:
         to: 619
-        description: "You see the chicken coop."
-        keywords: "coop"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 621
         description: "You see the dirt road."
@@ -707,18 +908,35 @@ rooms:
     exits:
       north: 618
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 612
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 612
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 612
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 612
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 618
-        description: "You can sense the fresh air."
+        description: ""
         keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 620
     key: ofcol2_room_620
@@ -731,6 +949,31 @@ rooms:
     exits:
       west: 618
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 614
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 611
+        quantity: 99
+        frequency: 1
+      - type: MOB
+        id: 611
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 615
+              wear_loc: 16
+      - type: MOB
+        id: 614
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 614
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -807,6 +1050,23 @@ rooms:
     exits:
       south: 621
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 615
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 615
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 615
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 615
+        quantity: 4
+        frequency: 1
     doors:
       south:
         to: 621
@@ -829,6 +1089,19 @@ rooms:
     exits:
       north: 621
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 613
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 613
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 613
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 621
@@ -851,6 +1124,23 @@ rooms:
     exits:
       east: 621
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 616
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 616
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 616
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 616
+        quantity: 4
+        frequency: 1
     doors:
       east:
         to: 621
@@ -889,13 +1179,13 @@ rooms:
         key: null
       east:
         to: 626
-        description: "You see a big house."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 665
+        key: null
       south:
         to: 601
         description: "You see a big intersection."
@@ -907,13 +1197,13 @@ rooms:
         key: null
       west:
         to: 629
-        description: "You see a big house."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 665
+        key: null
 
   - id: 626
     key: ofcol2_room_626
@@ -944,13 +1234,13 @@ rooms:
         key: null
       west:
         to: 625
-        description: "You see Impy Way."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 665
+        key: null
       up:
         to: 627
         description: "You see the bedroom."
@@ -972,6 +1262,18 @@ rooms:
     exits:
       down: 626
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 621
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 666
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 665
     legacy_flags:
       - INDOORS
     doors:
@@ -1024,6 +1326,18 @@ rooms:
       east: 625
       up: 630
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 621
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 666
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 665
     legacy_flags:
       - INDOORS
     doors:
@@ -1038,13 +1352,13 @@ rooms:
         key: null
       east:
         to: 625
-        description: "You see Impy Way."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 665
+        key: null
       up:
         to: 630
         description: "You see the bedroom."
@@ -1129,13 +1443,13 @@ rooms:
         key: null
       east:
         to: 633
-        description: "You see a house."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 625
         description: "Impy Way continues south."
@@ -1147,13 +1461,13 @@ rooms:
         key: null
       west:
         to: 635
-        description: "You see a house."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 633
     key: ofcol2_room_633
@@ -1181,13 +1495,13 @@ rooms:
         key: null
       west:
         to: 632
-        description: "You see Impy Way."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 634
     key: ofcol2_room_634
@@ -1225,6 +1539,11 @@ rooms:
       south: 636
       east: 632
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 620
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1239,13 +1558,13 @@ rooms:
         key: null
       east:
         to: 632
-        description: "You see Impy Way."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 636
     key: ofcol2_room_636
@@ -1286,6 +1605,28 @@ rooms:
       south: 632
       west: 640
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 629
+              wear_loc: 14
+      - type: MOB
+        id: 618
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 642
@@ -1298,13 +1639,13 @@ rooms:
         key: null
       east:
         to: 638
-        description: "You see a house."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 632
         description: "Impy Way continues south."
@@ -1316,13 +1657,13 @@ rooms:
         key: null
       west:
         to: 640
-        description: "You see a house."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 638
     key: ofcol2_room_638
@@ -1350,13 +1691,13 @@ rooms:
         key: null
       west:
         to: 637
-        description: "You see Impy Way."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 639
     key: ofcol2_room_639
@@ -1408,13 +1749,13 @@ rooms:
         key: null
       east:
         to: 637
-        description: "You see Impy Way."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 641
     key: ofcol2_room_641
@@ -1455,16 +1796,34 @@ rooms:
       south: 637
       west: 649
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 626
+              wear_loc: 10
     doors:
       north:
         to: 643
-        description: "You see the big house."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 665
+        key: null
       east:
         to: 646
         description: "Swiftest Way continues east."
@@ -1508,6 +1867,18 @@ rooms:
       south: 642
       up: 644
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 621
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 666
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 665
     legacy_flags:
       - INDOORS
     doors:
@@ -1522,13 +1893,13 @@ rooms:
         key: null
       south:
         to: 642
-        description: "You see Impy Way."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 665
+        key: null
       up:
         to: 644
         description: "You see the bedroom."
@@ -1654,6 +2025,24 @@ rooms:
       south: 655
       west: 646
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 627
+              wear_loc: 11
     doors:
       north:
         to: 654
@@ -1706,6 +2095,11 @@ rooms:
       south: 658
       west: 647
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 617
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 656
@@ -1811,6 +2205,28 @@ rooms:
       south: 662
       west: 651
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 625
+              wear_loc: 9
+      - type: MOB
+        id: 617
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 661
@@ -1913,6 +2329,11 @@ rooms:
     exits:
       south: 646
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 620
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1988,6 +2409,11 @@ rooms:
     exits:
       north: 647
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 619
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2138,6 +2564,11 @@ rooms:
     exits:
       south: 650
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 619
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2265,6 +2696,11 @@ rooms:
       east: 667
       west: 601
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 618
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 667
@@ -2299,6 +2735,24 @@ rooms:
       east: 699
       west: 666
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 600
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 628
+              wear_loc: 13
     doors:
       east:
         to: 699
@@ -2378,6 +2832,56 @@ rooms:
       south: 673
       west: 671
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 602
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 631
+              wear_loc: 5
+          -
+              item_vnum: 653
+              wear_loc: 16
+          -
+              item_vnum: 632
+              wear_loc: 6
+          -
+              item_vnum: 633
+              wear_loc: 7
+          -
+              item_vnum: 634
+              wear_loc: 8
+          -
+              item_vnum: 635
+              wear_loc: 9
+          -
+              item_vnum: 626
+              wear_loc: 10
+          -
+              item_vnum: 627
+              wear_loc: 11
+          -
+              item_vnum: 628
+              wear_loc: 13
+      - type: MOB
+        id: 628
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 664
+              wear_loc: 12
+          -
+              item_vnum: 652
+              wear_loc: 3
     legacy_flags:
       - INDOORS
     doors:
@@ -2567,6 +3071,11 @@ rooms:
       south: 684
       up: 690
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 625
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2611,6 +3120,11 @@ rooms:
       east: 675
       south: 677
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 625
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2691,6 +3205,24 @@ rooms:
       south: 678
       west: 675
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 633
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 654
+              wear_loc: 5
+          -
+              item_vnum: 660
+              wear_loc: 11
+          -
+              item_vnum: 662
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2761,6 +3293,11 @@ rooms:
       north: 676
       south: 680
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 627
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2897,6 +3434,24 @@ rooms:
       north: 679
       south: 683
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 633
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 654
+              wear_loc: 5
+          -
+              item_vnum: 660
+              wear_loc: 11
+          -
+              item_vnum: 662
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -2932,6 +3487,11 @@ rooms:
       north: 680
       south: 685
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 626
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2967,6 +3527,11 @@ rooms:
       north: 681
       east: 684
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 626
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3180,6 +3745,84 @@ rooms:
       south: 690
       west: 687
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 629
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 664
+              wear_loc: 12
+      - type: MOB
+        id: 630
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 654
+              wear_loc: 5
+          -
+              item_vnum: 660
+              wear_loc: 11
+          -
+              item_vnum: 662
+              wear_loc: 16
+          -
+              item_vnum: 656
+              wear_loc: 6
+          -
+              item_vnum: 657
+              wear_loc: 7
+      - type: MOB
+        id: 630
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 654
+              wear_loc: 5
+          -
+              item_vnum: 660
+              wear_loc: 11
+          -
+              item_vnum: 662
+              wear_loc: 16
+          -
+              item_vnum: 657
+              wear_loc: 8
+          -
+              item_vnum: 658
+              wear_loc: 9
+      - type: MOB
+        id: 630
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 654
+              wear_loc: 5
+          -
+              item_vnum: 660
+              wear_loc: 11
+          -
+              item_vnum: 662
+              wear_loc: 16
+          -
+              item_vnum: 659
+              wear_loc: 10
+          -
+              item_vnum: 661
+              wear_loc: 13
     legacy_flags:
       - INDOORS
     doors:
@@ -3283,6 +3926,24 @@ rooms:
       up: 695
       down: 673
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 633
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 654
+              wear_loc: 5
+          -
+              item_vnum: 660
+              wear_loc: 11
+          -
+              item_vnum: 662
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3407,6 +4068,43 @@ rooms:
       west: 692
       up: 696
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 631
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 662
+              wear_loc: 16
+          -
+              item_vnum: 663
+              wear_loc: 17
+      - type: MOB
+        id: 632
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 664
+              wear_loc: 12
+      - type: MOB
+        id: 632
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 664
+              wear_loc: 12
     legacy_flags:
       - INDOORS
     doors:
@@ -3603,6 +4301,67 @@ rooms:
       east: 679
       west: 699
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 634
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 627
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 651
+      - type: MOB
+        id: 634
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 627
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 651
+      - type: MOB
+        id: 634
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 627
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 651
     legacy_flags:
       - INDOORS
     doors:
@@ -3638,6 +4397,102 @@ rooms:
       east: 698
       west: 667
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 603
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 631
+              wear_loc: 5
+          -
+              item_vnum: 653
+              wear_loc: 16
+          -
+              item_vnum: 632
+              wear_loc: 6
+          -
+              item_vnum: 623
+              wear_loc: 7
+          -
+              item_vnum: 624
+              wear_loc: 8
+          -
+              item_vnum: 625
+              wear_loc: 9
+          -
+              item_vnum: 636
+              wear_loc: 10
+          -
+              item_vnum: 637
+              wear_loc: 11
+          -
+              item_vnum: 638
+              wear_loc: 13
+      - type: MOB
+        id: 623
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 627
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 651
+      - type: MOB
+        id: 623
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 627
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 651
+      - type: MOB
+        id: 623
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 620
+              wear_loc: 1
+          -
+              item_vnum: 621
+              wear_loc: 5
+          -
+              item_vnum: 630
+              wear_loc: 16
+          -
+              item_vnum: 627
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 651
     doors:
       east:
         to: 698

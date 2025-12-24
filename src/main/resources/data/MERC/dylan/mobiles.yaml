@@ -1,8 +1,11 @@
 - id: 9101
-  key: "the_screaming_filthy_harpy"
-  name: "harpy"
-  short_desc: "the screaming, filthy harpy"
-  long_desc: "The screaming, filthy harpy claws madly at your face!"
+  key: the_screaming_filthy_harpy_9101
+  name: the screaming, filthy harpy
+  short_desc: The screaming, filthy harpy claws madly at your face!
+  long_desc: |
+    The harpy looks at you with blood in her eyes.  Her entire body is
+    caked in filth and grime and she stinks to high heaven.  Her razor-
+    sharp talons flex as she considers you for her dinner.
   keywords: ['harpy']
   level: 4
   hp_max: 267
@@ -27,13 +30,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '2d6+260', 'damage_dice': '2d6+260', 'raw_block': 'The harpy looks at you with blood in her eyes.  Her entire body is\ncaked in filth and grime and she stinks to high heaven.  Her razor-\nsharp talons flex as she considers you for her dinner.\n~\n4|32 8|32|32768 -500 S\n20 1 0 2d6+260 4d6+4\n30500 15000\n8 8 2'}
+  legacy_raw: 4|32 8|32|32768 -500 S 20 1 0 2d6+260 4d6+4 30500 15000 8 8 2
 
 - id: 9102
-  key: "the_screaming_harpy_leader"
-  name: "harpy leader"
-  short_desc: "the screaming harpy leader"
-  long_desc: "The screaming harpy leader tries to scratch your eyes out!"
+  key: the_screaming_harpy_leader_9102
+  name: the screaming harpy leader
+  short_desc: The screaming harpy leader tries to scratch your eyes out!
+  long_desc: |
+    The harpy leader looks at you and grins menacingly.  She stretches
+    her wings and you see insects crawling around them.  Her hair is
+    matted and greasy and you are sickened by the stench that pervades
+    her presence.
   keywords: ['harpy', 'leader']
   level: 2
   hp_max: 526
@@ -58,13 +65,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '4d7+510', 'damage_dice': '4d7+510', 'raw_block': 'The harpy leader looks at you and grins menacingly.  She stretches\nher wings and you see insects crawling around them.  Her hair is\nmatted and greasy and you are sickened by the stench that pervades\nher presence.\n~\n2|4|32 8|32|32768 -750 S\n23 8 2 4d7+510 4d8+5\n42500 15000\n8 8 2'}
+  legacy_raw: 2|4|32 8|32|32768 -750 S 23 8 2 4d7+510 4d8+5 42500 15000 8 8 2
 
 - id: 9103
-  key: "the_ghostly_air_elemental"
-  name: "air elemental"
-  short_desc: "the ghostly air elemental"
-  long_desc: "The ghostly air elemental."
+  key: the_ghostly_air_elemental_9103
+  name: the ghostly air elemental
+  short_desc: The ghostly air elemental.
+  long_desc: |
+    The air elemental is hard to see.  You know that it is there
+    because objects behind it seem to waver and are slightly blurred.
   keywords: ['air', 'elemental']
   level: 4
   hp_max: 627
@@ -89,13 +98,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '5d10+600', 'damage_dice': '5d10+600', 'raw_block': 'The air elemental is hard to see.  You know that it is there\nbecause objects behind it seem to waver and are slightly blurred.\n~\n4|32 8|32|32768|65536 0 S\n25 0 -4 5d10+600 4d7+7\n1000 45000\n8 8 0'}
+  legacy_raw: 4|32 8|32|32768|65536 0 S 25 0 -4 5d10+600 4d7+7 1000 45000 8 8 0
 
 - id: 9104
-  key: "the_mysterious_effreeti"
-  name: "mysterious effreeti"
-  short_desc: "the mysterious effreeti"
-  long_desc: "The mysterious effreeti grins in delight at its new prey."
+  key: the_mysterious_effreeti_9104
+  name: the mysterious effreeti
+  short_desc: The mysterious effreeti grins in delight at its new prey.
+  long_desc: |
+    The effreeti towers menacingly over you.  It is dressed in the
+    finest ghostly silks and a headdress with an elaborate brooch.
   keywords: ['mysterious', 'effreeti']
   level: 4
   hp_max: 740
@@ -120,15 +131,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '10d7+700', 'damage_dice': '10d7+700', 'raw_block': 'The effreeti towers menacingly over you.  It is dressed in the\nfinest ghostly silks and a headdress with an elaborate brooch.\n~\n4 8|128|32768 -100 S\n27 0 -7 10d7+700 5d6+4\n50000 60000\n8 8 0'}
+  legacy_raw: 4 8|128|32768 -100 S 27 0 -7 10d7+700 5d6+4 50000 60000 8 8 0
 
 - id: 9105
-  key: "the_gigantic_roc"
-  name: "roc"
-  short_desc: "the gigantic roc"
-  long_desc: "The gigantic roc."
+  key: the_gigantic_roc_9105
+  name: the gigantic roc
+  short_desc: The gigantic roc.
+  long_desc: |
+    This bird has a wingspan that stretches several spear-lengths.  It
+    moves surprisingly fast for something of its size.
   keywords: ['roc']
-  level: 64
+  level: 50
   hp_max: 530
   mp_max: 0
   mv_max: 100
@@ -147,19 +160,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 5000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '6d9+500', 'damage_dice': '6d9+500', 'raw_block': 'This bird has a wingspan that stretches several spear-lengths.  It\nmoves surprisingly fast for something of its size.~\n64 0 50 S\n24 0 -3 6d9+500 3d10+5\n0 40000\n8 8 2'}
+  legacy_raw: 64 0 50 S 24 0 -3 6d9+500 3d10+5 0 40000 8 8 2
 
 - id: 9106
-  key: "the_gigantic_roc"
-  name: "roc"
-  short_desc: "the gigantic roc"
-  long_desc: "The gigantic roc stares menacingly at you."
+  key: the_gigantic_roc_9106
+  name: the gigantic roc
+  short_desc: The gigantic roc stares menacingly at you.
+  long_desc: |
+    This bird has a wingspan that stretches several spear-lengths.  It
+    moves surprisingly fast for something of its size.
   keywords: ['roc']
-  level: 64
+  level: 50
   hp_max: 825
   mp_max: 0
   mv_max: 100
@@ -178,17 +193,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 5000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '5d9+800', 'damage_dice': '5d9+800', 'raw_block': 'This bird has a wingspan that stretches several spear-lengths.  It\nmoves surprisingly fast for something of its size.\n~\n64 0 50 S\n28 0 -8 5d9+800 5d6+15\n40000 80000\n8 8 1'}
+  legacy_raw: 64 0 50 S 28 0 -8 5d9+800 5d6+15 40000 80000 8 8 1
 
 - id: 9107
-  key: "the_ugly_wicked_witch"
-  name: "wicked witch"
-  short_desc: "the ugly, wicked witch"
-  long_desc: "The ugly, wicked witch cackles maniacally."
+  key: the_ugly_wicked_witch_9107
+  name: the ugly, wicked witch
+  short_desc: The ugly, wicked witch cackles maniacally.
+  long_desc: |
+    The witch has jet black hair and sickly green skin.  She is covered
+    with warts and boils.  Her nails are long and sharp and look like
+    they would be quite painful.  Her eyes pierce your very soul.
   keywords: ['wicked', 'witch']
   level: 2
   hp_max: 1249
@@ -213,5 +231,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '9d10+1200', 'damage_dice': '9d10+1200', 'raw_block': 'The witch has jet black hair and sickly green skin.  She is covered\nwith warts and boils.  Her nails are long and sharp and look like\nthey would be quite painful.  Her eyes pierce your very soul.\n~\n2|4|32 8|128 -600 S\n31 0 -11 9d10+1200 5d9+5\n200000 200000\n8 8 2'}
+  legacy_raw: 2|4|32 8|128 -600 S 31 0 -11 9d10+1200 5d9+5 200000 200000 8 8 2
 

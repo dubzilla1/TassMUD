@@ -13,6 +13,23 @@ rooms:
       east: 8902
       south: 8904
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 8901
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8910
+              wear_loc: 5
+          -
+              item_vnum: 8911
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 8913
+          -
+              item_vnum: 8915
     doors:
       east:
         to: 8902
@@ -47,6 +64,20 @@ rooms:
       west: 8901
       south: 8905
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 8902
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8910
+              wear_loc: 5
+        inventory:
+          -
+              item_vnum: 8914
+          -
+              item_vnum: 8916
     doors:
       east:
         to: 8903
@@ -68,8 +99,9 @@ rooms:
         key: -1
       south:
         to: 8905
-        description: "The path wind its way through the tall trees, towards an open area barely
-visible in the distance."
+        description: |
+          The path wind its way through the tall trees, towards an open area barely
+          visible in the distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -92,13 +124,23 @@ visible in the distance."
       south: 8906
       west: 8902
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 8907
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 8907
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - NO_MOB
     doors:
       north:
         to: 5378
-        description: "A small, narrow path winds north, and is quickly lost in the bushes. It
-looks quite a wilderness there!"
+        description: |
+          A small, narrow path winds north, and is quickly lost in the bushes. It
+          looks quite a wilderness there!
         keywords: ""
         state: OPEN
         locked: false
@@ -107,8 +149,9 @@ looks quite a wilderness there!"
         key: -1
       south:
         to: 8906
-        description: "There is a path winding its way south through the tall poplars, disappearing
-out of sight some 100 yds. away."
+        description: |
+          There is a path winding its way south through the tall poplars, disappearing
+          out of sight some 100 yds. away.
         keywords: ""
         state: OPEN
         locked: false
@@ -144,6 +187,20 @@ out of sight some 100 yds. away."
       south: 8907
       west: 3502
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 8903
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8910
+              wear_loc: 5
+        inventory:
+          -
+              item_vnum: 8919
+          -
+              item_vnum: 8917
     legacy_flags:
       - NO_MOB
     doors:
@@ -176,8 +233,9 @@ out of sight some 100 yds. away."
         key: -1
       west:
         to: 3502
-        description: "Through the trees, you can see the Midgaard road. Far to the west, You can
-barely glimpse the tall walls and the chimney-smokes of the city itself."
+        description: |
+          Through the trees, you can see the Midgaard road. Far to the west, You can
+          barely glimpse the tall walls and the chimney-smokes of the city itself.
         keywords: ""
         state: OPEN
         locked: false
@@ -204,6 +262,31 @@ barely glimpse the tall walls and the chimney-smokes of the city itself."
       west: 8904
       south: 8908
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 8900
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8910
+              wear_loc: 5
+          -
+              item_vnum: 8911
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 8919
+          -
+              item_vnum: 8918
+      - type: MOB
+        id: 8904
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8906
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 8902
@@ -234,8 +317,9 @@ barely glimpse the tall walls and the chimney-smokes of the city itself."
         key: -1
       south:
         to: 8908
-        description: "To the south, a wide, sunny field stretch out, sloping down towards a brightly
-glittering lake."
+        description: |
+          To the south, a wide, sunny field stretch out, sloping down towards a brightly
+          glittering lake.
         keywords: ""
         state: OPEN
         locked: false
@@ -258,6 +342,15 @@ glittering lake."
       west: 8905
       south: 8909
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 8905
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8908
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 8903
@@ -279,8 +372,9 @@ glittering lake."
         key: -1
       south:
         to: 8909
-        description: "To the south, just beyond the trees, you can see a wide green lawn, and past
-the lawn, a softly shimmering, rainbow-colored mansion."
+        description: |
+          To the south, just beyond the trees, you can see a wide green lawn, and past
+          the lawn, a softly shimmering, rainbow-colored mansion.
         keywords: ""
         state: OPEN
         locked: false
@@ -312,8 +406,9 @@ the lawn, a softly shimmering, rainbow-colored mansion."
     doors:
       north:
         to: 8904
-        description: "The path leading north is soon lost out of sight amongst the ancient oaks and
-poplars."
+        description: |
+          The path leading north is soon lost out of sight amongst the ancient oaks and
+          poplars.
         keywords: ""
         state: OPEN
         locked: false
@@ -322,9 +417,10 @@ poplars."
         key: -1
       east:
         to: 8908
-        description: "To the east, the path leads out into a wide, sunny summer's field, sloping
-south towards a beautiful lake. Past the field You can see a stately mansion,
-shimmering gently in all the rainbow's colours."
+        description: |
+          To the east, the path leads out into a wide, sunny summer's field, sloping
+          south towards a beautiful lake. Past the field You can see a stately mansion,
+          shimmering gently in all the rainbow's colours.
         keywords: ""
         state: OPEN
         locked: false
@@ -370,8 +466,9 @@ shimmering gently in all the rainbow's colours."
         key: -1
       east:
         to: 8919
-        description: "To the east, You can see the rainbow-colored mansion, shimmering like some-
-thing out of this world."
+        description: |
+          To the east, You can see the rainbow-colored mansion, shimmering like some-
+          thing out of this world.
         keywords: ""
         state: OPEN
         locked: false
@@ -424,13 +521,13 @@ thing out of this world."
         key: -1
       south:
         to: 8910
-        description: "To the south, the path leads straight up to the front door of the mansion."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       mansion: |
         The mansion is a sprawling, two-story affair with three wings, where the top
@@ -458,23 +555,22 @@ thing out of this world."
     doors:
       north:
         to: 8909
-        description: "Through the windows next to the door you can see the croquet lawn, bathed in
-afternoon sunlight."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 8911
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       painting: |
         They are strange indeed, works of breathtaking precision depicting obviously
@@ -497,27 +593,35 @@ afternoon sunlight."
       east: 8912
       south: 8913
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8909
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8913
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 8910
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 8912
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 8913
         description: ""
@@ -542,18 +646,23 @@ afternoon sunlight."
     exits:
       west: 8911
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 8901
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 8911
-        description: ""
-        keywords: "door"
+        description: ".-."
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 8913
     key: grove_room_8913
@@ -585,30 +694,30 @@ afternoon sunlight."
       east:
         to: 8914
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 8915
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 8916
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 8914
     key: grove_room_8914
@@ -624,18 +733,30 @@ afternoon sunlight."
     exits:
       west: 8913
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 8901
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8910
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8914
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 8913
-        description: ""
-        keywords: "door"
+        description: "close door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 8915
     key: grove_room_8915
@@ -654,27 +775,40 @@ afternoon sunlight."
       north: 8913
       west: 8918
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 8902
+        quantity: 2
+        frequency: 1
+      - type: ITEM
+        id: 8902
+        quantity: 2
+        frequency: 1
+      - type: ITEM
+        id: 8905
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 8913
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 8918
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 8916
     key: grove_room_8916
@@ -698,21 +832,21 @@ afternoon sunlight."
       east:
         to: 8913
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 8918
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 8917
         description: ""
@@ -740,6 +874,20 @@ afternoon sunlight."
       east: 8916
       south: 8919
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8910
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8918
+          -
+              item_vnum: 8903
+              container_vnum: 8902
+          -
+              item_vnum: 8904
+              container_vnum: 8902
     legacy_flags:
       - INDOORS
     doors:
@@ -755,12 +903,12 @@ afternoon sunlight."
       south:
         to: 8919
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 8918
     key: grove_room_8918
@@ -777,36 +925,44 @@ afternoon sunlight."
       east: 8915
       west: 8919
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8909
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8916
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 8916
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 8915
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 8919
         description: ""
-        keywords: "wide door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       painting: |
         There are many, many beautiful paintings of famous dragons of history and
@@ -845,21 +1001,21 @@ afternoon sunlight."
       north:
         to: 8917
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 8918
         description: ""
-        keywords: "double door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 8908
         description: ""

@@ -1,0 +1,55 @@
+shops:
+  - keeper: 5310
+    trades: [0, 0, 0, 0, 0]
+    profit_buy: 120
+    profit_sell: 90
+    open: 0
+    close: 23
+    comment: "The barkeep"
+    items: [648, 649, 650]
+
+  - keeper: 5311
+    trades: [5, 17, 19, 0, 0]
+    profit_buy: 110
+    profit_sell: 90
+    open: 6
+    close: 20
+    comment: "The grocer/meat seller"
+    items: [5219, 602, 603, 604, 605]
+
+  - keeper: 5312
+    trades: [19, 0, 0, 0, 0]
+    profit_buy: 110
+    profit_sell: 90
+    open: 7
+    close: 19
+    comment: "The produce seller"
+    items: [609, 610, 611, 612, 613]
+
+  - keeper: 5313
+    trades: [5, 9, 0, 0, 0]
+    profit_buy: 130
+    profit_sell: 70
+    open: 5
+    close: 21
+    comment: "The armourer"
+    items: []
+
+  - keeper: 5314
+    trades: [1, 8, 12, 13, 22]
+    profit_buy: 135
+    profit_sell: 65
+    open: 8
+    close: 18
+    comment: "The smithy"
+    items: [601, 615]
+
+  - keeper: 5317
+    trades: [2, 3, 4, 10, 0]
+    profit_buy: 120
+    profit_sell: 50
+    open: 9
+    close: 17
+    comment: "The Wizard"
+    items: [5210, 5211]
+

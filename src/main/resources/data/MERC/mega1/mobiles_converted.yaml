@@ -1,0 +1,433 @@
+- id: 8000
+  key: a_juve
+  name: a juve
+  short_desc: A juve is standing here plotting mischief.
+  long_desc: |
+    He is a tall, thin boy.  He is looking for his gang mates.  He and his
+    mates have cost city authorities many millions of creds a week in
+    vandalism repairs.
+  keywords: ['juve']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 -400 S 5 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8001
+  key: a_punk
+  name: a punk
+  short_desc: A punk is here plotting a crime wave.
+  long_desc: |
+    This punk is from one of the rowdiest, scruffiest, and definitely most
+    fashionable of all gangs -- the Grunge Mongers.
+  keywords: ['punk']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 0 -500 S 10 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8002
+  key: a_futsie
+  name: a Futsie
+  short_desc: A Futsie is here reciting Monty Python sketches.
+  long_desc: |
+    A sad victim of Future Shock, this man is immensely dangerous and will
+    not be stopped by anyone who tries to deter him from revenge upon the
+    Justice Department.
+  keywords: ['Futsie']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 8 0 S 17 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8003
+  key: a_citi_def_militiaman
+  name: a Citi-Def Militiaman
+  short_desc: A Citi-Def Militiaman is here contemplating a Block War.
+  long_desc: |
+    A member of a local Block's Citi-Def militia, this man is well-armed
+    and undersupervised.
+  keywords: ['Citi-Def', 'Militiaman']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 512 0 S 16 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8004
+  key: a_dunk
+  name: a dunk
+  short_desc: A dunk is here blending into the crowd.
+  long_desc: |
+    He blends into the crowd as his hand travels into another citizen's pocket.
+  keywords: ['dunk']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64|128 0 -150 S 10 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8005
+  key: a_tap
+  name: a tap
+  short_desc: A tap is here eyeing your belongings.
+  long_desc: |
+    A practitioner in Mega-City One's largest growth industry, mugging, is
+    looking you over for a possible business transaction.
+  keywords: ['tap']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 0 -400 S 14 0 0 0d0+0 0d0+0 0 0 0 0 2
+
+- id: 8006
+  key: a_rookie_judge
+  name: a rookie judge
+  short_desc: A Rookie judge is on his first beat here.
+  long_desc: |
+    A member of Mega-City One's Justice Department is here considering what
+    crimes you have committed.  Being a rookie he will probably be easier on
+    you though.
+  keywords: ['rookie', 'judge']
+  level: 64
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 8|32 300 S 20 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8007
+  key: wallaby_gleep
+  name: Wallaby Gleep
+  short_desc: Mr. Gleep is here wanting to know what you want.
+  long_desc: |
+    Wallaby Gleep is a heavy-set man who gives you the impression that he is
+    unintelligent and unimaginative, but looks can be deceiving.
+  keywords: ['Wallaby', 'Gleep']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4 8|32|512 -600 S 22 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8008
+  key: pinkerton_throt
+  name: Pinkerton Throt
+  short_desc: Pinky Throt is here Wringing his hands.
+  long_desc: |
+    He is a thin angular crook, pretty close to everyone's idea of Ebeneezer
+    Scrooge.  Indeed, the only thing guaranteed to bring a spark to his dead
+    eyes is the mention of money.
+  keywords: ['Pinkerton', 'Throt']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -900 S 25 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8009
+  key: ernie_ramirez
+  name: Ernie Ramirez
+  short_desc: Ernie Ramirez is here collecting for the mob.
+  long_desc: |
+    Ramirez is a dour man who knows that he's never going to get a better
+    deal out of life.  He is content to run the bite fights for Throt and
+    Gleep.
+  keywords: ['Ernie', 'Ramirez']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4 0 -400 S 19 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8010
+  key: judge_eckersely
+  name: Judge Eckersely
+  short_desc: Judge Eckersely is here shaking down a Perp.
+  long_desc: |
+    He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
+    of the Downtown Quadrant.
+  keywords: ['Judge', 'Eckersely']
+  level: 64
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 8|32|128 300 S 30 0 0 0d0+0 0d0+0 0 0 0 0 1
+
+- id: 8011
+  key: judge_beddows
+  name: Judge Beddows
+  short_desc: Judge Beddows is here calling Resyk.
+  long_desc: |
+    Beddows is a clone from the same stock as the ex-Chief Judge McGruder.
+    She is fanatically dedicated to her job and has no ambitions other than
+    to enforce the LAW.
+  keywords: ['Judge', 'Sara', 'Beddows']
+  level: 64
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 8|32 500 S 25 0 0 0d0+0 0d0+0 0 0 0 0 2
+
+- id: 8012
+  key: a_bite_fighter
+  name: a bite fighter
+  short_desc: A bite fighter is here sharpening his teeth.
+  long_desc: |
+    A bite fighter is here with sharpened teeth and a bad attitude.
+  keywords: ['bite', 'fighter']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 0 -400 S 20 0 0 0d0+0 0d0+0 0 0 0 0 1
+

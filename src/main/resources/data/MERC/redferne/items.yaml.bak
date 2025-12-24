@@ -1,0 +1,31 @@
+items:
+  - id: 7909
+    key: treasure_coins
+    name: a huge treasure
+    description: a huge treasure is lying here, looking very valuable.
+    weight: 0
+    value: 0
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [treasure, coins]
+  - id: 7910
+    key: chest
+    name: a wooden chest
+    description: A wooden chest stands in the corner.
+    weight: 400
+    value: 100
+    type: container
+    wear_flags:
+      - TAKE
+    keywords: [chest]
+  - id: 7911
+    key: key
+    name: a small brass key
+    description: A small brass key lies here.
+    weight: 1
+    value: 10
+    type: inventory
+    wear_flags:
+      - TAKE
+    keywords: [key]

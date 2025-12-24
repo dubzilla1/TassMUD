@@ -14,16 +14,18 @@ import java.util.List;
  */
 public class MobileDAO {
     
-    private static final String URL = "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1";
+    private final String url;
+    private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
     private static final String USER = "sa";
     private static final String PASS = "";
-    
+
     public MobileDAO() {
+        this.url = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
         ensureTables();
     }
     
     private void ensureTables() {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = DriverManager.getConnection(url, USER, PASS);
              Statement s = c.createStatement()) {
             
             // Mobile template table
@@ -78,10 +80,20 @@ public class MobileDAO {
             
             // Migration: add autoflee column
             s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS autoflee INT DEFAULT 0");
+            // Migration: increase template_key length if needed (best-effort)
+            try {
+                s.execute("ALTER TABLE mobile_template ALTER COLUMN template_key SET DATA TYPE VARCHAR(200)");
+                System.out.println("Migration: ensured mobile_template.template_key length >= 200");
+            } catch (SQLException ignore) {
+                // Best-effort; older H2 versions or already-correct types may throw. Log and continue.
+                System.out.println("Migration: skipping template_key resize (may already be adequate)");
+            }
             // Migration: add orig_uuid to mobile_instance to tie instances to original spawn mappings
             s.execute("ALTER TABLE mobile_instance ADD COLUMN IF NOT EXISTS orig_uuid VARCHAR(64)");
             // Spawn mapping table: room_id, template_id, uuid
             s.execute("CREATE TABLE IF NOT EXISTS spawn_mapping (room_id INT NOT NULL, template_id INT NOT NULL, orig_uuid VARCHAR(64) NOT NULL, PRIMARY KEY(room_id, template_id, orig_uuid))");
+            // Mobile-instance item markers: link mobile instances to item instances they 'own' (equip or inventory)
+            s.execute("CREATE TABLE IF NOT EXISTS mobile_instance_item (mobile_instance_id BIGINT NOT NULL, item_instance_id BIGINT NOT NULL, kind VARCHAR(32) NOT NULL, PRIMARY KEY(mobile_instance_id, item_instance_id), FOREIGN KEY(mobile_instance_id) REFERENCES mobile_instance(instance_id), FOREIGN KEY(item_instance_id) REFERENCES item_instance(instance_id))");
             
             System.out.println("MobileDAO: ensured mobile_template and mobile_instance tables");
             
@@ -102,9 +114,25 @@ public class MobileDAO {
             "behaviors, aggro_range, experience_value, gold_min, gold_max, respawn_seconds, autoflee, template_json) " +
             "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, template.getId());
+           try (Connection c = DriverManager.getConnection(url, USER, PASS)) {
+            // If a different row already exists with the same template_key,
+            // reuse that id to avoid UNIQUE constraint violations on template_key.
+            int targetId = template.getId();
+            String existingSql = "SELECT id FROM mobile_template WHERE template_key = ?";
+            try (PreparedStatement checkPs = c.prepareStatement(existingSql)) {
+                checkPs.setString(1, template.getKey());
+                try (ResultSet rs = checkPs.executeQuery()) {
+                    if (rs.next()) {
+                        int existingId = rs.getInt(1);
+                        if (existingId != targetId) {
+                            System.out.println("MobileDAO.upsertTemplate: template_key '" + template.getKey() + "' already exists as id=" + existingId + ", reusing that id instead of " + targetId);
+                            targetId = existingId;
+                        }
+                    }
+                }
+            }
+            try (PreparedStatement ps = c.prepareStatement(sql)) {
+                ps.setInt(1, targetId);
             ps.setString(2, template.getKey());
             ps.setString(3, template.getName());
             ps.setString(4, template.getShortDesc());
@@ -140,7 +168,9 @@ public class MobileDAO {
             ps.setInt(29, template.getRespawnSeconds());
             ps.setInt(30, template.getAutoflee());
             ps.setString(31, template.getTemplateJson());
-            ps.executeUpdate();
+                // Note: if we changed targetId above we already set it into slot 1
+                ps.executeUpdate();
+            }
         } catch (SQLException e) {
             throw new RuntimeException("Failed to upsert mobile template", e);
         }
@@ -151,18 +181,41 @@ public class MobileDAO {
      */
     public MobileTemplate getTemplateById(int id) {
         String sql = "SELECT * FROM mobile_template WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
+           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+               PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
+            System.out.println("[MobileDAO] getTemplateById: executing against URL=" + url + " SQL=" + sql + " id=" + id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
+                    System.out.println("[MobileDAO] getTemplateById: found template id=" + id + " name=" + rs.getString("name"));
                     return templateFromResultSet(rs);
                 }
             }
         } catch (SQLException e) {
             throw new RuntimeException("Failed to get mobile template", e);
         }
+        // Not found - print diagnostic summary of templates present (first few)
+        try {
+            List<Integer> ids = getAllTemplateIds();
+            System.out.println("[MobileDAO] getTemplateById: template not found: " + id + "; total templates=" + ids.size() + " sample_ids=" + (ids.size() <= 10 ? ids : ids.subList(0,10)));
+        } catch (Exception ignored) {}
         return null;
+    }
+
+    /**
+     * Return a list of all template ids (ordered). Useful for diagnostics.
+     */
+    public List<Integer> getAllTemplateIds() {
+        List<Integer> ids = new ArrayList<>();
+        String sql = "SELECT id FROM mobile_template ORDER BY id";
+        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) ids.add(rs.getInt(1));
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to list mobile template ids", e);
+        }
+        return ids;
     }
     
     /**
@@ -170,8 +223,8 @@ public class MobileDAO {
      */
     public MobileTemplate getTemplateByKey(String key) {
         String sql = "SELECT * FROM mobile_template WHERE template_key = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
+           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+               PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, key);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -192,7 +245,7 @@ public class MobileDAO {
         if (searchStr == null || searchStr.trim().isEmpty()) return results;
         
         String sql = "SELECT * FROM mobile_template WHERE LOWER(name) LIKE ? ORDER BY id";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = DriverManager.getConnection(url, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, "%" + searchStr.toLowerCase() + "%");
             try (ResultSet rs = ps.executeQuery()) {
@@ -212,9 +265,9 @@ public class MobileDAO {
     public List<MobileTemplate> getAllTemplates() {
         List<MobileTemplate> results = new ArrayList<>();
         String sql = "SELECT * FROM mobile_template ORDER BY id";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+               PreparedStatement ps = c.prepareStatement(sql);
+               ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 results.add(templateFromResultSet(rs));
             }
@@ -289,7 +342,7 @@ public class MobileDAO {
         String sql = "INSERT INTO mobile_instance (template_id, current_room_id, spawn_room_id, " +
             "hp_cur, mp_cur, mv_cur, is_dead, spawned_at, died_at) VALUES (?,?,?,?,?,?,?,?,?)";
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = DriverManager.getConnection(System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1"), USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             long now = System.currentTimeMillis();
             ps.setInt(1, template.getId());
@@ -369,8 +422,8 @@ public class MobileDAO {
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.instance_id = ?";
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
+           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+               PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, instanceId);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -395,8 +448,8 @@ public class MobileDAO {
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.current_room_id = ? AND mi.is_dead = FALSE";
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
+           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+               PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, roomId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -581,6 +634,45 @@ public class MobileDAO {
             throw new RuntimeException("Failed to ensure spawn mappings", e);
         }
     }
+
+    /**
+     * Persist a mobile -> item marker (equip or inventory).
+     */
+    public void addMobileItemMarker(long mobileInstanceId, long itemInstanceId, String kind) {
+        String sql = "MERGE INTO mobile_instance_item (mobile_instance_id, item_instance_id, kind) KEY (mobile_instance_id, item_instance_id) VALUES (?,?,?)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, mobileInstanceId);
+            ps.setLong(2, itemInstanceId);
+            ps.setString(3, kind == null ? "inventory" : kind);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to add mobile item marker", e);
+        }
+    }
+
+    /** Simple marker record returned when loading markers. */
+    public static class MobileItemMarker { public final long itemInstanceId; public final String kind; public MobileItemMarker(long itemInstanceId, String kind) { this.itemInstanceId = itemInstanceId; this.kind = kind; } }
+
+    /**
+     * Get persisted item markers for a mobile instance.
+     */
+    public List<MobileItemMarker> getMobileItemMarkers(long mobileInstanceId) {
+        List<MobileItemMarker> out = new ArrayList<>();
+        String sql = "SELECT item_instance_id, kind FROM mobile_instance_item WHERE mobile_instance_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, mobileInstanceId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    out.add(new MobileItemMarker(rs.getLong(1), rs.getString(2)));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to get mobile item markers", e);
+        }
+        return out;
+    }
     
     private Mobile mobileFromResultSet(ResultSet rs) throws SQLException {
         // Parse behaviors from comma-separated string
@@ -597,9 +689,19 @@ public class MobileDAO {
         if (behaviors.isEmpty()) {
             behaviors.add(MobileBehavior.PASSIVE); // Default
         }
-        
+
+        // Parse keywords from template column (comma-separated)
+        String keywordsStr = rs.getString("keywords");
+        List<String> keywords = new ArrayList<>();
+        if (keywordsStr != null && !keywordsStr.isEmpty()) {
+            for (String k : keywordsStr.split("[,]")) {
+                String t = k.trim();
+                if (!t.isEmpty()) keywords.add(t);
+            }
+        }
+
         String origUuid = rs.getString("orig_uuid");
-        return new Mobile(
+        Mobile mob = new Mobile(
             rs.getLong("instance_id"),
             rs.getInt("template_id"),
             rs.getInt("level"),
@@ -623,6 +725,7 @@ public class MobileDAO {
             rs.getInt("fortitude"),
             rs.getInt("reflex"),
             rs.getInt("will_save"),
+            keywords,
             rs.getString("short_desc"),
             behaviors,
             rs.getInt("experience_value"),
@@ -635,5 +738,22 @@ public class MobileDAO {
             rs.getBoolean("is_dead"),
             rs.getLong("died_at")
         );
+
+        // Load persisted mobile->item markers and attach harmless modifiers so death handling can find them
+        try {
+            List<MobileItemMarker> markers = getMobileItemMarkers(mob.getInstanceId());
+            for (MobileItemMarker mm : markers) {
+                try {
+                    String src = (mm.kind != null && mm.kind.equalsIgnoreCase("equip")) ? "equip#" + mm.itemInstanceId : "inventory#" + mm.itemInstanceId;
+                    com.example.tassmud.model.Modifier m = new com.example.tassmud.model.Modifier(src, com.example.tassmud.model.Stat.ATTACK_HIT_BONUS, com.example.tassmud.model.Modifier.Op.ADD, 0, 0L, 0);
+                    java.util.UUID id = mob.addModifier(m);
+                    mob.addEquipModifier(id);
+                } catch (Exception ignored) {}
+            }
+        } catch (Exception e) {
+            System.err.println("MobileDAO: failed to load mobile item markers for instance " + mob.getInstanceId() + ": " + e.getMessage());
+        }
+
+        return mob;
     }
 }

@@ -1,0 +1,396 @@
+- id: 5100
+  key: |
+  the_goblin_slave:
+  name: |
+  goblin_slave:
+  short_desc: |
+  the_goblin_slave:
+  long_desc: |
+  A_goblin_slave_lies_here_asleep:
+  keywords: ['goblin', 'slave']
+  level: 130
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 11
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5101
+  key: |
+  the_drow_commoner:
+  name: |
+  drow_commoner:
+  short_desc: |
+  the_drow_commoner:
+  long_desc: |
+  A_drow_commoner_walks_on_guard_duty:
+  keywords: ['drow', 'commoner']
+  level: 104
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5102
+  key: |
+  the_drow_warrior_noble:
+  name: |
+  drow_noble_warrior:
+  short_desc: |
+  the_drow_warrior_noble:
+  long_desc: |
+  The_drow_warrior_noble_stands_here_guarding_his_home:
+  keywords: ['drow', 'noble', 'warrior']
+  level: 34
+  hp_max: 181
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5103
+  key: |
+  the_drow_mage_noble:
+  name: |
+  drow_noble_mage:
+  short_desc: |
+  the_drow_mage_noble:
+  long_desc: |
+  The_drow_mage_noble_is_here_protecting_his_home:
+  keywords: ['drow', 'noble', 'mage']
+  level: 34
+  hp_max: 196
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 190
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5104
+  key: |
+  the_drow_priestess:
+  name: |
+  drow_priestess:
+  short_desc: |
+  the_drow_priestess:
+  long_desc: |
+  The_drow_priestess_is_here_shouting_orders:
+  keywords: ['drow', 'priestess']
+  level: 34
+  hp_max: 211
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 205
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5105
+  key: |
+  the_drow_master:
+  name: |
+  drow_master:
+  short_desc: |
+  The_drow_master:
+  long_desc: |
+  The_drow_master_stares_at_you_angrily:
+  keywords: ['drow', 'master']
+  level: 34
+  hp_max: 254
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 248
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5106
+  key: |
+  the_weapons_master:
+  name: |
+  drow_weapons_master:
+  short_desc: |
+  The_weapons_master:
+  long_desc: |
+  The_drow_weapons_master_is_here_shadow_boxing:
+  keywords: ['drow', 'weapons', 'master']
+  level: 34
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5107
+  key: |
+  the_matron_mother:
+  name: |
+  drow_matron_mother:
+  short_desc: |
+  the_matron_mother:
+  long_desc: |
+  The_matron_mother_of_the_house_is_standing_here:
+  keywords: ['drow', 'matron', 'mother']
+  level: 34
+  hp_max: 475
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 50
+  damage_bonus: 450
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5108
+  key: |
+  the_matron_mother:
+  name: |
+  drow_matron_mother:
+  short_desc: |
+  the_matron_mother:
+  long_desc: |
+  The_matron_mother_of_the_1st_house_is_waiting_for_you:
+  keywords: ['drow', 'matron', 'mother']
+  level: 2
+  hp_max: 375
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 50
+  damage_bonus: 350
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5109
+  key: |
+  the_yochlol:
+  name: |
+  yochlol:
+  short_desc: |
+  the_yochlol:
+  long_desc: |
+  A_yochlol_forms_out_of_a_swirling_mist:
+  keywords: ['yochlol']
+  level: 2
+  hp_max: 2237
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 2200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5110
+  key: |
+  the_drow_guard:
+  name: |
+  drow_guard:
+  short_desc: |
+  the_drow_guard:
+  long_desc: |
+  The_drow_guard_is_here_staring_at_you_ominously:
+  keywords: ['drow', 'guard']
+  level: 34
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5111
+  key: |
+  the_drow_scout:
+  name: |
+  drow_scout:
+  short_desc: |
+  the_drow_scout:
+  long_desc: |
+  The_drow_scout_is_here_sneaking_among_the_shadows:
+  keywords: ['drow', 'scout']
+  level: 160
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

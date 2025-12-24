@@ -1,8 +1,11 @@
 - id: 3000
-  key: "the_wizard"
-  name: "wizard"
-  short_desc: "the wizard"
-  long_desc: "A wizard walks around behind the counter, talking to himself."
+  key: the_wizard_3000
+  name: the wizard
+  short_desc: A wizard walks around behind the counter, talking to himself.
+  long_desc: |
+    The wizard looks old and senile, and yet he looks like a very powerful
+    wizard. He is equipped with fine clothing, and is wearing many fine
+    rings and bracelets.
   keywords: ['wizard']
   level: 2
   hp_max: 30001
@@ -27,13 +30,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'The wizard looks old and senile, and yet he looks like a very powerful\nwizard. He is equipped with fine clothing, and is wearing many fine\nrings and bracelets.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+32\n100000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 100000 80000 8 8 1
 
 - id: 3001
-  key: "the_baker"
-  name: "baker"
-  short_desc: "the baker"
-  long_desc: "The baker looks at you calmly, wiping flour from his face with one hand."
+  key: the_baker_3001
+  name: the baker
+  short_desc: The baker looks at you calmly, wiping flour from his face with one hand.
+  long_desc: |
+    A fat, nice looking baker. But you can see that he has many scars on his
+    body.
   keywords: ['baker']
   level: 2
   hp_max: 30001
@@ -58,15 +63,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'A fat, nice looking baker. But you can see that he has many scars on his\nbody.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+20\n12000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 12000 80000 8 8 1
 
 - id: 3002
-  key: "the_grocer"
-  name: "grocer"
-  short_desc: "the grocer"
-  long_desc: "A grocer stands at the counter, with a slightly impatient look on his face."
+  key: the_grocer_3002
+  name: the grocer
+  short_desc: A grocer stands at the counter, with a slightly impatient look on his face.
+  long_desc: |
+    A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
   keywords: ['grocer']
-  level: 200
+  level: 2
   hp_max: 30001
   mp_max: 0
   mv_max: 100
@@ -85,17 +91,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 20000
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 200, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'act_flags': 200, 'raw_block': 'A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+20\n12000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 12000 80000 8 8 1
 
 - id: 3003
-  key: "the_weaponsmith"
-  name: "weaponsmith"
-  short_desc: "the weaponsmith"
-  long_desc: "A weaponsmith."
+  key: the_weaponsmith_3003
+  name: the weaponsmith
+  short_desc: A weaponsmith.
+  long_desc: |
+    A young weaponsmith, who still has lots to learn.
   keywords: ['weaponsmith']
   level: 2
   hp_max: 30001
@@ -120,13 +127,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'A young weaponsmith, who still has lots to learn.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+32\n100000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 100000 80000 8 8 1
 
 - id: 3004
-  key: "the_armourer"
-  name: "armourer armorer"
-  short_desc: "the armourer"
-  long_desc: "An armourer stands here."
+  key: the_armourer_3004
+  name: the armourer
+  short_desc: An armourer stands here.
+  long_desc: |
+    An old but very strong armourer, he has made more armours in his
+    lifetime than you have ever seen.
   keywords: ['armourer', 'armorer']
   level: 2
   hp_max: 30001
@@ -151,15 +160,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'An old but very strong armourer, he has made more armours in his\nlifetime than you have ever seen.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+32\n150000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 150000 80000 8 8 1
 
 - id: 3005
-  key: "the_thief"
-  name: "thief"
-  short_desc: "the thief"
-  long_desc: "A thief, all dressed in black."
+  key: the_thief_3005
+  name: the thief
+  short_desc: A thief, all dressed in black.
+  long_desc: |
+    Well COUNT your money!
   keywords: ['thief']
-  level: 133
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -178,17 +188,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 13300
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 133, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'Well COUNT your money!\n~\n133 98304 100 S\n8 13 3 8d8+80 1d5+5\n100 4000\n8 8 1'}
+  legacy_raw: 133 98304 100 S 8 13 3 8d8+80 1d5+5 100 4000 8 8 1
 
 - id: 3006
-  key: "the_captain"
-  name: "captain"
-  short_desc: "the captain"
-  long_desc: "A retired captain stands here, selling boats."
+  key: the_captain_3006
+  name: the captain
+  short_desc: A retired captain stands here, selling boats.
+  long_desc: |
+    This captain has killed more sharks than you have eaten peas.
   keywords: ['captain']
   level: 2
   hp_max: 30001
@@ -213,13 +224,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'This captain has killed more sharks than you have eaten peas.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+32\n12000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 12000 80000 8 8 1
 
 - id: 3007
-  key: "the_sailor"
-  name: "sailor"
-  short_desc: "the sailor"
-  long_desc: "A sailor stands here, waiting to train you."
+  key: the_sailor_3007
+  name: the sailor
+  short_desc: A sailor stands here, waiting to train you.
+  long_desc: |
+    He looks like a strong, fit sailor.
   keywords: ['sailor']
   level: 2
   hp_max: 506
@@ -244,13 +256,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '23d23+230', 'damage_dice': '23d23+230', 'raw_block': 'He looks like a strong, fit sailor.\n~\n2|512 0 900 S\n23 -2 -13 23d23+230 1d4+23\n2000 -15000\n8 8 1'}
+  legacy_raw: 2|512 0 900 S 23 -2 -13 23d23+230 1d4+23 2000 -15000 8 8 1
 
 - id: 3008
-  key: "the_pet_shop_boy"
-  name: "boy"
-  short_desc: "the pet shop boy"
-  long_desc: "A pet shop boy is here, humming gently."
+  key: the_pet_shop_boy_3008
+  name: the pet shop boy
+  short_desc: A pet shop boy is here, humming gently.
+  long_desc: |
+    He is young and close-cropped and looks quite happy.
   keywords: ['boy']
   level: 2
   hp_max: 30001
@@ -275,13 +288,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'He is young and close-cropped and looks quite happy.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+20\n12000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 12000 80000 8 8 1
 
 - id: 3009
-  key: "the_jeweller"
-  name: "jeweller"
-  short_desc: "the jeweller"
-  long_desc: "The jeweller is standing behind the desk."
+  key: the_jeweller_3009
+  name: the jeweller
+  short_desc: The jeweller is standing behind the desk.
+  long_desc: |
+    He is fat and has a content although watchful look on his face.
   keywords: ['jeweller']
   level: 2
   hp_max: 30001
@@ -306,13 +320,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'He is fat and has a content although watchful look on his face.\n~\n2 0 900 S\n23 2 -10 1d1+30000 1d8+22\n300000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 -10 1d1+30000 1d8+22 300000 80000 8 8 1
 
 - id: 3010
-  key: "the_leather_worker"
-  name: "leather worker"
-  short_desc: "the leather worker"
-  long_desc: "The leather worker is sitting by the table, sewing a leather cap."
+  key: the_leather_worker_3010
+  name: the leather worker
+  short_desc: The leather worker is sitting by the table, sewing a leather cap.
+  long_desc: |
+    He looks as an honest, hard-working artisan who only just earns enough to
+    keep himself going.
   keywords: ['leather', 'worker']
   level: 2
   hp_max: 30001
@@ -337,13 +353,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'He looks as an honest, hard-working artisan who only just earns enough to\nkeep himself going.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+20\n100000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 100000 80000 8 8 1
 
 - id: 3011
-  key: "the_executioner"
-  name: "executioner"
-  short_desc: "the executioner"
-  long_desc: "The executioner is here polishing his blade."
+  key: the_executioner_3011
+  name: the executioner
+  short_desc: The executioner is here polishing his blade.
+  long_desc: |
+    A masked man with muscles bulging all over his body.  You can tell by
+    the look in his eyes that he enjoys seeing you cower in his presence.
   keywords: ['executioner']
   level: 2
   hp_max: 1500
@@ -368,13 +386,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+1499', 'damage_dice': '1d1+1499', 'raw_block': 'A masked man with muscles bulging all over his body.  You can tell by\nthe look in his eyes that he enjoys seeing you cower in his presence.\n~\n2|64 8|128 1000 S\n50 -10 -20 1d1+1499 1d4+30\n5000 500000\n8 8 1'}
+  legacy_raw: 2|64 8|128 1000 S 50 -10 -20 1d1+1499 1d4+30 5000 500000 8 8 1
 
 - id: 3012
-  key: "the_healer"
-  name: "healer"
-  short_desc: "the healer"
-  long_desc: "A healer is here."
+  key: the_healer_3012
+  name: the healer
+  short_desc: A healer is here.
+  long_desc: |
+    Although retired from adventuring, the healer still lends a hand.
   keywords: ['healer']
   level: 2
   hp_max: 30000
@@ -399,13 +418,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+29999', 'damage_dice': '1d1+29999', 'raw_block': 'Although retired from adventuring, the healer still lends a hand.\n~\n2|64 8|128 1000 S\n40 -10 -20 1d1+29999 2d4+30\n0 -99000\n8 8 1'}
+  legacy_raw: 2|64 8|128 1000 S 40 -10 -20 1d1+29999 2d4+30 0 -99000 8 8 1
 
 - id: 3020
-  key: "the_guildmaster"
-  name: "guildmaster master"
-  short_desc: "the guildmaster"
-  long_desc: "Your guildmaster is standing here."
+  key: the_guildmaster_3020
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    Even though your guildmaster looks old and tired, you can clearly see the
+    vast amount of knowledge she possesses. She is wearing fine magic clothing,
+    and you notice that she is surrounded by a blue shimmering aura.
   keywords: ['guildmaster', 'master']
   level: 2
   hp_max: 473
@@ -430,13 +452,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+440', 'damage_dice': '6d10+440', 'raw_block': 'Even though your guildmaster looks old and tired, you can clearly see the\nvast amount of knowledge she possesses. She is wearing fine magic clothing,\nand you notice that she is surrounded by a blue shimmering aura.\n~\n2|1024 0 1000 S\n24 0 0 6d10+440 3d8+24\n8794 100000\n8 8 2'}
+  legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 2
 
 - id: 3021
-  key: "the_guildmaster"
-  name: "guildmaster master"
-  short_desc: "the guildmaster"
-  long_desc: "Your guildmaster is standing here."
+  key: the_guildmaster_3021
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    You are in no doubt that this guildmaster is truly close to your god; he has
+    a peaceful, loving look. You notice that he is surrounded by a white aura.
   keywords: ['guildmaster', 'master']
   level: 2
   hp_max: 473
@@ -461,13 +485,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+440', 'damage_dice': '6d10+440', 'raw_block': 'You are in no doubt that this guildmaster is truly close to your god; he has\na peaceful, loving look. You notice that he is surrounded by a white aura.\n~\n2|1024 128 1000 S\n24 0 0 6d10+440 3d8+24\n8794 100000\n8 8 1'}
+  legacy_raw: 2|1024 128 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 1
 
 - id: 3022
-  key: "the_guildmaster"
-  name: "guildmaster master"
-  short_desc: "the guildmaster"
-  long_desc: "Your guildmaster is standing here."
+  key: the_guildmaster_3022
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    You realize that whenever your guildmaster moves, you fail to notice it:
+    the way of the true thief.  She is dressed in poor clothing, having
+    the appearance of a beggar.
   keywords: ['guildmaster', 'master']
   level: 2
   hp_max: 473
@@ -492,13 +519,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+440', 'damage_dice': '6d10+440', 'raw_block': 'You realize that whenever your guildmaster moves, you fail to notice it:\nthe way of the true thief.  She is dressed in poor clothing, having\nthe appearance of a beggar.\n~\n2|1024 0 1000 S\n24 0 0 6d10+440 3d8+24\n8794 100000\n8 8 2'}
+  legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 2
 
 - id: 3023
-  key: "the_guildmaster"
-  name: "guildmaster master"
-  short_desc: "the guildmaster"
-  long_desc: "Your guildmaster is standing here."
+  key: the_guildmaster_3023
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    This is your master.  Big and strong with bulging muscles.  Several scars
+    across his body prove that he was using arms before you were born.  He
+    has a calm look on his face.
   keywords: ['guildmaster', 'master']
   level: 2
   hp_max: 473
@@ -523,13 +553,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+440', 'damage_dice': '6d10+440', 'raw_block': 'This is your master.  Big and strong with bulging muscles.  Several scars\nacross his body prove that he was using arms before you were born.  He\nhas a calm look on his face.\n~\n2|1024 0 1000 S\n24 0 0 6d10+440 3d8+24\n8794 100000\n8 8 1'}
+  legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 1
 
 - id: 3024
-  key: "the_sorcerer"
-  name: "sorcerer"
-  short_desc: "the sorcerer"
-  long_desc: "A sorcerer is guarding the entrance."
+  key: the_sorcerer_3024
+  name: the sorcerer
+  short_desc: A sorcerer is guarding the entrance.
+  long_desc: |
+    He is an experienced mage who has specialized in the field of Combat Magic.
+    He is here to guard the Mage's Guild and his superior knowledge of offensive
+    as well as defensive spells make him a deadly opponent.
   keywords: ['sorcerer']
   level: 2
   hp_max: 3933
@@ -554,13 +587,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+3900', 'damage_dice': '6d10+3900', 'raw_block': "He is an experienced mage who has specialized in the field of Combat Magic.\nHe is here to guard the Mage's Guild and his superior knowledge of offensive\nas well as defensive spells make him a deadly opponent.\n~\n2 2 800 S\n23 2 2 6d10+3900 1d8+22\n2000 80000\n8 8 1"}
+  legacy_raw: 2 2 800 S 23 2 2 6d10+3900 1d8+22 2000 80000 8 8 1
 
 - id: 3025
-  key: "the_knight_templar"
-  name: "templar"
-  short_desc: "the knight templar"
-  long_desc: "A knight templar is guarding the entrance."
+  key: the_knight_templar_3025
+  name: the knight templar
+  short_desc: A knight templar is guarding the entrance.
+  long_desc: |
+    He is a specially trained warrior belonging to the military order of the Faith.
+    His duty is to protect the faithful from persecution and infidel attacks and
+    his religious devotion combined with his superior skill makes him a deadly
+    opponent.
   keywords: ['templar']
   level: 2
   hp_max: 3933
@@ -585,13 +622,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+3900', 'damage_dice': '6d10+3900', 'raw_block': 'He is a specially trained warrior belonging to the military order of the Faith.\nHis duty is to protect the faithful from persecution and infidel attacks and\nhis religious devotion combined with his superior skill makes him a deadly\nopponent.\n~\n2 0 800 S\n23 2 2 6d10+3900 1d8+22\n2000 80000\n8 8 1'}
+  legacy_raw: 2 0 800 S 23 2 2 6d10+3900 1d8+22 2000 80000 8 8 1
 
 - id: 3026
-  key: "the_assassin"
-  name: "assassin"
-  short_desc: "the assassin"
-  long_desc: "An assassin is guarding the entrance."
+  key: the_assassin_3026
+  name: the assassin
+  short_desc: An assassin is guarding the entrance.
+  long_desc: |
+    He is a thief who has specialized in killing others as effectively as possible,
+    using all sorts of weapons.  His superior knowledge of how and where to use
+    them combined with his extraordinary stealth makes him a deadly opponent.
   keywords: ['assassin']
   level: 2
   hp_max: 3933
@@ -616,13 +656,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+3900', 'damage_dice': '6d10+3900', 'raw_block': 'He is a thief who has specialized in killing others as effectively as possible,\nusing all sorts of weapons.  His superior knowledge of how and where to use\nthem combined with his extraordinary stealth makes him a deadly opponent.\n~\n2 65536 800 S\n23 4 4 6d10+3900 1d8+22\n2000 80000\n8 8 1'}
+  legacy_raw: 2 65536 800 S 23 4 4 6d10+3900 1d8+22 2000 80000 8 8 1
 
 - id: 3027
-  key: "the_knight"
-  name: "knight"
-  short_desc: "the knight"
-  long_desc: "A knight is guarding the entrance."
+  key: the_knight_3027
+  name: the knight
+  short_desc: A knight is guarding the entrance.
+  long_desc: |
+    He is an expert warrior who has attained knighthood through countless
+    chivalrous deeds.  His duty is to protect the Guild of Swordsmen and his
+    extreme skill combined with his experience in warfare makes him a deadly
+    opponent.
   keywords: ['knight']
   level: 2
   hp_max: 5933
@@ -647,13 +691,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+5900', 'damage_dice': '6d10+5900', 'raw_block': 'He is an expert warrior who has attained knighthood through countless\nchivalrous deeds.  His duty is to protect the Guild of Swordsmen and his\nextreme skill combined with his experience in warfare makes him a deadly\nopponent.\n~\n2 0 800 S\n23 0 0 6d10+5900 1d8+32\n2000 80000\n8 8 1'}
+  legacy_raw: 2 0 800 S 23 0 0 6d10+5900 1d8+32 2000 80000 8 8 1
 
 - id: 3040
-  key: "the_bartender"
-  name: "bartender"
-  short_desc: "the bartender"
-  long_desc: "A bartender watches you calmly, while he skillfully mixes a drink."
+  key: the_bartender_3040
+  name: the bartender
+  short_desc: A bartender watches you calmly, while he skillfully mixes a drink.
+  long_desc: |
+    A tired looking Bartender who hates trouble in his bar.
   keywords: ['bartender']
   level: 2
   hp_max: 30001
@@ -678,13 +723,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'A tired looking Bartender who hates trouble in his bar.\n~\n2 0 900 S\n23 2 2 1d1+30000 1d8+18\n2000 80000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+18 2000 80000 8 8 1
 
 - id: 3041
-  key: "the_waiter"
-  name: "waiter"
-  short_desc: "the waiter"
-  long_desc: "A waiter is going around from one place to another."
+  key: the_waiter_3041
+  name: the waiter
+  short_desc: A waiter is going around from one place to another.
+  long_desc: |
+    A tired looking waiter.
   keywords: ['waiter']
   level: 2
   hp_max: 423
@@ -709,13 +755,13 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+390', 'damage_dice': '6d10+390', 'raw_block': 'A tired looking waiter.\n~\n2 0 900 S\n23 2 2 6d10+390 1d8+18\n2000 20000\n8 8 1'}
+  legacy_raw: 2 0 900 S 23 2 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3042
-  key: "the_waiter"
-  name: "waiter"
-  short_desc: "the waiter"
-  long_desc: "A man who in his young days was a famous sorcerer but now leads a quiet,\npeaceful life as a waiter."
+  key: the_waiter_3042
+  name: the waiter
+  short_desc: A man who in his young days was a famous sorcerer but now leads a quiet, peaceful life as a waiter.
+  long_desc: |
   keywords: ['waiter']
   level: 2
   hp_max: 423
@@ -740,13 +786,13 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+390', 'damage_dice': '6d10+390', 'raw_block': '~\n2 0 600 S\n23 1 2 6d10+390 1d8+18\n2000 20000\n8 8 1'}
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3043
-  key: "the_waiter"
-  name: "waiter"
-  short_desc: "the waiter"
-  long_desc: "A waiter who seems to have reached contact with God."
+  key: the_waiter_3043
+  name: the waiter
+  short_desc: A waiter who seems to have reached contact with God.
+  long_desc: |
   keywords: ['waiter']
   level: 2
   hp_max: 423
@@ -771,13 +817,13 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+390', 'damage_dice': '6d10+390', 'raw_block': '~\n2 0 600 S\n23 1 2 6d10+390 1d8+18\n2000 20000\n8 8 1'}
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3044
-  key: "the_waiter"
-  name: "waiter"
-  short_desc: "the waiter"
-  long_desc: "A waiter who knows where all his customers keep their money."
+  key: the_waiter_3044
+  name: the waiter
+  short_desc: A waiter who knows where all his customers keep their money.
+  long_desc: |
   keywords: ['waiter']
   level: 2
   hp_max: 423
@@ -802,13 +848,13 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+390', 'damage_dice': '6d10+390', 'raw_block': '~\n2 0 600 S\n23 1 2 6d10+390 1d8+18\n2000 20000\n8 8 1'}
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3045
-  key: "the_waiter"
-  name: "waiter"
-  short_desc: "the waiter"
-  long_desc: "A waiter who easily could kill you, and still carry quite a few firebreathers."
+  key: the_waiter_3045
+  name: the waiter
+  short_desc: A waiter who easily could kill you, and still carry quite a few firebreathers.
+  long_desc: |
   keywords: ['waiter']
   level: 2
   hp_max: 423
@@ -833,13 +879,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+390', 'damage_dice': '6d10+390', 'raw_block': '~\n2 0 600 S\n23 1 2 6d10+390 1d8+18\n2000 20000\n8 8 1'}
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3046
-  key: "filthy"
-  name: "filthy"
-  short_desc: "Filthy"
-  long_desc: "Filthy is standing here, eager to serve you a special drink."
+  key: filthy_3046
+  name: Filthy
+  short_desc: Filthy is standing here, eager to serve you a special drink.
+  long_desc: |
+    Filthy looks real, ehm, dirty. He likes to keep his costumers happy,
+    but do not mess with him or else he'll get upset.
   keywords: ['filthy']
   level: 2
   hp_max: 30001
@@ -864,15 +912,22 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': "Filthy looks real, ehm, dirty. He likes to keep his costumers happy,\nbut do not mess with him or else he'll get upset.\n~\n2 0 600 S\n23 1 2 1d1+30000 1d8+18\n2000 80000\n8 8 1"}
+  legacy_raw: 2 0 600 S 23 1 2 1d1+30000 1d8+18 2000 80000 8 8 1
 
 - id: 3050
-  key: "aod_the_dealer"
-  name: "dealer"
-  short_desc: "Aod the Dealer"
-  long_desc: "Aod the Dealer stands in the shadows here."
+  key: aod_the_dealer_3050
+  name: Aod the Dealer
+  short_desc: Aod the Dealer stands in the shadows here.
+  long_desc: |
+    Aod looks just like the dealer hoodlum you see on T.V.  He's wearing a
+    concert shirt and Levi 501's.  His hair is pulled back into a pony tail.
+    A beard and moustache complete the look.  Aod has brought some drugs
+    with him from Generic Mud.
+    <worn on penis>      A Trojan (TM) Condom.
+    
+    Since he practices safe sex,
   keywords: ['dealer']
-  level: 501
+  level: 4
   hp_max: 1000
   mp_max: 0
   mv_max: 100
@@ -891,19 +946,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 50100
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 501, 'hit_dice': '1d1+999', 'damage_dice': '1d1+999', 'raw_block': "Aod looks just like the dealer hoodlum you see on T.V.  He's wearing a\nconcert shirt and Levi 501's.  His hair is pulled back into a pony tail.\nA beard and moustache complete the look.  Aod has brought some drugs\nwith him from Generic Mud.\n<worn on penis>      A Trojan (TM) Condom.\n\nSince he practices safe sex, ~\n4|64 8|32|512 0 S\n15 15 -2 1d1+999 2d10+20\n500 19000\n8 8 1"}
+  legacy_raw: 4|64 8|32|512 0 S 15 15 -2 1d1+999 2d10+20 500 19000 8 8 1
 
 - id: 3060
-  key: "the_cityguard"
-  name: "cityguard guard"
-  short_desc: "the cityguard"
-  long_desc: "A cityguard stands here."
+  key: the_cityguard_3060
+  name: the cityguard
+  short_desc: A cityguard stands here.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
   keywords: ['cityguard', 'guard']
-  level: 69
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -922,17 +978,17 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6900
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 69, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'A big, strong, helpful, trustworthy guard.\n~\n69 0 1000 S\n15 15 -2 15d15+150 1d4+10\n500 19000\n8 8 1'}
+  legacy_raw: 69 0 1000 S 15 15 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 3061
-  key: "the_janitor"
-  name: "janitor"
-  short_desc: "the janitor"
-  long_desc: "A janitor is walking around, cleaning up."
+  key: the_janitor_3061
+  name: the janitor
+  short_desc: A janitor is walking around, cleaning up.
+  long_desc: |
   keywords: ['janitor']
   level: 1
   hp_max: 17
@@ -957,15 +1013,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 1, 'hit_dice': '2d6+10', 'damage_dice': '2d6+10', 'raw_block': '~\n1 0 900 S\n1 20 9 2d6+10 1d5+0\n34 100\n8 8 1'}
+  legacy_raw: 1 0 900 S 1 20 9 2d6+10 1d5+0 34 100 8 8 1
 
 - id: 3062
-  key: "the_beastly_fido"
-  name: "fido dog"
-  short_desc: "the beastly fido"
-  long_desc: "Beastly Fido is here."
+  key: the_beastly_fido_3062
+  name: the beastly fido
+  short_desc: Beastly Fido is here.
+  long_desc: |
+    Fido is a small dog that has a foul smell and pieces of rotted meat hanging
+    around his teeth.
   keywords: ['fido', 'dog']
-  level: 161
+  level: 20
   hp_max: 7
   mp_max: 0
   mv_max: 100
@@ -984,17 +1042,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 16100
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 161, 'hit_dice': '1d6+4', 'damage_dice': '1d6+4', 'raw_block': 'Fido is a small dog that has a foul smell and pieces of rotted meat hanging\naround his teeth.\n~\n161 0 -200 S\n0 20 10 1d6+4 1d4+0\n10 25\n8 8 1'}
+  legacy_raw: 161 0 -200 S 0 20 10 1d6+4 1d4+0 10 25 8 8 1
 
 - id: 3063
-  key: "the_vagabond"
-  name: "vagabond"
-  short_desc: "the vagabond"
-  long_desc: "A vagabond is here, looking for victims."
+  key: the_vagabond_3063
+  name: the vagabond
+  short_desc: A vagabond is here, looking for victims.
+  long_desc: |
+    He looks pretty mean.
   keywords: ['vagabond']
   level: 4
   hp_max: 67
@@ -1019,15 +1078,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '2d6+60', 'damage_dice': '2d6+60', 'raw_block': 'He looks pretty mean.\n~\n4 0 -200 S\n5 16 5 2d6+60 1d8+0\n47 900\n8 8 1'}
+  legacy_raw: 4 0 -200 S 5 16 5 2d6+60 1d8+0 47 900 8 8 1
 
 - id: 3064
-  key: "the_drunk"
-  name: "drunk"
-  short_desc: "the drunk"
-  long_desc: "A singing, happy drunk."
+  key: the_drunk_3064
+  name: the drunk
+  short_desc: A singing, happy drunk.
+  long_desc: |
+    A drunk who seems to be too happy, and to carry too much money.
   keywords: ['drunk']
-  level: 400
+  level: 2
   hp_max: 29
   mp_max: 0
   mv_max: 100
@@ -1046,17 +1106,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 40000
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 400, 'hit_dice': '2d6+22', 'damage_dice': '2d6+22', 'raw_block': 'A drunk who seems to be too happy, and to carry too much money.\n~\n0 0 400 S\n2 19 8 2d6+22 1d6+0\n85 200\n8 8 1'}
+  legacy_raw: 0 0 400 S 2 19 8 2d6+22 1d6+0 85 200 8 8 1
 
 - id: 3065
-  key: "the_beggar"
-  name: "beggar"
-  short_desc: "the beggar"
-  long_desc: "A beggar is here, asking for a few coins."
+  key: the_beggar_3065
+  name: the beggar
+  short_desc: A beggar is here, asking for a few coins.
+  long_desc: |
+    The beggar looks like she is fed up with life.
   keywords: ['beggar']
   level: 2
   hp_max: 17
@@ -1081,15 +1142,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d6+10', 'damage_dice': '2d6+10', 'raw_block': 'The beggar looks like she is fed up with life.\n~\n2 0 400 S\n1 20 9 2d6+10 1d5+0\n0 100\n8 8 2'}
+  legacy_raw: 2 0 400 S 1 20 9 2d6+10 1d5+0 0 100 8 8 2
 
 - id: 3066
-  key: "an_alley_cat"
-  name: "cat"
-  short_desc: "an alley cat"
-  long_desc: "An alley cat hisses at you."
+  key: an_alley_cat_3066
+  name: an alley cat
+  short_desc: An alley cat hisses at you.
+  long_desc: |
+    The alley cat is half starved and more than a little feral.
   keywords: ['cat']
-  level: 161
+  level: 20
   hp_max: 7
   mp_max: 0
   mv_max: 100
@@ -1108,19 +1170,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 16100
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 161, 'hit_dice': '1d6+4', 'damage_dice': '1d6+4', 'raw_block': 'The alley cat is half starved and more than a little feral.\n~\n161 0 -200 S\n0 20 10 1d6+4 1d4+0\n10 25\n8 8 1'}
+  legacy_raw: 161 0 -200 S 0 20 10 1d6+4 1d4+0 10 25 8 8 1
 
 - id: 3067
-  key: "the_cityguard"
-  name: "cityguard guard"
-  short_desc: "the cityguard"
-  long_desc: "A cityguard is here, guarding the gate."
+  key: the_cityguard_3067
+  name: the cityguard
+  short_desc: A cityguard is here, guarding the gate.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
   keywords: ['cityguard', 'guard']
-  level: 67
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -1139,19 +1202,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6700
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 67, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'A big, strong, helpful, trustworthy guard.\n~\n67 0 1000 S\n15 5 -2 15d15+150 1d4+10\n500 19000\n8 8 1'}
+  legacy_raw: 67 0 1000 S 15 5 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 3068
-  key: "the_cityguard"
-  name: "cityguard guard"
-  short_desc: "the cityguard"
-  long_desc: "A cityguard is here, guarding the gate."
+  key: the_cityguard_3068
+  name: the cityguard
+  short_desc: A cityguard is here, guarding the gate.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
   keywords: ['cityguard', 'guard']
-  level: 67
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -1170,19 +1234,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6700
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 67, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'A big, strong, helpful, trustworthy guard.\n~\n67 0 1000 S\n15 5 -2 15d15+150 1d4+10\n500 19000\n8 8 1'}
+  legacy_raw: 67 0 1000 S 15 5 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 3069
-  key: "the_cityguard"
-  name: "cityguard guard"
-  short_desc: "the cityguard"
-  long_desc: "A cityguard is here, guarding the mayor."
+  key: the_cityguard_3069
+  name: the cityguard
+  short_desc: A cityguard is here, guarding the mayor.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
   keywords: ['cityguard', 'guard']
-  level: 67
+  level: 2
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -1201,17 +1266,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6700
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 67, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'A big, strong, helpful, trustworthy guard.\n~\n67 2|65536 1000 S\n20 0 -7 20d20+200 1d4+15\n500 40000\n8 8 1'}
+  legacy_raw: 67 2|65536 1000 S 20 0 -7 20d20+200 1d4+15 500 40000 8 8 1
 
 - id: 3090
-  key: "the_kitten"
-  name: "kitten"
-  short_desc: "the kitten"
-  long_desc: "A small loyal kitten is here."
+  key: the_kitten_3090
+  name: the kitten
+  short_desc: A small loyal kitten is here.
+  long_desc: |
+    The kitten looks like a cute, little, fierce fighter.
   keywords: ['kitten']
   level: 6
   hp_max: 14
@@ -1236,13 +1302,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d6+11', 'damage_dice': '1d6+11', 'raw_block': 'The kitten looks like a cute, little, fierce fighter.\n~\n6 0 400 S\n1 20 9 1d6+11 1d4+0\n0 100\n8 8 0'}
+  legacy_raw: 6 0 400 S 1 20 9 1d6+11 1d4+0 0 100 8 8 0
 
 - id: 3091
-  key: "the_puppy"
-  name: "puppy"
-  short_desc: "the puppy"
-  long_desc: "A small loyal puppy is here."
+  key: the_puppy_3091
+  name: the puppy
+  short_desc: A small loyal puppy is here.
+  long_desc: |
+    The puppy looks like a cute, little, fierce fighter.
   keywords: ['puppy']
   level: 6
   hp_max: 14
@@ -1267,13 +1334,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d6+11', 'damage_dice': '1d6+11', 'raw_block': 'The puppy looks like a cute, little, fierce fighter.\n~\n6 0 400 S\n3 20 9 1d6+11 1d4+0\n0 100\n8 8 0'}
+  legacy_raw: 6 0 400 S 3 20 9 1d6+11 1d4+0 0 100 8 8 0
 
 - id: 3092
-  key: "the_beagle"
-  name: "beagle"
-  short_desc: "the beagle"
-  long_desc: "A small, quick, loyal beagle is here."
+  key: the_beagle_3092
+  name: the beagle
+  short_desc: A small, quick, loyal beagle is here.
+  long_desc: |
+    The beagle looks like a fierce fighter.
   keywords: ['beagle']
   level: 6
   hp_max: 28
@@ -1298,13 +1366,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d12+22', 'damage_dice': '1d12+22', 'raw_block': 'The beagle looks like a fierce fighter.\n~\n6 0 400 S\n5 19 8 1d12+22 1d6+0\n0 200\n8 8 0'}
+  legacy_raw: 6 0 400 S 5 19 8 1d12+22 1d6+0 0 200 8 8 0
 
 - id: 3093
-  key: "the_rottweiler"
-  name: "rottweiler"
-  short_desc: "the rottweiler"
-  long_desc: "A large, loyal rottweiler is here."
+  key: the_rottweiler_3093
+  name: the rottweiler
+  short_desc: A large, loyal rottweiler is here.
+  long_desc: |
+    The rottweiler looks like a strong, fierce fighter.
   keywords: ['rottweiler']
   level: 6
   hp_max: 41
@@ -1329,13 +1398,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d12+35', 'damage_dice': '1d12+35', 'raw_block': 'The rottweiler looks like a strong, fierce fighter.\n~\n6 0 400 S\n7 18 7 1d12+35 1d7+0\n0 800\n8 8 0'}
+  legacy_raw: 6 0 400 S 7 18 7 1d12+35 1d7+0 0 800 8 8 0
 
 - id: 3094
-  key: "the_wolf"
-  name: "wolf"
-  short_desc: "the wolf"
-  long_desc: "A large, trained wolf is here."
+  key: the_wolf_3094
+  name: the wolf
+  short_desc: A large, trained wolf is here.
+  long_desc: |
+    The wolf looks like a strong, fearless fighter.
   keywords: ['wolf']
   level: 6
   hp_max: 53
@@ -1360,13 +1430,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d12+47', 'damage_dice': '1d12+47', 'raw_block': 'The wolf looks like a strong, fearless fighter.\n~\n6 0 0 S\n9 17 6 1d12+47 1d8+0\n0 1600\n8 8 0'}
+  legacy_raw: 6 0 0 S 9 17 6 1d12+47 1d8+0 0 1600 8 8 0
 
 - id: 3100
-  key: "the_maid"
-  name: "maid"
-  short_desc: "the maid"
-  long_desc: "The maid is waiting for your order."
+  key: the_maid_3100
+  name: the maid
+  short_desc: The maid is waiting for your order.
+  long_desc: |
+    She is very beautiful with golden hair, and deep blue eyes. A good reason
+    for coming here more often.
   keywords: ['maid']
   level: 2
   hp_max: 423
@@ -1391,13 +1463,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+390', 'damage_dice': '6d10+390', 'raw_block': 'She is very beautiful with golden hair, and deep blue eyes. A good reason\nfor coming here more often.\n~\n2 0 1000 S\n23 2 -2 6d10+390 1d8+12\n2000 80000\n8 8 2'}
+  legacy_raw: 2 0 1000 S 23 2 -2 6d10+390 1d8+12 2000 80000 8 8 2
 
 - id: 3120
-  key: "the_sexton"
-  name: "sexton"
-  short_desc: "the sexton"
-  long_desc: "A sexton is sitting here, drinking hot tea."
+  key: the_sexton_3120
+  name: the sexton
+  short_desc: A sexton is sitting here, drinking hot tea.
+  long_desc: |
+    The sexton looks like he is relaxing after another grave-digging job.
   keywords: ['sexton']
   level: 2
   hp_max: 42
@@ -1422,13 +1495,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d6+35', 'damage_dice': '2d6+35', 'raw_block': 'The sexton looks like he is relaxing after another grave-digging job.\n~\n2 0 800 S\n3 18 7 2d6+35 1d7+0\n13 350\n6 6 1'}
+  legacy_raw: 2 0 800 S 3 18 7 2d6+35 1d7+0 13 350 6 6 1
 
 - id: 3121
-  key: "the_swan"
-  name: "swan"
-  short_desc: "the swan"
-  long_desc: "A swan is swimming around in the pond."
+  key: the_swan_3121
+  name: the swan
+  short_desc: A swan is swimming around in the pond.
+  long_desc: |
+    The white swan is very elegant.
   keywords: ['swan']
   level: 2
   hp_max: 17
@@ -1453,13 +1527,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d6+10', 'damage_dice': '2d6+10', 'raw_block': 'The white swan is very elegant.\n~\n2 0 1000 S\n1 20 9 2d6+10 1d5+0\n0 100\n8 8 0'}
+  legacy_raw: 2 0 1000 S 1 20 9 2d6+10 1d5+0 0 100 8 8 0
 
 - id: 3122
-  key: "the_duckling"
-  name: "duckling"
-  short_desc: "the duckling"
-  long_desc: "A duckling is swimming around in the pond."
+  key: the_duckling_3122
+  name: the duckling
+  short_desc: A duckling is swimming around in the pond.
+  long_desc: |
+    The duckling is adorable, it looks most of all like a tiny furball.
   keywords: ['duckling']
   level: 2
   hp_max: 1
@@ -1484,15 +1559,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+0', 'damage_dice': '1d1+0', 'raw_block': 'The duckling is adorable, it looks most of all like a tiny furball.\n~\n2 0 1000 S\n0 20 10 1d1+0 1d1+0\n0 10\n8 8 0'}
+  legacy_raw: 2 0 1000 S 0 20 10 1d1+0 1d1+0 0 10 8 8 0
 
 - id: 3123
-  key: "the_sparrow"
-  name: "sparrow"
-  short_desc: "the sparrow"
-  long_desc: "A sparrow is flapping around on the ground."
+  key: the_sparrow_3123
+  name: the sparrow
+  short_desc: A sparrow is flapping around on the ground.
+  long_desc: |
+    The sparrow looks like it is enjoying life.
   keywords: ['sparrow']
-  level: 192
+  level: 20
   hp_max: 7
   mp_max: 0
   mv_max: 100
@@ -1511,19 +1587,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 19200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 192, 'hit_dice': '2d6+0', 'damage_dice': '2d6+0', 'raw_block': 'The sparrow looks like it is enjoying life.\n~\n192 0 1000 S\n0 20 10 2d6+0 1d3+0\n0 25\n8 8 0'}
+  legacy_raw: 192 0 1000 S 0 20 10 2d6+0 1d3+0 0 25 8 8 0
 
 - id: 3124
-  key: "the_duck"
-  name: "duck"
-  short_desc: "the duck"
-  long_desc: "A duck is here, quacking happily."
+  key: the_duck_3124
+  name: the duck
+  short_desc: A duck is here, quacking happily.
+  long_desc: |
+    The duck is quite fat.  It looks like it is enjoying life.
   keywords: ['duck']
-  level: 64
+  level: 1
   hp_max: 12
   mp_max: 0
   mv_max: 100
@@ -1542,17 +1619,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '2d6+5', 'damage_dice': '2d6+5', 'raw_block': 'The duck is quite fat.  It looks like it is enjoying life.\n~\n64 0 1000 S\n1 20 10 2d6+5 1d4+0\n0 75\n8 8 0'}
+  legacy_raw: 64 0 1000 S 1 20 10 2d6+5 1d4+0 0 75 8 8 0
 
 - id: 3140
-  key: "the_captain"
-  name: "captain"
-  short_desc: "the captain"
-  long_desc: "The captain of the guard is looking very upset."
+  key: the_captain_3140
+  name: the captain
+  short_desc: The captain of the guard is looking very upset.
+  long_desc: |
+    A big, strong, angry captain.
   keywords: ['captain']
   level: 38
   hp_max: 216
@@ -1577,13 +1655,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 38, 'hit_dice': '1d12+210', 'damage_dice': '1d12+210', 'raw_block': 'A big, strong, angry captain.\n~\n38 8 1000 S\n17 4 1 1d12+210 1d8+8\n0 28000\n8 8 1'}
+  legacy_raw: 38 8 1000 S 17 4 1 1d12+210 1d8+8 0 28000 8 8 1
 
 - id: 3141
-  key: "the_cityguard"
-  name: "cityguard guard"
-  short_desc: "the cityguard"
-  long_desc: "A cityguard stands here, looking very upset."
+  key: the_cityguard_3141
+  name: the cityguard
+  short_desc: A cityguard stands here, looking very upset.
+  long_desc: |
+    A big, strong, angry guard.
   keywords: ['cityguard', 'guard']
   level: 38
   hp_max: 270
@@ -1608,13 +1687,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 38, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'A big, strong, angry guard.\n~\n38 0 1000 S\n15 5 -2 15d15+150 1d4+10\n0 9000\n8 8 1'}
+  legacy_raw: 38 0 1000 S 15 5 -2 15d15+150 1d4+10 0 9000 8 8 1
 
 - id: 3142
-  key: "the_secretary"
-  name: "secretary"
-  short_desc: "the secretary"
-  long_desc: "A secretary is sitting at the desk."
+  key: the_secretary_3142
+  name: the secretary
+  short_desc: A secretary is sitting at the desk.
+  long_desc: |
+    She looks very busy.
+    The Secretary says 'Sorry, but the Mayor is extremely busy today'.
+    The Secretary says 'Please sit down and have a seat in the meantime'.
   keywords: ['secretary']
   level: 2
   hp_max: 154
@@ -1639,13 +1721,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d12+148', 'damage_dice': '1d12+148', 'raw_block': "She looks very busy.\nThe Secretary says 'Sorry, but the Mayor is extremely busy today'.\nThe Secretary says 'Please sit down and have a seat in the meantime'.\n~\n2 0 900 S\n12 9 2 1d12+148 2d7+1\n100 3000\n8 8 2"}
+  legacy_raw: 2 0 900 S 12 9 2 1d12+148 2d7+1 100 3000 8 8 2
 
 - id: 3143
-  key: "the_mayor"
-  name: "mayor"
-  short_desc: "the mayor"
-  long_desc: "The mayor is here.  He shakes your hand."
+  key: the_mayor_3143
+  name: the mayor
+  short_desc: The mayor is here.  He shakes your hand.
+  long_desc: |
+    He is a stocky, middle-aged man with thin, grey hair.
   keywords: ['mayor']
   level: 3
   hp_max: 533
@@ -1670,15 +1753,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 3, 'hit_dice': '6d10+500', 'damage_dice': '6d10+500', 'raw_block': 'He is a stocky, middle-aged man with thin, grey hair.\n~\n3 8192 900 S\n23 2 -2 6d10+500 1d8+12\n1000 120000\n4 4 1'}
+  legacy_raw: 3 8192 900 S 23 2 -2 6d10+500 1d8+12 1000 120000 4 4 1
 
 - id: 3144
-  key: "the_town_crier"
-  name: "crier"
-  short_desc: "the town crier"
-  long_desc: "The town crier is here, weeping quietly."
+  key: the_town_crier_3144
+  name: the town crier
+  short_desc: The town crier is here, weeping quietly.
+  long_desc: |
+    He is very good at his job - completely dissolved in tears.
   keywords: ['crier']
-  level: 128
+  level: 1
   hp_max: 17
   mp_max: 0
   mv_max: 100
@@ -1697,9 +1781,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 12800
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 128, 'hit_dice': '2d6+10', 'damage_dice': '2d6+10', 'raw_block': 'He is very good at his job - completely dissolved in tears.\n~\n128 0 900 S\n1 20 9 2d6+10 1d5+0\n34 100\n8 8 1'}
+  legacy_raw: 128 0 900 S 1 20 9 2d6+10 1d5+0 34 100 8 8 1
 

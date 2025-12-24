@@ -1,8 +1,10 @@
 - id: 3400
-  key: "the_bony_skeleton"
-  name: "skeleton bony"
-  short_desc: "the bony skeleton"
-  long_desc: "A bony skeleton is here."
+  key: the_bony_skeleton_3400
+  name: the bony skeleton
+  short_desc: A bony skeleton is here.
+  long_desc: |
+    Brown bones with tufts of clothing still hanging from them.  This
+    skeleton looks very mindless but still dangerous ...
   keywords: ['skeleton', 'bony']
   level: 32
   hp_max: 20
@@ -27,13 +29,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 32, 'hit_dice': '1d1+19', 'damage_dice': '1d1+19', 'raw_block': 'Brown bones with tufts of clothing still hanging from them.  This\nskeleton looks very mindless but still dangerous ...\n~\n32 0 0 S\n1 20 9 1d1+19 1d6+0\n15 100\n8 8 1'}
+  legacy_raw: 32 0 0 S 1 20 9 1d1+19 1d6+0 15 100 8 8 1
 
 - id: 3401
-  key: "the_undead_zombie"
-  name: "undead zombie"
-  short_desc: "the undead zombie"
-  long_desc: "An undead zombie sits here munching on something ..."
+  key: the_undead_zombie_3401
+  name: the undead zombie
+  short_desc: An undead zombie sits here munching on something ...
+  long_desc: |
+    His body is totally white and slowly rotting away.  Each Zombie looks
+    quite different from the next because they were, of course, once alive and
+    human.
   keywords: ['undead', 'zombie']
   level: 34
   hp_max: 50
@@ -58,13 +63,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '1d1+49', 'damage_dice': '1d1+49', 'raw_block': 'His body is totally white and slowly rotting away.  Each Zombie looks\nquite different from the next because they were, of course, once alive and\nhuman.\n~\n34 40 -100 S\n4 17 6 1d1+49 1d8+0\n50 600\n8 8 1'}
+  legacy_raw: 34 40 -100 S 4 17 6 1d1+49 1d8+0 50 600 8 8 1
 
 - id: 3402
-  key: "the_ghoul"
-  name: "undead ghoul"
-  short_desc: "The ghoul"
-  long_desc: "A ghoul is here staring at you hungrily."
+  key: the_ghoul_3402
+  name: The ghoul
+  short_desc: A ghoul is here staring at you hungrily.
+  long_desc: |
+    The ghoul no longer resembles the adventurer he once was.  Nonetheless
+    he looks like he hasn't forgot his fighting skills.
   keywords: ['undead', 'ghoul']
   level: 32
   hp_max: 80
@@ -89,13 +96,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 32, 'hit_dice': '1d1+79', 'damage_dice': '1d1+79', 'raw_block': "The ghoul no longer resembles the adventurer he once was.  Nonetheless\nhe looks like he hasn't forgot his fighting skills.\n~\n32 8 -500 S\n6 15 4 1d1+79 2d5+1\n150 1500\n8 8 1"}
+  legacy_raw: 32 8 -500 S 6 15 4 1d1+79 2d5+1 150 1500 8 8 1
 
 - id: 3403
-  key: "the_wraith"
-  name: "undead wraith"
-  short_desc: "The wraith"
-  long_desc: "You spot a wraith advancing towards you from the shadows."
+  key: the_wraith_3403
+  name: The wraith
+  short_desc: You spot a wraith advancing towards you from the shadows.
+  long_desc: |
+    The wraith no longer has a material form.  He is wearing a tattered
+    black robe which hides all but the darkness of his face and the glimmer
+    in his eyes.
   keywords: ['undead', 'wraith']
   level: 34
   hp_max: 150
@@ -120,13 +130,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '1d1+149', 'damage_dice': '1d1+149', 'raw_block': 'The wraith no longer has a material form.  He is wearing a tattered\nblack robe which hides all but the darkness of his face and the glimmer\nin his eyes.\n~\n34 42 -750 S\n12 9 2 1d1+149 3d6+0\n1000 13000\n8 8 1'}
+  legacy_raw: 34 42 -750 S 12 9 2 1d1+149 3d6+0 1000 13000 8 8 1
 
 - id: 3404
-  key: "the_guardian_vampire"
-  name: "undead guardian vampire"
-  short_desc: "The guardian vampire"
-  long_desc: "A vampire is here hiding his face from your light source."
+  key: the_guardian_vampire_3404
+  name: The guardian vampire
+  short_desc: A vampire is here hiding his face from your light source.
+  long_desc: |
+    The guardian vampire looks quite EVIL.  Just by looking at him the hair on your
+    arms raises. He looks mighty tough to be just a minor minion.
   keywords: ['undead', 'guardian', 'vampire']
   level: 2
   hp_max: 386
@@ -151,15 +163,18 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+385', 'damage_dice': '1d1+385', 'raw_block': 'The guardian vampire looks quite EVIL.  Just by looking at him the hair on your\narms raises. He looks mighty tough to be just a minor minion.\n~\n2|32 40 -1000 S\n28 0 -4 1d1+385 4d5+15\n15000 105000\n8 8 1'}
+  legacy_raw: 2|32 40 -1000 S 28 0 -4 1d1+385 4d5+15 15000 105000 8 8 1
 
 - id: 3405
-  key: "the_priest"
-  name: "priest"
-  short_desc: "the priest"
-  long_desc: "A priest of God stands here solemnly speaking words of praise."
+  key: the_priest_3405
+  name: the priest
+  short_desc: A priest of God stands here solemnly speaking words of praise.
+  long_desc: |
+    Obviously a goodly man, you feel closer to God just by gazing upon this man.
+    Dressed in white, fine white hair, and a soft slightly wrinkled face ...
+    this man has a sacred beauty.  You see a halo around his head.
   keywords: ['priest']
-  level: 168
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -178,17 +193,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 16800
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 168, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'Obviously a goodly man, you feel closer to God just by gazing upon this man.\nDressed in white, fine white hair, and a soft slightly wrinkled face ...\nthis man has a sacred beauty.  You see a halo around his head.\n~\n2050 168 1000 S\n15 5 -5 15d15+150 1d4+8\n400 20000\n8 8 1'}
+  legacy_raw: 2050 168 1000 S 15 5 -5 15d15+150 1d4+8 400 20000 8 8 1
 
 - id: 3406
-  key: "the_mi_go"
-  name: "Mi-Go Fungi"
-  short_desc: "the Mi-Go"
-  long_desc: "A Mi-Go is crawling here."
+  key: the_mi_go_3406
+  name: the Mi-Go
+  short_desc: A Mi-Go is crawling here.
+  long_desc: |
+    Mi-Go, the Fungi from Yuggoth ... it is a pinkish being about five feet long;
+    with a crustaceous body bearing a vast pair of membranous wings and several
+    sets of articulate limbs, body a sort of convoluted ellipsoid, covered with
+    multitudes of very small antennae, where a head would ordinarily be.  These
+    beings sometimes walk on all their legs and sometimes on the hind pair only.
   keywords: ['Mi-Go', 'Fungi']
   level: 32
   hp_max: 198
@@ -213,15 +233,20 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 32, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'Mi-Go, the Fungi from Yuggoth ... it is a pinkish being about five feet long;\nwith a crustaceous body bearing a vast pair of membranous wings and several\nsets of articulate limbs, body a sort of convoluted ellipsoid, covered with\nmultitudes of very small antennae, where a head would ordinarily be.  These\nbeings sometimes walk on all their legs and sometimes on the hind pair only.\n~\n32 0 -500 S\n12 9 2 12d12+120 2d7+2\n650 10000\n8 8 0'}
+  legacy_raw: 32 0 -500 S 12 9 2 12d12+120 2d7+2 650 10000 8 8 0
 
 - id: 3407
-  key: "the_nightgaunt"
-  name: "nightgaunt"
-  short_desc: "The nightgaunt"
-  long_desc: "A nightgaunt is standing here"
+  key: the_nightgaunt_3407
+  name: The nightgaunt
+  short_desc: A nightgaunt is standing here
+  long_desc: |
+    ... shocking and uncouth black thing with smooth, oily, skin, unpleasant horns
+    that curve inward toward each other, bat wings whose beating make no sound,
+    ugly prehensile paws, and a barbed tail that lashes disquietingly.  And worst
+    of all, it makes absolutely no sound or speech and smiles not at all because
+    it has no face, only a suggestive blackness where a face ought to be ...
   keywords: ['nightgaunt']
-  level: 96
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -240,19 +265,24 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 9600
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 96, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': '... shocking and uncouth black thing with smooth, oily, skin, unpleasant horns\nthat curve inward toward each other, bat wings whose beating make no sound,\nugly prehensile paws, and a barbed tail that lashes disquietingly.  And worst\nof all, it makes absolutely no sound or speech and smiles not at all because\nit has no face, only a suggestive blackness where a face ought to be ...\n~\n96 98304 -1000 S\n10 11 1 10d10+100 2d6+3\n150 4050\n8 8 0'}
+  legacy_raw: 96 98304 -1000 S 10 11 1 10d10+100 2d6+3 150 4050 8 8 0
 
 - id: 3408
-  key: "the_hunting_horror"
-  name: "hunting horror"
-  short_desc: "The hunting horror"
-  long_desc: "The hunting horror is here in wait of an unwary traveler."
+  key: the_hunting_horror_3408
+  name: The hunting horror
+  short_desc: The hunting horror is here in wait of an unwary traveler.
+  long_desc: |
+    Serving Nyarlathotep and Roch'tar, these beings are hunting for victims.
+    They resemble enormous ropy black serpents or worms possessing bat-like or
+    umbrella-like wings.  Their forms continually shift and change, twitching
+    and writhing, so it is hard to look at them.  They speak in great harsh
+    voices.  A hunting horror is HUGE, normally around 40 feet long.
   keywords: ['hunting', 'horror']
-  level: 40
+  level: 32
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -271,17 +301,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 4000
+  experience_value: 3200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 40, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': "Serving Nyarlathotep and Roch'tar, these beings are hunting for victims.\nThey resemble enormous ropy black serpents or worms possessing bat-like or\numbrella-like wings.  Their forms continually shift and change, twitching\nand writhing, so it is hard to look at them.  They speak in great harsh\nvoices.  A hunting horror is HUGE, normally around 40 feet long.\n~\n32 40 -1000 S\n20 1 -5 20d20+200 3d6+12\n2000 60000\n8 8 0"}
+  legacy_raw: 32 40 -1000 S 20 1 -5 20d20+200 3d6+12 2000 60000 8 8 0
 
 - id: 3409
-  key: "some_cave_weeds"
-  name: "weeds"
-  short_desc: "some cave weeds"
-  long_desc: "Some weeds are creeping across the floor."
+  key: some_cave_weeds_3409
+  name: some cave weeds
+  short_desc: Some weeds are creeping across the floor.
+  long_desc: |
+    Just some unpleasant looking vine-like growths ...
   keywords: ['weeds']
   level: 36
   hp_max: 76
@@ -306,15 +337,18 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 36, 'hit_dice': '1d1+75', 'damage_dice': '1d1+75', 'raw_block': 'Just some unpleasant looking vine-like growths ...\n~\n36 98312 0 S\n6 15 4 1d1+75 1d8+1\n83 1500\n8 8 0'}
+  legacy_raw: 36 98312 0 S 6 15 4 1d1+75 1d8+1 83 1500 8 8 0
 
 - id: 3410
-  key: "snapper_joe"
-  name: "snapper joe"
-  short_desc: "Snapper Joe"
-  long_desc: "Snapper Joe is standing here leering at you chillingly."
+  key: snapper_joe_3410
+  name: Snapper Joe
+  short_desc: Snapper Joe is standing here leering at you chillingly.
+  long_desc: |
+    What an ugly fiend! He is about 6'6'' and has mostly greenish skin with
+    bright red hair. Half his face is burnt off and he has a perpetual smile.
+    He is called up from his service in hell in order to aid the Undying One.
   keywords: ['snapper', 'joe']
-  level: 6
+  level: 2
   hp_max: 366
   mp_max: 0
   mv_max: 100
@@ -333,19 +367,24 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d1+365', 'damage_dice': '1d1+365', 'act_flags': 6, 'raw_block': "What an ugly fiend! He is about 6'6'' and has mostly greenish skin with\nbright red hair. Half his face is burnt off and he has a perpetual smile.\nHe is called up from his service in hell in order to aid the Undying One.\n~\n2 8 -750 S\n20 0 -1 1d1+365 4d3+15\n2222 40000\n8 8 1"}
+  legacy_raw: 2 8 -750 S 20 0 -1 1d1+365 4d3+15 2222 40000 8 8 1
 
 - id: 3411
-  key: "the_x_ist_flesh_eater"
-  name: "X-ist eater"
-  short_desc: "The X-ist flesh eater"
-  long_desc: "An X-ist flesh eater is sitting here munching on some coffin remains"
+  key: the_x_ist_flesh_eater_3411
+  name: The X-ist flesh eater
+  short_desc: An X-ist flesh eater is sitting here munching on some coffin remains
+  long_desc: |
+    A large hairy monstrous beast, the only LIVE thing you have seen down here.
+    It stands approximately 8 feet tall and hunches over to fit in this
+    small room.  It has a pair of tremendous claws that it uses to rip and tear.
+    It has dog-like face except ... different.  Bright glowing eyes and a grimace
+    lead you to believe that he knew that you were coming.
   keywords: ['X-ist', 'eater']
-  level: 8
+  level: 34
   hp_max: 216
   mp_max: 0
   mv_max: 100
@@ -364,17 +403,24 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 3400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 8, 'hit_dice': '1d1+215', 'damage_dice': '1d1+215', 'raw_block': 'A large hairy monstrous beast, the only LIVE thing you have seen down here.\nIt stands approximately 8 feet tall and hunches over to fit in this\nsmall room.  It has a pair of tremendous claws that it uses to rip and tear.\nIt has dog-like face except ... different.  Bright glowing eyes and a grimace\nlead you to believe that he knew that you were coming.\n~\n34 8 -1000 S\n17 4 1 1d1+215 4d2+7\n1560 28000\n8 8 1'}
+  legacy_raw: 34 8 -1000 S 17 4 1 1d1+215 4d2+7 1560 28000 8 8 1
 
 - id: 3412
-  key: "the_spirit_of_king_crotus"
-  name: "spirit ghost king crotus"
-  short_desc: "the spirit of King Crotus"
-  long_desc: "The spirit of King Crotus is floating lazily above the floor."
+  key: the_spirit_of_king_crotus_3412
+  name: the spirit of King Crotus
+  short_desc: The spirit of King Crotus is floating lazily above the floor.
+  long_desc: |
+    Floating above the ground here and looking a bit dead, he whispers
+    softly into the air:
+    
+        The forces of evil have unlocked my spirit as
+        well as one other.  Free me from this misery,
+        anyone that can hear. The peace of the grave
+        calls me but I am blocked from its quiet.
   keywords: ['spirit', 'ghost', 'king', 'crotus']
   level: 2
   hp_max: 261
@@ -399,13 +445,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+260', 'damage_dice': '1d1+260', 'raw_block': 'Floating above the ground here and looking a bit dead, he whispers\nsoftly into the air:\n\n    The forces of evil have unlocked my spirit as\n    well as one other.  Free me from this misery,\n    anyone that can hear. The peace of the grave\n    calls me but I am blocked from its quiet.\n~\n2 40 350 S\n20 0 -1 1d1+260 4d6+5\n50 40000\n8 8 1'}
+  legacy_raw: 2 40 350 S 20 0 -1 1d1+260 4d6+5 50 40000 8 8 1
 
 - id: 3413
-  key: "the_rock_slug"
-  name: "rock slug"
-  short_desc: "the rock slug"
-  long_desc: "A rock slug is slowly creeping along, leaving a slime trail behind it."
+  key: the_rock_slug_3413
+  name: the rock slug
+  short_desc: A rock slug is slowly creeping along, leaving a slime trail behind it.
+  long_desc: |
+    It is a large brownish slug.  Got any salt?  Didn't think so ...
   keywords: ['rock', 'slug']
   level: 4
   hp_max: 43
@@ -430,15 +477,26 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d1+42', 'damage_dice': '1d1+42', 'raw_block': "It is a large brownish slug.  Got any salt?  Didn't think so ...\n~\n4 0 0 S\n3 18 7 1d1+42 1d7+0\n5 350\n8 8 0"}
+  legacy_raw: 4 0 0 S 3 18 7 1d1+42 1d7+0 5 350 8 8 0
 
 - id: 3414
-  key: "the_mad_etcher"
-  name: "etcher"
-  short_desc: "The mad etcher"
-  long_desc: "The mad etcher is sitting here babbling to himself and working on the wall."
+  key: the_mad_etcher_3414
+  name: The mad etcher
+  short_desc: The mad etcher is sitting here babbling to himself and working on the wall.
+  long_desc: |
+    Quite insane, the mad etcher has been here for two decades.  His hair is
+    white; he babbles nonsense to himself; a layer of dust covers his out-of-date
+    clothing; and he seems to be working on the same portion of the wall near
+    the base ... oh and he seems quite blind.
+    
+    He leers insanely at you and says 'heh heh what can I do for you children?
+    Please don't mind my wife, she is always like that ... hello dear can you
+    make some tea for our company?  Oh good!  Now sit right down will you?
+    Would you like hot or cold tea?  Yes the weather is ...'
+    
+    And on he babbles ...
   keywords: ['etcher']
-  level: 64
+  level: 1
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -457,17 +515,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '1d1+80', 'damage_dice': '1d1+80', 'raw_block': "Quite insane, the mad etcher has been here for two decades.  His hair is\nwhite; he babbles nonsense to himself; a layer of dust covers his out-of-date\nclothing; and he seems to be working on the same portion of the wall near\nthe base ... oh and he seems quite blind.\n\nHe leers insanely at you and says 'heh heh what can I do for you children?\nPlease don't mind my wife, she is always like that ... hello dear can you\nmake some tea for our company?  Oh good!  Now sit right down will you?\nWould you like hot or cold tea?  Yes the weather is ...'\n\nAnd on he babbles ...\n~\n64 1 1000 S\n5 5 3 1d1+80 2d6+1\n50 900\n6 6 1"}
+  legacy_raw: 64 1 1000 S 5 5 3 1d1+80 2d6+1 50 900 6 6 1
 
 - id: 3415
-  key: "the_spectral_etcher_s_wife"
-  name: "wife ghost specter"
-  short_desc: "The spectral etcher's wife"
-  long_desc: "The spectral wife of the etcher is very faintly floating here."
+  key: the_spectral_etcher_s_wife_3415
+  name: The spectral etcher's wife
+  short_desc: The spectral wife of the etcher is very faintly floating here.
+  long_desc: |
+    You can barely make her out ... though it almost makes you vomit.
+    She is missing half her head.  The remaining half is smashed in horribly like
+    she took a nasty fall.  Her one damaged eye hangs on its own.  She smiles
+    insanely at you thru a broken jaw and missing teeth.  One hand of hers is
+    resting on the shoulder of the etcher ... her husband.
   keywords: ['wife', 'ghost', 'specter']
   level: 2
   hp_max: 87
@@ -492,13 +555,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d1+86', 'damage_dice': '1d1+86', 'raw_block': 'You can barely make her out ... though it almost makes you vomit.\nShe is missing half her head.  The remaining half is smashed in horribly like\nshe took a nasty fall.  Her one damaged eye hangs on its own.  She smiles\ninsanely at you thru a broken jaw and missing teeth.  One hand of hers is\nresting on the shoulder of the etcher ... her husband.\n~\n2 65536 1000 S\n7 14 4 1d1+86 2d4+3\n125 2250\n8 8 2'}
+  legacy_raw: 2 65536 1000 S 7 14 4 1d1+86 2d4+3 125 2250 8 8 2
 
 - id: 3416
-  key: "the_half_decomposed_body"
-  name: "body"
-  short_desc: "The half-decomposed body"
-  long_desc: "A half-decomposed body is lying in the corner here."
+  key: the_half_decomposed_body_3416
+  name: The half-decomposed body
+  short_desc: A half-decomposed body is lying in the corner here.
+  long_desc: |
+    YUK! It's ugly, disgusting ... it smells ... it also moves a bit!
   keywords: ['body']
   level: 36
   hp_max: 81
@@ -523,5 +587,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 36, 'hit_dice': '1d1+80', 'damage_dice': '1d1+80', 'raw_block': "YUK! It's ugly, disgusting ... it smells ... it also moves a bit!\n~\n36 0 -350 S\n6 15 4 1d1+80 2d5+1\n83 1500\n8 8 1"}
+  legacy_raw: 36 0 -350 S 6 15 4 1d1+80 2d5+1 83 1500 8 8 1
 

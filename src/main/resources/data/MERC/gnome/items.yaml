@@ -1,6 +1,6 @@
 items:
   - id: 1500
-    key: key_bloody
+    key: key_bloody_1500
     name: a bloody key
     description: A bloody key is stuck to the floor.
     weight: 1
@@ -9,19 +9,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, bloody]
-    template_json:
-      raw_block: |
-        #1500
-        key bloody~
-        a bloody key~
-        A bloody key is stuck to the floor.~
-        ~
-        18 0 1
-        2 0 0 0
-        1 1000 400
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #1500
+      key bloody~
+      a bloody key~
+      A bloody key is stuck to the floor.~
+      ~
+      18 0 1
+      2 0 0 0
+      1 1000 400
   - id: 1501
-    key: key_dirty
+    key: key_dirty_1501
     name: a dirty key
     description: A dirty key lies here.
     weight: 1
@@ -30,19 +29,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, dirty]
-    template_json:
-      raw_block: |
-        #1501
-        key dirty~
-        a dirty key~
-        A dirty key lies here.~
-        ~
-        18 0 1
-        2 0 0 0
-        1 1050 405
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #1501
+      key dirty~
+      a dirty key~
+      A dirty key lies here.~
+      ~
+      18 0 1
+      2 0 0 0
+      1 1050 405
   - id: 1502
-    key: toy_boomerang
+    key: toy_boomerang_1502
     name: A toy boomerang
     description: A toy boomerang wants to be picked up.
     weight: 5
@@ -57,19 +55,18 @@ items:
       - TAKE
       - WIELD
     keywords: [toy, boomerang]
-    template_json:
-      raw_block: |
-        #1502
-        toy boomerang~
-        A toy boomerang~
-        A toy boomerang wants to be picked up.~
-        ~
-        5 0 1|8192
-        0 2 4 7
-        5 5 2
-      type_line: 5 0 1|8192
+    legacy_type_line: 5 0 1|8192
+    legacy_raw: |
+      #1502
+      toy boomerang~
+      A toy boomerang~
+      A toy boomerang wants to be picked up.~
+      ~
+      5 0 1|8192
+      0 2 4 7
+      5 5 2
   - id: 1503
-    key: staff_gnarled
+    key: staff_gnarled_1503
     name: A gnarled staff
     description: A gnarled staff is here.
     weight: 15
@@ -84,19 +81,18 @@ items:
       - TAKE
       - WIELD
     keywords: [staff, gnarled]
-    template_json:
-      raw_block: |
-        #1503
-        staff gnarled~
-        A gnarled staff~
-        A gnarled staff is here.~
-        ~
-        5 0 1|8192
-        0 1 9 7
-        15 600 250
-      type_line: 5 0 1|8192
+    legacy_type_line: 5 0 1|8192
+    legacy_raw: |
+      #1503
+      staff gnarled~
+      A gnarled staff~
+      A gnarled staff is here.~
+      ~
+      5 0 1|8192
+      0 1 9 7
+      15 600 250
   - id: 1504
-    key: sword_gnome
+    key: sword_gnome_1504
     name: A gnome sword
     description: A gnome sword catches your eye.
     weight: 15
@@ -111,19 +107,18 @@ items:
       - TAKE
       - WIELD
     keywords: [sword, gnome]
-    template_json:
-      raw_block: |
-        #1504
-        sword gnome~
-        A gnome sword~
-        A gnome sword catches your eye.~
-        ~
-        5 0 8193
-        0 3 3 3
-        15 4000 2000
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #1504
+      sword gnome~
+      A gnome sword~
+      A gnome sword catches your eye.~
+      ~
+      5 0 8193
+      0 3 3 3
+      15 4000 2000
   - id: 1505
-    key: shield_studded
+    key: shield_studded_1505
     name: a studded shield
     description: A studded wooden shield lies here.
     weight: 16
@@ -135,24 +130,24 @@ items:
       - TAKE
       - WEAR_SHIELD
     keywords: [shield, studded]
-    template_json:
-      raw_block: |
-        #1505
-        shield studded~
-        a studded shield~
-        A studded wooden shield lies here.~
-        ~
-        9 0 513
-        4 0 0 0
-        16 3000 1500
-      type_line: 9 0 513
+    legacy_type_line: 9 0 513
+    legacy_raw: |
+      #1505
+      shield studded~
+      a studded shield~
+      A studded wooden shield lies here.~
+      ~
+      9 0 513
+      4 0 0 0
+      16 3000 1500
   - id: 1506
-    key: potion_bloody
+    key: potion_bloody_1506
     name: a bloody potion
     description: A bloody potion lies here.
     weight: 22
     value: 1500
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [potion, bloody]
@@ -161,19 +156,18 @@ items:
       - 14
       - 15
       - 39
-    template_json:
-      raw_block: |
-        #1506
-        potion bloody~
-        a bloody potion~
-        A bloody potion lies here.~
-        ~
-        10 0 1
-        15 14 15 39
-        22 1500 800
-      type_line: 10 0 1
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      #1506
+      potion bloody~
+      a bloody potion~
+      A bloody potion lies here.~
+      ~
+      10 0 1
+      15 14 15 39
+      22 1500 800
   - id: 1507
-    key: cloak_bloody
+    key: cloak_bloody_1507
     name: a bloody cloak
     description: A bloody cloak lies in a corner.
     weight: 15
@@ -187,19 +181,18 @@ items:
       - TAKE
       - WEAR_NECK
     keywords: [cloak, bloody]
-    template_json:
-      raw_block: |
-        #1507
-        cloak bloody~
-        a bloody cloak~
-        A bloody cloak lies in a corner.~
-        ~
-        9 64 5
-        4 0 0 0
-        15 2000 1000
-      type_line: 9 64 5
+    legacy_type_line: 9 64 5
+    legacy_raw: |
+      #1507
+      cloak bloody~
+      a bloody cloak~
+      A bloody cloak lies in a corner.~
+      ~
+      9 64 5
+      4 0 0 0
+      15 2000 1000
   - id: 1508
-    key: ring_bat
+    key: ring_bat_1508
     name: A bat ring
     description: A ring in the shape of a bat lies here.
     weight: 2
@@ -216,19 +209,18 @@ items:
     applies:
       - location: 14
         modifier: 15
-    template_json:
-      raw_block: |
-        A bat ring~
-        A ring in the shape of a bat lies here.~
-        ~
-        9 64 3
-        3 0 0 0
-        2 2500 1250
-        A
-        14 15
-      type_line: 9 64 3
+    legacy_type_line: 9 64 3
+    legacy_raw: |
+      A bat ring~
+      A ring in the shape of a bat lies here.~
+      ~
+      9 64 3
+      3 0 0 0
+      2 2500 1250
+      A
+      14 15
   - id: 1509
-    key: necklace_bead
+    key: necklace_bead_1509
     name: A bead necklace
     description: A string of beads is here.
     weight: 8
@@ -245,19 +237,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 501
-    template_json:
-      raw_block: |
-        A bead necklace~
-        A string of beads is here.~
-        ~
-        9 0 5
-        3 0 0 0
-        8 4000 2000
-        A
-        18 2
-      type_line: 9 0 5
+    legacy_type_line: 9 0 5
+    legacy_raw: |
+      A bead necklace~
+      A string of beads is here.~
+      ~
+      9 0 5
+      3 0 0 0
+      8 4000 2000
+      A
+      18 2
   - id: 1510
-    key: sword_electrum
+    key: sword_electrum_1510
     name: An electrum sword
     description: An electrum sword lies here.
     weight: 20
@@ -275,19 +266,18 @@ items:
       - TAKE
       - WIELD
     keywords: [sword, electrum]
-    template_json:
-      raw_block: |
-        #1510
-        sword electrum~
-        An electrum sword~
-        An electrum sword lies here.~
-        ~
-        5 65 8193
-        0 4 3 3
-        20 100000 25000
-      type_line: 5 65 8193
+    legacy_type_line: 5 65 8193
+    legacy_raw: |
+      #1510
+      sword electrum~
+      An electrum sword~
+      An electrum sword lies here.~
+      ~
+      5 65 8193
+      0 4 3 3
+      20 100000 25000
   - id: 1511
-    key: basket_wicker
+    key: basket_wicker_1511
     name: a wicker basket
     description: A wicker basket sits here.
     weight: 5
@@ -296,19 +286,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [basket, wicker]
-    template_json:
-      raw_block: |
-        #1511
-        basket wicker~
-        a wicker basket~
-        A wicker basket sits here.~
-        ~
-        15 0 1
-        90 0 -1 0
-        5 45 15
-      type_line: 15 0 1
+    legacy_type_line: 15 0 1
+    legacy_raw: |
+      #1511
+      basket wicker~
+      a wicker basket~
+      A wicker basket sits here.~
+      ~
+      15 0 1
+      90 0 -1 0
+      5 45 15
   - id: 1512
-    key: peanuts
+    key: peanuts_1512
     name: some peanuts
     description: Peanuts lie here.
     weight: 9
@@ -317,19 +306,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [peanuts]
-    template_json:
-      raw_block: |
-        #1512
-        peanuts~
-        some peanuts~
-        Peanuts lie here.~
-        ~
-        19 0 1
-        16 0 0 0
-        9 25 5
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #1512
+      peanuts~
+      some peanuts~
+      Peanuts lie here.~
+      ~
+      19 0 1
+      16 0 0 0
+      9 25 5
   - id: 1513
-    key: grain
+    key: grain_1513
     name: some grain
     description: There is some grain here.
     weight: 8
@@ -338,19 +326,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [grain]
-    template_json:
-      raw_block: |
-        #1513
-        grain~
-        some grain~
-        There is some grain here.~
-        ~
-        19 0 1
-        15 0 0 0
-        8 22 4
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #1513
+      grain~
+      some grain~
+      There is some grain here.~
+      ~
+      19 0 1
+      15 0 0 0
+      8 22 4
   - id: 1514
-    key: skiff
+    key: skiff_1514
     name: a skiff
     description: A small skiff is here.
     weight: 24
@@ -359,19 +346,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [skiff]
-    template_json:
-      raw_block: |
-        #1514
-        skiff~
-        a skiff~
-        A small skiff is here.~
-        ~
-        22 0 1
-        0 0 0 0
-        24 1500 500
-      type_line: 22 0 1
+    legacy_type_line: 22 0 1
+    legacy_raw: |
+      #1514
+      skiff~
+      a skiff~
+      A small skiff is here.~
+      ~
+      22 0 1
+      0 0 0 0
+      24 1500 500
   - id: 1515
-    key: boots_gnome
+    key: boots_gnome_1515
     name: a pair of gnome boots
     description: You notice a pair of Gnome Boots.
     weight: 12
@@ -386,19 +372,18 @@ items:
     applies:
       - location: 14
         modifier: 10
-    template_json:
-      raw_block: |
-        a pair of gnome boots~
-        You notice a pair of Gnome Boots.~
-        ~
-        9 0 65
-        4 0 0 0
-        12 12000 5000
-        A
-        14 10
-      type_line: 9 0 65
+    legacy_type_line: 9 0 65
+    legacy_raw: |
+      a pair of gnome boots~
+      You notice a pair of Gnome Boots.~
+      ~
+      9 0 65
+      4 0 0 0
+      12 12000 5000
+      A
+      14 10
   - id: 1516
-    key: coins
+    key: coins_1516
     name: a pile of coins
     description: A pile of coins.
     weight: 1
@@ -407,19 +392,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [coins]
-    template_json:
-      raw_block: |
-        #1516
-        coins~
-        a pile of coins~
-        A pile of coins.~
-        ~
-        20 0 1
-        1000 0 0 0
-        1 1 1
-      type_line: 20 0 1
+    legacy_type_line: 20 0 1
+    legacy_raw: |
+      #1516
+      coins~
+      a pile of coins~
+      A pile of coins.~
+      ~
+      20 0 1
+      1000 0 0 0
+      1 1 1
   - id: 1517
-    key: coins
+    key: coins_1517
     name: a pile of coins
     description: A pile of coins.
     weight: 1
@@ -428,19 +412,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [coins]
-    template_json:
-      raw_block: |
-        #1517
-        coins~
-        a pile of coins~
-        A pile of coins.~
-        ~
-        20 0 1
-        5000 0 0 0
-        1 1 1
-      type_line: 20 0 1
+    legacy_type_line: 20 0 1
+    legacy_raw: |
+      #1517
+      coins~
+      a pile of coins~
+      A pile of coins.~
+      ~
+      20 0 1
+      5000 0 0 0
+      1 1 1
   - id: 1518
-    key: coins
+    key: coins_1518
     name: a pile of coins
     description: A pile of coins.
     weight: 1
@@ -449,19 +432,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [coins]
-    template_json:
-      raw_block: |
-        #1518
-        coins~
-        a pile of coins~
-        A pile of coins.~
-        ~
-        20 0 1
-        1000 0 0 0
-        1 1 1
-      type_line: 20 0 1
+    legacy_type_line: 20 0 1
+    legacy_raw: |
+      #1518
+      coins~
+      a pile of coins~
+      A pile of coins.~
+      ~
+      20 0 1
+      1000 0 0 0
+      1 1 1
   - id: 1519
-    key: shield_stone
+    key: shield_stone_1519
     name: a stone shield
     description: A stone slab lies here.
     weight: 35
@@ -476,19 +458,18 @@ items:
     applies:
       - location: 1
         modifier: 2
-    template_json:
-      raw_block: |
-        a stone shield~
-        A stone slab lies here.~
-        ~
-        9 0 513
-        4 0 0 0
-        35 9000 5000
-        A
-        1 2
-      type_line: 9 0 513
+    legacy_type_line: 9 0 513
+    legacy_raw: |
+      a stone shield~
+      A stone slab lies here.~
+      ~
+      9 0 513
+      4 0 0 0
+      35 9000 5000
+      A
+      1 2
   - id: 1520
-    key: mail_heavy_banded
+    key: mail_heavy_banded_1520
     name: heavy banded mail
     description: A large suit of heavy banded mail is here
     weight: 30
@@ -500,19 +481,18 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [mail, heavy, banded]
-    template_json:
-      raw_block: |
-        #1520
-        mail heavy banded~
-        heavy banded mail~
-        A large suit of heavy banded mail is here~
-        ~
-        9 0 9
-        6 0 0 0
-        30 35000 10000
-      type_line: 9 0 9
+    legacy_type_line: 9 0 9
+    legacy_raw: |
+      #1520
+      mail heavy banded~
+      heavy banded mail~
+      A large suit of heavy banded mail is here~
+      ~
+      9 0 9
+      6 0 0 0
+      30 35000 10000
   - id: 1521
-    key: club_large
+    key: club_large_1521
     name: a large club
     description: A large club sits here.
     weight: 22
@@ -527,19 +507,18 @@ items:
       - TAKE
       - WIELD
     keywords: [club, large]
-    template_json:
-      raw_block: |
-        #1521
-        club large~
-        a large club~
-        A large club sits here.~
-        ~
-        5 0 8193
-        0 4 3 7
-        22 20000 10000
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #1521
+      club large~
+      a large club~
+      A large club sits here.~
+      ~
+      5 0 8193
+      0 4 3 7
+      22 20000 10000
   - id: 1522
-    key: banana
+    key: banana_1522
     name: a banana
     description: There is a banana here.
     weight: 5
@@ -548,24 +527,24 @@ items:
     wear_flags:
       - TAKE
     keywords: [banana]
-    template_json:
-      raw_block: |
-        #1522
-        banana~
-        a banana~
-        There is a banana here.~
-        ~
-        19 0 1
-        6 0 0 0
-        5 9 3
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #1522
+      banana~
+      a banana~
+      There is a banana here.~
+      ~
+      19 0 1
+      6 0 0 0
+      5 9 3
   - id: 1523
-    key: life_potion
+    key: life_potion_1523
     name: a potion of life healing
     description: A potion of life healing has left here.
     weight: 1
     value: 1
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - NODROP
     wear_flags:
@@ -576,14 +555,13 @@ items:
       - 43
       - 3
       - 0
-    template_json:
-      raw_block: |
-        #1523
-        life potion~
-        a potion of life healing~
-        A potion of life healing has left here.~
-        ~
-        10 128 1
-        32 43 3 0
-        1 1 1
-      type_line: 10 128 1
+    legacy_type_line: 10 128 1
+    legacy_raw: |
+      #1523
+      life potion~
+      a potion of life healing~
+      A potion of life healing has left here.~
+      ~
+      10 128 1
+      32 43 3 0
+      1 1 1

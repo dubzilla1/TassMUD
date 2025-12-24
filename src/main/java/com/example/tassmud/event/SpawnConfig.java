@@ -28,21 +28,41 @@ public class SpawnConfig {
     
     /** Optional: Container template ID to spawn items into. -1 if not in container. */
     public final int containerTemplateId;
+    /** Optional equipment list for mob spawns (list of maps with keys 'item_vnum' and 'wear_loc') */
+    public final java.util.List<java.util.Map<String,Object>> equipment;
+    /** Optional inventory list for mob spawns (list of maps with key 'item_vnum') */
+    public final java.util.List<java.util.Map<String,Object>> inventory;
     
-    public SpawnConfig(SpawnType type, int templateId, int quantity, int frequencyHours, int roomId, int containerTemplateId) {
+    public SpawnConfig(SpawnType type, int templateId, int quantity, int frequencyHours, int roomId, int containerTemplateId, java.util.List<java.util.Map<String,Object>> equipment) {
         this.type = type;
         this.templateId = templateId;
         this.quantity = Math.max(1, quantity);
         this.frequencyHours = Math.min(Math.max(1, frequencyHours), EventScheduler.MAX_FREQUENCY_HOURS);
         this.roomId = roomId;
         this.containerTemplateId = containerTemplateId;
+        this.equipment = equipment == null ? java.util.Collections.emptyList() : java.util.List.copyOf(equipment);
+        this.inventory = java.util.Collections.emptyList();
+    }
+
+    /**
+     * Create a SpawnConfig with explicit equipment and inventory lists.
+     */
+    public SpawnConfig(SpawnType type, int templateId, int quantity, int frequencyHours, int roomId, int containerTemplateId, java.util.List<java.util.Map<String,Object>> equipment, java.util.List<java.util.Map<String,Object>> inventory) {
+        this.type = type;
+        this.templateId = templateId;
+        this.quantity = Math.max(1, quantity);
+        this.frequencyHours = Math.min(Math.max(1, frequencyHours), EventScheduler.MAX_FREQUENCY_HOURS);
+        this.roomId = roomId;
+        this.containerTemplateId = containerTemplateId;
+        this.equipment = equipment == null ? java.util.Collections.emptyList() : java.util.List.copyOf(equipment);
+        this.inventory = inventory == null ? java.util.Collections.emptyList() : java.util.List.copyOf(inventory);
     }
     
     /**
      * Create a spawn config without a container.
      */
     public SpawnConfig(SpawnType type, int templateId, int quantity, int frequencyHours, int roomId) {
-        this(type, templateId, quantity, frequencyHours, roomId, -1);
+        this(type, templateId, quantity, frequencyHours, roomId, -1, null);
     }
     
     /**

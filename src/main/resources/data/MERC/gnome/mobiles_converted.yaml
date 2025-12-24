@@ -1,0 +1,817 @@
+- id: 1500
+  key: a_gnome_child
+  name: a gnome child
+  short_desc: A gnome child is playing around here.
+  long_desc: |
+    The little tyke looks so innocent playing with his boomerang that you 
+    just want to pick him up and hug him.
+  keywords: ['child', 'gnome']
+  level: 20
+  hp_max: 44
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 37
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 20 0 600 S 3 18 7 3d4+37 2d4+0 50 400 8 8 1
+
+- id: 1501
+  key: a_gnome_woman
+  name: a gnome woman
+  short_desc: A gnome woman is standing here, trying to look beautiful.
+  long_desc: |
+    The woman is short and gnarled, but acts like a woman several times her beauty.
+    She's starting to look pretty attractive to you ...
+  keywords: ['woman', 'gnome']
+  level: 20
+  hp_max: 77
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 20 0 600 S 5 16 5 2d6+70 1d8+0 500 700 8 8 2
+
+- id: 1502
+  key: a_gnome_man
+  name: a gnome man
+  short_desc: A gnome man is walking here, on his way to work.
+  long_desc: |
+    This is a prime example of a gnome.  He looks short and weak, but at the
+    same time an intelligent creature who could outsmart you.
+  keywords: ['man', 'gnome']
+  level: 4
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 500 S 6 15 4 1d12+100 1d8+1 450 900 8 8 1
+
+- id: 1503
+  key: a_gnome_scientist
+  name: a gnome scientist
+  short_desc: A scientist wanders around deep in thought.
+  long_desc: |
+    You see a gnome who is lost deep into some invention that he is about
+    to make.  His hair is white, but he looks fairly strong.
+  keywords: ['scientist', 'gnome']
+  level: 6
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 500 S 7 14 4 2d5+100 2d5+1 1000 1300 8 8 1
+
+- id: 1504
+  key: a_gnome_guard
+  name: a gnome guard
+  short_desc: A gnome guard stands here guarding something.
+  long_desc: |
+    This is a well trained gnome.  He might not have a lot of strength but
+    he makes up for it with his weapons skill.
+  keywords: ['guard', 'gnome']
+  level: 2
+  hp_max: 127
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 400 S 8 13 3 2d6+120 3d3+2 1500 2000 8 8 1
+
+- id: 1505
+  key: the_chief_gnome
+  name: the chief gnome
+  short_desc: A powerful looking gnome stands here wearing ornate clothes.
+  long_desc: |
+    The Chief looks like he could whap you hard.  He looks not only powerful
+    but wise and resourceful.  You better not mess with him.
+  keywords: ['chief', 'gnome']
+  level: 2
+  hp_max: 306
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 550 S 15 6 -1 1d12+300 2d10+0 8000 15000 8 8 1
+
+- id: 1507
+  key: a_small_troll
+  name: a small troll
+  short_desc: A small troll grunts as he takes a swing at you.
+  long_desc: |
+    The small troll is a short and stocky beast with a human-like face
+    but with the eyes and fangs of a wild beast.
+  keywords: ['troll', 'small']
+  level: 38
+  hp_max: 110
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 105
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 0 -900 S 8 12 3 2d4+105 2d5+1 800 2000 8 8 1
+
+- id: 1508
+  key: a_field_mouse
+  name: a field mouse
+  short_desc: A small mouse runs across your foot.
+  long_desc: |
+    The Mouse is a cute little creature.
+  keywords: ['mouse', 'field']
+  level: 6
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 100 S 1 19 9 2d4+10 1d4+0 1 100 8 8 1
+
+- id: 1509
+  key: a_rat
+  name: a rat
+  short_desc: A small rat shrieks and runs around.
+  long_desc: |
+    The rat is a little evil creature that deserves death.
+  keywords: ['rat']
+  level: 4
+  hp_max: 29
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 24
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 -200 S 2 19 8 2d4+24 1d5+1 5 200 8 8 1
+
+- id: 1510
+  key: a_large_rat
+  name: a large rat
+  short_desc: A large rat runs up to you and nibbles on your boots.
+  long_desc: |
+    You have the urge to kill this vile creature.
+  keywords: ['rat', 'large']
+  level: 4
+  hp_max: 55
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 48
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 -200 S 4 17 6 3d4+48 1d8+0 10 400 8 8 1
+
+- id: 1511
+  key: a_giant_rat
+  name: a giant rat
+  short_desc: A giant rat growls at you and prepares to attack.
+  long_desc: |
+    This rat has grown up to be the size of an average dog.
+  keywords: ['rat', 'giant']
+  level: 4
+  hp_max: 78
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 72
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 -200 S 6 15 4 1d12+72 1d8+1 20 800 8 8 1
+
+- id: 1512
+  key: the_troll
+  name: the troll
+  short_desc: A giant troll lumbers around.
+  long_desc: |
+    You see before you a huge mass of living flesh.  You cringe in fear as
+    he lifts his powerful arm to bludgeon you.
+  keywords: ['troll']
+  level: 34
+  hp_max: 169
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -800 S 14 7 0 3d5+160 2d8+1 9000 10000 8 8 1
+
+- id: 1513
+  key: a_black_bat
+  name: a black bat
+  short_desc: A black bat hangs from the ceiling.
+  long_desc: |
+    The bat is a grotesque little creature with large wings and fangs.
+  keywords: ['bat', 'black']
+  level: 500
+  hp_max: 77
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 0 -500 S 5 16 5 3d4+70 1d8+0 1 1000 8 8 0
+
+- id: 1514
+  key: the_zombie_gnome
+  name: the zombie gnome
+  short_desc: A zombie gnome shuffles his way towards you.
+  long_desc: |
+    This is a creature which has passed away long ago.  His body has been
+    pulled out of its resting place by some evil force.
+  keywords: ['zombie', 'gnome']
+  level: 700
+  hp_max: 97
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 70000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 0 -700 S 7 14 3 3d4+90 3d4+0 696 2300 8 8 0
+
+- id: 1515
+  key: the_fire_bat
+  name: the fire bat
+  short_desc: The fire bat flames brightly and prepares to attack.
+  long_desc: |
+    You see a huge flame which resembles the shape of a bat.  The creature
+    hangs from the ceiling and bites at you.
+  keywords: ['bat', 'fire']
+  level: 38
+  hp_max: 157
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 8 -900 S 12 9 2 3d4+150 3d5+0 6000 6000 8 8 1
+
+- id: 1516
+  key: the_hobgoblin_guard
+  name: the hobgoblin guard
+  short_desc: The hobgoblin guard attacks first, thinks later.
+  long_desc: |
+    This is an extra large, extra ugly goblin like creature.  He grins evilly
+    as he attempts to brain you.
+  keywords: ['guard', 'hobgoblin']
+  level: 34
+  hp_max: 108
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 102
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -700 S 6 15 4 1d12+102 1d8+1 750 1000 8 8 1
+
+- id: 1517
+  key: the_hobgoblin_soldier
+  name: the hobgoblin soldier
+  short_desc: A hobgoblin soldier stands here.
+  long_desc: |
+    This is just a low life hobgoblin, who couldn't make it to the ranks
+    of the elite guards.  He looks pissed.
+  keywords: ['soldier', 'hobgoblin']
+  level: 34
+  hp_max: 43
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -600 S 3 18 7 2d6+36 1d7+0 200 300 8 8 1
+
+- id: 1518
+  key: the_hobgoblin_bodyguard
+  name: the hobgoblin bodyguard
+  short_desc: A hobgoblin bodyguard guards the king with his life.
+  long_desc: |
+    This is one of the elite hobgoblin guards.  He stands tall for his short
+    stature.  He grins a toothy grin as he prepares to attack.
+  keywords: ['bodyguard', 'hobgoblin']
+  level: 2
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 85
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -500 S 7 14 4 1d12+85 1d7+2 600 2000 8 8 1
+
+- id: 1519
+  key: the_king_of_the_hobgoblins
+  name: the king of the hobgoblins
+  short_desc: There is a great king here, sitting in his throne.
+  long_desc: |
+    The king is a silly looking hobgoblin whose muscles bulge out of his robes,
+    destroying the sophisticated effect he was trying to create.
+  keywords: ['king', 'hobgoblin']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -500 S 12 9 2 2d6+148 2d7+1 6000 6000 6 8 1
+
+- id: 1520
+  key: a_hobgoblin_miner
+  name: a hobgoblin miner
+  short_desc: A hobgoblin miner stands here looking for gold.
+  long_desc: |
+    The miner is totally covered in dust.
+  keywords: ['miner', 'hobgoblin']
+  level: 6
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 -400 S 5 16 5 1d12+60 1d8+0 700 500 8 8 1
+
+- id: 1521
+  key: the_treasurer
+  name: the treasurer
+  short_desc: A treasurer is here counting out money.
+  long_desc: |
+    The hobgoblin treasurer is an old goblin with glasses.  It appears that he
+    can only see a couple feet in front of him.
+  keywords: ['treasurer', 'hobgoblin']
+  level: 6
+  hp_max: 129
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 -200 S 10 11 2 3d5+120 2d6+1 5000 2500 8 8 1
+
+- id: 1522
+  key: a_gnome_prisoner
+  name: a gnome prisoner
+  short_desc: A gnome prisoner is here resting in the straw.
+  long_desc: |
+    The prisoner is just barely alive.
+  keywords: ['prisoner', 'gnome']
+  level: 6
+  hp_max: 19
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 100 S 3 17 8 3d5+10 2d3+1 1 50 5 8 1
+
+- id: 1523
+  key: a_human_prisoner
+  name: a human prisoner
+  short_desc: A human prisoner is here resting in the straw.
+  long_desc: |
+    The prisoner is just barely alive.
+  keywords: ['prisoner', 'human']
+  level: 6
+  hp_max: 19
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 100 S 3 17 8 3d5+10 2d3+1 1 50 5 8 2
+
+- id: 1524
+  key: a_hermit
+  name: a hermit
+  short_desc: A hermit crab crawls towards you.
+  long_desc: |
+    The hermit crab is about 5 feet high and looks mad that you had the nerve
+    to wake it up.
+  keywords: ['hermit', 'crab']
+  level: 38
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 61
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 0 -10 S 5 16 5 1d11+61 1d8+0 200 600 8 8 1
+
+- id: 1526
+  key: the_cook
+  name: the cook
+  short_desc: A hobgoblin cook stands here cooking something.
+  long_desc: |
+    The cook is a dirty and fat hobgoblin.  He burps as he stirs up something
+    in a pot.
+  keywords: ['cook', 'hobgoblin']
+  level: 6
+  hp_max: 91
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 85
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 -300 S 7 14 4 1d12+85 1d7+1 2600 900 8 8 1
+

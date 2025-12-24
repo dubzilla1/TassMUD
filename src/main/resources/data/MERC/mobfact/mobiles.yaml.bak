@@ -1,0 +1,231 @@
+- id: 9401
+  key: |
+  the_mutant_beastly_fido:
+  name: |
+  mutant_fido_dog:
+  short_desc: |
+  The_mutant_beastly_fido:
+  long_desc: |
+  The_mutant_beastly_fido_is_here_his_eyes_glowing_green:
+  keywords: ['mutant', 'fido', 'dog']
+  level: 481
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 48100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9402
+  key: |
+  foreman_floyd:
+  name: |
+  foreman_floyd:
+  short_desc: |
+  Foreman_Floyd:
+  long_desc: |
+  Foreman_Floyd_is_here_making_plans_for_the_factorys_future:
+  keywords: ['foreman', 'floyd']
+  level: 66
+  hp_max: 201
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 100
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9403
+  key: |
+  the_cityguard_head:
+  name: |
+  cityguard_guard_head:
+  short_desc: |
+  The_Cityguard_head:
+  long_desc: |
+  The_Cityguard_head_floats_around_aimlessly:
+  keywords: ['cityguard', 'guard', 'head']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9404
+  key: |
+  the_revolving_drunk:
+  name: |
+  revolving_drunk:
+  short_desc: |
+  The_revolving_drunk:
+  long_desc: |
+  The_Revolving_drunk_is_here_spinning_in_place:
+  keywords: ['revolving', 'drunk']
+  level: 196
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9405
+  key: |
+  the_toxic_slime:
+  name: |
+  toxic_slime:
+  short_desc: |
+  The_toxic_slime:
+  long_desc: |
+  A_pool_of_toxic_slime_lies_on_the_floor:
+  keywords: ['toxic', 'slime']
+  level: 6
+  hp_max: 46
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9406
+  key: |
+  the_factory_worker:
+  name: |
+  worker:
+  short_desc: |
+  The_factory_worker:
+  long_desc: |
+  A_Mob_Factory_worker_is_standing_here_looking_bored:
+  keywords: ['worker']
+  level: 192
+  hp_max: 47
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 5
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9407
+  key: |
+  the_factory_worker:
+  name: |
+  worker:
+  short_desc: |
+  The_factory_worker:
+  long_desc: |
+  A_Mob_Factory_worker_is_here_asleep_in_a_chair:
+  keywords: ['worker']
+  level: 130
+  hp_max: 47
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 5
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

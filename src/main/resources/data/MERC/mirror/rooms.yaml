@@ -14,6 +14,98 @@ rooms:
       east: 5356
       west: 5301
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5330
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5311
+              wear_loc: 17
+      - type: MOB
+        id: 5321
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5331
+              wear_loc: 0
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5322
+              wear_loc: 6
+          -
+              item_vnum: 5323
+              wear_loc: 7
+          -
+              item_vnum: 5324
+              wear_loc: 8
+          -
+              item_vnum: 5325
+              wear_loc: 9
+          -
+              item_vnum: 5320
+              wear_loc: 11
+          -
+              item_vnum: 5318
+              wear_loc: 16
+      - type: MOB
+        id: 5321
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5331
+              wear_loc: 0
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5324
+              wear_loc: 8
+          -
+              item_vnum: 5325
+              wear_loc: 9
+          -
+              item_vnum: 5326
+              wear_loc: 10
+          -
+              item_vnum: 5320
+              wear_loc: 11
+          -
+              item_vnum: 5317
+              wear_loc: 16
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5329
+              wear_loc: 14
+          -
+              item_vnum: 5318
+              wear_loc: 16
     doors:
       east:
         to: 5356
@@ -26,8 +118,9 @@ rooms:
         key: -1
       west:
         to: 5301
-        description: "You see happiness everywhere. Houses cover your vision. You see strange cute
-beasts walking hand in hand with people."
+        description: |
+          You see happiness everywhere. Houses cover your vision. You see strange cute
+          beasts walking hand in hand with people.
         keywords: ""
         state: OPEN
         locked: false
@@ -112,6 +205,19 @@ beasts walking hand in hand with people."
       south: 5332
       west: 5303
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5336
@@ -219,6 +325,36 @@ beasts walking hand in hand with people."
       south: 5303
       west: 5305
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5320
+              wear_loc: 11
+          -
+              item_vnum: 5317
+              wear_loc: 16
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5311
@@ -296,6 +432,15 @@ beasts walking hand in hand with people."
       north: 5303
       south: 5312
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
     doors:
       north:
         to: 5303
@@ -330,6 +475,31 @@ beasts walking hand in hand with people."
       south: 5320
       west: 5308
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5328
+              wear_loc: 13
+          -
+              item_vnum: 5329
+              wear_loc: 14
+          -
+              item_vnum: 5318
+              wear_loc: 16
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5325
@@ -373,11 +543,25 @@ beasts walking hand in hand with people."
       east: 5307
       south: 5317
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5322
-        description: "Beautiful carpets and enormous bales of silk are being stared with awe by
-the citizens."
+        description: |
+          Beautiful carpets and enormous bales of silk are being stared with awe by
+          the citizens.
         keywords: ""
         state: OPEN
         locked: false
@@ -462,6 +646,15 @@ the citizens."
       south: 5311
       west: 5326
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
     doors:
       north:
         to: 5309
@@ -570,6 +763,19 @@ the citizens."
       south: 5313
       west: 5321
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5306
@@ -582,8 +788,9 @@ the citizens."
         key: null
       east:
         to: 5332
-        description: "You see what is most definitely city hall.  This building is the most
-elaborate of all the building here in Thalos."
+        description: |
+          You see what is most definitely city hall.  This building is the most
+          elaborate of all the building here in Thalos.
         keywords: ""
         state: OPEN
         locked: false
@@ -601,8 +808,9 @@ elaborate of all the building here in Thalos."
         key: null
       west:
         to: 5321
-        description: "Inside the building you see long pieces of metal, an oven, and some
-anvils.  Obviously a smithy."
+        description: |
+          Inside the building you see long pieces of metal, an oven, and some
+          anvils.  Obviously a smithy.
         keywords: ""
         state: OPEN
         locked: false
@@ -626,6 +834,27 @@ anvils.  Obviously a smithy."
       south: 5314
       west: 5319
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5330
+              wear_loc: 1
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5320
+              wear_loc: 11
+          -
+              item_vnum: 5317
+              wear_loc: 16
     doors:
       north:
         to: 5312
@@ -638,9 +867,10 @@ anvils.  Obviously a smithy."
         key: null
       east:
         to: 5330
-        description: ">From the looks of it, this is a very impressive two story abode.
-The entire first floor is covered with a huge marble bar with merry men
-telling tall tales and drinking their fill."
+        description: |
+          >From the looks of it, this is a very impressive two story abode.
+          The entire first floor is covered with a huge marble bar with merry men
+          telling tall tales and drinking their fill.
         keywords: ""
         state: OPEN
         locked: false
@@ -658,8 +888,9 @@ telling tall tales and drinking their fill."
         key: null
       west:
         to: 5319
-        description: "This seems to be the only guild house in the entire city. You feel uneasy
-about this building.  For some reason it seems not to belong."
+        description: |
+          This seems to be the only guild house in the entire city. You feel uneasy
+          about this building.  For some reason it seems not to belong.
         keywords: ""
         state: OPEN
         locked: false
@@ -681,6 +912,15 @@ about this building.  For some reason it seems not to belong."
       south: 5329
       west: 5318
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
     doors:
       north:
         to: 5313
@@ -733,6 +973,27 @@ about this building.  For some reason it seems not to belong."
       east: 5318
       up: 5347
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5328
+              wear_loc: 13
+          -
+              item_vnum: 5318
+              wear_loc: 16
     doors:
       north:
         to: 5316
@@ -775,6 +1036,19 @@ about this building.  For some reason it seems not to belong."
       north: 5317
       south: 5315
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5317
@@ -811,6 +1085,26 @@ about this building.  For some reason it seems not to belong."
       east: 5320
       south: 5316
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5311
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 601
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 5219
+          -
+              item_vnum: 602
+          -
+              item_vnum: 603
+          -
+              item_vnum: 604
+          -
+              item_vnum: 605
     doors:
       north:
         to: 5308
@@ -823,8 +1117,9 @@ about this building.  For some reason it seems not to belong."
         key: null
       east:
         to: 5320
-        description: "This is a cart full of fresh vegetables and fruits.  You are almost
-tempted to take some."
+        description: |
+          This is a cart full of fresh vegetables and fruits.  You are almost
+          tempted to take some.
         keywords: ""
         state: OPEN
         locked: false
@@ -853,6 +1148,15 @@ tempted to take some."
       east: 5314
       west: 5315
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
     doors:
       east:
         to: 5314
@@ -886,6 +1190,24 @@ tempted to take some."
     exits:
       east: 5313
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5306
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5218
+              wear_loc: 3
+          -
+              item_vnum: 5222
+              wear_loc: 12
+          -
+              item_vnum: 5252
+              wear_loc: 16
+          -
+              item_vnum: 5239
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -912,6 +1234,30 @@ tempted to take some."
       north: 5307
       west: 5317
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5312
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 609
+          -
+              item_vnum: 610
+          -
+              item_vnum: 611
+          -
+              item_vnum: 612
+          -
+              item_vnum: 613
     doors:
       north:
         to: 5307
@@ -943,6 +1289,16 @@ tempted to take some."
     exits:
       east: 5312
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5314
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 601
+          -
+              item_vnum: 615
     legacy_flags:
       - INDOORS
     doors:
@@ -970,6 +1326,15 @@ tempted to take some."
       east: 5325
       south: 5308
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
     doors:
       north:
         to: 5323
@@ -1044,6 +1409,32 @@ tempted to take some."
       south: 5323
       up: 5346
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5320
+              wear_loc: 11
+          -
+              item_vnum: 5317
+              wear_loc: 16
     doors:
       east:
         to: 5328
@@ -1088,8 +1479,9 @@ tempted to take some."
     doors:
       south:
         to: 5307
-        description: "The market place is packed with people scurrying about doing their
-business."
+        description: |
+          The market place is packed with people scurrying about doing their
+          business.
         keywords: ""
         state: OPEN
         locked: false
@@ -1118,6 +1510,19 @@ business."
     exits:
       east: 5310
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1143,6 +1548,11 @@ business."
     exits:
       east: 5311
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
     doors:
       east:
         to: 5311
@@ -1166,6 +1576,15 @@ business."
       east: 5309
       west: 5324
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
     doors:
       east:
         to: 5309
@@ -1199,6 +1618,11 @@ business."
     exits:
       north: 5314
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5313
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1226,6 +1650,50 @@ business."
     exits:
       west: 5313
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5329
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5309
+              wear_loc: 17
+      - type: MOB
+        id: 5329
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5310
+              wear_loc: 17
+      - type: MOB
+        id: 5310
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 648
+          -
+              item_vnum: 649
+          -
+              item_vnum: 650
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
     doors:
       west:
         to: 5313
@@ -1252,6 +1720,58 @@ business."
       north: 5332
       east: 5334
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 5307
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 5309
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5224
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 5304
+              container_vnum: 5307
+          -
+              item_vnum: 5305
+              container_vnum: 5307
+          -
+              item_vnum: 5231
+              container_vnum: 5307
+          -
+              item_vnum: 3105
+              container_vnum: 5308
+          -
+              item_vnum: 5214
+              container_vnum: 5308
+          -
+              item_vnum: 5230
+              container_vnum: 5308
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5328
+              wear_loc: 13
+          -
+              item_vnum: 5329
+              wear_loc: 14
+          -
+              item_vnum: 5318
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1290,6 +1810,19 @@ business."
       south: 5331
       west: 5312
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1345,6 +1878,11 @@ business."
       south: 5334
       west: 5332
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 5308
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1382,6 +1920,39 @@ business."
       north: 5333
       west: 5331
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 5306
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5330
+              wear_loc: 1
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5320
+              wear_loc: 11
+          -
+              item_vnum: 5317
+              wear_loc: 16
     doors:
       north:
         to: 5333
@@ -1414,6 +1985,76 @@ business."
     exits:
       east: 5355
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5320
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5330
+              wear_loc: 1
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5328
+              wear_loc: 13
+          -
+              item_vnum: 5317
+              wear_loc: 16
+      - type: MOB
+        id: 5320
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5330
+              wear_loc: 1
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5329
+              wear_loc: 14
+          -
+              item_vnum: 5318
+              wear_loc: 16
+      - type: MOB
+        id: 5320
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5328
+              wear_loc: 13
+          -
+              item_vnum: 5329
+              wear_loc: 14
+          -
+              item_vnum: 5317
+              wear_loc: 16
     doors:
       east:
         to: 5355
@@ -1437,6 +2078,47 @@ business."
     exits:
       south: 5302
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5305
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5204
+              wear_loc: 8
+          -
+              item_vnum: 5203
+              wear_loc: 10
+          -
+              item_vnum: 5205
+              wear_loc: 7
+          -
+              item_vnum: 5206
+              wear_loc: 13
+          -
+              item_vnum: 5201
+              wear_loc: 6
+          -
+              item_vnum: 5202
+              wear_loc: 9
+          -
+              item_vnum: 5301
+              wear_loc: 5
+          -
+              item_vnum: 5221
+              wear_loc: 16
+          -
+              item_vnum: 5226
+              wear_loc: 17
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
     doors:
       south:
         to: 5302
@@ -1461,6 +2143,11 @@ business."
       west: 5311
       up: 5345
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5315
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1504,6 +2191,28 @@ business."
     exits:
       west: 5337
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5317
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 5210
+          -
+              item_vnum: 5211
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1562,6 +2271,19 @@ business."
       north: 5341
       south: 5339
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5341
@@ -1595,6 +2317,24 @@ business."
       west: 5343
       up: 5348
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5318
+              wear_loc: 16
     doors:
       south:
         to: 5340
@@ -1638,6 +2378,19 @@ business."
       north: 5343
       west: 5344
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5319
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1717,6 +2470,27 @@ business."
       east: 5342
       west: 5310
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5318
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1750,6 +2524,11 @@ business."
     exits:
       down: 5337
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5316
+        quantity: 2
+        frequency: 1
     doors:
       down:
         to: 5337
@@ -1773,6 +2552,26 @@ business."
     exits:
       down: 5324
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5308
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5221
+              wear_loc: 16
+          -
+              item_vnum: 5233
+              wear_loc: 17
     doors:
       down:
         to: 5324
@@ -1797,6 +2596,18 @@ business."
     exits:
       down: 5315
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5308
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5221
+              wear_loc: 16
+          -
+              item_vnum: 5232
+              wear_loc: 17
     doors:
       down:
         to: 5315
@@ -1820,6 +2631,26 @@ business."
     exits:
       down: 5341
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5308
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5221
+              wear_loc: 16
+          -
+              item_vnum: 5235
+              wear_loc: 17
     doors:
       down:
         to: 5341
@@ -1847,6 +2678,55 @@ business."
       north: 5305
       east: 5303
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5300
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5243
+              wear_loc: 17
+      - type: MOB
+        id: 5307
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5302
+              wear_loc: 17
+          -
+              item_vnum: 5223
+              wear_loc: 3
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5321
+              wear_loc: 4
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5320
+              wear_loc: 11
+          -
+              item_vnum: 5317
+              wear_loc: 16
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1914,6 +2794,35 @@ business."
       west: 5351
       up: 5354
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5303
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5330
+              wear_loc: 1
+          -
+              item_vnum: 5319
+              wear_loc: 5
+          -
+              item_vnum: 5327
+              wear_loc: 12
+          -
+              item_vnum: 5328
+              wear_loc: 13
+          -
+              item_vnum: 5318
+              wear_loc: 16
     doors:
       north:
         to: 5353
@@ -1986,6 +2895,26 @@ business."
     exits:
       down: 5352
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5301
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5300
+              wear_loc: 3
+      - type: MOB
+        id: 5308
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5221
+              wear_loc: 16
+          -
+              item_vnum: 5237
+              wear_loc: 17
     doors:
       down:
         to: 5352
@@ -2052,6 +2981,11 @@ business."
       west: 5300
       east: 5357
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 5326
+        quantity: 4
+        frequency: 1
     doors:
       west:
         to: 5300
@@ -2116,6 +3050,11 @@ business."
       west: 5357
       north: 5359
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5323
+        quantity: 3
+        frequency: 1
     doors:
       west:
         to: 5357
@@ -2212,6 +3151,11 @@ business."
       north: 5362
       south: 5360
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5304
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 5362
@@ -2429,6 +3373,15 @@ business."
       west: 5366
       south: 5370
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5302
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 5322
+        quantity: 2
+        frequency: 1
     doors:
       east:
         to: 5368
@@ -2450,8 +3403,9 @@ business."
         key: -1
       south:
         to: 5370
-        description: "The path wind its way through the tall trees, towards an open area barely
-visible in the distance."
+        description: |
+          The path wind its way through the tall trees, towards an open area barely
+          visible in the distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -2473,13 +3427,22 @@ visible in the distance."
       south: 5371
       west: 5367
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5327
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 5313
     legacy_flags:
       - NO_MOB
     doors:
       north:
         to: 5375
-        description: "A small, narrow path winds north, and is quickly lost in the bushes. It
-looks quite a wilderness there!"
+        description: |
+          A small, narrow path winds north, and is quickly lost in the bushes. It
+          looks quite a wilderness there!
         keywords: ""
         state: OPEN
         locked: false
@@ -2488,8 +3451,9 @@ looks quite a wilderness there!"
         key: -1
       south:
         to: 5371
-        description: "There is a path winding its way south through the tall poplars, disappearing
-out of sight some 100 yds. away."
+        description: |
+          There is a path winding its way south through the tall poplars, disappearing
+          out of sight some 100 yds. away.
         keywords: ""
         state: OPEN
         locked: false
@@ -2523,6 +3487,11 @@ out of sight some 100 yds. away."
       south: 5372
       west: 5362
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5324
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - NO_MOB
     doors:
@@ -2555,8 +3524,9 @@ out of sight some 100 yds. away."
         key: -1
       west:
         to: 5362
-        description: "Through the trees, you can see the Midgaard road. Far to the west, You can
-barely glimpse the construction of the city itself."
+        description: |
+          Through the trees, you can see the Midgaard road. Far to the west, You can
+          barely glimpse the construction of the city itself.
         keywords: ""
         state: OPEN
         locked: false
@@ -2583,6 +3553,11 @@ barely glimpse the construction of the city itself."
       west: 5369
       south: 5373
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5323
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 5367
@@ -2613,8 +3588,9 @@ barely glimpse the construction of the city itself."
         key: -1
       south:
         to: 5373
-        description: "To the south, a wide, sunny field stretch out, sloping down towards a brightly
-glittering lake."
+        description: |
+          To the south, a wide, sunny field stretch out, sloping down towards a brightly
+          glittering lake.
         keywords: ""
         state: OPEN
         locked: false
@@ -2637,6 +3613,14 @@ glittering lake."
       west: 5370
       south: 5374
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5327
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 5315
     doors:
       north:
         to: 5368
@@ -2658,9 +3642,10 @@ glittering lake."
         key: -1
       south:
         to: 5374
-        description: "To the south, just beyond the trees, you can see a wide green lawn, and past
-the lawn, a softly shimmering, rainbow-colored dome covering the foundation
-for a structure."
+        description: |
+          To the south, just beyond the trees, you can see a wide green lawn, and past
+          the lawn, a softly shimmering, rainbow-colored dome covering the foundation
+          for a structure.
         keywords: ""
         state: OPEN
         locked: false
@@ -2690,11 +3675,24 @@ for a structure."
       north: 5369
       east: 5373
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 5328
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 5316
+      - type: MOB
+        id: 5326
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 5369
-        description: "The path leading north is soon lost out of sight amongst the ancient oaks and
-poplars."
+        description: |
+          The path leading north is soon lost out of sight amongst the ancient oaks and
+          poplars.
         keywords: ""
         state: OPEN
         locked: false
@@ -2703,10 +3701,11 @@ poplars."
         key: -1
       east:
         to: 5373
-        description: "To the east, the path leads out into a wide, sunny summer's field, sloping
-south towards a beautiful lake. Past the field You can see the construction
-of a large foundation for a structure shimmering gently in all the rainbow's
-colours."
+        description: |
+          To the east, the path leads out into a wide, sunny summer's field, sloping
+          south towards a beautiful lake. Past the field You can see the construction
+          of a large foundation for a structure shimmering gently in all the rainbow's
+          colours.
         keywords: ""
         state: OPEN
         locked: false
@@ -2738,6 +3737,11 @@ colours."
       north: 5370
       west: 5372
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 5325
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2781,6 +3785,14 @@ colours."
     exits:
       north: 5371
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 5328
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 5314
     legacy_flags:
       - NO_MOB
     doors:
@@ -3139,6 +4151,11 @@ colours."
       north: 5379
       south: 5381
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5332
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 5379
@@ -3173,6 +4190,27 @@ colours."
       north: 5380
       east: 5382
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5331
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3355
+              wear_loc: 4
     doors:
       north:
         to: 5380
@@ -3209,6 +4247,11 @@ colours."
       east: 5383
       west: 5381
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5333
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 5383
@@ -3274,6 +4317,27 @@ colours."
       east: 5385
       west: 5383
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 5334
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3354
+              wear_loc: 11
     doors:
       east:
         to: 5385

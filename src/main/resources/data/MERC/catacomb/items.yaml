@@ -1,6 +1,6 @@
 items:
   - id: 2001
-    key: glowing_key
+    key: glowing_key_2001
     name: a glowing key
     description: A circular, glowing key radiates a bright aura around it.
     weight: 1
@@ -13,19 +13,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [glowing, key]
-    template_json:
-      raw_block: |
-        #2001
-        glowing key~
-        a glowing key~
-        A circular, glowing key radiates a bright aura around it.~
-        ~
-        18 67 1
-        39 0 0 0
-        1 10000 1000000
-      type_line: 18 67 1
+    legacy_type_line: 18 67 1
+    legacy_raw: |
+      #2001
+      glowing key~
+      a glowing key~
+      A circular, glowing key radiates a bright aura around it.~
+      ~
+      18 67 1
+      39 0 0 0
+      1 10000 1000000
   - id: 2002
-    key: granite_plate_mail_platemail
+    key: granite_plate_mail_platemail_2002
     name: a suit of granite platemail
     description: A suit of platemail hewn from granite stands by itself in the corner.
     weight: 55
@@ -43,19 +42,18 @@ items:
     applies:
       - location: 2
         modifier: -1
-    template_json:
-      raw_block: |
-        a suit of granite platemail~
-        A suit of platemail hewn from granite stands by itself in the corner.~
-        ~
-        9 512|2 9
-        9 0 0 0
-        55 42300 1000
-        A
-        2 -1
-      type_line: 9 512|2 9
+    legacy_type_line: 9 512|2 9
+    legacy_raw: |
+      a suit of granite platemail~
+      A suit of platemail hewn from granite stands by itself in the corner.~
+      ~
+      9 512|2 9
+      9 0 0 0
+      55 42300 1000
+      A
+      2 -1
   - id: 2003
-    key: onyx_ring
+    key: onyx_ring_2003
     name: an onyx ring
     description: A ring with a very dark onyx stone in it has been left in the dirt.
     weight: 1
@@ -72,19 +70,18 @@ items:
     applies:
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        an onyx ring~
-        A ring with a very dark onyx stone in it has been left in the dirt.~
-        ~
-        9 512 3
-        5 0 0 0
-        1 11010 200
-        A
-        4 1
-      type_line: 9 512 3
+    legacy_type_line: 9 512 3
+    legacy_raw: |
+      an onyx ring~
+      A ring with a very dark onyx stone in it has been left in the dirt.~
+      ~
+      9 512 3
+      5 0 0 0
+      1 11010 200
+      A
+      4 1
   - id: 2004
-    key: neutralizer_sword
+    key: neutralizer_sword_2004
     name: the neutralizer
     description: A long thin sword with a wide blade makes you wonder.
     weight: 9
@@ -111,19 +108,18 @@ items:
     on_equip_effect_ids:
       - 202
       - 503
-    template_json:
-      raw_block: |
-        ~
-        5 2|512|1024 8193
-        0 4 5 3
-        9 3304 99
-        A
-        18 1
-        A
-        19 1
-      type_line: 5 2|512|1024 8193
+    legacy_type_line: 5 2|512|1024 8193
+    legacy_raw: |
+      ~
+      5 2|512|1024 8193
+      0 4 5 3
+      9 3304 99
+      A
+      18 1
+      A
+      19 1
   - id: 2005
-    key: sword_excalibur
+    key: sword_excalibur_2005
     name: The sword Excalibur
     description: A sword gleams by the light of its magical silvery blade.
     weight: 15
@@ -150,19 +146,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 508
-    template_json:
-      raw_block: |
-        ~
-        5 1|64|1024|2048 8193
-        0 5 4 3
-        15 12157 50
-        A
-        18 3
-        A
-        1 1
-      type_line: 5 1|64|1024|2048 8193
+    legacy_type_line: 5 1|64|1024|2048 8193
+    legacy_raw: |
+      ~
+      5 1|64|1024|2048 8193
+      0 5 4 3
+      15 12157 50
+      A
+      18 3
+      A
+      1 1
   - id: 2006
-    key: crown
+    key: crown_2006
     name: A kingly crown
     description: The crown of a long lost King lies forgotten here.
     weight: 10
@@ -177,45 +172,46 @@ items:
     applies:
       - location: 17
         modifier: -8
-    template_json:
-      raw_block: |
-        A kingly crown~
-        The crown of a long lost King lies forgotten here.~
-        ~
-        18 256 17
-        15 0 0 0
-        10 15900 720
-        A
-        17 -8
-      type_line: 18 256 17
+    legacy_type_line: 18 256 17
+    legacy_raw: |
+      A kingly crown~
+      The crown of a long lost King lies forgotten here.~
+      ~
+      18 256 17
+      15 0 0 0
+      10 15900 720
+      A
+      17 -8
   - id: 2007
-    key: stone
+    key: stone_2007
     name: stone
     description: The stone is surrounded by a bright glow, better look closer.
     weight: 2000
     value: 0
-    type: container
+    types:
+      - container
+      - immobile
     extra_flags:
       - GLOW
     keywords: [stone]
-    template_json:
-      raw_block: |
-        #2007
-        stone~
-        stone~
-        The stone is surrounded by a bright glow, better look closer.~
-        ~
-        15 1 0
-        15 15 2006 0
-        2000 0 0
-      type_line: 15 1 0
+    legacy_type_line: 15 1 0
+    legacy_raw: |
+      #2007
+      stone~
+      stone~
+      The stone is surrounded by a bright glow, better look closer.~
+      ~
+      15 1 0
+      15 15 2006 0
+      2000 0 0
   - id: 2008
-    key: holy_water_flask
+    key: holy_water_flask_2008
     name: a flask of holy water
     description: A flask of holy water is here.
     weight: 2
     value: 5000
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - GLOW
     wear_flags:
@@ -226,19 +222,18 @@ items:
       - 25
       - 3
       - 36
-    template_json:
-      raw_block: |
-        #2008
-        holy water flask~
-        a flask of holy water~
-        A flask of holy water is here.~
-        ~
-        10 1 16385
-        25 3 36 -1
-        2 5000 10
-      type_line: 10 1 16385
+    legacy_type_line: 10 1 16385
+    legacy_raw: |
+      #2008
+      holy water flask~
+      a flask of holy water~
+      A flask of holy water is here.~
+      ~
+      10 1 16385
+      25 3 36 -1
+      2 5000 10
   - id: 2009
-    key: chainmail_chain_mail_suit
+    key: chainmail_chain_mail_suit_2009
     name: a suit of chainmail
     description: A nice suit of chainmail has been left behind.
     weight: 20
@@ -252,19 +247,18 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [chainmail, chain, mail, suit]
-    template_json:
-      raw_block: |
-        #2009
-        chainmail chain mail suit~
-        a suit of chainmail~
-        A nice suit of chainmail has been left behind.~
-        ~
-        9 256 9
-        5 0 0 0
-        20 1111 25
-      type_line: 9 256 9
+    legacy_type_line: 9 256 9
+    legacy_raw: |
+      #2009
+      chainmail chain mail suit~
+      a suit of chainmail~
+      A nice suit of chainmail has been left behind.~
+      ~
+      9 256 9
+      5 0 0 0
+      20 1111 25
   - id: 2010
-    key: white_cape
+    key: white_cape_2010
     name: a white cape
     description: A blazing cape of white lies in a careful pile.
     weight: 3
@@ -283,19 +277,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        a white cape~
-        A blazing cape of white lies in a careful pile.~
-        ~
-        9 1 5
-        5 0 0 0
-        3 5000 10
-        A
-        18 1
-      type_line: 9 1 5
+    legacy_type_line: 9 1 5
+    legacy_raw: |
+      a white cape~
+      A blazing cape of white lies in a careful pile.~
+      ~
+      9 1 5
+      5 0 0 0
+      3 5000 10
+      A
+      18 1
   - id: 2011
-    key: shield_defense
+    key: shield_defense_2011
     name: the shield of defense
     description: A large shield lies protecting the ground.
     weight: 15
@@ -321,19 +314,18 @@ items:
     on_equip_effect_ids:
       - 506
       - 509
-    template_json:
-      raw_block: |
-        A
-        12 10
-        A
-        13 10
-        A
-        18 -2
-        A
-        19 -1
-      type_line: 9 64 513
+    legacy_type_line: 9 64 513
+    legacy_raw: |
+      A
+      12 10
+      A
+      13 10
+      A
+      18 -2
+      A
+      19 -1
   - id: 2012
-    key: scale_shield_dragonscale
+    key: scale_shield_dragonscale_2012
     name: a dragonscale shield
     description: A shield from from the scales of a large dragon lies here.
     weight: 18
@@ -348,19 +340,18 @@ items:
     applies:
       - location: 23
         modifier: 3
-    template_json:
-      raw_block: |
-        a dragonscale shield~
-        A shield from from the scales of a large dragon lies here.~
-        ~
-        9 0 513
-        8 0 0 0
-        18 8000 100
-        A
-        23 3
-      type_line: 9 0 513
+    legacy_type_line: 9 0 513
+    legacy_raw: |
+      a dragonscale shield~
+      A shield from from the scales of a large dragon lies here.~
+      ~
+      9 0 513
+      8 0 0 0
+      18 8000 100
+      A
+      23 3
   - id: 2013
-    key: prism_wand
+    key: prism_wand_2013
     name: a prism wand
     description: A wand made of a triangular prism twinkles in the dust.
     weight: 4
@@ -379,19 +370,18 @@ items:
       - TAKE
       - HOLD
     keywords: [prism, wand]
-    template_json:
-      raw_block: |
-        #2013
-        prism wand~
-        a prism wand~
-        A wand made of a triangular prism twinkles in the dust.~
-        ~
-        3 65 16385
-        11 4 4 10
-        4 7070 20
-      type_line: 3 65 16385
+    legacy_type_line: 3 65 16385
+    legacy_raw: |
+      #2013
+      prism wand~
+      a prism wand~
+      A wand made of a triangular prism twinkles in the dust.~
+      ~
+      3 65 16385
+      11 4 4 10
+      4 7070 20
   - id: 2014
-    key: shadow_cloak
+    key: shadow_cloak_2014
     name: a shadow cloak
     description: The shadows in the corner of the room seems strange ...
     weight: 1
@@ -408,24 +398,24 @@ items:
     applies:
       - location: 14
         modifier: -30
-    template_json:
-      raw_block: |
-        a shadow cloak~
-        The shadows in the corner of the room seems strange ...~
-        ~
-        9 64 1025
-        10 0 0 0
-        1 4000 1
-        A
-        14 -30
-      type_line: 9 64 1025
+    legacy_type_line: 9 64 1025
+    legacy_raw: |
+      a shadow cloak~
+      The shadows in the corner of the room seems strange ...~
+      ~
+      9 64 1025
+      10 0 0 0
+      1 4000 1
+      A
+      14 -30
   - id: 2015
-    key: misty_potion
+    key: misty_potion_2015
     name: a misty potion
     description: A potion of swirling mist-like substance is here.
     weight: 1
     value: 1000
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
       - HOLD
@@ -433,19 +423,18 @@ items:
     spell_ids:
       - 10
       - 74
-    template_json:
-      raw_block: |
-        #2015
-        misty potion~
-        a misty potion~
-        A potion of swirling mist-like substance is here.~
-        ~
-        10 0 16385
-        10 74 -1 -1
-        1 1000 10
-      type_line: 10 0 16385
+    legacy_type_line: 10 0 16385
+    legacy_raw: |
+      #2015
+      misty potion~
+      a misty potion~
+      A potion of swirling mist-like substance is here.~
+      ~
+      10 0 16385
+      10 74 -1 -1
+      1 1000 10
   - id: 2016
-    key: templar_templars_sword_wooden
+    key: templar_templars_sword_wooden_2016
     name: a templar's sword
     description: A sword made of wood has been left here.
     weight: 6
@@ -467,14 +456,13 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        a templar's sword~
-        A sword made of wood has been left here.~
-        ~
-        5 256 8193
-        0 2 6 3
-        6 2900 50
-        A
-        18 1
-      type_line: 5 256 8193
+    legacy_type_line: 5 256 8193
+    legacy_raw: |
+      a templar's sword~
+      A sword made of wood has been left here.~
+      ~
+      5 256 8193
+      0 2 6 3
+      6 2900 50
+      A
+      18 1

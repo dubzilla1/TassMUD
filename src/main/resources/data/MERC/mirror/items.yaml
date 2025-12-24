@@ -1,6 +1,6 @@
 items:
   - id: 5300
-    key: collar
+    key: collar_5300
     name: a lamia collar
     description: A lamia collar is on the ground.
     weight: 5
@@ -12,19 +12,18 @@ items:
       - TAKE
       - WEAR_NECK
     keywords: [collar]
-    template_json:
-      raw_block: |
-        #5300
-        collar~
-        a lamia collar~
-        A lamia collar is on the ground.~
-        ~
-        9 0 5
-        3 0 0 0
-        5 100 50
-      type_line: 9 0 5
+    legacy_type_line: 9 0 5
+    legacy_raw: |
+      #5300
+      collar~
+      a lamia collar~
+      A lamia collar is on the ground.~
+      ~
+      9 0 5
+      3 0 0 0
+      5 100 50
   - id: 5301
-    key: breast_plate_iron
+    key: breast_plate_iron_5301
     name: a beautiful iron breast plate
     description: A beautiful iron breast plate lies here.
     weight: 125
@@ -41,19 +40,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        a beautiful iron breast plate~
-        A beautiful iron breast plate lies here.~
-        ~
-        9 0 9
-        7 0 0 0
-        125 20000 1500
-        A
-        18 1
-      type_line: 9 0 9
+    legacy_type_line: 9 0 9
+    legacy_raw: |
+      a beautiful iron breast plate~
+      A beautiful iron breast plate lies here.~
+      ~
+      9 0 9
+      7 0 0 0
+      125 20000 1500
+      A
+      18 1
   - id: 5302
-    key: staff_serpentine
+    key: staff_serpentine_5302
     name: a green serpentine staff
     description: A green serpentine staff has been left here.
     weight: 12
@@ -72,24 +70,24 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, serpentine]
-    template_json:
-      raw_block: |
-        #5302
-        staff serpentine~
-        a green serpentine staff~
-        A green serpentine staff has been left here.~
-        ~
-        4 96 16385
-        20 2 2 23
-        12 7600 1300
-      type_line: 4 96 16385
+    legacy_type_line: 4 96 16385
+    legacy_raw: |
+      #5302
+      staff serpentine~
+      a green serpentine staff~
+      A green serpentine staff has been left here.~
+      ~
+      4 96 16385
+      20 2 2 23
+      12 7600 1300
   - id: 5304
-    key: scroll_magic
+    key: scroll_magic_5304
     name: a scroll of enchantment
     description: A scroll of magical enchantment has been left here.
     weight: 15
     value: 20000
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -98,24 +96,24 @@ items:
     spell_ids:
       - 30
       - 24
-    template_json:
-      raw_block: |
-        #5304
-        scroll magic~
-        a scroll of enchantment~
-        A scroll of magical enchantment has been left here.~
-        ~
-        2 64 1
-        30 24 -1 -1
-        15 20000 3400
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #5304
+      scroll magic~
+      a scroll of enchantment~
+      A scroll of magical enchantment has been left here.~
+      ~
+      2 64 1
+      30 24 -1 -1
+      15 20000 3400
   - id: 5305
-    key: scroll_bound
+    key: scroll_bound_5305
     name: a bound scroll
     description: A bound scroll of detection lies at your feet.
     weight: 15
     value: 5000
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -126,87 +124,88 @@ items:
       - 18
       - 19
       - 20
-    template_json:
-      raw_block: |
-        #5305
-        scroll bound~
-        a bound scroll~
-        A bound scroll of detection lies at your feet.~
-        ~
-        2 64 1
-        30 18 19 20
-        15 5000 2100
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #5305
+      scroll bound~
+      a bound scroll~
+      A bound scroll of detection lies at your feet.~
+      ~
+      2 64 1
+      30 18 19 20
+      15 5000 2100
   - id: 5306
-    key: fountain
+    key: fountain_5306
     name: a large beautiful fountain
     description: An elaborate white marble fountain is here.
     weight: 0
     value: 0
-    type: immobile
+    types:
+      - immobile
     keywords: [fountain]
-    template_json:
-      raw_block: |
-        10 10 0 0
-        0 0 0
-        E
-        fountain~
-        You see the most beautiful fountain in the world.  The white marble glistens
-        as sunlight hits its wet surfaces.  Fish swim around in the inner fountain, and
-        an exterior fountain is reserved just for drinking.
-        ~
-      type_line: 25 0 0
-      extra_desc: |
-        You see the most beautiful fountain in the world.  The white marble glistens
-        as sunlight hits its wet surfaces.  Fish swim around in the inner fountain, and
-        an exterior fountain is reserved just for drinking.
+    legacy_type_line: 25 0 0
+    legacy_raw: |
+      10 10 0 0
+      0 0 0
+      E
+      fountain~
+      You see the most beautiful fountain in the world.  The white marble glistens
+      as sunlight hits its wet surfaces.  Fish swim around in the inner fountain, and
+      an exterior fountain is reserved just for drinking.
+      ~
+    extra_desc: |
+      You see the most beautiful fountain in the world.  The white marble glistens
+      as sunlight hits its wet surfaces.  Fish swim around in the inner fountain, and
+      an exterior fountain is reserved just for drinking.
   - id: 5307
-    key: desk
+    key: desk_5307
     name: the curved desk
     description: A beautiful desk made from a gigantic sea shell is here.
     weight: 0
     value: 0
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [desk]
-    template_json:
-      raw_block: |
-        15 0 0
-        100 13 5224 0
-        0 0 0
-        E
-        desk~
-        The sea shell desk here is just gorgeous.  The creamy white of the table
-        surface makes you dream of being in a pool swimming among mermaids.
-        ~
-      type_line: 15 0 0
-      extra_desc: |
-        The sea shell desk here is just gorgeous.  The creamy white of the table
-        surface makes you dream of being in a pool swimming among mermaids.
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      15 0 0
+      100 13 5224 0
+      0 0 0
+      E
+      desk~
+      The sea shell desk here is just gorgeous.  The creamy white of the table
+      surface makes you dream of being in a pool swimming among mermaids.
+      ~
+    extra_desc: |
+      The sea shell desk here is just gorgeous.  The creamy white of the table
+      surface makes you dream of being in a pool swimming among mermaids.
   - id: 5308
-    key: cabinet
+    key: cabinet_5308
     name: the glass cabinet
     description: A sturdy glass cabinet is here.
     weight: 0
     value: 0
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [cabinet]
-    template_json:
-      raw_block: |
-        500 13 5226 0
-        0 0 0
-        E
-        cabinet~
-        A cabinet made of oak and mahogany, this piece of woodmanship is just splendid 
-        to view.  The wood is varnished with a very strong stain that looks as if it
-        would last longer than the cabinet itself.
-        ~
-      type_line: 15 0 0
-      extra_desc: |
-        A cabinet made of oak and mahogany, this piece of woodmanship is just splendid 
-        to view.  The wood is varnished with a very strong stain that looks as if it
-        would last longer than the cabinet itself.
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      500 13 5226 0
+      0 0 0
+      E
+      cabinet~
+      A cabinet made of oak and mahogany, this piece of woodmanship is just splendid 
+      to view.  The wood is varnished with a very strong stain that looks as if it
+      would last longer than the cabinet itself.
+      ~
+    extra_desc: |
+      A cabinet made of oak and mahogany, this piece of woodmanship is just splendid 
+      to view.  The wood is varnished with a very strong stain that looks as if it
+      would last longer than the cabinet itself.
   - id: 5309
-    key: mandolin
+    key: mandolin_5309
     name: a mandolin
     description: A mandolin lies against the wall.
     weight: 20
@@ -224,19 +223,18 @@ items:
       - TAKE
       - HOLD
     keywords: [mandolin]
-    template_json:
-      raw_block: |
-        #5309
-        mandolin~
-        a mandolin~
-        A mandolin lies against the wall.~
-        ~
-        4 64 16385
-        18 5 5 15
-        20 6000 5000
-      type_line: 4 64 16385
+    legacy_type_line: 4 64 16385
+    legacy_raw: |
+      #5309
+      mandolin~
+      a mandolin~
+      A mandolin lies against the wall.~
+      ~
+      4 64 16385
+      18 5 5 15
+      20 6000 5000
   - id: 5310
-    key: harp_golden
+    key: harp_golden_5310
     name: a golden harp
     description: A beautiful golden harp is waiting to be played.
     weight: 100
@@ -254,19 +252,18 @@ items:
       - TAKE
       - HOLD
     keywords: [harp, golden]
-    template_json:
-      raw_block: |
-        #5310
-        harp golden~
-        a golden harp~
-        A beautiful golden harp is waiting to be played.~
-        ~
-        4 64 16385
-        30 1 1 6
-        100 2500 6700
-      type_line: 4 64 16385
+    legacy_type_line: 4 64 16385
+    legacy_raw: |
+      #5310
+      harp golden~
+      a golden harp~
+      A beautiful golden harp is waiting to be played.~
+      ~
+      4 64 16385
+      30 1 1 6
+      100 2500 6700
   - id: 5311
-    key: flute_silver
+    key: flute_silver_5311
     name: a silver flute
     description: A brilliant silver flute glimmers from its holster.
     weight: 6
@@ -285,24 +282,24 @@ items:
       - TAKE
       - HOLD
     keywords: [flute, silver]
-    template_json:
-      raw_block: |
-        #5311
-        flute silver~
-        a silver flute~
-        A brilliant silver flute glimmers from its holster.~
-        ~
-        4 65 16385
-        30 1 1 7
-        6 10500 3500
-      type_line: 4 65 16385
+    legacy_type_line: 4 65 16385
+    legacy_raw: |
+      #5311
+      flute silver~
+      a silver flute~
+      A brilliant silver flute glimmers from its holster.~
+      ~
+      4 65 16385
+      30 1 1 7
+      6 10500 3500
   - id: 5312
-    key: potion_green
+    key: potion_green_5312
     name: a green potion
     description: You see a green potion on the floor.
     weight: 5
     value: 100
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [potion, green]
@@ -311,19 +308,18 @@ items:
       - 203
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #5312
-        potion green~
-        a green potion~
-        You see a green potion on the floor.~
-        ~
-        10 0 1
-        20 203 0 0
-        5 100 100
-      type_line: 10 0 1
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      #5312
+      potion green~
+      a green potion~
+      You see a green potion on the floor.~
+      ~
+      10 0 1
+      20 203 0 0
+      5 100 100
   - id: 5313
-    key: herbs
+    key: herbs_5313
     name: some bluish herbs
     description: Some bluish herbs are scattered here.
     weight: 1
@@ -332,19 +328,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #5313
-        herbs~
-        some bluish herbs~
-        Some bluish herbs are scattered here.~
-        ~
-        26 0 1
-        15 0 0 3
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #5313
+      herbs~
+      some bluish herbs~
+      Some bluish herbs are scattered here.~
+      ~
+      26 0 1
+      15 0 0 3
+      1 1 1
   - id: 5314
-    key: herbs
+    key: herbs_5314
     name: some purplish herbs
     description: Some purplish herbs are scattered here.
     weight: 1
@@ -353,19 +348,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #5314
-        herbs~
-        some purplish herbs~
-        Some purplish herbs are scattered here.~
-        ~
-        26 0 1
-        15 0 0 82
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #5314
+      herbs~
+      some purplish herbs~
+      Some purplish herbs are scattered here.~
+      ~
+      26 0 1
+      15 0 0 82
+      1 1 1
   - id: 5315
-    key: herbs
+    key: herbs_5315
     name: some grayish herbs
     description: Some grayish herbs are scattered here.
     weight: 1
@@ -374,19 +368,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #5315
-        herbs~
-        some grayish herbs~
-        Some grayish herbs are scattered here.~
-        ~
-        26 0 1
-        5 0 39 33
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #5315
+      herbs~
+      some grayish herbs~
+      Some grayish herbs are scattered here.~
+      ~
+      26 0 1
+      5 0 39 33
+      1 1 1
   - id: 5316
-    key: herbs
+    key: herbs_5316
     name: some orangish herbs
     description: Some orangish herbs are scattered here.
     weight: 1
@@ -395,19 +388,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #5316
-        herbs~
-        some orangish herbs~
-        Some orangish herbs are scattered here.~
-        ~
-        26 0 1
-        5 0 0 16
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #5316
+      herbs~
+      some orangish herbs~
+      Some orangish herbs are scattered here.~
+      ~
+      26 0 1
+      5 0 0 16
+      1 1 1
   - id: 5317
-    key: sword
+    key: sword_5317
     name: an imperial sword
     description: You see an imperial sword here.
     weight: 5
@@ -432,22 +424,21 @@ items:
     on_equip_effect_ids:
       - 501
       - 502
-    template_json:
-      raw_block: |
-        sword~
-        You see a sword of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-        A
-        18 2
-        A
-        19 2
-      type_line: 5 64 8193
-      extra_desc: |
-        You see a sword of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 5 64 8193
+    legacy_raw: |
+      sword~
+      You see a sword of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+      A
+      18 2
+      A
+      19 2
+    extra_desc: |
+      You see a sword of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5318
-    key: mace
+    key: mace_5318
     name: an imperial mace
     description: You see an imperial mace here.
     weight: 5
@@ -472,22 +463,21 @@ items:
     on_equip_effect_ids:
       - 501
       - 502
-    template_json:
-      raw_block: |
-        mace~
-        You see a mace of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-        A
-        18 2
-        A
-        19 2
-      type_line: 5 64 8193
-      extra_desc: |
-        You see a mace of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 5 64 8193
+    legacy_raw: |
+      mace~
+      You see a mace of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+      A
+      18 2
+      A
+      19 2
+    extra_desc: |
+      You see a mace of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5319
-    key: chest_plate
+    key: chest_plate_5319
     name: an imperial chest plate
     description: You see an imperial chest plate here.
     weight: 5
@@ -499,22 +489,21 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [chest, plate]
-    template_json:
-      raw_block: |
-        9 0 9
-        5 0 0 0
-        5 0 500
-        E
-        chest plate~
-        You see a chest plate of great craftsmanship.  Stamped on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 9
-      extra_desc: |
-        You see a chest plate of great craftsmanship.  Stamped on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 9
+    legacy_raw: |
+      9 0 9
+      5 0 0 0
+      5 0 500
+      E
+      chest plate~
+      You see a chest plate of great craftsmanship.  Stamped on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a chest plate of great craftsmanship.  Stamped on the side is:
+      Merc Industries
   - id: 5320
-    key: shield
+    key: shield_5320
     name: an imperial shield
     description: You see an imperial shield here.
     weight: 5
@@ -526,22 +515,21 @@ items:
       - TAKE
       - WEAR_SHIELD
     keywords: [shield]
-    template_json:
-      raw_block: |
-        9 0 513
-        5 0 0 0
-        5 0 500
-        E
-        shield~
-        You see a shield of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 513
-      extra_desc: |
-        You see a shield of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 513
+    legacy_raw: |
+      9 0 513
+      5 0 0 0
+      5 0 500
+      E
+      shield~
+      You see a shield of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a shield of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5321
-    key: cloak
+    key: cloak_5321
     name: an imperial cloak
     description: You see an imperial cloak here.
     weight: 5
@@ -553,22 +541,21 @@ items:
       - TAKE
       - WEAR_NECK
     keywords: [cloak]
-    template_json:
-      raw_block: |
-        9 0 5
-        5 0 0 0
-        5 0 500
-        E
-        cloak~
-        You see a cloak of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 5
-      extra_desc: |
-        You see a cloak of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 5
+    legacy_raw: |
+      9 0 5
+      5 0 0 0
+      5 0 500
+      E
+      cloak~
+      You see a cloak of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a cloak of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5322
-    key: helm
+    key: helm_5322
     name: an imperial helm
     description: You see an imperial helm here.
     weight: 5
@@ -580,22 +567,21 @@ items:
       - TAKE
       - WEAR_HEAD
     keywords: [helm]
-    template_json:
-      raw_block: |
-        9 0 17
-        5 0 0 0
-        5 0 500
-        E
-        helm~
-        You see a helm of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 17
-      extra_desc: |
-        You see a helm of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 17
+    legacy_raw: |
+      9 0 17
+      5 0 0 0
+      5 0 500
+      E
+      helm~
+      You see a helm of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a helm of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5323
-    key: plate_leggings
+    key: plate_leggings_5323
     name: a pair of imperial plate leggings
     description: You see a pair of imperial plate leggings here.
     weight: 5
@@ -607,22 +593,21 @@ items:
       - TAKE
       - WEAR_LEGS
     keywords: [plate, leggings]
-    template_json:
-      raw_block: |
-        9 0 33
-        5 0 0 0
-        5 0 500
-        E
-        plate leggings~
-        You see plate leggings of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 33
-      extra_desc: |
-        You see plate leggings of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 33
+    legacy_raw: |
+      9 0 33
+      5 0 0 0
+      5 0 500
+      E
+      plate leggings~
+      You see plate leggings of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see plate leggings of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5324
-    key: plate_boots
+    key: plate_boots_5324
     name: a pair of imperial plate boots
     description: You see a pair of imperial plate boots here.
     weight: 5
@@ -634,22 +619,21 @@ items:
       - TAKE
       - WEAR_FEET
     keywords: [plate, boots]
-    template_json:
-      raw_block: |
-        9 0 65
-        5 0 0 0
-        5 0 500
-        E
-        plate boots~
-        You see plate boots of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 65
-      extra_desc: |
-        You see plate boots of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 65
+    legacy_raw: |
+      9 0 65
+      5 0 0 0
+      5 0 500
+      E
+      plate boots~
+      You see plate boots of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see plate boots of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5325
-    key: plate_gloves
+    key: plate_gloves_5325
     name: a pair of imperial plate gloves
     description: You see a pair of imperial plate gloves here.
     weight: 5
@@ -661,22 +645,21 @@ items:
       - TAKE
       - WEAR_HANDS
     keywords: [plate, gloves]
-    template_json:
-      raw_block: |
-        9 0 129
-        5 0 0 0
-        5 0 500
-        E
-        plate gloves~
-        You see plate gloves of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 129
-      extra_desc: |
-        You see plate gloves of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 129
+    legacy_raw: |
+      9 0 129
+      5 0 0 0
+      5 0 500
+      E
+      plate gloves~
+      You see plate gloves of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see plate gloves of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5326
-    key: plate_sleeves
+    key: plate_sleeves_5326
     name: a pair of imperial plate sleeves
     description: You see a pair of imperial plate sleeves here.
     weight: 5
@@ -688,22 +671,21 @@ items:
       - TAKE
       - WEAR_ARMS
     keywords: [plate, sleeves]
-    template_json:
-      raw_block: |
-        9 0 257
-        5 0 0 0
-        5 0 500
-        E
-        plate sleeves~
-        You see plate sleeves of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 257
-      extra_desc: |
-        You see plate sleeves of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 257
+    legacy_raw: |
+      9 0 257
+      5 0 0 0
+      5 0 500
+      E
+      plate sleeves~
+      You see plate sleeves of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see plate sleeves of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5327
-    key: cape
+    key: cape_5327
     name: an imperial cape
     description: You see an imperial cape here.
     weight: 5
@@ -715,22 +697,21 @@ items:
       - TAKE
       - WEAR_ABOUT
     keywords: [cape]
-    template_json:
-      raw_block: |
-        9 0 1025
-        5 0 0 0
-        5 0 500
-        E
-        cape~
-        You see a cape of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1025
-      extra_desc: |
-        You see a cape of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1025
+    legacy_raw: |
+      9 0 1025
+      5 0 0 0
+      5 0 500
+      E
+      cape~
+      You see a cape of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a cape of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5328
-    key: belt
+    key: belt_5328
     name: an imperial belt
     description: You see an imperial belt here.
     weight: 5
@@ -742,22 +723,21 @@ items:
       - TAKE
       - WEAR_WAIST
     keywords: [belt]
-    template_json:
-      raw_block: |
-        9 0 2049
-        5 0 0 0
-        5 0 500
-        E
-        belt~
-        You see a belt of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 2049
-      extra_desc: |
-        You see a belt of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 2049
+    legacy_raw: |
+      9 0 2049
+      5 0 0 0
+      5 0 500
+      E
+      belt~
+      You see a belt of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a belt of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5329
-    key: metal_bracer
+    key: metal_bracer_5329
     name: an imperial metal bracer
     description: You see an imperial metal bracer here.
     weight: 5
@@ -769,22 +749,21 @@ items:
       - TAKE
       - WEAR_WRIST
     keywords: [metal, bracer]
-    template_json:
-      raw_block: |
-        9 0 4097
-        5 0 0 0
-        5 0 500
-        E
-        metal bracer~
-        You see a metal bracer of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 4097
-      extra_desc: |
-        You see a metal bracer of great craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 4097
+    legacy_raw: |
+      9 0 4097
+      5 0 0 0
+      5 0 500
+      E
+      metal bracer~
+      You see a metal bracer of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a metal bracer of great craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 5330
-    key: ring_signet
+    key: ring_signet_5330
     name: an imperial city guard signet ring
     description: You see a ring with a strange symbol on the floor.
     weight: 1
@@ -803,19 +782,18 @@ items:
         modifier: -6
       - location: 24
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        9 64 3
-        0 0 0 0
-        1 0 10000
-        A
-        17 -6
-        A
-        24 -2
-      type_line: 9 64 3
+    legacy_type_line: 9 64 3
+    legacy_raw: |
+      ~
+      9 64 3
+      0 0 0 0
+      1 0 10000
+      A
+      17 -6
+      A
+      24 -2
   - id: 5331
-    key: imperial_banner
+    key: imperial_banner_5331
     name: an imperial war banner
     description: An imperial war banner is on the floor here.
     weight: 1
@@ -832,15 +810,14 @@ items:
         modifier: -2
       - location: 17
         modifier: -2
-    template_json:
-      raw_block: |
-        E
-        banner~
-        This is the official Merc war banner to see you through the darkest realm!
-        ~
-        A
-        24 -2
-        A
-        17 -2
-      type_line: 1 65 1
-      extra_desc: This is the official Merc war banner to see you through the darkest realm!
+    legacy_type_line: 1 65 1
+    legacy_raw: |
+      E
+      banner~
+      This is the official Merc war banner to see you through the darkest realm!
+      ~
+      A
+      24 -2
+      A
+      17 -2
+    extra_desc: This is the official Merc war banner to see you through the darkest realm!

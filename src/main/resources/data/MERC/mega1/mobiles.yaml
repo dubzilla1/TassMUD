@@ -1,8 +1,11 @@
 - id: 8000
-  key: "a_juve"
-  name: "juve"
-  short_desc: "a juve"
-  long_desc: "A juve is standing here plotting mischief."
+  key: a_juve_8000
+  name: a juve
+  short_desc: A juve is standing here plotting mischief.
+  long_desc: |
+    He is a tall, thin boy.  He is looking for his gang mates.  He and his
+    mates have cost city authorities many millions of creds a week in
+    vandalism repairs.
   keywords: ['juve']
   level: 4
   hp_max: 0
@@ -27,13 +30,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': 'He is a tall, thin boy.  He is looking for his gang mates.  He and his\nmates have cost city authorities many millions of creds a week in\nvandalism repairs.\n~\n4 0 -400 S\n5 0 0 0d0+0 0d0+0\n0 0\n0 0 1'}
+  legacy_raw: 4 0 -400 S 5 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8001
-  key: "a_punk"
-  name: "punk"
-  short_desc: "a punk"
-  long_desc: "A punk is here plotting a crime wave."
+  key: a_punk_8001
+  name: a punk
+  short_desc: A punk is here plotting a crime wave.
+  long_desc: |
+    This punk is from one of the rowdiest, scruffiest, and definitely most
+    fashionable of all gangs -- the Grunge Mongers.
   keywords: ['punk']
   level: 4
   hp_max: 0
@@ -58,13 +63,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': 'This punk is from one of the rowdiest, scruffiest, and definitely most\nfashionable of all gangs -- the Grunge Mongers.\n~\n4|64 0 -500 S\n10 0 0 0d0+0 0d0+0\n0 0\n0 0 1'}
+  legacy_raw: 4|64 0 -500 S 10 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8002
-  key: "a_futsie"
-  name: "Futsie"
-  short_desc: "a Futsie"
-  long_desc: "A Futsie is here reciting Monty Python sketches."
+  key: a_futsie_8002
+  name: a Futsie
+  short_desc: A Futsie is here reciting Monty Python sketches.
+  long_desc: |
+    A sad victim of Future Shock, this man is immensely dangerous and will
+    not be stopped by anyone who tries to deter him from revenge upon the
+    Justice Department.
   keywords: ['Futsie']
   level: 2
   hp_max: 0
@@ -89,13 +97,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': 'A sad victim of Future Shock, this man is immensely dangerous and will\nnot be stopped by anyone who tries to deter him from revenge upon the\nJustice Department.\n~\n2|32 8 0 S\n17 0 0 0d0+0 0d0+0\n0 0\n0 0 1'}
+  legacy_raw: 2|32 8 0 S 17 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8003
-  key: "a_citi_def_militiaman"
-  name: "Citi-Def Militiaman"
-  short_desc: "a Citi-Def Militiaman"
-  long_desc: "A Citi-Def Militiaman is here contemplating a Block War."
+  key: a_citi_def_militiaman_8003
+  name: a Citi-Def Militiaman
+  short_desc: A Citi-Def Militiaman is here contemplating a Block War.
+  long_desc: |
+    A member of a local Block's Citi-Def militia, this man is well-armed
+    and undersupervised.
   keywords: ['Citi-Def', 'Militiaman']
   level: 4
   hp_max: 0
@@ -120,13 +130,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': "A member of a local Block's Citi-Def militia, this man is well-armed\nand undersupervised.\n~\n4|64 512 0 S\n16 0 0 0d0+0 0d0+0\n0 0\n0 0 1"}
+  legacy_raw: 4|64 512 0 S 16 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8004
-  key: "a_dunk"
-  name: "dunk"
-  short_desc: "a dunk"
-  long_desc: "A dunk is here blending into the crowd."
+  key: a_dunk_8004
+  name: a dunk
+  short_desc: A dunk is here blending into the crowd.
+  long_desc: |
+    He blends into the crowd as his hand travels into another citizen's pocket.
   keywords: ['dunk']
   level: 4
   hp_max: 0
@@ -151,13 +162,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': "He blends into the crowd as his hand travels into another citizen's pocket.\n~\n4|64|128 0 -150 S\n10 0 0 0d0+0 0d0+0\n0 0\n0 0 1"}
+  legacy_raw: 4|64|128 0 -150 S 10 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8005
-  key: "a_tap"
-  name: "tap"
-  short_desc: "a tap"
-  long_desc: "A tap is here eyeing your belongings."
+  key: a_tap_8005
+  name: a tap
+  short_desc: A tap is here eyeing your belongings.
+  long_desc: |
+    A practitioner in Mega-City One's largest growth industry, mugging, is
+    looking you over for a possible business transaction.
   keywords: ['tap']
   level: 4
   hp_max: 0
@@ -182,15 +195,18 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': "A practitioner in Mega-City One's largest growth industry, mugging, is\nlooking you over for a possible business transaction.\n~\n4|64 0 -400 S\n14 0 0 0d0+0 0d0+0\n0 0\n0 0 2"}
+  legacy_raw: 4|64 0 -400 S 14 0 0 0d0+0 0d0+0 0 0 0 0 2
 
 - id: 8006
-  key: "a_rookie_judge"
-  name: "rookie judge"
-  short_desc: "a rookie judge"
-  long_desc: "A Rookie judge is on his first beat here."
+  key: a_rookie_judge_8006
+  name: a rookie judge
+  short_desc: A Rookie judge is on his first beat here.
+  long_desc: |
+    A member of Mega-City One's Justice Department is here considering what
+    crimes you have committed.  Being a rookie he will probably be easier on
+    you though.
   keywords: ['rookie', 'judge']
-  level: 64
+  level: 8
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -209,17 +225,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': "A member of Mega-City One's Justice Department is here considering what\ncrimes you have committed.  Being a rookie he will probably be easier on\nyou though.\n~\n64 8|32 300 S\n20 0 0 0d0+0 0d0+0\n0 0\n0 0 1"}
+  legacy_raw: 64 8|32 300 S 20 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8007
-  key: "wallaby_gleep"
-  name: "Wallaby Gleep"
-  short_desc: "Wallaby Gleep"
-  long_desc: "Mr. Gleep is here wanting to know what you want."
+  key: wallaby_gleep_8007
+  name: Wallaby Gleep
+  short_desc: Mr. Gleep is here wanting to know what you want.
+  long_desc: |
+    Wallaby Gleep is a heavy-set man who gives you the impression that he is
+    unintelligent and unimaginative, but looks can be deceiving.
   keywords: ['Wallaby', 'Gleep']
   level: 2
   hp_max: 0
@@ -244,13 +262,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': 'Wallaby Gleep is a heavy-set man who gives you the impression that he is\nunintelligent and unimaginative, but looks can be deceiving.\n~\n2|4 8|32|512 -600 S\n22 0 0 0d0+0 0d0+0\n0 0\n0 0 1'}
+  legacy_raw: 2|4 8|32|512 -600 S 22 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8008
-  key: "pinkerton_throt"
-  name: "Pinkerton Throt"
-  short_desc: "Pinkerton Throt"
-  long_desc: "Pinky Throt is here Wringing his hands."
+  key: pinkerton_throt_8008
+  name: Pinkerton Throt
+  short_desc: Pinky Throt is here Wringing his hands.
+  long_desc: |
+    He is a thin angular crook, pretty close to everyone's idea of Ebeneezer
+    Scrooge.  Indeed, the only thing guaranteed to bring a spark to his dead
+    eyes is the mention of money.
   keywords: ['Pinkerton', 'Throt']
   level: 2
   hp_max: 0
@@ -275,13 +296,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': "He is a thin angular crook, pretty close to everyone's idea of Ebeneezer\nScrooge.  Indeed, the only thing guaranteed to bring a spark to his dead\neyes is the mention of money.\n~\n2|4|32 8|32 -900 S\n25 0 0 0d0+0 0d0+0\n0 0\n0 0 1"}
+  legacy_raw: 2|4|32 8|32 -900 S 25 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8009
-  key: "ernie_ramirez"
-  name: "Ernie Ramirez"
-  short_desc: "Ernie Ramirez"
-  long_desc: "Ernie Ramirez is here collecting for the mob."
+  key: ernie_ramirez_8009
+  name: Ernie Ramirez
+  short_desc: Ernie Ramirez is here collecting for the mob.
+  long_desc: |
+    Ramirez is a dour man who knows that he's never going to get a better
+    deal out of life.  He is content to run the bite fights for Throt and
+    Gleep.
   keywords: ['Ernie', 'Ramirez']
   level: 2
   hp_max: 0
@@ -306,15 +330,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': "Ramirez is a dour man who knows that he's never going to get a better\ndeal out of life.  He is content to run the bite fights for Throt and\nGleep.\n~\n2|4 0 -400 S\n19 0 0 0d0+0 0d0+0\n0 0\n0 0 1"}
+  legacy_raw: 2|4 0 -400 S 19 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8010
-  key: "judge_eckersely"
-  name: "Judge Eckersely"
-  short_desc: "Judge Eckersely"
-  long_desc: "Judge Eckersely is here shaking down a Perp."
+  key: judge_eckersely_8010
+  name: Judge Eckersely
+  short_desc: Judge Eckersely is here shaking down a Perp.
+  long_desc: |
+    He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
+    of the Downtown Quadrant.
   keywords: ['Judge', 'Eckersely']
-  level: 64
+  level: 8
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -333,19 +359,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': 'He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge\nof the Downtown Quadrant.\n~\n64 8|32|128 300 S\n30 0 0 0d0+0 0d0+0\n0 0\n0 0 1'}
+  legacy_raw: 64 8|32|128 300 S 30 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8011
-  key: "judge_beddows"
-  name: "Judge Sara Beddows"
-  short_desc: "Judge Beddows"
-  long_desc: "Judge Beddows is here calling Resyk."
+  key: judge_beddows_8011
+  name: Judge Beddows
+  short_desc: Judge Beddows is here calling Resyk.
+  long_desc: |
+    Beddows is a clone from the same stock as the ex-Chief Judge McGruder.
+    She is fanatically dedicated to her job and has no ambitions other than
+    to enforce the LAW.
   keywords: ['Judge', 'Sara', 'Beddows']
-  level: 64
+  level: 8
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -364,17 +393,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': 'Beddows is a clone from the same stock as the ex-Chief Judge McGruder.\nShe is fanatically dedicated to her job and has no ambitions other than\nto enforce the LAW.\n~\n64 8|32 500 S\n25 0 0 0d0+0 0d0+0\n0 0\n0 0 2'}
+  legacy_raw: 64 8|32 500 S 25 0 0 0d0+0 0d0+0 0 0 0 0 2
 
 - id: 8012
-  key: "a_bite_fighter"
-  name: "bite fighter"
-  short_desc: "a bite fighter"
-  long_desc: "A bite fighter is here sharpening his teeth."
+  key: a_bite_fighter_8012
+  name: a bite fighter
+  short_desc: A bite fighter is here sharpening his teeth.
+  long_desc: |
+    A bite fighter is here with sharpened teeth and a bad attitude.
   keywords: ['bite', 'fighter']
   level: 2
   hp_max: 0
@@ -399,5 +429,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '0d0+0', 'damage_dice': '0d0+0', 'raw_block': 'A bite fighter is here with sharpened teeth and a bad attitude.\n~\n2|32 0 -400 S\n20 0 0 0d0+0 0d0+0\n0 0\n0 0 1'}
+  legacy_raw: 2|32 0 -400 S 20 0 0 0d0+0 0d0+0 0 0 0 0 1
 

@@ -1,8 +1,11 @@
 - id: 5300
-  key: "the_baby_beholder"
-  name: "baby beholder"
-  short_desc: "the baby beholder"
-  long_desc: "You meet a baby beholder's cute gaze!"
+  key: the_baby_beholder_5300
+  name: the baby beholder
+  short_desc: You meet a baby beholder's cute gaze!
+  long_desc: |
+    It has a large central eye that blinks like a guppy and eyestalks atop the 
+    round body which can charm you with its cuteness.  Baby beholders are known for
+    their playful personality.  Hmmm....  It looks like the baby is teething!
   keywords: ['baby', 'beholder']
   level: 2
   hp_max: 70
@@ -27,13 +30,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '5d5+55', 'damage_dice': '5d5+55', 'raw_block': 'It has a large central eye that blinks like a guppy and eyestalks atop the \nround body which can charm you with its cuteness.  Baby beholders are known for\ntheir playful personality.  Hmmm....  It looks like the baby is teething!\n~\n2|4|128 8 500 S\n5 16 5 5d5+55 1d6+2\n225 700\n8 8 0'}
+  legacy_raw: 2|4|128 8 500 S 5 16 5 5d5+55 1d6+2 225 700 8 8 0
 
 - id: 5301
-  key: "the_pet_lamia"
-  name: "lamia pet"
-  short_desc: "the pet lamia"
-  long_desc: "A pet lamia stands here waiting for her next command."
+  key: the_pet_lamia_5301
+  name: the pet lamia
+  short_desc: A pet lamia stands here waiting for her next command.
+  long_desc: |
+    This is a creature with the upper torso of a beautiful woman, but the lower
+    body of a four-legged beast.
   keywords: ['lamia', 'pet']
   level: 4
   hp_max: 54
@@ -58,15 +63,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '4d4+44', 'damage_dice': '4d4+44', 'raw_block': 'This is a creature with the upper torso of a beautiful woman, but the lower\nbody of a four-legged beast.\n~\n4|128 0 500 S\n4 17 6 4d4+44 1d5+1\n50 500\n8 8 2'}
+  legacy_raw: 4|128 0 500 S 4 17 6 4d4+44 1d5+1 50 500 8 8 2
 
 - id: 5302
-  key: "a_citizen_of_thalos"
-  name: "citizen man"
-  short_desc: "a citizen of Thalos"
-  long_desc: "A citizen of Thalos is here, conversing with everyone."
+  key: a_citizen_of_thalos_5302
+  name: a citizen of Thalos
+  short_desc: A citizen of Thalos is here, conversing with everyone.
+  long_desc: |
+    He smiles at you, almost as if he knows you.  He is so friendly, you have no
+    choice but to reciprocate.
   keywords: ['citizen', 'man']
-  level: 64
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -85,17 +92,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '5d5+55', 'damage_dice': '5d5+55', 'raw_block': 'He smiles at you, almost as if he knows you.  He is so friendly, you have no\nchoice but to reciprocate.\n~\n64|128 0 500 S\n5 16 5 5d5+55 1d4+3\n100 700\n8 8 1'}
+  legacy_raw: 64|128 0 500 S 5 16 5 5d5+55 1d4+3 100 700 8 8 1
 
 - id: 5303
-  key: "an_imperial_cityguard"
-  name: "guard imperial cityguard"
-  short_desc: "an imperial cityguard"
-  long_desc: "An imperial cityguard is here, keeping the peace of Thalos."
+  key: an_imperial_cityguard_5303
+  name: an imperial cityguard
+  short_desc: An imperial cityguard is here, keeping the peace of Thalos.
+  long_desc: |
+    He is dressed in plate, and he looks quite formidable.  At the moment, though,
+    he is just giggling with a kid running about.
   keywords: ['guard', 'imperial', 'cityguard']
   level: 4
   hp_max: 270
@@ -120,15 +129,18 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'He is dressed in plate, and he looks quite formidable.  At the moment, though,\nhe is just giggling with a kid running about.\n~\n4|64 128 1000 S\n17 6 -5 15d15+150 1d4+10\n1500 15000\n8 8 1'}
+  legacy_raw: 4|64 128 1000 S 17 6 -5 15d15+150 1d4+10 1500 15000 8 8 1
 
 - id: 5304
-  key: "a_female_citizen_of_thalos"
-  name: "citizen woman female"
-  short_desc: "a female citizen of Thalos"
-  long_desc: "A female citizen of Thalos is here, showing off her new dress."
+  key: a_female_citizen_of_thalos_5304
+  name: a female citizen of Thalos
+  short_desc: A female citizen of Thalos is here, showing off her new dress.
+  long_desc: |
+    She is beautiful, dressed in a sundress that sparkles with gems sown in.  She
+    smiles at you, and your heart flutters at the thought that you have her
+    attention, if only for a moment.
   keywords: ['citizen', 'woman', 'female']
-  level: 64
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -147,19 +159,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '5d5+55', 'damage_dice': '5d5+55', 'raw_block': 'She is beautiful, dressed in a sundress that sparkles with gems sown in.  She\nsmiles at you, and your heart flutters at the thought that you have her\nattention, if only for a moment.\n~\n64|128 0 500 S\n5 16 5 5d5+55 1d4+3\n100 700\n8 8 2'}
+  legacy_raw: 64|128 0 500 S 5 16 5 5d5+55 1d4+3 100 700 8 8 2
 
 - id: 5305
-  key: "gordon_the_brave"
-  name: "gordon defender"
-  short_desc: "Gordon the Brave"
-  long_desc: "Gordon the Brave, the Defender of Thalos, is here, looking at no\none but you, the only stranger in town."
+  key: gordon_the_brave_5305
+  name: Gordon the Brave
+  short_desc: Gordon the Brave, the Defender of Thalos, is here, looking at no one but you, the only stranger in town.
+  long_desc: |
+    Gordon is dressed in full mithril plate, and he looks indestructible.  He eyes
+    you suspiciously not only because you are a stranger, but because you are an
+    ARMED stranger.  Better not do any funny stuff in his presence.
   keywords: ['gordon', 'defender']
-  level: 128
+  level: 35
   hp_max: 980
   mp_max: 0
   mv_max: 100
@@ -178,17 +193,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 12800
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 128, 'hit_dice': '35d35+350', 'damage_dice': '35d35+350', 'raw_block': 'Gordon is dressed in full mithril plate, and he looks indestructible.  He eyes\nyou suspiciously not only because you are a stranger, but because you are an\nARMED stranger.  Better not do any funny stuff in his presence.\n~\n0 128 1000 S\n35 0 -10 35d35+350 1d8+30\n10000 150000\n8 8 1'}
+  legacy_raw: 0 128 1000 S 35 0 -10 35d35+350 1d8+30 10000 150000 8 8 1
 
 - id: 5306
-  key: "the_fanatic_priest"
-  name: "priest"
-  short_desc: "the fanatic priest"
-  long_desc: "A fanatic priest is here, foretelling the destruction of Thalos."
+  key: the_fanatic_priest_5306
+  name: the fanatic priest
+  short_desc: A fanatic priest is here, foretelling the destruction of Thalos.
+  long_desc: |
+    The priest must have lost his mind.  He keeps saying that one day, evil will
+    prevail and take over Thalos and bring the whole city down.  Obviously, no one
+    listens to this fool.  The priest's right fist is covered in golden silk,
+    and he clenches it at you.  Other than that, he is dressed all in black.
   keywords: ['priest']
   level: 2
   hp_max: 155
@@ -213,13 +232,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': "The priest must have lost his mind.  He keeps saying that one day, evil will\nprevail and take over Thalos and bring the whole city down.  Obviously, no one\nlistens to this fool.  The priest's right fist is covered in golden silk,\nand he clenches it at you.  Other than that, he is dressed all in black.\n~\n2|128 0 -500 S\n10 10 0 10d10+100 1d4+8\n100 5000\n8 8 1"}
+  legacy_raw: 2|128 0 -500 S 10 10 0 10d10+100 1d4+8 100 5000 8 8 1
 
 - id: 5307
-  key: "the_priest_of_thalos"
-  name: "priest"
-  short_desc: "the priest of Thalos"
-  long_desc: "The priest of Thalos tells you of the glories of this city."
+  key: the_priest_of_thalos_5307
+  name: the priest of Thalos
+  short_desc: The priest of Thalos tells you of the glories of this city.
+  long_desc: |
+    He stands here gloriously telling of Thalos's history, how it is now referred by
+    the world as 'The City of Peace'.  He is very happy to be the high priest here.
   keywords: ['priest']
   level: 2
   hp_max: 410
@@ -244,13 +265,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': "He stands here gloriously telling of Thalos's history, how it is now referred by\nthe world as 'The City of Peace'.  He is very happy to be the high priest here.\n~\n2 128 1000 S\n20 5 -5 20d20+200 1d4+15\n100 17000\n8 8 1"}
+  legacy_raw: 2 128 1000 S 20 5 -5 20d20+200 1d4+15 100 17000 8 8 1
 
 - id: 5308
-  key: "the_stone_golem"
-  name: "golem stone"
-  short_desc: "the stone golem"
-  long_desc: "In the corner you see a large, stone golem faithfully standing watch."
+  key: the_stone_golem_5308
+  name: the stone golem
+  short_desc: In the corner you see a large, stone golem faithfully standing watch.
+  long_desc: |
+    It is a big chunk of rock that has been magically formed into a giant
+    stone creature.  It stands here guarding the city.
   keywords: ['golem', 'stone']
   level: 2
   hp_max: 765
@@ -275,13 +298,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'It is a big chunk of rock that has been magically formed into a giant\nstone creature.  It stands here guarding the city.\n~\n2 8192 1000 S\n30 0 -5 30d30+300 1d8+25\n4250 95000\n8 8 0'}
+  legacy_raw: 2 8192 1000 S 30 0 -5 30d30+300 1d8+25 4250 95000 8 8 0
 
 - id: 5309
-  key: "the_mayor_of_thalos"
-  name: "mayor"
-  short_desc: "the mayor of Thalos"
-  long_desc: "The mayor of Thalos is sitting here, doing his paperwork."
+  key: the_mayor_of_thalos_5309
+  name: the mayor of Thalos
+  short_desc: The mayor of Thalos is sitting here, doing his paperwork.
+  long_desc: |
+    He looks very busy, but he takes the time to say, 'Hi!  Welcome to Thalos!'
+    He looks very proud of his work.
   keywords: ['mayor']
   level: 2
   hp_max: 410
@@ -306,13 +331,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': "He looks very busy, but he takes the time to say, 'Hi!  Welcome to Thalos!'\nHe looks very proud of his work.\n~\n2 0 800 S\n20 5 -5 20d20+200 1d4+5\n1000 15000\n8 8 2"}
+  legacy_raw: 2 0 800 S 20 5 -5 20d20+200 1d4+5 1000 15000 8 8 2
 
 - id: 5310
-  key: "dan_the_barkeep"
-  name: "dan barkeep"
-  short_desc: "Dan the Barkeep"
-  long_desc: "Dan the Barkeep stands by the counter wiping a glass."
+  key: dan_the_barkeep_5310
+  name: Dan the Barkeep
+  short_desc: Dan the Barkeep stands by the counter wiping a glass.
+  long_desc: |
+    He looks at you, and says, 'What's your poison, stranger?'
   keywords: ['dan', 'barkeep']
   level: 2
   hp_max: 765
@@ -337,13 +363,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': "He looks at you, and says, 'What's your poison, stranger?'\n~\n2 0 600 S\n30 0 -10 30d30+300 1d6+20\n1000 100000\n8 8 1"}
+  legacy_raw: 2 0 600 S 30 0 -10 30d30+300 1d6+20 1000 100000 8 8 1
 
 - id: 5311
-  key: "george_the_butcher"
-  name: "george butcher"
-  short_desc: "George the Butcher"
-  long_desc: "George the Butcher is here whacking away at a side of beef."
+  key: george_the_butcher_5311
+  name: George the Butcher
+  short_desc: George the Butcher is here whacking away at a side of beef.
+  long_desc: |
+    Looking down at you with blood splattered all over his face and apron,
+    he asks, 'How much you want?'
   keywords: ['george', 'butcher']
   level: 2
   hp_max: 765
@@ -368,13 +396,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': "Looking down at you with blood splattered all over his face and apron,\nhe asks, 'How much you want?'\n~\n2 0 600 S\n30 0 -10 30d30+300 1d6+20\n1000 100000\n8 8 1"}
+  legacy_raw: 2 0 600 S 30 0 -10 30d30+300 1d6+20 1000 100000 8 8 1
 
 - id: 5312
-  key: "farmer_betty"
-  name: "farmer betty"
-  short_desc: "Farmer Betty"
-  long_desc: "Farmer Betty looks at you sweetly offering you some apples."
+  key: farmer_betty_5312
+  name: Farmer Betty
+  short_desc: Farmer Betty looks at you sweetly offering you some apples.
+  long_desc: |
+    She smiles at you meekly.
   keywords: ['farmer', 'betty']
   level: 2
   hp_max: 765
@@ -399,13 +428,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'She smiles at you meekly.\n~\n2 0 650 S\n30 0 -10 30d30+300 1d6+20\n1000 100000\n8 8 2'}
+  legacy_raw: 2 0 650 S 30 0 -10 30d30+300 1d6+20 1000 100000 8 8 2
 
 - id: 5313
-  key: "thaellor_the_dwarf"
-  name: "thaellor dwarf"
-  short_desc: "Thaellor the dwarf"
-  long_desc: "Thaellor is here selling his metal wares."
+  key: thaellor_the_dwarf_5313
+  name: Thaellor the dwarf
+  short_desc: Thaellor is here selling his metal wares.
+  long_desc: |
+    Thaellor sweats rivers and complains about the heat as he pounds the
+    metal into items of defense and destruction.
   keywords: ['thaellor', 'dwarf']
   level: 2
   hp_max: 765
@@ -430,13 +461,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'Thaellor sweats rivers and complains about the heat as he pounds the\nmetal into items of defense and destruction.\n~\n2 0 550 S\n30 0 -10 30d30+300 1d6+20\n1000 100000\n8 8 2'}
+  legacy_raw: 2 0 550 S 30 0 -10 30d30+300 1d6+20 1000 100000 8 8 2
 
 - id: 5314
-  key: "ben_the_smith"
-  name: "ben smith"
-  short_desc: "Ben the Smith"
-  long_desc: "Ben the Smith sells metal odds and ends to anyone interested."
+  key: ben_the_smith_5314
+  name: Ben the Smith
+  short_desc: Ben the Smith sells metal odds and ends to anyone interested.
+  long_desc: |
+    Ben tries to pawn his various wares to you.
   keywords: ['ben', 'smith']
   level: 2
   hp_max: 495
@@ -461,13 +493,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+30', 'damage_dice': '30d30+30', 'raw_block': 'Ben tries to pawn his various wares to you.\n~\n2 0 600 S\n30 0 -10 30d30+30 1d6+20\n1000 100000\n8 8 1'}
+  legacy_raw: 2 0 600 S 30 0 -10 30d30+30 1d6+20 1000 100000 8 8 1
 
 - id: 5315
-  key: "the_librarian"
-  name: "librarian"
-  short_desc: "the librarian"
-  long_desc: "The librarian is here shelving books away neatly."
+  key: the_librarian_5315
+  name: the librarian
+  short_desc: The librarian is here shelving books away neatly.
+  long_desc: |
+    The librarian looks busy and whispers, 'Shhh!'
   keywords: ['librarian']
   level: 2
   hp_max: 116
@@ -492,13 +525,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': "The librarian looks busy and whispers, 'Shhh!'\n~\n2|128 0 500 S\n8 12 2 8d8+80 1d4+6\n0 2000\n8 8 2"}
+  legacy_raw: 2|128 0 500 S 8 12 2 8d8+80 1d4+6 0 2000 8 8 2
 
 - id: 5316
-  key: "a_young_scholar"
-  name: "scholar boy"
-  short_desc: "a young scholar"
-  long_desc: "A young scholar studies quietly in the corner."
+  key: a_young_scholar_5316
+  name: a young scholar
+  short_desc: A young scholar studies quietly in the corner.
+  long_desc: |
+    This young scholar is studying to be a priest.
   keywords: ['scholar', 'boy']
   level: 2
   hp_max: 81
@@ -523,13 +557,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'This young scholar is studying to be a priest.\n~\n2|128 0 500 S\n6 14 4 6d6+60 1d4+4\n10 1000\n8 8 1'}
+  legacy_raw: 2|128 0 500 S 6 14 4 6d6+60 1d4+4 10 1000 8 8 1
 
 - id: 5317
-  key: "an_old_wizard"
-  name: "wizard"
-  short_desc: "an old wizard"
-  long_desc: "An old wizard sits quietly at the counter waiting for a sale."
+  key: an_old_wizard_5317
+  name: an old wizard
+  short_desc: An old wizard sits quietly at the counter waiting for a sale.
+  long_desc: |
+    This old wizard almost looks like he is about to fall over and sleep.
   keywords: ['wizard']
   level: 2
   hp_max: 765
@@ -554,13 +589,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '30d30+300', 'damage_dice': '30d30+300', 'raw_block': 'This old wizard almost looks like he is about to fall over and sleep.\n~\n2 8 550 S\n30 0 -10 30d30+300 1d6+20\n1000 100000\n8 8 1'}
+  legacy_raw: 2 8 550 S 30 0 -10 30d30+300 1d6+20 1000 100000 8 8 1
 
 - id: 5318
-  key: "a_beautiful_masseuse"
-  name: "masseuse woman"
-  short_desc: "a beautiful masseuse"
-  long_desc: "A beautiful woman is here offering you a massage."
+  key: a_beautiful_masseuse_5318
+  name: a beautiful masseuse
+  short_desc: A beautiful woman is here offering you a massage.
+  long_desc: |
+    She is beautiful, dressed in a sundress that sparkles with gems sown in.  She
+    smiles at you, and your heart flutters at the thought that you have her
+    attention, and you jump to her offer for a massage.
   keywords: ['masseuse', 'woman']
   level: 2
   hp_max: 50
@@ -585,13 +623,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '4d4+40', 'damage_dice': '4d4+40', 'raw_block': 'She is beautiful, dressed in a sundress that sparkles with gems sown in.  She\nsmiles at you, and your heart flutters at the thought that you have her\nattention, and you jump to her offer for a massage.\n~\n2|128 0 700 S\n4 16 6 4d4+40 1d4+3\n50 400\n8 8 2'}
+  legacy_raw: 2|128 0 700 S 4 16 6 4d4+40 1d4+3 50 400 8 8 2
 
 - id: 5319
-  key: "a_man"
-  name: "bather man"
-  short_desc: "a man"
-  long_desc: "A man is here bathing."
+  key: a_man_5319
+  name: a man
+  short_desc: A man is here bathing.
+  long_desc: |
+    He smiles at you, almost as if he knows you.  He is so friendly, you have no
+    choice but to reciprocate and join him and the others in the soothing pool.
   keywords: ['bather', 'man']
   level: 2
   hp_max: 65
@@ -616,13 +656,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'He smiles at you, almost as if he knows you.  He is so friendly, you have no\nchoice but to reciprocate and join him and the others in the soothing pool.\n~\n2|128 0 650 S\n5 15 5 5d5+50 1d4+4\n0 600\n8 8 1'}
+  legacy_raw: 2|128 0 650 S 5 15 5 5d5+50 1d4+4 0 600 8 8 1
 
 - id: 5320
-  key: "an_imperial_cityguard"
-  name: "guard imperial cityguard"
-  short_desc: "An imperial cityguard"
-  long_desc: "An imperial cityguard overseeing patrols in the city."
+  key: an_imperial_cityguard_5320
+  name: An imperial cityguard
+  short_desc: An imperial cityguard overseeing patrols in the city.
+  long_desc: |
+    He is dressed in plate, and he looks quite formidable.  At the moment,
+    he is looking at a map of Thalos aside his fellow co-workers keeping
+    track of each city patrol.
   keywords: ['guard', 'imperial', 'cityguard']
   level: 2
   hp_max: 270
@@ -647,13 +690,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'He is dressed in plate, and he looks quite formidable.  At the moment,\nhe is looking at a map of Thalos aside his fellow co-workers keeping\ntrack of each city patrol.\n~\n2|4|64 128 1000 S\n17 6 -5 15d15+150 1d4+10\n1500 15000\n8 8 1'}
+  legacy_raw: 2|4|64 128 1000 S 17 6 -5 15d15+150 1d4+10 1500 15000 8 8 1
 
 - id: 5321
-  key: "an_imperial_cityguard"
-  name: "guard cityguard"
-  short_desc: "an imperial cityguard"
-  long_desc: "An imperial cityguard guards the Grand Gate."
+  key: an_imperial_cityguard_5321
+  name: an imperial cityguard
+  short_desc: An imperial cityguard guards the Grand Gate.
+  long_desc: |
+    He is dressed in plate, and he looks quite formidable.  At the moment,
+    he is watching the children play with amusement.
   keywords: ['guard', 'cityguard']
   level: 2
   hp_max: 270
@@ -678,15 +723,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'He is dressed in plate, and he looks quite formidable.  At the moment,\nhe is watching the children play with amusement.\n~\n2|4|64 128 1000 S\n17 6 -5 15d15+150 1d4+10\n1500 15000\n8 8 1'}
+  legacy_raw: 2|4|64 128 1000 S 17 6 -5 15d15+150 1d4+10 1500 15000 8 8 1
 
 - id: 5322
-  key: "a_doe"
-  name: "doe"
-  short_desc: "a doe"
-  long_desc: "A doe munches on grass."
+  key: a_doe_5322
+  name: a doe
+  short_desc: A doe munches on grass.
+  long_desc: |
+    This peaceful creature looks at you with big dark eyes.  Her nose twitches as
+    she sniffs at you, but she goes back to chewing some grass.
   keywords: ['doe']
-  level: 64
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -705,19 +752,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '5d5+55', 'damage_dice': '5d5+55', 'raw_block': 'This peaceful creature looks at you with big dark eyes.  Her nose twitches as\nshe sniffs at you, but she goes back to chewing some grass.\n~\n64|128 0 0 S\n5 15 5 5d5+55 1d4+3\n2 600\n8 8 2'}
+  legacy_raw: 64|128 0 0 S 5 15 5 5d5+55 1d4+3 2 600 8 8 2
 
 - id: 5323
-  key: "a_deer"
-  name: "deer"
-  short_desc: "a deer"
-  long_desc: "A deer stares back at you."
+  key: a_deer_5323
+  name: a deer
+  short_desc: A deer stares back at you.
+  long_desc: |
+    The deer looks angered at your intrusion.  He butts his head against you, 
+    albeit ineffectively.
   keywords: ['deer']
-  level: 64
+  level: 6
   hp_max: 87
   mp_max: 0
   mv_max: 100
@@ -736,17 +785,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '6d6+66', 'damage_dice': '6d6+66', 'raw_block': 'The deer looks angered at your intrusion.  He butts his head against you, \nalbeit ineffectively.\n~\n64|128 0 0 S\n6 14 4 6d6+66 1d4+4\n2 800\n8 8 1'}
+  legacy_raw: 64|128 0 0 S 6 14 4 6d6+66 1d4+4 2 800 8 8 1
 
 - id: 5324
-  key: "a_stag"
-  name: "stag deer"
-  short_desc: "a stag"
-  long_desc: "A large deer stag protects his territory."
+  key: a_stag_5324
+  name: a stag
+  short_desc: A large deer stag protects his territory.
+  long_desc: |
+    He eyes you with contained anger.  You'd better leave him alone!
   keywords: ['stag', 'deer']
   level: 32
   hp_max: 124
@@ -771,15 +821,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 32, 'hit_dice': '8d8+88', 'damage_dice': '8d8+88', 'raw_block': "He eyes you with contained anger.  You'd better leave him alone!\n~\n32|64|128 0 0 S\n8 12 2 8d8+88 1d4+9\n2 2000\n8 8 1"}
+  legacy_raw: 32|64|128 0 0 S 8 12 2 8d8+88 1d4+9 2 2000 8 8 1
 
 - id: 5325
-  key: "a_small_bunny"
-  name: "bunny rabbit"
-  short_desc: "a small bunny"
-  long_desc: "A small bunny pokes from bush to bush."
+  key: a_small_bunny_5325
+  name: a small bunny
+  short_desc: A small bunny pokes from bush to bush.
+  long_desc: |
+    This bunny looks so adorable, you wished you had one just like this!
   keywords: ['bunny', 'rabbit']
-  level: 64
+  level: 2
   hp_max: 25
   mp_max: 0
   mv_max: 100
@@ -798,17 +849,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '2d2+22', 'damage_dice': '2d2+22', 'raw_block': 'This bunny looks so adorable, you wished you had one just like this!\n~\n64|128 0 0 S\n2 18 8 2d2+22 1d4+1\n2 100\n8 8 0'}
+  legacy_raw: 64|128 0 0 S 2 18 8 2d2+22 1d4+1 2 100 8 8 0
 
 - id: 5326
-  key: "a_harmless_snake"
-  name: "snake"
-  short_desc: "a harmless snake"
-  long_desc: "A small snake slithers between the grass."
+  key: a_harmless_snake_5326
+  name: a harmless snake
+  short_desc: A small snake slithers between the grass.
+  long_desc: |
+    Upon careful inspection, you are sure it is NOT a cobra!
   keywords: ['snake']
   level: 32
   hp_max: 54
@@ -833,15 +885,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 32, 'hit_dice': '4d4+44', 'damage_dice': '4d4+44', 'raw_block': 'Upon careful inspection, you are sure it is NOT a cobra!\n~\n32|64|128 32768 0 S\n4 16 4 4d4+44 1d8+4\n2 500\n8 8 0'}
+  legacy_raw: 32|64|128 32768 0 S 4 16 4 4d4+44 1d8+4 2 500 8 8 0
 
 - id: 5327
-  key: "a_druid"
-  name: "druid"
-  short_desc: "a druid"
-  long_desc: "A druid is here in meditation."
+  key: a_druid_5327
+  name: a druid
+  short_desc: A druid is here in meditation.
+  long_desc: |
+    He doesn't like you bothering him, but is too polite to ask you to leave.
   keywords: ['druid']
-  level: 64
+  level: 8
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -860,19 +913,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': "He doesn't like you bothering him, but is too polite to ask you to leave.\n~\n64|128 8|8192 1000 S\n10 10 0 10d10+100 1d4+6\n50 5000\n8 8 1"}
+  legacy_raw: 64|128 8|8192 1000 S 10 10 0 10d10+100 1d4+6 50 5000 8 8 1
 
 - id: 5328
-  key: "a_druidess"
-  name: "druidess"
-  short_desc: "a druidess"
-  long_desc: "A druidess peers at you."
+  key: a_druidess_5328
+  name: a druidess
+  short_desc: A druidess peers at you.
+  long_desc: |
+    She wonders why you are staring at her, and how you got in here.
   keywords: ['druidess']
-  level: 64
+  level: 8
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -891,17 +945,18 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'She wonders why you are staring at her, and how you got in here.\n~\n64|128 8|8192 1000 S\n10 10 0 10d10+100 1d4+6\n50 5000\n8 8 2'}
+  legacy_raw: 64|128 8|8192 1000 S 10 10 0 10d10+100 1d4+6 50 5000 8 8 2
 
 - id: 5329
-  key: "bard_of_thalos"
-  name: "musician bard"
-  short_desc: "bard of Thalos"
-  long_desc: "A bard sings of the glory of Thalos."
+  key: bard_of_thalos_5329
+  name: bard of Thalos
+  short_desc: A bard sings of the glory of Thalos.
+  long_desc: |
+    This musical fellow plays a happy song with his fellow comrades.
   keywords: ['musician', 'bard']
   level: 2
   hp_max: 81
@@ -926,13 +981,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'This musical fellow plays a happy song with his fellow comrades.\n~\n2|4 0 450 S\n6 15 4 6d6+60 1d4+4\n100 800\n8 8 1'}
+  legacy_raw: 2|4 0 450 S 6 15 4 6d6+60 1d4+4 100 800 8 8 1
 
 - id: 5330
-  key: "bard_of_thalos"
-  name: "musician bard"
-  short_desc: "bard of Thalos"
-  long_desc: "This bard merrily skips along singing of the glory of Thalos."
+  key: bard_of_thalos_5330
+  name: bard of Thalos
+  short_desc: This bard merrily skips along singing of the glory of Thalos.
+  long_desc: |
+    This musical fellow wanders the world singing of the glory of Thalos.
   keywords: ['musician', 'bard']
   level: 4
   hp_max: 98
@@ -957,15 +1013,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'This musical fellow wanders the world singing of the glory of Thalos.\n~\n4 0 550 S\n7 14 3 7d7+70 1d4+5\n150 850\n8 8 1'}
+  legacy_raw: 4 0 550 S 7 14 3 7d7+70 1d4+5 150 850 8 8 1
 
 - id: 5331
-  key: "the_cityguard"
-  name: "cityguard guard"
-  short_desc: "the cityguard"
-  long_desc: "A cityguard stands here."
+  key: the_cityguard_5331
+  name: the cityguard
+  short_desc: A cityguard stands here.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
   keywords: ['cityguard', 'guard']
-  level: 69
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -984,17 +1041,17 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6900
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 69, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'A big, strong, helpful, trustworthy guard.\n~\n69 0 1000 S\n15 15 -2 15d15+150 1d4+10\n500 19000\n8 8 1'}
+  legacy_raw: 69 0 1000 S 15 15 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 5332
-  key: "the_janitor"
-  name: "janitor"
-  short_desc: "the janitor"
-  long_desc: "A janitor is walking around, cleaning up."
+  key: the_janitor_5332
+  name: the janitor
+  short_desc: A janitor is walking around, cleaning up.
+  long_desc: |
   keywords: ['janitor']
   level: 1
   hp_max: 17
@@ -1019,15 +1076,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 1, 'hit_dice': '2d6+10', 'damage_dice': '2d6+10', 'raw_block': '~\n1 0 900 S\n1 20 9 2d6+10 1d5+0\n34 100\n8 8 1'}
+  legacy_raw: 1 0 900 S 1 20 9 2d6+10 1d5+0 34 100 8 8 1
 
 - id: 5333
-  key: "the_beastly_fido"
-  name: "fido dog"
-  short_desc: "the beastly fido"
-  long_desc: "Beastly Fido is here."
+  key: the_beastly_fido_5333
+  name: the beastly fido
+  short_desc: Beastly Fido is here.
+  long_desc: |
+    Fido is a small dog that has a foul smell and pieces of rotted meat hanging
+    around his teeth.
   keywords: ['fido', 'dog']
-  level: 161
+  level: 20
   hp_max: 7
   mp_max: 0
   mv_max: 100
@@ -1046,19 +1105,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 16100
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 161, 'hit_dice': '1d6+4', 'damage_dice': '1d6+4', 'raw_block': 'Fido is a small dog that has a foul smell and pieces of rotted meat hanging\naround his teeth.\n~\n161 0 -200 S\n0 20 10 1d6+4 1d4+0\n10 25\n8 8 1'}
+  legacy_raw: 161 0 -200 S 0 20 10 1d6+4 1d4+0 10 25 8 8 1
 
 - id: 5334
-  key: "the_cityguard"
-  name: "cityguard guard"
-  short_desc: "the cityguard"
-  long_desc: "A cityguard is here, guarding the gate."
+  key: the_cityguard_5334
+  name: the cityguard
+  short_desc: A cityguard is here, guarding the gate.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
   keywords: ['cityguard', 'guard']
-  level: 67
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -1077,9 +1137,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6700
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 67, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'A big, strong, helpful, trustworthy guard.\n~\n67 0 1000 S\n15 5 -2 15d15+150 1d4+10\n500 19000\n8 8 1'}
+  legacy_raw: 67 0 1000 S 15 5 -2 15d15+150 1d4+10 500 19000 8 8 1
 

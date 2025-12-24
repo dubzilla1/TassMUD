@@ -1,0 +1,1089 @@
+- id: 4000
+  key: |
+  the_huge_python:
+  name: |
+  python_snake:
+  short_desc: |
+  the_huge_python:
+  long_desc: |
+  The_huge_python_rears_its_head_and_hisses_at_you:
+  keywords: ['python', 'snake']
+  level: 35
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4001
+  key: |
+  the_garter_snake:
+  name: |
+  garter_snake:
+  short_desc: |
+  the_garter_snake:
+  long_desc: |
+  A_small_green_garter_snake_slithers_along_the_floor:
+  keywords: ['garter', 'snake']
+  level: 3
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4002
+  key: |
+  the_centipede:
+  name: |
+  centipede:
+  short_desc: |
+  the_centipede:
+  long_desc: |
+  A_small_centipede_here_is_looking_for_vegetation:
+  keywords: ['centipede']
+  level: 2
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4003
+  key: |
+  the_kobold:
+  name: |
+  kobold:
+  short_desc: |
+  the_kobold:
+  long_desc: |
+  An_ugly_kobold_mumbles_something_under_its_breath:
+  keywords: ['kobold']
+  level: 68
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4004
+  key: |
+  the_orc:
+  name: |
+  orc:
+  short_desc: |
+  the_orc:
+  long_desc: |
+  This_orc_is_frothing_around_the_mouth_Better_stay_away:
+  keywords: ['orc']
+  level: 100
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4005
+  key: |
+  the_large_orc:
+  name: |
+  orc:
+  short_desc: |
+  the_large_orc:
+  long_desc: |
+  This_large_orc_is_looking_for_someone_small_to_pick_on:
+  keywords: ['orc']
+  level: 68
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4050
+  key: |
+  the_warrior:
+  name: |
+  warrior:
+  short_desc: |
+  the_warrior:
+  long_desc: |
+  This_tall_warrior_has_more_scars_than_even_you:
+  keywords: ['warrior']
+  level: 102
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4051
+  key: |
+  the_warrior:
+  name: |
+  warrior:
+  short_desc: |
+  the_warrior:
+  long_desc: |
+  This_veteran_warrior_could_even_be_your_father:
+  keywords: ['warrior']
+  level: 100
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4052
+  key: |
+  the_hobgoblin:
+  name: |
+  hobgoblin:
+  short_desc: |
+  the_hobgoblin:
+  long_desc: |
+  A_small_beat-up_hobgoblin_cringes_in_the_corner:
+  keywords: ['hobgoblin']
+  level: 68
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4053
+  key: |
+  the_snake:
+  name: |
+  snake:
+  short_desc: |
+  the_snake:
+  long_desc: |
+  A_sickly_brown_snake_watches_you_with_caution:
+  keywords: ['snake']
+  level: 35
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4054
+  key: |
+  the_centipede:
+  name: |
+  centipede:
+  short_desc: |
+  the_centipede:
+  long_desc: |
+  A_white_centipede_crawls_along_the_cave_floors_randomly:
+  keywords: ['centipede']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4055
+  key: |
+  the_large_hobgoblin:
+  name: |
+  hobgoblin:
+  short_desc: |
+  the_large_hobgoblin:
+  long_desc: |
+  A_large_hobgoblin_is_here_wondering_if_he_should_tear_you_apart:
+  keywords: ['hobgoblin']
+  level: 68
+  hp_max: 125
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4056
+  key: |
+  the_orc:
+  name: |
+  orc:
+  short_desc: |
+  the_orc:
+  long_desc: |
+  An_orc_is_here_looking_for_something_or_perhaps_someone_to_eat:
+  keywords: ['orc']
+  level: 100
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4057
+  key: |
+  the_mountain_lion:
+  name: |
+  lion_mountain:
+  short_desc: |
+  the_mountain_lion:
+  long_desc: |
+  A_mountain_lion_bears_its_teeth_at_the_sight_of_more_food:
+  keywords: ['lion', 'mountain']
+  level: 96
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4058
+  key: |
+  the_hill_giant:
+  name: |
+  giant_hill:
+  short_desc: |
+  the_hill_giant:
+  long_desc: |
+  A_hill_giant_is_here_tossing_rocks_around_Marbles_perhaps:
+  keywords: ['giant', 'hill']
+  level: 9
+  hp_max: 165
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4100
+  key: |
+  the_mage:
+  name: |
+  mage:
+  short_desc: |
+  the_Mage:
+  long_desc: |
+  A_small_intelligent_looking_mage_is_standing_here_It_looks_like_henknows_his_way_with_magic:
+  keywords: ['mage']
+  level: 39
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4101
+  key: |
+  the_troll:
+  name: |
+  troll:
+  short_desc: |
+  the_troll:
+  long_desc: |
+  This_large_mean-looking_troll_wants_to_take_a_closer_look_at_you:
+  keywords: ['troll']
+  level: 38
+  hp_max: 111
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4102
+  key: |
+  the_guardian_snake:
+  name: |
+  guardian_snake:
+  short_desc: |
+  the_guardian_snake:
+  long_desc: |
+  A_large_green_snake_is_guardian_for_something:
+  keywords: ['guardian', 'snake']
+  level: 39
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4104
+  key: |
+  the_orc:
+  name: |
+  orc:
+  short_desc: |
+  the_orc:
+  long_desc: |
+  An_ugly_orc_is_standing_here_waiting_for_someone_to_practice_on:
+  keywords: ['orc']
+  level: 228
+  hp_max: 93
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4105
+  key: |
+  a_centipede:
+  name: |
+  centipede:
+  short_desc: |
+  a_centipede:
+  long_desc: |
+  A_small_harmless_centipede_is_here_looking_for_some_vegetation_to_eat:
+  keywords: ['centipede']
+  level: 2
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4106
+  key: |
+  the_warrior:
+  name: |
+  warrior:
+  short_desc: |
+  the_Warrior:
+  long_desc: |
+  A_human_warrior_grins_an_evil_grin_in_your_face:
+  keywords: ['warrior']
+  level: 100
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4107
+  key: |
+  the_green_kobold:
+  name: |
+  kobold:
+  short_desc: |
+  the_green_kobold:
+  long_desc: |
+  A_green_kobold_hobbles_along_the_cave_walls_puking_periodically:
+  keywords: ['kobold']
+  level: 100
+  hp_max: 31
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4150
+  key: |
+  the_blue_bat:
+  name: |
+  bat_blue:
+  short_desc: |
+  the_blue_bat:
+  long_desc: |
+  A_blue_bat_flies_in_circles_while_electrical_charges_arc_here_and_there:
+  keywords: ['bat', 'blue']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4151
+  key: |
+  the_red_bat:
+  name: |
+  bat_red:
+  short_desc: |
+  the_red_bat:
+  long_desc: |
+  A_red_bat_hangs_upside_down_from_the_ceiling_glowing:
+  keywords: ['bat', 'red']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4152
+  key: |
+  the_green_bat:
+  name: |
+  bat_green:
+  short_desc: |
+  the_green_bat:
+  long_desc: |
+  A_green_bat_flies_from_wall_to_wall_leaving_an_awful_smell:
+  keywords: ['bat', 'green']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4153
+  key: |
+  the_white_bat:
+  name: |
+  bat_white:
+  short_desc: |
+  the_white_bat:
+  long_desc: |
+  A_white_bat_rests_on_the_ceiling_You_wonder_where_the_cold_is_coming_from:
+  keywords: ['bat', 'white']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4154
+  key: |
+  the_black_bat:
+  name: |
+  bat_black:
+  short_desc: |
+  the_black_bat:
+  long_desc: |
+  A_black_bat_flies_from_wall_to_wall_leaving_something_hissing_behind:
+  keywords: ['bat', 'black']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4155
+  key: |
+  the_thief:
+  name: |
+  thief:
+  short_desc: |
+  the_thief:
+  long_desc: |
+  A_sneaky_thief_appears_and_disappears_within_the_shadows:
+  keywords: ['thief']
+  level: 69
+  hp_max: 161
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4156
+  key: |
+  the_troll:
+  name: |
+  troll:
+  short_desc: |
+  the_troll:
+  long_desc: |
+  A_large_ugly_troll_is_here_mumbling_something:
+  keywords: ['troll']
+  level: 38
+  hp_max: 224
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4157
+  key: |
+  the_mage:
+  name: |
+  mage:
+  short_desc: |
+  the_Mage:
+  long_desc: |
+  A_small_man_is_here_researching_magical_incantations:
+  keywords: ['mage']
+  level: 101
+  hp_max: 102
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4158
+  key: |
+  the_snake:
+  name: |
+  snake:
+  short_desc: |
+  the_snake:
+  long_desc: |
+  A_brown_snake_hisses_at_you:
+  keywords: ['snake']
+  level: 35
+  hp_max: 115
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4159
+  key: |
+  the_small_troll:
+  name: |
+  troll:
+  short_desc: |
+  the_small_troll:
+  long_desc: |
+  A_small_troll_is_here_happily_dancing_Trala-la-la_La-la:
+  keywords: ['troll']
+  level: 100
+  hp_max: 96
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4160
+  key: |
+  the_orc:
+  name: |
+  orc:
+  short_desc: |
+  the_orc:
+  long_desc: |
+  A_large_orc_growls_in_your_face:
+  keywords: ['orc']
+  level: 100
+  hp_max: 110
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

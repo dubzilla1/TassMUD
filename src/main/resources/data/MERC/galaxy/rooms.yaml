@@ -118,6 +118,15 @@ rooms:
       south: 9303
       west: 9322
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9302
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 9305
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9305
@@ -212,6 +221,11 @@ rooms:
       south: 9305
       west: 9324
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9306
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 9305
@@ -247,6 +261,15 @@ rooms:
       east: 9312
       west: 9303
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9302
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 9305
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9331
@@ -290,6 +313,11 @@ rooms:
       east: 9314
       west: 9305
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9305
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9310
@@ -331,6 +359,23 @@ rooms:
     exits:
       south: 9309
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9303
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 9303
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 9303
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 9307
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -357,6 +402,11 @@ rooms:
       north: 9313
       west: 9308
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9302
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9313
@@ -390,6 +440,15 @@ rooms:
       east: 9317
       south: 9312
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9301
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 9305
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9314
@@ -432,6 +491,11 @@ rooms:
       south: 9313
       west: 9309
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9306
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 9318
@@ -473,6 +537,27 @@ rooms:
       north: 9318
       west: 9313
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 9304
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9301
+              wear_loc: 16
+      - type: MOB
+        id: 9304
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9301
+              wear_loc: 16
+      - type: MOB
+        id: 9310
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9318
@@ -506,6 +591,11 @@ rooms:
       west: 9314
       down: 9319
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9303
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 9317
@@ -618,6 +708,23 @@ rooms:
       north: 9322
       east: 9303
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9302
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9302
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9302
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9302
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -652,6 +759,35 @@ rooms:
       east: 9304
       south: 9321
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 9301
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 9303
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 9304
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9301
+              wear_loc: 16
+      - type: MOB
+        id: 9304
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9301
+              wear_loc: 16
+      - type: MOB
+        id: 9306
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9323
@@ -694,6 +830,11 @@ rooms:
       east: 9305
       south: 9322
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9301
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9324
@@ -788,6 +929,35 @@ rooms:
       east: 9329
       south: 9327
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9312
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9312
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9312
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9312
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9312
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9312
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 9312
+        quantity: 7
+        frequency: 1
     doors:
       east:
         to: 9329
@@ -862,6 +1032,15 @@ rooms:
       north: 9327
       east: 9331
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9311
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9304
+              wear_loc: 13
     doors:
       north:
         to: 9327
@@ -942,6 +1121,15 @@ rooms:
       up: 9339
       down: 5250
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9308
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9328
+              wear_loc: 17
     doors:
       north:
         to: 9329
@@ -1063,6 +1251,15 @@ rooms:
       south: 9333
       west: 9329
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9309
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9302
+              wear_loc: 10
     doors:
       south:
         to: 9333
@@ -1096,6 +1293,11 @@ rooms:
       south: 9334
       west: 9330
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9302
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9332
@@ -1213,13 +1415,13 @@ rooms:
         key: -1
       up:
         to: 9354
-        description: "You see the forcefield of Spring."
-        keywords: "forcefield"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 9324
+        key: null
       down:
         to: 9330
         description: ""
@@ -1243,6 +1445,18 @@ rooms:
       east: 9353
       west: 9343
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9315
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9306
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 9324
     doors:
       north:
         to: 9339
@@ -1284,6 +1498,15 @@ rooms:
       east: 9343
       west: 9344
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 9316
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9307
+              wear_loc: 8
     doors:
       east:
         to: 9343
@@ -1316,6 +1539,18 @@ rooms:
       east: 9339
       west: 9346
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 9319
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9309
+              wear_loc: 5
+        inventory:
+          -
+              item_vnum: 9325
     doors:
       east:
         to: 9339
@@ -1347,6 +1582,15 @@ rooms:
     exits:
       east: 9345
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9320
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9310
+              wear_loc: 12
     doors:
       east:
         to: 9345
@@ -1369,6 +1613,15 @@ rooms:
     exits:
       west: 9348
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9321
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9311
+              wear_loc: 14
     legacy_flags:
       - INDOORS
     doors:
@@ -1395,6 +1648,20 @@ rooms:
       south: 9339
       west: 9349
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9322
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9313
+              wear_loc: 11
+        inventory:
+          -
+              item_vnum: 9326
+          -
+              item_vnum: 9312
     legacy_flags:
       - INDOORS
     doors:
@@ -1429,6 +1696,15 @@ rooms:
       east: 9348
       west: 9350
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 9323
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9314
+              wear_loc: 16
     doors:
       east:
         to: 9348
@@ -1460,6 +1736,18 @@ rooms:
     exits:
       east: 9349
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 9324
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9315
+              wear_loc: 17
+          -
+              item_vnum: 9316
+              wear_loc: 16
     doors:
       east:
         to: 9349
@@ -1483,6 +1771,18 @@ rooms:
       east: 9352
       west: 9339
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9325
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9317
+              wear_loc: 9
+        inventory:
+          -
+              item_vnum: 9327
     doors:
       east:
         to: 9352
@@ -1514,6 +1814,15 @@ rooms:
     exits:
       west: 9351
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9326
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9318
+              wear_loc: 17
     doors:
       west:
         to: 9351
@@ -1536,6 +1845,19 @@ rooms:
     exits:
       west: 9342
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9327
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9319
+              wear_loc: 7
+      - type: MOB
+        id: 9328
+        quantity: 1
+        frequency: 1
     doors:
       west:
         to: 9342
@@ -1563,13 +1885,13 @@ rooms:
     doors:
       up:
         to: 9355
-        description: "You see the forcefield of Summer."
-        keywords: "forcefield"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 9325
+        key: null
       down:
         to: 9339
         description: "You see the forcefield of Spring."
@@ -1592,6 +1914,11 @@ rooms:
       north: 9356
       down: 9354
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9302
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9356
@@ -1680,6 +2007,11 @@ rooms:
       north: 9359
       south: 9357
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9314
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9359
@@ -1715,13 +2047,13 @@ rooms:
     doors:
       east:
         to: 9360
-        description: "You see the forcefield of Autumn."
-        keywords: "forcefield"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 9326
+        key: null
       south:
         to: 9358
         description: ""
@@ -1744,6 +2076,11 @@ rooms:
       east: 9361
       west: 9359
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9314
+        quantity: 2
+        frequency: 1
     doors:
       east:
         to: 9361
@@ -1841,6 +2178,14 @@ rooms:
       east: 9362
       south: 9364
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 9313
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 9305
     doors:
       east:
         to: 9362
@@ -1853,13 +2198,13 @@ rooms:
         key: -1
       south:
         to: 9364
-        description: "You see the forcefield of Winter."
-        keywords: "forcefield"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 9327
+        key: null
 
   - id: 9364
     key: galaxy_room_9364
@@ -1916,6 +2261,15 @@ rooms:
       north: 9364
       west: 9367
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9330
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9320
+              wear_loc: 1
     doors:
       north:
         to: 9364
@@ -1979,6 +2333,15 @@ rooms:
       north: 9366
       south: 9368
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9331
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9321
+              wear_loc: 0
     doors:
       north:
         to: 9366
@@ -2074,6 +2437,11 @@ rooms:
       north: 9369
       south: 9371
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9329
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 9369
@@ -2107,6 +2475,18 @@ rooms:
     exits:
       north: 9370
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9332
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 9322
+              wear_loc: 2
+          -
+              item_vnum: 9323
+              wear_loc: 16
     doors:
       north:
         to: 9370

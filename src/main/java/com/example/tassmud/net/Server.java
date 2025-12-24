@@ -47,11 +47,21 @@ public class Server {
     private final ExecutorService pool = Executors.newCachedThreadPool();
 
     public void start() throws IOException {
+        // If TASSMUD_IN_MEMORY is set, run using an in-memory H2 DB and seed it from resources
+        String inMemoryFlag = System.getenv("TASSMUD_IN_MEMORY");
+        if (inMemoryFlag != null && (inMemoryFlag.equalsIgnoreCase("1") || inMemoryFlag.equalsIgnoreCase("true"))) {
+            System.out.println("[startup] Running with in-memory H2 DB (seeding from resources)");
+            System.setProperty("tassmud.db.url", "jdbc:h2:mem:tassmud;DB_CLOSE_DELAY=-1");
+        }
+
         // Ensure database table(s) exist before accepting players
         CharacterDAO dao = new CharacterDAO();
         dao.ensureTable();
         // Load default data from resources (idempotent)
         DataLoader.loadDefaults(dao);
+        // Debug: report registered spawn count after data load
+        com.example.tassmud.event.SpawnManager smDebug = com.example.tassmud.event.SpawnManager.getInstance();
+        System.out.println("[startup] SpawnManager registered spawns=" + smDebug.getSpawnCount());
         // Ensure initial GM flag for 'Tass' (if the character exists)
         boolean gmSet = dao.setCharacterFlagByName("Tass", "is_gm", "true");
         if (gmSet) System.out.println("[startup] is_gm flag set for 'Tass'");

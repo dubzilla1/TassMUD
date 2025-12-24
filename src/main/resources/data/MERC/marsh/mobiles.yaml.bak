@@ -1,0 +1,561 @@
+- id: 8301
+  key: |
+  a_swamp_troll:
+  name: |
+  troll:
+  short_desc: |
+  a_swamp_troll:
+  long_desc: |
+  A_swamp_troll_charges_towards_you:
+  keywords: ['troll']
+  level: 15
+  hp_max: 252
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8302
+  key: |
+  a_green_troll:
+  name: |
+  troll:
+  short_desc: |
+  a_green_troll:
+  long_desc: |
+  A_green_troll_attempts_to_get_a_hold_on_you:
+  keywords: ['troll']
+  level: 4
+  hp_max: 181
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8303
+  key: |
+  an_ogre:
+  name: |
+  ogre:
+  short_desc: |
+  an_ogre:
+  long_desc: |
+  An_ogre_stands_here_getting_ready_to_beat_in_your_face:
+  keywords: ['ogre']
+  level: 4
+  hp_max: 260
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8304
+  key: |
+  the_swamp_thing:
+  name: |
+  thing:
+  short_desc: |
+  the_Swamp_Thing:
+  long_desc: |
+  the_Swamp_Thing_shambles_about_here_It_seems_hungry:
+  keywords: ['thing']
+  level: 4
+  hp_max: 555
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8305
+  key: |
+  a_gnoll:
+  name: |
+  gnoll:
+  short_desc: |
+  a_gnoll:
+  long_desc: |
+  There_is_a_mean_looking_gnoll_here:
+  keywords: ['gnoll']
+  level: 4
+  hp_max: 761
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 750
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8306
+  key: |
+  a_huge_hairy_beast:
+  name: |
+  beast:
+  short_desc: |
+  a_huge_hairy_beast:
+  long_desc: |
+  A_huge_hairy_beast_shambles_towards_you_with_death_in_his_eyes:
+  keywords: ['beast']
+  level: 20
+  hp_max: 441
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 21
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8307
+  key: |
+  a_rather_small_beast:
+  name: |
+  beast:
+  short_desc: |
+  a_rather_small_beast:
+  long_desc: |
+  A_rather_small_beast_cringes_in_terror_as_it_notices_you:
+  keywords: ['beast']
+  level: 4
+  hp_max: 56
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8308
+  key: |
+  the_will_o_wisp:
+  name: |
+  will_will-o-wisp:
+  short_desc: |
+  the_Will-O-Wisp:
+  long_desc: |
+  A_Will-O-Wisp_darts_hear_and_there_making_fun_of_you:
+  keywords: ['will', 'will-o-wisp']
+  level: 4
+  hp_max: 115
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8309
+  key: |
+  the_monstrous_snake:
+  name: |
+  snake_anaconda:
+  short_desc: |
+  the_monstrous_snake:
+  long_desc: |
+  A_monstrous_snake_slithers_towards_you_thinking_breakfast:
+  keywords: ['snake', 'anaconda']
+  level: 10
+  hp_max: 336
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8310
+  key: |
+  a_large_snake:
+  name: |
+  snake_python:
+  short_desc: |
+  a_large_snake:
+  long_desc: |
+  A_rather_large_python_rests_in_a_coil_here:
+  keywords: ['snake', 'python']
+  level: 4
+  hp_max: 122
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8312
+  key: |
+  the_marsh_hag:
+  name: |
+  hag:
+  short_desc: |
+  the_Marsh_Hag:
+  long_desc: |
+  A_Marsh_Hag_is_here:
+  keywords: ['hag']
+  level: 4
+  hp_max: 311
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8313
+  key: |
+  a_death_slaad:
+  name: |
+  slaad:
+  short_desc: |
+  a_Death_Slaad:
+  long_desc: |
+  A_Death_Slaad_is_standing_here_distraught_He_seems_lost:
+  keywords: ['slaad']
+  level: 13
+  hp_max: 352
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8314
+  key: |
+  a_marsh_wolf:
+  name: |
+  wolf:
+  short_desc: |
+  a_marsh_wolf:
+  long_desc: |
+  A_marsh_wolf_sniffs_the_ground_has_followed_your_scent:
+  keywords: ['wolf']
+  level: 4
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8318
+  key: |
+  a_shambling_mound:
+  name: |
+  mound_shambling:
+  short_desc: |
+  a_shambling_mound:
+  long_desc: |
+  A_heap_of_garbage_shambles_towards_you:
+  keywords: ['mound', 'shambling']
+  level: 4
+  hp_max: 205
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8319
+  key: |
+  the_orc_shaman:
+  name: |
+  shaman_orc:
+  short_desc: |
+  the_orc_shaman:
+  long_desc: |
+  An_orc_shaman_stands_before_you_holding_a_staff_and_wearing_robes:
+  keywords: ['shaman', 'orc']
+  level: 110
+  hp_max: 137
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8320
+  key: |
+  a_marsh_giant:
+  name: |
+  giant:
+  short_desc: |
+  a_marsh_giant:
+  long_desc: |
+  A_marsh_giant_stomps_towards_you:
+  keywords: ['giant']
+  level: 110
+  hp_max: 321
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8321
+  key: |
+  a_gargoyle:
+  name: |
+  gargoyle:
+  short_desc: |
+  a_gargoyle:
+  long_desc: |
+  A_large_gargoyle_lands_next_to_you_baring_his_fangs_at_you:
+  keywords: ['gargoyle']
+  level: 110
+  hp_max: 212
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 11000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

@@ -1,6 +1,6 @@
 items:
   - id: 4000
-    key: ring_yellow_green
+    key: ring_yellow_green_4000
     name: a yellow and green ring
     description: A ring, with yellow and green ornamentation. It looks very old.
     weight: 1
@@ -16,20 +16,19 @@ items:
     applies:
       - location: 1
         modifier: -2
-    template_json:
-      raw_block: |
-        0 0 0 0
-        1 50 20
-        E
-        ring~
-        It feels heavy.
-        ~
-        A
-        1 -2
-      type_line: 9 0 16387
-      extra_desc: It feels heavy.
+    legacy_type_line: 9 0 16387
+    legacy_raw: |
+      0 0 0 0
+      1 50 20
+      E
+      ring~
+      It feels heavy.
+      ~
+      A
+      1 -2
+    extra_desc: It feels heavy.
   - id: 4001
-    key: corpse
+    key: corpse_4001
     name: a corpse
     description: A halfway decayed corpse of a goblin.
     weight: 10
@@ -38,19 +37,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [corpse]
-    template_json:
-      raw_block: |
-        #4001
-        corpse~
-        a corpse~
-        A halfway decayed corpse of a goblin.~
-        ~
-        15 0 1
-        1 0 -1 0
-        10 0 500
-      type_line: 15 0 1
+    legacy_type_line: 15 0 1
+    legacy_raw: |
+      #4001
+      corpse~
+      a corpse~
+      A halfway decayed corpse of a goblin.~
+      ~
+      15 0 1
+      1 0 -1 0
+      10 0 500
   - id: 4002
-    key: coins
+    key: coins_4002
     name: some coins
     description: A small pile of coins.
     weight: 0
@@ -59,24 +57,24 @@ items:
     wear_flags:
       - TAKE
     keywords: [coins]
-    template_json:
-      raw_block: |
-        #4002
-        coins~
-        some coins~
-        A small pile of coins.~
-        ~
-        20 0 1
-        500 0 0 0
-        0 0 0
-      type_line: 20 0 1
+    legacy_type_line: 20 0 1
+    legacy_raw: |
+      #4002
+      coins~
+      some coins~
+      A small pile of coins.~
+      ~
+      20 0 1
+      500 0 0 0
+      0 0 0
   - id: 4050
-    key: potion_purple
+    key: potion_purple_4050
     name: a purple potion
     description: A purple potion is here.
     weight: 1
     value: 500
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
       - HOLD
@@ -85,20 +83,19 @@ items:
       - 17
       - 14
       - 36
-    template_json:
-      raw_block: |
-        ~
-        10 0 16385
-        17 14 36 -1
-        1 500 200
-        E
-        potion purple~
-        It looks rather strange!
-        ~
-      type_line: 10 0 16385
-      extra_desc: It looks rather strange!
+    legacy_type_line: 10 0 16385
+    legacy_raw: |
+      ~
+      10 0 16385
+      17 14 36 -1
+      1 500 200
+      E
+      potion purple~
+      It looks rather strange!
+      ~
+    extra_desc: It looks rather strange!
   - id: 4051
-    key: helmet_metal
+    key: helmet_metal_4051
     name: a metal helmet
     description: A metal helmet is here.
     weight: 4
@@ -116,19 +113,18 @@ items:
         modifier: -2
       - location: 23
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        9 0 16401
-        3 0 0 0
-        4 3000 1000
-        A
-        24 -2
-        A
-        23 -2
-      type_line: 9 0 16401
+    legacy_type_line: 9 0 16401
+    legacy_raw: |
+      ~
+      9 0 16401
+      3 0 0 0
+      4 3000 1000
+      A
+      24 -2
+      A
+      23 -2
   - id: 4052
-    key: mushroom
+    key: mushroom_4052
     name: a mushroom
     description: A small mushroom is here.
     weight: 1
@@ -138,20 +134,19 @@ items:
       - TAKE
       - HOLD
     keywords: [mushroom]
-    template_json:
-      raw_block: |
-        ~
-        19 0 16385
-        2 0 0 1
-        1 9 3
-        E
-        mushroom~
-        Let's put it this way - I wouldn't eat it !
-        ~
-      type_line: 19 0 16385
-      extra_desc: Let's put it this way - I wouldn't eat it !
+    legacy_type_line: 19 0 16385
+    legacy_raw: |
+      ~
+      19 0 16385
+      2 0 0 1
+      1 9 3
+      E
+      mushroom~
+      Let's put it this way - I wouldn't eat it !
+      ~
+    extra_desc: Let's put it this way - I wouldn't eat it !
   - id: 4053
-    key: dirk
+    key: dirk_4053
     name: a thieves dirk
     description: A beautifully crafted dirk is lying here.
     weight: 2
@@ -174,23 +169,22 @@ items:
     on_equip_effect_ids:
       - 202
       - 502
-    template_json:
-      raw_block: |
-        It's a medium sized, beautifully crafted dirk made from grey alloy.
-        Its blade is double-edged and very thin ... this looks like a good
-        thieves weapon.
-        ~
-        A
-        18 1
-        A
-        19 2
-      type_line: 5 0 8193
-      extra_desc: |
-        It's a medium sized, beautifully crafted dirk made from grey alloy.
-        Its blade is double-edged and very thin ... this looks like a good
-        thieves weapon.
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      It's a medium sized, beautifully crafted dirk made from grey alloy.
+      Its blade is double-edged and very thin ... this looks like a good
+      thieves weapon.
+      ~
+      A
+      18 1
+      A
+      19 2
+    extra_desc: |
+      It's a medium sized, beautifully crafted dirk made from grey alloy.
+      Its blade is double-edged and very thin ... this looks like a good
+      thieves weapon.
   - id: 4100
-    key: blade_black_demon
+    key: blade_black_demon_4100
     name: a black demon blade
     description: An evil black demon blade is here.
     weight: 8
@@ -208,20 +202,19 @@ items:
       - TAKE
       - WIELD
     keywords: [blade, black, demon]
-    template_json:
-      raw_block: |
-        ~
-        5 512|2048 8193 
-        0 3 4 11
-        8 10000 3500
-        E
-        blade~
-        You'll become as evil as the weapon, if you use it!
-        ~
-      type_line: 5 512|2048 8193
-      extra_desc: You'll become as evil as the weapon, if you use it!
+    legacy_type_line: 5 512|2048 8193
+    legacy_raw: |
+      ~
+      5 512|2048 8193 
+      0 3 4 11
+      8 10000 3500
+      E
+      blade~
+      You'll become as evil as the weapon, if you use it!
+      ~
+    extra_desc: You'll become as evil as the weapon, if you use it!
   - id: 4101
-    key: gloves
+    key: gloves_4101
     name: swordsman's gloves
     description: Some gloves are here.  They look like the right equipment for fighting.
     weight: 1
@@ -243,24 +236,24 @@ items:
     on_equip_effect_ids:
       - 501
       - 503
-    template_json:
-      raw_block: |
-        ~
-        9 512 129
-        2 0 0 0
-        1 1500 500
-        A
-        18 2
-        A
-        19 1
-      type_line: 9 512 129
+    legacy_type_line: 9 512 129
+    legacy_raw: |
+      ~
+      9 512 129
+      2 0 0 0
+      1 1500 500
+      A
+      18 2
+      A
+      19 1
   - id: 4102
-    key: scroll_ysafg
+    key: scroll_ysafg_4102
     name: a scroll which reads "ysafg"
     description: A scroll which reads "ysafg", it looks very fragile and quite old.
     weight: 1
     value: 1500
-    type: inventory
+    types:
+      - scroll
     wear_flags:
       - TAKE
     keywords: [scroll, ysafg]
@@ -269,20 +262,19 @@ items:
       - 53
       - 0
       - 0
-    template_json:
-      raw_block: |
-        ~
-        2 0 1
-        1 53 0 0
-        1 1500 500
-        E
-        scroll~
-        It looks informative.
-        ~
-      type_line: 2 0 1
-      extra_desc: It looks informative.
+    legacy_type_line: 2 0 1
+    legacy_raw: |
+      ~
+      2 0 1
+      1 53 0 0
+      1 1500 500
+      E
+      scroll~
+      It looks informative.
+      ~
+    extra_desc: It looks informative.
   - id: 4103
-    key: slime_mold
+    key: slime_mold_4103
     name: a green slime mold
     description: A green slime mold is here. Stinks like sh**.
     weight: 1
@@ -291,20 +283,19 @@ items:
     wear_flags:
       - TAKE
     keywords: [slime, mold]
-    template_json:
-      raw_block: |
-        ~
-        19 0 1
-        24 0 0 0
-        1 20 8
-        E
-        slime mold~
-        It wasn't mend to be food, - Certainly not for humans.
-        ~
-      type_line: 19 0 1
-      extra_desc: It wasn't mend to be food, - Certainly not for humans.
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      ~
+      19 0 1
+      24 0 0 0
+      1 20 8
+      E
+      slime mold~
+      It wasn't mend to be food, - Certainly not for humans.
+      ~
+    extra_desc: It wasn't mend to be food, - Certainly not for humans.
   - id: 4104
-    key: slime_mold
+    key: slime_mold_4104
     name: a green slime mold
     description: A green slime mold is here. Stinks like sh**.
     weight: 1
@@ -313,45 +304,44 @@ items:
     wear_flags:
       - TAKE
     keywords: [slime, mold]
-    template_json:
-      raw_block: |
-        ~
-        19 0 1
-        24 0 0 1
-        1 20 8
-        E
-        slime mold~
-        It wasn't mend to be food, - Certainly not for humans.
-        ~
-      type_line: 19 0 1
-      extra_desc: It wasn't mend to be food, - Certainly not for humans.
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      ~
+      19 0 1
+      24 0 0 1
+      1 20 8
+      E
+      slime mold~
+      It wasn't mend to be food, - Certainly not for humans.
+      ~
+    extra_desc: It wasn't mend to be food, - Certainly not for humans.
   - id: 4150
-    key: black_potion
+    key: black_potion_4150
     name: a black potion
     description: A thick black potion is here.
     weight: 1
     value: 100
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [black, potion]
     spell_ids:
       - 15
       - 15
-    template_json:
-      raw_block: |
-        ~
-        10 0 1
-        15 15 -1 -1
-        1 100 35
-        E
-        potion black~
-        It looks healthy.
-        ~
-      type_line: 10 0 1
-      extra_desc: It looks healthy.
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      ~
+      10 0 1
+      15 15 -1 -1
+      1 100 35
+      E
+      potion black~
+      It looks healthy.
+      ~
+    extra_desc: It looks healthy.
   - id: 4151
-    key: staff_oak
+    key: staff_oak_4151
     name: a heavy oak staff
     description: A ancient heavy oak staff is here.
     weight: 10
@@ -369,20 +359,19 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, oak]
-    template_json:
-      raw_block: |
-        E
-        staff oak~
-        You see it has some sort of runes on it.
-        ~
-        E
-        runes~
-        The runes says : Funthark.
-        ~
-      type_line: 4 512 16385
-      extra_desc: The runes says : Funthark.
+    legacy_type_line: 4 512 16385
+    legacy_raw: |
+      E
+      staff oak~
+      You see it has some sort of runes on it.
+      ~
+      E
+      runes~
+      The runes says : Funthark.
+      ~
+    extra_desc: The runes says : Funthark.
   - id: 4152
-    key: dagger_light_silver
+    key: dagger_light_silver_4152
     name: a light silver dagger
     description: A light silver dagger is here.
     weight: 4
@@ -399,15 +388,14 @@ items:
       - TAKE
       - WIELD
     keywords: [dagger, light, silver]
-    template_json:
-      raw_block: |
-        ~
-        5 1024 8193
-        0 2 5 11
-        4 6000 2000
-        E
-        dagger light silver~
-        It looks like an excellent weapon for thieves.
-        ~
-      type_line: 5 1024 8193
-      extra_desc: It looks like an excellent weapon for thieves.
+    legacy_type_line: 5 1024 8193
+    legacy_raw: |
+      ~
+      5 1024 8193
+      0 2 5 11
+      4 6000 2000
+      E
+      dagger light silver~
+      It looks like an excellent weapon for thieves.
+      ~
+    extra_desc: It looks like an excellent weapon for thieves.

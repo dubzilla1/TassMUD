@@ -1,0 +1,631 @@
+- id: 2200
+  key: the_dragon_hatchling
+  name: the dragon hatchling
+  short_desc: A dragon hatchling is here, chewing on a bone.
+  long_desc: |
+    This small dragon hisses at you as you enter the room.  Although it is only a
+    few feet long, its sharp teeth make you think twice about petting it.
+  keywords: ['hatchling', 'dragon', 'baby']
+  level: 2
+  hp_max: 118
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|64 524288 -900 S 7 12 4 4d8+100 1d8+2 2000 2250 8 8 0
+
+- id: 2201
+  key: the_draconian
+  name: the Draconian
+  short_desc: The Draconian is standing here.
+  long_desc: |
+    This horrible creature is a bizarre cross between a man and a dragon.  He 
+    has black scales and a seven foot wingspan.  He scowls at you and hefts his 
+    spear as you enter the room.
+  keywords: ['draconian']
+  level: 2
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8 -900 S 13 8 2 13d13+130 2d6+3 2000 15000 8 8 1
+
+- id: 2202
+  key: the_dragon_master
+  name: the dragon master
+  short_desc: The lord of this crypt is here.
+  long_desc: |
+    He doesn't look happy to see you.
+  keywords: ['master']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 524288 -1000 S 27 0 -2 27d27+270 3d6+8 35000 60000 8 8 1
+
+- id: 2203
+  key: a_powerful_mage
+  name: a powerful mage
+  short_desc: A man is here, studying some books.
+  long_desc: |
+    A powerful looking mage is standing in this room studying his spells.  You are
+    surprised at the fact that he is human, and realize that he must be very
+    powerful to have been accepted by the creatures which live here.
+  keywords: ['man', 'mage', 'wizard']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 220
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 2|8|128 -900 S 22 0 3 22d22+220 1d8+10 600 45000 8 8 1
+
+- id: 2204
+  key: the_holy_draconian
+  name: the holy Draconian
+  short_desc: A Draconian is here, deep in thought.
+  long_desc: |
+    A Draconian stands here, dressed in simple robes.  Around his neck you 
+    notice a golden medallion in the shape of a five headed dragon.
+  keywords: ['cleric', 'draconian']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 220
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|128 -900 S 22 1 0 22d22+220 3d5+6 400 45000 8 8 1
+
+- id: 2205
+  key: the_draconian_king
+  name: the Draconian King
+  short_desc: A Draconian wearing fine clothes is here, pondering his greatness.
+  long_desc: |
+    The king of the draconians sits here on a golden throne.  He looks as 
+    though he could crush your head with a single blow.  Yet you sense that he 
+    is controlled by a greater power.
+  keywords: ['king', 'draconian']
+  level: 2
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4 8|128 -900 S 26 0 1 26d26+260 2d8+12 800 100000 8 8 1
+
+- id: 2206
+  key: a_concubine
+  name: a concubine
+  short_desc: A concubine is resting here.
+  long_desc: |
+    This is a concubine of the king.  She is lounging here, wearing nothing at 
+    all.  You find yourself strangely repulsed as she draws a knife and 
+    prepares to defend herself.
+  keywords: ['concubine', 'draconian']
+  level: 2
+  hp_max: 83
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -500 S 6 16 5 6d10+50 2d3+1 100 1000 8 8 2
+
+- id: 2207
+  key: a_bodyguard
+  name: A bodyguard
+  short_desc: A bodyguard is here, staring at you menacingly.
+  long_desc: |
+    This creature has devoted its life to defending the king.  Your intrusion has
+    not pleased it.
+  keywords: ['bodyguard', 'draconian']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 4|8|32 -800 S 18 3 2 18d18+180 2d6+10 5000 30000 8 8 1
+
+- id: 2220
+  key: tiamat
+  name: Tiamat
+  short_desc: A five headed dragon hisses at you as you enter this room.
+  long_desc: |
+    You see before you the master of this Tower, Tiamat.  She frowns at you as she
+    prepares to make you pay for your insolence ... with your lives!
+  keywords: ['tiamat', 'dragon']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -1000 S 35 0 -10 35d35+1000 4d9+15 50000 3500000 8 8 2
+
+- id: 2221
+  key: the_great_red_dragon
+  name: the Great Red Dragon
+  short_desc: A red dragon is here, contemplating your existence.
+  long_desc: |
+    This huge red dragon dominates the chamber.  As you turn to flee, he grins at
+    you and invites you to stay ... forever!
+  keywords: ['dragon', 'red']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -1000 S 27 0 -5 27d27+270 2d8+10 10000 300000 8 8 1
+
+- id: 2222
+  key: the_great_black_dragon
+  name: the Great Black Dragon
+  short_desc: A black dragon is here, laughing at your insolence.
+  long_desc: |
+    This huge black wyrm laughs at your puny weapons.  You realize that he is not
+    going to roll over and die for you.
+  keywords: ['dragon', 'black']
+  level: 2
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -900 S 26 1 -3 26d26+260 3d8+4 20000 250000 8 8 1
+
+- id: 2223
+  key: the_great_white_dragon
+  name: the Great White Dragon
+  short_desc: A white dragon is here, waiting for you.
+  long_desc: |
+    This dragon towers over you.  Recalling your previous experiences with white
+    dragons, you are not afraid.  She smiles at you and says 'I think you will find
+    me a greater challenge than my offspring.'
+  keywords: ['dragon', 'white']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -1000 S 27 0 -3 27d27+270 3d8+4 35000 200000 8 8 2
+
+- id: 2225
+  key: the_ancient_green_dragon
+  name: the Ancient Green Dragon
+  short_desc: A green dragon is here, looking distraught.
+  long_desc: |
+    This huge beast appears to be the most directly related to the draconians. 
+    She looks at you with sorrow in her eyes and says 'You have slaughtered my 
+    children.  Prepare to die.'
+  keywords: ['dragon', 'green']
+  level: 2
+  hp_max: 806
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 31
+  damage_bonus: 310
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -1000 S 31 0 -4 31d31+310 3d8+15 20000 500000 8 8 2
+
+- id: 2226
+  key: a_large_hydra
+  name: a large hydra
+  short_desc: A hydra is here, blocking the doorway.
+  long_desc: |
+    A hydra is here, guarding the entrance to a sealed vault.  You have the feeling
+    it isn't happy to see you.
+  keywords: ['hydra']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -800 S 18 3 1 18d18+180 2d8+7 5000 35000 8 8 0
+
+- id: 2227
+  key: a_human_slave
+  name: A human slave
+  short_desc: A Human slave is here, hard at work.
+  long_desc: |
+    He looks like he's under a lot of stress.  He would probably like it if you
+    left him alone.
+  keywords: ['slave', 'human']
+  level: 2
+  hp_max: 55
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 0 S  5 16 6 1d10+50 1d6+4  100 900  8 8 1
+
+- id: 2240
+  key: a_draconian_zombie
+  name: a Draconian zombie
+  short_desc: A Draconian zombie is here, staring at nothing in particular.
+  long_desc: |
+    This used to be one of the warriors of this tribe.  He was denied his final
+    rest, however, and now guards this corridor tirelessly as a zombie.
+  keywords: ['zombie', 'draconian']
+  level: 2
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 100
+  damage_bonus: 175
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|32 -400 S 9 9 4 1d100+175 1d8+6 1500 3000 8 8 0
+
+- id: 2241
+  key: the_phase_dragon
+  name: the phase dragon
+  short_desc: A Phase Dragon is darting around the room.
+  long_desc: |
+    This small dragon looks like he's up to no good.
+  keywords: ['dragon', 'phase']
+  level: 4
+  hp_max: 205
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64|128 8|32 -300 S  10 11 3 10d10+150 2d6+6 5000 6000 8 8 1
+
+- id: 2242
+  key: the_draconian_fool
+  name: the draconian fool
+  short_desc: A Fool is here, making fun of you.
+  long_desc: |
+    This dragon man looks VERY foolish, dressed in a green and blue striped 
+    suit.  As you enter the room, he points at you and laughs.
+  keywords: ['fool', 'draconian']
+  level: 64
+  hp_max: 55
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64|128 0 0 S  5 16 5 1d10+50 3d3+4  500 800  8 8 1
+
+- id: 2243
+  key: the_draconian_queen
+  name: the Draconian Queen
+  short_desc: A Female Draconian sits, here, looking very important.
+  long_desc: |
+    This draconian looks VERY busy as she orders her slaves around.  You think 
+    it might be a good idea to leave her alone.
+  keywords: ['queen', 'draconian']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4 8|32|128 -600 S  20 1 2 20d20+200 3d4+8  10000 45000  8 8 2
+

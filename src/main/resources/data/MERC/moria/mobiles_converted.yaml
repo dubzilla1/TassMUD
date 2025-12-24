@@ -1,0 +1,1069 @@
+- id: 4000
+  key: the_huge_python
+  name: the huge python
+  short_desc: The huge python rears its head and hisses at you.
+  long_desc: |
+    It sways back and forth contemplating whether or not to eat you.
+  keywords: ['python', 'snake']
+  level: 35
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 8 -200 S 11 7 3 11d11+110 3d6+0 0 5000 8 8 1
+
+- id: 4001
+  key: the_garter_snake
+  name: the garter snake
+  short_desc: A small green garter snake slithers along the floor.
+  long_desc: |
+    It looks harmless enough.  Or is it?
+  keywords: ['garter', 'snake']
+  level: 3
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 3 0 -100 S 7 12 4 7d7+70 2d6+1 0 1500 8 8 0
+
+- id: 4002
+  key: the_centipede
+  name: the centipede
+  short_desc: A small centipede here is looking for vegetation.
+  long_desc: |
+    It looks completely harmless but who knows for sure?
+  keywords: ['centipede']
+  level: 2
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 100 S 3 20 6 3d3+30 1d6+0 0 400 8 8 0
+
+- id: 4003
+  key: the_kobold
+  name: the kobold
+  short_desc: An ugly kobold mumbles something under its breath.
+  long_desc: |
+    It looks ugly enough to scare its own mother.
+  keywords: ['kobold']
+  level: 68
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -100 S 4 16 5 4d4+40 1d8+1 50 500 8 8 0
+
+- id: 4004
+  key: the_orc
+  name: the orc
+  short_desc: This orc is frothing around the mouth.  Better stay away.
+  long_desc: |
+    You notice a slight tinge of madness in his eyes.
+  keywords: ['orc']
+  level: 100
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 0 -400 S 5 15 5 5d5+50 2d4+0 100 700 8 8 1
+
+- id: 4005
+  key: the_large_orc
+  name: the large orc
+  short_desc: This large orc is looking for someone small to pick on.
+  long_desc: |
+    The orc says, "Whatcha look'n at?"
+  keywords: ['orc']
+  level: 68
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -500 S 7 11 2 7d7+70 2d6+2 200 1500 8 8 1
+
+- id: 4050
+  key: the_warrior
+  name: the warrior
+  short_desc: This tall warrior has more scars than even you!
+  long_desc: |
+    He's surely a strong, brainless fighter.  Like you.
+  keywords: ['warrior']
+  level: 102
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 102 0 -300 S 12 8 -1 12d12+120 2d8+1 1000 5000 8 8 1
+
+- id: 4051
+  key: the_warrior
+  name: the warrior
+  short_desc: This veteran warrior could even be your father.
+  long_desc: |
+    He seems to know his way with weapons.  And he wants
+    to show you what he can do!
+  keywords: ['warrior']
+  level: 100
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 0 -400 S 7 13 3 7d7+70 2d5+0 200 1500 8 8 1
+
+- id: 4052
+  key: the_hobgoblin
+  name: the hobgoblin
+  short_desc: A small beat-up hobgoblin cringes in the corner.
+  long_desc: |
+    Looking into the eyes of this poor soul makes you feel
+    sad as you see the terror and fear in its eyes.  Why
+    don't you put it out of its misery?
+  keywords: ['hobgoblin']
+  level: 68
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -300 S 6 12 6 6d6+60 2d4+0 100 1000 8 8 1
+
+- id: 4053
+  key: the_snake
+  name: the snake
+  short_desc: A sickly brown snake watches you with caution.
+  long_desc: |
+    A closer look reveals a hungry demeanor.  Don't get too close!
+  keywords: ['snake']
+  level: 35
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 0 -600 S 10 10 4  10d10+100 3d5+1 0 1000 8 8 0
+
+- id: 4054
+  key: the_centipede
+  name: the centipede
+  short_desc: A white centipede crawls along the cave floors randomly.
+  long_desc: |
+    The centipede doesn't really seem to notice you.
+  keywords: ['centipede']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -100 S 5 17 5 5d5+50 1d7+0 0 100 8 8 0
+
+- id: 4055
+  key: the_large_hobgoblin
+  name: the large hobgoblin
+  short_desc: A large hobgoblin is here wondering if he should tear you apart.
+  long_desc: |
+    Red, bloodshot eyes and drool dripping from its mouth makes you
+    wonder just how far away you should be.
+  keywords: ['hobgoblin']
+  level: 68
+  hp_max: 125
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -500 S 10 11 2 1d10+120 2d6+1 300 4000 8 8 1
+
+- id: 4056
+  key: the_orc
+  name: the orc
+  short_desc: An orc is here, looking for something (or perhaps someone) to eat.
+  long_desc: |
+    As you already know, orcs have quite a ravenous appetite.  
+    Care to be dinner?
+  keywords: ['orc']
+  level: 100
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 0 -800 S 8 13 2 3d10+100 2d5+2 150 1000 8 8 1
+
+- id: 4057
+  key: the_mountain_lion
+  name: the mountain lion
+  short_desc: A mountain lion bears its teeth at the sight of more food.
+  long_desc: |
+    Huge claws and big teeth make quite a fearsome opponent for
+    the weary.  Are you next?
+  keywords: ['lion', 'mountain']
+  level: 96
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 0 -100 S 5 16 5 1d10+60 2d4+0 0 900 8 8 1
+
+- id: 4058
+  key: the_hill_giant
+  name: the hill giant
+  short_desc: A hill giant is here tossing rocks around.  Marbles perhaps?
+  long_desc: |
+    The hill giant looks like he's about 9 feet tall. By his actions you
+    come to the conclusion that he's not very intelligent.  A perfect
+    playmate for you.
+  keywords: ['giant', 'hill']
+  level: 64
+  hp_max: 165
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 0 S 13 8 2 1d10+160 2d10+0 1000 16500 8 8 1
+
+- id: 4100
+  key: the_mage
+  name: the Mage
+  short_desc: A small intelligent looking mage is standing here. It looks like he knows his way with magic.
+  long_desc: |
+    This guy can ace the SAT with his frontal lobe tied behind his back.
+  keywords: ['mage']
+  level: 39
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 39 8 -100 S 13 10 2 13d13+130 2d6+0 1500 17000 8 8 1
+
+- id: 4101
+  key: the_troll
+  name: the troll
+  short_desc: This large mean-looking troll wants to take a closer look at you.
+  long_desc: |
+    Whilst you look at this troll, you realize he is trying to
+    figure just how tender you are.
+  keywords: ['troll']
+  level: 38
+  hp_max: 111
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 0 -800 S 12 8 1 2d10+100 2d7+1 500 15000 8 8 1
+
+- id: 4102
+  key: the_guardian_snake
+  name: the guardian snake
+  short_desc: A large green snake is guardian for something.
+  long_desc: |
+    You take a closer look at this large snake while it tries to
+    bite your head off!
+  keywords: ['guardian', 'snake']
+  level: 39
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 39 0 -700 S 10 8 5 10d10+100 2d5+2 0 9000 8 8 1
+
+- id: 4104
+  key: the_orc
+  name: the orc
+  short_desc: An ugly orc is standing here waiting for someone to practice on.
+  long_desc: |
+    Yrkk..  He belches in your face!
+  keywords: ['orc']
+  level: 228
+  hp_max: 93
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 228 0 -200 S 7 14 4 1d5+90 2d4+1 200 2250 8 8 1
+
+- id: 4105
+  key: a_centipede
+  name: a centipede
+  short_desc: A small harmless centipede is here looking for some vegetation to eat.
+  long_desc: |
+    It doesn't seem to pay any attention towards you.  You are probably
+    not important.
+  keywords: ['centipede']
+  level: 2
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 300 S 6 15 4 3d10+50 1d8+1 0 1500 8 8 0
+
+- id: 4106
+  key: the_warrior
+  name: the Warrior
+  short_desc: A human warrior grins an evil grin in your face.
+  long_desc: |
+    He doesn't look friendly at all...  He is no Mr. Rogers!
+  keywords: ['warrior']
+  level: 100
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 0 -300 S 9 10 3 3d10+100 2d6+1 500 9000 8 8 1
+
+- id: 4107
+  key: the_green_kobold
+  name: the green kobold
+  short_desc: A green kobold hobbles along the cave walls puking periodically.
+  long_desc: |
+    It looks a little sick.  Something he ate maybe?
+  keywords: ['kobold']
+  level: 100
+  hp_max: 31
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 0 -100 S 7 14 4 2d10+20 1d10+0 20 3000 8 8 1
+
+- id: 4150
+  key: the_blue_bat
+  name: the blue bat
+  short_desc: A blue bat flies in circles while electrical charges arc here and there.
+  long_desc: |
+    Bzzzt.  Zap.  Crackle.  Speak about static electricity!
+  keywords: ['bat', 'blue']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
+
+- id: 4151
+  key: the_red_bat
+  name: the red bat
+  short_desc: A red bat hangs upside down from the ceiling, glowing.
+  long_desc: |
+    You can definitely feel some heat from this thing.  A fever perhaps?
+  keywords: ['bat', 'red']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
+
+- id: 4152
+  key: the_green_bat
+  name: the green bat
+  short_desc: A green bat flies from wall to wall leaving an awful smell.
+  long_desc: |
+    Whew!  What a stinker!
+  keywords: ['bat', 'green']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
+
+- id: 4153
+  key: the_white_bat
+  name: the white bat
+  short_desc: A white bat rests on the ceiling.  You wonder where the cold is coming from.
+  long_desc: |
+    Brrr!  You almost can't distinguish this bat from an ice cube.
+  keywords: ['bat', 'white']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
+
+- id: 4154
+  key: the_black_bat
+  name: the black bat
+  short_desc: A black bat flies from wall to wall leaving something hissing behind.
+  long_desc: |
+    Amazing!  This bat is grooming itself with acid!
+  keywords: ['bat', 'black']
+  level: 35
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
+
+- id: 4155
+  key: the_thief
+  name: the thief
+  short_desc: A sneaky thief appears and disappears within the shadows.
+  long_desc: |
+    He definitely knows what he's doing.  Trust him.
+  keywords: ['thief']
+  level: 69
+  hp_max: 161
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 69 32770 400 S 12 7 1 3d20+130 2d7+1 2000 14000 8 8 1
+
+- id: 4156
+  key: the_troll
+  name: the troll
+  short_desc: A large ugly troll is here mumbling something.
+  long_desc: |
+    He looks quite mean.  Don't mess with him.
+  keywords: ['troll']
+  level: 38
+  hp_max: 224
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 0 -700 S 14 8 1 8d20+140 2d7+1 3000 20000 8 8 1
+
+- id: 4157
+  key: the_mage
+  name: the Mage
+  short_desc: A small man is here researching magical incantations.
+  long_desc: |
+    His little head is buried into his magic books.  He'd be very
+    angry should you bother his studies.
+  keywords: ['mage']
+  level: 101
+  hp_max: 102
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 101 0 -200 S 11 10 2 4d10+80 2d5+1 800 11000 8 8 1
+
+- id: 4158
+  key: the_snake
+  name: the snake
+  short_desc: A brown snake hisses at you.
+  long_desc: |
+    Sickly brown as it is, you know what it really wants is you
+    for dinner.
+  keywords: ['snake']
+  level: 35
+  hp_max: 115
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 0 200 S 9 12 3 1d10+110 2d5+1 0 8000 8 8 1
+
+- id: 4159
+  key: the_small_troll
+  name: the small troll
+  short_desc: A small troll is here happily dancing.  Trala-la-la.  La-la.
+  long_desc: |
+    He is so happy, you are disgusted.  Kill him now!
+  keywords: ['troll']
+  level: 100
+  hp_max: 96
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 0 -300 S 8 13 3 3d10+80 2d5+2 500 5000 8 8 1
+
+- id: 4160
+  key: the_orc
+  name: the orc
+  short_desc: A large orc growls in your face.
+  long_desc: |
+    He is just looking for a fight isn't he?
+  keywords: ['orc']
+  level: 100
+  hp_max: 110
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 0 -200 S 9 12 3 1d20+100 2d5+1 500 6000 8 8 1
+

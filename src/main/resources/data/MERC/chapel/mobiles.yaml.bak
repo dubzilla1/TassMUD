@@ -1,0 +1,561 @@
+- id: 3400
+  key: |
+  the_bony_skeleton:
+  name: |
+  skeleton_bony:
+  short_desc: |
+  the_bony_skeleton:
+  long_desc: |
+  A_bony_skeleton_is_here:
+  keywords: ['skeleton', 'bony']
+  level: 32
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 19
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3401
+  key: |
+  the_undead_zombie:
+  name: |
+  undead_zombie:
+  short_desc: |
+  the_undead_zombie:
+  long_desc: |
+  An_undead_zombie_sits_here_munching_on_something_:
+  keywords: ['undead', 'zombie']
+  level: 34
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 49
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3402
+  key: |
+  the_ghoul:
+  name: |
+  undead_ghoul:
+  short_desc: |
+  The_ghoul:
+  long_desc: |
+  A_ghoul_is_here_staring_at_you_hungrily:
+  keywords: ['undead', 'ghoul']
+  level: 32
+  hp_max: 80
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 79
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3403
+  key: |
+  the_wraith:
+  name: |
+  undead_wraith:
+  short_desc: |
+  The_wraith:
+  long_desc: |
+  You_spot_a_wraith_advancing_towards_you_from_the_shadows:
+  keywords: ['undead', 'wraith']
+  level: 34
+  hp_max: 150
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 149
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3404
+  key: |
+  the_guardian_vampire:
+  name: |
+  undead_guardian_vampire:
+  short_desc: |
+  The_guardian_vampire:
+  long_desc: |
+  A_vampire_is_here_hiding_his_face_from_your_light_source:
+  keywords: ['undead', 'guardian', 'vampire']
+  level: 2
+  hp_max: 386
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 385
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3405
+  key: |
+  the_priest:
+  name: |
+  priest:
+  short_desc: |
+  the_priest:
+  long_desc: |
+  A_priest_of_God_stands_here_solemnly_speaking_words_of_praise:
+  keywords: ['priest']
+  level: 168
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3406
+  key: |
+  the_mi_go:
+  name: |
+  Mi-Go_Fungi:
+  short_desc: |
+  the_Mi-Go:
+  long_desc: |
+  A_Mi-Go_is_crawling_here:
+  keywords: ['Mi-Go', 'Fungi']
+  level: 32
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3407
+  key: |
+  the_nightgaunt:
+  name: |
+  nightgaunt:
+  short_desc: |
+  The_nightgaunt:
+  long_desc: |
+  A_nightgaunt_is_standing_here:
+  keywords: ['nightgaunt']
+  level: 96
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3408
+  key: |
+  the_hunting_horror:
+  name: |
+  hunting_horror:
+  short_desc: |
+  The_hunting_horror:
+  long_desc: |
+  The_hunting_horror_is_here_in_wait_of_an_unwary_traveler:
+  keywords: ['hunting', 'horror']
+  level: 40
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 4000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3409
+  key: |
+  some_cave_weeds:
+  name: |
+  weeds:
+  short_desc: |
+  some_cave_weeds:
+  long_desc: |
+  Some_weeds_are_creeping_across_the_floor:
+  keywords: ['weeds']
+  level: 36
+  hp_max: 76
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3410
+  key: |
+  snapper_joe:
+  name: |
+  snapper_joe:
+  short_desc: |
+  Snapper_Joe:
+  long_desc: |
+  Snapper_Joe_is_standing_here_leering_at_you_chillingly:
+  keywords: ['snapper', 'joe']
+  level: 6
+  hp_max: 366
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 365
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3411
+  key: |
+  the_x_ist_flesh_eater:
+  name: |
+  X-ist_eater:
+  short_desc: |
+  The_X-ist_flesh_eater:
+  long_desc: |
+  An_X-ist_flesh_eater_is_sitting_here_munching_on_some_coffin_remains:
+  keywords: ['X-ist', 'eater']
+  level: 8
+  hp_max: 216
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 215
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3412
+  key: |
+  the_spirit_of_king_crotus:
+  name: |
+  spirit_ghost_king_crotus:
+  short_desc: |
+  the_spirit_of_King_Crotus:
+  long_desc: |
+  The_spirit_of_King_Crotus_is_floating_lazily_above_the_floor:
+  keywords: ['spirit', 'ghost', 'king', 'crotus']
+  level: 2
+  hp_max: 261
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3413
+  key: |
+  the_rock_slug:
+  name: |
+  rock_slug:
+  short_desc: |
+  the_rock_slug:
+  long_desc: |
+  A_rock_slug_is_slowly_creeping_along_leaving_a_slime_trail_behind_it:
+  keywords: ['rock', 'slug']
+  level: 4
+  hp_max: 43
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 42
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3414
+  key: |
+  the_mad_etcher:
+  name: |
+  etcher:
+  short_desc: |
+  The_mad_etcher:
+  long_desc: |
+  The_mad_etcher_is_sitting_here_babbling_to_himself_and_working_on_the_wall:
+  keywords: ['etcher']
+  level: 64
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3415
+  key: |
+  the_spectral_etcher_s_wife:
+  name: |
+  wife_ghost_specter:
+  short_desc: |
+  The_spectral_etchers_wife:
+  long_desc: |
+  The_spectral_wife_of_the_etcher_is_very_faintly_floating_here:
+  keywords: ['wife', 'ghost', 'specter']
+  level: 2
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 86
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3416
+  key: |
+  the_half_decomposed_body:
+  name: |
+  body:
+  short_desc: |
+  The_half-decomposed_body:
+  long_desc: |
+  A_half-decomposed_body_is_lying_in_the_corner_here:
+  keywords: ['body']
+  level: 36
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

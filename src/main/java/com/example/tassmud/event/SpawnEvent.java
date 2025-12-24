@@ -85,8 +85,11 @@ public class SpawnEvent implements GameEvent {
     private void spawnMobs() {
         // Clean up empty corpses in the room before spawning
         cleanupEmptyCorpses();
+        // Diagnostic: log spawn config being executed
+        SpawnEventLogger.info("[SpawnEvent] Executing mob spawn config: " + config.toString());
         // Get configured mapping UUIDs for this spawn (one mapping per intended mob)
         List<String> mappingUuids = mobileDao.getSpawnMappingUUIDs(config.roomId, config.templateId);
+        SpawnEventLogger.info("[SpawnEvent] Found " + (mappingUuids == null ? 0 : mappingUuids.size()) + " spawn mapping UUID(s) for template " + config.templateId + " in room " + config.roomId);
         if (mappingUuids == null || mappingUuids.isEmpty()) {
             // No canonical spawn mappings for this room/template - nothing to manage
             SpawnEventLogger.info("[SpawnEvent] No spawn mappings for template " + config.templateId + " in room " + config.roomId + "; skipping.");
@@ -109,11 +112,137 @@ public class SpawnEvent implements GameEvent {
                 Mobile spawned = mobileDao.spawnMobile(template, config.roomId, uuid);
                 if (spawned != null) {
                     SpawnEventLogger.info("[SpawnEvent] Spawned " + spawned.getName() + " (instance #" + spawned.getInstanceId() + ") in room " + config.roomId + " [uuid=" + uuid + "]");
+                    // If this spawn config includes equipment, create item instances and apply their effects to the mobile
+                    try {
+                        if (config.equipment != null && !config.equipment.isEmpty()) {
+                            for (java.util.Map<String,Object> eq : config.equipment) {
+                                Object iv = eq.get("item_vnum");
+                                if (iv == null) continue;
+                                int itemVnum = Integer.parseInt(iv.toString());
+                                long instId = itemDao.createInstance(itemVnum, null, null);
+                                if (instId > 0) {
+                                    // Persist marker linking this mobile instance to the item instance
+                                    try { mobileDao.addMobileItemMarker(spawned.getInstanceId(), instId, "equip"); } catch (Exception ignore) {}
+                                    ItemTemplate itmpl = itemDao.getTemplateById(itemVnum);
+                                    applyEquipmentToMobile(spawned, instId, itmpl);
+                                    SpawnEventLogger.info("[SpawnEvent] Equipped mob " + spawned.getName() + " with item " + itemVnum + " (instance #" + instId + ")");
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        SpawnEventLogger.error("[SpawnEvent] Failed to equip spawned mob: " + e.getMessage());
+                    }
+
+                    // If the spawn config includes inventory entries (items given to the mob), create instances.
+                    // Support items that should be placed inside a container (inventory entry contains `container_vnum`).
+                    try {
+                        if (config.inventory != null && !config.inventory.isEmpty()) {
+                            // Map container template vnum -> created container instance id (one per container type per mob)
+                            java.util.Map<Integer, Long> createdContainers = new java.util.HashMap<>();
+
+                            for (java.util.Map<String,Object> inv : config.inventory) {
+                                Object iv = inv.get("item_vnum");
+                                if (iv == null) continue;
+                                int itemVnum = Integer.parseInt(iv.toString());
+
+                                // Does this inventory entry specify a container template vnum?
+                                Integer containerVnum = null;
+                                Object cv = inv.get("container_vnum");
+                                if (cv != null) {
+                                    try { containerVnum = Integer.parseInt(cv.toString()); } catch (Exception ignored) {}
+                                }
+
+                                long containerInstanceId = -1L;
+                                if (containerVnum != null) {
+                                    // Create the container instance for this mob (one per container template)
+                                    if (!createdContainers.containsKey(containerVnum)) {
+                                        long cinst = itemDao.createInstance(containerVnum, null, null);
+                                        if (cinst > 0) {
+                                            // Attach container to mob as inventory marker so it'll move to corpse later
+                                            try {
+                                                // persist container marker
+                                                try { mobileDao.addMobileItemMarker(spawned.getInstanceId(), cinst, "inventory"); } catch (Exception ignore) {}
+                                                com.example.tassmud.model.Modifier cm = new com.example.tassmud.model.Modifier("inventory#" + cinst, com.example.tassmud.model.Stat.ATTACK_HIT_BONUS, com.example.tassmud.model.Modifier.Op.ADD, 0, 0L, 0);
+                                                java.util.UUID cmid = spawned.addModifier(cm);
+                                                spawned.addEquipModifier(cmid);
+                                                SpawnEventLogger.info("[SpawnEvent] Gave mob " + spawned.getName() + " container " + containerVnum + " (instance #" + cinst + ")");
+                                            } catch (Exception ex) {
+                                                SpawnEventLogger.error("[SpawnEvent] Failed to attach container marker to mob: " + ex.getMessage());
+                                            }
+                                            createdContainers.put(containerVnum, cinst);
+                                        } else {
+                                            SpawnEventLogger.error("[SpawnEvent] Failed to create container instance for template " + containerVnum + " for mob " + spawned.getName());
+                                        }
+                                    }
+                                    Long c = createdContainers.get(containerVnum);
+                                    if (c != null) containerInstanceId = c.longValue();
+                                }
+
+                                long instId;
+                                if (containerInstanceId > 0) {
+                                    instId = itemDao.createInstance(itemVnum, null, null, containerInstanceId);
+                                } else {
+                                    instId = itemDao.createInstance(itemVnum, null, null);
+                                }
+
+                                if (instId > 0) {
+                                    // Track this instance on the mob by adding a harmless modifier with source inventory#<id>
+                                    try {
+                                        // persist inventory marker
+                                        try { mobileDao.addMobileItemMarker(spawned.getInstanceId(), instId, "inventory"); } catch (Exception ignore) {}
+                                        com.example.tassmud.model.Modifier m = new com.example.tassmud.model.Modifier("inventory#" + instId, com.example.tassmud.model.Stat.ATTACK_HIT_BONUS, com.example.tassmud.model.Modifier.Op.ADD, 0, 0L, 0);
+                                        java.util.UUID mid = spawned.addModifier(m);
+                                        spawned.addEquipModifier(mid);
+                                        SpawnEventLogger.info("[SpawnEvent] Gave mob " + spawned.getName() + " inventory item " + itemVnum + " (instance #" + instId + ")" + (containerInstanceId > 0 ? " inside container #" + containerInstanceId : ""));
+                                    } catch (Exception ex) {
+                                        SpawnEventLogger.error("[SpawnEvent] Failed to attach inventory marker to mob: " + ex.getMessage());
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        SpawnEventLogger.error("[SpawnEvent] Failed to give inventory to spawned mob: " + e.getMessage());
+                    }
                 }
             } catch (Exception e) {
                 SpawnEventLogger.error("[SpawnEvent] Failed to spawn mapped mob: " + e.getMessage());
             }
         }
+    }
+
+    /**
+     * Apply item template equip bonuses to a mobile at runtime by adding Modifiers.
+     * This does not persist mobile equipment; it applies effects in-memory so mobs
+     * behave as if they have the item equipped.
+     */
+    private void applyEquipmentToMobile(Mobile mob, long itemInstanceId, ItemTemplate tmpl) {
+        if (mob == null || tmpl == null) return;
+        // Armor/save bonuses
+        try {
+            java.time.Instant never = java.time.Instant.ofEpochMilli(0);
+            long expires = 0L; // permanent for mob lifetime
+            // Armor
+            if (tmpl.armorSaveBonus != 0) {
+                Modifier m = new Modifier("equip#" + itemInstanceId, Stat.ARMOR, Modifier.Op.ADD, tmpl.armorSaveBonus, expires, 0);
+                java.util.UUID id = mob.addModifier(m);
+                mob.addEquipModifier(id);
+            }
+            if (tmpl.fortSaveBonus != 0) {
+                Modifier m = new Modifier("equip#" + itemInstanceId, Stat.FORTITUDE, Modifier.Op.ADD, tmpl.fortSaveBonus, expires, 0);
+                java.util.UUID id = mob.addModifier(m);
+                mob.addEquipModifier(id);
+            }
+            if (tmpl.refSaveBonus != 0) {
+                Modifier m = new Modifier("equip#" + itemInstanceId, Stat.REFLEX, Modifier.Op.ADD, tmpl.refSaveBonus, expires, 0);
+                java.util.UUID id = mob.addModifier(m);
+                mob.addEquipModifier(id);
+            }
+            if (tmpl.willSaveBonus != 0) {
+                Modifier m = new Modifier("equip#" + itemInstanceId, Stat.WILL, Modifier.Op.ADD, tmpl.willSaveBonus, expires, 0);
+                java.util.UUID id = mob.addModifier(m);
+                mob.addEquipModifier(id);
+            }
+        } catch (Exception ignored) {}
     }
     
     /**

@@ -11,6 +11,15 @@ rooms:
       south: 2803
       north: 6124
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 2805
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 2800
+        quantity: 2
+        frequency: 1
     doors:
       south:
         to: 2803
@@ -48,11 +57,33 @@ rooms:
     exits:
       east: 2803
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2801
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 2801
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 2806
+        quantity: 20
+        frequency: 1
+      - type: MOB
+        id: 2806
+        quantity: 20
+        frequency: 1
+      - type: MOB
+        id: 2807
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 2803
-        description: "You welcome the fresh breeze coming from the east, but wrinkle your nose when
-the stench bears down on you once more."
+        description: |
+          You welcome the fresh breeze coming from the east, but wrinkle your nose when
+          the stench bears down on you once more.
         keywords: ""
         state: OPEN
         locked: false
@@ -77,6 +108,31 @@ the stench bears down on you once more."
       south: 2805
       west: 2802
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2802
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2804
+              container_vnum: 2800
+      - type: MOB
+        id: 2800
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 2806
+        quantity: 20
+        frequency: 1
+      - type: MOB
+        id: 2806
+        quantity: 20
+        frequency: 1
+      - type: MOB
+        id: 2808
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 2801
@@ -89,8 +145,9 @@ the stench bears down on you once more."
         key: null
       east:
         to: 2804
-        description: "Good God!  You spy corpses all over the floor in there.  It looks like a
-virtual graveyard in there."
+        description: |
+          Good God!  You spy corpses all over the floor in there.  It looks like a
+          virtual graveyard in there.
         keywords: ""
         state: OPEN
         locked: false
@@ -99,8 +156,9 @@ virtual graveyard in there."
         key: null
       south:
         to: 2805
-        description: "Whoa!  You reel back from the stench.  You believe you have found the source
-of this bad smell."
+        description: |
+          Whoa!  You reel back from the stench.  You believe you have found the source
+          of this bad smell.
         keywords: ""
         state: OPEN
         locked: false
@@ -109,8 +167,9 @@ of this bad smell."
         key: null
       west:
         to: 2802
-        description: "You puke as you watch worms crawl between this room and the room west of here
-as they bore new holes into a corpse laying on the far wall of the west room."
+        description: |
+          You puke as you watch worms crawl between this room and the room west of here
+          as they bore new holes into a corpse laying on the far wall of the west room.
         keywords: ""
         state: OPEN
         locked: false
@@ -130,11 +189,37 @@ as they bore new holes into a corpse laying on the far wall of the west room."
     exits:
       west: 2803
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 2800
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 2803
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2803
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2803
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2803
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2806
+        quantity: 20
+        frequency: 1
     doors:
       west:
         to: 2803
-        description: "You welcome the fresh breeze coming from the west, but wrinkle your nose when
-the stench bears down on you once more."
+        description: |
+          You welcome the fresh breeze coming from the west, but wrinkle your nose when
+          the stench bears down on you once more.
         keywords: ""
         state: OPEN
         locked: false
@@ -160,11 +245,33 @@ the stench bears down on you once more."
     exits:
       north: 2803
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 2801
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 2804
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2802
+              wear_loc: 12
+      - type: MOB
+        id: 2805
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2803
+              container_vnum: 2801
     doors:
       north:
         to: 2803
-        description: "You welcome the fresh breeze coming from the north, but wrinkle your nose when
-the stench bears down on you once more."
+        description: |
+          You welcome the fresh breeze coming from the north, but wrinkle your nose when
+          the stench bears down on you once more.
         keywords: ""
         state: OPEN
         locked: false

@@ -1,0 +1,1221 @@
+- id: 9201
+  key: |
+  the_mountain_climber:
+  name: |
+  mountain_climber_mountainclimber:
+  short_desc: |
+  the_mountain_climber:
+  long_desc: |
+  A_mountain_climber_is_making_the_same_trek_that_you_are:
+  keywords: ['mountain', 'climber', 'mountainclimber']
+  level: 68
+  hp_max: 45
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 15
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9202
+  key: |
+  the_cyclops:
+  name: |
+  cyclops:
+  short_desc: |
+  the_cyclops:
+  long_desc: |
+  A_hungry_cyclops_snarls_at_you:
+  keywords: ['cyclops']
+  level: 98
+  hp_max: 1102
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 1100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9203
+  key: |
+  a_tiny_elemental:
+  name: |
+  tiny_elemental:
+  short_desc: |
+  a_tiny_elemental:
+  long_desc: |
+  A_tiny_elemental_form_wanders_about:
+  keywords: ['tiny', 'elemental']
+  level: 64
+  hp_max: 10
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9204
+  key: |
+  the_elemental_guardian:
+  name: |
+  elemental_guardian:
+  short_desc: |
+  the_elemental_guardian:
+  long_desc: |
+  The_elemental_guardian_of_the_canyon:
+  keywords: ['elemental', 'guardian']
+  level: 2
+  hp_max: 1000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9205
+  key: |
+  a_small_elemental:
+  name: |
+  small_elemental:
+  short_desc: |
+  a_small_elemental:
+  long_desc: |
+  A_small_rather_non-descript_elemental:
+  keywords: ['small', 'elemental']
+  level: 66
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9206
+  key: |
+  a_medium_elemental:
+  name: |
+  medium_elemental:
+  short_desc: |
+  a_medium_elemental:
+  long_desc: |
+  A_medium-sized_elemental:
+  keywords: ['medium', 'elemental']
+  level: 66
+  hp_max: 180
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 125
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9207
+  key: |
+  a_large_elemental:
+  name: |
+  large_elemental:
+  short_desc: |
+  a_large_elemental:
+  long_desc: |
+  A_large_elemental:
+  keywords: ['large', 'elemental']
+  level: 66
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 190
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9208
+  key: |
+  the_earth_ruler:
+  name: |
+  earth_elemental_ruler:
+  short_desc: |
+  the_Earth_Ruler:
+  long_desc: |
+  The_Ruler_of_the_earth_elementals:
+  keywords: ['earth', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9209
+  key: |
+  the_fire_ruler:
+  name: |
+  fire_elemental_ruler:
+  short_desc: |
+  the_Fire_Ruler:
+  long_desc: |
+  The_Ruler_of_the_fire_elementals:
+  keywords: ['fire', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9210
+  key: |
+  the_air_ruler:
+  name: |
+  air_elemental_ruler:
+  short_desc: |
+  The_Air_Ruler:
+  long_desc: |
+  The_Ruler_of_the_air_elementals:
+  keywords: ['air', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9211
+  key: |
+  the_lightning_ruler:
+  name: |
+  lightning_elemental_ruler:
+  short_desc: |
+  The_Lightning_Ruler:
+  long_desc: |
+  The_Ruler_of_the_lightning_elementals:
+  keywords: ['lightning', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9212
+  key: |
+  the_water_ruler:
+  name: |
+  water_elemental_ruler:
+  short_desc: |
+  The_Water_Ruler:
+  long_desc: |
+  The_Ruler_of_the_water_elementals:
+  keywords: ['water', 'elemental', 'ruler']
+  level: 2
+  hp_max: 1465
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9214
+  key: |
+  a_puddle:
+  name: |
+  water_puddle_elemental:
+  short_desc: |
+  a_puddle:
+  long_desc: |
+  A_small_puddle_of_water_elemental:
+  keywords: ['water', 'puddle', 'elemental']
+  level: 64
+  hp_max: 255
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9215
+  key: |
+  a_flame:
+  name: |
+  fire_flame_elemental:
+  short_desc: |
+  a_flame:
+  long_desc: |
+  A_small_flickering_flame_elemental:
+  keywords: ['fire', 'flame', 'elemental']
+  level: 64
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9216
+  key: |
+  a_small_snowflake:
+  name: |
+  snowflake_snow_flake_ice_elemental:
+  short_desc: |
+  a_small_snowflake:
+  long_desc: |
+  A_frozen_snowflake_water_elemental:
+  keywords: ['snowflake', 'snow', 'flake', 'ice', 'elemental']
+  level: 64
+  hp_max: 33
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9217
+  key: |
+  a_small_rock:
+  name: |
+  pebble_rock_earth_stone_elemental:
+  short_desc: |
+  a_small_rock:
+  long_desc: |
+  A_small_rock:
+  keywords: ['pebble', 'rock', 'earth', 'stone', 'elemental']
+  level: 64
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 5
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9218
+  key: |
+  a_small_spark:
+  name: |
+  spark_lightning_energy_elemental:
+  short_desc: |
+  a_small_spark:
+  long_desc: |
+  A_small_spark_of_electricity_fizzles_here:
+  keywords: ['spark', 'lightning', 'energy', 'elemental']
+  level: 64
+  hp_max: 30
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9219
+  key: |
+  a_small_blob_of_acid:
+  name: |
+  acid_blob_elemental:
+  short_desc: |
+  a_small_blob_of_acid:
+  long_desc: |
+  A_small_blob_of_acid_eats_away_at_the_stone_aimlessly:
+  keywords: ['acid', 'blob', 'elemental']
+  level: 64
+  hp_max: 125
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9220
+  key: |
+  a_lava_beast:
+  name: |
+  lava_elemental:
+  short_desc: |
+  a_lava_beast:
+  long_desc: |
+  A_lava_beast_spews_from_place_to_place:
+  keywords: ['lava', 'elemental']
+  level: 64
+  hp_max: 125
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9221
+  key: |
+  a_mud_monster:
+  name: |
+  mud_elemental:
+  short_desc: |
+  a_mud_monster:
+  long_desc: |
+  A_mud_monster_slops_around:
+  keywords: ['mud', 'elemental']
+  level: 64
+  hp_max: 92
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 86
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9222
+  key: |
+  an_elemental_mist_the_air_is_magically_misty_here:
+  name: |
+  mist_elemental:
+  short_desc: |
+  an_elemental_mist_nThe_air_is_magically_misty_here:
+  long_desc: |
+  The_magical_mist_is_a_cross_between_water_and_air:
+  keywords: ['mist', 'elemental']
+  level: 64
+  hp_max: 53
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9223
+  key: |
+  a_particle:
+  name: |
+  particle_elemental:
+  short_desc: |
+  a_particle:
+  long_desc: |
+  A_sub-atomic_particle_is_too_small_for_you_to_see:
+  keywords: ['particle', 'elemental']
+  level: 64
+  hp_max: 82
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9224
+  key: |
+  a_dust_cloud:
+  name: |
+  dust_elemental:
+  short_desc: |
+  a_dust_cloud:
+  long_desc: |
+  A_dust_cloud_blowing_by_makes_you_sneeze:
+  keywords: ['dust', 'elemental']
+  level: 64
+  hp_max: 49
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 4
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9225
+  key: |
+  an_eddie:
+  name: |
+  eddie_elemental:
+  short_desc: |
+  an_eddie:
+  long_desc: |
+  A_small_eddie_current_swirls_junk_around_here:
+  keywords: ['eddie', 'elemental']
+  level: 64
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9226
+  key: |
+  the_blue_flame:
+  name: |
+  blue_flame:
+  short_desc: |
+  the_Blue_Flame:
+  long_desc: |
+  The_Blue_Flame_burns_mysteriously_here:
+  keywords: ['blue', 'flame']
+  level: 66
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 100
+  damage_bonus: 550
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9227
+  key: |
+  the_magneto:
+  name: |
+  magneto:
+  short_desc: |
+  the_Magneto:
+  long_desc: |
+  The_Magneto_considers_zapping_you_for_the_heck_of_it:
+  keywords: ['magneto']
+  level: 66
+  hp_max: 366
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 350
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9228
+  key: |
+  the_ice_bandit:
+  name: |
+  ice_bandit:
+  short_desc: |
+  the_Ice_Bandit:
+  long_desc: |
+  The_Ice_Bandit_strikes_cold_fear_in_your_heart:
+  keywords: ['ice', 'bandit']
+  level: 2
+  hp_max: 491
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 480
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9229
+  key: |
+  the_rock_monster:
+  name: |
+  rock_monster:
+  short_desc: |
+  the_Rock_Monster:
+  long_desc: |
+  The_Rock_Monster_considers_you_in_stoney_silence:
+  keywords: ['rock', 'monster']
+  level: 66
+  hp_max: 770
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 550
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9230
+  key: |
+  the_hurricane:
+  name: |
+  hurricane:
+  short_desc: |
+  the_Hurricane:
+  long_desc: |
+  A_Hurricane_rages_across_the_sky:
+  keywords: ['hurricane']
+  level: 66
+  hp_max: 700
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9231
+  key: |
+  an_elemental_magician:
+  name: |
+  magician:
+  short_desc: |
+  an_elemental_magician:
+  long_desc: |
+  An_elemental_magician_seeks_magical_stones_for_a_spell:
+  keywords: ['magician']
+  level: 66
+  hp_max: 206
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9232
+  key: |
+  a_rainbow_warrior:
+  name: |
+  rainbow_warrior:
+  short_desc: |
+  a_rainbow_warrior:
+  long_desc: |
+  A_warrior_of_the_Rainbow_Cult_swears_his_loyalty:
+  keywords: ['rainbow', 'warrior']
+  level: 64
+  hp_max: 340
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 340
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9233
+  key: |
+  an_illusionist_the_illusionist_seeks_the_aid_of_the_elemental_forces:
+  name: |
+  illusionist:
+  short_desc: |
+  an_illusionist_nThe_illusionist_seeks_the_aid_of_the_elemental_forces:
+  long_desc: |
+  He_seeks_their_aid_for_a_powerful_new_spell_of_deceptionnnwielded_The_Sword_of_Illusions:
+  keywords: ['illusionist']
+  level: 66
+  hp_max: 185
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9234
+  key: |
+  an_alchemist:
+  name: |
+  alchemist:
+  short_desc: |
+  an_alchemist:
+  long_desc: |
+  An_alchemist_wanders_by_in_search_of_magical_herbs:
+  keywords: ['alchemist']
+  level: 64
+  hp_max: 271
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9235
+  key: |
+  a_baby_rainbow_dragon:
+  name: |
+  baby_rainbow_dragon:
+  short_desc: |
+  a_baby_rainbow_dragon:
+  long_desc: |
+  A_baby_rainbow_dragon_plays_among_the_elements_here:
+  keywords: ['baby', 'rainbow', 'dragon']
+  level: 66
+  hp_max: 400
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9236
+  key: |
+  a_little_imp:
+  name: |
+  imp:
+  short_desc: |
+  a_little_imp:
+  long_desc: |
+  A_little_imp_runs_along_being_annoying:
+  keywords: ['imp']
+  level: 4
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9237
+  key: |
+  a_huge_elemental:
+  name: |
+  HUGE_elemental:
+  short_desc: |
+  a_HUGE_elemental:
+  long_desc: |
+  A_HUGE_elemental_form_stands_here:
+  keywords: ['HUGE', 'elemental']
+  level: 66
+  hp_max: 750
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 750
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9238
+  key: |
+  the_elixir_vendor:
+  name: |
+  vendor:
+  short_desc: |
+  the_elixir_vendor:
+  long_desc: |
+  A_vendor_is_willing_to_sell_you_elixirs:
+  keywords: ['vendor']
+  level: 82
+  hp_max: 10000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 10000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

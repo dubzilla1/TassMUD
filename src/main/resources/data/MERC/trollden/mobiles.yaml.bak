@@ -1,0 +1,297 @@
+- id: 2800
+  key: |
+  the_guardian_beast:
+  name: |
+  guardian_beast:
+  short_desc: |
+  the_guardian_beast:
+  long_desc: |
+  A_guardian_beast_stares_at_you_and_snarls_in_rage:
+  keywords: ['guardian', 'beast']
+  level: 50
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 5000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2801
+  key: |
+  the_young_troll:
+  name: |
+  young_troll:
+  short_desc: |
+  the_young_troll:
+  long_desc: |
+  A_young_troll_is_sitting_down_chewing_on_a_bone:
+  keywords: ['young', 'troll']
+  level: 4
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2802
+  key: |
+  the_medium_troll:
+  name: |
+  medium_troll:
+  short_desc: |
+  the_medium_troll:
+  long_desc: |
+  A_troll_is_grooming_his_pet_a_guardian_beast:
+  keywords: ['medium', 'troll']
+  level: 2
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2803
+  key: |
+  a_baby_troll:
+  name: |
+  baby_troll:
+  short_desc: |
+  a_baby_troll:
+  long_desc: |
+  A_baby_troll_is_playing_Doctor_with_a_cadaver:
+  keywords: ['baby', 'troll']
+  level: 2
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2804
+  key: |
+  the_giant_troll:
+  name: |
+  giant_troll:
+  short_desc: |
+  the_giant_troll:
+  long_desc: |
+  A_giant_troll_is_lying_on_a_pile_of_carnage_pleasing_his_mistress:
+  keywords: ['giant', 'troll']
+  level: 2
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2805
+  key: |
+  the_large_female_troll:
+  name: |
+  large_troll_female:
+  short_desc: |
+  the_large_female_troll:
+  long_desc: |
+  A_large_female_troll_is_lying_on_the_pile_of_carnage_blissfully_writhing:
+  keywords: ['large', 'troll', 'female']
+  level: 2
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2806
+  key: |
+  a_fat_worm:
+  name: |
+  fat_worm:
+  short_desc: |
+  a_fat_worm:
+  long_desc: |
+  A_fat_worm_scurries_around_looking_for_food:
+  keywords: ['fat', 'worm']
+  level: 4
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2807
+  key: |
+  the_roving_beast:
+  name: |
+  roving_beast:
+  short_desc: |
+  the_roving_beast:
+  long_desc: |
+  A_roving_beast_is_searching_for_prey:
+  keywords: ['roving', 'beast']
+  level: 50
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 5000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2808
+  key: |
+  the_medium_troll:
+  name: |
+  medium_troll:
+  short_desc: |
+  the_medium_troll:
+  long_desc: |
+  A_troll_is_wandering_around_attending_to_his_duties:
+  keywords: ['medium', 'troll']
+  level: 4
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

@@ -111,6 +111,14 @@ rooms:
       north: 105
       south: 103
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 102
     doors:
       north:
         to: 105
@@ -147,6 +155,11 @@ rooms:
       south: 104
       west: 111
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 106
@@ -253,6 +266,11 @@ rooms:
       south: 106
       west: 129
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 108
@@ -306,6 +324,14 @@ rooms:
       south: 107
       west: 113
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 102
     doors:
       north:
         to: 109
@@ -358,6 +384,15 @@ rooms:
       south: 108
       west: 114
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 108
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 118
@@ -404,6 +439,14 @@ rooms:
       north: 119
       west: 105
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 102
     doors:
       north:
         to: 119
@@ -437,6 +480,11 @@ rooms:
       east: 105
       south: 121
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 112
@@ -481,6 +529,14 @@ rooms:
       south: 111
       west: 122
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 101
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 102
     doors:
       east:
         to: 106
@@ -641,6 +697,14 @@ rooms:
       north: 117
       west: 107
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 102
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 100
     doors:
       north:
         to: 117
@@ -676,6 +740,14 @@ rooms:
       south: 116
       west: 108
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 102
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 100
     doors:
       north:
         to: 118
@@ -718,6 +790,14 @@ rooms:
       south: 117
       west: 109
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 102
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 100
     doors:
       south:
         to: 117
@@ -751,6 +831,15 @@ rooms:
     exits:
       south: 110
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 103
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 101
+              wear_loc: 6
     doors:
       south:
         to: 110
@@ -774,6 +863,15 @@ rooms:
     exits:
       west: 106
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 104
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 103
+              wear_loc: 16
     doors:
       west:
         to: 106
@@ -797,6 +895,15 @@ rooms:
     exits:
       north: 111
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 106
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 103
+              wear_loc: 16
     doors:
       north:
         to: 111
@@ -820,6 +927,11 @@ rooms:
     exits:
       east: 112
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 105
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 112
@@ -843,6 +955,11 @@ rooms:
     exits:
       east: 113
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 107
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 113
@@ -866,6 +983,11 @@ rooms:
     exits:
       north: 115
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 108
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 115
@@ -890,6 +1012,16 @@ rooms:
     exits:
       north: 113
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 110
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 105
+          -
+              item_vnum: 109
     doors:
       north:
         to: 113
@@ -977,6 +1109,19 @@ rooms:
     exits:
       south: 127
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 111
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 106
+              wear_loc: 17
+      - type: MOB
+        id: 112
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 127
@@ -1000,6 +1145,18 @@ rooms:
     exits:
       east: 107
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 109
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 104
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 107
     doors:
       east:
         to: 107

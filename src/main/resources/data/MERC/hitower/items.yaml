@@ -1,47 +1,49 @@
 items:
   - id: 1301
-    key: oven_black
+    key: oven_black_1301
     name: an oven
     description: A huge black oven is here.
     weight: 1000
     value: 1000
-    type: container
+    types:
+      - container
+      - immobile
     extra_flags:
       - GLOW
     keywords: [oven, black]
-    template_json:
-      raw_block: |
-        #1301
-        oven black~
-        an oven~
-        A huge black oven is here.~
-        ~
-        15 1 0
-        1000 5 -1 0
-        1000 1000 1000
-      type_line: 15 1 0
+    legacy_type_line: 15 1 0
+    legacy_raw: |
+      #1301
+      oven black~
+      an oven~
+      A huge black oven is here.~
+      ~
+      15 1 0
+      1000 5 -1 0
+      1000 1000 1000
   - id: 1302
-    key: locker
+    key: locker_1302
     name: a meat locker
     description: An enormous meat locker is here.
     weight: 1000
     value: 1000
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [locker]
-    template_json:
-      raw_block: |
-        ~
-        15 0 0
-        1000 5 -1 0
-        1000 1000 1000
-        E
-        locker~
-        You just had the horrid thought that a cadaver might be in there.
-        ~
-      type_line: 15 0 0
-      extra_desc: You just had the horrid thought that a cadaver might be in there.
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      ~
+      15 0 0
+      1000 5 -1 0
+      1000 1000 1000
+      E
+      locker~
+      You just had the horrid thought that a cadaver might be in there.
+      ~
+    extra_desc: You just had the horrid thought that a cadaver might be in there.
   - id: 1304
-    key: pizza_slice
+    key: pizza_slice_1304
     name: A slice of pizza
     description: A slice of pizza is here looking very tasty.
     weight: 1
@@ -50,20 +52,19 @@ items:
     wear_flags:
       - TAKE
     keywords: [pizza, slice]
-    template_json:
-      raw_block: |
-        ~
-        19 0 1
-        15 0 0 0
-        1 12 3
-        E
-        pizza slice~
-        Ahh!  Round Table pizza!  How appropriate.  Any root beer?
-        ~
-      type_line: 19 0 1
-      extra_desc: Ahh!  Round Table pizza!  How appropriate.  Any root beer?
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      ~
+      19 0 1
+      15 0 0 0
+      1 12 3
+      E
+      pizza slice~
+      Ahh!  Round Table pizza!  How appropriate.  Any root beer?
+      ~
+    extra_desc: Ahh!  Round Table pizza!  How appropriate.  Any root beer?
   - id: 1305
-    key: chunk_meat
+    key: chunk_meat_1305
     name: a large chunk of meat
     description: A large chunk of meat is here.
     weight: 2
@@ -72,19 +73,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [chunk, meat]
-    template_json:
-      raw_block: |
-        #1305
-        chunk meat~
-        a large chunk of meat~
-        A large chunk of meat is here.~
-        ~
-        19 0 1
-        24 0 0 1
-        2 20 5
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #1305
+      chunk meat~
+      a large chunk of meat~
+      A large chunk of meat is here.~
+      ~
+      19 0 1
+      24 0 0 1
+      2 20 5
   - id: 1306
-    key: sandwich
+    key: sandwich_1306
     name: a finger sandwich
     description: A finger sandwich is here.
     weight: 2
@@ -93,20 +93,19 @@ items:
     wear_flags:
       - TAKE
     keywords: [sandwich]
-    template_json:
-      raw_block: |
-        ~
-        19 0 1
-        20 0 0 0
-        2 15 5
-        E
-        sandwich finger~
-        It would look quite tasty if someone had first removed the fingernails!
-        ~
-      type_line: 19 0 1
-      extra_desc: It would look quite tasty if someone had first removed the fingernails!
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      ~
+      19 0 1
+      20 0 0 0
+      2 15 5
+      E
+      sandwich finger~
+      It would look quite tasty if someone had first removed the fingernails!
+      ~
+    extra_desc: It would look quite tasty if someone had first removed the fingernails!
   - id: 1307
-    key: broom_straw
+    key: broom_straw_1307
     name: a straw broom
     description: A straw broom is here leaning against the wall.
     weight: 5
@@ -116,60 +115,61 @@ items:
       - TAKE
       - HOLD
     keywords: [broom, straw]
-    template_json:
-      raw_block: |
-        ~
-        13 0 16385
-        0 0 0 0
-        5 5 1
-        E
-        broom straw~
-        A magical flying broomstick?  Nah!  Not here.
-        ~
-      type_line: 13 0 16385
-      extra_desc: A magical flying broomstick?  Nah!  Not here.
+    legacy_type_line: 13 0 16385
+    legacy_raw: |
+      ~
+      13 0 16385
+      0 0 0 0
+      5 5 1
+      E
+      broom straw~
+      A magical flying broomstick?  Nah!  Not here.
+      ~
+    extra_desc: A magical flying broomstick?  Nah!  Not here.
   - id: 1308
-    key: machine_coffee
+    key: machine_coffee_1308
     name: a coffee machine
     description: A coffee machine is here.
     weight: 10000
     value: 10
-    type: container
+    types:
+      - container
+      - immobile
     extra_flags:
       - HUM
     keywords: [machine, coffee]
-    template_json:
-      raw_block: |
-        #1308
-        machine coffee~
-        a coffee machine~
-        A coffee machine is here.~
-        ~
-        15 2 0
-        10000 0 -1 0
-        10000 10 10
-      type_line: 15 2 0
+    legacy_type_line: 15 2 0
+    legacy_raw: |
+      #1308
+      machine coffee~
+      a coffee machine~
+      A coffee machine is here.~
+      ~
+      15 2 0
+      10000 0 -1 0
+      10000 10 10
   - id: 1309
-    key: cabinet
+    key: cabinet_1309
     name: a cabinet
     description: A cabinet is here.
     weight: 10000
     value: 10
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [cabinet]
-    template_json:
-      raw_block: |
-        #1309
-        cabinet~
-        a cabinet~
-        A cabinet is here.~
-        ~
-        15 0 0
-        5000 5 -1 0
-        10000 10 10
-      type_line: 15 0 0
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      #1309
+      cabinet~
+      a cabinet~
+      A cabinet is here.~
+      ~
+      15 0 0
+      5000 5 -1 0
+      10000 10 10
   - id: 1310
-    key: bar_silver
+    key: bar_silver_1310
     name: a bar of silver
     description: A bar of silver has been left here.
     weight: 10
@@ -178,19 +178,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [bar, silver]
-    template_json:
-      raw_block: |
-        #1310
-        bar silver~
-        a bar of silver~
-        A bar of silver has been left here.~
-        ~
-        8 0 1
-        0 0 0 0
-        10 1000 500
-      type_line: 8 0 1
+    legacy_type_line: 8 0 1
+    legacy_raw: |
+      #1310
+      bar silver~
+      a bar of silver~
+      A bar of silver has been left here.~
+      ~
+      8 0 1
+      0 0 0 0
+      10 1000 500
   - id: 1311
-    key: bar_gold
+    key: bar_gold_1311
     name: a bar of gold
     description: A bar of gold has been left here.
     weight: 11
@@ -199,19 +198,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [bar, gold]
-    template_json:
-      raw_block: |
-        #1311
-        bar gold~
-        a bar of gold~
-        A bar of gold has been left here.~
-        ~
-        8 0 1
-        0 0 0 0
-        11 2000 750
-      type_line: 8 0 1
+    legacy_type_line: 8 0 1
+    legacy_raw: |
+      #1311
+      bar gold~
+      a bar of gold~
+      A bar of gold has been left here.~
+      ~
+      8 0 1
+      0 0 0 0
+      11 2000 750
   - id: 1312
-    key: bar_mithril
+    key: bar_mithril_1312
     name: a bar of mithril
     description: A bar of mithril has been left here.
     weight: 12
@@ -220,19 +218,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [bar, mithril]
-    template_json:
-      raw_block: |
-        #1312
-        bar mithril~
-        a bar of mithril~
-        A bar of mithril has been left here.~
-        ~
-        8 0 1
-        0 0 0 0
-        12 3000 950
-      type_line: 8 0 1
+    legacy_type_line: 8 0 1
+    legacy_raw: |
+      #1312
+      bar mithril~
+      a bar of mithril~
+      A bar of mithril has been left here.~
+      ~
+      8 0 1
+      0 0 0 0
+      12 3000 950
   - id: 1313
-    key: bar_adamantite
+    key: bar_adamantite_1313
     name: a bar of adamantite
     description: A bar of adamantite has been left here.
     weight: 15
@@ -241,19 +238,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [bar, adamantite]
-    template_json:
-      raw_block: |
-        #1313
-        bar adamantite~
-        a bar of adamantite~
-        A bar of adamantite has been left here.~
-        ~
-        8 0 1
-        0 0 0 0
-        15 5000 1000
-      type_line: 8 0 1
+    legacy_type_line: 8 0 1
+    legacy_raw: |
+      #1313
+      bar adamantite~
+      a bar of adamantite~
+      A bar of adamantite has been left here.~
+      ~
+      8 0 1
+      0 0 0 0
+      15 5000 1000
   - id: 1314
-    key: hammer_mithril
+    key: hammer_mithril_1314
     name: a mithril hammer
     description: a mithril hammer has been left here
     weight: 19
@@ -277,40 +273,40 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 501
-    template_json:
-      raw_block: |
-        ~
-        5 64 8193
-        0 2 6 7
-        19 10000 1000
-        A
-        18 2
-        A
-        1 1
-      type_line: 5 64 8193
+    legacy_type_line: 5 64 8193
+    legacy_raw: |
+      ~
+      5 64 8193
+      0 2 6 7
+      19 10000 1000
+      A
+      18 2
+      A
+      1 1
   - id: 1315
-    key: chest
+    key: chest_1315
     name: a chest
     description: A chest is here.
     weight: 1000
     value: 1000
-    type: container
+    types:
+      - container
+      - immobile
     extra_flags:
       - GLOW
     keywords: [chest]
-    template_json:
-      raw_block: |
-        #1315
-        chest~
-        a chest~
-        A chest is here.~
-        ~
-        15 1 0
-        5000 15 1316 0
-        1000 1000 1000
-      type_line: 15 1 0
+    legacy_type_line: 15 1 0
+    legacy_raw: |
+      #1315
+      chest~
+      a chest~
+      A chest is here.~
+      ~
+      15 1 0
+      5000 15 1316 0
+      1000 1000 1000
   - id: 1316
-    key: key
+    key: key_1316
     name: a small key
     description: A small key has been left here.
     weight: 1
@@ -319,19 +315,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key]
-    template_json:
-      raw_block: |
-        #1316
-        key~
-        a small key~
-        A small key has been left here.~
-        ~
-        18 0 1
-        1315 0 0 0
-        1 1 1000000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #1316
+      key~
+      a small key~
+      A small key has been left here.~
+      ~
+      18 0 1
+      1315 0 0 0
+      1 1 1000000
   - id: 1317
-    key: long_sword
+    key: long_sword_1317
     name: a long sword
     description: A long sword has been left here.
     weight: 8
@@ -354,19 +349,18 @@ items:
     on_equip_effect_ids:
       - 202
       - 502
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 1 8 3
-        8 10000 1000
-        A
-        18 1
-        A
-        19 2
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 1 8 3
+      8 10000 1000
+      A
+      18 1
+      A
+      19 2
   - id: 1318
-    key: dagger_silver
+    key: dagger_silver_1318
     name: a silver dagger
     description: A finely crafted dagger made of silver is on the ground here.
     weight: 5
@@ -389,19 +383,18 @@ items:
     on_equip_effect_ids:
       - 501
       - 502
-    template_json:
-      raw_block: |
-        ~
-        5 0 8193
-        0 3 3 11
-        5 15000 1200
-        A
-        18 2
-        A
-        19 2
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      ~
+      5 0 8193
+      0 3 3 11
+      5 15000 1200
+      A
+      18 2
+      A
+      19 2
   - id: 1319
-    key: scimitar
+    key: scimitar_1319
     name: a curved scimitar
     description: A curved scimitar is here in a jewel-covered sheath.
     weight: 10
@@ -419,19 +412,18 @@ items:
     applies:
       - location: 13
         modifier: 3
-    template_json:
-      raw_block: |
-        a curved scimitar~
-        A curved scimitar is here in a jewel-covered sheath.~
-        ~
-        5 0 8193
-        0 2 7 3
-        10 17500 1950
-        A
-        13 3
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      a curved scimitar~
+      A curved scimitar is here in a jewel-covered sheath.~
+      ~
+      5 0 8193
+      0 2 7 3
+      10 17500 1950
+      A
+      13 3
   - id: 1320
-    key: staff_wooden
+    key: staff_wooden_1320
     name: a wooden staff
     description: A wooden staff is against the wall here.
     weight: 6
@@ -446,57 +438,58 @@ items:
       - TAKE
       - WIELD
     keywords: [staff, wooden]
-    template_json:
-      raw_block: |
-        #1320
-        staff wooden~
-        a wooden staff~
-        A wooden staff is against the wall here.~
-        ~
-        5 0 8193
-        0 1 4 8
-        6 10 5
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #1320
+      staff wooden~
+      a wooden staff~
+      A wooden staff is against the wall here.~
+      ~
+      5 0 8193
+      0 1 4 8
+      6 10 5
   - id: 1321
-    key: cabinet_silver
+    key: cabinet_silver_1321
     name: a silver chased cabinet
     description: A large cabinet with a silver finish is here.
     weight: 10000
     value: 1
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [cabinet, silver]
-    template_json:
-      raw_block: |
-        #1321
-        cabinet silver~
-        a silver chased cabinet~
-        A large cabinet with a silver finish is here.~
-        ~
-        15 0 0
-        5000 15 1325 0
-        10000 1 1
-      type_line: 15 0 0
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      #1321
+      cabinet silver~
+      a silver chased cabinet~
+      A large cabinet with a silver finish is here.~
+      ~
+      15 0 0
+      5000 15 1325 0
+      10000 1 1
   - id: 1322
-    key: cabinet_silver
+    key: cabinet_silver_1322
     name: a silver chased cabinet
     description: A large cabinet with a silver finish is here.
     weight: 10000
     value: 1
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [cabinet, silver]
-    template_json:
-      raw_block: |
-        #1322
-        cabinet silver~
-        a silver chased cabinet~
-        A large cabinet with a silver finish is here.~
-        ~
-        15 0 0
-        5000 15 1325 0
-        10000 1 1
-      type_line: 15 0 0
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      #1322
+      cabinet silver~
+      a silver chased cabinet~
+      A large cabinet with a silver finish is here.~
+      ~
+      15 0 0
+      5000 15 1325 0
+      10000 1 1
   - id: 1323
-    key: key_old
+    key: key_old_1323
     name: an old key
     description: An old key is here
     weight: 1
@@ -505,19 +498,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, old]
-    template_json:
-      raw_block: |
-        #1323
-        key old~
-        an old key~
-        An old key is here~
-        ~
-        18 0 1
-        0 0 0 0
-        1 1 1000000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #1323
+      key old~
+      an old key~
+      An old key is here~
+      ~
+      18 0 1
+      0 0 0 0
+      1 1 1000000
   - id: 1324
-    key: silvery_key
+    key: silvery_key_1324
     name: a silvery key
     description: A silvery key has been left here.
     weight: 1
@@ -526,19 +518,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [silvery, key]
-    template_json:
-      raw_block: |
-        #1324
-        silvery key~
-        a silvery key~
-        A silvery key has been left here.~
-        ~
-        18 0 1
-        1321 0 0 0
-        1 10000 10000000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #1324
+      silvery key~
+      a silvery key~
+      A silvery key has been left here.~
+      ~
+      18 0 1
+      1321 0 0 0
+      1 10000 10000000
   - id: 1325
-    key: silvery_key
+    key: silvery_key_1325
     name: a silvery key
     description: A silvery key has been left here.
     weight: 1
@@ -547,19 +538,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [silvery, key]
-    template_json:
-      raw_block: |
-        #1325
-        silvery key~
-        a silvery key~
-        A silvery key has been left here.~
-        ~
-        18 0 1
-        1322 0 0 0
-        1 10000 10000000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #1325
+      silvery key~
+      a silvery key~
+      A silvery key has been left here.~
+      ~
+      18 0 1
+      1322 0 0 0
+      1 10000 10000000
   - id: 1326
-    key: staff_red_white
+    key: staff_red_white_1326
     name: a red and white staff
     description: a red and white staff is leaning against the wall here
     weight: 8
@@ -575,19 +565,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, red, white]
-    template_json:
-      raw_block: |
-        #1326
-        staff red white~
-        a red and white staff~
-        a red and white staff is leaning against the wall here~
-        ~
-        4 0 16385
-        20 3 3 28
-        8 5500 500
-      type_line: 4 0 16385
+    legacy_type_line: 4 0 16385
+    legacy_raw: |
+      #1326
+      staff red white~
+      a red and white staff~
+      a red and white staff is leaning against the wall here~
+      ~
+      4 0 16385
+      20 3 3 28
+      8 5500 500
   - id: 1327
-    key: staff_burnt
+    key: staff_burnt_1327
     name: a burnt staff
     description: A burnt staff is leaning against the wall here.
     weight: 6
@@ -603,19 +592,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, burnt]
-    template_json:
-      raw_block: |
-        #1327
-        staff burnt~
-        a burnt staff~
-        A burnt staff is leaning against the wall here.~
-        ~
-        4 0 16385
-        20 4 4 4
-        6 1100 600
-      type_line: 4 0 16385
+    legacy_type_line: 4 0 16385
+    legacy_raw: |
+      #1327
+      staff burnt~
+      a burnt staff~
+      A burnt staff is leaning against the wall here.~
+      ~
+      4 0 16385
+      20 4 4 4
+      6 1100 600
   - id: 1328
-    key: rod_black
+    key: rod_black_1328
     name: a black rod
     description: A black rod has been left here.
     weight: 4
@@ -631,19 +619,18 @@ items:
       - TAKE
       - HOLD
     keywords: [rod, black]
-    template_json:
-      raw_block: |
-        #1328
-        rod black~
-        a black rod~
-        A black rod has been left here.~
-        ~
-        3 0 16385
-        20 3 3 22
-        4 1200 200
-      type_line: 3 0 16385
+    legacy_type_line: 3 0 16385
+    legacy_raw: |
+      #1328
+      rod black~
+      a black rod~
+      A black rod has been left here.~
+      ~
+      3 0 16385
+      20 3 3 22
+      4 1200 200
   - id: 1329
-    key: wand_wooden
+    key: wand_wooden_1329
     name: a wooden stick
     description: a wooden stick is here
     weight: 4
@@ -659,19 +646,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand, wooden]
-    template_json:
-      raw_block: |
-        #1329
-        wand wooden~
-        a wooden stick~
-        a wooden stick is here~
-        ~
-        3 0 16385
-        20 10 10 3
-        4 600 60
-      type_line: 3 0 16385
+    legacy_type_line: 3 0 16385
+    legacy_raw: |
+      #1329
+      wand wooden~
+      a wooden stick~
+      a wooden stick is here~
+      ~
+      3 0 16385
+      20 10 10 3
+      4 600 60
   - id: 1330
-    key: wand_metal
+    key: wand_metal_1330
     name: a metal wand
     description: A metal wand is here.
     weight: 5
@@ -687,38 +673,38 @@ items:
       - TAKE
       - HOLD
     keywords: [wand, metal]
-    template_json:
-      raw_block: |
-        #1330
-        wand metal~
-        a metal wand~
-        A metal wand is here.~
-        ~
-        3 0 16385
-        20 20 4 25
-        5 2000 350
-      type_line: 3 0 16385
+    legacy_type_line: 3 0 16385
+    legacy_raw: |
+      #1330
+      wand metal~
+      a metal wand~
+      A metal wand is here.~
+      ~
+      3 0 16385
+      20 20 4 25
+      5 2000 350
   - id: 1331
-    key: cauldron_black
+    key: cauldron_black_1331
     name: a black cauldron
     description: A large black cauldron is here bubbling.
     weight: 5000
     value: 5000
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [cauldron, black]
-    template_json:
-      raw_block: |
-        #1331
-        cauldron black~
-        a black cauldron~
-        A large black cauldron is here bubbling.~
-        ~
-        15 0 0
-        1000 0 -1 0
-        5000 5000 500000
-      type_line: 15 0 0
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      #1331
+      cauldron black~
+      a black cauldron~
+      A large black cauldron is here bubbling.~
+      ~
+      15 0 0
+      1000 0 -1 0
+      5000 5000 500000
   - id: 1332
-    key: wings
+    key: wings_1332
     name: a small pair of bat wings
     description: A small pair of bat wings is here.
     weight: 2
@@ -727,19 +713,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [wings]
-    template_json:
-      raw_block: |
-        #1332
-        wings~
-        a small pair of bat wings~
-        A small pair of bat wings is here.~
-        ~
-        13 0 1
-        0 0 0 0
-        2 1 1
-      type_line: 13 0 1
+    legacy_type_line: 13 0 1
+    legacy_raw: |
+      #1332
+      wings~
+      a small pair of bat wings~
+      A small pair of bat wings is here.~
+      ~
+      13 0 1
+      0 0 0 0
+      2 1 1
   - id: 1333
-    key: eye_eyeball
+    key: eye_eyeball_1333
     name: an eyeball
     description: An eyeball has been left here
     weight: 1
@@ -749,19 +734,18 @@ items:
       - TAKE
       - HOLD
     keywords: [eye, eyeball]
-    template_json:
-      raw_block: |
-        #1333
-        eye eyeball~
-        an eyeball~
-        An eyeball has been left here~
-        ~
-        13 0 16385
-        0 0 0 0
-        1 1 1
-      type_line: 13 0 16385
+    legacy_type_line: 13 0 16385
+    legacy_raw: |
+      #1333
+      eye eyeball~
+      an eyeball~
+      An eyeball has been left here~
+      ~
+      13 0 16385
+      0 0 0 0
+      1 1 1
   - id: 1334
-    key: book_tome
+    key: book_tome_1334
     name: the book of magic
     description: An enormous book is lying open here
     weight: 5000
@@ -772,19 +756,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [book, tome]
-    template_json:
-      raw_block: |
-        #1334
-        book tome~
-        the book of magic~
-        An enormous book is lying open here~
-        ~
-        15 1 1
-        500 0 -1 0
-        5000 500000 500000
-      type_line: 15 1 1
+    legacy_type_line: 15 1 1
+    legacy_raw: |
+      #1334
+      book tome~
+      the book of magic~
+      An enormous book is lying open here~
+      ~
+      15 1 1
+      500 0 -1 0
+      5000 500000 500000
   - id: 1335
-    key: spectacles_glasses
+    key: spectacles_glasses_1335
     name: a pair of spectacles
     description: A pair of wire-rimmed spectacles has been left here.
     weight: 4
@@ -803,38 +786,38 @@ items:
         modifier: 1
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 64 17
-        0 0 0 0
-        4 10000 5000
-        A
-        3 1
-        A
-        4 1
-      type_line: 9 64 17
+    legacy_type_line: 9 64 17
+    legacy_raw: |
+      ~
+      9 64 17
+      0 0 0 0
+      4 10000 5000
+      A
+      3 1
+      A
+      4 1
   - id: 1336
-    key: altar
+    key: altar_1336
     name: a golden altar
     description: 
     weight: 5000
     value: 1
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [altar]
-    template_json:
-      raw_block: |
-        #1336
-        altar~
-        a golden altar~
-        ~
-        ~
-        15 0 0
-        1000 5 -1 0
-        5000 1 1
-      type_line: 15 0 0
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      #1336
+      altar~
+      a golden altar~
+      ~
+      ~
+      15 0 0
+      1000 5 -1 0
+      5000 1 1
   - id: 1337
-    key: medallion_heart
+    key: medallion_heart_1337
     name: a heart shaped medallion
     description: A heart shaped medallion is here.
     weight: 3
@@ -854,41 +837,41 @@ items:
         modifier: 2
       - location: 5
         modifier: -1
-    template_json:
-      raw_block: |
-        ~
-        9 320 5
-        0 0 0 0
-        3 10000 1000
-        A
-        4 2
-        A
-        5 -1
-      type_line: 9 320 5
+    legacy_type_line: 9 320 5
+    legacy_raw: |
+      ~
+      9 320 5
+      0 0 0 0
+      3 10000 1000
+      A
+      4 2
+      A
+      5 -1
   - id: 1338
-    key: chest
+    key: chest_1338
     name: a large chest
     description: A large chest is here.
     weight: 5000
     value: 500000
-    type: container
+    types:
+      - container
+      - immobile
     extra_flags:
       - GLOW
       - MAGIC
     keywords: [chest]
-    template_json:
-      raw_block: |
-        #1338
-        chest~
-        a large chest~
-        A large chest is here.~
-        ~
-        15 65 0
-        2000 15 1339 0
-        5000 500000 5000000
-      type_line: 15 65 0
+    legacy_type_line: 15 65 0
+    legacy_raw: |
+      #1338
+      chest~
+      a large chest~
+      A large chest is here.~
+      ~
+      15 65 0
+      2000 15 1339 0
+      5000 500000 5000000
   - id: 1339
-    key: key_intricate
+    key: key_intricate_1339
     name: an intricately carved key
     description: An intricately carved key has been left here.
     weight: 1
@@ -904,19 +887,18 @@ items:
     applies:
       - location: 24
         modifier: -1
-    template_json:
-      raw_block: |
-        an intricately carved key~
-        An intricately carved key has been left here.~
-        ~
-        18 65 16385
-        1338 0 0 0
-        1 10000 1000000
-        A
-        24 -1
-      type_line: 18 65 16385
+    legacy_type_line: 18 65 16385
+    legacy_raw: |
+      an intricately carved key~
+      An intricately carved key has been left here.~
+      ~
+      18 65 16385
+      1338 0 0 0
+      1 10000 1000000
+      A
+      24 -1
   - id: 1340
-    key: a_pile_of_coins
+    key: a_pile_of_coins_1340
     name: a pile of coins is here
     description: A pile of coins is here.
     weight: 1
@@ -925,19 +907,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [pile, coins]
-    template_json:
-      raw_block: |
-        #1340
-        a pile of coins~
-        a pile of coins is here~
-        A pile of coins is here.~
-        ~
-        20 0 1
-        23574 0 0 0
-        1 0 0
-      type_line: 20 0 1
+    legacy_type_line: 20 0 1
+    legacy_raw: |
+      #1340
+      a pile of coins~
+      a pile of coins is here~
+      A pile of coins is here.~
+      ~
+      20 0 1
+      23574 0 0 0
+      1 0 0
   - id: 1341
-    key: cloak_brown
+    key: cloak_brown_1341
     name: a brown cloak
     description: A travel worn cloak has carelessly been left here.
     weight: 5
@@ -954,19 +935,18 @@ items:
         modifier: -5
       - location: 24
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        9 0 5
-        0 0 0 0
-        5 2000 250
-        A
-        17 -5
-        A
-        24 -3
-      type_line: 9 0 5
+    legacy_type_line: 9 0 5
+    legacy_raw: |
+      ~
+      9 0 5
+      0 0 0 0
+      5 2000 250
+      A
+      17 -5
+      A
+      24 -3
   - id: 1342
-    key: chameleon_poncho
+    key: chameleon_poncho_1342
     name: a chameleon poncho
     description: Some multicolored cloth is on the ground here
     weight: 4
@@ -985,19 +965,18 @@ items:
         modifier: 2
       - location: 17
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        9 64 1025
-        0 0 0 0
-        4 15000 5000
-        A
-        2 2
-        A
-        17 -3
-      type_line: 9 64 1025
+    legacy_type_line: 9 64 1025
+    legacy_raw: |
+      ~
+      9 64 1025
+      0 0 0 0
+      4 15000 5000
+      A
+      2 2
+      A
+      17 -3
   - id: 1343
-    key: boots_worn
+    key: boots_worn_1343
     name: a pair of old boots
     description: A pair of old boots is here, they look very comfortable.
     weight: 2
@@ -1014,19 +993,18 @@ items:
     applies:
       - location: 14
         modifier: 15
-    template_json:
-      raw_block: |
-        a pair of old boots~
-        A pair of old boots is here, they look very comfortable.~
-        ~
-        9 64 65
-        0 0 0 0
-        2 3500 900
-        A
-        14 15
-      type_line: 9 64 65
+    legacy_type_line: 9 64 65
+    legacy_raw: |
+      a pair of old boots~
+      A pair of old boots is here, they look very comfortable.~
+      ~
+      9 64 65
+      0 0 0 0
+      2 3500 900
+      A
+      14 15
   - id: 1344
-    key: ring_seashell
+    key: ring_seashell_1344
     name: a seashell ring
     description: A small seashell has been left here.
     weight: 2
@@ -1038,19 +1016,18 @@ items:
       - TAKE
       - WEAR_FINGER
     keywords: [ring, seashell]
-    template_json:
-      raw_block: |
-        #1344
-        ring seashell~
-        a seashell ring~
-        A small seashell has been left here.~
-        ~
-        22 64 3
-        0 0 0 0
-        2 6500 1100
-      type_line: 22 64 3
+    legacy_type_line: 22 64 3
+    legacy_raw: |
+      #1344
+      ring seashell~
+      a seashell ring~
+      A small seashell has been left here.~
+      ~
+      22 64 3
+      0 0 0 0
+      2 6500 1100
   - id: 1345
-    key: backpack_leather
+    key: backpack_leather_1345
     name: a leather backpack
     description: A leather backpack is here.
     weight: 9
@@ -1061,40 +1038,39 @@ items:
       - WEAR_ABOUT
       - HOLD
     keywords: [backpack, leather]
-    template_json:
-      raw_block: |
-        #1345
-        backpack leather~
-        a leather backpack~
-        A leather backpack is here.~
-        ~
-        15 0 17409
-        750 0 -1 0
-        9 750 50
-      type_line: 15 0 17409
+    legacy_type_line: 15 0 17409
+    legacy_raw: |
+      #1345
+      backpack leather~
+      a leather backpack~
+      A leather backpack is here.~
+      ~
+      15 0 17409
+      750 0 -1 0
+      9 750 50
   - id: 1351
-    key: cup_brew_herbal
+    key: cup_brew_herbal_1351
     name: a herbal brew
     description: A herbal brew is here.
     weight: 2
     value: 11
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [cup, brew, herbal]
-    template_json:
-      raw_block: |
-        #1351
-        cup brew herbal~
-        a herbal brew~
-        A herbal brew is here.~
-        ~
-        17 0 1
-        5 5 11 1
-        2 11 5
-      type_line: 17 0 1
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      #1351
+      cup brew herbal~
+      a herbal brew~
+      A herbal brew is here.~
+      ~
+      17 0 1
+      5 5 11 1
+      2 11 5
   - id: 1352
-    key: waybread
+    key: waybread_1352
     name: a waybread
     description: A loaf of waybread has been left here.
     weight: 3
@@ -1103,19 +1079,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [waybread]
-    template_json:
-      raw_block: |
-        #1352
-        waybread~
-        a waybread~
-        A loaf of waybread has been left here.~
-        ~
-        19 0 1
-        32 0 0 0
-        3 65 5
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #1352
+      waybread~
+      a waybread~
+      A loaf of waybread has been left here.~
+      ~
+      19 0 1
+      32 0 0 0
+      3 65 5
   - id: 1355
-    key: cleaver
+    key: cleaver_1355
     name: a meat cleaver
     description: A meat cleaver is sticking in the wall here.
     weight: 8
@@ -1130,19 +1105,18 @@ items:
       - TAKE
       - WIELD
     keywords: [cleaver]
-    template_json:
-      raw_block: |
-        #1355
-        cleaver~
-        a meat cleaver~
-        A meat cleaver is sticking in the wall here.~
-        ~
-        5 0 8193
-        0 3 4 1
-        8 600 100
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #1355
+      cleaver~
+      a meat cleaver~
+      A meat cleaver is sticking in the wall here.~
+      ~
+      5 0 8193
+      0 3 4 1
+      8 600 100
   - id: 1356
-    key: shackles_chain
+    key: shackles_chain_1356
     name: some chain shackles
     description: Some chain shackles have been discarded here
     weight: 15
@@ -1159,19 +1133,18 @@ items:
         modifier: -100
       - location: 14
         modifier: -82
-    template_json:
-      raw_block: |
-        ~
-        13 192 1
-        0 0 0 0
-        15 750 1000
-        A
-        12 -100
-        A
-        14 -82
-      type_line: 13 192 1
+    legacy_type_line: 13 192 1
+    legacy_raw: |
+      ~
+      13 192 1
+      0 0 0 0
+      15 750 1000
+      A
+      12 -100
+      A
+      14 -82
   - id: 1357
-    key: dagger_silvery
+    key: dagger_silvery_1357
     name: a silvery dagger
     description: A long dagger that seems to be made of silver is here.
     weight: 5
@@ -1193,24 +1166,24 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        a silvery dagger~
-        A long dagger that seems to be made of silver is here.~
-        ~
-        5 64 8193
-        0 2 4 11
-        5 1200 500
-        A
-        18 1
-      type_line: 5 64 8193
+    legacy_type_line: 5 64 8193
+    legacy_raw: |
+      a silvery dagger~
+      A long dagger that seems to be made of silver is here.~
+      ~
+      5 64 8193
+      0 2 4 11
+      5 1200 500
+      A
+      18 1
   - id: 1359
-    key: scroll
+    key: scroll_1359
     name: a scroll
     description: A scroll is here.
     weight: 5
     value: 3000
-    type: inventory
+    types:
+      - scroll
     wear_flags:
       - TAKE
     keywords: [scroll]
@@ -1219,24 +1192,24 @@ items:
       - 4
       - 17
       - 38
-    template_json:
-      raw_block: |
-        #1359
-        scroll~
-        a scroll~
-        A scroll is here.~
-        ~
-        2 0 1
-        21 4 17 38
-        5 3000 1000
-      type_line: 2 0 1
+    legacy_type_line: 2 0 1
+    legacy_raw: |
+      #1359
+      scroll~
+      a scroll~
+      A scroll is here.~
+      ~
+      2 0 1
+      21 4 17 38
+      5 3000 1000
   - id: 1360
-    key: scroll_bound
+    key: scroll_bound_1360
     name: a bound scroll
     description: A bound scroll is here blowing in the breeze.
     weight: 3
     value: 9500
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -1251,19 +1224,18 @@ items:
     applies:
       - location: 17
         modifier: -6
-    template_json:
-      raw_block: |
-        a bound scroll~
-        A bound scroll is here blowing in the breeze.~
-        ~
-        2 64 16385
-        16 1 2 34
-        3 9500 3000
-        A
-        17 -6
-      type_line: 2 64 16385
+    legacy_type_line: 2 64 16385
+    legacy_raw: |
+      a bound scroll~
+      A bound scroll is here blowing in the breeze.~
+      ~
+      2 64 16385
+      16 1 2 34
+      3 9500 3000
+      A
+      17 -6
   - id: 1361
-    key: tube
+    key: tube_1361
     name: a long cylindrical tube
     description: A long cylindrical tube is rolling around here.
     weight: 8
@@ -1274,48 +1246,48 @@ items:
     wear_flags:
       - TAKE
     keywords: [tube]
-    template_json:
-      raw_block: |
-        #1361
-        tube~
-        a long cylindrical tube~
-        A long cylindrical tube is rolling around here.~
-        ~
-        15 64 1
-        100 5 -1 0
-        8 500 50
-      type_line: 15 64 1
+    legacy_type_line: 15 64 1
+    legacy_raw: |
+      #1361
+      tube~
+      a long cylindrical tube~
+      A long cylindrical tube is rolling around here.~
+      ~
+      15 64 1
+      100 5 -1 0
+      8 500 50
   - id: 1362
-    key: scroll_old
+    key: scroll_old_1362
     name: an old scroll
     description: An old scroll has been left here.
     weight: 2
     value: 500
-    type: inventory
+    types:
+      - scroll
     wear_flags:
       - TAKE
     keywords: [scroll, old]
     spell_ids:
       - 10
       - 12
-    template_json:
-      raw_block: |
-        #1362
-        scroll old~
-        an old scroll~
-        An old scroll has been left here.~
-        ~
-        2 0 1
-        10 12 -1 -1
-        2 500 100
-      type_line: 2 0 1
+    legacy_type_line: 2 0 1
+    legacy_raw: |
+      #1362
+      scroll old~
+      an old scroll~
+      An old scroll has been left here.~
+      ~
+      2 0 1
+      10 12 -1 -1
+      2 500 100
   - id: 1363
-    key: scroll_blue
+    key: scroll_blue_1363
     name: a scroll written on blue paper
     description: A blue scroll has been left here.
     weight: 5
     value: 20000
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -1324,19 +1296,18 @@ items:
     spell_ids:
       - 54
       - 24
-    template_json:
-      raw_block: |
-        #1363
-        scroll blue~
-        a scroll written on blue paper~
-        A blue scroll has been left here.~
-        ~
-        2 64 1
-        54 24 -1 -1
-        5 20000 15000
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #1363
+      scroll blue~
+      a scroll written on blue paper~
+      A blue scroll has been left here.~
+      ~
+      2 64 1
+      54 24 -1 -1
+      5 20000 15000
   - id: 1364
-    key: pouch_leather
+    key: pouch_leather_1364
     name: a leather pouch
     description: A leather pouch is on the ground here.
     weight: 2
@@ -1348,19 +1319,18 @@ items:
       - TAKE
       - HOLD
     keywords: [pouch, leather]
-    template_json:
-      raw_block: |
-        #1364
-        pouch leather~
-        a leather pouch~
-        A leather pouch is on the ground here.~
-        ~
-        15 64 16385
-        150 0 -1 0
-        2 1750 50
-      type_line: 15 64 16385
+    legacy_type_line: 15 64 16385
+    legacy_raw: |
+      #1364
+      pouch leather~
+      a leather pouch~
+      A leather pouch is on the ground here.~
+      ~
+      15 64 16385
+      150 0 -1 0
+      2 1750 50
   - id: 1365
-    key: spoon_silver
+    key: spoon_silver_1365
     name: a silver stirring spoon
     description: A silver stirring spoon has been left here.
     weight: 1
@@ -1375,24 +1345,24 @@ items:
     applies:
       - location: 24
         modifier: -1
-    template_json:
-      raw_block: |
-        a silver stirring spoon~
-        A silver stirring spoon has been left here.~
-        ~
-        12 64 16385
-        0 0 0 0
-        1 5650 900
-        A
-        24 -1
-      type_line: 12 64 16385
+    legacy_type_line: 12 64 16385
+    legacy_raw: |
+      a silver stirring spoon~
+      A silver stirring spoon has been left here.~
+      ~
+      12 64 16385
+      0 0 0 0
+      1 5650 900
+      A
+      24 -1
   - id: 1366
-    key: potion_blue
+    key: potion_blue_1366
     name: a blue potion
     description: A blue potion is here.
     weight: 2
     value: 9000
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -1403,24 +1373,24 @@ items:
       - 27
       - 27
       - 27
-    template_json:
-      raw_block: |
-        #1366
-        potion blue~
-        a blue potion~
-        A blue potion is here.~
-        ~
-        10 64 1
-        24 27 27 27
-        2 9000 500
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #1366
+      potion blue~
+      a blue potion~
+      A blue potion is here.~
+      ~
+      10 64 1
+      24 27 27 27
+      2 9000 500
   - id: 1367
-    key: potion_red
+    key: potion_red_1367
     name: a bright red potion
     description: A bright red potion is here.
     weight: 2
     value: 1500
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -1429,24 +1399,24 @@ items:
     spell_ids:
       - 15
       - 15
-    template_json:
-      raw_block: |
-        #1367
-        potion red~
-        a bright red potion~
-        A bright red potion is here.~
-        ~
-        10 64 1
-        15 15 -1 -1
-        2 1500 500
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #1367
+      potion red~
+      a bright red potion~
+      A bright red potion is here.~
+      ~
+      10 64 1
+      15 15 -1 -1
+      2 1500 500
   - id: 1368
-    key: potion_green
+    key: potion_green_1368
     name: a green potion
     description: A green potion is here.
     weight: 2
     value: 1500
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -1457,24 +1427,24 @@ items:
       - 4
       - 2
       - 14
-    template_json:
-      raw_block: |
-        #1368
-        potion green~
-        a green potion~
-        A green potion is here.~
-        ~
-        10 64 1
-        20 4 2 14
-        2 1500 150
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #1368
+      potion green~
+      a green potion~
+      A green potion is here.~
+      ~
+      10 64 1
+      20 4 2 14
+      2 1500 150
   - id: 1369
-    key: potion_effervescent
+    key: potion_effervescent_1369
     name: an efervecent potion
     description: An efervecent potion is bubbling away here
     weight: 2
     value: 1000
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -1485,44 +1455,43 @@ items:
       - 18
       - 19
       - 20
-    template_json:
-      raw_block: |
-        ~
-        10 64 1
-        16 18 19 20
-        2 1000 150
-        E
-        potion efervecent~
-        Ahh!  Schwepes Sparkling Soda a refreshing drink.
-        ~
-      type_line: 10 64 1
-      extra_desc: Ahh!  Schwepes Sparkling Soda a refreshing drink.
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      ~
+      10 64 1
+      16 18 19 20
+      2 1000 150
+      E
+      potion efervecent~
+      Ahh!  Schwepes Sparkling Soda a refreshing drink.
+      ~
+    extra_desc: Ahh!  Schwepes Sparkling Soda a refreshing drink.
   - id: 1370
-    key: white_milky_potion
+    key: white_milky_potion_1370
     name: a milky white potion
     description: A milky white potion is here.
     weight: 2
     value: 750
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [white, milky, potion]
     spell_ids:
       - 14
       - 42
-    template_json:
-      raw_block: |
-        #1370
-        white milky potion~
-        a milky white potion~
-        A milky white potion is here.~
-        ~
-        10 0 1
-        14 42 -1 -1
-        2 750 50
-      type_line: 10 0 1
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      #1370
+      white milky potion~
+      a milky white potion~
+      A milky white potion is here.~
+      ~
+      10 0 1
+      14 42 -1 -1
+      2 750 50
   - id: 1371
-    key: staff_black
+    key: staff_black_1371
     name: a black staff
     description: A black staff is leaning against the wall here.
     weight: 5
@@ -1540,19 +1509,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, black]
-    template_json:
-      raw_block: |
-        #1371
-        staff black~
-        a black staff~
-        A black staff is leaning against the wall here.~
-        ~
-        4 64 16385
-        18 2 2 2
-        5 500 50
-      type_line: 4 64 16385
+    legacy_type_line: 4 64 16385
+    legacy_raw: |
+      #1371
+      staff black~
+      a black staff~
+      A black staff is leaning against the wall here.~
+      ~
+      4 64 16385
+      18 2 2 2
+      5 500 50
   - id: 1372
-    key: flute_golden
+    key: flute_golden_1372
     name: a golden flute
     description: A golden flute has been left here.
     weight: 4
@@ -1574,19 +1542,18 @@ items:
     applies:
       - location: 3
         modifier: -6
-    template_json:
-      raw_block: |
-        a golden flute~
-        A golden flute has been left here.~
-        ~
-        4 96 16385
-        22 1 1 7
-        4 15000 5000
-        A
-        3 -6
-      type_line: 4 96 16385
+    legacy_type_line: 4 96 16385
+    legacy_raw: |
+      a golden flute~
+      A golden flute has been left here.~
+      ~
+      4 96 16385
+      22 1 1 7
+      4 15000 5000
+      A
+      3 -6
   - id: 1373
-    key: figurine
+    key: figurine_1373
     name: a small figurine
     description: A small figurine in the shape of a humanoid is standing here.
     weight: 4
@@ -1604,19 +1571,18 @@ items:
       - TAKE
       - HOLD
     keywords: [figurine]
-    template_json:
-      raw_block: |
-        #1373
-        figurine~
-        a small figurine~
-        A small figurine in the shape of a humanoid is standing here.~
-        ~
-        4 64 16385
-        21 15 15 61
-        4 6000 650
-      type_line: 4 64 16385
+    legacy_type_line: 4 64 16385
+    legacy_raw: |
+      #1373
+      figurine~
+      a small figurine~
+      A small figurine in the shape of a humanoid is standing here.~
+      ~
+      4 64 16385
+      21 15 15 61
+      4 6000 650
   - id: 1374
-    key: belt_holster
+    key: belt_holster_1374
     name: a holstered belt
     description: A holstered belt is here.
     weight: 4
@@ -1626,19 +1592,18 @@ items:
       - TAKE
       - WEAR_WAIST
     keywords: [belt, holster]
-    template_json:
-      raw_block: |
-        #1374
-        belt holster~
-        a holstered belt~
-        A holstered belt is here.~
-        ~
-        15 0 2049
-        20 0 -1 0
-        4 290 29
-      type_line: 15 0 2049
+    legacy_type_line: 15 0 2049
+    legacy_raw: |
+      #1374
+      belt holster~
+      a holstered belt~
+      A holstered belt is here.~
+      ~
+      15 0 2049
+      20 0 -1 0
+      4 290 29
   - id: 1375
-    key: wand
+    key: wand_1375
     name: a blackened wand
     description: A blackened wand is here.
     weight: 4
@@ -1656,19 +1621,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand]
-    template_json:
-      raw_block: |
-        #1375
-        wand~
-        a blackened wand~
-        A blackened wand is here.~
-        ~
-        3 64 16385
-        17 5 1 26
-        4 2500 500
-      type_line: 3 64 16385
+    legacy_type_line: 3 64 16385
+    legacy_raw: |
+      #1375
+      wand~
+      a blackened wand~
+      A blackened wand is here.~
+      ~
+      3 64 16385
+      17 5 1 26
+      4 2500 500
   - id: 1376
-    key: chisel_runed
+    key: chisel_runed_1376
     name: a runed chisel
     description: A runed chisel is here.
     weight: 6
@@ -1689,19 +1653,18 @@ items:
     applies:
       - location: 2
         modifier: 1
-    template_json:
-      raw_block: |
-        a runed chisel~
-        A runed chisel is here.~
-        ~
-        5 65 8193
-        0 2 3 11
-        6 1500 500
-        A
-        2 1
-      type_line: 5 65 8193
+    legacy_type_line: 5 65 8193
+    legacy_raw: |
+      a runed chisel~
+      A runed chisel is here.~
+      ~
+      5 65 8193
+      0 2 3 11
+      6 1500 500
+      A
+      2 1
   - id: 1377
-    key: pouch_belt_beltpouch
+    key: pouch_belt_beltpouch_1377
     name: a beltpouch
     description: A beltpouch is here.
     weight: 5
@@ -1711,19 +1674,18 @@ items:
       - TAKE
       - WEAR_WAIST
     keywords: [pouch, belt, beltpouch]
-    template_json:
-      raw_block: |
-        #1377
-        pouch belt beltpouch~
-        a beltpouch~
-        A beltpouch is here.~
-        ~
-        15 0 2049
-        50 0 -1 0
-        5 750 50
-      type_line: 15 0 2049
+    legacy_type_line: 15 0 2049
+    legacy_raw: |
+      #1377
+      pouch belt beltpouch~
+      a beltpouch~
+      A beltpouch is here.~
+      ~
+      15 0 2049
+      50 0 -1 0
+      5 750 50
   - id: 1378
-    key: dust
+    key: dust_1378
     name: some sparkling dust
     description: Some sparkling dust is in a pile here.
     weight: 2
@@ -1739,19 +1701,18 @@ items:
       - TAKE
       - HOLD
     keywords: [dust]
-    template_json:
-      raw_block: |
-        #1378
-        dust~
-        some sparkling dust~
-        Some sparkling dust is in a pile here.~
-        ~
-        4 0 16385
-        20 1 1 38
-        2 1000 150
-      type_line: 4 0 16385
+    legacy_type_line: 4 0 16385
+    legacy_raw: |
+      #1378
+      dust~
+      some sparkling dust~
+      Some sparkling dust is in a pile here.~
+      ~
+      4 0 16385
+      20 1 1 38
+      2 1000 150
   - id: 1379
-    key: cowl_dark
+    key: cowl_dark_1379
     name: a dark cowl
     description: A dark cowl is here.
     weight: 5
@@ -1771,19 +1732,18 @@ items:
         modifier: -8
       - location: 24
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        9 576 5
-        0 0 0 0
-        5 1200 400
-        A
-        17 -8
-        A
-        24 -3
-      type_line: 9 576 5
+    legacy_type_line: 9 576 5
+    legacy_raw: |
+      ~
+      9 576 5
+      0 0 0 0
+      5 1200 400
+      A
+      17 -8
+      A
+      24 -3
   - id: 1380
-    key: wand_ashen
+    key: wand_ashen_1380
     name: an ashen wand
     description: An ashen wand is here
     weight: 4
@@ -1801,19 +1761,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand, ashen]
-    template_json:
-      raw_block: |
-        #1380
-        wand ashen~
-        an ashen wand~
-        An ashen wand is here~
-        ~
-        3 512 1|16384
-        20 4 4 63
-        4 2000 600
-      type_line: 3 512 1|16384
+    legacy_type_line: 3 512 1|16384
+    legacy_raw: |
+      #1380
+      wand ashen~
+      an ashen wand~
+      An ashen wand is here~
+      ~
+      3 512 1|16384
+      20 4 4 63
+      4 2000 600
   - id: 1381
-    key: club
+    key: club_1381
     name: a huge spiked club
     description: A huge spiked club has been left here.
     weight: 29
@@ -1828,19 +1787,18 @@ items:
       - TAKE
       - WIELD
     keywords: [club]
-    template_json:
-      raw_block: |
-        #1381
-        club~
-        a huge spiked club~
-        A huge spiked club has been left here.~
-        ~
-        5 0 8193
-        0 3 5 8
-        29 750 200
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #1381
+      club~
+      a huge spiked club~
+      A huge spiked club has been left here.~
+      ~
+      5 0 8193
+      0 3 5 8
+      29 750 200
   - id: 1382
-    key: robe_grey
+    key: robe_grey_1382
     name: a grey robe
     description: A pile of grey cloth has been left here.
     weight: 8
@@ -1859,19 +1817,18 @@ items:
         modifier: -9
       - location: 24
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        15 1600 1025
-        50 0 -1 0
-        8 5000 750
-        A
-        17 -9
-        A
-        24 -2
-      type_line: 15 1600 1025
+    legacy_type_line: 15 1600 1025
+    legacy_raw: |
+      ~
+      15 1600 1025
+      50 0 -1 0
+      8 5000 750
+      A
+      17 -9
+      A
+      24 -2
   - id: 1383
-    key: cloak_grey
+    key: cloak_grey_1383
     name: a long grey cloak
     description: A pile of grey cloth has been left here.
     weight: 7
@@ -1892,19 +1849,18 @@ items:
         modifier: -12
       - location: 24
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        9 1600 5
-        0 0 0 0
-        7 12000 1200
-        A
-        17 -12
-        A
-        24 -3
-      type_line: 9 1600 5
+    legacy_type_line: 9 1600 5
+    legacy_raw: |
+      ~
+      9 1600 5
+      0 0 0 0
+      7 12000 1200
+      A
+      17 -12
+      A
+      24 -3
   - id: 1384
-    key: bracelet_silver
+    key: bracelet_silver_1384
     name: a glinting silver bracelet
     description: A glinting hoop of silvery metal is here.
     weight: 5
@@ -1921,19 +1877,18 @@ items:
     applies:
       - location: 17
         modifier: -5
-    template_json:
-      raw_block: |
-        a glinting silver bracelet~
-        A glinting hoop of silvery metal is here.~
-        ~
-        9 64 4097
-        0 0 0 0
-        5 5000 500
-        A
-        17 -5
-      type_line: 9 64 4097
+    legacy_type_line: 9 64 4097
+    legacy_raw: |
+      a glinting silver bracelet~
+      A glinting hoop of silvery metal is here.~
+      ~
+      9 64 4097
+      0 0 0 0
+      5 5000 500
+      A
+      17 -5
   - id: 1385
-    key: staff
+    key: staff_1385
     name: an iron shod staff
     description: A grey piece of wood shod in iron has been left here.
     weight: 7
@@ -1955,19 +1910,18 @@ items:
         modifier: 3
     on_equip_effect_ids:
       - 508
-    template_json:
-      raw_block: |
-        an iron shod staff~
-        A grey piece of wood shod in iron has been left here.~
-        ~
-        5 64 8193
-        0 2 7 8
-        7 9000 3000
-        A
-        18 3
-      type_line: 5 64 8193
+    legacy_type_line: 5 64 8193
+    legacy_raw: |
+      an iron shod staff~
+      A grey piece of wood shod in iron has been left here.~
+      ~
+      5 64 8193
+      0 2 7 8
+      7 9000 3000
+      A
+      18 3
   - id: 1386
-    key: minor_ward_cube_clear
+    key: minor_ward_cube_clear_1386
     name: a ward minor
     description: A small clear cube is sitting here.
     weight: 5
@@ -1985,19 +1939,18 @@ items:
     applies:
       - location: 17
         modifier: -5
-    template_json:
-      raw_block: |
-        a ward minor~
-        A small clear cube is sitting here.~
-        ~
-        9 65 16385
-        0 0 0 0
-        5 5000 1000
-        A
-        17 -5
-      type_line: 9 65 16385
+    legacy_type_line: 9 65 16385
+    legacy_raw: |
+      a ward minor~
+      A small clear cube is sitting here.~
+      ~
+      9 65 16385
+      0 0 0 0
+      5 5000 1000
+      A
+      17 -5
   - id: 1387
-    key: robe_black
+    key: robe_black_1387
     name: a black robe
     description: A pile of black cloth is on the ground here.
     weight: 8
@@ -2016,19 +1969,18 @@ items:
         modifier: -9
       - location: 24
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        15 2624 1025
-        50 0 -1 0
-        8 5000 750
-        A
-        17 -9
-        A
-        24 -2
-      type_line: 15 2624 1025
+    legacy_type_line: 15 2624 1025
+    legacy_raw: |
+      ~
+      15 2624 1025
+      50 0 -1 0
+      8 5000 750
+      A
+      17 -9
+      A
+      24 -2
   - id: 1388
-    key: bracelet_onyx
+    key: bracelet_onyx_1388
     name: an onyx bracelet
     description: A hoop of black onyx is here.
     weight: 6
@@ -2047,19 +1999,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        an onyx bracelet~
-        A hoop of black onyx is here.~
-        ~
-        9 64 4097
-        0 0 0 0
-        6 8500 850
-        A
-        19 2
-      type_line: 9 64 4097
+    legacy_type_line: 9 64 4097
+    legacy_raw: |
+      an onyx bracelet~
+      A hoop of black onyx is here.~
+      ~
+      9 64 4097
+      0 0 0 0
+      6 8500 850
+      A
+      19 2
   - id: 1389
-    key: cloak_black_dark
+    key: cloak_black_dark_1389
     name: a dark black cloak
     description: A pile of black cloth is on the ground here.
     weight: 8
@@ -2080,19 +2031,18 @@ items:
         modifier: -12
       - location: 24
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        9 2624 5
-        0 0 0 0
-        8 9000 950
-        A
-        17 -12
-        A
-        24 -3
-      type_line: 9 2624 5
+    legacy_type_line: 9 2624 5
+    legacy_raw: |
+      ~
+      9 2624 5
+      0 0 0 0
+      8 9000 950
+      A
+      17 -12
+      A
+      24 -3
   - id: 1390
-    key: shard_black_obsidian
+    key: shard_black_obsidian_1390
     name: a sharp shard of obsidian
     description: A piece of black glass is here.
     weight: 8
@@ -2114,19 +2064,18 @@ items:
         modifier: 3
     on_equip_effect_ids:
       - 507
-    template_json:
-      raw_block: |
-        a sharp shard of obsidian~
-        A piece of black glass is here.~
-        ~
-        5 512 8193
-        0 2 7 1
-        8 12000 2000
-        A
-        19 3
-      type_line: 5 512 8193
+    legacy_type_line: 5 512 8193
+    legacy_raw: |
+      a sharp shard of obsidian~
+      A piece of black glass is here.~
+      ~
+      5 512 8193
+      0 2 7 1
+      8 12000 2000
+      A
+      19 3
   - id: 1391
-    key: robe_white
+    key: robe_white_1391
     name: a white robe
     description: A pile of white cloth is on the ground here.
     weight: 7
@@ -2145,19 +2094,18 @@ items:
         modifier: -9
       - location: 24
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        15 3136 1025
-        50 0 -1 0
-        7 7500 750
-        A
-        17 -9
-        A
-        24 -2
-      type_line: 15 3136 1025
+    legacy_type_line: 15 3136 1025
+    legacy_raw: |
+      ~
+      15 3136 1025
+      50 0 -1 0
+      7 7500 750
+      A
+      17 -9
+      A
+      24 -2
   - id: 1392
-    key: bracelet_white_gold
+    key: bracelet_white_gold_1392
     name: a white gold bracelet
     description: A hoop of silvery metal is here.
     weight: 5
@@ -2176,19 +2124,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 501
-    template_json:
-      raw_block: |
-        a white gold bracelet~
-        A hoop of silvery metal is here.~
-        ~
-        9 64 4097
-        0 0 0 0
-        5 5000 1000
-        A
-        18 2
-      type_line: 9 64 4097
+    legacy_type_line: 9 64 4097
+    legacy_raw: |
+      a white gold bracelet~
+      A hoop of silvery metal is here.~
+      ~
+      9 64 4097
+      0 0 0 0
+      5 5000 1000
+      A
+      18 2
   - id: 1393
-    key: cloak_white
+    key: cloak_white_1393
     name: a white cloak
     description: A pile of white cloth is on the ground here.
     weight: 7
@@ -2210,19 +2157,18 @@ items:
         modifier: -12
       - location: 24
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        9 3392 5
-        0 0 0 0
-        7 9000 1500
-        A
-        17 -12
-        A
-        24 -3
-      type_line: 9 3392 5
+    legacy_type_line: 9 3392 5
+    legacy_raw: |
+      ~
+      9 3392 5
+      0 0 0 0
+      7 9000 1500
+      A
+      17 -12
+      A
+      24 -3
   - id: 1394
-    key: ivory_dagger
+    key: ivory_dagger_1394
     name: an ivory hilted dagger
     description: An ivory hilted dagger has been left here
     weight: 8
@@ -2249,19 +2195,18 @@ items:
     on_equip_effect_ids:
       - 202
       - 502
-    template_json:
-      raw_block: |
-        ~
-        5 1344 8193
-        0 2 6 11
-        8 12000 1500
-        A
-        18 1
-        A
-        19 2
-      type_line: 5 1344 8193
+    legacy_type_line: 5 1344 8193
+    legacy_raw: |
+      ~
+      5 1344 8193
+      0 2 6 11
+      8 12000 1500
+      A
+      18 1
+      A
+      19 2
   - id: 1395
-    key: collar_spiked
+    key: collar_spiked_1395
     name: a spiked collar
     description: A small spiked collar is here.
     weight: 9
@@ -2282,19 +2227,18 @@ items:
         modifier: 3
     on_equip_effect_ids:
       - 507
-    template_json:
-      raw_block: |
-        ~
-        9 64 5
-        0 0 0 0
-        9 10000 5000
-        A
-        17 -2
-        A
-        19 3
-      type_line: 9 64 5
+    legacy_type_line: 9 64 5
+    legacy_raw: |
+      ~
+      9 64 5
+      0 0 0 0
+      9 10000 5000
+      A
+      17 -2
+      A
+      19 3
   - id: 1396
-    key: cloak_shimmering
+    key: cloak_shimmering_1396
     name: a shimmering cloak of many colors
     description: A multi-colored pile of cloth is here.
     weight: 8
@@ -2312,19 +2256,18 @@ items:
         modifier: -15
       - location: 24
         modifier: -5
-    template_json:
-      raw_block: |
-        ~
-        15 65 5
-        100 0 -1 0
-        8 25000 5500
-        A
-        17 -15
-        A
-        24 -5
-      type_line: 15 65 5
+    legacy_type_line: 15 65 5
+    legacy_raw: |
+      ~
+      15 65 5
+      100 0 -1 0
+      8 25000 5500
+      A
+      17 -15
+      A
+      24 -5
   - id: 1397
-    key: emerald_ring
+    key: emerald_ring_1397
     name: a small emerald ring
     description: A small ring with a green gemstone is here.
     weight: 5
@@ -2341,19 +2284,18 @@ items:
     applies:
       - location: 12
         modifier: 20
-    template_json:
-      raw_block: |
-        a small emerald ring~
-        A small ring with a green gemstone is here.~
-        ~
-        9 64 3
-        0 0 0 0
-        5 50000 10000
-        A
-        12 20
-      type_line: 9 64 3
+    legacy_type_line: 9 64 3
+    legacy_raw: |
+      a small emerald ring~
+      A small ring with a green gemstone is here.~
+      ~
+      9 64 3
+      0 0 0 0
+      5 50000 10000
+      A
+      12 20
   - id: 1398
-    key: bracelet_emerald
+    key: bracelet_emerald_1398
     name: an emerald bracelet
     description: A beautifully crafted hoop of emerald is here.
     weight: 5
@@ -2372,19 +2314,18 @@ items:
         modifier: -5
       - location: 3
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 64 4097
-        0 0 0 0
-        5 30000 3500
-        A
-        17 -5
-        A
-        3 1
-      type_line: 9 64 4097
+    legacy_type_line: 9 64 4097
+    legacy_raw: |
+      ~
+      9 64 4097
+      0 0 0 0
+      5 30000 3500
+      A
+      17 -5
+      A
+      3 1
   - id: 1399
-    key: ward_major_clear_crystal
+    key: ward_major_clear_crystal_1399
     name: a ward major
     description: A large clear crystal cube is here.
     weight: 6
@@ -2404,19 +2345,18 @@ items:
         modifier: -10
       - location: 24
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        9 65 16385
-        0 0 0 0
-        6 20000 2000
-        A
-        17 -10
-        A
-        24 -2
-      type_line: 9 65 16385
+    legacy_type_line: 9 65 16385
+    legacy_raw: |
+      ~
+      9 65 16385
+      0 0 0 0
+      6 20000 2000
+      A
+      17 -10
+      A
+      24 -2
   - id: 1400
-    key: ebony_kris
+    key: ebony_kris_1400
     name: the ebony kris
     description: A wavy bladed knife made of ebony is here.
     weight: 9
@@ -2440,19 +2380,18 @@ items:
         modifier: 5
     on_equip_effect_ids:
       - 510
-    template_json:
-      raw_block: |
-        ~
-        5 64 8193
-        0 3 4 11
-        9 60000 5000
-        A
-        2 2
-        A
-        19 5
-      type_line: 5 64 8193
+    legacy_type_line: 5 64 8193
+    legacy_raw: |
+      ~
+      5 64 8193
+      0 3 4 11
+      9 60000 5000
+      A
+      2 2
+      A
+      19 5
   - id: 1401
-    key: green_scale_shirt
+    key: green_scale_shirt_1401
     name: a tight fitting green dragon scale shirt
     description: Some green dragon scales which have been sewn together are here.
     weight: 9
@@ -2471,80 +2410,80 @@ items:
         modifier: 3
       - location: 17
         modifier: -5
-    template_json:
-      raw_block: |
-        E
-        green scale shirt~
-        Green dragon scale shirt was made from a poor unfortunate green dragon.
-        ~
-        A
-        2 3
-        A
-        17 -5
-      type_line: 9 64 9
-      extra_desc: Green dragon scale shirt was made from a poor unfortunate green dragon.
+    legacy_type_line: 9 64 9
+    legacy_raw: |
+      E
+      green scale shirt~
+      Green dragon scale shirt was made from a poor unfortunate green dragon.
+      ~
+      A
+      2 3
+      A
+      17 -5
+    extra_desc: Green dragon scale shirt was made from a poor unfortunate green dragon.
   - id: 1402
-    key: fridge_refrigerator
+    key: fridge_refrigerator_1402
     name: a fridge
     description: A small refrigerator.
     weight: 5000
     value: 1
-    type: container
+    types:
+      - container
+      - immobile
     extra_flags:
       - HUM
     keywords: [fridge, refrigerator]
-    template_json:
-      raw_block: |
-        #1402
-        fridge refrigerator~
-        a fridge~
-        A small refrigerator.~
-        ~
-        15 2 0
-        500 5 -1 0
-        5000 1 1
-      type_line: 15 2 0
+    legacy_type_line: 15 2 0
+    legacy_raw: |
+      #1402
+      fridge refrigerator~
+      a fridge~
+      A small refrigerator.~
+      ~
+      15 2 0
+      500 5 -1 0
+      5000 1 1
   - id: 1403
-    key: bottle_vodka
+    key: bottle_vodka_1403
     name: a bottle of Absolut vodka
     description: A bottle of Absolut vodka is here to drink.
     weight: 25
     value: 1
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
       - HOLD
     keywords: [bottle, vodka]
-    template_json:
-      raw_block: |
-        #1403
-        bottle vodka~
-        a bottle of Absolut vodka~
-        A bottle of Absolut vodka is here to drink.~
-        ~
-        17 0 16385
-        25 25 5 0
-        25 1 1
-      type_line: 17 0 16385
+    legacy_type_line: 17 0 16385
+    legacy_raw: |
+      #1403
+      bottle vodka~
+      a bottle of Absolut vodka~
+      A bottle of Absolut vodka is here to drink.~
+      ~
+      17 0 16385
+      25 25 5 0
+      25 1 1
   - id: 1404
-    key: juice_bottle
+    key: juice_bottle_1404
     name: a bottle of cranberry juice
     description: A bottle of cranberry juice is here.
     weight: 25
     value: 1
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
       - HOLD
     keywords: [juice, bottle]
-    template_json:
-      raw_block: |
-        #1404
-        juice bottle~
-        a bottle of cranberry juice~
-        A bottle of cranberry juice is here.~
-        ~
-        17 0 16385
-        25 25 2 0
-        25 1 1
-      type_line: 17 0 16385
+    legacy_type_line: 17 0 16385
+    legacy_raw: |
+      #1404
+      juice bottle~
+      a bottle of cranberry juice~
+      A bottle of cranberry juice is here.~
+      ~
+      17 0 16385
+      25 25 2 0
+      25 1 1

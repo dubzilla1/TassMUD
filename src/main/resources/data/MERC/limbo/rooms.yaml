@@ -23,6 +23,11 @@ rooms:
          There is a "No Tipping" notice pinned to the darkness.
     exits:
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
 

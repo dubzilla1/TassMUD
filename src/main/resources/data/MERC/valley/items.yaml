@@ -1,6 +1,6 @@
 items:
   - id: 7800
-    key: chainmail_chain_mail
+    key: chainmail_chain_mail_7800
     name: elven chainmail
     description: A shiny metallic shirt is on the floor.
     weight: 3
@@ -12,19 +12,18 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [chainmail, chain, mail]
-    template_json:
-      raw_block: |
-        #7800
-        chainmail chain mail~
-        elven chainmail~
-        A shiny metallic shirt is on the floor.~
-        ~
-        9 0 1|8
-        4 0 0 0
-        3 50 50
-      type_line: 9 0 1|8
+    legacy_type_line: 9 0 1|8
+    legacy_raw: |
+      #7800
+      chainmail chain mail~
+      elven chainmail~
+      A shiny metallic shirt is on the floor.~
+      ~
+      9 0 1|8
+      4 0 0 0
+      3 50 50
   - id: 7801
-    key: boots
+    key: boots_7801
     name: elven boots
     description: Some soft boots are on the floor.
     weight: 3
@@ -39,19 +38,18 @@ items:
     applies:
       - location: 14
         modifier: 50
-    template_json:
-      raw_block: |
-        elven boots~
-        Some soft boots are on the floor.~
-        ~
-        9 0 1|64
-        3 0 0 0
-        3 10 10
-        A
-        14 50
-      type_line: 9 0 1|64
+    legacy_type_line: 9 0 1|64
+    legacy_raw: |
+      elven boots~
+      Some soft boots are on the floor.~
+      ~
+      9 0 1|64
+      3 0 0 0
+      3 10 10
+      A
+      14 50
   - id: 7802
-    key: longsword_sword_long
+    key: longsword_sword_long_7802
     name: an elven longsword
     description: A shiny blade is on the floor.
     weight: 3
@@ -73,19 +71,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 202
-    template_json:
-      raw_block: |
-        an elven longsword~
-        A shiny blade is on the floor.~
-        ~
-        5 64 1|8192
-        0 3 3 3
-        3 50 50
-        A
-        18 1
-      type_line: 5 64 1|8192
+    legacy_type_line: 5 64 1|8192
+    legacy_raw: |
+      an elven longsword~
+      A shiny blade is on the floor.~
+      ~
+      5 64 1|8192
+      0 3 3 3
+      3 50 50
+      A
+      18 1
   - id: 7803
-    key: cloak_brown
+    key: cloak_brown_7803
     name: a brown cloak
     description: A pile of brown cloth is on the floor.
     weight: 3
@@ -102,19 +99,18 @@ items:
     applies:
       - location: 2
         modifier: 1
-    template_json:
-      raw_block: |
-        a brown cloak~
-        A pile of brown cloth is on the floor.~
-        ~
-        9 64 1|4
-        3 0 0 0
-        3 50 50
-        A
-        2 1
-      type_line: 9 64 1|4
+    legacy_type_line: 9 64 1|4
+    legacy_raw: |
+      a brown cloak~
+      A pile of brown cloth is on the floor.~
+      ~
+      9 64 1|4
+      3 0 0 0
+      3 50 50
+      A
+      2 1
   - id: 7804
-    key: key
+    key: key_7804
     name: a key
     description: A shiny key is on the floor.
     weight: 1
@@ -123,19 +119,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key]
-    template_json:
-      raw_block: |
-        #7804
-        key~
-        a key~
-        A shiny key is on the floor.~
-        ~
-        18 0 1
-        7846 0 0 0
-        1 0 0
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #7804
+      key~
+      a key~
+      A shiny key is on the floor.~
+      ~
+      18 0 1
+      7846 0 0 0
+      1 0 0
   - id: 7805
-    key: key
+    key: key_7805
     name: a key
     description: A shiny key is on the floor.
     weight: 1
@@ -144,19 +139,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key]
-    template_json:
-      raw_block: |
-        #7805
-        key~
-        a key~
-        A shiny key is on the floor.~
-        ~
-        18 0 1
-        7880 0 0 0
-        1 0 0
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #7805
+      key~
+      a key~
+      A shiny key is on the floor.~
+      ~
+      18 0 1
+      7880 0 0 0
+      1 0 0
   - id: 7806
-    key: ring
+    key: ring_7806
     name: a gold ring
     description: A shiny ring is on the floor.
     weight: 1
@@ -173,19 +167,18 @@ items:
     applies:
       - location: 12
         modifier: 10
-    template_json:
-      raw_block: |
-        a gold ring~
-        A shiny ring is on the floor.~
-        ~
-        9 64 1|2
-        3 0 0 0
-        1 1000 10
-        A
-        12 10
-      type_line: 9 64 1|2
+    legacy_type_line: 9 64 1|2
+    legacy_raw: |
+      a gold ring~
+      A shiny ring is on the floor.~
+      ~
+      9 64 1|2
+      3 0 0 0
+      1 1000 10
+      A
+      12 10
   - id: 7807
-    key: quarterstaff_staff
+    key: quarterstaff_staff_7807
     name: a quarterstaff
     description: A quarterstaff is on the floor.
     weight: 5
@@ -207,24 +200,24 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        a quarterstaff~
-        A quarterstaff is on the floor.~
-        ~
-        5 64 1|8192
-        0 4 4 8
-        5 1000 10
-        A
-        19 2
-      type_line: 5 64 1|8192
+    legacy_type_line: 5 64 1|8192
+    legacy_raw: |
+      a quarterstaff~
+      A quarterstaff is on the floor.~
+      ~
+      5 64 1|8192
+      0 4 4 8
+      5 1000 10
+      A
+      19 2
   - id: 7808
-    key: potion
+    key: potion_7808
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -235,24 +228,24 @@ items:
       - 1
       - 29
       - 0
-    template_json:
-      raw_block: |
-        #7808
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 1 29 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7808
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 1 29 0
+      1 200 10
   - id: 7809
-    key: potion
+    key: potion_7809
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -263,24 +256,24 @@ items:
       - 25
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7809
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 25 0 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7809
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 25 0 0
+      1 200 10
   - id: 7810
-    key: potion
+    key: potion_7810
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -291,24 +284,24 @@ items:
       - 44
       - 20
       - 0
-    template_json:
-      raw_block: |
-        #7810
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 44 20 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7810
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 44 20 0
+      1 200 10
   - id: 7811
-    key: potion
+    key: potion_7811
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -319,24 +312,24 @@ items:
       - 59
       - 59
       - 59
-    template_json:
-      raw_block: |
-        #7811
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        50 59 59 59
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7811
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      50 59 59 59
+      1 200 10
   - id: 7812
-    key: potion
+    key: potion_7812
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -347,24 +340,24 @@ items:
       - 81
       - 34
       - 0
-    template_json:
-      raw_block: |
-        #7812
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 81 34 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7812
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 81 34 0
+      1 200 10
   - id: 7813
-    key: potion
+    key: potion_7813
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -375,24 +368,24 @@ items:
       - 38
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7813
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 38 0 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7813
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 38 0 0
+      1 200 10
   - id: 7814
-    key: potion
+    key: potion_7814
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -403,24 +396,24 @@ items:
       - 3
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7814
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 3 0 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7814
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 3 0 0
+      1 200 10
   - id: 7815
-    key: potion
+    key: potion_7815
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -431,24 +424,24 @@ items:
       - 15
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7815
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 15 0 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7815
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 15 0 0
+      1 200 10
   - id: 7816
-    key: potion
+    key: potion_7816
     name: a potion
     description: A potion is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - MAGIC
     wear_flags:
@@ -459,24 +452,24 @@ items:
       - 0
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7816
-        potion~
-        a potion~
-        A potion is on the floor.~
-        ~
-        10 64 1
-        10 0 0 0
-        1 200 10
-      type_line: 10 64 1
+    legacy_type_line: 10 64 1
+    legacy_raw: |
+      #7816
+      potion~
+      a potion~
+      A potion is on the floor.~
+      ~
+      10 64 1
+      10 0 0 0
+      1 200 10
   - id: 7817
-    key: scroll
+    key: scroll_7817
     name: a scroll
     description: A scroll is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -487,24 +480,24 @@ items:
       - 15
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7817
-        scroll~
-        a scroll~
-        A scroll is on the floor.~
-        ~
-        2 64 1
-        10 15 0 0
-        1 200 10
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #7817
+      scroll~
+      a scroll~
+      A scroll is on the floor.~
+      ~
+      2 64 1
+      10 15 0 0
+      1 200 10
   - id: 7818
-    key: scroll
+    key: scroll_7818
     name: a scroll
     description: A scroll is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -515,24 +508,24 @@ items:
       - 0
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7818
-        scroll~
-        a scroll~
-        A scroll is on the floor.~
-        ~
-        2 64 1
-        10 0 0 0
-        1 200 10
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #7818
+      scroll~
+      a scroll~
+      A scroll is on the floor.~
+      ~
+      2 64 1
+      10 0 0 0
+      1 200 10
   - id: 7819
-    key: scroll
+    key: scroll_7819
     name: a scroll
     description: A scroll is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -543,24 +536,24 @@ items:
       - 18
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7819
-        scroll~
-        a scroll~
-        A scroll is on the floor.~
-        ~
-        2 64 1
-        10 18 0 0
-        1 200 10
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #7819
+      scroll~
+      a scroll~
+      A scroll is on the floor.~
+      ~
+      2 64 1
+      10 18 0 0
+      1 200 10
   - id: 7820
-    key: scroll
+    key: scroll_7820
     name: a scroll
     description: A scroll is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -571,24 +564,24 @@ items:
       - 13
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7820
-        scroll~
-        a scroll~
-        A scroll is on the floor.~
-        ~
-        2 64 1
-        10 13 0 0
-        1 200 10
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #7820
+      scroll~
+      a scroll~
+      A scroll is on the floor.~
+      ~
+      2 64 1
+      10 13 0 0
+      1 200 10
   - id: 7821
-    key: scroll
+    key: scroll_7821
     name: a scroll
     description: A scroll is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -599,24 +592,24 @@ items:
       - 32
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7821
-        scroll~
-        a scroll~
-        A scroll is on the floor.~
-        ~
-        2 64 1
-        10 32 0 0
-        1 200 10
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #7821
+      scroll~
+      a scroll~
+      A scroll is on the floor.~
+      ~
+      2 64 1
+      10 32 0 0
+      1 200 10
   - id: 7822
-    key: scroll
+    key: scroll_7822
     name: a scroll
     description: A scroll is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -627,24 +620,24 @@ items:
       - 8
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7822
-        scroll~
-        a scroll~
-        A scroll is on the floor.~
-        ~
-        2 64 1
-        10 8 0 0
-        1 200 10
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #7822
+      scroll~
+      a scroll~
+      A scroll is on the floor.~
+      ~
+      2 64 1
+      10 8 0 0
+      1 200 10
   - id: 7823
-    key: scroll
+    key: scroll_7823
     name: a scroll
     description: A scroll is on the floor.
     weight: 1
     value: 200
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - MAGIC
     wear_flags:
@@ -655,19 +648,18 @@ items:
       - 28
       - 0
       - 0
-    template_json:
-      raw_block: |
-        #7823
-        scroll~
-        a scroll~
-        A scroll is on the floor.~
-        ~
-        2 64 1
-        10 28 0 0
-        1 200 10
-      type_line: 2 64 1
+    legacy_type_line: 2 64 1
+    legacy_raw: |
+      #7823
+      scroll~
+      a scroll~
+      A scroll is on the floor.~
+      ~
+      2 64 1
+      10 28 0 0
+      1 200 10
   - id: 7824
-    key: rod_light
+    key: rod_light_7824
     name: the Rod of Neutrality
     description: A dull iron shaft is on the floor.
     weight: 1
@@ -685,14 +677,13 @@ items:
         modifier: 5
     on_equip_effect_ids:
       - 510
-    template_json:
-      raw_block: |
-        the Rod of Neutrality~
-        A dull iron shaft is on the floor.~
-        ~
-        1 64|512|1024 1
-        0 0 -1 0
-        1 1000 10
-        A
-        19 5
-      type_line: 1 64|512|1024 1
+    legacy_type_line: 1 64|512|1024 1
+    legacy_raw: |
+      the Rod of Neutrality~
+      A dull iron shaft is on the floor.~
+      ~
+      1 64|512|1024 1
+      0 0 -1 0
+      1 1000 10
+      A
+      19 5

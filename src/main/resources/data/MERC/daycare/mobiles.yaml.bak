@@ -1,0 +1,297 @@
+- id: 6600
+  key: |
+  the_dwarven_youth:
+  name: |
+  youth_dwarven_dwarf:
+  short_desc: |
+  the_dwarven_youth:
+  long_desc: |
+  A_young_dwarf_plays_with_a_toy_axe:
+  keywords: ['youth', 'dwarven', 'dwarf']
+  level: 68
+  hp_max: 32
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6601
+  key: |
+  a_teddy_bear:
+  name: |
+  teddy_bear:
+  short_desc: |
+  a_teddy_bear:
+  long_desc: |
+  A_cute_and_fuzzy_teddy_bear_stands_here:
+  keywords: ['teddy', 'bear']
+  level: 68
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6602
+  key: |
+  a_raggedy_anne_doll:
+  name: |
+  doll_raggedy_anne:
+  short_desc: |
+  a_raggedy_anne_doll:
+  long_desc: |
+  A_raggedy_anne_doll_is_sitting_here:
+  keywords: ['doll', 'raggedy', 'anne']
+  level: 68
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 19
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6603
+  key: |
+  a_toy_soldier:
+  name: |
+  soldier_toy:
+  short_desc: |
+  a_toy_soldier:
+  long_desc: |
+  A_toy_soldier_is_standing_here:
+  keywords: ['soldier', 'toy']
+  level: 68
+  hp_max: 35
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 26
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6604
+  key: |
+  the_ugly_bear:
+  name: |
+  bear_ugly:
+  short_desc: |
+  the_ugly_bear:
+  long_desc: |
+  An_ugly_stuffed_bear_stands_here:
+  keywords: ['bear', 'ugly']
+  level: 68
+  hp_max: 32
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6605
+  key: |
+  an_old_doll:
+  name: |
+  doll_old:
+  short_desc: |
+  an_old_doll:
+  long_desc: |
+  An_abused_and_old_doll_is_here:
+  keywords: ['doll', 'old']
+  level: 68
+  hp_max: 6
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6606
+  key: |
+  the_nanny:
+  name: |
+  nanny:
+  short_desc: |
+  the_nanny:
+  long_desc: |
+  An_old_wrinkled_nanny_stands_here_looking_over_the_little_ones:
+  keywords: ['nanny']
+  level: 64
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6607
+  key: |
+  the_armed_guard:
+  name: |
+  guard:
+  short_desc: |
+  the_armed_guard:
+  long_desc: |
+  An_armed_guard_stands_here_looking_lost:
+  keywords: ['guard']
+  level: 70
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6608
+  key: |
+  the_spoiled_brat:
+  name: |
+  brat_spoiled:
+  short_desc: |
+  the_spoiled_brat:
+  long_desc: |
+  A_spoiled_brat_is_crying_here:
+  keywords: ['brat', 'spoiled']
+  level: 70
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 15
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

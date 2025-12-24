@@ -1,0 +1,231 @@
+- id: 9101
+  key: |
+  the_screaming_filthy_harpy:
+  name: |
+  harpy:
+  short_desc: |
+  the_screaming_filthy_harpy:
+  long_desc: |
+  The_screaming_filthy_harpy_claws_madly_at_your_face:
+  keywords: ['harpy']
+  level: 4
+  hp_max: 267
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9102
+  key: |
+  the_screaming_harpy_leader:
+  name: |
+  harpy_leader:
+  short_desc: |
+  the_screaming_harpy_leader:
+  long_desc: |
+  The_screaming_harpy_leader_tries_to_scratch_your_eyes_out:
+  keywords: ['harpy', 'leader']
+  level: 2
+  hp_max: 526
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 510
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9103
+  key: |
+  the_ghostly_air_elemental:
+  name: |
+  air_elemental:
+  short_desc: |
+  the_ghostly_air_elemental:
+  long_desc: |
+  The_ghostly_air_elemental:
+  keywords: ['air', 'elemental']
+  level: 4
+  hp_max: 627
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 600
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9104
+  key: |
+  the_mysterious_effreeti:
+  name: |
+  mysterious_effreeti:
+  short_desc: |
+  the_mysterious_effreeti:
+  long_desc: |
+  The_mysterious_effreeti_grins_in_delight_at_its_new_prey:
+  keywords: ['mysterious', 'effreeti']
+  level: 4
+  hp_max: 740
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9105
+  key: |
+  the_gigantic_roc:
+  name: |
+  roc:
+  short_desc: |
+  the_gigantic_roc:
+  long_desc: |
+  The_gigantic_roc:
+  keywords: ['roc']
+  level: 64
+  hp_max: 530
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9106
+  key: |
+  the_gigantic_roc:
+  name: |
+  roc:
+  short_desc: |
+  the_gigantic_roc:
+  long_desc: |
+  The_gigantic_roc_stares_menacingly_at_you:
+  keywords: ['roc']
+  level: 64
+  hp_max: 825
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 800
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 9107
+  key: |
+  the_ugly_wicked_witch:
+  name: |
+  wicked_witch:
+  short_desc: |
+  the_ugly_wicked_witch:
+  long_desc: |
+  The_ugly_wicked_witch_cackles_maniacally:
+  keywords: ['wicked', 'witch']
+  level: 2
+  hp_max: 1249
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

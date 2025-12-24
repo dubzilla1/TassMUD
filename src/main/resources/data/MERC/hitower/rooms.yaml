@@ -118,6 +118,11 @@ rooms:
       south: 1305
       west: 1301
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1300
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 1311
@@ -226,6 +231,11 @@ rooms:
       south: 1307
       west: 2201
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1300
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 1301
@@ -334,6 +344,11 @@ rooms:
       south: 1309
       west: 1305
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1300
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 1303
@@ -388,6 +403,11 @@ rooms:
       south: 1301
       west: 1309
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1302
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 1304
@@ -442,6 +462,11 @@ rooms:
       south: 1300
       west: 1307
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1300
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 1305
@@ -550,6 +575,15 @@ rooms:
       north: 1312
       south: 1302
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 1300
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1301
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 1312
@@ -584,6 +618,11 @@ rooms:
     exits:
       north: 1313
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1303
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -615,6 +654,11 @@ rooms:
       south: 1312
       west: 1316
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1304
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -673,6 +717,15 @@ rooms:
       south: 1313
       west: 1319
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1304
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1304
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -725,6 +778,11 @@ rooms:
       east: 1330
       west: 1313
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1304
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -761,6 +819,11 @@ rooms:
       east: 1313
       west: 1320
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1304
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -775,13 +838,13 @@ rooms:
         key: -1
       west:
         to: 1320
-        description: ""
-        keywords: "door wooden"
+        description: "Close Kitchen Door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1317
     key: hitower_room_1317
@@ -811,13 +874,13 @@ rooms:
         key: -1
       down:
         to: 1321
-        description: ""
-        keywords: "trapdoor"
+        description: "Close Trapdoor"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1318
     key: hitower_room_1318
@@ -833,6 +896,20 @@ rooms:
     exits:
       west: 1314
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1304
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1305
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1351
+          -
+              item_vnum: 1352
     legacy_flags:
       - INDOORS
     doors:
@@ -859,6 +936,25 @@ rooms:
     exits:
       east: 1314
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1304
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1306
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1304
+              container_vnum: 1301
+          -
+              item_vnum: 1305
+              container_vnum: 1302
+          -
+              item_vnum: 1306
+              container_vnum: 1302
     legacy_flags:
       - INDOORS
     doors:
@@ -887,18 +983,39 @@ rooms:
     exits:
       east: 1316
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1301
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1302
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1307
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1355
+              wear_loc: 16
+      - type: MOB
+        id: 1308
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1316
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1321
     key: hitower_room_1321
@@ -919,13 +1036,13 @@ rooms:
     doors:
       up:
         to: 1317
-        description: ""
-        keywords: "trapdoor"
+        description: "Close Trapdoor"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 1322
         description: ""
@@ -1020,13 +1137,13 @@ rooms:
     doors:
       north:
         to: 1327
-        description: ""
-        keywords: "oak door"
-        state: OPEN
+        description: "close and lock cell door"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 1323
+        key: null
       south:
         to: 1322
         description: ""
@@ -1149,18 +1266,27 @@ rooms:
     exits:
       south: 1323
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1309
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1356
+              wear_loc: 14
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 1323
-        description: ""
-        keywords: "oak door"
-        state: OPEN
+        description: "lock door from inside"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1328
     key: hitower_room_1328
@@ -1175,6 +1301,15 @@ rooms:
     exits:
       west: 1324
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1310
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1323
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -1240,22 +1375,22 @@ rooms:
         key: -1
       north:
         to: 1332
-        description: ""
-        keywords: "door wooden"
+        description: "close door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1333
-        description: ""
-        keywords: "door wooden"
+        description: "close door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1331
     key: hitower_room_1331
@@ -1276,31 +1411,31 @@ rooms:
     doors:
       north:
         to: 1334
-        description: ""
-        keywords: "door wooden"
+        description: "close door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1336
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1335
-        description: ""
-        keywords: "door wooden"
+        description: "close door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1330
         description: ""
@@ -1328,13 +1463,13 @@ rooms:
     doors:
       south:
         to: 1330
-        description: ""
-        keywords: "door wooden"
+        description: "close door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1333
     key: hitower_room_1333
@@ -1348,18 +1483,35 @@ rooms:
     exits:
       north: 1330
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1307
+        quantity: 2
+        frequency: 1
+      - type: ITEM
+        id: 1307
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1311
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1311
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1330
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1334
     key: hitower_room_1334
@@ -1379,13 +1531,13 @@ rooms:
     doors:
       east:
         to: 1337
-        description: ""
-        keywords: "door wooden"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       north:
         to: 1338
         description: ""
@@ -1398,12 +1550,12 @@ rooms:
       south:
         to: 1331
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       walls: |
         The walls shed a warm light
@@ -1420,18 +1572,39 @@ rooms:
     exits:
       north: 1331
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1312
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1312
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1312
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1312
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1313
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1331
-        description: ""
-        keywords: "door wooden"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1336
     key: hitower_room_1336
@@ -1451,13 +1624,13 @@ rooms:
     doors:
       west:
         to: 1331
-        description: ""
-        keywords: "door wooden"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       mirror: |
         Why, someone seems to be looking back at you from the other side!
@@ -1475,18 +1648,23 @@ rooms:
     exits:
       west: 1334
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1314
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 1334
-        description: ""
-        keywords: "door wooden"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1338
     key: hitower_room_1338
@@ -1507,13 +1685,13 @@ rooms:
     doors:
       east:
         to: 1339
-        description: ""
-        keywords: "door wooden"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1334
         description: ""
@@ -1551,13 +1729,13 @@ rooms:
     doors:
       west:
         to: 1338
-        description: ""
-        keywords: "door charred"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1340
     key: hitower_room_1340
@@ -1575,18 +1753,23 @@ rooms:
       west: 1343
       down: 1338
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1312
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1342
-        description: ""
-        keywords: "door oak"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1341
         description: "Faint moonlight can be seen to the east"
@@ -1658,18 +1841,31 @@ rooms:
       south: 1340
       west: 1344
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1315
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1316
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1317
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 1340
         description: ""
-        keywords: "door oak"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1344
         description: ""
@@ -1699,13 +1895,13 @@ rooms:
     doors:
       north:
         to: 1344
-        description: ""
-        keywords: "door oak"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1340
         description: ""
@@ -1738,6 +1934,19 @@ rooms:
       east: 1342
       south: 1343
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1315
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1316
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1317
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1752,13 +1961,13 @@ rooms:
         key: -1
       south:
         to: 1343
-        description: ""
-        keywords: "door oak"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1345
     key: hitower_room_1345
@@ -1774,18 +1983,35 @@ rooms:
       east: 1343
       west: 1347
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1318
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1318
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1318
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1319
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1346
-        description: "A flash of blue light momentarily lights up the doors outline"
-        keywords: "door oak"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1343
         description: ""
@@ -1824,12 +2050,12 @@ rooms:
       south:
         to: 1345
         description: ""
-        keywords: "door oak"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1347
     key: hitower_room_1347
@@ -1903,13 +2129,13 @@ rooms:
         key: -1
       west:
         to: 1349
-        description: ""
-        keywords: "door metal"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1349
     key: hitower_room_1349
@@ -1924,18 +2150,39 @@ rooms:
     exits:
       east: 1348
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1320
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1320
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1320
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1320
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1321
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1348
         description: ""
-        keywords: "door metal"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1350
     key: hitower_room_1350
@@ -1973,13 +2220,13 @@ rooms:
         key: -1
       west:
         to: 1352
-        description: ""
-        keywords: "door metal"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1351
     key: hitower_room_1351
@@ -2018,12 +2265,12 @@ rooms:
       west:
         to: 1354
         description: ""
-        keywords: "door metal"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1352
     key: hitower_room_1352
@@ -2044,12 +2291,12 @@ rooms:
       east:
         to: 1350
         description: ""
-        keywords: "door metal"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1353
     key: hitower_room_1353
@@ -2098,18 +2345,39 @@ rooms:
     exits:
       east: 1351
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1322
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1322
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1322
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1322
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1323
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1351
-        description: ""
-        keywords: "door metal"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1355
     key: hitower_room_1355
@@ -2139,13 +2407,13 @@ rooms:
         key: -1
       south:
         to: 1357
-        description: ""
-        keywords: "door sturdy iron"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1353
         description: ""
@@ -2185,12 +2453,12 @@ rooms:
       south:
         to: 1359
         description: ""
-        keywords: "door large oaken"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1355
         description: ""
@@ -2213,18 +2481,35 @@ rooms:
     exits:
       north: 1355
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1324
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1324
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1324
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1325
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1355
         description: ""
-        keywords: "door sturdy iron"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1358
     key: hitower_room_1358
@@ -2254,13 +2539,13 @@ rooms:
         key: -1
       south:
         to: 1361
-        description: ""
-        keywords: "door small"
+        description: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1356
         description: ""
@@ -2282,18 +2567,51 @@ rooms:
     exits:
       north: 1356
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1326
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1357
+              wear_loc: 16
+      - type: MOB
+        id: 1326
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1357
+              wear_loc: 16
+      - type: MOB
+        id: 1326
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1357
+              wear_loc: 16
+      - type: MOB
+        id: 1327
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1357
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1356
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1360
     key: hitower_room_1360
@@ -2349,12 +2667,12 @@ rooms:
       north:
         to: 1358
         description: ""
-        keywords: "door small"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1362
     key: hitower_room_1362
@@ -2385,12 +2703,12 @@ rooms:
       east:
         to: 1364
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1360
         description: ""
@@ -2430,12 +2748,12 @@ rooms:
       east:
         to: 1365
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1362
         description: ""
@@ -2459,18 +2777,23 @@ rooms:
     exits:
       west: 1362
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1328
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 1362
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1365
     key: hitower_room_1365
@@ -2486,18 +2809,23 @@ rooms:
     exits:
       west: 1363
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1329
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 1363
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1366
     key: hitower_room_1366
@@ -2528,12 +2856,12 @@ rooms:
       east:
         to: 1367
         description: ""
-        keywords: "door glass"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1363
         description: ""
@@ -2558,18 +2886,23 @@ rooms:
     exits:
       west: 1366
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1330
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 1366
         description: ""
-        keywords: "door glass"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1368
     key: hitower_room_1368
@@ -2585,6 +2918,15 @@ rooms:
       south: 1366
       up: 1369
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1312
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 1339
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2664,12 +3006,12 @@ rooms:
       north:
         to: 1371
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1369
         description: ""
@@ -2703,27 +3045,36 @@ rooms:
       south: 1370
       west: 1373
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1331
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1331
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 1370
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1373
         description: ""
-        keywords: "curtain"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1372
     key: hitower_room_1372
@@ -2772,18 +3123,37 @@ rooms:
     exits:
       east: 1371
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1332
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1359
+          -
+              item_vnum: 1360
+          -
+              item_vnum: 1361
+      - type: MOB
+        id: 1333
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1362
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1371
         description: ""
-        keywords: "curtain"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1374
     key: hitower_room_1374
@@ -2804,13 +3174,13 @@ rooms:
     doors:
       north:
         to: 1375
-        description: "A dark room can be seen through the half opened door"
-        keywords: "door wooden"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1372
         description: ""
@@ -2841,18 +3211,33 @@ rooms:
     exits:
       south: 1374
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1313
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1317
+              container_vnum: 1315
+          -
+              item_vnum: 1318
+              container_vnum: 1315
+          -
+              item_vnum: 1319
+              container_vnum: 1315
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 1374
         description: ""
-        keywords: "door wooden"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1376
     key: hitower_room_1376
@@ -2927,12 +3312,12 @@ rooms:
       west:
         to: 1379
         description: ""
-        keywords: "door iron"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1378
     key: hitower_room_1378
@@ -2972,12 +3357,12 @@ rooms:
       west:
         to: 1381
         description: ""
-        keywords: "door iron"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1379
     key: hitower_room_1379
@@ -2993,18 +3378,35 @@ rooms:
       east: 1377
       south: 1381
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1310
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1311
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1312
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1313
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1377
         description: ""
-        keywords: "door iron"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1381
         description: ""
@@ -3066,6 +3468,11 @@ rooms:
       south: 1382
       up: 1412
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1314
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3081,30 +3488,30 @@ rooms:
       east:
         to: 1378
         description: ""
-        keywords: "door iron"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1382
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       up:
         to: 1412
         description: ""
-        keywords: "vent"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1382
     key: hitower_room_1382
@@ -3119,18 +3526,38 @@ rooms:
     exits:
       north: 1381
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1315
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1334
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1316
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 1363
+      - type: MOB
+        id: 1335
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1381
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1383
     key: hitower_room_1383
@@ -3196,12 +3623,12 @@ rooms:
       south:
         to: 1386
         description: ""
-        keywords: "door steel"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1383
         description: ""
@@ -3266,12 +3693,12 @@ rooms:
       north:
         to: 1384
         description: ""
-        keywords: "door steel"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1388
         description: ""
@@ -3311,12 +3738,12 @@ rooms:
       south:
         to: 1390
         description: ""
-        keywords: "door steel"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1385
         description: ""
@@ -3340,6 +3767,31 @@ rooms:
     exits:
       west: 1386
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1336
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1364
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 1365
+              container_vnum: 1364
+          -
+              item_vnum: 1367
+              container_vnum: 1364
+          -
+              item_vnum: 1368
+              container_vnum: 1364
+          -
+              item_vnum: 1369
+              container_vnum: 1364
+          -
+              item_vnum: 1370
+              container_vnum: 1364
     legacy_flags:
       - INDOORS
     doors:
@@ -3400,18 +3852,27 @@ rooms:
       north: 1387
       south: 1392
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1337
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1371
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1387
         description: ""
-        keywords: "door steel"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1392
         description: "The energy field crackles and glows, nothing seems to be beyond."
@@ -3451,12 +3912,12 @@ rooms:
       east:
         to: 1394
         description: ""
-        keywords: "door bronze"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1389
         description: ""
@@ -3593,12 +4054,12 @@ rooms:
       west:
         to: 1391
         description: ""
-        keywords: "door bronze"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1395
     key: hitower_room_1395
@@ -3614,27 +4075,39 @@ rooms:
       north: 1397
       west: 1393
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1338
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1372
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 1373
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1397
         description: ""
-        keywords: "cage bars"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1393
         description: ""
-        keywords: "door bronze"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1396
     key: hitower_room_1396
@@ -3688,12 +4161,12 @@ rooms:
       south:
         to: 1395
         description: ""
-        keywords: "cage bars"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1398
     key: hitower_room_1398
@@ -3708,6 +4181,15 @@ rooms:
       south: 1396
       up: 1399
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1339
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1339
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3779,18 +4261,23 @@ rooms:
       east: 1399
       west: 1404
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1313
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1401
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1399
         description: ""
@@ -3824,27 +4311,32 @@ rooms:
       south: 1400
       west: 1402
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1320
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 1400
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1402
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1402
     key: hitower_room_1402
@@ -3860,27 +4352,58 @@ rooms:
       east: 1401
       west: 1403
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1340
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1325
+              wear_loc: 17
+          -
+              item_vnum: 1374
+              wear_loc: 13
+        inventory:
+          -
+              item_vnum: 1375
+              container_vnum: 1374
+          -
+              item_vnum: 1326
+              container_vnum: 1321
+          -
+              item_vnum: 1327
+              container_vnum: 1321
+          -
+              item_vnum: 1328
+              container_vnum: 1322
+          -
+              item_vnum: 1329
+              container_vnum: 1322
+          -
+              item_vnum: 1330
+              container_vnum: 1322
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1401
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1403
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1403
     key: hitower_room_1403
@@ -3895,27 +4418,36 @@ rooms:
       east: 1402
       south: 1405
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1321
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1322
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1402
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1405
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1404
     key: hitower_room_1404
@@ -3971,12 +4503,12 @@ rooms:
       north:
         to: 1403
         description: ""
-        keywords: "door silver"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 1404
         description: ""
@@ -4103,12 +4635,12 @@ rooms:
       west:
         to: 1409
         description: ""
-        keywords: "door rusty"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1409
     key: hitower_room_1409
@@ -4125,6 +4657,23 @@ rooms:
       south: 1411
       down: 1412
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1341
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1376
+              wear_loc: 17
+      - type: MOB
+        id: 1342
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1345
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4140,12 +4689,12 @@ rooms:
       east:
         to: 1408
         description: ""
-        keywords: "door rusty"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1411
         description: ""
@@ -4158,12 +4707,12 @@ rooms:
       down:
         to: 1412
         description: ""
-        keywords: "trapdoor"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1410
     key: hitower_room_1410
@@ -4201,6 +4750,23 @@ rooms:
     exits:
       north: 1409
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1343
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1344
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1346
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1347
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4231,21 +4797,21 @@ rooms:
       up:
         to: 1409
         description: ""
-        keywords: "trapdoor"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 1381
         description: ""
-        keywords: "vent"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1413
     key: hitower_room_1413
@@ -4379,12 +4945,12 @@ rooms:
       south:
         to: 1417
         description: ""
-        keywords: "door emerald"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1415
         description: ""
@@ -4409,18 +4975,31 @@ rooms:
       north: 1416
       west: 1418
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1348
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1377
+              wear_loc: 13
+        inventory:
+          -
+              item_vnum: 1378
+              container_vnum: 1377
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1416
         description: ""
-        keywords: "door emerald"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1418
         description: ""
@@ -4516,12 +5095,12 @@ rooms:
       south:
         to: 1420
         description: ""
-        keywords: "door glass"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1416
         description: ""
@@ -4551,12 +5130,12 @@ rooms:
       north:
         to: 1419
         description: ""
-        keywords: "door glass"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1421
     key: hitower_room_1421
@@ -4622,12 +5201,12 @@ rooms:
       east:
         to: 1423
         description: ""
-        keywords: "door black"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1421
         description: ""
@@ -4666,12 +5245,12 @@ rooms:
       west:
         to: 1422
         description: ""
-        keywords: "door black"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1424
     key: hitower_room_1424
@@ -4723,6 +5302,34 @@ rooms:
     exits:
       south: 1424
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1349
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1379
+              wear_loc: 3
+          -
+              item_vnum: 1380
+              wear_loc: 17
+      - type: MOB
+        id: 1350
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1350
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1351
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1381
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4817,6 +5424,15 @@ rooms:
       south: 1427
       up: 1429
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1339
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 1339
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4889,6 +5505,11 @@ rooms:
       east: 1429
       west: 1431
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1312
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4998,6 +5619,11 @@ rooms:
       south: 1446
       west: 1436
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1313
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -5058,12 +5684,12 @@ rooms:
       east:
         to: 1435
         description: ""
-        keywords: "door black"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1433
         description: ""
@@ -5090,18 +5716,42 @@ rooms:
     exits:
       west: 1434
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1331
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1352
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1352
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1352
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1332
+              container_vnum: 1331
+          -
+              item_vnum: 1333
+              container_vnum: 1331
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 1434
         description: ""
-        keywords: "door black"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1436
     key: hitower_room_1436
@@ -5154,6 +5804,15 @@ rooms:
       south: 1440
       west: 1438
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1353
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1335
+              container_vnum: 1334
     legacy_flags:
       - INDOORS
     doors:
@@ -5567,6 +6226,11 @@ rooms:
     exits:
       south: 1444
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1334
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -5701,6 +6365,11 @@ rooms:
       down: 1448
       up: 1450
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1313
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -5856,12 +6525,12 @@ rooms:
       south:
         to: 1453
         description: ""
-        keywords: "door grey"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1453
     key: hitower_room_1453
@@ -5878,18 +6547,30 @@ rooms:
       north: 1452
       south: 1454
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1354
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1382
+              wear_loc: 12
+          -
+              item_vnum: 1384
+              wear_loc: 14
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 1452
         description: ""
-        keywords: "door grey"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1454
         description: ""
@@ -5916,6 +6597,25 @@ rooms:
       south: 1457
       west: 1455
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1355
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1356
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1383
+              wear_loc: 3
+          -
+              item_vnum: 1385
+              wear_loc: 16
+          -
+              item_vnum: 1386
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -6122,12 +6822,12 @@ rooms:
       east:
         to: 1461
         description: ""
-        keywords: "door obsidian"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1459
         description: ""
@@ -6154,6 +6854,18 @@ rooms:
       east: 1464
       west: 1460
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1357
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1387
+              wear_loc: 12
+          -
+              item_vnum: 1388
+              wear_loc: 14
     legacy_flags:
       - INDOORS
     doors:
@@ -6187,12 +6899,12 @@ rooms:
       west:
         to: 1460
         description: ""
-        keywords: "door obsidian"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1462
     key: hitower_room_1462
@@ -6256,6 +6968,25 @@ rooms:
     exits:
       west: 1461
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1358
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1359
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1389
+              wear_loc: 3
+          -
+              item_vnum: 1390
+              wear_loc: 16
+          -
+              item_vnum: 1386
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -6335,12 +7066,12 @@ rooms:
       west:
         to: 1467
         description: ""
-        keywords: "door ivory"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1467
     key: hitower_room_1467
@@ -6356,18 +7087,30 @@ rooms:
       east: 1466
       west: 1469
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1360
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1391
+              wear_loc: 12
+          -
+              item_vnum: 1392
+              wear_loc: 14
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1466
         description: ""
-        keywords: "door ivory"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 1469
         description: ""
@@ -6395,6 +7138,25 @@ rooms:
       east: 1467
       west: 1472
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1361
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1362
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1393
+              wear_loc: 3
+          -
+              item_vnum: 1394
+              wear_loc: 16
+          -
+              item_vnum: 1386
+              wear_loc: 17
     doors:
       north:
         to: 1470
@@ -6527,12 +7289,12 @@ rooms:
       north:
         to: 1474
         description: ""
-        keywords: "door metal grey"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 1473
+        key: null
       south:
         to: 1450
         description: ""
@@ -6563,21 +7325,21 @@ rooms:
       north:
         to: 1475
         description: ""
-        keywords: "door obsidian black"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 1474
+        key: null
       south:
         to: 1473
         description: ""
-        keywords: "door metal grey"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 1473
+        key: null
 
   - id: 1475
     key: hitower_room_1475
@@ -6599,21 +7361,21 @@ rooms:
       north:
         to: 1476
         description: ""
-        keywords: "door ivory white"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 1475
+        key: null
       south:
         to: 1474
         description: ""
-        keywords: "door obsidian black"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 1474
+        key: null
 
   - id: 1476
     key: hitower_room_1476
@@ -6644,12 +7406,12 @@ rooms:
       south:
         to: 1475
         description: ""
-        keywords: "door white ivory"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 1475
+        key: null
 
   - id: 1477
     key: hitower_room_1477
@@ -6669,6 +7431,53 @@ rooms:
       south: 1476
       west: 1479
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1363
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1395
+              wear_loc: 3
+      - type: MOB
+        id: 1364
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1401
+              wear_loc: 5
+          -
+              item_vnum: 1397
+              wear_loc: 1
+          -
+              item_vnum: 1398
+              wear_loc: 14
+          -
+              item_vnum: 1399
+              wear_loc: 17
+          -
+              item_vnum: 1400
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 1339
+          -
+              item_vnum: 1337
+              container_vnum: 1336
+          -
+              item_vnum: 1340
+              container_vnum: 1338
+          -
+              item_vnum: 1344
+              container_vnum: 1345
+          -
+              item_vnum: 1403
+              container_vnum: 1402
+          -
+              item_vnum: 1404
+              container_vnum: 1402
     legacy_flags:
       - INDOORS
     doors:
@@ -6779,18 +7588,23 @@ rooms:
       south: 1477
       west: 1482
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1336
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 1481
         description: ""
-        keywords: "door secret"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 1477
         description: ""
@@ -6803,12 +7617,12 @@ rooms:
       west:
         to: 1482
         description: ""
-        keywords: "door secret"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1481
     key: hitower_room_1481
@@ -6821,18 +7635,23 @@ rooms:
     exits:
       west: 1480
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1338
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 1480
         description: ""
-        keywords: "door secret"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 1482
     key: hitower_room_1482
@@ -6848,6 +7667,23 @@ rooms:
     exits:
       west: 1483
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1341
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1342
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1343
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 1345
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -6901,6 +7737,15 @@ rooms:
     exits:
       down: -1
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 1401
+        quantity: 2
+        frequency: 1
+      - type: ITEM
+        id: 1402
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS

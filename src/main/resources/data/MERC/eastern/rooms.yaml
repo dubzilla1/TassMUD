@@ -332,6 +332,15 @@ rooms:
       east: 5012
       up: 5008
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 5011
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -408,6 +417,22 @@ rooms:
     exits:
       up: 5010
     sector_type: MOUNTAIN
+    spawns:
+      - type: ITEM
+        id: 5005
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 5010
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5001
+              wear_loc: 5
+          -
+              item_vnum: 5002
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -498,6 +523,15 @@ rooms:
       east: 5015
       west: 5013
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 5012
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5000
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -745,6 +779,32 @@ rooms:
       north: 5020
       east: 5022
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 5013
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 5014
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5003
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 5012
+              container_vnum: 5007
+          -
+              item_vnum: 5011
+              container_vnum: 5007
+          -
+              item_vnum: 5014
+              container_vnum: 5008
+          -
+              item_vnum: 5013
+              container_vnum: 5010
     legacy_flags:
       - INDOORS
     doors:
@@ -847,6 +907,11 @@ rooms:
       south: 5027
       west: 5026
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5015
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 5030
@@ -899,6 +964,15 @@ rooms:
       south: 5028
       west: 5024
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5000
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3021
+              wear_loc: 16
     doors:
       north:
         to: 5056
@@ -951,6 +1025,11 @@ rooms:
       south: 5029
       west: 5025
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5015
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 5032
@@ -1003,6 +1082,15 @@ rooms:
       south: 5030
       west: 5007
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5000
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3021
+              wear_loc: 16
     doors:
       north:
         to: 5024
@@ -1055,6 +1143,22 @@ rooms:
       south: 5031
       west: 5027
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5003
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 5004
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 5019
+          -
+              item_vnum: 5020
+          -
+              item_vnum: 5021
     doors:
       north:
         to: 5025
@@ -1107,6 +1211,15 @@ rooms:
       south: 5032
       west: 5028
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5000
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3021
+              wear_loc: 16
     doors:
       north:
         to: 5026
@@ -1159,6 +1272,11 @@ rooms:
       south: 5024
       west: 5032
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5015
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 5027
@@ -1211,6 +1329,19 @@ rooms:
       south: 5063
       west: 5030
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5001
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+      - type: MOB
+        id: 5002
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 5028
@@ -1263,6 +1394,11 @@ rooms:
       south: 5026
       west: 5031
     sector_type: DESERT
+    spawns:
+      - type: MOB
+        id: 5015
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 5029
@@ -1357,6 +1493,11 @@ rooms:
     exits:
       west: 5056
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 5009
+        quantity: 10
+        frequency: 1
     doors:
       west:
         to: 5056
@@ -1382,11 +1523,17 @@ rooms:
       east: 5059
       south: 5056
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 5017
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 5060
-        description: "This tent seems to be the temporary abode of the nomad leader. You make a
-mental note to visit it before you leave."
+        description: |
+          This tent seems to be the temporary abode of the nomad leader. You make a
+          mental note to visit it before you leave.
         keywords: ""
         state: OPEN
         locked: false
@@ -1423,6 +1570,15 @@ mental note to visit it before you leave."
     exits:
       west: 5058
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 5008
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5018
+              wear_loc: 16
     doors:
       west:
         to: 5058
@@ -1447,6 +1603,19 @@ mental note to visit it before you leave."
       east: 5061
       south: 5058
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 5007
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 5007
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5017
+              wear_loc: 16
     doors:
       east:
         to: 5061
@@ -1479,6 +1648,27 @@ mental note to visit it before you leave."
     exits:
       west: 5060
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 5008
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 5009
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 5010
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 5006
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5016
+              wear_loc: 16
     doors:
       west:
         to: 5060
@@ -1605,6 +1795,40 @@ mental note to visit it before you leave."
       east: 5064
       west: 5066
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 5005
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 5024
+          -
+              item_vnum: 5022
+          -
+              item_vnum: 5025
+              container_vnum: 5023
+          -
+              item_vnum: 5026
+              container_vnum: 5023
+          -
+              item_vnum: 5027
+              container_vnum: 5023
+          -
+              item_vnum: 5028
+              container_vnum: 5023
+          -
+              item_vnum: 5029
+              container_vnum: 5023
+          -
+              item_vnum: 5030
+              container_vnum: 5023
+          -
+              item_vnum: 5031
+              container_vnum: 5023
+          -
+              item_vnum: 5032
+              container_vnum: 5023
     legacy_flags:
       - INDOORS
     doors:
@@ -1620,12 +1844,12 @@ mental note to visit it before you leave."
       west:
         to: 5066
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 5024
+        key: null
 
   - id: 5066
     key: eastern_room_5066
@@ -1646,12 +1870,12 @@ mental note to visit it before you leave."
       east:
         to: 5065
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 5024
+        key: null
       west:
         to: 5067
         description: ""
@@ -1776,6 +2000,15 @@ mental note to visit it before you leave."
       south: 5069
       up: 5009
     sector_type: MOUNTAIN
+    spawns:
+      - type: ITEM
+        id: 5023
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 5015
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

@@ -55,6 +55,23 @@ rooms:
       south: 2109
       west: 2101
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2107
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2105
+              wear_loc: 17
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       east:
         to: 2103
@@ -99,6 +116,15 @@ rooms:
       south: 2110
       west: 2102
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       east:
         to: 2104
@@ -142,6 +168,15 @@ rooms:
       south: 2111
       west: 2103
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       east:
         to: 2105
@@ -184,6 +219,11 @@ rooms:
       east: 2106
       west: 2104
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
     doors:
       east:
         to: 2106
@@ -218,6 +258,15 @@ rooms:
       south: 2113
       west: 2105
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       east:
         to: 2107
@@ -260,6 +309,15 @@ rooms:
       east: 2108
       west: 2106
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       east:
         to: 2108
@@ -292,6 +350,19 @@ rooms:
       south: 2115
       west: 2107
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2104
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2109
+              wear_loc: 9
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
     doors:
       south:
         to: 2115
@@ -325,6 +396,15 @@ rooms:
       north: 2102
       east: 2110
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2102
@@ -360,6 +440,15 @@ rooms:
       south: 2116
       west: 2109
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2103
@@ -403,6 +492,11 @@ rooms:
       north: 2104
       south: 2117
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -437,6 +531,15 @@ rooms:
       east: 2113
       south: 2118
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       east:
         to: 2113
@@ -471,6 +574,15 @@ rooms:
       east: 2114
       west: 2112
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2106
@@ -514,6 +626,27 @@ rooms:
       east: 2115
       west: 2113
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2104
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2103
+              wear_loc: 16
+      - type: MOB
+        id: 2107
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2105
+              wear_loc: 17
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -549,6 +682,15 @@ rooms:
       south: 2120
       west: 2114
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2108
@@ -593,6 +735,26 @@ rooms:
       north: 2110
       east: 2117
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2104
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2104
+              wear_loc: 11
+          -
+              item_vnum: 2103
+              wear_loc: 16
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2110
@@ -626,6 +788,15 @@ rooms:
       south: 2121
       west: 2116
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2111
@@ -669,6 +840,15 @@ rooms:
       east: 2119
       south: 2122
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2112
@@ -712,6 +892,11 @@ rooms:
       south: 2123
       west: 2118
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -746,6 +931,11 @@ rooms:
       north: 2115
       south: 2125
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
     doors:
       north:
         to: 2115
@@ -777,6 +967,15 @@ rooms:
       north: 2117
       east: 2122
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2117
@@ -811,6 +1010,15 @@ rooms:
       south: 2127
       west: 2121
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2118
@@ -854,6 +1062,15 @@ rooms:
       north: 2119
       south: 2128
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2105
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2108
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -889,18 +1106,43 @@ rooms:
     exits:
       east: 2125
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2103
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2111
+              wear_loc: 1
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 2125
-        description: ""
-        keywords: "wooden door east"
+        description: "/* closes the door out from the warehouse */"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 2125
     key: hood_room_2125
@@ -915,6 +1157,18 @@ rooms:
       south: 2130
       west: 2124
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2105
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2108
+              wear_loc: 17
+          -
+              item_vnum: 2107
+              wear_loc: 8
     doors:
       north:
         to: 2120
@@ -936,13 +1190,13 @@ rooms:
         key: -1
       west:
         to: 2124
-        description: ""
-        keywords: "wooden door west"
+        description: "/* closes the door into the warehouse */"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 2126
     key: hood_room_2126
@@ -1031,6 +1285,11 @@ rooms:
       south: 2133
       west: 2127
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
     doors:
       north:
         to: 2123
@@ -1124,6 +1383,15 @@ rooms:
       north: 2125
       west: 2129
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2101
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2101
+              wear_loc: 5
     doors:
       north:
         to: 2125
@@ -1158,6 +1426,15 @@ rooms:
       east: 2132
       south: 2136
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2126
@@ -1201,6 +1478,15 @@ rooms:
       south: 2137
       west: 2131
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       east:
         to: 2133
@@ -1245,6 +1531,15 @@ rooms:
       south: 2138
       west: 2132
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2128
@@ -1298,6 +1593,15 @@ rooms:
       south: 2139
       west: 2133
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2129
@@ -1349,6 +1653,15 @@ rooms:
       south: 2140
       west: 2134
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       south:
         to: 2140
@@ -1383,6 +1696,15 @@ rooms:
       east: 2137
       south: 2141
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2131
@@ -1426,6 +1748,15 @@ rooms:
       east: 2138
       west: 2136
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2132
@@ -1470,6 +1801,15 @@ rooms:
       south: 2143
       west: 2137
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2133
@@ -1522,6 +1862,15 @@ rooms:
       east: 2140
       west: 2138
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2134
@@ -1565,6 +1914,15 @@ rooms:
       south: 2145
       west: 2139
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 2106
+        quantity: 15
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2110
+              wear_loc: 16
     doors:
       north:
         to: 2135
@@ -1649,6 +2007,15 @@ rooms:
       east: 2143
       west: 2141
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       east:
         to: 2143
@@ -1770,6 +2137,15 @@ rooms:
       south: 2149
       west: 2144
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2140
@@ -1812,6 +2188,15 @@ rooms:
       north: 2141
       south: 2150
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2141
@@ -1878,18 +2263,46 @@ rooms:
     exits:
       east: 2149
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2103
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2106
+              wear_loc: 16
+          -
+              item_vnum: 2112
+              wear_loc: 17
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2108
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 2149
-        description: ""
-        keywords: "rusted door metal"
+        description: "/* closes the door out of the chapel */"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 2149
     key: hood_room_2149
@@ -1905,6 +2318,18 @@ rooms:
       south: 2154
       west: 2148
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2105
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2107
+              wear_loc: 8
+          -
+              item_vnum: 2108
+              wear_loc: 17
     doors:
       north:
         to: 2145
@@ -1926,13 +2351,13 @@ rooms:
         key: -1
       west:
         to: 2148
-        description: ""
-        keywords: "rusted door metal"
+        description: "/* closes the door into the chapel */"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 2150
     key: hood_room_2150
@@ -1949,6 +2374,11 @@ rooms:
       east: 2151
       south: 2156
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
     doors:
       north:
         to: 2146
@@ -1992,6 +2422,15 @@ rooms:
       east: 2152
       west: 2150
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       east:
         to: 2152
@@ -2025,6 +2464,23 @@ rooms:
       south: 2157
       west: 2151
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2105
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2108
+              wear_loc: 17
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2147
@@ -2068,6 +2524,15 @@ rooms:
     exits:
       east: 2154
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -2094,6 +2559,11 @@ rooms:
       south: 2159
       west: 2153
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
     doors:
       north:
         to: 2149
@@ -2138,6 +2608,22 @@ rooms:
       east: 2156
       south: 2162
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2104
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2104
+              wear_loc: 11
+          -
+              item_vnum: 2109
+              wear_loc: 9
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
     doors:
       east:
         to: 2156
@@ -2171,6 +2657,15 @@ rooms:
       south: 2163
       west: 2155
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2150
@@ -2214,6 +2709,11 @@ rooms:
       east: 2158
       south: 2164
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
     doors:
       north:
         to: 2152
@@ -2258,6 +2758,15 @@ rooms:
       south: 2165
       west: 2157
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       east:
         to: 2159
@@ -2299,6 +2808,15 @@ rooms:
       north: 2154
       west: 2158
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2154
@@ -2335,6 +2853,11 @@ rooms:
     exits:
       east: 2161
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
     legacy_flags:
       - NO_MOB
     doors:
@@ -2363,6 +2886,23 @@ rooms:
       east: 2162
       west: 2160
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2107
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2105
+              wear_loc: 17
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       east:
         to: 2162
@@ -2396,6 +2936,15 @@ rooms:
       south: 2166
       west: 2161
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2155
@@ -2437,6 +2986,11 @@ rooms:
       north: 2156
       south: 2167
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
     doors:
       north:
         to: 2156
@@ -2469,6 +3023,15 @@ rooms:
       north: 2157
       south: 2169
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2157
@@ -2504,6 +3067,43 @@ rooms:
       north: 2158
       south: 2170
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2107
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2105
+              wear_loc: 17
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -2539,6 +3139,15 @@ rooms:
       north: 2162
       east: 2167
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2162
@@ -2572,6 +3181,15 @@ rooms:
       east: 2168
       west: 2166
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2163
@@ -2649,6 +3267,15 @@ rooms:
       east: 2170
       west: 2168
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2102
+        quantity: 25
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2102
+              wear_loc: 5
     doors:
       north:
         to: 2164
@@ -2692,6 +3319,18 @@ rooms:
       north: 2165
       west: 2169
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2104
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2111
+              wear_loc: 1
+          -
+              item_vnum: 2104
+              wear_loc: 11
     legacy_flags:
       - INDOORS
     doors:

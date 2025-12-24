@@ -1,0 +1,10 @@
+shops:
+  - keeper: 3717
+    trades: [1, 15, 17, 19, 0]
+    profit_buy: 100
+    profit_sell: 100
+    open: 0
+    close: 23
+    comment: "Adept of Frag"
+    items: [3138, 3031]
+

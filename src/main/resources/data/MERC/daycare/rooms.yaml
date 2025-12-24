@@ -51,6 +51,36 @@ rooms:
       south: 6604
       east: 6626
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6600
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6600
+              wear_loc: 16
+      - type: MOB
+        id: 6601
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6602
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6606
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6621
+              wear_loc: 12
+        inventory:
+          -
+              item_vnum: 6646
+          -
+              item_vnum: 6644
     legacy_flags:
       - INDOORS
     doors:
@@ -104,6 +134,15 @@ rooms:
       south: 6605
       west: 6606
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6600
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6600
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -148,6 +187,30 @@ rooms:
       east: 6610
       west: 6605
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6600
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6600
+              wear_loc: 16
+      - type: MOB
+        id: 6602
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6606
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6646
+      - type: MOB
+        id: 6605
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -192,6 +255,30 @@ rooms:
       east: 6604
       west: 6607
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6600
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6600
+              wear_loc: 16
+      - type: MOB
+        id: 6602
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6645
+      - type: MOB
+        id: 6605
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6601
+              wear_loc: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -234,6 +321,15 @@ rooms:
     exits:
       east: 6603
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6605
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 6601
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -292,6 +388,19 @@ rooms:
       east: 6609
       south: 6610
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6600
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6603
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6647
+              wear_loc: 16
     doors:
       east:
         to: 6609
@@ -323,6 +432,31 @@ rooms:
       south: 6611
       west: 6608
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6600
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6604
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 6603
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6647
+              wear_loc: 16
+      - type: MOB
+        id: 6603
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6647
+              wear_loc: 16
     doors:
       south:
         to: 6611
@@ -355,6 +489,27 @@ rooms:
       east: 6611
       west: 6604
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6600
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6604
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 6603
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6647
+              wear_loc: 16
+      - type: MOB
+        id: 6605
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 6608
@@ -395,6 +550,27 @@ rooms:
       north: 6609
       west: 6610
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6604
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 6603
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6647
+              wear_loc: 16
+      - type: MOB
+        id: 6603
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6647
+              wear_loc: 16
     doors:
       north:
         to: 6609
@@ -614,6 +790,11 @@ rooms:
       north: 6616
       south: 6631
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6607
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -675,6 +856,11 @@ rooms:
     exits:
       north: 6624
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 6608
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

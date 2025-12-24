@@ -84,6 +84,22 @@ rooms:
       east: 8305
       west: 8302
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 8301
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8302
+        quantity: 12
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8307
+      - type: MOB
+        id: 8303
+        quantity: 2
+        frequency: 1
     doors:
       east:
         to: 8305
@@ -96,8 +112,9 @@ rooms:
         key: -1
       west:
         to: 8302
-        description: "Westward lies the remanents of a broken and shattered roadway being swallowed
-by the marsh."
+        description: |
+          Westward lies the remanents of a broken and shattered roadway being swallowed
+          by the marsh.
         keywords: ""
         state: OPEN
         locked: false
@@ -121,6 +138,23 @@ by the marsh."
       east: 8309
       south: 8310
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 8302
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8306
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8310
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8314
+        quantity: 8
+        frequency: 1
     doors:
       north:
         to: 8302
@@ -165,6 +199,23 @@ by the marsh."
       east: 8306
       west: 8303
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 8307
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8309
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8310
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8314
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 8306
@@ -196,6 +247,26 @@ by the marsh."
     exits:
       west: 8305
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 8302
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8305
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8303
+              wear_loc: 5
+          -
+              item_vnum: 2200
+              wear_loc: 16
+      - type: MOB
+        id: 8314
+        quantity: 8
+        frequency: 1
     doors:
       west:
         to: 8305
@@ -221,6 +292,26 @@ by the marsh."
     exits:
       west: 8308
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 8303
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8304
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 8314
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 8320
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8301
     doors:
       west:
         to: 8308
@@ -250,6 +341,19 @@ by the marsh."
       south: 8314
       west: 8309
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 8301
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8308
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 8314
+        quantity: 8
+        frequency: 1
     doors:
       east:
         to: 8307
@@ -298,6 +402,22 @@ by the marsh."
       south: 8311
       west: 8304
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 8312
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8314
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 8320
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8301
     doors:
       east:
         to: 8308
@@ -344,6 +464,26 @@ by the marsh."
       north: 8304
       south: 8312
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 8306
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8312
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8313
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8306
+              wear_loc: 16
+          -
+              item_vnum: 8302
+              wear_loc: 6
     doors:
       north:
         to: 8304
@@ -386,6 +526,18 @@ by the marsh."
       north: 8309
       south: 8313
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 8309
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8320
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8301
     doors:
       north:
         to: 8309
@@ -418,6 +570,21 @@ by the marsh."
       north: 8310
       east: 8313
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 8318
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8307
+      - type: MOB
+        id: 8318
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8307
     doors:
       north:
         to: 8310
@@ -455,6 +622,22 @@ by the marsh."
       east: 8314
       west: 8312
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 8303
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8307
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8320
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8301
     doors:
       north:
         to: 8311
@@ -548,6 +731,18 @@ by the marsh."
       south: 8316
       west: 8314
     sector_type: WATER_NOSWIM
+    spawns:
+      - type: MOB
+        id: 8320
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8302
+              wear_loc: 6
+        inventory:
+          -
+              item_vnum: 8301
     doors:
       south:
         to: 8316
@@ -653,6 +848,15 @@ by the marsh."
       east: 8317
       south: -1
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 8321
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8321
+        quantity: 2
+        frequency: 1
     doors:
       east:
         to: 8317

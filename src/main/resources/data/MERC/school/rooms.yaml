@@ -34,13 +34,13 @@ rooms:
         key: null
       south:
         to: 3744
-        description: "You see the one way door into the Arena of Mud School."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3701
     key: school_room_3701
@@ -56,6 +56,11 @@ rooms:
       south: 3757
       west: 3702
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3700
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 3757
@@ -384,6 +389,11 @@ rooms:
     exits:
       up: 3709
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3701
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -455,6 +465,11 @@ rooms:
       west: 3714
       down: 3717
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3707
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 3713
@@ -530,6 +545,18 @@ rooms:
     exits:
       south: 3712
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3704
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3707
+              wear_loc: 7
+          -
+              item_vnum: 3712
+              wear_loc: 13
     legacy_flags:
       - INDOORS
     doors:
@@ -558,6 +585,18 @@ rooms:
     exits:
       east: 3712
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3705
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3708
+              wear_loc: 8
+          -
+              item_vnum: 3713
+              wear_loc: 14
     legacy_flags:
       - INDOORS
     doors:
@@ -586,6 +625,18 @@ rooms:
     exits:
       north: 3712
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3703
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3706
+              wear_loc: 6
+          -
+              item_vnum: 3711
+              wear_loc: 12
     legacy_flags:
       - INDOORS
     doors:
@@ -614,6 +665,18 @@ rooms:
     exits:
       west: 3712
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3702
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3705
+              wear_loc: 3
+          -
+              item_vnum: 3705
+              wear_loc: 4
     legacy_flags:
       - INDOORS
     doors:
@@ -666,13 +729,13 @@ rooms:
         key: null
       east:
         to: 3719
-        description: "You see the next station of Mud School."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       sign: |
         By now, you must be hungry and thirsty.  Time to buy groceries!
@@ -697,6 +760,16 @@ rooms:
     exits:
       north: 3717
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3717
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3138
+          -
+              item_vnum: 3031
     legacy_flags:
       - INDOORS
     doors:
@@ -736,13 +809,13 @@ rooms:
     doors:
       west:
         to: 3717
-        description: "You see the room you just came from."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       north:
         to: 3720
         description: "You see a darkened room inside."
@@ -754,13 +827,13 @@ rooms:
         key: null
       east:
         to: 3721
-        description: "You see the next station of Mud School."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3714
+        key: null
     extras:
       sign: |
         North of you is a dark room.  I hope you still have the lantern!  If not,
@@ -782,6 +855,24 @@ rooms:
     exits:
       south: 3719
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3706
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3709
+              wear_loc: 9
+          -
+              item_vnum: 3710
+              wear_loc: 10
+          -
+              item_vnum: 3714
+              wear_loc: 17
+          -
+              item_vnum: 3713
+              wear_loc: 14
     doors:
       south:
         to: 3719
@@ -806,18 +897,27 @@ rooms:
     exits:
       north: 3722
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3720
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3715
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 3722
-        description: "You see the Arena ahead."
-        keywords: "gate"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       sign: |
         You have graduated from Mud School!  Get your diploma.  Go 'NORTH' from here
@@ -958,6 +1058,11 @@ rooms:
       east: 3723
       up: 3760
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3713
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1058,6 +1163,11 @@ rooms:
       west: 3725
       up: 3760
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3712
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1531,6 +1641,11 @@ rooms:
       up: 3760
       down: 3748
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3709
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1581,13 +1696,13 @@ rooms:
         key: null
       down:
         to: 3748
-        description: "You see a dark murky dungeon below."
-        keywords: "grate"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       sign: |
         Those with high bravery or low senses of cautiousness might wish to go below
@@ -2033,6 +2148,11 @@ rooms:
       south: 3737
       up: 3760
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3710
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2243,6 +2363,11 @@ rooms:
       west: 3745
       up: 3760
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3711
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2296,13 +2421,13 @@ rooms:
     doors:
       up:
         to: 3734
-        description: "You see safety!"
-        keywords: "grate"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       north:
         to: 3750
         description: "You see the north wall."
@@ -2352,6 +2477,11 @@ rooms:
       east: 3750
       south: 3752
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3714
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2430,6 +2560,11 @@ rooms:
       south: 3753
       west: 3750
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3715
+        quantity: 2
+        frequency: 1
     doors:
       south:
         to: 3753
@@ -2546,6 +2681,11 @@ rooms:
       north: 3752
       east: 3755
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3716
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 3752
@@ -2715,6 +2855,11 @@ rooms:
     exits:
       east: 3757
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3718
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 3757
@@ -2745,6 +2890,11 @@ rooms:
     exits:
       west: 3757
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3719
+        quantity: 1
+        frequency: 1
     doors:
       west:
         to: 3757

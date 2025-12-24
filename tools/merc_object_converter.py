@@ -351,8 +351,9 @@ while idx < n:
 
     # derive display name (prefer the short description which contains articles)
     display_name = short_desc if short_desc else short_name.rstrip('~')
-    # key should be a slug of the MERC name line (short_name)
-    key = re.sub(r"[^a-z0-9_]+","_", short_name.lower()).strip('_')
+    # key should be a slug of the MERC name line (short_name), append vnum to avoid collisions
+    key_base = re.sub(r"[^a-z0-9_]+","_", short_name.lower()).strip('_')
+    key = f"{key_base}_{vnum}"
 
     # extract keywords from the MERC name line (preserve meaningful tokens)
     stopwords = set(['the','a','an','of','and','in','on','to','for'])
@@ -417,12 +418,13 @@ while idx < n:
         'type': itype,
         # use explicit 'types' when meaningful (potion/scroll/drink)
         **({'types': item_types} if item_types else {}),
-        'template_json': {
-            'raw_block': '\n'.join(lines[idx-8:idx]) if idx>=8 else '\n'.join(lines[:idx])
-        }
+        # preserve a simple top-level legacy raw block and the original
+        # type-line for human review, but DO NOT emit a nested
+        # `template_json` mapping that may contain Python-style flow maps.
+        'legacy_raw': '\n'.join(lines[idx-8:idx]) if idx>=8 else '\n'.join(lines[:idx]),
+        'legacy_type_line': type_line_raw
     }
     # include the raw parsed type/flags line for easier debugging
-    item['template_json']['type_line'] = type_line_raw
 
     # parse weapon damage and armor fields when possible
     if itype == 'weapon' and isinstance(vals, list) and len(vals) >= 4:
@@ -509,8 +511,27 @@ while idx < n:
     if item_type_num in (23, 24):
         item.pop('type', None)
         item['types'] = ['container', 'immobile']
+    # If wear flags were explicitly 0 in MERC, treat the object as immobile
+    # (wear_raw == '0' means the object cannot be worn/equipped)
+    try:
+        if str(wear_raw).strip() == '0':
+            if item.get('types'):
+                if 'immobile' not in item['types']:
+                    item['types'].append('immobile')
+                # dedupe preserving order
+                item['types'] = list(dict.fromkeys(item['types']))
+            else:
+                prev = item.pop('type', None)
+                types_list = []
+                if prev and prev != 'unknown':
+                    types_list.append(prev)
+                types_list.append('immobile')
+                # dedupe preserving order
+                item['types'] = list(dict.fromkeys(types_list))
+    except Exception:
+        pass
     if extra_desc:
-        item['template_json']['extra_desc'] = extra_desc
+        item['extra_desc'] = extra_desc
     if extra_flags:
         item['extra_flags'] = extra_flags
     if wear_flags:
@@ -648,7 +669,11 @@ with open(out_path, 'w', encoding='utf-8') as f:
         write_block(f, "    description", item.get('description'), 6)
         write_block(f, "    weight", item.get('weight'), 6)
         write_block(f, "    value", item.get('value'), 6)
-        write_block(f, "    type", item.get('type'), 6)
+        # Prefer explicit 'types' list when available, otherwise emit single 'type'
+        if item.get('types'):
+            write_block(f, "    types", item.get('types'), 6)
+        else:
+            write_block(f, "    type", item.get('type'), 6)
         # weapon/armor numeric fields
         write_block(f, "    multiplier", item.get('multiplier'), 6)
         write_block(f, "    base_die", item.get('base_die'), 6)
@@ -673,16 +698,16 @@ with open(out_path, 'w', encoding='utf-8') as f:
                 f.write("        modifier: {}\n".format(a.get('modifier')))
         if item.get('on_equip_effect_ids'):
             write_block(f, "    on_equip_effect_ids", item.get('on_equip_effect_ids'), 6)
-        # template_json
-        tj = item.get('template_json')
-        if tj:
-            f.write("    template_json:\n")
-            for k, v in tj.items():
-                if '\n' in str(v):
-                    f.write(f"      {k}: |\n")
-                    f.write(indent(str(v), 8) + "\n")
-                else:
-                    f.write(f"      {k}: {v}\n")
+        # legacy raw block and original type line are preserved under
+        # top-level keys to avoid nested flow mappings that break YAML
+        if item.get('legacy_type_line'):
+            write_block(f, "    legacy_type_line", item.get('legacy_type_line'), 6)
+        if item.get('legacy_raw'):
+            # emit as a block scalar for readability
+            f.write("    legacy_raw: |\n")
+            f.write(indent(str(item.get('legacy_raw')), 6) + "\n")
+        if item.get('extra_desc'):
+            write_block(f, "    extra_desc", item.get('extra_desc'), 6)
 print(f"Wrote {len(entries)} items to {out_path}")
 
 # write effects file for any generated on-equip effects

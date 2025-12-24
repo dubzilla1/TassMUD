@@ -130,6 +130,15 @@ rooms:
       east: 7009
       down: 7102
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7001
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 7001
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -144,8 +153,9 @@ rooms:
         key: -1
       down:
         to: 7102
-        description: "The Dark Pit leads down an down and down ... well you can't see the 
-bottom anyway. There are bars that function as a ladder on the side."
+        description: |
+          The Dark Pit leads down an down and down ... well you can't see the 
+          bottom anyway. There are bars that function as a ladder on the side.
         keywords: ""
         state: OPEN
         locked: false
@@ -180,8 +190,9 @@ bottom anyway. There are bars that function as a ladder on the side."
         key: -1
       south:
         to: 7006
-        description: "South. There is even more mud in that direction than where you are now. 
-Incredible."
+        description: |
+          South. There is even more mud in that direction than where you are now. 
+          Incredible.
         keywords: ""
         state: OPEN
         locked: false
@@ -211,8 +222,9 @@ Incredible."
     doors:
       east:
         to: 7012
-        description: "The pipe leads into a bend that goes south. Interesting, there's mud on the
-floor there."
+        description: |
+          The pipe leads into a bend that goes south. Interesting, there's mud on the
+          floor there.
         keywords: ""
         state: OPEN
         locked: false
@@ -251,8 +263,9 @@ floor there."
     doors:
       west:
         to: 7002
-        description: "The pipe (still filled with mud) leads into a intersection that goes north 
-and south. Interesting."
+        description: |
+          The pipe (still filled with mud) leads into a intersection that goes north 
+          and south. Interesting.
         keywords: ""
         state: OPEN
         locked: false
@@ -261,8 +274,9 @@ and south. Interesting."
         key: -1
       south:
         to: 7008
-        description: "The pipe leads into a intersection that goes south and east. The floor here 
-is still covered in mud."
+        description: |
+          The pipe leads into a intersection that goes south and east. The floor here 
+          is still covered in mud.
         keywords: ""
         state: OPEN
         locked: false
@@ -294,8 +308,9 @@ is still covered in mud."
     doors:
       north:
         to: 7007
-        description: "North. The pipe goes into a bend with a load of mud all the way up the walls.
-The bend leads west."
+        description: |
+          North. The pipe goes into a bend with a load of mud all the way up the walls.
+          The bend leads west.
         keywords: ""
         state: OPEN
         locked: false
@@ -304,9 +319,10 @@ The bend leads west."
         key: -1
       east:
         to: 7014
-        description: "East. This way like a place for the annual mud festival, although the stench
-wouldn't allow any happiness at all. The pipe leads into a bend that leads 
-north."
+        description: |
+          East. This way like a place for the annual mud festival, although the stench
+          wouldn't allow any happiness at all. The pipe leads into a bend that leads 
+          north.
         keywords: ""
         state: OPEN
         locked: false
@@ -315,9 +331,10 @@ north."
         key: -1
       south:
         to: 7009
-        description: "South. There's less mud in that direction. *smile*. Your light doesn't 
-cover enough space for you to see much more than that it leads into some
-sort of junction."
+        description: |
+          South. There's less mud in that direction. *smile*. Your light doesn't 
+          cover enough space for you to see much more than that it leads into some
+          sort of junction.
         keywords: ""
         state: OPEN
         locked: false
@@ -367,8 +384,9 @@ sort of junction."
         key: -1
       south:
         to: 7010
-        description: "North. This direction looks quite nice actually. The pipe leads into 
-a bend that goes east."
+        description: |
+          North. This direction looks quite nice actually. The pipe leads into 
+          a bend that goes east.
         keywords: ""
         state: OPEN
         locked: false
@@ -377,8 +395,9 @@ a bend that goes east."
         key: -1
       west:
         to: 7004
-        description: "A few yards ahead - away from this junction - there is a pit leading down,
-but the smell from there...>PHEWW<."
+        description: |
+          A few yards ahead - away from this junction - there is a pit leading down,
+          but the smell from there...>PHEWW<.
         keywords: ""
         state: OPEN
         locked: false
@@ -460,8 +479,9 @@ but the smell from there...>PHEWW<."
         key: -1
       south:
         to: 7021
-        description: "That way is lost in darkness, though you sense less mud in that direction,
-perhaps even a complete end to this sludge that surrounds you."
+        description: |
+          That way is lost in darkness, though you sense less mud in that direction,
+          perhaps even a complete end to this sludge that surrounds you.
         keywords: ""
         state: OPEN
         locked: false
@@ -491,8 +511,9 @@ perhaps even a complete end to this sludge that surrounds you."
     doors:
       west:
         to: 7006
-        description: "West. All you can see, is that the pipe leads into a bend that goes
-north. But there's less mud in that direction, however odd that sounds."
+        description: |
+          West. All you can see, is that the pipe leads into a bend that goes
+          north. But there's less mud in that direction, however odd that sounds.
         keywords: ""
         state: OPEN
         locked: false
@@ -501,8 +522,9 @@ north. But there's less mud in that direction, however odd that sounds."
         key: -1
       south:
         to: 7013
-        description: "South. There's even more mud that way, incredible! Although it looks
-like an intersection in the sewer system that leads east and south."
+        description: |
+          South. There's even more mud that way, incredible! Although it looks
+          like an intersection in the sewer system that leads east and south.
         keywords: ""
         state: OPEN
         locked: false
@@ -534,8 +556,9 @@ like an intersection in the sewer system that leads east and south."
     doors:
       north:
         to: 7012
-        description: "North. Sludge and sediment fills this corridor of the sewer that leads
-into a bend going west."
+        description: |
+          North. Sludge and sediment fills this corridor of the sewer that leads
+          into a bend going west.
         keywords: ""
         state: OPEN
         locked: false
@@ -544,9 +567,10 @@ into a bend going west."
         key: -1
       east:
         to: 7026
-        description: "East. You can see absolutely nothing of interest in that direction (Maybe
-that's why it's so damn interesting.??) There's no mud in that direction
-either, GREAT!"
+        description: |
+          East. You can see absolutely nothing of interest in that direction (Maybe
+          that's why it's so damn interesting.??) There's no mud in that direction
+          either, GREAT!
         keywords: ""
         state: OPEN
         locked: false
@@ -555,8 +579,9 @@ either, GREAT!"
         key: -1
       south:
         to: 7014
-        description: "South. All you can see is more mud! Although the pipe goes into a bend
-leading west."
+        description: |
+          South. All you can see is more mud! Although the pipe goes into a bend
+          leading west.
         keywords: ""
         state: OPEN
         locked: false
@@ -592,8 +617,9 @@ leading west."
     doors:
       north:
         to: 7013
-        description: "North. Filled with mud, that place looks like an impassable intersection
-with pipes leading north and east."
+        description: |
+          North. Filled with mud, that place looks like an impassable intersection
+          with pipes leading north and east.
         keywords: ""
         state: OPEN
         locked: false
@@ -602,8 +628,9 @@ with pipes leading north and east."
         key: -1
       west:
         to: 7008
-        description: "West. There's less mud that way, maybe you're on your way out of this foul
-place."
+        description: |
+          West. There's less mud that way, maybe you're on your way out of this foul
+          place.
         keywords: ""
         state: OPEN
         locked: false
@@ -633,8 +660,9 @@ place."
     doors:
       east:
         to: 7028
-        description: "East. You see, because of the utter darkness that surround you, absolutely
-nothing. Your light isn't of much use for that kind of distance."
+        description: |
+          East. You see, because of the utter darkness that surround you, absolutely
+          nothing. Your light isn't of much use for that kind of distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -643,8 +671,9 @@ nothing. Your light isn't of much use for that kind of distance."
         key: -1
       down:
         to: 7105
-        description: "Down the well there's even less light than up here, so ... sorry, you can't
-see a thing. There are metal bars in the side leading down into the darkness."
+        description: |
+          Down the well there's even less light than up here, so ... sorry, you can't
+          see a thing. There are metal bars in the side leading down into the darkness.
         keywords: ""
         state: OPEN
         locked: false
@@ -682,8 +711,9 @@ see a thing. There are metal bars in the side leading down into the darkness."
         key: -1
       east:
         to: 7021
-        description: "East. What a quiet place you've found there. It's an intersection that have
-pipeways going north and east."
+        description: |
+          East. What a quiet place you've found there. It's an intersection that have
+          pipeways going north and east.
         keywords: ""
         state: OPEN
         locked: false
@@ -726,8 +756,9 @@ pipeways going north and east."
         key: -1
       south:
         to: 7018
-        description: "South. It looks like a pipe junction just like this one. Only that one
-leads east and west."
+        description: |
+          South. It looks like a pipe junction just like this one. Only that one
+          leads east and west.
         keywords: ""
         state: OPEN
         locked: false
@@ -772,8 +803,9 @@ leads east and west."
         key: -1
       east:
         to: 7031
-        description: "To the east there's nothing of particular interest, though there's a 
-junction with pipelines leading north and east."
+        description: |
+          To the east there's nothing of particular interest, though there's a 
+          junction with pipelines leading north and east.
         keywords: ""
         state: OPEN
         locked: false
@@ -818,8 +850,9 @@ junction with pipelines leading north and east."
         key: -1
       west:
         to: 7016
-        description: "West. There's an ordinary bend leading south into the sewer system in
-that direction."
+        description: |
+          West. There's an ordinary bend leading south into the sewer system in
+          that direction.
         keywords: ""
         state: OPEN
         locked: false
@@ -849,8 +882,9 @@ that direction."
     doors:
       down:
         to: 7112
-        description: "Down. It's utterly dark that way, though you can make out an intersection
-of sewer pipes leading west, north and east."
+        description: |
+          Down. It's utterly dark that way, though you can make out an intersection
+          of sewer pipes leading west, north and east.
         keywords: "entryway"
         state: OPEN
         locked: false
@@ -895,8 +929,9 @@ of sewer pipes leading west, north and east."
         key: -1
       west:
         to: 7011
-        description: "To the west there's another intersection like this one, with sewer pipes
-leading south and west."
+        description: |
+          To the west there's another intersection like this one, with sewer pipes
+          leading south and west.
         keywords: ""
         state: OPEN
         locked: false
@@ -917,13 +952,19 @@ leading south and west."
       south: 7026
       east: 7038
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7001
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 7024
-        description: "To the north there's an intersection, where the pipes are leading west and
-east. You notice that the floor to the west is covered in mud."
+        description: |
+          To the north there's an intersection, where the pipes are leading west and
+          east. You notice that the floor to the west is covered in mud.
         keywords: ""
         state: OPEN
         locked: false
@@ -941,8 +982,9 @@ east. You notice that the floor to the west is covered in mud."
         key: -1
       east:
         to: 7038
-        description: "East. You see nothing of interest in that direction, just another 
-intersection. This one leads east and south."
+        description: |
+          East. You see nothing of interest in that direction, just another 
+          intersection. This one leads east and south.
         keywords: ""
         state: OPEN
         locked: false
@@ -980,8 +1022,9 @@ intersection. This one leads east and south."
         key: -1
       west:
         to: 7013
-        description: "To the west you see a load of mud and sediment in the sewer. That should
-be an intersection there but you're not quite sure."
+        description: |
+          To the west you see a load of mud and sediment in the sewer. That should
+          be an intersection there but you're not quite sure.
         keywords: ""
         state: OPEN
         locked: false
@@ -1063,8 +1106,9 @@ be an intersection there but you're not quite sure."
     doors:
       west:
         to: 7021
-        description: "To the west you can just make out another junction similar to the one 
-you are standing in."
+        description: |
+          To the west you can just make out another junction similar to the one 
+          you are standing in.
         keywords: ""
         state: OPEN
         locked: false
@@ -1073,8 +1117,9 @@ you are standing in."
         key: -1
       south:
         to: 7030
-        description: "To the south there's a ENORMOUS quadruple sewer junction, all lit up by
-an odd light."
+        description: |
+          To the south there's a ENORMOUS quadruple sewer junction, all lit up by
+          an odd light.
         keywords: ""
         state: OPEN
         locked: false
@@ -1114,8 +1159,9 @@ an odd light."
     doors:
       north:
         to: 7029
-        description: "To the north you can see a huge triple junction with sewer pipes leading
-west and east."
+        description: |
+          To the north you can see a huge triple junction with sewer pipes leading
+          west and east.
         keywords: ""
         state: OPEN
         locked: false
@@ -1151,8 +1197,9 @@ west and east."
         key: -1
       up:
         to: 3030
-        description: "Up through the garbage you can just make out what looks like the Dump in
-Midgaard."
+        description: |
+          Up through the garbage you can just make out what looks like the Dump in
+          Midgaard.
         keywords: ""
         state: OPEN
         locked: false
@@ -1177,13 +1224,19 @@ Midgaard."
       east: 7044
       west: 7018
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7002
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 7030
-        description: "To the north there's a ENORMOUS quadruple sewer junction, all lit up by
-an odd light."
+        description: |
+          To the north there's a ENORMOUS quadruple sewer junction, all lit up by
+          an odd light.
         keywords: ""
         state: OPEN
         locked: false
@@ -1258,8 +1311,9 @@ an odd light."
     doors:
       west:
         to: 7029
-        description: "You can see another junction although this one is a triple one with pipes
-going south and west."
+        description: |
+          You can see another junction although this one is a triple one with pipes
+          going south and west.
         keywords: ""
         state: OPEN
         locked: false
@@ -1315,6 +1369,15 @@ going south and west."
     exits:
       east: 7050
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7003
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 7003
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1382,6 +1445,19 @@ going south and west."
     exits:
       north: 7038
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7003
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 7003
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 7003
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1408,13 +1484,19 @@ going south and west."
       down: 7123
       south: 7043
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7001
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       down:
         to: 7123
-        description: "Down and utter darkness. There's absolutely nothing to be seen in that 
-direction."
+        description: |
+          Down and utter darkness. There's absolutely nothing to be seen in that 
+          direction.
         keywords: ""
         state: OPEN
         locked: false
@@ -1506,8 +1588,9 @@ direction."
         key: -1
       west:
         to: 7031
-        description: "West. You see another junction very similar to this one that leads north
-and west."
+        description: |
+          West. You see another junction very similar to this one that leads north
+          and west.
         keywords: ""
         state: OPEN
         locked: false
@@ -1647,13 +1730,19 @@ and west."
       east: 7060
       west: 7044
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7002
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 7060
-        description: "Darkness has closed in on that part of the sewer system, you can't see
-a thing in that direction."
+        description: |
+          Darkness has closed in on that part of the sewer system, you can't see
+          a thing in that direction.
         keywords: ""
         state: OPEN
         locked: false
@@ -1662,8 +1751,9 @@ a thing in that direction."
         key: -1
       west:
         to: 7044
-        description: "West. You see another junction very similar to this one that leads north
-and west."
+        description: |
+          West. You see another junction very similar to this one that leads north
+          and west.
         keywords: ""
         state: OPEN
         locked: false
@@ -1683,6 +1773,11 @@ and west."
       south: 7051
       east: 7055
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7003
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1847,8 +1942,9 @@ and west."
         key: -1
       east:
         to: 7061
-        description: "You can hardly make out much more than that the next place is in a pipe 
-with more water."
+        description: |
+          You can hardly make out much more than that the next place is in a pipe 
+          with more water.
         keywords: ""
         state: OPEN
         locked: false
@@ -1910,8 +2006,9 @@ with more water."
     doors:
       north:
         to: 7056
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -1920,8 +2017,9 @@ that far."
         key: -1
       south:
         to: 7058
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -1946,8 +2044,9 @@ that far."
     doors:
       north:
         to: 7057
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -1956,8 +2055,9 @@ that far."
         key: -1
       south:
         to: 7059
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -1982,8 +2082,9 @@ that far."
     doors:
       north:
         to: 7058
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -1992,8 +2093,9 @@ that far."
         key: -1
       south:
         to: 7060
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2021,8 +2123,9 @@ that far."
     doors:
       east:
         to: 7068
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2040,8 +2143,9 @@ that far."
         key: -1
       north:
         to: 7059
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2069,8 +2173,9 @@ that far."
     doors:
       south:
         to: 7062
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2079,8 +2184,9 @@ that far."
         key: -1
       west:
         to: 7055
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2108,8 +2214,9 @@ that far."
     doors:
       south:
         to: 7063
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2118,8 +2225,9 @@ that far."
         key: -1
       north:
         to: 7061
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2147,8 +2255,9 @@ that far."
     doors:
       south:
         to: 7064
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2157,8 +2266,9 @@ that far."
         key: -1
       north:
         to: 7062
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2187,8 +2297,9 @@ that far."
     doors:
       north:
         to: 7063
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2197,8 +2308,9 @@ that far."
         key: -1
       south:
         to: 7065
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2207,8 +2319,9 @@ that far."
         key: -1
       east:
         to: 7069
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2236,8 +2349,9 @@ that far."
     doors:
       north:
         to: 7064
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2246,8 +2360,9 @@ that far."
         key: -1
       south:
         to: 7066
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2276,8 +2391,9 @@ that far."
     doors:
       north:
         to: 7065
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2286,8 +2402,9 @@ that far."
         key: -1
       south:
         to: 7067
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2296,8 +2413,9 @@ that far."
         key: -1
       east:
         to: 7070
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2325,8 +2443,9 @@ that far."
     doors:
       north:
         to: 7066
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2335,8 +2454,9 @@ that far."
         key: -1
       south:
         to: 7068
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2364,8 +2484,9 @@ that far."
     doors:
       north:
         to: 7067
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2374,8 +2495,9 @@ that far."
         key: -1
       west:
         to: 7060
-        description: "You can't see anything in that direction and your light isn't enough to light
-that far."
+        description: |
+          You can't see anything in that direction and your light isn't enough to light
+          that far.
         keywords: ""
         state: OPEN
         locked: false
@@ -2527,6 +2649,11 @@ that far."
     exits:
       east: 7103
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 7006
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -2557,6 +2684,15 @@ that far."
       east: 7104
       down: 7400
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7004
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 7006
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2597,14 +2733,24 @@ that far."
       west: 7101
       south: 7104
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 7000
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 7000
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 7101
-        description: "You can see a room in which mud drips from the roof onto the floor in 
-great cakes of sludge. There doesn't seem to be any exits from that room
-apart from in you direction."
+        description: |
+          You can see a room in which mud drips from the roof onto the floor in 
+          great cakes of sludge. There doesn't seem to be any exits from that room
+          apart from in you direction.
         keywords: ""
         state: OPEN
         locked: false
@@ -2613,8 +2759,9 @@ apart from in you direction."
         key: -1
       south:
         to: 7104
-        description: "To the south there's less mud than here! It actually seems to end there!
-You have a felling it would be nice to have your feet free from mud again."
+        description: |
+          To the south there's less mud than here! It actually seems to end there!
+          You have a felling it would be nice to have your feet free from mud again.
         keywords: ""
         state: OPEN
         locked: false
@@ -2637,6 +2784,15 @@ You have a felling it would be nice to have your feet free from mud again."
       north: 7103
       west: 7102
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7002
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 7006
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2678,8 +2834,9 @@ You have a felling it would be nice to have your feet free from mud again."
     doors:
       up:
         to: 7015
-        description: "There's a slight, dim light from above, or maybe it's your imagination.
-Anyway it SEEMS darker down here than up there, if that is possible."
+        description: |
+          There's a slight, dim light from above, or maybe it's your imagination.
+          Anyway it SEEMS darker down here than up there, if that is possible.
         keywords: ""
         state: OPEN
         locked: false
@@ -2688,10 +2845,11 @@ Anyway it SEEMS darker down here than up there, if that is possible."
         key: -1
       down:
         to: -1
-        description: "Down there nothing at all can be spotted. The darkness that engulfs this
-descent seems utterly impossible in a mortal world. It's so thick that a 
-torch down there would be utterly useless.  You'd better not go down any
-further."
+        description: |
+          Down there nothing at all can be spotted. The darkness that engulfs this
+          descent seems utterly impossible in a mortal world. It's so thick that a 
+          torch down there would be utterly useless.  You'd better not go down any
+          further.
         keywords: ""
         state: OPEN
         locked: false
@@ -2779,8 +2937,9 @@ further."
         key: -1
       east:
         to: 7190
-        description: "You stare into mid-air, and right under there's absolutely nothing but 
-darkness. You shiver by the thought of falling an utterly unknown distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but 
+          darkness. You shiver by the thought of falling an utterly unknown distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -2817,8 +2976,9 @@ darkness. You shiver by the thought of falling an utterly unknown distance."
         key: -1
       east:
         to: 7190
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -2865,8 +3025,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       east:
         to: 7190
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -2913,8 +3074,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       east:
         to: 7190
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -3000,6 +3162,15 @@ darkness. You shiver by the thought of falling that distance."
       north: 7111
       east: 7122
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7005
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 7005
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3052,8 +3223,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       south:
         to: 7190
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -3175,12 +3347,12 @@ darkness. You shiver by the thought of falling that distance."
       down:
         to: 7280
         description: ""
-        keywords: "secret trapdoor entrance"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       ground: |
         The ground here seems a little different from all the other ledges along the
@@ -3220,8 +3392,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       west:
         to: 7114
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -3258,8 +3431,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       west:
         to: 7114
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -3296,8 +3470,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       west:
         to: 7114
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -3336,8 +3511,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       west:
         to: 7114
-        description: "You stare into mid-air, and right under there's absolutely nothing but
-darkness. You shiver by the thought of falling that distance."
+        description: |
+          You stare into mid-air, and right under there's absolutely nothing but
+          darkness. You shiver by the thought of falling that distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -3401,6 +3577,11 @@ darkness. You shiver by the thought of falling that distance."
       west: 7112
       east: -1
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7005
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3566,6 +3747,11 @@ darkness. You shiver by the thought of falling that distance."
     exits:
       east: 7201
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 7204
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -3597,27 +3783,42 @@ darkness. You shiver by the thought of falling that distance."
       south: 7202
       west: 7200
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7200
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7200
+              wear_loc: 16
+          -
+              item_vnum: 7203
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 7205
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 7202
-        description: "You look back through the door into the lair."
-        keywords: "door wooden"
+        description: "Close wood door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 7200
-        description: "You see the treasury."
-        keywords: "door stone"
-        state: OPEN
+        description: "Lock stone door"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7205
+        key: null
 
   - id: 7202
     key: sewer_room_7202
@@ -3638,13 +3839,13 @@ darkness. You shiver by the thought of falling that distance."
     doors:
       north:
         to: 7201
-        description: "You can see the inner lair."
-        keywords: "door wooden"
+        description: "Close wood door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 7205
         description: "You see another part of the lair."
@@ -3685,6 +3886,15 @@ darkness. You shiver by the thought of falling that distance."
       east: 7206
       south: 7204
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7201
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7201
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3788,6 +3998,15 @@ darkness. You shiver by the thought of falling that distance."
       south: 7206
       west: 7202
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7202
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7202
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3831,6 +4050,11 @@ darkness. You shiver by the thought of falling that distance."
       south: 7207
       west: 7203
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 7206
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -3882,6 +4106,15 @@ darkness. You shiver by the thought of falling that distance."
       north: 7206
       west: 7204
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7202
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7202
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3931,13 +4164,13 @@ darkness. You shiver by the thought of falling that distance."
     doors:
       north:
         to: 7204
-        description: "You can see the lair."
-        keywords: "door wooden"
+        description: "Close door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 7209
         description: "You see a crawlway."
@@ -4085,6 +4318,15 @@ darkness. You shiver by the thought of falling that distance."
       east: 7214
       south: 7212
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7211
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4118,6 +4360,15 @@ darkness. You shiver by the thought of falling that distance."
     exits:
       west: 7213
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7211
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4143,6 +4394,15 @@ darkness. You shiver by the thought of falling that distance."
       north: 7210
       south: 7216
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7211
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4207,6 +4467,18 @@ darkness. You shiver by the thought of falling that distance."
       east: 7218
       west: 7219
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7211
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 7208
     legacy_flags:
       - INDOORS
     doors:
@@ -4277,6 +4549,18 @@ darkness. You shiver by the thought of falling that distance."
       east: 7217
       south: 7220
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7209
+              wear_loc: 8
+          -
+              item_vnum: 7211
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4345,6 +4629,18 @@ darkness. You shiver by the thought of falling that distance."
       west: 7220
       up: 7129
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7211
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 7208
     legacy_flags:
       - INDOORS
     doors:
@@ -4423,6 +4719,18 @@ darkness. You shiver by the thought of falling that distance."
       north: 7224
       west: 7222
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7209
+              wear_loc: 8
+          -
+              item_vnum: 7211
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4492,6 +4800,15 @@ darkness. You shiver by the thought of falling that distance."
     exits:
       south: 7224
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7211
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4660,6 +4977,29 @@ darkness. You shiver by the thought of falling that distance."
       east: 7234
       south: 7232
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7211
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 7208
+      - type: MOB
+        id: 7203
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7209
+              wear_loc: 8
+          -
+              item_vnum: 7211
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -4693,6 +5033,11 @@ darkness. You shiver by the thought of falling that distance."
     exits:
       west: 7233
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 7204
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4754,6 +5099,11 @@ darkness. You shiver by the thought of falling that distance."
       north: 7281
       up: 7116
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7000
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4769,12 +5119,12 @@ darkness. You shiver by the thought of falling that distance."
       up:
         to: 7116
         description: ""
-        keywords: "secret door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       altar: |
         This altar are very special. Faces are smiling from it. There
@@ -4795,6 +5145,15 @@ darkness. You shiver by the thought of falling that distance."
       south: 7280
       east: 7282
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7000
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 7000
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4809,8 +5168,9 @@ darkness. You shiver by the thought of falling that distance."
         key: -1
       east:
         to: 7282
-        description: "The hole seems more black than the night. It is appears to be \"eating\" the
-red light around it."
+        description: |
+          The hole seems more black than the night. It is appears to be "eating" the
+          red light around it.
         keywords: ""
         state: OPEN
         locked: false
@@ -4893,8 +5253,9 @@ red light around it."
         key: -1
       west:
         to: 7284
-        description: "You can see a big fire to the west. It looks like a unhealthy
-place to enter!"
+        description: |
+          You can see a big fire to the west. It looks like a unhealthy
+          place to enter!
         keywords: ""
         state: OPEN
         locked: false
@@ -4948,6 +5309,19 @@ place to enter!"
     exits:
       south: 7286
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7002
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7190
+              wear_loc: 2
+      - type: MOB
+        id: 7002
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4983,6 +5357,15 @@ place to enter!"
       north: 7285
       west: 7283
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 7000
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 7013
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -5135,6 +5518,11 @@ place to enter!"
       north: 7402
       south: 7400
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7008
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -5214,6 +5602,11 @@ place to enter!"
       south: 7408
       west: 7402
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7013
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -5279,13 +5672,13 @@ place to enter!"
         key: -1
       south:
         to: 7405
-        description: "You can see an opening behind the stone."
-        keywords: "flat round stone"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       flat: |
         The stone looks very uninteresting. BUT as you are
@@ -5312,22 +5705,22 @@ place to enter!"
     doors:
       north:
         to: 7404
-        description: "You see a round stone door."
-        keywords: "round stone door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 7406
-        description: "You see a grey block."
-        keywords: "grey block"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       socket: |
         The socket looks like the work of a dwarf. It is VERY beautiful.
@@ -5348,18 +5741,23 @@ place to enter!"
       north: 7405
       west: 7407
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 7044
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 7405
-        description: "You can see nothing at all."
-        keywords: "grey block"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 7407
         description: ""
@@ -5581,6 +5979,11 @@ place to enter!"
       north: 7411
       west: 7413
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7013
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -5700,13 +6103,13 @@ place to enter!"
     doors:
       north:
         to: 7416
-        description: "You see a primitive picture"
-        keywords: "sun"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 7414
         description: ""
@@ -5740,14 +6143,13 @@ place to enter!"
     doors:
       south:
         to: 7415
-        description: "you can see a picture with some persons crawling around a
-huge moon."
-        keywords: "door picture sun moon"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7417
     key: sewer_room_7417
@@ -5815,13 +6217,13 @@ huge moon."
     doors:
       east:
         to: 7421
-        description: "You see a wooden door"
-        keywords: "wooden door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 7417
         description: "another part of the lair."
@@ -5859,6 +6261,11 @@ huge moon."
       east: 7418
       south: 7420
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7045
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -5960,13 +6367,13 @@ huge moon."
     doors:
       west:
         to: 7418
-        description: "You can see a wooden door."
-        keywords: "wooden door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 7402
         description: "You can see a muddy tunnel."
@@ -5989,6 +6396,11 @@ huge moon."
       south: 7419
       west: 7436
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7007
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -6032,6 +6444,11 @@ huge moon."
       east: 7424
       south: 7422
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7011
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -6066,6 +6483,11 @@ huge moon."
       west: 7423
       east: 7425
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7046
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -6080,13 +6502,13 @@ huge moon."
         key: -1
       east:
         to: 7425
-        description: "you see nothing special."
-        keywords: "green head dragon sculpture face"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       head: |
         When you study the faces of the heads you see that it
@@ -6120,18 +6542,18 @@ huge moon."
     doors:
       west:
         to: 7424
-        description: "You can see the outline of a door. Just like in the
-description!"
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 7426
-        description: "You see a tunnel which leads downwards. It is quite
-dark."
+        description: |
+          You see a tunnel which leads downwards. It is quite
+          dark.
         keywords: ""
         state: OPEN
         locked: false
@@ -6248,6 +6670,39 @@ dark."
       north: 7429
       west: 7427
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7040
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7304
+              wear_loc: 5
+          -
+              item_vnum: 7305
+              wear_loc: 7
+          -
+              item_vnum: 7306
+              wear_loc: 9
+          -
+              item_vnum: 7307
+              wear_loc: 6
+          -
+              item_vnum: 7308
+              wear_loc: 11
+          -
+              item_vnum: 7309
+              wear_loc: 10
+          -
+              item_vnum: 7310
+              wear_loc: 8
+          -
+              item_vnum: 7216
+              wear_loc: 16
+          -
+              item_vnum: 7303
+              wear_loc: 17
     doors:
       north:
         to: 7429
@@ -6280,6 +6735,11 @@ dark."
       south: 7428
       west: 7430
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7010
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -6482,8 +6942,9 @@ dark."
         key: -1
       down:
         to: -1
-        description: "A sign is blocking the way: 'This has not been implemented
-yet'."
+        description: |
+          A sign is blocking the way: 'This has not been implemented
+          yet'.
         keywords: ""
         state: OPEN
         locked: false
@@ -6503,6 +6964,11 @@ yet'."
       north: 7434
       south: 7436
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 7042
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -6669,6 +7135,15 @@ yet'."
       east: 7437
       south: 7440
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 7300
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 7043
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -6839,6 +7314,11 @@ yet'."
     exits:
       east: 7445
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 7041
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

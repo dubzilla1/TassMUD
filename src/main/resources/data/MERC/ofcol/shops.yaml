@@ -1,0 +1,19 @@
+shops:
+  - keeper: 306
+    trades: [1, 10, 11, 19, 0]
+    profit_buy: 120
+    profit_sell: 60
+    open: 0
+    close: 23
+    comment: "Luxan"
+    items: [304, 3030]
+
+  - keeper: 308
+    trades: [0, 0, 0, 0, 0]
+    profit_buy: 110
+    profit_sell: 100
+    open: 0
+    close: 23
+    comment: "Ofcol Innkeeper"
+    items: [3000, 3001]
+

@@ -25,12 +25,12 @@ rooms:
       up:
         to: 4772
         description: ""
-        keywords: "stone"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 4701
     key: juargan_room_4701
@@ -188,6 +188,15 @@ rooms:
     exits:
       north: 4704
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -329,6 +338,15 @@ rooms:
       east: 4724
       south: 4710
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -475,6 +493,15 @@ rooms:
       north: 4712
       south: 4714
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -554,6 +581,11 @@ rooms:
       east: 4714
       south: 4716
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -588,6 +620,15 @@ rooms:
       north: 4715
       east: 4717
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -726,6 +767,19 @@ rooms:
     exits:
       north: 4719
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
+      - type: MOB
+        id: 4707
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -820,6 +874,15 @@ rooms:
     exits:
       north: 4722
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -879,6 +942,15 @@ rooms:
       south: 4726
       west: 4724
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -947,6 +1019,15 @@ rooms:
       north: 4726
       east: 4728
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1018,6 +1099,23 @@ rooms:
       south: 4730
       west: 4728
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1121,6 +1219,11 @@ rooms:
       south: 4729
       west: 4735
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1164,6 +1267,23 @@ rooms:
     exits:
       south: 4732
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1214,6 +1334,15 @@ rooms:
       east: 4732
       north: 4734
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 4705
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1318,6 +1447,15 @@ rooms:
       east: 4737
       south: 4739
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4700
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4701
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1353,6 +1491,15 @@ rooms:
       north: 4738
       south: 4740
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1390,6 +1537,15 @@ rooms:
       south: 4741
       west: 4750
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4701
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 4701
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1513,6 +1669,11 @@ rooms:
       north: 4742
       south: 4744
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4703
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1730,6 +1891,36 @@ rooms:
     exits:
       south: 4745
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4702
+              wear_loc: 6
+          -
+              item_vnum: 4703
+              wear_loc: 5
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4702
+              wear_loc: 6
+          -
+              item_vnum: 4703
+              wear_loc: 5
+      - type: MOB
+        id: 4704
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4700
     legacy_flags:
       - INDOORS
     doors:
@@ -2021,6 +2212,15 @@ rooms:
       north: 4756
       east: 4758
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2101,6 +2301,15 @@ rooms:
       north: 4753
       south: 4760
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4701
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 4701
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2249,6 +2458,15 @@ rooms:
       south: 4765
       west: 4762
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4701
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 4701
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2342,6 +2560,27 @@ rooms:
       west: 4763
       south: 4767
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
+      - type: MOB
+        id: 4702
+        quantity: 11
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2449,6 +2688,35 @@ rooms:
       south: 4768
       west: 4770
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 4707
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 4706
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4706
+              wear_loc: 16
+      - type: MOB
+        id: 4708
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 4708
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 4708
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4708
+              container_vnum: 4707
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -2464,13 +2732,13 @@ rooms:
         key: -1
       west:
         to: 4770
-        description: ""
-        keywords: "tomb vault door"
+        description: "*Almost forgot to close the door."
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 4700
+        key: null
 
   - id: 4770
     key: juargan_room_4770
@@ -2484,18 +2752,27 @@ rooms:
     exits:
       east: 4769
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 4704
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 4705
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 4769
         description: ""
-        keywords: "tomb vault door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 4700
+        key: null
 
   - id: 4771
     key: juargan_room_4771
@@ -2549,13 +2826,13 @@ rooms:
         key: -1
       down:
         to: 4700
-        description: "You see rocks and stones."
-        keywords: "stone stones rock rocks"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 4773
     key: juargan_room_4773

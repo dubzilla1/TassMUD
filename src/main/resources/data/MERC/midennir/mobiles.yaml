@@ -1,10 +1,12 @@
 - id: 3500
-  key: "the_wyvern"
-  name: "wyvern"
-  short_desc: "the wyvern"
-  long_desc: "A monstrous wyvern slowly circles just above your head."
+  key: the_wyvern_3500
+  name: the wyvern
+  short_desc: A monstrous wyvern slowly circles just above your head.
+  long_desc: |
+    This huge winged creature looks really menacing.  You are happy it doesn't
+    APPEAR to be very hungry ... yet.
   keywords: ['wyvern']
-  level: 65
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -23,19 +25,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6500
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 65, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': "This huge winged creature looks really menacing.  You are happy it doesn't\nAPPEAR to be very hungry ... yet.\n~\n65 8 -200 S\n8 10 1 8d8+80 2d6+1\n0 3575\n8 8 0"}
+  legacy_raw: 65 8 -200 S 8 10 1 8d8+80 2d6+1 0 3575 8 8 0
 
 - id: 3501
-  key: "the_goblin"
-  name: "goblin mountain"
-  short_desc: "the goblin"
-  long_desc: "A mountain goblin is wandering about, mumbling to himself."
+  key: the_goblin_3501
+  name: the goblin
+  short_desc: A mountain goblin is wandering about, mumbling to himself.
+  long_desc: |
+    You see before you a small and twisted creature with knotted muscles.
   keywords: ['goblin', 'mountain']
-  level: 608
+  level: 6
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -54,19 +57,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 60800
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 608, 'hit_dice': '4d4+60', 'damage_dice': '4d4+60', 'raw_block': 'You see before you a small and twisted creature with knotted muscles.\n~\n608 0 -500 S\n6 15 6 4d4+60 1d8+4\n150 800\n8 8 1'}
+  legacy_raw: 608 0 -500 S 6 15 6 4d4+60 1d8+4 150 800 8 8 1
 
 - id: 3502
-  key: "the_small_boy"
-  name: "boy small"
-  short_desc: "the small boy"
-  long_desc: "A small boy sits here, licking his wounds."
+  key: the_small_boy_3502
+  name: the small boy
+  short_desc: A small boy sits here, licking his wounds.
+  long_desc: |
+    The poor boy has numerous cuts and scratches, but appears to be all right.
+    He is apparently the only survivor of the ambush.
   keywords: ['boy', 'small']
-  level: 146
+  level: 4
   hp_max: 53
   mp_max: 0
   mv_max: 100
@@ -85,19 +90,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 14600
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 146, 'hit_dice': '1d12+47', 'damage_dice': '1d12+47', 'raw_block': 'The poor boy has numerous cuts and scratches, but appears to be all right.\nHe is apparently the only survivor of the ambush.\n~\n146 0 500 S\n4 17 6 1d12+47 1d8+0\n0 600\n5 5 1'}
+  legacy_raw: 146 0 500 S 4 17 6 1d12+47 1d8+0 0 600 5 5 1
 
 - id: 3503
-  key: "the_innkeeper"
-  name: "innkeeper"
-  short_desc: "the Innkeeper"
-  long_desc: "The Innkeeper stands here, cleaning glasses."
+  key: the_innkeeper_3503
+  name: the Innkeeper
+  short_desc: The Innkeeper stands here, cleaning glasses.
+  long_desc: |
+    The Innkeeper now spends most of his days waiting for customers, while the
+    nights are spent watching out for goblins.  His inn is no longer the happy
+    place that is used to be in days past.
   keywords: ['innkeeper']
-  level: 66
+  level: 10
   hp_max: 206
   mp_max: 0
   mv_max: 100
@@ -116,19 +124,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6600
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 66, 'hit_dice': '1d12+200', 'damage_dice': '1d12+200', 'raw_block': 'The Innkeeper now spends most of his days waiting for customers, while the\nnights are spent watching out for goblins.  His inn is no longer the happy\nplace that is used to be in days past.\n~\n66 0 400 S\n10 8 1 1d12+200 2d8+1\n1500 7000\n8 8 1'}
+  legacy_raw: 66 0 400 S 10 8 1 1d12+200 2d8+1 1500 7000 8 8 1
 
 - id: 3504
-  key: "the_bard"
-  name: "bard"
-  short_desc: "the bard"
-  long_desc: "A sullen bard is here, drinking away his problems."
+  key: the_bard_3504
+  name: the bard
+  short_desc: A sullen bard is here, drinking away his problems.
+  long_desc: |
+    You can smell the alcohol on his breath from across the room.  This poor bard
+    has been sitting here quite a while, drinking himself into oblivion.
   keywords: ['bard']
-  level: 66
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -147,19 +157,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6600
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 66, 'hit_dice': '1d12+110', 'damage_dice': '1d12+110', 'raw_block': 'You can smell the alcohol on his breath from across the room.  This poor bard\nhas been sitting here quite a while, drinking himself into oblivion.\n~\n66 8 600 S\n8 13 3 1d12+110 2d6+0\n1500 3750\n6 6 1'}
+  legacy_raw: 66 8 600 S 8 13 3 1d12+110 2d6+0 1500 3750 6 6 1
 
 - id: 3505
-  key: "the_dark_horseman"
-  name: "horseman dark"
-  short_desc: "the dark horseman"
-  long_desc: "A dark horseman is here, mounted on his black steed."
+  key: the_dark_horseman_3505
+  name: the dark horseman
+  short_desc: A dark horseman is here, mounted on his black steed.
+  long_desc: |
+    The man is obviously an outlaw, and has no qualms about slashing you into
+    little bits.
   keywords: ['horseman', 'dark']
-  level: 196
+  level: 8
   hp_max: 103
   mp_max: 0
   mv_max: 100
@@ -178,19 +190,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 19600
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 196, 'hit_dice': '1d12+97', 'damage_dice': '1d12+97', 'raw_block': 'The man is obviously an outlaw, and has no qualms about slashing you into\nlittle bits.\n~\n196 32768 -900 S\n8 12 4 1d12+97 1d5+7\n1000 4000\n8 8 1'}
+  legacy_raw: 196 32768 -900 S 8 12 4 1d12+97 1d5+7 1000 4000 8 8 1
 
 - id: 3506
-  key: "the_goblin_lieutenant"
-  name: "goblin lieutenant"
-  short_desc: "the goblin lieutenant"
-  long_desc: "A goblin lieutenant stands here, attempting to get his men in order."
+  key: the_goblin_lieutenant_3506
+  name: the goblin lieutenant
+  short_desc: A goblin lieutenant stands here, attempting to get his men in order.
+  long_desc: |
+    The goblin lieutenant is rather angry, and looking for one of his men to
+    beat up upon, but maybe you will do just fine ...
   keywords: ['goblin', 'lieutenant']
-  level: 608
+  level: 7
   hp_max: 106
   mp_max: 0
   mv_max: 100
@@ -209,19 +223,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 60800
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 608, 'hit_dice': '1d12+100', 'damage_dice': '1d12+100', 'raw_block': 'The goblin lieutenant is rather angry, and looking for one of his men to\nbeat up upon, but maybe you will do just fine ...\n~\n608 0 -600 S\n7 15 3 1d12+100 2d5+1\n300 2000\n8 8 1'}
+  legacy_raw: 608 0 -600 S 7 15 3 1d12+100 2d5+1 300 2000 8 8 1
 
 - id: 3507
-  key: "the_goblin_leader"
-  name: "goblin leader"
-  short_desc: "the goblin leader"
-  long_desc: "The goblin leader surveys the room."
+  key: the_goblin_leader_3507
+  name: the goblin leader
+  short_desc: The goblin leader surveys the room.
+  long_desc: |
+    The leader doesn't look too happy that you have found him here.  He grabs
+    for his shortsword and lunges for your neck.
   keywords: ['goblin', 'leader']
-  level: 614
+  level: 8
   hp_max: 126
   mp_max: 0
   mv_max: 100
@@ -240,9 +256,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 61400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 614, 'hit_dice': '1d12+120', 'damage_dice': '1d12+120', 'raw_block': "The leader doesn't look too happy that you have found him here.  He grabs\nfor his shortsword and lunges for your neck.\n~\n614 8 -900 S\n9 10 1 1d12+120 2d5+3\n1000 8000\n8 8 1"}
+  legacy_raw: 614 8 -900 S 9 10 1 1d12+120 2d5+3 1000 8000 8 8 1
 

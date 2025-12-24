@@ -1,6 +1,6 @@
 items:
   - id: 900
-    key: aegis_plate
+    key: aegis_plate_900
     name: The Aegis
     description: A powerful breast plate has been left here.
     weight: 50
@@ -19,19 +19,18 @@ items:
     applies:
       - location: 1
         modifier: 1
-    template_json:
-      raw_block: |
-        The Aegis~
-        A powerful breast plate has been left here.~
-        ~
-        9 32|64|1024 1|8
-        10 0 0 0
-        50 300000 50000
-        A
-        1 1
-      type_line: 9 32|64|1024 1|8
+    legacy_type_line: 9 32|64|1024 1|8
+    legacy_raw: |
+      The Aegis~
+      A powerful breast plate has been left here.~
+      ~
+      9 32|64|1024 1|8
+      10 0 0 0
+      50 300000 50000
+      A
+      1 1
   - id: 901
-    key: hammer_thunder_bolt_thunderbolt
+    key: hammer_thunder_bolt_thunderbolt_901
     name: The Thunder Bolt
     description: A huge hammer has been carelessly dropped here.
     weight: 24
@@ -55,19 +54,18 @@ items:
         modifier: 3
     on_equip_effect_ids:
       - 508
-    template_json:
-      raw_block: |
-        The Thunder Bolt~
-        A huge hammer has been carelessly dropped here.~
-        ~
-        5 32|64|1024 1|8192
-        0 6 5 8
-        24 200000 150000
-        A
-        18 3
-      type_line: 5 32|64|1024 1|8192
+    legacy_type_line: 5 32|64|1024 1|8192
+    legacy_raw: |
+      The Thunder Bolt~
+      A huge hammer has been carelessly dropped here.~
+      ~
+      5 32|64|1024 1|8192
+      0 6 5 8
+      24 200000 150000
+      A
+      18 3
   - id: 902
-    key: helmet_winged
+    key: helmet_winged_902
     name: A Winged Helmet
     description: A helmet with small wings lies here.
     weight: 5
@@ -86,19 +84,18 @@ items:
     applies:
       - location: 2
         modifier: 2
-    template_json:
-      raw_block: |
-        A Winged Helmet~
-        A helmet with small wings lies here.~
-        ~
-        9 32|64|1024 1|16
-        10 0 0 0
-        5 150000 5000
-        A
-        2 2
-      type_line: 9 32|64|1024 1|16
+    legacy_type_line: 9 32|64|1024 1|16
+    legacy_raw: |
+      A Winged Helmet~
+      A helmet with small wings lies here.~
+      ~
+      9 32|64|1024 1|16
+      10 0 0 0
+      5 150000 5000
+      A
+      2 2
   - id: 903
-    key: spear_ares
+    key: spear_ares_903
     name: the Spear of Ares
     description: A wicked spear rests on the ground here.
     weight: 18
@@ -122,19 +119,18 @@ items:
     on_equip_effect_ids:
       - 501
       - 502
-    template_json:
-      raw_block: |
-        ~
-        9 32|64|512 1|8192
-        0 5 5 2
-        18 200000 10000
-        A
-        18 2
-        A
-        19 2
-      type_line: 9 32|64|512 1|8192
+    legacy_type_line: 9 32|64|512 1|8192
+    legacy_raw: |
+      ~
+      9 32|64|512 1|8192
+      0 5 5 2
+      18 200000 10000
+      A
+      18 2
+      A
+      19 2
   - id: 904
-    key: sandals_winged
+    key: sandals_winged_904
     name: a pair of winged sandals
     description: A pair of well made sandals lies here.
     weight: 5
@@ -150,19 +146,18 @@ items:
       - TAKE
       - WEAR_FEET
     keywords: [sandals, winged]
-    template_json:
-      raw_block: |
-        #904
-        sandals winged~
-        a pair of winged sandals~
-        A pair of well made sandals lies here.~
-        ~
-        9 32|64|1024 1|64
-        8 0 0 0
-        5 100000 2500
-      type_line: 9 32|64|1024 1|64
+    legacy_type_line: 9 32|64|1024 1|64
+    legacy_raw: |
+      #904
+      sandals winged~
+      a pair of winged sandals~
+      A pair of well made sandals lies here.~
+      ~
+      9 32|64|1024 1|64
+      8 0 0 0
+      5 100000 2500
   - id: 905
-    key: staff_ivory
+    key: staff_ivory_905
     name: an ivory staff
     description: An ivory staff.
     weight: 8
@@ -182,19 +177,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, ivory]
-    template_json:
-      raw_block: |
-        #905
-        staff ivory~
-        an ivory staff~
-        An ivory staff.~
-        ~
-        4 32|64|1024 1|16384
-        30 3 3 36
-        8 70000 2500
-      type_line: 4 32|64|1024 1|16384
+    legacy_type_line: 4 32|64|1024 1|16384
+    legacy_raw: |
+      #905
+      staff ivory~
+      an ivory staff~
+      An ivory staff.~
+      ~
+      4 32|64|1024 1|16384
+      30 3 3 36
+      8 70000 2500
   - id: 906
-    key: trident_poseidon
+    key: trident_poseidon_906
     name: Poseidon's Trident
     description: A huge three pronged spear lies here.
     weight: 16
@@ -216,19 +210,18 @@ items:
     applies:
       - location: 4
         modifier: 2
-    template_json:
-      raw_block: |
-        Poseidon's Trident~
-        A huge three pronged spear lies here.~
-        ~
-        5 32|64|1024 1|8192
-        0 3 8 2
-        16 100000 35000
-        A
-        4 2
-      type_line: 5 32|64|1024 1|8192
+    legacy_type_line: 5 32|64|1024 1|8192
+    legacy_raw: |
+      Poseidon's Trident~
+      A huge three pronged spear lies here.~
+      ~
+      5 32|64|1024 1|8192
+      0 3 8 2
+      16 100000 35000
+      A
+      4 2
   - id: 907
-    key: bow_silver
+    key: bow_silver_907
     name: a silver bow
     description: A silver bow.
     weight: 15
@@ -255,19 +248,18 @@ items:
     on_equip_effect_ids:
       - 202
       - 503
-    template_json:
-      raw_block: |
-        ~
-        5 32|64|1024 1|8192
-        0 4 4 7
-        15 40000 20000
-        A
-        18 1
-        A
-        19 1
-      type_line: 5 32|64|1024 1|8192
+    legacy_type_line: 5 32|64|1024 1|8192
+    legacy_raw: |
+      ~
+      5 32|64|1024 1|8192
+      0 4 4 7
+      15 40000 20000
+      A
+      18 1
+      A
+      19 1
   - id: 908
-    key: gauntlets_flaming
+    key: gauntlets_flaming_908
     name: flaming gauntlets
     description: A pair of metal gauntlets flame here.
     weight: 6
@@ -286,24 +278,24 @@ items:
     applies:
       - location: 13
         modifier: 25
-    template_json:
-      raw_block: |
-        flaming gauntlets~
-        A pair of metal gauntlets flame here.~
-        ~
-        9 32|64|1024 1|128
-        7 0 0 0
-        6 60000 30000
-        A
-        13 25
-      type_line: 9 32|64|1024 1|128
+    legacy_type_line: 9 32|64|1024 1|128
+    legacy_raw: |
+      flaming gauntlets~
+      A pair of metal gauntlets flame here.~
+      ~
+      9 32|64|1024 1|128
+      7 0 0 0
+      6 60000 30000
+      A
+      13 25
   - id: 909
-    key: vial_potion_ambrosia
+    key: vial_potion_ambrosia_909
     name: ambrosia
     description: A vial of ambrosia lies here.
     weight: 1
     value: 20000
-    type: inventory
+    types:
+      - potion
     extra_flags:
       - INVIS
       - MAGIC
@@ -316,19 +308,18 @@ items:
       - 22
       - 28
       - 28
-    template_json:
-      raw_block: |
-        #909
-        vial potion ambrosia~
-        ambrosia~
-        A vial of ambrosia lies here.~
-        ~
-        10 32|64|1024 1
-        30 22 28 28
-        1 20000 1000
-      type_line: 10 32|64|1024 1
+    legacy_type_line: 10 32|64|1024 1
+    legacy_raw: |
+      #909
+      vial potion ambrosia~
+      ambrosia~
+      A vial of ambrosia lies here.~
+      ~
+      10 32|64|1024 1
+      30 22 28 28
+      1 20000 1000
   - id: 910
-    key: necklace_glowing
+    key: necklace_glowing_910
     name: a glowing necklace
     description: A necklace with an inner glow lies here.
     weight: 2
@@ -347,19 +338,18 @@ items:
     applies:
       - location: 12
         modifier: 25
-    template_json:
-      raw_block: |
-        a glowing necklace~
-        A necklace with an inner glow lies here.~
-        ~
-        9 32|64|1024 1|4
-        4 0 0 0
-        2 10000 4000
-        A
-        12 25
-      type_line: 9 32|64|1024 1|4
+    legacy_type_line: 9 32|64|1024 1|4
+    legacy_raw: |
+      a glowing necklace~
+      A necklace with an inner glow lies here.~
+      ~
+      9 32|64|1024 1|4
+      4 0 0 0
+      2 10000 4000
+      A
+      12 25
   - id: 911
-    key: ring_sapphire
+    key: ring_sapphire_911
     name: a sapphire ring
     description: A sapphire ring lies here.
     weight: 1
@@ -382,19 +372,18 @@ items:
         modifier: 4
     on_equip_effect_ids:
       - 504
-    template_json:
-      raw_block: |
-        ~
-        9 32|64|1024 1|2
-        5 0 0 0
-        1 40000 5000
-        A
-        4 2
-        A
-        19 4
-      type_line: 9 32|64|1024 1|2
+    legacy_type_line: 9 32|64|1024 1|2
+    legacy_raw: |
+      ~
+      9 32|64|1024 1|2
+      5 0 0 0
+      1 40000 5000
+      A
+      4 2
+      A
+      19 4
   - id: 912
-    key: shield_glowing
+    key: shield_glowing_912
     name: a brightly glowing shield
     description: A shield lies here, filling the room with its aura.
     weight: 10
@@ -413,19 +402,18 @@ items:
     applies:
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        a brightly glowing shield~
-        A shield lies here, filling the room with its aura.~
-        ~
-        9 32|64|1024 1|512
-        9 0 0 0
-        10 200000 50000
-        A
-        4 1
-      type_line: 9 32|64|1024 1|512
+    legacy_type_line: 9 32|64|1024 1|512
+    legacy_raw: |
+      a brightly glowing shield~
+      A shield lies here, filling the room with its aura.~
+      ~
+      9 32|64|1024 1|512
+      9 0 0 0
+      10 200000 50000
+      A
+      4 1
   - id: 913
-    key: axe_notched
+    key: axe_notched_913
     name: a notched axe
     description: A notched axe.
     weight: 12
@@ -444,19 +432,18 @@ items:
       - TAKE
       - WIELD
     keywords: [axe, notched]
-    template_json:
-      raw_block: |
-        #913
-        axe notched~
-        a notched axe~
-        A notched axe.~
-        ~
-        5 32|64|1024 1|8192
-        0 4 4 1
-        12 10000 5000
-      type_line: 5 32|64|1024 1|8192
+    legacy_type_line: 5 32|64|1024 1|8192
+    legacy_raw: |
+      #913
+      axe notched~
+      a notched axe~
+      A notched axe.~
+      ~
+      5 32|64|1024 1|8192
+      0 4 4 1
+      12 10000 5000
   - id: 914
-    key: grapes
+    key: grapes_914
     name: a bunch of grapes
     description: A bunch of grapes.
     weight: 1
@@ -465,19 +452,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [grapes]
-    template_json:
-      raw_block: |
-        #914
-        grapes~
-        a bunch of grapes~
-        A bunch of grapes.~
-        ~
-        19 0 1
-        24 0 0 0
-        1 50 25
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #914
+      grapes~
+      a bunch of grapes~
+      A bunch of grapes.~
+      ~
+      19 0 1
+      24 0 0 0
+      1 50 25
   - id: 915
-    key: fan
+    key: fan_915
     name: a fan made of peacock feathers
     description: A fan made of peacock feathers.
     weight: 1
@@ -486,19 +472,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [fan]
-    template_json:
-      raw_block: |
-        #915
-        fan~
-        a fan made of peacock feathers~
-        A fan made of peacock feathers.~
-        ~
-        13 0 1
-        0 0 0 0
-        1 1 1
-      type_line: 13 0 1
+    legacy_type_line: 13 0 1
+    legacy_raw: |
+      #915
+      fan~
+      a fan made of peacock feathers~
+      A fan made of peacock feathers.~
+      ~
+      13 0 1
+      0 0 0 0
+      1 1 1
   - id: 916
-    key: lute
+    key: lute_916
     name: a lute
     description: A lute.
     weight: 1
@@ -507,19 +492,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [lute]
-    template_json:
-      raw_block: |
-        #916
-        lute~
-        a lute~
-        A lute.~
-        ~
-        13 0 1
-        0 0 0 0
-        1 1 1
-      type_line: 13 0 1
+    legacy_type_line: 13 0 1
+    legacy_raw: |
+      #916
+      lute~
+      a lute~
+      A lute.~
+      ~
+      13 0 1
+      0 0 0 0
+      1 1 1
   - id: 917
-    key: nugget_gold
+    key: nugget_gold_917
     name: a gold nugget
     description: A gold nugget lies gleaming here.
     weight: 5
@@ -528,19 +512,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [nugget, gold]
-    template_json:
-      raw_block: |
-        #917
-        nugget gold~
-        a gold nugget~
-        A gold nugget lies gleaming here.~
-        ~
-        8 0 1
-        0 0 0 0
-        5 10000 1
-      type_line: 8 0 1
+    legacy_type_line: 8 0 1
+    legacy_raw: |
+      #917
+      nugget gold~
+      a gold nugget~
+      A gold nugget lies gleaming here.~
+      ~
+      8 0 1
+      0 0 0 0
+      5 10000 1
   - id: 918
-    key: apple
+    key: apple_918
     name: an apple
     description: An apple is here.
     weight: 1
@@ -549,19 +532,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [apple]
-    template_json:
-      raw_block: |
-        #918
-        apple~
-        an apple~
-        An apple is here.~
-        ~
-        26 0 1
-        24 0 0 16
-        1 1000 25
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #918
+      apple~
+      an apple~
+      An apple is here.~
+      ~
+      26 0 1
+      24 0 0 16
+      1 1000 25
   - id: 919
-    key: pear
+    key: pear_919
     name: a pear
     description: A pear is here.
     weight: 1
@@ -570,19 +552,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [pear]
-    template_json:
-      raw_block: |
-        #919
-        pear~
-        a pear~
-        A pear is here.~
-        ~
-        26 0 1
-        24 0 0 43
-        1 1000 25
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #919
+      pear~
+      a pear~
+      A pear is here.~
+      ~
+      26 0 1
+      24 0 0 43
+      1 1000 25
   - id: 920
-    key: orange
+    key: orange_920
     name: a orange
     description: A orange is here.
     weight: 1
@@ -591,19 +572,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [orange]
-    template_json:
-      raw_block: |
-        #920
-        orange~
-        a orange~
-        A orange is here.~
-        ~
-        26 0 1
-        24 0 0 1
-        1 1000 25
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #920
+      orange~
+      a orange~
+      A orange is here.~
+      ~
+      26 0 1
+      24 0 0 1
+      1 1000 25
   - id: 921
-    key: kiwi
+    key: kiwi_921
     name: a kiwi
     description: A kiwi is here.
     weight: 1
@@ -612,19 +592,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [kiwi]
-    template_json:
-      raw_block: |
-        #921
-        kiwi~
-        a kiwi~
-        A kiwi is here.~
-        ~
-        26 0 1
-        24 0 0 43
-        1 1000 25
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #921
+      kiwi~
+      a kiwi~
+      A kiwi is here.~
+      ~
+      26 0 1
+      24 0 0 43
+      1 1000 25
   - id: 922
-    key: amulet
+    key: amulet_922
     name: the Amulet of Ra
     description: A sun shaped medallion is lying here.
     weight: 1
@@ -643,19 +622,18 @@ items:
     applies:
       - location: 12
         modifier: 50
-    template_json:
-      raw_block: |
-        the Amulet of Ra~
-        A sun shaped medallion is lying here.~
-        ~
-        9 32|64|1024 1|4
-        2 0 0 0
-        1 10000 2000
-        A
-        12 50
-      type_line: 9 32|64|1024 1|4
+    legacy_type_line: 9 32|64|1024 1|4
+    legacy_raw: |
+      the Amulet of Ra~
+      A sun shaped medallion is lying here.~
+      ~
+      9 32|64|1024 1|4
+      2 0 0 0
+      1 10000 2000
+      A
+      12 50
   - id: 923
-    key: sun_sword
+    key: sun_sword_923
     name: the Sword of the Sun
     description: A beautiful sword with the rising sun etched on the pommel is lying here.
     weight: 20
@@ -679,19 +657,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        the Sword of the Sun~
-        A beautiful sword with the rising sun etched on the pommel is lying here.~
-        ~
-        5 32|64|1024 1|8192
-        0 6 5 3
-        20 1000000 150000
-        A
-        19 2
-      type_line: 5 32|64|1024 1|8192
+    legacy_type_line: 5 32|64|1024 1|8192
+    legacy_raw: |
+      the Sword of the Sun~
+      A beautiful sword with the rising sun etched on the pommel is lying here.~
+      ~
+      5 32|64|1024 1|8192
+      0 6 5 3
+      20 1000000 150000
+      A
+      19 2
   - id: 924
-    key: robe_blue
+    key: robe_blue_924
     name: a blue robe
     description: A deep blue robe is on the ground here.
     weight: 10
@@ -710,19 +687,18 @@ items:
     applies:
       - location: 13
         modifier: 15
-    template_json:
-      raw_block: |
-        a blue robe~
-        A deep blue robe is on the ground here.~
-        ~
-        9 32|64|1024 1|1024
-        6 0 0 0
-        10 50000 15000
-        A
-        13 15
-      type_line: 9 32|64|1024 1|1024
+    legacy_type_line: 9 32|64|1024 1|1024
+    legacy_raw: |
+      a blue robe~
+      A deep blue robe is on the ground here.~
+      ~
+      9 32|64|1024 1|1024
+      6 0 0 0
+      10 50000 15000
+      A
+      13 15
   - id: 925
-    key: hat
+    key: hat_925
     name: a wide brimmed hat
     description: A hat is lying here.
     weight: 5
@@ -738,24 +714,24 @@ items:
       - TAKE
       - WEAR_HEAD
     keywords: [hat]
-    template_json:
-      raw_block: |
-        #925
-        hat~
-        a wide brimmed hat~
-        A hat is lying here.~
-        ~
-        9 32|64|1024 1|16
-        4 0 0 0
-        5 5000 2000
-      type_line: 9 32|64|1024 1|16
+    legacy_type_line: 9 32|64|1024 1|16
+    legacy_raw: |
+      #925
+      hat~
+      a wide brimmed hat~
+      A hat is lying here.~
+      ~
+      9 32|64|1024 1|16
+      4 0 0 0
+      5 5000 2000
   - id: 926
-    key: nectar
+    key: nectar_926
     name: nectar
     description: A vial of nectar is lying here.
     weight: 1
     value: 80000
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [nectar]
@@ -764,19 +740,18 @@ items:
       - 36
       - 39
       - 1
-    template_json:
-      raw_block: |
-        #926
-        nectar~
-        nectar~
-        A vial of nectar is lying here.~
-        ~
-        10 0 1
-        12 36 39 1
-        1 80000 500
-      type_line: 10 0 1
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      #926
+      nectar~
+      nectar~
+      A vial of nectar is lying here.~
+      ~
+      10 0 1
+      12 36 39 1
+      1 80000 500
   - id: 927
-    key: key_cell
+    key: key_cell_927
     name: A Cell key
     description: A key has been left here.
     weight: 1
@@ -785,14 +760,13 @@ items:
     wear_flags:
       - TAKE
     keywords: [key, cell]
-    template_json:
-      raw_block: |
-        #927
-        key cell~
-        A Cell key~
-        A key has been left here.~
-        ~
-        18 0 1
-        0 0 0 0
-        1 100 1000
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #927
+      key cell~
+      A Cell key~
+      A key has been left here.~
+      ~
+      18 0 1
+      0 0 0 0
+      1 100 1000

@@ -1,6 +1,6 @@
 items:
   - id: 8600
-    key: bells
+    key: bells_8600
     name: morris bells
     description: A set of leggings with a dozen brass bells sewn on has been left here.
     weight: 5
@@ -12,19 +12,18 @@ items:
       - TAKE
       - WEAR_LEGS
     keywords: [bells]
-    template_json:
-      raw_block: |
-        They look like the leggings worn by Morris dancers.  There is a motto tooled
-        into the leather.
-        ~
-        E
-        motto~
-        'Time on the ground is time wasted.'
-        ~
-      type_line: 9 0 1|32
-      extra_desc: 'Time on the ground is time wasted.'
+    legacy_type_line: 9 0 1|32
+    legacy_raw: |
+      They look like the leggings worn by Morris dancers.  There is a motto tooled
+      into the leather.
+      ~
+      E
+      motto~
+      'Time on the ground is time wasted.'
+      ~
+    extra_desc: 'Time on the ground is time wasted.'
   - id: 8601
-    key: handkerchief_hankie_kerchief
+    key: handkerchief_hankie_kerchief_8601
     name: a morris handkerchief
     description: A white handkerchief is here.
     weight: 5
@@ -36,19 +35,18 @@ items:
       - TAKE
       - WEAR_WRIST
     keywords: [handkerchief, hankie, kerchief]
-    template_json:
-      raw_block: |
-        9 0 1|4096
-        3 0 0 0
-        5 100 100
-        E
-        handkerchief hankie kerchief~
-        This is a fine linen handkerchief used for ritual Morris dances.
-        ~
-      type_line: 9 0 1|4096
-      extra_desc: This is a fine linen handkerchief used for ritual Morris dances.
+    legacy_type_line: 9 0 1|4096
+    legacy_raw: |
+      9 0 1|4096
+      3 0 0 0
+      5 100 100
+      E
+      handkerchief hankie kerchief~
+      This is a fine linen handkerchief used for ritual Morris dances.
+      ~
+    extra_desc: This is a fine linen handkerchief used for ritual Morris dances.
   - id: 8602
-    key: sash
+    key: sash_8602
     name: a morris sash
     description: A white sash is here.
     weight: 5
@@ -60,19 +58,18 @@ items:
       - TAKE
       - WEAR_WAIST
     keywords: [sash]
-    template_json:
-      raw_block: |
-        9 0 1|2048
-        3 0 0 0
-        5 100 100
-        E
-        sash~
-        This is a fine linen sash used for ritual Morris dances.
-        ~
-      type_line: 9 0 1|2048
-      extra_desc: This is a fine linen sash used for ritual Morris dances.
+    legacy_type_line: 9 0 1|2048
+    legacy_raw: |
+      9 0 1|2048
+      3 0 0 0
+      5 100 100
+      E
+      sash~
+      This is a fine linen sash used for ritual Morris dances.
+      ~
+    extra_desc: This is a fine linen sash used for ritual Morris dances.
   - id: 8603
-    key: staff
+    key: staff_8603
     name: a morris staff
     description: A short, stout staff made of polished wood is here.
     weight: 5
@@ -88,17 +85,16 @@ items:
       - TAKE
       - HOLD
     keywords: [staff]
-    template_json:
-      raw_block: |
-        4 0 1|16384
-        10 4 4 34
-        5 10000 10000
-        E
-        stick staff~
-        Made from the wood of a Yule Tree, this staff is about one meter long and
-        highly polished.  It looks more like a ritual device than a weapon.
-        ~
-      type_line: 4 0 1|16384
-      extra_desc: |
-        Made from the wood of a Yule Tree, this staff is about one meter long and
-        highly polished.  It looks more like a ritual device than a weapon.
+    legacy_type_line: 4 0 1|16384
+    legacy_raw: |
+      4 0 1|16384
+      10 4 4 34
+      5 10000 10000
+      E
+      stick staff~
+      Made from the wood of a Yule Tree, this staff is about one meter long and
+      highly polished.  It looks more like a ritual device than a weapon.
+      ~
+    extra_desc: |
+      Made from the wood of a Yule Tree, this staff is about one meter long and
+      highly polished.  It looks more like a ritual device than a weapon.

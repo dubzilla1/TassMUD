@@ -195,6 +195,15 @@ rooms:
       west: 7806
       up: 7804
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7801
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       north:
         to: 7810
@@ -245,6 +254,11 @@ rooms:
       north: 7809
       east: 7805
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7800
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 7809
@@ -277,6 +291,11 @@ rooms:
       north: 7811
       west: 7805
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7800
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 7811
@@ -445,6 +464,15 @@ rooms:
       south: 7807
       west: 7810
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7802
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       north:
         to: 7816
@@ -632,6 +660,11 @@ rooms:
       south: 7810
       west: 7814
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7814
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 7820
@@ -683,6 +716,15 @@ rooms:
       south: 7811
       west: 7815
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7801
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       north:
         to: 7821
@@ -786,6 +828,19 @@ rooms:
       east: 7819
       south: 7813
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7801
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
+      - type: MOB
+        id: 7813
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 7819
@@ -870,6 +925,23 @@ rooms:
       south: 7815
       west: 7819
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7801
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
+      - type: MOB
+        id: 7802
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       north:
         to: 7824
@@ -1003,6 +1075,11 @@ rooms:
       east: 7824
       south: 7819
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7800
+        quantity: 5
+        frequency: 1
     doors:
       east:
         to: 7824
@@ -1087,6 +1164,11 @@ rooms:
       south: 7821
       west: 7824
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7814
+        quantity: 3
+        frequency: 1
     doors:
       south:
         to: 7821
@@ -1162,6 +1244,21 @@ rooms:
       south: 7826
       west: 7868
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7805
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       east:
         to: 7828
@@ -1241,13 +1338,13 @@ rooms:
     doors:
       north:
         to: 7834
-        description: "You see the building."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 7831
         description: "You see the trail around the building."
@@ -1288,6 +1385,11 @@ rooms:
       north: 7832
       east: 7829
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7813
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 7832
@@ -1384,6 +1486,11 @@ rooms:
       north: 7836
       west: 7831
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7800
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 7836
@@ -1440,13 +1547,13 @@ rooms:
         key: null
       south:
         to: 7829
-        description: "The exit is to the south."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7835
     key: valley_room_7835
@@ -1462,6 +1569,11 @@ rooms:
       north: 7839
       west: 7834
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7806
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1528,6 +1640,11 @@ rooms:
       north: 7841
       south: 7832
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7800
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 7841
@@ -1561,6 +1678,11 @@ rooms:
       east: 7839
       south: 7834
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7806
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1597,6 +1719,11 @@ rooms:
       west: 7838
       up: 7848
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7806
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1704,6 +1831,29 @@ rooms:
       east: 7843
       west: 7841
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7802
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
+      - type: MOB
+        id: 7805
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       east:
         to: 7843
@@ -1768,6 +1918,15 @@ rooms:
       south: 7840
       west: 7843
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7801
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       south:
         to: 7840
@@ -1801,27 +1960,53 @@ rooms:
       north: 7847
       east: 7846
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7807
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7806
+              wear_loc: 1
+          -
+              item_vnum: 7807
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 7804
+      - type: MOB
+        id: 7808
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7806
+              wear_loc: 1
+          -
+              item_vnum: 7807
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 7847
-        description: "You see another room."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 7846
-        description: "You see another room."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7804
+        key: null
 
   - id: 7846
     key: valley_room_7846
@@ -1834,27 +2019,56 @@ rooms:
       north: 7848
       west: 7845
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 7809
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7823
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7820
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7817
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7815
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7816
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7819
+        quantity: 99
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 7848
-        description: "You see another room."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7804
+        key: null
       west:
         to: 7845
-        description: "You see another room."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7804
+        key: null
 
   - id: 7847
     key: valley_room_7847
@@ -1869,27 +2083,36 @@ rooms:
       east: 7848
       south: 7845
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7806
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 7806
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 7848
-        description: "You see another room."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 7845
-        description: "You see another room."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7848
     key: valley_room_7848
@@ -1906,27 +2129,62 @@ rooms:
       west: 7847
       down: 7839
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7803
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
+      - type: MOB
+        id: 7804
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 7846
-        description: "You see another room."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7804
+        key: null
       west:
         to: 7847
-        description: "You see another room."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 7839
         description: "You see the first floor."
@@ -1992,6 +2250,24 @@ rooms:
       west: 7849
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7804
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       north:
         to: 7851
@@ -2076,6 +2352,25 @@ rooms:
       west: 7851
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7805
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
+      - type: MOB
+        id: 7814
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 7853
@@ -2119,6 +2414,24 @@ rooms:
       south: 7852
       down: 7817
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7803
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       north:
         to: 7854
@@ -2161,6 +2474,15 @@ rooms:
       west: 7855
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7802
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       south:
         to: 7853
@@ -2245,6 +2567,24 @@ rooms:
       west: 7857
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7804
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       south:
         to: 7855
@@ -2416,6 +2756,28 @@ rooms:
       south: 7861
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7803
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
+      - type: MOB
+        id: 7813
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 7859
@@ -2500,6 +2862,21 @@ rooms:
       south: 7863
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7805
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       east:
         to: 7861
@@ -2543,6 +2920,24 @@ rooms:
       south: 7864
       down: 7813
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7804
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       north:
         to: 7862
@@ -2627,6 +3022,15 @@ rooms:
       west: 7864
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7802
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       south:
         to: 7866
@@ -2669,6 +3073,24 @@ rooms:
       east: 7867
       down: 7883
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7803
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7800
+              wear_loc: 5
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       north:
         to: 7865
@@ -2752,6 +3174,15 @@ rooms:
       north: 7869
       east: 7827
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7802
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       north:
         to: 7869
@@ -2850,13 +3281,13 @@ rooms:
         key: null
       west:
         to: 7878
-        description: "You see the small shack."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7871
     key: valley_room_7871
@@ -2934,6 +3365,11 @@ rooms:
       east: 7871
       west: 7874
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7800
+        quantity: 4
+        frequency: 1
     doors:
       east:
         to: 7871
@@ -3030,6 +3466,21 @@ rooms:
       north: 7875
       east: 7877
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7805
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7801
+              wear_loc: 8
+          -
+              item_vnum: 7802
+              wear_loc: 16
+          -
+              item_vnum: 7803
+              wear_loc: 3
     doors:
       north:
         to: 7875
@@ -3062,6 +3513,15 @@ rooms:
       east: 7872
       west: 7876
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 7801
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7802
+              wear_loc: 16
     doors:
       east:
         to: 7872
@@ -3094,27 +3554,32 @@ rooms:
       east: 7870
       down: 7879
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7810
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 7870
-        description: "You see the valley outside."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 7879
-        description: "You see a trap door!"
-        keywords: "trap door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7879
     key: valley_room_7879
@@ -3142,13 +3607,13 @@ rooms:
         key: null
       up:
         to: 7878
-        description: "Back to known territory!"
-        keywords: "trap door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7880
     key: valley_room_7880
@@ -3163,6 +3628,14 @@ rooms:
       east: 7882
       west: 7881
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7809
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 7805
     legacy_flags:
       - INDOORS
     doors:
@@ -3177,22 +3650,22 @@ rooms:
         key: null
       east:
         to: 7882
-        description: "You see breaks in the charred rock to the east."
-        keywords: "secret"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7805
+        key: null
       west:
         to: 7881
-        description: "You see a door to the west."
-        keywords: "door"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7805
+        key: null
 
   - id: 7881
     key: valley_room_7881
@@ -3207,18 +3680,33 @@ rooms:
     exits:
       east: 7880
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7811
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7806
+              wear_loc: 1
+          -
+              item_vnum: 7807
+              wear_loc: 16
+          -
+              item_vnum: 7824
+              wear_loc: 0
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 7880
         description: ""
-        keywords: "door"
-        state: OPEN
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7805
+        key: null
 
   - id: 7882
     key: valley_room_7882
@@ -3231,18 +3719,71 @@ rooms:
     exits:
       west: 7880
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 7808
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7822
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7821
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7810
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7812
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7811
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7820
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7815
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7818
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7814
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7813
+        quantity: 99
+        frequency: 1
+      - type: ITEM
+        id: 7823
+        quantity: 99
+        frequency: 1
+      - type: MOB
+        id: 7812
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 7880
         description: ""
-        keywords: "secret door"
-        state: OPEN
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 7805
+        key: null
 
   - id: 7883
     key: valley_room_7883

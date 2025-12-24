@@ -1,0 +1,554 @@
+- id: 2001
+  key: a_bat
+  name: a bat
+  short_desc: A bat flaps wildly at you!
+  long_desc: |
+    Your typical smelly, blind flying mammal.
+  keywords: ['bat']
+  level: 34
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 32 0 S 5 18 5 5d5+50 2d3+3 0 500 8 8 0
+
+- id: 2002
+  key: a_templar_page
+  name: a templar page
+  short_desc: A templar page in training is here looking mildly confused.
+  long_desc: |
+    He has lost his family and everything of his former life.
+  keywords: ['page', 'templar']
+  level: 128
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 128 0 200 S 7 14 4 7d7+70 1d9+4 600 1500 8 8 1
+
+- id: 2003
+  key: a_spelunker
+  name: a spelunker
+  short_desc: A spelunker knows his way around these tunnels.
+  long_desc: |
+    He recently discovered these catacombs and wants to see where they lead.
+    He just hopes he doesn't get killed in the process.  He carries only
+    essential exploration gear; if there IS anything down here, he
+    probably won't last long.
+  keywords: ['spelunker', 'explorer']
+  level: 132
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 132 32 100 S 8 13 4 8d8+80 2d5+1 800 2000 8 8 1
+
+- id: 2004
+  key: a_graverobber
+  name: a graverobber
+  short_desc: A graverobber uncovers dead bodies.
+  long_desc: |
+    Working for an evil necromancer isn't the greatest thing in the world.
+    They seem like little more than zombie servants themselves.
+  keywords: ['gravedigger', 'digger', 'robber', 'graverobber']
+  level: 36
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 0 -500 S 9 12 3 9d9+90 2d6+1 100 2000 8 8 1
+
+- id: 2005
+  key: some_mist
+  name: some mist
+  short_desc: Some mist swirls about you here ... it seems ALIVE!
+  long_desc: |
+    In fact it IS alive in a magical sort of sense.
+  keywords: ['mist', 'swirling']
+  level: 128
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 128|32768|1048576 0 S 10 10 6 10d10+100 2d6+4 200 2500 8 8 0
+
+- id: 2006
+  key: it
+  name: It
+  short_desc: 
+  long_desc: |
+  keywords: []
+  level: 32
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 0 0 S 10 10 2 10d10+100 3d3+6 1000 3000 8 8 0
+
+- id: 2007
+  key: a_skeleton
+  name: a skeleton
+  short_desc: A skeletal soldier fights in the battle of the underworld.
+  long_desc: |
+    Even though he has died in the physical sense of the word, the battle
+    continues for him in his charmed state.
+  keywords: ['skeleton', 'skeletal', 'soldier']
+  level: 36
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 0 -290 S 11 10 4 11d11+110 2d8+1 1100 4000 8 8 1
+
+- id: 2008
+  key: a_templar
+  name: a templar
+  short_desc: A templar shouts "AKK! SLAY THE INFIDEL!"
+  long_desc: |
+    As you peer closely he peers back at you
+    
+    A templar peers closely at you.
+    A templar tells you, "You are an evil force trying to spread your ways!".
+    A templar tells you, "You must die for your sin!".
+  keywords: ['templar']
+  level: 36
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 0 600 S 12 9 3 12d12+120 1d4+8 500 5000 8 8 1
+
+- id: 2009
+  key: a_mysterious_wraith
+  name: a mysterious wraith
+  short_desc: A mysterious ghostly wraith forms before your eyes.
+  long_desc: |
+    Hard to tell much about the mysterious form even upon further inspection.
+  keywords: ['wraith']
+  level: 36
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 32|1048576 0 S 12 9 2 12d12+120 2d7+1 600 5000 8 8 1
+
+- id: 2010
+  key: the_templar_officer
+  name: the templar officer
+  short_desc: A templar officer keeps an eye on things here.
+  long_desc: |
+    A templar officer tells you "Better move along evil one!"
+  keywords: ['officer', 'templar']
+  level: 32
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 8 700 S 13 8 2 13d13+130 1d6+8 600 7000 8 8 1
+
+- id: 2011
+  key: zombie
+  name: zombie
+  short_desc: A blank-faced zombie mage joins the battle.
+  long_desc: |
+    He seems to lack real interest in what he is doing.
+  keywords: ['zombie', 'mage']
+  level: 36
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 0 -100 S 13 8 5 13d13+130 1d4+8 550 9000 8 8 1
+
+- id: 2012
+  key: the_shadow
+  name: the shadow
+  short_desc: Eerie shadows fill the room.
+  long_desc: |
+    Looks vaguely you-shaped.
+  keywords: ['shadow', 'shadows']
+  level: 32
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 32|32768|1048576 0 S 14 6 1 14d14+140 2d9+1 800 10900 8 8 0
+
+- id: 2013
+  key: the_vampire
+  name: The vampire
+  short_desc: A bat flaps wildly at you!
+  long_desc: |
+    A rather LARGE "bat" ...
+  keywords: ['bat', 'vampire']
+  level: 34
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 32 -100 S 15 6 5 15d15+150 1d10+7 1000 17000 8 8 1
+
+- id: 2014
+  key: the_evil_necromancer
+  name: the evil necromancer
+  short_desc: The evil necromancer makes undead soldiers from corpses.
+  long_desc: |
+    Though he seems absorbed in his work, you'd bet he'd take the time out
+    to kill you to get a fresh corpse!
+  keywords: ['necromancer', 'necro', 'cleric']
+  level: 34
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -888 S 15 8 -5 15d15+150 1d8+8 1100 15000 8 8 1
+
+- id: 2015
+  key: the_grand_templar
+  name: the grand templar
+  short_desc: The grand templar stands here quietly observing your actions
+  long_desc: |
+    A slight, tolerant smile comes briefly across his face.  In the blink
+    of an eye he seems stern again.
+  keywords: ['grand', 'templar', 'leader']
+  level: 2
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 168 1000 S 16 5 -5 16d16+160 1d8+12 1500 20000 8 8 1
+
+- id: 2016
+  key: the_prism_dragon
+  name: the prism dragon
+  short_desc: The light shines off a beautiful but dangerous dragon lurking here.
+  long_desc: |
+    The spray of colored light bouncing off his scales is almost blinding.
+  keywords: ['prism', 'dragon', 'prismdragon']
+  level: 34
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 40 -303 S 20 0 -5 20d20+200 6d3+14 30000 30000 8 8 1
+
+- id: 2017
+  key: the_darkenbeast
+  name: The DarkenBeast
+  short_desc: You hear and smell the presense of the darkenbeast.
+  long_desc: |
+    You see nothing more than the sense of darkness and evil.
+  keywords: ['darken', 'dark', 'beast', 'darkenbeast']
+  level: 34
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -1000 S 24 -2 -12 24d24+240 3d7+7 20000 80000 8 8 0
+

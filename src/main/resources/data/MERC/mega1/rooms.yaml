@@ -78,6 +78,11 @@ rooms:
       south: 8004
       west: 8021
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8004
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 8002
@@ -130,6 +135,23 @@ rooms:
       north: 8003
       south: 8005
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8000
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8006
+              wear_loc: 16
+      - type: MOB
+        id: 8000
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
     doors:
       north:
         to: 8003
@@ -168,6 +190,11 @@ rooms:
       south: 8006
       west: 8022
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8004
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 8004
@@ -222,6 +249,27 @@ rooms:
       south: 8007
       west: 8023
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8000
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
+      - type: MOB
+        id: 8001
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
+      - type: MOB
+        id: 8004
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 8005
@@ -276,6 +324,18 @@ rooms:
       south: 8008
       west: 8024
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8010
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8011
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 8003
     doors:
       north:
         to: 8006
@@ -363,6 +423,29 @@ rooms:
       south: 8020
       west: 8025
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8001
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
+          -
+              item_vnum: 8001
+              wear_loc: 7
+      - type: MOB
+        id: 8011
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8011
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 8003
     doors:
       north:
         to: 8008
@@ -412,6 +495,15 @@ rooms:
       east: 8015
       west: 8003
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8005
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8006
+              wear_loc: 16
     doors:
       east:
         to: 8015
@@ -445,6 +537,23 @@ rooms:
       east: 8017
       west: 8005
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8001
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8006
+              wear_loc: 16
+      - type: MOB
+        id: 8012
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 8012
+        quantity: 2
+        frequency: 1
     doors:
       east:
         to: 8017
@@ -476,6 +585,15 @@ rooms:
       east: 8018
       west: 8006
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8006
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8011
+              wear_loc: 16
     doors:
       east:
         to: 8018
@@ -507,6 +625,15 @@ rooms:
       east: 8019
       west: 8007
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8003
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8001
+              wear_loc: 7
     doors:
       east:
         to: 8019
@@ -539,6 +666,14 @@ rooms:
     exits:
       west: 8009
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8003
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 8000
     doors:
       west:
         to: 8009
@@ -563,6 +698,18 @@ rooms:
       south: 8016
       west: 8010
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8000
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
+          -
+              item_vnum: 8001
+              wear_loc: 7
     doors:
       south:
         to: 8016
@@ -608,8 +755,8 @@ rooms:
         key: null
       east:
         to: 8026
-        description: "A door to the east bodes ill."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
@@ -640,6 +787,15 @@ rooms:
       south: 8018
       west: 8011
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8005
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
     doors:
       north:
         to: 8016
@@ -682,6 +838,15 @@ rooms:
       south: 8019
       west: 8012
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8006
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8011
+              wear_loc: 16
     doors:
       north:
         to: 8017
@@ -723,6 +888,11 @@ rooms:
       north: 8018
       west: 8013
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 8005
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 8018
@@ -776,6 +946,20 @@ rooms:
     exits:
       east: 8003
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8009
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8006
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 8002
+          -
+              item_vnum: 8013
     legacy_flags:
       - INDOORS
     doors:
@@ -826,6 +1010,15 @@ rooms:
     exits:
       east: 8006
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8002
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8008
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -852,6 +1045,15 @@ rooms:
     exits:
       east: 8007
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8002
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8010
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -877,6 +1079,15 @@ rooms:
     exits:
       east: 8009
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8006
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8011
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -910,16 +1121,16 @@ rooms:
       north:
         to: 8027
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 8013
+        key: null
       west:
         to: 8016
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
@@ -941,27 +1152,39 @@ rooms:
       north: 8028
       south: 8026
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 8007
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 8012
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 8028
         description: ""
-        keywords: "vault door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 8012
+        key: null
       south:
         to: 8026
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 8013
+        key: null
     extras:
       vault: |
         This vault seems impervious to breaking.  There is a keyhole in the lock
@@ -977,16 +1200,35 @@ rooms:
     exits:
       south: 8027
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 8004
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 8008
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 8009
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 8005
+          -
+              item_vnum: 8007
+              container_vnum: 8004
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 8027
         description: ""
-        keywords: "vault door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 8012
+        key: null
 

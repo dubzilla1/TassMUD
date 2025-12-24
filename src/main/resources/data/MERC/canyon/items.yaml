@@ -1,6 +1,6 @@
 items:
   - id: 9201
-    key: ring_earth
+    key: ring_earth_9201
     name: the earth ring
     description: A dark ring which seems to absorb all the light around it lies here.
     weight: 5
@@ -17,19 +17,18 @@ items:
         modifier: 1
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        12 256 3
-        0 0 0 0
-        5 100000 2000
-        A
-        3 1
-        A
-        4 1
-      type_line: 12 256 3
+    legacy_type_line: 12 256 3
+    legacy_raw: |
+      ~
+      12 256 3
+      0 0 0 0
+      5 100000 2000
+      A
+      3 1
+      A
+      4 1
   - id: 9202
-    key: breastplate_stoney_breast_plate
+    key: breastplate_stoney_breast_plate_9202
     name: a stoney breastplate
     description: A breastplate made of the stone from deep within the earth lies here.
     weight: 70
@@ -44,19 +43,18 @@ items:
     applies:
       - location: 5
         modifier: 1
-    template_json:
-      raw_block: |
-        a stoney breastplate~
-        A breastplate made of the stone from deep within the earth lies here.~
-        ~
-        9 0 9
-        10 0 0 0
-        70 200000 4000
-        A
-        5 1
-      type_line: 9 0 9
+    legacy_type_line: 9 0 9
+    legacy_raw: |
+      a stoney breastplate~
+      A breastplate made of the stone from deep within the earth lies here.~
+      ~
+      9 0 9
+      10 0 0 0
+      70 200000 4000
+      A
+      5 1
   - id: 9203
-    key: dagger_fiery
+    key: dagger_fiery_9203
     name: a fiery dagger
     description: A dagger made of fire crackles mysteriously here.
     weight: 2
@@ -78,19 +76,18 @@ items:
         modifier: 4
     on_equip_effect_ids:
       - 504
-    template_json:
-      raw_block: |
-        a fiery dagger~
-        A dagger made of fire crackles mysteriously here.~
-        ~
-        5 1 8193
-        0 4 4 11
-        2 100000 2000
-        A
-        19 4
-      type_line: 5 1 8193
+    legacy_type_line: 5 1 8193
+    legacy_raw: |
+      a fiery dagger~
+      A dagger made of fire crackles mysteriously here.~
+      ~
+      5 1 8193
+      0 4 4 11
+      2 100000 2000
+      A
+      19 4
   - id: 9204
-    key: cape_flame_flaming_red
+    key: cape_flame_flaming_red_9204
     name: a flame red cape
     description: A cape made of ethereal red fiber lies neatly folded on the ground here.
     weight: 3
@@ -109,19 +106,18 @@ items:
         modifier: 1
     on_equip_effect_ids:
       - 503
-    template_json:
-      raw_block: |
-        a flame red cape~
-        A cape made of ethereal red fiber lies neatly folded on the ground here.~
-        ~
-        9 1 5
-        11 0 0 0
-        3 100000 2000
-        A
-        19 1
-      type_line: 9 1 5
+    legacy_type_line: 9 1 5
+    legacy_raw: |
+      a flame red cape~
+      A cape made of ethereal red fiber lies neatly folded on the ground here.~
+      ~
+      9 1 5
+      11 0 0 0
+      3 100000 2000
+      A
+      19 1
   - id: 9205
-    key: boots_wind
+    key: boots_wind_9205
     name: the wind boots
     description: A pair of boots that look fast standing still are here.
     weight: 1
@@ -138,19 +134,18 @@ items:
     applies:
       - location: 2
         modifier: 2
-    template_json:
-      raw_block: |
-        the wind boots~
-        A pair of boots that look fast standing still are here.~
-        ~
-        9 64 65
-        10 0 0 0
-        1 100000 2000
-        A
-        2 2
-      type_line: 9 64 65
+    legacy_type_line: 9 64 65
+    legacy_raw: |
+      the wind boots~
+      A pair of boots that look fast standing still are here.~
+      ~
+      9 64 65
+      10 0 0 0
+      1 100000 2000
+      A
+      2 2
   - id: 9206
-    key: helmet_hurricane
+    key: helmet_hurricane_9206
     name: a humming hurricane helmet
     description: A helmet that looks like it has weathered many storms has been set here.
     weight: 4
@@ -167,19 +162,18 @@ items:
     applies:
       - location: 23
         modifier: -4
-    template_json:
-      raw_block: |
-        a humming hurricane helmet~
-        A helmet that looks like it has weathered many storms has been set here.~
-        ~
-        9 2 17
-        9 0 0 0
-        4 200000 4000
-        A
-        23 -4
-      type_line: 9 2 17
+    legacy_type_line: 9 2 17
+    legacy_raw: |
+      a humming hurricane helmet~
+      A helmet that looks like it has weathered many storms has been set here.~
+      ~
+      9 2 17
+      9 0 0 0
+      4 200000 4000
+      A
+      23 -4
   - id: 9207
-    key: sword_lightning_bolt
+    key: sword_lightning_bolt_9207
     name: a sparking lightning sword
     description: A lightning bolt fashioned into a sword spits sparks here.
     weight: 10
@@ -205,19 +199,18 @@ items:
     on_equip_effect_ids:
       - 505
       - 502
-    template_json:
-      raw_block: |
-        ~
-        5 3 8193
-        0 6 3 3
-        10 100000 2000
-        A
-        18 -1
-        A
-        19 2
-      type_line: 5 3 8193
+    legacy_type_line: 5 3 8193
+    legacy_raw: |
+      ~
+      5 3 8193
+      0 6 3 3
+      10 100000 2000
+      A
+      18 -1
+      A
+      19 2
   - id: 9208
-    key: shield_electric
+    key: shield_electric_9208
     name: an electric shield
     description: A shield made entirely of energy buzzes here.
     weight: 8
@@ -236,19 +229,18 @@ items:
         modifier: -1
       - location: 5
         modifier: 1
-    template_json:
-      raw_block: |
-        ~
-        9 2 513
-        11 0 0 0
-        8 1000000 2000
-        A
-        1 -1
-        A
-        5 1
-      type_line: 9 2 513
+    legacy_type_line: 9 2 513
+    legacy_raw: |
+      ~
+      9 2 513
+      11 0 0 0
+      8 1000000 2000
+      A
+      1 -1
+      A
+      5 1
   - id: 9209
-    key: girth_icy
+    key: girth_icy_9209
     name: an icy girth
     description: A girth made of magical ice has been left here.
     weight: 10
@@ -263,19 +255,18 @@ items:
     applies:
       - location: 5
         modifier: -2
-    template_json:
-      raw_block: |
-        an icy girth~
-        A girth made of magical ice has been left here.~
-        ~
-        9 0 2049
-        10 0 0 0
-        10 100000 1000
-        A
-        5 -2
-      type_line: 9 0 2049
+    legacy_type_line: 9 0 2049
+    legacy_raw: |
+      an icy girth~
+      A girth made of magical ice has been left here.~
+      ~
+      9 0 2049
+      10 0 0 0
+      10 100000 1000
+      A
+      5 -2
   - id: 9210
-    key: cloak_waterfall
+    key: cloak_waterfall_9210
     name: a waterfall cloak
     description: A cloak fashioned from a small magical waterfall is here.
     weight: 6
@@ -294,19 +285,18 @@ items:
         modifier: -2
     on_equip_effect_ids:
       - 506
-    template_json:
-      raw_block: |
-        ~
-        9 0 1025
-        10 0 0 0
-        6 100000 2000
-        A
-        12 25
-        A
-        18 -2
-      type_line: 9 0 1025
+    legacy_type_line: 9 0 1025
+    legacy_raw: |
+      ~
+      9 0 1025
+      10 0 0 0
+      6 100000 2000
+      A
+      12 25
+      A
+      18 -2
   - id: 9211
-    key: amulet_elemental
+    key: amulet_elemental_9211
     name: an elemental amulet
     description: An amulet depicting fire, water, lightning, earth, and air lies here.
     weight: 1
@@ -323,19 +313,18 @@ items:
     applies:
       - location: 23
         modifier: -5
-    template_json:
-      raw_block: |
-        an elemental amulet~
-        An amulet depicting fire, water, lightning, earth, and air lies here.~
-        ~
-        9 1 5
-        7 0 0 0
-        1 100000 5000
-        A
-        23 -5
-      type_line: 9 1 5
+    legacy_type_line: 9 1 5
+    legacy_raw: |
+      an elemental amulet~
+      An amulet depicting fire, water, lightning, earth, and air lies here.~
+      ~
+      9 1 5
+      7 0 0 0
+      1 100000 5000
+      A
+      23 -5
   - id: 9212
-    key: bracelet_elemental
+    key: bracelet_elemental_9212
     name: an elemental bracelet
     description: A bracelet made of elemental magic lies here.
     weight: 4
@@ -350,19 +339,18 @@ items:
     applies:
       - location: 13
         modifier: 25
-    template_json:
-      raw_block: |
-        an elemental bracelet~
-        A bracelet made of elemental magic lies here.~
-        ~
-        9 0 4097
-        4 0 0 0
-        4 100000 4000
-        A
-        13 25
-      type_line: 9 0 4097
+    legacy_type_line: 9 0 4097
+    legacy_raw: |
+      an elemental bracelet~
+      A bracelet made of elemental magic lies here.~
+      ~
+      9 0 4097
+      4 0 0 0
+      4 100000 4000
+      A
+      13 25
   - id: 9213
-    key: armbands_platinum_bands
+    key: armbands_platinum_bands_9213
     name: some platinum arm bands
     description: A pair of platinum arm bands, once worn by the Cyclops, lie here.
     weight: 4
@@ -379,19 +367,18 @@ items:
         modifier: 1
       - location: 4
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        9 0 257
-        9 0 0 0
-        4 10000 1000
-        A
-        1 1
-        A
-        4 -2
-      type_line: 9 0 257
+    legacy_type_line: 9 0 257
+    legacy_raw: |
+      ~
+      9 0 257
+      9 0 0 0
+      4 10000 1000
+      A
+      1 1
+      A
+      4 -2
   - id: 9214
-    key: legbands_platinum_bands
+    key: legbands_platinum_bands_9214
     name: some platinum leg bands
     description: A pair of platinum leg bands, once worn by the Cyclops, lie here.
     weight: 4
@@ -408,19 +395,18 @@ items:
         modifier: 1
       - location: 3
         modifier: -2
-    template_json:
-      raw_block: |
-        ~
-        9 0 33
-        9 0 0 0
-        4 10000 1000
-        A
-        2 1
-        A
-        3 -2
-      type_line: 9 0 33
+    legacy_type_line: 9 0 33
+    legacy_raw: |
+      ~
+      9 0 33
+      9 0 0 0
+      4 10000 1000
+      A
+      2 1
+      A
+      3 -2
   - id: 9215
-    key: wand
+    key: wand_9215
     name: elemental wand of fire
     description: A fire wand lies forgotten on the ground.
     weight: 7
@@ -438,19 +424,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand]
-    template_json:
-      raw_block: |
-        #9215
-        wand~
-        elemental wand of fire~
-        A fire wand lies forgotten on the ground.~
-        ~
-        3 1 16385
-        15 3 3 26
-        7 1900 200
-      type_line: 3 1 16385
+    legacy_type_line: 3 1 16385
+    legacy_raw: |
+      #9215
+      wand~
+      elemental wand of fire~
+      A fire wand lies forgotten on the ground.~
+      ~
+      3 1 16385
+      15 3 3 26
+      7 1900 200
   - id: 9216
-    key: staff_ice
+    key: staff_ice_9216
     name: an ice staff
     description: A ice staff lies forgotten on the ground.
     weight: 7
@@ -468,19 +453,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, ice]
-    template_json:
-      raw_block: |
-        #9216
-        staff ice~
-        an ice staff~
-        A ice staff lies forgotten on the ground.~
-        ~
-        4 1 16385
-        21 3 3 202
-        7 1900 200
-      type_line: 4 1 16385
+    legacy_type_line: 4 1 16385
+    legacy_raw: |
+      #9216
+      staff ice~
+      an ice staff~
+      A ice staff lies forgotten on the ground.~
+      ~
+      4 1 16385
+      21 3 3 202
+      7 1900 200
   - id: 9217
-    key: staff_earthquake
+    key: staff_earthquake_9217
     name: elemental staff of earthquake
     description: A earthquake staff lies forgotten on the ground.
     weight: 7
@@ -498,19 +482,18 @@ items:
       - TAKE
       - HOLD
     keywords: [staff, earthquake]
-    template_json:
-      raw_block: |
-        #9217
-        staff earthquake~
-        elemental staff of earthquake~
-        A earthquake staff lies forgotten on the ground.~
-        ~
-        3 1 16385
-        7 3 3 23
-        7 1900 200
-      type_line: 3 1 16385
+    legacy_type_line: 3 1 16385
+    legacy_raw: |
+      #9217
+      staff earthquake~
+      elemental staff of earthquake~
+      A earthquake staff lies forgotten on the ground.~
+      ~
+      3 1 16385
+      7 3 3 23
+      7 1900 200
   - id: 9218
-    key: wand_air_wind
+    key: wand_air_wind_9218
     name: elemental wand of wind and air
     description: An air wand lies forgotten on the ground.
     weight: 7
@@ -528,19 +511,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand, air, wind]
-    template_json:
-      raw_block: |
-        #9218
-        wand air wind~
-        elemental wand of wind and air~
-        An air wand lies forgotten on the ground.~
-        ~
-        3 1 16385
-        11 1 1 203
-        7 1900 200
-      type_line: 3 1 16385
+    legacy_type_line: 3 1 16385
+    legacy_raw: |
+      #9218
+      wand air wind~
+      elemental wand of wind and air~
+      An air wand lies forgotten on the ground.~
+      ~
+      3 1 16385
+      11 1 1 203
+      7 1900 200
   - id: 9219
-    key: wand
+    key: wand_9219
     name: elemental wand of lightning
     description: A lightning wand lies forgotten on the ground.
     weight: 7
@@ -558,19 +540,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand]
-    template_json:
-      raw_block: |
-        #9219
-        wand~
-        elemental wand of lightning~
-        A lightning wand lies forgotten on the ground.~
-        ~
-        3 1 16385
-        9 1 1 30
-        7 1900 200
-      type_line: 3 1 16385
+    legacy_type_line: 3 1 16385
+    legacy_raw: |
+      #9219
+      wand~
+      elemental wand of lightning~
+      A lightning wand lies forgotten on the ground.~
+      ~
+      3 1 16385
+      9 1 1 30
+      7 1900 200
   - id: 9220
-    key: stone_club
+    key: stone_club_9220
     name: a stone club
     description: A large stone club lies on the ground.
     weight: 16
@@ -585,19 +566,18 @@ items:
       - TAKE
       - WIELD
     keywords: [stone, club]
-    template_json:
-      raw_block: |
-        #9220
-        stone club~
-        a stone club~
-        A large stone club lies on the ground.~
-        ~
-        5 0 8193
-        0 1 12 7
-        16 1000 10
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #9220
+      stone club~
+      a stone club~
+      A large stone club lies on the ground.~
+      ~
+      5 0 8193
+      0 1 12 7
+      16 1000 10
   - id: 9221
-    key: lode_load_lodestone_loadstone_stone
+    key: lode_load_lodestone_loadstone_stone_9221
     name: a lodestone
     description: A dull red rock lies here amid the weeds.
     weight: 2
@@ -613,19 +593,18 @@ items:
       - TAKE
       - HOLD
     keywords: [lode, load, lodestone, loadstone, stone]
-    template_json:
-      raw_block: |
-        #9221
-        lode load lodestone loadstone stone~
-        a lodestone~
-        A dull red rock lies here amid the weeds.~
-        ~
-        3 0 16385
-        19 2 2 27
-        2 5000 175
-      type_line: 3 0 16385
+    legacy_type_line: 3 0 16385
+    legacy_raw: |
+      #9221
+      lode load lodestone loadstone stone~
+      a lodestone~
+      A dull red rock lies here amid the weeds.~
+      ~
+      3 0 16385
+      19 2 2 27
+      2 5000 175
   - id: 9222
-    key: lava_lamp
+    key: lava_lamp_9222
     name: a lava lamp
     description: A lantern which glows with a red glowing light has been dumped.
     weight: 4
@@ -636,24 +615,24 @@ items:
     wear_flags:
       - TAKE
     keywords: [lava, lamp]
-    template_json:
-      raw_block: |
-        #9222
-        lava lamp~
-        a lava lamp~
-        A lantern which glows with a red glowing light has been dumped.~
-        ~
-        1 1 1
-        0 0 1000 0
-        4 500 1
-      type_line: 1 1 1
+    legacy_type_line: 1 1 1
+    legacy_raw: |
+      #9222
+      lava lamp~
+      a lava lamp~
+      A lantern which glows with a red glowing light has been dumped.~
+      ~
+      1 1 1
+      0 0 1000 0
+      4 500 1
   - id: 9223
-    key: energy_scroll
+    key: energy_scroll_9223
     name: an energy scroll
     description: A scroll of energy replacement lies here.
     weight: 1
     value: 2100
-    type: inventory
+    types:
+      - scroll
     extra_flags:
       - HUM
     wear_flags:
@@ -663,40 +642,39 @@ items:
       - 19
       - 15
       - 81
-    template_json:
-      raw_block: |
-        #9223
-        energy scroll~
-        an energy scroll~
-        A scroll of energy replacement lies here.~
-        ~
-        2 2 1
-        19 15 81 -1
-        1 2100 120
-      type_line: 2 2 1
+    legacy_type_line: 2 2 1
+    legacy_raw: |
+      #9223
+      energy scroll~
+      an energy scroll~
+      A scroll of energy replacement lies here.~
+      ~
+      2 2 1
+      19 15 81 -1
+      1 2100 120
   - id: 9224
-    key: water_jug
+    key: water_jug_9224
     name: a water jug
     description: A large but surprisingly light jug of water stands here.
     weight: 5
     value: 100
-    type: inventory
+    types:
+      - drink
     wear_flags:
       - TAKE
     keywords: [water, jug]
-    template_json:
-      raw_block: |
-        #9224
-        water jug~
-        a water jug~
-        A large but surprisingly light jug of water stands here.~
-        ~
-        17 0 1
-        150 150 0 0
-        5 100 100
-      type_line: 17 0 1
+    legacy_type_line: 17 0 1
+    legacy_raw: |
+      #9224
+      water jug~
+      a water jug~
+      A large but surprisingly light jug of water stands here.~
+      ~
+      17 0 1
+      150 150 0 0
+      5 100 100
   - id: 9225
-    key: dust
+    key: dust_9225
     name: magic dust
     description: A pile of dust of appearance has gathered here.
     weight: 1
@@ -705,19 +683,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [dust]
-    template_json:
-      raw_block: |
-        #9225
-        dust~
-        magic dust~
-        A pile of dust of appearance has gathered here.~
-        ~
-        26 0 1
-        20 19 -1 -1
-        1 100 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #9225
+      dust~
+      magic dust~
+      A pile of dust of appearance has gathered here.~
+      ~
+      26 0 1
+      20 19 -1 -1
+      1 100 1
   - id: 9226
-    key: flame_lance
+    key: flame_lance_9226
     name: a flame lance
     description: A lance of blue flame burns the ground around it.
     weight: 14
@@ -741,19 +718,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 501
-    template_json:
-      raw_block: |
-        ~
-        5 1 8193
-        0 2 15 3
-        14 5000 500
-        A
-        13 -20
-        A
-        18 2
-      type_line: 5 1 8193
+    legacy_type_line: 5 1 8193
+    legacy_raw: |
+      ~
+      5 1 8193
+      0 2 15 3
+      14 5000 500
+      A
+      13 -20
+      A
+      18 2
   - id: 9227
-    key: icicle_dagger_ice
+    key: icicle_dagger_ice_9227
     name: an icicle
     description: A glowing icicle dagger lies here amid a patch of frost.
     weight: 1
@@ -777,19 +753,18 @@ items:
         modifier: -1
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        ~
-        5 1 8193
-        0 7 3 11
-        1 19000 900
-        A
-        19 2
-        A
-        1 -1
-      type_line: 5 1 8193
+    legacy_type_line: 5 1 8193
+    legacy_raw: |
+      ~
+      5 1 8193
+      0 7 3 11
+      1 19000 900
+      A
+      19 2
+      A
+      1 -1
   - id: 9228
-    key: avalanche
+    key: avalanche_9228
     name: the Avalanche
     description: An avalanche is about to crush you!
     weight: 16
@@ -809,19 +784,18 @@ items:
         modifier: -1
     on_equip_effect_ids:
       - 505
-    template_json:
-      raw_block: |
-        the Avalanche~
-        An avalanche is about to crush you!~
-        ~
-        5 0 8193
-        0 1 30 6
-        16 20100 900
-        A
-        18 -1
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      the Avalanche~
+      An avalanche is about to crush you!~
+      ~
+      5 0 8193
+      0 1 30 6
+      16 20100 900
+      A
+      18 -1
   - id: 9229
-    key: star_morning
+    key: star_morning_9229
     name: the Morning Star
     description: A chain with a star on the end lies here.
     weight: 11
@@ -843,19 +817,18 @@ items:
         modifier: -5
       - location: 17
         modifier: -3
-    template_json:
-      raw_block: |
-        ~
-        5 1 8193
-        0 6 3 11
-        11 8200 900
-        A
-        23 -5
-        A
-        17 -3
-      type_line: 5 1 8193
+    legacy_type_line: 5 1 8193
+    legacy_raw: |
+      ~
+      5 1 8193
+      0 6 3 11
+      11 8200 900
+      A
+      23 -5
+      A
+      17 -3
   - id: 9230
-    key: shock_whip
+    key: shock_whip_9230
     name: The Shock Whip
     description: A whip hums innocently too itself.
     weight: 10
@@ -879,24 +852,24 @@ items:
         modifier: -2
     on_equip_effect_ids:
       - 507
-    template_json:
-      raw_block: |
-        ~
-        5 2 8193
-        0 4 4 2
-        10 10000 900
-        A
-        19 3
-        A
-        1 -2
-      type_line: 5 2 8193
+    legacy_type_line: 5 2 8193
+    legacy_raw: |
+      ~
+      5 2 8193
+      0 4 4 2
+      10 10000 900
+      A
+      19 3
+      A
+      1 -2
   - id: 9231
-    key: elixir_anti
+    key: elixir_anti_9231
     name: anti-cyclops elixir
     description: An elixir to ward off cyclopi has been bought then left behind here.
     weight: 1
     value: 100
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
       - HOLD
@@ -904,14 +877,13 @@ items:
     spell_ids:
       - 15
       - 29
-    template_json:
-      raw_block: |
-        #9231
-        elixir anti~
-        anti-cyclops elixir~
-        An elixir to ward off cyclopi has been bought then left behind here.~
-        ~
-        10 0 16385
-        15 29 -1 -1
-        1 100 100000
-      type_line: 10 0 16385
+    legacy_type_line: 10 0 16385
+    legacy_raw: |
+      #9231
+      elixir anti~
+      anti-cyclops elixir~
+      An elixir to ward off cyclopi has been bought then left behind here.~
+      ~
+      10 0 16385
+      15 29 -1 -1
+      1 100 100000

@@ -1,6 +1,6 @@
 items:
   - id: 3700
-    key: mace
+    key: mace_3700
     name: a sub issue mace
     description: You see a sub issue mace here.
     weight: 5
@@ -25,22 +25,21 @@ items:
     on_equip_effect_ids:
       - 202
       - 503
-    template_json:
-      raw_block: |
-        mace~
-        You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-        A
-        18 1
-        A
-        19 1
-      type_line: 5 64 1|8192
-      extra_desc: |
-        You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 5 64 1|8192
+    legacy_raw: |
+      mace~
+      You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+      A
+      18 1
+      A
+      19 1
+    extra_desc: |
+      You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3701
-    key: dagger
+    key: dagger_3701
     name: a sub issue dagger
     description: You see a sub issue dagger here.
     weight: 5
@@ -65,22 +64,21 @@ items:
     on_equip_effect_ids:
       - 202
       - 503
-    template_json:
-      raw_block: |
-        dagger~
-        You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-        A
-        18 1
-        A
-        19 1
-      type_line: 5 64 1|8192
-      extra_desc: |
-        You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 5 64 1|8192
+    legacy_raw: |
+      dagger~
+      You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+      A
+      18 1
+      A
+      19 1
+    extra_desc: |
+      You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3702
-    key: sword
+    key: sword_3702
     name: a sub issue sword
     description: You see a sub issue sword here.
     weight: 5
@@ -105,22 +103,21 @@ items:
     on_equip_effect_ids:
       - 202
       - 503
-    template_json:
-      raw_block: |
-        sword~
-        You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-        A
-        18 1
-        A
-        19 1
-      type_line: 5 64 1|8192
-      extra_desc: |
-        You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 5 64 1|8192
+    legacy_raw: |
+      sword~
+      You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+      A
+      18 1
+      A
+      19 1
+    extra_desc: |
+      You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3703
-    key: vest
+    key: vest_3703
     name: a sub issue vest
     description: You see a sub issue vest here.
     weight: 5
@@ -132,22 +129,21 @@ items:
       - TAKE
       - WEAR_BODY
     keywords: [vest]
-    template_json:
-      raw_block: |
-        9 0 1|8
-        2 0 0 0
-        5 0 5
-        E
-        vest~
-        You see a vest of great but cheap craftsmanship.  Stamped on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|8
-      extra_desc: |
-        You see a vest of great but cheap craftsmanship.  Stamped on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|8
+    legacy_raw: |
+      9 0 1|8
+      2 0 0 0
+      5 0 5
+      E
+      vest~
+      You see a vest of great but cheap craftsmanship.  Stamped on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a vest of great but cheap craftsmanship.  Stamped on the side is:
+      Merc Industries
   - id: 3704
-    key: shield
+    key: shield_3704
     name: a sub issue shield
     description: You see a sub issue shield here.
     weight: 5
@@ -159,22 +155,21 @@ items:
       - TAKE
       - WEAR_SHIELD
     keywords: [shield]
-    template_json:
-      raw_block: |
-        9 0 1|512
-        2 0 0 0
-        5 0 5
-        E
-        shield~
-        You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|512
-      extra_desc: |
-        You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|512
+    legacy_raw: |
+      9 0 1|512
+      2 0 0 0
+      5 0 5
+      E
+      shield~
+      You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3705
-    key: cloak
+    key: cloak_3705
     name: a sub issue cloak
     description: You see a sub issue cloak here.
     weight: 5
@@ -186,22 +181,21 @@ items:
       - TAKE
       - WEAR_NECK
     keywords: [cloak]
-    template_json:
-      raw_block: |
-        9 0 1|4
-        2 0 0 0
-        5 0 5
-        E
-        cloak~
-        You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|4
-      extra_desc: |
-        You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|4
+    legacy_raw: |
+      9 0 1|4
+      2 0 0 0
+      5 0 5
+      E
+      cloak~
+      You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3706
-    key: helmet
+    key: helmet_3706
     name: a sub issue helmet
     description: You see a sub issue helmet here.
     weight: 5
@@ -213,22 +207,21 @@ items:
       - TAKE
       - WEAR_HEAD
     keywords: [helmet]
-    template_json:
-      raw_block: |
-        9 0 1|16
-        2 0 0 0
-        5 0 5
-        E
-        helmet~
-        You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|16
-      extra_desc: |
-        You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|16
+    legacy_raw: |
+      9 0 1|16
+      2 0 0 0
+      5 0 5
+      E
+      helmet~
+      You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3707
-    key: leggings
+    key: leggings_3707
     name: a pair of sub issue leggings
     description: You see a pair of sub issue leggings here.
     weight: 5
@@ -240,22 +233,21 @@ items:
       - TAKE
       - WEAR_LEGS
     keywords: [leggings]
-    template_json:
-      raw_block: |
-        9 0 1|32
-        2 0 0 0
-        5 0 5
-        E
-        leggings~
-        You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|32
-      extra_desc: |
-        You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|32
+    legacy_raw: |
+      9 0 1|32
+      2 0 0 0
+      5 0 5
+      E
+      leggings~
+      You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3708
-    key: boots
+    key: boots_3708
     name: a pair of sub issue boots
     description: You see a pair of sub issue boots here.
     weight: 5
@@ -267,22 +259,21 @@ items:
       - TAKE
       - WEAR_FEET
     keywords: [boots]
-    template_json:
-      raw_block: |
-        9 0 1|64
-        2 0 0 0
-        5 0 5
-        E
-        boots~
-        You see boots of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|64
-      extra_desc: |
-        You see boots of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|64
+    legacy_raw: |
+      9 0 1|64
+      2 0 0 0
+      5 0 5
+      E
+      boots~
+      You see boots of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see boots of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3709
-    key: gloves
+    key: gloves_3709
     name: a pair of sub issue gloves
     description: You see a pair of sub issue gloves here.
     weight: 5
@@ -294,22 +285,21 @@ items:
       - TAKE
       - WEAR_HANDS
     keywords: [gloves]
-    template_json:
-      raw_block: |
-        9 0 1|128
-        2 0 0 0
-        5 0 5
-        E
-        gloves~
-        You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|128
-      extra_desc: |
-        You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|128
+    legacy_raw: |
+      9 0 1|128
+      2 0 0 0
+      5 0 5
+      E
+      gloves~
+      You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3710
-    key: sleeves
+    key: sleeves_3710
     name: a pair of sub issue sleeves
     description: You see a pair of sub issue sleeves here.
     weight: 5
@@ -321,22 +311,21 @@ items:
       - TAKE
       - WEAR_ARMS
     keywords: [sleeves]
-    template_json:
-      raw_block: |
-        9 0 1|256
-        2 0 0 0
-        5 0 5
-        E
-        sleeves~
-        You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|256
-      extra_desc: |
-        You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|256
+    legacy_raw: |
+      9 0 1|256
+      2 0 0 0
+      5 0 5
+      E
+      sleeves~
+      You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3711
-    key: cape
+    key: cape_3711
     name: a sub issue cape
     description: You see a sub issue cape here.
     weight: 5
@@ -348,22 +337,21 @@ items:
       - TAKE
       - WEAR_ABOUT
     keywords: [cape]
-    template_json:
-      raw_block: |
-        9 0 1|1024
-        2 0 0 0
-        5 0 5
-        E
-        cape~
-        You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|1024
-      extra_desc: |
-        You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|1024
+    legacy_raw: |
+      9 0 1|1024
+      2 0 0 0
+      5 0 5
+      E
+      cape~
+      You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3712
-    key: belt
+    key: belt_3712
     name: a sub issue belt
     description: You see a sub issue belt here.
     weight: 5
@@ -375,22 +363,21 @@ items:
       - TAKE
       - WEAR_WAIST
     keywords: [belt]
-    template_json:
-      raw_block: |
-        9 0 1|2048
-        2 0 0 0
-        5 0 5
-        E
-        belt~
-        You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|2048
-      extra_desc: |
-        You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|2048
+    legacy_raw: |
+      9 0 1|2048
+      2 0 0 0
+      5 0 5
+      E
+      belt~
+      You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3713
-    key: bracer
+    key: bracer_3713
     name: a sub issue bracer
     description: You see a sub issue bracer here.
     weight: 5
@@ -402,22 +389,21 @@ items:
       - TAKE
       - WEAR_WRIST
     keywords: [bracer]
-    template_json:
-      raw_block: |
-        9 0 1|4096
-        2 0 0 0
-        5 0 5
-        E
-        bracer~
-        You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
-        ~
-      type_line: 9 0 1|4096
-      extra_desc: |
-        You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
-        Merc Industries
+    legacy_type_line: 9 0 1|4096
+    legacy_raw: |
+      9 0 1|4096
+      2 0 0 0
+      5 0 5
+      E
+      bracer~
+      You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
+      ~
+    extra_desc: |
+      You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
+      Merc Industries
   - id: 3714
-    key: key
+    key: key_3714
     name: a key
     description: You see a very important key here!
     weight: 1
@@ -426,19 +412,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [key]
-    template_json:
-      raw_block: |
-        #3714
-        key~
-        a key~
-        You see a very important key here!~
-        ~
-        18 0 1
-        0 0 0 0
-        1 0 0
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #3714
+      key~
+      a key~
+      You see a very important key here!~
+      ~
+      18 0 1
+      0 0 0 0
+      1 0 0
   - id: 3715
-    key: diploma
+    key: diploma_3715
     name: a mud school diploma
     description: You see a mud school diploma here.
     weight: 1
@@ -455,25 +440,24 @@ items:
         modifier: 1
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        
-        Hatchet the Silver Knight
-        Merc Industries
-        ~
-        A
-        5 1
-        A
-        4 1
-      type_line: 8 64 1|16384
-      extra_desc: |
-        This document shows that you have graduated from Mud School.
-        It also has magical effects on your abilities if you hold it!
-        
-        Hatchet the Silver Knight
-        Merc Industries
+    legacy_type_line: 8 64 1|16384
+    legacy_raw: |
+      
+      Hatchet the Silver Knight
+      Merc Industries
+      ~
+      A
+      5 1
+      A
+      4 1
+    extra_desc: |
+      This document shows that you have graduated from Mud School.
+      It also has magical effects on your abilities if you hold it!
+      
+      Hatchet the Silver Knight
+      Merc Industries
   - id: 3716
-    key: banner
+    key: banner_3716
     name: a war banner
     description: A war banner is on the floor here.
     weight: 1
@@ -490,15 +474,14 @@ items:
         modifier: -1
       - location: 17
         modifier: -1
-    template_json:
-      raw_block: |
-        E
-        banner~
-        This is the official Merc war banner to see you through the darkest realm!
-        ~
-        A
-        24 -1
-        A
-        17 -1
-      type_line: 1 1|64 1
-      extra_desc: This is the official Merc war banner to see you through the darkest realm!
+    legacy_type_line: 1 1|64 1
+    legacy_raw: |
+      E
+      banner~
+      This is the official Merc war banner to see you through the darkest realm!
+      ~
+      A
+      24 -1
+      A
+      17 -1
+    extra_desc: This is the official Merc war banner to see you through the darkest realm!

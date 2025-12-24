@@ -1,0 +1,297 @@
+- id: 300
+  key: |
+  aruncus_the_druid:
+  name: |
+  druid_Aruncus:
+  short_desc: |
+  Aruncus_the_Druid:
+  long_desc: |
+  Aruncus_the_Druid_is_walking_around_here_searching_for_herbs:
+  keywords: ['druid', 'Aruncus']
+  level: 192
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 301
+  key: |
+  sorbus_the_hermit:
+  name: |
+  hermit_sorbus:
+  short_desc: |
+  Sorbus_the_Hermit:
+  long_desc: |
+  Sorbus_the_Hermit_is_sitting_here_roasting_a_rabbit:
+  keywords: ['hermit', 'sorbus']
+  level: 2
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 303
+  key: |
+  the_citizen:
+  name: |
+  citizen:
+  short_desc: |
+  the_citizen:
+  long_desc: |
+  There_is_a_citizen_of_Ofcol_here_glaring_at_you__stranger:
+  keywords: ['citizen']
+  level: 68
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 304
+  key: |
+  the_citizen:
+  name: |
+  citizen:
+  short_desc: |
+  the_citizen:
+  long_desc: |
+  There_is_a_citizen_of_Ofcol_here_glaring_at_you__stranger:
+  keywords: ['citizen']
+  level: 68
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 305
+  key: |
+  shudde_m_ell:
+  name: |
+  worm_Shudde-Mell:
+  short_desc: |
+  Shudde-Mell:
+  long_desc: |
+  Shudde-Mell_the_Giant_worm_of_Gharne_is_guarding_his_treasure:
+  keywords: ['worm', "Shudde-M'ell"]
+  level: 15
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 306
+  key: |
+  luxan:
+  name: |
+  luxan_shopkeeper:
+  short_desc: |
+  Luxan:
+  long_desc: |
+  Luxan_the_Shopkeeper_is_here_eager_to_sell_you_anything:
+  keywords: ['luxan', 'shopkeeper']
+  level: 7
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 308
+  key: |
+  the_innkeeper:
+  name: |
+  keeper_innkeeper:
+  short_desc: |
+  the_Innkeeper:
+  long_desc: |
+  An_Innkeeper_is_here_waiting_for_your_order:
+  keywords: ['keeper', 'innkeeper']
+  level: 3
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 309
+  key: |
+  the_cute_rabbit:
+  name: |
+  rabbit:
+  short_desc: |
+  the_cute_rabbit:
+  long_desc: |
+  A_cute_rabbit_is_here:
+  keywords: ['rabbit']
+  level: 64
+  hp_max: 3
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 350
+  key: |
+  the_pet_dragon:
+  name: |
+  dragon_pet:
+  short_desc: |
+  the_pet_dragon:
+  long_desc: |
+  Ravans_pet_dragon_is_bouncing_around_here_flapping_her_cute_wings:
+  keywords: ['dragon', 'pet']
+  level: 3
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

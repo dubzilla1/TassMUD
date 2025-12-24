@@ -1,0 +1,292 @@
+- id: 6600
+  key: the_dwarven_youth
+  name: the dwarven youth
+  short_desc: A young dwarf plays with a toy axe.
+  long_desc: |
+    This is a young but not totally harmless creature.
+  keywords: ['youth', 'dwarven', 'dwarf']
+  level: 68
+  hp_max: 32
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -5 S 3 17 6 1d4+30 1d4+3 50 400 6 8 1
+
+- id: 6601
+  key: a_teddy_bear
+  name: a teddy bear
+  short_desc: A cute and fuzzy teddy bear stands here.
+  long_desc: |
+    This is a tiny little bear with a heart on his chest.
+  keywords: ['teddy', 'bear']
+  level: 68
+  hp_max: 15
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 500 S 1 19 9 1d10+10 1d4+1 75 75 8 8 1
+
+- id: 6602
+  key: a_raggedy_anne_doll
+  name: a raggedy anne doll
+  short_desc: A raggedy anne doll is sitting here.
+  long_desc: |
+    You see a small little cute rag doll.
+  keywords: ['doll', 'raggedy', 'anne']
+  level: 68
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 19
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 300 S 2 18 9 2d5+19 1d5+1 250 200 6 8 1
+
+- id: 6603
+  key: a_toy_soldier
+  name: a toy soldier
+  short_desc: A toy soldier is standing here.
+  long_desc: |
+    The toy is looking for target practice.
+  keywords: ['soldier', 'toy']
+  level: 68
+  hp_max: 35
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 26
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -300 S 3 18 7 3d5+26 2d3+2 400 300 8 8 1
+
+- id: 6604
+  key: the_ugly_bear
+  name: the ugly bear
+  short_desc: An ugly stuffed bear stands here.
+  long_desc: |
+    This is obviously a reject from the factory.
+    He snarls and growls at you.
+  keywords: ['bear', 'ugly']
+  level: 68
+  hp_max: 32
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -400 S 3 17 6 3d4+25 1d5+2 100 300 8 8 1
+
+- id: 6605
+  key: an_old_doll
+  name: an old doll
+  short_desc: An abused and old doll is here.
+  long_desc: |
+    This doll has been hugged and played with until there is almost nothing left.
+  keywords: ['doll', 'old']
+  level: 68
+  hp_max: 6
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -2 S 1 20 10 1d10+1 1d4+2 50 50 8 8 0
+
+- id: 6606
+  key: the_nanny
+  name: the nanny
+  short_desc: An old wrinkled nanny stands here, looking over the little ones.
+  long_desc: |
+    You see an old dwarven lady who has been hunched over with age.  However, it
+    appears that there is still some fight left in her.
+  keywords: ['nanny']
+  level: 64
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 10 S 5 16 6 4d4+50 1d8+2 750 750 8 8 2
+
+- id: 6607
+  key: the_armed_guard
+  name: the armed guard
+  short_desc: An armed guard stands here looking lost.
+  long_desc: |
+    This is a big mean bully who is tired of being lost in this maze.
+    You suddenly think that you had better flee.
+  keywords: ['guard']
+  level: 70
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 70 8 -800 S 8 9 2 3d10+100 3d5+2 2000 2000 8 8 1
+
+- id: 6608
+  key: the_spoiled_brat
+  name: the spoiled brat
+  short_desc: A spoiled brat is crying here.
+  long_desc: |
+    You see a little tyke who has always gotten what he wanted.  You have the
+    biggest urge to put him out of his misery.
+  keywords: ['brat', 'spoiled']
+  level: 70
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 15
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 70 0 -400 S 1 18 9 2d4+15 2d2+1 2000 50 8 8 1
+

@@ -1,0 +1,264 @@
+- id: 2101
+  key: |
+  a_gang_member:
+  name: |
+  ogre_gang_member:
+  short_desc: |
+  a_gang_member:
+  long_desc: |
+  A_member_of_the_Ogres_wanders_about_here:
+  keywords: ['ogre', 'gang', 'member']
+  level: 84
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2102
+  key: |
+  a_gang_member:
+  name: |
+  troll_gang_member:
+  short_desc: |
+  a_gang_member:
+  long_desc: |
+  A_member_of_the_Trolls_wanders_about_here:
+  keywords: ['troll', 'gang', 'member']
+  level: 84
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2103
+  key: |
+  the_gang_leader:
+  name: |
+  gang_leader:
+  short_desc: |
+  the_gang_leader:
+  long_desc: |
+  The_gang_leader_is_not_pleased_you_found_his_hideout:
+  keywords: ['gang', 'leader']
+  level: 98
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2104
+  key: |
+  a_bruiser:
+  name: |
+  bruiser:
+  short_desc: |
+  a_bruiser:
+  long_desc: |
+  A_big_mean_bruiser_is_looking_for_limbs_to_break:
+  keywords: ['bruiser']
+  level: 6
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2105
+  key: |
+  a_doll:
+  name: |
+  doll:
+  short_desc: |
+  a_doll:
+  long_desc: |
+  A_gang_doll_looks_naughty_and_nice:
+  keywords: ['doll']
+  level: 212
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 21200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2106
+  key: |
+  a_patrolman:
+  name: |
+  patrolman_patrol_man:
+  short_desc: |
+  a_patrolman:
+  long_desc: |
+  A_patrolman_is_trying_to_keep_the_peace:
+  keywords: ['patrolman', 'patrol', 'man']
+  level: 64
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2107
+  key: |
+  a_vandal:
+  name: |
+  vandal:
+  short_desc: |
+  a_vandal:
+  long_desc: |
+  A_vandal_is_spray_painting_pro-gang_slogans_on_the_wall_here:
+  keywords: ['vandal']
+  level: 128
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2108
+  key: |
+  a_pitbull:
+  name: |
+  dog_pit_bull_pitbull:
+  short_desc: |
+  a_pitbull:
+  long_desc: |
+  A_vicious_pitbull_is_foaming_at_the_mouth_in_rabid_anticipation:
+  keywords: ['dog', 'pit', 'bull', 'pitbull']
+  level: 98
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

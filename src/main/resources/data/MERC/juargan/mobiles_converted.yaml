@@ -1,0 +1,305 @@
+- id: 4700
+  key: the_small_dwarf
+  name: the small dwarf
+  short_desc: A small dwarf is here mining at the tunnel walls.
+  long_desc: |
+    The small dwarf is dirty and dressed only in a small tunic and leggings.  His
+    beard is encrusted with cracked rock and dust from the tunnel walls.
+  keywords: ['dwarf']
+  level: 4
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 500 S 7 13 3 1d10+150 1d8+0 50 1600 8 8 1
+
+- id: 4701
+  key: the_small_dwarf
+  name: the small dwarf
+  short_desc: A small dwarf is here, on the watch for Duergar.
+  long_desc: |
+    The small dwarf is dressed in colorful clothing and has a full and long beard.
+    His eyes are keen and sharp, well suited for sight in the dark tunnels of the
+    mines.
+  keywords: ['dwarf']
+  level: 4
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 500 S 5 18 5 1d12+60 1d8+0 100 900 8 8 1
+
+- id: 4702
+  key: the_dwarf_guard
+  name: the dwarf guard
+  short_desc: A small dwarf is here, dressed in a makeshift suit of armor.
+  long_desc: |
+    This small dwarf is the militia of the Dwarven Kingdom it watches over.  The
+    small body is strong which makes him a match for any foe.  The armor of the
+    dwarf is of no use to anyone but him, but provides adequate defense.
+  keywords: ['dwarf', 'guard']
+  level: 2
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 700 S 10 10 0 1d12+170 1d8+6 150 3500 8 8 1
+
+- id: 4703
+  key: yentle_the_dwarf
+  name: Yentle the dwarf
+  short_desc: A small dwarf sits here trying to grow a new rock.
+  long_desc: |
+    The insane little dwarf who thinks he can grow a rock.  He is dressed in many
+    yellows and oranges, and seems to have a happy look about him despite his years
+    of failure at growing rocks.
+  keywords: ['dwarf', 'yentle']
+  level: 4
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 8 1000 S 10 11 2 10d10+100 2d6+1 300 9000 6 6 1
+
+- id: 4704
+  key: juargan_the_dwarven_king
+  name: Juargan the Dwarven King
+  short_desc: Juargan the Dwarven King sits here upon his throne, looking out over his gardens.
+  long_desc: |
+    The small king is bulging at the seems with muscle.  He is dressed in nothing
+    but a noble robe made of a grey silk.  His face has a visage of stone like his
+    surroundings, as if his burden has become to much for him.
+  keywords: ['juargan', 'dwarf', 'king']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 8 1000 S 27 -1 -10 27d27+270 3d6+9 1000 90000 6 6 1
+
+- id: 4705
+  key: the_duergar_dwarf
+  name: the duergar dwarf
+  short_desc: A repulsive Duergar is here, biting at its own arm.
+  long_desc: |
+    The Duergar are the outcast dark dwarves.  They have grown insane through
+    their isolation from the rest of the dwarven population and have become bitter
+    enemies with them.
+  keywords: ['duergar', 'dwarf']
+  level: 36
+  hp_max: 161
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 8 -1000 S 8 13 3 2d10+150 2d4+0 100 2900 8 8 1
+
+- id: 4706
+  key: grimdale_the_ancient_king
+  name: Grimdale the ancient king
+  short_desc: A ancient and partially decayed dwarf lies here ever so silent.
+  long_desc: |
+    The ancient king of the dwarves lies here.  Forgotten over the past decades
+    his once cherished body has fallen into utter decay.  His once cheery face has
+    turned into a crude scowl as you can feel that his soul is not at ease.
+  keywords: ['grimdale', 'king', 'dwarf']
+  level: 34
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 40 -999 S 27 -1 -10 27d27+270 2d10+9 0 100000 8 8 1
+
+- id: 4707
+  key: the_dreaded_rock_worm
+  name: The dreaded rock worm
+  short_desc: The dreaded rock worm has blasted through the rock wall, its jaws open wide!
+  long_desc: |
+    The jaws of this strange beast are large enough to fit at lease two dwarves
+    into.  Judging by the size you can see that is has been eating quite a few too
+    many dwarves as it's body is at least five feet in diameter.
+  keywords: ['rock', 'worm', 'dreaded']
+  level: 34
+  hp_max: 272
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 0 S 20 10 5 4d10+250 3d4+6 4000 28000 8 8 0
+
+- id: 4708
+  key: a_dwarven_spirit
+  name: a dwarven spirit
+  short_desc: A small dwarven spirit is at unrest here.
+  long_desc: |
+    The small spirit screams in agony as it is bound to this wretched existence.
+    The soul of some unfortunate dwarf now has to fly aimlessly through this chamber
+    of eternal pain.
+  keywords: ['spirit', 'dwarf']
+  level: 34
+  hp_max: 177
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 168 -999 S 15 6 1 5d10+150 2d6+3 0 28000 8 8 0
+

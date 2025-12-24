@@ -1,0 +1,1122 @@
+- id: 2300
+  key: |
+  the_dark_ethereal_knight:
+  name: |
+  knight_ethereal_dark:
+  short_desc: |
+  the_Dark_Ethereal_Knight:
+  long_desc: |
+  A_dark_ethereal_knight_hovers_over_the_bloody_clearing:
+  keywords: ['knight', 'ethereal', 'dark']
+  level: 2
+  hp_max: 625
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2301
+  key: |
+  the_old_treant:
+  name: |
+  treant_tree:
+  short_desc: |
+  the_Old_Treant:
+  long_desc: |
+  A_huge_gnarled_tree_stands_here_battered_by_age_and_nature:
+  keywords: ['treant', 'tree']
+  level: 2
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2302
+  key: |
+  the_cave_dweller:
+  name: |
+  dweller_cave:
+  short_desc: |
+  the_Cave_Dweller:
+  long_desc: |
+  A_slimy_gross_creature_is_here_munching_on_a_corpse:
+  keywords: ['dweller', 'cave']
+  level: 2
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2303
+  key: |
+  the_rock_toad:
+  name: |
+  toad_rock:
+  short_desc: |
+  the_Rock_Toad:
+  long_desc: |
+  A_rather_large_rock_toad_sits_here_croaking_loudly:
+  keywords: ['toad', 'rock']
+  level: 2
+  hp_max: 185
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2304
+  key: |
+  the_weeping_willow:
+  name: |
+  weeping_willow_tree:
+  short_desc: |
+  the_Weeping_Willow:
+  long_desc: |
+  A_large_willow_tree_stands_here_weeping:
+  keywords: ['weeping', 'willow', 'tree']
+  level: 2
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2305
+  key: |
+  the_mistling:
+  name: |
+  mist_mistling:
+  short_desc: |
+  the_Mistling:
+  long_desc: |
+  A_mistling_emerges_from_the_mist_surrounding_you:
+  keywords: ['mist', 'mistling']
+  level: 34
+  hp_max: 220
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2306
+  key: |
+  the_swamp_wraith:
+  name: |
+  swamp_wraith:
+  short_desc: |
+  the_Swamp_Wraith:
+  long_desc: |
+  A_swamp_wraith_emerges_from_the_mist_here:
+  keywords: ['swamp', 'wraith']
+  level: 38
+  hp_max: 275
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2307
+  key: |
+  the_ogre_villager:
+  name: |
+  ogre_villager:
+  short_desc: |
+  the_Ogre_Villager:
+  long_desc: |
+  The_ogre_villager_is_here_going_about_its_chores:
+  keywords: ['ogre', 'villager']
+  level: 192
+  hp_max: 120
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2308
+  key: |
+  the_ogre_warrior:
+  name: |
+  warrior_ogre:
+  short_desc: |
+  the_Ogre_Warrior:
+  long_desc: |
+  The_ogre_warrior_stands_here_growling_fiercely:
+  keywords: ['warrior', 'ogre']
+  level: 228
+  hp_max: 200
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2309
+  key: |
+  the_ogre_guard:
+  name: |
+  guard_ogre:
+  short_desc: |
+  the_Ogre_Guard:
+  long_desc: |
+  The_ogre_guard_is_here_manning_his_post_faithfully:
+  keywords: ['guard', 'ogre']
+  level: 102
+  hp_max: 250
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2310
+  key: |
+  the_ogre_shaman:
+  name: |
+  shaman_ogre:
+  short_desc: |
+  The_Ogre_Shaman:
+  long_desc: |
+  The_ogre_shaman_is_here_chanting_arcane_words_and_waving_his_arms:
+  keywords: ['shaman', 'ogre']
+  level: 230
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2311
+  key: |
+  the_ogre_chieftain:
+  name: |
+  chief_chieftain_ogre:
+  short_desc: |
+  the_Ogre_Chieftain:
+  long_desc: |
+  The_ogre_chieftain_is_here_observing_his_subjects:
+  keywords: ['chief', 'chieftain', 'ogre']
+  level: 230
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2312
+  key: |
+  the_plains_barbarian:
+  name: |
+  barbarian:
+  short_desc: |
+  the_Plains_Barbarian:
+  long_desc: |
+  A_plains_barbarian_is_here_clad_in_heavy_furs:
+  keywords: ['barbarian']
+  level: 230
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2313
+  key: |
+  the_white_yeti:
+  name: |
+  yeti_white:
+  short_desc: |
+  the_White_Yeti:
+  long_desc: |
+  The_white_yeti_crouches_here_snarling:
+  keywords: ['yeti', 'white']
+  level: 230
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2314
+  key: |
+  the_ice_worm:
+  name: |
+  worm_ice_iceworm:
+  short_desc: |
+  the_Ice_Worm:
+  long_desc: |
+  A_huge_ice_worm_burrows_through_the_ice_and_snow_here_It_rears_up_andnattacks:
+  keywords: ['worm', 'ice', 'iceworm']
+  level: 50
+  hp_max: 325
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 5000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2315
+  key: |
+  the_minotaur_citizen:
+  name: |
+  citizen_minotaur:
+  short_desc: |
+  the_Minotaur_Citizen:
+  long_desc: |
+  A_minotaur_citizen_is_here_hurrying_through_the_icy_streets:
+  keywords: ['citizen', 'minotaur']
+  level: 198
+  hp_max: 190
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2316
+  key: |
+  the_minotaur_guard:
+  name: |
+  guard_minotaur:
+  short_desc: |
+  the_Minotaur_Guard:
+  long_desc: |
+  A_minotaur_guard_catches_you_trespassing_and_attacks:
+  keywords: ['guard', 'minotaur']
+  level: 102
+  hp_max: 440
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2317
+  key: |
+  the_minotaur_warrior:
+  name: |
+  warrior_minotaur:
+  short_desc: |
+  the_Minotaur_Warrior:
+  long_desc: |
+  A_minotaur_warrior_is_here_looking_for_intruders:
+  keywords: ['warrior', 'minotaur']
+  level: 4
+  hp_max: 350
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2318
+  key: |
+  the_minotaur_gatekeeper:
+  name: |
+  minotaur_gatekeeper:
+  short_desc: |
+  the_Minotaur_Gatekeeper:
+  long_desc: |
+  A_minotaur_is_here_guarding_the_Keep_of_Mahn-Tor:
+  keywords: ['minotaur', 'gatekeeper']
+  level: 70
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2319
+  key: |
+  the_high_minotaur_guard:
+  name: |
+  minotaur_high_guard:
+  short_desc: |
+  the_High_Minotaur_Guard:
+  long_desc: |
+  The_minotaur_high_guard_is_here_guarding_the_Keep:
+  keywords: ['minotaur', 'high', 'guard']
+  level: 102
+  hp_max: 620
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2320
+  key: |
+  the_royal_minotaur_guard:
+  name: |
+  minotaur_royal_guard:
+  short_desc: |
+  the_Royal_Minotaur_Guard:
+  long_desc: |
+  The_royal_minotaur_guard_considers_you_an_intruder_and_attacks:
+  keywords: ['minotaur', 'royal', 'guard']
+  level: 102
+  hp_max: 700
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2321
+  key: |
+  the_elite_minotaur_guard:
+  name: |
+  guard_minotaur_elite:
+  short_desc: |
+  the_Elite_Minotaur_Guard:
+  long_desc: |
+  The_elite_minotaur_guard_sees_you_and_attacks:
+  keywords: ['guard', 'minotaur', 'elite']
+  level: 102
+  hp_max: 850
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2322
+  key: |
+  the_harem_girl:
+  name: |
+  girl_haremgirl_harem_slave:
+  short_desc: |
+  the_Harem_Girl:
+  long_desc: |
+  A_harem_girl_cowers_here_in_fear:
+  keywords: ['girl', 'haremgirl', 'harem', 'slave']
+  level: 198
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2323
+  key: |
+  the_minotaur_butler:
+  name: |
+  butler_minotaur:
+  short_desc: |
+  the_Minotaur_Butler:
+  long_desc: |
+  A_minotaur_butler_stands_here_rigidly_awaiting_orders:
+  keywords: ['butler', 'minotaur']
+  level: 198
+  hp_max: 253
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 247
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2324
+  key: |
+  the_minotaur_ring_keeper:
+  name: |
+  keeper_minotaur_ring-keeper:
+  short_desc: |
+  the_Minotaur_Ring-Keeper:
+  long_desc: |
+  The_minotaur_ring-keeper_stands_guarding_his_post:
+  keywords: ['keeper', 'minotaur', 'ring-keeper']
+  level: 70
+  hp_max: 900
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2325
+  key: |
+  gorak:
+  name: |
+  gorak_minotaur_warrior_master:
+  short_desc: |
+  Gorak:
+  long_desc: |
+  Gorak_the_Minotaur_Master_Warrior_is_here_practicing_his_skills:
+  keywords: ['gorak', 'minotaur', 'warrior', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2326
+  key: |
+  darkoth:
+  name: |
+  darkoth_minotaur_anti-paladin_master:
+  short_desc: |
+  Darkoth:
+  long_desc: |
+  Darkoth_the_minotaur_anti-paladin_stands_here_grinning_wickedly:
+  keywords: ['darkoth', 'minotaur', 'anti-paladin', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2327
+  key: |
+  tyrgoth:
+  name: |
+  tyrgoth_minotaur_paladin_master:
+  short_desc: |
+  Tyrgoth:
+  long_desc: |
+  Tyrgoth_the_minotaur_paladin_is_here_worshipping_silently:
+  keywords: ['tyrgoth', 'minotaur', 'paladin', 'master']
+  level: 2
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2328
+  key: |
+  amyrok:
+  name: |
+  amyrok_minotaur_mage_master:
+  short_desc: |
+  Amyrok:
+  long_desc: |
+  Amyrok_the_minotaur_archmage_is_here_chanting_arcane_spells:
+  keywords: ['amyrok', 'minotaur', 'mage', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2329
+  key: |
+  sumaron:
+  name: |
+  sumaron_minotaur_cleric_master:
+  short_desc: |
+  Sumaron:
+  long_desc: |
+  Sumaron_master_cleric_of_Mahn-Tor_is_here_looking_holy:
+  keywords: ['sumaron', 'minotaur', 'cleric', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2330
+  key: |
+  nasturn:
+  name: |
+  nasturn_minotaur_druid_master:
+  short_desc: |
+  Nasturn:
+  long_desc: |
+  Nasturn_the_minotaur_druid_is_here_studying_the_arts_of_nature:
+  keywords: ['nasturn', 'minotaur', 'druid', 'master']
+  level: 2
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2331
+  key: |
+  belrak:
+  name: |
+  belrak_minotaur_ranger_master:
+  short_desc: |
+  Belrak:
+  long_desc: |
+  Belrak_the_minotaur_ranger_looks_unhappy_about_having_visitors:
+  keywords: ['belrak', 'minotaur', 'ranger', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2332
+  key: |
+  dorgar:
+  name: |
+  dorgar_minotaur_thief_master:
+  short_desc: |
+  Dorgar:
+  long_desc: |
+  Dorgar_the_minotaur_thief_is_here_hiding_in_the_shadows:
+  keywords: ['dorgar', 'minotaur', 'thief', 'master']
+  level: 38
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 2333
+  key: |
+  mahn_tor:
+  name: |
+  mahn-tor_minotaur_grand_master:
+  short_desc: |
+  Mahn-Tor:
+  long_desc: |
+  Mahn-Tor_the_minotaur_grand_master_is_here_looking_down_at_you:
+  keywords: ['mahn-tor', 'minotaur', 'grand', 'master']
+  level: 6
+  hp_max: 3500
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

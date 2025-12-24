@@ -1,26 +1,27 @@
 items:
   - id: 8901
-    key: closet
+    key: closet_8901
     name: a closet
     description: There is a wooden closet tucked into a corner.
     weight: 500
     value: 0
-    type: container
+    types:
+      - container
+      - immobile
     keywords: [closet]
-    template_json:
-      raw_block: |
-        ~
-        15 0 0
-        100 1 -1 0
-        500 0 0
-        E
-        closet~
-        It is large, yet gracefully made, obviously of Scandinavian design.
-        ~
-      type_line: 15 0 0
-      extra_desc: It is large, yet gracefully made, obviously of Scandinavian design.
+    legacy_type_line: 15 0 0
+    legacy_raw: |
+      ~
+      15 0 0
+      100 1 -1 0
+      500 0 0
+      E
+      closet~
+      It is large, yet gracefully made, obviously of Scandinavian design.
+      ~
+    extra_desc: It is large, yet gracefully made, obviously of Scandinavian design.
   - id: 8902
-    key: jar
+    key: jar_8902
     name: a spice jar
     description: A small unlabeled spice jar is standing here.
     weight: 1
@@ -29,19 +30,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [jar]
-    template_json:
-      raw_block: |
-        #8902
-        jar~
-        a spice jar~
-        A small unlabeled spice jar is standing here.~
-        ~
-        15 0 1
-        5 5 -1 0
-        1 10 10
-      type_line: 15 0 1
+    legacy_type_line: 15 0 1
+    legacy_raw: |
+      #8902
+      jar~
+      a spice jar~
+      A small unlabeled spice jar is standing here.~
+      ~
+      15 0 1
+      5 5 -1 0
+      1 10 10
   - id: 8903
-    key: powder_black
+    key: powder_black_8903
     name: some black powder
     description: Some strong-smelling black powder has been carelessly scattered here.
     weight: 1
@@ -50,25 +50,24 @@ items:
     wear_flags:
       - TAKE
     keywords: [powder, black]
-    template_json:
-      raw_block: |
-        E
-        powder~
-            *        *         *
-              *      *       *
-        ****   AAAHHHH-TSHOU!   ****
-              *      *       *
-            *        *         *
-        ~
-      type_line: 19 0 1
-      extra_desc: |
-        *        *         *
-              *      *       *
-        ****   AAAHHHH-TSHOU!   ****
-              *      *       *
-            *        *         *
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      E
+      powder~
+          *        *         *
+            *      *       *
+      ****   AAAHHHH-TSHOU!   ****
+            *      *       *
+          *        *         *
+      ~
+    extra_desc: |
+      *        *         *
+            *      *       *
+      ****   AAAHHHH-TSHOU!   ****
+            *      *       *
+          *        *         *
   - id: 8904
-    key: kernel_kernels
+    key: kernel_kernels_8904
     name: some small yellow kernels
     description: Some small yellow kernels have been accidentally left here.
     weight: 1
@@ -78,20 +77,19 @@ items:
       - TAKE
       - HOLD
     keywords: [kernel, kernels]
-    template_json:
-      raw_block: |
-        ~
-        19 0 16385
-        1 0 0 0
-        1 10 10
-        E
-        kernel kernels~
-        Look fairly dull...
-        ~
-      type_line: 19 0 16385
-      extra_desc: Look fairly dull...
+    legacy_type_line: 19 0 16385
+    legacy_raw: |
+      ~
+      19 0 16385
+      1 0 0 0
+      1 10 10
+      E
+      kernel kernels~
+      Look fairly dull...
+      ~
+    extra_desc: Look fairly dull...
   - id: 8905
-    key: paper_wad
+    key: paper_wad_8905
     name: a crumpled wad of paper
     description: There is a crumpled wad of paper here, left behind by some messy bypasser.
     weight: 1
@@ -101,51 +99,50 @@ items:
       - TAKE
       - HOLD
     keywords: [paper, wad]
-    template_json:
-      raw_block: |
-        o    ACT : URGENT              T:   IMMEDIATE                         o
-        o                                                                     o
-        o    INTRUDERS DETECTED IN MAIN MATRIX... DIRECTIVE SEARCH AND        o
-        o    ELIMINATE...                                                     o
-        o    .                                                                o
-        o    .                                                                o
-        o                                                                     o
-        ~
-      type_line: 13 0 16385
-      extra_desc: |
-        It looks old and worn, but You can still make out a faint lettering on it, 
-        written in a strange, alien hand:
-        
-        o    WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!   o
-        o                                                                     o
-        o    MSGS: MATRIX CONTROL      TO   SUBSYSTEMS/<ALL>                  o
-        o    ACT : REQUIRED            T:   NOW                               o
-        o                                                                     o
-        o    RECENT DATAQUAKE EVALUATED... EVALUATION FOLLOWS...              o
-        o    MASSIVE SEGMENTATION HAS OCCURRED... ALL SUBSIDIARY SECTORS      o
-        o    SHUTDOWN... CENTRAL SHUTDOWN: AUTOMATICS ENGAGED...              o
-        o                                                                     o
-        o    DATALEAK DETECTED... DIRECTION:FOREIGN VIRTUAL REALITY, CODENAME o
-        o    ASSIGNED: 'Midgaard'...                                          o
-        o    SPECIFIC LOCATION: UNCERTAIN, BEING WITHIN 'Midgaard' SUBSECTOR  o
-        o    CODENAME ASSIGNED: 'Holy Grove'...                               o
-        o    BEWARE INTRUSIONS POSSIBLE. ADVISE EXTREME CAUTION...            o
-        o    .                                                                o
-        o    .                                                                o
-        o    .                                                                o
-        o                                                                     o
-        o    MSGS: MATRIX CONTROL      TO   SUBSYSTEMS/<Sark>                 o
-        o                                              <101110101101>         o
-        o                                              <1101111010101101>     o
-        o    ACT : URGENT              T:   IMMEDIATE                         o
-        o                                                                     o
-        o    INTRUDERS DETECTED IN MAIN MATRIX... DIRECTIVE SEARCH AND        o
-        o    ELIMINATE...                                                     o
-        o    .                                                                o
-        o    .                                                                o
-        o                                                                     o
+    legacy_type_line: 13 0 16385
+    legacy_raw: |
+      o    ACT : URGENT              T:   IMMEDIATE                         o
+      o                                                                     o
+      o    INTRUDERS DETECTED IN MAIN MATRIX... DIRECTIVE SEARCH AND        o
+      o    ELIMINATE...                                                     o
+      o    .                                                                o
+      o    .                                                                o
+      o                                                                     o
+      ~
+    extra_desc: |
+      It looks old and worn, but You can still make out a faint lettering on it, 
+      written in a strange, alien hand:
+      
+      o    WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!   o
+      o                                                                     o
+      o    MSGS: MATRIX CONTROL      TO   SUBSYSTEMS/<ALL>                  o
+      o    ACT : REQUIRED            T:   NOW                               o
+      o                                                                     o
+      o    RECENT DATAQUAKE EVALUATED... EVALUATION FOLLOWS...              o
+      o    MASSIVE SEGMENTATION HAS OCCURRED... ALL SUBSIDIARY SECTORS      o
+      o    SHUTDOWN... CENTRAL SHUTDOWN: AUTOMATICS ENGAGED...              o
+      o                                                                     o
+      o    DATALEAK DETECTED... DIRECTION:FOREIGN VIRTUAL REALITY, CODENAME o
+      o    ASSIGNED: 'Midgaard'...                                          o
+      o    SPECIFIC LOCATION: UNCERTAIN, BEING WITHIN 'Midgaard' SUBSECTOR  o
+      o    CODENAME ASSIGNED: 'Holy Grove'...                               o
+      o    BEWARE INTRUSIONS POSSIBLE. ADVISE EXTREME CAUTION...            o
+      o    .                                                                o
+      o    .                                                                o
+      o    .                                                                o
+      o                                                                     o
+      o    MSGS: MATRIX CONTROL      TO   SUBSYSTEMS/<Sark>                 o
+      o                                              <101110101101>         o
+      o                                              <1101111010101101>     o
+      o    ACT : URGENT              T:   IMMEDIATE                         o
+      o                                                                     o
+      o    INTRUDERS DETECTED IN MAIN MATRIX... DIRECTIVE SEARCH AND        o
+      o    ELIMINATE...                                                     o
+      o    .                                                                o
+      o    .                                                                o
+      o                                                                     o
   - id: 8910
-    key: staff_wooden
+    key: staff_wooden_8910
     name: a wooden staff
     description: You see a wooden staff on the floor.
     weight: 5
@@ -162,20 +159,19 @@ items:
       - TAKE
       - WIELD
     keywords: [staff, wooden]
-    template_json:
-      raw_block: |
-        ~
-        5 1024 1|8192
-        0 3 3 7
-        5 50 50
-        E
-        staff wooden~
-        This oaken staff is very hefty but balanced.
-        ~
-      type_line: 5 1024 1|8192
-      extra_desc: This oaken staff is very hefty but balanced.
+    legacy_type_line: 5 1024 1|8192
+    legacy_raw: |
+      ~
+      5 1024 1|8192
+      0 3 3 7
+      5 50 50
+      E
+      staff wooden~
+      This oaken staff is very hefty but balanced.
+      ~
+    extra_desc: This oaken staff is very hefty but balanced.
   - id: 8911
-    key: robe_brown_cloth
+    key: robe_brown_cloth_8911
     name: a brown robe
     description: Some brown cloth is on the floor.
     weight: 5
@@ -192,20 +188,19 @@ items:
     applies:
       - location: 12
         modifier: 10
-    template_json:
-      raw_block: |
-        6 0 0 0
-        5 60 60
-        E
-        robe brown cloth~
-        This robe is rough, but appears quite durable.
-        ~
-        A
-        12 10
-      type_line: 9 1024 1|8
-      extra_desc: This robe is rough, but appears quite durable.
+    legacy_type_line: 9 1024 1|8
+    legacy_raw: |
+      6 0 0 0
+      5 60 60
+      E
+      robe brown cloth~
+      This robe is rough, but appears quite durable.
+      ~
+      A
+      12 10
+    extra_desc: This robe is rough, but appears quite durable.
   - id: 8913
-    key: herbs
+    key: herbs_8913
     name: some bluish herbs
     description: Some bluish herbs are scattered here.
     weight: 1
@@ -214,19 +209,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #8913
-        herbs~
-        some bluish herbs~
-        Some bluish herbs are scattered here.~
-        ~
-        26 0 1
-        15 0 0 3
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #8913
+      herbs~
+      some bluish herbs~
+      Some bluish herbs are scattered here.~
+      ~
+      26 0 1
+      15 0 0 3
+      1 1 1
   - id: 8914
-    key: herbs
+    key: herbs_8914
     name: some purplish herbs
     description: Some purplish herbs are scattered here.
     weight: 1
@@ -235,19 +229,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #8914
-        herbs~
-        some purplish herbs~
-        Some purplish herbs are scattered here.~
-        ~
-        26 0 1
-        15 0 0 82
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #8914
+      herbs~
+      some purplish herbs~
+      Some purplish herbs are scattered here.~
+      ~
+      26 0 1
+      15 0 0 82
+      1 1 1
   - id: 8915
-    key: herbs
+    key: herbs_8915
     name: some blackish herbs
     description: Some blackish herbs are scattered here.
     weight: 1
@@ -256,19 +249,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #8915
-        herbs~
-        some blackish herbs~
-        Some blackish herbs are scattered here.~
-        ~
-        26 0 1
-        5 0 0 4
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #8915
+      herbs~
+      some blackish herbs~
+      Some blackish herbs are scattered here.~
+      ~
+      26 0 1
+      5 0 0 4
+      1 1 1
   - id: 8916
-    key: herbs
+    key: herbs_8916
     name: some grayish herbs
     description: Some grayish herbs are scattered here.
     weight: 1
@@ -277,19 +269,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #8916
-        herbs~
-        some grayish herbs~
-        Some grayish herbs are scattered here.~
-        ~
-        26 0 1
-        5 0 39 33
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #8916
+      herbs~
+      some grayish herbs~
+      Some grayish herbs are scattered here.~
+      ~
+      26 0 1
+      5 0 39 33
+      1 1 1
   - id: 8917
-    key: herbs
+    key: herbs_8917
     name: some reddish herbs
     description: Some reddish herbs are scattered here.
     weight: 1
@@ -298,19 +289,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #8917
-        herbs~
-        some reddish herbs~
-        Some reddish herbs are scattered here.~
-        ~
-        26 0 1
-        15 0 0 20
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #8917
+      herbs~
+      some reddish herbs~
+      Some reddish herbs are scattered here.~
+      ~
+      26 0 1
+      15 0 0 20
+      1 1 1
   - id: 8918
-    key: herbs
+    key: herbs_8918
     name: some orangish herbs
     description: Some orangish herbs are scattered here.
     weight: 1
@@ -319,19 +309,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #8918
-        herbs~
-        some orangish herbs~
-        Some orangish herbs are scattered here.~
-        ~
-        26 0 1
-        5 0 0 16
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #8918
+      herbs~
+      some orangish herbs~
+      Some orangish herbs are scattered here.~
+      ~
+      26 0 1
+      5 0 0 16
+      1 1 1
   - id: 8919
-    key: herbs
+    key: herbs_8919
     name: some pinkish herbs
     description: Some pinkish herbs are scattered here.
     weight: 1
@@ -340,14 +329,13 @@ items:
     wear_flags:
       - TAKE
     keywords: [herbs]
-    template_json:
-      raw_block: |
-        #8919
-        herbs~
-        some pinkish herbs~
-        Some pinkish herbs are scattered here.~
-        ~
-        26 0 1
-        5 0 43 33
-        1 1 1
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #8919
+      herbs~
+      some pinkish herbs~
+      Some pinkish herbs are scattered here.~
+      ~
+      26 0 1
+      5 0 43 33
+      1 1 1

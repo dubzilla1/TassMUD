@@ -18,6 +18,15 @@ rooms:
       south: 3005
       up: 3700
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3011
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3005
+              wear_loc: 16
     doors:
       north:
         to: 3054
@@ -66,6 +75,11 @@ rooms:
       east: 3003
       down: 7026
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3021
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -81,7 +95,9 @@ rooms:
         key: -1
       down:
         to: 7026
-        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        description: |
+          You can't see what is down there, it is too dark.  Looks like it would be
+          impossible to climb back up.
         keywords: ""
         state: OPEN
         locked: false
@@ -101,6 +117,20 @@ rooms:
       south: 3004
       west: 3002
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3043
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3002
+          -
+              item_vnum: 3004
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -145,6 +175,35 @@ rooms:
       north: 3003
       east: 3005
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3025
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+      - type: MOB
+        id: 3060
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3355
+              wear_loc: 4
     legacy_flags:
       - INDOORS
     doors:
@@ -184,6 +243,11 @@ rooms:
       west: 3004
       up: 3057
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3135
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 3001
@@ -245,6 +309,11 @@ rooms:
       west: 3005
       up: 3008
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3061
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -290,6 +359,24 @@ rooms:
     exits:
       west: 3006
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3040
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3000
+          -
+              item_vnum: 3001
+      - type: MOB
+        id: 3064
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -325,6 +412,15 @@ rooms:
     exits:
       down: 3006
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 3139
+        quantity: 15
+        frequency: 1
+      - type: ITEM
+        id: 3140
+        quantity: 15
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -351,6 +447,18 @@ rooms:
     exits:
       south: 3013
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3001
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3009
     legacy_flags:
       - INDOORS
     doors:
@@ -390,6 +498,22 @@ rooms:
     exits:
       south: 3015
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3002
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3030
+          -
+              item_vnum: 3031
+          -
+              item_vnum: 3138
     legacy_flags:
       - INDOORS
     doors:
@@ -422,6 +546,22 @@ rooms:
     exits:
       south: 3016
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3003
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3020
+          -
+              item_vnum: 3021
+          -
+              item_vnum: 3022
     legacy_flags:
       - INDOORS
     doors:
@@ -460,6 +600,11 @@ rooms:
       south: 3017
       west: 3040
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3062
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 3033
@@ -567,6 +712,27 @@ rooms:
       south: 3025
       west: 3013
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3060
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3356
+              wear_loc: 6
     doors:
       north:
         to: 3005
@@ -676,6 +842,11 @@ rooms:
       south: 3021
       west: 3015
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3062
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 3011
@@ -725,6 +896,35 @@ rooms:
       north: 3012
       south: 3018
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3024
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+      - type: MOB
+        id: 3060
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3357
+              wear_loc: 7
     legacy_flags:
       - INDOORS
     doors:
@@ -759,6 +959,20 @@ rooms:
       north: 3017
       east: 3019
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3042
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3002
+          -
+              item_vnum: 3003
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -799,6 +1013,11 @@ rooms:
       west: 3018
       down: 7017
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3020
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -814,7 +1033,9 @@ rooms:
         key: -1
       down:
         to: 7017
-        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        description: |
+          You can't see what is down there, it is too dark.  Looks like it would be
+          impossible to climb back up.
         keywords: ""
         state: OPEN
         locked: false
@@ -834,6 +1055,30 @@ rooms:
     exits:
       north: 3013
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3004
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3072
+          -
+              item_vnum: 3073
+          -
+              item_vnum: 3074
+          -
+              item_vnum: 3075
+          -
+              item_vnum: 3076
+          -
+              item_vnum: 3077
+          -
+              item_vnum: 3097
     legacy_flags:
       - INDOORS
     doors:
@@ -871,6 +1116,35 @@ rooms:
       north: 3016
       east: 3022
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3027
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+      - type: MOB
+        id: 3060
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3358
+              wear_loc: 8
     legacy_flags:
       - INDOORS
     doors:
@@ -906,6 +1180,22 @@ rooms:
       south: 3023
       west: 3021
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3045
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3002
+          -
+              item_vnum: 3003
+          -
+              item_vnum: 3004
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -941,6 +1231,11 @@ rooms:
       north: 3022
       down: 7048
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3023
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -956,7 +1251,9 @@ rooms:
         key: -1
       down:
         to: 7048
-        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        description: |
+          You can't see what is down there, it is too dark.  Looks like it would be
+          impossible to climb back up.
         keywords: ""
         state: OPEN
         locked: false
@@ -977,6 +1274,11 @@ rooms:
       south: 3048
       west: 3044
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3062
+        quantity: 15
+        frequency: 1
     doors:
       east:
         to: 3025
@@ -1021,6 +1323,15 @@ rooms:
       south: 3030
       west: 3024
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3050
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3062
+        quantity: 15
+        frequency: 1
     doors:
       north:
         to: 3014
@@ -1072,6 +1383,19 @@ rooms:
       south: 3027
       west: 3025
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3063
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3021
+              wear_loc: 16
+      - type: MOB
+        id: 3066
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 3045
@@ -1117,6 +1441,43 @@ rooms:
       north: 3026
       east: 3028
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3026
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+      - type: MOB
+        id: 3060
+        quantity: 12
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3359
+              wear_loc: 9
+      - type: MOB
+        id: 3005
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3020
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1153,6 +1514,20 @@ rooms:
       south: 3029
       west: 3027
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3044
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3003
+          -
+              item_vnum: 3004
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -1191,6 +1566,11 @@ rooms:
       north: 3028
       down: 7043
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3022
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -1206,7 +1586,9 @@ rooms:
         key: -1
       down:
         to: 7043
-        description: "You can't see what is down there, it is too dark.  Looks like it would be impossible to climb back up."
+        description: |
+          You can't see what is down there, it is too dark.  Looks like it would be
+          impossible to climb back up.
         keywords: ""
         state: OPEN
         locked: false
@@ -1243,7 +1625,10 @@ rooms:
         key: -1
       south:
         to: 3504
-        description: "You see the river slowly flowing west, but notice that it would be nearly impossible to reach the river due to all the garbage and a steep river bank."
+        description: |
+          You see the river slowly flowing west, but notice that it would be nearly
+          impossible to reach the river due to all the garbage and a steep river
+          bank.
         keywords: ""
         state: OPEN
         locked: false
@@ -1271,6 +1656,11 @@ rooms:
     exits:
       south: 3045
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3008
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 3045
@@ -1306,6 +1696,27 @@ rooms:
       It is vital that this room be immediately after the pet shop.
     exits:
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3090
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3091
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3092
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3093
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3094
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
 
@@ -1322,6 +1733,16 @@ rooms:
     exits:
       south: 3012
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3000
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3040
+          -
+              item_vnum: 3041
     legacy_flags:
       - INDOORS
     doors:
@@ -1356,6 +1777,11 @@ rooms:
     exits:
       north: 3015
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3009
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1396,6 +1822,24 @@ rooms:
     exits:
       south: 3044
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3010
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3066
+          -
+              item_vnum: 3067
+          -
+              item_vnum: 3068
+          -
+              item_vnum: 3069
+          -
+              item_vnum: 3070
+          -
+              item_vnum: 3071
     legacy_flags:
       - INDOORS
     doors:
@@ -1440,6 +1884,47 @@ rooms:
       south: 3042
       west: 3052
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3068
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3361
+              wear_loc: 12
+      - type: MOB
+        id: 3068
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3362
+              wear_loc: 13
     doors:
       north:
         to: 101
@@ -1461,7 +1946,9 @@ rooms:
         key: -1
       south:
         to: 3042
-        description: "You see the road running along the inner side of the city wall.  You notice that it is called Wall Road."
+        description: |
+          You see the road running along the inner side of the city wall.  You notice
+          that it is called Wall Road.
         keywords: ""
         state: OPEN
         locked: false
@@ -1507,6 +1994,47 @@ rooms:
       west: 3016
       south: 2171
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3067
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3360
+              wear_loc: 10
+      - type: MOB
+        id: 3067
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3354
+              wear_loc: 11
     doors:
       east:
         to: 3053
@@ -1648,6 +2176,11 @@ rooms:
       east: 3024
       west: 3043
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3065
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 3035
@@ -1818,6 +2351,24 @@ rooms:
     exits:
       north: 3024
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3046
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3022
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3003
+          -
+              item_vnum: 3004
+      - type: MOB
+        id: 3065
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1843,6 +2394,16 @@ rooms:
       north: 3045
       south: 3203
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3006
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3050
+          -
+              item_vnum: 3051
     doors:
       north:
         to: 3045
@@ -1876,6 +2437,11 @@ rooms:
       north: 3046
       up: 8604
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3007
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2068,6 +2634,15 @@ rooms:
     exits:
       south: 3001
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 3010
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3012
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 3001
@@ -2178,6 +2753,11 @@ rooms:
       south: 3131
       west: 3100
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3134
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 3102
@@ -2221,6 +2801,11 @@ rooms:
       south: 3105
       west: 3101
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3134
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 3103
@@ -2264,6 +2849,11 @@ rooms:
       south: 3132
       west: 3102
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3134
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 3104
@@ -2388,6 +2978,25 @@ rooms:
     exits:
       west: 3105
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3100
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3100
+          -
+              item_vnum: 3101
+          -
+              item_vnum: 3102
+      - type: MOB
+        id: 3120
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3121
     legacy_flags:
       - INDOORS
     doors:
@@ -2488,6 +3097,11 @@ rooms:
       south: 3115
       west: 3108
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3123
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 3115
@@ -2534,13 +3148,13 @@ rooms:
         key: -1
       west:
         to: 3142
-        description: "You see a sign saying 'KEEP OUT'."
-        keywords: "door"
-        state: OPEN
+        description: "Lock Captain's door from outside"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3120
+        key: null
 
   - id: 3111
     key: midgaard_room_3111
@@ -2556,6 +3170,81 @@ rooms:
       south: 3118
       west: 3110
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3060
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+        inventory:
+          -
+              item_vnum: 3120
+      - type: MOB
+        id: 3060
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+          -
+              item_vnum: 3363
+              wear_loc: 15
+      - type: MOB
+        id: 3060
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
+      - type: MOB
+        id: 3060
+        quantity: 20
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+          -
+              item_vnum: 3353
+              wear_loc: 5
     doors:
       north:
         to: 3131
@@ -2646,6 +3335,11 @@ rooms:
       east: 3114
       west: 3112
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3124
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 3107
@@ -2687,6 +3381,15 @@ rooms:
       east: 3115
       west: 3113
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 3121
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3122
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 3115
@@ -2720,6 +3423,11 @@ rooms:
       east: 3116
       west: 3114
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3124
+        quantity: 2
+        frequency: 1
     doors:
       north:
         to: 3109
@@ -2916,6 +3624,11 @@ rooms:
       west: 3135
       up: 7914
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3144
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 3133
@@ -3216,6 +3929,15 @@ rooms:
       east: 3129
       west: 3127
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3005
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3020
+              wear_loc: 16
     doors:
       north:
         to: 3125
@@ -3554,6 +4276,11 @@ rooms:
       east: 3138
       west: 3117
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3142
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3589,6 +4316,74 @@ rooms:
     exits:
       west: 3137
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 3143
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3133
+              wear_loc: 17
+          -
+              item_vnum: 3124
+              wear_loc: 16
+      - type: MOB
+        id: 3069
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+      - type: MOB
+        id: 3069
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+      - type: MOB
+        id: 3069
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
+      - type: MOB
+        id: 3069
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 3365
+              wear_loc: 0
+          -
+              item_vnum: 3364
+              wear_loc: 1
+          -
+              item_vnum: 3350
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3679,6 +4474,15 @@ rooms:
     exits:
       south: 3140
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3135
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 3136
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 3140
@@ -3702,27 +4506,68 @@ rooms:
       east: 3110
       south: 3143
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 3130
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 3131
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 3140
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3122
+          -
+              item_vnum: 3137
+      - type: MOB
+        id: 3141
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3141
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3141
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 3141
+        quantity: 4
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3123
+              container_vnum: 3130
+          -
+              item_vnum: 3132
+              container_vnum: 3131
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 3110
-        description: "You see the Cityguard Head Quarters."
-        keywords: "door"
-        state: OPEN
+        description: "Lock Captain's door from inside"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3120
+        key: null
       south:
         to: 3143
-        description: "You see the heavy steel door."
-        keywords: "door"
-        state: OPEN
+        description: "Lock jail from outside"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3137
+        key: null
     extras:
       arms: |
         Although a bit dusty the Coat of Arms is an excellent piece of work.
@@ -3743,13 +4588,13 @@ rooms:
     doors:
       north:
         to: 3142
-        description: "You see the heavy steel door."
-        keywords: "door"
-        state: OPEN
+        description: "Lock jail from inside"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3137
+        key: null
     extras:
       wall: |
         The walls are marked with lots of scratches.  Some of them spell sentences
@@ -3947,7 +4792,9 @@ rooms:
     doors:
       east:
         to: 5001
-        description: "The iron bars are broken, allowing passage through the hole in the wall. Beyond the bars you see a dark tunnel."
+        description: |
+          The iron bars are broken, allowing passage through the hole in the wall.
+          Beyond the bars you see a dark tunnel.
         keywords: ""
         state: OPEN
         locked: false

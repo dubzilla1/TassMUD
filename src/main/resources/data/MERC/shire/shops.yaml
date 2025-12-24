@@ -1,0 +1,46 @@
+shops:
+  - keeper: 1113
+    trades: [17, 0, 0, 0, 0]
+    profit_buy: 150
+    profit_sell: 50
+    open: 0
+    close: 23
+    comment: ""
+    items: [1110, 648, 649, 650]
+
+  - keeper: 1118
+    trades: [13, 5, 15, 1, 17]
+    profit_buy: 150
+    profit_sell: 50
+    open: 0
+    close: 23
+    comment: ""
+    items: [1111, 1112]
+
+  - keeper: 1119
+    trades: [13, 5, 15, 1, 17]
+    profit_buy: 150
+    profit_sell: 50
+    open: 0
+    close: 23
+    comment: ""
+    items: [1103]
+
+  - keeper: 1120
+    trades: [9, 5, 0, 0, 0]
+    profit_buy: 150
+    profit_sell: 50
+    open: 0
+    close: 23
+    comment: ""
+    items: []
+
+  - keeper: 1130
+    trades: [17, 0, 0, 0, 0]
+    profit_buy: 150
+    profit_sell: 50
+    open: 0
+    close: 23
+    comment: ""
+    items: [1110, 648, 649, 650]
+

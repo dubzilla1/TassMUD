@@ -1,8 +1,10 @@
 - id: 1500
-  key: "a_gnome_child"
-  name: "child gnome"
-  short_desc: "a gnome child"
-  long_desc: "A gnome child is playing around here."
+  key: a_gnome_child_1500
+  name: a gnome child
+  short_desc: A gnome child is playing around here.
+  long_desc: |
+    The little tyke looks so innocent playing with his boomerang that you 
+    just want to pick him up and hug him.
   keywords: ['child', 'gnome']
   level: 20
   hp_max: 44
@@ -27,13 +29,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 20, 'hit_dice': '3d4+37', 'damage_dice': '3d4+37', 'raw_block': 'The little tyke looks so innocent playing with his boomerang that you \njust want to pick him up and hug him.\n~\n20 0 600 S\n3 18 7 3d4+37 2d4+0\n50 400\n8 8 1'}
+  legacy_raw: 20 0 600 S 3 18 7 3d4+37 2d4+0 50 400 8 8 1
 
 - id: 1501
-  key: "a_gnome_woman"
-  name: "woman gnome"
-  short_desc: "a gnome woman"
-  long_desc: "A gnome woman is standing here, trying to look beautiful."
+  key: a_gnome_woman_1501
+  name: a gnome woman
+  short_desc: A gnome woman is standing here, trying to look beautiful.
+  long_desc: |
+    The woman is short and gnarled, but acts like a woman several times her beauty.
+    She's starting to look pretty attractive to you ...
   keywords: ['woman', 'gnome']
   level: 20
   hp_max: 77
@@ -58,13 +62,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 20, 'hit_dice': '2d6+70', 'damage_dice': '2d6+70', 'raw_block': "The woman is short and gnarled, but acts like a woman several times her beauty.\nShe's starting to look pretty attractive to you ...\n~\n20 0 600 S\n5 16 5 2d6+70 1d8+0\n500 700\n8 8 2"}
+  legacy_raw: 20 0 600 S 5 16 5 2d6+70 1d8+0 500 700 8 8 2
 
 - id: 1502
-  key: "a_gnome_man"
-  name: "man gnome"
-  short_desc: "a gnome man"
-  long_desc: "A gnome man is walking here, on his way to work."
+  key: a_gnome_man_1502
+  name: a gnome man
+  short_desc: A gnome man is walking here, on his way to work.
+  long_desc: |
+    This is a prime example of a gnome.  He looks short and weak, but at the
+    same time an intelligent creature who could outsmart you.
   keywords: ['man', 'gnome']
   level: 4
   hp_max: 106
@@ -89,13 +95,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d12+100', 'damage_dice': '1d12+100', 'raw_block': 'This is a prime example of a gnome.  He looks short and weak, but at the\nsame time an intelligent creature who could outsmart you.\n~\n4 0 500 S\n6 15 4 1d12+100 1d8+1\n450 900\n8 8 1'}
+  legacy_raw: 4 0 500 S 6 15 4 1d12+100 1d8+1 450 900 8 8 1
 
 - id: 1503
-  key: "a_gnome_scientist"
-  name: "scientist gnome"
-  short_desc: "a gnome scientist"
-  long_desc: "A scientist wanders around deep in thought."
+  key: a_gnome_scientist_1503
+  name: a gnome scientist
+  short_desc: A scientist wanders around deep in thought.
+  long_desc: |
+    You see a gnome who is lost deep into some invention that he is about
+    to make.  His hair is white, but he looks fairly strong.
   keywords: ['scientist', 'gnome']
   level: 6
   hp_max: 106
@@ -120,13 +128,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '2d5+100', 'damage_dice': '2d5+100', 'raw_block': 'You see a gnome who is lost deep into some invention that he is about\nto make.  His hair is white, but he looks fairly strong.\n~\n6 0 500 S\n7 14 4 2d5+100 2d5+1\n1000 1300\n8 8 1'}
+  legacy_raw: 6 0 500 S 7 14 4 2d5+100 2d5+1 1000 1300 8 8 1
 
 - id: 1504
-  key: "a_gnome_guard"
-  name: "guard gnome"
-  short_desc: "a gnome guard"
-  long_desc: "A gnome guard stands here guarding something."
+  key: a_gnome_guard_1504
+  name: a gnome guard
+  short_desc: A gnome guard stands here guarding something.
+  long_desc: |
+    This is a well trained gnome.  He might not have a lot of strength but
+    he makes up for it with his weapons skill.
   keywords: ['guard', 'gnome']
   level: 2
   hp_max: 127
@@ -151,13 +161,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d6+120', 'damage_dice': '2d6+120', 'raw_block': 'This is a well trained gnome.  He might not have a lot of strength but\nhe makes up for it with his weapons skill.\n~\n2 0 400 S\n8 13 3 2d6+120 3d3+2\n1500 2000\n8 8 1'}
+  legacy_raw: 2 0 400 S 8 13 3 2d6+120 3d3+2 1500 2000 8 8 1
 
 - id: 1505
-  key: "the_chief_gnome"
-  name: "chief gnome"
-  short_desc: "the chief gnome"
-  long_desc: "A powerful looking gnome stands here wearing ornate clothes."
+  key: the_chief_gnome_1505
+  name: the chief gnome
+  short_desc: A powerful looking gnome stands here wearing ornate clothes.
+  long_desc: |
+    The Chief looks like he could whap you hard.  He looks not only powerful
+    but wise and resourceful.  You better not mess with him.
   keywords: ['chief', 'gnome']
   level: 2
   hp_max: 306
@@ -182,13 +194,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d12+300', 'damage_dice': '1d12+300', 'raw_block': 'The Chief looks like he could whap you hard.  He looks not only powerful\nbut wise and resourceful.  You better not mess with him.\n~\n2 0 550 S\n15 6 -1 1d12+300 2d10+0\n8000 15000\n8 8 1'}
+  legacy_raw: 2 0 550 S 15 6 -1 1d12+300 2d10+0 8000 15000 8 8 1
 
 - id: 1507
-  key: "a_small_troll"
-  name: "troll small"
-  short_desc: "a small troll"
-  long_desc: "A small troll grunts as he takes a swing at you."
+  key: a_small_troll_1507
+  name: a small troll
+  short_desc: A small troll grunts as he takes a swing at you.
+  long_desc: |
+    The small troll is a short and stocky beast with a human-like face
+    but with the eyes and fangs of a wild beast.
   keywords: ['troll', 'small']
   level: 38
   hp_max: 110
@@ -213,13 +227,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 38, 'hit_dice': '2d4+105', 'damage_dice': '2d4+105', 'raw_block': 'The small troll is a short and stocky beast with a human-like face\nbut with the eyes and fangs of a wild beast.\n~\n38 0 -900 S\n8 12 3 2d4+105 2d5+1\n800 2000\n8 8 1'}
+  legacy_raw: 38 0 -900 S 8 12 3 2d4+105 2d5+1 800 2000 8 8 1
 
 - id: 1508
-  key: "a_field_mouse"
-  name: "mouse field"
-  short_desc: "a field mouse"
-  long_desc: "A small mouse runs across your foot."
+  key: a_field_mouse_1508
+  name: a field mouse
+  short_desc: A small mouse runs across your foot.
+  long_desc: |
+    The Mouse is a cute little creature.
   keywords: ['mouse', 'field']
   level: 6
   hp_max: 15
@@ -244,13 +259,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '2d4+10', 'damage_dice': '2d4+10', 'raw_block': 'The Mouse is a cute little creature.\n~\n6 0 100 S\n1 19 9 2d4+10 1d4+0\n1 100\n8 8 1'}
+  legacy_raw: 6 0 100 S 1 19 9 2d4+10 1d4+0 1 100 8 8 1
 
 - id: 1509
-  key: "a_rat"
-  name: "rat"
-  short_desc: "a rat"
-  long_desc: "A small rat shrieks and runs around."
+  key: a_rat_1509
+  name: a rat
+  short_desc: A small rat shrieks and runs around.
+  long_desc: |
+    The rat is a little evil creature that deserves death.
   keywords: ['rat']
   level: 4
   hp_max: 29
@@ -275,13 +291,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '2d4+24', 'damage_dice': '2d4+24', 'raw_block': 'The rat is a little evil creature that deserves death.\n~\n4 0 -200 S\n2 19 8 2d4+24 1d5+1\n5 200\n8 8 1'}
+  legacy_raw: 4 0 -200 S 2 19 8 2d4+24 1d5+1 5 200 8 8 1
 
 - id: 1510
-  key: "a_large_rat"
-  name: "rat large"
-  short_desc: "a large rat"
-  long_desc: "A large rat runs up to you and nibbles on your boots."
+  key: a_large_rat_1510
+  name: a large rat
+  short_desc: A large rat runs up to you and nibbles on your boots.
+  long_desc: |
+    You have the urge to kill this vile creature.
   keywords: ['rat', 'large']
   level: 4
   hp_max: 55
@@ -306,13 +323,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '3d4+48', 'damage_dice': '3d4+48', 'raw_block': 'You have the urge to kill this vile creature.\n~\n4 0 -200 S\n4 17 6 3d4+48 1d8+0\n10 400\n8 8 1'}
+  legacy_raw: 4 0 -200 S 4 17 6 3d4+48 1d8+0 10 400 8 8 1
 
 - id: 1511
-  key: "a_giant_rat"
-  name: "rat giant"
-  short_desc: "a giant rat"
-  long_desc: "A giant rat growls at you and prepares to attack."
+  key: a_giant_rat_1511
+  name: a giant rat
+  short_desc: A giant rat growls at you and prepares to attack.
+  long_desc: |
+    This rat has grown up to be the size of an average dog.
   keywords: ['rat', 'giant']
   level: 4
   hp_max: 78
@@ -337,13 +355,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '1d12+72', 'damage_dice': '1d12+72', 'raw_block': 'This rat has grown up to be the size of an average dog.\n~\n4 0 -200 S\n6 15 4 1d12+72 1d8+1\n20 800\n8 8 1'}
+  legacy_raw: 4 0 -200 S 6 15 4 1d12+72 1d8+1 20 800 8 8 1
 
 - id: 1512
-  key: "the_troll"
-  name: "troll"
-  short_desc: "the troll"
-  long_desc: "A giant troll lumbers around."
+  key: the_troll_1512
+  name: the troll
+  short_desc: A giant troll lumbers around.
+  long_desc: |
+    You see before you a huge mass of living flesh.  You cringe in fear as
+    he lifts his powerful arm to bludgeon you.
   keywords: ['troll']
   level: 34
   hp_max: 169
@@ -368,15 +388,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '3d5+160', 'damage_dice': '3d5+160', 'raw_block': 'You see before you a huge mass of living flesh.  You cringe in fear as\nhe lifts his powerful arm to bludgeon you.\n~\n34 0 -800 S\n14 7 0 3d5+160 2d8+1\n9000 10000\n8 8 1'}
+  legacy_raw: 34 0 -800 S 14 7 0 3d5+160 2d8+1 9000 10000 8 8 1
 
 - id: 1513
-  key: "a_black_bat"
-  name: "bat black"
-  short_desc: "a black bat"
-  long_desc: "A black bat hangs from the ceiling."
+  key: a_black_bat_1513
+  name: a black bat
+  short_desc: A black bat hangs from the ceiling.
+  long_desc: |
+    The bat is a grotesque little creature with large wings and fangs.
   keywords: ['bat', 'black']
-  level: 500
+  level: 5
   hp_max: 77
   mp_max: 0
   mv_max: 100
@@ -395,19 +416,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 50000
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 500, 'hit_dice': '3d4+70', 'damage_dice': '3d4+70', 'raw_block': 'The bat is a grotesque little creature with large wings and fangs.\n~\n0 0 -500 S\n5 16 5 3d4+70 1d8+0\n1 1000\n8 8 0'}
+  legacy_raw: 0 0 -500 S 5 16 5 3d4+70 1d8+0 1 1000 8 8 0
 
 - id: 1514
-  key: "the_zombie_gnome"
-  name: "zombie gnome"
-  short_desc: "the zombie gnome"
-  long_desc: "A zombie gnome shuffles his way towards you."
+  key: the_zombie_gnome_1514
+  name: the zombie gnome
+  short_desc: A zombie gnome shuffles his way towards you.
+  long_desc: |
+    This is a creature which has passed away long ago.  His body has been
+    pulled out of its resting place by some evil force.
   keywords: ['zombie', 'gnome']
-  level: 700
+  level: 7
   hp_max: 97
   mp_max: 0
   mv_max: 100
@@ -426,17 +449,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 70000
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 700, 'hit_dice': '3d4+90', 'damage_dice': '3d4+90', 'raw_block': 'This is a creature which has passed away long ago.  His body has been\npulled out of its resting place by some evil force.\n~\n0 0 -700 S\n7 14 3 3d4+90 3d4+0\n696 2300\n8 8 0'}
+  legacy_raw: 0 0 -700 S 7 14 3 3d4+90 3d4+0 696 2300 8 8 0
 
 - id: 1515
-  key: "the_fire_bat"
-  name: "bat fire"
-  short_desc: "the fire bat"
-  long_desc: "The fire bat flames brightly and prepares to attack."
+  key: the_fire_bat_1515
+  name: the fire bat
+  short_desc: The fire bat flames brightly and prepares to attack.
+  long_desc: |
+    You see a huge flame which resembles the shape of a bat.  The creature
+    hangs from the ceiling and bites at you.
   keywords: ['bat', 'fire']
   level: 38
   hp_max: 157
@@ -461,13 +486,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 38, 'hit_dice': '3d4+150', 'damage_dice': '3d4+150', 'raw_block': 'You see a huge flame which resembles the shape of a bat.  The creature\nhangs from the ceiling and bites at you.\n~\n38 8 -900 S\n12 9 2 3d4+150 3d5+0\n6000 6000\n8 8 1'}
+  legacy_raw: 38 8 -900 S 12 9 2 3d4+150 3d5+0 6000 6000 8 8 1
 
 - id: 1516
-  key: "the_hobgoblin_guard"
-  name: "guard hobgoblin"
-  short_desc: "the hobgoblin guard"
-  long_desc: "The hobgoblin guard attacks first, thinks later."
+  key: the_hobgoblin_guard_1516
+  name: the hobgoblin guard
+  short_desc: The hobgoblin guard attacks first, thinks later.
+  long_desc: |
+    This is an extra large, extra ugly goblin like creature.  He grins evilly
+    as he attempts to brain you.
   keywords: ['guard', 'hobgoblin']
   level: 34
   hp_max: 108
@@ -492,13 +519,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '1d12+102', 'damage_dice': '1d12+102', 'raw_block': 'This is an extra large, extra ugly goblin like creature.  He grins evilly\nas he attempts to brain you.\n~\n34 0 -700 S\n6 15 4 1d12+102 1d8+1\n750 1000\n8 8 1'}
+  legacy_raw: 34 0 -700 S 6 15 4 1d12+102 1d8+1 750 1000 8 8 1
 
 - id: 1517
-  key: "the_hobgoblin_soldier"
-  name: "soldier hobgoblin"
-  short_desc: "the hobgoblin soldier"
-  long_desc: "A hobgoblin soldier stands here."
+  key: the_hobgoblin_soldier_1517
+  name: the hobgoblin soldier
+  short_desc: A hobgoblin soldier stands here.
+  long_desc: |
+    This is just a low life hobgoblin, who couldn't make it to the ranks
+    of the elite guards.  He looks pissed.
   keywords: ['soldier', 'hobgoblin']
   level: 34
   hp_max: 43
@@ -523,13 +552,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '2d6+36', 'damage_dice': '2d6+36', 'raw_block': "This is just a low life hobgoblin, who couldn't make it to the ranks\nof the elite guards.  He looks pissed.\n~\n34 0 -600 S\n3 18 7 2d6+36 1d7+0\n200 300\n8 8 1"}
+  legacy_raw: 34 0 -600 S 3 18 7 2d6+36 1d7+0 200 300 8 8 1
 
 - id: 1518
-  key: "the_hobgoblin_bodyguard"
-  name: "bodyguard hobgoblin"
-  short_desc: "the hobgoblin bodyguard"
-  long_desc: "A hobgoblin bodyguard guards the king with his life."
+  key: the_hobgoblin_bodyguard_1518
+  name: the hobgoblin bodyguard
+  short_desc: A hobgoblin bodyguard guards the king with his life.
+  long_desc: |
+    This is one of the elite hobgoblin guards.  He stands tall for his short
+    stature.  He grins a toothy grin as he prepares to attack.
   keywords: ['bodyguard', 'hobgoblin']
   level: 2
   hp_max: 91
@@ -554,13 +585,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d12+85', 'damage_dice': '1d12+85', 'raw_block': 'This is one of the elite hobgoblin guards.  He stands tall for his short\nstature.  He grins a toothy grin as he prepares to attack.\n~\n2 0 -500 S\n7 14 4 1d12+85 1d7+2\n600 2000\n8 8 1'}
+  legacy_raw: 2 0 -500 S 7 14 4 1d12+85 1d7+2 600 2000 8 8 1
 
 - id: 1519
-  key: "the_king_of_the_hobgoblins"
-  name: "king hobgoblin"
-  short_desc: "the king of the hobgoblins"
-  long_desc: "There is a great king here, sitting in his throne."
+  key: the_king_of_the_hobgoblins_1519
+  name: the king of the hobgoblins
+  short_desc: There is a great king here, sitting in his throne.
+  long_desc: |
+    The king is a silly looking hobgoblin whose muscles bulge out of his robes,
+    destroying the sophisticated effect he was trying to create.
   keywords: ['king', 'hobgoblin']
   level: 2
   hp_max: 155
@@ -585,13 +618,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d6+148', 'damage_dice': '2d6+148', 'raw_block': 'The king is a silly looking hobgoblin whose muscles bulge out of his robes,\ndestroying the sophisticated effect he was trying to create.\n~\n2 0 -500 S\n12 9 2 2d6+148 2d7+1\n6000 6000\n6 8 1'}
+  legacy_raw: 2 0 -500 S 12 9 2 2d6+148 2d7+1 6000 6000 6 8 1
 
 - id: 1520
-  key: "a_hobgoblin_miner"
-  name: "miner hobgoblin"
-  short_desc: "a hobgoblin miner"
-  long_desc: "A hobgoblin miner stands here looking for gold."
+  key: a_hobgoblin_miner_1520
+  name: a hobgoblin miner
+  short_desc: A hobgoblin miner stands here looking for gold.
+  long_desc: |
+    The miner is totally covered in dust.
   keywords: ['miner', 'hobgoblin']
   level: 6
   hp_max: 66
@@ -616,13 +650,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d12+60', 'damage_dice': '1d12+60', 'raw_block': 'The miner is totally covered in dust.\n~\n6 0 -400 S\n5 16 5 1d12+60 1d8+0\n700 500\n8 8 1'}
+  legacy_raw: 6 0 -400 S 5 16 5 1d12+60 1d8+0 700 500 8 8 1
 
 - id: 1521
-  key: "the_treasurer"
-  name: "treasurer hobgoblin"
-  short_desc: "the treasurer"
-  long_desc: "A treasurer is here counting out money."
+  key: the_treasurer_1521
+  name: the treasurer
+  short_desc: A treasurer is here counting out money.
+  long_desc: |
+    The hobgoblin treasurer is an old goblin with glasses.  It appears that he
+    can only see a couple feet in front of him.
   keywords: ['treasurer', 'hobgoblin']
   level: 6
   hp_max: 129
@@ -647,13 +683,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '3d5+120', 'damage_dice': '3d5+120', 'raw_block': 'The hobgoblin treasurer is an old goblin with glasses.  It appears that he\ncan only see a couple feet in front of him.\n~\n6 0 -200 S\n10 11 2 3d5+120 2d6+1\n5000 2500\n8 8 1'}
+  legacy_raw: 6 0 -200 S 10 11 2 3d5+120 2d6+1 5000 2500 8 8 1
 
 - id: 1522
-  key: "a_gnome_prisoner"
-  name: "prisoner gnome"
-  short_desc: "a gnome prisoner"
-  long_desc: "A gnome prisoner is here resting in the straw."
+  key: a_gnome_prisoner_1522
+  name: a gnome prisoner
+  short_desc: A gnome prisoner is here resting in the straw.
+  long_desc: |
+    The prisoner is just barely alive.
   keywords: ['prisoner', 'gnome']
   level: 6
   hp_max: 19
@@ -678,13 +715,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '3d5+10', 'damage_dice': '3d5+10', 'raw_block': 'The prisoner is just barely alive.\n~\n6 0 100 S\n3 17 8 3d5+10 2d3+1\n1 50\n5 8 1'}
+  legacy_raw: 6 0 100 S 3 17 8 3d5+10 2d3+1 1 50 5 8 1
 
 - id: 1523
-  key: "a_human_prisoner"
-  name: "prisoner human"
-  short_desc: "a human prisoner"
-  long_desc: "A human prisoner is here resting in the straw."
+  key: a_human_prisoner_1523
+  name: a human prisoner
+  short_desc: A human prisoner is here resting in the straw.
+  long_desc: |
+    The prisoner is just barely alive.
   keywords: ['prisoner', 'human']
   level: 6
   hp_max: 19
@@ -709,15 +747,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '3d5+10', 'damage_dice': '3d5+10', 'raw_block': 'The prisoner is just barely alive.\n~\n6 0 100 S\n3 17 8 3d5+10 2d3+1\n1 50\n5 8 2'}
+  legacy_raw: 6 0 100 S 3 17 8 3d5+10 2d3+1 1 50 5 8 2
 
 - id: 1524
-  key: "a_hermit"
-  name: "hermit crab"
-  short_desc: "a hermit"
-  long_desc: "A hermit crab crawls towards you."
+  key: a_hermit_1524
+  name: a hermit
+  short_desc: A hermit crab crawls towards you.
+  long_desc: |
+    The hermit crab is about 5 feet high and looks mad that you had the nerve
+    to wake it up.
   keywords: ['hermit', 'crab']
-  level: 5
+  level: 38
   hp_max: 67
   mp_max: 0
   mv_max: 100
@@ -736,17 +776,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 500
+  experience_value: 3800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 5, 'hit_dice': '1d11+61', 'damage_dice': '1d11+61', 'act_flags': 5, 'raw_block': 'The hermit crab is about 5 feet high and looks mad that you had the nerve\nto wake it up.\n~\n38 0 -10 S\n5 16 5 1d11+61 1d8+0\n200 600\n8 8 1'}
+  legacy_raw: 38 0 -10 S 5 16 5 1d11+61 1d8+0 200 600 8 8 1
 
 - id: 1526
-  key: "the_cook"
-  name: "cook hobgoblin"
-  short_desc: "the cook"
-  long_desc: "A hobgoblin cook stands here cooking something."
+  key: the_cook_1526
+  name: the cook
+  short_desc: A hobgoblin cook stands here cooking something.
+  long_desc: |
+    The cook is a dirty and fat hobgoblin.  He burps as he stirs up something
+    in a pot.
   keywords: ['cook', 'hobgoblin']
   level: 6
   hp_max: 91
@@ -771,5 +813,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 6, 'hit_dice': '1d12+85', 'damage_dice': '1d12+85', 'raw_block': 'The cook is a dirty and fat hobgoblin.  He burps as he stirs up something\nin a pot.\n~\n6 0 -300 S\n7 14 4 1d12+85 1d7+1\n2600 900\n8 8 1'}
+  legacy_raw: 6 0 -300 S 7 14 4 1d12+85 1d7+1 2600 900 8 8 1
 

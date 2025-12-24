@@ -52,6 +52,15 @@ rooms:
       east: 9103
       down: 9101
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       east:
         to: 9103
@@ -161,6 +170,15 @@ rooms:
       east: 9106
       west: 9104
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       east:
         to: 9106
@@ -270,6 +288,19 @@ rooms:
       east: 9109
       west: 9107
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       east:
         to: 9109
@@ -303,6 +334,11 @@ rooms:
       west: 9108
       down: 9110
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9103
+        quantity: 5
+        frequency: 1
     doors:
       west:
         to: 9108
@@ -412,6 +448,15 @@ rooms:
       north: 9111
       down: 9113
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9111
@@ -588,6 +633,11 @@ rooms:
       north: 9115
       up: 9118
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9115
@@ -653,6 +703,19 @@ rooms:
       west: 9118
       up: 9120
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       west:
         to: 9118
@@ -665,8 +728,9 @@ rooms:
         key: -1
       up:
         to: 9120
-        description: "Above you is an almost vertical cliff.  It looks dangerous but
-climbable."
+        description: |
+          Above you is an almost vertical cliff.  It looks dangerous but
+          climbable.
         keywords: ""
         state: OPEN
         locked: false
@@ -729,6 +793,11 @@ climbable."
     exits:
       west: 9120
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -756,6 +825,15 @@ climbable."
       west: 9123
       down: 9120
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9124
@@ -797,6 +875,14 @@ climbable."
     exits:
       east: 9122
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9102
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 9104
     legacy_flags:
       - INDOORS
     doors:
@@ -822,6 +908,14 @@ climbable."
     exits:
       south: 9122
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9102
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 9105
     legacy_flags:
       - INDOORS
     doors:
@@ -935,6 +1029,19 @@ climbable."
       east: 9126
       up: 9128
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9130
@@ -1009,11 +1116,17 @@ climbable."
       north: 9132
       east: 9130
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9132
-        description: "The cloud to the north blushes and tries to hide when you look at
-it."
+        description: |
+          The cloud to the north blushes and tries to hide when you look at
+          it.
         keywords: ""
         state: OPEN
         locked: false
@@ -1065,8 +1178,9 @@ it."
         key: -1
       west:
         to: 9129
-        description: "A sleepy little cloud to the west yawns and rolls over.  You hear
-snoring."
+        description: |
+          A sleepy little cloud to the west yawns and rolls over.  You hear
+          snoring.
         keywords: ""
         state: OPEN
         locked: false
@@ -1087,6 +1201,11 @@ snoring."
       south: 9126
       west: 9130
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9136
@@ -1142,8 +1261,9 @@ snoring."
         key: -1
       south:
         to: 9129
-        description: "A sleepy little cloud to the south yawns and rolls over.  You hear
-snoring."
+        description: |
+          A sleepy little cloud to the south yawns and rolls over.  You hear
+          snoring.
         keywords: ""
         state: OPEN
         locked: false
@@ -1174,6 +1294,11 @@ snoring."
       south: 9132
       west: 9143
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9145
@@ -1195,8 +1320,9 @@ snoring."
         key: -1
       south:
         to: 9132
-        description: "The cloud to the south blushes and tries to hide when you look at
-it."
+        description: |
+          The cloud to the south blushes and tries to hide when you look at
+          it.
         keywords: ""
         state: OPEN
         locked: false
@@ -1258,6 +1384,11 @@ it."
       south: 9136
       west: 9134
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       south:
         to: 9136
@@ -1333,6 +1464,11 @@ it."
       east: 9136
       up: 9138
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9103
+        quantity: 5
+        frequency: 1
     doors:
       east:
         to: 9136
@@ -1474,16 +1610,21 @@ it."
       east: 3001
       down: 9140
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9107
+        quantity: 1
+        frequency: 1
     doors:
       east:
         to: 3001
         description: ""
-        keywords: "picture"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 9140
         description: ""
@@ -1575,6 +1716,11 @@ it."
       north: 9148
       down: 9146
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9148
@@ -1609,6 +1755,11 @@ it."
       west: 9150
       down: 9148
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       south:
         to: 9133
@@ -1651,6 +1802,11 @@ it."
       north: 9147
       east: 9144
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9147
@@ -1684,6 +1840,11 @@ it."
       south: 9146
       east: 9148
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       south:
         to: 9146
@@ -1718,6 +1879,11 @@ it."
       south: 9144
       west: 9147
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9103
+        quantity: 5
+        frequency: 1
     doors:
       up:
         to: 9145
@@ -1761,6 +1927,11 @@ it."
       east: 9150
       down: 9157
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9152
@@ -1804,6 +1975,11 @@ it."
       east: 9145
       west: 9149
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       north:
         to: 9151
@@ -1846,6 +2022,11 @@ it."
       south: 9150
       west: 9152
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       south:
         to: 9150
@@ -1879,6 +2060,11 @@ it."
       east: 9151
       south: 9149
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       east:
         to: 9151
@@ -1911,6 +2097,11 @@ it."
       west: 9154
       up: 9152
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9106
+        quantity: 1
+        frequency: 1
     doors:
       west:
         to: 9154
@@ -2011,6 +2202,11 @@ it."
     exits:
       down: 9155
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 9105
+        quantity: 1
+        frequency: 1
     doors:
       down:
         to: 9155
@@ -2073,6 +2269,15 @@ it."
     exits:
       east: 9157
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       east:
         to: 9157
@@ -2207,6 +2412,15 @@ it."
       east: 9161
       south: 9164
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
+      - type: MOB
+        id: 9101
+        quantity: 40
+        frequency: 1
     doors:
       east:
         to: 9161
@@ -2240,6 +2454,11 @@ it."
       north: 9161
       west: 9164
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 9103
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 9161
@@ -2745,6 +2964,11 @@ it."
       west: 9178
       down: 9176
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 9103
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2943,6 +3167,14 @@ it."
     exits:
       down: 9181
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9104
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 9102
     legacy_flags:
       - INDOORS
     doors:
@@ -3113,6 +3345,14 @@ it."
     exits:
       down: 9186
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 9104
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 9103
     legacy_flags:
       - INDOORS
     doors:

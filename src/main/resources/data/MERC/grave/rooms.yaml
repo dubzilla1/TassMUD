@@ -17,13 +17,13 @@ rooms:
     doors:
       north:
         to: 3129
-        description: "Through the solid iron bars you see the Concourse."
-        keywords: "grate"
-        state: OPEN
+        description: "Lock graveyard from inside"
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 3121
+        key: null
       east:
         to: 3650
         description: "The gravel path leads eastwards between the dark evergreen trees."
@@ -140,8 +140,9 @@ rooms:
         key: -1
       south:
         to: 3604
-        description: "The gravel road continues southwards to an open space before a small
-building."
+        description: |
+          The gravel road continues southwards to an open space before a small
+          building.
         keywords: ""
         state: OPEN
         locked: false
@@ -163,6 +164,11 @@ building."
       south: 3405
       west: 3618
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 3604
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 3603
@@ -184,13 +190,13 @@ building."
         key: -1
       south:
         to: 3405
-        description: "The chapel door is made of dark wood."
-        keywords: "door"
+        description: "Close Chapel door from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 3618
         description: "The gravel path leads westwards between the dark evergreen trees."
@@ -214,6 +220,11 @@ building."
       south: 3608
       down: 3607
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 3604
+        quantity: 4
+        frequency: 1
     doors:
       east:
         to: 3600
@@ -235,13 +246,13 @@ building."
         key: -1
       down:
         to: 3607
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3607 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -258,18 +269,23 @@ building."
     exits:
       up: 3606
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3610
+        quantity: 13
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3606
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3607 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3608
     key: grave_room_3608
@@ -305,13 +321,13 @@ building."
         key: -1
       down:
         to: 3609
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3609 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -328,18 +344,23 @@ building."
     exits:
       up: 3608
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3603
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3608
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3609 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3610
     key: grave_room_3610
@@ -375,13 +396,13 @@ building."
         key: -1
       down:
         to: 3611
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3611 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -398,18 +419,27 @@ building."
     exits:
       up: 3610
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3613
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 3603
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3610
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3611 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3612
     key: grave_room_3612
@@ -424,6 +454,11 @@ building."
       east: 3614
       west: 3613
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 3604
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 3610
@@ -445,13 +480,13 @@ building."
         key: -1
       west:
         to: 3613
-        description: "It is a small black-painted shed with a wooden door."
-        keywords: "door"
+        description: "Close Shed from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3613
     key: grave_room_3613
@@ -464,18 +499,42 @@ building."
     exits:
       east: 3612
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3602
+        quantity: 1000
+        frequency: 1
+      - type: ITEM
+        id: 3603
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 3604
+        quantity: 1000
+        frequency: 1
+      - type: ITEM
+        id: 3605
+        quantity: 1000
+        frequency: 1
+      - type: MOB
+        id: 3600
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3601
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 3612
-        description: ""
-        keywords: "door"
+        description: "Close Shed from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3614
     key: grave_room_3614
@@ -511,13 +570,13 @@ building."
         key: -1
       down:
         to: 3615
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3615 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -534,18 +593,23 @@ building."
     exits:
       up: 3614
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3610
+        quantity: 13
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3614
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3615 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3616
     key: grave_room_3616
@@ -581,13 +645,13 @@ building."
         key: -1
       down:
         to: 3617
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3617 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -604,18 +668,26 @@ building."
     exits:
       up: 3616
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3602
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3612
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3616
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3617 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3618
     key: grave_room_3618
@@ -651,13 +723,13 @@ building."
         key: -1
       down:
         to: 3619
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3619 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -674,18 +746,23 @@ building."
     exits:
       up: 3618
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3610
+        quantity: 13
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3618
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3619 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3638
     key: grave_room_3638
@@ -700,6 +777,11 @@ building."
       west: 3604
       down: 3639
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 3605
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 3640
@@ -721,13 +803,13 @@ building."
         key: -1
       down:
         to: 3639
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3639 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -744,18 +826,23 @@ building."
     exits:
       up: 3638
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3603
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3638
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3639 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3640
     key: grave_room_3640
@@ -770,6 +857,11 @@ building."
       south: 3638
       down: 3641
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 3604
+        quantity: 4
+        frequency: 1
     doors:
       north:
         to: 3642
@@ -791,13 +883,13 @@ building."
         key: -1
       down:
         to: 3641
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3641 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -814,18 +906,23 @@ building."
     exits:
       up: 3640
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3610
+        quantity: 13
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3640
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3641 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3642
     key: grave_room_3642
@@ -861,13 +958,13 @@ building."
         key: -1
       down:
         to: 3643
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3643 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -884,18 +981,23 @@ building."
     exits:
       up: 3642
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3603
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3642
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3643 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3644
     key: grave_room_3644
@@ -910,6 +1012,11 @@ building."
       west: 3642
       down: 3645
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 3605
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 3646
@@ -931,13 +1038,13 @@ building."
         key: -1
       down:
         to: 3645
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3645 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -954,18 +1061,26 @@ building."
     exits:
       up: 3644
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3601
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 3611
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3644
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3645 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3646
     key: grave_room_3646
@@ -1001,13 +1116,13 @@ building."
         key: -1
       down:
         to: 3647
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3647 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -1024,18 +1139,23 @@ building."
     exits:
       up: 3646
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 3610
+        quantity: 13
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3646
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3647 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3648
     key: grave_room_3648
@@ -1071,13 +1191,13 @@ building."
         key: -1
       down:
         to: 3649
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3649 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -1094,18 +1214,23 @@ building."
     exits:
       up: 3648
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3603
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3648
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3649 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 3650
     key: grave_room_3650
@@ -1141,13 +1266,13 @@ building."
         key: -1
       down:
         to: 3651
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3651 from outside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       tomb: |
         It is a large rectangular slab of dark grey stone that has been placed face
@@ -1164,16 +1289,21 @@ building."
     exits:
       up: 3650
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 3605
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       up:
         to: 3650
-        description: ""
-        keywords: "tomb stone"
+        description: "Close Tomb 3651 from inside"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 

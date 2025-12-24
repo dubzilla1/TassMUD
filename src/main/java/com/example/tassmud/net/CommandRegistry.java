@@ -35,6 +35,8 @@ public class CommandRegistry {
         register("down", "Move down", Category.MOVEMENT, List.of("d"));
         register("recall", "Teleport back to the Mead-Gaard Inn (home base)", Category.MOVEMENT);
         registerCombat("look", "Look at your surroundings or examine something", Category.MOVEMENT, List.of("l"));
+        register("open", "Open a door or exit", Category.MOVEMENT);
+        register("close", "Close a door or exit", Category.MOVEMENT);
         
         // ===== STANCE =====
         // Stance changes NOT allowed in combat
@@ -114,7 +116,9 @@ public class CommandRegistry {
         registerGm("restore", "Restore a character's HP/MP/MV to full");
         registerGm("slay", "Instantly kill a target mob");
         registerGm("spawn", "Create item or mob instances");
+        registerGm("seedtemplates", "Seed item & mob templates into the running server (GM only)");
         registerGm("system", "Send a system-wide announcement");
+        registerGm("checktemplate", "Check the validity of a template");
     }
     
     private static void register(String name, String description, Category category) {

@@ -89,6 +89,42 @@ movement:
     EXAMPLE
         north
 
+open:
+  summary: "open a door or exit"
+  visibility: public
+  synopsis:
+    - "open <direction|door>"
+  body: |
+    NAME
+        open - open a door or exit
+
+    SYNOPSIS
+        open <direction|door>
+
+    DESCRIPTION
+        Opens a door or exit in the specified direction or by matching the door's description.
+
+    EXAMPLE
+        open north
+
+close:
+  summary: "close a door or exit"
+  visibility: public
+  synopsis:
+    - "close <direction|door>"
+  body: |
+    NAME
+        close - close a door or exit
+
+    SYNOPSIS
+        close <direction|door>
+
+    DESCRIPTION
+        Closes a door or exit in the specified direction or by matching the door's description.
+
+    EXAMPLE
+        close north
+
 channels:
   summary: "Chat channels and communication commands"
   visibility: public

@@ -1,0 +1,257 @@
+- id: 2101
+  key: a_gang_member
+  name: a gang member
+  short_desc: A member of the Ogres wanders about here.
+  long_desc: |
+    He's lived a life of violence ever since he was little.
+  keywords: ['ogre', 'gang', 'member']
+  level: 84
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 84 0 -100 S 5 15 5 5d5+50 1d5+5 200 600 8 8 1
+
+- id: 2102
+  key: a_gang_member
+  name: a gang member
+  short_desc: A member of the Trolls wanders about here.
+  long_desc: |
+    He wants to rid the world of every last Ogre gang member.
+  keywords: ['troll', 'gang', 'member']
+  level: 84
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 84 0 +100 S 5 15 5 5d5+50 1d7+5 210 700 8 8 1
+
+- id: 2103
+  key: the_gang_leader
+  name: the gang leader
+  short_desc: The gang leader is not pleased you found his hideout!
+  long_desc: |
+    He's risen to be leader through brute force and cunning leadership.
+  keywords: ['gang', 'leader']
+  level: 98
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 98 0 0 S 13 8 2 13d13+130 1d10+12 2000 10000 8 8 1
+
+- id: 2104
+  key: a_bruiser
+  name: a bruiser
+  short_desc: A big, mean bruiser is looking for limbs to break.
+  long_desc: |
+    He's 6'6" 245 pounds and enough muscle to bash your head in.
+  keywords: ['bruiser']
+  level: 228
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 228 8 -333 S 10 9 -1 10d10+100 1d6+10 1500 4500 8 8 1
+
+- id: 2105
+  key: a_doll
+  name: a doll
+  short_desc: A gang doll looks naughty and nice.
+  long_desc: |
+    She's a beauty (ok in RELATIVE terms) but you better not touch!
+  keywords: ['doll']
+  level: 212
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 21200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 212 0 0 S 7 8 3 7d7+70 1d6+4 1000 1500 8 8 2
+
+- id: 2106
+  key: a_patrolman
+  name: a patrolman
+  short_desc: A patrolman is trying to keep the peace.
+  long_desc: |
+    He'd rather be at the local pub then out here with these nasty kids.
+  keywords: ['patrolman', 'patrol', 'man']
+  level: 64
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 +700 S 8 13 4 8d8+80 1d6+8 7000 2000 8 8 1
+
+- id: 2107
+  key: a_vandal
+  name: a vandal
+  short_desc: A vandal is spray painting pro-gang slogans on the wall here.
+  long_desc: |
+    He has a wary eye and a fine hand for art.
+  keywords: ['vandal']
+  level: 128
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 128 32768 -400 S 10 10 1 10d10+100 1d6+6 500 3800 8 8 1
+
+- id: 2108
+  key: a_pitbull
+  name: a pitbull
+  short_desc: A vicious pitbull is foaming at the mouth in rabid anticipation.
+  long_desc: |
+    You get a nice close look at him while he's tearing at your throat.
+    His fangs are blood-stained from hearty meals of ... steak?!
+  keywords: ['dog', 'pit', 'bull', 'pitbull']
+  level: 98
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 98 65536|8 -100 S 5 10 2 5d5+50 1d6+3 10 700 8 8 1
+

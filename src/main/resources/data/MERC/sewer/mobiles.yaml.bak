@@ -1,0 +1,792 @@
+- id: 7000
+  key: |
+  the_horrifying_mudmonster:
+  name: |
+  mud_monster_mudmonster:
+  short_desc: |
+  the_horrifying_Mudmonster:
+  long_desc: |
+  A_horrifying_Mudmonster_is_slowly_evolving_from_the_mud_:
+  keywords: ['mud', 'monster', 'mudmonster']
+  level: 64
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7001
+  key: |
+  the_small_bat:
+  name: |
+  bat:
+  short_desc: |
+  the_small_bat:
+  long_desc: |
+  The_small_fierce-looking_bat_is_hanging_from_the_ceiling:
+  keywords: ['bat']
+  level: 96
+  hp_max: 13
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 6
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7002
+  key: |
+  the_great_sewer_rat:
+  name: |
+  rat:
+  short_desc: |
+  the_great_sewer_rat:
+  long_desc: |
+  The_huge_hungry-looking_sewer_rat_sits_here:
+  keywords: ['rat']
+  level: 32
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7003
+  key: |
+  the_small_spider:
+  name: |
+  spider:
+  short_desc: |
+  the_small_spider:
+  long_desc: |
+  The_small_hairy_spider:
+  keywords: ['spider']
+  level: 32
+  hp_max: 14
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7004
+  key: |
+  the_giant_earth_beetle:
+  name: |
+  beetle:
+  short_desc: |
+  the_giant_earth_beetle:
+  long_desc: |
+  The_giant_mean-looking_earth_beetle_crawls_towards_you:
+  keywords: ['beetle']
+  level: 512
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 51200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7005
+  key: |
+  the_maggot:
+  name: |
+  maggot:
+  short_desc: |
+  the_maggot:
+  long_desc: |
+  The_giant_maggot_crawls_toward_you:
+  keywords: ['maggot']
+  level: 512
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 51200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7006
+  key: |
+  the_slithering_snake:
+  name: |
+  snake:
+  short_desc: |
+  the_slithering_snake:
+  long_desc: |
+  The_snake_slithers_towards_you:
+  keywords: ['snake']
+  level: 33
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7007
+  key: |
+  the_evil_wanderer:
+  name: |
+  wanderer:
+  short_desc: |
+  the_evil_wanderer:
+  long_desc: |
+  The_evil_wanderer_stares_at_you:
+  keywords: ['wanderer']
+  level: 132
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7008
+  key: |
+  the_homonculus:
+  name: |
+  homonculus_homo:
+  short_desc: |
+  the_homonculus:
+  long_desc: |
+  The_homonculus_is_here_looking_at_you_with_an_evil_look:
+  keywords: ['homonculus', 'homo']
+  level: 18
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 1800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7010
+  key: |
+  the_evil_chreffn:
+  name: |
+  chreffn:
+  short_desc: |
+  the_evil_chreffn:
+  long_desc: |
+  The_chreffn_are_crawling_here_looking_around_with_their_yellow_eyes:
+  keywords: ['chreffn']
+  level: 132
+  hp_max: 175
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7011
+  key: |
+  the_shadowy_morkoth:
+  name: |
+  morkoth:
+  short_desc: |
+  the_shadowy_morkoth:
+  long_desc: |
+  The_morkoth_is_standing_here_waiting_for_someone_to_KILL:
+  keywords: ['morkoth']
+  level: 160
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7013
+  key: |
+  the_horrifying_mudmonster:
+  name: |
+  mud_monster_mudmonster:
+  short_desc: |
+  the_horrifying_mudmonster:
+  long_desc: |
+  A_horrifying_mudmonster_is_slowly_evolving_from_the_mud_:
+  keywords: ['mud', 'monster', 'mudmonster']
+  level: 96
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7040
+  key: |
+  the_red_dragon:
+  name: |
+  red_dragon:
+  short_desc: |
+  the_red_dragon:
+  long_desc: |
+  The_red_fierce-looking_dragon_stares_at_you_angrily:
+  keywords: ['red', 'dragon']
+  level: 35
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7041
+  key: |
+  the_sea_hag:
+  name: |
+  sea_hag:
+  short_desc: |
+  the_sea_hag:
+  long_desc: |
+  The_sea_hag_is_swimming_around_here:
+  keywords: ['sea', 'hag']
+  level: 32
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 172
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7042
+  key: |
+  the_guardian_naga:
+  name: |
+  guardian_naga:
+  short_desc: |
+  the_guardian_naga:
+  long_desc: |
+  The_guardian_naga_looks_kindly_at_you:
+  keywords: ['guardian', 'naga']
+  level: 2
+  hp_max: 157
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7043
+  key: |
+  the_scaled_basilisk:
+  name: |
+  basilisk:
+  short_desc: |
+  the_scaled_basilisk:
+  long_desc: |
+  The_scaled_basilisk_crawls_towards_you_slowly:
+  keywords: ['basilisk']
+  level: 36
+  hp_max: 166
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7044
+  key: |
+  the_lemure_blob:
+  name: |
+  lemure_blob:
+  short_desc: |
+  the_lemure_blob:
+  long_desc: |
+  The_lemure_blob_slithers_terribly_precisely_towards_you_for_an_attack:
+  keywords: ['lemure', 'blob']
+  level: 32
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 57
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7045
+  key: |
+  jones:
+  name: |
+  jones_cruncher_ettin:
+  short_desc: |
+  Jones:
+  long_desc: |
+  Jones_Cruncher_the_ettin_is_standing_here_glaring_at_you:
+  keywords: ['jones', 'cruncher', 'ettin']
+  level: 36
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7046
+  key: |
+  herald:
+  name: |
+  herald_mouse_killer_ettin:
+  short_desc: |
+  Herald:
+  long_desc: |
+  Herald_Mouse-Killer_the_ettin_is_standing_here_looking_confused_at_you:
+  keywords: ['herald', 'mouse', 'killer', 'ettin']
+  level: 4
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7200
+  key: |
+  the_master_mindflayer:
+  name: |
+  master_mind_mindflayer:
+  short_desc: |
+  the_master_mindflayer:
+  long_desc: |
+  The_master_mindflayer_is_here_looking_at_you_with_an_evil_look:
+  keywords: ['master', 'mind', 'mindflayer']
+  level: 37
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7201
+  key: |
+  the_senior_mindflayer:
+  name: |
+  senior_mind_mindflayer:
+  short_desc: |
+  the_senior_mindflayer:
+  long_desc: |
+  The_senior_mindflayer_walks_around_here_looking_for_something_useful:
+  keywords: ['senior', 'mind', 'mindflayer']
+  level: 6
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7202
+  key: |
+  the_junior_mindflayer:
+  name: |
+  junior_mind_mindflayer:
+  short_desc: |
+  the_junior_mindflayer:
+  long_desc: |
+  The_junior_mindflayer_is_here_watching_you_carefully_from_the_corner:
+  keywords: ['junior', 'mind', 'mindflayer']
+  level: 37
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7203
+  key: |
+  the_ugly_wererat:
+  name: |
+  wererat_rat_were:
+  short_desc: |
+  the_ugly_wererat:
+  long_desc: |
+  An_ugly_wererat_is_here_looking_at_you_with_a_strange_flick_in_his_eyes:
+  keywords: ['wererat', 'rat', 'were']
+  level: 100
+  hp_max: 83
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 69
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 7204
+  key: |
+  the_gigantic_rat:
+  name: |
+  rat_gigantic:
+  short_desc: |
+  the_gigantic_rat:
+  long_desc: |
+  There_is_a_gigantic_rat_here_looking_at_you_with_a_hungry_look:
+  keywords: ['rat', 'gigantic']
+  level: 34
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

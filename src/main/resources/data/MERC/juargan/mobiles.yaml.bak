@@ -1,0 +1,297 @@
+- id: 4700
+  key: |
+  the_small_dwarf:
+  name: |
+  dwarf:
+  short_desc: |
+  the_small_dwarf:
+  long_desc: |
+  A_small_dwarf_is_here_mining_at_the_tunnel_walls:
+  keywords: ['dwarf']
+  level: 4
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4701
+  key: |
+  the_small_dwarf:
+  name: |
+  dwarf:
+  short_desc: |
+  the_small_dwarf:
+  long_desc: |
+  A_small_dwarf_is_here_on_the_watch_for_Duergar:
+  keywords: ['dwarf']
+  level: 4
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4702
+  key: |
+  the_dwarf_guard:
+  name: |
+  dwarf_guard:
+  short_desc: |
+  the_dwarf_guard:
+  long_desc: |
+  A_small_dwarf_is_here_dressed_in_a_makeshift_suit_of_armor:
+  keywords: ['dwarf', 'guard']
+  level: 2
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4703
+  key: |
+  yentle_the_dwarf:
+  name: |
+  dwarf_yentle:
+  short_desc: |
+  Yentle_the_dwarf:
+  long_desc: |
+  A_small_dwarf_sits_here_trying_to_grow_a_new_rock:
+  keywords: ['dwarf', 'yentle']
+  level: 4
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4704
+  key: |
+  juargan_the_dwarven_king:
+  name: |
+  juargan_dwarf_king:
+  short_desc: |
+  Juargan_the_Dwarven_King:
+  long_desc: |
+  Juargan_the_Dwarven_King_sits_here_upon_his_throne_looking_out_over_his_gardens:
+  keywords: ['juargan', 'dwarf', 'king']
+  level: 2
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4705
+  key: |
+  the_duergar_dwarf:
+  name: |
+  duergar_dwarf:
+  short_desc: |
+  the_duergar_dwarf:
+  long_desc: |
+  A_repulsive_Duergar_is_here_biting_at_its_own_arm:
+  keywords: ['duergar', 'dwarf']
+  level: 36
+  hp_max: 161
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4706
+  key: |
+  grimdale_the_ancient_king:
+  name: |
+  grimdale_king_dwarf:
+  short_desc: |
+  Grimdale_the_ancient_king:
+  long_desc: |
+  A_ancient_and_partially_decayed_dwarf_lies_here_ever_so_silent:
+  keywords: ['grimdale', 'king', 'dwarf']
+  level: 34
+  hp_max: 648
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 27
+  damage_bonus: 270
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4707
+  key: |
+  the_dreaded_rock_worm:
+  name: |
+  rock_worm_dreaded:
+  short_desc: |
+  The_dreaded_rock_worm:
+  long_desc: |
+  The_dreaded_rock_worm_has_blasted_through_the_rock_wall_its_jaws_open_wide:
+  keywords: ['rock', 'worm', 'dreaded']
+  level: 34
+  hp_max: 272
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 4708
+  key: |
+  a_dwarven_spirit:
+  name: |
+  spirit_dwarf:
+  short_desc: |
+  a_dwarven_spirit:
+  long_desc: |
+  A_small_dwarven_spirit_is_at_unrest_here:
+  keywords: ['spirit', 'dwarf']
+  level: 34
+  hp_max: 177
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

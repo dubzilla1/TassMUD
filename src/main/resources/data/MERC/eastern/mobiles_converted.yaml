@@ -1,0 +1,548 @@
+- id: 5000
+  key: the_dervish
+  name: The dervish
+  short_desc: The raggity dervish walks on aimlessly.
+  long_desc: |
+    Dressed in loose fitting rags, this man looks like he could use
+    some rest.
+  keywords: ['dervish', 'raggity']
+  level: 196
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 196 32768 900 S 5 15 5 5d5+50 2d4+0 70 700 8 8 1
+
+- id: 5001
+  key: the_dervish
+  name: The dervish
+  short_desc: The large dervish watches for signs of trouble.
+  long_desc: |
+    Dressed in loose fitting rags, this man looks like he could use
+    LOTS of rest.
+  keywords: ['dervish', 'large']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 32768 650 S 8 11 1 8d8+80 2d6+1 150 2000 8 8 1
+
+- id: 5002
+  key: the_coral_snake
+  name: The coral snake
+  short_desc: A brightly colored snake slithers along the sands.
+  long_desc: |
+    This relatively harmless snake has bright alternating bands of red, yellow
+    and black.
+  keywords: ['snake', 'coral']
+  level: 64
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 -10 S 4 17 4 4d4+40 1d9+0 0 500 8 8 0
+
+- id: 5003
+  key: the_small_scorpion
+  name: The small scorpion
+  short_desc: A small, red scorpion scuttles away at your approach.
+  long_desc: |
+    The little tail is mighty dangerous for such a small creature.
+  keywords: ['scorpion', 'small']
+  level: 64
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 -50 S 3 17 1 3d3+30 1d8+0 0 500 8 8 0
+
+- id: 5004
+  key: the_giant_purple_sand_worm
+  name: The giant, purple sand worm
+  short_desc: A giant, purple sand worm thrusts up out of the sand and attacks!
+  long_desc: |
+    He's big, mean, and purple. Watch out!
+  keywords: ['worm', 'giant']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 0 -100 S 18 -1 0 18d18+180 3d6+4 2540 50000 8 8 0
+
+- id: 5005
+  key: the_brass_dragon
+  name: the brass dragon
+  short_desc: The brass dragon steps out of the darkness and says 'Hello'. Then adds to it, 'Prepare to die, have a nice day!'
+  long_desc: |
+  keywords: ['dragon', 'brass']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|4|32 8|128 450 S 30 -10 -10 30d30+300 1d9+25 5500 295000 8 8 2
+
+- id: 5006
+  key: the_nomad_leader
+  name: The nomad leader
+  short_desc: The nomad leader sits silently in prayer.
+  long_desc: |
+    He is clad in silk robes lined with gold thread. At his side
+    is a large, engraved cutlass. He has an especially haughty air
+    about him.
+  keywords: ['nomad', 'leader']
+  level: 950
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 95000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2240 0 950 S 14 7 0 14d14+140 3d8+2 1000 17000 6 6 1
+
+- id: 5007
+  key: the_nomad_commander
+  name: The nomad commander
+  short_desc: The nomad commander stands here staring suspiciously at you.
+  long_desc: |
+    This is the nomad leader's second in command. His clothes are richly
+    woven of silk and gold thread. A nasty cutlass hangs at his side.
+  keywords: ['nomad', 'commander']
+  level: 900
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 900 S 12 8 1 12d12+120 3d5+1 600 11000 8 8 1
+
+- id: 5008
+  key: the_nomad_warrior
+  name: The nomad warrior
+  short_desc: A proud nomad warrior stands here.
+  long_desc: |
+  keywords: ['nomad', 'warrior']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 700 S 10 10 0 10d10+100 4d3+0 300 4000 8 8 1
+
+- id: 5009
+  key: the_slave
+  name: The slave
+  short_desc: A young slave sits here staring at you with pleading eyes.
+  long_desc: |
+  keywords: ['slave', 'young']
+  level: 130
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 130 0 1000 S 3 18 9 3d3+30 1d5+0 0 200 5 5 2
+
+- id: 5010
+  key: the_dracolich
+  name: The dracolich
+  short_desc: A pile of bones rises up to form a skeletal dracolich.
+  long_desc: |
+    The dracolich is now only bone with pieces of flesh hanging from it.
+    Obviously it no longer fears death.
+  keywords: ['dracolich', 'lich']
+  level: 136
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2083 136 -1000 S 20 1 -2 20d20+200 25d2+0 75000 50000 8 8 0
+
+- id: 5011
+  key: the_drider
+  name: The drider
+  short_desc: The drider looks at you viciously while it draws its sword.
+  long_desc: |
+    This half-spider, half-drow creature is a formidable opponent.
+  keywords: ['drider', 'drow']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 8 -1000 S 8 12 2 8d8+80 2d6+2 200 2000 8 8 2
+
+- id: 5012
+  key: the_dark_dwarf
+  name: The dark dwarf
+  short_desc: A duergar is here mining precious stones with his pick.
+  long_desc: |
+    The duergar could crush your head as easily as it does those rocks.
+  keywords: ['duergar', 'dwarf']
+  level: 96
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 8 -850 S 5 16 3 5d5+50 2d5+1 170 750 8 8 1
+
+- id: 5013
+  key: the_myconoid
+  name: the myconoid
+  short_desc: A myconoid lumbers along peacefully.
+  long_desc: |
+    The myconoid looks something like a giant mushroom (and probably
+    has the same effect).
+  keywords: ['myconoid']
+  level: 192
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 8 850 S 6 15 4 6d6+60 2d7+0 50 700 8 8 1
+
+- id: 5014
+  key: the_myconoid_shaman
+  name: The myconoid shaman
+  short_desc: A rather large myconoid stands here chanting in a strange tongue.
+  long_desc: |
+    The shaman shoots spores into the air.
+  keywords: ['myconoid', 'shaman']
+  level: 130
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 130 136 850 S 8 13 2 8d8+80 2d7+2 1500 3000 8 8 1
+
+- id: 5015
+  key: the_dustdigger
+  name: The dustdigger
+  short_desc: A small oasis invites you to dive in.
+  long_desc: |
+  keywords: ['dustdigger']
+  level: 38
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 65536 -200 S 7 10 1 7d7+70 3d4+0 450 1500 8 8 0
+
+- id: 5017
+  key: the_rabid_camel
+  name: The rabid camel
+  short_desc: A very dangerous rabid camel snorts at you.
+  long_desc: |
+    Don't mess with this animal.
+  keywords: ['camel']
+  level: 34
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -351 S 5 12 6 6d6+60 2d4+3 270 700 8 8 0
+

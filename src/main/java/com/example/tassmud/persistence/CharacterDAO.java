@@ -554,7 +554,7 @@ public class CharacterDAO {
             return false;
         }
         
-    private static final String URL = "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1";
+    private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
     private static final String USER = "sa";
     private static final String PASS = "";
 

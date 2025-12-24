@@ -1,6 +1,11 @@
 package com.example.tassmud.net.commands;
 
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -69,10 +74,67 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             case "restore": return handleRestoreCommand(ctx);
             case "slay": return handleSlayCommand(ctx);
             case "spawn": return handleSpawnCommand(ctx);
+            case "seedtemplates": return handleSeedTemplatesCommand(ctx);
+            case "checktemplate": return handleCheckTemplateCommand(ctx);
             case "system": return handleSystemCommand(ctx);
             default:
                 return false;
         }
+    }
+
+    private boolean handleCheckTemplateCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        if (!dao.isCharacterFlagTrueByName(ctx.playerName, "is_gm")) {
+            out.println("You do not have permission to use checktemplate.");
+            return true;
+        }
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Usage: CHECKTEMPLATE <mobile_template_id>");
+            return true;
+        }
+        int id;
+        try {
+            id = Integer.parseInt(args.trim());
+        } catch (NumberFormatException e) {
+            out.println("Invalid id: " + args);
+            return true;
+        }
+
+        String url = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
+        try (Connection c = DriverManager.getConnection(url, "sa", "")) {
+            try (PreparedStatement ps = c.prepareStatement("SELECT id, name FROM mobile_template WHERE id = ?")) {
+                ps.setInt(1, id);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        out.println("Mobile template found: id=" + rs.getInt(1) + " name='" + rs.getString(2) + "'");
+                    } else {
+                        out.println("Mobile template not found: " + id);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            out.println("DB error: " + e.getMessage());
+        }
+        return true;
+    }
+
+    private boolean handleSeedTemplatesCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        if (!dao.isCharacterFlagTrueByName(ctx.playerName, "is_gm")) {
+            out.println("You do not have permission to use seedtemplates.");
+            return true;
+        }
+        out.println("Seeding item and mobile templates into running server (this may take a moment)...");
+        try {
+            com.example.tassmud.persistence.DataLoader.loadTemplatesOnly();
+            out.println("Template seeding complete. Triggered initial spawn checks.");
+        } catch (Exception e) {
+            out.println("Failed to seed templates: " + e.getMessage());
+        }
+        return true;
     }
 
     private boolean handleGminvisCommand(CommandContext ctx) {
@@ -335,7 +397,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             out.println("You raise your hand and " + mobName + " is struck down by divine power!");
             ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " raises their hand and " + mobName + " is struck down by divine power!");
             
-            // Find combatant and set HP to 0 - combat system will handle death
+            // Find combatant and set HP to 0 - then perform death handling immediately
             Combatant victimCombatant = null;
             for (Combatant c : combat.getActiveCombatants()) {
                 if (c.getMobile() == targetMob) {
@@ -347,6 +409,34 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                 GameCharacter victimChar = victimCombatant.getAsCharacter();
                 if (victimChar != null) {
                     victimChar.setHpCur(0);
+                }
+
+                // Announce the divine strike (already announced above)
+                // Create corpse in room
+                try {
+                    ItemDAO itemDAO = new ItemDAO();
+                    itemDAO.createCorpse(rec.currentRoom, mobName);
+                } catch (Exception e) {
+                    System.err.println("[slay] Failed to create corpse: " + e.getMessage());
+                }
+
+                // Remove combatant from combat to avoid later double-processing
+                try {
+                    Combat roomCombat = CombatManager.getInstance().getCombatInRoom(rec.currentRoom);
+                    if (roomCombat != null) {
+                        roomCombat.removeCombatant(victimCombatant);
+                    }
+                } catch (Exception e) {
+                    // non-fatal
+                }
+
+                // Kill and remove the mob instance
+                try {
+                    MobileDAO mobileDao = new MobileDAO();
+                    targetMob.die();
+                    mobileDao.deleteInstance(targetMob.getInstanceId());
+                } catch (Exception e) {
+                    System.err.println("[slay] Failed to despawn mob: " + e.getMessage());
                 }
             }
         } else {

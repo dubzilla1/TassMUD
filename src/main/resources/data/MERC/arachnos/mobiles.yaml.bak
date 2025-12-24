@@ -1,0 +1,627 @@
+- id: 6301
+  key: |
+  the_young_spider:
+  name: |
+  spider_young:
+  short_desc: |
+  the_young_spider:
+  long_desc: |
+  The_young_spider_is_ballooning_by_you:
+  keywords: ['spider', 'young']
+  level: 68
+  hp_max: 62
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6302
+  key: |
+  yevaud:
+  name: |
+  dragon_Yevaud:
+  short_desc: |
+  Yevaud:
+  long_desc: |
+  Yevaud_the_Usurper_of_Midgaard_is_here_grinning_evilly_at_you:
+  keywords: ['dragon', 'Yevaud']
+  level: 71
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6303
+  key: |
+  the_wolf_spider:
+  name: |
+  spider_wolf:
+  short_desc: |
+  the_Wolf_Spider:
+  long_desc: |
+  The_Wolf_Spider_is_here_licking_its_bloody_fangs:
+  keywords: ['spider', 'wolf']
+  level: 34
+  hp_max: 83
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6304
+  key: |
+  the_orc:
+  name: |
+  orc:
+  short_desc: |
+  the_orc:
+  long_desc: |
+  The_orc_is_stuck_in_the_web_and_he_cant_get_out:
+  keywords: ['orc']
+  level: 2
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6305
+  key: |
+  the_queen_wasp:
+  name: |
+  wasp_queen:
+  short_desc: |
+  the_Queen_Wasp:
+  long_desc: |
+  The_Queen_Wasp_is_here_thinking_that_you_would_make_a_tasty_offeringnto_her_master:
+  keywords: ['wasp', 'queen']
+  level: 34
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6306
+  key: |
+  the_drone_spider:
+  name: |
+  spider_drone:
+  short_desc: |
+  the_drone_spider:
+  long_desc: |
+  The_drone_spider_walks_around_doing_her_masters_bidding:
+  keywords: ['spider', 'drone']
+  level: 68
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6307
+  key: |
+  the_ethereal_spider:
+  name: |
+  spider_ethereal:
+  short_desc: |
+  the_ethereal_spider:
+  long_desc: |
+  The_ethereal_spider_strides_here_traveling_to_different_worlds:
+  keywords: ['spider', 'ethereal']
+  level: 68
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6308
+  key: |
+  the_slave_of_arachnos:
+  name: |
+  slave_human:
+  short_desc: |
+  the_slave_of_Arachnos:
+  long_desc: |
+  The_slave_works_here_relentlessly:
+  keywords: ['slave', 'human']
+  level: 68
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6309
+  key: |
+  the_quasit:
+  name: |
+  quasit:
+  short_desc: |
+  the_quasit:
+  long_desc: |
+  The_quasit_blinks_in_and_out_grinning_at_you:
+  keywords: ['quasit']
+  level: 148
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6310
+  key: |
+  the_bird_spider:
+  name: |
+  spider_bird:
+  short_desc: |
+  the_Bird_Spider:
+  long_desc: |
+  The_Bird_Spider_snaps_its_powerful_jaws:
+  keywords: ['spider', 'bird']
+  level: 34
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6311
+  key: |
+  the_hermit:
+  name: |
+  hermit:
+  short_desc: |
+  the_Hermit:
+  long_desc: |
+  The_Hermit_sits_here_and_warns_Go_back_before_its_too_late:
+  keywords: ['hermit']
+  level: 6
+  hp_max: 96
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6312
+  key: |
+  the_donjonkeeper:
+  name: |
+  donjonkeeper:
+  short_desc: |
+  the_Donjonkeeper:
+  long_desc: |
+  The_Donjonkeeper_eyes_you_and_wonders_how_pure_your_soul_is:
+  keywords: ['donjonkeeper']
+  level: 6
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6313
+  key: |
+  the_guardian:
+  name: |
+  guardian:
+  short_desc: |
+  The_guardian:
+  long_desc: |
+  The_guardian_is_obviously_not_doing_his_job:
+  keywords: ['guardian']
+  level: 96
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6314
+  key: |
+  arachnos:
+  name: |
+  spider_empress_arachnos:
+  short_desc: |
+  Arachnos:
+  long_desc: |
+  Arachnos_the_Empress_of_Spiders_welcomes_you_with_an_evil_smile:
+  keywords: ['spider', 'empress', 'arachnos']
+  level: 34
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6315
+  key: |
+  the_ki_rin:
+  name: |
+  ki-rin:
+  short_desc: |
+  the_Ki-Rin:
+  long_desc: |
+  The_Ki-Rin_smiles_good-naturedly_to_you:
+  keywords: ['ki-rin']
+  level: 6
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6316
+  key: |
+  the_young_dragon_wormkin:
+  name: |
+  dragon_wormkin_young:
+  short_desc: |
+  the_young_dragon_wormkin:
+  long_desc: |
+  A_wormkin_with_no_teeth_plays_here:
+  keywords: ['dragon', 'wormkin', 'young']
+  level: 3
+  hp_max: 175
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6317
+  key: |
+  the_medium_dragon_wormkin:
+  name: |
+  dragon_wormkin_medium:
+  short_desc: |
+  the_medium_dragon_wormkin:
+  long_desc: |
+  A_wormkin_that_has_grown_a_bit_stares_at_you_inquisitively:
+  keywords: ['dragon', 'wormkin', 'medium']
+  level: 3
+  hp_max: 241
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6318
+  key: |
+  the_huge_poisonous_spider:
+  name: |
+  spider_poisonous:
+  short_desc: |
+  the_huge_poisonous_spider:
+  long_desc: |
+  A_huge_poisonous_spider_is_here:
+  keywords: ['spider', 'poisonous']
+  level: 67
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6319
+  key: |
+  the_queen_spider:
+  name: |
+  queen_spider:
+  short_desc: |
+  the_Queen_Spider:
+  long_desc: |
+  The_huge_bulky_Queen_Spider_is_here:
+  keywords: ['queen', 'spider']
+  level: 67
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

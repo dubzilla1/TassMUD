@@ -1,0 +1,421 @@
+- id: 2901
+  key: a_mountain_goat
+  name: a mountain goat
+  short_desc: A mountain goat is standing here.
+  long_desc: |
+    It looks hungry and searches for food.
+  keywords: ['black', 'mountain', 'goat']
+  level: 2
+  hp_max: 33
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -100 S 2 18 10 2d2+30 1d4+2 14 150 8 8 1
+
+- id: 2902
+  key: a_mountain_ewe
+  name: a mountain ewe
+  short_desc: A mountain ewe is standing here.
+  long_desc: |
+    The ewe is watching her young.
+  keywords: ['black', 'mountain', 'ewe']
+  level: 2
+  hp_max: 33
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -100 S 2 19 10 2d2+30 1d4+1 10 125 8 8 2
+
+- id: 2903
+  key: a_mountain_kid
+  name: a mountain kid
+  short_desc: A mountain kid is standing here.
+  long_desc: |
+    The kid is playing with its siblings.
+  keywords: ['black', 'mountain', 'kid']
+  level: 2
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -100 S 1 20 10 3d6+1 1d3+1 6 100 8 8 0
+
+- id: 2904
+  key: a_fire_newt_worker
+  name: a fire newt worker
+  short_desc: A fire newt worker is standing here.
+  long_desc: |
+    The fire newt worker looks hot and sweaty.
+  keywords: ['fire', 'newt', 'worker']
+  level: 4
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 0 -400 S 2 18 8 3d12+8 1d6+2 23 200 8 8 1
+
+- id: 2905
+  key: a_fire_newt_guard
+  name: a fire newt guard
+  short_desc: A fire newt guard is standing here.
+  long_desc: |
+    The fire newt guard thinks you would be better dead.
+  keywords: ['fire', 'newt', 'guard']
+  level: 2
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 0 -450 S 3 17 7 3d3+35 1d10+2 30 300 8 8 1
+
+- id: 2906
+  key: a_fire_newt_worker
+  name: a fire newt worker
+  short_desc: A fire newt worker is standing here.
+  long_desc: |
+    The fire newt worker looks hot and sweaty.
+  keywords: ['fire', 'newt', 'worker']
+  level: 2
+  hp_max: 27
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 8 -400 S 2 18 8 3d12+8 1d6+2 23 200 8 8 2
+
+- id: 2907
+  key: fire_newt_guard
+  name: fire newt guard
+  short_desc: A fire newt guard is standing here.
+  long_desc: |
+    The fire newt guard wants to kill you!
+  keywords: ['fire', 'newt', 'guard']
+  level: 32
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32|64 0 -450 S 3 17 7 3d3+35 1d10+2 30 300 8 8 2
+
+- id: 2908
+  key: the_fire_newt_mother_is_watching_her_kids
+  name: The fire newt mother is watching her kids.
+  short_desc: The fire newt mother is watching her kids.
+  long_desc: |
+    2 0 -355 S
+    2 18 8 3d10+8 1d6+2
+    26 200
+    8 8 2
+    #2909
+    fire newt baby
+  keywords: ['fire', 'newt', 'mother']
+  level: 2
+  hp_max: 5
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: a fire newt baby~ A fire newt baby is crawling here. ~ The fire newt baby is crawling and drooling here. ~ 2|4 0 -350 S 0 20 10 3d2+1 1d3+0 6 50 8 8 0
+
+- id: 2910
+  key: a_fire_newt_sergeant
+  name: a fire newt sergeant
+  short_desc: A fire newt sergeant patrols this area.
+  long_desc: |
+    He's just found something that doesn't belong here!
+  keywords: ['fire', 'newt', 'sergeant']
+  level: 2
+  hp_max: 86
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 0 -500 S 5 15 4 12d10+20 1d12+4 200 700 8 8 1
+
+- id: 2911
+  key: a_fire_newt_general
+  name: a fire newt general
+  short_desc: A fire newt general is standing here.
+  long_desc: |
+    The fire newt general grins evilly at you.
+  keywords: ['fire', 'newt', 'general']
+  level: 34
+  hp_max: 136
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -700 S 8 13 3 8d8+100 1d15+4 400 2000 8 8 1
+
+- id: 2912
+  key: a_fire_newt_leader
+  name: a fire newt leader
+  short_desc: A fire newt leader is standing here.
+  long_desc: |
+    The fire newt leader screams, 'I'm going to hose you!'
+  keywords: ['fire', 'newt', 'leader']
+  level: 2
+  hp_max: 241
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 8|128 -1000 S 13 9 1 13d13+150 1d5+12 1000 8000 8 8 1
+
+- id: 2913
+  key: a_fire_newt_priest
+  name: a fire newt priest
+  short_desc: A fire newt priest is standing here.
+  long_desc: |
+    The fire newt priest is preparing for worship.
+  keywords: ['fire', 'newt', 'priest']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 8 -1000 S 10 11 2 10d10+100 1d4+8 700 3500 8 8 1
+
+- id: 2914
+  key: a_fire_lizard
+  name: a fire lizard
+  short_desc: A fire lizard is crawling here.
+  long_desc: |
+    The fire lizard flicks its tongue at you.
+  keywords: ['fire', 'lizard']
+  level: 2
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 8 -100 S 11 10 2 11d11+110 2d12+8 1000 5000 8 8 0
+

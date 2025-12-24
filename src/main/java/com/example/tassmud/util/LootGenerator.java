@@ -31,6 +31,8 @@ import java.util.Random;
 public class LootGenerator {
     
     private static final Random RNG = new Random();
+    // Toggle random loot generation (set to false to enable).
+    private static final boolean LOOT_GENERATION_DISABLED = false;
     
     // Die progression for weapons
     private static final int[] DIE_PROGRESSION = {2, 4, 6, 8, 10, 12, 20, 30};
@@ -150,6 +152,10 @@ public class LootGenerator {
      * @return List of generated items placed in the corpse
      */
     public static List<GeneratedItem> generateLoot(int mobLevel, long corpseInstanceId, ItemDAO itemDAO) {
+        if (LOOT_GENERATION_DISABLED) {
+            System.out.println("LootGenerator: random loot generation is currently disabled.");
+            return new ArrayList<>();
+        }
         List<GeneratedItem> generatedItems = new ArrayList<>();
         
         // Determine how many items to generate
@@ -187,9 +193,13 @@ public class LootGenerator {
      * @return The generated item info, or null if creation failed
      */
     public static GeneratedItem generateItemInRoom(int level, int roomId, ItemDAO itemDAO) {
+        if (LOOT_GENERATION_DISABLED) {
+            System.out.println("LootGenerator: generateItemInRoom is disabled.");
+            return null;
+        }
         GeneratedItem item = generateSingleItem(level);
         if (item == null) return null;
-        
+
         long instanceId = itemDAO.createGeneratedInstanceInRoom(
             item.templateId, roomId,
             item.customName, item.customDescription, item.itemLevel,
@@ -198,7 +208,7 @@ public class LootGenerator {
             item.spellEffect1, item.spellEffect2, item.spellEffect3, item.spellEffect4,
             item.valueOverride
         );
-        
+
         return instanceId > 0 ? item : null;
     }
     
@@ -213,6 +223,10 @@ public class LootGenerator {
      * @return The instance ID of the created item, or -1 on failure
      */
     public static long generateItemFromTemplateInRoom(int templateId, int level, int roomId, ItemDAO itemDAO) {
+        if (LOOT_GENERATION_DISABLED) {
+            System.out.println("LootGenerator: generateItemFromTemplateInRoom disabled for templateId=" + templateId);
+            return -1;
+        }
         ItemTemplate template = itemDAO.getTemplateById(templateId);
         if (template == null) return -1;
         
@@ -330,6 +344,7 @@ public class LootGenerator {
      * This returns the GeneratedItem that would be used to create an instance.
      */
     public static GeneratedItem sampleSingleItem(int mobLevel) {
+        if (LOOT_GENERATION_DISABLED) return null;
         return generateSingleItem(mobLevel);
     }
     

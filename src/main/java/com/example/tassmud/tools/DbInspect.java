@@ -17,6 +17,8 @@ public class DbInspect {
                 "SELECT instance_id, template_id, current_room_id, orig_uuid, is_dead, spawned_at, died_at FROM mobile_instance ORDER BY instance_id DESC LIMIT 20");
             runQuery(c, "spawn_mapping counts by template for top 20",
                 "SELECT template_id, COUNT(*) AS cnt FROM spawn_mapping GROUP BY template_id ORDER BY cnt DESC LIMIT 20");
+            runQuery(c, "mobile_template row for 3011",
+                "SELECT id, name FROM mobile_template WHERE id = 3011");
         } catch (SQLException e) {
             System.err.println("Connection failed: " + e.getMessage());
             e.printStackTrace();

@@ -1,0 +1,619 @@
+- id: 6301
+  key: the_young_spider
+  name: the young spider
+  short_desc: The young spider is ballooning by you.
+  long_desc: |
+    He looks freshly hatched and sprightly.  His young fangs are just
+    growing in as of late.
+  keywords: ['spider', 'young']
+  level: 68
+  hp_max: 62
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 8 0 S 5 17 8 5d4+50 2d4+1 100 600 8 8 2
+
+- id: 6302
+  key: yevaud
+  name: Yevaud
+  short_desc: Yevaud the Usurper of Midgaard is here, grinning evilly at you.
+  long_desc: |
+    Old, scaly, but still with a lot of bite in him left.
+  keywords: ['dragon', 'Yevaud']
+  level: 71
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 71 8 -1000 S 24 2 0 24d24+240 4d6+3 10000 65100 8 8 1
+
+- id: 6303
+  key: the_wolf_spider
+  name: the Wolf Spider
+  short_desc: The Wolf Spider is here, licking its bloody fangs.
+  long_desc: |
+    The Wolf Spider is hairy, very hairy.
+  keywords: ['spider', 'wolf']
+  level: 34
+  hp_max: 83
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -300 S 6 12 4 3d8+70 2d5+3 1250 2000 8 8 2
+
+- id: 6304
+  key: the_orc
+  name: the orc
+  short_desc: The orc is stuck in the web and he can't get out.
+  long_desc: |
+    You notice an evil look in his eyes.
+  keywords: ['orc']
+  level: 2
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -400 S 5 15 5 2d10+30 2d4+0 100 600 8 8 1
+
+- id: 6305
+  key: the_queen_wasp
+  name: the Queen Wasp
+  short_desc: The Queen Wasp is here, thinking that you would make a tasty offering to her master.
+  long_desc: |
+    You notice a glazed look in her eyes.
+  keywords: ['wasp', 'queen']
+  level: 34
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -800 S 12 7 -3 12d12+120 2d8+5 1500 8000 8 8 2
+
+- id: 6306
+  key: the_drone_spider
+  name: the drone spider
+  short_desc: The drone spider walks around doing her master's bidding.
+  long_desc: |
+    An ordinary drone spider.
+  keywords: ['spider', 'drone']
+  level: 68
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 -300 S 6 12 4 6d6+60 2d4+0 200 800 8 8 1
+
+- id: 6307
+  key: the_ethereal_spider
+  name: the ethereal spider
+  short_desc: The ethereal spider strides here, traveling to different worlds.
+  long_desc: |
+    She winks in and out.
+  keywords: ['spider', 'ethereal']
+  level: 68
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 1000 S 10 10 0 10d10+100 2d4+4 1250 4000 8 8 2
+
+- id: 6308
+  key: the_slave_of_arachnos
+  name: the slave of Arachnos
+  short_desc: The slave works here relentlessly.
+  long_desc: |
+    The slave does not mind you, but will fight like a warrior if attacked.
+  keywords: ['slave', 'human']
+  level: 68
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 0 S 8 13 1 8d8+80 2d8+1 500 2000 8 8 1
+
+- id: 6309
+  key: the_quasit
+  name: the quasit
+  short_desc: The quasit blinks in and out, grinning at you.
+  long_desc: |
+    Demoniac in nature, but more mischievous.  He twiddles his thumbs
+    and creates a magical treasure!
+  keywords: ['quasit']
+  level: 148
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 148 32778 1000 S 10 1 -7 10d10+100 1d8+3 1000 3000 8 8 1
+
+- id: 6310
+  key: the_bird_spider
+  name: the Bird Spider
+  short_desc: The Bird Spider snaps its powerful jaws.
+  long_desc: |
+    The Bird Spider has very powerful jaws.
+  keywords: ['spider', 'bird']
+  level: 34
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -800 S 14 7 -3 14d14+140 2d9+2 1750 8000 8 8 2
+
+- id: 6311
+  key: the_hermit
+  name: the Hermit
+  short_desc: The Hermit sits here and warns, "Go back before it's too late!"
+  long_desc: |
+    A dishevelled veteran warrior in disguise is what he is, but he
+    means well.
+  keywords: ['hermit']
+  level: 6
+  hp_max: 96
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 8 -400 S 7 13 5 3d10+80 2d5+0 750 1500 8 8 1
+
+- id: 6312
+  key: the_donjonkeeper
+  name: the Donjonkeeper
+  short_desc: The Donjonkeeper eyes you and wonders how pure your soul is.
+  long_desc: |
+    He delves deeper into you as you stare at him.
+  keywords: ['donjonkeeper']
+  level: 6
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 8 1000 S 25 -1 -10 25d25+250 3d8+10 6000 65000 8 8 1
+
+- id: 6313
+  key: the_guardian
+  name: The guardian
+  short_desc: The guardian is obviously not doing his job.
+  long_desc: |
+    He looks like a lazy bum who sleeps half the time.
+  keywords: ['guardian']
+  level: 96
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 32768 250 S 17 4 -7 17d17+170 2d8+10 1600 20000 4 4 1
+
+- id: 6314
+  key: arachnos
+  name: Arachnos
+  short_desc: Arachnos the Empress of Spiders welcomes you with an evil smile.
+  long_desc: |
+    She is a very attractive spider with an ornate gown.  She tempts you
+    into being one of her many slaves.  She does not possess the venomous
+    fangs of normal spiders, but then, as you realize, she does not need
+    them.
+  keywords: ['spider', 'empress', 'arachnos']
+  level: 34
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 10 -1000 S 26 -2 -8 26d26+260 1d8+20 10000 65000 8 8 2
+
+- id: 6315
+  key: the_ki_rin
+  name: the Ki-Rin
+  short_desc: The Ki-Rin smiles good-naturedly to you.
+  long_desc: |
+    She is the last bastion of good in this realm.  Her mission is to
+    someday free the slaves of the Empress.
+  keywords: ['ki-rin']
+  level: 6
+  hp_max: 611
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 260
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 8 1000 S 26 0 -2 26d26+260 3d4+12 15000 50000 8 8 2
+
+- id: 6316
+  key: the_young_dragon_wormkin
+  name: the young dragon wormkin
+  short_desc: A wormkin with no teeth plays here.
+  long_desc: |
+    Rather small, you almost feel sad in killing it.
+  keywords: ['dragon', 'wormkin', 'young']
+  level: 3
+  hp_max: 175
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 3 8 1000 S 10 2 0 10d10+120 2d6+3 1000 3700 8 8 1
+
+- id: 6317
+  key: the_medium_dragon_wormkin
+  name: the medium dragon wormkin
+  short_desc: A wormkin that has grown a bit stares at you inquisitively.
+  long_desc: |
+    A medium-sized dragon--seems it hasn't killed anything yet by itself.
+  keywords: ['dragon', 'wormkin', 'medium']
+  level: 3
+  hp_max: 241
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 3 8 100 S 13 2 -2 13d13+150 3d6+5 5000 9500 8 8 1
+
+- id: 6318
+  key: the_huge_poisonous_spider
+  name: the huge, poisonous spider
+  short_desc: A huge, poisonous spider is here.
+  long_desc: |
+    This disgusting creature is at the size of a human crawling on all four.  It
+    has eight hairy legs that gives it a tremendous speed on almost any surface and
+    sharp poisonous fangs to paralyze or kill its prey.
+  keywords: ['spider', 'poisonous']
+  level: 67
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 67 0 -350 S 8 13 2 8d8+80 2d5+1 0 2500 8 8 0
+
+- id: 6319
+  key: the_queen_spider
+  name: the Queen Spider
+  short_desc: The huge, bulky Queen Spider is here.
+  long_desc: |
+    This disgusting creature is at the size of a small elephant.  It has eight
+    huge, hairy legs that would give it a tremendous speed on almost any surface
+    if it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.
+  keywords: ['queen', 'spider']
+  level: 67
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 67 8 -1000 S 15 6 -4 15d15+150 2d8+2 0 12000 8 8 2
+

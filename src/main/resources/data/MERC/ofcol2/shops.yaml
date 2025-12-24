@@ -1,0 +1,55 @@
+shops:
+  - keeper: 604
+    trades: [5, 9, 15, 0, 0]
+    profit_buy: 120
+    profit_sell: 80
+    open: 0
+    close: 23
+    comment: "Jim the Blacksmith"
+    items: [600, 601, 615, 667]
+
+  - keeper: 605
+    trades: [9, 0, 0, 0, 0]
+    profit_buy: 120
+    profit_sell: 80
+    open: 0
+    close: 23
+    comment: "Sam the Leatherworker"
+    items: [616, 617, 618, 619]
+
+  - keeper: 606
+    trades: [8, 12, 13, 0, 0]
+    profit_buy: 120
+    profit_sell: 80
+    open: 0
+    close: 23
+    comment: "Madam Tracy"
+    items: [606, 607, 608]
+
+  - keeper: 607
+    trades: [0, 19, 0, 0, 0]
+    profit_buy: 120
+    profit_sell: 10
+    open: 0
+    close: 23
+    comment: "Marty the Butcher"
+    items: [602, 603, 604, 605]
+
+  - keeper: 608
+    trades: [0, 17, 19, 0, 0]
+    profit_buy: 120
+    profit_sell: 10
+    open: 0
+    close: 23
+    comment: "Elizabeth the Grocer"
+    items: [609, 610, 611, 612, 613]
+
+  - keeper: 622
+    trades: [0, 17, 0, 0, 0]
+    profit_buy: 120
+    profit_sell: 10
+    open: 0
+    close: 23
+    comment: "Nyles the Bartender"
+    items: [648, 649, 650]
+

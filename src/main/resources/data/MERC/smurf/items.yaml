@@ -1,6 +1,6 @@
 items:
   - id: 100
-    key: bunch_berries_smurfberries
+    key: bunch_berries_smurfberries_100
     name: A bunch of smurfberries
     description: A bunch of delicious looking smurfberries lie here.
     weight: 2
@@ -9,19 +9,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [bunch, berries, smurfberries]
-    template_json:
-      raw_block: |
-        #100
-        bunch berries smurfberries~
-        A bunch of smurfberries~
-        A bunch of delicious looking smurfberries lie here.~
-        ~
-        26 0 1
-        8 0 0 82
-        2 50 25
-      type_line: 26 0 1
+    legacy_type_line: 26 0 1
+    legacy_raw: |
+      #100
+      bunch berries smurfberries~
+      A bunch of smurfberries~
+      A bunch of delicious looking smurfberries lie here.~
+      ~
+      26 0 1
+      8 0 0 82
+      2 50 25
   - id: 101
-    key: glasses
+    key: glasses_101
     name: A pair of glasses
     description: An odd pair of glasses has been left here.
     weight: 2
@@ -38,19 +37,18 @@ items:
     applies:
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        A pair of glasses~
-        An odd pair of glasses has been left here.~
-        ~
-        9 1 17
-        1 0 0 0
-        2 500 250
-        A
-        4 1
-      type_line: 9 1 17
+    legacy_type_line: 9 1 17
+    legacy_raw: |
+      A pair of glasses~
+      An odd pair of glasses has been left here.~
+      ~
+      9 1 17
+      1 0 0 0
+      2 500 250
+      A
+      4 1
   - id: 102
-    key: smurf_hat
+    key: smurf_hat_102
     name: a smurf hat
     description: A smurf hat has been left here.
     weight: 2
@@ -62,19 +60,18 @@ items:
       - TAKE
       - WEAR_HEAD
     keywords: [smurf, hat]
-    template_json:
-      raw_block: |
-        #102
-        smurf hat~
-        a smurf hat~
-        A smurf hat has been left here.~
-        ~
-        9 0 1|16
-        3 0 0 0
-        2 50 25
-      type_line: 9 0 1|16
+    legacy_type_line: 9 0 1|16
+    legacy_raw: |
+      #102
+      smurf hat~
+      a smurf hat~
+      A smurf hat has been left here.~
+      ~
+      9 0 1|16
+      3 0 0 0
+      2 50 25
   - id: 103
-    key: axe_small
+    key: axe_small_103
     name: a small axe
     description: A small axe has been dropped here.
     weight: 2
@@ -89,19 +86,18 @@ items:
       - TAKE
       - WIELD
     keywords: [axe, small]
-    template_json:
-      raw_block: |
-        #103
-        axe small~
-        a small axe~
-        A small axe has been dropped here.~
-        ~
-        5 0 8193
-        0 2 5 3
-        2 2000 1000
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #103
+      axe small~
+      a small axe~
+      A small axe has been dropped here.~
+      ~
+      5 0 8193
+      0 2 5 3
+      2 2000 1000
   - id: 104
-    key: necklace
+    key: necklace_104
     name: a small necklace
     description: A small necklace is lying on the ground.
     weight: 2
@@ -118,24 +114,24 @@ items:
     applies:
       - location: 3
         modifier: 1
-    template_json:
-      raw_block: |
-        a small necklace~
-        A small necklace is lying on the ground.~
-        ~
-        9 1 5
-        1 0 0 0
-        2 500 250
-        A
-        3 1
-      type_line: 9 1 5
+    legacy_type_line: 9 1 5
+    legacy_raw: |
+      a small necklace~
+      A small necklace is lying on the ground.~
+      ~
+      9 1 5
+      1 0 0 0
+      2 500 250
+      A
+      3 1
   - id: 105
-    key: pink_potion
+    key: pink_potion_105
     name: a pink potion
     description: A pink potion is barely visible on the ground.
     weight: 2
     value: 500
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [pink, potion]
@@ -143,19 +139,18 @@ items:
       - 6
       - 1
       - 14
-    template_json:
-      raw_block: |
-        #105
-        pink potion~
-        a pink potion~
-        A pink potion is barely visible on the ground.~
-        ~
-        10 0 1
-        6 1 14 -1
-        2 500 250
-      type_line: 10 0 1
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      #105
+      pink potion~
+      a pink potion~
+      A pink potion is barely visible on the ground.~
+      ~
+      10 0 1
+      6 1 14 -1
+      2 500 250
   - id: 106
-    key: wand
+    key: wand_106
     name: a small wand
     description: A small wand lies on the ground.
     weight: 2
@@ -171,19 +166,18 @@ items:
       - TAKE
       - HOLD
     keywords: [wand]
-    template_json:
-      raw_block: |
-        #106
-        wand~
-        a small wand~
-        A small wand lies on the ground.~
-        ~
-        3 0 16385
-        5 1 1 5
-        2 500 250
-      type_line: 3 0 16385
+    legacy_type_line: 3 0 16385
+    legacy_raw: |
+      #106
+      wand~
+      a small wand~
+      A small wand lies on the ground.~
+      ~
+      3 0 16385
+      5 1 1 5
+      2 500 250
   - id: 107
-    key: key
+    key: key_107
     name: a tiny key
     description: A tiny key is lying on the ground.
     weight: 2
@@ -192,38 +186,37 @@ items:
     wear_flags:
       - TAKE
     keywords: [key]
-    template_json:
-      raw_block: |
-        #107
-        key~
-        a tiny key~
-        A tiny key is lying on the ground.~
-        ~
-        18 0 1
-        2 0 0 0
-        2 50 25
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #107
+      key~
+      a tiny key~
+      A tiny key is lying on the ground.~
+      ~
+      18 0 1
+      2 0 0 0
+      2 50 25
   - id: 108
-    key: well
+    key: well_108
     name: a smurf well
     description: A small smurfy well is here.
     weight: 500
     value: 3000
-    type: immobile
+    types:
+      - immobile
     keywords: [well]
-    template_json:
-      raw_block: |
-        #108
-        well~
-        a smurf well~
-        A small smurfy well is here.~
-        ~
-        25 0 0
-        50 50 0 0
-        500 3000 1000
-      type_line: 25 0 0
+    legacy_type_line: 25 0 0
+    legacy_raw: |
+      #108
+      well~
+      a smurf well~
+      A small smurfy well is here.~
+      ~
+      25 0 0
+      50 50 0 0
+      500 3000 1000
   - id: 109
-    key: key
+    key: key_109
     name: a small key
     description: A key to Gargamel's door lies here.
     weight: 2
@@ -232,14 +225,13 @@ items:
     wear_flags:
       - TAKE
     keywords: [key]
-    template_json:
-      raw_block: |
-        #109
-        key~
-        a small key~
-        A key to Gargamel's door lies here.~
-        ~
-        18 0 1
-        2 0 0 0
-        2 50 25
-      type_line: 18 0 1
+    legacy_type_line: 18 0 1
+    legacy_raw: |
+      #109
+      key~
+      a small key~
+      A key to Gargamel's door lies here.~
+      ~
+      18 0 1
+      2 0 0 0
+      2 50 25

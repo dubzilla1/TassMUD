@@ -55,6 +55,8 @@ public class MovementCommandHandler implements CommandHandler {
             case "down":
             case "d":
             case "look":
+            case "open":
+            case "close":
                 return handleLookAndMovementCommand(cmdName,ctx);
             case "recall":
                 return handleRecallCommand(ctx);
@@ -418,24 +420,7 @@ public class MovementCommandHandler implements CommandHandler {
                     }
                 }
 
-                if (!found) {
-                    MobileDAO mobDao = new MobileDAO();
-                    java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
-                    for (Mobile mob : roomMobs) {
-                        String mobName = mob.getName().toLowerCase();
-                        if (mobName.startsWith(searchTerm)) {
-                            out.println(mob.getName());
-                            String longDesc = mob.getDescription();
-                            if (longDesc != null && !longDesc.isEmpty()) {
-                                out.println(longDesc);
-                            } else {
-                                out.println("You see nothing special about " + mob.getName() + ".");
-                            }
-                            found = true;
-                            break;
-                        }
-                    }
-                }
+                // Mob lookup moved later to prefer items; handled after inventory search
 
                 if (!found) {
                     ItemDAO itemDao = new ItemDAO();
@@ -497,6 +482,38 @@ public class MovementCommandHandler implements CommandHandler {
 
                 if (!found) {
                     // Check for door/exits (direction look) and room extras (plaques, signs)
+                        // Before checking doors/extras, try mobiles (search after items so items win ties)
+                        MobileDAO mobDao = new MobileDAO();
+                        java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
+                        for (Mobile mob : roomMobs) {
+                            String mobNameLower = mob.getName() != null ? mob.getName().toLowerCase() : "";
+                            boolean mobMatch = false;
+                            if (mobNameLower.startsWith(searchTerm)) mobMatch = true;
+                            if (!mobMatch) {
+                                String[] words = mobNameLower.split("\\s+");
+                                for (String w : words) {
+                                    if (w.startsWith(searchTerm)) { mobMatch = true; break; }
+                                }
+                            }
+                            if (!mobMatch && mob.getKeywords() != null) {
+                                for (String kw : mob.getKeywords()) {
+                                    if (kw != null && kw.toLowerCase().startsWith(searchTerm)) { mobMatch = true; break; }
+                                }
+                            }
+                            if (!mobMatch && mobNameLower.contains(searchTerm)) mobMatch = true;
+                            if (mobMatch) {
+                                out.println(mob.getName());
+                                String longDesc = mob.getDescription();
+                                if (longDesc != null && !longDesc.isEmpty()) {
+                                    out.println(longDesc);
+                                } else {
+                                    out.println("You see nothing special about " + mob.getName() + ".");
+                                }
+                                found = true;
+                                break;
+                            }
+                        }
+
                     String st = lookArgs.trim().toLowerCase();
                     String dirToken = null;
                     switch (st) {
@@ -543,6 +560,89 @@ public class MovementCommandHandler implements CommandHandler {
                 }
 
                 return true;
+            }
+
+            // Handle open/close commands for doors
+            if ("open".equals(cmdName) || "close".equals(cmdName)) {
+                String argsStr = ctx.getArgs();
+                if (argsStr == null || argsStr.trim().isEmpty()) {
+                    out.println(("open".equals(cmdName) ? "Open" : "Close") + " what?");
+                    return true;
+                }
+                String target = argsStr.trim().toLowerCase();
+                Integer curRoomId = rec.currentRoom;
+                if (curRoomId == null) {
+                    out.println("You are nowhere.");
+                    return true;
+                }
+
+                // Resolve direction token first
+                String dirToken = null;
+                switch (target) {
+                    case "n": case "north": dirToken = "north"; break;
+                    case "e": case "east": dirToken = "east"; break;
+                    case "s": case "south": dirToken = "south"; break;
+                    case "w": case "west": dirToken = "west"; break;
+                    case "u": case "up": dirToken = "up"; break;
+                    case "d": case "down": dirToken = "down"; break;
+                }
+
+                com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
+                com.example.tassmud.model.Door door = null;
+                if (dirToken != null) {
+                    door = dao2.getDoor(curRoomId, dirToken);
+                } else {
+                    // try to match by door description or keywords
+                    java.util.List<com.example.tassmud.model.Door> doors = dao2.getDoorsForRoom(curRoomId);
+                    for (com.example.tassmud.model.Door d : doors) {
+                        if (d.description != null && d.description.toLowerCase().contains(target)) {
+                            door = d; break;
+                        }
+                        if (d.direction != null && d.direction.startsWith(target)) {
+                            door = d; break;
+                        }
+                    }
+                }
+
+                if (door == null) {
+                    out.println("You don't see a door like that here.");
+                    return true;
+                }
+
+                if (door.hidden) {
+                    out.println("You don't see a way that way.");
+                    return true;
+                }
+                if (door.blocked) {
+                    out.println("Something blocks your way.");
+                    return true;
+                }
+
+                if ("open".equals(cmdName)) {
+                    if (door.isOpen()) {
+                        out.println("It's already open.");
+                        return true;
+                    }
+                    if (door.isLocked()) {
+                        out.println("The " + door.direction + " door is locked.");
+                        return true;
+                    }
+                    // open it
+                    dao2.upsertDoor(curRoomId, door.direction, door.toRoomId, "OPEN", false, door.hidden, door.blocked, door.keyItemId, door.description);
+                    out.println("You open the " + door.direction + " door.");
+                    ClientHandler.roomAnnounceFromActor(curRoomId, name + " opens the " + door.direction + " door.", charId);
+                    return true;
+                } else {
+                    // close
+                    if (door.isClosed()) {
+                        out.println("It's already closed.");
+                        return true;
+                    }
+                    dao2.upsertDoor(curRoomId, door.direction, door.toRoomId, "CLOSED", door.locked, door.hidden, door.blocked, door.keyItemId, door.description);
+                    out.println("You close the " + door.direction + " door.");
+                    ClientHandler.roomAnnounceFromActor(curRoomId, name + " closes the " + door.direction + " door.", charId);
+                    return true;
+                }
             }
 
             // Movement handling: use existing DAO/Room APIs to mirror original logic
@@ -613,6 +713,28 @@ public class MovementCommandHandler implements CommandHandler {
                     destId = 0;
                 }
 
+                // Check door state for player movement (block if closed/locked/blocked/hidden)
+                com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
+                com.example.tassmud.model.Door door = dao2.getDoor(curRoomId, directionName);
+                if (door != null) {
+                    if (door.blocked) {
+                        out.println("Something blocks your way.");
+                        return true;
+                    }
+                    if (door.hidden) {
+                        out.println("You can't go that way.");
+                        return true;
+                    }
+                    if (door.isLocked()) {
+                        out.println("The " + directionName + " door is locked.");
+                        return true;
+                    }
+                    if (door.isClosed()) {
+                        out.println("The " + directionName + " door is closed.");
+                        return true;
+                    }
+                }
+
                 // Check and deduct movement points based on destination room/area
                 int moveCost = dao.getMoveCostForRoom(destId);
                 if (rec.mvCur < moveCost) {
@@ -680,14 +802,33 @@ public class MovementCommandHandler implements CommandHandler {
         // Room description (indented with tab)
         out.println("\t" + room.getLongDesc());
         // Exits - only show available exits in order: north east south west up down
+        com.example.tassmud.persistence.CharacterDAO doorDao = new com.example.tassmud.persistence.CharacterDAO();
         StringBuilder exits = new StringBuilder();
         exits.append("[Exits:");
-        if (room.getExitN() != null) exits.append(" north");
-        if (room.getExitE() != null) exits.append(" east");
-        if (room.getExitS() != null) exits.append(" south");
-        if (room.getExitW() != null) exits.append(" west");
-        if (room.getExitU() != null) exits.append(" up");
-        if (room.getExitD() != null) exits.append(" down");
+        if (room.getExitN() != null) {
+            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "north");
+            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" north");
+        }
+        if (room.getExitE() != null) {
+            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "east");
+            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" east");
+        }
+        if (room.getExitS() != null) {
+            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "south");
+            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" south");
+        }
+        if (room.getExitW() != null) {
+            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "west");
+            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" west");
+        }
+        if (room.getExitU() != null) {
+            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "up");
+            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" up");
+        }
+        if (room.getExitD() != null) {
+            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "down");
+            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" down");
+        }
         exits.append("]");
         out.println(exits.toString());
         // Blank line

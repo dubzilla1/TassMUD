@@ -1,0 +1,858 @@
+- id: 901
+  key: |
+  zeus:
+  name: |
+  zeus_god:
+  short_desc: |
+  Zeus:
+  long_desc: |
+  Zeus_sits_here_on_a_throne:
+  keywords: ['zeus', 'god']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 902
+  key: |
+  prometheus:
+  name: |
+  prometheus:
+  short_desc: |
+  Prometheus:
+  long_desc: |
+  Prometheus_is_here_playing_with_a_match:
+  keywords: ['prometheus']
+  level: 2
+  hp_max: 806
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 31
+  damage_bonus: 310
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 903
+  key: |
+  hermes:
+  name: |
+  hermes:
+  short_desc: |
+  Hermes:
+  long_desc: |
+  Hermes_is_busy_delivering_a_message:
+  keywords: ['hermes']
+  level: 4
+  hp_max: 891
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 330
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 904
+  key: |
+  poseidon:
+  name: |
+  poseidon:
+  short_desc: |
+  Poseidon:
+  long_desc: |
+  Poseidon_is_dining_here:
+  keywords: ['poseidon']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 905
+  key: |
+  apollo:
+  name: |
+  apollo:
+  short_desc: |
+  Apollo:
+  long_desc: |
+  Apollo_is_here_playing_a_tune:
+  keywords: ['apollo']
+  level: 2
+  hp_max: 935
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 34
+  damage_bonus: 340
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 906
+  key: |
+  ares:
+  name: |
+  ares:
+  short_desc: |
+  Ares:
+  long_desc: |
+  Ares_is_here_kicking_your_ass:
+  keywords: ['ares']
+  level: 2
+  hp_max: 2130
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 907
+  key: |
+  athena:
+  name: |
+  athena:
+  short_desc: |
+  Athena:
+  long_desc: |
+  Athena_is_relaxing_here:
+  keywords: ['athena']
+  level: 2
+  hp_max: 891
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 330
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 908
+  key: |
+  hephaestus:
+  name: |
+  hephaestus_smith:
+  short_desc: |
+  Hephaestus:
+  long_desc: |
+  Hephaestus_the_Smith_is_here_crafting_a_fine_weapon:
+  keywords: ['hephaestus', 'smith']
+  level: 2
+  hp_max: 891
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 33
+  damage_bonus: 330
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 909
+  key: |
+  a_golden_maiden:
+  name: |
+  handmaid_golden:
+  short_desc: |
+  A_Golden_Maiden:
+  long_desc: |
+  A_Handmaid_of_gold_is_here_assisting_the_smith:
+  keywords: ['handmaid', 'golden']
+  level: 2
+  hp_max: 259
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 910
+  key: |
+  a_soldier:
+  name: |
+  soldier:
+  short_desc: |
+  A_Soldier:
+  long_desc: |
+  A_soldier_is_here_assisting_Ares:
+  keywords: ['soldier']
+  level: 2
+  hp_max: 259
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 911
+  key: |
+  an_apprentice_musician:
+  name: |
+  musician_apprentice:
+  short_desc: |
+  an_apprentice_musician:
+  long_desc: |
+  A_musician_is_here_learning_from_Apollo:
+  keywords: ['musician', 'apprentice']
+  level: 2
+  hp_max: 89
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 912
+  key: |
+  a_serving_boy:
+  name: |
+  boy_serving_servant:
+  short_desc: |
+  A_serving_boy:
+  long_desc: |
+  A_servant_is_here_feeding_Athena_her_grapes:
+  keywords: ['boy', 'serving', 'servant']
+  level: 2
+  hp_max: 209
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 913
+  key: |
+  a_hound_of_war:
+  name: |
+  hound_dog_war:
+  short_desc: |
+  A_hound_of_war:
+  long_desc: |
+  A_large_hound_snarls_at_you:
+  keywords: ['hound', 'dog', 'war']
+  level: 2
+  hp_max: 454
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 450
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 914
+  key: |
+  odin:
+  name: |
+  Odin:
+  short_desc: |
+  Odin:
+  long_desc: |
+  Odin_is_resting_here:
+  keywords: ['Odin']
+  level: 2
+  hp_max: 1630
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 35
+  damage_bonus: 1000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 915
+  key: |
+  julius_the_green_grocer:
+  name: |
+  grocer_greengrocer_julius:
+  short_desc: |
+  Julius_the_Green_Grocer:
+  long_desc: |
+  Julius_the_Green_Grocer_stands_here:
+  keywords: ['grocer', 'greengrocer', 'julius']
+  level: 2
+  hp_max: 2000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 916
+  key: |
+  the_alchemist:
+  name: |
+  alchemist:
+  short_desc: |
+  the_Alchemist:
+  long_desc: |
+  The_ancient_wizened_Alchemist_stands_here:
+  keywords: ['alchemist']
+  level: 2
+  hp_max: 2000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 917
+  key: |
+  clive_the_weapons_master:
+  name: |
+  clive:
+  short_desc: |
+  Clive_the_Weapons_Master:
+  long_desc: |
+  Clive_the_Weapons_Master_is_practicing_with_his_bow_and_axe:
+  keywords: ['clive']
+  level: 2
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 918
+  key: |
+  samuel_the_armourer:
+  name: |
+  armourer_samuel:
+  short_desc: |
+  Samuel_the_Armourer:
+  long_desc: |
+  Samuel_the_Armourer_glares_at_you:
+  keywords: ['armourer', 'samuel']
+  level: 2
+  hp_max: 404
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 919
+  key: |
+  ra_the_sun_god:
+  name: |
+  ra_sun_god:
+  short_desc: |
+  Ra_the_Sun_God:
+  long_desc: |
+  Ra_the_Egyptian_Sun_God_is_resting_here:
+  keywords: ['ra', 'sun', 'god']
+  level: 2
+  hp_max: 2504
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 2500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 920
+  key: |
+  a_chimera:
+  name: |
+  chimera:
+  short_desc: |
+  a_chimera:
+  long_desc: |
+  A_chimera_prowls_the_cell:
+  keywords: ['chimera']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 921
+  key: |
+  hera:
+  name: |
+  hera:
+  short_desc: |
+  Hera:
+  long_desc: |
+  Hera_is_here:
+  keywords: ['hera']
+  level: 2
+  hp_max: 1504
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 1500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 922
+  key: |
+  a_roc:
+  name: |
+  roc:
+  short_desc: |
+  a_roc:
+  long_desc: |
+  A_roc_is_here:
+  keywords: ['roc']
+  level: 4
+  hp_max: 404
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 923
+  key: |
+  a_citizen:
+  name: |
+  citizen_resident:
+  short_desc: |
+  A_citizen:
+  long_desc: |
+  A_citizen_of_this_town_is_strolling_down_the_street_here:
+  keywords: ['citizen', 'resident']
+  level: 4
+  hp_max: 64
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 924
+  key: |
+  a_pegasus:
+  name: |
+  pegasus_horse:
+  short_desc: |
+  a_pegasus:
+  long_desc: |
+  A_large_horse_with_wings_is_here:
+  keywords: ['pegasus', 'horse']
+  level: 4
+  hp_max: 114
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 925
+  key: |
+  a_cook:
+  name: |
+  cook:
+  short_desc: |
+  A_Cook:
+  long_desc: |
+  A_cook_is_here_hard_at_work:
+  keywords: ['cook']
+  level: 2
+  hp_max: 79
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 926
+  key: |
+  the_jailer:
+  name: |
+  jailer:
+  short_desc: |
+  The_Jailer:
+  long_desc: |
+  The_jailer_is_here_watching_for_intruders:
+  keywords: ['jailer']
+  level: 2
+  hp_max: 624
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 620
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

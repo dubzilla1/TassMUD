@@ -192,8 +192,9 @@ rooms:
     doors:
       east:
         to: 3906
-        description: "The dusty trail turns right around the corner of the wall. 
-You notice some mountains in the distance."
+        description: |
+          The dusty trail turns right around the corner of the wall. 
+          You notice some mountains in the distance.
         keywords: ""
         state: OPEN
         locked: false
@@ -569,6 +570,15 @@ You notice some mountains in the distance."
       east: 4014
       west: 4012
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4003
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 4003
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -659,6 +669,15 @@ You notice some mountains in the distance."
       north: 4019
       west: 4014
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4001
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 4004
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -735,6 +754,11 @@ You notice some mountains in the distance."
     exits:
       west: 4016
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 4002
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -829,6 +853,11 @@ You notice some mountains in the distance."
       north: 4027
       down: 4064
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4002
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -863,6 +892,15 @@ You notice some mountains in the distance."
       east: 4022
       down: 4115
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4003
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 4003
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -900,6 +938,15 @@ You notice some mountains in the distance."
       east: 4024
       west: 4021
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4005
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4000
+              wear_loc: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -943,6 +990,11 @@ You notice some mountains in the distance."
       east: 4016
       south: 4022
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 4002
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1009,6 +1061,11 @@ You notice some mountains in the distance."
       east: 4026
       south: 4018
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 4001
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1097,6 +1154,15 @@ You notice some mountains in the distance."
       south: 4020
       west: 4026
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4003
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 4003
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1140,6 +1206,15 @@ You notice some mountains in the distance."
       north: 4030
       south: 4026
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4004
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 4004
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1208,6 +1283,17 @@ You notice some mountains in the distance."
     exits:
       south: 4028
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 4000
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4001
+          -
+              item_vnum: 4002
+              container_vnum: 4001
     doors:
       south:
         to: 4028
@@ -1674,6 +1760,11 @@ You notice some mountains in the distance."
       east: 4051
       south: 4053
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4051
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1740,6 +1831,11 @@ You notice some mountains in the distance."
       south: 4100
       west: 4051
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4054
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1773,6 +1869,11 @@ You notice some mountains in the distance."
       north: 4050
       east: 4054
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4054
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1849,6 +1950,11 @@ You notice some mountains in the distance."
     exits:
       west: 4054
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4051
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1874,6 +1980,11 @@ You notice some mountains in the distance."
       north: 4054
       south: 4061
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 4052
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1907,6 +2018,11 @@ You notice some mountains in the distance."
       east: 4058
       south: 4062
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4056
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1940,6 +2056,11 @@ You notice some mountains in the distance."
       south: 4063
       west: 4057
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4053
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1974,6 +2095,11 @@ You notice some mountains in the distance."
       north: 4024
       east: 4060
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4052
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -2009,6 +2135,11 @@ You notice some mountains in the distance."
       east: 4061
       west: 4059
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4054
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2075,6 +2206,14 @@ You notice some mountains in the distance."
       north: 4057
       east: 4065
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4050
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4051
     legacy_flags:
       - INDOORS
     doors:
@@ -2141,6 +2280,14 @@ You notice some mountains in the distance."
       west: 4063
       up: 4020
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4055
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4050
     legacy_flags:
       - INDOORS
     doors:
@@ -2174,6 +2321,11 @@ You notice some mountains in the distance."
       west: 4062
       east: 4066
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4052
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2249,6 +2401,11 @@ You notice some mountains in the distance."
     exits:
       west: 4066
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4056
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2273,6 +2430,15 @@ You notice some mountains in the distance."
       east: 4069
       south: 4070
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 4052
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 4053
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2308,6 +2474,11 @@ You notice some mountains in the distance."
       south: 4071
       west: 4068
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 4052
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2350,6 +2521,15 @@ You notice some mountains in the distance."
       north: 4068
       east: 4071
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 4052
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 4051
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2385,6 +2565,18 @@ You notice some mountains in the distance."
       east: 4072
       west: 4070
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 4052
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 4055
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4050
     legacy_flags:
       - INDOORS
     doors:
@@ -2471,6 +2663,11 @@ You notice some mountains in the distance."
     exits:
       west: 4072
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4051
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2633,6 +2830,20 @@ You notice some mountains in the distance."
       south: 4106
       west: 4104
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4102
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4103
+          -
+              item_vnum: 4104
+      - type: MOB
+        id: 3005
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2825,6 +3036,11 @@ You notice some mountains in the distance."
       east: 4107
       west: 4109
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4105
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2935,6 +3151,21 @@ You notice some mountains in the distance."
       east: 4110
       west: 4112
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4102
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4103
+      - type: MOB
+        id: 4102
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4104
     legacy_flags:
       - INDOORS
     doors:
@@ -3003,6 +3234,14 @@ You notice some mountains in the distance."
       east: 4112
       south: 4116
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4106
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4101
     legacy_flags:
       - INDOORS
     doors:
@@ -3047,6 +3286,14 @@ You notice some mountains in the distance."
       north: 4109
       west: 4115
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4100
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4102
     legacy_flags:
       - INDOORS
     doors:
@@ -3208,6 +3455,14 @@ You notice some mountains in the distance."
       south: 4124
       west: 4121
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4107
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4104
     legacy_flags:
       - INDOORS
     doors:
@@ -3318,6 +3573,14 @@ You notice some mountains in the distance."
       north: 4117
       east: 4121
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4101
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4100
     legacy_flags:
       - INDOORS
     doors:
@@ -3388,6 +3651,14 @@ You notice some mountains in the distance."
       east: 4123
       west: 4125
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 4104
+        quantity: 3
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4104
     legacy_flags:
       - INDOORS
     doors:
@@ -3495,6 +3766,11 @@ You notice some mountains in the distance."
       south: 4156
       west: 4155
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4156
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3573,6 +3849,11 @@ You notice some mountains in the distance."
       east: 4154
       south: 4157
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4159
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3650,6 +3931,15 @@ You notice some mountains in the distance."
       east: 4151
       west: 4154
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4150
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 4152
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3718,6 +4008,15 @@ You notice some mountains in the distance."
       south: 4161
       east: 4158
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4151
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 4154
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3762,6 +4061,15 @@ You notice some mountains in the distance."
       south: 4162
       west: 4157
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4155
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 4152
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -3805,6 +4113,15 @@ You notice some mountains in the distance."
       south: 4163
       west: 4158
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4151
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 4152
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3839,6 +4156,14 @@ You notice some mountains in the distance."
       north: 4156
       south: 4164
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4160
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4150
     legacy_flags:
       - INDOORS
     doors:
@@ -3884,6 +4209,11 @@ You notice some mountains in the distance."
       north: 4157
       south: 4165
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4160
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -3919,6 +4249,11 @@ You notice some mountains in the distance."
       east: 4163
       south: 4166
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4158
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4007,6 +4342,15 @@ You notice some mountains in the distance."
       south: 4168
       west: 4163
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4153
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 4154
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4129,6 +4473,18 @@ You notice some mountains in the distance."
       south: 4171
       west: 4166
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4157
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 4157
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 4151
     legacy_flags:
       - INDOORS
     doors:
@@ -4172,6 +4528,11 @@ You notice some mountains in the distance."
       north: 4164
       west: 4167
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 4159
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4205,6 +4566,11 @@ You notice some mountains in the distance."
       north: 4165
       east: 4170
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 4158
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -4239,6 +4605,15 @@ You notice some mountains in the distance."
       east: 4172
       west: 4169
     sector_type: WATER_SWIM
+    spawns:
+      - type: MOB
+        id: 4150
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 4153
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

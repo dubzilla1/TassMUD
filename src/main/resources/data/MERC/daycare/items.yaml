@@ -1,6 +1,6 @@
 items:
   - id: 6600
-    key: axe_toy
+    key: axe_toy_6600
     name: a toy axe
     description: An axe made of plastic lies here.
     weight: 15
@@ -15,19 +15,18 @@ items:
       - TAKE
       - WIELD
     keywords: [axe, toy]
-    template_json:
-      raw_block: |
-        #6600
-        axe toy~
-        a toy axe~
-        An axe made of plastic lies here.~
-        ~
-        5 0 8193
-        0 1 6 3
-        15 600 200
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #6600
+      axe toy~
+      a toy axe~
+      An axe made of plastic lies here.~
+      ~
+      5 0 8193
+      0 1 6 3
+      15 600 200
   - id: 6601
-    key: ring_pink_ice
+    key: ring_pink_ice_6601
     name: a pink ice ring
     description: A pink ice ring draws your eye.
     weight: 8
@@ -44,19 +43,18 @@ items:
         modifier: 1
       - location: 13
         modifier: 6
-    template_json:
-      raw_block: |
-        ~
-        9 0 3
-        1 0 0 0
-        8 7000 2500
-        A
-        1  1
-        A
-        13 6
-      type_line: 9 0 3
+    legacy_type_line: 9 0 3
+    legacy_raw: |
+      ~
+      9 0 3
+      1 0 0 0
+      8 7000 2500
+      A
+      1  1
+      A
+      13 6
   - id: 6621
-    key: robe_linen
+    key: robe_linen_6621
     name: a linen robe
     description: A linen robe is crumpled into a ball here.
     weight: 5
@@ -73,19 +71,18 @@ items:
         modifier: 1
       - location: 12
         modifier: 5
-    template_json:
-      raw_block: |
-        ~
-        9 0 1025
-        1 0 0 0
-        5 4000 2000
-        A
-        4 1
-        A
-        12 5
-      type_line: 9 0 1025
+    legacy_type_line: 9 0 1025
+    legacy_raw: |
+      ~
+      9 0 1025
+      1 0 0 0
+      5 4000 2000
+      A
+      4 1
+      A
+      12 5
   - id: 6644
-    key: meat_steak
+    key: meat_steak_6644
     name: a juicy steak
     description: A juicy steak sits on a plate here.
     weight: 5
@@ -94,19 +91,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [meat, steak]
-    template_json:
-      raw_block: |
-        #6644
-        meat steak~
-        a juicy steak~
-        A juicy steak sits on a plate here.~
-        ~
-        19 0 1
-        15 0 0 0
-        5 15 2
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #6644
+      meat steak~
+      a juicy steak~
+      A juicy steak sits on a plate here.~
+      ~
+      19 0 1
+      15 0 0 0
+      5 15 2
   - id: 6645
-    key: steak_rotten
+    key: steak_rotten_6645
     name: a rotten steak
     description: A dry steak lies on the floor.
     weight: 5
@@ -115,24 +111,24 @@ items:
     wear_flags:
       - TAKE
     keywords: [steak, rotten]
-    template_json:
-      raw_block: |
-        #6645
-        steak rotten~
-        a rotten steak~
-        A dry steak lies on the floor.~
-        ~
-        19 0 1
-        4 0 0 1
-        5 14 1
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #6645
+      steak rotten~
+      a rotten steak~
+      A dry steak lies on the floor.~
+      ~
+      19 0 1
+      4 0 0 1
+      5 14 1
   - id: 6646
-    key: potion_amber
+    key: potion_amber_6646
     name: an amber potion
     description: An amber potion sits in a corner.
     weight: 1
     value: 1500
-    type: inventory
+    types:
+      - potion
     wear_flags:
       - TAKE
     keywords: [potion, amber]
@@ -141,19 +137,18 @@ items:
       - 16
       - 1
       - 0
-    template_json:
-      raw_block: |
-        #6646
-        potion amber~
-        an amber potion~
-        An amber potion sits in a corner.~
-        ~
-        10 0 1
-        30 16 1 0
-        1 1500 500
-      type_line: 10 0 1
+    legacy_type_line: 10 0 1
+    legacy_raw: |
+      #6646
+      potion amber~
+      an amber potion~
+      An amber potion sits in a corner.~
+      ~
+      10 0 1
+      30 16 1 0
+      1 1500 500
   - id: 6647
-    key: gun_toy
+    key: gun_toy_6647
     name: a toy gun
     description: A toy gun with a sharp bayonet lies here.
     weight: 5
@@ -168,14 +163,13 @@ items:
       - TAKE
       - WIELD
     keywords: [gun, toy]
-    template_json:
-      raw_block: |
-        #6647
-        gun toy~
-        a toy gun~
-        A toy gun with a sharp bayonet lies here.~
-        ~
-        5 0 8193
-        0 2 3 7
-        5 1700 1000
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #6647
+      gun toy~
+      a toy gun~
+      A toy gun with a sharp bayonet lies here.~
+      ~
+      5 0 8193
+      0 2 3 7
+      5 1700 1000

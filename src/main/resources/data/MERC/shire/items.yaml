@@ -1,6 +1,6 @@
 items:
   - id: 1100
-    key: rainbow_staff
+    key: rainbow_staff_1100
     name: the rainbow staff
     description: The rainbow staff lies here.
     weight: 8
@@ -14,19 +14,18 @@ items:
     applies:
       - location: 4
         modifier: 1
-    template_json:
-      raw_block: |
-        the rainbow staff~
-        The rainbow staff lies here.~
-        ~
-        1 64 65537
-        0 0 -1 0
-        8 5000 2667
-        A
-        4 1
-      type_line: 1 64 65537
+    legacy_type_line: 1 64 65537
+    legacy_raw: |
+      the rainbow staff~
+      The rainbow staff lies here.~
+      ~
+      1 64 65537
+      0 0 -1 0
+      8 5000 2667
+      A
+      4 1
   - id: 1101
-    key: sting
+    key: sting_1101
     name: Sting
     description: Sting lies here.
     weight: 1
@@ -48,47 +47,46 @@ items:
     applies:
       - location: 2
         modifier: 2
-    template_json:
-      raw_block: |
-        Sting~
-        Sting lies here.~
-        ~
-        5 1027 8193
-        0 2 7 10
-        1 10000 7500
-        A
-        2 2
-      type_line: 5 1027 8193
+    legacy_type_line: 5 1027 8193
+    legacy_raw: |
+      Sting~
+      Sting lies here.~
+      ~
+      5 1027 8193
+      0 2 7 10
+      1 10000 7500
+      A
+      2 2
   - id: 1102
-    key: sign
+    key: sign_1102
     name: a sign
     description: A sign demands your attention.
     weight: 0
     value: 0
-    type: immobile
+    types:
+      - immobile
     keywords: [sign]
-    template_json:
-      raw_block: |
-        by entering these lands you agree to obey our laws.  If you break these laws,
-        you will be severely punished.  We do not like riff raff in our peaceful
-        town.
-        
-        					The Thain
-        					Peacekeeper of the Shire
-        
-        ~
-      type_line: 12 0 0
-      extra_desc: |
-        Welcome to the Shire.  As you enter the Shire from Haon-Dor you come under
-        the jurisdiction of the Thain, the peacekeeper of the Shire.  Consequently,
-        by entering these lands you agree to obey our laws.  If you break these laws,
-        you will be severely punished.  We do not like riff raff in our peaceful
-        town.
-        
-        					The Thain
-        					Peacekeeper of the Shire
+    legacy_type_line: 12 0 0
+    legacy_raw: |
+      by entering these lands you agree to obey our laws.  If you break these laws,
+      you will be severely punished.  We do not like riff raff in our peaceful
+      town.
+      
+      					The Thain
+      					Peacekeeper of the Shire
+      
+      ~
+    extra_desc: |
+      Welcome to the Shire.  As you enter the Shire from Haon-Dor you come under
+      the jurisdiction of the Thain, the peacekeeper of the Shire.  Consequently,
+      by entering these lands you agree to obey our laws.  If you break these laws,
+      you will be severely punished.  We do not like riff raff in our peaceful
+      town.
+      
+      					The Thain
+      					Peacekeeper of the Shire
   - id: 1103
-    key: pipeweed_bread
+    key: pipeweed_bread_1103
     name: a pipeweed bread
     description: A loaf of pipeweed bread arouses your hunger.
     weight: 1
@@ -97,19 +95,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [pipeweed, bread]
-    template_json:
-      raw_block: |
-        #1103
-        pipeweed bread~
-        a pipeweed bread~
-        A loaf of pipeweed bread arouses your hunger.~
-        ~
-        19 0 1
-        24 0 0 0
-        1 13 2
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #1103
+      pipeweed bread~
+      a pipeweed bread~
+      A loaf of pipeweed bread arouses your hunger.~
+      ~
+      19 0 1
+      24 0 0 0
+      1 13 2
   - id: 1104
-    key: silvery_cloak
+    key: silvery_cloak_1104
     name: a silvery cloak
     description: A silvery cloak lies here.
     weight: 3
@@ -127,19 +124,18 @@ items:
     applies:
       - location: 24
         modifier: -2
-    template_json:
-      raw_block: |
-        a silvery cloak~
-        A silvery cloak lies here.~
-        ~
-        9 64|1024 1025
-        7 0 0 0
-        3 10000 4500
-        A
-        24 -2
-      type_line: 9 64|1024 1025
+    legacy_type_line: 9 64|1024 1025
+    legacy_raw: |
+      a silvery cloak~
+      A silvery cloak lies here.~
+      ~
+      9 64|1024 1025
+      7 0 0 0
+      3 10000 4500
+      A
+      24 -2
   - id: 1105
-    key: one_ring
+    key: one_ring_1105
     name: the One Ring
     description: The One Ring is here.
     weight: 3
@@ -159,19 +155,18 @@ items:
         modifier: 10
       - location: 12
         modifier: 20
-    template_json:
-      raw_block: |
-        ~
-        9 64 16387
-        0 0 0 0
-        3 2500 1900
-        A
-        17 10
-        A
-        12 20
-      type_line: 9 64 16387
+    legacy_type_line: 9 64 16387
+    legacy_raw: |
+      ~
+      9 64 16387
+      0 0 0 0
+      3 2500 1900
+      A
+      17 10
+      A
+      12 20
   - id: 1106
-    key: elven_bow
+    key: elven_bow_1106
     name: an elven bow
     description: An elven bow lies here.
     weight: 10
@@ -195,19 +190,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 501
-    template_json:
-      raw_block: |
-        an elven bow~
-        An elven bow lies here.~
-        ~
-        5 1090 8193
-        0 2 8 4
-        10 2000 2000
-        A
-        18 2
-      type_line: 5 1090 8193
+    legacy_type_line: 5 1090 8193
+    legacy_raw: |
+      an elven bow~
+      An elven bow lies here.~
+      ~
+      5 1090 8193
+      0 2 8 4
+      10 2000 2000
+      A
+      18 2
   - id: 1107
-    key: mithril_axe
+    key: mithril_axe_1107
     name: a mithril axe
     description: A mithril axe lies here.
     weight: 12
@@ -232,19 +226,18 @@ items:
         modifier: 2
     on_equip_effect_ids:
       - 502
-    template_json:
-      raw_block: |
-        a mithril axe~
-        A mithril axe lies here.~
-        ~
-        5 28677 8193
-        0 2 8 5
-        12 4000 2000
-        A
-        19 2
-      type_line: 5 28677 8193
+    legacy_type_line: 5 28677 8193
+    legacy_raw: |
+      a mithril axe~
+      A mithril axe lies here.~
+      ~
+      5 28677 8193
+      0 2 8 5
+      12 4000 2000
+      A
+      19 2
   - id: 1108
-    key: thain_girth
+    key: thain_girth_1108
     name: the thain girth
     description: The girth of the thain lies here.
     weight: 4
@@ -261,19 +254,18 @@ items:
     applies:
       - location: 4
         modifier: 2
-    template_json:
-      raw_block: |
-        the thain girth~
-        The girth of the thain lies here.~
-        ~
-        9 8192 2049
-        5 3 0 0
-        4 1000 200
-        A
-        4 2
-      type_line: 9 8192 2049
+    legacy_type_line: 9 8192 2049
+    legacy_raw: |
+      the thain girth~
+      The girth of the thain lies here.~
+      ~
+      9 8192 2049
+      5 3 0 0
+      4 1000 200
+      A
+      4 2
   - id: 1109
-    key: tiny_dagger
+    key: tiny_dagger_1109
     name: a tiny dagger
     description: A tiny dagger lies here.
     weight: 3
@@ -288,19 +280,18 @@ items:
       - TAKE
       - WIELD
     keywords: [tiny, dagger]
-    template_json:
-      raw_block: |
-        #1109
-        tiny dagger~
-        a tiny dagger~
-        A tiny dagger lies here.~
-        ~
-        5 0 8193
-        0 1 6 11
-        3 40 10
-      type_line: 5 0 8193
+    legacy_type_line: 5 0 8193
+    legacy_raw: |
+      #1109
+      tiny dagger~
+      a tiny dagger~
+      A tiny dagger lies here.~
+      ~
+      5 0 8193
+      0 1 6 11
+      3 40 10
   - id: 1110
-    key: egg
+    key: egg_1110
     name: an egg
     description: An egg lies here.
     weight: 1
@@ -309,19 +300,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [egg]
-    template_json:
-      raw_block: |
-        #1110
-        egg~
-        an egg~
-        An egg lies here.~
-        ~
-        19 0 1
-        12 0 0 0
-        1 9 1
-      type_line: 19 0 1
+    legacy_type_line: 19 0 1
+    legacy_raw: |
+      #1110
+      egg~
+      an egg~
+      An egg lies here.~
+      ~
+      19 0 1
+      12 0 0 0
+      1 9 1
   - id: 1111
-    key: bag
+    key: bag_1111
     name: a bag
     description: A bag is on the floor.
     weight: 5
@@ -330,19 +320,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [bag]
-    template_json:
-      raw_block: |
-        #1111
-        bag~
-        a bag~
-        A bag is on the floor.~
-        ~
-        15 0 1
-        50 0 0 0 
-        5 50 10
-      type_line: 15 0 1
+    legacy_type_line: 15 0 1
+    legacy_raw: |
+      #1111
+      bag~
+      a bag~
+      A bag is on the floor.~
+      ~
+      15 0 1
+      50 0 0 0 
+      5 50 10
   - id: 1112
-    key: lantern
+    key: lantern_1112
     name: a lantern
     description: A lantern is on the floor.
     weight: 4
@@ -351,19 +340,18 @@ items:
     wear_flags:
       - TAKE
     keywords: [lantern]
-    template_json:
-      raw_block: |
-        #1112
-        lantern~
-        a lantern~
-        A lantern is on the floor.~
-        ~
-        1 0 1
-        0 0 20 0
-        4 50 10
-      type_line: 1 0 1
+    legacy_type_line: 1 0 1
+    legacy_raw: |
+      #1112
+      lantern~
+      a lantern~
+      A lantern is on the floor.~
+      ~
+      1 0 1
+      0 0 20 0
+      4 50 10
   - id: 1113
-    key: bardiche
+    key: bardiche_1113
     name: a bardiche
     description: A long weapon with a sharp end is on the floor.
     weight: 10
@@ -383,19 +371,18 @@ items:
         modifier: 4
     on_equip_effect_ids:
       - 511
-    template_json:
-      raw_block: |
-        a bardiche~
-        A long weapon with a sharp end is on the floor.~
-        ~
-        5 0 1|8192
-        0 3 4 3
-        10 1000 50
-        A
-        18 4
-      type_line: 5 0 1|8192
+    legacy_type_line: 5 0 1|8192
+    legacy_raw: |
+      a bardiche~
+      A long weapon with a sharp end is on the floor.~
+      ~
+      5 0 1|8192
+      0 3 4 3
+      10 1000 50
+      A
+      18 4
   - id: 1114
-    key: flail
+    key: flail_1114
     name: a flail
     description: A flail is on the floor.
     weight: 8
@@ -410,14 +397,13 @@ items:
       - TAKE
       - WIELD
     keywords: [flail]
-    template_json:
-      raw_block: |
-        #1114
-        flail~
-        a flail~
-        A flail is on the floor.~
-        ~
-        5 0 1|8192
-        0 2 4 6
-        8 300 50
-      type_line: 5 0 1|8192
+    legacy_type_line: 5 0 1|8192
+    legacy_raw: |
+      #1114
+      flail~
+      a flail~
+      A flail is on the floor.~
+      ~
+      5 0 1|8192
+      0 2 4 6
+      8 300 50

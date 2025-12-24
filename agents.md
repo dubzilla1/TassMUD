@@ -5,6 +5,33 @@
 
 ---
 
+## Recent Updates (Dec 23, 2025)
+
+Quick summary of changes made recently so agents and converters are aware:
+
+- Converters
+  - `tools/merc_room_converter.py`: now parses `D` resets inside `#RESETS` and emits `doors:` entries (state/locked/blocked/description) into per-area `rooms.yaml`.
+  - `tools/merc_object_converter.py`: added `immobile` to item templates when MERC wear_flags == 0; emits `types:` lists.
+  - `tools/merc_mob_converter.py`: improved mob level extraction (reads the first integer after the `S` stat line and clamps levels above 50 to 50).
+  - `tools/merc_shop_converter.py`: new script to parse `#SHOPS` and `G`/`P` resets into per-area `shops.yaml` files.
+  - `tools/merge_shops_to_global.py`: merges per-area `shops.yaml` into `src/main/resources/data/shops.yaml` consumed by the runtime `ShopDAO`.
+
+- Runtime & persistence
+  - Door data is stored/loaded via the existing `door` table and `CharacterDAO.upsertDoor` / `getDoor` methods; `DataLoader` seeds doors from YAML `doors:` sections.
+  - Player movement now respects door state: `MovementCommandHandler` checks door metadata and blocks movement for `closed`, `locked`, `blocked`, or `hidden` doors. `showRoom()` hides such exits from the displayed list.
+  - `open` and `close` player commands were added (registered in `CommandRegistry` and implemented in `MovementCommandHandler`) and update door state via `CharacterDAO.upsertDoor`.
+  - Spawn-time persistence: runtime changes were added so that when mobs spawn with equipment/inventory, item instances are created and mobile↔item markers are persisted (via `MobileDAO`) so equipped/inventory items move into corpses on death and rehydrate after reload.
+
+- Shops & economy
+  - Shops are now extracted from MERC area files. Shop items are taken directly from `G`/`P` resets attached to shopkeeper mobs; `ShopDAO` loads the merged `data/shops.yaml` and exposes shop menus in memory (no pricing rules applied beyond preserving `profit_buy`/`profit_sell` metadata).
+
+- Item behavior & loot
+  - `immobile` templates prevent pickup; `ItemCommandHandler` was updated to deny `get` on immobile items.
+  - `LootGenerator` and related code were adjusted to use the mob's true level for loot scaling (mob level parsing fix noted above).
+
+These changes are reflected in the workspace under `tools/` and `src/main/java/...` and should be referenced by agents when generating or converting MERC data.
+
+
 ## Project Overview
 
 TassMUD is a **Java 17 Maven project**: a multi-user dungeon (MUD) server exposing a telnet-like interface. It runs as a single JVM process, handles multiple concurrent player connections, and persists game state to an embedded H2 file database.

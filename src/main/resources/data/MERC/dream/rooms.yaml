@@ -2019,6 +2019,11 @@ rooms:
     exits:
       south: 8630
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 8600
+        quantity: 80
+        frequency: 1
     doors:
       south:
         to: 8630
@@ -2045,6 +2050,11 @@ rooms:
     exits:
       west: 8615
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 8601
+        quantity: 80
+        frequency: 1
     doors:
       west:
         to: 8615
@@ -2074,6 +2084,11 @@ rooms:
     exits:
       north: 8617
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 8601
+        quantity: 80
+        frequency: 1
     doors:
       north:
         to: 8617
@@ -2134,6 +2149,11 @@ rooms:
     exits:
       east: 8636
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 8602
+        quantity: 80
+        frequency: 1
     doors:
       east:
         to: 8636
@@ -2192,6 +2212,11 @@ rooms:
     exits:
       down: 8638
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 8603
+        quantity: 4
+        frequency: 1
     doors:
       down:
         to: 8638
@@ -2214,4 +2239,9 @@ rooms:
       same obsidian color as the ground and you can't find a horizon.
     exits:
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 8600
+        quantity: 1
+        frequency: 1
 

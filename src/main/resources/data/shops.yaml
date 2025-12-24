@@ -1,262 +1,249 @@
-# Shop Menus
-# Each shop defines which items a shopkeeper mob sells.
-# Items are sold at their template 'value' price, and bought at half price.
-#
-# Fields:
-#   id: Unique shop ID
-#   mob_template_id: The mobile template ID of the shopkeeper
-#   items: List of item template IDs available for sale
-#
-# Vendor Reference:
-#   610 - Marta the Baker (food/baked goods)
-#   611 - Aldric the Apothecary (potions, salves)
-#   612 - Torgin the Blacksmith (weapons - martial, simple)
-#   613 - Elise the Tailor (cloth armor)
-#   614 - Brom the Innkeeper (food, drinks)
-#   615 - Old Gareth the Stablemaster (travel supplies)
-#   616 - Silvana the Jeweler (jewelry, gems)
-#   617 - Erasmus the Scribe (scrolls, writing supplies)
-#   618 - Father Aldwyn (not a shop - healer)
-#   619 - Bruno the Armorer (leather, mail, plate armor + shields)
-#   620 - Magister Vorn (magical supplies, scrolls)
-
 shops:
-  # ============================================================
-  # MARTA THE BAKER (ID 610)
-  # Baked goods and travel rations
-  # ============================================================
-  - id: 1
-    mob_template_id: 610
-    items:
-      - 500  # Loaf of Bread
-      - 501  # Honey Roll
-      - 502  # Meat Pie
-      - 503  # Fruit Tart
-      - 504  # Cheese Biscuit
-      - 505  # Traveler's Ration
-
-  # ============================================================
-  # ALDRIC THE APOTHECARY (ID 611)
-  # Potions, salves, and alchemical supplies
-  # ============================================================
-  - id: 2
-    mob_template_id: 611
-    items:
-      - 550  # Minor Healing Potion
-      - 551  # Healing Potion
-      - 552  # Major Healing Potion
-      - 553  # Minor Mana Potion
-      - 554  # Mana Potion
-      - 555  # Major Mana Potion
-      - 556  # Antidote
-      - 557  # Potion of Bull's Strength
-      - 558  # Potion of Cat's Grace
-      - 559  # Potion of Bear's Endurance
-      - 560  # Herbal Salve
-      - 561  # Smelling Salts
-
-  # ============================================================
-  # TORGIN THE BLACKSMITH (ID 612)
-  # Weapons - swords, axes, blunt weapons, polearms
-  # ============================================================
-  - id: 3
-    mob_template_id: 612
-    items:
-      # Swords
-      - 200  # Dagger
-      - 201  # Shortsword
-      - 202  # Longsword
-      - 203  # Bastard Sword
-      - 204  # Greatsword
-      - 205  # Rapier
-      - 206  # Scimitar
-      # Axes
-      - 210  # Hand Axe
-      - 211  # Battle Axe
-      - 212  # Greataxe
-      # Blunt
-      - 220  # Club
-      - 221  # Mace
-      - 222  # Morningstar
-      - 223  # Warhammer
-      - 224  # Maul
-      - 225  # Flail
-      # Polearms
-      - 230  # Spear
-      - 231  # Halberd
-      - 232  # Glaive
-      - 233  # Pike
-      - 234  # Trident
-      # Ranged
-      - 240  # Shortbow
-      - 241  # Longbow
-      - 242  # Crossbow
-      - 243  # Sling
-
-  # ============================================================
-  # ELISE THE TAILOR (ID 613)
-  # Cloth armor for mages and casters
-  # ============================================================
-  - id: 4
-    mob_template_id: 613
-    items:
-      - 100  # Cloth Hood
-      - 101  # Cloth Mantle
-      - 102  # Cloth Robe
-      - 103  # Cloth Sleeves
-      - 104  # Cloth Gloves
-      - 105  # Cloth Sash
-      - 106  # Cloth Pants
-      - 107  # Cloth Slippers
-      - 108  # Cloth Cloak
-      - 109  # Cloth Collar
-      # Also sells bags and pouches
-      - 3    # Basic Pouch
-      - 650  # Small Backpack
-      - 651  # Large Backpack
-      - 652  # Belt Pouch
-
-  # ============================================================
-  # BROM THE INNKEEPER (ID 614)
-  # Food and drinks
-  # ============================================================
-  - id: 5
-    mob_template_id: 614
-    items:
-      # Drinks
-      - 510  # Mug of Mead
-      - 511  # Tankard of Ale
-      - 512  # Goblet of Wine
-      - 513  # Flask of Water
-      # Food
-      - 514  # Bowl of Hearty Stew
-      - 515  # Roast Chicken
-      - 516  # Wheel of Cheese
-      - 517  # Fresh Apple
-      # Also some baked goods
-      - 500  # Loaf of Bread
-      - 502  # Meat Pie
-
-  # ============================================================
-  # OLD GARETH THE STABLEMASTER (ID 615)
-  # Travel and camping supplies
-  # ============================================================
-  - id: 6
-    mob_template_id: 615
-    items:
-      - 505  # Traveler's Ration
-      - 653  # Saddlebags
-      - 654  # Waterskin
-      - 655  # Torch
-      - 656  # Lantern
-      - 657  # Hemp Rope (50 ft)
-      - 658  # Bedroll
-      - 659  # Flint and Steel
-      - 651  # Large Backpack
-
-  # ============================================================
-  # SILVANA THE JEWELER (ID 616)
-  # Jewelry and gems
-  # ============================================================
-  - id: 7
-    mob_template_id: 616
-    items:
-      # Rings
-      - 600  # Copper Ring
-      - 601  # Silver Ring
-      - 602  # Gold Ring
-      # Necklaces
-      - 603  # Beaded Necklace
-      - 604  # Silver Pendant
-      - 605  # Gold Medallion
-      # Bracelets
-      - 606  # Leather Bracelet
-      - 607  # Silver Bracelet
-      # Other
-      - 608  # Pearl Earrings
-      - 609  # Uncut Ruby
-      - 610  # Uncut Sapphire
-      - 611  # Uncut Emerald
-
-  # ============================================================
-  # ERASMUS THE SCRIBE (ID 617)
-  # Scrolls and writing supplies
-  # ============================================================
-  - id: 8
-    mob_template_id: 617
-    items:
-      - 580  # Blank Scroll
-      - 581  # Scroll of Identify
-      - 583  # Scroll of Light
-      - 584  # Scroll of Cure Wounds
-      - 585  # Inkwell
-      - 586  # Quill Pen
-      - 587  # Blank Spellbook
-
-  # ============================================================
-  # BRUNO THE ARMORER (ID 619)
-  # Leather, mail, and plate armor + shields
-  # ============================================================
-  - id: 9
-    mob_template_id: 619
-    items:
-      # Leather Armor
-      - 110  # Leather Helm
-      - 111  # Leather Pauldrons
-      - 112  # Leather Vest
-      - 113  # Leather Bracers
-      - 114  # Leather Gloves
-      - 115  # Leather Belt
-      - 116  # Leather Leggings
-      - 117  # Leather Boots
-      - 118  # Leather Cape
-      - 119  # Leather Gorget
-      # Mail Armor
-      - 120  # Mail Coif
-      - 121  # Mail Mantle
-      - 122  # Mail Hauberk
-      - 123  # Mail Sleeves
-      - 124  # Mail Gauntlets
-      - 125  # Mail Girdle
-      - 126  # Mail Leggings
-      - 127  # Mail Boots
-      - 128  # Mail Cape
-      - 129  # Mail Collar
-      # Plate Armor
-      - 130  # Plate Helm
-      - 131  # Plate Pauldrons
-      - 132  # Plate Cuirass
-      - 133  # Plate Vambraces
-      - 134  # Plate Gauntlets
-      - 135  # Plate Faulds
-      - 136  # Plate Greaves
-      - 137  # Plate Sabatons
-      - 138  # Plate Backplate
-      - 139  # Plate Gorget
-      # Shields
-      - 260  # Buckler
-      - 261  # Wooden Shield
-      - 262  # Round Shield
-      - 263  # Kite Shield
-      - 264  # Tower Shield
-      - 265  # Heater Shield
-      - 266  # Spiked Shield
-
-  # ============================================================
-  # MAGISTER VORN (ID 620)
-  # Magical supplies and advanced scrolls
-  # ============================================================
-  - id: 10
-    mob_template_id: 620
-    items:
-      - 580  # Blank Scroll
-      - 581  # Scroll of Identify
-      - 582  # Scroll of Recall
-      - 583  # Scroll of Light
-      - 584  # Scroll of Cure Wounds
-      - 587  # Blank Spellbook
-      - 588  # Component Pouch
-      - 589  # Arcane Focus Crystal
-      # Also sells some potions
-      - 554  # Mana Potion
-      - 555  # Major Mana Potion
+- id: 1
+  mob_template_id: 306
+  items:
+  - 304
+  - 3030
+- id: 2
+  mob_template_id: 308
+  items:
+  - 3000
+  - 3001
+- id: 3
+  mob_template_id: 604
+  items:
+  - 600
+  - 601
+  - 615
+  - 667
+- id: 4
+  mob_template_id: 605
+  items:
+  - 616
+  - 617
+  - 618
+  - 619
+- id: 5
+  mob_template_id: 606
+  items:
+  - 606
+  - 607
+  - 608
+- id: 6
+  mob_template_id: 607
+  items:
+  - 602
+  - 603
+  - 604
+  - 605
+- id: 7
+  mob_template_id: 608
+  items:
+  - 609
+  - 610
+  - 611
+  - 612
+  - 613
+- id: 8
+  mob_template_id: 622
+  items:
+  - 648
+  - 649
+  - 650
+- id: 9
+  mob_template_id: 915
+  items:
+  - 914
+  - 918
+  - 919
+  - 920
+  - 921
+- id: 10
+  mob_template_id: 1113
+  items:
+  - 648
+  - 649
+  - 650
+  - 1110
+- id: 11
+  mob_template_id: 1118
+  items:
+  - 1111
+  - 1112
+- id: 12
+  mob_template_id: 1119
+  items:
+  - 1103
+- id: 13
+  mob_template_id: 1120
+  items: []
+- id: 14
+  mob_template_id: 1130
+  items:
+  - 648
+  - 649
+  - 650
+  - 1110
+- id: 15
+  mob_template_id: 1305
+  items:
+  - 1351
+  - 1352
+- id: 16
+  mob_template_id: 1306
+  items:
+  - 1301
+  - 1302
+  - 1304
+  - 1305
+  - 1306
+- id: 17
+  mob_template_id: 3000
+  items:
+  - 3040
+  - 3041
+- id: 18
+  mob_template_id: 3001
+  items:
+  - 3009
+- id: 19
+  mob_template_id: 3002
+  items:
+  - 3030
+  - 3031
+  - 3138
+- id: 20
+  mob_template_id: 3003
+  items:
+  - 3020
+  - 3021
+  - 3022
+- id: 21
+  mob_template_id: 3004
+  items:
+  - 3072
+  - 3073
+  - 3074
+  - 3075
+  - 3076
+  - 3077
+  - 3097
+- id: 22
+  mob_template_id: 3006
+  items:
+  - 3050
+  - 3051
+- id: 23
+  mob_template_id: 3008
+  items: []
+- id: 24
+  mob_template_id: 3009
+  items: []
+- id: 25
+  mob_template_id: 3010
+  items:
+  - 3066
+  - 3067
+  - 3068
+  - 3069
+  - 3070
+  - 3071
+- id: 26
+  mob_template_id: 3040
+  items:
+  - 3000
+  - 3001
+- id: 27
+  mob_template_id: 3042
+  items:
+  - 3002
+  - 3003
+- id: 28
+  mob_template_id: 3043
+  items:
+  - 3002
+  - 3004
+- id: 29
+  mob_template_id: 3044
+  items:
+  - 3003
+  - 3004
+- id: 30
+  mob_template_id: 3045
+  items:
+  - 3002
+  - 3003
+  - 3004
+- id: 31
+  mob_template_id: 3046
+  items:
+  - 3003
+  - 3004
+- id: 32
+  mob_template_id: 3050
+  items: []
+- id: 33
+  mob_template_id: 3100
+  items:
+  - 3100
+  - 3101
+  - 3102
+- id: 34
+  mob_template_id: 3717
+  items:
+  - 3031
+  - 3138
+- id: 35
+  mob_template_id: 5310
+  items:
+  - 648
+  - 649
+  - 650
+- id: 36
+  mob_template_id: 5311
+  items:
+  - 602
+  - 603
+  - 604
+  - 605
+  - 5219
+- id: 37
+  mob_template_id: 5312
+  items:
+  - 609
+  - 610
+  - 611
+  - 612
+  - 613
+- id: 38
+  mob_template_id: 5313
+  items: []
+- id: 39
+  mob_template_id: 5314
+  items:
+  - 601
+  - 615
+- id: 40
+  mob_template_id: 5317
+  items:
+  - 5210
+  - 5211
+- id: 41
+  mob_template_id: 6503
+  items:
+  - 6504
+  - 6505
+  - 6510
+  - 6511
+  - 6512
+- id: 42
+  mob_template_id: 6504
+  items:
+  - 3000
+  - 3003
+  - 3009
+  - 3031
+- id: 43
+  mob_template_id: 9238
+  items:
+  - 9231

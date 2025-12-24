@@ -25,13 +25,13 @@ rooms:
         key: null
       up:
         to: 5270
-        description: "A small hole in the ceiling leads up into darkness."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       gate: |
         A large adamantite gate with giant spider shaped emblems stands here.
@@ -52,6 +52,15 @@ rooms:
       south: 5102
       west: 5122
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5106
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5105
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -182,6 +191,31 @@ rooms:
       north: 5103
       south: 5105
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5102
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5101
+              wear_loc: 16
+      - type: MOB
+        id: 5103
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5102
+              wear_loc: 16
+      - type: MOB
+        id: 5104
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5103
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -215,6 +249,18 @@ rooms:
     exits:
       north: 5104
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5107
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5104
+              wear_loc: 16
+          -
+              item_vnum: 5111
+              wear_loc: 6
     legacy_flags:
       - INDOORS
     doors:
@@ -328,6 +374,31 @@ rooms:
       north: 5107
       west: 5109
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5102
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5101
+              wear_loc: 16
+      - type: MOB
+        id: 5103
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5102
+              wear_loc: 16
+      - type: MOB
+        id: 5104
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5103
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -361,6 +432,18 @@ rooms:
     exits:
       east: 5108
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5107
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5104
+              wear_loc: 16
+          -
+              item_vnum: 5108
+              wear_loc: 10
     legacy_flags:
       - INDOORS
     doors:
@@ -431,6 +514,31 @@ rooms:
       east: 5110
       west: 5112
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5102
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5101
+              wear_loc: 16
+      - type: MOB
+        id: 5103
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5102
+              wear_loc: 16
+      - type: MOB
+        id: 5104
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5103
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -498,6 +606,18 @@ rooms:
     exits:
       south: 5112
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5108
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5104
+              wear_loc: 16
+          -
+              item_vnum: 5112
+              wear_loc: 1
     doors:
       south:
         to: 5112
@@ -596,6 +716,18 @@ rooms:
     exits:
       east: 5115
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5105
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5104
+              wear_loc: 16
+          -
+              item_vnum: 5110
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -663,6 +795,26 @@ rooms:
     exits:
       south: 5106
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5101
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5100
+              wear_loc: 16
+      - type: MOB
+        id: 5105
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5105
+              wear_loc: 16
+          -
+              item_vnum: 5110
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -722,6 +874,18 @@ rooms:
     exits:
       south: 5121
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5105
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5104
+              wear_loc: 16
+          -
+              item_vnum: 5110
+              wear_loc: 17
     legacy_flags:
       - INDOORS
     doors:
@@ -801,6 +965,11 @@ rooms:
       north: 5121
       east: 5101
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5100
+        quantity: 15
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -879,6 +1048,31 @@ rooms:
       east: 5125
       south: 5123
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5102
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5101
+              wear_loc: 16
+      - type: MOB
+        id: 5103
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5102
+              wear_loc: 16
+      - type: MOB
+        id: 5104
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5103
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -912,6 +1106,18 @@ rooms:
     exits:
       west: 5124
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5107
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5104
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 5114
     legacy_flags:
       - INDOORS
     doors:
@@ -1225,6 +1431,15 @@ rooms:
     exits:
       north: 5132
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5101
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5100
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1748,6 +1963,15 @@ rooms:
       south: 5145
       west: 5149
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5109
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5113
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1805,6 +2029,18 @@ rooms:
     exits:
       south: 5129
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 5106
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 5105
+              wear_loc: 16
+          -
+              item_vnum: 5109
+              wear_loc: 9
     legacy_flags:
       - INDOORS
     doors:

@@ -1,0 +1,396 @@
+- id: 6000
+  key: |
+  john_the_lumberjack:
+  name: |
+  john_lumberjack:
+  short_desc: |
+  John_the_Lumberjack:
+  long_desc: |
+  John_the_Lumberjack_is_here_looking_for_some_trees_to_chop_down:
+  keywords: ['john', 'lumberjack']
+  level: 64
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6002
+  key: |
+  the_brown_bear:
+  name: |
+  bear:
+  short_desc: |
+  the_brown_bear:
+  long_desc: |
+  A_big_brown_angry-looking_bear_is_here:
+  keywords: ['bear']
+  level: 96
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6003
+  key: |
+  the_ferocious_rabbit:
+  name: |
+  rabbit:
+  short_desc: |
+  the_ferocious_rabbit:
+  long_desc: |
+  A_ferocious_rabbit_is_here_glaring_hungrily_at_you:
+  keywords: ['rabbit']
+  level: 96
+  hp_max: 28
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 26
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6004
+  key: |
+  the_fallow_deer:
+  name: |
+  deer:
+  short_desc: |
+  the_fallow_deer:
+  long_desc: |
+  A_fallow_deer_is_grazing_peacefully_here:
+  keywords: ['deer']
+  level: 82
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 2
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 8200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6005
+  key: |
+  the_brown_fox:
+  name: |
+  fox:
+  short_desc: |
+  the_brown_fox:
+  long_desc: |
+  A_brown_fox_is_here_looking_for_some_rabbits_to_chew_up:
+  keywords: ['fox']
+  level: 64
+  hp_max: 20
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 18
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6100
+  key: |
+  the_vicious_warg:
+  name: |
+  warg_vicious:
+  short_desc: |
+  the_vicious_warg:
+  long_desc: |
+  A_vicious_warg_is_here_snarling_angrily_at_you:
+  keywords: ['warg', 'vicious']
+  level: 96
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6101
+  key: |
+  the_ferocious_warg:
+  name: |
+  warg_ferocious:
+  short_desc: |
+  the_ferocious_warg:
+  long_desc: |
+  A_ferocious_warg_is_here_snarling_angrily_at_you:
+  keywords: ['warg', 'ferocious']
+  level: 96
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6102
+  key: |
+  the_large_grey_wolf:
+  name: |
+  wolf_grey:
+  short_desc: |
+  the_large_grey_wolf:
+  long_desc: |
+  A_large_grey_wolf_is_here_glaring_hungrily_at_you:
+  keywords: ['wolf', 'grey']
+  level: 96
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6103
+  key: |
+  the_large_black_wolf:
+  name: |
+  wolf_black:
+  short_desc: |
+  the_large_black_wolf:
+  long_desc: |
+  A_large_black_wolf_is_here_glaring_hungrily_at_you:
+  keywords: ['wolf', 'black']
+  level: 96
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6112
+  key: |
+  the_huge_green_dragon:
+  name: |
+  dragon_green:
+  short_desc: |
+  the_huge_green_dragon:
+  long_desc: |
+  A_huge_green_dragon_is_here_its_narrow_yellow_eyes_glowing_with_rage:
+  keywords: ['dragon', 'green']
+  level: 99
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6115
+  key: |
+  shargugh:
+  name: |
+  shargugh_brownie:
+  short_desc: |
+  Shargugh:
+  long_desc: |
+  Shargugh_the_Forest_Brownie_is_here_grinning_broadly_at_you:
+  keywords: ['shargugh', 'brownie']
+  level: 148
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 6116
+  key: |
+  the_elder_druid:
+  name: |
+  elder_druid:
+  short_desc: |
+  the_elder_druid:
+  long_desc: |
+  The_elder_druid_is_here__he_looks_very_upset_at_your_presence_in_his_home:
+  keywords: ['elder', 'druid']
+  level: 38
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

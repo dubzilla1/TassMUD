@@ -122,6 +122,15 @@ rooms:
       south: 2904
       west: null
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2901
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2901
+              wear_loc: 16
     doors:
       south:
         to: 2904
@@ -134,8 +143,9 @@ rooms:
         key: null
       west:
         to: None
-        description: "You see some hills to the west.
-~"
+        description: |
+          You see some hills to the west.
+          ~
         keywords: "0 0 2902 E mountain"
         state: OPEN
         locked: false
@@ -155,6 +165,53 @@ rooms:
       south: 2905
       north: 2903
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 2901
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2901
+              wear_loc: 16
+      - type: MOB
+        id: 2902
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2902
+      - type: MOB
+        id: 2902
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2902
+      - type: MOB
+        id: 2903
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2903
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2903
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2903
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2903
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 2903
+        quantity: 6
+        frequency: 1
     doors:
       south:
         to: 2905
@@ -365,6 +422,15 @@ rooms:
       east: 2911
       west: 2912
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2903
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -416,6 +482,31 @@ rooms:
     exits:
       west: 2910
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2905
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2904
+              wear_loc: 16
+      - type: MOB
+        id: 2905
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2904
+              wear_loc: 16
+      - type: MOB
+        id: 2905
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2904
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -448,6 +539,31 @@ rooms:
     exits:
       east: 2910
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2905
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2905
+              wear_loc: 16
+      - type: MOB
+        id: 2905
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2904
+              wear_loc: 16
+      - type: MOB
+        id: 2905
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2905
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -533,6 +649,19 @@ rooms:
     exits:
       south: 2913
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2903
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -558,6 +687,35 @@ rooms:
     exits:
       north: 2913
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 2906
+        quantity: 20
+        frequency: 1
+      - type: MOB
+        id: 2906
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2903
+              wear_loc: 16
+      - type: MOB
+        id: 2906
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2903
+              wear_loc: 16
+      - type: MOB
+        id: 2906
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 2906
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -582,6 +740,15 @@ rooms:
       north: 2917
       up: 2913
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2903
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -616,6 +783,19 @@ rooms:
       south: 2917
       east: 2919
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 2907
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2904
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -659,6 +839,23 @@ rooms:
       west: 2918
       east: 2920
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2903
+              wear_loc: 16
+      - type: MOB
+        id: 2907
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2905
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -702,6 +899,35 @@ rooms:
     exits:
       west: 2919
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2908
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -727,6 +953,23 @@ rooms:
       south: 2919
       north: 2923
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+      - type: MOB
+        id: 2907
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2905
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -770,6 +1013,35 @@ rooms:
     exits:
       east: 2921
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2908
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
+      - type: MOB
+        id: 2909
+        quantity: 12
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -794,6 +1066,27 @@ rooms:
       west: null
       east: 2927
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2904
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2903
+              wear_loc: 16
+      - type: MOB
+        id: 2907
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2904
+              wear_loc: 16
+      - type: MOB
+        id: 2907
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -828,6 +1121,18 @@ rooms:
       west: 2925
       east: 2923
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2910
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2906
+              wear_loc: 5
+          -
+              item_vnum: 2907
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -862,6 +1167,29 @@ rooms:
       west: 2926
       east: 2924
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2911
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2906
+              wear_loc: 5
+          -
+              item_vnum: 2907
+              wear_loc: 16
+      - type: MOB
+        id: 2911
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2906
+              wear_loc: 5
+          -
+              item_vnum: 2907
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -894,6 +1222,18 @@ rooms:
     exits:
       east: 2925
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2912
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2911
+              wear_loc: 16
+          -
+              item_vnum: 2912
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -919,6 +1259,18 @@ rooms:
       east: 2928
       west: 2923
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2910
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2906
+              wear_loc: 5
+          -
+              item_vnum: 2907
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -953,18 +1305,41 @@ rooms:
       east: 2929
       west: 2927
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2911
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2906
+              wear_loc: 5
+          -
+              item_vnum: 2907
+              wear_loc: 16
+      - type: MOB
+        id: 2911
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2906
+              wear_loc: 5
+          -
+              item_vnum: 2907
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 2929
-        description: "You see the door, that leads to the inside of the temple."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 2927
         description: "You see the outside of the temple."
@@ -986,18 +1361,27 @@ rooms:
       west: 2928
       down: 2930
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2913
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2913
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 2928
-        description: "You see the door that leads to the temple entrance."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 2930
         description: "You see a large trap door."
@@ -1019,6 +1403,21 @@ rooms:
       east: 2931
       up: 2929
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2914
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2914
+      - type: MOB
+        id: 2914
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2914
     legacy_flags:
       - INDOORS
     doors:
@@ -1052,6 +1451,11 @@ rooms:
     exits:
       west: 2930
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 2915
+        quantity: 100
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS

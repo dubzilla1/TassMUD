@@ -1,0 +1,198 @@
+- id: 3600
+  key: |
+  henry_the_gardener:
+  name: |
+  henry_gardener:
+  short_desc: |
+  Henry_the_Gardener:
+  long_desc: |
+  Henry_the_Gardener_is_sitting_here_looking_drunk:
+  keywords: ['henry', 'gardener']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 48
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3601
+  key: |
+  the_rotting_zombie:
+  name: |
+  zombie:
+  short_desc: |
+  the_rotting_zombie:
+  long_desc: |
+  A_rotting_zombie_is_staggering_towards_you_with_outstretched_hands:
+  keywords: ['zombie']
+  level: 34
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3602
+  key: |
+  the_ghastly_ghoul:
+  name: |
+  ghoul:
+  short_desc: |
+  the_ghastly_ghoul:
+  long_desc: |
+  A_ghastly_ghoul_is_here:
+  keywords: ['ghoul']
+  level: 34
+  hp_max: 79
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 72
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3603
+  key: |
+  a_dusty_skeleton:
+  name: |
+  skeleton:
+  short_desc: |
+  a_dusty_skeleton:
+  long_desc: |
+  A_dusty_skeleton_lies_here:
+  keywords: ['skeleton']
+  level: 34
+  hp_max: 42
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3604
+  key: |
+  a_dusty_skeleton:
+  name: |
+  skeleton:
+  short_desc: |
+  a_dusty_skeleton:
+  long_desc: |
+  A_dusty_skeleton_lies_here:
+  keywords: ['skeleton']
+  level: 32
+  hp_max: 42
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3605
+  key: |
+  the_rotting_zombie:
+  name: |
+  zombie:
+  short_desc: |
+  the_rotting_zombie:
+  long_desc: |
+  A_rotting_zombie_is_staggering_towards_you_with_outstretched_hands:
+  keywords: ['zombie']
+  level: 32
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

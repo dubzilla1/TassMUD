@@ -215,6 +215,11 @@ rooms:
       east: 1010
       up: 1025
     sector_type: AIR
+    spawns:
+      - type: MOB
+        id: 1000
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 1004
@@ -1008,6 +1013,11 @@ rooms:
       west: 1014
       up: 1039
     sector_type: AIR
+    spawns:
+      - type: MOB
+        id: 1000
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 1018
@@ -1147,6 +1157,11 @@ rooms:
       south: 1023
       down: 1002
     sector_type: AIR
+    spawns:
+      - type: MOB
+        id: 1000
+        quantity: 10
+        frequency: 1
     doors:
       north:
         to: 1021
@@ -1824,6 +1839,11 @@ rooms:
       west: 1029
       down: 1014
     sector_type: AIR
+    spawns:
+      - type: MOB
+        id: 1001
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 1033

@@ -1,0 +1,660 @@
+- id: 3700
+  key: |
+  the_acolyte_of_frag:
+  name: |
+  acolyte_cleric:
+  short_desc: |
+  the_acolyte_of_Frag:
+  long_desc: |
+  An_acolyte_of_Overlord_Frag_is_here_grinning_at_you:
+  keywords: ['acolyte', 'cleric']
+  level: 2
+  hp_max: 30000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 29999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3701
+  key: |
+  the_blob:
+  name: |
+  blob:
+  short_desc: |
+  the_blob:
+  long_desc: |
+  The_blob_is_here_waiting_to_eat_you_up:
+  keywords: ['blob']
+  level: 2
+  hp_max: 51
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3702
+  key: |
+  the_monster:
+  name: |
+  monster:
+  short_desc: |
+  the_monster:
+  long_desc: |
+  There_is_a_monster_leashed_here:
+  keywords: ['monster']
+  level: 2
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3703
+  key: |
+  the_wimpy_monster:
+  name: |
+  monster_wimpy:
+  short_desc: |
+  the_wimpy_monster:
+  long_desc: |
+  There_is_a_wimpy_monster_leashed_here:
+  keywords: ['monster', 'wimpy']
+  level: 2
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3704
+  key: |
+  the_aggressive_monster:
+  name: |
+  monster_aggressive:
+  short_desc: |
+  the_aggressive_monster:
+  long_desc: |
+  There_is_an_aggressive_monster_leashed_here:
+  keywords: ['monster', 'aggressive']
+  level: 2
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3705
+  key: |
+  the_wimpy_aggressive_monster:
+  name: |
+  monster_wimpy_aggressive:
+  short_desc: |
+  the_wimpy_aggressive_monster:
+  long_desc: |
+  There_is_a_wimpy_aggressive_monster_leashed_here:
+  keywords: ['monster', 'wimpy', 'aggressive']
+  level: 2
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3706
+  key: |
+  the_big_creature:
+  name: |
+  big_creature:
+  short_desc: |
+  the_big_creature:
+  long_desc: |
+  There_is_a_big_creature_hulking_over_your_form:
+  keywords: ['big', 'creature']
+  level: 2
+  hp_max: 23
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3707
+  key: |
+  the_adept_of_kahn:
+  name: |
+  adept_cleric:
+  short_desc: |
+  the_adept_of_Kahn:
+  long_desc: |
+  An_adept_of_Overlord_Kahn_is_here_contemplating_your_progress:
+  keywords: ['adept', 'cleric']
+  level: 2
+  hp_max: 30000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 29999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3709
+  key: |
+  the_rabbit:
+  name: |
+  rabbit:
+  short_desc: |
+  the_rabbit:
+  long_desc: |
+  A_rabbit_is_bouncing_around_here:
+  keywords: ['rabbit']
+  level: 64
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3710
+  key: |
+  the_lizard:
+  name: |
+  lizard:
+  short_desc: |
+  the_lizard:
+  long_desc: |
+  A_lizard_slithers_up_to_you:
+  keywords: ['lizard']
+  level: 64
+  hp_max: 23
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3711
+  key: |
+  the_boar:
+  name: |
+  boar:
+  short_desc: |
+  the_boar:
+  long_desc: |
+  A_boar_tries_to_run_you_over:
+  keywords: ['boar']
+  level: 64
+  hp_max: 36
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3712
+  key: |
+  the_fox:
+  name: |
+  fox:
+  short_desc: |
+  the_fox:
+  long_desc: |
+  A_fox_is_here_staring_at_you:
+  keywords: ['fox']
+  level: 64
+  hp_max: 11
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3713
+  key: |
+  the_snail:
+  name: |
+  snail:
+  short_desc: |
+  the_snail:
+  long_desc: |
+  A_snail_is_trying_to_get_out_of_your_way:
+  keywords: ['snail']
+  level: 64
+  hp_max: 1
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3714
+  key: |
+  the_beast:
+  name: |
+  beast:
+  short_desc: |
+  the_beast:
+  long_desc: |
+  A_beast_tries_to_feed_off_of_you:
+  keywords: ['beast']
+  level: 32
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3715
+  key: |
+  the_bear:
+  name: |
+  bear:
+  short_desc: |
+  the_bear:
+  long_desc: |
+  A_bear_is_here_growling_at_you:
+  keywords: ['bear']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3716
+  key: |
+  the_wolf:
+  name: |
+  wolf:
+  short_desc: |
+  the_wolf:
+  long_desc: |
+  A_wolf_is_here_snarling_at_you:
+  keywords: ['wolf']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3717
+  key: |
+  the_adept_of_frag:
+  name: |
+  adept_cleric:
+  short_desc: |
+  the_adept_of_Frag:
+  long_desc: |
+  An_adept_of_Frag_is_here_grinning_and_selling_you_things:
+  keywords: ['adept', 'cleric']
+  level: 2
+  hp_max: 30000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 29999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3718
+  key: |
+  the_adept_of_furey:
+  name: |
+  adept_cleric:
+  short_desc: |
+  the_adept_of_Furey:
+  long_desc: |
+  An_adept_of_Furey_is_here_training_young_students:
+  keywords: ['adept', 'cleric']
+  level: 2
+  hp_max: 30000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 29999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3719
+  key: |
+  the_priest_of_hatchet:
+  name: |
+  priest_cleric:
+  short_desc: |
+  the_priest_of_Hatchet:
+  long_desc: |
+  The_priest_of_Hatchet_is_ready_to_help_you_practice:
+  keywords: ['priest', 'cleric']
+  level: 2
+  hp_max: 30000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 29999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3720
+  key: |
+  the_diploma_beast:
+  name: |
+  beast:
+  short_desc: |
+  the_diploma_beast:
+  long_desc: |
+  The_hideous_diploma_beast_is_here_holding_your_graduation_present:
+  keywords: ['beast']
+  level: 2
+  hp_max: 35
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

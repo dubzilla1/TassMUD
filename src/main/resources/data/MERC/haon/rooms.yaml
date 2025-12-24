@@ -281,6 +281,11 @@ rooms:
       north: 6005
       east: 6007
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6011
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 6005
@@ -423,16 +428,31 @@ rooms:
       south: 6014
       west: 6008
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6000
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6000
+              wear_loc: 16
+          -
+              item_vnum: 6001
+              wear_loc: 5
+          -
+              item_vnum: 6002
+              wear_loc: 8
     doors:
       north:
         to: 6010
-        description: "The wooden door is quite sturdy but does not appear to be equipped with a lock."
-        keywords: "door wooden"
+        description: "Cabin door must be closed"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 6014
         description: "The small path leads south through the dense forest."
@@ -472,6 +492,19 @@ rooms:
     exits:
       south: 6009
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6003
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 6005
+        quantity: 1
+        frequency: 1
+      - type: ITEM
+        id: 6013
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -543,6 +576,11 @@ rooms:
       east: 6013
       south: 6021
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 309
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 6007
@@ -590,6 +628,11 @@ rooms:
       east: 6014
       west: 6012
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6011
+        quantity: 3
+        frequency: 1
     doors:
       east:
         to: 6014
@@ -628,6 +671,18 @@ rooms:
       east: 6015
       west: 6013
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6005
+        quantity: 2
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6007
+              container_vnum: 6005
+          -
+              item_vnum: 6006
+              container_vnum: 6003
     doors:
       north:
         to: 6009
@@ -676,6 +731,11 @@ rooms:
       south: 6016
       west: 6014
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 309
+        quantity: 5
+        frequency: 1
     doors:
       south:
         to: 6016
@@ -714,6 +774,11 @@ rooms:
       north: 6015
       south: 6017
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6011
+        quantity: 3
+        frequency: 1
     doors:
       north:
         to: 6015
@@ -751,6 +816,11 @@ rooms:
       north: 6016
       west: 6018
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 309
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 6016
@@ -836,6 +906,11 @@ rooms:
       north: 6020
       east: 6018
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 309
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 6020
@@ -963,6 +1038,11 @@ rooms:
     exits:
       east: 6021
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6002
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -996,6 +1076,15 @@ rooms:
     exits:
       south: 6018
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 6010
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6004
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 6018
@@ -1027,6 +1116,15 @@ rooms:
       east: 6004
       west: 6101
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6115
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6114
+              wear_loc: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1170,6 +1268,11 @@ rooms:
       east: 6102
       south: 6108
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6102
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1221,6 +1324,19 @@ rooms:
       north: 6101
       south: 6105
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6106
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6102
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6102
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1261,6 +1377,11 @@ rooms:
       north: 6104
       west: 6106
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6105
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1393,6 +1514,15 @@ rooms:
       south: 6107
       west: 6109
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6102
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6102
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1543,6 +1673,11 @@ rooms:
       north: 6110
       south: 6112
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6106
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1586,6 +1721,15 @@ rooms:
       east: 6113
       west: 6127
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6103
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6103
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1639,6 +1783,11 @@ rooms:
       south: 6114
       west: 6112
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6103
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1770,6 +1919,15 @@ rooms:
       east: 6117
       south: 6115
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6100
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6100
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1860,6 +2018,15 @@ rooms:
       south: 6119
       west: 6117
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6103
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6103
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1900,6 +2067,11 @@ rooms:
       north: 6118
       south: 6120
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6107
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2018,6 +2190,11 @@ rooms:
       east: 6114
       south: 6123
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6106
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2158,6 +2335,11 @@ rooms:
       east: 6123
       south: 8301
     sector_type: FOREST
+    spawns:
+      - type: ITEM
+        id: 6104
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2265,6 +2447,15 @@ rooms:
       east: 6112
       south: 6126
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6101
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6101
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2407,8 +2598,9 @@ rooms:
         key: -1
       west:
         to: 6131
-        description: "The structure to the west looks most of all like an immense spider web.
-It does not look as if you can go further without getting caught in it."
+        description: |
+          The structure to the west looks most of all like an immense spider web.
+          It does not look as if you can go further without getting caught in it.
         keywords: ""
         state: OPEN
         locked: false
@@ -2765,6 +2957,18 @@ It does not look as if you can go further without getting caught in it."
     exits:
       south: 6142
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6112
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6110
+          -
+              item_vnum: 6112
+          -
+              item_vnum: 6111
     legacy_flags:
       - INDOORS
     doors:
@@ -2913,13 +3117,13 @@ It does not look as if you can go further without getting caught in it."
     doors:
       east:
         to: 6153
-        description: "The tree door is carved beautifully."
-        keywords: "door"
+        description: "Close the door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 6151
         description: "the bend on the trail."
@@ -2956,13 +3160,13 @@ It does not look as if you can go further without getting caught in it."
         key: -1
       west:
         to: 6152
-        description: "the door is carved beautifully."
-        keywords: "door"
+        description: "Close the door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 6154
     key: haon_room_6154
@@ -3011,6 +3215,15 @@ It does not look as if you can go further without getting caught in it."
     exits:
       north: 6154
     sector_type: FOREST
+    spawns:
+      - type: MOB
+        id: 6116
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6155
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:

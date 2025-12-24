@@ -1,0 +1,19 @@
+shops:
+  - keeper: 6503
+    trades: [0, 0, 0, 0, 0]
+    profit_buy: 150
+    profit_sell: 50
+    open: 0
+    close: 23
+    comment: "Hide and Tooth"
+    items: [6504, 6505, 6510, 6511, 6512]
+
+  - keeper: 6504
+    trades: [0, 0, 0, 0, 0]
+    profit_buy: 150
+    profit_sell: 50
+    open: 0
+    close: 23
+    comment: "Granitehead the Baker"
+    items: [3000, 3003, 3009, 3031]
+

@@ -1,0 +1,395 @@
+- id: 101
+  key: a_smurf
+  name: a smurf
+  short_desc: A smurf is singing and walking along.
+  long_desc: |
+    A cute little blue smurf with a white hat and white boots.  You have a sudden
+    urge to crush him.
+  keywords: ['smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 2
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 1 19 8 10d2+2 1d2+1 20 200 8 8 1
+
+- id: 102
+  key: a_smurf
+  name: a smurf
+  short_desc: A smurf is here, picking berries.
+  long_desc: |
+    A small smurf is quietly picking berries.  He seems to hardly notice you.
+  keywords: ['smurf']
+  level: 130
+  hp_max: 26
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 130 0 100 S 1 19 8 2d5+20 1d2+1 20 200 8 8 1
+
+- id: 103
+  key: brainy_smurf
+  name: Brainy Smurf
+  short_desc: Brainy Smurf is here, mumbling something to himself.
+  long_desc: |
+    Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
+    other smurfs.  They fear his knowledge.  Knowledge is power!
+  keywords: ['brainy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
+
+- id: 104
+  key: handy_smurf
+  name: Handy Smurf
+  short_desc: Handy Smurf is building something here.
+  long_desc: |
+    Handy is always building something.  He never takes a break.  Why don't you
+    give him a break, like all of his bones.
+  keywords: ['handy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
+
+- id: 105
+  key: sleepy_smurf
+  name: Sleepy Smurf
+  short_desc: Sleepy Smurf is sleep walking here.
+  long_desc: |
+    Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
+    if he has ever stayed up a whole night without sleeping.
+  keywords: ['sleepy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
+
+- id: 106
+  key: hefty_smurf
+  name: Hefty Smurf
+  short_desc: Hefty Smurf is lifting weights here.
+  long_desc: |
+    Hefty is a total health nut.  He lifts weights, eats right, and exercises all
+    the time.  Won't do him much good when he's DEAD.
+  keywords: ['hefty', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
+
+- id: 107
+  key: grumpy_smurf
+  name: Grumpy Smurf
+  short_desc: Grumpy Smurf is here, swearing.
+  long_desc: |
+    Grumpy has never been happy in his whole life.  So why don't you just end it?
+  keywords: ['grumpy', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
+
+- id: 108
+  key: jokey_smurf
+  name: Jokey Smurf
+  short_desc: Jokey Smurf is here, holding a present.
+  long_desc: |
+    Jokey loves to give people presents.  Too bad the present explodes when opened.
+    Oh well, to each his own.
+  keywords: ['jokey', 'smurf']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
+
+- id: 109
+  key: smurfette
+  name: Smurfette
+  short_desc: Smurfette is here, looking beautiful.
+  long_desc: |
+    Smurfette is the cutest little smurf you've ever seen.  If only she were your
+    size.  I wonder how much she charges the other smurfs.
+  keywords: ['smurfette']
+  level: 192
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 2
+
+- id: 110
+  key: papa_smurf
+  name: Papa Smurf
+  short_desc: Papa Smurf is practicing magic here.
+  long_desc: |
+    Yep, its Papa Smurf all right.  Red hat and boots and the funny little white
+    beard.  Papa Smurf treats his fellow smurfs with dignity and respect.  That
+    is why Papa Smurf is so popular among the ladies.
+  keywords: ['papa', 'smurf']
+  level: 192
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 100 S 10 10 0 10d10+50 2d2+12 50 4000 8 8 1
+
+- id: 111
+  key: gargamel
+  name: Gargamel
+  short_desc: Gargamel is here, cursing out the smurfs.
+  long_desc: |
+    Gargamel has never done anything right in his life.  He has caught smurfs
+    before but always lets them escape.  He brings true meaning to the word moron.
+  keywords: ['gargamel']
+  level: 130
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 130 0 -100 S 10 10 0 10d10+50 2d2+12 50 4000 8 8 1
+
+- id: 112
+  key: azreal
+  name: Azreal
+  short_desc: Azreal is here, licking himself.
+  long_desc: |
+    Gargamel's worthless cat.  He is just about as dumb as Gargamel.  He should
+    just grab a smurf in his teeth and chew away.
+  keywords: ['azreal', 'cat']
+  level: 130
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 130 0 -100 S 8 12 2 8d8+80 1d4+5 20 2000 8 8 1
+

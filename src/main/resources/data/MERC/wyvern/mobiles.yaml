@@ -1,8 +1,9 @@
 - id: 1601
-  key: "a_killer_frog"
-  name: "killer frog"
-  short_desc: "a killer frog"
-  long_desc: "A killer frog rises up out of the water."
+  key: a_killer_frog_1601
+  name: a killer frog
+  short_desc: A killer frog rises up out of the water.
+  long_desc: |
+    The killer frog looks ravenous.
   keywords: ['killer', 'frog']
   level: 2
   hp_max: 70
@@ -27,13 +28,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '5d5+55', 'damage_dice': '5d5+55', 'raw_block': 'The killer frog looks ravenous.\n~\n2|32|64 0 -300 S\n5 16 6 5d5+55 1d5+4\n20 700\n8 8 0'}
+  legacy_raw: 2|32|64 0 -300 S 5 16 6 5d5+55 1d5+4 20 700 8 8 0
 
 - id: 1602
-  key: "the_stone_gargoyle"
-  name: "stone gargoyle"
-  short_desc: "the stone gargoyle"
-  long_desc: "A stone gargoyle looms over you."
+  key: the_stone_gargoyle_1602
+  name: the stone gargoyle
+  short_desc: A stone gargoyle looms over you.
+  long_desc: |
+    As you look, the figure seems to shift and move ...
   keywords: ['stone', 'gargoyle']
   level: 2
   hp_max: 135
@@ -58,13 +60,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': 'As you look, the figure seems to shift and move ...\n~\n2|32|64|128 0 -400 S\n9 13 1 9d9+90 4d3+2\n400 2500\n8 8 1'}
+  legacy_raw: 2|32|64|128 0 -400 S 9 13 1 9d9+90 4d3+2 400 2500 8 8 1
 
 - id: 1603
-  key: "an_angry_gargoyle"
-  name: "angry gargoyle"
-  short_desc: "an angry gargoyle"
-  long_desc: "An angry gargoyle glares at you."
+  key: an_angry_gargoyle_1603
+  name: an angry gargoyle
+  short_desc: An angry gargoyle glares at you.
+  long_desc: |
+    He looks ready to attack!
   keywords: ['angry', 'gargoyle']
   level: 4
   hp_max: 155
@@ -89,13 +92,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'He looks ready to attack!\n~\n4|32|64 0 -600 S\n10 12 1 10d10+100 4d3+3\n500 3000\n8 8 1'}
+  legacy_raw: 4|32|64 0 -600 S 10 12 1 10d10+100 4d3+3 500 3000 8 8 1
 
 - id: 1604
-  key: "the_elite_gargoyle"
-  name: "elite gargoyle"
-  short_desc: "the elite gargoyle"
-  long_desc: "An elite gargoyle guards this room against intrusion."
+  key: the_elite_gargoyle_1604
+  name: the elite gargoyle
+  short_desc: An elite gargoyle guards this room against intrusion.
+  long_desc: |
+    He snarls at you and says LEAVE OR DIE!
   keywords: ['elite', 'gargoyle']
   level: 2
   hp_max: 198
@@ -120,13 +124,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'He snarls at you and says LEAVE OR DIE!\n~\n2|4 0 -600 S\n12 10 0 12d12+120 6d2+4\n800 5000\n8 8 1'}
+  legacy_raw: 2|4 0 -600 S 12 10 0 12d12+120 6d2+4 800 5000 8 8 1
 
 - id: 1605
-  key: "the_gargoyle_shaman"
-  name: "gargoyle shaman"
-  short_desc: "the gargoyle shaman"
-  long_desc: "The gargoyle shaman is here, preparing to do battle."
+  key: the_gargoyle_shaman_1605
+  name: the gargoyle shaman
+  short_desc: The gargoyle shaman is here, preparing to do battle.
+  long_desc: |
+    She says 'I can SEE you! I have been waiting ...'.
   keywords: ['gargoyle', 'shaman']
   level: 2
   hp_max: 221
@@ -151,13 +156,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': "She says 'I can SEE you! I have been waiting ...'.\n~\n2|4|64 8|32 -900 S\n13 8 -1 13d13+130 6d3+4\n3000 9000\n8 8 2"}
+  legacy_raw: 2|4|64 8|32 -900 S 13 8 -1 13d13+130 6d3+4 3000 9000 8 8 2
 
 - id: 1606
-  key: "a_carnivorous_plant"
-  name: "carnivorous plant"
-  short_desc: "a carnivorous plant"
-  long_desc: "Amidst the jungle here, a huge Carnivorous plant reaches out to grab you!"
+  key: a_carnivorous_plant_1606
+  name: a carnivorous plant
+  short_desc: Amidst the jungle here, a huge Carnivorous plant reaches out to grab you!
+  long_desc: |
+    The plant looks something like a Venus fly-trap, only MUCH larger.
   keywords: ['carnivorous', 'plant']
   level: 2
   hp_max: 135
@@ -182,13 +188,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': 'The plant looks something like a Venus fly-trap, only MUCH larger.\n~\n2|32|64 0 0 S\n9 12 3 9d9+90 3d3+3\n16 2800\n8 8 0'}
+  legacy_raw: 2|32|64 0 0 S 9 12 3 9d9+90 3d3+3 16 2800 8 8 0
 
 - id: 1607
-  key: "a_gruesome_ogre"
-  name: "gruesome ogre"
-  short_desc: "a gruesome ogre"
-  long_desc: "A huge, gruesome ogre is sprawled here, gnawing some strange meat."
+  key: a_gruesome_ogre_1607
+  name: a gruesome ogre
+  short_desc: A huge, gruesome ogre is sprawled here, gnawing some strange meat.
+  long_desc: |
+    It thinks that perhaps you would make a better meal.
   keywords: ['gruesome', 'ogre']
   level: 2
   hp_max: 155
@@ -213,13 +220,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'It thinks that perhaps you would make a better meal.\n~\n2|4|32|64 0 -200 S\n10 12 2 10d10+100 4d2+4\n1200 3500\n6 8 0'}
+  legacy_raw: 2|4|32|64 0 -200 S 10 12 2 10d10+100 4d2+4 1200 3500 6 8 0
 
 - id: 1608
-  key: "a_shadow"
-  name: "shadow"
-  short_desc: "a shadow"
-  long_desc: "A dark shadow moves about the room."
+  key: a_shadow_1608
+  name: a shadow
+  short_desc: A dark shadow moves about the room.
+  long_desc: |
+    The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
   keywords: ['shadow']
   level: 4
   hp_max: 155
@@ -244,13 +252,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'The Shadow is vaguely humanoid. Two glowing pinpoints look at you.\n~\n4|32|64 2|8|32 -1000 S\n10 12 0 10d10+100 4d3+4\n900 4000\n8 8 0'}
+  legacy_raw: 4|32|64 2|8|32 -1000 S 10 12 0 10d10+100 4d3+4 900 4000 8 8 0
 
 - id: 1609
-  key: "an_evil_wight"
-  name: "evil wight"
-  short_desc: "an evil wight"
-  long_desc: "An evil wight lurks in the shadows!"
+  key: an_evil_wight_1609
+  name: an evil wight
+  short_desc: An evil wight lurks in the shadows!
+  long_desc: |
+    He glares at you savagely and charges!
   keywords: ['evil', 'wight']
   level: 2
   hp_max: 198
@@ -275,13 +284,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'He glares at you savagely and charges!\n~\n2|4|32|64 8|32 -1000 S\n12 10 -2 12d12+120 6d2+3\n2200 7000\n8 8 1'}
+  legacy_raw: 2|4|32|64 8|32 -1000 S 12 10 -2 12d12+120 6d2+3 2200 7000 8 8 1
 
 - id: 1610
-  key: "a_burly_minotaur"
-  name: "burly minotaur"
-  short_desc: "A burly minotaur"
-  long_desc: "A burly minotaur watches you solemnly."
+  key: a_burly_minotaur_1610
+  name: A burly minotaur
+  short_desc: A burly minotaur watches you solemnly.
+  long_desc: |
+    This powerful creature wonders whether to kill you or not ...
   keywords: ['burly', 'minotaur']
   level: 4
   hp_max: 245
@@ -306,13 +316,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '14d14+140', 'damage_dice': '14d14+140', 'raw_block': 'This powerful creature wonders whether to kill you or not ...\n~\n4|64 8 -600 S\n14 9 0 14d14+140 5d3+4\n1500 11000\n8 8 1'}
+  legacy_raw: 4|64 8 -600 S 14 9 0 14d14+140 5d3+4 1500 11000 8 8 1
 
 - id: 1612
-  key: "the_savage_minotaur"
-  name: "savage minotaur"
-  short_desc: "the savage minotaur"
-  long_desc: "A bloodthirsty minotaur slowly counts his loot"
+  key: the_savage_minotaur_1612
+  name: the savage minotaur
+  short_desc: A bloodthirsty minotaur slowly counts his loot
+  long_desc: |
+    He looks up at you and screams 'SO! Coming to steal my hoard!'
   keywords: ['savage', 'minotaur']
   level: 2
   hp_max: 270
@@ -337,13 +348,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': "He looks up at you and screams 'SO! Coming to steal my hoard!'\n~\n2|4|32|64 8 -600 S\n15 8 0 15d15+150 5d3+5\n0 14000\n8 8 1"}
+  legacy_raw: 2|4|32|64 8 -600 S 15 8 0 15d15+150 5d3+5 0 14000 8 8 1
 
 - id: 1613
-  key: "the_captain"
-  name: "minotaur captain"
-  short_desc: "the captain"
-  long_desc: "Sitting here in this room is the Minotaur Captain."
+  key: the_captain_1613
+  name: the captain
+  short_desc: Sitting here in this room is the Minotaur Captain.
+  long_desc: |
+    He looks at you, and a sinister grin slowly spreads on his face ...
   keywords: ['minotaur', 'captain']
   level: 2
   hp_max: 323
@@ -368,13 +380,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '17d17+170', 'damage_dice': '17d17+170', 'raw_block': 'He looks at you, and a sinister grin slowly spreads on his face ...\n~\n2|4|32|64 8 -900 S\n17 5 -3 17d17+170 5d3+6\n0 18000\n8 8 1'}
+  legacy_raw: 2|4|32|64 8 -900 S 17 5 -3 17d17+170 5d3+6 0 18000 8 8 1
 
 - id: 1614
-  key: "the_black_pudding"
-  name: "black pudding"
-  short_desc: "the black pudding"
-  long_desc: "A huge black pudding fills the center of the room!!"
+  key: the_black_pudding_1614
+  name: the black pudding
+  short_desc: A huge black pudding fills the center of the room!!
+  long_desc: |
+    It is a huge black blob that oozes about the room. Its heading toward YOU!
   keywords: ['black', 'pudding']
   level: 4
   hp_max: 270
@@ -399,13 +412,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'It is a huge black blob that oozes about the room. Its heading toward YOU!\n~\n4|32|64 0 -1000 S\n15 9 0 15d15+150 8d2+5\n0 14000\n8 8 0'}
+  legacy_raw: 4|32|64 0 -1000 S 15 9 0 15d15+150 8d2+5 0 14000 8 8 0
 
 - id: 1615
-  key: "a_lesser_golem"
-  name: "lesser golem"
-  short_desc: "a lesser golem"
-  long_desc: "A lesser Golem stands guarding the entrance."
+  key: a_lesser_golem_1615
+  name: a lesser golem
+  short_desc: A lesser Golem stands guarding the entrance.
+  long_desc: |
+    The golem appears to be made of some kind of clay, enchanted to come to life!
   keywords: ['lesser', 'golem']
   level: 2
   hp_max: 296
@@ -430,13 +444,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '16d16+160', 'damage_dice': '16d16+160', 'raw_block': 'The golem appears to be made of some kind of clay, enchanted to come to life!\n~\n2|64 8 0 S\n16 8 -2 16d16+160 8d2+7\n0 18000\n8 8 0'}
+  legacy_raw: 2|64 8 0 S 16 8 -2 16d16+160 8d2+7 0 18000 8 8 0
 
 - id: 1616
-  key: "the_ancient_wyvern"
-  name: "ancient wyvern"
-  short_desc: "the ancient wyvern"
-  long_desc: "An enormous, ancient wyvern stares down at your tiny form..."
+  key: the_ancient_wyvern_1616
+  name: the ancient wyvern
+  short_desc: An enormous, ancient wyvern stares down at your tiny form...
+  long_desc: |
+    It thunders loudly 'I must protect my Master's wealth!'
   keywords: ['ancient', 'wyvern']
   level: 4
   hp_max: 351
@@ -461,13 +476,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': "It thunders loudly 'I must protect my Master's wealth!'\n~\n4|32|64 8|32 -1000 S\n18 5 -2 18d18+180 10d2+8\n0 28000\n8 5 1"}
+  legacy_raw: 4|32|64 8|32 -1000 S 18 5 -2 18d18+180 10d2+8 0 28000 8 5 1
 
 - id: 1617
-  key: "the_spectre"
-  name: "spectre"
-  short_desc: "the spectre"
-  long_desc: "A spectre has begun to materialize in front of you!"
+  key: the_spectre_1617
+  name: the spectre
+  short_desc: A spectre has begun to materialize in front of you!
+  long_desc: |
+    Terror fills your heart as you view this master of the undead.
   keywords: ['spectre']
   level: 4
   hp_max: 380
@@ -492,13 +508,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '19d19+190', 'damage_dice': '19d19+190', 'raw_block': 'Terror fills your heart as you view this master of the undead.\n~\n4|32|64 138 -1000 S\n19 2 -8 19d19+190 8d3+7\n0 30000\n8 8 1'}
+  legacy_raw: 4|32|64 138 -1000 S 19 2 -8 19d19+190 8d3+7 0 30000 8 8 1
 
 - id: 1702
-  key: "a_trapper"
-  name: "trapper"
-  short_desc: "a trapper"
-  long_desc: "A trapper stands here, bartering his pelts."
+  key: a_trapper_1702
+  name: a trapper
+  short_desc: A trapper stands here, bartering his pelts.
+  long_desc: |
+    The trapper is clad mostly in the fur of various animals he's caught.
   keywords: ['trapper']
   level: 4
   hp_max: 81
@@ -523,13 +540,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': "The trapper is clad mostly in the fur of various animals he's caught.\n~\n4 0 0 S\n6 15 4 6d6+60 2d4+1\n120 800\n8 8 1"}
+  legacy_raw: 4 0 0 S 6 15 4 6d6+60 2d4+1 120 800 8 8 1
 
 - id: 1704
-  key: "a_hunter"
-  name: "hunter"
-  short_desc: "a hunter"
-  long_desc: "A hunter rests in here, carrying a fresh kill."
+  key: a_hunter_1704
+  name: a hunter
+  short_desc: A hunter rests in here, carrying a fresh kill.
+  long_desc: |
+    The hunter is rugged and sturdy from his occupation.
   keywords: ['hunter']
   level: 4
   hp_max: 116
@@ -554,13 +572,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'The hunter is rugged and sturdy from his occupation.\n~\n4 0 0 S\n8 13 3 8d8+80 2d4+2\n120 1500\n5 8 1'}
+  legacy_raw: 4 0 0 S 8 13 3 8d8+80 2d4+2 120 1500 5 8 1
 
 - id: 1706
-  key: "a_ranger"
-  name: "ranger"
-  short_desc: "a ranger"
-  long_desc: "A grim ranger reclines at a table."
+  key: a_ranger_1706
+  name: a ranger
+  short_desc: A grim ranger reclines at a table.
+  long_desc: |
+    The years of wanderings have left the ranger hardened and strong.
   keywords: ['ranger']
   level: 4
   hp_max: 198
@@ -585,13 +604,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'The years of wanderings have left the ranger hardened and strong.\n~\n4|64 8 200 S\n12 11 0 12d12+120 3d4+3\n0 7500\n5 8 1'}
+  legacy_raw: 4|64 8 200 S 12 11 0 12d12+120 3d4+3 0 7500 5 8 1
 
 - id: 1707
-  key: "a_ranger_leader"
-  name: "ranger leader"
-  short_desc: "a ranger leader"
-  long_desc: "A leader of the Rangers is watching you solemnly."
+  key: a_ranger_leader_1707
+  name: a ranger leader
+  short_desc: A leader of the Rangers is watching you solemnly.
+  long_desc: |
+    This individual has quite a reputation at the local trading posts!
   keywords: ['ranger', 'leader']
   level: 2
   hp_max: 270
@@ -616,13 +636,13 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '15d15+150', 'damage_dice': '15d15+150', 'raw_block': 'This individual has quite a reputation at the local trading posts!\n~\n2|4 8 300 S\n15 7 -3 15d15+150 4d4+4\n0 14500\n8 8 1'}
+  legacy_raw: 2|4 8 300 S 15 7 -3 15d15+150 4d4+4 0 14500 8 8 1
 
 - id: 1708
-  key: "the_lord_of_the_rangers"
-  name: "ranger lord"
-  short_desc: "the Lord of the Rangers"
-  long_desc: "The Lord of the Rangers catches your eye."
+  key: the_lord_of_the_rangers_1708
+  name: the Lord of the Rangers
+  short_desc: The Lord of the Rangers catches your eye.
+  long_desc: |
   keywords: ['ranger', 'lord']
   level: 2
   hp_max: 410
@@ -647,13 +667,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': '~\n2|4 8 400 S\n20 1 -9 20d20+200 6d4+5\n0 40000\n8 8 1'}
+  legacy_raw: 2|4 8 400 S 20 1 -9 20d20+200 6d4+5 0 40000 8 8 1
 
 - id: 1710
-  key: "a_centaur"
-  name: "male centaur"
-  short_desc: "a centaur"
-  long_desc: "A male centaur wanders about this area."
+  key: a_centaur_1710
+  name: a centaur
+  short_desc: A male centaur wanders about this area.
+  long_desc: |
+    The centaur has the upper torso of a man and lower body of a horse.
   keywords: ['male', 'centaur']
   level: 4
   hp_max: 98
@@ -678,13 +699,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'The centaur has the upper torso of a man and lower body of a horse.\n~\n4 0 200 S\n7 14 4 7d7+70 2d4+1\n120 1000\n8 8 1'}
+  legacy_raw: 4 0 200 S 7 14 4 7d7+70 2d4+1 120 1000 8 8 1
 
 - id: 1711
-  key: "a_centaur"
-  name: "female centaur"
-  short_desc: "a centaur"
-  long_desc: "A female centaur wanders about this area."
+  key: a_centaur_1711
+  name: a centaur
+  short_desc: A female centaur wanders about this area.
+  long_desc: |
+    The centaur has the upper torso of a woman and lower body of a horse.
   keywords: ['female', 'centaur']
   level: 4
   hp_max: 98
@@ -709,13 +731,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': 'The centaur has the upper torso of a woman and lower body of a horse.\n~\n4 0 200 S\n7 14 4 7d7+70 2d4+1\n110 1000\n8 8 2'}
+  legacy_raw: 4 0 200 S 7 14 4 7d7+70 2d4+1 110 1000 8 8 2
 
 - id: 1712
-  key: "an_old_centaur"
-  name: "old centaur"
-  short_desc: "an old centaur"
-  long_desc: "An old centaur is resting in a corner."
+  key: an_old_centaur_1712
+  name: an old centaur
+  short_desc: An old centaur is resting in a corner.
+  long_desc: |
+    This centaur has lived a full life.
   keywords: ['old', 'centaur']
   level: 4
   hp_max: 81
@@ -740,13 +763,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'This centaur has lived a full life.\n~\n4 0 200 S\n6 15 5 6d6+60 2d4+0\n110 800\n5 5 1'}
+  legacy_raw: 4 0 200 S 6 15 5 6d6+60 2d4+0 110 800 5 5 1
 
 - id: 1714
-  key: "an_elder_centaur"
-  name: "centaur elder"
-  short_desc: "an elder centaur"
-  long_desc: "One of the centaur elders is here, watching you."
+  key: an_elder_centaur_1714
+  name: an elder centaur
+  short_desc: One of the centaur elders is here, watching you.
+  long_desc: |
+    The elders act as counselors and advisors to the chief.
   keywords: ['centaur', 'elder']
   level: 2
   hp_max: 135
@@ -771,13 +795,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '9d9+90', 'damage_dice': '9d9+90', 'raw_block': 'The elders act as counselors and advisors to the chief.\n~\n2|4 2 200 S\n9 13 2 9d9+90 2d4+2\n0 3000\n8 8 1'}
+  legacy_raw: 2|4 2 200 S 9 13 2 9d9+90 2d4+2 0 3000 8 8 1
 
 - id: 1715
-  key: "a_centaur_guard"
-  name: "centaur guard"
-  short_desc: "a centaur guard"
-  long_desc: "A strong centaur is standing guard here."
+  key: a_centaur_guard_1715
+  name: a centaur guard
+  short_desc: A strong centaur is standing guard here.
+  long_desc: |
+    He appears to be blocking entrance to the next room.
   keywords: ['centaur', 'guard']
   level: 2
   hp_max: 155
@@ -802,13 +827,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'He appears to be blocking entrance to the next room.\n~\n2 2 200 S\n10 12 1 10d10+100 2d4+3\n0 4000\n8 8 1'}
+  legacy_raw: 2 2 200 S 10 12 1 10d10+100 2d4+3 0 4000 8 8 1
 
 - id: 1716
-  key: "the_centaur_chief"
-  name: "centaur chief"
-  short_desc: "the centaur chief"
-  long_desc: "The chief of the centaur villagers reclines here."
+  key: the_centaur_chief_1716
+  name: the centaur chief
+  short_desc: The chief of the centaur villagers reclines here.
+  long_desc: |
+    He has been the leader of this tribe for many years, and has acquired much
+    wisdom.
   keywords: ['centaur', 'chief']
   level: 2
   hp_max: 198
@@ -833,15 +860,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '12d12+120', 'damage_dice': '12d12+120', 'raw_block': 'He has been the leader of this tribe for many years, and has acquired much\nwisdom.\n~\n2|4 2 200 S\n12 11 1 12d12+120 2d4+3\n0 7000\n5 8 1'}
+  legacy_raw: 2|4 2 200 S 12 11 1 12d12+120 2d4+3 0 7000 5 8 1
 
 - id: 1720
-  key: "a_displacer_beast"
-  name: "displacer beast"
-  short_desc: "a displacer beast"
-  long_desc: "A displacer beast is grazing nearby."
+  key: a_displacer_beast_1720
+  name: a displacer beast
+  short_desc: A displacer beast is grazing nearby.
+  long_desc: |
+    As you watch this strange creature, its position seems to flicker and shift.
   keywords: ['displacer', 'beast']
-  level: 128
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -860,9 +888,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 12800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 128, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'As you watch this strange creature, its position seems to flicker and shift.\n~\n128 0 0 S\n10 11 -3 10d10+100 4d3+2\n0 4500\n8 8 0'}
+  legacy_raw: 128 0 0 S 10 11 -3 10d10+100 4d3+2 0 4500 8 8 0
 

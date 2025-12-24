@@ -15,18 +15,60 @@ rooms:
       south: 9101
       down: 7918
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 7900
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 7216
+              wear_loc: 16
+          -
+              item_vnum: 7217
+              wear_loc: 5
+          -
+              item_vnum: 7218
+              wear_loc: 7
+          -
+              item_vnum: 7219
+              wear_loc: 9
+          -
+              item_vnum: 7220
+              wear_loc: 6
+          -
+              item_vnum: 7221
+              wear_loc: 11
+          -
+              item_vnum: 7223
+              wear_loc: 10
+          -
+              item_vnum: 7222
+              wear_loc: 8
+          -
+              item_vnum: 7224
+              wear_loc: 12
+        inventory:
+          -
+              item_vnum: 7911
+          -
+              item_vnum: 7298
+              container_vnum: 7910
+          -
+              item_vnum: 7208
+              container_vnum: 7910
     legacy_flags:
       - NO_MOB
     doors:
       north:
         to: 7901
-        description: "You see a HUGE arched gate leading into this magnificent building."
-        keywords: "gate door huge arched"
-        state: CLOSED
+        description: "Close the Grand Gate to the Mansion of Redferne"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 9101
         description: "You see some pretty clouds!"
@@ -74,8 +116,9 @@ rooms:
     doors:
       north:
         to: 7904
-        description: "The hallway continues that way. You can see more doorways under the
-wooden staircase in that direction."
+        description: |
+          The hallway continues that way. You can see more doorways under the
+          wooden staircase in that direction.
         keywords: ""
         state: OPEN
         locked: false
@@ -84,40 +127,36 @@ wooden staircase in that direction."
         key: -1
       east:
         to: 7910
-        description: "You see there a tall oak door. It looks quite tightly closed to you.
-On it little runes are chiselled into the wood."
-        keywords: "oak tall east oakdoor talldoor eastdoor"
-        state: CLOSED
+        description: "Close the Oak door to the Item Room from the Hallway"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 7900
-        description: "Here you see a REAL door. It would be more proper to call this a
-\"GATE\", rather than a \"door\". It's really HUGE! On it hangs a large
-sign with very large letters spelling : \"EMERGENCY EXIT\"."
-        keywords: "gate"
-        state: CLOSED
+        description: "Close the same from the inside"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       west:
         to: 7902
-        description: "This looks like a \"door\" in the meaning of the word. The ashen wood
-is painted in a peculiar yellow colour. Small letters are written
-with black on it."
-        keywords: "ashen ash door west yellow"
-        state: CLOSED
+        description: "Close the Ashen door from the Hallway to the Library"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       up:
         to: 7909
-        description: "You see the staircase extending upwards into the very high tower.
-It ends in what seems like a large bedroom up there."
+        description: |
+          You see the staircase extending upwards into the very high tower.
+          It ends in what seems like a large bedroom up there.
         keywords: ""
         state: OPEN
         locked: false
@@ -155,13 +194,13 @@ It ends in what seems like a large bedroom up there."
     doors:
       east:
         to: 7901
-        description: "You can see an old ashen door, painted in a peculiar yellow colour."
-        keywords: "door ash ashen east"
-        state: CLOSED
+        description: "Close the Ashen door from the Library to the Hallway"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       globe: |
         You see a large world map stretch out on the enormous globe. It has towns
@@ -203,6 +242,11 @@ It ends in what seems like a large bedroom up there."
     exits:
       west: -1
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 7909
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -249,16 +293,13 @@ It ends in what seems like a large bedroom up there."
         key: -1
       east:
         to: 7913
-        description: "You see a huge metal door. From it a foul stench emanates. The smell is the
-most awful experience in your entire life. A thought seeps through this
-terrible stench and into your mind : \"Monsters\", you feel BAD about opening
-that door."
-        keywords: "steel metal huge"
-        state: CLOSED
+        description: "Close the Steel door to the monster Pen"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 7901
         description: "The rest of the hall lies in that direction, and so does the exit."
@@ -270,14 +311,13 @@ that door."
         key: -1
       west:
         to: 7905
-        description: "The door has \"SITTING ROOM\" written on it. It is made from Aspenwood and
-is beautifully carven with small elves as main issue of sculpture."
-        keywords: "aspen asp"
-        state: CLOSED
+        description: "Close the Elm door to the Sittingroom"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7905
     key: redferne_room_7905
@@ -298,14 +338,13 @@ is beautifully carven with small elves as main issue of sculpture."
     doors:
       east:
         to: 7904
-        description: "The door seems to be a very HEAVY door, carved completely from the trunk of
-an Aspen tree."
-        keywords: "asp aspen door heavy"
-        state: CLOSED
+        description: "Close ---- || ---- from the inside"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
     extras:
       chair: |
         This is truly a wonderful relic of the past. In it is a large cushion.
@@ -332,22 +371,22 @@ an Aspen tree."
     doors:
       north:
         to: 7907
-        description: "It's dark in there,  but the sounds from there are unmistakably from rats."
-        keywords: "larder wooden cupboard"
-        state: CLOSED
+        description: "Close the Fridge"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       east:
         to: 7908
-        description: "You can see the fridge from here. In it are drinks all over."
-        keywords: "fridge"
-        state: CLOSED
+        description: "Close the Larder"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 7904
         description: "You can see the northern end of the hall."
@@ -375,13 +414,13 @@ an Aspen tree."
     doors:
       south:
         to: 7906
-        description: ""
-        keywords: "door wooden larder exit"
-        state: CLOSED
+        description: "------ || ------ from the inside"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7908
     key: redferne_room_7908
@@ -393,19 +432,24 @@ an Aspen tree."
     exits:
       west: 7906
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6013
+        quantity: 10
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
     doors:
       west:
         to: 7906
-        description: ""
-        keywords: "door exit fridge"
-        state: CLOSED
+        description: "Close the Larder from the inside"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7909
     key: redferne_room_7909
@@ -454,6 +498,11 @@ an Aspen tree."
       east: -1
       west: 7901
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 7910
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -469,13 +518,13 @@ an Aspen tree."
         key: -1
       west:
         to: 7901
-        description: "You see a tall oak door."
-        keywords: "door oak tall"
-        state: CLOSED
+        description: "Close the Oak from the Item Room to the Hallway"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7911
     key: redferne_room_7911
@@ -499,13 +548,13 @@ an Aspen tree."
     doors:
       south:
         to: 7912
-        description: "The sun seems to shine out there, warmly and comforting."
-        keywords: "doors"
+        description: "Close the Balcony doors"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 7909
         description: ""
@@ -534,18 +583,18 @@ an Aspen tree."
     doors:
       north:
         to: 7911
-        description: "You see the comfortable bedroom of Naris, the mansion of Redferne the Greater
-God."
-        keywords: "doors"
-        state: CLOSED
+        description: "Close the Balcony doors from the outside"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: -1
-        description: "You see the ground on which this castle is set. Funnily it seems to you that
-it's no more than clouds."
+        description: |
+          You see the ground on which this castle is set. Funnily it seems to you that
+          it's no more than clouds.
         keywords: ""
         state: OPEN
         locked: false
@@ -571,13 +620,13 @@ it's no more than clouds."
     doors:
       west:
         to: 7904
-        description: "This looks like the only exit from here."
-        keywords: "door cage metal pen"
-        state: CLOSED
+        description: "Close the Steel door from the inside of the monster Pen"
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 7914
     key: redferne_room_7914
@@ -660,8 +709,9 @@ it's no more than clouds."
     doors:
       up:
         to: 7900
-        description: "You see the sunny top of the clouds. Beyond these, the Mansion towers before
-your eyes. Beautiful!!"
+        description: |
+          You see the sunny top of the clouds. Beyond these, the Mansion towers before
+          your eyes. Beautiful!!
         keywords: ""
         state: OPEN
         locked: false

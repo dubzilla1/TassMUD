@@ -1,0 +1,1788 @@
+- id: 3000
+  key: the_wizard
+  name: the wizard
+  short_desc: A wizard walks around behind the counter, talking to himself.
+  long_desc: |
+    The wizard looks old and senile, and yet he looks like a very powerful
+    wizard. He is equipped with fine clothing, and is wearing many fine
+    rings and bracelets.
+  keywords: ['wizard']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 100000 80000 8 8 1
+
+- id: 3001
+  key: the_baker
+  name: the baker
+  short_desc: The baker looks at you calmly, wiping flour from his face with one hand.
+  long_desc: |
+    A fat, nice looking baker. But you can see that he has many scars on his
+    body.
+  keywords: ['baker']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 12000 80000 8 8 1
+
+- id: 3002
+  key: the_grocer
+  name: the grocer
+  short_desc: A grocer stands at the counter, with a slightly impatient look on his face.
+  long_desc: |
+    A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
+  keywords: ['grocer']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 12000 80000 8 8 1
+
+- id: 3003
+  key: the_weaponsmith
+  name: the weaponsmith
+  short_desc: A weaponsmith.
+  long_desc: |
+    A young weaponsmith, who still has lots to learn.
+  keywords: ['weaponsmith']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 100000 80000 8 8 1
+
+- id: 3004
+  key: the_armourer
+  name: the armourer
+  short_desc: An armourer stands here.
+  long_desc: |
+    An old but very strong armourer, he has made more armours in his
+    lifetime than you have ever seen.
+  keywords: ['armourer', 'armorer']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 150000 80000 8 8 1
+
+- id: 3005
+  key: the_thief
+  name: the thief
+  short_desc: A thief, all dressed in black.
+  long_desc: |
+    Well COUNT your money!
+  keywords: ['thief']
+  level: 133
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 133 98304 100 S 8 13 3 8d8+80 1d5+5 100 4000 8 8 1
+
+- id: 3006
+  key: the_captain
+  name: the captain
+  short_desc: A retired captain stands here, selling boats.
+  long_desc: |
+    This captain has killed more sharks than you have eaten peas.
+  keywords: ['captain']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 12000 80000 8 8 1
+
+- id: 3007
+  key: the_sailor
+  name: the sailor
+  short_desc: A sailor stands here, waiting to train you.
+  long_desc: |
+    He looks like a strong, fit sailor.
+  keywords: ['sailor']
+  level: 2
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|512 0 900 S 23 -2 -13 23d23+230 1d4+23 2000 -15000 8 8 1
+
+- id: 3008
+  key: the_pet_shop_boy
+  name: the pet shop boy
+  short_desc: A pet shop boy is here, humming gently.
+  long_desc: |
+    He is young and close-cropped and looks quite happy.
+  keywords: ['boy']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 12000 80000 8 8 1
+
+- id: 3009
+  key: the_jeweller
+  name: the jeweller
+  short_desc: The jeweller is standing behind the desk.
+  long_desc: |
+    He is fat and has a content although watchful look on his face.
+  keywords: ['jeweller']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 -10 1d1+30000 1d8+22 300000 80000 8 8 1
+
+- id: 3010
+  key: the_leather_worker
+  name: the leather worker
+  short_desc: The leather worker is sitting by the table, sewing a leather cap.
+  long_desc: |
+    He looks as an honest, hard-working artisan who only just earns enough to
+    keep himself going.
+  keywords: ['leather', 'worker']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 100000 80000 8 8 1
+
+- id: 3011
+  key: the_executioner
+  name: the executioner
+  short_desc: The executioner is here polishing his blade.
+  long_desc: |
+    A masked man with muscles bulging all over his body.  You can tell by
+    the look in his eyes that he enjoys seeing you cower in his presence.
+  keywords: ['executioner']
+  level: 2
+  hp_max: 1500
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 1499
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|64 8|128 1000 S 50 -10 -20 1d1+1499 1d4+30 5000 500000 8 8 1
+
+- id: 3012
+  key: the_healer
+  name: the healer
+  short_desc: A healer is here.
+  long_desc: |
+    Although retired from adventuring, the healer still lends a hand.
+  keywords: ['healer']
+  level: 2
+  hp_max: 30000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 29999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|64 8|128 1000 S 40 -10 -20 1d1+29999 2d4+30 0 -99000 8 8 1
+
+- id: 3020
+  key: the_guildmaster
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    Even though your guildmaster looks old and tired, you can clearly see the
+    vast amount of knowledge she possesses. She is wearing fine magic clothing,
+    and you notice that she is surrounded by a blue shimmering aura.
+  keywords: ['guildmaster', 'master']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 440
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 2
+
+- id: 3021
+  key: the_guildmaster
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    You are in no doubt that this guildmaster is truly close to your god; he has
+    a peaceful, loving look. You notice that he is surrounded by a white aura.
+  keywords: ['guildmaster', 'master']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 440
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|1024 128 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 1
+
+- id: 3022
+  key: the_guildmaster
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    You realize that whenever your guildmaster moves, you fail to notice it:
+    the way of the true thief.  She is dressed in poor clothing, having
+    the appearance of a beggar.
+  keywords: ['guildmaster', 'master']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 440
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 2
+
+- id: 3023
+  key: the_guildmaster
+  name: the guildmaster
+  short_desc: Your guildmaster is standing here.
+  long_desc: |
+    This is your master.  Big and strong with bulging muscles.  Several scars
+    across his body prove that he was using arms before you were born.  He
+    has a calm look on his face.
+  keywords: ['guildmaster', 'master']
+  level: 2
+  hp_max: 473
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 440
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 1
+
+- id: 3024
+  key: the_sorcerer
+  name: the sorcerer
+  short_desc: A sorcerer is guarding the entrance.
+  long_desc: |
+    He is an experienced mage who has specialized in the field of Combat Magic.
+    He is here to guard the Mage's Guild and his superior knowledge of offensive
+    as well as defensive spells make him a deadly opponent.
+  keywords: ['sorcerer']
+  level: 2
+  hp_max: 3933
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 3900
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 2 800 S 23 2 2 6d10+3900 1d8+22 2000 80000 8 8 1
+
+- id: 3025
+  key: the_knight_templar
+  name: the knight templar
+  short_desc: A knight templar is guarding the entrance.
+  long_desc: |
+    He is a specially trained warrior belonging to the military order of the Faith.
+    His duty is to protect the faithful from persecution and infidel attacks and
+    his religious devotion combined with his superior skill makes him a deadly
+    opponent.
+  keywords: ['templar']
+  level: 2
+  hp_max: 3933
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 3900
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 800 S 23 2 2 6d10+3900 1d8+22 2000 80000 8 8 1
+
+- id: 3026
+  key: the_assassin
+  name: the assassin
+  short_desc: An assassin is guarding the entrance.
+  long_desc: |
+    He is a thief who has specialized in killing others as effectively as possible,
+    using all sorts of weapons.  His superior knowledge of how and where to use
+    them combined with his extraordinary stealth makes him a deadly opponent.
+  keywords: ['assassin']
+  level: 2
+  hp_max: 3933
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 3900
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 65536 800 S 23 4 4 6d10+3900 1d8+22 2000 80000 8 8 1
+
+- id: 3027
+  key: the_knight
+  name: the knight
+  short_desc: A knight is guarding the entrance.
+  long_desc: |
+    He is an expert warrior who has attained knighthood through countless
+    chivalrous deeds.  His duty is to protect the Guild of Swordsmen and his
+    extreme skill combined with his experience in warfare makes him a deadly
+    opponent.
+  keywords: ['knight']
+  level: 2
+  hp_max: 5933
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 5900
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 800 S 23 0 0 6d10+5900 1d8+32 2000 80000 8 8 1
+
+- id: 3040
+  key: the_bartender
+  name: the bartender
+  short_desc: A bartender watches you calmly, while he skillfully mixes a drink.
+  long_desc: |
+    A tired looking Bartender who hates trouble in his bar.
+  keywords: ['bartender']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+18 2000 80000 8 8 1
+
+- id: 3041
+  key: the_waiter
+  name: the waiter
+  short_desc: A waiter is going around from one place to another.
+  long_desc: |
+    A tired looking waiter.
+  keywords: ['waiter']
+  level: 2
+  hp_max: 423
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 390
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 23 2 2 6d10+390 1d8+18 2000 20000 8 8 1
+
+- id: 3042
+  key: the_waiter
+  name: the waiter
+  short_desc: A man who in his young days was a famous sorcerer but now leads a quiet, peaceful life as a waiter.
+  long_desc: |
+  keywords: ['waiter']
+  level: 2
+  hp_max: 423
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 390
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
+
+- id: 3043
+  key: the_waiter
+  name: the waiter
+  short_desc: A waiter who seems to have reached contact with God.
+  long_desc: |
+  keywords: ['waiter']
+  level: 2
+  hp_max: 423
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 390
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
+
+- id: 3044
+  key: the_waiter
+  name: the waiter
+  short_desc: A waiter who knows where all his customers keep their money.
+  long_desc: |
+  keywords: ['waiter']
+  level: 2
+  hp_max: 423
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 390
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
+
+- id: 3045
+  key: the_waiter
+  name: the waiter
+  short_desc: A waiter who easily could kill you, and still carry quite a few firebreathers.
+  long_desc: |
+  keywords: ['waiter']
+  level: 2
+  hp_max: 423
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 390
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
+
+- id: 3046
+  key: filthy
+  name: Filthy
+  short_desc: Filthy is standing here, eager to serve you a special drink.
+  long_desc: |
+    Filthy looks real, ehm, dirty. He likes to keep his costumers happy,
+    but do not mess with him or else he'll get upset.
+  keywords: ['filthy']
+  level: 2
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 600 S 23 1 2 1d1+30000 1d8+18 2000 80000 8 8 1
+
+- id: 3050
+  key: aod_the_dealer
+  name: Aod the Dealer
+  short_desc: Aod the Dealer stands in the shadows here.
+  long_desc: |
+    Aod looks just like the dealer hoodlum you see on T.V.  He's wearing a
+    concert shirt and Levi 501's.  His hair is pulled back into a pony tail.
+    A beard and moustache complete the look.  Aod has brought some drugs
+    with him from Generic Mud.
+    <worn on penis>      A Trojan (TM) Condom.
+    
+    Since he practices safe sex,
+  keywords: ['dealer']
+  level: 4
+  hp_max: 1000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 999
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|64 8|32|512 0 S 15 15 -2 1d1+999 2d10+20 500 19000 8 8 1
+
+- id: 3060
+  key: the_cityguard
+  name: the cityguard
+  short_desc: A cityguard stands here.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
+  keywords: ['cityguard', 'guard']
+  level: 69
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6900
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 69 0 1000 S 15 15 -2 15d15+150 1d4+10 500 19000 8 8 1
+
+- id: 3061
+  key: the_janitor
+  name: the janitor
+  short_desc: A janitor is walking around, cleaning up.
+  long_desc: |
+  keywords: ['janitor']
+  level: 1
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 1 0 900 S 1 20 9 2d6+10 1d5+0 34 100 8 8 1
+
+- id: 3062
+  key: the_beastly_fido
+  name: the beastly fido
+  short_desc: Beastly Fido is here.
+  long_desc: |
+    Fido is a small dog that has a foul smell and pieces of rotted meat hanging
+    around his teeth.
+  keywords: ['fido', 'dog']
+  level: 161
+  hp_max: 7
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 4
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 161 0 -200 S 0 20 10 1d6+4 1d4+0 10 25 8 8 1
+
+- id: 3063
+  key: the_vagabond
+  name: the vagabond
+  short_desc: A vagabond is here, looking for victims.
+  long_desc: |
+    He looks pretty mean.
+  keywords: ['vagabond']
+  level: 4
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 0 -200 S 5 16 5 2d6+60 1d8+0 47 900 8 8 1
+
+- id: 3064
+  key: the_drunk
+  name: the drunk
+  short_desc: A singing, happy drunk.
+  long_desc: |
+    A drunk who seems to be too happy, and to carry too much money.
+  keywords: ['drunk']
+  level: 400
+  hp_max: 29
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 40000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 0 400 S 2 19 8 2d6+22 1d6+0 85 200 8 8 1
+
+- id: 3065
+  key: the_beggar
+  name: the beggar
+  short_desc: A beggar is here, asking for a few coins.
+  long_desc: |
+    The beggar looks like she is fed up with life.
+  keywords: ['beggar']
+  level: 2
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 400 S 1 20 9 2d6+10 1d5+0 0 100 8 8 2
+
+- id: 3066
+  key: an_alley_cat
+  name: an alley cat
+  short_desc: An alley cat hisses at you.
+  long_desc: |
+    The alley cat is half starved and more than a little feral.
+  keywords: ['cat']
+  level: 161
+  hp_max: 7
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 4
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 161 0 -200 S 0 20 10 1d6+4 1d4+0 10 25 8 8 1
+
+- id: 3067
+  key: the_cityguard
+  name: the cityguard
+  short_desc: A cityguard is here, guarding the gate.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
+  keywords: ['cityguard', 'guard']
+  level: 67
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 67 0 1000 S 15 5 -2 15d15+150 1d4+10 500 19000 8 8 1
+
+- id: 3068
+  key: the_cityguard
+  name: the cityguard
+  short_desc: A cityguard is here, guarding the gate.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
+  keywords: ['cityguard', 'guard']
+  level: 67
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 67 0 1000 S 15 5 -2 15d15+150 1d4+10 500 19000 8 8 1
+
+- id: 3069
+  key: the_cityguard
+  name: the cityguard
+  short_desc: A cityguard is here, guarding the mayor.
+  long_desc: |
+    A big, strong, helpful, trustworthy guard.
+  keywords: ['cityguard', 'guard']
+  level: 67
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 67 2|65536 1000 S 20 0 -7 20d20+200 1d4+15 500 40000 8 8 1
+
+- id: 3090
+  key: the_kitten
+  name: the kitten
+  short_desc: A small loyal kitten is here.
+  long_desc: |
+    The kitten looks like a cute, little, fierce fighter.
+  keywords: ['kitten']
+  level: 6
+  hp_max: 14
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 11
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 400 S 1 20 9 1d6+11 1d4+0 0 100 8 8 0
+
+- id: 3091
+  key: the_puppy
+  name: the puppy
+  short_desc: A small loyal puppy is here.
+  long_desc: |
+    The puppy looks like a cute, little, fierce fighter.
+  keywords: ['puppy']
+  level: 6
+  hp_max: 14
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 11
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 400 S 3 20 9 1d6+11 1d4+0 0 100 8 8 0
+
+- id: 3092
+  key: the_beagle
+  name: the beagle
+  short_desc: A small, quick, loyal beagle is here.
+  long_desc: |
+    The beagle looks like a fierce fighter.
+  keywords: ['beagle']
+  level: 6
+  hp_max: 28
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 400 S 5 19 8 1d12+22 1d6+0 0 200 8 8 0
+
+- id: 3093
+  key: the_rottweiler
+  name: the rottweiler
+  short_desc: A large, loyal rottweiler is here.
+  long_desc: |
+    The rottweiler looks like a strong, fierce fighter.
+  keywords: ['rottweiler']
+  level: 6
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 400 S 7 18 7 1d12+35 1d7+0 0 800 8 8 0
+
+- id: 3094
+  key: the_wolf
+  name: the wolf
+  short_desc: A large, trained wolf is here.
+  long_desc: |
+    The wolf looks like a strong, fearless fighter.
+  keywords: ['wolf']
+  level: 6
+  hp_max: 53
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 47
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 0 0 S 9 17 6 1d12+47 1d8+0 0 1600 8 8 0
+
+- id: 3100
+  key: the_maid
+  name: the maid
+  short_desc: The maid is waiting for your order.
+  long_desc: |
+    She is very beautiful with golden hair, and deep blue eyes. A good reason
+    for coming here more often.
+  keywords: ['maid']
+  level: 2
+  hp_max: 423
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 390
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 1000 S 23 2 -2 6d10+390 1d8+12 2000 80000 8 8 2
+
+- id: 3120
+  key: the_sexton
+  name: the sexton
+  short_desc: A sexton is sitting here, drinking hot tea.
+  long_desc: |
+    The sexton looks like he is relaxing after another grave-digging job.
+  keywords: ['sexton']
+  level: 2
+  hp_max: 42
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 800 S 3 18 7 2d6+35 1d7+0 13 350 6 6 1
+
+- id: 3121
+  key: the_swan
+  name: the swan
+  short_desc: A swan is swimming around in the pond.
+  long_desc: |
+    The white swan is very elegant.
+  keywords: ['swan']
+  level: 2
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 1000 S 1 20 9 2d6+10 1d5+0 0 100 8 8 0
+
+- id: 3122
+  key: the_duckling
+  name: the duckling
+  short_desc: A duckling is swimming around in the pond.
+  long_desc: |
+    The duckling is adorable, it looks most of all like a tiny furball.
+  keywords: ['duckling']
+  level: 2
+  hp_max: 1
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 1000 S 0 20 10 1d1+0 1d1+0 0 10 8 8 0
+
+- id: 3123
+  key: the_sparrow
+  name: the sparrow
+  short_desc: A sparrow is flapping around on the ground.
+  long_desc: |
+    The sparrow looks like it is enjoying life.
+  keywords: ['sparrow']
+  level: 192
+  hp_max: 7
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 1000 S 0 20 10 2d6+0 1d3+0 0 25 8 8 0
+
+- id: 3124
+  key: the_duck
+  name: the duck
+  short_desc: A duck is here, quacking happily.
+  long_desc: |
+    The duck is quite fat.  It looks like it is enjoying life.
+  keywords: ['duck']
+  level: 64
+  hp_max: 12
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 5
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 1000 S 1 20 10 2d6+5 1d4+0 0 75 8 8 0
+
+- id: 3140
+  key: the_captain
+  name: the captain
+  short_desc: The captain of the guard is looking very upset.
+  long_desc: |
+    A big, strong, angry captain.
+  keywords: ['captain']
+  level: 38
+  hp_max: 216
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 210
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 8 1000 S 17 4 1 1d12+210 1d8+8 0 28000 8 8 1
+
+- id: 3141
+  key: the_cityguard
+  name: the cityguard
+  short_desc: A cityguard stands here, looking very upset.
+  long_desc: |
+    A big, strong, angry guard.
+  keywords: ['cityguard', 'guard']
+  level: 38
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 0 1000 S 15 5 -2 15d15+150 1d4+10 0 9000 8 8 1
+
+- id: 3142
+  key: the_secretary
+  name: the secretary
+  short_desc: A secretary is sitting at the desk.
+  long_desc: |
+    She looks very busy.
+    The Secretary says 'Sorry, but the Mayor is extremely busy today'.
+    The Secretary says 'Please sit down and have a seat in the meantime'.
+  keywords: ['secretary']
+  level: 2
+  hp_max: 154
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 900 S 12 9 2 1d12+148 2d7+1 100 3000 8 8 2
+
+- id: 3143
+  key: the_mayor
+  name: the mayor
+  short_desc: The mayor is here.  He shakes your hand.
+  long_desc: |
+    He is a stocky, middle-aged man with thin, grey hair.
+  keywords: ['mayor']
+  level: 3
+  hp_max: 533
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 3 8192 900 S 23 2 -2 6d10+500 1d8+12 1000 120000 4 4 1
+
+- id: 3144
+  key: the_town_crier
+  name: the town crier
+  short_desc: The town crier is here, weeping quietly.
+  long_desc: |
+    He is very good at his job - completely dissolved in tears.
+  keywords: ['crier']
+  level: 128
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 128 0 900 S 1 20 9 2d6+10 1d5+0 34 100 8 8 1

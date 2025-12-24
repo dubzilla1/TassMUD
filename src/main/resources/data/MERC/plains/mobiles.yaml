@@ -1,10 +1,12 @@
 - id: 300
-  key: "aruncus_the_druid"
-  name: "druid Aruncus"
-  short_desc: "Aruncus the Druid"
-  long_desc: "Aruncus the Druid is walking around here, searching for herbs."
+  key: aruncus_the_druid_300
+  name: Aruncus the Druid
+  short_desc: Aruncus the Druid is walking around here, searching for herbs.
+  long_desc: |
+    Aruncus is a tall, skinny druid with a face marked by nature.
+    He seems to be in peace with himself and his surroundings.
   keywords: ['druid', 'Aruncus']
-  level: 192
+  level: 8
   hp_max: 221
   mp_max: 0
   mv_max: 100
@@ -23,17 +25,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 19200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 192, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'Aruncus is a tall, skinny druid with a face marked by nature.\nHe seems to be in peace with himself and his surroundings.\n~\n192 8 -500 S\n13 8 2 13d13+130 3d5+2\n500 15000\n8 8 1'}
+  legacy_raw: 192 8 -500 S 13 8 2 13d13+130 3d5+2 500 15000 8 8 1
 
 - id: 301
-  key: "sorbus_the_hermit"
-  name: "hermit sorbus"
-  short_desc: "Sorbus the Hermit"
-  long_desc: "Sorbus the Hermit is sitting here, roasting a rabbit."
+  key: sorbus_the_hermit_301
+  name: Sorbus the Hermit
+  short_desc: Sorbus the Hermit is sitting here, roasting a rabbit.
+  long_desc: |
+    Sorbus bares the marks of a long, hard life in solitude.
+    He is dressed in simple clothing and looks like he has little
+    or nothing to say.
   keywords: ['hermit', 'sorbus']
   level: 2
   hp_max: 50
@@ -58,15 +63,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '4d4+40', 'damage_dice': '4d4+40', 'raw_block': 'Sorbus bares the marks of a long, hard life in solitude.\nHe is dressed in simple clothing and looks like he has little\nor nothing to say.\n~\n2 0 0 S\n4 16 6 4d4+40 1d9+2\n1 400\n6 6 1'}
+  legacy_raw: 2 0 0 S 4 16 6 4d4+40 1d9+2 1 400 6 6 1
 
 - id: 303
-  key: "the_citizen"
-  name: "citizen"
-  short_desc: "the citizen"
-  long_desc: "There is a citizen of Ofcol here glaring at you ... stranger!"
+  key: the_citizen_303
+  name: the citizen
+  short_desc: There is a citizen of Ofcol here glaring at you ... stranger!
+  long_desc: |
+    He seems like a nice person with no interest in harming you or others.
+    He wears normal, light clothing and has an anonymous face.
   keywords: ['citizen']
-  level: 68
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -85,19 +92,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'He seems like a nice person with no interest in harming you or others.\nHe wears normal, light clothing and has an anonymous face.\n~\n68 0 0 S\n6 15 6 6d6+60 2d4+2\n200 800\n8 8 1'}
+  legacy_raw: 68 0 0 S 6 15 6 6d6+60 2d4+2 200 800 8 8 1
 
 - id: 304
-  key: "the_citizen"
-  name: "citizen"
-  short_desc: "the citizen"
-  long_desc: "There is a citizen of Ofcol here glaring at you ... stranger!"
+  key: the_citizen_304
+  name: the citizen
+  short_desc: There is a citizen of Ofcol here glaring at you ... stranger!
+  long_desc: |
+    She seems like a nice person with no interest in harming you or others.
+    She wears a minimum of clothing and has big ... eyes.
   keywords: ['citizen']
-  level: 68
+  level: 5
   hp_max: 65
   mp_max: 0
   mv_max: 100
@@ -116,19 +125,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'She seems like a nice person with no interest in harming you or others.\nShe wears a minimum of clothing and has big ... eyes.\n~\n68 0 0 S\n5 16 5 5d5+50 2d4+1\n100 600\n8 8 2'}
+  legacy_raw: 68 0 0 S 5 16 5 5d5+50 2d4+1 100 600 8 8 2
 
 - id: 305
-  key: "shudde_m_ell"
-  name: "worm Shudde-M'ell"
-  short_desc: "Shudde-M'ell"
-  long_desc: "Shudde-M'ell the Giant worm of G'harne is guarding his treasure."
+  key: shudde_m_ell_305
+  name: Shudde-M'ell
+  short_desc: Shudde-M'ell the Giant worm of G'harne is guarding his treasure.
+  long_desc: |
+    Shudde-M'ell is about 15 ft long and is surrounded by an evil stench,
+    The worm is the protector of the treasure of G'harne and has been so
+    for as long anyone can remember.
   keywords: ['worm', "Shudde-M'ell"]
-  level: 15
+  level: 34
   hp_max: 540
   mp_max: 0
   mv_max: 100
@@ -147,17 +159,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 1500
+  experience_value: 3400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 15, 'hit_dice': '24d24+240', 'damage_dice': '24d24+240', 'act_flags': 15, 'raw_block': "Shudde-M'ell is about 15 ft long and is surrounded by an evil stench,\nThe worm is the protector of the treasure of G'harne and has been so\nfor as long anyone can remember.\n~\n34 8 -1000 S\n24 -2 0 24d24+240 3d8+8\n13666 75000\n8 8 1"}
+  legacy_raw: 34 8 -1000 S 24 -2 0 24d24+240 3d8+8 13666 75000 8 8 1
 
 - id: 306
-  key: "luxan"
-  name: "luxan shopkeeper"
-  short_desc: "Luxan"
-  long_desc: "Luxan the Shopkeeper is here, eager to sell you anything."
+  key: luxan_306
+  name: Luxan
+  short_desc: Luxan the Shopkeeper is here, eager to sell you anything.
+  long_desc: |
+    Luxan is dressed in a strange jacket.
+    He looks like a mean trader from the outskirts of Midgaard.
+    His life is seems to be totally occupied with trading.
+    He looks very fit and capable of protecting his goods.
   keywords: ['luxan', 'shopkeeper']
   level: 7
   hp_max: 30001
@@ -182,13 +198,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 7, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'Luxan is dressed in a strange jacket.\nHe looks like a mean trader from the outskirts of Midgaard.\nHis life is seems to be totally occupied with trading.\nHe looks very fit and capable of protecting his goods.\n~\n7 0 400 S\n23 0 0 1d1+30000 2d10+0\n8000 80000\n8 8 1'}
+  legacy_raw: 7 0 400 S 23 0 0 1d1+30000 2d10+0 8000 80000 8 8 1
 
 - id: 308
-  key: "the_innkeeper"
-  name: "keeper innkeeper"
-  short_desc: "the Innkeeper"
-  long_desc: "An Innkeeper is here waiting for your order."
+  key: the_innkeeper_308
+  name: the Innkeeper
+  short_desc: An Innkeeper is here waiting for your order.
+  long_desc: |
+    The Innkeeper looks skilled in brewing different beers and mixing the
+    wierdest drinks known. He also looks very big.
   keywords: ['keeper', 'innkeeper']
   level: 3
   hp_max: 30001
@@ -213,15 +231,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 3, 'hit_dice': '1d1+30000', 'damage_dice': '1d1+30000', 'raw_block': 'The Innkeeper looks skilled in brewing different beers and mixing the\nwierdest drinks known. He also looks very big.\n~\n3 0 -100 S\n23 0 0 1d1+30000 2d10+1\n100 80000\n8 8 1'}
+  legacy_raw: 3 0 -100 S 23 0 0 1d1+30000 2d10+1 100 80000 8 8 1
 
 - id: 309
-  key: "the_cute_rabbit"
-  name: "rabbit"
-  short_desc: "the cute rabbit"
-  long_desc: "A cute rabbit is here."
+  key: the_cute_rabbit_309
+  name: the cute rabbit
+  short_desc: A cute rabbit is here.
+  long_desc: |
+    It is a small, furry creature with long ears and big feet.
   keywords: ['rabbit']
-  level: 64
+  level: 1
   hp_max: 3
   mp_max: 0
   mv_max: 100
@@ -240,19 +259,22 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '1d4+1', 'damage_dice': '1d4+1', 'raw_block': 'It is a small, furry creature with long ears and big feet.\n~\n64 0 0 S\n1 20 6 1d4+1 1d4+0\n0 50\n8 8 0'}
+  legacy_raw: 64 0 0 S 1 20 6 1d4+1 1d4+0 0 50 8 8 0
 
 - id: 350
-  key: "the_pet_dragon"
-  name: "dragon pet"
-  short_desc: "the pet dragon"
-  long_desc: "Ravan's pet dragon is bouncing around here flapping her cute wings."
+  key: the_pet_dragon_350
+  name: the pet dragon
+  short_desc: Ravan's pet dragon is bouncing around here flapping her cute wings.
+  long_desc: |
+    Ravan's pet dragon is about 3 ft. tall with small pointy teeth.
+    The small wings are eagerly trying to lift her from the ground,
+    but so far they haven't succeeded.
   keywords: ['dragon', 'pet']
-  level: 3
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -271,9 +293,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 300
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 3, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'act_flags': 3, 'raw_block': "Ravan's pet dragon is about 3 ft. tall with small pointy teeth.\nThe small wings are eagerly trying to lift her from the ground,\nbut so far they haven't succeeded.\n~\n131 524424 1000 S\n10 0 0 10d10+100 10d10+0\n0 30000\n8 8 2"}
+  legacy_raw: 131 524424 1000 S 10 0 0 10d10+100 10d10+0 0 30000 8 8 2
 

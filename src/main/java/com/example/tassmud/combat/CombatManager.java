@@ -534,6 +534,37 @@ public class CombatManager {
                 } catch (Exception e) {
                     System.err.println("[CombatManager] Failed to create corpse for " + mobName + ": " + e.getMessage());
                 }
+
+                // Move any item instances that were used to equip this mob into the corpse.
+                // SpawnEvent applied modifiers with source="equip#<instanceId>", so inspect modifiers.
+                try {
+                    if (corpseId > 0) {
+                        ItemDAO itemDAO = new ItemDAO();
+                        java.util.List<com.example.tassmud.model.Modifier> mods = mob.getAllModifiers();
+                        for (com.example.tassmud.model.Modifier mod : mods) {
+                            String src = mod.source();
+                            if (src == null) continue;
+                            String idPart = null;
+                            if (src.startsWith("equip#")) {
+                                idPart = src.substring("equip#".length());
+                            } else if (src.startsWith("inventory#")) {
+                                idPart = src.substring("inventory#".length());
+                            }
+                            if (idPart == null) continue;
+                            try {
+                                long itemInstanceId = Long.parseLong(idPart);
+                                // Move instance into corpse container
+                                itemDAO.moveInstanceToContainer(itemInstanceId, corpseId);
+                            } catch (NumberFormatException nfe) {
+                                // ignore malformed source
+                            } catch (Exception ex) {
+                                System.err.println("[CombatManager] Failed to move item " + idPart + " into corpse: " + ex.getMessage());
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    System.err.println("[CombatManager] Error while moving equipped items to corpse: " + e.getMessage());
+                }
                 
                 // Handle autogold for the killer
                 if (killer.isPlayer() && killer.getCharacterId() != null && corpseId > 0) {

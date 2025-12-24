@@ -1,10 +1,12 @@
 - id: 1000
-  key: "a_fairy_dragon"
-  name: "fairy dragon"
-  short_desc: "A fairy dragon"
-  long_desc: "A fairy dragon is fluttering around here looking for something to do..."
+  key: a_fairy_dragon_1000
+  name: A fairy dragon
+  short_desc: A fairy dragon is fluttering around here looking for something to do...
+  long_desc: |
+    It's a cute little multi-colored dragon...about 2 foot long.
+    It gracefully dances around your head.
   keywords: ['fairy', 'dragon']
-  level: 2
+  level: 24
   hp_max: 65
   mp_max: 0
   mv_max: 100
@@ -23,19 +25,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'act_flags': 2, 'raw_block': "It's a cute little multi-colored dragon...about 2 foot long.\nIt gracefully dances around your head.\n~\n65 24 500 S\n5 16 5 5d5+50 2d4+1\n20 900\n8 8 0"}
+  legacy_raw: 65 24 500 S 5 16 5 5d5+50 2d4+1 20 900 8 8 0
 
 - id: 1001
-  key: "a_griffin"
-  name: "griffin"
-  short_desc: "A griffin"
-  long_desc: "A large black winged griffin swoops into an attack."
+  key: a_griffin_1001
+  name: A griffin
+  short_desc: A large black winged griffin swoops into an attack.
+  long_desc: |
+    Golden maned and black all over.  It's quite a beautiful creature if not
+    for the fact it is hungry and is attacking you!
   keywords: ['griffin']
-  level: 96
+  level: 8
   hp_max: 105
   mp_max: 0
   mv_max: 100
@@ -54,9 +58,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 9600
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 96, 'hit_dice': '1d1+104', 'damage_dice': '1d1+104', 'raw_block': "Golden maned and black all over.  It's quite a beautiful creature if not\nfor the fact it is hungry and is attacking you!\n~\n96 0 300 S\n8 14 4 1d1+104 2d5+2\n500 3750\n8 8 1"}
+  legacy_raw: 96 0 300 S 8 14 4 1d1+104 2d5+2 500 3750 8 8 1
 

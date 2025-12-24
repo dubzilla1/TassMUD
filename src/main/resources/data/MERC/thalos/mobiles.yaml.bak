@@ -1,0 +1,297 @@
+- id: 5200
+  key: |
+  the_mighty_beholder:
+  name: |
+  beholder:
+  short_desc: |
+  The_mighty_beholder:
+  long_desc: |
+  You_meet_a_beholders_deadly_gaze:
+  keywords: ['beholder']
+  level: 163
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5201
+  key: |
+  the_lamia:
+  name: |
+  lamia_beast:
+  short_desc: |
+  The_lamia:
+  long_desc: |
+  A_strange_lamia_stands_here_waiting_for_her_next_meal:
+  keywords: ['lamia', 'beast']
+  level: 100
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5202
+  key: |
+  the_mimic:
+  name: |
+  mimic_chest:
+  short_desc: |
+  The_mimic:
+  long_desc: |
+  A_strong_chest_lies_in_one_corner_of_the_room:
+  keywords: ['mimic', 'chest']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5203
+  key: |
+  the_mimic:
+  name: |
+  mimic_boulder:
+  short_desc: |
+  The_mimic:
+  long_desc: |
+  Two_skeletons_lie_crushed_under_a_large_boulder:
+  keywords: ['mimic', 'boulder']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5204
+  key: |
+  the_mimic:
+  name: |
+  mimic_floor:
+  short_desc: |
+  The_mimic:
+  long_desc: |
+  The_stone_floor_of_this_house_has_been_ripped_apart:
+  keywords: ['mimic', 'floor']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5205
+  key: |
+  the_mimic:
+  name: |
+  mimic_pottery:
+  short_desc: |
+  The_mimic:
+  long_desc: |
+  Some_broken_shards_of_pottery_lie_strewn_about_the_floor:
+  keywords: ['mimic', 'pottery']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5206
+  key: |
+  the_mimic:
+  name: |
+  mimic_planks:
+  short_desc: |
+  The_mimic:
+  long_desc: |
+  A_few_wooden_planks_lie_stacked_on_a_low_shelf:
+  keywords: ['mimic', 'planks']
+  level: 228
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5207
+  key: |
+  the_horned_lizard:
+  name: |
+  lizard_horned:
+  short_desc: |
+  The_horned_lizard:
+  long_desc: |
+  A_small_horned_lizard_flicks_his_tongue_and_slithers_away:
+  keywords: ['lizard', 'horned']
+  level: 128
+  hp_max: 32
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 30
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 5208
+  key: |
+  the_stone_golem:
+  name: |
+  golem_stone:
+  short_desc: |
+  The_stone_golem:
+  long_desc: |
+  In_the_corner_you_see_a_large_stone_golem_faithfully_standing_watch:
+  keywords: ['golem', 'stone']
+  level: 2
+  hp_max: 633
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 600
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

@@ -1,0 +1,1056 @@
+- id: 1100
+  key: |
+  the_elven_wizard:
+  name: |
+  elven_wizard:
+  short_desc: |
+  the_Elven_Wizard:
+  long_desc: |
+  An_Elven_Wizard_is_here_creating_fireworks_for_the_festivities:
+  keywords: ['elven', 'wizard']
+  level: 2
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1101
+  key: |
+  the_keeper_of_the_ring:
+  name: |
+  ring_keeper:
+  short_desc: |
+  the_Keeper_of_the_Ring:
+  long_desc: |
+  The_Keeper_of_the_Ring_is_here_guarding_his_treasure_jealously:
+  keywords: ['ring', 'keeper']
+  level: 2
+  hp_max: 380
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 19
+  damage_bonus: 190
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1102
+  key: |
+  farmer_gamgee:
+  name: |
+  farmer_gamgee:
+  short_desc: |
+  Farmer_Gamgee:
+  long_desc: |
+  Farmer_Gamgee_sniffs_the_air_wondering_if_harvest_time_is_near:
+  keywords: ['farmer', 'gamgee']
+  level: 2
+  hp_max: 105
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 77
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1103
+  key: |
+  a_toddler:
+  name: |
+  toddler:
+  short_desc: |
+  a_toddler:
+  long_desc: |
+  A_toddler_crawls_about_looking_for_something_to_chew_on:
+  keywords: ['toddler']
+  level: 2
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1104
+  key: |
+  a_nursemaid:
+  name: |
+  nursemaid:
+  short_desc: |
+  a_nursemaid:
+  long_desc: |
+  A_nursemaid_wanders_about_trying_to_keep_track_of_all_the_toddlers:
+  keywords: ['nursemaid']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1105
+  key: |
+  a_cow:
+  name: |
+  cow:
+  short_desc: |
+  a_cow:
+  long_desc: |
+  A_cow_is_here_chewing_her_cud:
+  keywords: ['cow']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1106
+  key: |
+  a_pig:
+  name: |
+  pig:
+  short_desc: |
+  a_pig:
+  long_desc: |
+  A_pig_wallows_in_the_mud_and_oinks_in_contentment:
+  keywords: ['pig']
+  level: 64
+  hp_max: 39
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1107
+  key: |
+  a_chicken:
+  name: |
+  chicken:
+  short_desc: |
+  a_chicken:
+  long_desc: |
+  A_chicken_sits_on_her_nest:
+  keywords: ['chicken']
+  level: 64
+  hp_max: 25
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 22
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1108
+  key: |
+  a_bull:
+  name: |
+  bull:
+  short_desc: |
+  a_bull:
+  long_desc: |
+  A_bull_scratches_at_the_ground_and_lowers_his_head:
+  keywords: ['bull']
+  level: 2
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1109
+  key: |
+  a_horse:
+  name: |
+  horse:
+  short_desc: |
+  a_horse:
+  long_desc: |
+  A_horse_becomes_frightened_by_your_presence:
+  keywords: ['horse']
+  level: 66
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1110
+  key: |
+  a_shiriff:
+  name: |
+  shiriff:
+  short_desc: |
+  a_shiriff:
+  long_desc: |
+  A_shiriff_of_the_Shire_looks_for_signs_of_trouble:
+  keywords: ['shiriff']
+  level: 4
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1111
+  key: |
+  a_shiriff:
+  name: |
+  shiriff:
+  short_desc: |
+  a_shiriff:
+  long_desc: |
+  A_shiriff_of_the_Shire_looks_for_signs_of_trouble:
+  keywords: ['shiriff']
+  level: 4
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1112
+  key: |
+  the_thain:
+  name: |
+  thain:
+  short_desc: |
+  the_Thain:
+  long_desc: |
+  The_Thain_commands_respect_from_all_Shire_folk:
+  keywords: ['thain']
+  level: 64
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1113
+  key: |
+  the_innkeeper:
+  name: |
+  innkeeper:
+  short_desc: |
+  the_Innkeeper:
+  long_desc: |
+  The_Innkeeper_stands_here_awaiting_your_order:
+  keywords: ['innkeeper']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1114
+  key: |
+  the_miller:
+  name: |
+  miller:
+  short_desc: |
+  the_Miller:
+  long_desc: |
+  The_Miller_is_here_overseeing_his_busy_mill_workers:
+  keywords: ['miller']
+  level: 4
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1115
+  key: |
+  the_mill_worker:
+  name: |
+  mill_worker:
+  short_desc: |
+  the_mill_worker:
+  long_desc: |
+  The_mill_worker_runs_to_and_fro:
+  keywords: ['mill', 'worker']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1116
+  key: |
+  the_elven_warrior:
+  name: |
+  elven_warrior:
+  short_desc: |
+  the_elven_warrior:
+  long_desc: |
+  The_elven_warrior_watches_you_solemnly:
+  keywords: ['elven', 'warrior']
+  level: 2
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1117
+  key: |
+  the_dwarven_prince:
+  name: |
+  dwarven_prince:
+  short_desc: |
+  the_dwarven_prince:
+  long_desc: |
+  The_dwarven_prince_sits_here_patiently_for_the_return_of_his_king:
+  keywords: ['dwarven', 'prince']
+  level: 2
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1118
+  key: |
+  the_shopkeeper:
+  name: |
+  shopkeeper:
+  short_desc: |
+  the_shopkeeper:
+  long_desc: |
+  the_shopkeeper_smiles_and_patiently_waits_for_you_to_buy_something:
+  keywords: ['shopkeeper']
+  level: 2
+  hp_max: 475
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 222
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1119
+  key: |
+  the_grocer:
+  name: |
+  grocer:
+  short_desc: |
+  the_grocer:
+  long_desc: |
+  The_grocer_offers_you_the_finest_breads_in_all_the_land:
+  keywords: ['grocer']
+  level: 2
+  hp_max: 475
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 22
+  damage_bonus: 222
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1120
+  key: |
+  the_blacksmith:
+  name: |
+  blacksmith:
+  short_desc: |
+  the_blacksmith:
+  long_desc: |
+  The_blacksmith_bids_you_welcome_to_his_humble_store:
+  keywords: ['blacksmith']
+  level: 2
+  hp_max: 1775
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 50
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1121
+  key: |
+  the_battle_master:
+  name: |
+  battle_master:
+  short_desc: |
+  the_battle_master:
+  long_desc: |
+  The_battle_master_offers_you_the_services_of_his_fine_trainees:
+  keywords: ['battle', 'master']
+  level: 2
+  hp_max: 575
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 25
+  damage_bonus: 250
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1122
+  key: |
+  a_halfling_youth:
+  name: |
+  halfling_youth:
+  short_desc: |
+  a_halfling_youth:
+  long_desc: |
+  A_halfling_youth_stands_here_waiting_for_nothing_in_particular:
+  keywords: ['halfling', 'youth']
+  level: 64
+  hp_max: 39
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1123
+  key: |
+  a_seasoned_adventurer:
+  name: |
+  seasoned_adventurer:
+  short_desc: |
+  a_seasoned_adventurer:
+  long_desc: |
+  A_seasoned_adventurer_sits_here_telling_tales_of_fame_and_fortune:
+  keywords: ['seasoned', 'adventurer']
+  level: 2
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1124
+  key: |
+  a_local_gossip:
+  name: |
+  local_gossip:
+  short_desc: |
+  a_local_gossip:
+  long_desc: |
+  A_local_gossip_asks_you_Have_you_heard_the_latest:
+  keywords: ['local', 'gossip']
+  level: 2
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1125
+  key: |
+  a_halfling_beauty:
+  name: |
+  halfling_beauty:
+  short_desc: |
+  a_halfling_beauty:
+  long_desc: |
+  A_halfling_beauty_stares_dreamily_into_your_eyes:
+  keywords: ['halfling', 'beauty']
+  level: 2
+  hp_max: 87
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 66
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1126
+  key: |
+  a_trainee:
+  name: |
+  trainee:
+  short_desc: |
+  a_trainee:
+  long_desc: |
+  A_trainee_screams_a_death_cry_as_he_delivers_the_fatal_blow_to_a_dummy:
+  keywords: ['trainee']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1127
+  key: |
+  a_chic_urbanite:
+  name: |
+  chic_urbanite:
+  short_desc: |
+  a_chic_urbanite:
+  long_desc: |
+  A_chic_urbanite_sits_here_enjoying_his_class_status:
+  keywords: ['chic', 'urbanite']
+  level: 2
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 44
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1128
+  key: |
+  a_country_bumpkin:
+  name: |
+  country_bumpkin:
+  short_desc: |
+  a_country_bumpkin:
+  long_desc: |
+  A_country_bumpkin_dreams_of_pipeweed_and_its_many_uses:
+  keywords: ['country', 'bumpkin']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1130
+  key: |
+  the_innkeeper:
+  name: |
+  innkeeper:
+  short_desc: |
+  the_Innkeeper:
+  long_desc: |
+  The_Innkeeper_stands_here_awaiting_your_order:
+  keywords: ['innkeeper']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1131
+  key: |
+  the_receptionist:
+  name: |
+  receptionist:
+  short_desc: |
+  the_receptionist:
+  long_desc: |
+  The_receptionist_sits_here_signing_forms:
+  keywords: ['receptionist']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1132
+  key: |
+  a_shiriff:
+  name: |
+  shiriff:
+  short_desc: |
+  a_shiriff:
+  long_desc: |
+  A_shiriff_of_the_Shire_looks_for_the_lost_halfling_youth:
+  keywords: ['shiriff']
+  level: 2
+  hp_max: 124
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 88
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

@@ -104,7 +104,9 @@ def parse_are_mobs(text: str):
             if vnum == 0:
                 break
             i += 1
-            # next three tilde-terminated strings: name~, short_desc~, long_desc~
+            # next four tilde-terminated strings (common MERC layout):
+            # keywords~, name~, short_desc~, long_desc~
+            keywords_raw, i = read_tilde_string(lines, i)
             name, i = read_tilde_string(lines, i)
             short_desc, i = read_tilde_string(lines, i)
             long_desc, i = read_tilde_string(lines, i)
@@ -119,6 +121,7 @@ def parse_are_mobs(text: str):
             raw_block = "\n".join(raw_lines).strip()
             mobs.append({
                 'vnum': vnum,
+                'keywords_raw': keywords_raw,
                 'name': name,
                 'short_desc': short_desc,
                 'long_desc': long_desc,
@@ -132,15 +135,30 @@ def parse_are_mobs(text: str):
 
 def extract_fields_from_raw(raw: str):
     out = {}
-    # level: first integer that looks like reasonable (<=1000)
-    ints = re.findall(r"\b(\d{1,4})\b", raw)
-    if ints:
-        # Heuristics: MERC often places level early; choose first number > 0 and < 1000
-        for s in ints:
-            n = int(s)
-            if 0 < n < 1000:
-                out['level'] = n
-                break
+    # Simplified rule: find the first integer that occurs after an 'S' character
+    # in the raw block. Cap level at 50. This matches the common MERC layout
+    # where the stat line begins with 'S' followed by numeric fields.
+    # Example: "S 12 0 0 ..." -> level 12
+    m_after_s = re.search(r"S[^\d\n\r]*([0-9]{1,3})", raw)
+    if m_after_s:
+        try:
+            lv = int(m_after_s.group(1))
+            if lv < 1:
+                lv = 1
+            if lv > 50:
+                lv = 50
+            out['level'] = lv
+        except Exception:
+            pass
+    else:
+        # Fallback: pick first reasonable small integer (<=50)
+        ints = re.findall(r"\b(\d{1,3})\b", raw)
+        if ints:
+            for s in ints:
+                n = int(s)
+                if 0 < n <= 50:
+                    out['level'] = n
+                    break
     # hit_dice and damage_dice
     hd = re.search(r"(\d+d\d+(?:\+\d+)?)", raw)
     if hd:
@@ -212,13 +230,39 @@ def convert_mob_entry(m):
         wis = 10
         cha = 10
 
+    # keywords: use the first tilde line (split on spaces/commas)
+    raw_keys = m.get('keywords_raw', '') or ''
+    keys = [k.strip() for k in re.split(r"[,\s]+", raw_keys) if k.strip()]
+
+    # key: slugified version of the name (underscored)
+    raw_name = m.get('name', '').strip().strip('~')
+    # normalize readable name (replace underscores with spaces)
+    def humanize(s: str) -> str:
+        s = s.replace('_', ' ').strip()
+        # remove stray leading block indicators or trailing colons
+        s = s.lstrip('|').rstrip(':')
+        return s
+
+    name_text = humanize(raw_name)
+    # short/long descriptions from MERC fields; humanize underscores
+    short_text_raw = m.get('short_desc', '').strip().strip('~')
+    long_text_raw = m.get('long_desc', '').strip().strip('~')
+    short_text = humanize(short_text_raw)
+    long_text = humanize(long_text_raw)
+
+    # Prefer a full `name` like 'the executioner' when short_desc carries it
+    if short_text.lower().startswith('the ') and not name_text.lower().startswith('the '):
+        name_text = short_text
+
+    key_text = slugify(name_text) + "_" + str(m['vnum'])
+
     entry = {
         'id': m['vnum'],
-        'key': slugify(m['short_desc'] or m['name']),
-        'name': m['name'].strip().strip('~'),
-        'short_desc': m['short_desc'].strip().strip('~'),
-        'long_desc': m['long_desc'].strip().strip('~'),
-        'keywords': [k.strip() for k in re.split(r"[, ]+", m['name']) if k.strip()],
+        'key': key_text,
+        'name': name_text,
+        'short_desc': short_text,
+        'long_desc': long_text,
+        'keywords': keys,
         'level': level,
         'hp_max': hp_max,
         'mp_max': 0,
@@ -242,32 +286,40 @@ def convert_mob_entry(m):
         'gold_min': 0,
         'gold_max': 0,
         'respawn_seconds': 0,
-        'template_json': parsed | {'raw_block': raw}
+        # preserve raw block for human review but do NOT emit a nested
+        # `template_json` mapping which has caused YAML parsing issues
+        # when it used Python-style flow maps. Use a simple top-level
+        # multiline field instead.
+        'legacy_raw': raw
     }
     return entry
 
 
 def dump_yaml(entries, outpath: Path):
-    out = {'mobs': entries}
-    if yaml:
-        with open(outpath, 'w', encoding='utf-8') as f:
-            yaml.safe_dump(entries, f, sort_keys=False, allow_unicode=True)
-    else:
-        # fallback: write simple list form
-        with open(outpath, 'w', encoding='utf-8') as f:
-            for e in entries:
-                f.write('- id: %s\n' % e['id'])
-                for k, v in e.items():
-                    if k == 'id':
-                        continue
-                    # naive formatting
-                    if isinstance(v, str):
-                        f.write('  %s: "%s"\n' % (k, v.replace('\n','\\n')))
-                    elif isinstance(v, list):
-                        f.write('  %s: %s\n' % (k, v))
-                    else:
-                        f.write('  %s: %s\n' % (k, v))
-                f.write('\n')
+    # Write entries in the project's existing list style (one item per leading '- id:')
+    with open(outpath, 'w', encoding='utf-8') as f:
+        for e in entries:
+            f.write('- id: %s\n' % e['id'])
+            for k in [k for k in e.keys() if k != 'id']:
+                v = e[k]
+                # format long_desc as block scalar
+                if k == 'long_desc' and isinstance(v, str):
+                    f.write('  long_desc: |\n')
+                    for line in v.splitlines():
+                        f.write('    %s\n' % line)
+                elif k == 'keywords' and isinstance(v, list):
+                    # inline list like ['executioner']
+                    f.write("  keywords: %s\n" % (repr(v)))
+                elif isinstance(v, str):
+                    # plain string, write without quotes where safe
+                    safe = v.replace('\n',' ')
+                    f.write('  %s: %s\n' % (k, safe))
+                elif isinstance(v, list):
+                    # fallback list formatting
+                    f.write('  %s: %s\n' % (k, v))
+                else:
+                    f.write('  %s: %s\n' % (k, v))
+            f.write('\n')
 
 
 def main(argv):

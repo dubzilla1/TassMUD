@@ -1,0 +1,1125 @@
+- id: 2300
+  key: the_dark_ethereal_knight
+  name: the Dark Ethereal Knight
+  short_desc: A dark ethereal knight hovers over the bloody clearing.
+  long_desc: |
+    The ethereal knight is clad in shadowy black armor. It appears as though he
+    was involved in the carnage that occurred here. His soul is trapped here, as
+    he waits for release.
+  keywords: ['knight', 'ethereal', 'dark']
+  level: 2
+  hp_max: 625
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 136 -1000 S 25 0 -5 550d1+75 1d8+15 25000 70000 8 8 1
+
+- id: 2301
+  key: the_old_treant
+  name: the Old Treant
+  short_desc: A huge, gnarled tree stands here, battered by age and nature.
+  long_desc: |
+    The old tree looks as though the wind has battered and torn at it for years.
+    Very few leaves remain. Its limbs are crooked and gnarled. It moans as the 
+    wind pushes it back and forth.
+  keywords: ['treant', 'tree']
+  level: 2
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 250 S 20 0 -3 250d1+50 3d6+5 5000 35000 8 8 0
+
+- id: 2302
+  key: the_cave_dweller
+  name: the Cave Dweller
+  short_desc: A slimy, gross creature is here munching on a corpse.
+  long_desc: |
+    The cave dweller looks like a mixture of several disgusting monsters. It has
+    a bird's beak, huge white eyes, a furry body, and long clawed hands and feet.
+    It sees you and snarls.
+  keywords: ['dweller', 'cave']
+  level: 2
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 32788 0 S 15 5 2 150d1+75 3d6+3 2500 21000 8 8 0
+
+- id: 2303
+  key: the_rock_toad
+  name: the Rock Toad
+  short_desc: A rather large rock toad sits here, croaking loudly.
+  long_desc: |
+    A grey toad. Its about the size of a cow. Small horns grow all over its body.
+  keywords: ['toad', 'rock']
+  level: 2
+  hp_max: 185
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -250 S 14 6 4 150d1+35 2d8+3 2550 17500 6 6 0
+
+- id: 2304
+  key: the_weeping_willow
+  name: the Weeping Willow
+  short_desc: A large willow tree stands here, weeping.
+  long_desc: |
+    The weeping willow has long thins branches. These branches seem to droop in
+    anguish and dismay. You hear a faint sound of crying.
+  keywords: ['weeping', 'willow', 'tree']
+  level: 2
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 136 1000 S 25 0 -5 550d1+50 4d6+5 20000 150000 8 8 2
+
+- id: 2305
+  key: the_mistling
+  name: the Mistling
+  short_desc: A mistling emerges from the mist surrounding you.
+  long_desc: |
+    It looks like a thin wisp of mist that has gained substance and size.
+  keywords: ['mist', 'mistling']
+  level: 34
+  hp_max: 220
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 65536 0 S 15 1 5 200d1+20 2d9+3 1000 22000 8 8 0
+
+- id: 2306
+  key: the_swamp_wraith
+  name: the Swamp Wraith
+  short_desc: A swamp wraith emerges from the mist here.
+  long_desc: |
+    The swamp wraith is made of mist and is in the image of a great warrior. He
+    appears to emerge from the mist. You feel the cold radiating from his form as
+    he nears you.
+  keywords: ['swamp', 'wraith']
+  level: 38
+  hp_max: 275
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 0 -1000 S 20 0 -10 250d1+25 6d4+5 25000 50000 8 8 1
+
+- id: 2307
+  key: the_ogre_villager
+  name: the Ogre Villager
+  short_desc: The ogre villager is here, going about its chores.
+  long_desc: |
+    You see a pitifully overworked ogre. It is dressed in rags and shuffles along
+    with its head hung low. It sees you and cringes in mortal terror.
+  keywords: ['ogre', 'villager']
+  level: 192
+  hp_max: 120
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 0 -200 S 10 11 3 100d1+20 2d6+2 200 10000 8 8 0
+
+- id: 2308
+  key: the_ogre_warrior
+  name: the Ogre Warrior
+  short_desc: The ogre warrior stands here, growling fiercely.
+  long_desc: |
+    The ogre warrior is dressed in thick fur armor. He looks quite large and
+    formidable.
+  keywords: ['warrior', 'ogre']
+  level: 228
+  hp_max: 200
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 22800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 228 0 -350 S 15 6 1 175d1+25 3d6+3 5000 22000 8 8 1
+
+- id: 2309
+  key: the_ogre_guard
+  name: the Ogre Guard
+  short_desc: The ogre guard is here manning his post faithfully.
+  long_desc: |
+    The ogre guard stands here manning his post. It appears as though he would
+    fight to the death before abandoning his post.
+  keywords: ['guard', 'ogre']
+  level: 102
+  hp_max: 250
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 102 0 -500 S 19 0 2 200d1+50 3d6+5 10000 35000 8 8 1
+
+- id: 2310
+  key: the_ogre_shaman
+  name: The Ogre Shaman
+  short_desc: The ogre shaman is here chanting arcane words and waving his arms.
+  long_desc: |
+    The ogre shaman is draped in thick fur cloaks and pelts. He has all types of
+    charms and holy symbols draped about him. He looks at you and snarls.
+  keywords: ['shaman', 'ogre']
+  level: 230
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 230 136 -750 S 20 0 1 250d1+50 4d6+5 50000 45000 8 8 1
+
+- id: 2311
+  key: the_ogre_chieftain
+  name: the Ogre Chieftain
+  short_desc: The ogre chieftain is here, observing his subjects.
+  long_desc: |
+    This is the biggest ogre you have ever seen. He is heavily equipped and looks
+    quite formidable. He towers high above you and growls menacingly.
+  keywords: ['chief', 'chieftain', 'ogre']
+  level: 230
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 230 136 -1000 S 25 -4 0 550d1+50 5d5+5 50000 145000 8 8 1
+
+- id: 2312
+  key: the_plains_barbarian
+  name: the Plains Barbarian
+  short_desc: A plains barbarian is here, clad in heavy furs.
+  long_desc: |
+    The plains barbarian is clad in heavy furs. He seems used to the chilling cold
+    and icy wastes.
+  keywords: ['barbarian']
+  level: 230
+  hp_max: 300
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 230 0 0 S 20 0 1 250d1+50 3D6+4 5000 50000 8 8 1
+
+- id: 2313
+  key: the_white_yeti
+  name: the White Yeti
+  short_desc: The white yeti crouches here snarling.
+  long_desc: |
+    The white yeti looks like a huge white snow ape. Its long arms end in long
+    curved talons and its mouth is full of sharp teeth.
+  keywords: ['yeti', 'white']
+  level: 230
+  hp_max: 225
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 25
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 23000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 230 0 -350 S 16 1 5 200d1+25 3d7+3 1000 28000 8 8 0
+
+- id: 2314
+  key: the_ice_worm
+  name: the Ice Worm
+  short_desc: A huge ice worm burrows through the ice and snow here. It rears up and attacks!
+  long_desc: |
+    The huge worm is almost 50 feet long. Its huge gaping mouth spews ice and snow
+    as it charges directly at you.
+  keywords: ['worm', 'ice', 'iceworm']
+  level: 102
+  hp_max: 325
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 75
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 102 0 0 S 20 0 -5 250d1+75 3d6+5 3500 45000 8 8 0
+
+- id: 2315
+  key: the_minotaur_citizen
+  name: the Minotaur Citizen
+  short_desc: A minotaur citizen is here, hurrying through the icy streets.
+  long_desc: |
+    You see a rather ragged and cold minotaur. It appears to be looking for a warm
+    place to seek refuge from the cold.
+  keywords: ['citizen', 'minotaur']
+  level: 198
+  hp_max: 190
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 198 0 100 S 15 5 3 100d1+90 2d5+5 10000 15000 8 8 0
+
+- id: 2316
+  key: the_minotaur_guard
+  name: the Minotaur Guard
+  short_desc: A minotaur guard catches you trespassing and attacks!
+  long_desc: |
+    The minotaur is clad in heavy furs. Beneath these furs, you see the gleam of
+    his armor.
+  keywords: ['guard', 'minotaur']
+  level: 102
+  hp_max: 440
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 102 0 -330 S 22 -2 0 400d1+40 4d6+5 25000 90000 8 8 1
+
+- id: 2317
+  key: the_minotaur_warrior
+  name: the Minotaur Warrior
+  short_desc: A minotaur warrior is here looking for intruders.
+  long_desc: |
+    You see a huge minotaur that is dressed in thick furs and armor. He has black
+    fur and red eyes. He looks quite capable of protecting the city.
+  keywords: ['warrior', 'minotaur']
+  level: 4
+  hp_max: 350
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4|32|64 0 -330 S 21 -1 0 300d1+50 3d7+5 25000 65000 8 8 1
+
+- id: 2318
+  key: the_minotaur_gatekeeper
+  name: the Minotaur Gatekeeper
+  short_desc: A minotaur is here guarding the Keep of Mahn-Tor.
+  long_desc: |
+    The minotaur stands rigidly before the gates of the keep. It looks quite
+    miserable standing in the driven snow and ice.
+  keywords: ['minotaur', 'gatekeeper']
+  level: 70
+  hp_max: 600
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 70 8 -330 S 25 -4 -5 550d1+50 5d5+5 25000 100000 8 8 0
+
+- id: 2319
+  key: the_high_minotaur_guard
+  name: the High Minotaur Guard
+  short_desc: The minotaur high guard is here guarding the Keep.
+  long_desc: |
+    The high guard is dressed in blue plate armour. He looks quite dangerous and
+    skilled.
+  keywords: ['minotaur', 'high', 'guard']
+  level: 102
+  hp_max: 620
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 20
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 102 8 -330 S 25 -4 -5 600d1+20 4d7+4 45000 130000 8 8 1
+
+- id: 2320
+  key: the_royal_minotaur_guard
+  name: the Royal Minotaur Guard
+  short_desc: The royal minotaur guard considers you an intruder and attacks!
+  long_desc: |
+    The royal guard is quite huge. He is dressed in heavy red armor and wields a
+    huge glaive. He looks quite capable of protecting the keep.
+  keywords: ['minotaur', 'royal', 'guard']
+  level: 102
+  hp_max: 700
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 102 8 -330 S 26 -6 -7 650d1+50 5d5+4 50000 160000 8 8 1
+
+- id: 2321
+  key: the_elite_minotaur_guard
+  name: the Elite Minotaur Guard
+  short_desc: The elite minotaur guard sees you and attacks!
+  long_desc: |
+    This minotaur wields a huge morningstar and is clad in heavy crimson plate and
+    furs.
+  keywords: ['guard', 'minotaur', 'elite']
+  level: 102
+  hp_max: 850
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 102 8 -250 S 28 -8 -8 800d1+50 6d5+5 75000 300000 8 8 1
+
+- id: 2322
+  key: the_harem_girl
+  name: the Harem Girl
+  short_desc: A harem girl cowers here in fear.
+  long_desc: |
+    She looks quite attractive. Her low cut gown reveals why she was chosen to be
+    in the harem.
+  keywords: ['girl', 'haremgirl', 'harem', 'slave']
+  level: 198
+  hp_max: 60
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 10
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 198 0 1000 S 2 20 10 50d1+10 3d1+5 10 100 8 8 1
+
+- id: 2323
+  key: the_minotaur_butler
+  name: the Minotaur Butler
+  short_desc: A minotaur butler stands here rigidly, awaiting orders.
+  long_desc: |
+    He looks quite regal and refined to be a minotaur.
+  keywords: ['butler', 'minotaur']
+  level: 198
+  hp_max: 253
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 247
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 198 0 250 S 20 1 0 1d12+247 3d6+4 5000 40000 8 8 1
+
+- id: 2324
+  key: the_minotaur_ring_keeper
+  name: the Minotaur Ring-Keeper
+  short_desc: The minotaur ring-keeper stands guarding his post.
+  long_desc: |
+    The ring-keeper is a huge minotaur. You notice a huge ring of multicolored
+    keys hanging from his belt. He wears huge, spiked brass knuckles.
+  keywords: ['keeper', 'minotaur', 'ring-keeper']
+  level: 70
+  hp_max: 900
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 700
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 7000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 70 136 -300 S 29 -9 -9 100d3+700 5d7+5 50000 400000 8 8 1
+
+- id: 2325
+  key: gorak
+  name: Gorak
+  short_desc: Gorak, the Minotaur Master Warrior, is here practicing his skills.
+  long_desc: |
+    Gorak is HUGE. His bulging muscles are confined beneath heavy armor. He is the
+    master of the warrior guild of Mahn-Tor.
+  keywords: ['gorak', 'minotaur', 'warrior', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 136 -300 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2326
+  key: darkoth
+  name: Darkoth
+  short_desc: Darkoth, the minotaur anti-paladin, stands here grinning wickedly.
+  long_desc: |
+    Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold
+    chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
+  keywords: ['darkoth', 'minotaur', 'anti-paladin', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 136 -1000 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2327
+  key: tyrgoth
+  name: Tyrgoth
+  short_desc: Tyrgoth, the minotaur paladin, is here worshipping silently.
+  long_desc: |
+    Tyrgoth is the minotaur incarnation of good. You feel safe and at ease in his
+    presence. He is the leader of the Mahn-Tor paladins.
+  keywords: ['tyrgoth', 'minotaur', 'paladin', 'master']
+  level: 2
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 136 1000 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2328
+  key: amyrok
+  name: Amyrok
+  short_desc: Amyrok, the minotaur archmage, is here chanting arcane spells.
+  long_desc: |
+    Amyrok is a small minotaur. He is clad in loose robes and emits an aura of
+    power. He appears quite dangerous, despite his size. He is the leader of the
+    mages of Mahn-Tor.
+  keywords: ['amyrok', 'minotaur', 'mage', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 136 300 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2329
+  key: sumaron
+  name: Sumaron
+  short_desc: Sumaron, master cleric of Mahn-Tor, is here looking holy.
+  long_desc: |
+    Sumaron is clad in white glowing robes. He is goodness incarnate. He is the
+    master of all the clerics of Mahn-Tor.
+  keywords: ['sumaron', 'minotaur', 'cleric', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 136 1000 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2330
+  key: nasturn
+  name: Nasturn
+  short_desc: Nasturn, the minotaur druid, is here studying the arts of nature.
+  long_desc: |
+    Nasturn is quite a natural looking minotaur. He is dressed in leather and
+    wears no metal of any type. He looks at you and smiles.
+  keywords: ['nasturn', 'minotaur', 'druid', 'master']
+  level: 2
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 136 500 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2331
+  key: belrak
+  name: Belrak
+  short_desc: Belrak, the minotaur ranger, looks unhappy about having visitors.
+  long_desc: |
+    Belrak is clad in green and brown leather. He looks quite agile and thin, when
+    compared to the normal minotaur. He looks at you with a slight smirk.
+  keywords: ['belrak', 'minotaur', 'ranger', 'master']
+  level: 34
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 136 500 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2332
+  key: dorgar
+  name: Dorgar
+  short_desc: Dorgar, the minotaur thief, is here hiding in the shadows.
+  long_desc: |
+    Dorgar is clad all in black. He is tall and slender, unlike most minotaurs. He
+    appears to be quite a skilled thief.
+  keywords: ['dorgar', 'minotaur', 'thief', 'master']
+  level: 38
+  hp_max: 3000
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 38 65536 -500 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
+
+- id: 2333
+  key: mahn_tor
+  name: Mahn-Tor
+  short_desc: Mahn-Tor, the minotaur grand master, is here looking down at you.
+  long_desc: |
+    Mahn-Tor towers above you. He is simply huge. Mahn-Tor is clad in the best of
+    armor and robes. He wields the largest axe you have ever seen. You can see why
+    Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
+  keywords: ['mahn-tor', 'minotaur', 'grand', 'master']
+  level: 6
+  hp_max: 3500
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 6 1573002 -500 S 33 -10 -10 3000d1+500 6d7+5 100000 900000 8 8 1
+

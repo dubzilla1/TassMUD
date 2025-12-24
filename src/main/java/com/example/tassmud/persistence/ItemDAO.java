@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemDAO {
-    private static final String URL = "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1";
+    private final String url;
+    private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
     private static final String USER = "sa";
     private static final String PASS = "";
 
     public ItemDAO() {
+        this.url = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
         ensureTables();
     }
     
@@ -35,7 +37,7 @@ public class ItemDAO {
     }
 
     private void ensureTables() {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = DriverManager.getConnection(url, USER, PASS);
              Statement s = c.createStatement()) {
                 s.execute("CREATE TABLE IF NOT EXISTS item_template (" +
                         "id INT PRIMARY KEY, template_key VARCHAR(200) UNIQUE, name VARCHAR(500), description VARCHAR(4000), weight DOUBLE, template_value INT, type VARCHAR(50), subtype VARCHAR(50), slot VARCHAR(100), capacity INT, hand_count INT, indestructable BOOLEAN, magical BOOLEAN, max_items INT, max_weight INT, armor_save_bonus INT, fort_save_bonus INT, ref_save_bonus INT, will_save_bonus INT, base_die INT, multiplier INT, hands INT, ability_score VARCHAR(50), ability_multiplier DOUBLE, spell_effect_id_1 VARCHAR(50), spell_effect_id_2 VARCHAR(50), spell_effect_id_3 VARCHAR(50), spell_effect_id_4 VARCHAR(50), traits VARCHAR(500), keywords VARCHAR(500), template_json CLOB)");
@@ -47,8 +49,8 @@ public class ItemDAO {
         }
 
         // For existing DBs, ensure new columns exist (migrations)
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             Statement s = c.createStatement()) {
+           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+               Statement s = c.createStatement()) {
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS traits VARCHAR(500)");
             System.out.println("Migration: ensured column item_template.traits");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS keywords VARCHAR(500)");
@@ -132,11 +134,16 @@ public class ItemDAO {
             Map<String, Object> data = yaml.load(is);
             if (data == null || !data.containsKey("items")) return;
             @SuppressWarnings("unchecked")
-            List<Map<String, Object>> items = (List<Map<String, Object>>) data.get("items");
+            Object itemsObj = data.get("items");
+            if (!(itemsObj instanceof List)) return;
+            List<Map<String, Object>> items = (List<Map<String, Object>>) itemsObj;
+            if (items == null) return;
             for (Map<String, Object> item : items) {
                 int id = parseIntSafe(item.get("id"));
-                String key = str(item.get("key"));
                 String name = str(item.get("name"));
+                String rawKey = str(item.get("key"));
+                String keyBase = (rawKey == null || rawKey.isBlank()) ? name : rawKey;
+                String key = makeTemplateKey(keyBase, id);
                 String desc = str(item.get("description"));
                 double weight = parseDoubleSafe(item.get("weight"));
                 int value = parseIntSafe(item.get("value"));
@@ -251,14 +258,24 @@ public class ItemDAO {
                     templateJson = dumper.dump(item);
                 } catch (Exception e) { templateJson = null; }
 
-                 try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level,on_use_spell_ids,uses,on_equip_effect_ids) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
-                    ps.setInt(1, id);
-                    ps.setString(2, key);
-                    ps.setString(3, name);
-                    ps.setString(4, desc);
-                    ps.setDouble(5, weight);
-                    ps.setInt(6, value);
+                 try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+                    int actualId = id;
+                    if (key != null && !key.isBlank()) {
+                        try (PreparedStatement check = c.prepareStatement("SELECT id FROM item_template WHERE template_key = ?")) {
+                            check.setString(1, key);
+                            try (ResultSet rs = check.executeQuery()) {
+                                if (rs.next()) actualId = rs.getInt(1);
+                            }
+                        } catch (SQLException ignored) {}
+                    }
+
+                    try (PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level,on_use_spell_ids,uses,on_equip_effect_ids) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+                        ps.setInt(1, actualId);
+                        ps.setString(2, key);
+                        ps.setString(3, name);
+                        ps.setString(4, desc);
+                        ps.setDouble(5, weight);
+                        ps.setInt(6, value);
                     ps.setString(7, type);
                     ps.setString(8, subtype);
                     ps.setString(9, slot);
@@ -293,17 +310,18 @@ public class ItemDAO {
                     ps.setInt(38, uses);
                     ps.setString(39, onEquipEffectIdsStr);
                     ps.executeUpdate();
+                    }
                 }
+                // After loading all templates, log how many are present
+                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                    PreparedStatement ps = c.prepareStatement("SELECT COUNT(*) as cnt FROM item_template");
+                    ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        int cnt = rs.getInt("cnt");
+                        System.out.println("Loaded item_template rows: " + cnt);
+                    }
+                } catch (SQLException ignore) {}
             }
-            // After loading all templates, log how many are present
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement("SELECT COUNT(*) as cnt FROM item_template");
-                 ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    int cnt = rs.getInt("cnt");
-                    System.out.println("Loaded item_template rows: " + cnt);
-                }
-            } catch (SQLException ignore) {}
         }
     }
 
@@ -322,6 +340,18 @@ public class ItemDAO {
         if (o == null) return false;
         String v = o.toString().trim().toLowerCase();
         return v.equals("true") || v.equals("1") || v.equals("yes") || v.equals("y");
+    }
+
+    private static String makeTemplateKey(String name, int id) {
+        if (name == null) name = "tmpl";
+        String s = name.trim().toLowerCase();
+        s = s.replaceAll("[^a-z0-9]+", "_");
+        s = s.replaceAll("_+", "_");
+        s = s.replaceAll("^_+|_+$", "");
+        if (s.isEmpty()) s = "tmpl";
+        String key = s + "_" + id;
+        if (key.length() > 190) return key.substring(0, 190);
+        return key;
     }
 
 
@@ -812,6 +842,11 @@ public class ItemDAO {
             ps.setLong(1, containerInstanceId);
             ps.setLong(2, instanceId);
             ps.executeUpdate();
+            // If this item was previously marked as belonging to a mobile, clear that marker
+            try (PreparedStatement ps2 = c.prepareStatement("DELETE FROM mobile_instance_item WHERE item_instance_id = ?")) {
+                ps2.setLong(1, instanceId);
+                ps2.executeUpdate();
+            } catch (SQLException ignore) {}
         } catch (SQLException e) { throw new RuntimeException(e); }
     }
     
@@ -851,6 +886,18 @@ public class ItemDAO {
                         if (!s.trim().isEmpty()) onEquipEffectIds.add(s.trim());
                     }
                 }
+                // Parse traits and keywords fields from template row
+                List<String> traits = new ArrayList<>();
+                List<String> keywords = new ArrayList<>();
+                String traitsStr = rs.getString("traits");
+                String keywordsStr = rs.getString("keywords");
+                if (traitsStr != null && !traitsStr.isEmpty()) {
+                    for (String s : traitsStr.split(",")) if (s != null && !s.trim().isEmpty()) traits.add(s.trim());
+                }
+                if (keywordsStr != null && !keywordsStr.isEmpty()) {
+                    for (String s : keywordsStr.split(",")) if (s != null && !s.trim().isEmpty()) keywords.add(s.trim());
+                }
+
                 return new ItemTemplate(
                     rs.getInt("id"),
                     rs.getString("template_key"),
@@ -858,8 +905,8 @@ public class ItemDAO {
                     rs.getString("description"),
                     rs.getDouble("weight"),
                     rs.getInt("template_value"),
-                    null, // traits (not hydrated here)
-                    null, // keywords (not hydrated here)
+                    traits,
+                    keywords,
                     parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
                     rs.getString("subtype"),
                     rs.getString("slot"),

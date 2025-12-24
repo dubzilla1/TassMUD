@@ -1,0 +1,197 @@
+- id: 3600
+  key: henry_the_gardener
+  name: Henry the Gardener
+  short_desc: Henry the Gardener is sitting here, looking drunk.
+  long_desc: |
+    He is a tall but bulky man in his late fifties.  His features are worn with
+    decades of hard work and his somewhat crouched expression is one of deep
+    sorrow and depression.  He is haunted by a memory of a lost paradise.
+  keywords: ['henry', 'gardener']
+  level: 64
+  hp_max: 54
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 48
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 350 S 4 15 8 1d12+48 1d6+1 50 800 6 6 1
+
+- id: 3601
+  key: the_rotting_zombie
+  name: the rotting zombie
+  short_desc: A rotting zombie is staggering towards you with outstretched hands.
+  long_desc: |
+    Maggots crawl all over its decaying body.
+  keywords: ['zombie']
+  level: 34
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 512 -750 S 4 16 5 2d6+60 1d8+2 50 800 8 8 1
+
+- id: 3602
+  key: the_ghastly_ghoul
+  name: the ghastly ghoul
+  short_desc: A ghastly ghoul is here.
+  long_desc: |
+    It is a walking corpse with long fangs and long, sharp nails that most of
+    resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
+  keywords: ['ghoul']
+  level: 34
+  hp_max: 79
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 72
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 512 -750 S 6 15 4 2d6+72 1d10+2 100 1500 8 8 1
+
+- id: 3603
+  key: a_dusty_skeleton
+  name: a dusty skeleton
+  short_desc: A dusty skeleton lies here.
+  long_desc: |
+    The dusty bones are almost brown.  It must have been buried for a very long
+    time.
+  keywords: ['skeleton']
+  level: 34
+  hp_max: 42
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 512 -750 S 3 17 7 1d12+36 1d6+2 10 600 8 8 1
+
+- id: 3604
+  key: a_dusty_skeleton
+  name: a dusty skeleton
+  short_desc: A dusty skeleton lies here.
+  long_desc: |
+    The dusty bones are almost brown.  It must have been buried for a very long
+    time.
+  keywords: ['skeleton']
+  level: 32
+  hp_max: 42
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 36
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 512 -750 S 3 17 7 1d12+36 1d6+2 10 600 8 8 1
+
+- id: 3605
+  key: the_rotting_zombie
+  name: the rotting zombie
+  short_desc: A rotting zombie is staggering towards you with outstretched hands.
+  long_desc: |
+    Maggots crawl all over its decaying body.
+  keywords: ['zombie']
+  level: 32
+  hp_max: 67
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 512 -750 S 4 16 5 2d6+60 1d8+2 100 800 8 8 1
+

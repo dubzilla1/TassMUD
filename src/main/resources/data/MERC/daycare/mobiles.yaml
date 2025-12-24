@@ -1,10 +1,11 @@
 - id: 6600
-  key: "the_dwarven_youth"
-  name: "youth dwarven dwarf"
-  short_desc: "the dwarven youth"
-  long_desc: "A young dwarf plays with a toy axe."
+  key: the_dwarven_youth_6600
+  name: the dwarven youth
+  short_desc: A young dwarf plays with a toy axe.
+  long_desc: |
+    This is a young but not totally harmless creature.
   keywords: ['youth', 'dwarven', 'dwarf']
-  level: 68
+  level: 5
   hp_max: 32
   mp_max: 0
   mv_max: 100
@@ -23,19 +24,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '1d4+30', 'damage_dice': '1d4+30', 'raw_block': 'This is a young but not totally harmless creature.\n~\n68 0 -5 S\n3 17 6 1d4+30 1d4+3\n50 400\n6 8 1'}
+  legacy_raw: 68 0 -5 S 3 17 6 1d4+30 1d4+3 50 400 6 8 1
 
 - id: 6601
-  key: "a_teddy_bear"
-  name: "teddy bear"
-  short_desc: "a teddy bear"
-  long_desc: "A cute and fuzzy teddy bear stands here."
+  key: a_teddy_bear_6601
+  name: a teddy bear
+  short_desc: A cute and fuzzy teddy bear stands here.
+  long_desc: |
+    This is a tiny little bear with a heart on his chest.
   keywords: ['teddy', 'bear']
-  level: 68
+  level: 1
   hp_max: 15
   mp_max: 0
   mv_max: 100
@@ -54,19 +56,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '1d10+10', 'damage_dice': '1d10+10', 'raw_block': 'This is a tiny little bear with a heart on his chest.\n~\n68 0 500 S\n1 19 9 1d10+10 1d4+1\n75 75\n8 8 1'}
+  legacy_raw: 68 0 500 S 1 19 9 1d10+10 1d4+1 75 75 8 8 1
 
 - id: 6602
-  key: "a_raggedy_anne_doll"
-  name: "doll raggedy anne"
-  short_desc: "a raggedy anne doll"
-  long_desc: "A raggedy anne doll is sitting here."
+  key: a_raggedy_anne_doll_6602
+  name: a raggedy anne doll
+  short_desc: A raggedy anne doll is sitting here.
+  long_desc: |
+    You see a small little cute rag doll.
   keywords: ['doll', 'raggedy', 'anne']
-  level: 68
+  level: 2
   hp_max: 25
   mp_max: 0
   mv_max: 100
@@ -85,19 +88,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '2d5+19', 'damage_dice': '2d5+19', 'raw_block': 'You see a small little cute rag doll.\n~\n68 0 300 S\n2 18 9 2d5+19 1d5+1\n250 200\n6 8 1'}
+  legacy_raw: 68 0 300 S 2 18 9 2d5+19 1d5+1 250 200 6 8 1
 
 - id: 6603
-  key: "a_toy_soldier"
-  name: "soldier toy"
-  short_desc: "a toy soldier"
-  long_desc: "A toy soldier is standing here."
+  key: a_toy_soldier_6603
+  name: a toy soldier
+  short_desc: A toy soldier is standing here.
+  long_desc: |
+    The toy is looking for target practice.
   keywords: ['soldier', 'toy']
-  level: 68
+  level: 3
   hp_max: 35
   mp_max: 0
   mv_max: 100
@@ -116,19 +120,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '3d5+26', 'damage_dice': '3d5+26', 'raw_block': 'The toy is looking for target practice.\n~\n68 0 -300 S\n3 18 7 3d5+26 2d3+2\n400 300\n8 8 1'}
+  legacy_raw: 68 0 -300 S 3 18 7 3d5+26 2d3+2 400 300 8 8 1
 
 - id: 6604
-  key: "the_ugly_bear"
-  name: "bear ugly"
-  short_desc: "the ugly bear"
-  long_desc: "An ugly stuffed bear stands here."
+  key: the_ugly_bear_6604
+  name: the ugly bear
+  short_desc: An ugly stuffed bear stands here.
+  long_desc: |
+    This is obviously a reject from the factory.
+    He snarls and growls at you.
   keywords: ['bear', 'ugly']
-  level: 68
+  level: 3
   hp_max: 32
   mp_max: 0
   mv_max: 100
@@ -147,19 +153,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '3d4+25', 'damage_dice': '3d4+25', 'raw_block': 'This is obviously a reject from the factory.\nHe snarls and growls at you.\n~\n68 0 -400 S\n3 17 6 3d4+25 1d5+2\n100 300\n8 8 1'}
+  legacy_raw: 68 0 -400 S 3 17 6 3d4+25 1d5+2 100 300 8 8 1
 
 - id: 6605
-  key: "an_old_doll"
-  name: "doll old"
-  short_desc: "an old doll"
-  long_desc: "An abused and old doll is here."
+  key: an_old_doll_6605
+  name: an old doll
+  short_desc: An abused and old doll is here.
+  long_desc: |
+    This doll has been hugged and played with until there is almost nothing left.
   keywords: ['doll', 'old']
-  level: 68
+  level: 2
   hp_max: 6
   mp_max: 0
   mv_max: 100
@@ -178,19 +185,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6800
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 68, 'hit_dice': '1d10+1', 'damage_dice': '1d10+1', 'raw_block': 'This doll has been hugged and played with until there is almost nothing left.\n~\n68 0 -2 S\n1 20 10 1d10+1 1d4+2\n50 50\n8 8 0'}
+  legacy_raw: 68 0 -2 S 1 20 10 1d10+1 1d4+2 50 50 8 8 0
 
 - id: 6606
-  key: "the_nanny"
-  name: "nanny"
-  short_desc: "the nanny"
-  long_desc: "An old wrinkled nanny stands here, looking over the little ones."
+  key: the_nanny_6606
+  name: the nanny
+  short_desc: An old wrinkled nanny stands here, looking over the little ones.
+  long_desc: |
+    You see an old dwarven lady who has been hunched over with age.  However, it
+    appears that there is still some fight left in her.
   keywords: ['nanny']
-  level: 64
+  level: 10
   hp_max: 60
   mp_max: 0
   mv_max: 100
@@ -209,19 +218,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '4d4+50', 'damage_dice': '4d4+50', 'raw_block': 'You see an old dwarven lady who has been hunched over with age.  However, it\nappears that there is still some fight left in her.\n~\n64 0 10 S\n5 16 6 4d4+50 1d8+2\n750 750\n8 8 2'}
+  legacy_raw: 64 0 10 S 5 16 6 4d4+50 1d8+2 750 750 8 8 2
 
 - id: 6607
-  key: "the_armed_guard"
-  name: "guard"
-  short_desc: "the armed guard"
-  long_desc: "An armed guard stands here looking lost."
+  key: the_armed_guard_6607
+  name: the armed guard
+  short_desc: An armed guard stands here looking lost.
+  long_desc: |
+    This is a big mean bully who is tired of being lost in this maze.
+    You suddenly think that you had better flee.
   keywords: ['guard']
-  level: 70
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -240,19 +251,21 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 7000
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 70, 'hit_dice': '3d10+100', 'damage_dice': '3d10+100', 'raw_block': 'This is a big mean bully who is tired of being lost in this maze.\nYou suddenly think that you had better flee.\n~\n70 8 -800 S\n8 9 2 3d10+100 3d5+2\n2000 2000\n8 8 1'}
+  legacy_raw: 70 8 -800 S 8 9 2 3d10+100 3d5+2 2000 2000 8 8 1
 
 - id: 6608
-  key: "the_spoiled_brat"
-  name: "brat spoiled"
-  short_desc: "the spoiled brat"
-  long_desc: "A spoiled brat is crying here."
+  key: the_spoiled_brat_6608
+  name: the spoiled brat
+  short_desc: A spoiled brat is crying here.
+  long_desc: |
+    You see a little tyke who has always gotten what he wanted.  You have the
+    biggest urge to put him out of his misery.
   keywords: ['brat', 'spoiled']
-  level: 70
+  level: 1
   hp_max: 20
   mp_max: 0
   mv_max: 100
@@ -271,9 +284,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 7000
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 70, 'hit_dice': '2d4+15', 'damage_dice': '2d4+15', 'raw_block': 'You see a little tyke who has always gotten what he wanted.  You have the\nbiggest urge to put him out of his misery.\n~\n70 0 -400 S\n1 18 9 2d4+15 2d2+1\n2000 50\n8 8 1'}
+  legacy_raw: 70 0 -400 S 1 18 9 2d4+15 2d2+1 2000 50 8 8 1
 

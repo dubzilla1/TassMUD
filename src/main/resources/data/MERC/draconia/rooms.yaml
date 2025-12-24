@@ -11,16 +11,24 @@ rooms:
       north: 2202
       east: 1304
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2200
+        quantity: 5
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 2231
     doors:
       north:
         to: 2202
-        description: "You see a large steel gate.  Beyond is the Foyer of the Tower."
-        keywords: "gate steel"
-        state: OPEN
+        description: ""
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2231
+        key: null
       east:
         to: 1304
         description: "The shadows cloud your vision."
@@ -51,6 +59,11 @@ rooms:
       south: 2211
       down: 2207
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 2200
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - NO_MOB
       - INDOORS
@@ -131,6 +144,23 @@ rooms:
       south: 2213
       east: 2212
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2207
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2286
+              wear_loc: 16
+      - type: MOB
+        id: 2207
+        quantity: 10
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2260
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -173,6 +203,45 @@ rooms:
     exits:
       west: 2211
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2206
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2201
+              wear_loc: 16
+      - type: MOB
+        id: 2206
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2201
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 2233
+      - type: MOB
+        id: 2206
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2201
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 2240
+      - type: MOB
+        id: 2206
+        quantity: 5
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2201
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -248,6 +317,47 @@ rooms:
     exits:
       west: 2213
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2203
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2223
+              wear_loc: 12
+          -
+              item_vnum: 2250
+              wear_loc: 17
+          -
+              item_vnum: 2261
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 2251
+      - type: MOB
+        id: 2242
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2204
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2220
+              wear_loc: 3
+          -
+              item_vnum: 2211
+              wear_loc: 14
+          -
+              item_vnum: 2210
+              wear_loc: 13
+        inventory:
+          -
+              item_vnum: 2270
+          -
+              item_vnum: 2252
     legacy_flags:
       - INDOORS
     doors:
@@ -298,6 +408,47 @@ rooms:
       north: 2213
       east: 2217
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2205
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2222
+              wear_loc: 16
+          -
+              item_vnum: 2276
+              wear_loc: 12
+          -
+              item_vnum: 2242
+              wear_loc: 11
+          -
+              item_vnum: 2254
+              wear_loc: 9
+        inventory:
+          -
+              item_vnum: 2232
+      - type: MOB
+        id: 2207
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2207
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2207
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2242
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2242
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -330,6 +481,33 @@ rooms:
     exits:
       west: 2216
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2243
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2203
+              wear_loc: 14
+          -
+              item_vnum: 2204
+              wear_loc: 13
+          -
+              item_vnum: 2201
+              wear_loc: 16
+      - type: MOB
+        id: 2227
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2227
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2241
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -355,18 +533,27 @@ rooms:
       east: 2209
       west: 2219
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 2209
-        description: "You see the Treasure Vault."
-        keywords: "door ruby"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2232
+        key: null
       west:
         to: 2219
         description: "You see the Crypt."
@@ -390,6 +577,15 @@ rooms:
       east: 2218
       west: 2222
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -423,6 +619,15 @@ rooms:
     exits:
       south: 2235
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2223
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2246
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -447,6 +652,15 @@ rooms:
     exits:
       north: 2241
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2222
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2280
+              wear_loc: 7
     legacy_flags:
       - INDOORS
     doors:
@@ -472,6 +686,21 @@ rooms:
       east: 2219
       west: 2232
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2202
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2202
+              wear_loc: 16
+          -
+              item_vnum: 2281
+              wear_loc: 10
+          -
+              item_vnum: 2271
+              wear_loc: 9
     legacy_flags:
       - INDOORS
     doors:
@@ -487,8 +716,8 @@ rooms:
       west:
         to: 2232
         description: ""
-        keywords: "coffin"
-        state: OPEN
+        keywords: ""
+        state: CLOSED
         locked: false
         hidden: false
         blocked: false
@@ -591,6 +820,21 @@ rooms:
       south: 2225
       down: 2227
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 2221
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2275
+              wear_loc: 6
+          -
+              item_vnum: 2245
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 2299
     legacy_flags:
       - INDOORS
     doors:
@@ -698,13 +942,13 @@ rooms:
         key: -1
       east:
         to: 2230
-        description: "You see a great golden door."
-        keywords: "door great golden"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2299
+        key: null
     extras:
       sign: |
         Congratulations on making it this far!  Watch out, it gets a little
@@ -720,18 +964,32 @@ rooms:
     exits:
       west: 2229
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2225
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 2261
+              wear_loc: 3
+        inventory:
+          -
+              item_vnum: 2241
+          -
+              item_vnum: 2285
     legacy_flags:
       - INDOORS
     doors:
       west:
         to: 2229
-        description: "You see a great golden door."
-        keywords: "door golden great"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2299
+        key: null
 
   - id: 2231
     key: draconia_room_2231
@@ -769,6 +1027,11 @@ rooms:
       east: 2222
       down: 2233
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -804,6 +1067,11 @@ rooms:
       up: 2232
       east: 2234
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
     doors:
       up:
         to: 2232
@@ -839,6 +1107,11 @@ rooms:
       west: 2233
       east: 2236
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 2235
@@ -916,6 +1189,11 @@ rooms:
       up: 2202
       south: 2237
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2240
+        quantity: 5
+        frequency: 1
     doors:
       west:
         to: 2234
@@ -1029,6 +1307,11 @@ rooms:
       up: 2240
       down: 2244
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2200
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 2238
@@ -1123,6 +1406,11 @@ rooms:
       south: 2221
       east: 2240
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 2200
+        quantity: 5
+        frequency: 1
     doors:
       south:
         to: 2221
@@ -1204,13 +1492,13 @@ rooms:
         key: null
       north:
         to: 2231
-        description: "The platinum door"
-        keywords: "door platinum"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 2241
+        key: null
     extras:
       door: |
         A huge platinum door separates you from harm

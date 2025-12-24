@@ -54,6 +54,11 @@ rooms:
       north: 6502
       south: 6500
     sector_type: HILLS
+    spawns:
+      - type: MOB
+        id: 6501
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 6502
@@ -86,6 +91,11 @@ rooms:
       north: 6503
       south: 6501
     sector_type: MOUNTAIN
+    spawns:
+      - type: MOB
+        id: 6501
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 6503
@@ -120,6 +130,15 @@ rooms:
       east: 6540
       west: 6505
     sector_type: HILLS
+    spawns:
+      - type: ITEM
+        id: 6507
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6501
+        quantity: 6
+        frequency: 1
     doors:
       south:
         to: 6502
@@ -196,16 +215,46 @@ rooms:
       west: 6513
       east: 6503
     sector_type: FIELD
+    spawns:
+      - type: ITEM
+        id: 6507
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6500
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6504
+              wear_loc: 16
+          -
+              item_vnum: 6505
+              wear_loc: 5
+        inventory:
+          -
+              item_vnum: 6502
+      - type: MOB
+        id: 6500
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6504
+              wear_loc: 16
+          -
+              item_vnum: 6505
+              wear_loc: 5
     doors:
       west:
         to: 6513
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
       east:
         to: 6503
         description: ""
@@ -299,6 +348,11 @@ rooms:
       north: 6509
       south: 6507
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6506
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -334,18 +388,47 @@ rooms:
       west: 6522
       south: 6508
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6500
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6509
+              wear_loc: 16
+          -
+              item_vnum: 6510
+              wear_loc: 6
+          -
+              item_vnum: 6511
+              wear_loc: 1
+      - type: MOB
+        id: 6500
+        quantity: 6
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6512
+              wear_loc: 9
+          -
+              item_vnum: 6509
+              wear_loc: 16
+          -
+              item_vnum: 6505
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 6510
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
       west:
         to: 6522
         description: ""
@@ -383,12 +466,12 @@ rooms:
       west:
         to: 6509
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
       north:
         to: 6511
         description: ""
@@ -452,18 +535,35 @@ rooms:
       east: 6525
       south: 6511
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6500
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6508
+              wear_loc: 16
+      - type: MOB
+        id: 6500
+        quantity: 2
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6508
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 6525
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6514
+        key: null
       south:
         to: 6511
         description: ""
@@ -487,6 +587,11 @@ rooms:
       north: 6514
       east: 6505
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6507
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -510,13 +615,13 @@ rooms:
         key: -1
       east:
         to: 6505
-        description: "The path leads outside the entrance."
-        keywords: "door"
+        description: ""
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
 
   - id: 6514
     key: dwarven_room_6514
@@ -564,6 +669,11 @@ rooms:
       west: 6516
       south: 6514
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6505
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -598,6 +708,26 @@ rooms:
       east: 6515
       north: 6517
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6503
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6504
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 6504
+          -
+              item_vnum: 6505
+          -
+              item_vnum: 6510
+          -
+              item_vnum: 6511
+          -
+              item_vnum: 6512
     legacy_flags:
       - INDOORS
     doors:
@@ -753,6 +883,11 @@ rooms:
       east: 6521
       west: 6519
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6505
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -787,6 +922,35 @@ rooms:
       west: 6520
       south: 6523
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6514
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6509
+              wear_loc: 16
+      - type: MOB
+        id: 6514
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6509
+              wear_loc: 16
+      - type: MOB
+        id: 6500
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6500
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6500
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -802,12 +966,12 @@ rooms:
       south:
         to: 6523
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 6522
     key: dwarven_room_6522
@@ -849,18 +1013,42 @@ rooms:
       north: 6521
       south: 6524
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6511
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 6511
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6504
+              wear_loc: 16
+          -
+              item_vnum: 6514
+              wear_loc: 17
+      - type: MOB
+        id: 6511
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 6511
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       north:
         to: 6521
         description: ""
-        keywords: "door"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       south:
         to: 6524
         description: ""
@@ -883,6 +1071,23 @@ rooms:
       north: 6523
       down: 2001
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6513
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 6511
+        quantity: 8
+        frequency: 1
+      - type: MOB
+        id: 6502
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 6511
+        quantity: 8
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -898,12 +1103,12 @@ rooms:
       down:
         to: 2001
         description: ""
-        keywords: "floorboards boards"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 6525
     key: dwarven_room_6525
@@ -924,12 +1129,12 @@ rooms:
       west:
         to: 6512
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6514
+        key: null
       up:
         to: 6528
         description: ""
@@ -967,7 +1172,7 @@ rooms:
       down:
         to: 6527
         description: ""
-        keywords: "trapdoor"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
@@ -989,6 +1194,14 @@ rooms:
       up: 6526
       down: 2065
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6502
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6502
     legacy_flags:
       - INDOORS
     doors:
@@ -1000,16 +1213,16 @@ rooms:
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
       down:
         to: 2065
         description: ""
-        keywords: "floorboards boards"
+        keywords: ""
         state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: -1
+        key: null
 
   - id: 6528
     key: dwarven_room_6528
@@ -1022,6 +1235,11 @@ rooms:
       down: 6525
       up: 6529
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6512
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1057,6 +1275,15 @@ rooms:
       down: 6528
       up: 6530
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6512
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 6513
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1091,6 +1318,11 @@ rooms:
       down: 6529
       east: 6531
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6513
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1127,6 +1359,15 @@ rooms:
       west: 6530
       north: 6532
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6515
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6515
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1142,12 +1383,12 @@ rooms:
       north:
         to: 6532
         description: ""
-        keywords: "door"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
 
   - id: 6532
     key: dwarven_room_6532
@@ -1165,18 +1406,23 @@ rooms:
     exits:
       south: 6531
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6516
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
       south:
         to: 6531
         description: ""
-        keywords: "door"
-        state: CLOSED
+        keywords: ""
+        state: OPEN
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
 
   - id: 6534
     key: dwarven_room_6534
@@ -1189,6 +1435,30 @@ rooms:
     exits:
       south: 6519
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6506
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 6510
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6510
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 6509
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6506
+              wear_loc: 17
+        inventory:
+          -
+              item_vnum: 6519
     legacy_flags:
       - INDOORS
     doors:
@@ -1213,6 +1483,24 @@ rooms:
     exits:
       east: 6517
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6504
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6504
+              wear_loc: 16
+        inventory:
+          -
+              item_vnum: 3000
+          -
+              item_vnum: 3003
+          -
+              item_vnum: 3009
+          -
+              item_vnum: 3031
     legacy_flags:
       - INDOORS
     doors:
@@ -1239,18 +1527,48 @@ rooms:
       north: 6504
       west: 6503
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6507
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 6500
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6504
+              wear_loc: 16
+          -
+              item_vnum: 6505
+              wear_loc: 5
+        inventory:
+          -
+              item_vnum: 6502
+      - type: MOB
+        id: 6500
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6504
+              wear_loc: 16
+          -
+              item_vnum: 6505
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
       east:
         to: 6541
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
       north:
         to: 6504
         description: ""
@@ -1297,12 +1615,12 @@ rooms:
       west:
         to: 6540
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
 
   - id: 6542
     key: dwarven_room_6542
@@ -1317,6 +1635,15 @@ rooms:
       up: 6541
       down: 6554
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6507
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6508
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1351,6 +1678,34 @@ rooms:
       west: 6554
       east: 6544
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6507
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6508
+              wear_loc: 16
+      - type: MOB
+        id: 6507
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6508
+              wear_loc: 16
+      - type: MOB
+        id: 6508
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 6512
+              wear_loc: 9
+          -
+              item_vnum: 6508
+              wear_loc: 16
     legacy_flags:
       - INDOORS
     doors:
@@ -1411,12 +1766,12 @@ rooms:
       north:
         to: 6546
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
       south:
         to: 6551
         description: ""
@@ -1439,6 +1794,11 @@ rooms:
     exits:
       west: 6544
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6517
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1470,12 +1830,12 @@ rooms:
       south:
         to: 6544
         description: ""
-        keywords: "door"
+        keywords: ""
         state: CLOSED
         locked: false
         hidden: false
         blocked: false
-        key: 6502
+        key: null
       east:
         to: 6547
         description: ""
@@ -1530,6 +1890,11 @@ rooms:
       north: 6549
       south: 6547
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6517
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1563,6 +1928,11 @@ rooms:
       north: 6550
       west: 6548
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6517
+        quantity: 2
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1630,6 +2000,11 @@ rooms:
     exits:
       north: 6544
     sector_type: INSIDE
+    spawns:
+      - type: ITEM
+        id: 6518
+        quantity: 3
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1694,6 +2069,14 @@ rooms:
     exits:
       east: 6552
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 6516
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 6519
     legacy_flags:
       - INDOORS
     doors:

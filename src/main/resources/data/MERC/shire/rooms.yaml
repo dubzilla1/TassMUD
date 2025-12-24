@@ -109,6 +109,11 @@ rooms:
       east: 1104
       west: 1118
     sector_type: CITY
+    spawns:
+      - type: ITEM
+        id: 1102
+        quantity: 1
+        frequency: 1
     doors:
       south:
         to: 1102
@@ -192,6 +197,16 @@ rooms:
     exits:
       south: 1104
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1118
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1111
+          -
+              item_vnum: 1112
     legacy_flags:
       - INDOORS
     doors:
@@ -270,6 +285,11 @@ rooms:
     exits:
       south: 1106
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1120
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -295,6 +315,39 @@ rooms:
     exits:
       north: 1106
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1104
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1104
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1103
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1103
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1103
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1103
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1103
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1103
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -364,6 +417,34 @@ rooms:
       west: 1109
       east: 1111
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1109
+              wear_loc: 16
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1111
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -399,6 +480,21 @@ rooms:
     exits:
       west: 1110
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1112
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1113
+              wear_loc: 16
+          -
+              item_vnum: 616
+              wear_loc: 5
+          -
+              item_vnum: 1108
+              wear_loc: 13
     legacy_flags:
       - INDOORS
     doors:
@@ -492,8 +588,9 @@ rooms:
         key: -1
       south:
         to: 1116
-        description: "To the south you see the Ivy Bush, a favorite haunt of Shire urbanites and
-seasoned travelers."
+        description: |
+          To the south you see the Ivy Bush, a favorite haunt of Shire urbanites and
+          seasoned travelers.
         keywords: ""
         state: OPEN
         locked: false
@@ -523,6 +620,14 @@ seasoned travelers."
     exits:
       east: 1113
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1128
+        quantity: 4
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1103
     legacy_flags:
       - INDOORS
     doors:
@@ -549,6 +654,14 @@ seasoned travelers."
     exits:
       west: 1113
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1128
+        quantity: 4
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1103
     legacy_flags:
       - INDOORS
     doors:
@@ -575,6 +688,48 @@ seasoned travelers."
     exits:
       north: 1113
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1113
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
+          -
+              item_vnum: 648
+          -
+              item_vnum: 649
+          -
+              item_vnum: 650
+      - type: MOB
+        id: 1123
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1123
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1124
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1124
+        quantity: 2
+        frequency: 1
+      - type: MOB
+        id: 1127
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1127
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1127
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -601,6 +756,39 @@ seasoned travelers."
     exits:
       west: 1112
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1121
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1113
+              wear_loc: 16
+      - type: MOB
+        id: 1126
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1113
+              wear_loc: 16
+      - type: MOB
+        id: 1126
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1113
+              wear_loc: 16
+      - type: MOB
+        id: 1126
+        quantity: 3
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1113
+              wear_loc: 16
     doors:
       west:
         to: 1112
@@ -668,6 +856,34 @@ seasoned travelers."
     exits:
       north: 1118
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1109
+              wear_loc: 16
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1111
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -749,6 +965,14 @@ seasoned travelers."
     exits:
       north: 1120
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1119
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1103
     legacy_flags:
       - INDOORS
     doors:
@@ -819,6 +1043,15 @@ seasoned travelers."
       north: 1122
       south: 1124
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1115
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1115
+        quantity: 6
+        frequency: 1
     doors:
       north:
         to: 1122
@@ -853,6 +1086,23 @@ seasoned travelers."
       north: 1123
       south: 1125
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1115
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1115
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1115
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1114
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -888,6 +1138,11 @@ seasoned travelers."
       north: 1124
       down: 1146
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1115
+        quantity: 6
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -957,6 +1212,19 @@ seasoned travelers."
     exits:
       south: 1128
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
     doors:
       south:
         to: 1128
@@ -984,6 +1252,22 @@ seasoned travelers."
       south: 1129
       west: 1130
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1125
+        quantity: 1
+        frequency: 1
+      - type: MOB
+        id: 1100
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1104
+              wear_loc: 12
+          -
+              item_vnum: 1100
+              wear_loc: 0
     doors:
       north:
         to: 1127
@@ -1033,6 +1317,19 @@ seasoned travelers."
     exits:
       north: 1128
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
     doors:
       north:
         to: 1128
@@ -1055,6 +1352,19 @@ seasoned travelers."
     exits:
       east: 1128
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
+      - type: MOB
+        id: 1122
+        quantity: 9
+        frequency: 1
     doors:
       east:
         to: 1128
@@ -1214,8 +1524,9 @@ seasoned travelers."
     doors:
       north:
         to: 1135
-        description: "A large, magnificent house meets your steady gaze.  Above the round door a
-sign reads 'Bag End'."
+        description: |
+          A large, magnificent house meets your steady gaze.  Above the round door a
+          sign reads 'Bag End'.
         keywords: ""
         state: OPEN
         locked: false
@@ -1292,6 +1603,29 @@ sign reads 'Bag End'."
     exits:
       east: 1135
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1116
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1106
+              wear_loc: 16
+          -
+              item_vnum: 622
+              wear_loc: 6
+      - type: MOB
+        id: 1117
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1107
+              wear_loc: 16
+          -
+              item_vnum: 621
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -1319,6 +1653,21 @@ sign reads 'Bag End'."
       west: 1135
       down: 1156
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1101
+        quantity: 1
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1101
+              wear_loc: 16
+          -
+              item_vnum: 1105
+              wear_loc: 1
+          -
+              item_vnum: 623
+              wear_loc: 7
     legacy_flags:
       - INDOORS
     doors:
@@ -1355,6 +1704,11 @@ sign reads 'Bag End'."
       east: 1133
       south: 1139
     sector_type: FIELD
+    spawns:
+      - type: MOB
+        id: 1108
+        quantity: 1
+        frequency: 1
     doors:
       north:
         to: 1142
@@ -1397,6 +1751,27 @@ sign reads 'Bag End'."
       north: 1138
       west: 1140
     sector_type: CITY
+    spawns:
+      - type: MOB
+        id: 1106
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 1106
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 1106
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 1106
+        quantity: 5
+        frequency: 1
+      - type: MOB
+        id: 1106
+        quantity: 5
+        frequency: 1
     doors:
       north:
         to: 1138
@@ -1463,6 +1838,11 @@ sign reads 'Bag End'."
     exits:
       south: 1140
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1102
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1492,6 +1872,35 @@ sign reads 'Bag End'."
       north: 1143
       south: 1138
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1105
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1105
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1105
+        quantity: 3
+        frequency: 1
+      - type: MOB
+        id: 1109
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1109
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1109
+        quantity: 4
+        frequency: 1
+      - type: MOB
+        id: 1109
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1525,6 +1934,49 @@ sign reads 'Bag End'."
     exits:
       south: 1142
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1107
+        quantity: 6
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
+      - type: MOB
+        id: 1107
+        quantity: 6
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
+      - type: MOB
+        id: 1107
+        quantity: 6
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
+      - type: MOB
+        id: 1107
+        quantity: 6
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
+      - type: MOB
+        id: 1107
+        quantity: 6
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
+      - type: MOB
+        id: 1107
+        quantity: 6
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
     legacy_flags:
       - INDOORS
     doors:
@@ -1556,6 +2008,48 @@ sign reads 'Bag End'."
       west: 1132
       up: 1157
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1130
+        quantity: 1
+        frequency: 1
+        inventory:
+          -
+              item_vnum: 1110
+          -
+              item_vnum: 648
+          -
+              item_vnum: 649
+          -
+              item_vnum: 650
+      - type: MOB
+        id: 1123
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1123
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1123
+        quantity: 6
+        frequency: 1
+      - type: MOB
+        id: 1127
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1127
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1127
+        quantity: 7
+        frequency: 1
+      - type: MOB
+        id: 1127
+        quantity: 7
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1591,6 +2085,34 @@ sign reads 'Bag End'."
     exits:
       west: 1133
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1109
+              wear_loc: 16
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1111
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -1902,6 +2424,34 @@ sign reads 'Bag End'."
     exits:
       east: 1151
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 1109
+              wear_loc: 16
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1110
+        quantity: 8
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
+      - type: MOB
+        id: 1111
+        quantity: 4
+        frequency: 1
+        equipment:
+          -
+              item_vnum: 616
+              wear_loc: 5
     legacy_flags:
       - INDOORS
     doors:
@@ -1927,6 +2477,11 @@ sign reads 'Bag End'."
     exits:
       west: 1151
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1128
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -1952,6 +2507,11 @@ sign reads 'Bag End'."
     exits:
       east: 1152
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1128
+        quantity: 4
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:
@@ -2011,6 +2571,11 @@ sign reads 'Bag End'."
     exits:
       down: 1144
     sector_type: INSIDE
+    spawns:
+      - type: MOB
+        id: 1131
+        quantity: 1
+        frequency: 1
     legacy_flags:
       - INDOORS
     doors:

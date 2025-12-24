@@ -1,10 +1,13 @@
 - id: 7900
-  key: "the_grand_knight_of_paladins"
-  name: "grand knight paladin"
-  short_desc: "the Grand Knight of paladins"
-  long_desc: "The Grand Knight is standing here, waiting for someone to help."
+  key: the_grand_knight_of_paladins_7900
+  name: the Grand Knight of paladins
+  short_desc: The Grand Knight is standing here, waiting for someone to help.
+  long_desc: |
+    The Knight is standing here, smiling at you. He is dressed all in
+    white, blue and silver. He looks VERY strong, as he stands here, ready to
+    help the innocent.
   keywords: ['grand', 'knight', 'paladin']
-  level: 64
+  level: 29
   hp_max: 810
   mp_max: 0
   mv_max: 100
@@ -23,9 +26,9 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 2900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '20d10+700', 'damage_dice': '20d10+700', 'raw_block': 'The Knight is standing here, smiling at you. He is dressed all in\nwhite, blue and silver. He looks VERY strong, as he stands here, ready to\nhelp the innocent.\n~\n64 136 1000 S\n29 -5 -9 20d10+700 2d6+14\n0 100000\n8 8 1'}
+  legacy_raw: 64 136 1000 S 29 -5 -9 20d10+700 2d6+14 0 100000 8 8 1
 

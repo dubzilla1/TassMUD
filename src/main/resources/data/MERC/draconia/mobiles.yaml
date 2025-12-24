@@ -1,8 +1,10 @@
 - id: 2200
-  key: "the_dragon_hatchling"
-  name: "hatchling dragon baby"
-  short_desc: "the dragon hatchling"
-  long_desc: "A dragon hatchling is here, chewing on a bone."
+  key: the_dragon_hatchling_2200
+  name: the dragon hatchling
+  short_desc: A dragon hatchling is here, chewing on a bone.
+  long_desc: |
+    This small dragon hisses at you as you enter the room.  Although it is only a
+    few feet long, its sharp teeth make you think twice about petting it.
   keywords: ['hatchling', 'dragon', 'baby']
   level: 2
   hp_max: 118
@@ -27,13 +29,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '4d8+100', 'damage_dice': '4d8+100', 'raw_block': 'This small dragon hisses at you as you enter the room.  Although it is only a\nfew feet long, its sharp teeth make you think twice about petting it.\n~\n2|64 524288 -900 S\n7 12 4 4d8+100 1d8+2\n2000 2250\n8 8 0'}
+  legacy_raw: 2|64 524288 -900 S 7 12 4 4d8+100 1d8+2 2000 2250 8 8 0
 
 - id: 2201
-  key: "the_draconian"
-  name: "draconian"
-  short_desc: "the Draconian"
-  long_desc: "The Draconian is standing here."
+  key: the_draconian_2201
+  name: the Draconian
+  short_desc: The Draconian is standing here.
+  long_desc: |
+    This horrible creature is a bizarre cross between a man and a dragon.  He 
+    has black scales and a seven foot wingspan.  He scowls at you and hefts his 
+    spear as you enter the room.
   keywords: ['draconian']
   level: 2
   hp_max: 221
@@ -58,13 +63,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'This horrible creature is a bizarre cross between a man and a dragon.  He \nhas black scales and a seven foot wingspan.  He scowls at you and hefts his \nspear as you enter the room.\n~\n2|4|32 8 -900 S\n13 8 2 13d13+130 2d6+3\n2000 15000\n8 8 1'}
+  legacy_raw: 2|4|32 8 -900 S 13 8 2 13d13+130 2d6+3 2000 15000 8 8 1
 
 - id: 2202
-  key: "the_dragon_master"
-  name: "master"
-  short_desc: "the dragon master"
-  long_desc: "The lord of this crypt is here."
+  key: the_dragon_master_2202
+  name: the dragon master
+  short_desc: The lord of this crypt is here.
+  long_desc: |
+    He doesn't look happy to see you.
   keywords: ['master']
   level: 2
   hp_max: 648
@@ -89,13 +95,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '27d27+270', 'damage_dice': '27d27+270', 'raw_block': "He doesn't look happy to see you.\n~\n2|4|32 524288 -1000 S\n27 0 -2 27d27+270 3d6+8\n35000 60000\n8 8 1"}
+  legacy_raw: 2|4|32 524288 -1000 S 27 0 -2 27d27+270 3d6+8 35000 60000 8 8 1
 
 - id: 2203
-  key: "a_powerful_mage"
-  name: "man mage wizard"
-  short_desc: "a powerful mage"
-  long_desc: "A man is here, studying some books."
+  key: a_powerful_mage_2203
+  name: a powerful mage
+  short_desc: A man is here, studying some books.
+  long_desc: |
+    A powerful looking mage is standing in this room studying his spells.  You are
+    surprised at the fact that he is human, and realize that he must be very
+    powerful to have been accepted by the creatures which live here.
   keywords: ['man', 'mage', 'wizard']
   level: 2
   hp_max: 473
@@ -120,13 +129,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '22d22+220', 'damage_dice': '22d22+220', 'raw_block': 'A powerful looking mage is standing in this room studying his spells.  You are\nsurprised at the fact that he is human, and realize that he must be very\npowerful to have been accepted by the creatures which live here.\n~\n2 2|8|128 -900 S\n22 0 3 22d22+220 1d8+10\n600 45000\n8 8 1'}
+  legacy_raw: 2 2|8|128 -900 S 22 0 3 22d22+220 1d8+10 600 45000 8 8 1
 
 - id: 2204
-  key: "the_holy_draconian"
-  name: "cleric draconian"
-  short_desc: "the holy Draconian"
-  long_desc: "A Draconian is here, deep in thought."
+  key: the_holy_draconian_2204
+  name: the holy Draconian
+  short_desc: A Draconian is here, deep in thought.
+  long_desc: |
+    A Draconian stands here, dressed in simple robes.  Around his neck you 
+    notice a golden medallion in the shape of a five headed dragon.
   keywords: ['cleric', 'draconian']
   level: 2
   hp_max: 473
@@ -151,13 +162,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '22d22+220', 'damage_dice': '22d22+220', 'raw_block': 'A Draconian stands here, dressed in simple robes.  Around his neck you \nnotice a golden medallion in the shape of a five headed dragon.  \n~\n2|4|32 8|128 -900 S\n22 1 0 22d22+220 3d5+6\n400 45000\n8 8 1'}
+  legacy_raw: 2|4|32 8|128 -900 S 22 1 0 22d22+220 3d5+6 400 45000 8 8 1
 
 - id: 2205
-  key: "the_draconian_king"
-  name: "king draconian"
-  short_desc: "the Draconian King"
-  long_desc: "A Draconian wearing fine clothes is here, pondering his greatness."
+  key: the_draconian_king_2205
+  name: the Draconian King
+  short_desc: A Draconian wearing fine clothes is here, pondering his greatness.
+  long_desc: |
+    The king of the draconians sits here on a golden throne.  He looks as 
+    though he could crush your head with a single blow.  Yet you sense that he 
+    is controlled by a greater power.
   keywords: ['king', 'draconian']
   level: 2
   hp_max: 611
@@ -182,13 +196,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '26d26+260', 'damage_dice': '26d26+260', 'raw_block': 'The king of the draconians sits here on a golden throne.  He looks as \nthough he could crush your head with a single blow.  Yet you sense that he \nis controlled by a greater power. \n~\n2|4 8|128 -900 S\n26 0 1 26d26+260 2d8+12\n800 100000\n8 8 1'}
+  legacy_raw: 2|4 8|128 -900 S 26 0 1 26d26+260 2d8+12 800 100000 8 8 1
 
 - id: 2206
-  key: "a_concubine"
-  name: "concubine draconian"
-  short_desc: "a concubine"
-  long_desc: "A concubine is resting here."
+  key: a_concubine_2206
+  name: a concubine
+  short_desc: A concubine is resting here.
+  long_desc: |
+    This is a concubine of the king.  She is lounging here, wearing nothing at 
+    all.  You find yourself strangely repulsed as she draws a knife and 
+    prepares to defend herself.
   keywords: ['concubine', 'draconian']
   level: 2
   hp_max: 83
@@ -213,13 +230,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '6d10+50', 'damage_dice': '6d10+50', 'raw_block': 'This is a concubine of the king.  She is lounging here, wearing nothing at \nall.  You find yourself strangely repulsed as she draws a knife and \nprepares to defend herself. \n~\n2 0 -500 S\n6 16 5 6d10+50 2d3+1\n100 1000\n8 8 2'}
+  legacy_raw: 2 0 -500 S 6 16 5 6d10+50 2d3+1 100 1000 8 8 2
 
 - id: 2207
-  key: "a_bodyguard"
-  name: "bodyguard draconian"
-  short_desc: "A bodyguard"
-  long_desc: "A bodyguard is here, staring at you menacingly."
+  key: a_bodyguard_2207
+  name: A bodyguard
+  short_desc: A bodyguard is here, staring at you menacingly.
+  long_desc: |
+    This creature has devoted its life to defending the king.  Your intrusion has
+    not pleased it.
   keywords: ['bodyguard', 'draconian']
   level: 2
   hp_max: 351
@@ -244,13 +263,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': 'This creature has devoted its life to defending the king.  Your intrusion has\nnot pleased it.\n~\n2|32 4|8|32 -800 S\n18 3 2 18d18+180 2d6+10\n5000 30000\n8 8 1'}
+  legacy_raw: 2|32 4|8|32 -800 S 18 3 2 18d18+180 2d6+10 5000 30000 8 8 1
 
 - id: 2220
-  key: "tiamat"
-  name: "tiamat dragon"
-  short_desc: "Tiamat"
-  long_desc: "A five headed dragon hisses at you as you enter this room."
+  key: tiamat_2220
+  name: Tiamat
+  short_desc: A five headed dragon hisses at you as you enter this room.
+  long_desc: |
+    You see before you the master of this Tower, Tiamat.  She frowns at you as she
+    prepares to make you pay for your insolence ... with your lives!
   keywords: ['tiamat', 'dragon']
   level: 2
   hp_max: 1630
@@ -275,13 +296,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '35d35+1000', 'damage_dice': '35d35+1000', 'raw_block': 'You see before you the master of this Tower, Tiamat.  She frowns at you as she\nprepares to make you pay for your insolence ... with your lives!\n~\n2|4|32 8|32 -1000 S\n35 0 -10 35d35+1000 4d9+15\n50000 3500000\n8 8 2'}
+  legacy_raw: 2|4|32 8|32 -1000 S 35 0 -10 35d35+1000 4d9+15 50000 3500000 8 8 2
 
 - id: 2221
-  key: "the_great_red_dragon"
-  name: "dragon red"
-  short_desc: "the Great Red Dragon"
-  long_desc: "A red dragon is here, contemplating your existence."
+  key: the_great_red_dragon_2221
+  name: the Great Red Dragon
+  short_desc: A red dragon is here, contemplating your existence.
+  long_desc: |
+    This huge red dragon dominates the chamber.  As you turn to flee, he grins at
+    you and invites you to stay ... forever!
   keywords: ['dragon', 'red']
   level: 2
   hp_max: 648
@@ -306,13 +329,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '27d27+270', 'damage_dice': '27d27+270', 'raw_block': 'This huge red dragon dominates the chamber.  As you turn to flee, he grins at\nyou and invites you to stay ... forever! \n~\n2|4|32 8|32 -1000 S\n27 0 -5 27d27+270 2d8+10\n10000 300000\n8 8 1'}
+  legacy_raw: 2|4|32 8|32 -1000 S 27 0 -5 27d27+270 2d8+10 10000 300000 8 8 1
 
 - id: 2222
-  key: "the_great_black_dragon"
-  name: "dragon black"
-  short_desc: "the Great Black Dragon"
-  long_desc: "A black dragon is here, laughing at your insolence."
+  key: the_great_black_dragon_2222
+  name: the Great Black Dragon
+  short_desc: A black dragon is here, laughing at your insolence.
+  long_desc: |
+    This huge black wyrm laughs at your puny weapons.  You realize that he is not
+    going to roll over and die for you.
   keywords: ['dragon', 'black']
   level: 2
   hp_max: 611
@@ -337,13 +362,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '26d26+260', 'damage_dice': '26d26+260', 'raw_block': 'This huge black wyrm laughs at your puny weapons.  You realize that he is not\ngoing to roll over and die for you.\n~\n2|4|32 8|32 -900 S\n26 1 -3 26d26+260 3d8+4\n20000 250000\n8 8 1'}
+  legacy_raw: 2|4|32 8|32 -900 S 26 1 -3 26d26+260 3d8+4 20000 250000 8 8 1
 
 - id: 2223
-  key: "the_great_white_dragon"
-  name: "dragon white"
-  short_desc: "the Great White Dragon"
-  long_desc: "A white dragon is here, waiting for you."
+  key: the_great_white_dragon_2223
+  name: the Great White Dragon
+  short_desc: A white dragon is here, waiting for you.
+  long_desc: |
+    This dragon towers over you.  Recalling your previous experiences with white
+    dragons, you are not afraid.  She smiles at you and says 'I think you will find
+    me a greater challenge than my offspring.'
   keywords: ['dragon', 'white']
   level: 2
   hp_max: 648
@@ -368,13 +396,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '27d27+270', 'damage_dice': '27d27+270', 'raw_block': "This dragon towers over you.  Recalling your previous experiences with white\ndragons, you are not afraid.  She smiles at you and says 'I think you will find\nme a greater challenge than my offspring.'\n~\n2|4|32 8|32 -1000 S\n27 0 -3 27d27+270 3d8+4\n35000 200000\n8 8 2"}
+  legacy_raw: 2|4|32 8|32 -1000 S 27 0 -3 27d27+270 3d8+4 35000 200000 8 8 2
 
 - id: 2225
-  key: "the_ancient_green_dragon"
-  name: "dragon green"
-  short_desc: "the Ancient Green Dragon"
-  long_desc: "A green dragon is here, looking distraught."
+  key: the_ancient_green_dragon_2225
+  name: the Ancient Green Dragon
+  short_desc: A green dragon is here, looking distraught.
+  long_desc: |
+    This huge beast appears to be the most directly related to the draconians. 
+    She looks at you with sorrow in her eyes and says 'You have slaughtered my 
+    children.  Prepare to die.'
   keywords: ['dragon', 'green']
   level: 2
   hp_max: 806
@@ -399,13 +430,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '31d31+310', 'damage_dice': '31d31+310', 'raw_block': "This huge beast appears to be the most directly related to the draconians. \nShe looks at you with sorrow in her eyes and says 'You have slaughtered my \nchildren.  Prepare to die.'\n~\n2|4|32 8|32 -1000 S\n31 0 -4 31d31+310 3d8+15\n20000 500000\n8 8 2"}
+  legacy_raw: 2|4|32 8|32 -1000 S 31 0 -4 31d31+310 3d8+15 20000 500000 8 8 2
 
 - id: 2226
-  key: "a_large_hydra"
-  name: "hydra"
-  short_desc: "a large hydra"
-  long_desc: "A hydra is here, blocking the doorway."
+  key: a_large_hydra_2226
+  name: a large hydra
+  short_desc: A hydra is here, blocking the doorway.
+  long_desc: |
+    A hydra is here, guarding the entrance to a sealed vault.  You have the feeling
+    it isn't happy to see you.
   keywords: ['hydra']
   level: 2
   hp_max: 351
@@ -430,13 +463,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '18d18+180', 'damage_dice': '18d18+180', 'raw_block': "A hydra is here, guarding the entrance to a sealed vault.  You have the feeling\nit isn't happy to see you.\n~\n2|4|32 8|32 -800 S\n18 3 1 18d18+180 2d8+7\n5000 35000\n8 8 0"}
+  legacy_raw: 2|4|32 8|32 -800 S 18 3 1 18d18+180 2d8+7 5000 35000 8 8 0
 
 - id: 2227
-  key: "a_human_slave"
-  name: "slave human"
-  short_desc: "A human slave"
-  long_desc: "A Human slave is here, hard at work."
+  key: a_human_slave_2227
+  name: A human slave
+  short_desc: A Human slave is here, hard at work.
+  long_desc: |
+    He looks like he's under a lot of stress.  He would probably like it if you
+    left him alone.
   keywords: ['slave', 'human']
   level: 2
   hp_max: 55
@@ -461,13 +496,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d10+50', 'damage_dice': '1d10+50', 'raw_block': "He looks like he's under a lot of stress.  He would probably like it if you\nleft him alone.\n~\n2 0 0 S \n5 16 6 1d10+50 1d6+4 \n100 900 \n8 8 1"}
+  legacy_raw: 2 0 0 S  5 16 6 1d10+50 1d6+4  100 900  8 8 1
 
 - id: 2240
-  key: "a_draconian_zombie"
-  name: "zombie draconian"
-  short_desc: "a Draconian zombie"
-  long_desc: "A Draconian zombie is here, staring at nothing in particular."
+  key: a_draconian_zombie_2240
+  name: a Draconian zombie
+  short_desc: A Draconian zombie is here, staring at nothing in particular.
+  long_desc: |
+    This used to be one of the warriors of this tribe.  He was denied his final
+    rest, however, and now guards this corridor tirelessly as a zombie.
   keywords: ['zombie', 'draconian']
   level: 2
   hp_max: 225
@@ -492,13 +529,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '1d100+175', 'damage_dice': '1d100+175', 'raw_block': 'This used to be one of the warriors of this tribe.  He was denied his final\nrest, however, and now guards this corridor tirelessly as a zombie.\n~\n2|4|32 8|32 -400 S\n9 9 4 1d100+175 1d8+6\n1500 3000\n8 8 0'}
+  legacy_raw: 2|4|32 8|32 -400 S 9 9 4 1d100+175 1d8+6 1500 3000 8 8 0
 
 - id: 2241
-  key: "the_phase_dragon"
-  name: "dragon phase"
-  short_desc: "the phase dragon"
-  long_desc: "A Phase Dragon is darting around the room."
+  key: the_phase_dragon_2241
+  name: the phase dragon
+  short_desc: A Phase Dragon is darting around the room.
+  long_desc: |
+    This small dragon looks like he's up to no good.
   keywords: ['dragon', 'phase']
   level: 4
   hp_max: 205
@@ -523,15 +561,17 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '10d10+150', 'damage_dice': '10d10+150', 'raw_block': "This small dragon looks like he's up to no good. \n~\n4|32|64|128 8|32 -300 S \n10 11 3 10d10+150 2d6+6\n5000 6000\n8 8 1"}
+  legacy_raw: 4|32|64|128 8|32 -300 S  10 11 3 10d10+150 2d6+6 5000 6000 8 8 1
 
 - id: 2242
-  key: "the_draconian_fool"
-  name: "fool draconian"
-  short_desc: "the draconian fool"
-  long_desc: "A Fool is here, making fun of you."
+  key: the_draconian_fool_2242
+  name: the draconian fool
+  short_desc: A Fool is here, making fun of you.
+  long_desc: |
+    This dragon man looks VERY foolish, dressed in a green and blue striped 
+    suit.  As you enter the room, he points at you and laughs.
   keywords: ['fool', 'draconian']
-  level: 64
+  level: 5
   hp_max: 55
   mp_max: 0
   mv_max: 100
@@ -550,17 +590,19 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 6400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 64, 'hit_dice': '1d10+50', 'damage_dice': '1d10+50', 'raw_block': 'This dragon man looks VERY foolish, dressed in a green and blue striped \nsuit.  As you enter the room, he points at you and laughs. \n~\n64|128 0 0 S \n5 16 5 1d10+50 3d3+4 \n500 800 \n8 8 1'}
+  legacy_raw: 64|128 0 0 S  5 16 5 1d10+50 3d3+4  500 800  8 8 1
 
 - id: 2243
-  key: "the_draconian_queen"
-  name: "queen draconian"
-  short_desc: "the Draconian Queen"
-  long_desc: "A Female Draconian sits, here, looking very important."
+  key: the_draconian_queen_2243
+  name: the Draconian Queen
+  short_desc: A Female Draconian sits, here, looking very important.
+  long_desc: |
+    This draconian looks VERY busy as she orders her slaves around.  You think 
+    it might be a good idea to leave her alone.
   keywords: ['queen', 'draconian']
   level: 2
   hp_max: 410
@@ -585,5 +627,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '20d20+200', 'damage_dice': '20d20+200', 'raw_block': 'This draconian looks VERY busy as she orders her slaves around.  You think \nit might be a good idea to leave her alone. \n~\n2|4 8|32|128 -600 S \n20 1 2 20d20+200 3d4+8 \n10000 45000 \n8 8 2'}
+  legacy_raw: 2|4 8|32|128 -600 S  20 1 2 20d20+200 3d4+8  10000 45000  8 8 2
 

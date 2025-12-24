@@ -1,0 +1,798 @@
+- id: 7000
+  key: the_horrifying_mudmonster
+  name: the horrifying Mudmonster
+  short_desc: A horrifying Mudmonster is slowly evolving from the mud ...
+  long_desc: |
+    It sure looks like something out of a horror movie. It strongly resembles
+    a huge figure made up from mud alone, and it sure looks like it had human 
+    flesh for breakfast and is strongly intent on having the same for dinner.
+  keywords: ['mud', 'monster', 'mudmonster']
+  level: 64
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 32768 -250 S 12 9 -2 12d12+120 2d6+5 100 4000 5 5 0
+
+- id: 7001
+  key: the_small_bat
+  name: the small bat
+  short_desc: The small fierce-looking bat is hanging from the ceiling.
+  long_desc: |
+    You have never in your entire life seen such a mean looking small creature,
+    though it looks rather peaceful, hanging there. The thought of arousing this
+    cruel creature doesn't seem appealing.
+  keywords: ['bat']
+  level: 96
+  hp_max: 13
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 6
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 32768 -500 S 1 20 4 5d2+6 1d5+0 0 20 4 4 0
+
+- id: 7002
+  key: the_great_sewer_rat
+  name: the great sewer rat
+  short_desc: The huge hungry-looking sewer rat sits here.
+  long_desc: |
+  keywords: ['rat']
+  level: 32
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 512 -1000 S 5 16 5 5d5+50 2d4+0 40 600 8 8 1
+
+- id: 7003
+  key: the_small_spider
+  name: the small spider
+  short_desc: The small hairy spider.
+  long_desc: |
+  keywords: ['spider']
+  level: 32
+  hp_max: 14
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 8
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 32768 -700 S 1 20 3 1d12+8 1d4+0 1 100 8 8 1
+
+- id: 7004
+  key: the_giant_earth_beetle
+  name: the giant earth beetle
+  short_desc: The giant mean-looking earth beetle crawls towards you.
+  long_desc: |
+  keywords: ['beetle']
+  level: 512
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 51200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 512 -300 S 8 13 3 8d8+80 2d5+1 100 2000 8 8 1
+
+- id: 7005
+  key: the_maggot
+  name: the maggot
+  short_desc: The giant maggot crawls toward you.
+  long_desc: |
+  keywords: ['maggot']
+  level: 512
+  hp_max: 41
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 35
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 51200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 512 300 S 3 17 9 2d5+35 1d7+0 2 350 8 8 1
+
+- id: 7006
+  key: the_slithering_snake
+  name: the slithering snake
+  short_desc: The snake slithers towards you.
+  long_desc: |
+  keywords: ['snake']
+  level: 33
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 33 512 -500 S 4 16 7 4d4+40 1d9+0 1 500 8 8 0
+
+- id: 7007
+  key: the_evil_wanderer
+  name: the evil wanderer
+  short_desc: The evil wanderer stares at you.
+  long_desc: |
+    The evil wanderer is very thin.  He is dressed in a grey cloak.
+  keywords: ['wanderer']
+  level: 132
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 132 512 -1000 S 10 11 2 10d10+100 2d6+1 300 2500 8 8 1
+
+- id: 7008
+  key: the_homonculus
+  name: the homonculus
+  short_desc: The homonculus is here, looking at you with an evil look.
+  long_desc: |
+    The Homonculus appears in a man-like form, about 18'' tall, it has a
+    greenish, reptilian skin, leathery wings, and a bat-like mouth, with
+    teeth gleaming yellow.
+  keywords: ['homonculus', 'homo']
+  level: 520
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 52000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 0 520 -780 S 11 10 -1 11d11+110 2d6+2 500 3500 8 8 0
+
+- id: 7010
+  key: the_evil_chreffn
+  name: the evil chreffn
+  short_desc: The chreffn are crawling here, looking around with their yellow eyes.
+  long_desc: |
+    The head and torso of a chreffn is copper-covered, with yellow,
+    glowing eyes. The lower body is in an orange shading.
+  keywords: ['chreffn']
+  level: 132
+  hp_max: 175
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 26
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 132 32776 -830 S 12 9 2 2d26+148 2d7+1 1500 5000 8 8 0
+
+- id: 7011
+  key: the_shadowy_morkoth
+  name: the shadowy morkoth
+  short_desc: The morkoth is standing here, waiting for someone to KILL!
+  long_desc: |
+    It's a five feet tall, shadow monster. The shape of this creature lies
+    somewhere between a human and a rat. It breaths very heavily, while staring
+    at you with such a glint in the eyes that reminds you of immense hunger.
+  keywords: ['morkoth']
+  level: 160
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 160 512 -900 S 10 11 0 10d10+100 2d6+2 1 3000 8 8 0
+
+- id: 7013
+  key: the_horrifying_mudmonster
+  name: the horrifying mudmonster
+  short_desc: A horrifying mudmonster is slowly evolving from the mud ...
+  long_desc: |
+    It sure looks like something out of a horror movie. It strongly resembles
+    a huge figure made up from mud alone, and it sure looks like it had human 
+    flesh for breakfast and is strongly intent on having the same for dinner.
+  keywords: ['mud', 'monster', 'mudmonster']
+  level: 96
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 9600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 96 32768 -250 S 12 9 -2 12d12+120 2d6+5 1000 8000 5 5 0
+
+- id: 7040
+  key: the_red_dragon
+  name: the red dragon
+  short_desc: The red fierce-looking dragon stares at you angrily.
+  long_desc: |
+    The red dragon stares at you, angrily, as it wakes when you
+    arrives.  It says 'Oh, human YOU woke me up ... Hsss', while
+    it moves closer.  'Can one NEVER sleep in peace ... Hsss'.
+  keywords: ['red', 'dragon']
+  level: 35
+  hp_max: 765
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 30
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 35 520 -1000 S 30 -10 -10 30d30+300 3d4+30 100000 450000 8 8 0
+
+- id: 7041
+  key: the_sea_hag
+  name: the sea hag
+  short_desc: The sea hag is swimming around here.
+  long_desc: |
+    The sea hag is so ghastly looking that you feel the deepest fear.
+    Big yellow eyes and sharp teeth.  Its ears are very big,
+    and it has small sharp horns.  It hates beauty.
+  keywords: ['sea', 'hag']
+  level: 32
+  hp_max: 176
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 172
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 512 -800 S 14 7 1 1d8+172 2d8+1 0 18000 8 8 2
+
+- id: 7042
+  key: the_guardian_naga
+  name: the guardian naga
+  short_desc: The guardian naga looks kindly at you.
+  long_desc: |
+    The naga are a snake-liked creature. She is covered in green-gold
+    scale with silvery triangles along her back. Her eyes are golden.
+    She notice that you look at her, and she says: 'Watch out. This way
+    leads to some evil creatures'.
+  keywords: ['guardian', 'naga']
+  level: 2
+  hp_max: 157
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 148
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 512 700 S 12 9 2 1d18+148 2d7+1 100 13500 8 8 2
+
+- id: 7043
+  key: the_scaled_basilisk
+  name: the scaled basilisk
+  short_desc: The scaled basilisk crawls towards you slowly.
+  long_desc: |
+    The basilisk is a reptilian monster. It has eight legs, and a strong
+    toothy jaws. It is dull brown with yellowish underbelly. It's eyes are
+    glowing pale green.
+  keywords: ['basilisk']
+  level: 36
+  hp_max: 166
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 520 -250 S 13 11 0 1d12+160 2d7+2 350 16000 8 8 1
+
+- id: 7044
+  key: the_lemure_blob
+  name: the lemure blob
+  short_desc: The lemure blob slithers terribly precisely towards you for an attack!
+  long_desc: |
+    This looks like a vaguely human blob. Big black yellow eyes, and a
+    mouth going a little bit out from the face. The lemure does not look
+    interested in you at all, but anyway it attacks. It looks like it's
+    mind has been burned out.
+  keywords: ['lemure', 'blob']
+  level: 32
+  hp_max: 66
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 57
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 32 32768 -500 S 5 16 6 3d5+57 2d4+0 0 1000 8 8 0
+
+- id: 7045
+  key: jones
+  name: Jones
+  short_desc: Jones 'Cruncher' the ettin is standing here glaring at you.
+  long_desc: |
+    At the first sight you thought Jones was an orc, but when it came
+    closer you saw his second head. He wears an animal skin dress,
+    filthy and moth eaten. Jones really stinks...
+  keywords: ['jones', 'cruncher', 'ettin']
+  level: 36
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 36 512 -480 S 10 11 2 10d10+100 2d6+4 60 4000 5 5 1
+
+- id: 7046
+  key: herald
+  name: Herald
+  short_desc: Herald 'Mouse-Killer' the ettin is standing here looking confused at you.
+  long_desc: |
+    When you look at Herald, you feel pity. His dress are really poor,
+    and the one of his heads hangs down. At the rope around his stomach
+    hangs dead mouses and rats. He does not smell good.
+  keywords: ['herald', 'mouse', 'killer', 'ettin']
+  level: 4
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 4 512 +200 S 6 14 4 6d6+60 1d8+0 40 1000 5 5 1
+
+- id: 7200
+  key: the_master_mindflayer
+  name: the master mindflayer
+  short_desc: The master mindflayer is here, looking at you with an evil look.
+  long_desc: |
+    It's a seven foot tall humanoid dressed in a purple cloak, and swinging a
+    black and purple rod above its head as if it was going to attack you any
+    moment now. In the middle of its head are four tentacles with sharp points.
+  keywords: ['master', 'mind', 'mindflayer']
+  level: 37
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 37 520 -800 S 14 7 0 14d14+140 3d4+4 1000 18000 8 8 0
+
+- id: 7201
+  key: the_senior_mindflayer
+  name: the senior mindflayer
+  short_desc: The senior mindflayer walks around here, looking for something useful.
+  long_desc: |
+    This is a horrifying monster indeed, 6'6" high. Dressed in purple and black,
+    and carrying a large mace in its hand. In the center of its head are four large
+    tentacles with very sharp points.
+  keywords: ['senior', 'mind', 'mindflayer']
+  level: 37
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 37 520 -600 S 8 13 2 8d8+80 2d4+3 400 3000 8 8 0
+
+- id: 7202
+  key: the_junior_mindflayer
+  name: the junior mindflayer
+  short_desc: The junior mindflayer is here, watching you carefully from the corner.
+  long_desc: |
+    This mindflayer is six foot high. It has a small mace in its belt, and is
+    dressed in purple and black cloth. It has four small tentacles in the 
+    center of its head.
+  keywords: ['junior', 'mind', 'mindflayer']
+  level: 37
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 37 520 -350 S 6 15 4 6d6+60 1d4+3 200 1500 8 8 0
+
+- id: 7203
+  key: the_ugly_wererat
+  name: the ugly wererat
+  short_desc: An ugly wererat is here, looking at you with a strange flick in his eyes.
+  long_desc: |
+    The wererat is about four foot tall. It looks very much like rat, except
+    that it is standing.
+  keywords: ['wererat', 'rat', 'were']
+  level: 100
+  hp_max: 83
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 69
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 100 512 -700 S 6 15 3 4d6+69 2d4+2 50 1200 8 8 0
+
+- id: 7204
+  key: the_gigantic_rat
+  name: the gigantic rat
+  short_desc: There is a gigantic rat here, looking at you with a hungry look.
+  long_desc: |
+    The gigantic rat is about ten foot long from head to tail and has claws
+    the size of your head looking very nasty.
+  keywords: ['rat', 'gigantic']
+  level: 34
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 512 -800 S 12 9 -2 12d12+120 2d6+2 2513 10000 4 8 1
+

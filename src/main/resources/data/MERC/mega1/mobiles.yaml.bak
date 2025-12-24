@@ -1,0 +1,429 @@
+- id: 8000
+  key: |
+  a_juve:
+  name: |
+  juve:
+  short_desc: |
+  a_juve:
+  long_desc: |
+  A_juve_is_standing_here_plotting_mischief:
+  keywords: ['juve']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8001
+  key: |
+  a_punk:
+  name: |
+  punk:
+  short_desc: |
+  a_punk:
+  long_desc: |
+  A_punk_is_here_plotting_a_crime_wave:
+  keywords: ['punk']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8002
+  key: |
+  a_futsie:
+  name: |
+  Futsie:
+  short_desc: |
+  a_Futsie:
+  long_desc: |
+  A_Futsie_is_here_reciting_Monty_Python_sketches:
+  keywords: ['Futsie']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8003
+  key: |
+  a_citi_def_militiaman:
+  name: |
+  Citi-Def_Militiaman:
+  short_desc: |
+  a_Citi-Def_Militiaman:
+  long_desc: |
+  A_Citi-Def_Militiaman_is_here_contemplating_a_Block_War:
+  keywords: ['Citi-Def', 'Militiaman']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8004
+  key: |
+  a_dunk:
+  name: |
+  dunk:
+  short_desc: |
+  a_dunk:
+  long_desc: |
+  A_dunk_is_here_blending_into_the_crowd:
+  keywords: ['dunk']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8005
+  key: |
+  a_tap:
+  name: |
+  tap:
+  short_desc: |
+  a_tap:
+  long_desc: |
+  A_tap_is_here_eyeing_your_belongings:
+  keywords: ['tap']
+  level: 4
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8006
+  key: |
+  a_rookie_judge:
+  name: |
+  rookie_judge:
+  short_desc: |
+  a_rookie_judge:
+  long_desc: |
+  A_Rookie_judge_is_on_his_first_beat_here:
+  keywords: ['rookie', 'judge']
+  level: 64
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8007
+  key: |
+  wallaby_gleep:
+  name: |
+  Wallaby_Gleep:
+  short_desc: |
+  Wallaby_Gleep:
+  long_desc: |
+  Mr_Gleep_is_here_wanting_to_know_what_you_want:
+  keywords: ['Wallaby', 'Gleep']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8008
+  key: |
+  pinkerton_throt:
+  name: |
+  Pinkerton_Throt:
+  short_desc: |
+  Pinkerton_Throt:
+  long_desc: |
+  Pinky_Throt_is_here_Wringing_his_hands:
+  keywords: ['Pinkerton', 'Throt']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8009
+  key: |
+  ernie_ramirez:
+  name: |
+  Ernie_Ramirez:
+  short_desc: |
+  Ernie_Ramirez:
+  long_desc: |
+  Ernie_Ramirez_is_here_collecting_for_the_mob:
+  keywords: ['Ernie', 'Ramirez']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8010
+  key: |
+  judge_eckersely:
+  name: |
+  Judge_Eckersely:
+  short_desc: |
+  Judge_Eckersely:
+  long_desc: |
+  Judge_Eckersely_is_here_shaking_down_a_Perp:
+  keywords: ['Judge', 'Eckersely']
+  level: 64
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8011
+  key: |
+  judge_beddows:
+  name: |
+  Judge_Sara_Beddows:
+  short_desc: |
+  Judge_Beddows:
+  long_desc: |
+  Judge_Beddows_is_here_calling_Resyk:
+  keywords: ['Judge', 'Sara', 'Beddows']
+  level: 64
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 8012
+  key: |
+  a_bite_fighter:
+  name: |
+  bite_fighter:
+  short_desc: |
+  a_bite_fighter:
+  long_desc: |
+  A_bite_fighter_is_here_sharpening_his_teeth:
+  keywords: ['bite', 'fighter']
+  level: 2
+  hp_max: 0
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 0
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

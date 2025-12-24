@@ -1,0 +1,264 @@
+- id: 3500
+  key: |
+  the_wyvern:
+  name: |
+  wyvern:
+  short_desc: |
+  the_wyvern:
+  long_desc: |
+  A_monstrous_wyvern_slowly_circles_just_above_your_head:
+  keywords: ['wyvern']
+  level: 65
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6500
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3501
+  key: |
+  the_goblin:
+  name: |
+  goblin_mountain:
+  short_desc: |
+  the_goblin:
+  long_desc: |
+  A_mountain_goblin_is_wandering_about_mumbling_to_himself:
+  keywords: ['goblin', 'mountain']
+  level: 608
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 60800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3502
+  key: |
+  the_small_boy:
+  name: |
+  boy_small:
+  short_desc: |
+  the_small_boy:
+  long_desc: |
+  A_small_boy_sits_here_licking_his_wounds:
+  keywords: ['boy', 'small']
+  level: 146
+  hp_max: 53
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 47
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 14600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3503
+  key: |
+  the_innkeeper:
+  name: |
+  innkeeper:
+  short_desc: |
+  the_Innkeeper:
+  long_desc: |
+  The_Innkeeper_stands_here_cleaning_glasses:
+  keywords: ['innkeeper']
+  level: 66
+  hp_max: 206
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3504
+  key: |
+  the_bard:
+  name: |
+  bard:
+  short_desc: |
+  the_bard:
+  long_desc: |
+  A_sullen_bard_is_here_drinking_away_his_problems:
+  keywords: ['bard']
+  level: 66
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 110
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3505
+  key: |
+  the_dark_horseman:
+  name: |
+  horseman_dark:
+  short_desc: |
+  the_dark_horseman:
+  long_desc: |
+  A_dark_horseman_is_here_mounted_on_his_black_steed:
+  keywords: ['horseman', 'dark']
+  level: 196
+  hp_max: 103
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 97
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3506
+  key: |
+  the_goblin_lieutenant:
+  name: |
+  goblin_lieutenant:
+  short_desc: |
+  the_goblin_lieutenant:
+  long_desc: |
+  A_goblin_lieutenant_stands_here_attempting_to_get_his_men_in_order:
+  keywords: ['goblin', 'lieutenant']
+  level: 608
+  hp_max: 106
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 60800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 3507
+  key: |
+  the_goblin_leader:
+  name: |
+  goblin_leader:
+  short_desc: |
+  the_goblin_leader:
+  long_desc: |
+  The_goblin_leader_surveys_the_room:
+  keywords: ['goblin', 'leader']
+  level: 614
+  hp_max: 126
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 61400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

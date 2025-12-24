@@ -1,8 +1,9 @@
 - id: 2901
-  key: "a_mountain_goat"
-  name: "black mountain goat"
-  short_desc: "a mountain goat"
-  long_desc: "A mountain goat is standing here."
+  key: a_mountain_goat_2901
+  name: a mountain goat
+  short_desc: A mountain goat is standing here.
+  long_desc: |
+    It looks hungry and searches for food.
   keywords: ['black', 'mountain', 'goat']
   level: 2
   hp_max: 33
@@ -27,13 +28,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d2+30', 'damage_dice': '2d2+30', 'raw_block': 'It looks hungry and searches for food.\n~\n2 0 -100 S\n2 18 10 2d2+30 1d4+2\n14 150\n8 8 1'}
+  legacy_raw: 2 0 -100 S 2 18 10 2d2+30 1d4+2 14 150 8 8 1
 
 - id: 2902
-  key: "a_mountain_ewe"
-  name: "black mountain ewe"
-  short_desc: "a mountain ewe"
-  long_desc: "A mountain ewe is standing here."
+  key: a_mountain_ewe_2902
+  name: a mountain ewe
+  short_desc: A mountain ewe is standing here.
+  long_desc: |
+    The ewe is watching her young.
   keywords: ['black', 'mountain', 'ewe']
   level: 2
   hp_max: 33
@@ -58,13 +60,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '2d2+30', 'damage_dice': '2d2+30', 'raw_block': 'The ewe is watching her young.\n~\n2 0 -100 S\n2 19 10 2d2+30 1d4+1\n10 125\n8 8 2'}
+  legacy_raw: 2 0 -100 S 2 19 10 2d2+30 1d4+1 10 125 8 8 2
 
 - id: 2903
-  key: "a_mountain_kid"
-  name: "black mountain kid"
-  short_desc: "a mountain kid"
-  long_desc: "A mountain kid is standing here."
+  key: a_mountain_kid_2903
+  name: a mountain kid
+  short_desc: A mountain kid is standing here.
+  long_desc: |
+    The kid is playing with its siblings.
   keywords: ['black', 'mountain', 'kid']
   level: 2
   hp_max: 11
@@ -89,13 +92,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '3d6+1', 'damage_dice': '3d6+1', 'raw_block': 'The kid is playing with its siblings.\n~\n2 0 -100 S\n1 20 10 3d6+1 1d3+1\n6 100\n8 8 0'}
+  legacy_raw: 2 0 -100 S 1 20 10 3d6+1 1d3+1 6 100 8 8 0
 
 - id: 2904
-  key: "a_fire_newt_worker"
-  name: "fire newt worker"
-  short_desc: "a fire newt worker"
-  long_desc: "A fire newt worker is standing here."
+  key: a_fire_newt_worker_2904
+  name: a fire newt worker
+  short_desc: A fire newt worker is standing here.
+  long_desc: |
+    The fire newt worker looks hot and sweaty.
   keywords: ['fire', 'newt', 'worker']
   level: 4
   hp_max: 27
@@ -120,13 +124,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '3d12+8', 'damage_dice': '3d12+8', 'raw_block': 'The fire newt worker looks hot and sweaty.\n~\n4|32|64 0 -400 S\n2 18 8 3d12+8 1d6+2\n23 200\n8 8 1'}
+  legacy_raw: 4|32|64 0 -400 S 2 18 8 3d12+8 1d6+2 23 200 8 8 1
 
 - id: 2905
-  key: "a_fire_newt_guard"
-  name: "fire newt guard"
-  short_desc: "a fire newt guard"
-  long_desc: "A fire newt guard is standing here."
+  key: a_fire_newt_guard_2905
+  name: a fire newt guard
+  short_desc: A fire newt guard is standing here.
+  long_desc: |
+    The fire newt guard thinks you would be better dead.
   keywords: ['fire', 'newt', 'guard']
   level: 2
   hp_max: 41
@@ -151,13 +156,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '3d3+35', 'damage_dice': '3d3+35', 'raw_block': 'The fire newt guard thinks you would be better dead.\n~\n2|32 0 -450 S\n3 17 7 3d3+35 1d10+2\n30 300\n8 8 1'}
+  legacy_raw: 2|32 0 -450 S 3 17 7 3d3+35 1d10+2 30 300 8 8 1
 
 - id: 2906
-  key: "a_fire_newt_worker"
-  name: "fire newt worker"
-  short_desc: "a fire newt worker"
-  long_desc: "A fire newt worker is standing here."
+  key: a_fire_newt_worker_2906
+  name: a fire newt worker
+  short_desc: A fire newt worker is standing here.
+  long_desc: |
+    The fire newt worker looks hot and sweaty.
   keywords: ['fire', 'newt', 'worker']
   level: 2
   hp_max: 27
@@ -182,13 +188,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '3d12+8', 'damage_dice': '3d12+8', 'raw_block': 'The fire newt worker looks hot and sweaty.\n~\n2 8 -400 S\n2 18 8 3d12+8 1d6+2\n23 200\n8 8 2'}
+  legacy_raw: 2 8 -400 S 2 18 8 3d12+8 1d6+2 23 200 8 8 2
 
 - id: 2907
-  key: "fire_newt_guard"
-  name: "fire newt guard"
-  short_desc: "fire newt guard"
-  long_desc: "A fire newt guard is standing here."
+  key: fire_newt_guard_2907
+  name: fire newt guard
+  short_desc: A fire newt guard is standing here.
+  long_desc: |
+    The fire newt guard wants to kill you!
   keywords: ['fire', 'newt', 'guard']
   level: 32
   hp_max: 41
@@ -213,45 +220,20 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 32, 'hit_dice': '3d3+35', 'damage_dice': '3d3+35', 'raw_block': 'The fire newt guard wants to kill you!\n~\n32|64 0 -450 S\n3 17 7 3d3+35 1d10+2\n30 300\n8 8 2'}
+  legacy_raw: 32|64 0 -450 S 3 17 7 3d3+35 1d10+2 30 300 8 8 2
 
 - id: 2908
-  key: "a_fire_newt_mother_a_fire_newt_mother_is_standing_here"
-  name: "fire newt mother"
-  short_desc: "a fire newt mother~ \nA fire newt mother is standing here."
-  long_desc: "The fire newt mother is watching her kids."
+  key: the_fire_newt_mother_is_watching_her_kids_2908
+  name: The fire newt mother is watching her kids.
+  short_desc: The fire newt mother is watching her kids.
+  long_desc: |
+    2 0 -355 S
+    2 18 8 3d10+8 1d6+2
+    26 200
+    8 8 2
+    #2909
+    fire newt baby
   keywords: ['fire', 'newt', 'mother']
-  level: 2
-  hp_max: 24
-  mp_max: 0
-  mv_max: 100
-  str: 10
-  dex: 10
-  con: 10
-  intel: 10
-  wis: 10
-  cha: 10
-  armor: 10
-  fortitude: 0
-  reflex: 0
-  will: 0
-  base_damage: 10
-  damage_bonus: 8
-  attack_bonus: 0
-  behaviors: ['SENTINEL']
-  aggro_range: 0
-  experience_value: 200
-  gold_min: 0
-  gold_max: 0
-  respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '3d10+8', 'damage_dice': '3d10+8', 'act_flags': 2, 'raw_block': '2 0 -355 S\n2 18 8 3d10+8 1d6+2\n26 200\n8 8 2'}
-
-- id: 2909
-  key: "a_fire_newt_baby"
-  name: "fire newt baby"
-  short_desc: "a fire newt baby"
-  long_desc: "A fire newt baby is crawling here."
-  keywords: ['fire', 'newt', 'baby']
   level: 2
   hp_max: 5
   mp_max: 0
@@ -275,13 +257,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '3d2+1', 'damage_dice': '3d2+1', 'raw_block': 'The fire newt baby is crawling and drooling here.\n~\n2|4 0 -350 S\n0 20 10 3d2+1 1d3+0\n6 50\n8 8 0'}
+  legacy_raw: a fire newt baby~ A fire newt baby is crawling here. ~ The fire newt baby is crawling and drooling here. ~ 2|4 0 -350 S 0 20 10 3d2+1 1d3+0 6 50 8 8 0
 
 - id: 2910
-  key: "a_fire_newt_sergeant"
-  name: "fire newt sergeant"
-  short_desc: "a fire newt sergeant"
-  long_desc: "A fire newt sergeant patrols this area."
+  key: a_fire_newt_sergeant_2910
+  name: a fire newt sergeant
+  short_desc: A fire newt sergeant patrols this area.
+  long_desc: |
+    He's just found something that doesn't belong here!
   keywords: ['fire', 'newt', 'sergeant']
   level: 2
   hp_max: 86
@@ -306,13 +289,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '12d10+20', 'damage_dice': '12d10+20', 'raw_block': "He's just found something that doesn't belong here!\n~\n2|32 0 -500 S\n5 15 4 12d10+20 1d12+4\n200 700\n8 8 1"}
+  legacy_raw: 2|32 0 -500 S 5 15 4 12d10+20 1d12+4 200 700 8 8 1
 
 - id: 2911
-  key: "a_fire_newt_general"
-  name: "fire newt general"
-  short_desc: "a fire newt general"
-  long_desc: "A fire newt general is standing here."
+  key: a_fire_newt_general_2911
+  name: a fire newt general
+  short_desc: A fire newt general is standing here.
+  long_desc: |
+    The fire newt general grins evilly at you.
   keywords: ['fire', 'newt', 'general']
   level: 34
   hp_max: 136
@@ -337,13 +321,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 34, 'hit_dice': '8d8+100', 'damage_dice': '8d8+100', 'raw_block': 'The fire newt general grins evilly at you.\n~\n34 0 -700 S\n8 13 3 8d8+100 1d15+4\n400 2000\n8 8 1'}
+  legacy_raw: 34 0 -700 S 8 13 3 8d8+100 1d15+4 400 2000 8 8 1
 
 - id: 2912
-  key: "a_fire_newt_leader"
-  name: "fire newt leader"
-  short_desc: "a fire newt leader"
-  long_desc: "A fire newt leader is standing here."
+  key: a_fire_newt_leader_2912
+  name: a fire newt leader
+  short_desc: A fire newt leader is standing here.
+  long_desc: |
+    The fire newt leader screams, 'I'm going to hose you!'
   keywords: ['fire', 'newt', 'leader']
   level: 2
   hp_max: 241
@@ -368,13 +353,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '13d13+150', 'damage_dice': '13d13+150', 'raw_block': "The fire newt leader screams, 'I'm going to hose you!'\n~\n2|32 8|128 -1000 S\n13 9 1 13d13+150 1d5+12\n1000 8000\n8 8 1"}
+  legacy_raw: 2|32 8|128 -1000 S 13 9 1 13d13+150 1d5+12 1000 8000 8 8 1
 
 - id: 2913
-  key: "a_fire_newt_priest"
-  name: "fire newt priest"
-  short_desc: "a fire newt priest"
-  long_desc: "A fire newt priest is standing here."
+  key: a_fire_newt_priest_2913
+  name: a fire newt priest
+  short_desc: A fire newt priest is standing here.
+  long_desc: |
+    The fire newt priest is preparing for worship.
   keywords: ['fire', 'newt', 'priest']
   level: 2
   hp_max: 155
@@ -399,13 +385,14 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '10d10+100', 'damage_dice': '10d10+100', 'raw_block': 'The fire newt priest is preparing for worship.\n~\n2|32 8 -1000 S\n10 11 2 10d10+100 1d4+8\n700 3500\n8 8 1'}
+  legacy_raw: 2|32 8 -1000 S 10 11 2 10d10+100 1d4+8 700 3500 8 8 1
 
 - id: 2914
-  key: "a_fire_lizard"
-  name: "fire lizard"
-  short_desc: "a fire lizard"
-  long_desc: "A fire lizard is crawling here."
+  key: a_fire_lizard_2914
+  name: a fire lizard
+  short_desc: A fire lizard is crawling here.
+  long_desc: |
+    The fire lizard flicks its tongue at you.
   keywords: ['fire', 'lizard']
   level: 2
   hp_max: 176
@@ -430,5 +417,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': 'The fire lizard flicks its tongue at you.\n~\n2|32 8 -100 S\n11 10 2 11d11+110 2d12+8\n1000 5000\n8 8 0'}
+  legacy_raw: 2|32 8 -100 S 11 10 2 11d11+110 2d12+8 1000 5000 8 8 0
 

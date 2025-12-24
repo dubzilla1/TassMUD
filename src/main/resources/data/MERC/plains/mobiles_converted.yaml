@@ -1,0 +1,301 @@
+- id: 300
+  key: aruncus_the_druid
+  name: Aruncus the Druid
+  short_desc: Aruncus the Druid is walking around here, searching for herbs.
+  long_desc: |
+    Aruncus is a tall, skinny druid with a face marked by nature.
+    He seems to be in peace with himself and his surroundings.
+  keywords: ['druid', 'Aruncus']
+  level: 192
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 19200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 192 8 -500 S 13 8 2 13d13+130 3d5+2 500 15000 8 8 1
+
+- id: 301
+  key: sorbus_the_hermit
+  name: Sorbus the Hermit
+  short_desc: Sorbus the Hermit is sitting here, roasting a rabbit.
+  long_desc: |
+    Sorbus bares the marks of a long, hard life in solitude.
+    He is dressed in simple clothing and looks like he has little
+    or nothing to say.
+  keywords: ['hermit', 'sorbus']
+  level: 2
+  hp_max: 50
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 40
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 0 S 4 16 6 4d4+40 1d9+2 1 400 6 6 1
+
+- id: 303
+  key: the_citizen
+  name: the citizen
+  short_desc: There is a citizen of Ofcol here glaring at you ... stranger!
+  long_desc: |
+    He seems like a nice person with no interest in harming you or others.
+    He wears normal, light clothing and has an anonymous face.
+  keywords: ['citizen']
+  level: 68
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 0 S 6 15 6 6d6+60 2d4+2 200 800 8 8 1
+
+- id: 304
+  key: the_citizen
+  name: the citizen
+  short_desc: There is a citizen of Ofcol here glaring at you ... stranger!
+  long_desc: |
+    She seems like a nice person with no interest in harming you or others.
+    She wears a minimum of clothing and has big ... eyes.
+  keywords: ['citizen']
+  level: 68
+  hp_max: 65
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 50
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 68 0 0 S 5 16 5 5d5+50 2d4+1 100 600 8 8 2
+
+- id: 305
+  key: shudde_m_ell
+  name: Shudde-M'ell
+  short_desc: Shudde-M'ell the Giant worm of G'harne is guarding his treasure.
+  long_desc: |
+    Shudde-M'ell is about 15 ft long and is surrounded by an evil stench,
+    The worm is the protector of the treasure of G'harne and has been so
+    for as long anyone can remember.
+  keywords: ['worm', "Shudde-M'ell"]
+  level: 34
+  hp_max: 540
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 24
+  damage_bonus: 240
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 -1000 S 24 -2 0 24d24+240 3d8+8 13666 75000 8 8 1
+
+- id: 306
+  key: luxan
+  name: Luxan
+  short_desc: Luxan the Shopkeeper is here, eager to sell you anything.
+  long_desc: |
+    Luxan is dressed in a strange jacket.
+    He looks like a mean trader from the outskirts of Midgaard.
+    His life is seems to be totally occupied with trading.
+    He looks very fit and capable of protecting his goods.
+  keywords: ['luxan', 'shopkeeper']
+  level: 7
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 700
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 7 0 400 S 23 0 0 1d1+30000 2d10+0 8000 80000 8 8 1
+
+- id: 308
+  key: the_innkeeper
+  name: the Innkeeper
+  short_desc: An Innkeeper is here waiting for your order.
+  long_desc: |
+    The Innkeeper looks skilled in brewing different beers and mixing the
+    wierdest drinks known. He also looks very big.
+  keywords: ['keeper', 'innkeeper']
+  level: 3
+  hp_max: 30001
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 1
+  damage_bonus: 30000
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 300
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 3 0 -100 S 23 0 0 1d1+30000 2d10+1 100 80000 8 8 1
+
+- id: 309
+  key: the_cute_rabbit
+  name: the cute rabbit
+  short_desc: A cute rabbit is here.
+  long_desc: |
+    It is a small, furry creature with long ears and big feet.
+  keywords: ['rabbit']
+  level: 64
+  hp_max: 3
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 1
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 0 S 1 20 6 1d4+1 1d4+0 0 50 8 8 0
+
+- id: 350
+  key: the_pet_dragon
+  name: the pet dragon
+  short_desc: Ravan's pet dragon is bouncing around here flapping her cute wings.
+  long_desc: |
+    Ravan's pet dragon is about 3 ft. tall with small pointy teeth.
+    The small wings are eagerly trying to lift her from the ground,
+    but so far they haven't succeeded.
+  keywords: ['dragon', 'pet']
+  level: 131
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 131 524424 1000 S 10 0 0 10d10+100 10d10+0 0 30000 8 8 2
+

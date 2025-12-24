@@ -1,10 +1,13 @@
 - id: 2800
-  key: "the_guardian_beast"
-  name: "guardian beast"
-  short_desc: "the guardian beast"
-  long_desc: "A guardian beast stares at you and snarls in rage."
+  key: the_guardian_beast_2800
+  name: the guardian beast
+  short_desc: A guardian beast stares at you and snarls in rage.
+  long_desc: |
+    Jet black fur covers this beast.  You stare at his two huge red eyes.  You can
+    count at least 50 teeth on this monster.  You can't tell whether it is blood or
+    saliva dripping from the beast's jaw.  The guardian beast snarls again.
   keywords: ['guardian', 'beast']
-  level: 50
+  level: 2
   hp_max: 98
   mp_max: 0
   mv_max: 100
@@ -23,17 +26,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 50, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': "Jet black fur covers this beast.  You stare at his two huge red eyes.  You can\ncount at least 50 teeth on this monster.  You can't tell whether it is blood or\nsaliva dripping from the beast's jaw.  The guardian beast snarls again.\n~\n2|4|32|64 8|32768|65536 -200 S\n7 12 2 7d7+70 2d6+1\n0 1550\n8 8 1"}
+  legacy_raw: 2|4|32|64 8|32768|65536 -200 S 7 12 2 7d7+70 2d6+1 0 1550 8 8 1
 
 - id: 2801
-  key: "the_young_troll"
-  name: "young troll"
-  short_desc: "the young troll"
-  long_desc: "A young troll is sitting down, chewing on a bone."
+  key: the_young_troll_2801
+  name: the young troll
+  short_desc: A young troll is sitting down, chewing on a bone.
+  long_desc: |
+    He is a tall, wiry, furry humanoid.
+    Your eyes lock with his.  He smiles, puts down his bone, and reaches for one
+    of yours!!
   keywords: ['young', 'troll']
   level: 4
   hp_max: 81
@@ -58,13 +64,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '6d6+60', 'damage_dice': '6d6+60', 'raw_block': 'He is a tall, wiry, furry humanoid.\nYour eyes lock with his.  He smiles, puts down his bone, and reaches for one\nof yours!!\n~\n4|32|64 32768 -500 S\n6 13 3 6d6+60 2d5+1\n500 1000\n6 8 1'}
+  legacy_raw: 4|32|64 32768 -500 S 6 13 3 6d6+60 2d5+1 500 1000 6 8 1
 
 - id: 2802
-  key: "the_medium_troll"
-  name: "medium troll"
-  short_desc: "the medium troll"
-  long_desc: "A troll is grooming his pet, a guardian beast."
+  key: the_medium_troll_2802
+  name: the medium troll
+  short_desc: A troll is grooming his pet, a guardian beast.
+  long_desc: |
+    He is a tall, lean, furry humanoid.
+    He is busy licking the ticks off of his beast.
+    His eyes dart toward you, as he realizes you are one third his size.
   keywords: ['medium', 'troll']
   level: 2
   hp_max: 116
@@ -89,13 +98,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'He is a tall, lean, furry humanoid.\nHe is busy licking the ticks off of his beast.\nHis eyes dart toward you, as he realizes you are one third his size.\n~\n2|4|32|64 32768 -500 S\n8 11 1 8d8+80 2d6+3\n1500 3000\n8 8 1'}
+  legacy_raw: 2|4|32|64 32768 -500 S 8 11 1 8d8+80 2d6+3 1500 3000 8 8 1
 
 - id: 2803
-  key: "a_baby_troll"
-  name: "baby troll"
-  short_desc: "a baby troll"
-  long_desc: "A baby troll is playing Doctor with a cadaver."
+  key: a_baby_troll_2803
+  name: a baby troll
+  short_desc: A baby troll is playing Doctor with a cadaver.
+  long_desc: |
+    He is a large, chubby, furry humanoid.
+    He is trying to stuff an arm in a hole in the wall.
+    He notices you and gargles "WANNA JOIN?".
   keywords: ['baby', 'troll']
   level: 2
   hp_max: 65
@@ -120,13 +132,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '5d5+50', 'damage_dice': '5d5+50', 'raw_block': 'He is a large, chubby, furry humanoid.\nHe is trying to stuff an arm in a hole in the wall.\nHe notices you and gargles "WANNA JOIN?".\n~\n2|4|32 32768 -100 S\n5 14 4 5d5+50 2d4+1\n250 700\n6 8 1'}
+  legacy_raw: 2|4|32 32768 -100 S 5 14 4 5d5+50 2d4+1 250 700 6 8 1
 
 - id: 2804
-  key: "the_giant_troll"
-  name: "giant troll"
-  short_desc: "the giant troll"
-  long_desc: "A giant troll is lying on a pile of carnage, pleasing his mistress."
+  key: the_giant_troll_2804
+  name: the giant troll
+  short_desc: A giant troll is lying on a pile of carnage, pleasing his mistress.
+  long_desc: |
+    He is a gigantic, muscular, furry humanoid.
+    He gasps as he notices your intrusion.
+    You gasp as you realize you have intruded upon his acts of passion!
   keywords: ['giant', 'troll']
   level: 2
   hp_max: 221
@@ -151,13 +166,16 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '13d13+130', 'damage_dice': '13d13+130', 'raw_block': 'He is a gigantic, muscular, furry humanoid.\nHe gasps as he notices your intrusion.\nYou gasp as you realize you have intruded upon his acts of passion!\n~\n2|4|32|64 32768 -1000 S\n13 6 -4 13d13+130 3d6+4\n3000 13000\n5 8 1'}
+  legacy_raw: 2|4|32|64 32768 -1000 S 13 6 -4 13d13+130 3d6+4 3000 13000 5 8 1
 
 - id: 2805
-  key: "the_large_female_troll"
-  name: "large troll female"
-  short_desc: "the large female troll"
-  long_desc: "A large female troll is lying on the pile of carnage, blissfully writhing."
+  key: the_large_female_troll_2805
+  name: the large female troll
+  short_desc: A large female troll is lying on the pile of carnage, blissfully writhing.
+  long_desc: |
+    She is a huge, grotesque, furry humanoid.
+    She moans in passion but gasps as she notices you.
+    Her smiles turn into snarls as she screams at you!
   keywords: ['large', 'troll', 'female']
   level: 2
   hp_max: 176
@@ -182,13 +200,15 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 2, 'hit_dice': '11d11+110', 'damage_dice': '11d11+110', 'raw_block': 'She is a huge, grotesque, furry humanoid.\nShe moans in passion but gasps as she notices you.\nHer smiles turn into snarls as she screams at you!\n~\n2|4|32|64 32768 -800 S\n11 8 -3 11d11+110 3d5+3\n2500 8000\n5 8 2'}
+  legacy_raw: 2|4|32|64 32768 -800 S 11 8 -3 11d11+110 3d5+3 2500 8000 5 8 2
 
 - id: 2806
-  key: "a_fat_worm"
-  name: "fat worm"
-  short_desc: "a fat worm"
-  long_desc: "A fat worm scurries around, looking for food."
+  key: a_fat_worm_2806
+  name: a fat worm
+  short_desc: A fat worm scurries around, looking for food.
+  long_desc: |
+    It is thick and long.  You can't find a head on this thing.
+    It moves quickly, from corpse to corpse.
   keywords: ['fat', 'worm']
   level: 4
   hp_max: 36
@@ -213,15 +233,19 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '3d3+30', 'damage_dice': '3d3+30', 'raw_block': "It is thick and long.  You can't find a head on this thing.\nIt moves quickly, from corpse to corpse.\n~\n4|32|128 32768|65536 0 S\n3 13 3 3d3+30 2d4+0\n0 350\n8 8 0"}
+  legacy_raw: 4|32|128 32768|65536 0 S 3 13 3 3d3+30 2d4+0 0 350 8 8 0
 
 - id: 2807
-  key: "the_roving_beast"
-  name: "roving beast"
-  short_desc: "the roving beast"
-  long_desc: "A roving beast is searching for prey."
+  key: the_roving_beast_2807
+  name: the roving beast
+  short_desc: A roving beast is searching for prey.
+  long_desc: |
+    Jet black fur covers this beast.
+    You stare at his two huge red eyes.  You can count at least 50 teeth on this
+    beast.  You can't tell whether it is blood or saliva dripping from the beast's
+    jaw.  The roving beast snarls at you.
   keywords: ['roving', 'beast']
-  level: 50
+  level: 2
   hp_max: 98
   mp_max: 0
   mv_max: 100
@@ -240,17 +264,20 @@
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 50, 'hit_dice': '7d7+70', 'damage_dice': '7d7+70', 'raw_block': "Jet black fur covers this beast.\nYou stare at his two huge red eyes.  You can count at least 50 teeth on this\nbeast.  You can't tell whether it is blood or saliva dripping from the beast's\njaw.  The roving beast snarls at you.\n~\n2|4|32|64 8|32768 -200 S\n7 12 2 7d7+70 2d6+1\n0 2250\n8 8 1"}
+  legacy_raw: 2|4|32|64 8|32768 -200 S 7 12 2 7d7+70 2d6+1 0 2250 8 8 1
 
 - id: 2808
-  key: "the_medium_troll"
-  name: "medium troll"
-  short_desc: "the medium troll"
-  long_desc: "A troll is wandering around, attending to his duties."
+  key: the_medium_troll_2808
+  name: the medium troll
+  short_desc: A troll is wandering around, attending to his duties.
+  long_desc: |
+    He is a tall, lean, furry humanoid.
+    He notices you, and is satisfied to find what he is looking for.
+    He advances toward you.
   keywords: ['medium', 'troll']
   level: 4
   hp_max: 116
@@ -275,5 +302,5 @@
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  template_json: {'level': 4, 'hit_dice': '8d8+80', 'damage_dice': '8d8+80', 'raw_block': 'He is a tall, lean, furry humanoid.\nHe notices you, and is satisfied to find what he is looking for.\nHe advances toward you.\n~\n4|32|64 32768 -500 S\n8 11 1 8d8+80 2d6+3\n1500 2750\n8 8 1'}
+  legacy_raw: 4|32|64 32768 -500 S 8 11 1 8d8+80 2d6+3 1500 2750 8 8 1
 

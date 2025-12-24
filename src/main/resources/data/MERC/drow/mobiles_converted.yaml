@@ -1,0 +1,384 @@
+- id: 5100
+  key: the_goblin_slave
+  name: the goblin slave
+  short_desc: A goblin slave lies here asleep.
+  long_desc: |
+    The defenseless goblin begs for mercy.
+  keywords: ['goblin', 'slave']
+  level: 130
+  hp_max: 17
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 11
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 130 0 -450 S 1 20 9 1d11+11 1d5+0 0 100 4 4 1
+
+- id: 5101
+  key: the_drow_commoner
+  name: the drow commoner
+  short_desc: A drow commoner walks on guard duty.
+  long_desc: |
+    I doubt he is the type to give directions.
+  keywords: ['drow', 'commoner']
+  level: 104
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 104 8 -1000 S 10 12 0 1d10+130 12d1+5 300 4750 8 8 1
+
+- id: 5102
+  key: the_drow_warrior_noble
+  name: the drow warrior noble
+  short_desc: The drow warrior noble stands here guarding his home.
+  long_desc: |
+    He looks pissed off!
+  keywords: ['drow', 'noble', 'warrior']
+  level: 34
+  hp_max: 181
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 -1000 S 12 9 0 2d20+160 15d1+2 1000 11000 8 8 1
+
+- id: 5103
+  key: the_drow_mage_noble
+  name: the drow mage noble
+  short_desc: The drow mage noble is here protecting his home.
+  long_desc: |
+    The mage prepares to cast a spell ... at you!!
+  keywords: ['drow', 'noble', 'mage']
+  level: 34
+  hp_max: 196
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 16
+  wis: 12
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 190
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 -1000 S 15 8 2 1d12+190 8d2+2 2000 16000 8 8 1
+
+- id: 5104
+  key: the_drow_priestess
+  name: the drow priestess
+  short_desc: The drow priestess is here shouting orders.
+  long_desc: |
+    I wouldn't want go get on her bad side!
+  keywords: ['drow', 'priestess']
+  level: 34
+  hp_max: 211
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 11
+  damage_bonus: 205
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 -1000 S 17 5 0 1d11+205 17d1+2 4000 19000 8 8 2
+
+- id: 5105
+  key: the_drow_master
+  name: The drow master
+  short_desc: The drow master stares at you angrily.
+  long_desc: |
+    The drow master is ALWAYS ready for a fight.
+  keywords: ['drow', 'master']
+  level: 34
+  hp_max: 254
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 248
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 -1000 S 21 0 0 1d12+248 18d1+4 10000 40000 8 8 1
+
+- id: 5106
+  key: the_weapons_master
+  name: The weapons master
+  short_desc: The drow weapons master is here shadow boxing.
+  long_desc: |
+    He definitely knows his way around in combat.
+  keywords: ['drow', 'weapons', 'master']
+  level: 34
+  hp_max: 506
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 23
+  damage_bonus: 230
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 -1000 S 23 -2 -10 23d23+230 1d4+15 15000 90000 8 8 1
+
+- id: 5107
+  key: the_matron_mother
+  name: the matron mother
+  short_desc: The matron mother of the house is standing here.
+  long_desc: |
+    She looks really pissed off!
+  keywords: ['drow', 'matron', 'mother']
+  level: 34
+  hp_max: 475
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 50
+  damage_bonus: 450
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 8 -1000 S 24 0 -3 1d50+450 15d2+4 30000 90000 8 8 2
+
+- id: 5108
+  key: the_matron_mother
+  name: the matron mother
+  short_desc: The matron mother of the 1st house is waiting for you.
+  long_desc: |
+    She looks like she is about to rip your head off and eat it.
+  keywords: ['drow', 'matron', 'mother']
+  level: 2
+  hp_max: 375
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 50
+  damage_bonus: 350
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 8|128 -1000 S 25 0 -4 1d50+350 20d2+4 30000 90000 8 8 2
+
+- id: 5109
+  key: the_yochlol
+  name: the yochlol
+  short_desc: A yochlol forms out of a swirling mist.
+  long_desc: |
+    The yochlol is not in a good mood.
+  keywords: ['yochlol']
+  level: 2
+  hp_max: 2237
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 2
+  damage_bonus: 2200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2|32 8|128 -1000 S 35 0 -9 25d2+2200 5d2+35 30000 100000 8 8 2
+
+- id: 5110
+  key: the_drow_guard
+  name: the drow guard
+  short_desc: The drow guard is here staring at you ominously.
+  long_desc: |
+    The drow guard blends so well with his environment, you barely see his form.
+  keywords: ['drow', 'guard']
+  level: 34
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 66048 -1000 S 12 9 -2 12d12+120 1d4+5 5000 13000 8 8 1
+
+- id: 5111
+  key: the_drow_scout
+  name: the drow scout
+  short_desc: The drow scout is here sneaking among the shadows.
+  long_desc: |
+    The drow scout blends so well with her environment, you barely see her form.
+  keywords: ['drow', 'scout']
+  level: 160
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 16000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 160 98304 -1000 S 7 13 2 8d8+80 1d4+3 1000 4000 8 8 2
+

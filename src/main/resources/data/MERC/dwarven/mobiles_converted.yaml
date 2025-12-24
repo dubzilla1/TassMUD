@@ -1,0 +1,570 @@
+- id: 6500
+  key: the_dwarven_guard
+  name: the dwarven guard
+  short_desc: A dwarven guard is here.
+  long_desc: |
+    The guard looks very tough and mean.
+  keywords: ['dwarf', 'guard']
+  level: 8
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 8 500 S 20 0 -2 20d20+200 2d4+18 10000 40000 8 8 1
+
+- id: 6501
+  key: the_dwarven_worker
+  name: the dwarven worker
+  short_desc: A dwarven mining worker is here.
+  long_desc: |
+    He is very dirty, and looks extremely over-worked.
+  keywords: ['dwarf', 'worker', 'miner']
+  level: 900
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2112 0 900 S 12 4 1 12d12+120 1d7+7 3500 6000 8 8 1
+
+- id: 6502
+  key: the_wraith
+  name: the wraith
+  short_desc: A wraith is awaiting your first move here.
+  long_desc: |
+    A black, almost transparent wraith.
+  keywords: ['wraith']
+  level: 2
+  hp_max: 725
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 40 -900 S 29 -5 -10 29d29+290 4d6+15 50000 125000 8 8 1
+
+- id: 6503
+  key: the_storekeeper
+  name: the storekeeper
+  short_desc: There is the Hide & Tooth storekeeper standing here, waiting patiently.
+  long_desc: |
+    The storekeeper is very rotund, but looks like a sharp guy.
+  keywords: ['storekeeper']
+  level: 900
+  hp_max: 1023
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 990
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 900 S 35 2 2 6d10+990 2d9+20 100000 80000 8 8 1
+
+- id: 6504
+  key: the_baker
+  name: the baker
+  short_desc: Granite Head, the baker, is waiting for a customer here.
+  long_desc: |
+    Granite Head is covered with flour and grains.
+  keywords: ['baker']
+  level: 900
+  hp_max: 1028
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 990
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 90000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 900 S 35 2 2 7d10+990 2d9+19 1000 80000 8 8 1
+
+- id: 6505
+  key: the_giant_lizard
+  name: the giant lizard
+  short_desc: A giant lizard is here.
+  long_desc: |
+    This scaly creature looks like it is well adapted to it's underground
+    habitat.  He looks very powerful.
+  keywords: ['lizard']
+  level: 64
+  hp_max: 605
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 500
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 8 100 S 18 7 2 10d20+500 4d4+5 1200 25000 8 8 1
+
+- id: 6506
+  key: the_giant
+  name: the giant
+  short_desc: A giant is here.
+  long_desc: |
+    The giant is about 8 feet tall, with arms of steel, and looks very strong.
+  keywords: ['giant']
+  level: 64
+  hp_max: 342
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 300
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 0 S 16 5 1 4d20+300 3d7+5 2000 24000 8 8 1
+
+- id: 6507
+  key: the_dwarven_miner
+  name: the dwarven miner
+  short_desc: A dwarven miner is here.
+  long_desc: |
+    The mineworker is very tired, and very dirty, and he has bulging muscles.
+  keywords: ['dwarf', 'miner']
+  level: 8
+  hp_max: 136
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 0 S 8 14 7 8d8+100 2d9+9 40 1000 8 8 1
+
+- id: 6508
+  key: the_dwarven_mine_leader
+  name: the dwarven mine leader
+  short_desc: A dwarven mine leader is here.
+  long_desc: |
+    The mine leader is very big and very strong.
+  keywords: ['dwarf', 'leader']
+  level: 21
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 400
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 2100
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 0 S 21 0 -8 5d3+400 3d9+3 20000 52000 8 8 1
+
+- id: 6509
+  key: the_dwarven_doctor
+  name: the dwarven doctor
+  short_desc: The dwarven doctor is here.
+  long_desc: |
+    He is a very skilled surgeon, with hands of steel.
+  keywords: ['dwarf', 'doctor']
+  level: 136
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 13600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 136 1000 S 9 15 4 9d9+99 3d4+12 1500 15000 8 8 1
+
+- id: 6510
+  key: the_dwarven_peon
+  name: the dwarven peon
+  short_desc: A dwarven peon is awaiting help here.
+  long_desc: |
+  keywords: ['dwarf', 'peon']
+  level: 500
+  hp_max: 43
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 3
+  damage_bonus: 33
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 500 S 3 16 6 5d3+33 2d4+3 75 400 8 8 1
+
+- id: 6511
+  key: the_dwarf
+  name: the dwarf
+  short_desc: A grinning dwarf is here.
+  long_desc: |
+  keywords: ['dwarf']
+  level: 500
+  hp_max: 144
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 99
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 50000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 500 S 9 10 2 9d9+99 3d4+1 1250 6000 8 8 1
+
+- id: 6512
+  key: the_unwanted_son
+  name: the unwanted son
+  short_desc: An unwanted son is here.  You feel sorry for the guy.
+  long_desc: |
+  keywords: ['dwarf', 'son']
+  level: 64
+  hp_max: 132
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 125
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 250 S 9 12 3 3d4+125 3d5+5 50 5000 8 8 1
+
+- id: 6513
+  key: the_unwanted_daughter
+  name: the unwanted daughter
+  short_desc: An unwanted daughter is here.  You feel sorry for her.
+  long_desc: |
+  keywords: ['dwarf', 'daughter']
+  level: 64
+  hp_max: 142
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 4
+  damage_bonus: 135
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 6400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 250 S 10 11 2 3d4+135 3d5+7 50 5000 8 8 1
+
+- id: 6514
+  key: the_barracks_guard
+  name: the barracks guard
+  short_desc: A barrack guard is here.
+  long_desc: |
+  keywords: ['dwarf', 'guard']
+  level: 100
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 10000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 100 S 16 5 1 16d16+160 3d6+8 3000 18000 8 8 1
+
+- id: 6515
+  key: the_man_in_waiting
+  name: the man in waiting
+  short_desc: A man in waiting is here.  He looks nervous and unsure of himself.
+  long_desc: |
+  keywords: ['man']
+  level: 300
+  hp_max: 207
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 30000
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2050 0 300 S 15 12 7 6d8+180 3d7+5 6969 20000 8 8 1
+
+- id: 6516
+  key: the_mazekeeper
+  name: the mazekeeper
+  short_desc: A mazekeeper is here.
+  long_desc: |
+    He looks VERY tough.
+  keywords: ['mazekeeper']
+  level: 128
+  hp_max: 665
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 29
+  damage_bonus: 290
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2082 128 -1000 S 29 0 -9 25d29+290 4d8+15 80000 200000 8 8 1
+
+- id: 6517
+  key: the_giant_snake
+  name: the giant snake
+  short_desc: There is a giant snake here.
+  long_desc: |
+  keywords: ['snake']
+  level: 34
+  hp_max: 444
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 432
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 3400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 34 0 -1000 S 15 7 2 3d7+432 3d7+6 3000 30000 8 8 1
+

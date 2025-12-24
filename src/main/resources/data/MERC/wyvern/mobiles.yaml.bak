@@ -1,0 +1,924 @@
+- id: 1601
+  key: |
+  a_killer_frog:
+  name: |
+  killer_frog:
+  short_desc: |
+  a_killer_frog:
+  long_desc: |
+  A_killer_frog_rises_up_out_of_the_water:
+  keywords: ['killer', 'frog']
+  level: 2
+  hp_max: 70
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 5
+  damage_bonus: 55
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1602
+  key: |
+  the_stone_gargoyle:
+  name: |
+  stone_gargoyle:
+  short_desc: |
+  the_stone_gargoyle:
+  long_desc: |
+  A_stone_gargoyle_looms_over_you:
+  keywords: ['stone', 'gargoyle']
+  level: 2
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1603
+  key: |
+  an_angry_gargoyle:
+  name: |
+  angry_gargoyle:
+  short_desc: |
+  an_angry_gargoyle:
+  long_desc: |
+  An_angry_gargoyle_glares_at_you:
+  keywords: ['angry', 'gargoyle']
+  level: 4
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1604
+  key: |
+  the_elite_gargoyle:
+  name: |
+  elite_gargoyle:
+  short_desc: |
+  the_elite_gargoyle:
+  long_desc: |
+  An_elite_gargoyle_guards_this_room_against_intrusion:
+  keywords: ['elite', 'gargoyle']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1605
+  key: |
+  the_gargoyle_shaman:
+  name: |
+  gargoyle_shaman:
+  short_desc: |
+  the_gargoyle_shaman:
+  long_desc: |
+  The_gargoyle_shaman_is_here_preparing_to_do_battle:
+  keywords: ['gargoyle', 'shaman']
+  level: 2
+  hp_max: 221
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 13
+  damage_bonus: 130
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1606
+  key: |
+  a_carnivorous_plant:
+  name: |
+  carnivorous_plant:
+  short_desc: |
+  a_carnivorous_plant:
+  long_desc: |
+  Amidst_the_jungle_here_a_huge_Carnivorous_plant_reaches_out_to_grab_you:
+  keywords: ['carnivorous', 'plant']
+  level: 2
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1607
+  key: |
+  a_gruesome_ogre:
+  name: |
+  gruesome_ogre:
+  short_desc: |
+  a_gruesome_ogre:
+  long_desc: |
+  A_huge_gruesome_ogre_is_sprawled_here_gnawing_some_strange_meat:
+  keywords: ['gruesome', 'ogre']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1608
+  key: |
+  a_shadow:
+  name: |
+  shadow:
+  short_desc: |
+  a_shadow:
+  long_desc: |
+  A_dark_shadow_moves_about_the_room:
+  keywords: ['shadow']
+  level: 4
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1609
+  key: |
+  an_evil_wight:
+  name: |
+  evil_wight:
+  short_desc: |
+  an_evil_wight:
+  long_desc: |
+  An_evil_wight_lurks_in_the_shadows:
+  keywords: ['evil', 'wight']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1610
+  key: |
+  a_burly_minotaur:
+  name: |
+  burly_minotaur:
+  short_desc: |
+  A_burly_minotaur:
+  long_desc: |
+  A_burly_minotaur_watches_you_solemnly:
+  keywords: ['burly', 'minotaur']
+  level: 4
+  hp_max: 245
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 14
+  damage_bonus: 140
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1612
+  key: |
+  the_savage_minotaur:
+  name: |
+  savage_minotaur:
+  short_desc: |
+  the_savage_minotaur:
+  long_desc: |
+  A_bloodthirsty_minotaur_slowly_counts_his_loot:
+  keywords: ['savage', 'minotaur']
+  level: 2
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1613
+  key: |
+  the_captain:
+  name: |
+  minotaur_captain:
+  short_desc: |
+  the_captain:
+  long_desc: |
+  Sitting_here_in_this_room_is_the_Minotaur_Captain:
+  keywords: ['minotaur', 'captain']
+  level: 2
+  hp_max: 323
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 17
+  damage_bonus: 170
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1614
+  key: |
+  the_black_pudding:
+  name: |
+  black_pudding:
+  short_desc: |
+  the_black_pudding:
+  long_desc: |
+  A_huge_black_pudding_fills_the_center_of_the_room:
+  keywords: ['black', 'pudding']
+  level: 4
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1615
+  key: |
+  a_lesser_golem:
+  name: |
+  lesser_golem:
+  short_desc: |
+  a_lesser_golem:
+  long_desc: |
+  A_lesser_Golem_stands_guarding_the_entrance:
+  keywords: ['lesser', 'golem']
+  level: 2
+  hp_max: 296
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 16
+  damage_bonus: 160
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1616
+  key: |
+  the_ancient_wyvern:
+  name: |
+  ancient_wyvern:
+  short_desc: |
+  the_ancient_wyvern:
+  long_desc: |
+  An_enormous_ancient_wyvern_stares_down_at_your_tiny_form:
+  keywords: ['ancient', 'wyvern']
+  level: 4
+  hp_max: 351
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 18
+  damage_bonus: 180
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1617
+  key: |
+  the_spectre:
+  name: |
+  spectre:
+  short_desc: |
+  the_spectre:
+  long_desc: |
+  A_spectre_has_begun_to_materialize_in_front_of_you:
+  keywords: ['spectre']
+  level: 4
+  hp_max: 380
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 19
+  damage_bonus: 190
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1702
+  key: |
+  a_trapper:
+  name: |
+  trapper:
+  short_desc: |
+  a_trapper:
+  long_desc: |
+  A_trapper_stands_here_bartering_his_pelts:
+  keywords: ['trapper']
+  level: 4
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1704
+  key: |
+  a_hunter:
+  name: |
+  hunter:
+  short_desc: |
+  a_hunter:
+  long_desc: |
+  A_hunter_rests_in_here_carrying_a_fresh_kill:
+  keywords: ['hunter']
+  level: 4
+  hp_max: 116
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 80
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1706
+  key: |
+  a_ranger:
+  name: |
+  ranger:
+  short_desc: |
+  a_ranger:
+  long_desc: |
+  A_grim_ranger_reclines_at_a_table:
+  keywords: ['ranger']
+  level: 4
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1707
+  key: |
+  a_ranger_leader:
+  name: |
+  ranger_leader:
+  short_desc: |
+  a_ranger_leader:
+  long_desc: |
+  A_leader_of_the_Rangers_is_watching_you_solemnly:
+  keywords: ['ranger', 'leader']
+  level: 2
+  hp_max: 270
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 15
+  damage_bonus: 150
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1708
+  key: |
+  the_lord_of_the_rangers:
+  name: |
+  ranger_lord:
+  short_desc: |
+  the_Lord_of_the_Rangers:
+  long_desc: |
+  The_Lord_of_the_Rangers_catches_your_eye:
+  keywords: ['ranger', 'lord']
+  level: 2
+  hp_max: 410
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 20
+  damage_bonus: 200
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1710
+  key: |
+  a_centaur:
+  name: |
+  male_centaur:
+  short_desc: |
+  a_centaur:
+  long_desc: |
+  A_male_centaur_wanders_about_this_area:
+  keywords: ['male', 'centaur']
+  level: 4
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1711
+  key: |
+  a_centaur:
+  name: |
+  female_centaur:
+  short_desc: |
+  a_centaur:
+  long_desc: |
+  A_female_centaur_wanders_about_this_area:
+  keywords: ['female', 'centaur']
+  level: 4
+  hp_max: 98
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 70
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1712
+  key: |
+  an_old_centaur:
+  name: |
+  old_centaur:
+  short_desc: |
+  an_old_centaur:
+  long_desc: |
+  An_old_centaur_is_resting_in_a_corner:
+  keywords: ['old', 'centaur']
+  level: 4
+  hp_max: 81
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 60
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 400
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1714
+  key: |
+  an_elder_centaur:
+  name: |
+  centaur_elder:
+  short_desc: |
+  an_elder_centaur:
+  long_desc: |
+  One_of_the_centaur_elders_is_here_watching_you:
+  keywords: ['centaur', 'elder']
+  level: 2
+  hp_max: 135
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 9
+  damage_bonus: 90
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1715
+  key: |
+  a_centaur_guard:
+  name: |
+  centaur_guard:
+  short_desc: |
+  a_centaur_guard:
+  long_desc: |
+  A_strong_centaur_is_standing_guard_here:
+  keywords: ['centaur', 'guard']
+  level: 2
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1716
+  key: |
+  the_centaur_chief:
+  name: |
+  centaur_chief:
+  short_desc: |
+  the_centaur_chief:
+  long_desc: |
+  The_chief_of_the_centaur_villagers_reclines_here:
+  keywords: ['centaur', 'chief']
+  level: 2
+  hp_max: 198
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 12
+  damage_bonus: 120
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+- id: 1720
+  key: |
+  a_displacer_beast:
+  name: |
+  displacer_beast:
+  short_desc: |
+  a_displacer_beast:
+  long_desc: |
+  A_displacer_beast_is_grazing_nearby:
+  keywords: ['displacer', 'beast']
+  level: 128
+  hp_max: 155
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 10
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 10
+  damage_bonus: 100
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 12800
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
