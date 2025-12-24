@@ -15,14 +15,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 5
-  damage_bonus: 50
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -47,14 +47,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 7
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -79,14 +79,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 10
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
   experience_value: 1300
   gold_min: 0
@@ -101,7 +101,7 @@
   long_desc: |
     He's 6'6" 245 pounds and enough muscle to bash your head in.
   keywords: ['bruiser']
-  level: 8
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -111,16 +111,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -143,14 +143,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 70
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -175,14 +175,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 6
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -207,14 +207,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -230,7 +230,7 @@
     You get a nice close look at him while he's tearing at your throat.
     His fangs are blood-stained from hearty meals of ... steak?!
   keywords: ['dog', 'pit', 'bull', 'pitbull']
-  level: 8
+  level: 5
   hp_max: 65
   mp_max: 0
   mv_max: 100
@@ -240,16 +240,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

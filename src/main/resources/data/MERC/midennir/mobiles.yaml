@@ -16,14 +16,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -48,14 +48,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 60
+  base_damage: 8
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -81,14 +81,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 47
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -115,14 +115,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 200
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -148,14 +148,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 110
+  base_damage: 6
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -181,14 +181,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 97
+  base_damage: 5
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -214,14 +214,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 100
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -237,7 +237,7 @@
     The leader doesn't look too happy that you have found him here.  He grabs
     for his shortsword and lunges for your neck.
   keywords: ['goblin', 'leader']
-  level: 8
+  level: 9
   hp_max: 126
   mp_max: 0
   mv_max: 100
@@ -247,16 +247,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 5
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

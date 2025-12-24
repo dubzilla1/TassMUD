@@ -15,14 +15,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 11
+  base_damage: 5
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -37,7 +37,7 @@
   long_desc: |
     I doubt he is the type to give directions.
   keywords: ['drow', 'commoner']
-  level: 8
+  level: 10
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -47,16 +47,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 130
+  base_damage: 1
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -69,7 +69,7 @@
   long_desc: |
     He looks pissed off!
   keywords: ['drow', 'noble', 'warrior']
-  level: 34
+  level: 12
   hp_max: 181
   mp_max: 0
   mv_max: 100
@@ -79,16 +79,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 160
+  base_damage: 1
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -101,7 +101,7 @@
   long_desc: |
     The mage prepares to cast a spell ... at you!!
   keywords: ['drow', 'noble', 'mage']
-  level: 34
+  level: 15
   hp_max: 196
   mp_max: 0
   mv_max: 100
@@ -111,16 +111,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 190
+  base_damage: 2
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -133,7 +133,7 @@
   long_desc: |
     I wouldn't want go get on her bad side!
   keywords: ['drow', 'priestess']
-  level: 34
+  level: 17
   hp_max: 211
   mp_max: 0
   mv_max: 100
@@ -143,16 +143,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 205
+  base_damage: 1
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -165,7 +165,7 @@
   long_desc: |
     The drow master is ALWAYS ready for a fight.
   keywords: ['drow', 'master']
-  level: 34
+  level: 21
   hp_max: 254
   mp_max: 0
   mv_max: 100
@@ -175,16 +175,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 248
+  base_damage: 1
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -197,7 +197,7 @@
   long_desc: |
     He definitely knows his way around in combat.
   keywords: ['drow', 'weapons', 'master']
-  level: 34
+  level: 23
   hp_max: 506
   mp_max: 0
   mv_max: 100
@@ -207,16 +207,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 23
-  damage_bonus: 230
+  base_damage: 4
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -229,7 +229,7 @@
   long_desc: |
     She looks really pissed off!
   keywords: ['drow', 'matron', 'mother']
-  level: 34
+  level: 24
   hp_max: 475
   mp_max: 0
   mv_max: 100
@@ -239,16 +239,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 50
-  damage_bonus: 450
+  base_damage: 2
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -261,7 +261,7 @@
   long_desc: |
     She looks like she is about to rip your head off and eat it.
   keywords: ['drow', 'matron', 'mother']
-  level: 2
+  level: 25
   hp_max: 375
   mp_max: 0
   mv_max: 100
@@ -271,16 +271,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 50
-  damage_bonus: 350
+  base_damage: 2
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -293,7 +293,7 @@
   long_desc: |
     The yochlol is not in a good mood.
   keywords: ['yochlol']
-  level: 2
+  level: 35
   hp_max: 2237
   mp_max: 0
   mv_max: 100
@@ -303,16 +303,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 2
-  damage_bonus: 2200
+  damage_bonus: 35
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -325,7 +325,7 @@
   long_desc: |
     The drow guard blends so well with his environment, you barely see his form.
   keywords: ['drow', 'guard']
-  level: 34
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -335,16 +335,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -367,14 +367,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'COWARDLY']
   aggro_range: 0
   experience_value: 700
   gold_min: 0

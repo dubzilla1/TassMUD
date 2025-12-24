@@ -5,7 +5,7 @@
   long_desc: |
     Your typical smelly, blind flying mammal.
   keywords: ['bat']
-  level: 34
+  level: 5
   hp_max: 65
   mp_max: 0
   mv_max: 100
@@ -15,16 +15,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 3
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -47,14 +47,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 70
+  base_damage: 9
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['COWARDLY']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -72,7 +72,7 @@
     essential exploration gear; if there IS anything down here, he
     probably won't last long.
   keywords: ['spelunker', 'explorer']
-  level: 32
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -82,16 +82,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'COWARDLY']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -105,7 +105,7 @@
     Working for an evil necromancer isn't the greatest thing in the world.
     They seem like little more than zombie servants themselves.
   keywords: ['gravedigger', 'digger', 'robber', 'graverobber']
-  level: 36
+  level: 9
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -115,16 +115,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -147,14 +147,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -168,7 +168,7 @@
   short_desc: 
   long_desc: |
   keywords: []
-  level: 32
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -178,16 +178,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 3
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -201,7 +201,7 @@
     Even though he has died in the physical sense of the word, the battle
     continues for him in his charmed state.
   keywords: ['skeleton', 'skeletal', 'soldier']
-  level: 36
+  level: 11
   hp_max: 176
   mp_max: 0
   mv_max: 100
@@ -211,16 +211,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 1100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -237,7 +237,7 @@
     A templar tells you, "You are an evil force trying to spread your ways!".
     A templar tells you, "You must die for your sin!".
   keywords: ['templar']
-  level: 36
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -247,16 +247,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -269,7 +269,7 @@
   long_desc: |
     Hard to tell much about the mysterious form even upon further inspection.
   keywords: ['wraith']
-  level: 36
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -279,16 +279,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 7
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -301,7 +301,7 @@
   long_desc: |
     A templar officer tells you "Better move along evil one!"
   keywords: ['officer', 'templar']
-  level: 32
+  level: 13
   hp_max: 221
   mp_max: 0
   mv_max: 100
@@ -311,16 +311,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 6
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -333,7 +333,7 @@
   long_desc: |
     He seems to lack real interest in what he is doing.
   keywords: ['zombie', 'mage']
-  level: 36
+  level: 13
   hp_max: 221
   mp_max: 0
   mv_max: 100
@@ -343,16 +343,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -365,7 +365,7 @@
   long_desc: |
     Looks vaguely you-shaped.
   keywords: ['shadow', 'shadows']
-  level: 32
+  level: 14
   hp_max: 245
   mp_max: 0
   mv_max: 100
@@ -375,16 +375,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 9
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -397,7 +397,7 @@
   long_desc: |
     A rather LARGE "bat" ...
   keywords: ['bat', 'vampire']
-  level: 34
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -407,16 +407,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 10
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -430,7 +430,7 @@
     Though he seems absorbed in his work, you'd bet he'd take the time out
     to kill you to get a fresh corpse!
   keywords: ['necromancer', 'necro', 'cleric']
-  level: 34
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -440,16 +440,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 8
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -463,7 +463,7 @@
     A slight, tolerant smile comes briefly across his face.  In the blink
     of an eye he seems stern again.
   keywords: ['grand', 'templar', 'leader']
-  level: 2
+  level: 16
   hp_max: 296
   mp_max: 0
   mv_max: 100
@@ -473,16 +473,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 16
-  damage_bonus: 160
+  base_damage: 8
+  damage_bonus: 12
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -495,7 +495,7 @@
   long_desc: |
     The spray of colored light bouncing off his scales is almost blinding.
   keywords: ['prism', 'dragon', 'prismdragon']
-  level: 34
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -505,16 +505,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 3
+  damage_bonus: 14
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -527,7 +527,7 @@
   long_desc: |
     You see nothing more than the sense of darkness and evil.
   keywords: ['darken', 'dark', 'beast', 'darkenbeast']
-  level: 34
+  level: 24
   hp_max: 540
   mp_max: 0
   mv_max: 100
@@ -537,16 +537,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 32
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 24
-  damage_bonus: 240
+  base_damage: 7
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

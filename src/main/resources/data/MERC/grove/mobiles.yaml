@@ -7,7 +7,7 @@
     clear blue eyes you can see that He is aware of the world, and wise to its
     traps and pitfalls.
   keywords: ['hierophant']
-  level: 8
+  level: 20
   hp_max: 390
   mp_max: 0
   mv_max: 100
@@ -17,16 +17,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 180
+  base_damage: 8
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -41,7 +41,7 @@
     clear blue eyes you can see that She is aware of the world, and wise to its
     traps and pitfalls.
   keywords: ['hierophant']
-  level: 8
+  level: 20
   hp_max: 390
   mp_max: 0
   mv_max: 100
@@ -51,16 +51,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 180
+  base_damage: 8
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -84,14 +84,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 4
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1300
   gold_min: 0
@@ -116,14 +116,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 4
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1300
   gold_min: 0
@@ -149,14 +149,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -182,14 +182,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 66
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -204,7 +204,7 @@
   long_desc: |
     He eyes you with contained anger.  You'd better leave him alone!
   keywords: ['stag', 'deer', 'large']
-  level: 32
+  level: 8
   hp_max: 124
   mp_max: 0
   mv_max: 100
@@ -214,16 +214,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 88
+  base_damage: 4
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -246,14 +246,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 22
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -268,7 +268,7 @@
   long_desc: |
     Upon careful inspection, you are sure it is NOT a cobra!
   keywords: ['snake']
-  level: 32
+  level: 4
   hp_max: 54
   mp_max: 0
   mv_max: 100
@@ -278,16 +278,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 44
+  base_damage: 8
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -300,7 +300,7 @@
   long_desc: |
     He doesn't like you bothering him, but is too polite to ask you to leave.
   keywords: ['druid']
-  level: 8
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -310,16 +310,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -332,7 +332,7 @@
   long_desc: |
     She wonders why you are staring at her, and how you got in here.
   keywords: ['druidess']
-  level: 8
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -342,16 +342,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

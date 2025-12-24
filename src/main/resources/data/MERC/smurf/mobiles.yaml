@@ -16,14 +16,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 2
-  damage_bonus: 2
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -48,14 +48,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 20
+  base_damage: 2
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -81,14 +81,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -114,14 +114,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -147,14 +147,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -180,14 +180,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -212,14 +212,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -245,14 +245,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -278,14 +278,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -312,14 +312,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 50
+  base_damage: 2
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -345,14 +345,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 50
+  base_damage: 2
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -378,14 +378,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 800
   gold_min: 0

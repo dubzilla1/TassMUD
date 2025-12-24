@@ -21,7 +21,7 @@ items:
       1 0 0
   - id: 3
     key: coins_gold_3
-    name: %d gold coins
+    name: some gold coins
     description: A pile of gold coins.
     weight: 1
     value: 0

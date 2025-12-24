@@ -9,7 +9,7 @@
     than the oldest man, he seems to have an inner strength which most mortals
     cannot overcome.
   keywords: ['elven', 'wizard']
-  level: 2
+  level: 18
   hp_max: 351
   mp_max: 0
   mv_max: 100
@@ -19,16 +19,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 2
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -45,7 +45,7 @@
     usually a halfling of peace, he will fight you to the death if you attempt
     to take away that which belongs to him.
   keywords: ['ring', 'keeper']
-  level: 2
+  level: 19
   hp_max: 380
   mp_max: 0
   mv_max: 100
@@ -55,16 +55,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 19
-  damage_bonus: 190
+  base_damage: 8
+  damage_bonus: 16
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -79,7 +79,7 @@
     been tanned from working the fields night and day.  He's quite a jolly
     chap, always ready to befriend an injured bunny rabbit.
   keywords: ['farmer', 'gamgee']
-  level: 2
+  level: 7
   hp_max: 105
   mp_max: 0
   mv_max: 100
@@ -89,16 +89,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 77
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -122,14 +122,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 22
+  base_damage: 3
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -146,7 +146,7 @@
     toddlers for too long has evidently taken its toll.  She looks to you and
     in her eyes you can see her longing for a better life.
   keywords: ['nursemaid']
-  level: 2
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -156,16 +156,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 3
+  damage_bonus: 4
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -190,14 +190,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 44
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -224,14 +224,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 33
+  base_damage: 2
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -256,14 +256,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 22
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -280,7 +280,7 @@
     reckoned with.  With his horns and his hooves he can attack just about
     anything.
   keywords: ['bull']
-  level: 2
+  level: 6
   hp_max: 87
   mp_max: 0
   mv_max: 100
@@ -290,16 +290,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 66
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -322,14 +322,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 44
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -347,7 +347,7 @@
     his belt is a thin dagger, and on his body he wears a suit of leather armor.
     This is one halfling you don't want to mess with.
   keywords: ['shiriff']
-  level: 4
+  level: 8
   hp_max: 124
   mp_max: 0
   mv_max: 100
@@ -357,16 +357,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 88
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -382,7 +382,7 @@
     his belt is a thin dagger, and on his body he wears a suit of leather armor.
     This is one halfling you don't want to mess with.
   keywords: ['shiriff']
-  level: 4
+  level: 8
   hp_max: 124
   mp_max: 0
   mv_max: 100
@@ -392,16 +392,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 88
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -427,14 +427,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 4
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 1400
   gold_min: 0
@@ -450,7 +450,7 @@
     The Innkeeper is a jolly old halfling who spends his days eavesdropping on
     local gossip.  In his younger days, he was quite a seasoned traveller.
   keywords: ['innkeeper']
-  level: 2
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -460,16 +460,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -484,7 +484,7 @@
     respect from his workers than he can get.  He looks like the type of person
     who deserves a spanking but never got one.
   keywords: ['miller']
-  level: 4
+  level: 6
   hp_max: 87
   mp_max: 0
   mv_max: 100
@@ -494,16 +494,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 66
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -518,7 +518,7 @@
     mill.  He doesn't notice your presence, but he looks like he could break you
     in two without thinking about it.
   keywords: ['mill', 'worker']
-  level: 2
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -528,16 +528,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -552,7 +552,7 @@
     on his countenance is solemn and tragic.  He cares not for this world any
     longer and wearies of it.
   keywords: ['elven', 'warrior']
-  level: 2
+  level: 17
   hp_max: 323
   mp_max: 0
   mv_max: 100
@@ -562,16 +562,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 4
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -586,7 +586,7 @@
     dwarves of his land.  His glowing eyes peer out of his bushy face and stare
     beyond your gaze.
   keywords: ['dwarven', 'prince']
-  level: 2
+  level: 17
   hp_max: 323
   mp_max: 0
   mv_max: 100
@@ -596,16 +596,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 4
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -619,7 +619,7 @@
     The shopkeeper will fight like a madman to protect his store from riff-raff
     like you.
   keywords: ['shopkeeper']
-  level: 2
+  level: 21
   hp_max: 475
   mp_max: 0
   mv_max: 100
@@ -629,16 +629,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 32
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 22
-  damage_bonus: 222
+  base_damage: 4
+  damage_bonus: 22
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -653,7 +653,7 @@
     However, he also knows that it's worth protecting and so will do everything
     in his power to prevent riff-raff like you from stealing it.
   keywords: ['grocer']
-  level: 2
+  level: 21
   hp_max: 475
   mp_max: 0
   mv_max: 100
@@ -663,16 +663,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 32
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 22
-  damage_bonus: 222
+  base_damage: 4
+  damage_bonus: 22
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -686,7 +686,7 @@
     The blacksmith is a lean and mean fighting machine.  His knowledge of weapons
     and armour would certainly help him in any fight against riff-raff like you.
   keywords: ['blacksmith']
-  level: 2
+  level: 50
   hp_max: 1775
   mp_max: 0
   mv_max: 100
@@ -696,16 +696,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 50
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 50
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 36
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 5000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -718,7 +718,7 @@
   long_desc: |
     The battle master is a wizened fighter, with many scars to prove his worth.
   keywords: ['battle', 'master']
-  level: 2
+  level: 25
   hp_max: 575
   mp_max: 0
   mv_max: 100
@@ -728,16 +728,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 35
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 6
+  damage_bonus: 20
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -761,14 +761,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 33
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -785,7 +785,7 @@
     past his prime, he still looks like he could put up more than his share of
     a good fight.
   keywords: ['seasoned', 'adventurer']
-  level: 2
+  level: 8
   hp_max: 124
   mp_max: 0
   mv_max: 100
@@ -795,16 +795,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 88
+  base_damage: 3
+  damage_bonus: 7
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -818,7 +818,7 @@
     The gossip is all talk and no action.  You're transfixed by her ability to
     talk so much so quickly.
   keywords: ['local', 'gossip']
-  level: 2
+  level: 4
   hp_max: 54
   mp_max: 0
   mv_max: 100
@@ -828,16 +828,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 44
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -853,7 +853,7 @@
     at her feet, hoping she'll take you in like a lost puppy.  You wouldn't dare
     harm a hair on her precious little head.
   keywords: ['halfling', 'beauty']
-  level: 2
+  level: 6
   hp_max: 87
   mp_max: 0
   mv_max: 100
@@ -863,16 +863,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 66
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -887,7 +887,7 @@
     fresh, but his enthusiasm and desire to please more than make up for what
     he lacks in skill.
   keywords: ['trainee']
-  level: 2
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -897,16 +897,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -921,7 +921,7 @@
     all of the latest fashions and his manners impeccable.  He offers you some
     coins if you'd be so good as to order a drink for him.
   keywords: ['chic', 'urbanite']
-  level: 2
+  level: 4
   hp_max: 54
   mp_max: 0
   mv_max: 100
@@ -931,16 +931,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 44
+  base_damage: 2
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -953,7 +953,7 @@
   long_desc: |
     The country bumpkin snores noisily.
   keywords: ['country', 'bumpkin']
-  level: 2
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -963,16 +963,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -986,7 +986,7 @@
     The Innkeeper is a jolly old halfling who spends his days eavesdropping on
     local gossip.  In his younger days, he was quite a seasoned traveller.
   keywords: ['innkeeper']
-  level: 2
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -996,16 +996,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1018,7 +1018,7 @@
   long_desc: |
     He is a very professional looking type.
   keywords: ['receptionist']
-  level: 2
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -1028,16 +1028,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 8
+  damage_bonus: 14
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1052,7 +1052,7 @@
     He looks at you, smiles and asks you if you have seen a halfling youth
     somewhere outside the shire.
   keywords: ['shiriff']
-  level: 2
+  level: 8
   hp_max: 124
   mp_max: 0
   mv_max: 100
@@ -1062,16 +1062,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 88
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

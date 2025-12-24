@@ -17,14 +17,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 1200
   gold_min: 0
@@ -51,14 +51,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 6
+  base_damage: 5
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -72,7 +72,7 @@
   short_desc: The huge hungry-looking sewer rat sits here.
   long_desc: |
   keywords: ['rat']
-  level: 32
+  level: 5
   hp_max: 65
   mp_max: 0
   mv_max: 100
@@ -82,16 +82,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -103,7 +103,7 @@
   short_desc: The small hairy spider.
   long_desc: |
   keywords: ['spider']
-  level: 32
+  level: 1
   hp_max: 14
   mp_max: 0
   mv_max: 100
@@ -113,16 +113,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 8
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -144,14 +144,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -175,14 +175,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 35
+  base_damage: 7
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -196,7 +196,7 @@
   short_desc: The snake slithers towards you.
   long_desc: |
   keywords: ['snake']
-  level: 33
+  level: 4
   hp_max: 50
   mp_max: 0
   mv_max: 100
@@ -206,16 +206,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 40
+  base_damage: 9
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3300
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -238,14 +238,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -272,14 +272,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 1100
   gold_min: 0
@@ -305,14 +305,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 26
-  damage_bonus: 148
+  base_damage: 7
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'COWARDLY']
   aggro_range: 0
   experience_value: 1200
   gold_min: 0
@@ -339,14 +339,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -373,14 +373,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 1200
   gold_min: 0
@@ -397,7 +397,7 @@
     arrives.  It says 'Oh, human YOU woke me up ... Hsss', while
     it moves closer.  'Can one NEVER sleep in peace ... Hsss'.
   keywords: ['red', 'dragon']
-  level: 35
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -407,16 +407,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 4
+  damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3500
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -431,7 +431,7 @@
     Big yellow eyes and sharp teeth.  Its ears are very big,
     and it has small sharp horns.  It hates beauty.
   keywords: ['sea', 'hag']
-  level: 32
+  level: 14
   hp_max: 176
   mp_max: 0
   mv_max: 100
@@ -441,16 +441,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 8
-  damage_bonus: 172
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -466,7 +466,7 @@
     She notice that you look at her, and she says: 'Watch out. This way
     leads to some evil creatures'.
   keywords: ['guardian', 'naga']
-  level: 2
+  level: 12
   hp_max: 157
   mp_max: 0
   mv_max: 100
@@ -476,16 +476,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 148
+  base_damage: 7
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -500,7 +500,7 @@
     toothy jaws. It is dull brown with yellowish underbelly. It's eyes are
     glowing pale green.
   keywords: ['basilisk']
-  level: 36
+  level: 13
   hp_max: 166
   mp_max: 0
   mv_max: 100
@@ -510,16 +510,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 160
+  base_damage: 7
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -535,7 +535,7 @@
     interested in you at all, but anyway it attacks. It looks like it's
     mind has been burned out.
   keywords: ['lemure', 'blob']
-  level: 32
+  level: 5
   hp_max: 66
   mp_max: 0
   mv_max: 100
@@ -545,16 +545,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 57
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -569,7 +569,7 @@
     closer you saw his second head. He wears an animal skin dress,
     filthy and moth eaten. Jones really stinks...
   keywords: ['jones', 'cruncher', 'ettin']
-  level: 36
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -579,16 +579,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -603,7 +603,7 @@
     and the one of his heads hangs down. At the rope around his stomach
     hangs dead mouses and rats. He does not smell good.
   keywords: ['herald', 'mouse', 'killer', 'ettin']
-  level: 4
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -613,16 +613,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -637,7 +637,7 @@
     black and purple rod above its head as if it was going to attack you any
     moment now. In the middle of its head are four tentacles with sharp points.
   keywords: ['master', 'mind', 'mindflayer']
-  level: 37
+  level: 14
   hp_max: 245
   mp_max: 0
   mv_max: 100
@@ -647,16 +647,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3700
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -671,7 +671,7 @@
     and carrying a large mace in its hand. In the center of its head are four large
     tentacles with very sharp points.
   keywords: ['senior', 'mind', 'mindflayer']
-  level: 37
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -681,16 +681,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3700
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -705,7 +705,7 @@
     dressed in purple and black cloth. It has four small tentacles in the 
     center of its head.
   keywords: ['junior', 'mind', 'mindflayer']
-  level: 37
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -715,16 +715,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3700
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -748,14 +748,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 69
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -771,7 +771,7 @@
     The gigantic rat is about ten foot long from head to tail and has claws
     the size of your head looking very nasty.
   keywords: ['rat', 'gigantic']
-  level: 34
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -781,16 +781,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

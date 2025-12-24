@@ -7,7 +7,7 @@
     mates have cost city authorities many millions of creds a week in
     vandalism repairs.
   keywords: ['juve']
-  level: 4
+  level: 5
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -17,16 +17,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     This punk is from one of the rowdiest, scruffiest, and definitely most
     fashionable of all gangs -- the Grunge Mongers.
   keywords: ['punk']
-  level: 4
+  level: 10
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -74,7 +74,7 @@
     not be stopped by anyone who tries to deter him from revenge upon the
     Justice Department.
   keywords: ['Futsie']
-  level: 2
+  level: 17
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -84,16 +84,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -107,7 +107,7 @@
     A member of a local Block's Citi-Def militia, this man is well-armed
     and undersupervised.
   keywords: ['Citi-Def', 'Militiaman']
-  level: 4
+  level: 16
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -117,16 +117,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -139,7 +139,7 @@
   long_desc: |
     He blends into the crowd as his hand travels into another citizen's pocket.
   keywords: ['dunk']
-  level: 4
+  level: 10
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -149,16 +149,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -172,7 +172,7 @@
     A practitioner in Mega-City One's largest growth industry, mugging, is
     looking you over for a possible business transaction.
   keywords: ['tap']
-  level: 4
+  level: 14
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -182,16 +182,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -206,7 +206,7 @@
     crimes you have committed.  Being a rookie he will probably be easier on
     you though.
   keywords: ['rookie', 'judge']
-  level: 8
+  level: 20
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -216,16 +216,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -239,7 +239,7 @@
     Wallaby Gleep is a heavy-set man who gives you the impression that he is
     unintelligent and unimaginative, but looks can be deceiving.
   keywords: ['Wallaby', 'Gleep']
-  level: 2
+  level: 22
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -249,16 +249,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -273,7 +273,7 @@
     Scrooge.  Indeed, the only thing guaranteed to bring a spark to his dead
     eyes is the mention of money.
   keywords: ['Pinkerton', 'Throt']
-  level: 2
+  level: 25
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -283,16 +283,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -307,7 +307,7 @@
     deal out of life.  He is content to run the bite fights for Throt and
     Gleep.
   keywords: ['Ernie', 'Ramirez']
-  level: 2
+  level: 19
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -317,16 +317,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -340,7 +340,7 @@
     He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
     of the Downtown Quadrant.
   keywords: ['Judge', 'Eckersely']
-  level: 8
+  level: 30
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -350,16 +350,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -374,7 +374,7 @@
     She is fanatically dedicated to her job and has no ambitions other than
     to enforce the LAW.
   keywords: ['Judge', 'Sara', 'Beddows']
-  level: 8
+  level: 25
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -384,16 +384,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -406,7 +406,7 @@
   long_desc: |
     A bite fighter is here with sharpened teeth and a bad attitude.
   keywords: ['bite', 'fighter']
-  level: 2
+  level: 20
   hp_max: 0
   mp_max: 0
   mv_max: 100
@@ -416,16 +416,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

@@ -7,7 +7,7 @@
     caked in filth and grime and she stinks to high heaven.  Her razor-
     sharp talons flex as she considers you for her dinner.
   keywords: ['harpy']
-  level: 4
+  level: 20
   hp_max: 267
   mp_max: 0
   mv_max: 100
@@ -17,16 +17,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 6
-  damage_bonus: 260
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -42,7 +42,7 @@
     matted and greasy and you are sickened by the stench that pervades
     her presence.
   keywords: ['harpy', 'leader']
-  level: 2
+  level: 23
   hp_max: 526
   mp_max: 0
   mv_max: 100
@@ -52,16 +52,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 510
+  base_damage: 8
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -75,7 +75,7 @@
     The air elemental is hard to see.  You know that it is there
     because objects behind it seem to waver and are slightly blurred.
   keywords: ['air', 'elemental']
-  level: 4
+  level: 25
   hp_max: 627
   mp_max: 0
   mv_max: 100
@@ -85,16 +85,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 600
+  base_damage: 7
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -108,7 +108,7 @@
     The effreeti towers menacingly over you.  It is dressed in the
     finest ghostly silks and a headdress with an elaborate brooch.
   keywords: ['mysterious', 'effreeti']
-  level: 4
+  level: 27
   hp_max: 740
   mp_max: 0
   mv_max: 100
@@ -118,16 +118,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 700
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -141,7 +141,7 @@
     This bird has a wingspan that stretches several spear-lengths.  It
     moves surprisingly fast for something of its size.
   keywords: ['roc']
-  level: 50
+  level: 24
   hp_max: 530
   mp_max: 0
   mv_max: 100
@@ -151,16 +151,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 500
+  base_damage: 10
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -174,7 +174,7 @@
     This bird has a wingspan that stretches several spear-lengths.  It
     moves surprisingly fast for something of its size.
   keywords: ['roc']
-  level: 50
+  level: 28
   hp_max: 825
   mp_max: 0
   mv_max: 100
@@ -184,16 +184,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 800
+  base_damage: 6
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 2800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -208,7 +208,7 @@
     with warts and boils.  Her nails are long and sharp and look like
     they would be quite painful.  Her eyes pierce your very soul.
   keywords: ['wicked', 'witch']
-  level: 2
+  level: 31
   hp_max: 1249
   mp_max: 0
   mv_max: 100
@@ -218,16 +218,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 31
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 1200
+  base_damage: 9
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

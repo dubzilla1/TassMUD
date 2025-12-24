@@ -5,7 +5,7 @@
   long_desc: |
     Her job is to set the level for this equipment.
   keywords: ['keeper']
-  level: 1
+  level: 8
   hp_max: 1000
   mp_max: 0
   mv_max: 100
@@ -15,16 +15,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 999
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
-  experience_value: 100
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

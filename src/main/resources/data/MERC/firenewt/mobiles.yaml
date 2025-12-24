@@ -19,8 +19,8 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 30
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -51,8 +51,8 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 30
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -69,7 +69,7 @@
   long_desc: |
     The kid is playing with its siblings.
   keywords: ['black', 'mountain', 'kid']
-  level: 2
+  level: 1
   hp_max: 11
   mp_max: 0
   mv_max: 100
@@ -83,12 +83,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
+  base_damage: 3
   damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -101,7 +101,7 @@
   long_desc: |
     The fire newt worker looks hot and sweaty.
   keywords: ['fire', 'newt', 'worker']
-  level: 4
+  level: 2
   hp_max: 27
   mp_max: 0
   mv_max: 100
@@ -111,16 +111,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 8
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -133,7 +133,7 @@
   long_desc: |
     The fire newt guard thinks you would be better dead.
   keywords: ['fire', 'newt', 'guard']
-  level: 2
+  level: 3
   hp_max: 41
   mp_max: 0
   mv_max: 100
@@ -143,16 +143,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 35
+  base_damage: 10
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -175,12 +175,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 8
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -197,7 +197,7 @@
   long_desc: |
     The fire newt guard wants to kill you!
   keywords: ['fire', 'newt', 'guard']
-  level: 32
+  level: 3
   hp_max: 41
   mp_max: 0
   mv_max: 100
@@ -207,34 +207,61 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 35
+  base_damage: 10
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
   legacy_raw: 32|64 0 -450 S 3 17 7 3d3+35 1d10+2 30 300 8 8 2
 
 - id: 2908
-  key: the_fire_newt_mother_is_watching_her_kids_2908
-  name: The fire newt mother is watching her kids.
-  short_desc: The fire newt mother is watching her kids.
+  key: a_fire_newt_mother_2908
+  name: a fire newt mother
+  short_desc: A fire newt mother is standing here.
   long_desc: |
-    2 0 -355 S
-    2 18 8 3d10+8 1d6+2
-    26 200
-    8 8 2
-    #2909
-    fire newt baby
+    The fire newt mother is watching her kids.
   keywords: ['fire', 'newt', 'mother']
   level: 2
+  hp_max: 24
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 12
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 6
+  damage_bonus: 2
+  attack_bonus: 0
+  behaviors: ['SENTINEL']
+  aggro_range: 0
+  experience_value: 200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 2 0 -355 S 2 18 8 3d10+8 1d6+2 26 200 8 8 2
+
+- id: 2909
+  key: a_fire_newt_baby_2909
+  name: a fire newt baby
+  short_desc: A fire newt baby is crawling here.
+  long_desc: |
+    The fire newt baby is crawling and drooling here.
+  keywords: ['fire', 'newt', 'baby']
+  level: 1
   hp_max: 5
   mp_max: 0
   mv_max: 100
@@ -248,16 +275,16 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 1
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  legacy_raw: a fire newt baby~ A fire newt baby is crawling here. ~ The fire newt baby is crawling and drooling here. ~ 2|4 0 -350 S 0 20 10 3d2+1 1d3+0 6 50 8 8 0
+  legacy_raw: 2|4 0 -350 S 0 20 10 3d2+1 1d3+0 6 50 8 8 0
 
 - id: 2910
   key: a_fire_newt_sergeant_2910
@@ -266,7 +293,7 @@
   long_desc: |
     He's just found something that doesn't belong here!
   keywords: ['fire', 'newt', 'sergeant']
-  level: 2
+  level: 5
   hp_max: 86
   mp_max: 0
   mv_max: 100
@@ -276,16 +303,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 20
+  base_damage: 12
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -298,7 +325,7 @@
   long_desc: |
     The fire newt general grins evilly at you.
   keywords: ['fire', 'newt', 'general']
-  level: 34
+  level: 8
   hp_max: 136
   mp_max: 0
   mv_max: 100
@@ -308,16 +335,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 100
+  base_damage: 15
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -330,7 +357,7 @@
   long_desc: |
     The fire newt leader screams, 'I'm going to hose you!'
   keywords: ['fire', 'newt', 'leader']
-  level: 2
+  level: 13
   hp_max: 241
   mp_max: 0
   mv_max: 100
@@ -340,16 +367,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 150
+  base_damage: 5
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -362,7 +389,7 @@
   long_desc: |
     The fire newt priest is preparing for worship.
   keywords: ['fire', 'newt', 'priest']
-  level: 2
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -372,16 +399,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -394,7 +421,7 @@
   long_desc: |
     The fire lizard flicks its tongue at you.
   keywords: ['fire', 'lizard']
-  level: 2
+  level: 11
   hp_max: 176
   mp_max: 0
   mv_max: 100
@@ -404,16 +431,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 12
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

@@ -17,14 +17,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -40,7 +40,7 @@
     The bear is a big, brown, furry animal with very large claws and very sharp
     teeth.  It doesn't resemble those cute little thingies from toy shops at all.
   keywords: ['bear']
-  level: 50
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -84,14 +84,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 26
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -107,7 +107,7 @@
     She is a graceful creature on long, slender legs, and with large, brown eyes
     looking back at you with an air of watchful interest.
   keywords: ['deer']
-  level: 8
+  level: 2
   hp_max: 11
   mp_max: 0
   mv_max: 100
@@ -117,16 +117,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 2
+  base_damage: 6
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -139,7 +139,7 @@
   long_desc: |
     It is a large fox with beautiful, red-brown fur and a long, thick brush.
   keywords: ['fox']
-  level: 50
+  level: 2
   hp_max: 20
   mp_max: 0
   mv_max: 100
@@ -149,16 +149,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 18
+  base_damage: 6
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -182,14 +182,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -215,14 +215,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -247,14 +247,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 35
+  base_damage: 7
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -279,14 +279,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 35
+  base_damage: 7
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -304,7 +304,7 @@
     the nicks in the horns on its head.  It smells as disgusting as only dragons
     do.
   keywords: ['dragon', 'green']
-  level: 8
+  level: 25
   hp_max: 575
   mp_max: 0
   mv_max: 100
@@ -314,16 +314,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 6
+  damage_bonus: 18
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -348,14 +348,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -371,7 +371,7 @@
     The druid looks quite old.  You would think him venerable, but you know
     he would be a tough foe.
   keywords: ['elder', 'druid']
-  level: 38
+  level: 17
   hp_max: 323
   mp_max: 0
   mv_max: 100
@@ -381,16 +381,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 3800
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

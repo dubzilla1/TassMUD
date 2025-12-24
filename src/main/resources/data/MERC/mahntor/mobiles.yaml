@@ -7,7 +7,7 @@
     was involved in the carnage that occurred here. His soul is trapped here, as
     he waits for release.
   keywords: ['knight', 'ethereal', 'dark']
-  level: 2
+  level: 25
   hp_max: 625
   mp_max: 0
   mv_max: 100
@@ -17,16 +17,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 75
+  base_damage: 8
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -41,7 +41,7 @@
     Very few leaves remain. Its limbs are crooked and gnarled. It moans as the 
     wind pushes it back and forth.
   keywords: ['treant', 'tree']
-  level: 2
+  level: 20
   hp_max: 300
   mp_max: 0
   mv_max: 100
@@ -51,16 +51,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -75,7 +75,7 @@
     a bird's beak, huge white eyes, a furry body, and long clawed hands and feet.
     It sees you and snarls.
   keywords: ['dweller', 'cave']
-  level: 2
+  level: 15
   hp_max: 225
   mp_max: 0
   mv_max: 100
@@ -85,16 +85,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 75
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -107,7 +107,7 @@
   long_desc: |
     A grey toad. Its about the size of a cow. Small horns grow all over its body.
   keywords: ['toad', 'rock']
-  level: 2
+  level: 14
   hp_max: 185
   mp_max: 0
   mv_max: 100
@@ -117,16 +117,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 35
+  base_damage: 8
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -140,7 +140,7 @@
     The weeping willow has long thins branches. These branches seem to droop in
     anguish and dismay. You hear a faint sound of crying.
   keywords: ['weeping', 'willow', 'tree']
-  level: 2
+  level: 25
   hp_max: 600
   mp_max: 0
   mv_max: 100
@@ -150,16 +150,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -172,7 +172,7 @@
   long_desc: |
     It looks like a thin wisp of mist that has gained substance and size.
   keywords: ['mist', 'mistling']
-  level: 34
+  level: 15
   hp_max: 220
   mp_max: 0
   mv_max: 100
@@ -182,16 +182,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 20
+  base_damage: 9
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -206,7 +206,7 @@
     appears to emerge from the mist. You feel the cold radiating from his form as
     he nears you.
   keywords: ['swamp', 'wraith']
-  level: 38
+  level: 20
   hp_max: 275
   mp_max: 0
   mv_max: 100
@@ -216,16 +216,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 25
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -249,14 +249,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 20
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -282,14 +282,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 25
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1500
   gold_min: 0
@@ -315,14 +315,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 1900
   gold_min: 0
@@ -348,14 +348,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 2000
   gold_min: 0
@@ -381,14 +381,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 2500
   gold_min: 0
@@ -414,14 +414,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 1
   damage_bonus: 50
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 2000
   gold_min: 0
@@ -447,14 +447,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 25
+  base_damage: 7
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1600
   gold_min: 0
@@ -480,14 +480,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 75
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD', 'LOCAL']
   aggro_range: 0
   experience_value: 2000
   gold_min: 0
@@ -513,14 +513,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 90
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1500
   gold_min: 0
@@ -546,14 +546,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 40
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 2200
   gold_min: 0
@@ -569,7 +569,7 @@
     You see a huge minotaur that is dressed in thick furs and armor. He has black
     fur and red eyes. He looks quite capable of protecting the city.
   keywords: ['warrior', 'minotaur']
-  level: 4
+  level: 21
   hp_max: 350
   mp_max: 0
   mv_max: 100
@@ -579,16 +579,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 7
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -602,7 +602,7 @@
     The minotaur stands rigidly before the gates of the keep. It looks quite
     miserable standing in the driven snow and ice.
   keywords: ['minotaur', 'gatekeeper']
-  level: 8
+  level: 25
   hp_max: 600
   mp_max: 0
   mv_max: 100
@@ -612,16 +612,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -635,7 +635,7 @@
     The high guard is dressed in blue plate armour. He looks quite dangerous and
     skilled.
   keywords: ['minotaur', 'high', 'guard']
-  level: 8
+  level: 25
   hp_max: 620
   mp_max: 0
   mv_max: 100
@@ -645,16 +645,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 20
+  base_damage: 7
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -668,7 +668,7 @@
     The royal guard is quite huge. He is dressed in heavy red armor and wields a
     huge glaive. He looks quite capable of protecting the keep.
   keywords: ['minotaur', 'royal', 'guard']
-  level: 8
+  level: 26
   hp_max: 700
   mp_max: 0
   mv_max: 100
@@ -678,16 +678,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 5
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -701,7 +701,7 @@
     This minotaur wields a huge morningstar and is clad in heavy crimson plate and
     furs.
   keywords: ['guard', 'minotaur', 'elite']
-  level: 8
+  level: 28
   hp_max: 850
   mp_max: 0
   mv_max: 100
@@ -711,16 +711,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 50
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -749,9 +749,9 @@
   reflex: 0
   will: 0
   base_damage: 1
-  damage_bonus: 10
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -776,14 +776,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 247
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 2000
   gold_min: 0
@@ -809,14 +809,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 700
+  base_damage: 7
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 2900
   gold_min: 0
@@ -832,7 +832,7 @@
     Gorak is HUGE. His bulging muscles are confined beneath heavy armor. He is the
     master of the warrior guild of Mahn-Tor.
   keywords: ['gorak', 'minotaur', 'warrior', 'master']
-  level: 34
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -842,16 +842,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -865,7 +865,7 @@
     Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold
     chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
   keywords: ['darkoth', 'minotaur', 'anti-paladin', 'master']
-  level: 34
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -875,16 +875,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -898,7 +898,7 @@
     Tyrgoth is the minotaur incarnation of good. You feel safe and at ease in his
     presence. He is the leader of the Mahn-Tor paladins.
   keywords: ['tyrgoth', 'minotaur', 'paladin', 'master']
-  level: 2
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -908,16 +908,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -932,7 +932,7 @@
     power. He appears quite dangerous, despite his size. He is the leader of the
     mages of Mahn-Tor.
   keywords: ['amyrok', 'minotaur', 'mage', 'master']
-  level: 34
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -942,16 +942,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -965,7 +965,7 @@
     Sumaron is clad in white glowing robes. He is goodness incarnate. He is the
     master of all the clerics of Mahn-Tor.
   keywords: ['sumaron', 'minotaur', 'cleric', 'master']
-  level: 34
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -975,16 +975,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -998,7 +998,7 @@
     Nasturn is quite a natural looking minotaur. He is dressed in leather and
     wears no metal of any type. He looks at you and smiles.
   keywords: ['nasturn', 'minotaur', 'druid', 'master']
-  level: 2
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -1008,16 +1008,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1031,7 +1031,7 @@
     Belrak is clad in green and brown leather. He looks quite agile and thin, when
     compared to the normal minotaur. He looks at you with a slight smirk.
   keywords: ['belrak', 'minotaur', 'ranger', 'master']
-  level: 34
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -1041,16 +1041,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1064,7 +1064,7 @@
     Dorgar is clad all in black. He is tall and slender, unlike most minotaurs. He
     appears to be quite a skilled thief.
   keywords: ['dorgar', 'minotaur', 'thief', 'master']
-  level: 38
+  level: 30
   hp_max: 3000
   mp_max: 0
   mv_max: 100
@@ -1074,16 +1074,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3800
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1098,7 +1098,7 @@
     armor and robes. He wields the largest axe you have ever seen. You can see why
     Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
   keywords: ['mahn-tor', 'minotaur', 'grand', 'master']
-  level: 6
+  level: 33
   hp_max: 3500
   mp_max: 0
   mv_max: 100
@@ -1108,16 +1108,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 500
+  base_damage: 7
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 3300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

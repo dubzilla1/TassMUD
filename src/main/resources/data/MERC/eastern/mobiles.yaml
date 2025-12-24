@@ -16,14 +16,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -49,14 +49,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -72,7 +72,7 @@
     This relatively harmless snake has bright alternating bands of red, yellow
     and black.
   keywords: ['snake', 'coral']
-  level: 10
+  level: 4
   hp_max: 50
   mp_max: 0
   mv_max: 100
@@ -82,16 +82,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 40
+  base_damage: 9
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 1000
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -104,7 +104,7 @@
   long_desc: |
     The little tail is mighty dangerous for such a small creature.
   keywords: ['scorpion', 'small']
-  level: 50
+  level: 3
   hp_max: 36
   mp_max: 0
   mv_max: 100
@@ -114,16 +114,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 30
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -136,7 +136,7 @@
   long_desc: |
     He's big, mean, and purple. Watch out!
   keywords: ['worm', 'giant']
-  level: 2
+  level: 18
   hp_max: 351
   mp_max: 0
   mv_max: 100
@@ -146,16 +146,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -167,7 +167,7 @@
   short_desc: The brass dragon steps out of the darkness and says 'Hello'. Then adds to it, 'Prepare to die, have a nice day!'
   long_desc: |
   keywords: ['dragon', 'brass']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -177,16 +177,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 9
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -211,14 +211,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1400
   gold_min: 0
@@ -244,12 +244,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -265,7 +265,7 @@
   short_desc: A proud nomad warrior stands here.
   long_desc: |
   keywords: ['nomad', 'warrior']
-  level: 2
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -275,16 +275,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -306,14 +306,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 30
+  base_damage: 5
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -339,14 +339,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 2
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
   experience_value: 2000
   gold_min: 0
@@ -371,14 +371,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -393,7 +393,7 @@
   long_desc: |
     The duergar could crush your head as easily as it does those rocks.
   keywords: ['duergar', 'dwarf']
-  level: 8
+  level: 5
   hp_max: 65
   mp_max: 0
   mv_max: 100
@@ -403,16 +403,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 5
-  damage_bonus: 50
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -426,7 +426,7 @@
     The myconoid looks something like a giant mushroom (and probably
     has the same effect).
   keywords: ['myconoid']
-  level: 8
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -436,16 +436,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 7
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -468,14 +468,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 7
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -489,7 +489,7 @@
   short_desc: A small oasis invites you to dive in.
   long_desc: |
   keywords: ['dustdigger']
-  level: 38
+  level: 7
   hp_max: 98
   mp_max: 0
   mv_max: 100
@@ -499,16 +499,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 70
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3800
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -521,7 +521,7 @@
   long_desc: |
     Don't mess with this animal.
   keywords: ['camel']
-  level: 34
+  level: 5
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -531,16 +531,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

@@ -17,14 +17,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 55
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -42,7 +42,7 @@
     to spring upon you, like a mountain lion stalking its prey.  He sees you
     noticing him, and quietly disappears.
   keywords: ['valley', 'elf']
-  level: 4
+  level: 8
   hp_max: 108
   mp_max: 0
   mv_max: 100
@@ -52,16 +52,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -75,7 +75,7 @@
     This elf is almost as tall as you are, but much slimmer and more agile.
     She glares at you, then quickly disappears before you see more of her.
   keywords: ['valley', 'elf']
-  level: 4
+  level: 8
   hp_max: 108
   mp_max: 0
   mv_max: 100
@@ -85,16 +85,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -108,7 +108,7 @@
     This elf is almost as tall as you are, but much slimmer and more agile.
     He glares at your intrusion and attacks with menace.
   keywords: ['sentry', 'valley', 'elf']
-  level: 2
+  level: 7
   hp_max: 91
   mp_max: 0
   mv_max: 100
@@ -118,16 +118,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 70
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -141,7 +141,7 @@
     This elf is almost as tall as you are, but much slimmer and more agile.
     She glares at your intrusion and attacks with menace.
   keywords: ['sentry', 'valley', 'elf']
-  level: 2
+  level: 7
   hp_max: 91
   mp_max: 0
   mv_max: 100
@@ -151,16 +151,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 70
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -173,7 +173,7 @@
   long_desc: |
     The elf notices your intrusion and attacks with determination.
   keywords: ['scout', 'valley', 'elf']
-  level: 4
+  level: 6
   hp_max: 75
   mp_max: 0
   mv_max: 100
@@ -183,16 +183,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -216,14 +216,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -239,7 +239,7 @@
     This elf looks quite old, probably twenty or more times your age.  He looks
     quite potent, though.
   keywords: ['elder', 'valley', 'elf']
-  level: 2
+  level: 15
   hp_max: 255
   mp_max: 0
   mv_max: 100
@@ -249,16 +249,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -272,7 +272,7 @@
     This elf looks quite old, probably twenty or more times your age.  She looks
     quite potent, though.
   keywords: ['elder', 'valley', 'elf']
-  level: 2
+  level: 15
   hp_max: 255
   mp_max: 0
   mv_max: 100
@@ -282,16 +282,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -305,7 +305,7 @@
     This big beast looks like a small red dragon, but has many more heads than a
     regular dragon, too.  It doesn't look happy.
   keywords: ['pyrohydra', 'pyro', 'hydra']
-  level: 2
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -315,16 +315,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 20
-  damage_bonus: 200
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -337,7 +337,7 @@
   long_desc: |
     He looks old and feeble.
   keywords: ['hermit', 'man', 'old']
-  level: 2
+  level: 3
   hp_max: 39
   mp_max: 0
   mv_max: 100
@@ -347,16 +347,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 33
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -369,7 +369,7 @@
   long_desc: |
     Talemon looks harmless, but the fireballs he throws at you don't.
   keywords: ['talemon', 'wizard', 'mage']
-  level: 2
+  level: 25
   hp_max: 575
   mp_max: 0
   mv_max: 100
@@ -379,16 +379,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -402,7 +402,7 @@
     This daemon is unhappy with its summoned job, and is willing to take out it's
     anger at you!
   keywords: ['guardian', 'daemon']
-  level: 2
+  level: 25
   hp_max: 575
   mp_max: 0
   mv_max: 100
@@ -412,16 +412,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 4
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -434,7 +434,7 @@
   long_desc: |
     The wolf is covered with brown hair.  It looks at you with fright.
   keywords: ['wolf']
-  level: 32
+  level: 4
   hp_max: 50
   mp_max: 0
   mv_max: 100
@@ -444,16 +444,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 40
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'COWARDLY']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -477,14 +477,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 66
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['COWARDLY']
   aggro_range: 0
   experience_value: 600
   gold_min: 0

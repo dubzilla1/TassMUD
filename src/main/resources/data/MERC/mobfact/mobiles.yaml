@@ -6,7 +6,7 @@
     You see a mutant beastly fido, glaring at you with green eyes!  You wonder if
     this factory meets ASPCA guidlines....
   keywords: ['mutant', 'fido', 'dog']
-  level: 8
+  level: 6
   hp_max: 30
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 20
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     of dedicated Mudding!  Rewarded for his years of dedication as a monster
     slayer, Floyd now creates the beasts for other adventurers to fight.
   keywords: ['foreman', 'floyd']
-  level: 2
+  level: 12
   hp_max: 201
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 100
-  damage_bonus: 100
+  base_damage: 7
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -84,14 +84,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 30
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 900
   gold_min: 0
@@ -107,7 +107,7 @@
     You see and smell a drunk who looks much like other drunks...but he is spinning
     in place!  Someone should tell him that he is a REVOLTING drunk.
   keywords: ['revolving', 'drunk']
-  level: 1
+  level: 2
   hp_max: 15
   mp_max: 0
   mv_max: 100
@@ -117,16 +117,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 10
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 100
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -140,7 +140,7 @@
     yick.  Looks like someone had digestion problems!  Either that, or the 
     hydraulic fluid is leaking again.
   keywords: ['toxic', 'slime']
-  level: 6
+  level: 4
   hp_max: 46
   mp_max: 0
   mv_max: 100
@@ -150,16 +150,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 30
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -183,14 +183,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 5
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -216,14 +216,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 5
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0

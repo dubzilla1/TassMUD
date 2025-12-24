@@ -312,6 +312,9 @@ public class ItemDAO {
                     ps.executeUpdate();
                     }
                 }
+                catch(SQLException e) {
+                    System.err.println("[ItemDAO] Failed to load item template (" + name + "_" + id + "): " + e.getMessage());
+                }
                 // After loading all templates, log how many are present
                 try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                     PreparedStatement ps = c.prepareStatement("SELECT COUNT(*) as cnt FROM item_template");

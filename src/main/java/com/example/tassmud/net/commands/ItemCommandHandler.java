@@ -133,11 +133,13 @@ public class ItemCommandHandler implements CommandHandler {
         java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
         java.util.List<Integer> shopkeeperTemplateIds = new java.util.ArrayList<>();
         
+        
         for (Mobile mob : mobsInRoom) {
             if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
                 shopkeeperTemplateIds.add(mob.getTemplateId());
             }
         }
+        
         
         if (shopkeeperTemplateIds.isEmpty()) {
             out.println("There are no shopkeepers here.");

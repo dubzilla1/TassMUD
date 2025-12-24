@@ -6,7 +6,7 @@
     The little tyke looks so innocent playing with his boomerang that you 
     just want to pick him up and hug him.
   keywords: ['child', 'gnome']
-  level: 20
+  level: 3
   hp_max: 44
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 37
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 2000
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -39,7 +39,7 @@
     The woman is short and gnarled, but acts like a woman several times her beauty.
     She's starting to look pretty attractive to you ...
   keywords: ['woman', 'gnome']
-  level: 20
+  level: 5
   hp_max: 77
   mp_max: 0
   mv_max: 100
@@ -49,16 +49,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 70
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 2000
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -72,7 +72,7 @@
     This is a prime example of a gnome.  He looks short and weak, but at the
     same time an intelligent creature who could outsmart you.
   keywords: ['man', 'gnome']
-  level: 4
+  level: 6
   hp_max: 106
   mp_max: 0
   mv_max: 100
@@ -82,16 +82,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 100
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -105,7 +105,7 @@
     You see a gnome who is lost deep into some invention that he is about
     to make.  His hair is white, but he looks fairly strong.
   keywords: ['scientist', 'gnome']
-  level: 6
+  level: 7
   hp_max: 106
   mp_max: 0
   mv_max: 100
@@ -115,16 +115,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 5
-  damage_bonus: 100
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -138,7 +138,7 @@
     This is a well trained gnome.  He might not have a lot of strength but
     he makes up for it with his weapons skill.
   keywords: ['guard', 'gnome']
-  level: 2
+  level: 8
   hp_max: 127
   mp_max: 0
   mv_max: 100
@@ -148,16 +148,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 120
+  base_damage: 3
+  damage_bonus: 2
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -171,7 +171,7 @@
     The Chief looks like he could whap you hard.  He looks not only powerful
     but wise and resourceful.  You better not mess with him.
   keywords: ['chief', 'gnome']
-  level: 2
+  level: 15
   hp_max: 306
   mp_max: 0
   mv_max: 100
@@ -181,16 +181,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 300
+  base_damage: 10
+  damage_bonus: 0
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -204,7 +204,7 @@
     The small troll is a short and stocky beast with a human-like face
     but with the eyes and fangs of a wild beast.
   keywords: ['troll', 'small']
-  level: 38
+  level: 8
   hp_max: 110
   mp_max: 0
   mv_max: 100
@@ -214,16 +214,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 105
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3800
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -236,7 +236,7 @@
   long_desc: |
     The Mouse is a cute little creature.
   keywords: ['mouse', 'field']
-  level: 6
+  level: 1
   hp_max: 15
   mp_max: 0
   mv_max: 100
@@ -246,16 +246,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 10
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -268,7 +268,7 @@
   long_desc: |
     The rat is a little evil creature that deserves death.
   keywords: ['rat']
-  level: 4
+  level: 2
   hp_max: 29
   mp_max: 0
   mv_max: 100
@@ -278,16 +278,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 24
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -310,14 +310,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 48
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -332,7 +332,7 @@
   long_desc: |
     This rat has grown up to be the size of an average dog.
   keywords: ['rat', 'giant']
-  level: 4
+  level: 6
   hp_max: 78
   mp_max: 0
   mv_max: 100
@@ -342,16 +342,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 72
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -365,7 +365,7 @@
     You see before you a huge mass of living flesh.  You cringe in fear as
     he lifts his powerful arm to bludgeon you.
   keywords: ['troll']
-  level: 34
+  level: 14
   hp_max: 169
   mp_max: 0
   mv_max: 100
@@ -375,16 +375,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 160
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -407,14 +407,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 70
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -440,14 +440,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 90
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -463,7 +463,7 @@
     You see a huge flame which resembles the shape of a bat.  The creature
     hangs from the ceiling and bites at you.
   keywords: ['bat', 'fire']
-  level: 38
+  level: 12
   hp_max: 157
   mp_max: 0
   mv_max: 100
@@ -473,16 +473,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 150
+  base_damage: 5
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3800
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -496,7 +496,7 @@
     This is an extra large, extra ugly goblin like creature.  He grins evilly
     as he attempts to brain you.
   keywords: ['guard', 'hobgoblin']
-  level: 34
+  level: 6
   hp_max: 108
   mp_max: 0
   mv_max: 100
@@ -506,16 +506,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 102
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -529,7 +529,7 @@
     This is just a low life hobgoblin, who couldn't make it to the ranks
     of the elite guards.  He looks pissed.
   keywords: ['soldier', 'hobgoblin']
-  level: 34
+  level: 3
   hp_max: 43
   mp_max: 0
   mv_max: 100
@@ -539,16 +539,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 36
+  base_damage: 7
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -562,7 +562,7 @@
     This is one of the elite hobgoblin guards.  He stands tall for his short
     stature.  He grins a toothy grin as he prepares to attack.
   keywords: ['bodyguard', 'hobgoblin']
-  level: 2
+  level: 7
   hp_max: 91
   mp_max: 0
   mv_max: 100
@@ -572,16 +572,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 85
+  base_damage: 7
+  damage_bonus: 2
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -595,7 +595,7 @@
     The king is a silly looking hobgoblin whose muscles bulge out of his robes,
     destroying the sophisticated effect he was trying to create.
   keywords: ['king', 'hobgoblin']
-  level: 2
+  level: 12
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -605,16 +605,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 148
+  base_damage: 7
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -627,7 +627,7 @@
   long_desc: |
     The miner is totally covered in dust.
   keywords: ['miner', 'hobgoblin']
-  level: 6
+  level: 5
   hp_max: 66
   mp_max: 0
   mv_max: 100
@@ -637,16 +637,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 60
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -660,7 +660,7 @@
     The hobgoblin treasurer is an old goblin with glasses.  It appears that he
     can only see a couple feet in front of him.
   keywords: ['treasurer', 'hobgoblin']
-  level: 6
+  level: 10
   hp_max: 129
   mp_max: 0
   mv_max: 100
@@ -670,16 +670,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 120
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -692,7 +692,7 @@
   long_desc: |
     The prisoner is just barely alive.
   keywords: ['prisoner', 'gnome']
-  level: 6
+  level: 3
   hp_max: 19
   mp_max: 0
   mv_max: 100
@@ -702,16 +702,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -724,7 +724,7 @@
   long_desc: |
     The prisoner is just barely alive.
   keywords: ['prisoner', 'human']
-  level: 6
+  level: 3
   hp_max: 19
   mp_max: 0
   mv_max: 100
@@ -734,16 +734,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -757,7 +757,7 @@
     The hermit crab is about 5 feet high and looks mad that you had the nerve
     to wake it up.
   keywords: ['hermit', 'crab']
-  level: 38
+  level: 5
   hp_max: 67
   mp_max: 0
   mv_max: 100
@@ -767,16 +767,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 61
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3800
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -790,7 +790,7 @@
     The cook is a dirty and fat hobgoblin.  He burps as he stirs up something
     in a pot.
   keywords: ['cook', 'hobgoblin']
-  level: 6
+  level: 7
   hp_max: 91
   mp_max: 0
   mv_max: 100
@@ -800,16 +800,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 85
+  base_damage: 7
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

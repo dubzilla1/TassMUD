@@ -36,7 +36,7 @@ rooms:
         key: -1
       up:
         to: 6524
-        description: "\* closes exit from north entrance *\"
+        description: "closes exit from north entrance"
         keywords: ""
         state: OPEN
         locked: false
@@ -1292,7 +1292,7 @@ rooms:
         key: -1
       south:
         to: 2032
-        description: "\* closes and locks entrance to sacred place *\"
+        description: "closes and locks entrance to sacred place"
         keywords: ""
         state: CLOSED
         locked: false
@@ -1467,7 +1467,7 @@ rooms:
     doors:
       north:
         to: 2028
-        description: "\* closes and locks exit from sacred place *\"
+        description: "closes and locks exit from sacred place"
         keywords: ""
         state: CLOSED
         locked: false
@@ -2960,7 +2960,7 @@ rooms:
     doors:
       up:
         to: 6527
-        description: "\* closes exit from south entrance *\"
+        description: "closes exit from south entrance"
         keywords: ""
         state: OPEN
         locked: false

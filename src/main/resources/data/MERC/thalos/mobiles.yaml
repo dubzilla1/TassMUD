@@ -7,7 +7,7 @@
     eyestalks atop the round body which can do anything from charm you
     to disintegrate you.  Beholders are not known for their personality.
   keywords: ['beholder']
-  level: 8
+  level: 25
   hp_max: 575
   mp_max: 0
   mv_max: 100
@@ -17,16 +17,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -50,14 +50,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 99
+  base_damage: 5
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 900
   gold_min: 0
@@ -73,7 +73,7 @@
     A strong, wooden chest bound with iron straps and a heavy pad-lock on the
     front.
   keywords: ['mimic', 'chest']
-  level: 10
+  level: 11
   hp_max: 176
   mp_max: 0
   mv_max: 100
@@ -83,16 +83,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 7
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 1000
+  experience_value: 1100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -104,7 +104,7 @@
   short_desc: Two skeletons lie crushed under a large boulder.
   long_desc: |
   keywords: ['mimic', 'boulder']
-  level: 10
+  level: 11
   hp_max: 176
   mp_max: 0
   mv_max: 100
@@ -114,16 +114,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 1000
+  experience_value: 1100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -145,14 +145,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 6
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1100
   gold_min: 0
@@ -176,14 +176,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1100
   gold_min: 0
@@ -207,14 +207,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 3
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1100
   gold_min: 0
@@ -239,14 +239,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 30
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['COWARDLY']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -262,7 +262,7 @@
     It is a big chunk of rock that has been magically formed into a giant
     stone creature. He stands here still guarding the city.
   keywords: ['golem', 'stone']
-  level: 2
+  level: 25
   hp_max: 633
   mp_max: 0
   mv_max: 100
@@ -272,16 +272,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 600
+  base_damage: 7
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

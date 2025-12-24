@@ -17,14 +17,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 48
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -39,7 +39,7 @@
   long_desc: |
     Maggots crawl all over its decaying body.
   keywords: ['zombie']
-  level: 34
+  level: 4
   hp_max: 67
   mp_max: 0
   mv_max: 100
@@ -49,16 +49,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -72,7 +72,7 @@
     It is a walking corpse with long fangs and long, sharp nails that most of
     resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
   keywords: ['ghoul']
-  level: 34
+  level: 6
   hp_max: 79
   mp_max: 0
   mv_max: 100
@@ -82,16 +82,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 72
+  base_damage: 10
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -105,7 +105,7 @@
     The dusty bones are almost brown.  It must have been buried for a very long
     time.
   keywords: ['skeleton']
-  level: 34
+  level: 3
   hp_max: 42
   mp_max: 0
   mv_max: 100
@@ -115,16 +115,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 36
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -138,7 +138,7 @@
     The dusty bones are almost brown.  It must have been buried for a very long
     time.
   keywords: ['skeleton']
-  level: 32
+  level: 3
   hp_max: 42
   mp_max: 0
   mv_max: 100
@@ -148,16 +148,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 36
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -170,7 +170,7 @@
   long_desc: |
     Maggots crawl all over its decaying body.
   keywords: ['zombie']
-  level: 32
+  level: 4
   hp_max: 67
   mp_max: 0
   mv_max: 100
@@ -180,16 +180,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

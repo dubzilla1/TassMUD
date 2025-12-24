@@ -6,7 +6,7 @@
     Brown bones with tufts of clothing still hanging from them.  This
     skeleton looks very mindless but still dangerous ...
   keywords: ['skeleton', 'bony']
-  level: 32
+  level: 1
   hp_max: 20
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 19
+  base_damage: 6
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     quite different from the next because they were, of course, once alive and
     human.
   keywords: ['undead', 'zombie']
-  level: 34
+  level: 4
   hp_max: 50
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 49
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -73,7 +73,7 @@
     The ghoul no longer resembles the adventurer he once was.  Nonetheless
     he looks like he hasn't forgot his fighting skills.
   keywords: ['undead', 'ghoul']
-  level: 32
+  level: 6
   hp_max: 80
   mp_max: 0
   mv_max: 100
@@ -83,16 +83,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 79
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -107,7 +107,7 @@
     black robe which hides all but the darkness of his face and the glimmer
     in his eyes.
   keywords: ['undead', 'wraith']
-  level: 34
+  level: 12
   hp_max: 150
   mp_max: 0
   mv_max: 100
@@ -117,16 +117,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 149
+  base_damage: 6
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -140,7 +140,7 @@
     The guardian vampire looks quite EVIL.  Just by looking at him the hair on your
     arms raises. He looks mighty tough to be just a minor minion.
   keywords: ['undead', 'guardian', 'vampire']
-  level: 2
+  level: 28
   hp_max: 386
   mp_max: 0
   mv_max: 100
@@ -150,16 +150,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 385
+  base_damage: 5
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -184,12 +184,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -210,7 +210,7 @@
     multitudes of very small antennae, where a head would ordinarily be.  These
     beings sometimes walk on all their legs and sometimes on the hind pair only.
   keywords: ['Mi-Go', 'Fungi']
-  level: 32
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -220,16 +220,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 7
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -256,14 +256,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -282,7 +282,7 @@
     and writhing, so it is hard to look at them.  They speak in great harsh
     voices.  A hunting horror is HUGE, normally around 40 feet long.
   keywords: ['hunting', 'horror']
-  level: 32
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -292,16 +292,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 6
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -314,7 +314,7 @@
   long_desc: |
     Just some unpleasant looking vine-like growths ...
   keywords: ['weeds']
-  level: 36
+  level: 6
   hp_max: 76
   mp_max: 0
   mv_max: 100
@@ -324,16 +324,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 75
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -348,7 +348,7 @@
     bright red hair. Half his face is burnt off and he has a perpetual smile.
     He is called up from his service in hell in order to aid the Undying One.
   keywords: ['snapper', 'joe']
-  level: 2
+  level: 20
   hp_max: 366
   mp_max: 0
   mv_max: 100
@@ -358,16 +358,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 365
+  base_damage: 3
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -384,7 +384,7 @@
     It has dog-like face except ... different.  Bright glowing eyes and a grimace
     lead you to believe that he knew that you were coming.
   keywords: ['X-ist', 'eater']
-  level: 34
+  level: 17
   hp_max: 216
   mp_max: 0
   mv_max: 100
@@ -394,16 +394,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 215
+  base_damage: 2
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -422,7 +422,7 @@
         anyone that can hear. The peace of the grave
         calls me but I am blocked from its quiet.
   keywords: ['spirit', 'ghost', 'king', 'crotus']
-  level: 2
+  level: 20
   hp_max: 261
   mp_max: 0
   mv_max: 100
@@ -432,16 +432,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 260
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -454,7 +454,7 @@
   long_desc: |
     It is a large brownish slug.  Got any salt?  Didn't think so ...
   keywords: ['rock', 'slug']
-  level: 4
+  level: 3
   hp_max: 43
   mp_max: 0
   mv_max: 100
@@ -464,16 +464,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 42
+  base_damage: 7
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -496,7 +496,7 @@
     
     And on he babbles ...
   keywords: ['etcher']
-  level: 1
+  level: 5
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -506,16 +506,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 80
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 100
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -532,7 +532,7 @@
     insanely at you thru a broken jaw and missing teeth.  One hand of hers is
     resting on the shoulder of the etcher ... her husband.
   keywords: ['wife', 'ghost', 'specter']
-  level: 2
+  level: 7
   hp_max: 87
   mp_max: 0
   mv_max: 100
@@ -542,16 +542,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 86
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -564,7 +564,7 @@
   long_desc: |
     YUK! It's ugly, disgusting ... it smells ... it also moves a bit!
   keywords: ['body']
-  level: 36
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -574,16 +574,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 80
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

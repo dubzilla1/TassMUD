@@ -5,7 +5,7 @@
   long_desc: |
     This is a young but not totally harmless creature.
   keywords: ['youth', 'dwarven', 'dwarf']
-  level: 5
+  level: 3
   hp_max: 32
   mp_max: 0
   mv_max: 100
@@ -15,16 +15,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 30
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 500
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -47,14 +47,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 10
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -79,14 +79,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 5
-  damage_bonus: 19
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -111,14 +111,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 26
+  base_damage: 3
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -144,14 +144,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 25
+  base_damage: 5
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -166,7 +166,7 @@
   long_desc: |
     This doll has been hugged and played with until there is almost nothing left.
   keywords: ['doll', 'old']
-  level: 2
+  level: 1
   hp_max: 6
   mp_max: 0
   mv_max: 100
@@ -180,12 +180,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 1
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -199,7 +199,7 @@
     You see an old dwarven lady who has been hunched over with age.  However, it
     appears that there is still some fight left in her.
   keywords: ['nanny']
-  level: 10
+  level: 5
   hp_max: 60
   mp_max: 0
   mv_max: 100
@@ -209,16 +209,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 50
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 1000
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -242,14 +242,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 5
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -275,14 +275,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 15
+  base_damage: 2
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 100
   gold_min: 0

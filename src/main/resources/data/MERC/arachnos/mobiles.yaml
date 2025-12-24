@@ -6,7 +6,7 @@
     He looks freshly hatched and sprightly.  His young fangs are just
     growing in as of late.
   keywords: ['spider', 'young']
-  level: 8
+  level: 5
   hp_max: 62
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 50
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -38,7 +38,7 @@
   long_desc: |
     Old, scaly, but still with a lot of bite in him left.
   keywords: ['dragon', 'Yevaud']
-  level: 8
+  level: 24
   hp_max: 540
   mp_max: 0
   mv_max: 100
@@ -48,16 +48,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 24
-  damage_bonus: 240
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -70,7 +70,7 @@
   long_desc: |
     The Wolf Spider is hairy, very hairy.
   keywords: ['spider', 'wolf']
-  level: 34
+  level: 6
   hp_max: 83
   mp_max: 0
   mv_max: 100
@@ -80,16 +80,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 70
+  base_damage: 5
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -102,7 +102,7 @@
   long_desc: |
     You notice an evil look in his eyes.
   keywords: ['orc']
-  level: 2
+  level: 5
   hp_max: 41
   mp_max: 0
   mv_max: 100
@@ -112,16 +112,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 30
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -134,7 +134,7 @@
   long_desc: |
     You notice a glazed look in her eyes.
   keywords: ['wasp', 'queen']
-  level: 34
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -144,16 +144,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 8
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -176,14 +176,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -208,14 +208,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -240,14 +240,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 8
-  damage_bonus: 80
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -273,14 +273,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 8
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -295,7 +295,7 @@
   long_desc: |
     The Bird Spider has very powerful jaws.
   keywords: ['spider', 'bird']
-  level: 34
+  level: 14
   hp_max: 245
   mp_max: 0
   mv_max: 100
@@ -305,16 +305,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 9
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -328,7 +328,7 @@
     A dishevelled veteran warrior in disguise is what he is, but he
     means well.
   keywords: ['hermit']
-  level: 6
+  level: 7
   hp_max: 96
   mp_max: 0
   mv_max: 100
@@ -338,16 +338,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 80
+  base_damage: 5
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -360,7 +360,7 @@
   long_desc: |
     He delves deeper into you as you stare at him.
   keywords: ['donjonkeeper']
-  level: 6
+  level: 25
   hp_max: 575
   mp_max: 0
   mv_max: 100
@@ -370,16 +370,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 8
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -402,14 +402,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 8
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'LOCAL']
   aggro_range: 0
   experience_value: 1700
   gold_min: 0
@@ -427,7 +427,7 @@
     fangs of normal spiders, but then, as you realize, she does not need
     them.
   keywords: ['spider', 'empress', 'arachnos']
-  level: 34
+  level: 26
   hp_max: 611
   mp_max: 0
   mv_max: 100
@@ -437,16 +437,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 26
-  damage_bonus: 260
+  base_damage: 8
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -460,7 +460,7 @@
     She is the last bastion of good in this realm.  Her mission is to
     someday free the slaves of the Empress.
   keywords: ['ki-rin']
-  level: 6
+  level: 26
   hp_max: 611
   mp_max: 0
   mv_max: 100
@@ -470,16 +470,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 26
-  damage_bonus: 260
+  base_damage: 4
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 600
+  experience_value: 2600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -492,7 +492,7 @@
   long_desc: |
     Rather small, you almost feel sad in killing it.
   keywords: ['dragon', 'wormkin', 'young']
-  level: 3
+  level: 10
   hp_max: 175
   mp_max: 0
   mv_max: 100
@@ -502,16 +502,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 120
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 300
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -524,7 +524,7 @@
   long_desc: |
     A medium-sized dragon--seems it hasn't killed anything yet by itself.
   keywords: ['dragon', 'wormkin', 'medium']
-  level: 3
+  level: 13
   hp_max: 241
   mp_max: 0
   mv_max: 100
@@ -534,16 +534,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 150
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 300
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -568,14 +568,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -592,7 +592,7 @@
     huge, hairy legs that would give it a tremendous speed on almost any surface
     if it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.
   keywords: ['queen', 'spider']
-  level: 8
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -602,16 +602,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

@@ -6,7 +6,7 @@
     This small dragon hisses at you as you enter the room.  Although it is only a
     few feet long, its sharp teeth make you think twice about petting it.
   keywords: ['hatchling', 'dragon', 'baby']
-  level: 2
+  level: 7
   hp_max: 118
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 8
-  damage_bonus: 100
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     has black scales and a seven foot wingspan.  He scowls at you and hefts his 
     spear as you enter the room.
   keywords: ['draconian']
-  level: 2
+  level: 13
   hp_max: 221
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -72,7 +72,7 @@
   long_desc: |
     He doesn't look happy to see you.
   keywords: ['master']
-  level: 2
+  level: 27
   hp_max: 648
   mp_max: 0
   mv_max: 100
@@ -82,16 +82,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 27
-  damage_bonus: 270
+  base_damage: 6
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -106,7 +106,7 @@
     surprised at the fact that he is human, and realize that he must be very
     powerful to have been accepted by the creatures which live here.
   keywords: ['man', 'mage', 'wizard']
-  level: 2
+  level: 22
   hp_max: 473
   mp_max: 0
   mv_max: 100
@@ -116,16 +116,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 22
-  damage_bonus: 220
+  base_damage: 8
+  damage_bonus: 10
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -139,7 +139,7 @@
     A Draconian stands here, dressed in simple robes.  Around his neck you 
     notice a golden medallion in the shape of a five headed dragon.
   keywords: ['cleric', 'draconian']
-  level: 2
+  level: 22
   hp_max: 473
   mp_max: 0
   mv_max: 100
@@ -149,16 +149,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 22
-  damage_bonus: 220
+  base_damage: 5
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -173,7 +173,7 @@
     though he could crush your head with a single blow.  Yet you sense that he 
     is controlled by a greater power.
   keywords: ['king', 'draconian']
-  level: 2
+  level: 26
   hp_max: 611
   mp_max: 0
   mv_max: 100
@@ -183,16 +183,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 26
-  damage_bonus: 260
+  base_damage: 8
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -207,7 +207,7 @@
     all.  You find yourself strangely repulsed as she draws a knife and 
     prepares to defend herself.
   keywords: ['concubine', 'draconian']
-  level: 2
+  level: 6
   hp_max: 83
   mp_max: 0
   mv_max: 100
@@ -217,16 +217,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 50
+  base_damage: 3
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -240,7 +240,7 @@
     This creature has devoted its life to defending the king.  Your intrusion has
     not pleased it.
   keywords: ['bodyguard', 'draconian']
-  level: 2
+  level: 18
   hp_max: 351
   mp_max: 0
   mv_max: 100
@@ -250,16 +250,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 6
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -273,7 +273,7 @@
     You see before you the master of this Tower, Tiamat.  She frowns at you as she
     prepares to make you pay for your insolence ... with your lives!
   keywords: ['tiamat', 'dragon']
-  level: 2
+  level: 35
   hp_max: 1630
   mp_max: 0
   mv_max: 100
@@ -283,16 +283,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 35
-  damage_bonus: 1000
+  base_damage: 9
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -306,7 +306,7 @@
     This huge red dragon dominates the chamber.  As you turn to flee, he grins at
     you and invites you to stay ... forever!
   keywords: ['dragon', 'red']
-  level: 2
+  level: 27
   hp_max: 648
   mp_max: 0
   mv_max: 100
@@ -316,16 +316,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 27
-  damage_bonus: 270
+  base_damage: 8
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -339,7 +339,7 @@
     This huge black wyrm laughs at your puny weapons.  You realize that he is not
     going to roll over and die for you.
   keywords: ['dragon', 'black']
-  level: 2
+  level: 26
   hp_max: 611
   mp_max: 0
   mv_max: 100
@@ -349,16 +349,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 26
-  damage_bonus: 260
+  base_damage: 8
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -373,7 +373,7 @@
     dragons, you are not afraid.  She smiles at you and says 'I think you will find
     me a greater challenge than my offspring.'
   keywords: ['dragon', 'white']
-  level: 2
+  level: 27
   hp_max: 648
   mp_max: 0
   mv_max: 100
@@ -383,16 +383,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 27
-  damage_bonus: 270
+  base_damage: 8
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -407,7 +407,7 @@
     She looks at you with sorrow in her eyes and says 'You have slaughtered my 
     children.  Prepare to die.'
   keywords: ['dragon', 'green']
-  level: 2
+  level: 31
   hp_max: 806
   mp_max: 0
   mv_max: 100
@@ -417,16 +417,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 31
-  damage_bonus: 310
+  base_damage: 8
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -440,7 +440,7 @@
     A hydra is here, guarding the entrance to a sealed vault.  You have the feeling
     it isn't happy to see you.
   keywords: ['hydra']
-  level: 2
+  level: 18
   hp_max: 351
   mp_max: 0
   mv_max: 100
@@ -450,16 +450,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 8
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -473,7 +473,7 @@
     He looks like he's under a lot of stress.  He would probably like it if you
     left him alone.
   keywords: ['slave', 'human']
-  level: 2
+  level: 5
   hp_max: 55
   mp_max: 0
   mv_max: 100
@@ -483,16 +483,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 50
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -506,7 +506,7 @@
     This used to be one of the warriors of this tribe.  He was denied his final
     rest, however, and now guards this corridor tirelessly as a zombie.
   keywords: ['zombie', 'draconian']
-  level: 2
+  level: 9
   hp_max: 225
   mp_max: 0
   mv_max: 100
@@ -516,16 +516,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 100
-  damage_bonus: 175
+  base_damage: 8
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -538,7 +538,7 @@
   long_desc: |
     This small dragon looks like he's up to no good.
   keywords: ['dragon', 'phase']
-  level: 4
+  level: 10
   hp_max: 205
   mp_max: 0
   mv_max: 100
@@ -548,16 +548,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 150
+  base_damage: 6
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -581,14 +581,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 50
+  base_damage: 3
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -604,7 +604,7 @@
     This draconian looks VERY busy as she orders her slaves around.  You think 
     it might be a good idea to leave her alone.
   keywords: ['queen', 'draconian']
-  level: 2
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -614,16 +614,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

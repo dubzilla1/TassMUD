@@ -4,7 +4,7 @@ Parse MERC #SHOPS and #RESETS to emit per-area shops.yaml
 Produces `src/main/resources/data/MERC/<area>/shops.yaml` containing:
 
 shops:
-  - keeper: <mob_vnum>
+  - mob_template_id: <mob_vnum>
     trades: [t0,t1,...]
     profit_buy: <int>
     profit_sell: <int>
@@ -14,7 +14,7 @@ shops:
     items: [item_vnum,...]
 
 This script collects items given to mobs via G and P resets in #RESETS
-and attaches them to the shop definitions for keeper vnums listed in
+and attaches them to the shop definitions for mob_template_id vnums listed in
 #SHOPS. It keeps things simple: no pricing math, no limits, just lists.
 """
 import os
@@ -94,7 +94,7 @@ def parse_resets_for_shops(lines):
 def parse_shops(lines):
     """Return list of shop entries parsed from #SHOPS.
 
-    Each entry: dict with keys keeper, trades(list), profit_buy, profit_sell, open, close, comment
+    Each entry: dict with keys mob_template_id, trades(list), profit_buy, profit_sell, open, close, comment
     """
     i = 0
     n = len(lines)
@@ -126,7 +126,7 @@ def parse_shops(lines):
         if len(toks) < 9:
             continue
         try:
-            keeper = int(toks[0])
+            mob_template_id = int(toks[0])
             trades = [int(toks[1]), int(toks[2]), int(toks[3]), int(toks[4]), int(toks[5])]
             profit_buy = int(toks[6])
             profit_sell = int(toks[7])
@@ -134,7 +134,7 @@ def parse_shops(lines):
             close_h = int(toks[9]) if len(toks) > 9 else 23
         except Exception:
             continue
-        shops.append({'keeper': keeper, 'trades': trades, 'profit_buy': profit_buy,
+        shops.append({'mob_template_id': mob_template_id, 'trades': trades, 'profit_buy': profit_buy,
                       'profit_sell': profit_sell, 'open': open_h, 'close': close_h, 'comment': comment})
     return shops
 
@@ -144,7 +144,8 @@ def write_yaml(area_name, shops, mob_map, out_path):
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write('shops:\n')
         for s in shops:
-            f.write('  - keeper: %d\n' % s['keeper'])
+            f.write('  - id: %d\n' % s['mob_template_id'])
+            f.write('    mob_template_id: %d\n' % s['mob_template_id'])
             f.write('    trades: [%s]\n' % (', '.join(str(t) for t in s['trades'])))
             f.write('    profit_buy: %d\n' % s['profit_buy'])
             f.write('    profit_sell: %d\n' % s['profit_sell'])
@@ -152,7 +153,7 @@ def write_yaml(area_name, shops, mob_map, out_path):
             f.write('    close: %d\n' % s['close'])
             safe = s['comment'].replace('"', '\\"') if s.get('comment') else ''
             f.write('    comment: "%s"\n' % safe)
-            items = mob_map.get(s['keeper'], [])
+            items = mob_map.get(s['mob_template_id'], [])
             f.write('    items: [%s]\n' % (', '.join(str(it) for it in items)))
             f.write('\n')
 

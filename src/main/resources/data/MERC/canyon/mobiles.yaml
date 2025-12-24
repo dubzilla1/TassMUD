@@ -15,14 +15,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 15
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -47,14 +47,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 1100
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 2200
   gold_min: 0
@@ -79,14 +79,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 0
+  base_damage: 3
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -101,7 +101,7 @@
   long_desc: |
     You can't tell which kind of elemental it is, maybe it's a bit o' all of them?
   keywords: ['elemental', 'guardian']
-  level: 2
+  level: 20
   hp_max: 1000
   mp_max: 0
   mv_max: 100
@@ -111,16 +111,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 0
-  damage_bonus: 1000
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -143,14 +143,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 0
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -175,14 +175,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 125
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -197,7 +197,7 @@
   long_desc: |
     A large elemental, a resident of the canyon.
   keywords: ['large', 'elemental']
-  level: 20
+  level: 15
   hp_max: 245
   mp_max: 0
   mv_max: 100
@@ -207,16 +207,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 190
+  base_damage: 8
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 2000
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -231,7 +231,7 @@
     secrets and knowledge of the Earth.  You can't really tell where 
     he begins and the rock wall ends.
   keywords: ['earth', 'elemental', 'ruler']
-  level: 2
+  level: 30
   hp_max: 1465
   mp_max: 0
   mv_max: 100
@@ -241,16 +241,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 33
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 1000
+  base_damage: 6
+  damage_bonus: 25
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -263,7 +263,7 @@
   long_desc: |
     As you look at him he seems to blend in with the fire in his throne.
   keywords: ['fire', 'elemental', 'ruler']
-  level: 2
+  level: 30
   hp_max: 1465
   mp_max: 0
   mv_max: 100
@@ -273,16 +273,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 1000
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -295,7 +295,7 @@
   long_desc: |
     As you peer at him you seem to be looking at the sky itself.
   keywords: ['air', 'elemental', 'ruler']
-  level: 2
+  level: 30
   hp_max: 1465
   mp_max: 0
   mv_max: 100
@@ -305,16 +305,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 1000
+  base_damage: 3
+  damage_bonus: 9
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -328,7 +328,7 @@
     As you examine him there is a blinding flash of light and a deafening boom!
     You rub your eyes and look and the ruler is there grinning at you.
   keywords: ['lightning', 'elemental', 'ruler']
-  level: 2
+  level: 30
   hp_max: 1465
   mp_max: 0
   mv_max: 100
@@ -338,16 +338,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 26
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 1000
+  base_damage: 6
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -361,7 +361,7 @@
     As you look at him he changes to mist, which swirls around you.  Just
     as you get scared, it reforms in elemental form.
   keywords: ['water', 'elemental', 'ruler']
-  level: 2
+  level: 30
   hp_max: 1465
   mp_max: 0
   mv_max: 100
@@ -371,16 +371,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 1000
+  base_damage: 3
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -403,14 +403,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 200
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -435,14 +435,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
+  base_damage: 4
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -467,14 +467,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 5
-  damage_bonus: 30
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -499,14 +499,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 5
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -531,14 +531,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 0
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -563,14 +563,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 120
+  base_damage: 2
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 900
   gold_min: 0
@@ -595,14 +595,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 120
+  base_damage: 2
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -627,14 +627,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 86
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -643,17 +643,44 @@
   legacy_raw: 64 0 0 S 7 14 4 1d12+86 2d4+1 400 1000 8 8 0
 
 - id: 9222
-  key: the_magical_mist_is_a_cross_between_water_and_air_9222
-  name: The magical mist is a cross between water and air.
-  short_desc: The magical mist is a cross between water and air.
+  key: the_air_is_magically_misty_here_9222
+  name: The air is magically misty here.
+  short_desc: The air is magically misty here.
   long_desc: |
-    64 0 0 S
-    6 16 50 6d10+20 1d8+0
-    300 1000
-    8 8 0
-    #9223
-    particle elemental
+    The magical mist is a cross between water and air.
   keywords: ['mist', 'elemental']
+  level: 6
+  hp_max: 53
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: -30
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 8
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['LOCAL']
+  aggro_range: 0
+  experience_value: 600
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 64 0 0 S 6 16 50 6d10+20 1d8+0 300 1000 8 8 0
+
+- id: 9223
+  key: a_particle_9223
+  name: a particle
+  short_desc: A sub-atomic particle is too small for you to see.
+  long_desc: |
+    The magical manifestation of energy.
+  keywords: ['particle', 'elemental']
   level: 5
   hp_max: 82
   mp_max: 0
@@ -664,20 +691,20 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 70
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  legacy_raw: a particle~ A sub-atomic particle is too small for you to see. ~ The magical manifestation of energy. ~ 64 0 0 S 5 16 6 5d4+70 1d5+5 10 800 8 8 0
+  legacy_raw: 64 0 0 S 5 16 6 5d4+70 1d5+5 10 800 8 8 0
 
 - id: 9224
   key: a_dust_cloud_9224
@@ -696,14 +723,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 4
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -728,14 +755,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
+  base_damage: 6
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -761,14 +788,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 100
-  damage_bonus: 550
+  base_damage: 3
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 2600
   gold_min: 0
@@ -793,14 +820,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 350
+  base_damage: 8
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 2200
   gold_min: 0
@@ -815,7 +842,7 @@
   long_desc: |
     A humanoid figure encased in ice but still apparently alive.
   keywords: ['ice', 'bandit']
-  level: 2
+  level: 24
   hp_max: 491
   mp_max: 0
   mv_max: 100
@@ -825,16 +852,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 480
+  base_damage: 8
+  damage_bonus: 13
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -857,14 +884,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 26
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 550
+  base_damage: 8
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 2300
   gold_min: 0
@@ -879,7 +906,7 @@
   long_desc: |
     A humanoid figure is trapped in the rushing wind.
   keywords: ['hurricane']
-  level: 10
+  level: 28
   hp_max: 700
   mp_max: 0
   mv_max: 100
@@ -889,16 +916,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 0
-  damage_bonus: 700
+  base_damage: 6
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 1000
+  experience_value: 2800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -912,7 +939,7 @@
     The elemental magician has come here in search of the fabled
     Stone of Surrender which can be used to render opponents senseless.
   keywords: ['magician']
-  level: 2
+  level: 17
   hp_max: 206
   mp_max: 0
   mv_max: 100
@@ -922,16 +949,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 200
+  base_damage: 5
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -955,14 +982,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 0
-  damage_bonus: 340
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 1800
   gold_min: 0
@@ -971,18 +998,47 @@
   legacy_raw: 64 0 150 S 18 1 0 0d0+340 3d6+4 8000 35000 8 8 0
 
 - id: 9233
-  key: an_illusionist_the_illusionist_seeks_the_aid_of_the_elemental_forces_9233
-  name: an illusionist~	 The illusionist seeks the aid of the elemental forces.
-  short_desc: He seeks their aid for a powerful new spell of deception.  <wielded>            The Sword of Illusions
+  key: the_illusionist_seeks_the_aid_of_the_elemental_forces_9233
+  name: The illusionist seeks the aid of the elemental forces.
+  short_desc: The illusionist seeks the aid of the elemental forces.
   long_desc: |
-    66 0 -50 S
-    12 10 3 10d6+150 2d7+0
-    1900 13900
-    8 8 0
-    #9234
-    alchemist
+    He seeks their aid for a powerful new spell of deception.
+    
+    <wielded>            The Sword of Illusions
   keywords: ['illusionist']
-  level: 50
+  level: 12
+  hp_max: 185
+  mp_max: 0
+  mv_max: 100
+  str: 10
+  dex: 10
+  con: 10
+  intel: 10
+  wis: 10
+  cha: 10
+  armor: 17
+  fortitude: 0
+  reflex: 0
+  will: 0
+  base_damage: 7
+  damage_bonus: 0
+  attack_bonus: 0
+  behaviors: ['SENTINEL', 'LOCAL']
+  aggro_range: 0
+  experience_value: 1200
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+  legacy_raw: 66 0 -50 S 12 10 3 10d6+150 2d7+0 1900 13900 8 8 0
+
+- id: 9234
+  key: an_alchemist_9234
+  name: an alchemist
+  short_desc: An alchemist wanders by in search of magical herbs.
+  long_desc: |
+    Rare herbs are rumored to grow only in the canyon.
+  keywords: ['alchemist']
+  level: 13
   hp_max: 271
   mp_max: 0
   mv_max: 100
@@ -992,20 +1048,20 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 270
+  base_damage: 7
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 5000
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
-  legacy_raw: an alchemist~ An alchemist wanders by in search of magical herbs. ~ Rare herbs are rumored to grow only in the canyon. ~ 64 0 -50 S 13 8 1 1d2+270 2d7+1 1900 15000 8 8 0
+  legacy_raw: 64 0 -50 S 13 8 1 1d2+270 2d7+1 1900 15000 8 8 0
 
 - id: 9235
   key: a_baby_rainbow_dragon_9235
@@ -1014,7 +1070,7 @@
   long_desc: |
     It's only a baby by dragon standards.
   keywords: ['baby', 'rainbow', 'dragon']
-  level: 40
+  level: 16
   hp_max: 400
   mp_max: 0
   mv_max: 100
@@ -1024,16 +1080,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 0
-  damage_bonus: 400
+  base_damage: 16
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 4000
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1046,7 +1102,7 @@
   long_desc: |
     The little bugger steals stuff and is generally obnoxious.
   keywords: ['imp']
-  level: 4
+  level: 5
   hp_max: 105
   mp_max: 0
   mv_max: 100
@@ -1056,16 +1112,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1078,7 +1134,7 @@
   long_desc: |
     HUGE, need i say more?
   keywords: ['HUGE', 'elemental']
-  level: 30
+  level: 20
   hp_max: 750
   mp_max: 0
   mv_max: 100
@@ -1088,16 +1144,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 0
-  damage_bonus: 750
+  base_damage: 6
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 3000
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1120,14 +1176,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 0
-  damage_bonus: 10000
+  damage_bonus: 300
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'SHOPKEEPER']
   aggro_range: 0
   experience_value: 3000
   gold_min: 0

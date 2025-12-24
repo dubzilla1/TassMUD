@@ -1,7 +1,9 @@
 param(
     [switch]$NoBuild,
     [switch]$Clean,
-    [int]$Port = 4003
+    [int]$Port = 4003,
+    [switch]$Debug,
+    [int]$DebugPort = 5005
 )
 
 try {
@@ -12,6 +14,9 @@ if ($args -contains "--nobuild") {
 }
 if ($args -contains "--clean") {
     $Clean = $true
+}
+if ($args -contains "--debug") {
+    $Debug = $true
 }
 
 # 1) Stop existing TassMUD java processes (match jar name, command-line or port)
@@ -136,6 +141,13 @@ if ($env:JAVA_HOME) {
     if (Test-Path $candidate) { $javaExe = $candidate }
 }
 
+# Prepare debug options if requested
+$debugArgs = ""
+if ($Debug) {
+    Write-Host "Starting JVM in debug mode (JDWP) on port $DebugPort"
+    $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=$DebugPort"
+}
+
 # Start via cmd.exe so we can redirect stdout/stderr on PowerShell 5.1
 try {
     $maxAttempts = 3
@@ -144,8 +156,12 @@ try {
     while (-not $startedOk -and $attempt -lt $maxAttempts) {
         $attempt++
         Write-Host "Starting server (attempt $attempt of $maxAttempts)..."
-        # Export TASSMUD_PORT for the JVM process and start it
-        $cmdArgs = "/c set TASSMUD_PORT=$port && `"$javaExe`" -jar `"$jarPath`" > `"$logsDir\\server.out`" 2> `"$logsDir\\server.err`""
+        # Export TASSMUD_PORT for the JVM process and start it. Include debug args if requested.
+        # Build the java command separately so variable expansion works cleanly.
+        $javaCommand = "`"$javaExe`""
+        if ($debugArgs -ne "") { $javaCommand = "$javaCommand $debugArgs" }
+        $javaCommand = "$javaCommand -jar `"$jarPath`""
+        $cmdArgs = "/c set TASSMUD_PORT=$port && $javaCommand > `"$logsDir\\server.out`" 2> `"$logsDir\\server.err`""
         Start-Process -FilePath "cmd.exe" -ArgumentList $cmdArgs -WorkingDirectory (Get-Location) -WindowStyle Hidden | Out-Null
 
         # Give the JVM a short moment to start and write any immediate errors

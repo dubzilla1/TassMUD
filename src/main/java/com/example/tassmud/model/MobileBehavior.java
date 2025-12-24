@@ -25,6 +25,7 @@ public enum MobileBehavior {
     THIEF("May attempt to steal from players"),
     WANDERER("Moves between rooms randomly"),
     SENTINEL("Never moves from spawn location"),
+    LOCAL("Never leaves area"),
     
     // Special behaviors
     IMMORTAL("Cannot be killed"),

@@ -1124,9 +1124,9 @@ public class DataLoader {
                 // Register spawns with the SpawnManager and seed spawn mappings for mobs
                 for (SpawnConfig spawn : t.spawns) {
                     // Determine how many mapping UUIDs to seed. Do NOT mutate the SpawnConfig object
-                    // since its fields are final; only limit mapping quantity to 1 for MOBs.
+                    // since its fields are final; only limit mapping quantity to 1 for MOBs and Objects in room.
                     int mappingQty = spawn.quantity;
-                    if (spawn.type == SpawnConfig.SpawnType.MOB && spawn.quantity > 1) {
+                    if ((spawn.type == SpawnConfig.SpawnType.MOB || spawn.type == SpawnConfig.SpawnType.ITEM) && spawn.quantity > 1) {
                         System.out.println("[DataLoader] Limiting spawn mappings to 1 for room " + roomId + " template " + spawn.templateId + " (configured " + spawn.quantity + ")");
                         mappingQty = 1;
                     }

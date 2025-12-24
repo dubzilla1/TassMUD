@@ -17,14 +17,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 700
+  base_damage: 6
+  damage_bonus: 14
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 2900
   gold_min: 0

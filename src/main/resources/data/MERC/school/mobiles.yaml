@@ -5,7 +5,7 @@
   long_desc: |
     He is big and bad.  Don't mess with him.
   keywords: ['acolyte', 'cleric']
-  level: 2
+  level: 30
   hp_max: 30000
   mp_max: 0
   mv_max: 100
@@ -15,16 +15,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 29999
+  base_damage: 4
+  damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -39,7 +39,7 @@
     Perhaps now would be a good time to flee from him!!!  If you don't flee, you
     would really suffer the consequences.
   keywords: ['blob']
-  level: 2
+  level: 5
   hp_max: 51
   mp_max: 0
   mv_max: 100
@@ -49,16 +49,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 119
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 1
-  damage_bonus: 50
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -72,7 +72,7 @@
     He looks mean, but you feel comfortable that you can kill him, especially since
     he is leashed up, and you are not.
   keywords: ['monster']
-  level: 2
+  level: 1
   hp_max: 11
   mp_max: 0
   mv_max: 100
@@ -86,12 +86,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -105,7 +105,7 @@
     He looks wimpy.  You feel comfortable that you can kill him, especially since
     he is leashed up, and you are not.
   keywords: ['monster', 'wimpy']
-  level: 2
+  level: 1
   hp_max: 11
   mp_max: 0
   mv_max: 100
@@ -119,12 +119,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -138,7 +138,7 @@
     He looks mean, but you feel comfortable that you can kill him, especially since
     he is leashed up, and you are not.
   keywords: ['monster', 'aggressive']
-  level: 2
+  level: 1
   hp_max: 11
   mp_max: 0
   mv_max: 100
@@ -152,12 +152,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -171,7 +171,7 @@
     He looks mean, but you feel comfortable that you can kill him, especially since
     he is leashed up, and you are not.
   keywords: ['monster', 'wimpy', 'aggressive']
-  level: 2
+  level: 1
   hp_max: 11
   mp_max: 0
   mv_max: 100
@@ -185,12 +185,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -214,12 +214,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 20
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -236,7 +236,7 @@
   long_desc: |
     He is big and bad.  Don't mess with him.
   keywords: ['adept', 'cleric']
-  level: 2
+  level: 30
   hp_max: 30000
   mp_max: 0
   mv_max: 100
@@ -246,16 +246,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 29999
+  base_damage: 4
+  damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -282,10 +282,10 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -310,14 +310,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 20
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -342,14 +342,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 30
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 300
   gold_min: 0
@@ -378,10 +378,10 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 10
+  base_damage: 3
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -396,7 +396,7 @@
   long_desc: |
     You don't see much but slime about it.
   keywords: ['snail']
-  level: 21
+  level: 1
   hp_max: 1
   mp_max: 0
   mv_max: 100
@@ -413,9 +413,9 @@
   base_damage: 1
   damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 2100
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -428,7 +428,7 @@
   long_desc: |
     It looks mean.  You'd better run.
   keywords: ['beast']
-  level: 32
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -438,16 +438,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -470,14 +470,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 44
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -502,14 +502,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 44
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -524,7 +524,7 @@
   long_desc: |
     He is big and bad.  Don't mess with him.
   keywords: ['adept', 'cleric']
-  level: 2
+  level: 30
   hp_max: 30000
   mp_max: 0
   mv_max: 100
@@ -534,16 +534,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 29999
+  base_damage: 4
+  damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -556,7 +556,7 @@
   long_desc: |
     He is big and bad.  Don't mess with him.
   keywords: ['adept', 'cleric']
-  level: 2
+  level: 30
   hp_max: 30000
   mp_max: 0
   mv_max: 100
@@ -566,16 +566,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 29999
+  base_damage: 4
+  damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -588,7 +588,7 @@
   long_desc: |
     He is big and bad.  Don't mess with him.
   keywords: ['priest', 'cleric']
-  level: 2
+  level: 30
   hp_max: 30000
   mp_max: 0
   mv_max: 100
@@ -598,16 +598,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 29999
+  base_damage: 4
+  damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -621,7 +621,7 @@
     This horrible creature is your final test for mud school.  Kill him, and the
     diploma is yours.
   keywords: ['beast']
-  level: 2
+  level: 3
   hp_max: 35
   mp_max: 0
   mv_max: 100
@@ -631,16 +631,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 30
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

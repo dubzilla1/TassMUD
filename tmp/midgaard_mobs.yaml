@@ -250,7 +250,7 @@
   base_damage: 4
   damage_bonus: 23
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 2300
   gold_min: 0
@@ -380,7 +380,7 @@
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL', 'LOCAL']
+  behaviors: []
   aggro_range: 0
   experience_value: 5000
   gold_min: 0
@@ -412,7 +412,7 @@
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL', 'LOCAL']
+  behaviors: []
   aggro_range: 0
   experience_value: 4000
   gold_min: 0
@@ -446,7 +446,7 @@
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 2400
   gold_min: 0
@@ -479,7 +479,7 @@
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 2400
   gold_min: 0
@@ -513,7 +513,7 @@
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 2400
   gold_min: 0
@@ -547,7 +547,7 @@
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 2400
   gold_min: 0
@@ -944,7 +944,7 @@
   base_damage: 10
   damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SCAVENGER', 'LOCAL', 'SHOPKEEPER']
+  behaviors: ['SHOPKEEPER']
   aggro_range: 0
   experience_value: 1500
   gold_min: 0
@@ -1264,7 +1264,7 @@
   base_damage: 4
   damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL', 'LOCAL']
+  behaviors: []
   aggro_range: 0
   experience_value: 2000
   gold_min: 0

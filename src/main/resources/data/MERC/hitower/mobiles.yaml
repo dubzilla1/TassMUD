@@ -5,7 +5,7 @@
   long_desc: |
     It seems to be made of nothing more than darkness ...
   keywords: ['shadow', 'guardian']
-  level: 4
+  level: 9
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -15,16 +15,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -47,14 +47,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 10
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'COWARDLY']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -86,10 +86,10 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 10
+  base_damage: 8
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'COWARDLY']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -104,7 +104,7 @@
   long_desc: |
     It looks quite strong.
   keywords: ['diamond', 'golem']
-  level: 8
+  level: 23
   hp_max: 506
   mp_max: 0
   mv_max: 100
@@ -114,16 +114,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 23
-  damage_bonus: 230
+  base_damage: 6
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -137,7 +137,7 @@
     He seems to be contemplating life, love and the mysteries of the universe.
     Then again, he may just have a headache.
   keywords: ['mage', 'young']
-  level: 8
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -147,16 +147,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 8
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -169,7 +169,7 @@
   long_desc: |
     He looks rather harmless, but then again so does a sleeping dragon.
   keywords: ['strick', 'bartender']
-  level: 8
+  level: 25
   hp_max: 30001
   mp_max: 0
   mv_max: 100
@@ -179,16 +179,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 26
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 30000
+  base_damage: 7
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -201,7 +201,7 @@
   long_desc: |
     Tatorious winks at you mischievously.
   keywords: ['tatorious', 'wizard']
-  level: 8
+  level: 25
   hp_max: 3001
   mp_max: 0
   mv_max: 100
@@ -211,16 +211,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 3000
+  base_damage: 7
+  damage_bonus: 21
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -232,7 +232,7 @@
   short_desc: Ezmerelda the cook is here stirring a large pot of something.
   long_desc: |
   keywords: ['ezmerelda', 'cook']
-  level: 8
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -242,16 +242,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -263,7 +263,7 @@
   short_desc: The cook's assistant is here assisting the cook.
   long_desc: |
   keywords: ['assistant', 'mage']
-  level: 8
+  level: 11
   hp_max: 176
   mp_max: 0
   mv_max: 100
@@ -273,16 +273,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 11
-  damage_bonus: 110
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -310,14 +310,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 30
+  base_damage: 4
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1600
   gold_min: 0
@@ -332,7 +332,7 @@
   long_desc: |
     He looks rather dirty.
   keywords: ['jailor', 'mage']
-  level: 8
+  level: 17
   hp_max: 323
   mp_max: 0
   mv_max: 100
@@ -342,16 +342,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -364,7 +364,7 @@
   long_desc: |
     The broom screams 'Take that you lout!'
   keywords: ['broom']
-  level: 8
+  level: 7
   hp_max: 98
   mp_max: 0
   mv_max: 100
@@ -374,16 +374,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 70
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -406,14 +406,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 900
   gold_min: 0
@@ -428,7 +428,7 @@
   long_desc: |
     The eyes smolder with hatred.
   keywords: ['guardian', 'greater', 'eyes']
-  level: 8
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -438,16 +438,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -460,7 +460,7 @@
   long_desc: |
     He looks quite sleepy.
   keywords: ['mage', 'visitor']
-  level: 8
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -470,16 +470,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -502,14 +502,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 25
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -534,14 +534,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 25
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -566,14 +566,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 25
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -598,14 +598,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 25
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 700
   gold_min: 0
@@ -631,14 +631,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 10
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -663,14 +663,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -685,7 +685,7 @@
   long_desc: |
     He looks quite angry at your interruption.
   keywords: ['instructor', 'teacher', 'mage']
-  level: 8
+  level: 14
   hp_max: 245
   mp_max: 0
   mv_max: 100
@@ -695,16 +695,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -717,7 +717,7 @@
   long_desc: |
     He blinks in and out of existence, trying to master the spell.
   keywords: ['student']
-  level: 10
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -727,16 +727,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 1000
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -748,7 +748,7 @@
   short_desc: A spell teacher screams at your interruption and attacks.
   long_desc: |
   keywords: ['teacher', 'mage']
-  level: 10
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -758,16 +758,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 1000
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -780,7 +780,7 @@
   long_desc: |
     She looks to have collapsed from sheer boredom.
   keywords: ['student']
-  level: 8
+  level: 9
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -790,16 +790,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 4
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -811,7 +811,7 @@
   short_desc: An old wizard is here making a speech
   long_desc: |
   keywords: ['wizard', 'speaker', 'mage']
-  level: 8
+  level: 18
   hp_max: 351
   mp_max: 0
   mv_max: 100
@@ -821,16 +821,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -842,7 +842,7 @@
   short_desc: A young mage is here learning hand to hand combat.
   long_desc: |
   keywords: ['mage', 'young']
-  level: 8
+  level: 9
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -852,16 +852,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -875,7 +875,7 @@
     She looks quite rugged. In fact, she more resembles a warrior than a magic
     user.
   keywords: ['mistress', 'battle']
-  level: 8
+  level: 17
   hp_max: 323
   mp_max: 0
   mv_max: 100
@@ -885,16 +885,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 5
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -906,7 +906,7 @@
   short_desc: A spell teacher is here relaxing.
   long_desc: |
   keywords: ['mage', 'teacher']
-  level: 8
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -916,16 +916,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -937,7 +937,7 @@
   short_desc: An aged wizard is sleeping here.
   long_desc: |
   keywords: ['wizard']
-  level: 8
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -947,16 +947,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -968,7 +968,7 @@
   short_desc: A scribe is here working on some manuscripts.
   long_desc: |
   keywords: ['scribe', 'mage']
-  level: 8
+  level: 14
   hp_max: 245
   mp_max: 0
   mv_max: 100
@@ -978,16 +978,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1001,7 +1001,7 @@
     She's quite cute.  Too bad her only interest seems to be the words of
     lore she is translating.
   keywords: ['scribe', 'mage']
-  level: 8
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -1011,16 +1011,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1034,7 +1034,7 @@
     He seems to be so old, his skin has become nothing but a giant wrinkle.
     The master scribe screams 'How dare you interrupt my important work???'
   keywords: ['master', 'scribe']
-  level: 8
+  level: 22
   hp_max: 473
   mp_max: 0
   mv_max: 100
@@ -1044,16 +1044,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 22
-  damage_bonus: 220
+  base_damage: 5
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1065,7 +1065,7 @@
   short_desc: The scribe's assistant is here folding parchments.
   long_desc: |
   keywords: ['assistant', 'scribe']
-  level: 8
+  level: 16
   hp_max: 296
   mp_max: 0
   mv_max: 100
@@ -1075,16 +1075,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 16
-  damage_bonus: 160
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1096,7 +1096,7 @@
   short_desc: The Enchanter is here placing a dweomer upon well made sword.
   long_desc: |
   keywords: ['master', 'enchanter', 'mage']
-  level: 8
+  level: 23
   hp_max: 506
   mp_max: 0
   mv_max: 100
@@ -1106,16 +1106,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 23
-  damage_bonus: 230
+  base_damage: 5
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1138,14 +1138,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -1163,7 +1163,7 @@
     
     The Mad Alchemist throws back his head and cackles with insane glee!
   keywords: ['alchemist']
-  level: 8
+  level: 24
   hp_max: 540
   mp_max: 0
   mv_max: 100
@@ -1173,16 +1173,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 24
-  damage_bonus: 240
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1194,7 +1194,7 @@
   short_desc: The master summoner is here holding gateways open to other planes.
   long_desc: |
   keywords: ['master', 'summoner']
-  level: 2
+  level: 22
   hp_max: 473
   mp_max: 0
   mv_max: 100
@@ -1204,16 +1204,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 22
-  damage_bonus: 220
+  base_damage: 5
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1226,7 +1226,7 @@
   long_desc: |
     The master charmer sizes you up, always looking for a new pet.
   keywords: ['master', 'charmer']
-  level: 34
+  level: 23
   hp_max: 506
   mp_max: 0
   mv_max: 100
@@ -1236,16 +1236,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 23
-  damage_bonus: 230
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1258,7 +1258,7 @@
   long_desc: |
     He looks flammable.
   keywords: ['golem', 'wooden']
-  level: 8
+  level: 16
   hp_max: 296
   mp_max: 0
   mv_max: 100
@@ -1268,16 +1268,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 16
-  damage_bonus: 160
+  base_damage: 10
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1290,7 +1290,7 @@
   long_desc: |
     The master spell binder snarls at you and attacks.
   keywords: ['master', 'binder']
-  level: 8
+  level: 23
   hp_max: 506
   mp_max: 0
   mv_max: 100
@@ -1300,16 +1300,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 23
-  damage_bonus: 230
+  base_damage: 5
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1321,7 +1321,7 @@
   short_desc: The golem maker is here chiseling some stone.
   long_desc: |
   keywords: ['master', 'maker']
-  level: 8
+  level: 21
   hp_max: 441
   mp_max: 0
   mv_max: 100
@@ -1331,16 +1331,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 21
-  damage_bonus: 210
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1363,14 +1363,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 26
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
   experience_value: 2000
   gold_min: 0
@@ -1395,14 +1395,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 1800
   gold_min: 0
@@ -1428,14 +1428,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
   experience_value: 1200
   gold_min: 0
@@ -1460,14 +1460,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 800
   gold_min: 0
@@ -1493,14 +1493,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 7
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 2500
   gold_min: 0
@@ -1514,7 +1514,7 @@
   short_desc: A clay golem stands guard here.
   long_desc: |
   keywords: ['golem', 'clay']
-  level: 8
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -1524,16 +1524,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 5
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1547,7 +1547,7 @@
     The image of an ugly dragon flickers slightly, and where the dragon was
     now stands a small harmless looking old man.
   keywords: ['master', 'illusionist', 'mage']
-  level: 8
+  level: 21
   hp_max: 441
   mp_max: 0
   mv_max: 100
@@ -1557,16 +1557,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 21
-  damage_bonus: 210
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1582,7 +1582,7 @@
     embers which serve as eyes can be seen through the shadow.
     The Necromancer shrieks some obscenities and orders his minions to attack.
   keywords: ['necromancer', 'master']
-  level: 8
+  level: 25
   hp_max: 575
   mp_max: 0
   mv_max: 100
@@ -1592,16 +1592,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 7
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1614,7 +1614,7 @@
   long_desc: |
     It feels no pain, and hacks at you ruthlessly.
   keywords: ['skeleton', 'undead']
-  level: 8
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -1624,16 +1624,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1645,7 +1645,7 @@
   short_desc: An undead giant lumbers towards you.
   long_desc: |
   keywords: ['undead', 'giant']
-  level: 8
+  level: 18
   hp_max: 351
   mp_max: 0
   mv_max: 100
@@ -1655,16 +1655,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1679,7 +1679,7 @@
     her mouth should be, comes a disgusting giggling sound that makes your skin
     crawl with revulsion.
   keywords: ['witch', 'hag']
-  level: 8
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -1689,16 +1689,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1711,7 +1711,7 @@
   long_desc: |
     He looks like a rather peaceful old man.
   keywords: ['librarian', 'mage']
-  level: 8
+  level: 23
   hp_max: 506
   mp_max: 0
   mv_max: 100
@@ -1721,16 +1721,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 26
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 23
-  damage_bonus: 230
+  base_damage: 6
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1746,7 +1746,7 @@
     great master in hopes of gleaning secrets one could never hope to uncover
     alone.
   keywords: ['apprentice']
-  level: 8
+  level: 24
   hp_max: 540
   mp_max: 0
   mv_max: 100
@@ -1756,16 +1756,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 32
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 24
-  damage_bonus: 240
+  base_damage: 6
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1789,14 +1789,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 1500
   gold_min: 0
@@ -1821,14 +1821,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 5
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 3000
   gold_min: 0
@@ -1855,14 +1855,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 26
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 6
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
   experience_value: 2000
   gold_min: 0
@@ -1888,14 +1888,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 16
-  damage_bonus: 160
+  base_damage: 7
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 1600
   gold_min: 0
@@ -1920,14 +1920,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 5
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 3000
   gold_min: 0
@@ -1943,7 +1943,7 @@
     He looks like a fanatic.
     The apprentice screams 'Thou art unworthy of this honor!'
   keywords: ['apprentice', 'white']
-  level: 8
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -1953,16 +1953,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 26
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 6
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1985,14 +1985,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 10
+  base_damage: 7
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 1500
   gold_min: 0
@@ -2017,14 +2017,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 40
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 5
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 3000
   gold_min: 0
@@ -2050,14 +2050,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 25
-  damage_bonus: 250
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 2500
   gold_min: 0
@@ -2085,14 +2085,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 50
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 50
-  damage_bonus: 500
+  base_damage: 4
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 5000
   gold_min: 0
@@ -2116,14 +2116,14 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 1700
   gold_min: 0

@@ -6,7 +6,7 @@
     Aruncus is a tall, skinny druid with a face marked by nature.
     He seems to be in peace with himself and his surroundings.
   keywords: ['druid', 'Aruncus']
-  level: 8
+  level: 13
   hp_max: 221
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 5
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     He is dressed in simple clothing and looks like he has little
     or nothing to say.
   keywords: ['hermit', 'sorbus']
-  level: 2
+  level: 4
   hp_max: 50
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 40
+  base_damage: 9
+  damage_bonus: 2
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -83,14 +83,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -116,14 +116,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -140,7 +140,7 @@
     The worm is the protector of the treasure of G'harne and has been so
     for as long anyone can remember.
   keywords: ['worm', "Shudde-M'ell"]
-  level: 34
+  level: 24
   hp_max: 540
   mp_max: 0
   mv_max: 100
@@ -150,16 +150,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 24
-  damage_bonus: 240
+  base_damage: 8
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -175,7 +175,7 @@
     His life is seems to be totally occupied with trading.
     He looks very fit and capable of protecting his goods.
   keywords: ['luxan', 'shopkeeper']
-  level: 7
+  level: 23
   hp_max: 30001
   mp_max: 0
   mv_max: 100
@@ -185,16 +185,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 30000
+  base_damage: 10
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 700
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -208,7 +208,7 @@
     The Innkeeper looks skilled in brewing different beers and mixing the
     wierdest drinks known. He also looks very big.
   keywords: ['keeper', 'innkeeper']
-  level: 3
+  level: 23
   hp_max: 30001
   mp_max: 0
   mv_max: 100
@@ -218,16 +218,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 30000
+  base_damage: 10
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 300
+  experience_value: 2300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -250,14 +250,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 1
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -284,14 +284,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 10
-  damage_bonus: 100
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0

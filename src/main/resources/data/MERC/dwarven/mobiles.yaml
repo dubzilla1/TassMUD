@@ -5,7 +5,7 @@
   long_desc: |
     The guard looks very tough and mean.
   keywords: ['dwarf', 'guard']
-  level: 8
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -15,16 +15,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 18
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -47,14 +47,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 7
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 1200
   gold_min: 0
@@ -69,7 +69,7 @@
   long_desc: |
     A black, almost transparent wraith.
   keywords: ['wraith']
-  level: 2
+  level: 29
   hp_max: 725
   mp_max: 0
   mv_max: 100
@@ -79,16 +79,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 29
-  damage_bonus: 290
+  base_damage: 6
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -111,14 +111,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 990
+  base_damage: 9
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
   experience_value: 3500
   gold_min: 0
@@ -143,14 +143,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 990
+  base_damage: 9
+  damage_bonus: 19
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
   experience_value: 3500
   gold_min: 0
@@ -166,7 +166,7 @@
     This scaly creature looks like it is well adapted to it's underground
     habitat.  He looks very powerful.
   keywords: ['lizard']
-  level: 8
+  level: 18
   hp_max: 605
   mp_max: 0
   mv_max: 100
@@ -176,16 +176,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 500
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -208,14 +208,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 300
+  base_damage: 7
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 1600
   gold_min: 0
@@ -240,12 +240,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 100
+  base_damage: 9
+  damage_bonus: 9
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -272,12 +272,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 400
+  base_damage: 9
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -304,12 +304,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 99
+  base_damage: 4
+  damage_bonus: 12
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -335,12 +335,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 3
-  damage_bonus: 33
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -366,12 +366,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 99
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -397,14 +397,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 125
+  base_damage: 5
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 900
   gold_min: 0
@@ -428,14 +428,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 135
+  base_damage: 5
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0
@@ -459,12 +459,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 16
-  damage_bonus: 160
+  base_damage: 6
+  damage_bonus: 8
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -490,12 +490,12 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 180
+  base_damage: 7
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
@@ -522,14 +522,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 29
-  damage_bonus: 290
+  base_damage: 8
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
   experience_value: 2900
   gold_min: 0
@@ -543,7 +543,7 @@
   short_desc: There is a giant snake here.
   long_desc: |
   keywords: ['snake']
-  level: 34
+  level: 15
   hp_max: 444
   mp_max: 0
   mv_max: 100
@@ -553,16 +553,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 7
-  damage_bonus: 432
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

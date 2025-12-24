@@ -7,7 +7,7 @@
     destroy you with a thought.  Every glance penetrates deep into your soul.
     You now know what true fear is.
   keywords: ['zeus', 'god']
-  level: 2
+  level: 35
   hp_max: 1630
   mp_max: 0
   mv_max: 100
@@ -17,16 +17,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 35
-  damage_bonus: 1000
+  base_damage: 3
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     This mortal risked the wrath of Zeus to give the gift of fire to humans.  He
     looks up at you and smiles.
   keywords: ['prometheus']
-  level: 2
+  level: 31
   hp_max: 806
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 31
-  damage_bonus: 310
+  base_damage: 2
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -74,7 +74,7 @@
     darts from place to place.  He looks very busy, and it seems as if he doesn't
     even notice your presence.
   keywords: ['hermes']
-  level: 4
+  level: 33
   hp_max: 891
   mp_max: 0
   mv_max: 100
@@ -84,16 +84,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 33
-  damage_bonus: 330
+  base_damage: 2
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 3300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -108,7 +108,7 @@
     visiting Mount Olympus.  He nods at you and motions for you to enter and
     have a seat.
   keywords: ['poseidon']
-  level: 2
+  level: 35
   hp_max: 1630
   mp_max: 0
   mv_max: 100
@@ -118,16 +118,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 35
-  damage_bonus: 1000
+  base_damage: 3
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -142,7 +142,7 @@
     join him.  You notice a dangerous looking bow by his side, however, and think
     that he knows more than music.
   keywords: ['apollo']
-  level: 2
+  level: 34
   hp_max: 935
   mp_max: 0
   mv_max: 100
@@ -152,16 +152,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 34
-  damage_bonus: 340
+  base_damage: 3
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -175,7 +175,7 @@
     The God of War is here, studying some maps.  He scowls at you as you enter
     and says 'I am very busy.  What do you want?'
   keywords: ['ares']
-  level: 2
+  level: 35
   hp_max: 2130
   mp_max: 0
   mv_max: 100
@@ -185,16 +185,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 35
-  damage_bonus: 1500
+  base_damage: 2
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -208,7 +208,7 @@
     Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
     you and invites you to join her.
   keywords: ['athena']
-  level: 2
+  level: 33
   hp_max: 891
   mp_max: 0
   mv_max: 100
@@ -218,16 +218,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 33
-  damage_bonus: 330
+  base_damage: 2
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -242,7 +242,7 @@
     ugly.  You get the impression that he is kind, however, and would go out of his
     way to help you.  He is attended by three golden maidens.
   keywords: ['hephaestus', 'smith']
-  level: 2
+  level: 33
   hp_max: 891
   mp_max: 0
   mv_max: 100
@@ -252,16 +252,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 27
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 33
-  damage_bonus: 330
+  base_damage: 2
+  damage_bonus: 26
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -275,7 +275,7 @@
     As you gaze upon this creation, you realize that she is made from solid
     gold.  She seems to be very lifelike as she assists the smith in his work.
   keywords: ['handmaid', 'golden']
-  level: 2
+  level: 15
   hp_max: 259
   mp_max: 0
   mv_max: 100
@@ -285,16 +285,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 8
-  damage_bonus: 250
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -308,7 +308,7 @@
     This man is waiting on Ares.  Although he does not look very strong, you
     realize that Ares would not have any weaklings working for him.
   keywords: ['soldier']
-  level: 2
+  level: 20
   hp_max: 259
   mp_max: 0
   mv_max: 100
@@ -318,16 +318,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 250
+  base_damage: 6
+  damage_bonus: 12
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -341,7 +341,7 @@
     This man has mastered his first profession, and is now studying music from the
     immortal Apollo.
   keywords: ['musician', 'apprentice']
-  level: 2
+  level: 8
   hp_max: 89
   mp_max: 0
   mv_max: 100
@@ -351,16 +351,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 5
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -373,7 +373,7 @@
   long_desc: |
     This boy is truly lucky to be able to serve Athena herself.
   keywords: ['boy', 'serving', 'servant']
-  level: 2
+  level: 6
   hp_max: 209
   mp_max: 0
   mv_max: 100
@@ -383,16 +383,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 200
+  base_damage: 3
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -406,7 +406,7 @@
     This great beast can barely be called a dog.  It has been bred to cause fear
     on the battle field, and you have no doubt that it does its job well.
   keywords: ['hound', 'dog', 'war']
-  level: 2
+  level: 20
   hp_max: 454
   mp_max: 0
   mv_max: 100
@@ -416,16 +416,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 450
+  base_damage: 12
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -440,7 +440,7 @@
     over you, and is so intent on his activities that he barely recognizes your
     presence.
   keywords: ['Odin']
-  level: 2
+  level: 35
   hp_max: 1630
   mp_max: 0
   mv_max: 100
@@ -450,16 +450,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 35
-  damage_bonus: 1000
+  base_damage: 2
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -475,7 +475,7 @@
     not to underestimate him.  He smiles warmly at you and shows you his selection
     of delicious looking foods.
   keywords: ['grocer', 'greengrocer', 'julius']
-  level: 2
+  level: 30
   hp_max: 2000
   mp_max: 0
   mv_max: 100
@@ -485,16 +485,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 24
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 1999
+  base_damage: 10
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -509,7 +509,7 @@
     stands ready to supply the citizens here (but not you) with all manner of
     arcane supplies.
   keywords: ['alchemist']
-  level: 2
+  level: 34
   hp_max: 2000
   mp_max: 0
   mv_max: 100
@@ -519,16 +519,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 1
-  damage_bonus: 1999
+  base_damage: 2
+  damage_bonus: 50
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -542,7 +542,7 @@
     Clive looks VERY big and VERY tough.  All those years in the army must have
     paid off.
   keywords: ['clive']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -552,16 +552,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 3
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -575,7 +575,7 @@
     Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.
     He doesn't like what you've been doing in his city.
   keywords: ['armourer', 'samuel']
-  level: 2
+  level: 20
   hp_max: 404
   mp_max: 0
   mv_max: 100
@@ -585,16 +585,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 400
+  base_damage: 3
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'GUARD']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -609,7 +609,7 @@
     about his appearance.  What you can tell, however, suggests that he is no one
     to be trifled with.
   keywords: ['ra', 'sun', 'god']
-  level: 2
+  level: 35
   hp_max: 2504
   mp_max: 0
   mv_max: 100
@@ -619,16 +619,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 2500
+  base_damage: 2
+  damage_bonus: 25
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -642,7 +642,7 @@
     This bizarre creature has three heads - one of a goat, one of a lion, and one
     of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
   keywords: ['chimera']
-  level: 2
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -652,16 +652,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 5
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -675,7 +675,7 @@
     Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you
     to rest and sit for a while.
   keywords: ['hera']
-  level: 2
+  level: 35
   hp_max: 1504
   mp_max: 0
   mv_max: 100
@@ -685,16 +685,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 1500
+  base_damage: 3
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -708,7 +708,7 @@
     This is a giant bird.  It looks at you quizzically, then makes a noise and
     looks away.
   keywords: ['roc']
-  level: 4
+  level: 15
   hp_max: 404
   mp_max: 0
   mv_max: 100
@@ -718,16 +718,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 8
-  damage_bonus: 400
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -750,14 +750,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -773,7 +773,7 @@
     This horse is snow white with large wings.  Although it doesn't look very
     threatening, it seems as though it would be dangerous if provoked.
   keywords: ['pegasus', 'horse']
-  level: 4
+  level: 8
   hp_max: 114
   mp_max: 0
   mv_max: 100
@@ -783,16 +783,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 110
+  base_damage: 5
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -805,7 +805,7 @@
   long_desc: |
     This man looks as is he has been spending WAY too much time in the kitchen.
   keywords: ['cook']
-  level: 2
+  level: 5
   hp_max: 79
   mp_max: 0
   mv_max: 100
@@ -815,16 +815,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 75
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -838,7 +838,7 @@
     He looks as though he has spent a lot of time underground, guarding the
     prisoners.
   keywords: ['jailer']
-  level: 2
+  level: 13
   hp_max: 624
   mp_max: 0
   mv_max: 100
@@ -848,16 +848,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 620
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

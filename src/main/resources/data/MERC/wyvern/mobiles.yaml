@@ -5,7 +5,7 @@
   long_desc: |
     The killer frog looks ravenous.
   keywords: ['killer', 'frog']
-  level: 2
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -15,16 +15,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 5
-  damage_bonus: 55
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -37,7 +37,7 @@
   long_desc: |
     As you look, the figure seems to shift and move ...
   keywords: ['stone', 'gargoyle']
-  level: 2
+  level: 9
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -47,16 +47,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 3
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -69,7 +69,7 @@
   long_desc: |
     He looks ready to attack!
   keywords: ['angry', 'gargoyle']
-  level: 4
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -79,16 +79,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 3
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -101,7 +101,7 @@
   long_desc: |
     He snarls at you and says LEAVE OR DIE!
   keywords: ['elite', 'gargoyle']
-  level: 2
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -111,16 +111,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 2
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -133,7 +133,7 @@
   long_desc: |
     She says 'I can SEE you! I have been waiting ...'.
   keywords: ['gargoyle', 'shaman']
-  level: 2
+  level: 13
   hp_max: 221
   mp_max: 0
   mv_max: 100
@@ -143,16 +143,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 21
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 13
-  damage_bonus: 130
+  base_damage: 3
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -165,7 +165,7 @@
   long_desc: |
     The plant looks something like a Venus fly-trap, only MUCH larger.
   keywords: ['carnivorous', 'plant']
-  level: 2
+  level: 9
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -175,16 +175,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 3
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -197,7 +197,7 @@
   long_desc: |
     It thinks that perhaps you would make a better meal.
   keywords: ['gruesome', 'ogre']
-  level: 2
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -207,16 +207,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 2
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -229,7 +229,7 @@
   long_desc: |
     The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
   keywords: ['shadow']
-  level: 4
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -239,16 +239,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 3
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -261,7 +261,7 @@
   long_desc: |
     He glares at you savagely and charges!
   keywords: ['evil', 'wight']
-  level: 2
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -271,16 +271,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 2
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -293,7 +293,7 @@
   long_desc: |
     This powerful creature wonders whether to kill you or not ...
   keywords: ['burly', 'minotaur']
-  level: 4
+  level: 14
   hp_max: 245
   mp_max: 0
   mv_max: 100
@@ -303,16 +303,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 14
-  damage_bonus: 140
+  base_damage: 3
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -325,7 +325,7 @@
   long_desc: |
     He looks up at you and screams 'SO! Coming to steal my hoard!'
   keywords: ['savage', 'minotaur']
-  level: 2
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -335,16 +335,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 3
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -357,7 +357,7 @@
   long_desc: |
     He looks at you, and a sinister grin slowly spreads on his face ...
   keywords: ['minotaur', 'captain']
-  level: 2
+  level: 17
   hp_max: 323
   mp_max: 0
   mv_max: 100
@@ -367,16 +367,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 17
-  damage_bonus: 170
+  base_damage: 3
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -389,7 +389,7 @@
   long_desc: |
     It is a huge black blob that oozes about the room. Its heading toward YOU!
   keywords: ['black', 'pudding']
-  level: 4
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -399,16 +399,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 2
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -421,7 +421,7 @@
   long_desc: |
     The golem appears to be made of some kind of clay, enchanted to come to life!
   keywords: ['lesser', 'golem']
-  level: 2
+  level: 16
   hp_max: 296
   mp_max: 0
   mv_max: 100
@@ -431,16 +431,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 16
-  damage_bonus: 160
+  base_damage: 2
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -453,7 +453,7 @@
   long_desc: |
     It thunders loudly 'I must protect my Master's wealth!'
   keywords: ['ancient', 'wyvern']
-  level: 4
+  level: 18
   hp_max: 351
   mp_max: 0
   mv_max: 100
@@ -463,16 +463,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 18
-  damage_bonus: 180
+  base_damage: 2
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -485,7 +485,7 @@
   long_desc: |
     Terror fills your heart as you view this master of the undead.
   keywords: ['spectre']
-  level: 4
+  level: 19
   hp_max: 380
   mp_max: 0
   mv_max: 100
@@ -495,16 +495,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 28
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 19
-  damage_bonus: 190
+  base_damage: 3
+  damage_bonus: 7
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -517,7 +517,7 @@
   long_desc: |
     The trapper is clad mostly in the fur of various animals he's caught.
   keywords: ['trapper']
-  level: 4
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -527,16 +527,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -549,7 +549,7 @@
   long_desc: |
     The hunter is rugged and sturdy from his occupation.
   keywords: ['hunter']
-  level: 4
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -559,16 +559,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -581,7 +581,7 @@
   long_desc: |
     The years of wanderings have left the ranger hardened and strong.
   keywords: ['ranger']
-  level: 4
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -591,16 +591,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -613,7 +613,7 @@
   long_desc: |
     This individual has quite a reputation at the local trading posts!
   keywords: ['ranger', 'leader']
-  level: 2
+  level: 15
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -623,16 +623,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -644,7 +644,7 @@
   short_desc: The Lord of the Rangers catches your eye.
   long_desc: |
   keywords: ['ranger', 'lord']
-  level: 2
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -654,16 +654,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 29
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -676,7 +676,7 @@
   long_desc: |
     The centaur has the upper torso of a man and lower body of a horse.
   keywords: ['male', 'centaur']
-  level: 4
+  level: 7
   hp_max: 98
   mp_max: 0
   mv_max: 100
@@ -686,16 +686,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 70
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -708,7 +708,7 @@
   long_desc: |
     The centaur has the upper torso of a woman and lower body of a horse.
   keywords: ['female', 'centaur']
-  level: 4
+  level: 7
   hp_max: 98
   mp_max: 0
   mv_max: 100
@@ -718,16 +718,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 70
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -740,7 +740,7 @@
   long_desc: |
     This centaur has lived a full life.
   keywords: ['old', 'centaur']
-  level: 4
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -750,16 +750,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -772,7 +772,7 @@
   long_desc: |
     The elders act as counselors and advisors to the chief.
   keywords: ['centaur', 'elder']
-  level: 2
+  level: 9
   hp_max: 135
   mp_max: 0
   mv_max: 100
@@ -782,16 +782,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 9
-  damage_bonus: 90
+  base_damage: 4
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -804,7 +804,7 @@
   long_desc: |
     He appears to be blocking entrance to the next room.
   keywords: ['centaur', 'guard']
-  level: 2
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -814,16 +814,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -837,7 +837,7 @@
     He has been the leader of this tribe for many years, and has acquired much
     wisdom.
   keywords: ['centaur', 'chief']
-  level: 2
+  level: 12
   hp_max: 198
   mp_max: 0
   mv_max: 100
@@ -847,16 +847,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -879,14 +879,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 3
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['COWARDLY']
   aggro_range: 0
   experience_value: 1000
   gold_min: 0

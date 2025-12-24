@@ -437,23 +437,25 @@ items:
       - 32
     legacy_type_line: 2 64 16385
     legacy_raw: |
-      
+      It is tightly wound. The writing on the inside when opened up is very
+      unreadable but the scroll has a seal on it with a grey :
+
           88
           88
       8888  8888
           88
           88
-      
-      ~
+
     extra_desc: |
       It is tightly wound. The writing on the inside when opened up is very
       unreadable but the scroll has a seal on it with a grey :
-      
+
           88
           88
       8888  8888
           88
           88
+
   - id: 3425
     key: auburn_orb_3425
     name: An auburn-colored orb

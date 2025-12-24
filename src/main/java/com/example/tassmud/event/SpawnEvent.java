@@ -50,7 +50,7 @@ public class SpawnEvent implements GameEvent {
         
         // Count existing items of this template in the target location
         int existingCount = countExistingItems(containerInstanceId);
-        int toSpawn = Math.max(0, config.quantity - existingCount);
+        int toSpawn = Math.max(0, Math.min(config.quantity,1) - existingCount);
         
         if (toSpawn <= 0) {
             // Already at or above capacity

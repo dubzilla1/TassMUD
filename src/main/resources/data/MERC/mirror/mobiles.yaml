@@ -7,7 +7,7 @@
     round body which can charm you with its cuteness.  Baby beholders are known for
     their playful personality.  Hmmm....  It looks like the baby is teething!
   keywords: ['baby', 'beholder']
-  level: 2
+  level: 5
   hp_max: 70
   mp_max: 0
   mv_max: 100
@@ -17,16 +17,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -50,14 +50,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 44
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'COWARDLY']
   aggro_range: 0
   experience_value: 400
   gold_min: 0
@@ -83,14 +83,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -106,7 +106,7 @@
     He is dressed in plate, and he looks quite formidable.  At the moment, though,
     he is just giggling with a kid running about.
   keywords: ['guard', 'imperial', 'cityguard']
-  level: 4
+  level: 17
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -116,16 +116,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -150,14 +150,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -184,14 +184,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 35
-  damage_bonus: 350
+  base_damage: 8
+  damage_bonus: 30
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 3500
   gold_min: 0
@@ -209,7 +209,7 @@
     listens to this fool.  The priest's right fist is covered in golden silk,
     and he clenches it at you.  Other than that, he is dressed all in black.
   keywords: ['priest']
-  level: 2
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -219,16 +219,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -242,7 +242,7 @@
     He stands here gloriously telling of Thalos's history, how it is now referred by
     the world as 'The City of Peace'.  He is very happy to be the high priest here.
   keywords: ['priest']
-  level: 2
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -252,16 +252,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 15
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -275,7 +275,7 @@
     It is a big chunk of rock that has been magically formed into a giant
     stone creature.  It stands here guarding the city.
   keywords: ['golem', 'stone']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -285,16 +285,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 8
+  damage_bonus: 25
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -308,7 +308,7 @@
     He looks very busy, but he takes the time to say, 'Hi!  Welcome to Thalos!'
     He looks very proud of his work.
   keywords: ['mayor']
-  level: 2
+  level: 20
   hp_max: 410
   mp_max: 0
   mv_max: 100
@@ -318,16 +318,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -340,7 +340,7 @@
   long_desc: |
     He looks at you, and says, 'What's your poison, stranger?'
   keywords: ['dan', 'barkeep']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -350,16 +350,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 6
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -373,7 +373,7 @@
     Looking down at you with blood splattered all over his face and apron,
     he asks, 'How much you want?'
   keywords: ['george', 'butcher']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -383,16 +383,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 6
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -405,7 +405,7 @@
   long_desc: |
     She smiles at you meekly.
   keywords: ['farmer', 'betty']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -415,16 +415,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 6
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -438,7 +438,7 @@
     Thaellor sweats rivers and complains about the heat as he pounds the
     metal into items of defense and destruction.
   keywords: ['thaellor', 'dwarf']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -448,16 +448,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 6
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -470,7 +470,7 @@
   long_desc: |
     Ben tries to pawn his various wares to you.
   keywords: ['ben', 'smith']
-  level: 2
+  level: 30
   hp_max: 495
   mp_max: 0
   mv_max: 100
@@ -480,16 +480,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 30
+  base_damage: 6
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -502,7 +502,7 @@
   long_desc: |
     The librarian looks busy and whispers, 'Shhh!'
   keywords: ['librarian']
-  level: 2
+  level: 8
   hp_max: 116
   mp_max: 0
   mv_max: 100
@@ -512,16 +512,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 80
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -534,7 +534,7 @@
   long_desc: |
     This young scholar is studying to be a priest.
   keywords: ['scholar', 'boy']
-  level: 2
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -544,16 +544,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -566,7 +566,7 @@
   long_desc: |
     This old wizard almost looks like he is about to fall over and sleep.
   keywords: ['wizard']
-  level: 2
+  level: 30
   hp_max: 765
   mp_max: 0
   mv_max: 100
@@ -576,16 +576,16 @@
   intel: 16
   wis: 12
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 30
-  damage_bonus: 300
+  base_damage: 6
+  damage_bonus: 20
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SHOPKEEPER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -600,7 +600,7 @@
     smiles at you, and your heart flutters at the thought that you have her
     attention, and you jump to her offer for a massage.
   keywords: ['masseuse', 'woman']
-  level: 2
+  level: 4
   hp_max: 50
   mp_max: 0
   mv_max: 100
@@ -610,16 +610,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 14
   fortitude: 0
   reflex: 0
   will: 0
   base_damage: 4
-  damage_bonus: 40
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -633,7 +633,7 @@
     He smiles at you, almost as if he knows you.  He is so friendly, you have no
     choice but to reciprocate and join him and the others in the soothing pool.
   keywords: ['bather', 'man']
-  level: 2
+  level: 5
   hp_max: 65
   mp_max: 0
   mv_max: 100
@@ -643,16 +643,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 50
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -667,7 +667,7 @@
     he is looking at a map of Thalos aside his fellow co-workers keeping
     track of each city patrol.
   keywords: ['guard', 'imperial', 'cityguard']
-  level: 2
+  level: 17
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -677,16 +677,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -700,7 +700,7 @@
     He is dressed in plate, and he looks quite formidable.  At the moment,
     he is watching the children play with amusement.
   keywords: ['guard', 'cityguard']
-  level: 2
+  level: 17
   hp_max: 270
   mp_max: 0
   mv_max: 100
@@ -710,16 +710,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -743,14 +743,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 55
+  base_damage: 4
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 500
   gold_min: 0
@@ -776,14 +776,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 66
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 600
   gold_min: 0
@@ -798,7 +798,7 @@
   long_desc: |
     He eyes you with contained anger.  You'd better leave him alone!
   keywords: ['stag', 'deer']
-  level: 32
+  level: 8
   hp_max: 124
   mp_max: 0
   mv_max: 100
@@ -808,16 +808,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 8
-  damage_bonus: 88
+  base_damage: 4
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -840,14 +840,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 2
-  damage_bonus: 22
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
   experience_value: 200
   gold_min: 0
@@ -862,7 +862,7 @@
   long_desc: |
     Upon careful inspection, you are sure it is NOT a cobra!
   keywords: ['snake']
-  level: 32
+  level: 4
   hp_max: 54
   mp_max: 0
   mv_max: 100
@@ -872,16 +872,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 4
-  damage_bonus: 44
+  base_damage: 8
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['GUARD', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 3200
+  experience_value: 400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -894,7 +894,7 @@
   long_desc: |
     He doesn't like you bothering him, but is too polite to ask you to leave.
   keywords: ['druid']
-  level: 8
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -904,16 +904,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -926,7 +926,7 @@
   long_desc: |
     She wonders why you are staring at her, and how you got in here.
   keywords: ['druidess']
-  level: 8
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -936,16 +936,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 800
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -958,7 +958,7 @@
   long_desc: |
     This musical fellow plays a happy song with his fellow comrades.
   keywords: ['musician', 'bard']
-  level: 2
+  level: 6
   hp_max: 81
   mp_max: 0
   mv_max: 100
@@ -968,16 +968,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 16
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 60
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -990,7 +990,7 @@
   long_desc: |
     This musical fellow wanders the world singing of the glory of Thalos.
   keywords: ['musician', 'bard']
-  level: 4
+  level: 7
   hp_max: 98
   mp_max: 0
   mv_max: 100
@@ -1000,16 +1000,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 7
-  damage_bonus: 70
+  base_damage: 4
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1032,14 +1032,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
   experience_value: 1500
   gold_min: 0
@@ -1063,14 +1063,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 10
+  base_damage: 5
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: []
   aggro_range: 0
   experience_value: 100
   gold_min: 0
@@ -1086,7 +1086,7 @@
     Fido is a small dog that has a foul smell and pieces of rotted meat hanging
     around his teeth.
   keywords: ['fido', 'dog']
-  level: 20
+  level: 1
   hp_max: 7
   mp_max: 0
   mv_max: 100
@@ -1100,12 +1100,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 4
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['AGGRESSIVE', 'COWARDLY']
   aggro_range: 0
-  experience_value: 2000
+  experience_value: 100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -1128,14 +1128,14 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 15
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'LOCAL']
   aggro_range: 0
   experience_value: 1500
   gold_min: 0

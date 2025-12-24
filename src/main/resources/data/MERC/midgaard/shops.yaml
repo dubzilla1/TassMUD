@@ -1,5 +1,6 @@
 shops:
-  - keeper: 3000
+  - id: 3000
+    mob_template_id: 3000
     trades: [2, 3, 4, 10, 0]
     profit_buy: 105
     profit_sell: 15
@@ -8,7 +9,8 @@ shops:
     comment: "The Wizard"
     items: [3040, 3041]
 
-  - keeper: 3001
+  - id: 3001
+    mob_template_id: 3001
     trades: [0, 0, 0, 0, 0]
     profit_buy: 110
     profit_sell: 100
@@ -17,7 +19,8 @@ shops:
     comment: "The Baker"
     items: [3009]
 
-  - keeper: 3002
+  - id: 3002
+    mob_template_id: 3002
     trades: [1, 8, 13, 15, 19]
     profit_buy: 150
     profit_sell: 40
@@ -26,7 +29,8 @@ shops:
     comment: "The Grocer"
     items: [3030, 3031, 3138]
 
-  - keeper: 3003
+  - id: 3003
+    mob_template_id: 3003
     trades: [5, 6, 7, 0, 0]
     profit_buy: 130
     profit_sell: 40
@@ -35,7 +39,8 @@ shops:
     comment: "The Weaponsmith"
     items: [3020, 3021, 3022]
 
-  - keeper: 3004
+  - id: 3004
+    mob_template_id: 3004
     trades: [9, 0, 0, 0, 0]
     profit_buy: 100
     profit_sell: 50
@@ -44,7 +49,8 @@ shops:
     comment: "The Armourer"
     items: [3072, 3073, 3074, 3075, 3076, 3077, 3097]
 
-  - keeper: 3006
+  - id: 3006
+    mob_template_id: 3006
     trades: [22, 0, 0, 0, 0]
     profit_buy: 120
     profit_sell: 90
@@ -53,7 +59,8 @@ shops:
     comment: "The Captain"
     items: [3050, 3051]
 
-  - keeper: 3008
+  - id: 3008
+    mob_template_id: 3008
     trades: [0, 0, 0, 0, 0]
     profit_buy: 100
     profit_sell: 100
@@ -62,7 +69,8 @@ shops:
     comment: "The Pet Shop Boy"
     items: []
 
-  - keeper: 3009
+  - id: 3009
+    mob_template_id: 3009
     trades: [8, 0, 0, 0, 0]
     profit_buy: 150
     profit_sell: 50
@@ -71,7 +79,8 @@ shops:
     comment: "The Jeweller"
     items: []
 
-  - keeper: 3010
+  - id: 3010
+    mob_template_id: 3010
     trades: [9, 0, 0, 0, 0]
     profit_buy: 110
     profit_sell: 90
@@ -80,7 +89,8 @@ shops:
     comment: "The Leather Worker"
     items: [3066, 3067, 3068, 3069, 3070, 3071]
 
-  - keeper: 3040
+  - id: 3040
+    mob_template_id: 3040
     trades: [0, 0, 0, 0, 0]
     profit_buy: 110
     profit_sell: 100
@@ -89,7 +99,8 @@ shops:
     comment: "The Bartender"
     items: [3000, 3001]
 
-  - keeper: 3042
+  - id: 3042
+    mob_template_id: 3042
     trades: [0, 0, 0, 0, 0]
     profit_buy: 100
     profit_sell: 100
@@ -98,7 +109,8 @@ shops:
     comment: "The Waiter (mage)"
     items: [3002, 3003]
 
-  - keeper: 3043
+  - id: 3043
+    mob_template_id: 3043
     trades: [0, 0, 0, 0, 0]
     profit_buy: 110
     profit_sell: 100
@@ -107,7 +119,8 @@ shops:
     comment: "The Waiter (cleric)"
     items: [3002, 3004]
 
-  - keeper: 3044
+  - id: 3044
+    mob_template_id: 3044
     trades: [0, 0, 0, 0, 0]
     profit_buy: 170
     profit_sell: 100
@@ -116,7 +129,8 @@ shops:
     comment: "The Waiter (thief)"
     items: [3003, 3004]
 
-  - keeper: 3045
+  - id: 3045
+    mob_template_id: 3045
     trades: [0, 0, 0, 0, 0]
     profit_buy: 150
     profit_sell: 100
@@ -125,7 +139,8 @@ shops:
     comment: "The Waiter (fighter)"
     items: [3002, 3003, 3004]
 
-  - keeper: 3046
+  - id: 3046
+    mob_template_id: 3046
     trades: [0, 0, 0, 0, 0]
     profit_buy: 100
     profit_sell: 90
@@ -134,7 +149,8 @@ shops:
     comment: "Filthy"
     items: [3003, 3004]
 
-  - keeper: 3050
+  - id: 3050
+    mob_template_id: 3050
     trades: [0, 0, 0, 0, 0]
     profit_buy: 100
     profit_sell: 50
@@ -143,7 +159,8 @@ shops:
     comment: "Aod the Dealer"
     items: []
 
-  - keeper: 3100
+  - id: 3100
+    mob_template_id: 3100
     trades: [0, 0, 0, 0, 0]
     profit_buy: 110
     profit_sell: 90

@@ -6,7 +6,7 @@
     The small dwarf is dirty and dressed only in a small tunic and leggings.  His
     beard is encrusted with cracked rock and dust from the tunnel walls.
   keywords: ['dwarf']
-  level: 4
+  level: 7
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 150
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     His eyes are keen and sharp, well suited for sight in the dark tunnels of the
     mines.
   keywords: ['dwarf']
-  level: 4
+  level: 5
   hp_max: 66
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 60
+  base_damage: 8
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -74,7 +74,7 @@
     small body is strong which makes him a match for any foe.  The armor of the
     dwarf is of no use to anyone but him, but provides adequate defense.
   keywords: ['dwarf', 'guard']
-  level: 2
+  level: 10
   hp_max: 176
   mp_max: 0
   mv_max: 100
@@ -84,16 +84,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 12
-  damage_bonus: 170
+  base_damage: 8
+  damage_bonus: 6
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -108,7 +108,7 @@
     yellows and oranges, and seems to have a happy look about him despite his years
     of failure at growing rocks.
   keywords: ['dwarf', 'yentle']
-  level: 4
+  level: 10
   hp_max: 155
   mp_max: 0
   mv_max: 100
@@ -118,16 +118,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 6
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -142,7 +142,7 @@
     but a noble robe made of a grey silk.  His face has a visage of stone like his
     surroundings, as if his burden has become to much for him.
   keywords: ['juargan', 'dwarf', 'king']
-  level: 2
+  level: 27
   hp_max: 648
   mp_max: 0
   mv_max: 100
@@ -152,16 +152,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 27
-  damage_bonus: 270
+  base_damage: 6
+  damage_bonus: 9
   attack_bonus: 0
   behaviors: ['SENTINEL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 2700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -176,7 +176,7 @@
     their isolation from the rest of the dwarven population and have become bitter
     enemies with them.
   keywords: ['duergar', 'dwarf']
-  level: 36
+  level: 8
   hp_max: 161
   mp_max: 0
   mv_max: 100
@@ -186,16 +186,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 0
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3600
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -210,7 +210,7 @@
     his once cherished body has fallen into utter decay.  His once cheery face has
     turned into a crude scowl as you can feel that his soul is not at ease.
   keywords: ['grimdale', 'king', 'dwarf']
-  level: 34
+  level: 27
   hp_max: 648
   mp_max: 0
   mv_max: 100
@@ -220,16 +220,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 30
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 27
-  damage_bonus: 270
+  base_damage: 10
+  damage_bonus: 9
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2700
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -244,7 +244,7 @@
     into.  Judging by the size you can see that is has been eating quite a few too
     many dwarves as it's body is at least five feet in diameter.
   keywords: ['rock', 'worm', 'dreaded']
-  level: 34
+  level: 20
   hp_max: 272
   mp_max: 0
   mv_max: 100
@@ -254,16 +254,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 250
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'GUARD']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -278,7 +278,7 @@
     The soul of some unfortunate dwarf now has to fly aimlessly through this chamber
     of eternal pain.
   keywords: ['spirit', 'dwarf']
-  level: 34
+  level: 15
   hp_max: 177
   mp_max: 0
   mv_max: 100
@@ -288,16 +288,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 150
+  base_damage: 6
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'AGGRESSIVE']
   aggro_range: 0
-  experience_value: 3400
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0

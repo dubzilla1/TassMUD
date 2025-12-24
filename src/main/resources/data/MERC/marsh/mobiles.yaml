@@ -6,7 +6,7 @@
     This huge behemoth towers to a height of 15 feet.  He sneers at you 
     as he approaches and raises two black taloned claws to strike you.
   keywords: ['troll']
-  level: 2
+  level: 16
   hp_max: 252
   mp_max: 0
   mv_max: 100
@@ -16,16 +16,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 200
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -40,7 +40,7 @@
     which he seems to ply with utmost prowess.  He jabs his spear at you
     and cackles with glee.
   keywords: ['troll']
-  level: 4
+  level: 14
   hp_max: 181
   mp_max: 0
   mv_max: 100
@@ -50,16 +50,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 150
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -72,7 +72,7 @@
   long_desc: |
     This mean bastard looks like he could tear you limb from limb.
   keywords: ['ogre']
-  level: 4
+  level: 20
   hp_max: 260
   mp_max: 0
   mv_max: 100
@@ -82,16 +82,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 250
+  base_damage: 5
+  damage_bonus: 8
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -104,7 +104,7 @@
   long_desc: |
     The Swamp Thing has huge fists, which look like they could pound you flat.
   keywords: ['thing']
-  level: 4
+  level: 24
   hp_max: 555
   mp_max: 0
   mv_max: 100
@@ -114,16 +114,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 12
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 500
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2400
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -136,7 +136,7 @@
   long_desc: |
     The Gnoll seems annoyed at your presence.
   keywords: ['gnoll']
-  level: 4
+  level: 30
   hp_max: 761
   mp_max: 0
   mv_max: 100
@@ -146,16 +146,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 23
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 750
+  base_damage: 8
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 3000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -169,7 +169,7 @@
     This huge beast stands about 20 feet in height and has huge green clawed
     appendages.
   keywords: ['beast']
-  level: 4
+  level: 21
   hp_max: 441
   mp_max: 0
   mv_max: 100
@@ -179,16 +179,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 21
-  damage_bonus: 210
+  base_damage: 4
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -202,7 +202,7 @@
     This rather small beast looks like you could take it out with a single
     sword blow.
   keywords: ['beast']
-  level: 4
+  level: 3
   hp_max: 56
   mp_max: 0
   mv_max: 100
@@ -212,16 +212,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 11
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 40
+  base_damage: 20
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -236,7 +236,7 @@
     You stare as hard as you can at the glowing ball of floating light and
     are just able to notice a small pair of glowing eyes.
   keywords: ['will', 'will-o-wisp']
-  level: 4
+  level: 10
   hp_max: 115
   mp_max: 0
   mv_max: 100
@@ -246,16 +246,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 25
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 100
+  base_damage: 3
+  damage_bonus: 3
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -268,7 +268,7 @@
   long_desc: |
     This 10 meter anaconda looks rather hungry.
   keywords: ['snake', 'anaconda']
-  level: 4
+  level: 16
   hp_max: 336
   mp_max: 0
   mv_max: 100
@@ -278,16 +278,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 19
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 16
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 6
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1600
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -300,7 +300,7 @@
   long_desc: |
     It's the largest Amazon python you have ever seen.
   keywords: ['snake', 'python']
-  level: 4
+  level: 11
   hp_max: 122
   mp_max: 0
   mv_max: 100
@@ -310,16 +310,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 18
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 100
+  base_damage: 3
+  damage_bonus: 5
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL', 'COWARDLY']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1100
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -333,7 +333,7 @@
     Yech!  She manages to make even Smurfette look attractive.  That's ok,
     because she thinks you stink too, and she's about to do something about it.
   keywords: ['hag']
-  level: 4
+  level: 9
   hp_max: 311
   mp_max: 0
   mv_max: 100
@@ -343,16 +343,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 300
+  base_damage: 5
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 900
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -366,7 +366,7 @@
     This dark apparition stands a meager 13 feet in height.  Even in the dim
     swamp light, the blade of his scythe gleams.
   keywords: ['slaad']
-  level: 4
+  level: 20
   hp_max: 352
   mp_max: 0
   mv_max: 100
@@ -376,16 +376,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 22
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 20
-  damage_bonus: 300
+  base_damage: 5
+  damage_bonus: 15
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 2000
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -399,7 +399,7 @@
     This wolf looks plump.  She probably ate a friend or two of yours who came
     into the marsh.
   keywords: ['wolf']
-  level: 4
+  level: 8
   hp_max: 105
   mp_max: 0
   mv_max: 100
@@ -409,16 +409,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 17
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 50
+  base_damage: 5
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 800
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -431,7 +431,7 @@
   long_desc: |
     This grotesque pile of plant matter fills you with utmost horror.
   keywords: ['mound', 'shambling']
-  level: 4
+  level: 13
   hp_max: 205
   mp_max: 0
   mv_max: 100
@@ -445,12 +445,12 @@
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 10
-  damage_bonus: 150
+  base_damage: 6
+  damage_bonus: 2
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SCAVENGER', 'LOCAL']
   aggro_range: 0
-  experience_value: 400
+  experience_value: 1300
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -464,7 +464,7 @@
     This old orc has an array of bones stuck in his hair and strange symbols
     painted on his face and hands.
   keywords: ['shaman', 'orc']
-  level: 40
+  level: 12
   hp_max: 137
   mp_max: 0
   mv_max: 100
@@ -474,16 +474,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 13
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 120
+  base_damage: 4
+  damage_bonus: 1
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 4000
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -496,7 +496,7 @@
   long_desc: |
     This huge monster of a man has green gnarly teeth and a BIG stick.
   keywords: ['giant']
-  level: 40
+  level: 15
   hp_max: 321
   mp_max: 0
   mv_max: 100
@@ -506,16 +506,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 15
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 6
-  damage_bonus: 300
+  base_damage: 4
+  damage_bonus: 10
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 4000
+  experience_value: 1500
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
@@ -528,7 +528,7 @@
   long_desc: |
     This creepy fellow looks like he could use you as a meal.
   keywords: ['gargoyle']
-  level: 40
+  level: 12
   hp_max: 212
   mp_max: 0
   mv_max: 100
@@ -538,16 +538,16 @@
   intel: 10
   wis: 10
   cha: 10
-  armor: 10
+  armor: 20
   fortitude: 0
   reflex: 0
   will: 0
-  base_damage: 5
-  damage_bonus: 200
+  base_damage: 4
+  damage_bonus: 4
   attack_bonus: 0
-  behaviors: ['SENTINEL']
+  behaviors: ['SENTINEL', 'SCAVENGER', 'AGGRESSIVE', 'LOCAL']
   aggro_range: 0
-  experience_value: 4000
+  experience_value: 1200
   gold_min: 0
   gold_max: 0
   respawn_seconds: 0
