@@ -39,7 +39,12 @@ public enum WeaponFamily {
     // Exotic weapon families
     GLAIVES(WeaponCategory.EXOTIC, "Glaives", "skill_glaives"),
     FLAILS(WeaponCategory.EXOTIC, "Flails", "skill_flails"),
-    OTHER(WeaponCategory.EXOTIC, "Other", "skill_exotic_other");
+    OTHER(WeaponCategory.EXOTIC, "Other", "skill_exotic_other"),
+    
+    // Magical weapon families
+    WANDS(WeaponCategory.MAGICAL, "Wands", "skill_wands"),
+    ORBS(WeaponCategory.MAGICAL, "Orbs", "skill_orbs"),
+    WIZSTAVES(WeaponCategory.MAGICAL, "Wizard Staves", "skill_wizard_staves");
     
     private final WeaponCategory category;
     private final String displayName;
@@ -66,9 +71,12 @@ public enum WeaponFamily {
      * Check if this weapon family is melee (not ranged).
      */
     public boolean isMelee() {
-        return !isRanged();
+        return !isRanged() && !isMagical();
     }
     
+    public boolean isMagical() {
+        return this == WANDS || this == ORBS || this == WIZSTAVES;
+    }
     /**
      * Get the skill key for this weapon family (e.g., "skill_swords").
      */

@@ -35,6 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class MobileRoamingService {
     
     private static final long TICK_INTERVAL_MS = 1000; // Check every second
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(MobileRoamingService.class);
     
     private static MobileRoamingService instance;
     
@@ -63,7 +64,7 @@ public class MobileRoamingService {
      */
     public void initialize(TickService tickService) {
         tickService.scheduleAtFixedRate("mobile-roaming", this::tick, TICK_INTERVAL_MS, TICK_INTERVAL_MS);
-        System.out.println("[MobileRoamingService] Initialized with " + TICK_INTERVAL_MS + "ms interval");
+        logger.info("[MobileRoamingService] Initialized with {}ms interval", TICK_INTERVAL_MS);
     }
     
     /**
@@ -101,7 +102,7 @@ public class MobileRoamingService {
         try {
             allMobiles = mobileDao.getAllInstances();
         } catch (Exception e) {
-            System.err.println("[MobileRoamingService] Error getting mobiles: " + e.getMessage());
+            logger.warn("[MobileRoamingService] Error getting mobiles: {}", e.getMessage(), e);
             return;
         }
         
@@ -109,8 +110,7 @@ public class MobileRoamingService {
             try {
                 processMobile(mobile, now);
             } catch (Exception e) {
-                System.err.println("[MobileRoamingService] Error processing mobile " + 
-                    mobile.getInstanceId() + ": " + e.getMessage());
+                logger.warn("[MobileRoamingService] Error processing mobile {}: {}", mobile.getInstanceId(), e.getMessage(), e);
             }
         }
     }

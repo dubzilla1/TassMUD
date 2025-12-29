@@ -1,11 +1,15 @@
 package com.example.tassmud.tools;
 
 import java.sql.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Small DB inspection tool to help debug spawn duplication.
  */
 public class DbInspect {
+    private static final Logger logger = LoggerFactory.getLogger(DbInspect.class);
+
     public static void main(String[] args) {
         String url = "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1";
         try (Connection c = DriverManager.getConnection(url, "sa", "")) {
@@ -20,13 +24,12 @@ public class DbInspect {
             runQuery(c, "mobile_template row for 3011",
                 "SELECT id, name FROM mobile_template WHERE id = 3011");
         } catch (SQLException e) {
-            System.err.println("Connection failed: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Connection failed: {}", e.getMessage(), e);
         }
     }
 
     private static void runQuery(Connection c, String label, String sql) {
-        System.out.println("\n--- " + label + " ---");
+        logger.info("\n--- {} ---", label);
         try (Statement s = c.createStatement()) {
             boolean hasRs = s.execute(sql);
             if (hasRs) {
@@ -34,26 +37,31 @@ public class DbInspect {
                     ResultSetMetaData md = rs.getMetaData();
                     int cols = md.getColumnCount();
                     // Print header
+                    StringBuilder header = new StringBuilder();
                     for (int i = 1; i <= cols; i++) {
-                        System.out.print(md.getColumnLabel(i) + (i==cols ? "\n" : "\t"));
+                        header.append(md.getColumnLabel(i));
+                        if (i < cols) header.append('\t');
                     }
+                    logger.info(header.toString());
                     int rows = 0;
                     while (rs.next()) {
                         rows++;
+                        StringBuilder row = new StringBuilder();
                         for (int i = 1; i <= cols; i++) {
                             Object v = rs.getObject(i);
-                            System.out.print(String.valueOf(v) + (i==cols ? "\n" : "\t"));
+                            row.append(String.valueOf(v));
+                            if (i < cols) row.append('\t');
                         }
+                        logger.info(row.toString());
                     }
-                    if (rows == 0) System.out.println("<no rows>");
+                    if (rows == 0) logger.info("<no rows>");
                 }
             } else {
                 int updateCount = s.getUpdateCount();
-                System.out.println("Update count: " + updateCount);
+                logger.info("Update count: {}", updateCount);
             }
         } catch (SQLException e) {
-            System.out.println("Query failed: " + e.getMessage());
-            e.printStackTrace();
+            logger.warn("Query failed: {}", e.getMessage(), e);
         }
     }
 }

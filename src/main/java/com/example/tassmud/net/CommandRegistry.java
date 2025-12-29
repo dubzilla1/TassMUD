@@ -109,6 +109,8 @@ public class CommandRegistry {
         registerGm("goto", "Teleport to a room by ID");
         registerGm("ifind", "Find all instances of an item template");
         registerGm("ilist", "Search item templates by name");
+        registerGm("mlist", "Search mobile templates by name");
+        registerGm("mfind", "Find mobile instances by template ID");
         registerGm("istat", "Show detailed stats of an inventory item");
         registerGm("mstat", "Show detailed stats of a mobile in the room");
         registerGm("peace", "End all combat in the current room");

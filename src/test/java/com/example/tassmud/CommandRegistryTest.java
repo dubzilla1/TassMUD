@@ -14,12 +14,18 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests to ensure the command registry is complete and consistent.
  */
 public class CommandRegistryTest {
+
+    private static final Logger logger = LoggerFactory.getLogger(CommandRegistryTest.class);
+
 
     @Test
     @DisplayName("All registered commands should resolve correctly")
@@ -130,7 +136,7 @@ public class CommandRegistryTest {
         
         // Skip if file doesn't exist (e.g., running from different directory)
         if (!Files.exists(clientHandlerPath)) {
-            System.out.println("Skipping implementation check - source file not found at: " + clientHandlerPath);
+            logger.warn("Skipping implementation check - source file not found at: {}", clientHandlerPath);
             return;
         }
         

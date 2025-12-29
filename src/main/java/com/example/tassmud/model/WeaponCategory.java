@@ -11,7 +11,8 @@ package com.example.tassmud.model;
 public enum WeaponCategory {
     SIMPLE("Simple", "simple_weapons"),
     MARTIAL("Martial", "martial_weapons"),
-    EXOTIC("Exotic", "exotic_weapons");
+    EXOTIC("Exotic", "exotic_weapons"),
+    MAGICAL("Magical", "magical_weapons");
     
     private final String displayName;
     private final String skillKey;

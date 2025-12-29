@@ -3,12 +3,15 @@ package com.example.tassmud.tools;
 import com.example.tassmud.util.LootGenerator;
 import com.example.tassmud.util.LootGenerator.GeneratedItem;
 import com.example.tassmud.persistence.ItemDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class TestLoot {
+    private static final Logger logger = LoggerFactory.getLogger(TestLoot.class);
     static class TestItemDAO extends ItemDAO {
         private long next = 100000L;
         @Override
@@ -27,10 +30,10 @@ public class TestLoot {
                 armorTemplateCounts.put(gi.templateId, armorTemplateCounts.getOrDefault(gi.templateId, 0) + 1);
             }
         }
-        System.out.println("Armor template distribution (top results):");
+        logger.info("Armor template distribution (top results):");
         armorTemplateCounts.entrySet().stream()
             .sorted((a,b) -> Integer.compare(b.getValue(), a.getValue()))
             .limit(30)
-            .forEach(e -> System.out.println(e.getKey() + " -> " + e.getValue()));
+            .forEach(e -> logger.info("{} -> {}", e.getKey(), e.getValue()));
     }
 }

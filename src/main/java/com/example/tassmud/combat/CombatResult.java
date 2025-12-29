@@ -56,6 +56,8 @@ public class CombatResult {
         DEBUFF,         // Negative status effect applied
         DEATH,          // Target was killed
         FLEE,           // Combatant fled
+        SHRUGGED_OFF,   // Target shrugged off the attack
+        RESISTED,
         ERROR           // Something went wrong
     }
     
@@ -105,6 +107,14 @@ public class CombatResult {
     
     public static CombatResult flee(Combatant fleer) {
         return new CombatResult(ResultType.FLEE, true, 0, 0, fleer, null);
+    }
+    
+    public static CombatResult shrugged_off(Combatant attacker, Combatant target) {
+        return new CombatResult(ResultType.SHRUGGED_OFF, false, 0, 0, attacker, target);
+    }
+
+    public static CombatResult resisted(Combatant attacker, Combatant target) {
+        return new CombatResult(ResultType.RESISTED, false, 0, 0, attacker, target);
     }
     
     public static CombatResult interrupted(Combatant combatant) {

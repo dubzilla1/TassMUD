@@ -20,8 +20,12 @@ import com.example.tassmud.util.PasswordUtil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CharacterDAO {
+
+    private static final Logger logger = LoggerFactory.getLogger(CharacterDAO.class);
 
         // --- Skill DAO ---
         public boolean addSkill(String name, String description) {
@@ -64,7 +68,7 @@ public class CharacterDAO {
                 ps.executeUpdate();
                 return true;
             } catch (SQLException e) {
-                System.err.println("Failed to add skill " + id + " (" + name + "): " + e.getMessage());
+                logger.warn("Failed to add skill {} ({}): {}", id, name, e.getMessage());
                 return false;
             }
         }
@@ -199,7 +203,7 @@ public class CharacterDAO {
                 ps.executeUpdate();
                 return true;
             } catch (SQLException e) {
-                System.err.println("Failed to add spell " + spell.getName() + ": " + e.getMessage());
+                logger.warn("Failed to add spell {}: {}", spell.getName(), e.getMessage());
                 return false;
             }
         }
@@ -559,7 +563,8 @@ public class CharacterDAO {
     private static final String PASS = "";
 
     public CharacterDAO() {
-        ensureTable();
+        // Ensure character-related tables/migrations run only once per JVM startup
+        MigrationManager.ensureMigration("CharacterDAO", this::ensureTable);
     }
 
     public void ensureTable() {
@@ -707,9 +712,7 @@ public class CharacterDAO {
                             "character_id INT NOT NULL, " +
                             "skill_id INT NOT NULL, " +
                             "level INT DEFAULT 1, " +
-                            "PRIMARY KEY (character_id, skill_id), " +
-                            "FOREIGN KEY (character_id) REFERENCES characters(id), " +
-                            "FOREIGN KEY (skill_id) REFERENCES skilltb(id) " +
+                            "PRIMARY KEY (character_id, skill_id) " +
                             ")");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create character_skill table", e);
@@ -722,9 +725,7 @@ public class CharacterDAO {
                             "character_id INT NOT NULL, " +
                             "spell_id INT NOT NULL, " +
                             "level INT DEFAULT 1, " +
-                            "PRIMARY KEY (character_id, spell_id), " +
-                            "FOREIGN KEY (character_id) REFERENCES characters(id), " +
-                            "FOREIGN KEY (spell_id) REFERENCES spelltb(id) " +
+                            "PRIMARY KEY (character_id, spell_id) " +
                             ")");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create character_spell table", e);
@@ -740,7 +741,7 @@ public class CharacterDAO {
                             ")");
                     // Migration: add sector_type column for movement costs
                     s.execute("ALTER TABLE area ADD COLUMN IF NOT EXISTS sector_type VARCHAR(50) DEFAULT 'FIELD'");
-                    System.out.println("Migration: ensured column area.sector_type");
+                    logger.debug("Migration: ensured column area.sector_type");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create area table", e);
                 }
@@ -759,8 +760,7 @@ public class CharacterDAO {
                             "exit_s INT, " +
                             "exit_w INT, " +
                             "exit_u INT, " +
-                            "exit_d INT, " +
-                            "FOREIGN KEY (area_id) REFERENCES area(id) " +
+                            "exit_d INT " +
                             ")");
                     // Add missing columns if needed (migrations)
                     s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS area_id INT NOT NULL");
@@ -775,7 +775,7 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_d INT");
                     // Migration: add move_cost column for room-specific movement cost override
                     s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS move_cost INT");
-                    System.out.println("Migration: ensured column room.move_cost");
+                    logger.debug("Migration: ensured column room.move_cost");
                     // Door table for exit metadata (open/closed/locked/hidden/blocked)
                     s.execute("CREATE TABLE IF NOT EXISTS door (" +
                               "from_room_id INT NOT NULL, " +
@@ -787,8 +787,7 @@ public class CharacterDAO {
                               "blocked BOOLEAN DEFAULT FALSE, " +
                               "key_item_id INT, " +
                               "description VARCHAR(2048) DEFAULT '', " +
-                              "PRIMARY KEY (from_room_id, direction), " +
-                              "FOREIGN KEY (from_room_id) REFERENCES room(id) " +
+                              "PRIMARY KEY (from_room_id, direction) " +
                               ")");
                     // Add convenience migration columns if missing
                     s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS state VARCHAR(32) DEFAULT 'OPEN'");
@@ -812,7 +811,7 @@ public class CharacterDAO {
         // Room extras table: key/value textual extras for rooms (e.g., plaques, signs)
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              Statement s = c.createStatement()) {
-            s.execute("CREATE TABLE IF NOT EXISTS room_extra (room_id INT NOT NULL, k VARCHAR(200) NOT NULL, v VARCHAR(2048), PRIMARY KEY(room_id, k), FOREIGN KEY(room_id) REFERENCES room(id))");
+            s.execute("CREATE TABLE IF NOT EXISTS room_extra (room_id INT NOT NULL, k VARCHAR(200) NOT NULL, v VARCHAR(2048), PRIMARY KEY(room_id, k))");
             s.execute("ALTER TABLE room_extra ADD COLUMN IF NOT EXISTS v VARCHAR(2048)");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create room_extra table", e);
@@ -825,8 +824,7 @@ public class CharacterDAO {
                     "character_id INT NOT NULL, " +
                     "k VARCHAR(200) NOT NULL, " +
                     "v VARCHAR(2000), " +
-                    "PRIMARY KEY (character_id, k), " +
-                    "FOREIGN KEY (character_id) REFERENCES characters(id) " +
+                    "PRIMARY KEY (character_id, k)" +
                     ")");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create character_flag table", e);
@@ -839,8 +837,7 @@ public class CharacterDAO {
                     "character_id INT NOT NULL, " +
                     "slot_id INT NOT NULL, " +
                     "item_instance_id BIGINT NULL, " +
-                    "PRIMARY KEY (character_id, slot_id), " +
-                    "FOREIGN KEY (character_id) REFERENCES characters(id) " +
+                    "PRIMARY KEY (character_id, slot_id)" +
                     ")");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create character_equipment table", e);
@@ -857,8 +854,7 @@ public class CharacterDAO {
                     "op VARCHAR(20) NOT NULL, " +
                     "val DOUBLE NOT NULL, " +
                     "expires_at BIGINT DEFAULT 0, " +
-                    "priority INT DEFAULT 0, " +
-                    "FOREIGN KEY (character_id) REFERENCES characters(id) " +
+                    "priority INT DEFAULT 0 " +
                     ")");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create character_modifier table", e);
@@ -969,7 +965,7 @@ public class CharacterDAO {
             ps.setInt(1, characterId);
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Failed to clear equipment: " + e.getMessage());
+            logger.warn("Failed to clear equipment: {}", e.getMessage());
         }
     }
 
@@ -1269,7 +1265,7 @@ public class CharacterDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to find character by ID: " + e.getMessage());
+            logger.warn("Failed to find character by ID: {}", e.getMessage());
         }
         return null;
     }
@@ -1393,8 +1389,7 @@ public class CharacterDAO {
                 if (rs.next()) return rs.getInt(1);
             }
         } catch (SQLException e) {
-            System.err.println("[CharacterDAO] addArea (auto id) failed for name=" + name + ": " + e.getMessage());
-            e.printStackTrace(System.err);
+            logger.warn("[CharacterDAO] addArea (auto id) failed for name={}: {}", name, e.getMessage(), e);
             return -1;
         }
         return -1;
@@ -1480,8 +1475,7 @@ public class CharacterDAO {
                 if (rs.next()) return rs.getInt(1);
             }
         } catch (SQLException e) {
-            System.err.println("[CharacterDAO] addRoom (auto id) failed for areaId=" + areaId + " name=" + name + ": " + e.getMessage());
-            e.printStackTrace(System.err);
+            logger.warn("[CharacterDAO] addRoom (auto id) failed for areaId={} name={}: {}", areaId, name, e.getMessage(), e);
             return -1;
         }
         return -1;
@@ -1507,8 +1501,7 @@ public class CharacterDAO {
             ps.executeUpdate();
             return id;
         } catch (SQLException e) {
-            System.err.println("[CharacterDAO] addRoomWithId failed for id=" + id + ": " + e.getMessage());
-            e.printStackTrace(System.err);
+            logger.warn("[CharacterDAO] addRoomWithId failed for id={}: {}", id, e.getMessage(), e);
             return -1;
         }
     }
@@ -1595,7 +1588,7 @@ public class CharacterDAO {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.err.println("Failed to upsert door for room " + fromRoomId + " dir " + direction + ": " + e.getMessage());
+            logger.warn("Failed to upsert door for room {} dir {}: {}", fromRoomId, direction, e.getMessage());
             return false;
         }
     }
@@ -1828,7 +1821,7 @@ public class CharacterDAO {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.err.println("Failed to add vitals: " + e.getMessage());
+            logger.warn("Failed to add vitals: {}", e.getMessage());
             return false;
         }
     }
@@ -1844,7 +1837,7 @@ public class CharacterDAO {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.err.println("Failed to restore vitals: " + e.getMessage());
+            logger.warn("Failed to restore vitals: {}", e.getMessage());
             return false;
         }
     }
@@ -1892,7 +1885,7 @@ public class CharacterDAO {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.err.println("Failed to set vitals: " + e.getMessage());
+            logger.warn("Failed to set vitals: {}", e.getMessage());
             return false;
         }
     }
@@ -2101,7 +2094,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to set autoflee: " + e.getMessage());
+            logger.warn("Failed to set autoflee: {}", e.getMessage());
             return false;
         }
     }
@@ -2122,7 +2115,7 @@ public class CharacterDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get autoflee: " + e.getMessage());
+            logger.warn("Failed to get autoflee: {}", e.getMessage());
         }
         return 0;
     }
@@ -2141,7 +2134,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to set autoloot: " + e.getMessage());
+            logger.warn("Failed to set autoloot: {}", e.getMessage());
             return false;
         }
     }
@@ -2160,7 +2153,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to set autogold: " + e.getMessage());
+            logger.warn("Failed to set autogold: {}", e.getMessage());
             return false;
         }
     }
@@ -2179,7 +2172,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to set autosac: " + e.getMessage());
+            logger.warn("Failed to set autosac: {}", e.getMessage());
             return false;
         }
     }
@@ -2202,7 +2195,7 @@ public class CharacterDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get talent points: " + e.getMessage());
+            logger.warn("Failed to get talent points: {}", e.getMessage());
         }
         return 0;
     }
@@ -2221,7 +2214,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to set talent points: " + e.getMessage());
+            logger.warn("Failed to set talent points: {}", e.getMessage());
             return false;
         }
     }
@@ -2240,7 +2233,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to add talent points: " + e.getMessage());
+            logger.warn("Failed to add talent points: {}", e.getMessage());
             return false;
         }
     }
@@ -2265,7 +2258,7 @@ public class CharacterDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get trained ability: " + e.getMessage());
+            logger.warn("Failed to get trained ability: {}", e.getMessage());
         }
         return 0;
     }
@@ -2288,7 +2281,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to set trained ability: " + e.getMessage());
+            logger.warn("Failed to set trained ability: {}", e.getMessage());
             return false;
         }
     }
@@ -2309,7 +2302,7 @@ public class CharacterDAO {
             ps.setInt(1, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to increment trained ability: " + e.getMessage());
+            logger.warn("Failed to increment trained ability: {}", e.getMessage());
             return false;
         }
     }
@@ -2362,7 +2355,7 @@ public class CharacterDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Error getting gold for character " + characterId + ": " + e.getMessage());
+            logger.warn("Error getting gold for character {}: {}", characterId, e.getMessage());
         }
         return 0;
     }
@@ -2375,7 +2368,7 @@ public class CharacterDAO {
      */
     public boolean setGold(int characterId, long amount) {
         if (amount < 0) {
-            System.err.println("Attempted to set negative gold for character " + characterId);
+            logger.warn("Attempted to set negative gold for character {}", characterId);
             return false;
         }
         String sql = "UPDATE characters SET gold_pieces = ? WHERE id = ?";
@@ -2386,7 +2379,7 @@ public class CharacterDAO {
             int rows = ps.executeUpdate();
             return rows > 0;
         } catch (SQLException e) {
-            System.err.println("Error setting gold for character " + characterId + ": " + e.getMessage());
+            logger.warn("Error setting gold for character {}: {}", characterId, e.getMessage());
         }
         return false;
     }
@@ -2406,7 +2399,7 @@ public class CharacterDAO {
             int rows = ps.executeUpdate();
             return rows > 0;
         } catch (SQLException e) {
-            System.err.println("Error adding gold for character " + characterId + ": " + e.getMessage());
+            logger.warn("Error adding gold for character {}: {}", characterId, e.getMessage());
         }
         return false;
     }
@@ -2589,7 +2582,7 @@ public class CharacterDAO {
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Failed to set autojunk: " + e.getMessage());
+            logger.warn("Failed to set autojunk: {}", e.getMessage());
             return false;
         }
     }

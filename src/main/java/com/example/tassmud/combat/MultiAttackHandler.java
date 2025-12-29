@@ -30,9 +30,9 @@ public class MultiAttackHandler {
     public static final int FOURTH_ATTACK_SKILL_ID = 17;
     
     /** Level penalties for each successive attack */
-    public static final int SECOND_ATTACK_PENALTY = 1;
-    public static final int THIRD_ATTACK_PENALTY = 2;
-    public static final int FOURTH_ATTACK_PENALTY = 3;
+    public static final int SECOND_ATTACK_PENALTY = 2;
+    public static final int THIRD_ATTACK_PENALTY = 4;
+    public static final int FOURTH_ATTACK_PENALTY = 6;
     
     /** DAO for player skill lookups (lazy initialized) */
     private CharacterDAO dao;

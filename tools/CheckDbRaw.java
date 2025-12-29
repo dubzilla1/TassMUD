@@ -1,6 +1,9 @@
 import java.sql.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CheckDbRaw {
+    private static final Logger logger = LoggerFactory.getLogger(CheckDbRaw.class);
     public static void main(String[] args) {
         String url = "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1";
         try (Connection c = DriverManager.getConnection(url, "sa", "")) {
@@ -14,7 +17,7 @@ public class CheckDbRaw {
             runQuery(c, "spawn_mapping counts by template for top 20",
                 "SELECT template_id, COUNT(*) AS cnt FROM spawn_mapping GROUP BY template_id ORDER BY cnt DESC LIMIT 20");
         } catch (SQLException e) {
-            System.err.println("Connection failed: " + e.getMessage());
+            logger.error("Connection failed: {}", e.getMessage(), e);
         }
     }
 
@@ -23,21 +26,21 @@ public class CheckDbRaw {
         try (PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, table);
             try (ResultSet rs = ps.executeQuery()) {
-                System.out.println("\nColumns for table " + table + ":");
+                logger.info("\nColumns for table {}:", table);
                 boolean any = false;
                 while (rs.next()) {
                     any = true;
-                    System.out.println("  " + rs.getString("COLUMN_NAME") + " (" + rs.getString("TYPE_NAME") + ")");
+                    logger.info("  {} ({})", rs.getString("COLUMN_NAME"), rs.getString("TYPE_NAME"));
                 }
-                if (!any) System.out.println("  <no columns or table does not exist>");
+                if (!any) logger.info("  <no columns or table does not exist>");
             }
         } catch (SQLException e) {
-            System.out.println("Error querying table " + table + ": " + e.getMessage());
+            logger.warn("Error querying table {}: {}", table, e.getMessage(), e);
         }
     }
 
     private static void runQuery(Connection c, String label, String sql) {
-        System.out.println("\n--- " + label + " ---");
+        logger.info("\n--- {} ---", label);
         try (Statement s = c.createStatement()) {
             boolean hasRs = s.execute(sql);
             if (hasRs) {
@@ -45,25 +48,31 @@ public class CheckDbRaw {
                     java.sql.ResultSetMetaData md = rs.getMetaData();
                     int cols = md.getColumnCount();
                     // Print header
+                    StringBuilder header = new StringBuilder();
                     for (int i = 1; i <= cols; i++) {
-                        System.out.print(md.getColumnLabel(i) + (i==cols ? "\n" : "\t"));
+                        header.append(md.getColumnLabel(i));
+                        if (i < cols) header.append('\t');
                     }
+                    logger.info(header.toString());
                     int rows = 0;
                     while (rs.next()) {
                         rows++;
+                        StringBuilder row = new StringBuilder();
                         for (int i = 1; i <= cols; i++) {
                             Object v = rs.getObject(i);
-                            System.out.print(String.valueOf(v) + (i==cols ? "\n" : "\t"));
+                            row.append(String.valueOf(v));
+                            if (i < cols) row.append('\t');
                         }
+                        logger.info(row.toString());
                     }
-                    if (rows == 0) System.out.println("<no rows>");
+                    if (rows == 0) logger.info("<no rows>");
                 }
             } else {
                 int updateCount = s.getUpdateCount();
-                System.out.println("Update count: " + updateCount);
+                logger.info("Update count: {}", updateCount);
             }
         } catch (SQLException e) {
-            System.out.println("Query failed: " + e.getMessage());
+            logger.warn("Query failed: {}", e.getMessage(), e);
         }
     }
 }

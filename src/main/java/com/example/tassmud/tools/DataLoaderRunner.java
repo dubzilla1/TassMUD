@@ -2,21 +2,28 @@ package com.example.tassmud.tools;
 
 import com.example.tassmud.persistence.DataLoader;
 import com.example.tassmud.persistence.CharacterDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+/**
+ * Tool wrapper to run DataLoader outside of server; logs via SLF4J.
+ */
 public class DataLoaderRunner {
+    private static final Logger logger = LoggerFactory.getLogger(DataLoaderRunner.class);
+
     public static void main(String[] args) throws Exception {
         CharacterDAO dao = new CharacterDAO();
         DataLoader.loadDefaults(dao);
-        System.out.println("DataLoader.run completed");
+        logger.info("DataLoader.run completed");
         // Debug: print area rows we expect from MERC import
         int[] check = {30,31,32};
         for (int a : check) {
             try {
                 com.example.tassmud.model.Area area = dao.getAreaById(a);
-                if (area != null) System.out.println("Area " + a + ": " + area.getName() + " / " + area.getDescription());
-                else System.out.println("Area " + a + " not found");
+                if (area != null) logger.info("Area {}: {} / {}", a, area.getName(), area.getDescription());
+                else logger.info("Area {} not found", a);
             } catch (Exception e) {
-                System.out.println("Area lookup failed for " + a + ": " + e.getMessage());
+                logger.warn("Area lookup failed for {}: {}", a, e.getMessage(), e);
             }
         }
     }

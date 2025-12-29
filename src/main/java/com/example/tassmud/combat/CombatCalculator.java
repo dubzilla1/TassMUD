@@ -47,7 +47,7 @@ public class CombatCalculator {
     /**
      * Calculate the attack roll bonus based on level difference.
      * 
-     * Formula: (attacker_level - defender_level) * 2
+     * Formula: (attacker_level - defender_level) 
      * Cap: min(calculated_bonus, attacker_level)
      * 
      * @param attackerLevel Attacker's level
@@ -55,7 +55,7 @@ public class CombatCalculator {
      * @return The attack roll bonus (can be negative)
      */
     public int calculateLevelAttackBonus(int attackerLevel, int defenderLevel) {
-        int rawBonus = (attackerLevel - defenderLevel) * 2;
+        int rawBonus = (attackerLevel - defenderLevel);
         
         // Cap at attacker's level (only applies to positive bonuses)
         if (rawBonus > 0) {
@@ -381,6 +381,26 @@ public class CombatCalculator {
         
         return false;
     }
+
+        /**
+     * Check if a combatant is using a ranged weapon.
+     * 
+     * @param combatant The combatant to check
+     * @return true if using a ranged weapon (bow, crossbow, sling), false otherwise
+     */
+    public boolean isUsingMagicalWeapon(Combatant combatant) {
+        if (combatant == null) return false;
+        
+        if (combatant.isPlayer()) {
+            return isPlayerUsingMagicalWeapon(combatant.getCharacterId());
+        } else if (combatant.isMobile()) {
+            // For now, mobs are assumed to be melee unless we add ranged mob support later
+            // TODO: Add ranged weapon support for mobiles
+            return false;
+        }
+        
+        return false;
+    }
     
     /**
      * Check if a player character is using a ranged weapon.
@@ -411,6 +431,35 @@ public class CombatCalculator {
         return weaponFamily != null && weaponFamily.isRanged();
     }
     
+    /**
+     * Check if a player character is using a ranged weapon.
+     */
+    private boolean isPlayerUsingMagicalWeapon(Integer characterId) {
+        if (characterId == null) return false;
+        
+        ensureDAOs();
+        
+        // Get equipped main-hand weapon
+        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        if (mainHandInstanceId == null) {
+            return false; // Unarmed is melee
+        }
+        
+        // Get weapon template to find family
+        ItemInstance weaponInstance = itemDAO.getInstance(mainHandInstanceId);
+        if (weaponInstance == null) {
+            return false;
+        }
+        
+        ItemTemplate weaponTemplate = itemDAO.getTemplateById(weaponInstance.templateId);
+        if (weaponTemplate == null) {
+            return false;
+        }
+        
+        WeaponFamily weaponFamily = weaponTemplate.getWeaponFamily();
+        return weaponFamily != null && weaponFamily.isRanged();
+    }
+
     /**
      * Container for weapon category and family skills.
      */

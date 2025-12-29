@@ -132,21 +132,23 @@ public class BasicAttackCommand implements CombatCommand {
         // Determine if this attack should be treated as ranged
         // Either from a ranged weapon OR from a weapon infusion that makes it ranged
         boolean isRangedAttack = calculator.isUsingRangedWeapon(user) || (infusion != null && infusion.isRanged);
-        
+        boolean isMagicalAttack = calculator.isUsingMagicalWeapon(user);
+        boolean isMeleeAttack = !isRangedAttack && !isMagicalAttack;
+
         // Calculate stat modifiers
         int strMod = (attacker.getStr() - 10) / 2;
         int dexMod = (attacker.getDex() - 10) / 2;
-        //int intMod = (attacker.getIntel() - 10) / 2;
+        int intMod = (attacker.getIntel() - 10) / 2;
         
         // Determine which stat to use for attack/damage
         // Default: STR for melee, DEX for ranged
         // Weapon infusions can override this (e.g., INT for arcane infusion)
         int statBonus;
         int damageStatMod;
-        if (infusion != null) {
+        if (isMagicalAttack) {
             // Use the stat specified by the infusion
-            damageStatMod = getStatMod(attacker, infusion.attackStat);
-            statBonus = damageStatMod; // Use same stat for attack roll
+            damageStatMod = 0;
+            statBonus = intMod; // Use same stat for attack roll
         } else if (isRangedAttack) {
             statBonus = dexMod;
             damageStatMod = dexMod;
@@ -160,23 +162,18 @@ public class BasicAttackCommand implements CombatCommand {
         // Weapon infusions can override this (e.g., Reflex for arcane infusion)
         int targetDefense;
         String defenseType;
-        if (infusion != null && "REFLEX".equals(infusion.defenseStat)) {
-            targetDefense = target.getReflex();
-            defenseType = "reflex";
-        } else {
-            targetDefense = target.getArmor();
-            defenseType = "armor";
-        }
+        targetDefense = target.getArmor();
+        defenseType = "armor";
         
         // Check if target is prone - affects advantage/disadvantage based on weapon type
         int proneModifier = 0;
         if (target.isProne()) {
             if (isRangedAttack) {
                 // Ranged attacks have disadvantage against prone targets
-                proneModifier = -1;
+                proneModifier = -2;
             } else {
                 // Melee attacks have advantage against prone targets
-                proneModifier = 1;
+                proneModifier = 2;
             }
         }
         
@@ -250,12 +247,18 @@ public class BasicAttackCommand implements CombatCommand {
             }
         } else {
             // Mob or fallback - use default stat
-            damageBonus = isRangedAttack ? dexMod : strMod;
+            if (isRangedAttack)
+                damageBonus = dexMod;
+            else if (isMagicalAttack)
+                damageBonus = intMod;
+            else
+                damageBonus = strMod;
         }
+
         
         // Two-handed melee weapons get 1.5x STR bonus to damage (only for unarmed/default, not weapon ability)
         // Note: For weapons with custom ability multipliers, the multiplier is already applied
-        if (!isRangedAttack && infusion == null && isTwoHandedWeapon(user)) {
+        if (!isRangedAttack && !isMagicalAttack && infusion == null && isTwoHandedWeapon(user)) {
             // Only apply 1.5x bonus if using default STR calculation (not custom weapon ability)
             // Check if weapon has custom ability multiplier > 1.0
             CharacterDAO th2Dao = new CharacterDAO();
@@ -290,12 +293,58 @@ public class BasicAttackCommand implements CombatCommand {
         }
 
         // Apply defender's attack damage reduction (flat)
-        int reduction = defender.getAttackDamageReduction();
-        if (reduction > 0) {
-            totalDamage = Math.max(0, totalDamage - reduction);
+        int reduction = 0;
+
+        if(isMagicalAttack) {
+            reduction = defender.getMagicalDamageReduction();
+            if (reduction >= totalDamage) {
+                // All damage resisted
+                CombatResult result = CombatResult.resisted(user, target);
+                result.setAttackRoll(attackRoll);
+                String debugInfo = buildAttackDebugInfo(
+                    attacker.getName(), attackRoll, totalAttackBonus,
+                    defender.getName(), defenseType.toUpperCase(), targetDefense,
+                    true, getDamageDiceNotation(user), baseDamage, multipliedBonus
+                );
+                result.setDebugInfo(debugInfo);
+                setCooldown(user);
+                return result;
+            }
+        }
+        else if (isRangedAttack) {
+            reduction = defender.getRangedDamageReduction();
+            if (reduction >= totalDamage) {
+                // All damage dodged
+                CombatResult result = CombatResult.dodged(user, target);
+                result.setAttackRoll(attackRoll);
+                String debugInfo = buildAttackDebugInfo(
+                    attacker.getName(), attackRoll, totalAttackBonus,
+                    defender.getName(), defenseType.toUpperCase(), targetDefense,
+                    true, getDamageDiceNotation(user), baseDamage, multipliedBonus
+                );
+                result.setDebugInfo(debugInfo);
+                setCooldown(user);
+                return result;
+            }
+        }
+        else {
+            reduction = defender.getMeleeDamageReduction();
+            if (reduction >= totalDamage) {
+                // All damage shrugged off
+                CombatResult result = CombatResult.shrugged_off(user, target);
+                result.setAttackRoll(attackRoll);
+                String debugInfo = buildAttackDebugInfo(
+                    attacker.getName(), attackRoll, totalAttackBonus,
+                    defender.getName(), defenseType.toUpperCase(), targetDefense,
+                    true, getDamageDiceNotation(user), baseDamage, multipliedBonus
+                );
+                result.setDebugInfo(debugInfo);
+                setCooldown(user);
+                return result;
+            }
         }
 
-        if (totalDamage < 1) totalDamage = 1;
+        totalDamage = Math.max(1, totalDamage - reduction);
         
         // Apply damage
         target.damage(totalDamage);

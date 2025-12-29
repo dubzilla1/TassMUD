@@ -23,6 +23,7 @@ import com.example.tassmud.model.MobileTemplate;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Spell;
+import com.example.tassmud.model.Stat;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.CommandDefinition.Category;
 import com.example.tassmud.net.CommandRegistry;
@@ -32,6 +33,8 @@ import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.LootGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Delegates GM commands to ClientHandler.handleGmCommand
@@ -40,6 +43,8 @@ import com.example.tassmud.util.LootGenerator;
  * gminvis, goto, ifind, ilist, istat, mstat, peace, promote, restore, slay, spawn, system.
  */
 public class GmCommandHandler implements CommandHandler {
+
+    private static final Logger logger = LoggerFactory.getLogger(GmCommandHandler.class);
 
 private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.GM).stream()
             .map(cmd -> cmd.getName())
@@ -67,6 +72,8 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             case "goto": return handleGotoCommand(ctx);
             case "ifind": return handleIfindCommand(ctx);
             case "ilist": return handleIlistCommand(ctx);
+            case "mlist": return handleMlistCommand(ctx);
+            case "mfind": return handleMfindCommand(ctx);
             case "istat": return handleIstatCommand(ctx);
             case "mstat": return handleMstatCommand(ctx);
             case "peace": return handlePeaceCommand(ctx);
@@ -289,6 +296,15 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                 out.println("Failed to spawn mobile instance.");
                 return true;
             }
+            int randStat;
+            for (int i=1; i<=spawnedMob.getLevel(); i++) {
+                randStat = (int)(Math.random() * 3);
+                switch (randStat) {
+                    case 0: spawnedMob.addStat(Stat.FORTITUDE, 1); break;
+                    case 1: spawnedMob.addStat(Stat.REFLEX, 1); break;
+                    case 2: spawnedMob.addStat(Stat.WILL, 1); break;
+                }
+            }
             out.println("Spawned " + spawnedMob.getName() + " (instance #" + spawnedMob.getInstanceId() + ") in room " + targetRoomId + ".");
         } else if (spawnType.equals("GOLD")) {
             // GM gold spawn - gives gold directly to the GM
@@ -417,7 +433,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                     ItemDAO itemDAO = new ItemDAO();
                     itemDAO.createCorpse(rec.currentRoom, mobName);
                 } catch (Exception e) {
-                    System.err.println("[slay] Failed to create corpse: " + e.getMessage());
+                    logger.warn("[slay] Failed to create corpse: {}", e.getMessage());
                 }
 
                 // Remove combatant from combat to avoid later double-processing
@@ -436,7 +452,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                     targetMob.die();
                     mobileDao.deleteInstance(targetMob.getInstanceId());
                 } catch (Exception e) {
-                    System.err.println("[slay] Failed to despawn mob: " + e.getMessage());
+                    logger.warn("[slay] Failed to despawn mob: {}", e.getMessage());
                 }
             }
         } else {
@@ -481,7 +497,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                 ItemDAO itemDAO = new ItemDAO();
                 itemDAO.createCorpse(rec.currentRoom, mobName);
             } catch (Exception e) {
-                System.err.println("[slay] Failed to create corpse: " + e.getMessage());
+                logger.warn("[slay] Failed to create corpse: {}", e.getMessage());
             }
             
             // Kill and remove the mob
@@ -958,6 +974,91 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
         }
         out.println(ClientHandler.repeat("-", 75));
         out.println(matches.size() + " item(s) found.");
+        out.println();
+        return true;
+    }
+
+    private boolean handleMlistCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        // GM-only: MLIST <search_string>
+        // Finds all mobile templates matching the given string
+        if (!ensureGm(ctx)) return true;
+        String mlistArgs = ctx.getArgs();
+        if (mlistArgs == null || mlistArgs.trim().isEmpty()) {
+            out.println("Usage: MLIST <search_string>");
+            out.println("  Searches mobile templates by name.");
+            return true;
+        }
+        String searchStr = mlistArgs.trim();
+        MobileDAO mlistMobDao = new MobileDAO();
+        java.util.List<MobileTemplate> matches = mlistMobDao.searchTemplates(searchStr);
+        if (matches.isEmpty()) {
+            out.println("No mobile templates found matching '" + searchStr + "'.");
+            return true;
+        }
+        out.println();
+        out.println(String.format("%-6s %-25s %-6s %s", "ID", "Name", "Lvl", "ShortDesc"));
+        out.println(ClientHandler.repeat("-", 80));
+        for (MobileTemplate t : matches) {
+            String shortDesc = t.getShortDesc() != null ? ClientHandler.truncate(t.getShortDesc(), 40) : "";
+            out.println(String.format("%-6d %-25s %-6d %s",
+                t.getId(),
+                ClientHandler.truncate(t.getName(), 25),
+                t.getLevel(),
+                shortDesc));
+        }
+        out.println(ClientHandler.repeat("-", 80));
+        out.println(matches.size() + " mobile(s) found.");
+        out.println();
+        return true;
+    }
+
+    private boolean handleMfindCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        // GM-only: MFIND <template_id>
+        if (!ensureGm(ctx)) return true;
+        String mfindArgs = ctx.getArgs();
+        if (mfindArgs == null || mfindArgs.trim().isEmpty()) {
+            out.println("Usage: MFIND <template_id>");
+            out.println("  Finds mobile instances by template ID and shows the room they're in.");
+            return true;
+        }
+        int tplId;
+        try {
+            tplId = Integer.parseInt(mfindArgs.trim().split("\\s+")[0]);
+        } catch (NumberFormatException e) {
+            out.println("Invalid template ID. Must be a number.");
+            return true;
+        }
+
+        MobileDAO mfindDao = new MobileDAO();
+        MobileTemplate tpl = mfindDao.getTemplateById(tplId);
+        String tplName = tpl != null ? tpl.getName() : ("Template#" + tplId);
+
+        java.util.List<Mobile> instances = mfindDao.findInstancesByTemplateId(tplId);
+        if (instances.isEmpty()) {
+            out.println("No mobile instances of template #" + tplId + " (" + tplName + ") found.");
+            return true;
+        }
+
+        out.println();
+        out.println("=== Instances of #" + tplId + " (" + tplName + ") ===");
+        out.println();
+        out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
+        for (Mobile m : instances) {
+            Integer roomId = m.getCurrentRoom();
+            String roomName = "(no room)";
+            if (roomId != null) {
+                Room r = dao.getRoomById(roomId);
+                roomName = r != null ? r.getName() : "Unknown";
+            }
+            out.println(String.format("  %-10d %-6d %-20s %-6s %s",
+                m.getInstanceId(), m.getTemplateId(), ClientHandler.truncate(m.getName(), 20),
+                roomId != null ? String.valueOf(roomId) : "-", ClientHandler.truncate(roomName, 30)));
+        }
+        out.println();
+        out.println("Total: " + instances.size() + " instance(s) found.");
         out.println();
         return true;
     }

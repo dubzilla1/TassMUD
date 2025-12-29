@@ -20,8 +20,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DataLoader {
+
+    private static final Logger logger = LoggerFactory.getLogger(DataLoader.class);
 
     // Mapping from MERC-specified area id -> persisted DB area id when importing MERC dirs
     private static final Map<Integer,Integer> mercAreaIdMap = new HashMap<>();
@@ -39,7 +43,7 @@ public class DataLoader {
         try {
             loadEffects();
         } catch (Exception e) {
-            System.err.println("Failed to load effects.yaml: " + e.getMessage());
+            logger.warn("Failed to load effects.yaml: {}", e.getMessage());
         }
         Map<String,Integer> areaMap = loadAreas(dao);
         Map<String,Integer> roomKeyToId = loadRoomsFirstPass(dao, areaMap);
@@ -56,32 +60,32 @@ public class DataLoader {
                 try (InputStream in = DataLoader.class.getResourceAsStream(mercItemsPath)) {
                     if (in == null) continue;
                     itemDao.loadTemplatesFromYamlResource(mercItemsPath);
-                    System.out.println("[DataLoader] Loaded MERC items from " + mercItemsPath);
+                    logger.info("[DataLoader] Loaded MERC items from {}", mercItemsPath);
                 } catch (Exception e) {
-                    System.err.println("[DataLoader] Failed to load MERC items from " + mercItemsPath + ": " + e.getMessage());
+                    logger.warn("[DataLoader] Failed to load MERC items from {}: {}", mercItemsPath, e.getMessage());
                 }
             }
         } catch (Exception e) {
-            System.err.println("Failed to load items.yaml: " + e.getMessage());
+            logger.warn("Failed to load items.yaml: {}", e.getMessage());
         }
         // Load character classes from YAML resource
         try {
             CharacterClassDAO classDao = new CharacterClassDAO();
             classDao.loadClassesFromYamlResource("/data/classes.yaml");
         } catch (Exception e) {
-            System.err.println("Failed to load classes.yaml: " + e.getMessage());
+            logger.warn("Failed to load classes.yaml: {}", e.getMessage());
         }
         // Load mobile templates from YAML resource
         try {
             loadMobileTemplates();
         } catch (Exception e) {
-            System.err.println("Failed to load mobiles.yaml: " + e.getMessage());
+            logger.warn("Failed to load mobiles.yaml: {}", e.getMessage());
         }
         // Load shop menus from YAML resource
         try {
             ShopDAO.loadFromYamlResource("/data/shops.yaml");
         } catch (Exception e) {
-            System.err.println("Failed to load shops.yaml: " + e.getMessage());
+            logger.warn("Failed to load shops.yaml: {}", e.getMessage());
         }
         // Spawn permanent room items (e.g., tutorial containers)
         if (itemDao != null) {
@@ -140,7 +144,7 @@ public class DataLoader {
      * will trigger an initial spawn pass so registered spawns can populate the world.
      */
     public static void loadTemplatesOnly() {
-        System.out.println("[DataLoader] Seeding templates only into current DB");
+        logger.info("[DataLoader] Seeding templates only into current DB");
         // Load item templates
         try {
             ItemDAO itemDao = new ItemDAO();
@@ -151,29 +155,29 @@ public class DataLoader {
                 try (InputStream in = DataLoader.class.getResourceAsStream(mercItemsPath)) {
                     if (in == null) continue;
                     itemDao.loadTemplatesFromYamlResource(mercItemsPath);
-                    System.out.println("[DataLoader] Loaded MERC items from " + mercItemsPath);
+                    logger.info("[DataLoader] Loaded MERC items from {}", mercItemsPath);
                 } catch (Exception e) {
-                    System.err.println("[DataLoader] Failed to load MERC items from " + mercItemsPath + ": " + e.getMessage());
+                    logger.warn("[DataLoader] Failed to load MERC items from {}: {}", mercItemsPath, e.getMessage());
                 }
             }
         } catch (Exception e) {
-            System.err.println("[DataLoader] Failed to load item templates: " + e.getMessage());
+            logger.warn("[DataLoader] Failed to load item templates: {}", e.getMessage());
         }
 
         // Load mobile templates
         try {
             loadMobileTemplates();
         } catch (Exception e) {
-            System.err.println("[DataLoader] Failed to load mobile templates: " + e.getMessage());
+            logger.warn("[DataLoader] Failed to load mobile templates: {}", e.getMessage());
         }
 
         // Trigger initial spawns if any spawns were registered earlier
         try {
             com.example.tassmud.event.SpawnManager.getInstance().triggerInitialSpawns();
         } catch (Exception e) {
-            System.err.println("[DataLoader] Failed to trigger initial spawns: " + e.getMessage());
+            logger.warn("[DataLoader] Failed to trigger initial spawns: {}", e.getMessage());
         }
-        System.out.println("[DataLoader] Template seeding complete");
+        logger.info("[DataLoader] Template seeding complete");
     }
     
     /**
@@ -200,9 +204,9 @@ public class DataLoader {
                     long instanceId = itemDao.createInstance(templateId, roomId, null);
                     ItemTemplate tmpl = itemDao.getTemplateById(templateId);
                     String name = tmpl != null ? tmpl.name : "item #" + templateId;
-                    System.out.println("[DataLoader] Spawned permanent item '" + name + "' (instance #" + instanceId + ") in room " + roomId);
+                    logger.info("[DataLoader] Spawned permanent item '{}' (instance #{}) in room {}", name, instanceId, roomId);
                 } catch (Exception e) {
-                    System.err.println("[DataLoader] Failed to spawn permanent item " + templateId + " in room " + roomId + ": " + e.getMessage());
+                    logger.warn("[DataLoader] Failed to spawn permanent item {} in room {}: {}", templateId, roomId, e.getMessage());
                 }
             }
         }
@@ -225,16 +229,14 @@ public class DataLoader {
                 try {
                     mobileList = (List<Map<String, Object>>) yaml.load(content);
                 } catch (Exception parseEx) {
-                    System.err.println("[DataLoader] YAML parse failed, attempting sanitizer: " + parseEx.getMessage());
-                    parseEx.printStackTrace();
+                    logger.warn("[DataLoader] YAML parse failed, attempting sanitizer: {}", parseEx.getMessage(), parseEx);
                     // Attempt to sanitize Python-style flow dicts for template_json into block scalars
                     String sanitized = sanitizeTemplateJsonFlowMaps(content);
                     try {
                         mobileList = (List<Map<String, Object>>) yaml.load(sanitized);
-                        System.out.println("[DataLoader] YAML parse succeeded after sanitizing template_json flow maps");
+                        logger.info("[DataLoader] YAML parse succeeded after sanitizing template_json flow maps");
                     } catch (Exception parseEx2) {
-                        System.err.println("[DataLoader] Sanitized parse also failed: " + parseEx2.getMessage());
-                        parseEx2.printStackTrace();
+                        logger.warn("[DataLoader] Sanitized parse also failed: {}", parseEx2.getMessage(), parseEx2);
                         throw new RuntimeException(parseEx2);
                     }
                 }
@@ -307,12 +309,11 @@ public class DataLoader {
                     totalLoaded.incrementAndGet();
                     // Diagnostic logging for specific templates or when debug enabled
                     if (template.getId() == 3011 || "true".equals(System.getProperty("tassmud.debug.templates", "false"))) {
-                        System.out.println("[DataLoader] upserted mobile template id=" + template.getId() + " name='" + template.getName() + "'");
+                        logger.debug("[DataLoader] upserted mobile template id={} name='{}'", template.getId(), template.getName());
                     }
                 }
             } catch (Exception e) {
-                System.err.println("Failed to parse mobile list: " + e.getMessage());
-                e.printStackTrace();
+                logger.error("Failed to parse mobile list: {}", e.getMessage(), e);
                 throw new RuntimeException(e);
             }
         };
@@ -320,10 +321,9 @@ public class DataLoader {
         // Load the primary mobiles.yaml
         try (InputStream in = DataLoader.class.getResourceAsStream("/data/mobiles.yaml")) {
             if (in != null) loader.accept(in);
-            else System.out.println("No mobiles.yaml found");
+            else logger.info("No mobiles.yaml found");
         } catch (Exception e) {
-            System.err.println("[DataLoader] Failed to load /data/mobiles.yaml: " + e.getMessage());
-            e.printStackTrace();
+            logger.warn("[DataLoader] Failed to load /data/mobiles.yaml: {}", e.getMessage(), e);
         }
 
         // Also load any MERC mobiles.yaml under /data/MERC/*/mobiles.yaml
@@ -333,14 +333,14 @@ public class DataLoader {
             try (InputStream in = DataLoader.class.getResourceAsStream(path)) {
                 if (in != null) {
                     loader.accept(in);
-                    System.out.println("[DataLoader] Loaded MERC mobiles from " + path);
+                    logger.info("[DataLoader] Loaded MERC mobiles from {}", path);
                 }
             } catch (Exception e) {
-                System.err.println("[DataLoader] Failed to load MERC mobiles from " + path + ": " + e.getMessage());
+                logger.warn("[DataLoader] Failed to load MERC mobiles from {}: {}", path, e.getMessage(), e);
             }
         }
 
-        System.out.println("Loaded " + totalLoaded.get() + " mobile templates (including MERC)");
+        logger.info("Loaded {} mobile templates (including MERC)", totalLoaded.get());
     }
 
     private static void loadSkills(CharacterDAO dao) {
@@ -406,9 +406,9 @@ public class DataLoader {
                     count++;
                 }
             }
-            System.out.println("[DataLoader] Loaded " + count + " skills from YAML");
+            logger.info("[DataLoader] Loaded {} skills from YAML", count);
         } catch (Exception e) {
-            System.err.println("[DataLoader] Failed to load skills from YAML: " + e.getMessage());
+            logger.warn("[DataLoader] Failed to load skills from YAML: {}", e.getMessage(), e);
             loadSkillsFromCsv(dao);
         }
     }
@@ -498,10 +498,10 @@ public class DataLoader {
                 boolean added = dao.addSpellFull(spell);
                 if (added) count++;
             }
-            System.out.println("Loaded " + count + " spells from spells.yaml");
+            logger.info("Loaded {} spells from spells.yaml", count);
             
         } catch (Exception e) {
-            System.err.println("Failed to load spells.yaml: " + e.getMessage());
+            logger.warn("Failed to load spells.yaml: {}", e.getMessage(), e);
             // Fallback to old CSV
             loadSpellsFromCsv(dao);
         }
@@ -514,7 +514,7 @@ public class DataLoader {
     private static void loadEffects() {
         try (InputStream in = DataLoader.class.getResourceAsStream("/data/effects.yaml")) {
             if (in == null) {
-                System.out.println("No effects.yaml found");
+                logger.info("No effects.yaml found");
                 return;
             }
             org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
@@ -596,7 +596,7 @@ public class DataLoader {
             // Register weapon infusion handler for WEAPON_INFUSION effects (arcane infusion, etc.)
             com.example.tassmud.effect.EffectRegistry.registerHandler("WEAPON_INFUSION", new com.example.tassmud.effect.WeaponInfusionEffect());
 
-            System.out.println("Loaded " + count + " effects from effects.yaml");
+            logger.info("Loaded {} effects from effects.yaml", count);
         } catch (Exception e) {
             throw new RuntimeException("Failed to load effects.yaml: " + e.getMessage(), e);
         }
@@ -712,10 +712,10 @@ public class DataLoader {
                     }
                 }
             } catch (Exception e) {
-                System.err.println("[DataLoader] Failed to load MERC areas from " + resourcePath + ": " + e.getMessage());
+                logger.warn("[DataLoader] Failed to load MERC areas from {}: {}", resourcePath, e.getMessage(), e);
             }
         }
-        if (!map.isEmpty()) System.out.println("[DataLoader] Loaded " + map.size() + " MERC areas");
+        if (!map.isEmpty()) logger.info("[DataLoader] Loaded {} MERC areas", map.size());
         return map;
     }
 
@@ -730,7 +730,7 @@ public class DataLoader {
             if (url == null) url = DataLoader.class.getResource("/data/MERC");
             if (url == null) return out;
             String protocol = url.getProtocol();
-            try { System.out.println("[DataLoader.debug] /data/MERC URL=" + url + " protocol=" + protocol); } catch (Exception ignored) {}
+            try { logger.debug("[DataLoader.debug] /data/MERC URL={} protocol={}", url, protocol); } catch (Exception ignored) {}
             if ("file".equals(protocol)) {
                 Path p = Paths.get(url.toURI());
                 try (DirectoryStream<Path> ds = Files.newDirectoryStream(p)) {
@@ -762,10 +762,9 @@ public class DataLoader {
                         }
                     }
                     out.addAll(dirs);
-                    try { System.out.println("[DataLoader.debug] found MERC dirs: " + dirs + " jarPath=" + jarPath); } catch (Exception ignored) {}
+                    try { logger.debug("[DataLoader.debug] found MERC dirs: {} jarPath={}", dirs, jarPath); } catch (Exception ignored) {}
                 } catch (Exception e) {
-                    System.err.println("[DataLoader] failed to read JAR file for /data/MERC/ listing jarPath=" + jarPath + ": " + e.getMessage());
-                    e.printStackTrace();
+                    logger.warn("[DataLoader] failed to read JAR file for /data/MERC/ listing jarPath={}: {}", jarPath, e.getMessage(), e);
                 }
             }
         } catch (Exception e) {
@@ -803,9 +802,9 @@ public class DataLoader {
                     count++;
                 }
             }
-            System.out.println("[DataLoader] Loaded " + count + " areas from YAML");
+            logger.info("[DataLoader] Loaded {} areas from YAML", count);
         } catch (Exception e) {
-            System.err.println("[DataLoader] Failed to load areas from YAML: " + e.getMessage());
+            logger.warn("[DataLoader] Failed to load areas from YAML: {}", e.getMessage(), e);
         }
         return map;
     }
@@ -917,10 +916,10 @@ public class DataLoader {
                     templates.add(t);
                 }
             } catch (Exception e) {
-                System.err.println("[DataLoader] Failed to load MERC rooms from " + resourcePath + ": " + e.getMessage());
+                logger.warn("[DataLoader] Failed to load MERC rooms from {}: {}", resourcePath, e.getMessage(), e);
             }
         }
-        if (!templates.isEmpty()) System.out.println("[DataLoader] Loaded " + templates.size() + " MERC room templates");
+        if (!templates.isEmpty()) logger.info("[DataLoader] Loaded {} MERC room templates", templates.size());
         return templates;
     }
     
@@ -973,9 +972,9 @@ public class DataLoader {
                 if (t.key.isEmpty() || t.name.isEmpty()) continue;
                 templates.add(t);
             }
-            System.out.println("[DataLoader] Loaded " + templates.size() + " room templates from YAML");
+            logger.info("[DataLoader] Loaded {} room templates from YAML", templates.size());
         } catch (Exception e) {
-            System.err.println("[DataLoader] Failed to load rooms from YAML: " + e.getMessage());
+            logger.warn("[DataLoader] Failed to load rooms from YAML: {}", e.getMessage(), e);
         }
         return templates;
     }
@@ -1015,13 +1014,13 @@ public class DataLoader {
             }
 
             if (templateId < 0) {
-                System.err.println("[DataLoader] Spawn missing template id in room " + roomId);
+                logger.warn("[DataLoader] Spawn missing template id in room {}", roomId);
                 return null;
             }
 
             return new SpawnConfig(type, templateId, quantity, frequency, roomId, containerId, equipment, inventory);
         } catch (IllegalArgumentException e) {
-            System.err.println("[DataLoader] Invalid spawn type in room " + roomId + ": " + e.getMessage());
+            logger.warn("[DataLoader] Invalid spawn type in room {}: {}", roomId, e.getMessage(), e);
             return null;
         }
     }
@@ -1090,19 +1089,19 @@ public class DataLoader {
                             // create a minimal MERC area placeholder with the explicit id
                             int res = dao.addAreaWithId(t.areaId, "Imported MERC area " + t.areaId, "Imported from MERC");
                             if (res <= 0) {
-                                System.err.println("[DataLoader] addAreaWithId placeholder failed for areaId=" + t.areaId);
+                                logger.warn("[DataLoader] addAreaWithId placeholder failed for areaId={}", t.areaId);
                             } else {
-                                System.out.println("[DataLoader] Created placeholder area id=" + t.areaId);
+                                logger.info("[DataLoader] Created placeholder area id={}", t.areaId);
                             }
                         }
                     } catch (Exception e) {
-                        System.err.println("[DataLoader] Exception while ensuring area " + t.areaId + ": " + e.getMessage());
+                        logger.warn("[DataLoader] Exception while ensuring area {}: {}", t.areaId, e.getMessage(), e);
                     }
                 }
                 roomId = dao.addRoomWithId(t.explicitId, t.areaId, t.name, t.shortDesc, t.longDesc, 
                     t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
                 if (roomId <= 0) {
-                    System.err.println("[DataLoader] Failed to insert room with explicit id " + t.explicitId + " key=" + t.key + " name=" + t.name);
+                    logger.warn("[DataLoader] Failed to insert room with explicit id {} key={} name={}", t.explicitId, t.key, t.name);
                 }
             } else {
                 int nextLocal = areaCounters.getOrDefault(t.areaId, 0);
@@ -1113,7 +1112,7 @@ public class DataLoader {
                     roomId = dao.addRoomWithId(computed, t.areaId, t.name, t.shortDesc, t.longDesc,
                         t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
                     if (roomId <= 0) {
-                        System.err.println("[DataLoader] Failed to insert room with computed id " + computed + " key=" + t.key + " name=" + t.name);
+                        logger.warn("[DataLoader] Failed to insert room with computed id {} key={} name={}", computed, t.key, t.name);
                     }
                     if (roomId > 0) areaCounters.put(t.areaId, nextLocal + 1);
                 }
@@ -1127,7 +1126,7 @@ public class DataLoader {
                     // since its fields are final; only limit mapping quantity to 1 for MOBs and Objects in room.
                     int mappingQty = spawn.quantity;
                     if ((spawn.type == SpawnConfig.SpawnType.MOB || spawn.type == SpawnConfig.SpawnType.ITEM) && spawn.quantity > 1) {
-                        System.out.println("[DataLoader] Limiting spawn mappings to 1 for room " + roomId + " template " + spawn.templateId + " (configured " + spawn.quantity + ")");
+                        logger.info("[DataLoader] Limiting spawn mappings to 1 for room {} template {} (configured {})", roomId, spawn.templateId, spawn.quantity);
                         mappingQty = 1;
                     }
 
@@ -1142,7 +1141,7 @@ public class DataLoader {
         }
         
         if (totalSpawns > 0) {
-            System.out.println("[DataLoader] Registered " + totalSpawns + " spawns with SpawnManager");
+            logger.info("[DataLoader] Registered {} spawns with SpawnManager", totalSpawns);
         }
         
         return keyToId;
@@ -1240,13 +1239,13 @@ public class DataLoader {
                         }
                     
                     } catch (Exception e) {
-                        System.err.println("Failed to process doors from " + resourcePath + ": " + e.getMessage());
+                        logger.warn("Failed to process doors from {}: {}", resourcePath, e.getMessage(), e);
                     }
                 }
             
-                catch (Exception e) {
-                    System.err.println("[DataLoader] Failed to load MERC rooms from " + resourcePath + ": " + e.getMessage());
-                }
+            catch (Exception e) {
+                logger.warn("[DataLoader] Failed to load MERC rooms from {}: {}", resourcePath, e.getMessage(), e);
+            }
             }
         } 
     }

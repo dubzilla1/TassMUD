@@ -314,12 +314,13 @@ public class TrashGenerator {
      * Generate multiple unique trash items (for testing/fun).
      */
     public static void main(String[] args) {
-        System.out.println("=== TRASH GENERATOR TEST ===\n");
+        org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(TrashGenerator.class);
+        logger.info("=== TRASH GENERATOR TEST ===\n");
         for (int i = 0; i < 20; i++) {
             GeneratedTrash trash = generate();
-            System.out.println(trash.name);
-            System.out.println("  " + trash.description);
-            System.out.println();
+            logger.info(trash.name);
+            logger.info("  {}", trash.description);
+            logger.info("");
         }
     }
 }

@@ -1,10 +1,10 @@
+// Removed backup file. See ClientHandler.java for current implementation.
 package com.example.tassmud.net;
 
-import com.example.tassmud.combat.Combat;
-import com.example.tassmud.combat.CombatManager;
-import com.example.tassmud.combat.Combatant;
-import com.example.tassmud.effect.EffectDefinition;
-import com.example.tassmud.effect.EffectRegistry;
+/* This file was a backup copy (ClientHandler.java.bak) and has been cleared
+    to avoid keeping outdated code with System.out/System.err usage in the repository.
+    If you need the original backup, restore it from your local history or source control.
+*/
 import com.example.tassmud.model.Area;
 import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.Character;
@@ -772,7 +772,7 @@ public class ClientHandler implements Runnable {
      */
     public void handleCommunication(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
         try {
-            System.out.println("[Handler-enter] handleCommunication cmd='" + (cmd == null ? "<null>" : cmd.getName()) + "' args='" + (cmd == null ? "" : cmd.getArgs()) + "' player='" + name + "'");
+            // debug print removed from backup
             String cmdName = cmd.getName().toLowerCase();
             switch (cmdName) {
                 case "say": {
@@ -822,7 +822,7 @@ public class ClientHandler implements Runnable {
                 }
                 default:
                     // Not a communication command; fall through to caller
-                    System.out.println("[Handler-exit] handleCommunication not-handled cmd='" + cmd.getName() + "'");
+                    // debug print removed from backup
                     return;
             }
         } catch (Exception ignored) {}
@@ -852,7 +852,7 @@ public class ClientHandler implements Runnable {
      */
     public CharacterRecord handleGmCommand(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
         if (cmd == null) return rec;
-        System.out.println("[Handler-enter] handleGmCommand cmd='" + (cmd == null ? "<null>" : cmd.getName()) + "' args='" + (cmd == null ? "" : cmd.getArgs()) + "' player='" + name + "'");
+        // debug print removed from backup
         String cmdName = cmd.getName().toLowerCase();
         try {
             switch (cmdName) {
@@ -3543,7 +3543,7 @@ public class ClientHandler implements Runnable {
                                 ItemDAO itemDAO = new ItemDAO();
                                 itemDAO.createCorpse(rec.currentRoom, mobName);
                             } catch (Exception e) {
-                                System.err.println("[slay] Failed to create corpse: " + e.getMessage());
+                                // error print removed from backup
                             }
                             
                             // Kill and remove the mob
@@ -6107,7 +6107,7 @@ public class ClientHandler implements Runnable {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Client connection error: " + e.getMessage());
+            // client connection error print removed from backup
         } finally {
             // Attempt to persist character state and modifiers on disconnect
             try {
@@ -6572,7 +6572,7 @@ public class ClientHandler implements Runnable {
      */
     public CharacterRecord handleCombatCommand(Command cmd, String name, CharacterRecord rec, CharacterDAO dao) {
         if (cmd == null) return rec;
-        System.out.println("[Handler-enter] handleCombatCommand cmd='" + (cmd == null ? "<null>" : cmd.getName()) + "' args='" + (cmd == null ? "" : cmd.getArgs()) + "' player='" + name + "'");
+        // debug print removed from backup
         String cmdName = cmd.getName().toLowerCase();
         try {
             switch (cmdName) {

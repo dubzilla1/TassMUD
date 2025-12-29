@@ -11,13 +11,13 @@ public class GameCharacter {
     private final int age;
     private final String description;
 
-    private final int hpMax;
+    private int hpMax;
     private int hpCur;
 
-    private final int mpMax;
+    private int mpMax;
     private int mpCur;
 
-    private final int mvMax;
+    private int mvMax;
     private int mvCur;
     // Current room (nullable)
     private Integer currentRoom;
@@ -26,18 +26,18 @@ public class GameCharacter {
     private Stance stance;
 
     // Ability scores
-    private final int str;
-    private final int dex;
-    private final int con;
-    private final int intel;
-    private final int wis;
-    private final int cha;
+    private int str;
+    private int dex;
+    private int con;
+    private int intel;
+    private int wis;
+    private int cha;
 
     // Saves
-    private final int armor;
-    private final int fortitude;
-    private final int reflex;
-    private final int will;
+    private int armor;
+    private int fortitude;
+    private int reflex;
+    private int will;
 
     public GameCharacter(String name, int age, String description,
                      int hpMax, int hpCur,
@@ -90,7 +90,7 @@ public class GameCharacter {
     public int getHpMax() { return hpMax; }
     public int getHpCur() { return hpCur; }
     public void setHpCur(int hpCur) { this.hpCur = Math.max(0, Math.min(hpCur, hpMax)); }
-    
+    public void setHpMax(int hpMax) { this.hpMax = Math.max(1, hpMax);}
     /**
      * Heal the character by the given amount (capped at hpMax).
      * @param amount Amount to heal
@@ -104,10 +104,12 @@ public class GameCharacter {
     public int getMpMax() { return mpMax; }
     public int getMpCur() { return mpCur; }
     public void setMpCur(int mpCur) { this.mpCur = Math.max(0, Math.min(mpCur, mpMax)); }
+    public void setMpMax(int mpMax) { this.mpMax = Math.max(1, mpMax); }
 
     public int getMvMax() { return mvMax; }
     public int getMvCur() { return mvCur; }
     public void setMvCur(int mvCur) { this.mvCur = Math.max(0, Math.min(mvCur, mvMax)); }
+    public void setMvMax(int mvMax) { this.mvMax = Math.max(1, mvMax); }
 
     public Integer getCurrentRoom() { return currentRoom; }
     public void setCurrentRoom(Integer currentRoom) { this.currentRoom = currentRoom; }
@@ -122,11 +124,24 @@ public class GameCharacter {
     public int getIntel() { return intel; }
     public int getWis() { return wis; }
     public int getCha() { return cha; }
+
+    public void setStr(int str) { this.str = str; markDirty(Stat.STRENGTH); }
+    public void setDex(int dex) { this.dex = dex; markDirty(Stat.DEXTERITY); }
+    public void setCon(int con) { this.con = con; markDirty(Stat.CONSTITUTION); }
+    public void setIntel(int intel) { this.intel = intel; markDirty(Stat.INTELLIGENCE); }
+    public void setWis(int wis) { this.wis = wis; markDirty(Stat.WISDOM); }
+    public void setCha(int cha) { this.cha = cha; markDirty(Stat.CHARISMA); }
+
     // Save getters
     public int getArmor() { return armor; }
     public int getFortitude() { return fortitude; }
     public int getReflex() { return reflex; }
     public int getWill() { return will; }
+
+    public void setArmor(int armor) { this.armor = armor; markDirty(Stat.ARMOR); }
+    public void setFortitude(int fortitude) { this.fortitude = fortitude; markDirty(Stat.FORTITUDE); }
+    public void setReflex(int reflex) { this.reflex = reflex; markDirty(Stat.REFLEX); }
+    public void setWill(int will) { this.will = will; markDirty(Stat.WILL); }
 
     // -- Modifier system backing fields --
     private final EnumMap<Stat, Double> baseStats = new EnumMap<>(Stat.class);
@@ -159,7 +174,8 @@ public class GameCharacter {
         baseStats.put(Stat.ATTACK_DAMAGE_BONUS, 0.0);
         baseStats.put(Stat.SPELL_HIT_BONUS, 0.0);
         baseStats.put(Stat.SPELL_DAMAGE_BONUS, 0.0);
-        baseStats.put(Stat.ATTACK_DAMAGE_REDUCTION, 0.0);
+        baseStats.put(Stat.MELEE_DAMAGE_REDUCTION, 0.0);
+        baseStats.put(Stat.RANGED_DAMAGE_REDUCTION, 0.0);
         baseStats.put(Stat.SPELL_DAMAGE_REDUCTION, 0.0);
         baseStats.put(Stat.CRITICAL_THRESHOLD_BONUS, 0.0);
 
@@ -241,13 +257,76 @@ public class GameCharacter {
         return result;
     }
 
+    public void addStat(Stat stat, int amount) {
+        if (stat == null || amount == 0) return;
+        setStat(stat, (int)(getStat(stat) + amount));
+    }
+
+    public void setStat(Stat stat, int value) {
+        if (stat == null) return;
+        switch (stat) {
+            case HP_MAX:
+                setHpMax(value);
+                break;
+            case HP_CURRENT:
+                setHpCur(value);
+                break;
+            case MP_MAX:
+                setMpMax(value);
+                break;
+            case MP_CURRENT:
+                setMpCur(value);
+                break;
+            case MV_MAX:
+                setMvMax(value);
+                break;
+            case MV_CURRENT:
+                setMvCur(value);
+                break;
+            case STRENGTH:
+                setStr(value);
+                break;
+            case DEXTERITY: 
+                setDex(value);
+                break;
+            case CONSTITUTION:
+                setCon(value);
+                break;
+            case INTELLIGENCE:
+                setIntel(value);
+                break;
+            case WISDOM:
+                setWis(value);
+                break;
+            case CHARISMA:
+                setCha(value);
+                break;
+            case ARMOR:
+                setArmor(value);
+                break;
+            case FORTITUDE:
+                setFortitude(value);
+                break;
+            case REFLEX:
+                setReflex(value);
+                break;
+            case WILL:
+                setWill(value);
+                break;
+            default:
+                //super.setStat(stat, value);
+                break;
+        }
+    }
+
     // Convenience integer getters for the new combat/spell stats (rounded)
     public int getAttackHitBonus() { return (int)Math.round(getStat(Stat.ATTACK_HIT_BONUS)); }
     public int getAttackDamageBonus() { return (int)Math.round(getStat(Stat.ATTACK_DAMAGE_BONUS)); }
     public int getSpellHitBonus() { return (int)Math.round(getStat(Stat.SPELL_HIT_BONUS)); }
     public int getSpellDamageBonus() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_BONUS)); }
-    public int getAttackDamageReduction() { return (int)Math.round(getStat(Stat.ATTACK_DAMAGE_REDUCTION)); }
-    public int getSpellDamageReduction() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_REDUCTION)); }
+    public int getMeleeDamageReduction() { return (int)Math.round(getStat(Stat.MELEE_DAMAGE_REDUCTION) + getFortitude() - 10); }
+    public int getRangedDamageReduction() { return (int)Math.round(getStat(Stat.RANGED_DAMAGE_REDUCTION) + getReflex() - 10); }
+    public int getMagicalDamageReduction() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_REDUCTION) + getWill() - 10); }
     
     /**
      * Get the critical threshold bonus (reduces the roll needed for a crit).

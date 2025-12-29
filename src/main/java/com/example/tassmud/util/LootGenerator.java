@@ -3,6 +3,8 @@ package com.example.tassmud.util;
 import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.persistence.ItemDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,7 @@ import java.util.Random;
  *   - level/8% chance for 4 effects
  */
 public class LootGenerator {
+    private static final Logger logger = LoggerFactory.getLogger(LootGenerator.class);
     
     private static final Random RNG = new Random();
     // Toggle random loot generation (set to false to enable).
@@ -153,7 +156,7 @@ public class LootGenerator {
      */
     public static List<GeneratedItem> generateLoot(int mobLevel, long corpseInstanceId, ItemDAO itemDAO) {
         if (LOOT_GENERATION_DISABLED) {
-            System.out.println("LootGenerator: random loot generation is currently disabled.");
+            logger.info("LootGenerator: random loot generation is currently disabled.");
             return new ArrayList<>();
         }
         List<GeneratedItem> generatedItems = new ArrayList<>();
@@ -194,7 +197,7 @@ public class LootGenerator {
      */
     public static GeneratedItem generateItemInRoom(int level, int roomId, ItemDAO itemDAO) {
         if (LOOT_GENERATION_DISABLED) {
-            System.out.println("LootGenerator: generateItemInRoom is disabled.");
+            logger.info("LootGenerator: generateItemInRoom is disabled.");
             return null;
         }
         GeneratedItem item = generateSingleItem(level);
@@ -224,7 +227,7 @@ public class LootGenerator {
      */
     public static long generateItemFromTemplateInRoom(int templateId, int level, int roomId, ItemDAO itemDAO) {
         if (LOOT_GENERATION_DISABLED) {
-            System.out.println("LootGenerator: generateItemFromTemplateInRoom disabled for templateId=" + templateId);
+            logger.info("LootGenerator: generateItemFromTemplateInRoom disabled for templateId={}", templateId);
             return -1;
         }
         ItemTemplate template = itemDAO.getTemplateById(templateId);

@@ -7,8 +7,11 @@ import org.yaml.snakeyaml.Yaml;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ItemDAO {
+    private static final Logger logger = LoggerFactory.getLogger(ItemDAO.class);
     private final String url;
     private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
     private static final String USER = "sa";
@@ -16,7 +19,9 @@ public class ItemDAO {
 
     public ItemDAO() {
         this.url = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
-        ensureTables();
+        // Run migrations/ensureTables once per DAO class to avoid repeating expensive
+        // schema checks for every DAO instance during startup.
+        MigrationManager.ensureMigration("ItemDAO", this::ensureTables);
     }
     
     /**
@@ -43,91 +48,93 @@ public class ItemDAO {
                         "id INT PRIMARY KEY, template_key VARCHAR(200) UNIQUE, name VARCHAR(500), description VARCHAR(4000), weight DOUBLE, template_value INT, type VARCHAR(50), subtype VARCHAR(50), slot VARCHAR(100), capacity INT, hand_count INT, indestructable BOOLEAN, magical BOOLEAN, max_items INT, max_weight INT, armor_save_bonus INT, fort_save_bonus INT, ref_save_bonus INT, will_save_bonus INT, base_die INT, multiplier INT, hands INT, ability_score VARCHAR(50), ability_multiplier DOUBLE, spell_effect_id_1 VARCHAR(50), spell_effect_id_2 VARCHAR(50), spell_effect_id_3 VARCHAR(50), spell_effect_id_4 VARCHAR(50), traits VARCHAR(500), keywords VARCHAR(500), template_json CLOB)");
 
                     s.execute("CREATE TABLE IF NOT EXISTS item_instance (" +
-                    "instance_id BIGINT AUTO_INCREMENT PRIMARY KEY, template_id INT, location_room_id INT NULL, owner_character_id INT NULL, container_instance_id BIGINT NULL, created_at BIGINT, FOREIGN KEY(template_id) REFERENCES item_template(id))");
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to ensure item tables: " + e.getMessage(), e);
-        }
+                    "instance_id BIGINT AUTO_INCREMENT PRIMARY KEY, template_id INT, location_room_id INT NULL, owner_character_id INT NULL, container_instance_id BIGINT NULL, created_at BIGINT)");
+                } catch(SQLException e) {
+                    logger.warn("[ItemDAO] Failed to create item tables: {}", e.getMessage(), e);
+                }
 
         // For existing DBs, ensure new columns exist (migrations)
            try (Connection c = DriverManager.getConnection(url, USER, PASS);
                Statement s = c.createStatement()) {
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS traits VARCHAR(500)");
-            System.out.println("Migration: ensured column item_template.traits");
+            logger.debug("Migration: ensured column item_template.traits");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS keywords VARCHAR(500)");
-            System.out.println("Migration: ensured column item_template.keywords");
+            logger.debug("Migration: ensured column item_template.keywords");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS template_json CLOB");
-            System.out.println("Migration: ensured column item_template.template_json");
+            logger.debug("Migration: ensured column item_template.template_json");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS container_instance_id BIGINT NULL");
-            System.out.println("Migration: ensured column item_instance.container_instance_id");
+            logger.debug("Migration: ensured column item_instance.container_instance_id");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS weapon_category VARCHAR(50)");
-            System.out.println("Migration: ensured column item_template.weapon_category");
+            logger.debug("Migration: ensured column item_template.weapon_category");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS weapon_family VARCHAR(50)");
-            System.out.println("Migration: ensured column item_template.weapon_family");
+            logger.debug("Migration: ensured column item_template.weapon_family");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS armor_category VARCHAR(50)");
-            System.out.println("Migration: ensured column item_template.armor_category");
+            logger.debug("Migration: ensured column item_template.armor_category");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS custom_name VARCHAR(500)");
-            System.out.println("Migration: ensured column item_instance.custom_name");
+            logger.debug("Migration: ensured column item_instance.custom_name");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS custom_description VARCHAR(4000)");
-            System.out.println("Migration: ensured column item_instance.custom_description");
+            logger.debug("Migration: ensured column item_instance.custom_description");
             // Item level system migrations
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS min_item_level INT DEFAULT 1");
-            System.out.println("Migration: ensured column item_template.min_item_level");
+            logger.debug("Migration: ensured column item_template.min_item_level");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS max_item_level INT DEFAULT 1");
-            System.out.println("Migration: ensured column item_template.max_item_level");
+            logger.debug("Migration: ensured column item_template.max_item_level");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS item_level INT DEFAULT 1");
-            System.out.println("Migration: ensured column item_instance.item_level");
+            logger.debug("Migration: ensured column item_instance.item_level");
             // Gold stored in containers (e.g., corpses)
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS gold_contents BIGINT DEFAULT 0");
-            System.out.println("Migration: ensured column item_instance.gold_contents");
+            logger.debug("Migration: ensured column item_instance.gold_contents");
             
             // === Stat override columns for dynamically generated loot ===
             // Weapon stat overrides
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS base_die_override INT");
-            System.out.println("Migration: ensured column item_instance.base_die_override");
+            logger.debug("Migration: ensured column item_instance.base_die_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS multiplier_override INT");
-            System.out.println("Migration: ensured column item_instance.multiplier_override");
+            logger.debug("Migration: ensured column item_instance.multiplier_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS ability_mult_override DOUBLE");
-            System.out.println("Migration: ensured column item_instance.ability_mult_override");
+            logger.debug("Migration: ensured column item_instance.ability_mult_override");
             // Armor/save stat overrides
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS armor_save_override INT");
-            System.out.println("Migration: ensured column item_instance.armor_save_override");
+            logger.debug("Migration: ensured column item_instance.armor_save_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS fort_save_override INT");
-            System.out.println("Migration: ensured column item_instance.fort_save_override");
+            logger.debug("Migration: ensured column item_instance.fort_save_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS ref_save_override INT");
-            System.out.println("Migration: ensured column item_instance.ref_save_override");
+            logger.debug("Migration: ensured column item_instance.ref_save_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS will_save_override INT");
-            System.out.println("Migration: ensured column item_instance.will_save_override");
+            logger.debug("Migration: ensured column item_instance.will_save_override");
             // Magic effect overrides
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_1_override VARCHAR(50)");
-            System.out.println("Migration: ensured column item_instance.spell_effect_1_override");
+            logger.debug("Migration: ensured column item_instance.spell_effect_1_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_2_override VARCHAR(50)");
-            System.out.println("Migration: ensured column item_instance.spell_effect_2_override");
+            logger.debug("Migration: ensured column item_instance.spell_effect_2_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_3_override VARCHAR(50)");
-            System.out.println("Migration: ensured column item_instance.spell_effect_3_override");
+            logger.debug("Migration: ensured column item_instance.spell_effect_3_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS spell_effect_4_override VARCHAR(50)");
-            System.out.println("Migration: ensured column item_instance.spell_effect_4_override");
+            logger.debug("Migration: ensured column item_instance.spell_effect_4_override");
             // Value override and generation flag
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS value_override INT");
-            System.out.println("Migration: ensured column item_instance.value_override");
+            logger.debug("Migration: ensured column item_instance.value_override");
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS is_generated BOOLEAN DEFAULT FALSE");
-            System.out.println("Migration: ensured column item_instance.is_generated");
+            logger.debug("Migration: ensured column item_instance.is_generated");
             // Uses remaining for usable items
             s.execute("ALTER TABLE item_instance ADD COLUMN IF NOT EXISTS uses_remaining INT");
-            System.out.println("Migration: ensured column item_instance.uses_remaining");
+            logger.debug("Migration: ensured column item_instance.uses_remaining");
             // Item usage system - template fields
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS on_use_spell_ids VARCHAR(200)");
-            System.out.println("Migration: ensured column item_template.on_use_spell_ids");
+            logger.debug("Migration: ensured column item_template.on_use_spell_ids");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS uses INT DEFAULT 0");
-            System.out.println("Migration: ensured column item_template.uses");
+            logger.debug("Migration: ensured column item_template.uses");
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS on_equip_effect_ids VARCHAR(200)");
-            System.out.println("Migration: ensured column item_template.on_equip_effect_ids");
+            logger.debug("Migration: ensured column item_template.on_equip_effect_ids");
         } catch (SQLException e) {
             // Best-effort migration; log but don't fail startup
-            System.err.println("Warning: failed to run item table migrations: " + e.getMessage());
+            logger.warn("Warning: failed to run item table migrations: {}", e.getMessage());
         }
     }
 
     public void loadTemplatesFromYamlResource(String resourcePath) throws Exception {
+        // Prepare a list to collect parsed items for batched DB insertion
+        java.util.List<java.util.Map<String,Object>> batchedItems = new java.util.ArrayList<>();
         try (InputStream is = getClass().getResourceAsStream(resourcePath)) {
             if (is == null) return;
             Yaml yaml = new Yaml();
@@ -258,72 +265,134 @@ public class ItemDAO {
                     templateJson = dumper.dump(item);
                 } catch (Exception e) { templateJson = null; }
 
-                 try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
-                    int actualId = id;
-                    if (key != null && !key.isBlank()) {
-                        try (PreparedStatement check = c.prepareStatement("SELECT id FROM item_template WHERE template_key = ?")) {
-                            check.setString(1, key);
-                            try (ResultSet rs = check.executeQuery()) {
-                                if (rs.next()) actualId = rs.getInt(1);
-                            }
-                        } catch (SQLException ignored) {}
-                    }
+                // Batch insertion handled below using a single connection
+                // Data for this item has been prepared above; add to in-memory list for batching
+                java.util.Map<String, Object> prepared = new java.util.HashMap<>();
+                prepared.put("id", id);
+                prepared.put("actualIdCandidateKey", key);
+                prepared.put("name", name);
+                prepared.put("desc", desc);
+                prepared.put("weight", weight);
+                prepared.put("value", value);
+                prepared.put("type", type);
+                prepared.put("subtype", subtype);
+                prepared.put("slot", slot);
+                prepared.put("capacity", capacity);
+                prepared.put("handCount", handCount);
+                prepared.put("indestructable", indestructable);
+                prepared.put("magical", magical);
+                prepared.put("maxItems", maxItems);
+                prepared.put("maxWeight", maxWeight);
+                prepared.put("armorSaveBonus", armorSaveBonus);
+                prepared.put("fortSaveBonus", fortSaveBonus);
+                prepared.put("refSaveBonus", refSaveBonus);
+                prepared.put("willSaveBonus", willSaveBonus);
+                prepared.put("baseDie", baseDie);
+                prepared.put("multiplier", multiplier);
+                prepared.put("hands", hands);
+                prepared.put("abilityScore", abilityScore);
+                prepared.put("abilityMultiplier", abilityMultiplier);
+                prepared.put("spellEffectId1", spellEffectId1);
+                prepared.put("spellEffectId2", spellEffectId2);
+                prepared.put("spellEffectId3", spellEffectId3);
+                prepared.put("spellEffectId4", spellEffectId4);
+                prepared.put("traits", String.join(",", traits));
+                prepared.put("keywords", String.join(",", keywords));
+                prepared.put("templateJson", templateJson);
+                prepared.put("weaponCategoryStr", weaponCategoryStr);
+                prepared.put("weaponFamilyStr", weaponFamilyStr);
+                prepared.put("armorCategoryStr", armorCategoryStr);
+                prepared.put("minItemLevel", minItemLevel);
+                prepared.put("maxItemLevel", maxItemLevel);
+                prepared.put("onUseSpellIdsStr", onUseSpellIdsStr);
+                prepared.put("uses", uses);
+                prepared.put("onEquipEffectIdsStr", onEquipEffectIdsStr);
+                // store into a temporary list for later batching
+                batchedItems.add(prepared);
+            }
+        }
 
-                    try (PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level,on_use_spell_ids,uses,on_equip_effect_ids) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+        // Perform batched DB upsert of all prepared templates
+        if (!batchedItems.isEmpty()) {
+            final int BATCH_SIZE = 100;
+            try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+                c.setAutoCommit(false);
+                try (PreparedStatement check = c.prepareStatement("SELECT id FROM item_template WHERE template_key = ?");
+                     PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level,on_use_spell_ids,uses,on_equip_effect_ids) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+                    int batchCount = 0;
+                    for (java.util.Map<String, Object> prepared : batchedItems) {
+                        int idVal = (int) prepared.get("id");
+                        String key = (String) prepared.get("actualIdCandidateKey");
+                        int actualId = idVal;
+                        if (key != null && !key.isBlank()) {
+                            try {
+                                check.setString(1, key);
+                                try (ResultSet rs = check.executeQuery()) {
+                                    if (rs.next()) actualId = rs.getInt(1);
+                                }
+                            } catch (SQLException ignored) {}
+                        }
+
                         ps.setInt(1, actualId);
                         ps.setString(2, key);
-                        ps.setString(3, name);
-                        ps.setString(4, desc);
-                        ps.setDouble(5, weight);
-                        ps.setInt(6, value);
-                    ps.setString(7, type);
-                    ps.setString(8, subtype);
-                    ps.setString(9, slot);
-                    ps.setInt(10, capacity);
-                    ps.setInt(11, handCount);
-                    ps.setBoolean(12, indestructable);
-                    ps.setBoolean(13, magical);
-                    ps.setInt(14, maxItems);
-                    ps.setInt(15, maxWeight);
-                    ps.setInt(16, armorSaveBonus);
-                    ps.setInt(17, fortSaveBonus);
-                    ps.setInt(18, refSaveBonus);
-                    ps.setInt(19, willSaveBonus);
-                    ps.setInt(20, baseDie);
-                    ps.setInt(21, multiplier);
-                    ps.setInt(22, hands);
-                    ps.setString(23, abilityScore);
-                    ps.setDouble(24, abilityMultiplier);
-                    ps.setString(25, spellEffectId1);
-                    ps.setString(26, spellEffectId2);
-                    ps.setString(27, spellEffectId3);
-                    ps.setString(28, spellEffectId4);
-                    ps.setString(29, String.join(",", traits));
-                    ps.setString(30, String.join(",", keywords));
-                    if (templateJson == null) ps.setNull(31, Types.CLOB); else ps.setString(31, templateJson);
-                    ps.setString(32, weaponCategoryStr);
-                    ps.setString(33, weaponFamilyStr);
-                    ps.setString(34, armorCategoryStr);
-                    ps.setInt(35, minItemLevel);
-                    ps.setInt(36, maxItemLevel);
-                    ps.setString(37, onUseSpellIdsStr);
-                    ps.setInt(38, uses);
-                    ps.setString(39, onEquipEffectIdsStr);
-                    ps.executeUpdate();
+                        ps.setString(3, (String) prepared.get("name"));
+                        ps.setString(4, (String) prepared.get("desc"));
+                        ps.setDouble(5, (double) prepared.get("weight"));
+                        ps.setInt(6, (int) prepared.get("value"));
+                        ps.setString(7, (String) prepared.get("type"));
+                        ps.setString(8, (String) prepared.get("subtype"));
+                        ps.setString(9, (String) prepared.get("slot"));
+                        ps.setInt(10, (int) prepared.get("capacity"));
+                        ps.setInt(11, (int) prepared.get("handCount"));
+                        ps.setBoolean(12, (boolean) prepared.get("indestructable"));
+                        ps.setBoolean(13, (boolean) prepared.get("magical"));
+                        ps.setInt(14, (int) prepared.get("maxItems"));
+                        ps.setInt(15, (int) prepared.get("maxWeight"));
+                        ps.setInt(16, (int) prepared.get("armorSaveBonus"));
+                        ps.setInt(17, (int) prepared.get("fortSaveBonus"));
+                        ps.setInt(18, (int) prepared.get("refSaveBonus"));
+                        ps.setInt(19, (int) prepared.get("willSaveBonus"));
+                        ps.setInt(20, (int) prepared.get("baseDie"));
+                        ps.setInt(21, (int) prepared.get("multiplier"));
+                        ps.setInt(22, (int) prepared.get("hands"));
+                        ps.setString(23, (String) prepared.get("abilityScore"));
+                        ps.setDouble(24, (double) prepared.get("abilityMultiplier"));
+                        ps.setString(25, (String) prepared.get("spellEffectId1"));
+                        ps.setString(26, (String) prepared.get("spellEffectId2"));
+                        ps.setString(27, (String) prepared.get("spellEffectId3"));
+                        ps.setString(28, (String) prepared.get("spellEffectId4"));
+                        ps.setString(29, (String) prepared.get("traits"));
+                        ps.setString(30, (String) prepared.get("keywords"));
+                        String templateJson = (String) prepared.get("templateJson");
+                        if (templateJson == null) ps.setNull(31, Types.CLOB); else ps.setString(31, templateJson);
+                        ps.setString(32, (String) prepared.get("weaponCategoryStr"));
+                        ps.setString(33, (String) prepared.get("weaponFamilyStr"));
+                        ps.setString(34, (String) prepared.get("armorCategoryStr"));
+                        ps.setInt(35, (int) prepared.get("minItemLevel"));
+                        ps.setInt(36, (int) prepared.get("maxItemLevel"));
+                        ps.setString(37, (String) prepared.get("onUseSpellIdsStr"));
+                        ps.setInt(38, (int) prepared.get("uses"));
+                        ps.setString(39, (String) prepared.get("onEquipEffectIdsStr"));
+                        ps.addBatch();
+                        batchCount++;
+                        if ((batchCount % BATCH_SIZE) == 0) {
+                            ps.executeBatch();
+                            c.commit();
+                        }
+                    }
+                    if (batchCount % BATCH_SIZE != 0) {
+                        ps.executeBatch();
+                        c.commit();
                     }
                 }
-                catch(SQLException e) {
-                    System.err.println("[ItemDAO] Failed to load item template (" + name + "_" + id + "): " + e.getMessage());
+
+                // Final count log
+                try (PreparedStatement cps = c.prepareStatement("SELECT COUNT(*) as cnt FROM item_template");
+                     ResultSet rs = cps.executeQuery()) {
+                    if (rs.next()) logger.info("Loaded item_template rows: {}", rs.getInt("cnt"));
                 }
-                // After loading all templates, log how many are present
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                    PreparedStatement ps = c.prepareStatement("SELECT COUNT(*) as cnt FROM item_template");
-                    ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        int cnt = rs.getInt("cnt");
-                        System.out.println("Loaded item_template rows: " + cnt);
-                    }
-                } catch (SQLException ignore) {}
+            } catch (SQLException e) {
+                logger.warn("Warning: failed to batch insert item templates: {}", e.getMessage(), e);
             }
         }
     }
@@ -666,7 +735,7 @@ public class ItemDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("[ItemDAO] Failed to get gold contents: " + e.getMessage());
+            logger.warn("[ItemDAO] Failed to get gold contents: {}", e.getMessage());
         }
         return 0;
     }
@@ -686,7 +755,7 @@ public class ItemDAO {
                 ps.executeUpdate();
                 return gold;
             } catch (SQLException e) {
-                System.err.println("[ItemDAO] Failed to take gold: " + e.getMessage());
+                logger.warn("[ItemDAO] Failed to take gold: {}", e.getMessage());
             }
         }
         return 0;
@@ -704,7 +773,7 @@ public class ItemDAO {
             ps.setLong(1, instanceId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("[ItemDAO] Failed to delete instance " + instanceId + ": " + e.getMessage());
+            logger.warn("[ItemDAO] Failed to delete instance {}: {}", instanceId, e.getMessage());
             return false;
         }
     }
@@ -724,7 +793,7 @@ public class ItemDAO {
             ps.setInt(2, roomId);
             return ps.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("[ItemDAO] Failed to delete empty corpses: " + e.getMessage());
+            logger.warn("[ItemDAO] Failed to delete empty corpses: {}", e.getMessage());
             return 0;
         }
     }
@@ -741,7 +810,7 @@ public class ItemDAO {
             ps.setInt(1, CORPSE_TEMPLATE_ID);
             return ps.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("[ItemDAO] Failed to delete all empty corpses: " + e.getMessage());
+            logger.warn("[ItemDAO] Failed to delete all empty corpses: {}", e.getMessage());
             return 0;
         }
     }

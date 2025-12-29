@@ -5,12 +5,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Lightweight logger for SpawnEvent messages. Appends messages to
  * `logs/SpawnEventLog.out` and `logs/SpawnEventLog.err` and mirrors to stdout/stderr.
  */
 public class SpawnEventLogger {
+
+    private static final Logger logger = LoggerFactory.getLogger(SpawnEventLogger.class);
 
     private static final File OUT_FILE = new File("logs/SpawnEventLog.out");
     private static final File ERR_FILE = new File("logs/SpawnEventLog.err");
@@ -25,20 +29,20 @@ public class SpawnEventLogger {
                 fw.write(System.lineSeparator());
             }
         } catch (IOException e) {
-            // As a last resort, print to stderr
-            System.err.println("SpawnEventLogger failed to write to " + file.getPath() + ": " + e.getMessage());
+            // As a last resort, log the error
+            logger.warn("SpawnEventLogger failed to write to {}: {}", file.getPath(), e.getMessage());
         }
     }
 
     public static void info(String msg) {
         String line = String.format("%s %s", LocalDateTime.now().format(TS), msg);
         append(OUT_FILE, line);
-        System.out.println(line);
+        logger.info(line);
     }
 
     public static void error(String msg) {
         String line = String.format("%s %s", LocalDateTime.now().format(TS), msg);
         append(ERR_FILE, line);
-        System.err.println(line);
+        logger.error(line);
     }
 }

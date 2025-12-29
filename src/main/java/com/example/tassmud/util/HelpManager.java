@@ -1,5 +1,8 @@
 package com.example.tassmud.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
@@ -20,6 +23,7 @@ import org.yaml.snakeyaml.Yaml;
  * Man-style help pages for commands. Simple registry returning formatted pages.
  */
 public class HelpManager {
+        private static final Logger logger = LoggerFactory.getLogger(HelpManager.class);
         private static final Map<String, HelpPage> pages = new LinkedHashMap<>();
 
         static {
@@ -30,7 +34,7 @@ public class HelpManager {
                 pages.clear();
                 // Load YAML files from classpath /help/*.yaml
                 ClassLoader cl = Thread.currentThread().getContextClassLoader();
-                System.out.println("[HelpManager] reloadPages: scanning for help resources on classpath");
+                logger.info("[HelpManager] reloadPages: scanning for help resources on classpath");
                 int resourcesFound = 0;
                 int pagesLoadedBefore = pages.size();
                 try {
@@ -40,7 +44,7 @@ public class HelpManager {
                                 URL url = resources.nextElement();
                                 resourcesFound++;
                                 String protocol = url.getProtocol();
-                                System.out.println("[HelpManager] found resource URL: " + url + " (protocol=" + protocol + ")");
+                                logger.debug("[HelpManager] found resource URL: {} (protocol={})", url, protocol);
                                 if ("file".equals(protocol)) {
                                         File dir = new File(url.toURI());
                                         File[] files = dir.listFiles((d, name) -> name.toLowerCase().endsWith(".yaml") || name.toLowerCase().endsWith(".yml"));
@@ -52,12 +56,11 @@ public class HelpManager {
                                                                 if (obj instanceof Map) {
                                                                         @SuppressWarnings("unchecked")
                                                                         Map<String, Object> top = (Map<String, Object>) obj;
-                                                                        System.out.println("[HelpManager] loading help file: " + f.getName());
+                                                                        logger.info("[HelpManager] loading help file: {}", f.getName());
                                                                         loadPagesFromMap(top);
                                                                 }
-                                                        } catch (Exception e) {
-                                                                System.err.println("[HelpManager] Failed to load help file: " + f.getName() + " : " + e.getMessage());
-                                                                e.printStackTrace(System.err);
+                                                                } catch (Exception e) {
+                                                                    logger.warn("[HelpManager] Failed to load help file: {} : {}", f.getName(), e.getMessage(), e);
                                                         }
                                                 }
                                         }
@@ -75,13 +78,12 @@ public class HelpManager {
                                                                 if (obj instanceof Map) {
                                                                         @SuppressWarnings("unchecked")
                                                                         Map<String, Object> top = (Map<String, Object>) obj;
-                                                                        System.out.println("[HelpManager] loading help entry from jar: " + name);
+                                                                        logger.info("[HelpManager] loading help entry from jar: {}", name);
                                                                         loadPagesFromMap(top);
                                                                 }
-                                                        } catch (Exception e) {
-                                                                System.err.println("[HelpManager] Failed to load help entry: " + name + " : " + e.getMessage());
-                                                                e.printStackTrace(System.err);
-                                                        }
+                                                                                                                } catch (Exception e) {
+                                                                                                                        logger.warn("[HelpManager] Failed to load help entry: {} : {}", name, e.getMessage(), e);
+                                                                                                                }
                                                 }
                                         }
                                 } else {
@@ -101,23 +103,21 @@ public class HelpManager {
                                                                                 if (obj instanceof Map) {
                                                                                         @SuppressWarnings("unchecked")
                                                                                         Map<String, Object> top = (Map<String, Object>) obj;
-                                                                                        System.out.println("[HelpManager] loading help resource fallback: " + name);
+                                                                                                                        logger.info("[HelpManager] loading help resource fallback: {}", name);
                                                                                         loadPagesFromMap(top);
                                                                                 }
-                                                                        } catch (Exception e) {
-                                                                                System.err.println("[HelpManager] Failed to load help resource: " + name + " : " + e.getMessage());
-                                                                                e.printStackTrace(System.err);
-                                                                        }
+                                                                                                                                                } catch (Exception e) {
+                                                                                                                                                        logger.warn("[HelpManager] Failed to load help resource: {} : {}", name, e.getMessage(), e);
+                                                                                                                                                }
                                                                 }
                                                         }
                                                 }
                                         } catch (Exception ignored) {}
                                 }
                         }
-                        System.out.println("[HelpManager] reloadPages: resourcesFound=" + resourcesFound + ", pagesBefore=" + pagesLoadedBefore + ", pagesAfter=" + pages.size());
+                        logger.info("[HelpManager] reloadPages: resourcesFound={}, pagesBefore={}, pagesAfter={}", resourcesFound, pagesLoadedBefore, pages.size());
                 } catch (Exception e) {
-                        System.err.println("[HelpManager] Error scanning help resources: " + e.getMessage());
-                        e.printStackTrace(System.err);
+                        logger.warn("[HelpManager] Error scanning help resources: {}", e.getMessage(), e);
                 }
         }
 

@@ -9,6 +9,8 @@ import com.example.tassmud.util.CooldownManager;
 import com.example.tassmud.util.MobileRoamingService;
 import com.example.tassmud.util.RegenerationService;
 import com.example.tassmud.effect.EffectScheduler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -45,12 +47,13 @@ public class Server {
         PORT = portVal;
     }
     private final ExecutorService pool = Executors.newCachedThreadPool();
+    private static final Logger logger = LoggerFactory.getLogger(Server.class);
 
     public void start() throws IOException {
         // If TASSMUD_IN_MEMORY is set, run using an in-memory H2 DB and seed it from resources
         String inMemoryFlag = System.getenv("TASSMUD_IN_MEMORY");
         if (inMemoryFlag != null && (inMemoryFlag.equalsIgnoreCase("1") || inMemoryFlag.equalsIgnoreCase("true"))) {
-            System.out.println("[startup] Running with in-memory H2 DB (seeding from resources)");
+            logger.info("[startup] Running with in-memory H2 DB (seeding from resources)");
             System.setProperty("tassmud.db.url", "jdbc:h2:mem:tassmud;DB_CLOSE_DELAY=-1");
         }
 
@@ -61,17 +64,17 @@ public class Server {
         DataLoader.loadDefaults(dao);
         // Debug: report registered spawn count after data load
         com.example.tassmud.event.SpawnManager smDebug = com.example.tassmud.event.SpawnManager.getInstance();
-        System.out.println("[startup] SpawnManager registered spawns=" + smDebug.getSpawnCount());
+        logger.info("[startup] SpawnManager registered spawns={}", smDebug.getSpawnCount());
         // Ensure initial GM flag for 'Tass' (if the character exists)
         boolean gmSet = dao.setCharacterFlagByName("Tass", "is_gm", "true");
-        if (gmSet) System.out.println("[startup] is_gm flag set for 'Tass'");
+        if (gmSet) logger.info("[startup] is_gm flag set for 'Tass'");
         
         // Set Tass's class to Ranger (id=5) at level 1 if not already set
         CharacterClassDAO classDao = new CharacterClassDAO();
         try {
             classDao.loadClassesFromYamlResource("/data/classes.yaml");
         } catch (Exception e) {
-            System.err.println("[startup] Warning: Could not load class data: " + e.getMessage());
+            logger.warn("[startup] Warning: Could not load class data: {}", e.getMessage(), e);
         }
         Integer tassId = dao.getCharacterIdByName("Tass");
         if (tassId != null) {
@@ -82,7 +85,7 @@ public class Server {
                 int rangerClassId = 5;
                 classDao.setCharacterCurrentClass(tassId, rangerClassId);
                 dao.updateCharacterClass(tassId, rangerClassId);
-                System.out.println("[startup] Assigned Tass the Ranger class (level 1)");
+                logger.info("[startup] Assigned Tass the Ranger class (level 1)");
             }
         }
 
@@ -93,11 +96,11 @@ public class Server {
         TickService tickService = new TickService();
         // sample world tick: harmless heartbeat that touches the DB to keep it warm
         tickService.scheduleAtFixedRate("world-heartbeat", () -> {
-            try {
+                try {
                 int anyRoom = dao.getAnyRoomId();
-                System.out.println("[tick] world heartbeat, anyRoom=" + anyRoom + " ts=" + System.currentTimeMillis());
+                logger.debug("[tick] world heartbeat, anyRoom={} ts={}", anyRoom, System.currentTimeMillis());
             } catch (Throwable t) {
-                System.err.println("[tick] world heartbeat error: " + t.getMessage());
+                logger.error("[tick] world heartbeat error", t);
             }
         }, 0, 3000);
 
@@ -146,7 +149,7 @@ public class Server {
                 com.example.tassmud.persistence.MobileDAO mobileDao = new com.example.tassmud.persistence.MobileDAO();
                 mobileDao.clearAllInstances();
             } catch (Exception e) {
-                System.err.println("[startup] Warning: failed to clear mobile instances: " + e.getMessage());
+                logger.warn("[startup] Warning: failed to clear mobile instances: {}", e.getMessage(), e);
             }
 
             // Trigger initial spawns to populate the world
@@ -173,7 +176,7 @@ public class Server {
         final RegenerationService regenServiceRef = regenService;
         final MobileRoamingService roamingServiceRef = roamingService;
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Shutdown hook: stopping combat, clock, event scheduler, regen service, roaming service, tick service and thread pool...");
+            logger.info("Shutdown hook: stopping combat, clock, event scheduler, regen service, roaming service, tick service and thread pool...");
             try { roamingServiceRef.shutdown(); } catch (Exception ignored) {}
             try { regenServiceRef.shutdown(); } catch (Exception ignored) {}
             try { eventSchedulerRef.shutdown(); } catch (Exception ignored) {}
@@ -184,10 +187,10 @@ public class Server {
         }));
 
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-            System.out.println("TassMUD server listening on port " + PORT);
+            logger.info("TassMUD server listening on port {}", PORT);
             while (true) {
                 Socket client = serverSocket.accept();
-                System.out.println("Accepted connection from " + client.getRemoteSocketAddress());
+                logger.info("Accepted connection from {}", client.getRemoteSocketAddress());
                 pool.submit(new ClientHandler(client, gameClock));
             }
         }
@@ -198,24 +201,25 @@ public class Server {
         String url = "jdbc:h2:mem:tassmud;DB_CLOSE_DELAY=-1";
         String user = "sa";
         String pass = "";
-        System.out.println("Pinging database: " + url);
+        logger.info("Pinging database: {}", url);
         try (Connection c = DriverManager.getConnection(url, user, pass)) {
             if (c != null && !c.isClosed()) {
-                System.out.println("Database ping successful (H2 in-memory).");
+                logger.info("Database ping successful (H2 in-memory).");
             } else {
-                System.err.println("Database connection returned closed/invalid connection.");
+                logger.warn("Database connection returned closed/invalid connection.");
             }
         } catch (SQLException e) {
-            System.err.println("Database ping failed: " + e.getMessage());
+            logger.warn("Database ping failed: {}", e.getMessage(), e);
         }
     }
 
     public static void main(String[] args) {
         try {
+            // Clean previous run log files so each run begins with fresh logs
+            com.example.tassmud.util.LogFileCleaner.cleanLogs();
             new Server().start();
         } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Failed to start server: " + e.getMessage());
+            logger.error("Failed to start server", e);
         }
     }
 }

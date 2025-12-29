@@ -2,6 +2,8 @@ package com.example.tassmud.event;
 
 import com.example.tassmud.persistence.CharacterDAO;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Manages spawn registration and scheduling for all areas.
@@ -27,6 +29,7 @@ public class SpawnManager {
         this.spawnsByArea = new HashMap<>();
         this.registeredSpawns = new HashSet<>();
     }
+    private static final Logger logger = LoggerFactory.getLogger(SpawnManager.class);
     
     public static synchronized SpawnManager getInstance() {
         if (instance == null) {
@@ -90,7 +93,7 @@ public class SpawnManager {
             areaIndex++;
         }
         
-        System.out.println("[SpawnManager] Scheduled " + totalScheduled + " spawns across " + areaIds.size() + " areas");
+        logger.info("[SpawnManager] Scheduled {} spawns across {} areas", totalScheduled, areaIds.size());
     }
     
     /**
@@ -98,7 +101,7 @@ public class SpawnManager {
      * Useful for initial server startup to populate the world.
      */
     public void triggerInitialSpawns() {
-        System.out.println("[SpawnManager] Triggering initial spawns...");
+        logger.info("[SpawnManager] Triggering initial spawns...");
         
         int total = 0;
         for (List<SpawnConfig> areaSpawns : spawnsByArea.values()) {
@@ -108,12 +111,12 @@ public class SpawnManager {
                     event.execute();
                     total++;
                 } catch (Exception e) {
-                    System.err.println("[SpawnManager] Error in initial spawn: " + e.getMessage());
+                    logger.warn("[SpawnManager] Error in initial spawn: {}", e.getMessage(), e);
                 }
             }
         }
         
-        System.out.println("[SpawnManager] Completed " + total + " initial spawn checks");
+        logger.info("[SpawnManager] Completed {} initial spawn checks", total);
     }
     
     /**

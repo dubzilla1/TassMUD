@@ -6,12 +6,15 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Data Access Object for CharacterClass entities.
  * Loads class definitions from YAML and manages class-related database operations.
  */
 public class CharacterClassDAO {
+    private static final Logger logger = LoggerFactory.getLogger(CharacterClassDAO.class);
     private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
     private static final String USER = "sa";
     private static final String PASS = "";
@@ -20,7 +23,8 @@ public class CharacterClassDAO {
     private static final Map<Integer, CharacterClass> classCache = new HashMap<>();
     
     public CharacterClassDAO() {
-        ensureTables();
+        // Ensure class-related tables/migrations run only once per JVM startup
+        MigrationManager.ensureMigration("CharacterClassDAO", this::ensureTables);
     }
     
     private void ensureTables() {
@@ -63,9 +67,9 @@ public class CharacterClassDAO {
                 )
             """);
             
-            System.out.println("CharacterClassDAO: tables ensured.");
+            logger.info("CharacterClassDAO: tables ensured.");
         } catch (SQLException e) {
-            System.err.println("Warning: failed to create character class tables: " + e.getMessage());
+            logger.warn("Warning: failed to create character class tables: {}", e.getMessage());
         }
     }
     
@@ -75,7 +79,7 @@ public class CharacterClassDAO {
     public void loadClassesFromYamlResource(String resourcePath) throws Exception {
         try (InputStream is = getClass().getResourceAsStream(resourcePath)) {
             if (is == null) {
-                System.err.println("Class resource not found: " + resourcePath);
+                logger.warn("Class resource not found: {}", resourcePath);
                 return;
             }
             Yaml yaml = new Yaml();
@@ -115,7 +119,7 @@ public class CharacterClassDAO {
                 saveClassToDb(charClass);
             }
             
-            System.out.println("Loaded character classes: " + classCache.size());
+            logger.info("Loaded character classes: {}", classCache.size());
         }
     }
     
@@ -155,7 +159,7 @@ public class CharacterClassDAO {
                 ps.executeBatch();
             }
         } catch (SQLException e) {
-            System.err.println("Failed to save class to DB: " + e.getMessage());
+            logger.warn("Failed to save class to DB: {}", e.getMessage(), e);
         }
     }
     
@@ -213,7 +217,7 @@ public class CharacterClassDAO {
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
-            System.err.println("Failed to set character current class: " + e.getMessage());
+            logger.warn("Failed to set character current class: {}", e.getMessage(), e);
         }
     }
     
@@ -231,7 +235,7 @@ public class CharacterClassDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get character current class: " + e.getMessage());
+            logger.warn("Failed to get character current class: {}", e.getMessage(), e);
         }
         return null;
     }
@@ -251,7 +255,7 @@ public class CharacterClassDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get character class level: " + e.getMessage());
+            logger.warn("Failed to get character class level: {}", e.getMessage(), e);
         }
         return 0;  // No progress in this class
     }
@@ -271,7 +275,7 @@ public class CharacterClassDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get character class XP: " + e.getMessage());
+            logger.warn("Failed to get character class XP: {}", e.getMessage(), e);
         }
         return 0;
     }
@@ -309,7 +313,7 @@ public class CharacterClassDAO {
             ps.setInt(4, classId);
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Failed to add XP: " + e.getMessage());
+            logger.warn("Failed to add XP: {}", e.getMessage(), e);
             return false;
         }
         
@@ -338,7 +342,7 @@ public class CharacterClassDAO {
             ps.setInt(3, classId);
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Failed to deduct XP: " + e.getMessage());
+            logger.warn("Failed to deduct XP: {}", e.getMessage(), e);
             return 0;
         }
         
@@ -366,7 +370,7 @@ public class CharacterClassDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get class progress: " + e.getMessage());
+            logger.warn("Failed to get class progress: {}", e.getMessage(), e);
         }
         return result;
     }

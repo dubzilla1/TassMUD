@@ -1,6 +1,8 @@
 package com.example.tassmud.effect;
 
 import com.example.tassmud.util.TickService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 public class EffectScheduler {
     private static final EffectScheduler instance = new EffectScheduler();
     private volatile boolean initialized = false;
+    private static final Logger logger = LoggerFactory.getLogger(EffectScheduler.class);
 
     private EffectScheduler() {}
 
@@ -23,7 +26,7 @@ public class EffectScheduler {
             try {
                 tickOnce();
             } catch (Throwable t) {
-                System.err.println("[EffectScheduler] tick error: " + t.getMessage());
+                logger.error("[EffectScheduler] tick error", t);
             }
         }, 1000, 1000);
         initialized = true;
@@ -50,7 +53,7 @@ public class EffectScheduler {
             try {
                 if (h != null) h.expire(ei);
             } catch (Exception e) {
-                System.err.println("[EffectScheduler] expire error for " + ei.getId() + ": " + e.getMessage());
+                logger.warn("[EffectScheduler] expire error for {}", ei.getId(), e);
             } finally {
                 EffectRegistry.removeInstance(ei.getId());
             }

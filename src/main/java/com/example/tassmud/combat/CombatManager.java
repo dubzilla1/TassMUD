@@ -18,6 +18,8 @@ import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.LootGenerator;
 import com.example.tassmud.util.TickService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -48,6 +50,7 @@ public class CombatManager {
     
     /** Combat ID generator */
     private final AtomicLong combatIdGenerator = new AtomicLong(1);
+    private static final Logger logger = LoggerFactory.getLogger(CombatManager.class);
     
     /** Callback for sending messages to players */
     private BiConsumer<Integer, String> playerMessageCallback;
@@ -87,7 +90,7 @@ public class CombatManager {
         tickService.scheduleAtFixedRate("combat-tick", this::tick, 500, 500);
         // Set up multi-attack handler message callback
         multiAttackHandler.setPlayerMessageCallback(this::sendToPlayer);
-        System.out.println("[CombatManager] Initialized with tick service");
+        logger.info("[CombatManager] Initialized with tick service");
     }
     
     /**
@@ -301,7 +304,7 @@ public class CombatManager {
             MobileDAO mobileDao = new MobileDAO();
             mobileDao.updateInstance(mob);
         } catch (Exception e) {
-            System.err.println("[CombatManager] Failed to update fleeing mob: " + e.getMessage());
+            logger.warn("[CombatManager] Failed to update fleeing mob: {}", e.getMessage(), e);
         }
         
         // Announce arrival at destination
@@ -532,7 +535,7 @@ public class CombatManager {
                         }
                     }
                 } catch (Exception e) {
-                    System.err.println("[CombatManager] Failed to create corpse for " + mobName + ": " + e.getMessage());
+                    logger.warn("[CombatManager] Failed to create corpse for {}: {}", mobName, e.getMessage(), e);
                 }
 
                 // Move any item instances that were used to equip this mob into the corpse.
@@ -558,12 +561,12 @@ public class CombatManager {
                             } catch (NumberFormatException nfe) {
                                 // ignore malformed source
                             } catch (Exception ex) {
-                                System.err.println("[CombatManager] Failed to move item " + idPart + " into corpse: " + ex.getMessage());
+                                logger.warn("[CombatManager] Failed to move item {} into corpse: {}", idPart, ex.getMessage(), ex);
                             }
                         }
                     }
                 } catch (Exception e) {
-                    System.err.println("[CombatManager] Error while moving equipped items to corpse: " + e.getMessage());
+                    logger.warn("[CombatManager] Error while moving equipped items to corpse: {}", e.getMessage(), e);
                 }
                 
                 // Handle autogold for the killer
@@ -618,7 +621,7 @@ public class CombatManager {
                     mob.die();
                     mobileDAO.deleteInstance(mob.getInstanceId());
                 } catch (Exception e) {
-                    System.err.println("[CombatManager] Failed to despawn mob " + mobName + ": " + e.getMessage());
+                    logger.warn("[CombatManager] Failed to despawn mob {}: {}", mobName, e.getMessage(), e);
                 }
             }
             
@@ -665,7 +668,7 @@ public class CombatManager {
                 broadcastToRoom(deathRoomId, playerName + " has fallen! Their corpse lies on the ground.");
             }
         } catch (Exception e) {
-            System.err.println("[CombatManager] Failed to create corpse for " + playerName + ": " + e.getMessage());
+            logger.warn("[CombatManager] Failed to create corpse for {}: {}", playerName, e.getMessage(), e);
         }
         
         // 2. Move ALL equipped items into the corpse
@@ -680,7 +683,7 @@ public class CombatManager {
                         itemDAO.moveInstanceToContainer(itemInstanceId, corpseId);
                         movedItemIds.add(itemInstanceId);
                     } catch (Exception e) {
-                        System.err.println("[CombatManager] Failed to move equipment to corpse: " + e.getMessage());
+                        logger.warn("[CombatManager] Failed to move equipment to corpse: {}", e.getMessage(), e);
                     }
                 }
             }
@@ -693,7 +696,7 @@ public class CombatManager {
                 try {
                     itemDAO.moveInstanceToContainer(item.instance.instanceId, corpseId);
                 } catch (Exception e) {
-                    System.err.println("[CombatManager] Failed to move inventory to corpse: " + e.getMessage());
+                    logger.warn("[CombatManager] Failed to move inventory to corpse: {}", e.getMessage(), e);
                 }
             }
             
@@ -1369,8 +1372,16 @@ public class CombatManager {
                 message = String.format("%s's attack %s %s!", 
                     attackerName, getDamageVerb(0, false), targetName);
                 break;
+            case SHRUGGED_OFF:
+                message = String.format("%s's melee attack is shrugged off by %s!", 
+                    attackerName, targetName);
+                break;
             case DODGED:
-                message = String.format("%s attacks %s, but they dodge!", 
+                message = String.format("%s's ranged attack is dodged by %s!", 
+                    attackerName, targetName);
+                break;
+            case RESISTED:
+                message = String.format("%s's magical attack is resisted by %s!", 
                     attackerName, targetName);
                 break;
             case BLOCKED:

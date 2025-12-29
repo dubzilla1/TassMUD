@@ -18,19 +18,20 @@ public class PruneSpawnMappings {
     private static final String PASS = "";
 
     public static void main(String[] args) throws Exception {
+        org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(PruneSpawnMappings.class);
         boolean apply = args != null && args.length > 0 && "apply".equalsIgnoreCase(args[0]);
-        System.out.println("PruneSpawnMappings: starting in " + (apply ? "APPLY" : "DRY-RUN") + " mode");
+        logger.info("PruneSpawnMappings: starting in {} mode", (apply ? "APPLY" : "DRY-RUN"));
 
         try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
             List<Group> groups = findDuplicateGroups(c);
             if (groups.isEmpty()) {
-                System.out.println("No duplicate spawn_mapping groups found.");
+                logger.info("No duplicate spawn_mapping groups found.");
                 return;
             }
 
-            System.out.println("Found " + groups.size() + " room/template groups with >1 mappings:");
+            logger.info("Found {} room/template groups with >1 mappings:", groups.size());
             for (Group g : groups) {
-                System.out.println("  room=" + g.roomId + " template=" + g.templateId + " count=" + g.count);
+                logger.info("  room={} template={} count={}", g.roomId, g.templateId, g.count);
             }
 
             for (Group g : groups) {
@@ -38,17 +39,17 @@ public class PruneSpawnMappings {
                 if (uuids.size() <= 1) continue;
                 // Keep first, delete the rest
                 List<String> toDelete = uuids.subList(1, uuids.size());
-                System.out.println("Group room=" + g.roomId + " template=" + g.templateId + " will delete " + toDelete.size() + " mappings");
+                logger.info("Group room={} template={} will delete {} mappings", g.roomId, g.templateId, toDelete.size());
                 if (apply) {
                     deleteUuids(c, g.roomId, g.templateId, toDelete);
-                    System.out.println("  Deleted " + toDelete.size() + " rows for room=" + g.roomId + " template=" + g.templateId);
+                    logger.info("  Deleted {} rows for room={} template={}", toDelete.size(), g.roomId, g.templateId);
                 } else {
-                    for (String u : toDelete) System.out.println("  Would delete: " + u);
+                    for (String u : toDelete) logger.info("  Would delete: {}", u);
                 }
             }
         }
 
-        System.out.println("PruneSpawnMappings: finished");
+        org.slf4j.LoggerFactory.getLogger(PruneSpawnMappings.class).info("PruneSpawnMappings: finished");
     }
 
     private static List<Group> findDuplicateGroups(Connection c) throws SQLException {

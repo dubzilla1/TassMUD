@@ -8,11 +8,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Data Access Object for mobile templates and instances.
  */
 public class MobileDAO {
+    private static final Logger logger = LoggerFactory.getLogger(MobileDAO.class);
     
     private final String url;
     private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
@@ -21,7 +24,9 @@ public class MobileDAO {
 
     public MobileDAO() {
         this.url = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
-        ensureTables();
+        // Run migrations/ensureTables once per DAO class to avoid repeating expensive
+        // schema checks for every DAO instance during startup.
+        MigrationManager.ensureMigration("MobileDAO", this::ensureTables);
     }
     
     private void ensureTables() {
@@ -71,11 +76,13 @@ public class MobileDAO {
                 "hp_cur INT, " +
                 "mp_cur INT, " +
                 "mv_cur INT, " +
+                "fortitude_cur INT, " +
+                "reflex_cur INT, " +
+                "will_cur INT, " +
                 "is_dead BOOLEAN DEFAULT FALSE, " +
                 "spawned_at BIGINT, " +
                 "died_at BIGINT DEFAULT 0, " +
-                "orig_uuid VARCHAR(64), " +
-                "FOREIGN KEY(template_id) REFERENCES mobile_template(id)" +
+                "orig_uuid VARCHAR(64) " +
             ")");
             
             // Migration: add autoflee column
@@ -83,19 +90,19 @@ public class MobileDAO {
             // Migration: increase template_key length if needed (best-effort)
             try {
                 s.execute("ALTER TABLE mobile_template ALTER COLUMN template_key SET DATA TYPE VARCHAR(200)");
-                System.out.println("Migration: ensured mobile_template.template_key length >= 200");
+                logger.debug("Migration: ensured mobile_template.template_key length >= 200");
             } catch (SQLException ignore) {
                 // Best-effort; older H2 versions or already-correct types may throw. Log and continue.
-                System.out.println("Migration: skipping template_key resize (may already be adequate)");
+                logger.debug("Migration: skipping template_key resize (may already be adequate)");
             }
             // Migration: add orig_uuid to mobile_instance to tie instances to original spawn mappings
             s.execute("ALTER TABLE mobile_instance ADD COLUMN IF NOT EXISTS orig_uuid VARCHAR(64)");
             // Spawn mapping table: room_id, template_id, uuid
             s.execute("CREATE TABLE IF NOT EXISTS spawn_mapping (room_id INT NOT NULL, template_id INT NOT NULL, orig_uuid VARCHAR(64) NOT NULL, PRIMARY KEY(room_id, template_id, orig_uuid))");
             // Mobile-instance item markers: link mobile instances to item instances they 'own' (equip or inventory)
-            s.execute("CREATE TABLE IF NOT EXISTS mobile_instance_item (mobile_instance_id BIGINT NOT NULL, item_instance_id BIGINT NOT NULL, kind VARCHAR(32) NOT NULL, PRIMARY KEY(mobile_instance_id, item_instance_id), FOREIGN KEY(mobile_instance_id) REFERENCES mobile_instance(instance_id), FOREIGN KEY(item_instance_id) REFERENCES item_instance(instance_id))");
+            s.execute("CREATE TABLE IF NOT EXISTS mobile_instance_item (mobile_instance_id BIGINT NOT NULL, item_instance_id BIGINT NOT NULL, kind VARCHAR(32) NOT NULL, PRIMARY KEY(mobile_instance_id, item_instance_id))");
             
-            System.out.println("MobileDAO: ensured mobile_template and mobile_instance tables");
+            logger.info("MobileDAO: ensured mobile_template and mobile_instance tables");
             
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create mobile tables", e);
@@ -125,7 +132,7 @@ public class MobileDAO {
                     if (rs.next()) {
                         int existingId = rs.getInt(1);
                         if (existingId != targetId) {
-                            System.out.println("MobileDAO.upsertTemplate: template_key '" + template.getKey() + "' already exists as id=" + existingId + ", reusing that id instead of " + targetId);
+                            logger.info("MobileDAO.upsertTemplate: template_key '{}' already exists as id={}, reusing that id instead of {}", template.getKey(), existingId, targetId);
                             targetId = existingId;
                         }
                     }
@@ -181,13 +188,13 @@ public class MobileDAO {
      */
     public MobileTemplate getTemplateById(int id) {
         String sql = "SELECT * FROM mobile_template WHERE id = ?";
-           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+        try (Connection c = DriverManager.getConnection(url, USER, PASS);
                PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
-            System.out.println("[MobileDAO] getTemplateById: executing against URL=" + url + " SQL=" + sql + " id=" + id);
+            logger.debug("[MobileDAO] getTemplateById: executing against URL={} SQL={} id={}", url, sql, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    System.out.println("[MobileDAO] getTemplateById: found template id=" + id + " name=" + rs.getString("name"));
+                    logger.debug("[MobileDAO] getTemplateById: found template id={} name={}", id, rs.getString("name"));
                     return templateFromResultSet(rs);
                 }
             }
@@ -197,7 +204,7 @@ public class MobileDAO {
         // Not found - print diagnostic summary of templates present (first few)
         try {
             List<Integer> ids = getAllTemplateIds();
-            System.out.println("[MobileDAO] getTemplateById: template not found: " + id + "; total templates=" + ids.size() + " sample_ids=" + (ids.size() <= 10 ? ids : ids.subList(0,10)));
+            logger.debug("[MobileDAO] getTemplateById: template not found: {} ; total templates={} sample_ids={}", id, ids.size(), (ids.size() <= 10 ? ids : ids.subList(0,10)));
         } catch (Exception ignored) {}
         return null;
     }
@@ -340,7 +347,7 @@ public class MobileDAO {
      */
     public Mobile spawnMobile(MobileTemplate template, int roomId) {
         String sql = "INSERT INTO mobile_instance (template_id, current_room_id, spawn_room_id, " +
-            "hp_cur, mp_cur, mv_cur, is_dead, spawned_at, died_at) VALUES (?,?,?,?,?,?,?,?,?)";
+            "hp_cur, mp_cur, mv_cur, fortitude_cur, reflex_cur, will_cur, is_dead, spawned_at, died_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try (Connection c = DriverManager.getConnection(System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1"), USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -351,9 +358,12 @@ public class MobileDAO {
             ps.setInt(4, template.getHpMax());
             ps.setInt(5, template.getMpMax());
             ps.setInt(6, template.getMvMax());
-            ps.setBoolean(7, false);
-            ps.setLong(8, now);
-            ps.setLong(9, 0);
+            ps.setInt(7, template.getFortitude());
+            ps.setInt(8, template.getReflex());
+            ps.setInt(9, template.getWill());
+            ps.setBoolean(10, false);
+            ps.setLong(11, now);
+            ps.setLong(12, 0);
             ps.executeUpdate();
             
             try (ResultSet keys = ps.getGeneratedKeys()) {
@@ -494,7 +504,7 @@ public class MobileDAO {
         try (Connection c = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = c.prepareStatement(sql)) {
             int deleted = ps.executeUpdate();
-            System.out.println("MobileDAO: cleared " + deleted + " mobile instances from DB");
+            logger.info("MobileDAO: cleared {} mobile instances from DB", deleted);
         } catch (SQLException e) {
             throw new RuntimeException("Failed to clear mobile instances", e);
         }
@@ -629,7 +639,7 @@ public class MobileDAO {
                 ps.addBatch();
             }
             ps.executeBatch();
-            System.out.println("MobileDAO: added " + need + " spawn mapping(s) for template " + templateId + " in room " + roomId);
+            logger.info("MobileDAO: added {} spawn mapping(s) for template {} in room {}", need, templateId, roomId);
         } catch (SQLException e) {
             throw new RuntimeException("Failed to ensure spawn mappings", e);
         }
@@ -751,7 +761,7 @@ public class MobileDAO {
                 } catch (Exception ignored) {}
             }
         } catch (Exception e) {
-            System.err.println("MobileDAO: failed to load mobile item markers for instance " + mob.getInstanceId() + ": " + e.getMessage());
+            logger.warn("MobileDAO: failed to load mobile item markers for instance {}: {}", mob.getInstanceId(), e.getMessage());
         }
 
         return mob;

@@ -1,5 +1,7 @@
 package com.example.tassmud.tools;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
@@ -13,6 +15,7 @@ import java.util.*;
  * Maps are saved to the maps/ directory.
  */
 public class MapGenerator {
+    private static final Logger logger = LoggerFactory.getLogger(MapGenerator.class);
     
     private static final String URL = "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1";
     private static final String USER = "sa";
@@ -30,7 +33,7 @@ public class MapGenerator {
                 int areaId = Integer.parseInt(args[0]);
                 gen.generateMapForArea(areaId);
             } catch (NumberFormatException e) {
-                System.err.println("Invalid area ID: " + args[0]);
+                logger.error("Invalid area ID: {}", args[0]);
                 System.exit(1);
             }
         } else {
@@ -104,7 +107,7 @@ public class MapGenerator {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get rooms: " + e.getMessage());
+            logger.warn("Failed to get rooms: {}", e.getMessage(), e);
         }
         return rooms;
     }
@@ -114,7 +117,7 @@ public class MapGenerator {
      */
     public void generateAllMaps() {
         List<Area> areas = getAllAreas();
-        System.out.println("Found " + areas.size() + " areas.");
+        logger.info("Found {} areas.", areas.size());
         
         for (Area area : areas) {
             generateMapForArea(area.id);
@@ -127,17 +130,17 @@ public class MapGenerator {
     public void generateMapForArea(int areaId) {
         Area area = getAreaById(areaId);
         if (area == null) {
-            System.err.println("Area " + areaId + " not found.");
+            logger.error("Area {} not found.", areaId);
             return;
         }
         
         List<Room> rooms = getRoomsByArea(areaId);
         if (rooms.isEmpty()) {
-            System.out.println("Area " + areaId + " (" + area.name + ") has no rooms.");
+            logger.info("Area {} ({}) has no rooms.", areaId, area.name);
             return;
         }
         
-        System.out.println("Generating map for Area " + areaId + ": " + area.name + " (" + rooms.size() + " rooms)");
+        logger.info("Generating map for Area {}: {} ({} rooms)", areaId, area.name, rooms.size());
         
         String map = generateAsciiMap(area, rooms);
         
@@ -145,9 +148,9 @@ public class MapGenerator {
         String filename = "maps/area_" + areaId + "_" + sanitizeFilename(area.name) + ".txt";
         try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
             pw.print(map);
-            System.out.println("  Saved to: " + filename);
+            logger.info("  Saved to: {}", filename);
         } catch (IOException e) {
-            System.err.println("  Failed to save map: " + e.getMessage());
+            logger.warn("  Failed to save map: {}", e.getMessage(), e);
         }
     }
     
@@ -463,7 +466,7 @@ public class MapGenerator {
                 areas.add(new Area(rs.getInt("id"), rs.getString("name"), rs.getString("description")));
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get areas: " + e.getMessage());
+            logger.warn("Failed to get areas: {}", e.getMessage(), e);
         }
         return areas;
     }
@@ -479,7 +482,7 @@ public class MapGenerator {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get area: " + e.getMessage());
+            logger.warn("Failed to get area: {}", e.getMessage(), e);
         }
         return null;
     }
@@ -505,7 +508,7 @@ public class MapGenerator {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Failed to get rooms: " + e.getMessage());
+            logger.warn("Failed to get rooms: {}", e.getMessage(), e);
         }
         return rooms;
     }

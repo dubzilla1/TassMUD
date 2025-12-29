@@ -86,13 +86,13 @@ public class SpawnEvent implements GameEvent {
         // Clean up empty corpses in the room before spawning
         cleanupEmptyCorpses();
         // Diagnostic: log spawn config being executed
-        SpawnEventLogger.info("[SpawnEvent] Executing mob spawn config: " + config.toString());
+        // SpawnEventLogger.info("[SpawnEvent] Executing mob spawn config: " + config.toString());
         // Get configured mapping UUIDs for this spawn (one mapping per intended mob)
         List<String> mappingUuids = mobileDao.getSpawnMappingUUIDs(config.roomId, config.templateId);
-        SpawnEventLogger.info("[SpawnEvent] Found " + (mappingUuids == null ? 0 : mappingUuids.size()) + " spawn mapping UUID(s) for template " + config.templateId + " in room " + config.roomId);
+        // SpawnEventLogger.info("[SpawnEvent] Found " + (mappingUuids == null ? 0 : mappingUuids.size()) + " spawn mapping UUID(s) for template " + config.templateId + " in room " + config.roomId);
         if (mappingUuids == null || mappingUuids.isEmpty()) {
             // No canonical spawn mappings for this room/template - nothing to manage
-            SpawnEventLogger.info("[SpawnEvent] No spawn mappings for template " + config.templateId + " in room " + config.roomId + "; skipping.");
+            SpawnEventLogger.error("[SpawnEvent] No spawn mappings for template " + config.templateId + " in room " + config.roomId + "; skipping.");
             return;
         }
 
@@ -111,6 +111,15 @@ public class SpawnEvent implements GameEvent {
 
                 Mobile spawned = mobileDao.spawnMobile(template, config.roomId, uuid);
                 if (spawned != null) {
+                    int randStat;
+                    for (int i=1; i<=spawned.getLevel(); i++) {
+                        randStat = (int)(Math.random() * 3);
+                        switch (randStat) {
+                            case 0: spawned.addStat(Stat.FORTITUDE, 1); break;
+                            case 1: spawned.addStat(Stat.REFLEX, 1); break;
+                            case 2: spawned.addStat(Stat.WILL, 1); break;
+                        }
+                    }
                     SpawnEventLogger.info("[SpawnEvent] Spawned " + spawned.getName() + " (instance #" + spawned.getInstanceId() + ") in room " + config.roomId + " [uuid=" + uuid + "]");
                     // If this spawn config includes equipment, create item instances and apply their effects to the mobile
                     try {

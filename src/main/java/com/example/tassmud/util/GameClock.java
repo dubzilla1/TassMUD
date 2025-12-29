@@ -1,6 +1,8 @@
 package com.example.tassmud.util;
 
 import com.example.tassmud.persistence.CharacterDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * In-game calendar and clock.
@@ -9,6 +11,7 @@ import com.example.tassmud.persistence.CharacterDAO;
  * Persist the current date to settings table on day rollover.
  */
 public class GameClock {
+    private static final Logger logger = LoggerFactory.getLogger(GameClock.class);
     private final CharacterDAO dao;
     private long year;
     private int month; // 1-10
@@ -79,7 +82,7 @@ public class GameClock {
                 }
                 // Persist the new date when the day increments
                 persist();
-                System.out.println("[game-clock] New in-game day: " + year + "/" + month + "/" + day + " 00:00");
+                logger.info("[game-clock] New in-game day: {}/{}/{} 00:00", year, month, day);
             }
         }
     }

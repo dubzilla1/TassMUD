@@ -205,6 +205,54 @@ ilist:
         ilist sword            -- finds all swords
         ilist plate            -- finds plate armor pieces
 
+    mlist:
+      summary: "Search mobile templates by name (GM-only)"
+      visibility: gm
+      synopsis:
+        - "MLIST <search_string>"
+      body: |
+        NAME
+            mlist - search mobile templates
+
+        SYNOPSIS
+            MLIST <search_string>
+
+        DESCRIPTION
+            Searches all mobile templates for names containing the given string.
+            The search is case-insensitive and matches partial names.
+
+            Results show ID, name, level, and a truncated short description for each
+            matching mobile template.
+
+        ARGUMENTS
+            search_string   Text to search for in mobile names.
+
+        EXAMPLE
+            mlist gob             -- finds "goblin", "goblin warrior", etc.
+            mlist shop            -- finds shopkeepers and vendor mobs
+
+    mfind:
+      summary: "Find mobile instances by template ID (GM-only)"
+      visibility: gm
+      synopsis:
+        - "MFIND <template_id>"
+      body: |
+        NAME
+            mfind - find mobile instances by template id
+
+        SYNOPSIS
+            MFIND <template_id>
+
+        DESCRIPTION
+            Finds all currently loaded mobile instances whose template ID matches
+            the given numeric ID and shows which room each instance is located in.
+
+        ARGUMENTS
+            template_id   Numeric ID of the mobile template to search for.
+
+        EXAMPLE
+            mfind 42          -- lists all mob instances spawned from template #42
+
 ifind:
   summary: "Find all instances of an item template in the game (GM-only)"
   visibility: gm

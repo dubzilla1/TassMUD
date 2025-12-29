@@ -509,6 +509,49 @@ public class MovementCommandHandler implements CommandHandler {
                                 } else {
                                     out.println("You see nothing special about " + mob.getName() + ".");
                                 }
+
+                                // Show equipment for explicit mob look
+                                ItemDAO itemDao = new ItemDAO();
+                                java.util.List<com.example.tassmud.model.Modifier> mods = mob.getAllModifiers();
+                                java.util.Map<Integer, Long> equippedMap = new java.util.HashMap<>();
+                                for (com.example.tassmud.model.Modifier m : mods) {
+                                    String src = m.source();
+                                    if (src == null) continue;
+                                    if (src.startsWith("equip#")) {
+                                        try {
+                                            long iid = Long.parseLong(src.substring(src.indexOf('#') + 1));
+                                            com.example.tassmud.model.ItemInstance inst = itemDao.getInstanceById(iid);
+                                            if (inst == null) continue;
+                                            com.example.tassmud.model.EquipmentSlot slot = itemDao.getTemplateEquipmentSlot(inst.templateId);
+                                            if (slot != null) equippedMap.put(slot.getId(), iid);
+                                        } catch (Exception ignored) { }
+                                    }
+                                }
+
+                                if (!equippedMap.isEmpty()) {
+                                    out.println("  Equipment:");
+                                    com.example.tassmud.model.EquipmentSlot[] slots = com.example.tassmud.model.EquipmentSlot.values();
+                                    java.util.Arrays.sort(slots, (a, b) -> Integer.compare(a.id, b.id));
+                                    int maxLen = 0;
+                                    for (com.example.tassmud.model.EquipmentSlot s : slots) {
+                                        if (equippedMap.containsKey(s.id)) {
+                                            if (s.displayName.length() > maxLen) maxLen = s.displayName.length();
+                                        }
+                                    }
+                                    for (com.example.tassmud.model.EquipmentSlot slot : slots) {
+                                        Long instanceId = equippedMap.get(slot.id);
+                                        if (instanceId == null) continue;
+                                        String itemName = "(unknown)";
+                                        com.example.tassmud.model.ItemInstance inst = itemDao.getInstanceById(instanceId);
+                                        if (inst != null) {
+                                            com.example.tassmud.model.ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
+                                            itemName = com.example.tassmud.net.ClientHandler.getItemDisplayName(inst, tmpl);
+                                        }
+                                        String paddedSlot = String.format("%-" + maxLen + "s", slot.displayName);
+                                        out.println("    " + paddedSlot + ": " + itemName);
+                                    }
+                                }
+
                                 found = true;
                                 break;
                             }
@@ -869,6 +912,8 @@ public class MovementCommandHandler implements CommandHandler {
         }
         // Mobs in this room
         MobileDAO mobDao = new MobileDAO();
+        // Shared ItemDAO for equipment lookups (used for mob equipment and room items)
+        ItemDAO itemDao = new ItemDAO();
         java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(roomId);
         for (Mobile mob : roomMobs) {
             // Check if mob is invisible (mobiles use negative IDs for effect tracking)
@@ -879,9 +924,10 @@ public class MovementCommandHandler implements CommandHandler {
             } else {
                 out.println(mob.getName() + " is here.");
             }
+
+            // (Equipment display for mobs is shown only on explicit "look <mob>" commands.)
         }
         // Items on the floor in this room
-        ItemDAO itemDao = new ItemDAO();
         java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(roomId);
         for (ItemDAO.RoomItem ri : roomItems) {
             // Prefer custom description (for corpses, etc.), then template description

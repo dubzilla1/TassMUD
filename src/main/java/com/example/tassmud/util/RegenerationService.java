@@ -11,6 +11,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Handles natural regeneration for all characters (players and mobiles).
@@ -22,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * - SWIMMING/FLYING: 1% (same as standing)
  */
 public class RegenerationService {
+    private static final Logger logger = LoggerFactory.getLogger(RegenerationService.class);
     
     private static final long REGEN_INTERVAL_MS = 10_000; // 10 seconds
     
@@ -53,7 +56,7 @@ public class RegenerationService {
      */
     public void initialize(TickService tickService) {
         tickService.scheduleAtFixedRate("regeneration", this::tick, REGEN_INTERVAL_MS, REGEN_INTERVAL_MS);
-        System.out.println("[RegenerationService] Initialized with " + REGEN_INTERVAL_MS + "ms interval");
+        logger.info("[RegenerationService] Initialized with {}ms interval", REGEN_INTERVAL_MS);
     }
     
     /**
@@ -99,7 +102,7 @@ public class RegenerationService {
             regeneratePlayers();
             regenerateMobiles();
         } catch (Throwable t) {
-            System.err.println("[RegenerationService] Error during regen tick: " + t.getMessage());
+            logger.warn("[RegenerationService] Error during regen tick: {}", t.getMessage(), t);
         }
     }
     
@@ -140,7 +143,7 @@ public class RegenerationService {
                     dao.saveCharacterStateByName(rec.name, newHp, newMp, newMv, rec.currentRoom);
                 }
             } catch (Exception e) {
-                System.err.println("[RegenerationService] Error regenerating player " + charId + ": " + e.getMessage());
+                logger.warn("[RegenerationService] Error regenerating player {}: {}", charId, e.getMessage(), e);
             }
         }
     }
@@ -174,7 +177,7 @@ public class RegenerationService {
                 // Persist mobile state to DB
                 mobileDao.updateInstance(mobile);
             } catch (Exception e) {
-                System.err.println("[RegenerationService] Error regenerating mobile " + mobile.getInstanceId() + ": " + e.getMessage());
+                logger.warn("[RegenerationService] Error regenerating mobile {}: {}", mobile.getInstanceId(), e.getMessage(), e);
             }
         }
     }

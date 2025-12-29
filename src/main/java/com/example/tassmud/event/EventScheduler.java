@@ -2,6 +2,8 @@ package com.example.tassmud.event;
 
 import java.util.concurrent.*;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Event scheduler that manages timed events without overloading the tick system.
@@ -37,6 +39,7 @@ public class EventScheduler {
         this.eventQueue = new PriorityBlockingQueue<>();
         this.recurringEvents = new ConcurrentHashMap<>();
     }
+    private static final Logger logger = LoggerFactory.getLogger(EventScheduler.class);
     
     public static synchronized EventScheduler getInstance() {
         if (instance == null) {
@@ -55,7 +58,7 @@ public class EventScheduler {
         
         // Process events every second
         tickService.scheduleAtFixedRate("event-scheduler", this::processEvents, 1000, 1000);
-        System.out.println("[EventScheduler] Initialized");
+        logger.info("[EventScheduler] Initialized");
     }
     
     /**
@@ -123,8 +126,7 @@ public class EventScheduler {
             try {
                 scheduled.event.execute();
             } catch (Exception e) {
-                System.err.println("[EventScheduler] Error executing event: " + e.getMessage());
-                e.printStackTrace();
+                logger.error("[EventScheduler] Error executing event: {}", e.getMessage(), e);
             }
             
             // Re-schedule if recurring
@@ -147,7 +149,7 @@ public class EventScheduler {
         running = false;
         eventQueue.clear();
         recurringEvents.clear();
-        System.out.println("[EventScheduler] Shutdown");
+        logger.info("[EventScheduler] Shutdown");
     }
     
     /**

@@ -2,14 +2,18 @@ package com.example.tassmud.util;
 
 import com.example.tassmud.persistence.ItemDAO;
 import java.sql.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CheckDb {
+    private static final Logger logger = LoggerFactory.getLogger(CheckDb.class);
+
     public static void main(String[] args) {
         try {
             // Ensure migrations run
             new ItemDAO();
         } catch (Exception e) {
-            System.err.println("ItemDAO init failed: " + e.getMessage());
+            logger.warn("ItemDAO init failed: {}", e.getMessage(), e);
         }
         checkTable("ITEM_TEMPLATE");
         checkTable("ITEM_INSTANCE");
@@ -23,17 +27,17 @@ public class CheckDb {
             try (PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, tableName);
                 try (ResultSet rs = ps.executeQuery()) {
-                    System.out.println("\nColumns for table " + tableName + ":");
+                    logger.info("\nColumns for table {}:", tableName);
                     boolean any = false;
                     while (rs.next()) {
                         any = true;
-                        System.out.println("  " + rs.getString("COLUMN_NAME") + " (" + rs.getString("TYPE_NAME") + ")");
+                        logger.info("  {} ({})", rs.getString("COLUMN_NAME"), rs.getString("TYPE_NAME"));
                     }
-                    if (!any) System.out.println("  <no columns or table does not exist>");
+                    if (!any) logger.info("  <no columns or table does not exist>");
                 }
             }
         } catch (SQLException e) {
-            System.out.println("Error checking table " + tableName + ": " + e.getMessage());
+            logger.warn("Error checking table {}: {}", tableName, e.getMessage(), e);
         }
     }
 }

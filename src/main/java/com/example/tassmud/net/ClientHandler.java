@@ -21,6 +21,8 @@ import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.PasswordUtil;
 import com.example.tassmud.util.RegenerationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,6 +37,7 @@ import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
  * Reads lines, parses simple commands, and responds.
  */
 public class ClientHandler implements Runnable {
+    private static final Logger logger = LoggerFactory.getLogger(ClientHandler.class);
     private final Socket socket;
     private final GameClock gameClock;
     // Registry of active sessions
@@ -762,9 +765,9 @@ public class ClientHandler implements Runnable {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Client connection error: " + e.getMessage());
+            logger.warn("Client connection error: {}", e.getMessage(), e);
         } catch (Exception e) {
-            System.err.println("Generic error: " + e.getMessage());
+            logger.error("Generic error: {}", e.getMessage(), e);
         } finally {
             // Attempt to persist character state and modifiers on disconnect
             try {
