@@ -974,6 +974,57 @@ consider:
         consider rat
         con goblin
 
+compare:
+  keywords: [compare, comparison, upgrade, equipment]
+  see_also: [equip, inventory, score]
+  category: INFORMATION
+  summary: "compare an inventory item to your currently equipped gear"
+  usage:
+    - "compare <item>"
+  content: |
+    NAME
+        compare - compare inventory item to equipped gear
+    
+    SYNOPSIS
+        compare <item>
+    
+    DESCRIPTION
+        Compares an item in your inventory to the item currently equipped
+        in the corresponding slot. This helps you decide whether a new
+        item is an upgrade or downgrade.
+        
+        REQUIREMENTS:
+        - The item must be a weapon, armor, or shield
+        - You must have the required proficiency to use the item
+        - You must have something equipped in the relevant slot
+        
+        WEAPON COMPARISON:
+        Weapons are compared by their total damage potential, calculated
+        as the sum of minimum, average, and maximum damage. This includes
+        the weapon dice and your ability score modifier based on the
+        weapon's scaling attribute (usually STR or DEX).
+        
+        ARMOR/SHIELD COMPARISON:
+        Armor and shields are compared by their total defensive value,
+        calculated as the sum of AC, Fortitude, Reflex, and Will bonuses.
+        
+        COMPARISON RESULTS:
+          "MASSIVE upgrade"       - New item is more than 2x better
+          "far superior"          - New item is 50-100% better
+          "an improvement"        - New item is 25-50% better
+          "slightly better"       - New item is 10-25% better
+          "tough call"            - New item is 0-10% better
+          "basically the same"    - Items are identical in value
+          "ever so slightly worse"- New item is 0-5% worse
+          "isn't quite as good"   - New item is 5-10% worse
+          "a downgrade"           - New item is 10-25% worse
+          "far worse"             - New item is 25%+ worse
+    
+    EXAMPLES
+        compare sword
+        compare plate mail
+        compare tower shield
+
 aggressive:
   summary: "information about aggressive mob behavior"
   visibility: public

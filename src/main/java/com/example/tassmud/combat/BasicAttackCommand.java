@@ -7,6 +7,8 @@ import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.util.OpposedCheck;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * - Mob skills: category = level * 0.02, family = min(level * 0.1, 1.0)
  */
 public class BasicAttackCommand implements CombatCommand {
+
+    private static final Logger logger = LoggerFactory.getLogger(BasicAttackCommand.class);
     
     /** Cooldowns per combatant (combatant ID -> timestamp when cooldown ends) */
     private final Map<Long, Long> cooldowns = new ConcurrentHashMap<>();
@@ -689,10 +693,9 @@ public class BasicAttackCommand implements CombatCommand {
         // Get ability multiplier from instance (uses override if present, otherwise template)
         double abilityMultiplier = weaponInst.getEffectiveAbilityMultiplier(weaponTmpl);
         
-        // Calculate the stat modifier
+        // Calculate the stat modifier and apply multiplier
         int statMod = getStatMod(character, abilityScore);
         
-        // Apply multiplier and return
         return (int) Math.round(statMod * abilityMultiplier);
     }
 

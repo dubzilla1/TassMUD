@@ -417,11 +417,13 @@ public class ClientHandler implements Runnable {
     public static GameCharacter buildCharacterForCombat(CharacterDAO.CharacterRecord rec, Integer characterId) {
         if (rec == null) return null;
         
+        // Use total stats (base + trained) for ability scores
         GameCharacter playerChar = new GameCharacter(
             rec.name, rec.age, rec.description,
             rec.hpMax, rec.hpCur, rec.mpMax, rec.mpCur, rec.mvMax, rec.mvCur,
             rec.currentRoom,
-            rec.str, rec.dex, rec.con, rec.intel, rec.wis, rec.cha,
+            rec.getStrTotal(), rec.getDexTotal(), rec.getConTotal(), 
+            rec.getIntTotal(), rec.getWisTotal(), rec.getChaTotal(),
             rec.getArmorTotal(), rec.getFortitudeTotal(), 
             rec.getReflexTotal(), rec.getWillTotal()
         );

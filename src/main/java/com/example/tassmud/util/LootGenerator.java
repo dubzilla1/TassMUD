@@ -1,7 +1,7 @@
 package com.example.tassmud.util;
 
-import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemTemplate;
+import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.ItemDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,80 +14,84 @@ import java.util.Random;
  * Generates random loot for mob corpses.
  * 
  * Item drop chance: 50% for 1 item, 25% for 2, 12.5% for 3, etc. (halving each time)
- * Item type distribution: 25% trash, 25% weapon, 25% armor, 25% other
+ * Item type distribution: 50% trash, 50% equipment (from 999xxx templates)
  * 
- * Weapons: stats scale with mob level
- *   - Base die progression: d2, d4, d6, d8, d10, d12, d20, d30
- *   - Multiplier: 1 to level
- *   - Ability multiplier: 1.0 to 10.0
+ * Equipment templates are IDs 999000-999999 (generic weapons, armor, shields).
+ * All equipment in that range has equal probability of dropping.
  * 
- * Armor: save bonuses scale with mob level
- *   - Armor/fort/ref/will save bonuses: 1 to 50
+ * Weapons scale with mob level:
+ *   - Melee: base_die/multiplier scale at level/5, ability multiplier at level * 0.1
+ *   - Ranged: base_die at level/4, multiplier at level/6, ability multiplier at level * 0.1
+ *   - Magical: base_die at level/3, multiplier at level/8, ability multiplier at level * 0.1
+ * 
+ * Armor/Shields scale with mob level:
+ *   - Each stat (AC/fort/ref/will) gets base + 1d(level)
+ *   - Total capped at level*2 + base_AC
  * 
  * Magic effects: chance based on level
  *   - level% chance for 1 effect
- *   - level/2% chance for 2 effects  
+ *   - level/2% chance for 2 effects
  *   - level/4% chance for 3 effects
  *   - level/8% chance for 4 effects
+ * 
+ * Naming: Quality prefix based on item score + base item name
  */
 public class LootGenerator {
     private static final Logger logger = LoggerFactory.getLogger(LootGenerator.class);
     
     private static final Random RNG = new Random();
-    // Toggle random loot generation (set to false to enable).
+    // Toggle random loot generation (set to true to disable)
     private static final boolean LOOT_GENERATION_DISABLED = false;
     
-    // Die progression for weapons
-    private static final int[] DIE_PROGRESSION = {2, 4, 6, 8, 10, 12, 20, 30};
+    // Template ID range for generic loot items
+    private static final int TEMPLATE_MIN_ID = 999000;
+    private static final int TEMPLATE_MAX_ID = 999999;
     
-    // Equipment slots for armor generation
-    private static final EquipmentSlot[] ARMOR_SLOTS = {
-        EquipmentSlot.HEAD, EquipmentSlot.NECK, EquipmentSlot.SHOULDERS, EquipmentSlot.BACK,
-        EquipmentSlot.CHEST, EquipmentSlot.ARMS, EquipmentSlot.HANDS, EquipmentSlot.WAIST,
-        EquipmentSlot.LEGS, EquipmentSlot.BOOTS
+    // Die progression for weapons (index used for upgrades)
+    private static final int[] DIE_PROGRESSION = {1, 2, 4, 6, 8, 10, 12, 20, 30, 50, 100};
+    
+    // Quality prefixes ordered from worst to best (20 tiers)
+    private static final String[] QUALITY_PREFIXES = {
+        "Broken",      // 0
+        "Rusty",       // 1
+        "Shoddy",      // 2
+        "Chipped",     // 3
+        "Worn",        // 4
+        "Used",        // 5
+        "Decent",      // 6
+        "Honed",       // 7
+        "Fine",        // 8
+        "Rare",        // 9
+        "Gleaming",    // 10
+        "Glorious",    // 11
+        "Excellent",   // 12
+        "Fantastic",   // 13
+        "Incredible",  // 14
+        "Spectacular", // 15
+        "Outstanding", // 16
+        "Epic",        // 17
+        "Legendary",   // 18
+        "Godly"        // 19
     };
     
-    // Weapon names by quality tier
-    private static final String[] WEAPON_PREFIXES = {
-        "Rusty", "Worn", "Plain", "Sturdy", "Fine", "Superior", "Excellent", "Masterwork", "Legendary"
-    };
+    // Ranged weapon families
+    private static final List<WeaponFamily> RANGED_FAMILIES = List.of(
+        WeaponFamily.BOWS, WeaponFamily.CROSSBOWS, WeaponFamily.SLINGS
+    );
     
-    // Weapon base types
-    private static final String[] WEAPON_TYPES = {
-        "Sword", "Axe", "Mace", "Dagger", "Spear", "Hammer", "Club", "Staff"
-    };
-    
-    // Armor prefixes by quality tier
-    private static final String[] ARMOR_PREFIXES = {
-        "Tattered", "Worn", "Plain", "Sturdy", "Reinforced", "Hardened", "Superior", "Masterwork", "Legendary"
-    };
-    
-    // Material types for armor
-    private static final String[] ARMOR_MATERIALS = {
-        "Cloth", "Leather", "Hide", "Chain", "Scale", "Plate"
-    };
-    
-    // Armor piece names by slot
-    private static final String[][] ARMOR_PIECES = {
-        {"Cap", "Hood", "Helm", "Coif"},           // HEAD
-        {"Pendant", "Amulet", "Necklace"},         // NECK  
-        {"Mantle", "Pauldrons", "Shoulderguards"}, // SHOULDERS
-        {"Cloak", "Cape", "Shroud"},               // BACK
-        {"Shirt", "Vest", "Cuirass", "Breastplate"}, // CHEST
-        {"Bracers", "Armguards", "Vambraces"},     // ARMS
-        {"Gloves", "Gauntlets", "Handwraps"},      // HANDS
-        {"Belt", "Sash", "Girdle"},                // WAIST
-        {"Leggings", "Pants", "Greaves"},          // LEGS
-        {"Boots", "Shoes", "Sabatons"}             // BOOTS
-    };
+    // Magical weapon families (staves use INT)
+    private static final List<WeaponFamily> MAGICAL_FAMILIES = List.of(
+        WeaponFamily.STAVES
+    );
     
     // Magical effect IDs that can be applied to items
-    // These should match effect IDs from effects.yaml
     private static final String[] MAGIC_EFFECT_IDS = {
         "202",  // Bless - hit bonus
         "500",  // Heroism
-        // Add more effect IDs as they're defined
     };
+    
+    // Cache of valid template IDs in range
+    private static List<Integer> cachedTemplateIds = null;
     
     /**
      * Result of loot generation for a single item.
@@ -143,7 +147,17 @@ public class LootGenerator {
         TRASH,
         WEAPON,
         ARMOR,
+        SHIELD,
         OTHER
+    }
+    
+    /**
+     * Weapon type classification for scaling purposes.
+     */
+    private enum WeaponType {
+        MELEE,
+        RANGED,
+        MAGICAL
     }
     
     /**
@@ -162,11 +176,10 @@ public class LootGenerator {
         List<GeneratedItem> generatedItems = new ArrayList<>();
         
         // Determine how many items to generate
-        // 50% chance for 1, 25% for 2, 12.5% for 3, etc.
         int itemCount = determineItemCount();
         
         for (int i = 0; i < itemCount; i++) {
-            GeneratedItem item = generateSingleItem(mobLevel);
+            GeneratedItem item = generateSingleItem(mobLevel, itemDAO);
             if (item != null) {
                 // Create the item in the database inside the corpse
                 long instanceId = itemDAO.createGeneratedInstance(
@@ -188,19 +201,13 @@ public class LootGenerator {
     
     /**
      * Generate a single random item at the given level and place it in a room.
-     * Used by GM spawn command to create level-appropriate random loot.
-     * 
-     * @param level The item level to scale stats to
-     * @param roomId The room to place the item in
-     * @param itemDAO DAO to create item instances
-     * @return The generated item info, or null if creation failed
      */
     public static GeneratedItem generateItemInRoom(int level, int roomId, ItemDAO itemDAO) {
         if (LOOT_GENERATION_DISABLED) {
             logger.info("LootGenerator: generateItemInRoom is disabled.");
             return null;
         }
-        GeneratedItem item = generateSingleItem(level);
+        GeneratedItem item = generateSingleItem(level, itemDAO);
         if (item == null) return null;
 
         long instanceId = itemDAO.createGeneratedInstanceInRoom(
@@ -217,13 +224,6 @@ public class LootGenerator {
     
     /**
      * Generate a specific item with level-scaled stats and place it in a room.
-     * Applies random stat overrides based on the item's type (weapon/armor).
-     * 
-     * @param templateId The item template ID to use
-     * @param level The item level to scale stats to
-     * @param roomId The room to place the item in
-     * @param itemDAO DAO to create item instances
-     * @return The instance ID of the created item, or -1 on failure
      */
     public static long generateItemFromTemplateInRoom(int templateId, int level, int roomId, ItemDAO itemDAO) {
         if (LOOT_GENERATION_DISABLED) {
@@ -233,77 +233,17 @@ public class LootGenerator {
         ItemTemplate template = itemDAO.getTemplateById(templateId);
         if (template == null) return -1;
         
-        // Determine item type and generate appropriate stats
-        boolean isWeapon = template.hasType("weapon");
-        boolean isArmor = template.hasType("armor") || template.hasType("shield");
+        GeneratedItem item = generateFromTemplate(template, level);
+        if (item == null) return -1;
         
-        Integer baseDieOverride = null;
-        Integer multiplierOverride = null;
-        Double abilityMultOverride = null;
-        Integer armorSaveOverride = null;
-        Integer fortSaveOverride = null;
-        Integer refSaveOverride = null;
-        Integer willSaveOverride = null;
-        Integer valueOverride = null;
-        
-        if (isWeapon) {
-            // Generate weapon stats scaled to level
-            int dieIndex = Math.min(DIE_PROGRESSION.length - 1, level / 7);
-            baseDieOverride = DIE_PROGRESSION[dieIndex];
-            
-            multiplierOverride = 1 + (level / 10);
-            multiplierOverride = Math.max(1, Math.min(multiplierOverride, level));
-            
-            double abilityMult = 1.0 + (level - 1) * 0.18;
-            abilityMult = Math.max(1.0, Math.min(10.0, abilityMult));
-            abilityMultOverride = Math.round(abilityMult * 10.0) / 10.0;
-            
-            // Generate magic effects
-            String[] effects = generateMagicEffects(level);
-            
-            valueOverride = calculateWeaponValue(baseDieOverride, multiplierOverride, abilityMultOverride, effects);
-            
-            return itemDAO.createGeneratedInstanceInRoom(
-                templateId, roomId,
-                null, null, level, // No custom name/description - use template's
-                baseDieOverride, multiplierOverride, abilityMultOverride,
-                null, null, null, null,
-                effects[0], effects[1], effects[2], effects[3],
-                valueOverride
-            );
-        } else if (isArmor) {
-            // Generate armor stats scaled to level
-            armorSaveOverride = 1 + (level * 49 / 50);
-            armorSaveOverride = Math.max(1, Math.min(50, armorSaveOverride));
-            
-            fortSaveOverride = armorSaveOverride / 3 + RNG.nextInt(3);
-            refSaveOverride = armorSaveOverride / 4 + RNG.nextInt(3);
-            willSaveOverride = armorSaveOverride / 4 + RNG.nextInt(3);
-            
-            // Generate magic effects
-            String[] effects = generateMagicEffects(level);
-            
-            valueOverride = calculateArmorValue(armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride, effects);
-            
-            return itemDAO.createGeneratedInstanceInRoom(
-                templateId, roomId,
-                null, null, level,
-                null, null, null,
-                armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
-                effects[0], effects[1], effects[2], effects[3],
-                valueOverride
-            );
-        } else {
-            // Not a weapon or armor - just create with item level, no stat overrides
-            return itemDAO.createGeneratedInstanceInRoom(
-                templateId, roomId,
-                null, null, level,
-                null, null, null,
-                null, null, null, null,
-                null, null, null, null,
-                null
-            );
-        }
+        return itemDAO.createGeneratedInstanceInRoom(
+            item.templateId, roomId,
+            item.customName, item.customDescription, item.itemLevel,
+            item.baseDieOverride, item.multiplierOverride, item.abilityMultOverride,
+            item.armorSaveOverride, item.fortSaveOverride, item.refSaveOverride, item.willSaveOverride,
+            item.spellEffect1, item.spellEffect2, item.spellEffect3, item.spellEffect4,
+            item.valueOverride
+        );
     }
     
     /**
@@ -317,7 +257,7 @@ public class LootGenerator {
         
         while (count < 5 && RNG.nextDouble() < chance) {
             count++;
-            chance *= 0.5; // Halve the chance each time
+            chance *= 0.5;
         }
         
         return count;
@@ -325,30 +265,23 @@ public class LootGenerator {
     
     /**
      * Generate a single random item.
-     * Type distribution: 25% trash, 25% weapon, 25% armor, 25% other
+     * 50% trash, 50% equipment from 999xxx range.
      */
-    private static GeneratedItem generateSingleItem(int mobLevel) {
-        int roll = RNG.nextInt(100);
-        
-        if (roll < 25) {
+    private static GeneratedItem generateSingleItem(int mobLevel, ItemDAO itemDAO) {
+        if (RNG.nextInt(100) < 50) {
             return generateTrash(mobLevel);
-        } else if (roll < 50) {
-            return generateWeapon(mobLevel);
-        } else if (roll < 75) {
-            return generateArmor(mobLevel);
         } else {
-            // Other items - for now, just generate another weapon or armor
-            return RNG.nextBoolean() ? generateWeapon(mobLevel) : generateArmor(mobLevel);
+            return generateEquipment(mobLevel, itemDAO);
         }
     }
-
+    
     /**
-     * Public wrapper for tests/tools to sample a single generated item without DB interaction.
-     * This returns the GeneratedItem that would be used to create an instance.
+     * Public wrapper for tests/tools to sample a single generated item.
      */
     public static GeneratedItem sampleSingleItem(int mobLevel) {
         if (LOOT_GENERATION_DISABLED) return null;
-        return generateSingleItem(mobLevel);
+        ItemDAO itemDAO = new ItemDAO();
+        return generateSingleItem(mobLevel, itemDAO);
     }
     
     /**
@@ -357,127 +290,296 @@ public class LootGenerator {
     private static GeneratedItem generateTrash(int mobLevel) {
         TrashGenerator.GeneratedTrash trash = TrashGenerator.generate();
         
-        // Use void_trash template (ID 1) as base
-        // Value is always 0 for trash
         return new GeneratedItem(
             1, // void_trash template ID
             trash.name, 
             trash.description, 
             mobLevel,
-            null, null, null, // No weapon stats
-            null, null, null, null, // No armor stats
-            null, null, null, null, // No magic effects
+            null, null, null,
+            null, null, null, null,
+            null, null, null, null,
             0, // Value is always 0
             LootType.TRASH
         );
     }
     
     /**
-     * Generate a random weapon with stats scaled to mob level.
+     * Generate equipment from the 999xxx template range.
      */
-    private static GeneratedItem generateWeapon(int mobLevel) {
-        // Calculate quality tier (0-8 based on level)
-        int qualityTier = Math.min(8, mobLevel / 6);
+    private static GeneratedItem generateEquipment(int mobLevel, ItemDAO itemDAO) {
+        // Get list of valid template IDs in range
+        List<Integer> templateIds = getTemplateIdsInRange(itemDAO);
+        if (templateIds.isEmpty()) {
+            logger.warn("LootGenerator: No templates found in range {}-{}", TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
+            return generateTrash(mobLevel); // Fallback to trash
+        }
         
-        // Select weapon type
-        String weaponType = WEAPON_TYPES[RNG.nextInt(WEAPON_TYPES.length)];
-        String prefix = WEAPON_PREFIXES[qualityTier];
-        String name = prefix + " " + weaponType;
+        // Pick a random template
+        int templateId = templateIds.get(RNG.nextInt(templateIds.size()));
+        ItemTemplate template = itemDAO.getTemplateById(templateId);
+        if (template == null) {
+            return generateTrash(mobLevel);
+        }
         
-        // Calculate weapon stats
-        // Die progression based on level (higher levels = bigger dice)
-        int dieIndex = Math.min(DIE_PROGRESSION.length - 1, mobLevel / 7);
-        int baseDie = DIE_PROGRESSION[dieIndex];
+        return generateFromTemplate(template, mobLevel);
+    }
+    
+    /**
+     * Generate a scaled item from a specific template.
+     */
+    private static GeneratedItem generateFromTemplate(ItemTemplate template, int mobLevel) {
+        boolean isWeapon = template.hasType("weapon");
+        boolean isArmor = template.hasType("armor");
+        boolean isShield = template.hasType("shield");
         
-        // Multiplier: 1 at level 1, scales up to level at high levels
-        int multiplier = 1 + (mobLevel / 10);
-        multiplier = Math.max(1, Math.min(multiplier, mobLevel));
+        if (isWeapon) {
+            return generateWeaponFromTemplate(template, mobLevel);
+        } else if (isArmor || isShield) {
+            return generateArmorFromTemplate(template, mobLevel, isShield);
+        } else {
+            // Non-equipment item - just return with item level
+            return new GeneratedItem(
+                template.id, null, null, mobLevel,
+                null, null, null,
+                null, null, null, null,
+                null, null, null, null,
+                template.value,
+                LootType.OTHER
+            );
+        }
+    }
+    
+    /**
+     * Generate a weapon with level-scaled stats.
+     */
+    private static GeneratedItem generateWeaponFromTemplate(ItemTemplate template, int mobLevel) {
+        // Determine weapon type (melee/ranged/magical)
+        WeaponType weaponType = classifyWeapon(template);
         
-        // Ability multiplier: 1.0 at level 1, up to 10.0 at level 50
-        double abilityMult = 1.0 + (mobLevel - 1) * 0.18; // ~10.0 at level 50
-        abilityMult = Math.max(1.0, Math.min(10.0, abilityMult));
-        // Round to 1 decimal place
-        abilityMult = Math.round(abilityMult * 10.0) / 10.0;
+        // Get base values from template
+        int baseBaseDie = template.baseDie > 0 ? template.baseDie : 2;
+        int baseMultiplier = template.multiplier > 0 ? template.multiplier : 1;
+        double baseAbilityMult = template.abilityMultiplier > 0 ? template.abilityMultiplier : 1.0;
+        
+        // Calculate upgrade chances based on weapon type and level
+        int dieUpgradeChances;
+        int multUpgradeChances;
+        
+        switch (weaponType) {
+            case RANGED:
+                dieUpgradeChances = (int) Math.ceil(mobLevel / 4.0);
+                multUpgradeChances = (int) Math.ceil(mobLevel / 6.0);
+                break;
+            case MAGICAL:
+                dieUpgradeChances = (int) Math.ceil(mobLevel / 3.0);
+                multUpgradeChances = (int) Math.ceil(mobLevel / 8.0);
+                break;
+            case MELEE:
+            default:
+                dieUpgradeChances = (int) Math.ceil(mobLevel / 5.0);
+                multUpgradeChances = (int) Math.floor(mobLevel / 5.0);
+                break;
+        }
+        
+        // Roll for die upgrades (50% chance each)
+        int baseDie = baseBaseDie;
+        int currentDieIndex = getDieIndex(baseDie);
+        for (int i = 0; i < dieUpgradeChances; i++) {
+            if (RNG.nextBoolean() && currentDieIndex < DIE_PROGRESSION.length - 1) {
+                currentDieIndex++;
+                baseDie = DIE_PROGRESSION[currentDieIndex];
+            }
+        }
+        
+        // Roll for multiplier upgrades (50% chance each)
+        int multiplier = baseMultiplier;
+        for (int i = 0; i < multUpgradeChances; i++) {
+            if (RNG.nextBoolean()) {
+                multiplier++;
+            }
+        }
+        
+        // Roll for ability multiplier upgrades (50% chance for +0.1 per level)
+        double abilityMult = baseAbilityMult;
+        for (int i = 0; i < mobLevel; i++) {
+            if (RNG.nextBoolean()) {
+                abilityMult += 0.1;
+            }
+        }
+        abilityMult = Math.round(abilityMult * 10.0) / 10.0; // Round to 1 decimal
         
         // Generate magic effects
         String[] effects = generateMagicEffects(mobLevel);
         
-        // Calculate value
+        // Calculate weapon score and quality name
+        double weaponScore = calculateWeaponScore(multiplier, baseDie);
+        String qualityPrefix = getWeaponQualityPrefix(weaponScore);
+        String customName = qualityPrefix + " " + template.name;
+        
+        // Calculate value based on stats
         int value = calculateWeaponValue(baseDie, multiplier, abilityMult, effects);
         
-        // Build description
-        String description = String.format("A %s that deals %dd%d damage.",
-            name.toLowerCase(), multiplier, baseDie);
-        if (effects[0] != null) {
-            description += " It glows with magical energy.";
-        }
-        
-        // Use iron sword template (ID 7) as base
         return new GeneratedItem(
-            7, // iron_sword template ID
-            name, description, mobLevel,
+            template.id,
+            customName, null, mobLevel,
             baseDie, multiplier, abilityMult,
-            null, null, null, null, // No armor stats
+            null, null, null, null,
             effects[0], effects[1], effects[2], effects[3],
             value, LootType.WEAPON
         );
     }
     
     /**
-     * Generate random armor with stats scaled to mob level.
+     * Generate armor or shield with level-scaled stats.
      */
-    private static GeneratedItem generateArmor(int mobLevel) {
-        // Calculate quality tier (0-8 based on level)
-        int qualityTier = Math.min(8, mobLevel / 6);
+    private static GeneratedItem generateArmorFromTemplate(ItemTemplate template, int mobLevel, boolean isShield) {
+        // Get base values from template
+        int baseAC = template.armorSaveBonus;
+        int baseFort = template.fortSaveBonus;
+        int baseRef = template.refSaveBonus;
+        int baseWill = template.willSaveBonus;
         
-        // Select random slot
-        int slotIndex = RNG.nextInt(ARMOR_SLOTS.length);
-        EquipmentSlot slot = ARMOR_SLOTS[slotIndex];
+        // Roll bonuses: each stat gets base + 1d(level)
+        int ac = baseAC + (mobLevel > 0 ? RNG.nextInt(mobLevel) + 1 : 0);
+        int fort = baseFort + (mobLevel > 0 ? RNG.nextInt(mobLevel) + 1 : 0);
+        int ref = baseRef + (mobLevel > 0 ? RNG.nextInt(mobLevel) + 1 : 0);
+        int will = baseWill + (mobLevel > 0 ? RNG.nextInt(mobLevel) + 1 : 0);
         
-        // Select material based on level
-        int materialIndex = Math.min(ARMOR_MATERIALS.length - 1, mobLevel / 9);
-        String material = ARMOR_MATERIALS[materialIndex];
+        // Calculate cap: level*2 + base_AC + 10
+        int cap = (mobLevel * 2) + baseAC + 10;
+        int total = ac + fort + ref + will;
         
-        // Select piece name for slot
-        String[] piecesForSlot = ARMOR_PIECES[slotIndex];
-        String pieceName = piecesForSlot[RNG.nextInt(piecesForSlot.length)];
-        
-        String prefix = ARMOR_PREFIXES[qualityTier];
-        String name = prefix + " " + material + " " + pieceName;
-        
-        // Calculate armor stats (1 to 50 based on level)
-        // Armor save is primary, others are secondary
-        int armorSave = 1 + (mobLevel * 49 / 50); // 1 at level 1, 50 at level 50
-        armorSave = Math.max(1, Math.min(50, armorSave));
-        
-        // Secondary saves are lower
-        int fortSave = armorSave / 3 + RNG.nextInt(3);
-        int refSave = armorSave / 4 + RNG.nextInt(3);
-        int willSave = armorSave / 4 + RNG.nextInt(3);
+        // Reduce stats if over cap, cycling through highest to lowest
+        while (total > cap) {
+            // Find highest stat and reduce it
+            if (ac >= fort && ac >= ref && ac >= will && ac > 0) {
+                ac--;
+            } else if (fort >= ac && fort >= ref && fort >= will && fort > 0) {
+                fort--;
+            } else if (will >= ac && will >= fort && will >= ref && will > 0) {
+                will--;
+            } else if (ref > 0) {
+                ref--;
+            } else {
+                break; // All stats are 0, can't reduce further
+            }
+            total = ac + fort + ref + will;
+        }
         
         // Generate magic effects
         String[] effects = generateMagicEffects(mobLevel);
         
+        // Calculate armor score and quality name
+        double armorScore = ac + fort + ref + will;
+        String qualityPrefix = getArmorQualityPrefix(armorScore);
+        String customName = qualityPrefix + " " + template.name;
+        
         // Calculate value
-        int value = calculateArmorValue(armorSave, fortSave, refSave, willSave, effects);
-        
-        // Build description
-        String description = String.format("A piece of %s that provides moderate protection.", name.toLowerCase());
-        if (effects[0] != null) {
-            description += " It hums with magical power.";
-        }
-        
-        // Find a suitable armor template based on slot and material
-        int templateId = getArmorTemplateForSlot(slot, material);
+        int value = calculateArmorValue(ac, fort, ref, will, effects);
         
         return new GeneratedItem(
-            templateId,
-            name, description, mobLevel,
-            null, null, null, // No weapon stats
-            armorSave, fortSave, refSave, willSave,
+            template.id,
+            customName, null, mobLevel,
+            null, null, null,
+            ac, fort, ref, will,
             effects[0], effects[1], effects[2], effects[3],
-            value, LootType.ARMOR
+            value, isShield ? LootType.SHIELD : LootType.ARMOR
         );
+    }
+    
+    /**
+     * Classify a weapon as melee, ranged, or magical based on its family.
+     */
+    private static WeaponType classifyWeapon(ItemTemplate template) {
+        WeaponFamily family = template.getWeaponFamily();
+        
+        if (family != null) {
+            if (RANGED_FAMILIES.contains(family)) {
+                return WeaponType.RANGED;
+            }
+            if (MAGICAL_FAMILIES.contains(family)) {
+                return WeaponType.MAGICAL;
+            }
+        }
+        
+        // Also check ability score - INT-based weapons are magical
+        String ability = template.abilityScore;
+        if (ability != null && ability.toLowerCase().contains("int")) {
+            return WeaponType.MAGICAL;
+        }
+        
+        return WeaponType.MELEE;
+    }
+    
+    /**
+     * Get the index of a die value in the progression array.
+     */
+    private static int getDieIndex(int dieValue) {
+        for (int i = 0; i < DIE_PROGRESSION.length; i++) {
+            if (DIE_PROGRESSION[i] >= dieValue) {
+                return i;
+            }
+        }
+        return DIE_PROGRESSION.length - 1;
+    }
+    
+    /**
+     * Calculate weapon score as min + avg + max damage (without ability modifier).
+     * min = multiplier * 1
+     * max = multiplier * baseDie
+     * avg = multiplier * (baseDie + 1) / 2.0
+     */
+    private static double calculateWeaponScore(int multiplier, int baseDie) {
+        double min = multiplier;
+        double max = multiplier * baseDie;
+        double avg = multiplier * ((baseDie + 1) / 2.0);
+        return min + avg + max;
+    }
+    
+    /**
+     * Get quality prefix for weapon based on score.
+     * Score range: ~4.5 (1d2) to ~1666.5 (11d100)
+     * 
+     * Thresholds:
+     * 0-5: Broken, 5-10: Rusty, 10-15: Shoddy, 15-25: Chipped, 25-40: Worn,
+     * 40-60: Used, 60-90: Decent, 90-130: Honed, 130-180: Fine, 180-250: Rare,
+     * 250-350: Gleaming, 350-450: Glorious, 450-550: Excellent, 550-650: Fantastic,
+     * 650-750: Incredible, 750-850: Spectacular, 850-1000: Outstanding,
+     * 1000-1200: Epic, 1200-1500: Legendary, 1500+: Godly
+     */
+    private static String getWeaponQualityPrefix(double score) {
+        if (score >= 1500) return QUALITY_PREFIXES[19]; // Godly
+        if (score >= 1200) return QUALITY_PREFIXES[18]; // Legendary
+        if (score >= 1000) return QUALITY_PREFIXES[17]; // Epic
+        if (score >= 850) return QUALITY_PREFIXES[16];  // Outstanding
+        if (score >= 750) return QUALITY_PREFIXES[15];  // Spectacular
+        if (score >= 650) return QUALITY_PREFIXES[14];  // Incredible
+        if (score >= 550) return QUALITY_PREFIXES[13];  // Fantastic
+        if (score >= 450) return QUALITY_PREFIXES[12];  // Excellent
+        if (score >= 350) return QUALITY_PREFIXES[11];  // Glorious
+        if (score >= 250) return QUALITY_PREFIXES[10];  // Gleaming
+        if (score >= 180) return QUALITY_PREFIXES[9];   // Rare
+        if (score >= 130) return QUALITY_PREFIXES[8];   // Fine
+        if (score >= 90) return QUALITY_PREFIXES[7];    // Honed
+        if (score >= 60) return QUALITY_PREFIXES[6];    // Decent
+        if (score >= 40) return QUALITY_PREFIXES[5];    // Used
+        if (score >= 25) return QUALITY_PREFIXES[4];    // Worn
+        if (score >= 15) return QUALITY_PREFIXES[3];    // Chipped
+        if (score >= 10) return QUALITY_PREFIXES[2];    // Shoddy
+        if (score >= 5) return QUALITY_PREFIXES[1];     // Rusty
+        return QUALITY_PREFIXES[0];                      // Broken
+    }
+    
+    /**
+     * Get quality prefix for armor based on total stat score.
+     * Score range: ~10 (weakest) to ~120 (level 50, base AC 20)
+     * 
+     * Linear scale with 20 tiers over 110 points = ~5.5 points per tier
+     */
+    private static String getArmorQualityPrefix(double score) {
+        // Map score 0-120 to tier 0-19
+        int tier = (int) Math.min(19, Math.max(0, (score - 5) / 6.0));
+        return QUALITY_PREFIXES[tier];
     }
     
     /**
@@ -487,32 +589,25 @@ public class LootGenerator {
     private static String[] generateMagicEffects(int mobLevel) {
         String[] effects = new String[4];
         
-        // No effects available yet? Return empty
         if (MAGIC_EFFECT_IDS.length == 0) {
             return effects;
         }
         
-        // Check for each effect slot
-        int effectCount = 0;
-        
         // 1st effect: level% chance
         if (RNG.nextInt(100) < mobLevel) {
             effects[0] = MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
-            effectCount++;
             
             // 2nd effect: level/2% chance
             if (RNG.nextInt(100) < mobLevel / 2) {
-                effects[1] = pickDifferentEffect(effects, effectCount);
-                effectCount++;
+                effects[1] = pickDifferentEffect(effects, 1);
                 
                 // 3rd effect: level/4% chance
                 if (RNG.nextInt(100) < mobLevel / 4) {
-                    effects[2] = pickDifferentEffect(effects, effectCount);
-                    effectCount++;
+                    effects[2] = pickDifferentEffect(effects, 2);
                     
                     // 4th effect: level/8% chance
                     if (RNG.nextInt(100) < mobLevel / 8) {
-                        effects[3] = pickDifferentEffect(effects, effectCount);
+                        effects[3] = pickDifferentEffect(effects, 3);
                     }
                 }
             }
@@ -526,11 +621,9 @@ public class LootGenerator {
      */
     private static String pickDifferentEffect(String[] currentEffects, int count) {
         if (MAGIC_EFFECT_IDS.length <= count) {
-            // Not enough unique effects, just pick random
             return MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
         }
         
-        // Try to pick a different effect
         for (int attempts = 0; attempts < 10; attempts++) {
             String effect = MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
             boolean found = false;
@@ -543,13 +636,11 @@ public class LootGenerator {
             if (!found) return effect;
         }
         
-        // Fallback: just return any effect
         return MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
     }
     
     /**
      * Calculate gold value of a weapon based on its stats.
-     * Formula: (baseDie * multiplier * 10) + (abilityMult * 50) + (effectCount * 100)
      */
     private static int calculateWeaponValue(int baseDie, int multiplier, double abilityMult, String[] effects) {
         int baseValue = baseDie * multiplier * 10;
@@ -560,7 +651,6 @@ public class LootGenerator {
     
     /**
      * Calculate gold value of armor based on its stats.
-     * Formula: (armorSave * 20) + (fortSave + refSave + willSave) * 10 + (effectCount * 100)
      */
     private static int calculateArmorValue(int armorSave, int fortSave, int refSave, int willSave, String[] effects) {
         int baseValue = armorSave * 20;
@@ -581,42 +671,31 @@ public class LootGenerator {
     }
     
     /**
-     * Get a suitable armor template ID for a given equipment slot.
-     * These should match template IDs from items.yaml.
+     * Get all template IDs in the 999xxx range.
+     * Results are cached for performance.
+     * Uses ItemDAO's connection logic for consistent DB access.
      */
-    private static int getArmorTemplateForSlot(EquipmentSlot slot, String material) {
-        // Map material to base template ID (per items.yaml sets)
-        // Cloth: 100-109, Leather: 110-119, Mail/Chain: 120-129, Plate: 130-139
-        int base;
-        if (material == null) material = "cloth";
-        switch (material.toLowerCase()) {
-            case "cloth": base = 100; break;
-            case "leather":
-            case "hide": base = 110; break;
-            case "mail":
-            case "chain":
-            case "scale": base = 120; break;
-            case "plate": base = 130; break;
-            default: base = 100; break;
+    private static List<Integer> getTemplateIdsInRange(ItemDAO itemDAO) {
+        if (cachedTemplateIds != null) {
+            return cachedTemplateIds;
         }
-
-        // Offsets inside each material set (match items.yaml ordering)
-        // HEAD=0, SHOULDERS=1, CHEST=2, ARMS=3, HANDS=4, WAIST=5, LEGS=6, BOOTS=7, BACK=8, NECK=9
-        int offset;
-        switch (slot) {
-            case HEAD: offset = 0; break;
-            case SHOULDERS: offset = 1; break;
-            case CHEST: offset = 2; break;
-            case ARMS: offset = 3; break;
-            case HANDS: offset = 4; break;
-            case WAIST: offset = 5; break;
-            case LEGS: offset = 6; break;
-            case BOOTS: offset = 7; break;
-            case BACK: offset = 8; break;
-            case NECK: offset = 9; break;
-            default: offset = 0; break;
+        
+        List<Integer> ids = itemDAO.getTemplateIdsInRange(TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
+        
+        if (!ids.isEmpty()) {
+            cachedTemplateIds = ids;
+            logger.info("LootGenerator: Cached {} template IDs in range {}-{}", ids.size(), TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
+        } else {
+            logger.warn("LootGenerator: No templates found in range {}-{}", TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
         }
-
-        return base + offset;
+        
+        return ids;
+    }
+    
+    /**
+     * Clear the cached template IDs (call if templates are reloaded).
+     */
+    public static void clearTemplateCache() {
+        cachedTemplateIds = null;
     }
 }

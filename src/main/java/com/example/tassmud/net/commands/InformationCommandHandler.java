@@ -1,5 +1,6 @@
 package com.example.tassmud.net.commands;
 
+import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.CharacterClass;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.CharacterSpell;
@@ -27,7 +28,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Handles INFORMATION category commands: help, score, who, look, inventory, skills, spells, consider.
+ * Handles INFORMATION category commands: help, score, who, look, inventory, skills, spells, consider, compare.
  * 
  * This class extracts item-related command logic from ClientHandler to reduce
  * method size and improve maintainability.
@@ -62,6 +63,8 @@ public class InformationCommandHandler implements CommandHandler {
                 return handleSpellsCommand(ctx);
             case "consider":
                 return handleConsiderCommand(ctx);
+            case "compare":
+                return handleCompareCommand(ctx);
             default:
                 return false;
         }
@@ -160,6 +163,320 @@ public class InformationCommandHandler implements CommandHandler {
         }
         out.println(message);
         return true;
+    }
+
+    /**
+     * Handle the compare command - compare an inventory item to the currently equipped item in that slot.
+     */
+    private boolean handleCompareCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.character;
+        CharacterDAO dao = ctx.dao;
+        Integer charId = ctx.characterId;
+
+        if (rec == null) {
+            out.println("You must be logged in to compare items.");
+            return true;
+        }
+        
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Compare what? Usage: compare <item>");
+            return true;
+        }
+        
+        if (charId == null) {
+            out.println("Failed to locate your character record.");
+            return true;
+        }
+        
+        ItemDAO itemDao = new ItemDAO();
+        String searchArg = args.trim();
+        String searchLower = searchArg.toLowerCase();
+        
+        // Get equipped items to exclude from inventory search
+        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
+        for (Long iid : equippedMap.values()) {
+            if (iid != null) equippedInstanceIds.add(iid);
+        }
+        
+        // Get inventory items (not equipped)
+        java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
+        java.util.List<ItemDAO.RoomItem> unequippedItems = new java.util.ArrayList<>();
+        for (ItemDAO.RoomItem ri : invItems) {
+            if (!equippedInstanceIds.contains(ri.instance.instanceId)) {
+                unequippedItems.add(ri);
+            }
+        }
+        
+        if (unequippedItems.isEmpty()) {
+            out.println("You have nothing in your inventory to compare.");
+            return true;
+        }
+        
+        // Smart matching to find the item (same logic as equip command)
+        ItemDAO.RoomItem matched = null;
+        
+        // Priority 1: Exact name match
+        for (ItemDAO.RoomItem ri : unequippedItems) {
+            String displayName = ClientHandler.getItemDisplayName(ri);
+            if (displayName.equalsIgnoreCase(searchArg)) {
+                matched = ri;
+                break;
+            }
+        }
+        
+        // Priority 2: Word match
+        if (matched == null) {
+            for (ItemDAO.RoomItem ri : unequippedItems) {
+                String displayName = ClientHandler.getItemDisplayName(ri);
+                String[] nameWords = displayName.toLowerCase().split("\\s+");
+                for (String w : nameWords) {
+                    if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                        matched = ri;
+                        break;
+                    }
+                }
+                if (matched != null) break;
+            }
+        }
+        
+        // Priority 3: Keyword match
+        if (matched == null) {
+            for (ItemDAO.RoomItem ri : unequippedItems) {
+                if (ri.template.keywords != null) {
+                    for (String kw : ri.template.keywords) {
+                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
+                            matched = ri;
+                            break;
+                        }
+                    }
+                    if (matched != null) break;
+                }
+            }
+        }
+        
+        // Priority 4: Name starts with search
+        if (matched == null) {
+            for (ItemDAO.RoomItem ri : unequippedItems) {
+                String displayName = ClientHandler.getItemDisplayName(ri);
+                if (displayName.toLowerCase().startsWith(searchLower)) {
+                    matched = ri;
+                    break;
+                }
+            }
+        }
+        
+        // Priority 5: Name contains search
+        if (matched == null) {
+            for (ItemDAO.RoomItem ri : unequippedItems) {
+                String displayName = ClientHandler.getItemDisplayName(ri);
+                if (displayName.toLowerCase().contains(searchLower)) {
+                    matched = ri;
+                    break;
+                }
+            }
+        }
+        
+        if (matched == null) {
+            out.println("You don't have '" + searchArg + "' in your inventory.");
+            return true;
+        }
+        
+        ItemTemplate newTmpl = matched.template;
+        ItemInstance newInst = matched.instance;
+        String newItemName = ClientHandler.getItemDisplayName(matched);
+        
+        // Check if it's an equippable type (armor, weapon, or shield)
+        boolean isWeapon = newTmpl.isWeapon();
+        boolean isArmor = newTmpl.isArmor();
+        boolean isShield = newTmpl.isShield();
+        
+        if (!isWeapon && !isArmor && !isShield) {
+            out.println(newItemName + " is not a weapon, armor, or shield - nothing to compare.");
+            return true;
+        }
+        
+        // Check proficiency requirements
+        if (isArmor) {
+            ArmorCategory armorCat = newTmpl.getArmorCategory();
+            if (armorCat != null) {
+                String skillKey = armorCat.getSkillKey();
+                Skill armorSkill = dao.getSkillByKey(skillKey);
+                if (armorSkill == null || !dao.hasSkill(charId, armorSkill.getId())) {
+                    out.println("You lack proficiency in " + armorCat.getDisplayName() + " armor to use " + newItemName + ".");
+                    return true;
+                }
+            }
+        }
+        
+        if (isShield) {
+            Skill shieldSkill = dao.getSkillByKey("shields");
+            if (shieldSkill == null || !dao.hasSkill(charId, shieldSkill.getId())) {
+                out.println("You lack proficiency with shields to use " + newItemName + ".");
+                return true;
+            }
+        }
+        
+        // Determine which slot to compare against
+        EquipmentSlot slot = itemDao.getTemplateEquipmentSlot(newTmpl.id);
+        if (slot == null) {
+            out.println(newItemName + " cannot be equipped.");
+            return true;
+        }
+        
+        // Get currently equipped item in that slot
+        Long equippedId = equippedMap.get(slot.id);
+        if (equippedId == null) {
+            out.println("You have nothing equipped in your " + slot.displayName + " slot. " + newItemName + " is obviously an upgrade!");
+            return true;
+        }
+        
+        ItemInstance oldInst = itemDao.getInstance(equippedId);
+        if (oldInst == null) {
+            out.println("You have nothing equipped in your " + slot.displayName + " slot. " + newItemName + " is obviously an upgrade!");
+            return true;
+        }
+        
+        ItemTemplate oldTmpl = itemDao.getTemplateById(oldInst.templateId);
+        if (oldTmpl == null) {
+            out.println("You have nothing equipped in your " + slot.displayName + " slot. " + newItemName + " is obviously an upgrade!");
+            return true;
+        }
+        
+        String oldItemName = ClientHandler.getItemDisplayName(oldInst, oldTmpl);
+        
+        // Calculate comparison ratio
+        double ratio;
+        if (isWeapon) {
+            ratio = compareWeapons(newInst, newTmpl, oldInst, oldTmpl, rec);
+        } else {
+            // Armor or shield
+            ratio = compareArmorOrShield(newInst, newTmpl, oldInst, oldTmpl);
+        }
+        
+        // Generate comparison message
+        String message = getComparisonMessage(ratio, newItemName, oldItemName);
+        out.println(message);
+        
+        return true;
+    }
+    
+    /**
+     * Compare two weapons based on min, max, and average damage including ability modifiers.
+     * Returns newItem value / oldItem value ratio.
+     */
+    private double compareWeapons(ItemInstance newInst, ItemTemplate newTmpl, 
+                                   ItemInstance oldInst, ItemTemplate oldTmpl,
+                                   CharacterDAO.CharacterRecord rec) {
+        // Calculate new weapon's damage value
+        double newValue = calculateWeaponValue(newInst, newTmpl, rec);
+        
+        // Calculate old weapon's damage value
+        double oldValue = calculateWeaponValue(oldInst, oldTmpl, rec);
+        
+        // Avoid division by zero
+        if (oldValue <= 0) return newValue > 0 ? 10.0 : 1.0;
+        
+        return newValue / oldValue;
+    }
+    
+    /**
+     * Calculate total weapon value as sum of min, average, and max damage.
+     * Formula: multiplier * baseDie + abilityBonus
+     * Min = multiplier * 1 + bonus
+     * Max = multiplier * baseDie + bonus  
+     * Avg = multiplier * ((baseDie + 1) / 2.0) + bonus
+     * Total = min + avg + max
+     */
+    private double calculateWeaponValue(ItemInstance inst, ItemTemplate tmpl, CharacterDAO.CharacterRecord rec) {
+        int baseDie = inst.getEffectiveBaseDie(tmpl);
+        int multiplier = inst.getEffectiveMultiplier(tmpl);
+        double abilityMult = inst.getEffectiveAbilityMultiplier(tmpl);
+        String abilityScore = tmpl != null ? tmpl.abilityScore : "STR";
+        
+        // Default to STR if no ability score specified
+        if (abilityScore == null || abilityScore.isEmpty()) {
+            abilityScore = "STR";
+        }
+        
+        int abilityBonus = ClientHandler.getAbilityBonus(abilityScore, abilityMult, rec);
+        
+        // Handle unarmed/non-weapon case
+        if (baseDie <= 0) {
+            baseDie = 4; // Default unarmed
+            multiplier = 1;
+        }
+        if (multiplier <= 0) multiplier = 1;
+        
+        double minDamage = multiplier + abilityBonus;
+        double maxDamage = (multiplier * baseDie) + abilityBonus;
+        double avgDamage = (multiplier * ((baseDie + 1) / 2.0)) + abilityBonus;
+        
+        // Ensure non-negative
+        minDamage = Math.max(0, minDamage);
+        maxDamage = Math.max(0, maxDamage);
+        avgDamage = Math.max(0, avgDamage);
+        
+        return minDamage + avgDamage + maxDamage;
+    }
+    
+    /**
+     * Compare armor or shield based on AC, fort, ref, and will bonuses.
+     * Returns newItem value / oldItem value ratio.
+     */
+    private double compareArmorOrShield(ItemInstance newInst, ItemTemplate newTmpl,
+                                         ItemInstance oldInst, ItemTemplate oldTmpl) {
+        // Calculate new item's total defensive value
+        double newValue = calculateArmorValue(newInst, newTmpl);
+        
+        // Calculate old item's total defensive value
+        double oldValue = calculateArmorValue(oldInst, oldTmpl);
+        
+        // Avoid division by zero
+        if (oldValue <= 0) return newValue > 0 ? 10.0 : 1.0;
+        
+        return newValue / oldValue;
+    }
+    
+    /**
+     * Calculate total armor/shield value as sum of AC + fort + ref + will.
+     */
+    private double calculateArmorValue(ItemInstance inst, ItemTemplate tmpl) {
+        int ac = inst.getEffectiveArmorSave(tmpl);
+        int fort = inst.getEffectiveFortSave(tmpl);
+        int ref = inst.getEffectiveRefSave(tmpl);
+        int will = inst.getEffectiveWillSave(tmpl);
+        
+        return ac + fort + ref + will;
+    }
+    
+    /**
+     * Get the comparison message based on the ratio of new vs old item value.
+     */
+    private String getComparisonMessage(double ratio, String newItemName, String oldItemName) {
+        if (ratio > 2.0) {
+            return newItemName + " is a MASSIVE upgrade over " + oldItemName + "!";
+        } else if (ratio > 1.5) {
+            return newItemName + " is far superior to " + oldItemName + ".";
+        } else if (ratio > 1.25) {
+            return newItemName + " is an improvement from " + oldItemName + ".";
+        } else if (ratio > 1.1) {
+            return newItemName + " is slightly better than " + oldItemName + ".";
+        } else if (ratio > 1.0) {
+            return newItemName + " might be better than " + oldItemName + ", but it's a tough call.";
+        } else if (ratio == 1.0) {
+            return newItemName + " and " + oldItemName + " are basically the same.";
+        } else if (ratio > 0.95) {
+            return newItemName + " seems ever so slightly worse than " + oldItemName + ".";
+        } else if (ratio > 0.9) {
+            return newItemName + " isn't quite as good as " + oldItemName + ".";
+        } else if (ratio > 0.75) {
+            return newItemName + " looks like a downgrade from " + oldItemName + ".";
+        } else {
+            return "By all accounts, " + newItemName + " is far worse than " + oldItemName + ".";
+        }
     }
 
     private boolean handleSpellsCommand(CommandContext ctx) {

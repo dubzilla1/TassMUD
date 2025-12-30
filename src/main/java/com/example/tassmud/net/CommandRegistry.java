@@ -24,6 +24,7 @@ public class CommandRegistry {
         registerCombat("skills", "List skills you have learned", Category.INFORMATION);
         registerCombat("spells", "List spells you have learned", Category.INFORMATION);
         register("consider", "Evaluate how dangerous a target would be to fight", Category.INFORMATION, List.of("con"));
+        register("compare", "Compare an inventory item to your currently equipped gear", Category.INFORMATION);
         
         // ===== MOVEMENT =====
         // Movement NOT allowed in combat (use flee instead)

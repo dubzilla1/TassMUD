@@ -136,15 +136,25 @@ public class ItemDAO {
         // Prepare a list to collect parsed items for batched DB insertion
         java.util.List<java.util.Map<String,Object>> batchedItems = new java.util.ArrayList<>();
         try (InputStream is = getClass().getResourceAsStream(resourcePath)) {
-            if (is == null) return;
+            if (is == null) {
+                logger.warn("[ItemDAO] Resource not found: {}", resourcePath);
+                return;
+            }
             Yaml yaml = new Yaml();
             Map<String, Object> data = yaml.load(is);
-            if (data == null || !data.containsKey("items")) return;
+            if (data == null || !data.containsKey("items")) {
+                logger.warn("[ItemDAO] No 'items' key in YAML: {}", resourcePath);
+                return;
+            }
             @SuppressWarnings("unchecked")
             Object itemsObj = data.get("items");
-            if (!(itemsObj instanceof List)) return;
+            if (!(itemsObj instanceof List)) {
+                logger.warn("[ItemDAO] 'items' is not a list in: {}", resourcePath);
+                return;
+            }
             List<Map<String, Object>> items = (List<Map<String, Object>>) itemsObj;
             if (items == null) return;
+            logger.info("[ItemDAO] Parsing {} items from {}", items.size(), resourcePath);
             for (Map<String, Object> item : items) {
                 int id = parseIntSafe(item.get("id"));
                 String name = str(item.get("name"));
@@ -384,6 +394,7 @@ public class ItemDAO {
                         ps.executeBatch();
                         c.commit();
                     }
+                    logger.info("[ItemDAO] Batch processed {} items from YAML", batchCount);
                 }
 
                 // Final count log
@@ -1028,6 +1039,29 @@ public class ItemDAO {
         } catch (SQLException e) {
             return false;
         }
+    }
+
+    /**
+     * Get all template IDs in the given range (inclusive).
+     * Used by LootGenerator to find equipment templates.
+     */
+    public List<Integer> getTemplateIdsInRange(int minId, int maxId) {
+        List<Integer> ids = new ArrayList<>();
+        String sql = "SELECT id FROM item_template WHERE id >= ? AND id <= ? ORDER BY id";
+        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, minId);
+            ps.setInt(2, maxId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    ids.add(rs.getInt("id"));
+                }
+            }
+            logger.debug("[ItemDAO] getTemplateIdsInRange({}, {}): found {} templates", minId, maxId, ids.size());
+        } catch (SQLException e) {
+            logger.error("[ItemDAO] getTemplateIdsInRange failed: {}", e.getMessage());
+        }
+        return ids;
     }
 
     // A simple record pairing an item instance with its template for display/matching

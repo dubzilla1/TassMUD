@@ -525,9 +525,13 @@ public class CombatManager {
                         
                         // Generate random loot in the corpse
                         List<LootGenerator.GeneratedItem> loot = LootGenerator.generateLoot(mobLevel, corpseId, itemDAO);
-                        if (!loot.isEmpty()) {
-                            // Announce loot items
+                        if (loot.isEmpty()) {
+                            logger.info("[Loot] No items generated for {} (level {})", mobName, mobLevel);
+                        } else {
+                            // Log and announce loot items
                             for (LootGenerator.GeneratedItem item : loot) {
+                                String itemName = item.customName != null ? item.customName : "item#" + item.templateId;
+                                logger.info("[Loot] Generated '{}' from {} (level {})", itemName, mobName, mobLevel);
                                 if (item.customName != null) {
                                     broadcastToRoom(roomId, "  * " + item.customName);
                                 }
