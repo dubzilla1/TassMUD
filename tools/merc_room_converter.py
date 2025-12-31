@@ -217,17 +217,39 @@ def parse_rooms(are_path):
                 'long_desc': long_desc,
                 'exits': exits,
                 'sector_type': SECTOR_MAP.get(sector_type, 'FIELD'),
-                'legacy_flags': [],
+                'flags': [],  # RoomFlag keys that will be loaded into room_flag table
+                'legacy_flags': [],  # raw bit flags for reference
                 'doors': doors,
                 'extras': extras
             }
-            # convert some flags to names (simple mapping)
+            # Convert MERC room_flags bitfield to RoomFlag keys
+            # MERC bit values from merc.h:
+            #   1 = DARK, 4 = NO_MOB, 8 = INDOORS, 512 = PRIVATE
+            #   1024 = SAFE, 2048 = SOLITARY, 4096 = PET_SHOP, 8192 = NO_RECALL
+            if room_flags & 1:
+                room['flags'].append('dark')
+                room['legacy_flags'].append('DARK')
             if room_flags & 4:
+                room['flags'].append('no_mob')
                 room['legacy_flags'].append('NO_MOB')
             if room_flags & 8:
+                room['flags'].append('indoors')
                 room['legacy_flags'].append('INDOORS')
+            if room_flags & 512:
+                room['flags'].append('private')
+                room['legacy_flags'].append('PRIVATE')
             if room_flags & 1024:
+                room['flags'].append('safe')
                 room['legacy_flags'].append('SAFE')
+            if room_flags & 2048:
+                room['flags'].append('solitary')
+                room['legacy_flags'].append('SOLITARY')
+            if room_flags & 4096:
+                room['flags'].append('pet_shop')
+                room['legacy_flags'].append('PET_SHOP')
+            if room_flags & 8192:
+                room['flags'].append('no_recall')
+                room['legacy_flags'].append('NO_RECALL')
 
             rooms.append(room)
         else:

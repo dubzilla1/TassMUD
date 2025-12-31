@@ -1,14 +1,30 @@
 package com.example.tassmud.spell;
 
+import com.example.tassmud.effect.EffectDefinition;
+import com.example.tassmud.effect.EffectInstance;
+import com.example.tassmud.effect.EffectRegistry;
+import com.example.tassmud.model.Spell;
+import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.commands.CommandContext;
+import com.example.tassmud.persistence.CharacterDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Central dispatcher for ARCANE spells. Registers handlers for all arcane
  * spells and provides dedicated handle<SpellName>() methods for each.
  *
- * Currently each handler delegates to a common "not implemented" stub.
+ * Spell handlers receive a SpellContext containing:
+ * - Resolved target IDs
+ * - Caster proficiency and other params
+ * - Command context for I/O
+ * - Combat instance if applicable
+ *
+ * Most spells apply effects via EffectRegistry using the spell's effectIds.
+ * Custom logic can be added before/after effect application as needed.
  */
 public class ArcaneSpellHandler {
 
@@ -94,9 +110,20 @@ public class ArcaneSpellHandler {
         }
     }
 
-    // --- Per-spell handler stubs ---
-    private static boolean handleAcidBlast(Integer casterId, String args, SpellContext ctx) { return notImplemented("acid blast", casterId, args, ctx); }
-    private static boolean handleBlindness(Integer casterId, String args, SpellContext ctx) { return notImplemented("blindness", casterId, args, ctx); }
+    // --- Per-spell handlers ---
+    // Each handler applies effects from the spell's effectIds via EffectRegistry.
+    // Custom pre/post logic can be added as needed for special spell behavior.
+    
+    private static boolean handleAcidBlast(Integer casterId, String args, SpellContext ctx) {
+        // Acid Blast: DOT effect "1001" (Acid Burn)
+        return applySpellEffects(ctx, "acid blast");
+    }
+    
+    private static boolean handleBlindness(Integer casterId, String args, SpellContext ctx) {
+        // Blindness: DEBUFF effect "1002" (Blindness)
+        return applySpellEffects(ctx, "blindness");
+    }
+    
     private static boolean handleBurningHands(Integer casterId, String args, SpellContext ctx) { return notImplemented("burning hands", casterId, args, ctx); }
     private static boolean handleCallLightning(Integer casterId, String args, SpellContext ctx) { return notImplemented("call lightning", casterId, args, ctx); }
     private static boolean handleCauseCritical(Integer casterId, String args, SpellContext ctx) { return notImplemented("cause critical", casterId, args, ctx); }
@@ -137,5 +164,78 @@ public class ArcaneSpellHandler {
             logger.debug("[spell] '{}' invoked but not implemented (casterId={})", spellName, casterId);
         }
         return false;
+    }
+    
+    // === Helper methods ===
+    
+    /**
+     * Apply all effects from the spell's effectIds to all resolved targets.
+     * This is the standard implementation for effect-based spells.
+     * 
+     * @param ctx The spell context containing targets, caster, and params
+     * @param spellName The spell name (for logging)
+     * @return true if at least one effect was applied successfully
+     */
+    private static boolean applySpellEffects(SpellContext ctx, String spellName) {
+        if (ctx == null) {
+            logger.warn("[{}] No spell context provided", spellName);
+            return false;
+        }
+        
+        Spell spell = ctx.getSpell();
+        if (spell == null) {
+            logger.warn("[{}] No spell definition in context", spellName);
+            return false;
+        }
+        
+        List<String> effectIds = spell.getEffectIds();
+        if (effectIds == null || effectIds.isEmpty()) {
+            logger.warn("[{}] Spell has no effectIds defined", spellName);
+            return false;
+        }
+        
+        List<Integer> targets = ctx.getTargetIds();
+        if (targets.isEmpty()) {
+            logger.debug("[{}] No targets resolved", spellName);
+            if (ctx.getCommandContext() != null) {
+                ctx.getCommandContext().send("No valid targets for " + spell.getName() + ".");
+            }
+            return false;
+        }
+        
+        Integer casterId = ctx.getCasterId();
+        Map<String, String> extraParams = ctx.getExtraParams();
+        CommandContext cmdCtx = ctx.getCommandContext();
+        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
+        
+        boolean anyApplied = false;
+        
+        for (String effId : effectIds) {
+            EffectDefinition def = EffectRegistry.getDefinition(effId);
+            if (def == null) {
+                logger.warn("[{}] Effect definition not found: {}", spellName, effId);
+                continue;
+            }
+            
+            for (Integer targetId : targets) {
+                EffectInstance inst = EffectRegistry.apply(effId, casterId, targetId, extraParams);
+                if (inst != null) {
+                    anyApplied = true;
+                    logger.debug("[{}] Applied effect {} to target {}", spellName, def.getName(), targetId);
+                    
+                    // Notify target if online (and not self-cast)
+                    if (!targetId.equals(casterId)) {
+                        ClientHandler targetSession = ClientHandler.charIdToSession.get(targetId);
+                        if (targetSession != null) {
+                            String casterName = dao.findById(casterId) != null ? dao.findById(casterId).name : "Someone";
+                            // Don't double-notify - the effect handler already notifies
+                            // targetSession.sendRaw(def.getName() + " from " + casterName + " takes effect.");
+                        }
+                    }
+                }
+            }
+        }
+        
+        return anyApplied;
     }
 }

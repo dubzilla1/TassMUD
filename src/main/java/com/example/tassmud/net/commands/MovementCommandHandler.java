@@ -237,6 +237,20 @@ public class MovementCommandHandler implements CommandHandler {
             return true;
         }
         
+        // Check room flags - PRISON and NO_RECALL prevent recall
+        boolean isGm = dao.isCharacterFlagTrueByName(name, "is_gm");
+        Integer currentRoomId = rec.currentRoom;
+        if (currentRoomId != null && !isGm) {
+            if (dao.isRoomPrison(currentRoomId)) {
+                out.println("You cannot leave this room.");
+                return true;
+            }
+            if (dao.isRoomNoRecall(currentRoomId)) {
+                out.println("Something prevents you from recalling.");
+                return true;
+            }
+        }
+        
         final int TEMPLE_OF_MIDGAARD = 3001;
         
         // Already at the inn?
@@ -778,6 +792,24 @@ public class MovementCommandHandler implements CommandHandler {
                     }
                 }
 
+                // Check room flags
+                boolean isGm = dao.isCharacterFlagTrueByName(name, "is_gm");
+                
+                // PRISON check - cannot leave by normal movement (only GM teleport)
+                if (dao.isRoomPrison(curRoomId) && !isGm) {
+                    out.println("You cannot leave this room.");
+                    return true;
+                }
+                
+                // PRIVATE check - destination room can only have 1 non-GM player
+                if (dao.isRoomPrivate(destId) && !isGm) {
+                    int nonGmCount = countNonGmPlayersInRoom(destId, dao);
+                    if (nonGmCount >= 1) {
+                        out.println("That room is currently occupied.");
+                        return true;
+                    }
+                }
+
                 // Check and deduct movement points based on destination room/area
                 int moveCost = dao.getMoveCostForRoom(destId);
                 if (rec.mvCur < moveCost) {
@@ -840,6 +872,14 @@ public class MovementCommandHandler implements CommandHandler {
         PrintWriter out = ctx.out;
         Integer charId = ctx.characterId;
         String name = ctx.playerName;
+        
+        // Check if character is blind - they can't see room details
+        if (charId != null && com.example.tassmud.effect.EffectRegistry.isBlind(charId)) {
+            out.println("You can't see anything! You are blind!");
+            out.println();
+            return;
+        }
+        
         // Room name
         out.println(room.getName());
         // Room description (indented with tab)
@@ -940,5 +980,26 @@ public class MovementCommandHandler implements CommandHandler {
                 out.println("A " + ClientHandler.getItemDisplayName(ri) + " lies here.");
             }
         }
+    }
+    
+    /**
+     * Count the number of non-GM players currently in a room.
+     * Used for PRIVATE room checks.
+     * @param roomId the room ID
+     * @param dao the CharacterDAO for GM flag lookups
+     * @return count of non-GM players in the room
+     */
+    private int countNonGmPlayersInRoom(int roomId, CharacterDAO dao) {
+        int count = 0;
+        for (ClientHandler session : ClientHandler.sessions) {
+            Integer sessionRoom = session.currentRoomId;
+            if (sessionRoom != null && sessionRoom == roomId) {
+                String playerName = session.playerName;
+                if (playerName != null && !dao.isCharacterFlagTrueByName(playerName, "is_gm")) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }

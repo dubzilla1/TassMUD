@@ -500,10 +500,29 @@ public class DataLoader {
             }
             logger.info("Loaded {} spells from spells.yaml", count);
             
+            // Initialize spell handlers (triggers static initializers to register with SpellRegistry)
+            initializeSpellHandlers();
+            
         } catch (Exception e) {
             logger.warn("Failed to load spells.yaml: {}", e.getMessage(), e);
             // Fallback to old CSV
             loadSpellsFromCsv(dao);
+        }
+    }
+    
+    /**
+     * Initialize spell handler classes to trigger their static initializers.
+     * This registers spell handlers with SpellRegistry.
+     */
+    private static void initializeSpellHandlers() {
+        try {
+            // Load handler classes to trigger static initializers
+            Class.forName("com.example.tassmud.spell.ArcaneSpellHandler");
+            Class.forName("com.example.tassmud.spell.DivineSpellHandler");
+            Class.forName("com.example.tassmud.spell.PrimalSpellHandler");
+            logger.info("Initialized spell handlers (Arcane, Divine, Primal)");
+        } catch (ClassNotFoundException e) {
+            logger.warn("Failed to initialize spell handlers: {}", e.getMessage());
         }
     }
 
@@ -595,6 +614,10 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("INSTANT_HEAL", new com.example.tassmud.effect.InstantHealEffect());
             // Register weapon infusion handler for WEAPON_INFUSION effects (arcane infusion, etc.)
             com.example.tassmud.effect.EffectRegistry.registerHandler("WEAPON_INFUSION", new com.example.tassmud.effect.WeaponInfusionEffect());
+            // Register damage-over-time handler for DOT effects (acid blast, poison, etc.)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("DOT", new com.example.tassmud.effect.DotEffect());
+            // Register debuff handler for DEBUFF effects (blindness, etc.)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("DEBUFF", new com.example.tassmud.effect.BlindEffect());
 
             logger.info("Loaded {} effects from effects.yaml", count);
         } catch (Exception e) {
@@ -850,6 +873,7 @@ public class DataLoader {
         String longDesc;
         Integer exitN, exitE, exitS, exitW, exitU, exitD;
         List<SpawnConfig> spawns = new ArrayList<>();
+        List<String> flags = new ArrayList<>();  // Room flags (dark, no_mob, safe, etc.)
     }
 
     private static Map<String,Integer> loadRoomsFirstPass(CharacterDAO dao, Map<String,Integer> areaMap) {
@@ -912,6 +936,17 @@ public class DataLoader {
                         }
                     }
 
+                    // Parse room flags (dark, no_mob, safe, etc.)
+                    Object flagsObj = roomData.get("flags");
+                    if (flagsObj instanceof List) {
+                        List<?> flagsList = (List<?>) flagsObj;
+                        for (Object flag : flagsList) {
+                            if (flag != null) {
+                                t.flags.add(flag.toString().toLowerCase().trim());
+                            }
+                        }
+                    }
+
                     if (t.key.isEmpty() || t.name.isEmpty()) continue;
                     templates.add(t);
                 }
@@ -965,6 +1000,16 @@ public class DataLoader {
                         SpawnConfig spawn = parseSpawnConfig(spawnData, t.explicitId);
                         if (spawn != null) {
                             t.spawns.add(spawn);
+                        }
+                    }
+                }
+                
+                // Parse room flags
+                Object flagsObj = roomData.get("flags");
+                if (flagsObj instanceof List) {
+                    for (Object flag : (List<?>) flagsObj) {
+                        if (flag != null) {
+                            t.flags.add(flag.toString().toLowerCase().trim());
                         }
                     }
                 }
@@ -1119,6 +1164,14 @@ public class DataLoader {
             }
             if (roomId > 0) {
                 keyToId.put(t.key, roomId);
+                
+                // Insert room flags into the room_flag table
+                if (t.flags != null && !t.flags.isEmpty()) {
+                    for (String flagKey : t.flags) {
+                        dao.addRoomFlag(roomId, flagKey);
+                    }
+                    logger.debug("[DataLoader] Added {} flags to room {}: {}", t.flags.size(), roomId, t.flags);
+                }
                 
                 // Register spawns with the SpawnManager and seed spawn mappings for mobs
                 for (SpawnConfig spawn : t.spawns) {

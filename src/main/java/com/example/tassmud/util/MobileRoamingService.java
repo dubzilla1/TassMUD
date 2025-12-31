@@ -400,15 +400,25 @@ public class MobileRoamingService {
     
     /**
      * Check if a mobile can enter a specific room.
-     * Placeholder for future room restrictions.
+     * Checks room flags and other restrictions.
      * 
      * @param mobile the mobile trying to enter
      * @param destRoomId the destination room
      * @return true if the mobile can enter
      */
     private boolean canEnterRoom(Mobile mobile, int destRoomId) {
+        // Check NO_MOB flag - mobs cannot enter by normal movement
+        if (dao.isRoomNoMob(destRoomId)) {
+            return false;
+        }
+        
+        // Check SAFE flag - aggressive mobs won't naturally wander into safe rooms
+        // (though they can be summoned/teleported there)
+        if (mobile.hasBehavior(MobileBehavior.AGGRESSIVE) && dao.isRoomSafe(destRoomId)) {
+            return false;
+        }
+        
         // TODO: Check for:
-        // - No-mob rooms
         // - Level restrictions
         // - Faction restrictions
         // - Water rooms (swimming ability)
@@ -481,6 +491,11 @@ public class MobileRoamingService {
      * @param playerLevel The player's class level
      */
     public void checkAggroOnPlayerEntry(int roomId, int characterId, int playerLevel) {
+        // Skip aggro check if the room is SAFE
+        if (dao.isRoomSafe(roomId)) {
+            return; // No combat allowed in safe rooms
+        }
+        
         // Skip aggro check if the player is invisible
         if (com.example.tassmud.effect.EffectRegistry.isInvisible(characterId)) {
             return; // Invisible characters don't trigger aggro
@@ -544,6 +559,11 @@ public class MobileRoamingService {
     public void checkAggroOnMobEntry(Mobile mob, int roomId) {
         if (mob == null || !mob.hasBehavior(MobileBehavior.AGGRESSIVE)) {
             return;
+        }
+        
+        // Skip aggro in SAFE rooms
+        if (dao.isRoomSafe(roomId)) {
+            return; // No combat allowed in safe rooms
         }
         
         if (mob.isDead() || combatManager.isInCombat(mob)) {

@@ -79,6 +79,28 @@ spells:
     progression: HARD
     effectIds: [121]
     
+  - id: 22
+    name: Acid Blast
+    description: You hurl a glob of caustic acid that burns and corrodes your foe over time.
+    school: ARCANE
+    level: 3
+    castingTime: 1.0
+    cooldown: 3.0
+    target: EXPLICIT_MOB_TARGET
+    progression: HARD
+    effectIds: ["1001"]
+    
+  - id: 23
+    name: Blindness
+    description: You cloud the target's vision with magical darkness, rendering them unable to see.
+    school: ARCANE
+    level: 5
+    castingTime: 1.0
+    cooldown: 3.0
+    target: EXPLICIT_MOB_TARGET
+    progression: HARD
+    effectIds: ["1002"]
+    
   # Level 4 Arcane
   - id: 30
     name: Ice Storm

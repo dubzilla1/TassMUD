@@ -13,6 +13,7 @@ import com.example.tassmud.model.SectorType;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Modifier;
 import com.example.tassmud.model.Stat;
+import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.model.SkillTrait;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.model.SpellTrait;
@@ -859,6 +860,18 @@ public class CharacterDAO {
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create character_modifier table", e);
         }
+
+        // Room flags table (maps room_id -> flag key)
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             Statement s = c.createStatement()) {
+            s.execute("CREATE TABLE IF NOT EXISTS room_flag (" +
+                    "room_id INT NOT NULL, " +
+                    "flag VARCHAR(50) NOT NULL, " +
+                    "PRIMARY KEY (room_id, flag)" +
+                    ")");
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create room_flag table", e);
+        }
     }
 
     // Simple settings accessor
@@ -1689,6 +1702,209 @@ public class CharacterDAO {
             // ignore
         }
         return null;
+    }
+
+    // --- Room flag accessors ---
+    
+    /**
+     * Add a flag to a room. Uses MERGE so it's idempotent.
+     * @param roomId the room ID
+     * @param flag the RoomFlag to add
+     * @return true if successful
+     */
+    public boolean addRoomFlag(int roomId, com.example.tassmud.model.RoomFlag flag) {
+        if (flag == null) return false;
+        return addRoomFlag(roomId, flag.getKey());
+    }
+    
+    /**
+     * Add a flag to a room by key string. Uses MERGE so it's idempotent.
+     * @param roomId the room ID
+     * @param flagKey the flag key string
+     * @return true if successful
+     */
+    public boolean addRoomFlag(int roomId, String flagKey) {
+        if (flagKey == null || flagKey.trim().isEmpty()) return false;
+        String sql = "MERGE INTO room_flag (room_id, flag) KEY(room_id, flag) VALUES (?, ?)";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            ps.setString(2, flagKey.toLowerCase().trim());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            logger.warn("Failed to add room flag {} to room {}: {}", flagKey, roomId, e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Remove a flag from a room.
+     * @param roomId the room ID
+     * @param flag the RoomFlag to remove
+     * @return true if successful
+     */
+    public boolean removeRoomFlag(int roomId, com.example.tassmud.model.RoomFlag flag) {
+        if (flag == null) return false;
+        return removeRoomFlag(roomId, flag.getKey());
+    }
+    
+    /**
+     * Remove a flag from a room by key string.
+     * @param roomId the room ID
+     * @param flagKey the flag key string
+     * @return true if successful
+     */
+    public boolean removeRoomFlag(int roomId, String flagKey) {
+        if (flagKey == null || flagKey.trim().isEmpty()) return false;
+        String sql = "DELETE FROM room_flag WHERE room_id = ? AND flag = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            ps.setString(2, flagKey.toLowerCase().trim());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            logger.warn("Failed to remove room flag {} from room {}: {}", flagKey, roomId, e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Check if a room has a specific flag.
+     * @param roomId the room ID
+     * @param flag the RoomFlag to check
+     * @return true if the room has the flag
+     */
+    public boolean hasRoomFlag(int roomId, com.example.tassmud.model.RoomFlag flag) {
+        if (flag == null) return false;
+        return hasRoomFlag(roomId, flag.getKey());
+    }
+    
+    /**
+     * Check if a room has a specific flag by key string.
+     * @param roomId the room ID
+     * @param flagKey the flag key string
+     * @return true if the room has the flag
+     */
+    public boolean hasRoomFlag(int roomId, String flagKey) {
+        if (flagKey == null || flagKey.trim().isEmpty()) return false;
+        String sql = "SELECT 1 FROM room_flag WHERE room_id = ? AND flag = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            ps.setString(2, flagKey.toLowerCase().trim());
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    /**
+     * Get all flags for a room.
+     * @param roomId the room ID
+     * @return set of RoomFlags for the room
+     */
+    public java.util.Set<com.example.tassmud.model.RoomFlag> getRoomFlags(int roomId) {
+        java.util.Set<com.example.tassmud.model.RoomFlag> flags = java.util.EnumSet.noneOf(com.example.tassmud.model.RoomFlag.class);
+        String sql = "SELECT flag FROM room_flag WHERE room_id = ?";
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, roomId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String key = rs.getString("flag");
+                    com.example.tassmud.model.RoomFlag flag = com.example.tassmud.model.RoomFlag.fromKey(key);
+                    if (flag != null) {
+                        flags.add(flag);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            // return what we have
+        }
+        return flags;
+    }
+    
+    /**
+     * Set all flags for a room (replaces existing flags).
+     * @param roomId the room ID
+     * @param flags the set of flags to apply
+     * @return true if successful
+     */
+    public boolean setRoomFlags(int roomId, java.util.Set<com.example.tassmud.model.RoomFlag> flags) {
+        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+            // Clear existing flags
+            try (PreparedStatement ps = c.prepareStatement("DELETE FROM room_flag WHERE room_id = ?")) {
+                ps.setInt(1, roomId);
+                ps.executeUpdate();
+            }
+            // Add new flags
+            if (flags != null && !flags.isEmpty()) {
+                try (PreparedStatement ps = c.prepareStatement("INSERT INTO room_flag (room_id, flag) VALUES (?, ?)")) {
+                    for (com.example.tassmud.model.RoomFlag flag : flags) {
+                        ps.setInt(1, roomId);
+                        ps.setString(2, flag.getKey());
+                        ps.addBatch();
+                    }
+                    ps.executeBatch();
+                }
+            }
+            return true;
+        } catch (SQLException e) {
+            logger.warn("Failed to set room flags for room {}: {}", roomId, e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Check if a room is a SAFE room (no combat allowed).
+     * Convenience method for combat checks.
+     */
+    public boolean isRoomSafe(int roomId) {
+        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.SAFE);
+    }
+    
+    /**
+     * Check if a room is a PRISON room (no exit except GM teleport).
+     * Convenience method for movement checks.
+     */
+    public boolean isRoomPrison(int roomId) {
+        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.PRISON);
+    }
+    
+    /**
+     * Check if a room has NO_MOB flag (mobs cannot enter by normal movement).
+     * Convenience method for mob movement checks.
+     */
+    public boolean isRoomNoMob(int roomId) {
+        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.NO_MOB);
+    }
+    
+    /**
+     * Check if a room is PRIVATE (only one non-GM PC allowed).
+     * Convenience method for entry checks.
+     */
+    public boolean isRoomPrivate(int roomId) {
+        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.PRIVATE);
+    }
+    
+    /**
+     * Check if a room has NO_RECALL flag.
+     * Convenience method for recall checks.
+     */
+    public boolean isRoomNoRecall(int roomId) {
+        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.NO_RECALL);
+    }
+    
+    /**
+     * Check if a room is DARK (requires light source).
+     * Convenience method for visibility checks.
+     */
+    public boolean isRoomDark(int roomId) {
+        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.DARK);
     }
 
     public boolean createCharacter(GameCharacter ch, String passwordHashBase64, String saltBase64) {

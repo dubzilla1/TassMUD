@@ -195,6 +195,20 @@ public class BasicAttackCommand implements CombatCommand {
         int attackHitBonus = attacker.getAttackHitBonus() + (calculator.isCombatantWieldingTrainedWeapon(user) ? (int)Math.floor(calculator.getCombatantLevel(user)/2) + 2 : (int)Math.floor(calculator.getCombatantLevel(user)/3));
         int totalAttackBonus = statBonus + levelBonus + attackHitBonus;
         
+        // Check for blindness - 50% miss chance
+        Integer attackerId = user.isPlayer() ? user.getCharacterId() : 
+                (user.getMobile() != null ? -(int)user.getMobile().getInstanceId() : null);
+        if (attackerId != null && com.example.tassmud.effect.EffectRegistry.isBlind(attackerId)) {
+            if (Math.random() < 0.5) {
+                // Blind miss - 50% chance to miss outright
+                CombatResult result = CombatResult.miss(user, target);
+                result.setAttackRoll(0);
+                result.setDebugInfo("BLIND MISS - 50% blind penalty");
+                setCooldown(user);
+                return result;
+            }
+        }
+        
         // Roll d20 + attack bonus vs target defense
         int attackRoll = rollD20();
         int totalAttack = attackRoll + totalAttackBonus;

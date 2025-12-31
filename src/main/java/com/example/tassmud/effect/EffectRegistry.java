@@ -79,6 +79,16 @@ public class EffectRegistry {
     // === Combat Information Effect Constants ===
     public static final String EFFECT_INSIGHT = "115";
     
+    // === Debuff Effect Constants ===
+    public static final String EFFECT_BLINDNESS = "1002";
+    
+    /**
+     * Check if a target is blind (has blindness effect).
+     */
+    public static boolean isBlind(Integer targetId) {
+        return hasEffect(targetId, EFFECT_BLINDNESS);
+    }
+    
     /**
      * Check if a target has a specific effect active.
      */

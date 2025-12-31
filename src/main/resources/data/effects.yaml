@@ -88,6 +88,40 @@ effects:
     priority: 0
     params: {}
 
+  # ========== DAMAGE-OVER-TIME (DOT) EFFECTS ==========
+
+  - id: "1001"
+    name: "Acid Burn"
+    type: DOT
+    duration: 15       # 15 seconds total duration
+    cooldown: 3        # 3 second global spell cooldown
+    dice_multiplier: 5d6
+    level_multiplier: 3
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      tick_interval: 3   # Damage ticks every 3 seconds (5 ticks total)
+      damage_type: acid
+
+  # ========== DEBUFF EFFECTS ==========
+
+  - id: "1002"
+    name: "Blindness"
+    type: DEBUFF
+    duration: 30       # Up to 30 seconds at max proficiency
+    cooldown: 3        # 3 second global spell cooldown
+    dice_multiplier: 0
+    level_multiplier: 5
+    profficiency_impact: DURATION
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      min_duration: 5    # Minimum 5 seconds at low proficiency
+      miss_chance: 50    # 50% miss chance on all combat actions
+
   - id: "500"
     name: "Heroism"
     type: MODIFIER
@@ -119,7 +153,7 @@ effects:
       infusion_type: ARCANE
       weapon_family: STAVES
       attack_stat: INTELLIGENCE
-      defense_stat: REFLEX
+      defense_stat: WILL
       ranged: true
       aoe: false
 
@@ -137,7 +171,7 @@ effects:
       infusion_type: ARCANE
       weapon_family: STAVES
       attack_stat: INTELLIGENCE
-      defense_stat: REFLEX
+      defense_stat: WILL
       ranged: true
       aoe: true
 

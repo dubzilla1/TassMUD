@@ -4,6 +4,9 @@ import java.io.PrintWriter;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
@@ -34,6 +37,8 @@ import com.example.tassmud.util.RegenerationService;
  * Commands handled here include: kill, k, attack, fight, combat, flee, cast, kick, bash, heroic strike, infuse, hide, visible, unhide
  */
 public class CombatCommandHandler implements CommandHandler {
+
+    private static final Logger logger = LoggerFactory.getLogger(CombatCommandHandler.class);
 
     private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.COMBAT).stream()
             .map(cmd -> cmd.getName())
@@ -921,7 +926,88 @@ public class CombatCommandHandler implements CommandHandler {
             targets.add(charId);
         } else if (ttype == Spell.SpellTarget.SELF) {
             targets.add(charId);
+        } else if (ttype == Spell.SpellTarget.CURRENT_ENEMY) {
+            // Get current combat target - pick first valid enemy
+            Combat activeCombat = CombatManager.getInstance().getCombatForCharacter(charId);
+            if (activeCombat != null) {
+                Combatant casterCombatant = activeCombat.findByCharacterId(charId);
+                if (casterCombatant != null) {
+                    java.util.List<Combatant> enemies = activeCombat.getValidTargets(casterCombatant);
+                    if (!enemies.isEmpty()) {
+                        Combatant target = enemies.get(0);
+                        // For players, use characterId; for mobs, use negative instanceId as a convention
+                        if (target.isPlayer()) {
+                            targets.add(target.getCharacterId());
+                        } else if (target.getMobile() != null) {
+                            // Use negative instance ID as target ID for mobs (convention for effect system)
+                            targets.add(-(int)target.getMobile().getInstanceId());
+                        }
+                    }
+                }
+            }
+            if (targets.isEmpty()) {
+                out.println("You don't have a current combat target.");
+                return true;
+            }
+        } else if (ttype == Spell.SpellTarget.EXPLICIT_MOB_TARGET) {
+            // Blindness check - can't target explicitly if blind (but current enemy fallback still works)
+            if (targetArg != null && !targetArg.trim().isEmpty() && 
+                com.example.tassmud.effect.EffectRegistry.isBlind(charId)) {
+                out.println("You can't see to target " + targetArg + "!");
+                return true;
+            }
+            
+            // Try to resolve target - first check for explicit arg, then fall back to current enemy
+            Integer targetId = null;
+            if (targetArg != null && !targetArg.trim().isEmpty()) {
+                // First try player name
+                targetId = dao.getCharacterIdByName(targetArg);
+                // If not a player, try mob in room
+                if (targetId == null) {
+                    MobileDAO mobDao = new MobileDAO();
+                    java.util.List<Mobile> mobs = mobDao.getMobilesInRoom(ctx.currentRoomId);
+                    String search = targetArg.trim().toLowerCase();
+                    for (Mobile m : mobs) {
+                        if (m.isDead()) continue;
+                        if (m.getName() != null && m.getName().toLowerCase().startsWith(search)) {
+                            // Use negative instance ID as target ID for mobs
+                            targetId = -(int)m.getInstanceId();
+                            break;
+                        }
+                        if (m.getShortDesc() != null && m.getShortDesc().toLowerCase().startsWith(search)) {
+                            targetId = -(int)m.getInstanceId();
+                            break;
+                        }
+                        MobileTemplate mt = mobDao.getTemplateById(m.getTemplateId());
+                        if (mt != null && mt.matchesKeyword(search)) {
+                            targetId = -(int)m.getInstanceId();
+                            break;
+                        }
+                    }
+                }
+            } else {
+                // No explicit target - fall back to current combat enemy
+                Combat activeCombat = CombatManager.getInstance().getCombatForCharacter(charId);
+                if (activeCombat != null) {
+                    Combatant casterCombatant = activeCombat.findByCharacterId(charId);
+                    if (casterCombatant != null) {
+                        java.util.List<Combatant> enemies = activeCombat.getValidTargets(casterCombatant);
+                        if (!enemies.isEmpty()) {
+                            Combatant target = enemies.get(0);
+                            if (target.isPlayer()) {
+                                targetId = target.getCharacterId();
+                            } else if (target.getMobile() != null) {
+                                targetId = -(int)target.getMobile().getInstanceId();
+                            }
+                        }
+                    }
+                }
+            }
+            if (targetId != null) {
+                targets.add(targetId);
+            }
         } else {
+            // Generic fallback for other target types
             if (targetArg != null && !targetArg.trim().isEmpty()) {
                 Integer targetId = dao.getCharacterIdByName(targetArg);
                 if (targetId != null) targets.add(targetId);
@@ -931,7 +1017,6 @@ public class CombatCommandHandler implements CommandHandler {
         if (targets.isEmpty()) {
             out.println("No valid targets found for that spell.");
         } else {
-            java.util.List<String> effectedNames = new java.util.ArrayList<>();
             // Determine caster proficiency for this spell and send as extraParams
             com.example.tassmud.model.CharacterSpell charSpell = dao.getCharacterSpell(charId, matchedSpell.getId());
             java.util.Map<String,String> extraParams = new java.util.HashMap<>();
@@ -960,22 +1045,34 @@ public class CombatCommandHandler implements CommandHandler {
             // Apply the computed cooldown for this spell
             com.example.tassmud.util.AbilityCheck.applyPlayerSpellCooldown(name, matchedSpell, finalCooldown);
 
-            for (String effId : matchedSpell.getEffectIds()) {
-                com.example.tassmud.effect.EffectDefinition def = com.example.tassmud.effect.EffectRegistry.getDefinition(effId);
-                for (Integer tgt : targets) {
-                    com.example.tassmud.effect.EffectInstance inst = com.example.tassmud.effect.EffectRegistry.apply(effId, charId, tgt, extraParams);
-                    if (inst != null && def != null) {
-                        // Notify target if online
-                        ClientHandler targetSession = ClientHandler.charIdToSession.get(tgt);
-                        if (targetSession != null) {
-                            targetSession.sendRaw(def.getName() + " from " + name + " takes effect.");
+            // Dispatch to spell handler via SpellRegistry
+            Combat activeCombat = CombatManager.getInstance().getCombatForCharacter(charId);
+            com.example.tassmud.spell.SpellContext spellCtx = new com.example.tassmud.spell.SpellContext(
+                ctx, activeCombat, charId, matchedSpell, targets, extraParams);
+            
+            com.example.tassmud.spell.SpellHandler handler = com.example.tassmud.spell.SpellRegistry.get(matchedSpell.getName());
+            if (handler != null) {
+                // Invoke the registered spell handler
+                boolean success = handler.cast(charId, targetArg, spellCtx);
+                if (!success) {
+                    logger.debug("[cast] Spell handler for '{}' returned false", matchedSpell.getName());
+                }
+            } else {
+                // No handler registered - fall back to direct effect application
+                logger.debug("[cast] No handler for '{}', applying effects directly", matchedSpell.getName());
+                java.util.List<String> effectedNames = new java.util.ArrayList<>();
+                for (String effId : matchedSpell.getEffectIds()) {
+                    com.example.tassmud.effect.EffectDefinition def = com.example.tassmud.effect.EffectRegistry.getDefinition(effId);
+                    for (Integer tgt : targets) {
+                        com.example.tassmud.effect.EffectInstance inst = com.example.tassmud.effect.EffectRegistry.apply(effId, charId, tgt, extraParams);
+                        if (inst != null && def != null) {
+                            CharacterDAO.CharacterRecord recT = dao.findById(tgt);
+                            if (recT != null) effectedNames.add(recT.name + "(" + def.getName() + ")");
                         }
-                        CharacterDAO.CharacterRecord recT = dao.findById(tgt);
-                        if (recT != null) effectedNames.add(recT.name + "(" + def.getName() + ")");
                     }
                 }
+                if (!effectedNames.isEmpty()) out.println("Effects applied: " + String.join(", ", effectedNames));
             }
-            if (!effectedNames.isEmpty()) out.println("Effects applied: " + String.join(", ", effectedNames));
         }
         
         return true;
@@ -1155,9 +1252,22 @@ public class CombatCommandHandler implements CommandHandler {
             out.println("You must be standing to initiate combat.");
             return true;
         }
+        
+        // Check blindness - can't target for new combat if blind
+        if (com.example.tassmud.effect.EffectRegistry.isBlind(characterId)) {
+            out.println("You can't see to target " + targetArg + "!");
+            return true;
+        }
 
         Integer roomId = rec.currentRoom;
         if (roomId == null) { out.println("You are nowhere to attack from."); return true; }
+        
+        // Check SAFE room flag - no combat allowed
+        if (dao.isRoomSafe(roomId)) {
+            out.println("You cannot fight here. This is a safe area.");
+            return true;
+        }
+        
         MobileDAO mobDao = new MobileDAO();
         java.util.List<Mobile> mobs = mobDao.getMobilesInRoom(roomId);
         if (mobs == null || mobs.isEmpty()) { out.println("There are no creatures here to attack."); return true; }
