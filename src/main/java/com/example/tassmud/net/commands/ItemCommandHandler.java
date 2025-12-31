@@ -717,9 +717,13 @@ public class ItemCommandHandler implements CommandHandler {
             }
         }
 
+        // Check item level requirement
+        if (matched.instance.itemLevel > dao.getPlayerLevel(charId) && dao.getCharacterFlag(charId,"s_gm") != "1") {
+            out.println("You must be at least level " + matched.instance.itemLevel + " to equip " + ClientHandler.getItemDisplayName(matched) + ".");
+            return true;
+        }
         // Check if this is a two-handed weapon
         boolean isTwoHanded = itemDao.isTemplateTwoHanded(matched.template.id);
-        
         // Track what we're removing
         java.util.List<String> removedItems = new java.util.ArrayList<>();
         
@@ -1071,61 +1075,91 @@ public class ItemCommandHandler implements CommandHandler {
         }
         
         // Smart match item in inventory
+        // Search non-equipped inventory items FIRST, then equipped items
         String searchLower = itemSearchPart.toLowerCase();
         ItemDAO.RoomItem matchedItem = null;
         
-        // Priority 1: Exact name match
+        // Separate inventory items from equipped items (inventory items searched first)
+        java.util.List<ItemDAO.RoomItem> inventoryOnly = new java.util.ArrayList<>();
+        java.util.List<ItemDAO.RoomItem> equippedOnly = new java.util.ArrayList<>();
         for (ItemDAO.RoomItem ri : invItems) {
-            if (ri.template.name != null && ri.template.name.equalsIgnoreCase(itemSearchPart)) {
-                matchedItem = ri;
-                break;
+            if (equippedInstanceIds.contains(ri.instance.instanceId)) {
+                equippedOnly.add(ri);
+            } else {
+                inventoryOnly.add(ri);
             }
+        }
+        
+        // Search inventory items first, then equipped items
+        java.util.List<java.util.List<ItemDAO.RoomItem>> searchOrder = java.util.List.of(inventoryOnly, equippedOnly);
+        
+        // Priority 1: Exact name match
+        for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+            for (ItemDAO.RoomItem ri : itemList) {
+                if (ri.template.name != null && ri.template.name.equalsIgnoreCase(itemSearchPart)) {
+                    matchedItem = ri;
+                    break;
+                }
+            }
+            if (matchedItem != null) break;
         }
         // Priority 2: Name word starts with search
         if (matchedItem == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.name != null) {
-                    String[] nameWords = ri.template.name.toLowerCase().split("\\s+");
-                    for (String w : nameWords) {
-                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                            matchedItem = ri;
-                            break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.name != null) {
+                        String[] nameWords = ri.template.name.toLowerCase().split("\\s+");
+                        for (String w : nameWords) {
+                            if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                matchedItem = ri;
+                                break;
+                            }
                         }
+                        if (matchedItem != null) break;
                     }
-                    if (matchedItem != null) break;
                 }
+                if (matchedItem != null) break;
             }
         }
         // Priority 3: Keyword match
         if (matchedItem == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.keywords != null) {
-                    for (String kw : ri.template.keywords) {
-                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                            matchedItem = ri;
-                            break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.keywords != null) {
+                        for (String kw : ri.template.keywords) {
+                            if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
+                                matchedItem = ri;
+                                break;
+                            }
                         }
+                        if (matchedItem != null) break;
                     }
-                    if (matchedItem != null) break;
                 }
+                if (matchedItem != null) break;
             }
         }
         // Priority 4: Name starts with search
         if (matchedItem == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
-                    matchedItem = ri;
-                    break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
+                        matchedItem = ri;
+                        break;
+                    }
                 }
+                if (matchedItem != null) break;
             }
         }
         // Priority 5: Name contains search
         if (matchedItem == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
-                    matchedItem = ri;
-                    break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
+                        matchedItem = ri;
+                        break;
+                    }
                 }
+                if (matchedItem != null) break;
             }
         }
         
@@ -1210,66 +1244,96 @@ public class ItemCommandHandler implements CommandHandler {
         }
 
         // Smart matching: find items in inventory whose name or keywords match
+        // Search non-equipped inventory items FIRST, then equipped items
         ItemDAO.RoomItem matched = null;
         String searchLower = dropArg.toLowerCase();
+        
+        // Separate inventory items from equipped items (inventory items searched first)
+        java.util.List<ItemDAO.RoomItem> inventoryOnly = new java.util.ArrayList<>();
+        java.util.List<ItemDAO.RoomItem> equippedOnly = new java.util.ArrayList<>();
+        for (ItemDAO.RoomItem ri : invItems) {
+            if (equippedInstanceIds.contains(ri.instance.instanceId)) {
+                equippedOnly.add(ri);
+            } else {
+                inventoryOnly.add(ri);
+            }
+        }
+        
+        // Search inventory items first, then equipped items
+        java.util.List<java.util.List<ItemDAO.RoomItem>> searchOrder = java.util.List.of(inventoryOnly, equippedOnly);
 
         // Priority 1: Exact name match (case-insensitive)
-        for (ItemDAO.RoomItem ri : invItems) {
-            if (ri.template.name != null && ri.template.name.equalsIgnoreCase(dropArg)) {
-                matched = ri;
-                break;
+        for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+            for (ItemDAO.RoomItem ri : itemList) {
+                if (ri.template.name != null && ri.template.name.equalsIgnoreCase(dropArg)) {
+                    matched = ri;
+                    break;
+                }
             }
+            if (matched != null) break;
         }
 
         // Priority 2: Name contains the search term as a word
         if (matched == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.name != null) {
-                    String nameLower = ri.template.name.toLowerCase();
-                    String[] nameWords = nameLower.split("\\s+");
-                    for (String w : nameWords) {
-                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                            matched = ri;
-                            break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.name != null) {
+                        String nameLower = ri.template.name.toLowerCase();
+                        String[] nameWords = nameLower.split("\\s+");
+                        for (String w : nameWords) {
+                            if (w.equals(searchLower) || w.startsWith(searchLower)) {
+                                matched = ri;
+                                break;
+                            }
                         }
+                        if (matched != null) break;
                     }
-                    if (matched != null) break;
                 }
+                if (matched != null) break;
             }
         }
 
         // Priority 3: Keyword match
         if (matched == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.keywords != null) {
-                    for (String kw : ri.template.keywords) {
-                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                            matched = ri;
-                            break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.keywords != null) {
+                        for (String kw : ri.template.keywords) {
+                            if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
+                                matched = ri;
+                                break;
+                            }
                         }
+                        if (matched != null) break;
                     }
-                    if (matched != null) break;
                 }
+                if (matched != null) break;
             }
         }
 
         // Priority 4: Partial name match (name starts with search term)
         if (matched == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
-                    matched = ri;
-                    break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
+                        matched = ri;
+                        break;
+                    }
                 }
+                if (matched != null) break;
             }
         }
 
         // Priority 5: Name contains search term anywhere
         if (matched == null) {
-            for (ItemDAO.RoomItem ri : invItems) {
-                if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
-                    matched = ri;
-                    break;
+            for (java.util.List<ItemDAO.RoomItem> itemList : searchOrder) {
+                for (ItemDAO.RoomItem ri : itemList) {
+                    if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
+                        matched = ri;
+                        break;
+                    }
                 }
+                if (matched != null) break;
             }
         }
 

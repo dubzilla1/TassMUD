@@ -1,5 +1,6 @@
 package com.example.tassmud.net.commands;
 
+import com.example.tassmud.combat.CombatCalculator;
 import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.CharacterClass;
 import com.example.tassmud.model.CharacterSkill;
@@ -11,6 +12,8 @@ import com.example.tassmud.model.Mobile;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.model.Stance;
+import com.example.tassmud.model.WeaponCategory;
+import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.CommandDefinition;
 import com.example.tassmud.net.CommandRegistry;
@@ -779,6 +782,9 @@ public class InformationCommandHandler implements CommandHandler {
             boolean hasWeapon = false;
             boolean isTwoHanded = mainHandId != null && mainHandId.equals(offHandId);
             
+            // Calculate level-based bonuses (assuming same-level opponent, so levelBonus = 0)
+            int levelBonus = 0;
+            
             if (mainHandId != null) {
                 ItemInstance mainInst = itemDao.getInstance(mainHandId);
                 if (mainInst != null) {
@@ -789,15 +795,29 @@ public class InformationCommandHandler implements CommandHandler {
                     double effectiveAbilityMult = mainInst.getEffectiveAbilityMultiplier(mainTmpl);
                     String abilityScore = mainTmpl != null ? mainTmpl.abilityScore : "STR";
                     if (effectiveBaseDie > 0) {
-                        // Hit bonus: stat modifier (same stat as damage)
-                        int hitBonus = ClientHandler.getStatModifier(abilityScore, rec);
+                        // Check if trained with this weapon's category
+                        boolean isTrained = isTrainedWithWeapon(mainTmpl, charId, dao);
+                        int trainedBonus = isTrained ? (classLevel / 2) + 2 : classLevel / 3;
+                        
+                        // Hit bonus: stat modifier + level bonus + trained bonus
+                        int statMod = ClientHandler.getStatModifier(abilityScore, rec);
+                        int hitBonus = statMod + levelBonus + trainedBonus;
                         String hitStr = ClientHandler.formatHitBonus(hitBonus);
-                        String dmgStr = ClientHandler.formatDamage(effectiveMultiplier, effectiveBaseDie, 
-                            ClientHandler.getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
+                        
+                        // Damage bonus: apply damage multiplier from weapon skills
+                        // At same level with average 50% proficiency, multiplier is ~1.0
+                        // For display, just show base ability bonus (multiplier varies by opponent)
+                        int abilityDmgBonus = ClientHandler.getAbilityBonus(abilityScore, effectiveAbilityMult, rec);
+                        // Two-handed bonus for melee weapons with 1.0 multiplier
+                        if (isTwoHanded && effectiveAbilityMult <= 1.0) {
+                            abilityDmgBonus = (int) Math.floor(abilityDmgBonus * 1.5);
+                        }
+                        String dmgStr = ClientHandler.formatDamage(effectiveMultiplier, effectiveBaseDie, abilityDmgBonus);
                         String handLabel = isTwoHanded ? "Both Hands:" : "Main Hand: ";
                         String weaponName = ClientHandler.getItemDisplayName(mainInst, mainTmpl);
-                        sheet.append(String.format("  %s %-16s  Hit: %-9s  Damage: %s\n", 
-                            handLabel, ClientHandler.truncate(weaponName, 16), hitStr, dmgStr));
+                        String trainedMarker = isTrained ? "" : " (untrained)";
+                        sheet.append(String.format("  %s %-16s  Hit: %-9s  Damage: %s%s\n", 
+                            handLabel, ClientHandler.truncate(weaponName, 16), hitStr, dmgStr, trainedMarker));
                         hasWeapon = true;
                     }
                 }
@@ -812,14 +832,21 @@ public class InformationCommandHandler implements CommandHandler {
                     double effectiveAbilityMult = offInst.getEffectiveAbilityMultiplier(offTmpl);
                     String abilityScore = offTmpl != null ? offTmpl.abilityScore : "STR";
                     if (effectiveBaseDie > 0) {
-                        // Hit bonus: stat modifier (same stat as damage)
-                        int hitBonus = ClientHandler.getStatModifier(abilityScore, rec);
+                        // Check if trained with this weapon's category
+                        boolean isTrained = isTrainedWithWeapon(offTmpl, charId, dao);
+                        int trainedBonus = isTrained ? (classLevel / 2) + 2 : classLevel / 3;
+                        
+                        // Hit bonus: stat modifier + level bonus + trained bonus
+                        int statMod = ClientHandler.getStatModifier(abilityScore, rec);
+                        int hitBonus = statMod + levelBonus + trainedBonus;
                         String hitStr = ClientHandler.formatHitBonus(hitBonus);
-                        String dmgStr = ClientHandler.formatDamage(effectiveMultiplier, effectiveBaseDie,
-                            ClientHandler.getAbilityBonus(abilityScore, effectiveAbilityMult, rec));
+                        
+                        int abilityDmgBonus = ClientHandler.getAbilityBonus(abilityScore, effectiveAbilityMult, rec);
+                        String dmgStr = ClientHandler.formatDamage(effectiveMultiplier, effectiveBaseDie, abilityDmgBonus);
                         String weaponName = ClientHandler.getItemDisplayName(offInst, offTmpl);
-                        sheet.append(String.format("  Off Hand:  %-16s  Hit: %-9s  Damage: %s\n",
-                            ClientHandler.truncate(weaponName, 16), hitStr, dmgStr));
+                        String trainedMarker = isTrained ? "" : " (untrained)";
+                        sheet.append(String.format("  Off Hand:  %-16s  Hit: %-9s  Damage: %s%s\n",
+                            ClientHandler.truncate(weaponName, 16), hitStr, dmgStr, trainedMarker));
                     } else {
                         // Shield or non-weapon (show armor bonus)
                         String itemName = ClientHandler.getItemDisplayName(offInst, offTmpl);
@@ -830,8 +857,9 @@ public class InformationCommandHandler implements CommandHandler {
                 }
             }
             if (!hasWeapon) {
-                // Unarmed combat - 1d4 + STR
-                String hitStr = ClientHandler.formatHitBonus(strMod);
+                // Unarmed combat - 1d4 + STR, always trained
+                int hitBonus = strMod + levelBonus + (classLevel / 2) + 2;
+                String hitStr = ClientHandler.formatHitBonus(hitBonus);
                 String unarmedDmg = ClientHandler.formatDamage(1, 4, strMod);
                 sheet.append(String.format("  Unarmed:   %-16s  Hit: %-9s  Damage: %s\n", "Fists", hitStr, unarmedDmg));
             }
@@ -1138,5 +1166,32 @@ public class InformationCommandHandler implements CommandHandler {
         out.println();
 
         return true;
+    }
+    
+    /**
+     * Check if a character is trained with a weapon's category skill.
+     * 
+     * @param weaponTmpl The weapon template to check
+     * @param characterId The character ID
+     * @param dao The CharacterDAO for skill lookups
+     * @return true if the character has the weapon's category skill, false otherwise
+     */
+    private boolean isTrainedWithWeapon(ItemTemplate weaponTmpl, Integer characterId, CharacterDAO dao) {
+        if (weaponTmpl == null || characterId == null) return true; // Default to trained if no data
+        
+        WeaponFamily weaponFamily = weaponTmpl.getWeaponFamily();
+        if (weaponFamily == null) return true; // Not a categorized weapon
+        
+        WeaponCategory weaponCategory = weaponFamily.getCategory();
+        if (weaponCategory == null) return true; // No category defined
+        
+        // Get the skill key for this category (e.g., "skill_martial_weapons")
+        String categorySkillKey = weaponCategory.getSkillKey();
+        Skill catSkill = dao.getSkillByKey(categorySkillKey);
+        if (catSkill == null) return false; // Skill doesn't exist in system
+        
+        // Check if character has this skill
+        CharacterSkill charCatSkill = dao.getCharacterSkill(characterId, catSkill.getId());
+        return charCatSkill != null;
     }
 }

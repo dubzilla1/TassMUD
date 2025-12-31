@@ -1100,7 +1100,7 @@ public class ClientHandler implements Runnable {
     }
 
     /**
-     * Format damage as dice notation (e.g., "2d6 + 5").
+     * Format damage as dice notation (e.g., "2d6+5").
      */
     public static String formatDamage(int multiplier, int baseDie, int bonus) {
         if (multiplier <= 0) multiplier = 1;
@@ -1109,9 +1109,9 @@ public class ClientHandler implements Runnable {
         StringBuilder sb = new StringBuilder();
         sb.append(multiplier).append("d").append(baseDie);
         if (bonus > 0) {
-            sb.append(" + ").append(bonus);
+            sb.append("+").append(bonus);
         } else if (bonus < 0) {
-            sb.append(" - ").append(Math.abs(bonus));
+            sb.append("-").append(Math.abs(bonus));
         }
         return sb.toString();
     }
@@ -1130,38 +1130,40 @@ public class ClientHandler implements Runnable {
 
     /**
      * Get the ability bonus for a weapon based on its ability score scaling.
+     * Uses total ability score (base + trained).
      */
     public static int getAbilityBonus(String abilityScore, double multiplier, CharacterDAO.CharacterRecord rec) {
         if (abilityScore == null || abilityScore.isEmpty() || multiplier == 0) return 0;
         
         int abilityValue = 10;
         switch (abilityScore.toLowerCase()) {
-            case "str": case "strength": abilityValue = rec.str; break;
-            case "dex": case "dexterity": abilityValue = rec.dex; break;
-            case "con": case "constitution": abilityValue = rec.con; break;
-            case "int": case "intel": case "intelligence": abilityValue = rec.intel; break;
-            case "wis": case "wisdom": abilityValue = rec.wis; break;
-            case "cha": case "charisma": abilityValue = rec.cha; break;
+            case "str": case "strength": abilityValue = rec.getStrTotal(); break;
+            case "dex": case "dexterity": abilityValue = rec.getDexTotal(); break;
+            case "con": case "constitution": abilityValue = rec.getConTotal(); break;
+            case "int": case "intel": case "intelligence": abilityValue = rec.getIntTotal(); break;
+            case "wis": case "wisdom": abilityValue = rec.getWisTotal(); break;
+            case "cha": case "charisma": abilityValue = rec.getChaTotal(); break;
         }
         
         int modifier = (abilityValue - 10) / 2;
-        return (int) Math.round(modifier * multiplier);
+        return (int) Math.floor(modifier * multiplier);
     }
 
     /**
      * Get the stat modifier for a given ability score (for hit bonus display).
+     * Uses total ability score (base + trained).
      */
     public static int getStatModifier(String abilityScore, CharacterDAO.CharacterRecord rec) {
         if (abilityScore == null || abilityScore.isEmpty()) return 0;
         
         int abilityValue = 10;
         switch (abilityScore.toLowerCase()) {
-            case "str": case "strength": abilityValue = rec.str; break;
-            case "dex": case "dexterity": abilityValue = rec.dex; break;
-            case "con": case "constitution": abilityValue = rec.con; break;
-            case "int": case "intel": case "intelligence": abilityValue = rec.intel; break;
-            case "wis": case "wisdom": abilityValue = rec.wis; break;
-            case "cha": case "charisma": abilityValue = rec.cha; break;
+            case "str": case "strength": abilityValue = rec.getStrTotal(); break;
+            case "dex": case "dexterity": abilityValue = rec.getDexTotal(); break;
+            case "con": case "constitution": abilityValue = rec.getConTotal(); break;
+            case "int": case "intel": case "intelligence": abilityValue = rec.getIntTotal(); break;
+            case "wis": case "wisdom": abilityValue = rec.getWisTotal(); break;
+            case "cha": case "charisma": abilityValue = rec.getChaTotal(); break;
         }
         
         return (abilityValue - 10) / 2;

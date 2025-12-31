@@ -192,7 +192,7 @@ public class BasicAttackCommand implements CombatCommand {
         // Calculate level-based attack bonus (with effective penalty)
         int levelBonus = calculator.calculateFullAttackBonus(user, target, effectivePenalty);
         // Include any modifier-based attack hit bonuses
-        int attackHitBonus = attacker.getAttackHitBonus();
+        int attackHitBonus = attacker.getAttackHitBonus() + (calculator.isCombatantWieldingTrainedWeapon(user) ? (int)Math.floor(calculator.getCombatantLevel(user)/2) + 2 : (int)Math.floor(calculator.getCombatantLevel(user)/3));
         int totalAttackBonus = statBonus + levelBonus + attackHitBonus;
         
         // Roll d20 + attack bonus vs target defense

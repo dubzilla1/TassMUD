@@ -48,7 +48,7 @@ public class CombatCalculator {
      * Calculate the attack roll bonus based on level difference.
      * 
      * Formula: (attacker_level - defender_level) 
-     * Cap: min(calculated_bonus, attacker_level)
+     * Cap: (calculated_bonus, 5/-5)
      * 
      * @param attackerLevel Attacker's level
      * @param defenderLevel Defender's level
@@ -56,14 +56,8 @@ public class CombatCalculator {
      */
     public int calculateLevelAttackBonus(int attackerLevel, int defenderLevel) {
         int rawBonus = (attackerLevel - defenderLevel);
-        
-        // Cap at attacker's level (only applies to positive bonuses)
-        if (rawBonus > 0) {
-            return Math.min(rawBonus, attackerLevel);
-        }
-        
-        // Negative bonuses (defender is higher level) are not capped
-        return rawBonus;
+        // Cap at -5 or 5 based on sign
+        return (rawBonus > 0) ? Math.min(rawBonus, 5) : Math.max(rawBonus, -5);
     }
     
     /**
@@ -253,6 +247,77 @@ public class CombatCalculator {
         }
         
         return 1;
+    }
+
+    /**
+     * Check if a combatant is wielding a weapon they are trained with (have the category skill).
+     * For players: checks if they have the weapon category skill (e.g., skill_martial_weapons).
+     * For mobs: always returns true (mobs are assumed trained with their weapons).
+     * Unarmed combatants return true (no weapon training needed).
+     * 
+     * @param combatant The combatant to check
+     * @return true if trained with equipped weapon (or unarmed), false otherwise
+     */
+    public boolean isCombatantWieldingTrainedWeapon(Combatant combatant) {
+        if (combatant == null) return true;
+        
+        if (combatant.isPlayer()) {
+            return isPlayerTrainedWithEquippedWeapon(combatant.getCharacterId());
+        } else if (combatant.isMobile()) {
+            // Mobs are always considered trained with their weapons
+            return true;
+        }
+        
+        return true;
+    }
+    
+    /**
+     * Check if a player has the category skill for their equipped main-hand weapon.
+     */
+    private boolean isPlayerTrainedWithEquippedWeapon(Integer characterId) {
+        if (characterId == null) return true;
+        
+        ensureDAOs();
+        
+        // Get equipped main-hand weapon
+        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        if (mainHandInstanceId == null) {
+            return true; // Unarmed - no training needed
+        }
+        
+        // Get weapon instance
+        ItemInstance weaponInstance = itemDAO.getInstance(mainHandInstanceId);
+        if (weaponInstance == null) {
+            return true; // No weapon found
+        }
+        
+        // Get weapon template
+        ItemTemplate weaponTemplate = itemDAO.getTemplateById(weaponInstance.templateId);
+        if (weaponTemplate == null) {
+            return true; // No template found
+        }
+        
+        // Get weapon family and category
+        WeaponFamily weaponFamily = weaponTemplate.getWeaponFamily();
+        if (weaponFamily == null) {
+            return true; // Not a weapon or no family defined
+        }
+        
+        WeaponCategory weaponCategory = weaponFamily.getCategory();
+        if (weaponCategory == null) {
+            return true; // No category defined
+        }
+        
+        // Check if character has the category skill
+        String categorySkillKey = weaponCategory.getSkillKey();
+        Skill catSkill = characterDAO.getSkillByKey(categorySkillKey);
+        if (catSkill == null) {
+            return false; // Skill doesn't exist in the system
+        }
+        
+        // Check if character has this skill (any proficiency means trained)
+        CharacterSkill charCatSkill = characterDAO.getCharacterSkill(characterId, catSkill.getId());
+        return charCatSkill != null;
     }
     
     /**

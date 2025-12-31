@@ -320,7 +320,7 @@ public class GameCharacter {
     }
 
     // Convenience integer getters for the new combat/spell stats (rounded)
-    public int getAttackHitBonus() { return (int)Math.round(getStat(Stat.ATTACK_HIT_BONUS)); }
+    public int getAttackHitBonus() {return (int)Math.round(getStat(Stat.ATTACK_HIT_BONUS));}
     public int getAttackDamageBonus() { return (int)Math.round(getStat(Stat.ATTACK_DAMAGE_BONUS)); }
     public int getSpellHitBonus() { return (int)Math.round(getStat(Stat.SPELL_HIT_BONUS)); }
     public int getSpellDamageBonus() { return (int)Math.round(getStat(Stat.SPELL_DAMAGE_BONUS)); }

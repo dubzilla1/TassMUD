@@ -2586,4 +2586,17 @@ public class CharacterDAO {
             return false;
         }
     }
+
+    public int getPlayerLevel(Integer characterId) {
+        if (characterId == null) return 1;
+        CharacterClassDAO classDAO = new CharacterClassDAO();
+        
+        Integer currentClassId = classDAO.getCharacterCurrentClassId(characterId);
+        if (currentClassId != null) {
+            return Math.max(1, classDAO.getCharacterClassLevel(characterId, currentClassId));
+        }
+        
+        // Fallback to character base level (if any)
+        return 1;
+    }
 }
