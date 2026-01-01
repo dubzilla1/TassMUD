@@ -271,6 +271,20 @@ public class Combat {
         return findByCharacterId(characterId) != null;
     }
     
+    /**
+     * Check if a mobile instance is in this combat.
+     */
+    public boolean containsMobile(String mobileInstanceId) {
+        if (mobileInstanceId == null) return false;
+        for (Combatant c : combatants.values()) {
+            if (c.isMobile() && c.getMobile() != null 
+                    && mobileInstanceId.equals(c.getMobile().getInstanceId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     // Round Management
     
     /**

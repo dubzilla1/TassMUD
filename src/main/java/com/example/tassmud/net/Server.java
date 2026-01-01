@@ -166,6 +166,9 @@ public class Server {
         MobileRoamingService roamingService = MobileRoamingService.getInstance();
         roamingService.initialize(tickService);
 
+        // Initialize weather service for world weather system
+        WeatherService weatherService = WeatherService.init(tickService, dao);
+
         // Initialize effect scheduler to tick and expire active effects
         EffectScheduler.getInstance().initialize(tickService);
 
@@ -175,8 +178,10 @@ public class Server {
         final EventScheduler eventSchedulerRef = eventScheduler;
         final RegenerationService regenServiceRef = regenService;
         final MobileRoamingService roamingServiceRef = roamingService;
+        final WeatherService weatherServiceRef = weatherService;
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            logger.info("Shutdown hook: stopping combat, clock, event scheduler, regen service, roaming service, tick service and thread pool...");
+            logger.info("Shutdown hook: stopping combat, clock, weather, event scheduler, regen service, roaming service, tick service and thread pool...");
+            try { weatherServiceRef.shutdown(); } catch (Exception ignored) {}
             try { roamingServiceRef.shutdown(); } catch (Exception ignored) {}
             try { regenServiceRef.shutdown(); } catch (Exception ignored) {}
             try { eventSchedulerRef.shutdown(); } catch (Exception ignored) {}

@@ -68,6 +68,8 @@ public class InformationCommandHandler implements CommandHandler {
                 return handleConsiderCommand(ctx);
             case "compare":
                 return handleCompareCommand(ctx);
+            case "weather":
+                return handleWeatherCommand(ctx);
             default:
                 return false;
         }
@@ -1193,5 +1195,55 @@ public class InformationCommandHandler implements CommandHandler {
         // Check if character has this skill
         CharacterSkill charCatSkill = dao.getCharacterSkill(characterId, catSkill.getId());
         return charCatSkill != null;
+    }
+    
+    /**
+     * Handle the weather command - show current weather conditions.
+     */
+    private boolean handleWeatherCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        Integer roomId = ctx.currentRoomId;
+        
+        // Check if player is indoors
+        boolean isIndoors = false;
+        if (roomId != null) {
+            java.util.Set<com.example.tassmud.model.RoomFlag> flags = ctx.dao.getRoomFlags(roomId);
+            if (flags != null && flags.contains(com.example.tassmud.model.RoomFlag.INDOORS)) {
+                isIndoors = true;
+            }
+        }
+        
+        // Get weather service
+        com.example.tassmud.util.WeatherService weatherService = com.example.tassmud.util.WeatherService.getInstance();
+        if (weatherService == null) {
+            out.println("The weather system is not available.");
+            return true;
+        }
+        
+        com.example.tassmud.model.Weather weather = weatherService.getCurrentWeather();
+        
+        out.println("");
+        out.println("\u001B[1;36m=== Weather Conditions ===\u001B[0m");
+        out.println("");
+        
+        if (isIndoors) {
+            out.println("You are indoors and cannot see the sky directly.");
+            out.println("Current conditions outside: " + weather.getDisplayName());
+        } else {
+            out.println(weather.getSkyDescription());
+            out.println("");
+            out.println("Current weather: \u001B[36m" + weather.getDisplayName() + "\u001B[0m");
+            
+            // Add some additional info for special conditions
+            if (weather.hasLightning()) {
+                out.println("\u001B[33mLightning crackles in the clouds above - Call Lightning would be empowered!\u001B[0m");
+            }
+            if (weather.isSpecial()) {
+                out.println("\u001B[31mWARNING: This is unusual weather - take shelter if possible!\u001B[0m");
+            }
+        }
+        
+        out.println("");
+        return true;
     }
 }

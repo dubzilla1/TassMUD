@@ -760,6 +760,46 @@ who:
           2 players online
         ===================================================================
 
+weather:
+  summary: "check the current weather conditions"
+  visibility: public
+  synopsis:
+    - "weather"
+  body: |
+    NAME
+        weather - check the current weather conditions
+
+    SYNOPSIS
+        weather
+
+    DESCRIPTION
+        Shows the current weather conditions in the game world.
+        
+        Weather types include:
+        - Clear Skies - Pristine blue sky with no clouds
+        - Partly Cloudy - Scattered clouds drifting across the sky
+        - Overcast - Heavy cloud cover blocking the sun
+        - Windy - Strong gusts whipping across the land
+        - Rainy - Steady rainfall from grey skies
+        - Stormy - Thunderstorms with lightning (empowers Call Lightning!)
+        
+        Special weather events (rare):
+        - Snowy - Snowfall blanketing the world
+        - Hurricane - Violent winds and torrential rain
+        - Earthquake - Ground tremors and shaking
+        - Volcanic Ash - Ash raining from the sky
+        
+        Weather changes every 3 in-game hours (about 3 real minutes).
+        
+        If you are indoors, you will only see a brief summary of outdoor
+        conditions. Players who are outdoors see full weather descriptions.
+        
+        Note: Some spells like Call Lightning require stormy weather to function
+        at full power.
+
+    EXAMPLE
+        weather
+
 skills:
   summary: "list skills you have learned"
   visibility: public
@@ -1107,6 +1147,50 @@ kick:
 
     EXAMPLE
         kick
+
+trip:
+  summary: "trip an enemy, knocking them prone"
+  visibility: public
+  synopsis:
+    - "trip"
+  body: |
+    NAME
+        trip - trip an enemy, knocking them prone
+
+    SYNOPSIS
+        trip
+
+    DESCRIPTION
+        Attempts to trip your current combat target, knocking them prone
+        if successful. Prone opponents suffer combat penalties.
+        
+        REQUIREMENTS:
+        - You must know the Trip skill
+        - You must be in combat (COMBAT trait)
+        - The skill has a 10-second cooldown between uses
+        - Target must not be flying (flying targets are immune)
+        - Target must not already be prone
+        
+        MECHANICS:
+        - Success chance is based on an opposed check (your level vs target)
+        - Success chance is improved by your Trip proficiency (0.5x to 1.5x)
+        - On success, target becomes PRONE
+        
+        PRONE STATUS:
+        While prone, a combatant:
+        - Gives melee attackers advantage (easier to hit)
+        - Gives ranged attackers disadvantage (harder to hit)
+        - Must use the 'stand' command to recover, which requires an
+          opposed check and forfeits all attacks for that round
+        
+        IMMUNITY:
+        Flying targets cannot be tripped.
+
+    SEE ALSO
+        skills, combat, kill, kick, stand, fly
+
+    EXAMPLE
+        trip
 
 bash:
   summary: "bash an enemy with your shield, stunning them"

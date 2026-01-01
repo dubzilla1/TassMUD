@@ -87,11 +87,20 @@ public class MultiAttackHandler {
      * Get the list of additional attacks a combatant may make.
      * This checks skills and rolls for each potential extra attack.
      * 
+     * If the combatant is affected by SLOW, they get no additional attacks.
+     * 
      * @param combatant the attacking combatant
      * @return list of attack opportunities (some may not trigger)
      */
     public List<AttackOpportunity> getAdditionalAttacks(Combatant combatant) {
         List<AttackOpportunity> opportunities = new ArrayList<>();
+        
+        // Check if combatant is slowed - if so, no additional attacks allowed
+        Integer combatantId = combatant.getCharacterId();
+        if (combatantId != null && com.example.tassmud.effect.SlowEffect.isSlowed(combatantId)) {
+            // Slowed combatants are limited to single basic attack
+            return opportunities; // Empty list = no additional attacks
+        }
         
         if (combatant.isPlayer()) {
             opportunities.addAll(getPlayerAdditionalAttacks(combatant));

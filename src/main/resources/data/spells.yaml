@@ -40,13 +40,14 @@ spells:
   # Level 2 Arcane
   - id: 10
     name: Burning Hands
-    description: Flames shoot from your fingertips in a cone of fire.
+    description: Flames shoot from your fingertips, igniting a target with fire that can spread to nearby foes.
     school: ARCANE
     level: 2
     castingTime: 1.5
-    target: ALL_ENEMIES
+    cooldown: 3.0
+    target: EXPLICIT_MOB_TARGET
     progression: NORMAL
-    effectIds: [110]
+    effectIds: ["1003"]
     
   - id: 11
     name: Shield
@@ -101,7 +102,17 @@ spells:
     progression: HARD
     effectIds: ["1002"]
     
-  # Level 4 Arcane
+  # Level 4 Arcane  
+  - id: 30
+    name: Chill Touch
+    description: Ghostly skeletal hands claw at your foe with numbing cold, slowing their movements.
+    school: ARCANE
+    level: 4
+    castingTime: 1.5
+    cooldown: 3.0
+    target: CURRENT_ENEMY
+    progression: NORMAL
+    effectIds: ["1008", "1009"]
   - id: 30
     name: Ice Storm
     description: Hail pounds down in a cylinder of frigid air, battering and freezing all within.
@@ -132,6 +143,53 @@ spells:
     target: ALL_ENEMIES
     progression: VERY_HARD
     effectIds: [140]
+    
+  - id: 41
+    name: Call Lightning
+    description: You call down a bolt of lightning from the sky. Must be outdoors. Power varies with weather.
+    school: ARCANE
+    level: 5
+    castingTime: 2.5
+    cooldown: 5.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: ["1004"]
+
+  # Level 6 Arcane
+  - id: 45
+    name: Curse
+    description: You utter dark words that curse your target, causing their skills and spells to potentially fail.
+    school: ARCANE
+    level: 6
+    castingTime: 1.5
+    cooldown: 15.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: ["1012"]
+
+  # Level 8 Arcane
+  - id: 50
+    name: Colour Spray
+    description: A dazzling array of flashing colors springs from your hand, potentially blinding, slowing, confusing, or paralyzing foes.
+    school: ARCANE
+    level: 8
+    castingTime: 2.0
+    cooldown: 10.0
+    target: CURRENT_ENEMY
+    progression: VERY_HARD
+    effectIds: []  # Effects applied by handler with 25% chance each
+
+  # Level 9 Arcane
+  - id: 51
+    name: Earthquake
+    description: You cause the ground to heave violently, damaging and potentially knocking down all grounded foes. Flying creatures are immune.
+    school: ARCANE
+    level: 9
+    castingTime: 3.0
+    cooldown: 20.0
+    target: ALL_ENEMIES
+    progression: LEGENDARY
+    effectIds: []  # Damage and trip handled by handler
     
   # ========== DIVINE SPELLS (learned through prayer) ==========
   
@@ -177,6 +235,16 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [210]
+
+  - id: 113
+    name: Fly
+    description: Divine magic grants the target the ability to soar through the air.
+    school: DIVINE
+    level: 3
+    castingTime: 2.0
+    target: TARGET
+    progression: NORMAL
+    effectIds: ["1013"]
     
   - id: 111
     name: Hold Person
@@ -326,16 +394,6 @@ spells:
     effectIds: [311]
     
   # Level 3 Primal
-  - id: 220
-    name: Call Lightning
-    description: Storm clouds gather and lightning strikes your foes.
-    school: PRIMAL
-    level: 3
-    castingTime: 2.5
-    target: CURRENT_ENEMY
-    progression: HARD
-    effectIds: [320]
-    
   - id: 221
     name: Plant Growth
     description: Plants in the area become thick and overgrown.
@@ -381,16 +439,6 @@ spells:
   # ========== OCCULT SPELLS (learned through dark rituals/corpses) ==========
   
   # Level 1 Occult
-  - id: 300
-    name: Chill Touch
-    description: Ghostly skeletal hands claw at your foe, draining their vitality.
-    school: OCCULT
-    level: 1
-    castingTime: 1.0
-    target: CURRENT_ENEMY
-    progression: EASY
-    effectIds: [401]
-    
   - id: 301
     name: Cause Fear
     description: You invoke primal terror in a creature, causing it to flee.
@@ -410,6 +458,17 @@ spells:
     target: TARGET
     progression: TRIVIAL
     effectIds: [403]
+
+  - id: 303
+    name: Cause Light Wounds
+    description: Negative energy flows from your touch, inflicting wounds on the living or healing the undead.
+    school: OCCULT
+    level: 1
+    castingTime: 1.0
+    cooldown: 2.0
+    target: CURRENT_ENEMY
+    progression: EASY
+    effectIds: ["1005"]
     
   # Level 2 Occult
   - id: 310
@@ -463,6 +522,17 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: [430]
+
+  - id: 332
+    name: Cause Serious Wounds
+    description: Waves of negative energy tear at the living, or restore the undead.
+    school: OCCULT
+    level: 4
+    castingTime: 1.5
+    cooldown: 3.0
+    target: CURRENT_ENEMY
+    progression: NORMAL
+    effectIds: ["1006"]
     
   - id: 331
     name: Fear
@@ -494,6 +564,18 @@ spells:
     target: ALL_ENEMIES
     progression: VERY_HARD
     effectIds: [441]
+
+  # Level 7 Occult
+  - id: 350
+    name: Cause Critical Wounds
+    description: Devastating negative energy rips through the living, or greatly empowers the undead.
+    school: OCCULT
+    level: 7
+    castingTime: 2.0
+    cooldown: 4.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: ["1007"]
 
   - id: 500
     name: Heroism

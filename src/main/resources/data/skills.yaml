@@ -119,6 +119,14 @@ skills:
     is_passive: true
     progression: INSTANT
 
+  - id: 20
+    key: trip
+    name: Trip
+    description: A sweeping attack that attempts to knock an enemy off their feet, leaving them prone.
+    progression: EASY
+    traits: [COMBAT]
+    cooldown: 10
+
   # ============================================================
   # GENERAL NON-COMBAT SKILLS (50-99)
   # ============================================================

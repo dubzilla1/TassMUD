@@ -661,3 +661,45 @@ spawn:
 
     SEE ALSO
         istat, ilist, ifind
+
+setweather:
+  summary: "Set the current weather (GM-only)"
+  visibility: gm
+  synopsis:
+    - "SETWEATHER <weather_type>"
+  body: |
+    NAME
+        setweather - forcibly change the weather
+
+    SYNOPSIS
+        SETWEATHER <weather_type>
+
+    DESCRIPTION
+        Forces an immediate weather change to the specified type.
+        All players outdoors who are not sleeping will receive the
+        weather transition notification.
+        
+        Valid weather types:
+        - clear          - Clear blue skies
+        - partly_cloudy  - Scattered clouds
+        - overcast       - Heavy cloud cover
+        - windy          - Strong winds
+        - rainy          - Steady rainfall
+        - stormy         - Thunderstorms with lightning
+        
+        Special weather (rare events):
+        - snowy          - Snowfall
+        - hurricane      - Violent hurricane
+        - earthquake     - Ground tremors
+        - volcanic_ash   - Volcanic ash raining down
+        
+        Weather affects certain spells (like Call Lightning which requires
+        stormy weather) and future gameplay elements.
+
+    EXAMPLE
+        setweather stormy       -- Trigger a thunderstorm
+        setweather clear        -- Clear the skies
+        setweather hurricane    -- Trigger a hurricane event
+
+    SEE ALSO
+        weather

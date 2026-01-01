@@ -21,6 +21,7 @@ public enum SectorType {
     WATER_SWIM(4, "Shallow Water"),
     WATER_NOSWIM(50, "Deep Water"),  // Requires boat or magic
     UNDERWATER(8, "Underwater"),
+    FLYING(0, "Flying"),  // can't enter without flight
     
     // Difficult terrain
     SLUSH(6, "Slush"),

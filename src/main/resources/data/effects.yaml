@@ -105,6 +105,191 @@ effects:
       tick_interval: 3   # Damage ticks every 3 seconds (5 ticks total)
       damage_type: acid
 
+  - id: "1003"
+    name: "Burning Hands"
+    type: BURNING_HANDS    # Custom type with spread mechanic
+    duration: 15           # 15 seconds total duration
+    cooldown: 3            # 3 second global spell cooldown
+    dice_multiplier: 5d4   # Scales up to 5d4 at 100% proficiency
+    level_multiplier: 2    # Level 2 spell
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: REFRESH   # Refreshes duration if cast again
+    persistent: true
+    priority: 0
+    params:
+      tick_interval: 3     # Damage ticks every 3 seconds (5 ticks total)
+      damage_type: fire
+      spread_chance: 0.25  # 25% chance to spread each tick
+
+  - id: "1004"
+    name: "Call Lightning"
+    type: CALL_LIGHTNING   # Custom type with weather mechanics
+    duration: 0            # Instant damage
+    cooldown: 5            # 5 second global spell cooldown
+    dice_multiplier: 10d10 # Scales up to 10d10 at 100% proficiency
+    level_multiplier: 5    # Level 5 spell
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: electricity
+      requires_outdoors: true  # Cannot be cast indoors
+
+  # ========== CAUSE WOUNDS (OCCULT) ==========
+  # These deal negative energy damage (or heal undead)
+  # Damage = NdM + caster_level * (0.5 + proficiency%)
+
+  - id: "1005"
+    name: "Cause Light Wounds"
+    type: CAUSE_WOUNDS     # Custom type - heals undead
+    duration: 0            # Instant
+    cooldown: 2
+    dice_multiplier: 1d8   # Base dice
+    level_multiplier: 1    # Level 1 spell
+    profficiency_impact: NONE  # Custom scaling in handler
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: negative
+
+  - id: "1006"
+    name: "Cause Serious Wounds"
+    type: CAUSE_WOUNDS
+    duration: 0
+    cooldown: 3
+    dice_multiplier: 5d8
+    level_multiplier: 4
+    profficiency_impact: NONE
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: negative
+
+  - id: "1007"
+    name: "Cause Critical Wounds"
+    type: CAUSE_WOUNDS
+    duration: 0
+    cooldown: 4
+    dice_multiplier: 10d8
+    level_multiplier: 7
+    profficiency_impact: NONE
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: negative
+
+  # ========== CHILL TOUCH ==========
+
+  - id: "1008"
+    name: "Chill Touch Damage"
+    type: INSTANT_DAMAGE
+    duration: 0
+    cooldown: 3
+    dice_multiplier: 5d8
+    level_multiplier: 4
+    profficiency_impact: DICE_MULTIPLIER
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: cold
+
+  - id: "1009"
+    name: "Slow"
+    type: SLOW             # Limits target to single basic attack per round
+    duration: 60           # Up to 60 seconds at max proficiency
+    cooldown: 3
+    dice_multiplier: 0
+    level_multiplier: 4
+    profficiency_impact: DURATION
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      max_attacks: 1       # Limited to this many attacks per round
+
+  - id: "1010"
+    name: "Confused"
+    type: CONFUSED         # Attacks target random entities in room
+    duration: 60           # Up to 60 seconds at max proficiency
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 8
+    profficiency_impact: DURATION
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      min_duration: 10     # Minimum 10 seconds at low proficiency
+
+  - id: "1011"
+    name: "Paralyzed"
+    type: PARALYZED        # Cannot attack or use commands
+    duration: 60           # Up to 60 seconds at max proficiency
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 8
+    profficiency_impact: DURATION
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      min_duration: 5      # Minimum 5 seconds at low proficiency
+
+  - id: "1012"
+    name: "Cursed"
+    type: CURSED           # Skills and spells may fail
+    duration: 60           # Up to 60 seconds at max proficiency
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 6
+    profficiency_impact: DURATION
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      min_duration: 10     # Minimum 10 seconds at low proficiency
+      base_fail_chance: 25 # 25% base failure chance
+      max_fail_chance: 75  # Up to 75% at 100% proficiency
+
+  - id: "1013"
+    name: "Flying"
+    type: FLYING           # Target can fly - no movement cost, access to air/water sectors
+    duration: 600          # Up to 600 seconds (10 min) at max proficiency
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 3
+    profficiency_impact: DURATION
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      min_duration: 60     # Minimum 60 seconds at low proficiency
+      immune_to_trip: true # Can't be tripped while flying
+
+  # ========== CREATURE TYPE FLAGS ==========
+
+  - id: "2000"
+    name: "Undead"
+    type: UNDEAD           # Creature type flag - affects cause/cure spells
+    duration: -1           # Permanent until removed
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    profficiency_impact: NONE
+    stackPolicy: UNIQUE
+    persistent: true
+    priority: 0
+    params:
+      creature_type: undead
+      immune_to_poison: true
+      immune_to_disease: true
+      immune_to_sleep: true
+
   # ========== DEBUFF EFFECTS ==========
 
   - id: "1002"

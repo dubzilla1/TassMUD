@@ -67,6 +67,8 @@ public class CombatCommandHandler implements CommandHandler {
                 return handleCastCommand(ctx);
             case "kick":
                 return handleKickCommand(ctx);
+            case "trip":
+                return handleTripCommand(ctx);
             case "bash":
                 return handleBashCommand(ctx);
             case "heroic strike":
@@ -285,6 +287,14 @@ public class CombatCommandHandler implements CommandHandler {
             return true;
         }
         
+        // Check for curse effect - may cause skill to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your concentration! The arcane energy dissipates.\u001B[0m");
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+                rec.name + " attempts to channel arcane energy but dark curse magic interferes!");
+            return true;
+        }
+        
         // Check if player has a staff equipped
         ItemDAO itemDao = new ItemDAO();
         Long mainHandInstanceId = dao.getCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.getId());
@@ -382,6 +392,14 @@ public class CombatCommandHandler implements CommandHandler {
             return true;
         }
         
+        // Check for curse effect - may cause skill to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your focus! Your heroic spirit falters.\u001B[0m");
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+                rec.name + " attempts to summon heroic energy but dark curse energy interferes!");
+            return true;
+        }
+        
         // Get the active combat (skill requires combat)
         CombatManager combatMgr = CombatManager.getInstance();
         Combat activeCombat = combatMgr.getCombatForCharacter(charId);
@@ -454,6 +472,14 @@ public class CombatCommandHandler implements CommandHandler {
             com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, bashSkill);
         if (bashCheck.isFailure()) {
             out.println(bashCheck.getFailureMessage());
+            return true;
+        }
+        
+        // Check for curse effect - may cause skill to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your focus! Your bash goes wide.\u001B[0m");
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+                rec.name + " attempts to bash but staggers, cursed energy disrupting their balance!");
             return true;
         }
 
@@ -593,6 +619,14 @@ public class CombatCommandHandler implements CommandHandler {
             out.println(kickCheck.getFailureMessage());
             return true;
         }
+        
+        // Check for curse effect - may cause skill to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your focus! Your kick misses wildly.\u001B[0m");
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+                rec.name + " attempts to kick but stumbles, cursed energy disrupting their movement!");
+            return true;
+        }
 
         // Get the active combat and target
         CombatManager combatMgr = CombatManager.getInstance();
@@ -683,6 +717,164 @@ public class CombatCommandHandler implements CommandHandler {
         ctx.handler.sendDebug("  Current proficiency: " + charKick.getProficiency() + "%");
         ctx.handler.sendDebug("  Gain chance at this level: " + kickSkill.getProgression().getGainChance(charKick.getProficiency()) + "%");
         ctx.handler.sendDebug("  Skill succeeded: " + kickSucceeded);
+        ctx.handler.sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
+        if (skillResult.getProficiencyResult() != null) {
+            ctx.handler.sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency() + 
+                        " -> New prof: " + skillResult.getProficiencyResult().getNewProficiency());
+        }
+
+        if (skillResult.didProficiencyImprove()) {
+            out.println(skillResult.getProficiencyMessage());
+        }
+        return true;
+    }
+
+    private boolean handleTripCommand(CommandContext ctx) {
+        String name = ctx.playerName;
+        CharacterDAO dao = ctx.dao;
+        PrintWriter out = ctx.out;
+        CharacterRecord rec = dao.findByName(name);
+
+        // TRIP - combat skill that knocks opponent prone
+        if (rec == null) {
+            out.println("You must be logged in to use trip.");
+            return true;
+        }
+        Integer charId = ctx.characterId;
+        if (charId == null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+
+        // Look up the trip skill (id=20)
+        Skill tripSkill = dao.getSkillById(20);
+        if (tripSkill == null) {
+            out.println("Trip skill not found in database.");
+            return true;
+        }
+
+        // Check if character knows the trip skill
+        CharacterSkill charTrip = dao.getCharacterSkill(charId, 20);
+        if (charTrip == null) {
+            out.println("You don't know how to trip.");
+            return true;
+        }
+
+        // Check cooldown and combat traits using unified check
+        com.example.tassmud.util.AbilityCheck.CheckResult tripCheck = 
+            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, tripSkill);
+        if (tripCheck.isFailure()) {
+            out.println(tripCheck.getFailureMessage());
+            return true;
+        }
+        
+        // Check for curse effect - may cause skill to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your focus! Your trip attempt misses wildly.\u001B[0m");
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+                rec.name + " attempts to trip but stumbles, cursed energy disrupting their movement!");
+            return true;
+        }
+
+        // Get the active combat and target
+        CombatManager combatMgr = CombatManager.getInstance();
+        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+        if (activeCombat == null) {
+            out.println("You must be in combat to use trip.");
+            return true;
+        }
+
+        // Get the user's combatant and find the opponent
+        Combatant userCombatant = activeCombat.findByCharacterId(charId);
+        if (userCombatant == null) {
+            out.println("Combat error: could not find your combatant.");
+            return true;
+        }
+
+        // Find opponent (first combatant on different alliance)
+        Combatant targetCombatant = null;
+        for (Combatant c : activeCombat.getCombatants()) {
+            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                targetCombatant = c;
+                break;
+            }
+        }
+
+        if (targetCombatant == null) {
+            out.println("You have no opponent to trip.");
+            return true;
+        }
+
+        String targetName = targetCombatant.getName();
+        
+        // Check if target is flying - flying targets are immune to trip
+        Integer targetCharId = targetCombatant.getCharacterId();
+        if (targetCharId != null && com.example.tassmud.effect.FlyingEffect.isFlying(targetCharId)) {
+            out.println("You cannot trip " + targetName + " - they are flying!");
+            return true;
+        }
+        
+        // Check if target is already prone
+        if (targetCombatant.isProne()) {
+            out.println(targetName + " is already prone!");
+            return true;
+        }
+
+        // Get levels for opposed check
+        CharacterClassDAO tripClassDao = new CharacterClassDAO();
+        int userLevel = rec.currentClassId != null ? tripClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+        int targetLevel;
+        if (targetCombatant.isPlayer()) {
+            CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+            targetLevel = targetRec != null && targetRec.currentClassId != null 
+                ? tripClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
+        } else {
+            // For mobiles, use a level based on their HP (TODO: add proper level to Mobile)
+            targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
+        }
+
+        // Perform opposed check with proficiency (1d100 vs success chance)
+        int roll = (int)(Math.random() * 100) + 1;
+        int proficiency = charTrip.getProficiency();
+        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
+
+        boolean tripSucceeded = roll <= successChance;
+
+        if (tripSucceeded) {
+            // Success! Knock the opponent prone
+            targetCombatant.setProne();
+            out.println("Your trip connects! " + targetName + " crashes to the ground, prone!");
+
+            // Notify the opponent if they're a player
+            if (targetCombatant.isPlayer()) {
+                ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
+                if (targetHandler != null) {
+                    targetHandler.out.println(name + " trips you, sending you sprawling to the ground!");
+                }
+            }
+        } else {
+            // Miss
+            out.println("Your trip misses " + targetName + ".");
+
+            // Notify the opponent if they're a player
+            if (targetCombatant.isPlayer()) {
+                ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
+                if (targetHandler != null) {
+                    targetHandler.out.println(name + " tries to trip you but misses.");
+                }
+            }
+        }
+
+        // Use unified skill execution to apply cooldown and check proficiency growth
+        com.example.tassmud.util.SkillExecution.Result skillResult = 
+            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                name, charId, tripSkill, charTrip, dao, tripSucceeded);
+
+        // Debug channel output for proficiency check (only shown if debug enabled)
+        ctx.handler.sendDebug("Trip proficiency check:");
+        ctx.handler.sendDebug("  Skill progression: " + tripSkill.getProgression());
+        ctx.handler.sendDebug("  Current proficiency: " + charTrip.getProficiency() + "%");
+        ctx.handler.sendDebug("  Gain chance at this level: " + tripSkill.getProgression().getGainChance(charTrip.getProficiency()) + "%");
+        ctx.handler.sendDebug("  Skill succeeded: " + tripSucceeded);
         ctx.handler.sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
         if (skillResult.getProficiencyResult() != null) {
             ctx.handler.sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency() + 
@@ -849,6 +1041,15 @@ public class CombatCommandHandler implements CommandHandler {
             com.example.tassmud.util.AbilityCheck.canPlayerCastSpell(name, charId, matchedSpell);
         if (spellCheck.isFailure()) {
             out.println(spellCheck.getFailureMessage());
+            return true;
+        }
+        
+        // Check for curse effect - may cause spell to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your concentration! Your spell fizzles.\u001B[0m");
+            // Notify the room
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+                rec.name + " begins to cast " + matchedSpell.getName() + " but the spell fizzles!");
             return true;
         }
         

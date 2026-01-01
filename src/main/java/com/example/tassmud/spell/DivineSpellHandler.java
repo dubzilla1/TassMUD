@@ -1,8 +1,17 @@
 package com.example.tassmud.spell;
 
+import com.example.tassmud.effect.EffectDefinition;
+import com.example.tassmud.effect.EffectInstance;
+import com.example.tassmud.effect.EffectRegistry;
+import com.example.tassmud.model.Spell;
+import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.commands.CommandContext;
+import com.example.tassmud.persistence.CharacterDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Central dispatcher for ARCANE spells. Registers handlers for all arcane
@@ -103,8 +112,15 @@ public class DivineSpellHandler {
     { return notImplemented("detect invis", casterId, args, ctx); }
     private static boolean handleDetectMagic(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("detect magic", casterId, args, ctx); }
-    private static boolean handleFly(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("fly", casterId, args, ctx); }
+    private static boolean handleFly(Integer casterId, String args, SpellContext ctx) {
+        // Fly: Level 3 DIVINE spell
+        // - Single target buff (self or ally)
+        // - Grants FLYING effect allowing movement through air/water sectors
+        // - No movement point cost while flying
+        // - Immunity to trip attacks
+        // - Duration scales with proficiency (60s-600s)
+        return applySpellEffects(ctx, "fly");
+    }
     private static boolean handleGiantStrength(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("giant strength", casterId, args, ctx); }
     private static boolean handleHeal(Integer casterId, String args, SpellContext ctx)
@@ -134,5 +150,66 @@ public class DivineSpellHandler {
             logger.debug("[spell] '{}' invoked but not implemented (casterId={})", spellName, casterId);
         }
         return false;
+    }
+    
+    /**
+     * Apply all effects from the spell's effectIds to all resolved targets.
+     * This is the standard implementation for effect-based spells.
+     * 
+     * @param ctx The spell context containing targets, caster, and params
+     * @param spellName The spell name (for logging)
+     * @return true if at least one effect was applied successfully
+     */
+    private static boolean applySpellEffects(SpellContext ctx, String spellName) {
+        if (ctx == null) {
+            logger.warn("[{}] No spell context provided", spellName);
+            return false;
+        }
+        
+        Spell spell = ctx.getSpell();
+        if (spell == null) {
+            logger.warn("[{}] No spell definition in context", spellName);
+            return false;
+        }
+        
+        List<String> effectIds = spell.getEffectIds();
+        if (effectIds == null || effectIds.isEmpty()) {
+            logger.warn("[{}] Spell has no effectIds defined", spellName);
+            return false;
+        }
+        
+        List<Integer> targets = ctx.getTargetIds();
+        if (targets.isEmpty()) {
+            logger.debug("[{}] No targets resolved", spellName);
+            if (ctx.getCommandContext() != null) {
+                ctx.getCommandContext().send("No valid targets for " + spell.getName() + ".");
+            }
+            return false;
+        }
+        
+        Integer casterId = ctx.getCasterId();
+        Map<String, String> extraParams = ctx.getExtraParams();
+        CommandContext cmdCtx = ctx.getCommandContext();
+        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
+        
+        boolean anyApplied = false;
+        
+        for (String effId : effectIds) {
+            EffectDefinition def = EffectRegistry.getDefinition(effId);
+            if (def == null) {
+                logger.warn("[{}] Effect definition not found: {}", spellName, effId);
+                continue;
+            }
+            
+            for (Integer targetId : targets) {
+                EffectInstance inst = EffectRegistry.apply(effId, casterId, targetId, extraParams);
+                if (inst != null) {
+                    anyApplied = true;
+                    logger.debug("[{}] Applied effect {} to target {}", spellName, def.getName(), targetId);
+                }
+            }
+        }
+        
+        return anyApplied;
     }
 }

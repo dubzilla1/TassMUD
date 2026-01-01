@@ -84,6 +84,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             case "seedtemplates": return handleSeedTemplatesCommand(ctx);
             case "checktemplate": return handleCheckTemplateCommand(ctx);
             case "system": return handleSystemCommand(ctx);
+            case "setweather": return handleSetWeatherCommand(ctx);
             default:
                 return false;
         }
@@ -1668,6 +1669,57 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             out.println("Permission check failed.");
             return false;
         }
+        return true;
+    }
+    
+    /**
+     * Handle the setweather command - forcibly change the weather.
+     * Usage: setweather <weather_type>
+     * Valid types: clear, partly_cloudy, overcast, windy, rainy, stormy, snowy, hurricane, earthquake, volcanic_ash
+     */
+    private boolean handleSetWeatherCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        if (!ensureGm(ctx)) return true;
+        
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Usage: setweather <weather_type>");
+            out.println("Valid types: clear, partly_cloudy, overcast, windy, rainy, stormy, snowy, hurricane, earthquake, volcanic_ash");
+            return true;
+        }
+        
+        String weatherKey = args.trim().toLowerCase();
+        
+        // Get weather service
+        com.example.tassmud.util.WeatherService weatherService = com.example.tassmud.util.WeatherService.getInstance();
+        if (weatherService == null) {
+            out.println("Weather service is not available.");
+            return true;
+        }
+        
+        // Parse the weather type
+        com.example.tassmud.model.Weather newWeather = com.example.tassmud.model.Weather.fromKey(weatherKey);
+        
+        // Check if it was a valid key (fromKey returns CLEAR as default)
+        boolean validKey = false;
+        for (com.example.tassmud.model.Weather w : com.example.tassmud.model.Weather.values()) {
+            if (w.getKey().equalsIgnoreCase(weatherKey) || w.name().equalsIgnoreCase(weatherKey)) {
+                validKey = true;
+                newWeather = w;
+                break;
+            }
+        }
+        
+        if (!validKey) {
+            out.println("Invalid weather type: " + weatherKey);
+            out.println("Valid types: clear, partly_cloudy, overcast, windy, rainy, stormy, snowy, hurricane, earthquake, volcanic_ash");
+            return true;
+        }
+        
+        com.example.tassmud.model.Weather oldWeather = weatherService.getCurrentWeather();
+        weatherService.setWeather(newWeather);
+        
+        out.println("[GM] Weather changed from " + oldWeather.getDisplayName() + " to " + newWeather.getDisplayName() + ".");
         return true;
     }
 }

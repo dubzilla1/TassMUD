@@ -156,12 +156,21 @@ public class EffectRegistry {
      * Called when combat starts.
      */
     public static void removeInvisibility(Integer targetId) {
-        if (targetId == null) return;
+        removeAllEffectsOfType(targetId, EFFECT_INVISIBILITY);
+    }
+    
+    /**
+     * Remove all effects of a given type from a target.
+     * Useful for clearing debuffs before reapplying (e.g., Colour Spray refresh).
+     * @param targetId The target to clear effects from
+     * @param effectId The effect definition ID to remove
+     */
+    public static void removeAllEffectsOfType(Integer targetId, String effectId) {
+        if (targetId == null || effectId == null) return;
         List<UUID> toRemove = new ArrayList<>();
         for (EffectInstance ei : activeInstances.values()) {
             if (ei.getTargetId() != null && ei.getTargetId().equals(targetId)) {
-                String defId = ei.getDefId();
-                if (EFFECT_INVISIBILITY.equals(defId)) {
+                if (effectId.equals(ei.getDefId())) {
                     toRemove.add(ei.getId());
                 }
             }

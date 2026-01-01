@@ -45,6 +45,15 @@ public class CommandDispatcher {
         
         String cmdName = ctx.getCommandName();
         
+        // Check for paralysis - block most commands except a few exceptions
+        if (ctx.characterId != null && com.example.tassmud.effect.ParalyzedEffect.isParalyzed(ctx.characterId)) {
+            // Allow only basic info commands when paralyzed
+            if (!isAllowedWhileParalyzed(cmdName)) {
+                ctx.send("\u001B[31mYou are paralyzed and cannot move!\u001B[0m");
+                return true; // Handled (blocked)
+            }
+        }
+        
         // Look up the command's category
         CommandDefinition def = CommandRegistry.getCommand(cmdName);
         if (def == null) {
@@ -64,6 +73,20 @@ public class CommandDispatcher {
         
         // Execute the command
         return handler.handle(ctx);
+    }
+    
+    /**
+     * Check if a command is allowed while paralyzed.
+     * Only basic informational commands should be allowed.
+     */
+    private static boolean isAllowedWhileParalyzed(String cmdName) {
+        // Allow basic status/info commands
+        return switch (cmdName) {
+            case "score", "sc", "inventory", "inv", "i", "equipment", "eq",
+                 "look", "l", "time", "who", "help", "affects", "aff",
+                 "prompt", "quit", "save", "effects", "combat" -> true;
+            default -> false;
+        };
     }
     
     /**

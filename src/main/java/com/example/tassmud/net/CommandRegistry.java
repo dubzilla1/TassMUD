@@ -25,6 +25,7 @@ public class CommandRegistry {
         registerCombat("spells", "List spells you have learned", Category.INFORMATION);
         register("consider", "Evaluate how dangerous a target would be to fight", Category.INFORMATION, List.of("con"));
         register("compare", "Compare an inventory item to your currently equipped gear", Category.INFORMATION);
+        registerCombat("weather", "Check the current weather conditions", Category.INFORMATION);
         
         // ===== MOVEMENT =====
         // Movement NOT allowed in combat (use flee instead)
@@ -77,6 +78,7 @@ public class CommandRegistry {
         registerCombat("flee", "Attempt to escape from combat", Category.COMBAT);
         registerCombat("cast", "Cast a spell", Category.COMBAT);
         registerCombat("kick", "Deliver a powerful kick to your enemy", Category.COMBAT);
+        registerCombat("trip", "Trip an enemy, knocking them prone", Category.COMBAT);
         registerCombat("bash", "Bash an enemy with your shield, stunning them", Category.COMBAT);
         registerCombat("heroic", "Execute a Heroic Strike, granting guaranteed critical hits", Category.COMBAT);
         register("infuse", "Infuse your staff with arcane energy for ranged attacks", Category.COMBAT);
@@ -122,6 +124,7 @@ public class CommandRegistry {
         registerGm("seedtemplates", "Seed item & mob templates into the running server (GM only)");
         registerGm("system", "Send a system-wide announcement");
         registerGm("checktemplate", "Check the validity of a template");
+        registerGm("setweather", "Set the current weather (clear, partly_cloudy, overcast, windy, rainy, stormy, snowy, hurricane, earthquake, volcanic_ash)");
     }
     
     private static void register(String name, String description, Category category) {

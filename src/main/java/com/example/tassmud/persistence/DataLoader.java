@@ -520,7 +520,8 @@ public class DataLoader {
             Class.forName("com.example.tassmud.spell.ArcaneSpellHandler");
             Class.forName("com.example.tassmud.spell.DivineSpellHandler");
             Class.forName("com.example.tassmud.spell.PrimalSpellHandler");
-            logger.info("Initialized spell handlers (Arcane, Divine, Primal)");
+            Class.forName("com.example.tassmud.spell.OccultSpellHandler");
+            logger.info("Initialized spell handlers (Arcane, Divine, Primal, Occult)");
         } catch (ClassNotFoundException e) {
             logger.warn("Failed to initialize spell handlers: {}", e.getMessage());
         }
@@ -618,6 +619,23 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("DOT", new com.example.tassmud.effect.DotEffect());
             // Register debuff handler for DEBUFF effects (blindness, etc.)
             com.example.tassmud.effect.EffectRegistry.registerHandler("DEBUFF", new com.example.tassmud.effect.BlindEffect());
+            // Register burning hands handler for BURNING_HANDS effects (spreading fire DOT)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("BURNING_HANDS", new com.example.tassmud.effect.BurningHandsEffect());
+            // Register call lightning handler for CALL_LIGHTNING effects (weather-based instant damage)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("CALL_LIGHTNING", new com.example.tassmud.effect.CallLightningEffect());
+            // Register cause wounds handler for CAUSE_WOUNDS effects (negative energy damage/healing)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("CAUSE_WOUNDS", new com.example.tassmud.effect.CauseWoundsEffect());
+            // Register slow handler for SLOW effects (limits attacks per round)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("SLOW", new com.example.tassmud.effect.SlowEffect());
+            // Register confused handler for CONFUSED effects (random target selection)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("CONFUSED", new com.example.tassmud.effect.ConfusedEffect());
+            // Register paralyzed handler for PARALYZED effects (blocks all actions)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("PARALYZED", new com.example.tassmud.effect.ParalyzedEffect());
+            // Register cursed handler for CURSED effects (skills/spells may fail)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("CURSED", new com.example.tassmud.effect.CursedEffect());
+            // Register flying handler for FLYING effects (free movement, sector access)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("FLYING", new com.example.tassmud.effect.FlyingEffect());
+            // UNDEAD is a flag effect - no handler needed, just presence check
 
             logger.info("Loaded {} effects from effects.yaml", count);
         } catch (Exception e) {

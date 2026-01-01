@@ -320,6 +320,15 @@ public class CombatManager {
             return;
         }
         
+        // Check for paralysis - completely skip turn if paralyzed
+        Integer combatantId = combatant.getCharacterId();
+        if (combatantId != null && com.example.tassmud.effect.ParalyzedEffect.isParalyzed(combatantId)) {
+            // Notify player/room they're paralyzed
+            String name = combatant.getName();
+            broadcastToRoom(combat.getRoomId(), name + " struggles against the paralysis but cannot move!");
+            return;
+        }
+        
         // Check if there are valid targets
         List<Combatant> targets = combat.getValidTargets(combatant);
         if (targets.isEmpty()) {
@@ -355,6 +364,17 @@ public class CombatManager {
         if (target == null) {
             // No valid target
             return;
+        }
+        
+        // Check for confusion - redirect attacks to random targets in room
+        if (combatantId != null && com.example.tassmud.effect.ConfusedEffect.isConfused(combatantId)) {
+            Combatant confusedTarget = selectConfusedTarget(combat, combatant);
+            if (confusedTarget != null) {
+                target = confusedTarget;
+                String attackerName = combatant.getName();
+                String targetName = target.getName();
+                broadcastToRoom(combat.getRoomId(), attackerName + " swings wildly in confusion at " + targetName + "!");
+            }
         }
         
         // Check for AoE weapon infusion (e.g., Greater Arcane Infusion)
@@ -484,6 +504,31 @@ public class CombatManager {
         return targets.get((int)(Math.random() * targets.size()));
     }
     
+    /**
+     * Select a random target for a confused combatant.
+     * Can target allies, self, or even non-combatants in the room.
+     * May pull non-combatants into combat.
+     */
+    private Combatant selectConfusedTarget(Combat combat, Combatant confusedAttacker) {
+        // For confused attacks, pick randomly from ALL combatants in the fight
+        // including allies, enemies, and potentially self
+        List<Combatant> potentialTargets = new ArrayList<>();
+        
+        for (Combatant c : combat.getCombatants()) {
+            if (c.isAlive() && c.isActive()) {
+                potentialTargets.add(c);
+            }
+        }
+        
+        if (potentialTargets.isEmpty()) {
+            return combat.getRandomTarget(confusedAttacker);
+        }
+        
+        // Pick random target (could be self, ally, or enemy)
+        java.util.Random rng = new java.util.Random();
+        return potentialTargets.get(rng.nextInt(potentialTargets.size()));
+    }
+
     /**
      * Handle a combatant being killed.
      */
