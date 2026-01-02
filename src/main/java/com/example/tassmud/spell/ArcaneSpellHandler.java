@@ -589,6 +589,9 @@ public class ArcaneSpellHandler {
                             targetName + " is slain by the magical barrage!");
                     }
                     
+                    // Track aggro for damage spell (10x spell level + damage)
+                    ctx.addDamageSpellAggro(totalDamage);
+                    
                     anyHit = true;
                 }
             } else {

@@ -65,6 +65,9 @@ public class Combat {
     /** Whether prompts have been sent for the current completed round */
     private boolean promptsSentForRound = false;
     
+    /** Aggro/threat tracking: character ID -> total aggro accumulated in this combat */
+    private final Map<Integer, Long> aggroByCharacter = new ConcurrentHashMap<>();
+    
     /**
      * Create a new combat in the specified room.
      */
@@ -443,6 +446,150 @@ public class Combat {
             sb.append(combatLog.get(i));
         }
         return sb.toString();
+    }
+    
+    // ========== Aggro/Threat System ==========
+    
+    /**
+     * Add aggro for a character. Aggro accumulates over the combat.
+     * @param characterId the player character generating aggro
+     * @param amount the amount of aggro to add (can be negative for threat reduction)
+     */
+    public void addAggro(Integer characterId, long amount) {
+        if (characterId == null) return;
+        aggroByCharacter.merge(characterId, amount, Long::sum);
+        // Ensure aggro doesn't go negative
+        aggroByCharacter.computeIfPresent(characterId, (k, v) -> Math.max(0, v));
+    }
+    
+    /**
+     * Add aggro for a physical attack (10 base + damage dealt).
+     * @param characterId the attacking character
+     * @param damage the damage dealt (0 for a miss)
+     */
+    public void addAttackAggro(Integer characterId, int damage) {
+        addAggro(characterId, 10 + Math.max(0, damage));
+    }
+    
+    /**
+     * Add aggro for a damaging spell (10x spell level + damage dealt).
+     * @param characterId the casting character
+     * @param spellLevel the level of the spell (1-10)
+     * @param damage the damage dealt
+     */
+    public void addDamageSpellAggro(Integer characterId, int spellLevel, int damage) {
+        addAggro(characterId, (10L * spellLevel) + Math.max(0, damage));
+    }
+    
+    /**
+     * Add aggro for a non-damaging spell (100x spell level).
+     * Includes buffs, heals, debuffs, etc.
+     * @param characterId the casting character
+     * @param spellLevel the level of the spell (1-10)
+     */
+    public void addUtilitySpellAggro(Integer characterId, int spellLevel) {
+        addAggro(characterId, 100L * spellLevel);
+    }
+    
+    /**
+     * Get the current aggro for a character.
+     * @return aggro amount, or 0 if not tracked
+     */
+    public long getAggro(Integer characterId) {
+        if (characterId == null) return 0;
+        return aggroByCharacter.getOrDefault(characterId, 0L);
+    }
+    
+    /**
+     * Reset all aggro to zero. Called when combat resets or for special abilities.
+     */
+    public void resetAllAggro() {
+        aggroByCharacter.clear();
+    }
+    
+    /**
+     * Reset aggro for a specific character.
+     * @param characterId the character whose aggro to reset
+     */
+    public void resetAggro(Integer characterId) {
+        if (characterId != null) {
+            aggroByCharacter.remove(characterId);
+        }
+    }
+    
+    /**
+     * Get the maximum aggro value among all players in this combat.
+     * @return the highest aggro value, or 0 if no aggro tracked
+     */
+    public long getMaxAggro() {
+        return aggroByCharacter.values().stream()
+            .mapToLong(Long::longValue)
+            .max()
+            .orElse(0L);
+    }
+    
+    /**
+     * Set a character's aggro to a specific value (used by taunt).
+     * @param characterId the character ID
+     * @param amount the new aggro value
+     */
+    public void setAggro(Integer characterId, long amount) {
+        if (characterId != null) {
+            aggroByCharacter.put(characterId, Math.max(0, amount));
+        }
+    }
+    
+    /**
+     * Get the player combatant with the highest aggro.
+     * Used by mobs to select their target.
+     * @return the highest-aggro player combatant, or null if none
+     */
+    public Combatant getHighestAggroPlayer() {
+        Combatant highestAggro = null;
+        long maxAggro = -1;
+        
+        for (Combatant c : getPlayerCombatants()) {
+            if (!c.isAlive() || !c.isActive()) continue;
+            Integer charId = c.getCharacterId();
+            long aggro = getAggro(charId);
+            if (aggro > maxAggro) {
+                maxAggro = aggro;
+                highestAggro = c;
+            }
+        }
+        
+        return highestAggro;
+    }
+    
+    /**
+     * Get the player combatant with the highest aggro from valid targets.
+     * @param validTargets list of valid targets to choose from
+     * @return the highest-aggro target, or random if no aggro data
+     */
+    public Combatant getHighestAggroTarget(List<Combatant> validTargets) {
+        if (validTargets == null || validTargets.isEmpty()) return null;
+        
+        Combatant highestAggro = null;
+        long maxAggro = -1;
+        
+        for (Combatant c : validTargets) {
+            if (!c.isPlayer()) continue; // Aggro only tracked for players
+            if (!c.isAlive() || !c.isActive()) continue;
+            
+            Integer charId = c.getCharacterId();
+            long aggro = getAggro(charId);
+            if (aggro > maxAggro) {
+                maxAggro = aggro;
+                highestAggro = c;
+            }
+        }
+        
+        // If no aggro data or all zero, return random target
+        if (highestAggro == null || maxAggro <= 0) {
+            return validTargets.get((int)(Math.random() * validTargets.size()));
+        }
+        
+        return highestAggro;
     }
     
     // Statistics

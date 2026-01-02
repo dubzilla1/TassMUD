@@ -53,6 +53,8 @@ public class SystemCommandHandler implements CommandHandler {
                 return handleAutosacCommand(ctx);
             case "autojunk":
                 return handleAutojunkCommand(ctx);
+            case "autoassist":
+                return handleAutoassistCommand(ctx);
             case "autoflee":
                 return handleAutofleeCommand(ctx);
             default:
@@ -627,6 +629,44 @@ public class SystemCommandHandler implements CommandHandler {
             rec = dao.findByName(name);
         } else {
             out.println("Failed to toggle autojunk.");
+        }
+        return true;
+    }
+    
+    private boolean handleAutoassistCommand(CommandContext ctx) {
+        // AUTOASSIST - Toggle automatic assistance to group members in combat
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.character;
+        CharacterDAO dao = ctx.dao;
+        String name = ctx.playerName;
+        Integer charId = ctx.characterId;
+
+        if (rec == null) {
+            out.println("You must be logged in to use autoassist.");
+            return true;
+        }
+        if (charId == null && name != null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+        if (charId == null) {
+            out.println("Unable to find your character.");
+            return true;
+        }
+        
+        // Toggle current value
+        boolean currentValue = rec.autoassist;
+        boolean newValue = !currentValue;
+        boolean success = dao.setAutoassist(charId, newValue);
+        if (success) {
+            if (newValue) {
+                out.println("Autoassist enabled. You will automatically join combat when group members are attacked.");
+            } else {
+                out.println("Autoassist disabled. You must manually join combat when group members fight.");
+            }
+            // Refresh rec
+            rec = dao.findByName(name);
+        } else {
+            out.println("Failed to toggle autoassist.");
         }
         return true;
     }

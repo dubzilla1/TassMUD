@@ -158,7 +158,7 @@ channels:
 
         whisper  send a private message to a single online player. Usage: "whisper Alice Are you there?"
 
-        groupchat  send a message to the members of your current group (group support is not implemented yet).
+        groupchat  send a message to the members of your current group.
 
         gmchat  send a message to all GMs currently online. Only available to characters with the 'is_gm' flag set to '1'.
 
@@ -1148,6 +1148,48 @@ kick:
     EXAMPLE
         kick
 
+disarm:
+  summary: "knock the weapon from an enemy's grasp"
+  visibility: public
+  synopsis:
+    - "disarm"
+  body: |
+    NAME
+        disarm - knock the weapon from an enemy's grasp
+
+    SYNOPSIS
+        disarm
+
+    DESCRIPTION
+        Attempts to disarm your current combat target, causing them to
+        drop their weapon to the ground if successful.
+        
+        REQUIREMENTS:
+        - You must know the Disarm skill
+        - You must be in combat (COMBAT trait)
+        - The skill has a 10-second cooldown between uses
+        - Target must be wielding a weapon
+        
+        MECHANICS:
+        - Success chance is based on an opposed check (your level vs target)
+        - Success chance is improved by your Disarm proficiency (0.5x to 1.5x)
+        - On success, target's weapon falls to the ground in the room
+        - Target receives the DISARMED status flag
+        
+        EFFECTS:
+        A disarmed combatant:
+        - Must pick up their weapon and re-equip it to use weapon attacks
+        - May fight unarmed or switch to a backup weapon
+        
+        NOTE: If the target isn't wielding a weapon, you'll see a message
+        indicating they have nothing to disarm.
+
+    SEE ALSO
+        skills, combat, kill, kick, bash
+
+    EXAMPLE
+        disarm
+
 trip:
   summary: "trip an enemy, knocking them prone"
   visibility: public
@@ -1192,6 +1234,128 @@ trip:
     EXAMPLE
         trip
 
+taunt:
+  summary: "taunt enemies to focus their attacks on you"
+  visibility: public
+  synopsis:
+    - "taunt"
+  body: |
+    NAME
+        taunt - taunt enemies to focus their attacks on you
+
+    SYNOPSIS
+        taunt
+
+    DESCRIPTION
+        Let out a battle cry that draws the attention of all enemies,
+        forcing them to focus their attacks on you. Essential for tanks
+        to protect more vulnerable party members.
+        
+        REQUIREMENTS:
+        - You must know the Taunt skill
+        - You must be in combat (COMBAT trait)
+        - The skill has a 15-second cooldown between uses
+        
+        AGGRO MECHANICS:
+        - On success, your aggro is set to the group's highest aggro + 1000
+        - If you already have the highest aggro, adds 1000 to your current
+        - Mobs target the player with the highest aggro each round
+        - Failed taunts do not affect aggro
+        
+        SUCCESS CHANCE:
+        - Based on an opposed check (your level vs target)
+        - Success chance is improved by your Taunt proficiency (0.5x to 1.5x)
+        
+        This skill is essential for tanks who need to keep enemy attention
+        away from healers and damage dealers in the party.
+
+    SEE ALSO
+        skills, combat, kill, kick, group, autoassist
+
+    EXAMPLE
+        taunt
+
+feign:
+  summary: "feign weakness to reduce enemy attention"
+  visibility: public
+  synopsis:
+    - "feign"
+  body: |
+    NAME
+        feign - feign weakness to reduce your aggro
+
+    SYNOPSIS
+        feign
+
+    DESCRIPTION
+        Feign weakness to make enemies lose interest in you, cutting
+        your aggro in half. Essential for damage dealers and healers
+        who have drawn too much attention.
+        
+        REQUIREMENTS:
+        - You must know the Feign skill
+        - You must be in combat (COMBAT trait)
+        - The skill has a 15-second cooldown between uses
+        
+        AGGRO MECHANICS:
+        - On success, your aggro is reduced by 50%
+        - Mobs target the player with the highest aggro each round
+        - Failed feigns do not affect aggro
+        
+        SUCCESS CHANCE:
+        - Based on an opposed check (your level vs target)
+        - Success chance is improved by your Feign proficiency (0.5x to 1.5x)
+        
+        This skill is essential for damage dealers and healers who need
+        to shed aggro when the tank loses control.
+
+    SEE ALSO
+        skills, combat, taunt, group, autoassist
+
+    EXAMPLE
+        feign
+
+fade:
+  summary: "divine spell that reduces a target's aggro"
+  visibility: public
+  synopsis:
+    - "cast fade"
+    - "cast fade <target>"
+  body: |
+    NAME
+        fade - divine spell that reduces aggro
+
+    SYNOPSIS
+        cast fade
+        cast fade <target>
+
+    DESCRIPTION
+        Divine magic causes enemies to lose interest in the target,
+        reducing their aggro. Can be cast on yourself or any ally.
+        If no target is specified, defaults to self.
+        
+        REQUIREMENTS:
+        - You must know the Fade spell
+        - You must be in combat
+        - Divine school, Level 2 spell
+        
+        AGGRO MECHANICS:
+        - Reduces target's aggro by 25% to 75% based on your proficiency
+        - At 1% proficiency: 25% aggro reduction
+        - At 100% proficiency: 75% aggro reduction
+        - Casting generates utility spell aggro for you (200)
+        
+        This spell is useful for healers and support casters to help
+        damage dealers or themselves shed aggro when the tank cannot
+        maintain control.
+
+    SEE ALSO
+        spells, combat, taunt, feign, group
+
+    EXAMPLE
+        cast fade
+        cast fade Warrior
+
 bash:
   summary: "bash an enemy with your shield, stunning them"
   visibility: public
@@ -1233,36 +1397,51 @@ bash:
         bash
 
 heroic:
-  summary: "execute a Heroic Strike, granting guaranteed critical hits"
+  summary: "execute a devastating Heroic Strike with guaranteed crit and max damage"
   visibility: public
+  keywords: [heroic strike, hs, fighter, capstone, critical]
+  see_also: [skills, combat, kick, bash]
   synopsis:
     - "heroic"
+    - "hs"
   body: |
     NAME
         heroic - execute a Heroic Strike
 
     SYNOPSIS
         heroic
+        hs
 
     DESCRIPTION
-        Channel your inner heroism into a devastating combat stance that
-        guarantees critical hits on all attacks for a short duration.
+        Unleash a devastating attack that guarantees a critical hit dealing
+        maximum weapon damage. The fighter's ultimate skill.
         
         REQUIREMENTS:
         - You must know the Heroic Strike skill
         - You must be in combat (COMBAT trait)
-        - The skill has a 120-second cooldown between uses
+        - Base cooldown: 20 seconds
         
         MECHANICS:
-        - Applies the Heroism effect to yourself
-        - While Heroism is active, nearly all attack rolls count as critical hits
-          (any roll of 2 or higher on d20)
-        - The effect duration is 30 seconds (base), scaled by your proficiency
-        - Higher proficiency increases the duration of the Heroism buff
+        - Uses an opposed check (your level vs target) modified by proficiency
+        - On success: Deals MAXIMUM weapon damage as a CRITICAL HIT
+          (e.g., 5d12 weapon = 60 damage × 2 crit = 120 damage)
+        - On miss: Cooldown is reduced by 5 seconds for next use
         
-        This powerful skill is best saved for challenging encounters or
-        when you need to deal maximum damage quickly. The long cooldown
-        means you should use it wisely.
+        DYNAMIC COOLDOWN:
+        - Base cooldown: 20 seconds
+        - Each miss reduces the NEXT cooldown by 5 seconds
+        - After 4 consecutive misses (0 second cooldown), the attack is
+          GUARANTEED to hit, then cooldown resets to 20 seconds
+        
+        Miss progression:
+          0 misses: 20s cooldown, normal hit chance
+          1 miss:   15s cooldown
+          2 misses: 10s cooldown
+          3 misses:  5s cooldown
+          4 misses:  0s cooldown, GUARANTEED HIT
+        
+        This skill rewards persistence - even if you keep missing, you're
+        building toward a guaranteed devastating strike.
 
     SEE ALSO
         skills, combat, kick, bash
@@ -1770,6 +1949,44 @@ autojunk:
 
     EXAMPLE
         autojunk
+
+autoassist:
+  summary: "toggle automatic assistance to group members in combat"
+  visibility: public
+  synopsis:
+    - "autoassist"
+  body: |
+    NAME
+        autoassist - toggle automatic assistance to group members in combat
+
+    SYNOPSIS
+        autoassist
+
+    DESCRIPTION
+        Toggle automatic assistance to group members in combat. When enabled,
+        you will automatically join combat when another member of your group
+        engages an enemy, as long as you are in the same room.
+        
+        This is a toggle command - each use switches between enabled
+        and disabled.
+        
+        Default: ENABLED
+        
+        MECHANICS:
+        - Only triggers when a group member INITIATES combat (attacks a mob)
+        - You must be in the same room as the group member
+        - You will automatically attack the same target
+        - Does NOT trigger if you are already in combat
+        - Does NOT trigger if you are sitting or sleeping
+        
+        This setting allows groups to coordinate attacks without each
+        member having to manually type 'kill <target>'.
+
+    SEE ALSO
+        group, follow, combat, kill
+
+    EXAMPLE
+        autoassist
         
 stand:
   summary: "stand up from sitting, sleeping, or prone"
@@ -1822,3 +2039,292 @@ stand:
     EXAMPLE
         stand
         wake
+
+# =============================================================================
+# GROUP & PARTY COMMANDS
+# =============================================================================
+
+group:
+  summary: "create or view your group"
+  visibility: public
+  synopsis:
+    - "group"
+  body: |
+    NAME
+        group - create or view your party/group
+
+    SYNOPSIS
+        group
+
+    DESCRIPTION
+        If you are not in a group, this command creates a new group with
+        you as the leader. If you are already in a group, it displays
+        information about your current group including:
+        
+        - All members and their HP percentage
+        - Who is the leader
+        - Who is following the leader
+        - Pending invitations (if you are the leader)
+        
+        GROUP FEATURES:
+        - Group chat (groupchat command)
+        - Follow the leader (follow command)
+        - Shared adventure coordination
+        
+        Use 'invite <player>' to add members to your group.
+
+    SEE ALSO
+        invite, accept, decline, leave, disband, leader, follow, unfollow, groupchat
+
+    EXAMPLE
+        group
+
+invite:
+  summary: "invite a player to join your group"
+  visibility: public
+  synopsis:
+    - "invite <player>"
+  body: |
+    NAME
+        invite - invite a player to join your group
+
+    SYNOPSIS
+        invite <player>
+
+    DESCRIPTION
+        Invites another player to join your group. Only the group leader
+        can invite new members.
+        
+        If you are not currently in a group, using invite will automatically
+        create a new group with you as the leader before sending the invite.
+        
+        The invited player will receive a notification and can use 'accept'
+        to join or 'decline' to refuse the invitation.
+        
+        RESTRICTIONS:
+        - Target must be online
+        - Target cannot already be in a group
+        - Target cannot have another pending invitation
+
+    SEE ALSO
+        group, accept, decline, boot, leader
+
+    EXAMPLE
+        invite Alice
+
+accept:
+  summary: "accept a pending group invitation"
+  visibility: public
+  synopsis:
+    - "accept"
+  body: |
+    NAME
+        accept - accept a pending group invitation
+
+    SYNOPSIS
+        accept
+
+    DESCRIPTION
+        Accepts a pending group invitation and joins the group.
+        
+        You can only have one pending invitation at a time. If you want
+        to accept a different group's invitation, decline the current one
+        first.
+        
+        'join' is an alias for this command.
+
+    SEE ALSO
+        group, invite, decline, leave
+
+    EXAMPLE
+        accept
+
+decline:
+  summary: "decline a pending group invitation"
+  visibility: public
+  synopsis:
+    - "decline"
+  body: |
+    NAME
+        decline - decline a pending group invitation
+
+    SYNOPSIS
+        decline
+
+    DESCRIPTION
+        Declines a pending group invitation. The group leader will be
+        notified that you have declined.
+
+    SEE ALSO
+        group, invite, accept
+
+    EXAMPLE
+        decline
+
+leave:
+  summary: "leave your current group"
+  visibility: public
+  synopsis:
+    - "leave"
+  body: |
+    NAME
+        leave - leave your current group
+
+    SYNOPSIS
+        leave
+
+    DESCRIPTION
+        Leaves your current group. All other members will be notified.
+        
+        If you are the group leader, you cannot use 'leave' directly.
+        Instead, you must either:
+        - Use 'leader <player>' to transfer leadership first
+        - Use 'disband' to disband the entire group
+        
+        If you are following the leader, you will automatically stop
+        following when you leave.
+
+    SEE ALSO
+        group, disband, leader
+
+    EXAMPLE
+        leave
+
+disband:
+  summary: "disband your group"
+  visibility: public
+  synopsis:
+    - "disband"
+  body: |
+    NAME
+        disband - disband your group
+
+    SYNOPSIS
+        disband
+
+    DESCRIPTION
+        Disbands your group, removing all members. Only the group leader
+        can disband the group.
+        
+        All members will be notified that the group has been disbanded.
+        All pending invitations will be cancelled.
+
+    SEE ALSO
+        group, leave, leader
+
+    EXAMPLE
+        disband
+
+boot:
+  summary: "boot a member from your group"
+  visibility: public
+  synopsis:
+    - "boot <player>"
+  body: |
+    NAME
+        boot - boot a member from your group
+
+    SYNOPSIS
+        boot <player>
+
+    DESCRIPTION
+        Removes a member from your group. Only the group leader can boot
+        members.
+        
+        You cannot boot yourself - use 'disband' or 'leader' instead.
+        
+        The booted player will be notified that they have been removed
+        from the group.
+
+    SEE ALSO
+        group, invite, disband, leader
+
+    EXAMPLE
+        boot Bob
+
+leader:
+  summary: "transfer group leadership"
+  visibility: public
+  synopsis:
+    - "leader <player>"
+  body: |
+    NAME
+        leader - transfer group leadership to another member
+
+    SYNOPSIS
+        leader <player>
+
+    DESCRIPTION
+        Transfers group leadership to another member of the group.
+        Only the current leader can transfer leadership.
+        
+        The new leader will be notified of their new role. If the new
+        leader was following you, they will automatically stop following.
+        
+        'promote' is an alias for this command.
+
+    SEE ALSO
+        group, disband, leave
+
+    EXAMPLE
+        leader Alice
+        promote Alice
+
+follow:
+  summary: "follow your group leader"
+  visibility: public
+  synopsis:
+    - "follow"
+  body: |
+    NAME
+        follow - start following your group leader
+
+    SYNOPSIS
+        follow
+
+    DESCRIPTION
+        Starts following your group leader. When the leader moves to a
+        new room, you will automatically move with them (if you have
+        enough movement points and are in the same room).
+        
+        REQUIREMENTS:
+        - You must be in a group
+        - You cannot be the group leader (leaders can't follow themselves)
+        - You must be in the same room as the leader to auto-follow
+        
+        FOLLOW MECHANICS:
+        - Followers automatically move when the leader moves
+        - Each follower must have enough movement points
+        - Followers must be in the same room as the leader
+        - Followers see the new room automatically after moving
+        - Aggressive mobs in the new room may attack followers too
+
+    SEE ALSO
+        group, unfollow, leader
+
+    EXAMPLE
+        follow
+
+unfollow:
+  summary: "stop following your group leader"
+  visibility: public
+  synopsis:
+    - "unfollow"
+  body: |
+    NAME
+        unfollow - stop following your group leader
+
+    SYNOPSIS
+        unfollow
+
+    DESCRIPTION
+        Stops following your group leader. You will no longer automatically
+        move when the leader moves.
+        
+        You remain in the group but will need to move manually.
+
+    SEE ALSO
+        group, follow
+
+    EXAMPLE
+        unfollow

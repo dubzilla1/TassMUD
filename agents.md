@@ -122,11 +122,11 @@ The server backbone consists of three key files:
 
 - `CommandRegistry` remains the single source of truth for metadata about every command (name, description, category, aliases, GM/combat flags).
 - `CommandParser` still resolves raw input into a canonical command name (supports prefix matching and aliases).
-- A new `CommandDispatcher` inspects the parsed command, looks up its `CommandDefinition` in `CommandRegistry`, and routes execution to a per-category `CommandHandler` implementation (e.g., `ItemCommandHandler`, `MovementCommandHandler`, `CommunicationCommandHandler`, `CombatCommandHandler`, `GmCommandHandler`, `InformationCommandHandler`, `SystemCommandHandler`).
+- A new `CommandDispatcher` inspects the parsed command, looks up its `CommandDefinition` in `CommandRegistry`, and routes execution to a per-category `CommandHandler` implementation (e.g., `ItemCommandHandler`, `MovementCommandHandler`, `CommunicationCommandHandler`, `CombatCommandHandler`, `GroupCommandHandler`, `GmCommandHandler`, `InformationCommandHandler`, `SystemCommandHandler`).
 - Each `CommandHandler` implements a small `supports(String)` check and a `handle(CommandContext)` method. The `CommandContext` bundles everything a handler needs: parsed `Command`, `playerName`, `characterId`, `currentRoomId`, `CharacterRecord`, `CharacterDAO`, `PrintWriter out`, permission flags (`isGm`, `inCombat`) and a reference to the `ClientHandler` instance for helper calls.
 - Dispatch behavior: if the dispatcher finds a handler for the command category and the handler reports it `supports()` the command, the handler's `handle()` is invoked and the main loop in `ClientHandler` does not run the old large switch body for that command. If no handler claims the command, the input falls back to the legacy handling path (or a handler stub), preserving backward compatibility during the refactor.
 
-**Categories**: `INFORMATION`, `MOVEMENT`, `COMMUNICATION`, `ITEMS`, `COMBAT`, `SYSTEM`, `GM` (handlers are mapped by category in `CommandDispatcher`).
+**Categories**: `INFORMATION`, `MOVEMENT`, `COMMUNICATION`, `ITEMS`, `COMBAT`, `GROUP`, `SYSTEM`, `GM` (handlers are mapped by category in `CommandDispatcher`).
 
 **Adding a new command (refactor-aware)**:
 1. Add the command definition in `CommandRegistry.java` (name, category, aliases, flags).

@@ -38,6 +38,7 @@ public class DivineSpellHandler {
         registerDivine("detect hidden");
         registerDivine("detect invis");
         registerDivine("detect magic");
+        registerDivine("fade");
         registerDivine("fly");
         registerDivine("giant strength");
         registerDivine("heal");
@@ -72,6 +73,7 @@ public class DivineSpellHandler {
             case "detect hidden": return handleDetectHidden(casterId, args, ctx);
             case "detect invis": return handleDetectInvis(casterId, args, ctx);
             case "detect magic": return handleDetectMagic(casterId, args, ctx);
+            case "fade": return handleFade(casterId, args, ctx);
             case "fly": return handleFly(casterId, args, ctx);
             case "giant strength": return handleGiantStrength(casterId, args, ctx);
             case "heal": return handleHeal(casterId, args, ctx);
@@ -112,6 +114,84 @@ public class DivineSpellHandler {
     { return notImplemented("detect invis", casterId, args, ctx); }
     private static boolean handleDetectMagic(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("detect magic", casterId, args, ctx); }
+    
+    private static boolean handleFade(Integer casterId, String args, SpellContext ctx) {
+        // Fade: Level 2 DIVINE spell
+        // - Single target aggro reduction (self or ally)
+        // - Reduces aggro by 25% to 75% based on proficiency
+        // - Defaults to self if no target specified
+        // - Generates utility spell aggro for the caster
+        
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[fade] No spell context provided");
+            return false;
+        }
+        
+        CommandContext cmdCtx = ctx.getCommandContext();
+        com.example.tassmud.combat.Combat combat = ctx.getCombat();
+        
+        if (combat == null) {
+            cmdCtx.send("Fade can only be cast during combat.");
+            return false;
+        }
+        
+        // Resolve target - defaults to caster if no target specified
+        List<Integer> targets = ctx.getTargetIds();
+        Integer targetId;
+        if (targets.isEmpty()) {
+            targetId = casterId;
+        } else {
+            targetId = targets.get(0);
+        }
+        
+        // Verify target is a player in the same combat
+        com.example.tassmud.combat.Combatant targetCombatant = combat.findByCharacterId(targetId);
+        if (targetCombatant == null || !targetCombatant.isPlayer()) {
+            cmdCtx.send("Fade can only be cast on players.");
+            return false;
+        }
+        
+        // Calculate reduction percentage based on proficiency (25% at 1, 75% at 100)
+        int proficiency = ctx.getProficiency();
+        // Linear scale: 25 + (proficiency - 1) * 50 / 99 = 25 to 75
+        double reductionPercent = 25.0 + (proficiency - 1) * 50.0 / 99.0;
+        
+        // Get current aggro and calculate new value
+        long currentAggro = combat.getAggro(targetId);
+        long reduction = (long)(currentAggro * reductionPercent / 100.0);
+        long newAggro = currentAggro - reduction;
+        
+        combat.setAggro(targetId, newAggro);
+        
+        // Get target name for messages
+        CharacterDAO dao = cmdCtx.dao;
+        CharacterDAO.CharacterRecord targetRec = dao.getCharacterById(targetId);
+        String targetName = targetRec != null ? targetRec.name : "the target";
+        
+        // Messages
+        if (targetId.equals(casterId)) {
+            cmdCtx.send("\u001B[36mDivine magic shrouds you, causing enemies to lose interest.\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId, 
+                cmdCtx.playerName + " fades from attention as divine magic shrouds them.", casterId);
+        } else {
+            cmdCtx.send("\u001B[36mYou cast Fade on " + targetName + ", reducing their aggro.\u001B[0m");
+            ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetId);
+            if (targetHandler != null) {
+                targetHandler.out.println("\u001B[36m" + cmdCtx.playerName + "'s divine magic causes enemies to lose interest in you.\u001B[0m");
+            }
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId, 
+                targetName + " fades from attention as " + cmdCtx.playerName + "'s divine magic takes effect.", casterId);
+        }
+        
+        // Add utility spell aggro for the caster (100x level = 200 for level 2)
+        ctx.addUtilitySpellAggro();
+        
+        logger.debug("[fade] {} cast fade on {} - reduced aggro from {} to {} ({}% reduction)", 
+            casterId, targetId, currentAggro, newAggro, (int)reductionPercent);
+        
+        return true;
+    }
+    
     private static boolean handleFly(Integer casterId, String args, SpellContext ctx) {
         // Fly: Level 3 DIVINE spell
         // - Single target buff (self or ally)

@@ -56,4 +56,34 @@ public class SpellContext {
             return 1;
         }
     }
+    
+    // ========== Aggro/Threat Management ==========
+    
+    /**
+     * Add aggro for a damaging spell (10x spell level + damage dealt).
+     * Should be called by spell handlers after dealing damage.
+     * @param damage the damage dealt by the spell
+     */
+    public void addDamageSpellAggro(int damage) {
+        if (combat == null || casterId == null || spell == null) return;
+        combat.addDamageSpellAggro(casterId, spell.getLevel(), damage);
+    }
+    
+    /**
+     * Add aggro for a non-damaging spell (100x spell level).
+     * Should be called by spell handlers for buffs, heals, debuffs, etc.
+     */
+    public void addUtilitySpellAggro() {
+        if (combat == null || casterId == null || spell == null) return;
+        combat.addUtilitySpellAggro(casterId, spell.getLevel());
+    }
+    
+    /**
+     * Add custom aggro amount (for special abilities).
+     * @param amount the amount of aggro to add
+     */
+    public void addAggro(long amount) {
+        if (combat == null || casterId == null) return;
+        combat.addAggro(casterId, amount);
+    }
 }

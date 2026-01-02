@@ -16,6 +16,8 @@ import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.MobileRoamingService;
 import com.example.tassmud.util.RegenerationService;
+import com.example.tassmud.util.GroupManager;
+import com.example.tassmud.model.Group;
 
 import java.io.PrintWriter;
 import java.util.Set;
@@ -858,6 +860,13 @@ public class MovementCommandHandler implements CommandHandler {
                     MobileRoamingService.getInstance().checkAggroOnPlayerEntry(destId, charId, playerLevel);
                 }
 
+                // Group follow mechanic - if this player is a group leader, move followers with them
+                final String leaderDirection = directionName;
+                final Integer leaderDestId = destId;
+                final Integer leaderCharId = charId;
+                final Integer leaderOldRoomId = oldRoomId;
+                moveGroupFollowers(dao, leaderCharId, leaderOldRoomId, leaderDestId, leaderDirection);
+
                 return true;
             }
 
@@ -1001,5 +1010,118 @@ public class MovementCommandHandler implements CommandHandler {
             }
         }
         return count;
+    }
+
+    /**
+     * Move group followers when the leader moves.
+     * Followers automatically follow the leader to the new room.
+     */
+    private void moveGroupFollowers(CharacterDAO dao, Integer leaderCharId, Integer fromRoomId, Integer toRoomId, String direction) {
+        if (leaderCharId == null || fromRoomId == null || toRoomId == null) {
+            return;
+        }
+
+        GroupManager gm = GroupManager.getInstance();
+        java.util.Optional<Group> groupOpt = gm.getGroupForCharacter(leaderCharId);
+        
+        if (groupOpt.isEmpty()) {
+            return; // Not in a group
+        }
+
+        Group group = groupOpt.get();
+        
+        // Only process if this player is the leader
+        if (!group.isLeader(leaderCharId)) {
+            return;
+        }
+
+        // Get followers who are in the same room as the leader was
+        Set<Integer> followers = group.getFollowers();
+        if (followers.isEmpty()) {
+            return;
+        }
+
+        CharacterRecord leaderRec = dao.getCharacterById(leaderCharId);
+        String leaderName = leaderRec != null ? leaderRec.name : "Your leader";
+
+        for (int followerId : followers) {
+            // Check if follower is in the same room as the leader was
+            ClientHandler followerHandler = ClientHandler.charIdToSession.get(followerId);
+            if (followerHandler == null) {
+                continue; // Not online
+            }
+
+            if (followerHandler.currentRoomId == null || !followerHandler.currentRoomId.equals(fromRoomId)) {
+                continue; // Not in the same room
+            }
+
+            CharacterRecord followerRec = dao.findByName(followerHandler.playerName);
+            if (followerRec == null) {
+                continue;
+            }
+
+            // Check if follower has enough movement points
+            int moveCost = dao.getMoveCostForRoom(toRoomId);
+            if (followerRec.mvCur < moveCost) {
+                followerHandler.out.println("You are too exhausted to follow " + leaderName + ".");
+                ClientHandler.sendPromptToCharacter(followerId);
+                continue;
+            }
+
+            // Deduct movement points
+            if (!dao.deductMovementPoints(followerHandler.playerName, moveCost)) {
+                followerHandler.out.println("You are too exhausted to follow " + leaderName + ".");
+                ClientHandler.sendPromptToCharacter(followerId);
+                continue;
+            }
+
+            // Move the follower
+            boolean moved = dao.updateCharacterRoom(followerHandler.playerName, toRoomId);
+            if (!moved) {
+                continue;
+            }
+
+            // Announce departure (respecting invisibility)
+            String followerName = followerRec.name;
+            if (!followerHandler.gmInvisible) {
+                ClientHandler.roomAnnounceFromActor(fromRoomId, 
+                    followerName + " follows " + leaderName + " " + direction + ".", followerId);
+            }
+
+            // Update handler state
+            followerHandler.currentRoomId = toRoomId;
+
+            // Announce arrival
+            if (!followerHandler.gmInvisible) {
+                ClientHandler.roomAnnounceFromActor(toRoomId, 
+                    followerName + " arrives following " + leaderName + ".", followerId);
+            }
+
+            // Show the new room to the follower
+            followerHandler.out.println("You follow " + leaderName + " " + direction + ".");
+            Room newRoom = dao.getRoomById(toRoomId);
+            if (newRoom != null) {
+                // Create a temporary context for showing the room
+                CommandContext followerCtx = new CommandContext(
+                    null, // cmd not needed for showRoom
+                    followerHandler.playerName,
+                    followerId,
+                    toRoomId,
+                    followerRec,
+                    dao,
+                    followerHandler.out,
+                    false, // isGm
+                    false, // inCombat
+                    followerHandler
+                );
+                showRoom(newRoom, toRoomId, followerCtx);
+            }
+
+            // Check for aggressive mobs
+            CharacterClassDAO classDao = new CharacterClassDAO();
+            int followerLevel = followerRec.currentClassId != null
+                ? classDao.getCharacterClassLevel(followerId, followerRec.currentClassId) : 1;
+            MobileRoamingService.getInstance().checkAggroOnPlayerEntry(toRoomId, followerId, followerLevel);
+        }
     }
 }

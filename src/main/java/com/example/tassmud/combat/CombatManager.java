@@ -9,6 +9,7 @@ import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Mobile;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
+import com.example.tassmud.model.Stance;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterClassDAO;
@@ -18,6 +19,9 @@ import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.LootGenerator;
 import com.example.tassmud.util.TickService;
+import com.example.tassmud.util.GroupManager;
+import com.example.tassmud.util.RegenerationService;
+import com.example.tassmud.model.Group;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -383,9 +387,11 @@ public class CombatManager {
         if (command == basicAttack && basicAttack.hasAoEInfusion(combatant)) {
             // Execute AoE attack against all valid targets
             List<CombatResult> aoeResults = basicAttack.executeAoE(combatant, combat, 0);
+            int totalAoeDamage = 0;
             for (CombatResult result : aoeResults) {
                 combat.addRoundResult(result);
                 broadcastCombatResult(combat, result);
+                totalAoeDamage += Math.max(0, result.getDamage());
                 
                 Combatant aoeTarget = result.getTarget();
                 if (result.getDamage() > 0 && aoeTarget != null && aoeTarget.isPlayer()) {
@@ -396,6 +402,11 @@ public class CombatManager {
                 if ((result.isDeath() || (aoeTarget != null && !aoeTarget.isAlive())) && aoeTarget != null) {
                     handleCombatantDeath(combat, aoeTarget, combatant);
                 }
+            }
+            
+            // Track aggro for AoE attacks (10 base + total damage across all targets)
+            if (combatant.isPlayer() && combatant.getCharacterId() != null) {
+                combat.addAttackAggro(combatant.getCharacterId(), totalAoeDamage);
             }
             
             // Apply end-of-turn effects (damage over time, healing, etc.)
@@ -409,6 +420,11 @@ public class CombatManager {
         
         // Send messages based on result
         broadcastCombatResult(combat, result);
+        
+        // Track aggro for player attackers (attacks generate 10 base + damage)
+        if (combatant.isPlayer() && combatant.getCharacterId() != null) {
+            combat.addAttackAggro(combatant.getCharacterId(), result.getDamage());
+        }
         
         // Track armor damage for proficiency training (only for player targets)
         if (result.getDamage() > 0 && target.isPlayer()) {
@@ -470,6 +486,11 @@ public class CombatManager {
             // Send messages
             broadcastCombatResult(combat, result);
             
+            // Track aggro for multi-attacks (same as primary: 10 base + damage)
+            if (combatant.isPlayer() && combatant.getCharacterId() != null) {
+                combat.addAttackAggro(combatant.getCharacterId(), result.getDamage());
+            }
+            
             // Track armor damage
             if (result.getDamage() > 0 && target.isPlayer()) {
                 trackArmorDamage(target, result.getDamage());
@@ -494,14 +515,14 @@ public class CombatManager {
     
     /**
      * Select a target for a mobile based on AI.
+     * Uses aggro system: mobs target the player with highest threat.
      */
     private Combatant selectMobileTarget(Combat combat, Combatant mobile) {
         List<Combatant> targets = combat.getValidTargets(mobile);
         if (targets.isEmpty()) return null;
         
-        // For now: random target
-        // TODO: Priority targeting (lowest HP, healers, etc.)
-        return targets.get((int)(Math.random() * targets.size()));
+        // Use aggro-based targeting
+        return combat.getHighestAggroTarget(targets);
     }
     
     /**
@@ -1140,6 +1161,9 @@ public class CombatManager {
         String startMsg = attacker.getName() + " attacks " + target.getName() + "!";
         broadcastToRoom(roomId, startMsg);
         
+        // Handle autoassist for group members
+        processAutoassist(attackerId, roomId, combat);
+        
         return combat;
     }
     
@@ -1221,6 +1245,93 @@ public class CombatManager {
         broadcastToRoom(roomId, mob.getName() + " joins the fight!");
         
         return true;
+    }
+    
+    /**
+     * Process autoassist for group members when a player initiates combat.
+     * Group members in the same room with autoassist enabled will automatically join.
+     * 
+     * @param initiatorId The character ID of the player who started combat
+     * @param roomId The room where combat is happening
+     * @param combat The combat instance to join
+     */
+    private void processAutoassist(Integer initiatorId, int roomId, Combat combat) {
+        if (initiatorId == null) return;
+        
+        GroupManager gm = GroupManager.getInstance();
+        java.util.Optional<Group> groupOpt = gm.getGroupForCharacter(initiatorId);
+        
+        if (!groupOpt.isPresent()) {
+            // Not in a group, nothing to do
+            return;
+        }
+        
+        Group group = groupOpt.get();
+        CharacterDAO dao = new CharacterDAO();
+        
+        // Check each group member
+        for (Integer memberId : group.getMemberIds()) {
+            // Skip the initiator (they're already in combat)
+            if (memberId.equals(initiatorId)) {
+                continue;
+            }
+            
+            // Skip if member is already in combat
+            if (combatsByCharacter.containsKey(memberId)) {
+                continue;
+            }
+            
+            // Get member's record to check room and autoassist setting
+            CharacterRecord memberRec = dao.findById(memberId);
+            if (memberRec == null) {
+                continue;
+            }
+            
+            // Check if in same room
+            if (memberRec.currentRoom == null || memberRec.currentRoom != roomId) {
+                continue;
+            }
+            
+            // Check autoassist flag
+            if (!memberRec.autoassist) {
+                continue;
+            }
+            
+            // Check stance - must be standing to join combat
+            Stance stance = RegenerationService.getInstance().getPlayerStance(memberId);
+            if (!stance.canInitiateCombat()) {
+                // Notify them they couldn't assist due to stance
+                ClientHandler.sendToCharacter(memberId, 
+                    "You cannot assist - you must be standing to join combat.");
+                continue;
+            }
+            
+            // Remove invisibility when joining combat
+            com.example.tassmud.effect.EffectRegistry.removeInvisibility(memberId);
+            
+            // Build GameCharacter and add to combat
+            GameCharacter memberChar = ClientHandler.buildCharacterForCombat(memberRec, memberId);
+            if (memberChar == null) {
+                continue;
+            }
+            
+            // Add to combat on player alliance (0)
+            combat.addPlayerCombatant(memberChar, memberId);
+            combatsByCharacter.put(memberId, combat);
+            
+            // Get initiator name for the message
+            String initiatorName = dao.getCharacterNameById(initiatorId);
+            if (initiatorName == null) initiatorName = "your ally";
+            
+            // Notify the assisting player
+            ClientHandler.sendToCharacter(memberId, 
+                "You rush to assist " + initiatorName + " in combat!");
+            
+            // Announce to room
+            broadcastToRoom(roomId, memberRec.name + " rushes to assist!");
+            
+            logger.debug("Autoassist: {} joined combat to assist {}", memberRec.name, initiatorName);
+        }
     }
     
     /**

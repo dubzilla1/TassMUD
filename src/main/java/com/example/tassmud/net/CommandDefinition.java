@@ -14,6 +14,7 @@ public class CommandDefinition {
         COMMUNICATION("Communication"),
         ITEMS("Items & Equipment"),
         COMBAT("Combat & Skills"),
+        GROUP("Group & Party"),
         SYSTEM("System"),
         GM("GM Commands");
         

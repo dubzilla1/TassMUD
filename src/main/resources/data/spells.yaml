@@ -265,7 +265,16 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [212]
-    
+
+  - id: 115
+    name: Fade
+    description: Divine magic causes enemies to lose interest in the target, reducing their aggro.
+    school: DIVINE
+    level: 2
+    castingTime: 1.0
+    target: TARGET
+    progression: NORMAL
+
   # Level 5 Divine
   - id: 120
     name: Cure Serious Wounds

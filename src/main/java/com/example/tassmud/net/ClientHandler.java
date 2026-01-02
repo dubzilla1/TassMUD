@@ -80,7 +80,11 @@ public class ClientHandler implements Runnable {
     private void unregisterSession() {
         sessions.remove(this);
         if (playerName != null) nameToSession.remove(playerName.toLowerCase());
-        if (characterId != null) charIdToSession.remove(characterId);
+        if (characterId != null) {
+            charIdToSession.remove(characterId);
+            // Clean up group membership on disconnect
+            com.example.tassmud.util.GroupManager.getInstance().handlePlayerLogout(characterId);
+        }
     }
 
     public void sendRaw(String msg) {
@@ -1192,9 +1196,41 @@ public class ClientHandler implements Runnable {
      */
     
 
-    public static void groupBroadcast(CharacterDAO dao, String playerName2, String t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'groupBroadcast'");
+    public static void groupBroadcast(CharacterDAO dao, String playerName, String message) {
+        // Get the sender's character ID
+        Integer senderId = dao.getCharacterIdByName(playerName);
+        if (senderId == null) {
+            return;
+        }
+
+        // Get the sender's group
+        com.example.tassmud.util.GroupManager gm = com.example.tassmud.util.GroupManager.getInstance();
+        java.util.Optional<com.example.tassmud.model.Group> groupOpt = gm.getGroupForCharacter(senderId);
+        
+        if (groupOpt.isEmpty()) {
+            // Send error to sender
+            ClientHandler senderHandler = charIdToSession.get(senderId);
+            if (senderHandler != null) {
+                senderHandler.out.println("You are not in a group.");
+                sendPromptToCharacter(senderId);
+            }
+            return;
+        }
+
+        com.example.tassmud.model.Group group = groupOpt.get();
+
+        // Send to all group members
+        for (int memberId : group.getMemberIds()) {
+            ClientHandler memberHandler = charIdToSession.get(memberId);
+            if (memberHandler != null) {
+                if (memberId == senderId) {
+                    memberHandler.out.println("\u001B[36m[Group] You: " + message + "\u001B[0m");
+                } else {
+                    memberHandler.out.println("\u001B[36m[Group] " + playerName + ": " + message + "\u001B[0m");
+                }
+                sendPromptToCharacter(memberId);
+            }
+        }
     }
 
     public boolean executeAutoflee(Combat combat) {

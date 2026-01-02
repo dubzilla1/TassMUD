@@ -66,6 +66,8 @@ skills:
     name: Disarm
     description: Attempt to knock the weapon from an enemy's grasp.
     progression: NORMAL
+    traits: [COMBAT]
+    cooldown: 10
 
   - id: 13
     key: parry
@@ -105,12 +107,10 @@ skills:
   - id: 18
     key: heroic_strike
     name: Heroic Strike
-    description: A devastating blow infused with heroic willpower that grants guaranteed critical hits.
+    description: A devastating blow that guarantees a critical hit with maximum damage. Cooldown decreases by 5s on each miss, becoming guaranteed after 4 misses.
     progression: LEGENDARY
     traits: [COMBAT]
-    cooldown: 120
-    duration: 60
-    effectIds: [500]
+    cooldown: 20
 
   - id: 19
     key: shields
@@ -126,6 +126,22 @@ skills:
     progression: EASY
     traits: [COMBAT]
     cooldown: 10
+
+  - id: 21
+    key: taunt
+    name: Taunt
+    description: Taunt enemies to focus their attacks on you, drawing aggro.
+    progression: EASY
+    traits: [COMBAT]
+    cooldown: 15
+
+  - id: 22
+    key: feign
+    name: Feign
+    description: Feign weakness to reduce enemy attention, cutting your aggro in half.
+    progression: EASY
+    traits: [COMBAT]
+    cooldown: 15
 
   # ============================================================
   # GENERAL NON-COMBAT SKILLS (50-99)

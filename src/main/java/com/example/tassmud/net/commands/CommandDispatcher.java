@@ -27,6 +27,7 @@ public class CommandDispatcher {
         handlers.put(CommandDefinition.Category.INFORMATION, new InformationCommandHandler());
         handlers.put(CommandDefinition.Category.COMMUNICATION, new CommunicationCommandHandler());
         handlers.put(CommandDefinition.Category.COMBAT, new CombatCommandHandler());
+        handlers.put(CommandDefinition.Category.GROUP, new GroupCommandHandler());
         handlers.put(CommandDefinition.Category.SYSTEM, new SystemCommandHandler());
         handlers.put(CommandDefinition.Category.GM, new GmCommandHandler());
        

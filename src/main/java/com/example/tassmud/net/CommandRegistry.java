@@ -80,10 +80,26 @@ public class CommandRegistry {
         registerCombat("kick", "Deliver a powerful kick to your enemy", Category.COMBAT);
         registerCombat("trip", "Trip an enemy, knocking them prone", Category.COMBAT);
         registerCombat("bash", "Bash an enemy with your shield, stunning them", Category.COMBAT);
-        registerCombat("heroic", "Execute a Heroic Strike, granting guaranteed critical hits", Category.COMBAT);
+        registerCombat("disarm", "Knock the weapon from an enemy's grasp", Category.COMBAT);
+        registerCombat("heroic", "Execute a devastating Heroic Strike", Category.COMBAT, List.of("hs"));
+        registerCombat("taunt", "Taunt enemies to focus their attacks on you", Category.COMBAT);
+        registerCombat("feign", "Feign weakness to reduce your aggro", Category.COMBAT);
         register("infuse", "Infuse your staff with arcane energy for ranged attacks", Category.COMBAT);
         register("hide", "Become invisible to others", Category.COMBAT);
         register("visible", "Become visible again, dropping invisibility", Category.COMBAT, List.of("unhide"));
+        
+        // ===== GROUP & PARTY =====
+        // Group commands allowed in combat for coordination
+        registerCombat("group", "Create a group, view group status, or manage your group", Category.GROUP);
+        registerCombat("invite", "Invite a player to join your group", Category.GROUP);
+        registerCombat("accept", "Accept a pending group invitation", Category.GROUP, List.of("join"));
+        registerCombat("decline", "Decline a pending group invitation", Category.GROUP);
+        registerCombat("leave", "Leave your current group", Category.GROUP);
+        registerCombat("disband", "Disband your group (leader only)", Category.GROUP);
+        register("boot", "Boot a member from your group (leader only)", Category.GROUP);
+        registerCombat("leader", "Transfer group leadership to another member", Category.GROUP, List.of("promote"));
+        registerCombat("follow", "Start following your group leader", Category.GROUP);
+        registerCombat("unfollow", "Stop following your group leader", Category.GROUP);
         
         // ===== SYSTEM =====
         // save, quit allowed in combat; prompt, motd not critical
@@ -96,6 +112,7 @@ public class CommandRegistry {
         register("autogold", "Toggle automatic looting of gold from corpses", Category.SYSTEM);
         register("autosac", "Toggle automatic sacrifice of empty corpses (requires autoloot and autogold)", Category.SYSTEM);
         register("autojunk", "Toggle automatic sale of junk", Category.SYSTEM);
+        register("autoassist", "Toggle automatic assistance to group members in combat", Category.SYSTEM);
         registerCombat("autoflee", "Configure automatic flee threshold (0-100)", Category.SYSTEM);
         
         // ===== GM COMMANDS =====
