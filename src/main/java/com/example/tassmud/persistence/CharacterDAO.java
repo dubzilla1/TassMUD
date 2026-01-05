@@ -181,8 +181,8 @@ public class CharacterDAO {
          * Add a spell with full details. Uses MERGE to update if exists.
          */
         public boolean addSpellFull(Spell spell) {
-            String sql = "MERGE INTO spelltb (id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration) " +
-                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "MERGE INTO spelltb (id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost) " +
+                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, spell.getId());
@@ -201,6 +201,7 @@ public class CharacterDAO {
                 ps.setString(10, traitsStr);
                 ps.setDouble(11, spell.getCooldown());
                 ps.setDouble(12, spell.getDuration());
+                ps.setInt(13, spell.getMpCost());
                 ps.executeUpdate();
                 return true;
             } catch (SQLException e) {
@@ -210,7 +211,7 @@ public class CharacterDAO {
         }
 
         public Spell getSpellById(int id) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb WHERE id = ?";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE id = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -226,7 +227,7 @@ public class CharacterDAO {
         }
         
         public Spell getSpellByName(String name) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb WHERE name = ?";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE name = ?";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, name);
@@ -243,7 +244,7 @@ public class CharacterDAO {
         
         public java.util.List<Spell> getAllSpells() {
             java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb ORDER BY school, level, name";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb ORDER BY school, level, name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql);
                  ResultSet rs = ps.executeQuery()) {
@@ -258,7 +259,7 @@ public class CharacterDAO {
         
         public java.util.List<Spell> getSpellsBySchool(Spell.SpellSchool school) {
             java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration FROM spelltb WHERE school = ? ORDER BY level, name";
+            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE school = ? ORDER BY level, name";
             try (Connection c = DriverManager.getConnection(URL, USER, PASS);
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setString(1, school.name());
@@ -286,6 +287,8 @@ public class CharacterDAO {
             String traitsStr = rs.getString("traits");
             double cooldown = rs.getDouble("cooldown");
             double duration = rs.getDouble("duration");
+            int mpCost = 0;
+            try { mpCost = rs.getInt("mp_cost"); } catch (SQLException ignored) {}
             
             Spell.SpellSchool school = Spell.SpellSchool.fromString(schoolStr);
             Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
@@ -308,7 +311,7 @@ public class CharacterDAO {
                 }
             }
             
-            return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown, duration);
+            return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost);
         }
 
         // --- CharacterSkill DAO ---
@@ -623,6 +626,7 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS traits VARCHAR(500) DEFAULT ''");
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS cooldown DOUBLE DEFAULT 0");
                     s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS duration DOUBLE DEFAULT 0");
+                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS mp_cost INT DEFAULT 0");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create spelltb table", e);
                 }

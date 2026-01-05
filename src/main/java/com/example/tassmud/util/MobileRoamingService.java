@@ -506,6 +506,11 @@ public class MobileRoamingService {
             return; // GM-invisible characters don't trigger aggro
         }
         
+        // Skip aggro check if the player is sneaking
+        if (com.example.tassmud.net.ClientHandler.isSneaking(characterId)) {
+            return; // Sneaking characters don't trigger aggro
+        }
+        
         // Get all mobs in the room
         List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(roomId);
         if (mobsInRoom.isEmpty()) {
@@ -592,6 +597,12 @@ public class MobileRoamingService {
         
         // Filter out GM-invisible players
         playersInRoom.removeIf(p -> com.example.tassmud.net.ClientHandler.isGmInvisible(p.characterId));
+        if (playersInRoom.isEmpty()) {
+            return;
+        }
+        
+        // Filter out sneaking players
+        playersInRoom.removeIf(p -> com.example.tassmud.net.ClientHandler.isSneaking(p.characterId));
         if (playersInRoom.isEmpty()) {
             return;
         }

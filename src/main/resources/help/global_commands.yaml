@@ -1449,6 +1449,54 @@ heroic:
     EXAMPLE
         heroic
 
+sneak:
+  summary: "toggle sneaking mode to move silently"
+  visibility: public
+  keywords: [sneak, sneaking, stealth, silent, rogue]
+  see_also: [hide, visible, skills]
+  synopsis:
+    - "sneak"
+  body: |
+    NAME
+        sneak - toggle silent movement mode
+
+    SYNOPSIS
+        sneak
+
+    DESCRIPTION
+        Toggle sneaking mode on or off. While sneaking, you move silently
+        through the world without drawing attention to yourself.
+        
+        REQUIREMENTS:
+        - You must know the Sneak skill (Rogue skill #300)
+        - Sneak is mastered at 100% proficiency when learned
+        
+        EFFECTS OF SNEAKING:
+        - Your room entry/exit messages are suppressed
+        - Other players won't see "PlayerName arrives from the south."
+        - Other players won't see "PlayerName leaves north."
+        - Aggressive mobs will not attack you on sight
+        
+        DIFFERENCES FROM HIDE:
+        - Sneak is a toggle that stays active until you turn it off
+        - Hide grants full invisibility with a cooldown
+        - Sneak only suppresses movement messages and aggro
+        - You are still visible to players using 'look' or 'who'
+        
+        COMBAT:
+        - Sneaking does not break on entering combat
+        - However, sneaking does NOT make you invisible in combat
+        - Sneaking only affects movement and aggro triggers
+        
+    SEE ALSO
+        hide, visible, skills
+
+    EXAMPLE
+        sneak
+            -- Toggle sneaking mode on
+        sneak
+            -- Toggle sneaking mode off
+
 hide:
   summary: "use stealth to become invisible (requires hide skill)"
   visibility: public

@@ -16,7 +16,7 @@ classes:
       variety of weapon and armor proficiencies.
     hp_level: 12
     mp_level: 0
-    mv_level: 4
+    mv_level: 6
     skills:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
@@ -24,31 +24,33 @@ classes:
         skill_id: 1    # basic attack
       - level: 1
         skill_id: 952  # mail armor
-      - level: 2
+      - level: 1
         skill_id: 19   # shields
-      - level: 3
+      - level: 1
         skill_id: 901  # martial weapons
       - level: 3
         skill_id: 10   # kick
       - level: 5
         skill_id: 11   # bash
       - level: 10
-        skill_id: 12   # disarm
+        skill_id: 21   # taunt
       - level: 15
-        skill_id: 902  # exotic weapons
-      - level: 15
-        skill_id: 13   # parry
-      - level: 300
-        skill_id: 14   # riposte
-      - level: 20
-        skill_id: 953  # plate armor
-      - level: 25
         skill_id: 15   # second attack
-      - level: 35
+      - level: 20
+        skill_id: 13   # parry
+      - level: 25
         skill_id: 16   # third attack
-      - level: 45
+      - level: 30
+        skill_id: 902  # exotic weapons
+      - level: 30
+        skill_id: 953  # plate armor
+      - level: 35
+        skill_id: 12   # disarm
+      - level: 40
         skill_id: 17   # fourth attack
-      - level: 51
+      - level: 45
+        skill_id: 14   # riposte
+      - level: 50
         skill_id: 18   # heroic strike (hero level)
 
   # ============================================================
@@ -62,7 +64,7 @@ classes:
       utility spells. They are physically frail but devastating at range.
     hp_level: 4
     mp_level: 15
-    mv_level: 2
+    mv_level: 6
     skills:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
@@ -103,7 +105,7 @@ classes:
       and fight in melee when necessary.
     hp_level: 8
     mp_level: 12
-    mv_level: 3
+    mv_level: 4
     skills:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
@@ -133,8 +135,6 @@ classes:
         spell_id: 130  # cure critical wounds
       - level: 40
         skill_id: 205  # sanctuary
-      - level: 45
-        spell_id: 206  # resurrection
       - level: 51
         spell_id: 207  # divine intervention (hero level)
 
@@ -148,9 +148,9 @@ classes:
       Cunning and quick, rogues rely on stealth, precision strikes, and
       dirty tricks. They excel at finding traps, picking locks, and
       delivering devastating sneak attacks.
-    hp_level: 6
-    mp_level: 2
-    mv_level: 6
+    hp_level: 8
+    mp_level: 0
+    mv_level: 10
     skills:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
@@ -163,18 +163,22 @@ classes:
       - level: 6
         skill_id: 302  # pick lock
       - level: 10
-        skill_id: 303  # detect traps
+        skill_id: 23   # improved critical
       - level: 15
-        skill_id: 304  # disarm traps
+        skill_id: 307  # circle
       - level: 20
         skill_id: 305  # hide
       - level: 25
+        skill_id: 24   # greater critical
+      - level: 30
+        skill_id: 15   # second attack
+      - level: 35
         skill_id: 306  # poison weapon
-      - level: 32
-        skill_id: 307  # circle stab
       - level: 40
         skill_id: 308  # assassinate
-      - level: 51
+      - level: 40
+        skill_id: 25   # superior critical
+      - level: 50
         skill_id: 309  # shadow step (hero level)
 
   # ============================================================

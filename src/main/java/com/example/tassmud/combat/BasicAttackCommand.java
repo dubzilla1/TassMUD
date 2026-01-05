@@ -5,6 +5,7 @@ import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
+import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.util.OpposedCheck;
 import org.slf4j.Logger;
@@ -502,7 +503,8 @@ public class BasicAttackCommand implements CombatCommand {
     
     /**
      * Check if the defender can riposte after a successful parry.
-     * If they know Riposte and pass an opposed check, they get a bonus attack next round.
+     * Riposte chance scales from 25% (at 0 proficiency) to 75% (at 100 proficiency).
+     * Formula: 25 + (proficiency / 2)
      * 
      * @param defender the combatant who parried
      * @param attacker the combatant whose attack was parried
@@ -521,22 +523,27 @@ public class BasicAttackCommand implements CombatCommand {
         }
         
         int proficiency = riposteSkill.getProficiency();
-        int defenderLevel = calculator.getCombatantLevel(defender);
-        int attackerLevel = calculator.getCombatantLevel(attacker);
         
-        // Opposed check for riposte opportunity
-        boolean riposteSuccess = OpposedCheck.checkWithProficiency(defenderLevel, attackerLevel, proficiency);
+        // Riposte chance scales from 25% to 75% based on proficiency
+        // Formula: 25 + (proficiency / 2)
+        int riposteChance = 25 + (proficiency / 2);
+        int roll = (int)(Math.random() * 100) + 1; // 1-100
+        
+        boolean riposteSuccess = roll <= riposteChance;
         
         if (riposteSuccess) {
             defender.addRiposteAttack();
             
-            // Try to improve proficiency
+            // Try to improve proficiency on successful riposte
             Skill riposteDef = dao.getSkillById(RIPOSTE_SKILL_ID);
             if (riposteDef != null) {
                 dao.tryImproveSkill(defender.getCharacterId(), RIPOSTE_SKILL_ID, riposteDef);
             }
             
-            // TODO: Send message about riposte opportunity via ClientHandler
+            // Send riposte message to defender
+            String attackerName = attacker.getName();
+            ClientHandler.sendToCharacter(defender.getCharacterId(), 
+                "\n{Y>>> You spot an opening and prepare to riposte!{x\n");
         }
     }
     

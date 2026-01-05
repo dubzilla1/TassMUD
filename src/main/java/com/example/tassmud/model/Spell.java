@@ -21,22 +21,31 @@ public class Spell {
     private final List<SpellTrait> traits;
     private final double cooldown;              // cooldown in seconds, 0 means no cooldown
     private final double duration;              // duration in seconds, 0 means instant
+    private final int mpCost;                   // MP cost, 0 means use spell level as cost
 
     public Spell(int id, String name, String description) {
         this(id, name, description, SpellSchool.ARCANE, 1, 1.0, SpellTarget.SELF, 
-             null, Skill.SkillProgression.NORMAL, null, 0, 0);
+             null, Skill.SkillProgression.NORMAL, null, 0, 0, 0);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
                  Skill.SkillProgression progression) {
         this(id, name, description, school, level, baseCastingTime, target, effectIds,
-             progression, null, 0, 0);
+             progression, null, 0, 0, 0);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
                  Skill.SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration) {
+        this(id, name, description, school, level, baseCastingTime, target, effectIds,
+             progression, traits, cooldown, duration, 0);
+    }
+    
+    public Spell(int id, String name, String description, SpellSchool school, int level,
+                 double baseCastingTime, SpellTarget target, List<String> effectIds,
+                 Skill.SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration,
+                 int mpCost) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -49,6 +58,7 @@ public class Spell {
         this.traits = traits != null ? new ArrayList<>(traits) : new ArrayList<>();
         this.cooldown = Math.max(0, cooldown);
         this.duration = Math.max(0, duration);
+        this.mpCost = Math.max(0, mpCost);
     }
 
     public int getId() { return id; }
@@ -63,6 +73,7 @@ public class Spell {
     public List<SpellTrait> getTraits() { return Collections.unmodifiableList(traits); }
     public double getCooldown() { return cooldown; }
     public double getDuration() { return duration; }
+    public int getMpCost() { return mpCost; }
     
     /**
      * Check if this spell has a specific trait.

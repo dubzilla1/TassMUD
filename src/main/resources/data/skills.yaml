@@ -81,6 +81,7 @@ skills:
     key: riposte
     name: Riposte
     description: Counter-attack immediately after a successful parry.
+    is_passive: true
     progression: HARD
 
   - id: 15
@@ -142,6 +143,27 @@ skills:
     progression: EASY
     traits: [COMBAT]
     cooldown: 15
+
+  - id: 23
+    key: improved_critical
+    name: Improved Critical
+    description: Your keen eye for weak spots lowers your critical hit threshold by 1 (crit on 19+).
+    progression: INSTANT
+    is_passive: true
+
+  - id: 24
+    key: greater_critical
+    name: Greater Critical
+    description: Further mastery of vital strikes lowers your critical hit threshold by an additional 1 (crit on 18+).
+    progression: INSTANT
+    is_passive: true
+
+  - id: 25
+    key: superior_critical
+    name: Superior Critical
+    description: Unparalleled precision lowers your critical hit threshold by yet another 1 (crit on 17+).
+    progression: INSTANT
+    is_passive: true
 
   # ============================================================
   # GENERAL NON-COMBAT SKILLS (50-99)
@@ -289,14 +311,16 @@ skills:
   - id: 300
     key: sneak
     name: Sneak
-    description: Move silently and avoid detection by enemies.
-    progression: TRIVIAL
+    description: Toggle sneaking mode. While sneaking, you move silently without announcing your arrival or departure, and aggressive monsters will not notice you.
+    progression: INSTANT
+    is_passive: false
 
   - id: 301
     key: backstab
     name: Backstab
-    description: Strike from behind for massive damage against unaware targets.
+    description: Initiate combat with a devastating strike from the shadows. Damage is doubled on hit, quadrupled on critical. Cooldown scales from 15s to 3s with proficiency.
     progression: EASY
+    cooldown: 15
 
   - id: 302
     key: pick_lock
@@ -330,22 +354,25 @@ skills:
     progression: HARD
 
   - id: 307
-    key: circle_stab
-    name: Circle Stab
-    description: Dart around an enemy and strike from their blind spot.
+    key: circle
+    name: Circle
+    description: Dart around an enemy mid-combat to strike from their blind spot. Damage is doubled on hit, quadrupled on critical. Cooldown scales from 30s to 6s with proficiency.
     progression: VERY_HARD
+    cooldown: 30
 
   - id: 308
     key: assassinate
     name: Assassinate
-    description: A killing blow against an unaware target. Instant death if successful.
+    description: The ultimate killing strike against an unaware target. Deals 4x damage on hit. On a critical? Instant death.
     progression: LEGENDARY
+    cooldown: 60
 
   - id: 309
     key: shadow_step
     name: Shadow Step
-    description: Step through the shadows to appear behind any enemy you can see.
-    progression: LEGENDARY
+    description: Step through the shadows to a location you've marked. Use 'shadow set' to mark your current room, then 'shadow step' or 'ss' to return there from anywhere (except prison).
+    progression: HARD
+    cooldown: 60
 
   # ============================================================
   # RANGER SKILLS (400-499)

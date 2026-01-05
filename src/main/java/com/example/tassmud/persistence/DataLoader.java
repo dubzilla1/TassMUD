@@ -481,6 +481,7 @@ public class DataLoader {
                 Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
                 double cooldown = getDouble(spellData, "cooldown", 0);
                 double duration = getDouble(spellData, "duration", 0);
+                int mpCost = getInt(spellData, "mpCost", 0);  // 0 means use spell level as cost
                 // Parse traits list
                 List<SpellTrait> traits = new ArrayList<>();
                 Object traitsObj = spellData.get("traits");
@@ -492,7 +493,7 @@ public class DataLoader {
                 }
                 
                 Spell spell = new Spell(id, name, description, school, level, 
-                                        castingTime, target, effectIds, progression, traits, cooldown,duration);
+                                        castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost);
                 
                 // Store in DAO
                 boolean added = dao.addSpellFull(spell);

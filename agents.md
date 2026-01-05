@@ -1,11 +1,63 @@
 # TassMUD – Agent Context Document
 
-> **Last Updated**: December 2025  
+> **Last Updated**: January 2026  
 > This document provides AI agents with comprehensive project context for effective assistance.
 
 ---
 
-## Recent Updates (Dec 23, 2025)
+## Recent Updates (Jan 4, 2026)
+
+Quick summary of changes made recently so agents and converters are aware:
+
+- Spell MP Cost System
+  - MP cost is now handled centrally in `CombatCommandHandler.handleCastCommand()` rather than per-handler.
+  - Default MP cost = spell level (e.g., level 3 spell costs 3 MP). Previously was `2^level`.
+  - Individual spells can override with custom `mpCost` field in `spells.yaml`.
+  - MP is checked before casting (blocks if insufficient) but only **deducted on successful cast**.
+  - `Spell.java` model now has `mpCost` field (0 = use spell level as default).
+  - `spelltb` table has new `mp_cost INT DEFAULT 0` column (migration added).
+  - Cast flow shows: "You begin casting X..." → success: "Spell completed! (-N MP)" or failure: "The spell fizzles."
+
+- Spell Handler Architecture
+  - `SpellHandler` interface: `boolean cast(Integer casterId, String args, SpellContext ctx)`
+  - Return `true` for successful cast (MP deducted), `false` for failure (no MP cost).
+  - `SpellRegistry` maps spell names to handlers; handlers register during static init.
+  - Per-school handlers: `ArcaneSpellHandler`, `DivineSpellHandler`, `PrimalSpellHandler`, `OccultSpellHandler`.
+  - `SpellContext` provides: `CommandContext`, `Combat`, targets, spell definition, proficiency, aggro helpers.
+
+- Rogue Skill Line (NEW)
+  - **Sneak** (id=300): Toggle mode. Suppresses arrival/departure room messages and prevents aggro from mobs.
+  - **Backstab** (id=301): Out-of-combat attack. 2x damage on hit, 4x on crit. Cooldown scales 15s→3s with proficiency.
+  - **Circle** (id=307): In-combat backstab variant. 2x damage hit, 4x crit. Cooldown scales 30s→6s with proficiency.
+  - **Assassinate** (id=308): Out-of-combat. 4x damage on hit, **instant kill on crit**. Fixed 60s cooldown.
+  - **Shadow Step** (id=309): Personal teleport. `shadow set` marks location, `shadow step`/`ss` teleports back. Blocked in PRISON rooms. Cooldown scales 60s→15s with proficiency.
+  - All implemented in `CombatCommandHandler.java` with cooldown scaling, proficiency improvement, and debug output.
+
+- Critical Hit System (Passive Skills)
+  - **Improved Critical** (id=23): Mastered skill lowers crit threshold by 1 (crit on 19+).
+  - **Greater Critical** (id=24): Stacks, lowers by additional 1 (crit on 18+).
+  - **Superior Critical** (id=25): Stacks, lowers by additional 1 (crit on 17+).
+  - Applied as permanent `CRITICAL_THRESHOLD_BONUS` modifier in `ClientHandler.buildCharacterForCombat()`.
+
+- Riposte Rework
+  - Riposte chance now scales from 25% (0 proficiency) to 75% (100 proficiency) via formula `25 + (proficiency / 2)`.
+  - Defender receives feedback: `">>> You spot an opening and prepare to riposte!"`.
+  - Riposte is now marked as `is_passive: true` in skills.yaml.
+
+- Sneak & Aggro Integration
+  - `ClientHandler.isSneaking(characterId)` checks `is_sneaking` flag.
+  - `roomAnnounceFromActor()` suppresses messages for sneaking characters.
+  - `MobileRoamingService.checkAggroOnRoomEntry()` and `processAggressiveMobs()` skip sneaking players.
+
+- Class Balance (classes.yaml)
+  - Fighter: MV increased 4→6, skill unlocks reorganized (shields/martial at L1, parry L20, second attack L15).
+  - Wizard: MV increased 2→6.
+  - Cleric: MV increased 3→4.
+  - Rogue: HP 6→8, MP 2→0, MV 6→10. New skill progression includes critical skills at 10/25/40 and rogue skills.
+
+---
+
+## Previous Updates (Dec 23, 2025)
 
 Quick summary of changes made recently so agents and converters are aware:
 
@@ -30,6 +82,7 @@ Quick summary of changes made recently so agents and converters are aware:
   - `LootGenerator` and related code were adjusted to use the mob's true level for loot scaling (mob level parsing fix noted above).
 
 These changes are reflected in the workspace under `tools/` and `src/main/java/...` and should be referenced by agents when generating or converting MERC data.
+
 
 
 ## Project Overview
@@ -164,6 +217,8 @@ The server backbone consists of three key files:
 - Has `school` (ARCANE, DIVINE, PRIMAL, OCCULT), `level` (1-10), `target` type
 - Progression works like skills
 - Target types: `SELF`, `CURRENT_ENEMY`, `EXPLICIT_MOB_TARGET`, `ALL_ENEMIES`, etc.
+- **MP Cost**: Default = spell level (level 3 = 3 MP). Override via `mpCost` field in YAML.
+- MP checked before cast, deducted only on successful cast (handler returns `true`).
 
 **`CharacterClass`**:
 - Defines HP/MP/MV gains per level

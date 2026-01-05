@@ -87,6 +87,11 @@ public class CommandRegistry {
         register("infuse", "Infuse your staff with arcane energy for ranged attacks", Category.COMBAT);
         register("hide", "Become invisible to others", Category.COMBAT);
         register("visible", "Become visible again, dropping invisibility", Category.COMBAT, List.of("unhide"));
+        register("sneak", "Toggle sneaking mode to move silently and avoid aggro", Category.COMBAT);
+        register("backstab", "Initiate combat with a devastating sneak attack", Category.COMBAT, List.of("bs"));
+        registerCombat("circle", "Dart around an enemy to strike from behind", Category.COMBAT);
+        register("assassinate", "Execute an unaware target - instant kill on crit", Category.COMBAT);
+        register("shadow", "Shadow step: 'shadow set' to mark location, 'shadow step' to teleport", Category.COMBAT, List.of("ss"));
         
         // ===== GROUP & PARTY =====
         // Group commands allowed in combat for coordination

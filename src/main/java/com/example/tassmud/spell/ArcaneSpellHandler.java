@@ -37,7 +37,8 @@ public class ArcaneSpellHandler {
         registerArcane("blindness");
         registerArcane("burning hands");
         registerArcane("call lightning");
-        registerArcane("charm person");        registerArcane("chill touch");        registerArcane("chill touch");
+        registerArcane("charm person");
+        registerArcane("chill touch");
         registerArcane("colour spray");
         registerArcane("curse");
         registerArcane("dispel evil");
@@ -668,7 +669,8 @@ public class ArcaneSpellHandler {
         Map<String, String> extraParams = ctx.getExtraParams();
         CommandContext cmdCtx = ctx.getCommandContext();
         CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
-        
+        int mpcost = ctx.getSpell().getLevel(); // Default mana cost is spell level
+
         boolean anyApplied = false;
         
         for (String effId : effectIds) {

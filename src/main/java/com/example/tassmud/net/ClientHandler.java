@@ -286,11 +286,13 @@ public class ClientHandler implements Runnable {
     }
     
     /**
-     * Room announce that automatically checks the actor's invisibility status.
-     * Use this for player actions where we want to respect their invisibility.
+     * Room announce that automatically checks the actor's invisibility and sneak status.
+     * Use this for player actions where we want to respect their invisibility/sneaking.
      */
     public static void roomAnnounceFromActor(Integer roomId, String msg, Integer actorCharacterId) {
         if (roomId == null || msg == null || msg.isEmpty()) return;
+        // Sneaking characters are silent - don't announce their movements
+        if (isSneaking(actorCharacterId)) return;
         boolean isVisible = !com.example.tassmud.effect.EffectRegistry.isInvisible(actorCharacterId);
         roomAnnounce(roomId, msg, actorCharacterId, isVisible);
     }
@@ -439,6 +441,40 @@ public class ClientHandler implements Runnable {
             for (com.example.tassmud.model.Modifier m : mods) {
                 playerChar.addModifier(m);
             }
+            
+            // Apply passive critical threshold bonuses from mastered skills
+            // These reduce the threshold (negative bonus = lower roll needed to crit)
+            int critBonus = 0;
+            
+            // Improved Critical (id=23) - lowers threshold by 1
+            com.example.tassmud.model.CharacterSkill improvedCrit = dao.getCharacterSkill(characterId, 23);
+            if (improvedCrit != null && improvedCrit.getProficiency() >= 100) {
+                critBonus -= 1;
+            }
+            
+            // Greater Critical (id=24) - lowers threshold by additional 1
+            com.example.tassmud.model.CharacterSkill greaterCrit = dao.getCharacterSkill(characterId, 24);
+            if (greaterCrit != null && greaterCrit.getProficiency() >= 100) {
+                critBonus -= 1;
+            }
+            
+            // Superior Critical (id=25) - lowers threshold by additional 1
+            com.example.tassmud.model.CharacterSkill superiorCrit = dao.getCharacterSkill(characterId, 25);
+            if (superiorCrit != null && superiorCrit.getProficiency() >= 100) {
+                critBonus -= 1;
+            }
+            
+            // Apply the total critical threshold bonus as a modifier (permanent, no expiry)
+            if (critBonus != 0) {
+                playerChar.addModifier(new com.example.tassmud.model.Modifier(
+                    "passive_critical_skills",
+                    com.example.tassmud.model.Stat.CRITICAL_THRESHOLD_BONUS,
+                    com.example.tassmud.model.Modifier.Op.ADD,
+                    critBonus,
+                    0L,  // no expiry
+                    0    // default priority
+                ));
+            }
         }
         
         return playerChar;
@@ -488,6 +524,20 @@ public class ClientHandler implements Runnable {
         if (characterId == null) return false;
         ClientHandler handler = charIdToSession.get(characterId);
         return handler != null && handler.gmInvisible;
+    }
+    
+    /**
+     * Check if a character is currently sneaking.
+     * Used by room announcements to suppress arrival/departure messages
+     * and by aggro checks to prevent aggressive mobs from attacking.
+     * @param characterId the character to check
+     * @return true if the character has the is_sneaking flag set to true
+     */
+    public static boolean isSneaking(Integer characterId) {
+        if (characterId == null) return false;
+        CharacterDAO dao = new CharacterDAO();
+        String sneakFlag = dao.getCharacterFlag(characterId, "is_sneaking");
+        return "true".equalsIgnoreCase(sneakFlag);
     }
     
     /**
