@@ -146,14 +146,13 @@ public class ItemDAO {
                 logger.warn("[ItemDAO] No 'items' key in YAML: {}", resourcePath);
                 return;
             }
-            @SuppressWarnings("unchecked")
             Object itemsObj = data.get("items");
             if (!(itemsObj instanceof List)) {
                 logger.warn("[ItemDAO] 'items' is not a list in: {}", resourcePath);
                 return;
             }
+            @SuppressWarnings("unchecked")
             List<Map<String, Object>> items = (List<Map<String, Object>>) itemsObj;
-            if (items == null) return;
             logger.info("[ItemDAO] Parsing {} items from {}", items.size(), resourcePath);
             for (Map<String, Object> item : items) {
                 int id = parseIntSafe(item.get("id"));

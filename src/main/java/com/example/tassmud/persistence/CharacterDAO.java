@@ -13,7 +13,6 @@ import com.example.tassmud.model.SectorType;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Modifier;
 import com.example.tassmud.model.Stat;
-import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.model.SkillTrait;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.model.SpellTrait;

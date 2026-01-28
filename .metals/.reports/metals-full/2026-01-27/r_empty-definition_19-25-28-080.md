@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/BasicAttackCommand.java:java/lang/Math#
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/BasicAttackCommand.java
+empty definition using pc, found symbol in pc: java/lang/Math#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 7970
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/BasicAttackCommand.java
+text:
+```scala
 package com.example.tassmud.combat;
 
 import com.example.tassmud.effect.WeaponInfusionEffect;
@@ -8,6 +19,8 @@ import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.util.OpposedCheck;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +37,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * - Mob skills: category = level * 0.02, family = min(level * 0.1, 1.0)
  */
 public class BasicAttackCommand implements CombatCommand {
+
+    private static final Logger logger = LoggerFactory.getLogger(BasicAttackCommand.class);
     
     /** Cooldowns per combatant (combatant ID -> timestamp when cooldown ends) */
     private final Map<Long, Long> cooldowns = new ConcurrentHashMap<>();
@@ -134,6 +149,7 @@ public class BasicAttackCommand implements CombatCommand {
         // Either from a ranged weapon OR from a weapon infusion that makes it ranged
         boolean isRangedAttack = calculator.isUsingRangedWeapon(user) || (infusion != null && infusion.isRanged);
         boolean isMagicalAttack = calculator.isUsingMagicalWeapon(user);
+        boolean isMeleeAttack = !isRangedAttack && !isMagicalAttack;
 
         // Calculate stat modifiers
         int strMod = (attacker.getStr() - 10) / 2;
@@ -188,7 +204,7 @@ public class BasicAttackCommand implements CombatCommand {
         // Calculate level-based attack bonus (with effective penalty)
         int levelBonus = calculator.calculateFullAttackBonus(user, target, effectivePenalty);
         // Include any modifier-based attack hit bonuses
-        int attackHitBonus = attacker.getAttackHitBonus() + (calculator.isCombatantWieldingTrainedWeapon(user) ? (int)Math.floor(calculator.getCombatantLevel(user)/2) + 2 : (int)Math.floor(calculator.getCombatantLevel(user)/3));
+        int attackHitBonus = attacker.getAttackHitBonus() + (calculator.isCombatantWieldingTrainedWeapon(user) ? (int)@@Math.floor(calculator.getCombatantLevel(user)/2) + 2 : (int)Math.floor(calculator.getCombatantLevel(user)/3));
         int totalAttackBonus = statBonus + levelBonus + attackHitBonus;
         
         // Check for blindness - 50% miss chance
@@ -536,6 +552,7 @@ public class BasicAttackCommand implements CombatCommand {
             }
             
             // Send riposte message to defender
+            String attackerName = attacker.getName();
             ClientHandler.sendToCharacter(defender.getCharacterId(), 
                 "\n{Y>>> You spot an opening and prepare to riposte!{x\n");
         }
@@ -737,6 +754,7 @@ public class BasicAttackCommand implements CombatCommand {
      * Set cooldown for a combatant.
      */
     private void setCooldown(Combatant user) {
+        // TODO: Calculate cooldown based on weapon speed, DEX, haste effects, etc.
         long cooldownEnd = System.currentTimeMillis() + BASE_COOLDOWN_MS;
         cooldowns.put(user.getCombatantId(), cooldownEnd);
         user.setGlobalCooldownUntil(cooldownEnd);
@@ -806,3 +824,10 @@ public class BasicAttackCommand implements CombatCommand {
         return 0; // Basic attack is lowest priority
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/lang/Math#

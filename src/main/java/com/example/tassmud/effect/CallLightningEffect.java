@@ -3,10 +3,8 @@ package com.example.tassmud.effect;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.Combatant;
-import com.example.tassmud.model.Weather;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterDAO;
-import com.example.tassmud.util.WeatherService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -96,12 +94,6 @@ public class CallLightningEffect implements EffectHandler {
         CombatManager cm = CombatManager.getInstance();
         Combatant targetCombatant = cm.getCombatantForCharacter(targetId);
         CharacterDAO dao = new CharacterDAO();
-
-        String casterName = null;
-        if (casterId != null) {
-            CharacterDAO.CharacterRecord crec = dao.findById(casterId);
-            if (crec != null) casterName = crec.name;
-        }
 
         String targetName = null;
         CharacterDAO.CharacterRecord trec = dao.findById(targetId);

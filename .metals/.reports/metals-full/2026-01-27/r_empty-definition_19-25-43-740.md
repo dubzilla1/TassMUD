@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/persistence/DataLoader.java:java/nio/file/Paths#
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/persistence/DataLoader.java
+empty definition using pc, found symbol in pc: java/nio/file/Paths#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 714
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/persistence/DataLoader.java
+text:
+```scala
 package com.example.tassmud.persistence;
 
 import com.example.tassmud.model.*;
@@ -17,7 +28,7 @@ import java.net.URLDecoder;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.@@Paths;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.slf4j.Logger;
@@ -219,13 +230,12 @@ public class DataLoader {
         MobileDAO mobileDao = new MobileDAO();
         java.util.concurrent.atomic.AtomicInteger totalLoaded = new java.util.concurrent.atomic.AtomicInteger(0);
         // Helper to load a list from an InputStream
-        @SuppressWarnings("unchecked")
         java.util.function.Consumer<InputStream> loader = (InputStream in) -> {
             if (in == null) return;
             try {
                 String content = new String(in.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
                 org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
-
+                @SuppressWarnings("unchecked")
                 List<Map<String, Object>> mobileList = null;
                 try {
                     mobileList = (List<Map<String, Object>>) yaml.load(content);
@@ -1047,7 +1057,6 @@ public class DataLoader {
     /**
      * Parse a spawn configuration from YAML data.
      */
-    @SuppressWarnings("unchecked")
     private static SpawnConfig parseSpawnConfig(Map<String, Object> data, int roomId) {
         try {
             String typeStr = getString(data, "type", "").toUpperCase();
@@ -1234,7 +1243,6 @@ public class DataLoader {
                         org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
                         Map<String, Object> root = yaml.load(in);
                         if (root == null) continue;
-                        @SuppressWarnings("unchecked")
                         List<Map<String, Object>> roomList = (List<Map<String, Object>>) root.get("rooms");
                         if (roomList == null) continue;
                         for (Map<String, Object> roomData : roomList) {
@@ -1246,7 +1254,6 @@ public class DataLoader {
                             // Exits
                             Object exitsObj = roomData.get("exits");
                             if (exitsObj instanceof Map) {
-                                @SuppressWarnings("unchecked")
                                 Map<String, Object> exits = (Map<String, Object>) exitsObj;
                                 Integer exitN = resolveExitTokenFromYaml(exits.get("north"), keyToId);
                                 Integer exitE = resolveExitTokenFromYaml(exits.get("east"), keyToId);
@@ -1260,7 +1267,6 @@ public class DataLoader {
                             // Doors
                             Object doorsObj = roomData.get("doors");
                             if (doorsObj instanceof Map) {
-                                @SuppressWarnings("unchecked")
                                 Map<String, Object> doors = (Map<String, Object>) doorsObj;
                                 for (Map.Entry<String, Object> e : doors.entrySet()) {
                                     String doorDir = e.getKey();
@@ -1271,14 +1277,12 @@ public class DataLoader {
                                     Integer keyItem = null;
 
                                     if (v instanceof Map) {
-                                        @SuppressWarnings("unchecked")
                                         Map<String, Object> props = (Map<String, Object>) v;
                                         Object toToken = props.get("to");
                                         toId = resolveExitTokenFromYaml(toToken, keyToId);
                                         if (toId == null) {
                                             Object exitsObj2 = roomData.get("exits");
                                             if (exitsObj2 instanceof Map) {
-                                                @SuppressWarnings("unchecked")
                                                 Map<String, Object> exits2 = (Map<String, Object>) exitsObj2;
                                                 toId = resolveExitTokenFromYaml(exits2.get(doorDir), keyToId);
                                             }
@@ -1294,7 +1298,6 @@ public class DataLoader {
                                     } else {
                                         Object exitsObj2 = roomData.get("exits");
                                         if (exitsObj2 instanceof Map) {
-                                            @SuppressWarnings("unchecked")
                                             Map<String, Object> exits2 = (Map<String, Object>) exitsObj2;
                                             toId = resolveExitTokenFromYaml(exits2.get(doorDir), keyToId);
                                         }
@@ -1308,7 +1311,6 @@ public class DataLoader {
                             // Extras
                             Object extrasObj = roomData.get("extras");
                             if (extrasObj instanceof Map) {
-                                @SuppressWarnings("unchecked")
                                 Map<String, Object> extras = (Map<String, Object>) extrasObj;
                                 for (Map.Entry<String, Object> ex : extras.entrySet()) {
                                     String exKey = ex.getKey();
@@ -1344,6 +1346,30 @@ public class DataLoader {
         return null;
     }
 
+    // Resolve an exit token that may be either a room key or a numeric id.
+    private static Integer resolveExitToken(String token, Map<String,Integer> keyToId) {
+        if (token == null || token.isEmpty()) return null;
+        // First, try as a key
+        Integer byKey = keyToId.get(token);
+        if (byKey != null) return byKey;
+        // Next, try parsing as a numeric id
+        try {
+            return Integer.parseInt(token);
+        } catch (NumberFormatException ignored) {
+            return null;
+        }
+    }
 
-
+    private static String emptyToNull(String s) {
+        if (s == null) return null;
+        s = s.trim();
+        return s.isEmpty() ? null : s;
+    }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/nio/file/Paths#

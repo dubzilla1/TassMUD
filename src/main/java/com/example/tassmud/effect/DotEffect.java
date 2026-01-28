@@ -87,7 +87,6 @@ public class DotEffect implements EffectHandler {
         dealTickDamage(inst, def, nowMs);
 
         // Notify target
-        String damageType = p.getOrDefault("damage_type", "magical");
         String casterName = resolveName(casterId);
         String targetName = resolveName(targetId);
         

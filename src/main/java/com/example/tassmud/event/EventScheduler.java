@@ -24,7 +24,7 @@ public class EventScheduler {
     private volatile boolean running = false;
     
     /** Lock for thread safety */
-    private final Object lock = new Object();
+
     
     /** Maximum events to process per tick to prevent overload */
     private static final int MAX_EVENTS_PER_TICK = 50;
@@ -192,12 +192,10 @@ public class EventScheduler {
      * Configuration for a recurring event.
      */
     private static class RecurringEventConfig {
-        final String id;
         final GameEvent event;
         final long periodMs;
         
         RecurringEventConfig(String id, GameEvent event, long periodMs) {
-            this.id = id;
             this.event = event;
             this.periodMs = periodMs;
         }

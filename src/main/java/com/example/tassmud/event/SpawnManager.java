@@ -1,6 +1,5 @@
 package com.example.tassmud.event;
 
-import com.example.tassmud.persistence.CharacterDAO;
 import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

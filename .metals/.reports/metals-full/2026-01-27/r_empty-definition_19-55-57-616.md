@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java:com/example/tassmud/model/Mobile#
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java
+empty definition using pc, found symbol in pc: com/example/tassmud/model/Mobile#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 365
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java
+text:
+```scala
 package com.example.tassmud.combat;
 
 import com.example.tassmud.model.ArmorCategory;
@@ -6,7 +17,7 @@ import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
-import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.@@Mobile;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Stance;
 import com.example.tassmud.model.WeaponFamily;
@@ -1674,3 +1685,10 @@ public class CombatManager {
         return handler.executeAutoflee(combat);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: com/example/tassmud/model/Mobile#

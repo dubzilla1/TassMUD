@@ -4,7 +4,6 @@ import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.effect.EffectRegistry;
 import com.example.tassmud.model.Spell;
-import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.commands.CommandContext;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterClassDAO;

@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java:com/example/tassmud/model/Modifier#source#
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java
+empty definition using pc, found symbol in pc: com/example/tassmud/model/Modifier#source#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 25489
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java
+text:
+```scala
 package com.example.tassmud.combat;
 
 import com.example.tassmud.model.ArmorCategory;
@@ -7,6 +18,7 @@ import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Stance;
 import com.example.tassmud.model.WeaponFamily;
@@ -614,7 +626,7 @@ public class CombatManager {
                         ItemDAO itemDAO = new ItemDAO();
                         java.util.List<com.example.tassmud.model.Modifier> mods = mob.getAllModifiers();
                         for (com.example.tassmud.model.Modifier mod : mods) {
-                            String src = mod.source();
+                            String src = mod.@@source();
                             if (src == null) continue;
                             String idPart = null;
                             if (src.startsWith("equip#")) {
@@ -1674,3 +1686,10 @@ public class CombatManager {
         return handler.executeAutoflee(combat);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: com/example/tassmud/model/Modifier#source#

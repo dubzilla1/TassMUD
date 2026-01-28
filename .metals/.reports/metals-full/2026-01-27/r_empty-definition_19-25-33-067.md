@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/spell/ArcaneSpellHandler.java:java/util/Random#nextDouble().
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/spell/ArcaneSpellHandler.java
+empty definition using pc, found symbol in pc: java/util/Random#nextDouble().
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 13850
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/spell/ArcaneSpellHandler.java
+text:
+```scala
 package com.example.tassmud.spell;
 
 import com.example.tassmud.effect.EffectDefinition;
@@ -298,7 +309,7 @@ public class ArcaneSpellHandler {
             
             // Roll 25% chance for each effect
             for (String effId : COLOUR_SPRAY_EFFECTS) {
-                if (rng.nextDouble() < COLOUR_SPRAY_CHANCE) {
+                if (rng.@@nextDouble() < COLOUR_SPRAY_CHANCE) {
                     EffectInstance inst = EffectRegistry.apply(effId, casterId, targetId, extraParams);
                     if (inst != null) {
                         anyApplied = true;
@@ -667,6 +678,10 @@ public class ArcaneSpellHandler {
         
         Integer casterId = ctx.getCasterId();
         Map<String, String> extraParams = ctx.getExtraParams();
+        CommandContext cmdCtx = ctx.getCommandContext();
+        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
+        int mpcost = ctx.getSpell().getLevel(); // Default mana cost is spell level
+
         boolean anyApplied = false;
         
         for (String effId : effectIds) {
@@ -681,7 +696,16 @@ public class ArcaneSpellHandler {
                 if (inst != null) {
                     anyApplied = true;
                     logger.debug("[{}] Applied effect {} to target {}", spellName, def.getName(), targetId);
-
+                    
+                    // Notify target if online (and not self-cast)
+                    if (!targetId.equals(casterId)) {
+                        ClientHandler targetSession = ClientHandler.charIdToSession.get(targetId);
+                        if (targetSession != null) {
+                            String casterName = dao.findById(casterId) != null ? dao.findById(casterId).name : "Someone";
+                            // Don't double-notify - the effect handler already notifies
+                            // targetSession.sendRaw(def.getName() + " from " + casterName + " takes effect.");
+                        }
+                    }
                 }
             }
         }
@@ -689,3 +713,10 @@ public class ArcaneSpellHandler {
         return anyApplied;
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/util/Random#nextDouble().

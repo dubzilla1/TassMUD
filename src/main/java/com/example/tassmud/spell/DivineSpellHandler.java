@@ -269,8 +269,6 @@ public class DivineSpellHandler {
         
         Integer casterId = ctx.getCasterId();
         Map<String, String> extraParams = ctx.getExtraParams();
-        CommandContext cmdCtx = ctx.getCommandContext();
-        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
         
         boolean anyApplied = false;
         

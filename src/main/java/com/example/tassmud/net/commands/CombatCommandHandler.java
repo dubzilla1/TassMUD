@@ -30,8 +30,6 @@ import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
-import com.example.tassmud.util.ProficiencyCheck;
-import com.example.tassmud.util.ProficiencyCheck.Result;
 import com.example.tassmud.util.RegenerationService;
 
 /**
@@ -554,7 +552,6 @@ public class CombatCommandHandler implements CommandHandler {
                 if (leveledUp) {
                     int newLevel = classDAO.getCharacterClassLevel(characterId, classId);
                     out.println("You have reached level " + newLevel + "!");
-                    final int charId = characterId;
                     classDAO.processLevelUp(characterId, newLevel, msg -> out.println(msg));
                 }
             }
@@ -883,8 +880,6 @@ public class CombatCommandHandler implements CommandHandler {
             out.println("Failed to prepare you for combat.");
             return true;
         }
-        
-        int proficiency = charAssassinate.getProficiency();
         
         // Calculate hit chance using proficiency-modified opposed check
         CharacterClassDAO classDao = new CharacterClassDAO();
@@ -1324,7 +1319,6 @@ public class CombatCommandHandler implements CommandHandler {
         int proficiency = charTaunt.getProficiency();
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
 
-        String targetName = targetCombatant.getName();
         boolean tauntSucceeded = roll <= successChance;
 
         if (tauntSucceeded) {
@@ -2141,8 +2135,9 @@ public class CombatCommandHandler implements CommandHandler {
             targetLevel = targetRec != null && targetRec.currentClassId != null 
                 ? kickClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
         } else {
-            // For mobiles, use a level based on their HP (TODO: add proper level to Mobile)
-            targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
+            // For mobiles, use their actual level
+            Mobile targetMob = targetCombatant.getMobile();
+            targetLevel = targetMob != null ? targetMob.getLevel() : 1;
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
@@ -2516,8 +2511,9 @@ public class CombatCommandHandler implements CommandHandler {
             targetLevel = targetRec != null && targetRec.currentClassId != null 
                 ? tripClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
         } else {
-            // For mobiles, use a level based on their HP (TODO: add proper level to Mobile)
-            targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
+            // For mobiles, use their actual level
+            Mobile targetMob = targetCombatant.getMobile();
+            targetLevel = targetMob != null ? targetMob.getLevel() : 1;
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
@@ -2609,7 +2605,6 @@ public class CombatCommandHandler implements CommandHandler {
         
         // Parse: spell name and optional target
         // We need to find the spell first, then remaining args are target
-        String argsLower = castArgs.toLowerCase().trim();
         
         // Build list of spell definitions for spells we know
         java.util.List<Spell> knownSpellDefs = new java.util.ArrayList<>();

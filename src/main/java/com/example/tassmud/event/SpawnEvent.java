@@ -228,7 +228,6 @@ public class SpawnEvent implements GameEvent {
         if (mob == null || tmpl == null) return;
         // Armor/save bonuses
         try {
-            java.time.Instant never = java.time.Instant.ofEpochMilli(0);
             long expires = 0L; // permanent for mob lifetime
             // Armor
             if (tmpl.armorSaveBonus != 0) {

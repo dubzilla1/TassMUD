@@ -8,9 +8,6 @@ import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 import com.example.tassmud.util.GroupManager;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.PrintWriter;
 import java.util.Optional;
 import java.util.Set;
@@ -21,8 +18,6 @@ import java.util.stream.Collectors;
  * Commands: group, invite, accept, decline, leave, disband, kick, leader, follow, unfollow
  */
 public class GroupCommandHandler implements CommandHandler {
-
-    private static final Logger logger = LoggerFactory.getLogger(GroupCommandHandler.class);
 
     private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.GROUP).stream()
             .map(cmd -> cmd.getName())

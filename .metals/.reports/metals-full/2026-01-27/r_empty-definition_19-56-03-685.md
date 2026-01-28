@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java:_empty_/Mobile#getLevel#
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java
+empty definition using pc, found symbol in pc: _empty_/Mobile#getLevel#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 22867
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/CombatManager.java
+text:
+```scala
 package com.example.tassmud.combat;
 
 import com.example.tassmud.model.ArmorCategory;
@@ -571,7 +582,7 @@ public class CombatManager {
             if (mob != null) {
                 int roomId = combat.getRoomId();
                 String mobName = mob.getName();
-                int mobLevel = Math.max(1, mob.getLevel());
+                int mobLevel = Math.max(1, mob.@@getLevel());
                 
                 // Calculate gold to put in corpse
                 java.util.Random rand = new java.util.Random();
@@ -1674,3 +1685,10 @@ public class CombatManager {
         return handler.executeAutoflee(combat);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Mobile#getLevel#
