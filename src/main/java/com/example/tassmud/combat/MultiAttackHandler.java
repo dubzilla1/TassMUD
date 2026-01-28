@@ -8,7 +8,6 @@ import com.example.tassmud.util.ProficiencyCheck;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.BiConsumer;
 
 /**
@@ -205,7 +204,7 @@ public class MultiAttackHandler {
         if (proficiency <= 0) return false;
         if (proficiency >= 100) return true;
         
-        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1; // 1-100
+        int roll = (int)(Math.random() * 100) + 1; // 1-100
         return roll <= proficiency;
     }
     

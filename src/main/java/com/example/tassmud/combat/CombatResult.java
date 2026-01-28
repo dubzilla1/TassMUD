@@ -173,7 +173,7 @@ public class CombatResult {
         }
         String attackerName = attacker != null ? attacker.getName() : "?";
         String targetName = target != null ? target.getName() : "?";
-        return "CombatResult[%s %s -> %s, damage=%d, healing=%d]".formatted(
+        return String.format("CombatResult[%s %s -> %s, damage=%d, healing=%d]",
             type, attackerName, targetName, damage, healing);
     }
 }

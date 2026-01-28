@@ -17,6 +17,7 @@ import java.net.URLDecoder;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.slf4j.Logger;
@@ -252,8 +253,8 @@ public class DataLoader {
                     String longDesc = getString(mobData, "long_desc", "You see nothing special.");
                     List<String> keywords = new ArrayList<>();
                     Object keywordsObj = mobData.get("keywords");
-                    if (keywordsObj instanceof List<?> list) {
-                        for (Object kw : list) keywords.add(String.valueOf(kw));
+                    if (keywordsObj instanceof List) {
+                        for (Object kw : (List<?>) keywordsObj) keywords.add(String.valueOf(kw));
                     }
                     int level = getInt(mobData, "level", 1);
                     int hpMax = getInt(mobData, "hp_max", 10);
@@ -274,13 +275,13 @@ public class DataLoader {
                     int attackBonus = getInt(mobData, "attack_bonus", 0);
                     List<MobileBehavior> behaviors = new ArrayList<>();
                     Object behaviorsObj = mobData.get("behaviors");
-                    if (behaviorsObj instanceof List<?> list) {
-                        for (Object b : list) {
+                    if (behaviorsObj instanceof List) {
+                        for (Object b : (List<?>) behaviorsObj) {
                             MobileBehavior behavior = MobileBehavior.fromString(String.valueOf(b));
                             if (behavior != null) behaviors.add(behavior);
                         }
-                    } else if (behaviorsObj instanceof String string) {
-                        MobileBehavior behavior = MobileBehavior.fromString(string);
+                    } else if (behaviorsObj instanceof String) {
+                        MobileBehavior behavior = MobileBehavior.fromString((String) behaviorsObj);
                         if (behavior != null) behaviors.add(behavior);
                     }
                     if (behaviors.isEmpty()) {
@@ -380,8 +381,8 @@ public class DataLoader {
                 // Parse traits list
                 List<SkillTrait> traits = new ArrayList<>();
                 Object traitsObj = skillData.get("traits");
-                if (traitsObj instanceof List<?> list) {
-                    for (Object t : list) {
+                if (traitsObj instanceof List) {
+                    for (Object t : (List<?>) traitsObj) {
                         SkillTrait trait = SkillTrait.fromString(String.valueOf(t));
                         if (trait != null) traits.add(trait);
                     }
@@ -390,8 +391,8 @@ public class DataLoader {
                 // Parse effect IDs list
                 List<String> effectIds = new ArrayList<>();
                 Object effectIdsObj = skillData.get("effectIds");
-                if (effectIdsObj instanceof List<?> list) {
-                    for (Object e : list) {
+                if (effectIdsObj instanceof List) {
+                    for (Object e : (List<?>) effectIdsObj) {
                         effectIds.add(String.valueOf(e));
                     }
                 }
@@ -469,8 +470,8 @@ public class DataLoader {
                 // Parse effect IDs (could be ints or strings in YAML)
                 List<String> effectIds = new ArrayList<>();
                 Object effectsObj = spellData.get("effectIds");
-                if (effectsObj instanceof List<?> list) {
-                    for (Object e : list) {
+                if (effectsObj instanceof List) {
+                    for (Object e : (List<?>) effectsObj) {
                         effectIds.add(String.valueOf(e));
                     }
                 }
@@ -484,8 +485,8 @@ public class DataLoader {
                 // Parse traits list
                 List<SpellTrait> traits = new ArrayList<>();
                 Object traitsObj = spellData.get("traits");
-                if (traitsObj instanceof List<?> list) {
-                    for (Object t : list) {
+                if (traitsObj instanceof List) {
+                    for (Object t : (List<?>) traitsObj) {
                         SpellTrait trait = SpellTrait.fromString(String.valueOf(t));
                         if (trait != null) traits.add(trait);
                     }
@@ -558,13 +559,13 @@ public class DataLoader {
                 if (profImpactObj == null) profImpactObj = item.get("proficiency_impact");
                 java.util.Set<com.example.tassmud.effect.EffectDefinition.ProficiencyImpact> profImpactSet = new java.util.HashSet<>();
                 if (profImpactObj != null) {
-                    if (profImpactObj instanceof java.util.List<?> list1) {
-                        for (Object o : list1) {
+                    if (profImpactObj instanceof java.util.List) {
+                        for (Object o : (java.util.List<?>) profImpactObj) {
                             String s = String.valueOf(o).toUpperCase().trim();
                             try { profImpactSet.add(com.example.tassmud.effect.EffectDefinition.ProficiencyImpact.valueOf(s)); } catch (Exception ignored) {}
                         }
-                    } else if (profImpactObj instanceof String string) {
-                        String s = string.trim();
+                    } else if (profImpactObj instanceof String) {
+                        String s = ((String) profImpactObj).trim();
                         // Comma/space separated
                         for (String tok : s.split("[,\s]+")) {
                             try { profImpactSet.add(com.example.tassmud.effect.EffectDefinition.ProficiencyImpact.valueOf(tok.toUpperCase())); } catch (Exception ignored) {}
@@ -577,8 +578,8 @@ public class DataLoader {
 
                 java.util.Map<String,String> params = new java.util.HashMap<>();
                 Object paramsObj = item.get("params");
-                if (paramsObj instanceof Map<?,?> map) {
-                    for (Map.Entry<?,?> e : map.entrySet()) {
+                if (paramsObj instanceof Map) {
+                    for (Map.Entry<?,?> e : ((Map<?,?>)paramsObj).entrySet()) {
                         params.put(String.valueOf(e.getKey()), String.valueOf(e.getValue()));
                     }
                 }
@@ -668,26 +669,26 @@ public class DataLoader {
     
     private static int getInt(Map<String, Object> map, String key, int defaultVal) {
         Object val = map.get(key);
-        if (val instanceof Number number) return number.intValue();
-        if (val instanceof String string) {
-            try { return Integer.parseInt(string); } catch (Exception e) { return defaultVal; }
+        if (val instanceof Number) return ((Number) val).intValue();
+        if (val instanceof String) {
+            try { return Integer.parseInt((String) val); } catch (Exception e) { return defaultVal; }
         }
         return defaultVal;
     }
     
     private static double getDouble(Map<String, Object> map, String key, double defaultVal) {
         Object val = map.get(key);
-        if (val instanceof Number number) return number.doubleValue();
-        if (val instanceof String string) {
-            try { return Double.parseDouble(string); } catch (Exception e) { return defaultVal; }
+        if (val instanceof Number) return ((Number) val).doubleValue();
+        if (val instanceof String) {
+            try { return Double.parseDouble((String) val); } catch (Exception e) { return defaultVal; }
         }
         return defaultVal;
     }
     
     private static boolean getBoolean(Map<String, Object> map, String key, boolean defaultVal) {
         Object val = map.get(key);
-        if (val instanceof Boolean boolean1) return boolean1;
-        if (val instanceof String string) return Boolean.parseBoolean(string);
+        if (val instanceof Boolean) return (Boolean) val;
+        if (val instanceof String) return Boolean.parseBoolean((String) val);
         return defaultVal;
     }
 
@@ -773,7 +774,7 @@ public class DataLoader {
             String protocol = url.getProtocol();
             try { logger.debug("[DataLoader.debug] /data/MERC URL={} protocol={}", url, protocol); } catch (Exception ignored) {}
             if ("file".equals(protocol)) {
-                Path p = Path.of(url.toURI());
+                Path p = Paths.get(url.toURI());
                 try (DirectoryStream<Path> ds = Files.newDirectoryStream(p)) {
                     for (Path child : ds) {
                         if (Files.isDirectory(child)) out.add(child.getFileName().toString());
@@ -956,7 +957,8 @@ public class DataLoader {
 
                     // Parse room flags (dark, no_mob, safe, etc.)
                     Object flagsObj = roomData.get("flags");
-                    if (flagsObj instanceof List<?> flagsList) {
+                    if (flagsObj instanceof List) {
+                        List<?> flagsList = (List<?>) flagsObj;
                         for (Object flag : flagsList) {
                             if (flag != null) {
                                 t.flags.add(flag.toString().toLowerCase().trim());
@@ -1023,8 +1025,8 @@ public class DataLoader {
                 
                 // Parse room flags
                 Object flagsObj = roomData.get("flags");
-                if (flagsObj instanceof List<?> list) {
-                    for (Object flag : list) {
+                if (flagsObj instanceof List) {
+                    for (Object flag : (List<?>) flagsObj) {
                         if (flag != null) {
                             t.flags.add(flag.toString().toLowerCase().trim());
                         }
@@ -1055,9 +1057,9 @@ public class DataLoader {
             // Optional equipment list (for mob spawns migrated from MERC resets)
             java.util.List<java.util.Map<String,Object>> equipment = null;
             Object equipObj = data.get("equipment");
-            if (equipObj instanceof java.util.List<?> list) {
+            if (equipObj instanceof java.util.List) {
                 equipment = new java.util.ArrayList<>();
-                for (Object o : list) {
+                for (Object o : (java.util.List<?>) equipObj) {
                     if (o instanceof java.util.Map) {
                         equipment.add((java.util.Map<String,Object>) o);
                     }
@@ -1066,9 +1068,9 @@ public class DataLoader {
             // Optional inventory list (for MERC 'G' resets)
             java.util.List<java.util.Map<String,Object>> inventory = null;
             Object invObj = data.get("inventory");
-            if (invObj instanceof java.util.List<?> list) {
+            if (invObj instanceof java.util.List) {
                 inventory = new java.util.ArrayList<>();
-                for (Object o : list) {
+                for (Object o : (java.util.List<?>) invObj) {
                     if (o instanceof java.util.Map) {
                         inventory.add((java.util.Map<String,Object>) o);
                     }
@@ -1090,9 +1092,9 @@ public class DataLoader {
     private static Integer getExitId(Map<String, Object> exits, String direction) {
         Object val = exits.get(direction);
         if (val == null) return null;
-        if (val instanceof Number number) return number.intValue();
-        if (val instanceof String string) {
-            String s = string.trim();
+        if (val instanceof Number) return ((Number) val).intValue();
+        if (val instanceof String) {
+            String s = ((String) val).trim();
             if (s.isEmpty()) return null;
             try { return Integer.parseInt(s); } catch (Exception e) { return null; }
         }
@@ -1322,9 +1324,9 @@ public class DataLoader {
     
     private static Integer resolveExitTokenFromYaml(Object tokenObj, Map<String,Integer> keyToId) {
         if (tokenObj == null) return null;
-        if (tokenObj instanceof Number number) return number.intValue();
-        if (tokenObj instanceof String string) {
-            String s = string.trim();
+        if (tokenObj instanceof Number) return ((Number) tokenObj).intValue();
+        if (tokenObj instanceof String) {
+            String s = ((String) tokenObj).trim();
             if (s.isEmpty()) return null;
             Integer byKey = keyToId.get(s);
             if (byKey != null) return byKey;

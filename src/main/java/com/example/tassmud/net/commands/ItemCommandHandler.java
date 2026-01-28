@@ -243,9 +243,9 @@ public class ItemCommandHandler implements CommandHandler {
         
         long playerGold = dao.getGold(charId);
         if (playerGold < totalCost) {
-            out.println("You need " + "%,d".formatted(totalCost) + " gp to buy " + 
+            out.println("You need " + String.format("%,d", totalCost) + " gp to buy " + 
                 (quantity > 1 ? quantity + " " + matchedItem.name : matchedItem.name) + 
-                ", but you only have " + "%,d".formatted(playerGold) + " gp.");
+                ", but you only have " + String.format("%,d", playerGold) + " gp.");
             return true;
         }
         
@@ -257,9 +257,9 @@ public class ItemCommandHandler implements CommandHandler {
         
         String itemName = matchedItem.name != null ? matchedItem.name : "an item";
         if (quantity == 1) {
-            out.println("You buy " + itemName + " for " + "%,d".formatted(totalCost) + " gp.");
+            out.println("You buy " + itemName + " for " + String.format("%,d", totalCost) + " gp.");
         } else {
-            out.println("You buy " + quantity + " " + itemName + " for " + "%,d".formatted(totalCost) + " gp.");
+            out.println("You buy " + quantity + " " + itemName + " for " + String.format("%,d", totalCost) + " gp.");
         }
         return true;
     }
@@ -327,7 +327,7 @@ public class ItemCommandHandler implements CommandHandler {
         out.println("Items for sale:");
         for (ItemTemplate item : itemsForSale) {
             String itemName = item.name != null ? item.name : "(unnamed)";
-            out.println("  %-40s %,d gp".formatted(itemName, item.value));
+            out.println(String.format("  %-40s %,d gp", itemName, item.value));
         }
         return true;
     }
@@ -590,7 +590,7 @@ public class ItemCommandHandler implements CommandHandler {
                     }
                 }
                 // Pad slot name to maxLen
-                String paddedSlot = ("%-" + maxLen + "s").formatted(slot.displayName);
+                String paddedSlot = String.format("%-" + maxLen + "s", slot.displayName);
                 out.println("  " + paddedSlot + ": " + itemName);
             }
             return true;
@@ -1856,7 +1856,7 @@ public class ItemCommandHandler implements CommandHandler {
         java.util.List<ItemDAO.RoomItem> toSell = matchingItems.subList(0, actualQuantity);
         
         // Calculate sell value (half of item value, minimum 1)
-        ItemDAO.RoomItem soldItem = toSell.getFirst();
+        ItemDAO.RoomItem soldItem = toSell.get(0);
         int sellPrice = Math.max(1, soldItem.template.value / 2);
         long totalGold = (long) sellPrice * actualQuantity;
         
@@ -1868,9 +1868,9 @@ public class ItemCommandHandler implements CommandHandler {
         
         String itemName = ClientHandler.getItemDisplayName(soldItem);
         if (actualQuantity == 1) {
-            out.println("You sell " + itemName + " for " + "%,d".formatted(totalGold) + " gp.");
+            out.println("You sell " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
         } else {
-            out.println("You sell " + actualQuantity + " " + itemName + " for " + "%,d".formatted(totalGold) + " gp.");
+            out.println("You sell " + actualQuantity + " " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
         }
         
         if (actualQuantity < quantity) {

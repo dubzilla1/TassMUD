@@ -57,10 +57,10 @@ public class ShopDAO {
                 
                 List<Integer> itemIds = new ArrayList<>();
                 Object itemsObj = shopData.get("items");
-                if (itemsObj instanceof List<?> list) {
-                    for (Object itemId : list) {
-                        if (itemId instanceof Number number) {
-                            itemIds.add(number.intValue());
+                if (itemsObj instanceof List) {
+                    for (Object itemId : (List<?>) itemsObj) {
+                        if (itemId instanceof Number) {
+                            itemIds.add(((Number) itemId).intValue());
                         }
                     }
                 }
@@ -157,8 +157,8 @@ public class ShopDAO {
     // Helper methods for parsing YAML values
     private static int getInt(Map<String, Object> map, String key, int defaultValue) {
         Object val = map.get(key);
-        if (val instanceof Number number) {
-            return number.intValue();
+        if (val instanceof Number) {
+            return ((Number) val).intValue();
         }
         return defaultValue;
     }

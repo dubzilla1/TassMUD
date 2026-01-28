@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The basic melee attack command available to all combatants.
@@ -201,7 +200,7 @@ public class BasicAttackCommand implements CombatCommand {
         Integer attackerId = user.isPlayer() ? user.getCharacterId() : 
                 (user.getMobile() != null ? -(int)user.getMobile().getInstanceId() : null);
         if (attackerId != null && com.example.tassmud.effect.EffectRegistry.isBlind(attackerId)) {
-            if (ThreadLocalRandom.current().nextDouble() < 0.5) {
+            if (Math.random() < 0.5) {
                 // Blind miss - 50% chance to miss outright
                 CombatResult result = CombatResult.miss(user, target);
                 result.setAttackRoll(0);
@@ -528,7 +527,7 @@ public class BasicAttackCommand implements CombatCommand {
         // Riposte chance scales from 25% to 75% based on proficiency
         // Formula: 25 + (proficiency / 2)
         int riposteChance = 25 + (proficiency / 2);
-        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1; // 1-100
+        int roll = (int)(Math.random() * 100) + 1; // 1-100
         
         boolean riposteSuccess = roll <= riposteChance;
         
@@ -552,7 +551,7 @@ public class BasicAttackCommand implements CombatCommand {
      * Roll a d20.
      */
     private int rollD20() {
-        return (int)(ThreadLocalRandom.current().nextDouble() * 20) + 1;
+        return (int)(Math.random() * 20) + 1;
     }
     
     /**
@@ -642,7 +641,7 @@ public class BasicAttackCommand implements CombatCommand {
         if (attacker.isMobile() && attacker.getMobile() != null) {
             int baseDie = attacker.getMobile().getBaseDamage();
             if (baseDie > 0) {
-                return (int)(ThreadLocalRandom.current().nextDouble() * baseDie) + 1 + attacker.getMobile().getDamageBonus();
+                return (int)(Math.random() * baseDie) + 1 + attacker.getMobile().getDamageBonus();
             }
         }
         
@@ -666,7 +665,7 @@ public class BasicAttackCommand implements CombatCommand {
                         int mult = effectiveMultiplier > 0 ? effectiveMultiplier : 1;
                         int total = 0;
                         for (int i = 0; i < mult; i++) {
-                            total += (int)(ThreadLocalRandom.current().nextDouble() * effectiveBaseDie) + 1;
+                            total += (int)(Math.random() * effectiveBaseDie) + 1;
                         }
                         return total;
                     }
@@ -675,7 +674,7 @@ public class BasicAttackCommand implements CombatCommand {
         }
         
         // Unarmed: 1d4
-        return (int)(ThreadLocalRandom.current().nextDouble() * UNARMED_DIE) + 1;
+        return (int)(Math.random() * UNARMED_DIE) + 1;
     }
     
     /**

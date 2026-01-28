@@ -424,14 +424,15 @@ public class ArcaneSpellHandler {
             int newHp = target.getHpCurrent();
             
             // Damage message
-            ClientHandler.broadcastRoomMessage(casterRoom,
-                "The heaving earth strikes %s for %d damage!".formatted(targetName, damage));
+            ClientHandler.broadcastRoomMessage(casterRoom, 
+                String.format("The heaving earth strikes %s for %d damage!", targetName, damage));
             
             // Notify target if player
             if (target.isPlayer() && targetCharId != null) {
                 ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
                 if (targetHandler != null) {
-                    targetHandler.out.println("\u001B[31mThe earthquake deals %d damage to you! [%d -> %d HP]\u001B[0m".formatted(
+                    targetHandler.out.println(String.format(
+                        "\u001B[31mThe earthquake deals %d damage to you! [%d -> %d HP]\u001B[0m", 
                         damage, oldHp, newHp));
                 }
             }
@@ -559,8 +560,8 @@ public class ArcaneSpellHandler {
             
             // Room message for casting
             String missileWord = numMissiles == 1 ? "missile" : "missiles";
-            ClientHandler.broadcastRoomMessage(casterRoom,
-                "%s hurls %d glowing %s of magical energy at %s!".formatted(
+            ClientHandler.broadcastRoomMessage(casterRoom, 
+                String.format("%s hurls %d glowing %s of magical energy at %s!", 
                     casterName, numMissiles, missileWord, targetName));
             
             // Apply damage through combat system if in combat
@@ -571,14 +572,15 @@ public class ArcaneSpellHandler {
                     targetCombatant.damage(totalDamage);
                     int newHp = targetCombatant.getHpCurrent();
                     
-                    ClientHandler.broadcastRoomMessage(casterRoom,
-                        "The missiles strike %s for %d damage!".formatted(targetName, totalDamage));
+                    ClientHandler.broadcastRoomMessage(casterRoom, 
+                        String.format("The missiles strike %s for %d damage!", targetName, totalDamage));
                     
                     // Notify target if player
                     if (targetCombatant.isPlayer()) {
                         ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetId);
                         if (targetHandler != null) {
-                            targetHandler.out.println("\u001B[31mMagic missiles deal %d damage to you! [%d -> %d HP]\u001B[0m".formatted(
+                            targetHandler.out.println(String.format(
+                                "\u001B[31mMagic missiles deal %d damage to you! [%d -> %d HP]\u001B[0m", 
                                 totalDamage, oldHp, newHp));
                         }
                     }
@@ -595,8 +597,8 @@ public class ArcaneSpellHandler {
                 }
             } else {
                 // Outside combat - just show message (damage not applied without combat system)
-                ClientHandler.broadcastRoomMessage(casterRoom,
-                    "The missiles strike %s for %d damage!".formatted(targetName, totalDamage));
+                ClientHandler.broadcastRoomMessage(casterRoom, 
+                    String.format("The missiles strike %s for %d damage!", targetName, totalDamage));
                 anyHit = true;
             }
         }

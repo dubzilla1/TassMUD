@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 /**
@@ -164,7 +163,7 @@ public class BurningHandsEffect implements EffectHandler {
      */
     private void attemptSpread(EffectInstance instance, EffectDefinition def) {
         // Roll for spread
-        if (ThreadLocalRandom.current().nextDouble() > SPREAD_CHANCE) {
+        if (Math.random() > SPREAD_CHANCE) {
             return; // No spread this tick
         }
 
@@ -219,7 +218,7 @@ public class BurningHandsEffect implements EffectHandler {
         }
 
         // Pick a random target
-        Combatant newTarget = potentialTargets.get((int) (ThreadLocalRandom.current().nextDouble() * potentialTargets.size()));
+        Combatant newTarget = potentialTargets.get((int) (Math.random() * potentialTargets.size()));
         Integer newTargetId = getTargetIdForCombatant(newTarget);
 
         if (newTargetId == null) {
@@ -346,7 +345,7 @@ public class BurningHandsEffect implements EffectHandler {
         // Roll damage
         int total = 0;
         for (int i = 0; i < scaledN; i++) {
-            total += (int) (ThreadLocalRandom.current().nextDouble() * dieM) + 1;
+            total += (int) (Math.random() * dieM) + 1;
         }
 
         if (total <= 0) return;

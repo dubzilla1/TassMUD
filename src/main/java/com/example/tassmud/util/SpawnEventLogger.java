@@ -35,13 +35,13 @@ public class SpawnEventLogger {
     }
 
     public static void info(String msg) {
-        String line = "%s %s".formatted(LocalDateTime.now().format(TS), msg);
+        String line = String.format("%s %s", LocalDateTime.now().format(TS), msg);
         append(OUT_FILE, line);
         logger.info(line);
     }
 
     public static void error(String msg) {
-        String line = "%s %s".formatted(LocalDateTime.now().format(TS), msg);
+        String line = String.format("%s %s", LocalDateTime.now().format(TS), msg);
         append(ERR_FILE, line);
         logger.error(line);
     }

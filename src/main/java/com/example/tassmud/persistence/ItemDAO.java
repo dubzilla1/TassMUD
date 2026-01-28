@@ -3,8 +3,6 @@ package com.example.tassmud.persistence;
 import com.example.tassmud.model.*;
 import java.io.InputStream;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
-
 import org.yaml.snakeyaml.Yaml;
 import java.sql.*;
 import java.util.ArrayList;
@@ -170,20 +168,20 @@ public class ItemDAO {
                 java.util.List<String> traits = new java.util.ArrayList<>();
                 java.util.List<String> keywords = new java.util.ArrayList<>();
                 Object tObj = item.get("traits");
-                if (tObj instanceof java.util.List<?> list) {
-                    for (Object o : list) if (o != null) traits.add(o.toString());
+                if (tObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) tObj) if (o != null) traits.add(o.toString());
                 } else if (tObj != null) traits.add(tObj.toString());
                 Object kObj = item.get("keywords");
-                if (kObj instanceof java.util.List<?> list) {
-                    for (Object o : list) if (o != null) keywords.add(o.toString());
+                if (kObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) kObj) if (o != null) keywords.add(o.toString());
                 } else if (kObj != null) keywords.add(kObj.toString());
 
                 // Support both "type" (single) and "types" (list)
                 // "types" list takes precedence if present
                 java.util.List<String> types = new java.util.ArrayList<>();
                 Object typesObj = item.get("types");
-                if (typesObj instanceof java.util.List<?> list) {
-                    for (Object o : list) {
+                if (typesObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) typesObj) {
                         if (o != null && !o.toString().isBlank()) {
                             types.add(o.toString().trim().toLowerCase());
                         }
@@ -243,8 +241,8 @@ public class ItemDAO {
                 // Item usage system - on-use spells
                 java.util.List<Integer> onUseSpellIds = new java.util.ArrayList<>();
                 Object useObj = item.get("on_use_spell_ids");
-                if (useObj instanceof java.util.List<?> list) {
-                    for (Object o : list) {
+                if (useObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) useObj) {
                         if (o != null) {
                             try { onUseSpellIds.add(Integer.parseInt(o.toString().trim())); } catch (Exception ignored) {}
                         }
@@ -257,8 +255,8 @@ public class ItemDAO {
                 // On-equip effect IDs
                 java.util.List<String> onEquipEffectIds = new java.util.ArrayList<>();
                 Object equipObj = item.get("on_equip_effect_ids");
-                if (equipObj instanceof java.util.List<?> list) {
-                    for (Object o : list) {
+                if (equipObj instanceof java.util.List) {
+                    for (Object o : (java.util.List<?>) equipObj) {
                         if (o != null) onEquipEffectIds.add(o.toString().trim());
                     }
                 } else if (equipObj != null) {
@@ -449,7 +447,7 @@ public class ItemDAO {
             int min = template.minItemLevel;
             int max = template.maxItemLevel;
             if (min > 0 && max >= min) {
-                itemLevel = min + (int)(ThreadLocalRandom.current().nextDouble() * (max - min + 1));
+                itemLevel = min + (int)(Math.random() * (max - min + 1));
             }
         }
         
@@ -478,7 +476,7 @@ public class ItemDAO {
             int min = template.minItemLevel;
             int max = template.maxItemLevel;
             if (min > 0 && max >= min) {
-                itemLevel = min + (int)(ThreadLocalRandom.current().nextDouble() * (max - min + 1));
+                itemLevel = min + (int)(Math.random() * (max - min + 1));
             }
         }
         

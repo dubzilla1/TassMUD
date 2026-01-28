@@ -224,7 +224,7 @@ public class SystemCommandHandler implements CommandHandler {
             trainInfo.append("\n===================================================================\n");
             trainInfo.append("  TRAINING STATUS\n");
             trainInfo.append("===================================================================\n");
-            trainInfo.append("  Talent Points Available: %d\n".formatted(talentPoints));
+            trainInfo.append(String.format("  Talent Points Available: %d\n", talentPoints));
             trainInfo.append("-------------------------------------------------------------------\n");
             trainInfo.append("  [ ABILITY SCORES ] (base + trained = total)\n");
             
@@ -236,17 +236,17 @@ public class SystemCommandHandler implements CommandHandler {
             int wisTotal = rec.getWisTotal();
             int chaTotal = rec.getChaTotal();
             
-            trainInfo.append("  STR: %2d + %d = %2d (%+d)    Cost: %s\n".formatted(
+            trainInfo.append(String.format("  STR: %2d + %d = %2d (%+d)    Cost: %s\n",
                 rec.str, rec.trainedStr, strTotal, (strTotal - 10) / 2, ClientHandler.formatTrainCost(strTotal)));
-            trainInfo.append("  DEX: %2d + %d = %2d (%+d)    Cost: %s\n".formatted(
+            trainInfo.append(String.format("  DEX: %2d + %d = %2d (%+d)    Cost: %s\n",
                 rec.dex, rec.trainedDex, dexTotal, (dexTotal - 10) / 2, ClientHandler.formatTrainCost(dexTotal)));
-            trainInfo.append("  CON: %2d + %d = %2d (%+d)    Cost: %s\n".formatted(
+            trainInfo.append(String.format("  CON: %2d + %d = %2d (%+d)    Cost: %s\n",
                 rec.con, rec.trainedCon, conTotal, (conTotal - 10) / 2, ClientHandler.formatTrainCost(conTotal)));
-            trainInfo.append("  INT: %2d + %d = %2d (%+d)    Cost: %s\n".formatted(
+            trainInfo.append(String.format("  INT: %2d + %d = %2d (%+d)    Cost: %s\n",
                 rec.intel, rec.trainedInt, intTotal, (intTotal - 10) / 2, ClientHandler.formatTrainCost(intTotal)));
-            trainInfo.append("  WIS: %2d + %d = %2d (%+d)    Cost: %s\n".formatted(
+            trainInfo.append(String.format("  WIS: %2d + %d = %2d (%+d)    Cost: %s\n",
                 rec.wis, rec.trainedWis, wisTotal, (wisTotal - 10) / 2, ClientHandler.formatTrainCost(wisTotal)));
-            trainInfo.append("  CHA: %2d + %d = %2d (%+d)    Cost: %s\n".formatted(
+            trainInfo.append(String.format("  CHA: %2d + %d = %2d (%+d)    Cost: %s\n",
                 rec.cha, rec.trainedCha, chaTotal, (chaTotal - 10) / 2, ClientHandler.formatTrainCost(chaTotal)));
             
             // Show trainable skills (under 80%)
@@ -256,7 +256,7 @@ public class SystemCommandHandler implements CommandHandler {
                 if (cs.getProficiency() < 80) {
                     Skill skillDef = dao.getSkillById(cs.getSkillId());
                     String skillName = skillDef != null ? skillDef.getName() : "Skill #" + cs.getSkillId();
-                    trainableSkills.add("%-22s %3d%%".formatted(skillName, cs.getProficiency()));
+                    trainableSkills.add(String.format("%-22s %3d%%", skillName, cs.getProficiency()));
                 }
             }
             if (!trainableSkills.isEmpty()) {
@@ -275,7 +275,7 @@ public class SystemCommandHandler implements CommandHandler {
                 if (cs.getProficiency() < 80) {
                     Spell spellDef = dao.getSpellById(cs.getSpellId());
                     String spellName = spellDef != null ? spellDef.getName() : "Spell #" + cs.getSpellId();
-                    trainableSpells.add("%-22s %3d%%".formatted(spellName, cs.getProficiency()));
+                    trainableSpells.add(String.format("%-22s %3d%%", spellName, cs.getProficiency()));
                 }
             }
             if (!trainableSpells.isEmpty()) {

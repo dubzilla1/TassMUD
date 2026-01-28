@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 import com.example.tassmud.combat.Combat;
@@ -300,7 +299,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             }
             int randStat;
             for (int i=1; i<=spawnedMob.getLevel(); i++) {
-                randStat = (int)(ThreadLocalRandom.current().nextDouble() * 3);
+                randStat = (int)(Math.random() * 3);
                 switch (randStat) {
                     case 0: spawnedMob.addStat(Stat.FORTITUDE, 1); break;
                     case 1: spawnedMob.addStat(Stat.REFLEX, 1); break;
@@ -755,8 +754,8 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
         out.println();
 
         out.println("--- ABILITIES ---");
-        out.println("  STR: " + "%2d".formatted(matchedMob.getStr()) + " (" + (matchedMob.getStr() >= 10 ? "+" : "") + ((matchedMob.getStr() - 10) / 2) + ")" + "   DEX: " + "%2d".formatted(matchedMob.getDex()) + " (" + (matchedMob.getDex() >= 10 ? "+" : "") + ((matchedMob.getDex() - 10) / 2) + ")" + "   CON: " + "%2d".formatted(matchedMob.getCon()) + " (" + (matchedMob.getCon() >= 10 ? "+" : "") + ((matchedMob.getCon() - 10) / 2) + ")");
-        out.println("  INT: " + "%2d".formatted(matchedMob.getIntel()) + " (" + (matchedMob.getIntel() >= 10 ? "+" : "") + ((matchedMob.getIntel() - 10) / 2) + ")" + "   WIS: " + "%2d".formatted(matchedMob.getWis()) + " (" + (matchedMob.getWis() >= 10 ? "+" : "") + ((matchedMob.getWis() - 10) / 2) + ")" + "   CHA: " + "%2d".formatted(matchedMob.getCha()) + " (" + (matchedMob.getCha() >= 10 ? "+" : "") + ((matchedMob.getCha() - 10) / 2) + ")");
+        out.println("  STR: " + String.format("%2d", matchedMob.getStr()) + " (" + (matchedMob.getStr() >= 10 ? "+" : "") + ((matchedMob.getStr() - 10) / 2) + ")" + "   DEX: " + String.format("%2d", matchedMob.getDex()) + " (" + (matchedMob.getDex() >= 10 ? "+" : "") + ((matchedMob.getDex() - 10) / 2) + ")" + "   CON: " + String.format("%2d", matchedMob.getCon()) + " (" + (matchedMob.getCon() >= 10 ? "+" : "") + ((matchedMob.getCon() - 10) / 2) + ")");
+        out.println("  INT: " + String.format("%2d", matchedMob.getIntel()) + " (" + (matchedMob.getIntel() >= 10 ? "+" : "") + ((matchedMob.getIntel() - 10) / 2) + ")" + "   WIS: " + String.format("%2d", matchedMob.getWis()) + " (" + (matchedMob.getWis() >= 10 ? "+" : "") + ((matchedMob.getWis() - 10) / 2) + ")" + "   CHA: " + String.format("%2d", matchedMob.getCha()) + " (" + (matchedMob.getCha() >= 10 ? "+" : "") + ((matchedMob.getCha() - 10) / 2) + ")");
         out.println();
 
         out.println("--- DEFENSES ---");
@@ -885,8 +884,8 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             out.println("  Base Die:        " + baseDie + (inst.baseDieOverride != null ? " (override)" : ""));
             out.println("  Multiplier:      " + mult + (inst.multiplierOverride != null ? " (override)" : ""));
             out.println("  Ability Score:   " + (abilScore != null ? abilScore : "STR"));
-            out.println("  Ability Mult:    " + "%.1f".formatted(abilMult) + (inst.abilityMultOverride != null ? " (override)" : ""));
-            out.println("  Damage Formula:  " + mult + "d" + baseDie + " + " + "%.1f".formatted(abilMult) + "x" + (abilScore != null ? abilScore : "STR") + " mod");
+            out.println("  Ability Mult:    " + String.format("%.1f", abilMult) + (inst.abilityMultOverride != null ? " (override)" : ""));
+            out.println("  Damage Formula:  " + mult + "d" + baseDie + " + " + String.format("%.1f", abilMult) + "x" + (abilScore != null ? abilScore : "STR") + " mod");
             out.println("  Hands:           " + (tmpl != null ? tmpl.hands : 1));
             if (tmpl != null) {
                 out.println("  Category:        " + (tmpl.weaponCategory != null ? tmpl.weaponCategory : "-"));
@@ -963,12 +962,12 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             return true;
         }
         out.println();
-        out.println("%-6s %-25s %-12s %s".formatted("ID", "Name", "Type", "Description"));
+        out.println(String.format("%-6s %-25s %-12s %s", "ID", "Name", "Type", "Description"));
         out.println(ClientHandler.repeat("-", 75));
         for (ItemTemplate t : matches) {
             String typeName = t.types != null && !t.types.isEmpty() ? String.join(",", t.types) : "";
             String desc = t.description != null ? ClientHandler.truncate(t.description, 28) : "";
-            out.println("%-6d %-25s %-12s %s".formatted(
+            out.println(String.format("%-6d %-25s %-12s %s",
                 t.id,
                 ClientHandler.truncate(t.name, 25),
                 ClientHandler.truncate(typeName, 12),
@@ -999,11 +998,11 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             return true;
         }
         out.println();
-        out.println("%-6s %-25s %-6s %s".formatted("ID", "Name", "Lvl", "ShortDesc"));
+        out.println(String.format("%-6s %-25s %-6s %s", "ID", "Name", "Lvl", "ShortDesc"));
         out.println(ClientHandler.repeat("-", 80));
         for (MobileTemplate t : matches) {
             String shortDesc = t.getShortDesc() != null ? ClientHandler.truncate(t.getShortDesc(), 40) : "";
-            out.println("%-6d %-25s %-6d %s".formatted(
+            out.println(String.format("%-6d %-25s %-6d %s",
                 t.getId(),
                 ClientHandler.truncate(t.getName(), 25),
                 t.getLevel(),
@@ -1047,7 +1046,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
         out.println();
         out.println("=== Instances of #" + tplId + " (" + tplName + ") ===");
         out.println();
-        out.println("  %-10s %-6s %-20s %-6s %s".formatted("InstID", "TplID", "Name", "RoomID", "Room Name"));
+        out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
         for (Mobile m : instances) {
             Integer roomId = m.getCurrentRoom();
             String roomName = "(no room)";
@@ -1055,7 +1054,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                 Room r = dao.getRoomById(roomId);
                 roomName = r != null ? r.getName() : "Unknown";
             }
-            out.println("  %-10d %-6d %-20s %-6s %s".formatted(
+            out.println(String.format("  %-10d %-6d %-20s %-6s %s",
                 m.getInstanceId(), m.getTemplateId(), ClientHandler.truncate(m.getName(), 20),
                 roomId != null ? String.valueOf(roomId) : "-", ClientHandler.truncate(roomName, 30)));
         }
@@ -1125,11 +1124,11 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             if (inRooms.isEmpty()) {
                 out.println("  (none)");
             } else {
-                out.println("  %-10s %-6s %-20s %-6s %s".formatted("InstID", "TplID", "Name", "RoomID", "Room Name"));
+                out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
                 for (ItemInstance inst : inRooms) {
                     Room rm = dao.getRoomById(inst.locationRoomId);
                     String roomName = rm != null ? rm.getName() : "Unknown";
-                    out.println("  %-10d %-6d %-20s %-6d %s".formatted(
+                    out.println(String.format("  %-10d %-6d %-20s %-6d %s",
                         inst.instanceId, inst.templateId, ClientHandler.truncate(templateName, 20),
                         inst.locationRoomId, ClientHandler.truncate(roomName, 25)));
                 }
@@ -1143,7 +1142,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             if (inChars.isEmpty()) {
                 out.println("  (none)");
             } else {
-                out.println("  %-10s %-6s %-20s %-12s %-6s %s".formatted("InstID", "TplID", "Name", "CharName", "RoomID", "Room Name"));
+                out.println(String.format("  %-10s %-6s %-20s %-12s %-6s %s", "InstID", "TplID", "Name", "CharName", "RoomID", "Room Name"));
                 for (ItemInstance inst : inChars) {
                     String charName = dao.getCharacterNameById(inst.ownerCharacterId);
                     if (charName == null) charName = "Char#" + inst.ownerCharacterId;
@@ -1151,7 +1150,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                     Integer charRoomId = charRec != null ? charRec.currentRoom : null;
                     Room charRoom = charRoomId != null ? dao.getRoomById(charRoomId) : null;
                     String charRoomName = charRoom != null ? charRoom.getName() : "Unknown";
-                    out.println("  %-10d %-6d %-20s %-12s %-6s %s".formatted(
+                    out.println(String.format("  %-10d %-6d %-20s %-12s %-6s %s",
                         inst.instanceId, inst.templateId, ClientHandler.truncate(templateName, 20),
                         ClientHandler.truncate(charName, 12),
                         charRoomId != null ? String.valueOf(charRoomId) : "?",
@@ -1167,14 +1166,14 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             if (inContainers.isEmpty()) {
                 out.println("  (none)");
             } else {
-                out.println("  %-10s %-6s %-20s %-10s %-6s %s".formatted("InstID", "TplID", "Name", "ContInstID", "ContID", "Container Name"));
+                out.println(String.format("  %-10s %-6s %-20s %-10s %-6s %s", "InstID", "TplID", "Name", "ContInstID", "ContID", "Container Name"));
                 for (ItemInstance inst : inContainers) {
                     // Look up the container instance to get its template
                     ItemInstance containerInst = ifindItemDao.getInstanceById(inst.containerInstanceId);
                     int containerId = containerInst != null ? containerInst.templateId : 0;
                     ItemTemplate containerTpl = containerInst != null ? ifindItemDao.getTemplateById(containerInst.templateId) : null;
                     String containerName = containerTpl != null ? containerTpl.name : "Unknown";
-                    out.println("  %-10d %-6d %-20s %-10d %-6d %s".formatted(
+                    out.println(String.format("  %-10d %-6d %-20s %-10d %-6d %s",
                         inst.instanceId, inst.templateId, ClientHandler.truncate(templateName, 20),
                         inst.containerInstanceId, containerId, ClientHandler.truncate(containerName, 20)));
                 }
@@ -1311,7 +1310,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             // Format: "SpellName (ID)" in 3 columns
             java.util.List<String> spellDisplays = new java.util.ArrayList<>();
             for (Spell sp : allSpells) {
-                spellDisplays.add("%s (%d)".formatted(sp.getName(), sp.getId()));
+                spellDisplays.add(String.format("%s (%d)", sp.getName(), sp.getId()));
             }
             
             // Print in rows of 3
@@ -1319,12 +1318,12 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                 String c1 = spellDisplays.get(i);
                 String c2 = (i + 1 < spellDisplays.size()) ? spellDisplays.get(i + 1) : "";
                 String c3 = (i + 2 < spellDisplays.size()) ? spellDisplays.get(i + 2) : "";
-                out.println("  %-21s %-21s %-21s".formatted(c1, c2, c3));
+                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
             }
             
             out.println();
             out.println("-------------------------------------------------------------------");
-            out.println("  Total: %d spells".formatted(allSpells.size()));
+            out.println(String.format("  Total: %d spells", allSpells.size()));
             out.println("===================================================================");
             out.println();
             return true;
@@ -1408,7 +1407,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             // Format: "SkillName (ID)" in 3 columns
             java.util.List<String> skillDisplays = new java.util.ArrayList<>();
             for (Skill sk : allSkills) {
-                skillDisplays.add("%s (%d)".formatted(sk.getName(), sk.getId()));
+                skillDisplays.add(String.format("%s (%d)", sk.getName(), sk.getId()));
             }
             
             // Print in rows of 3
@@ -1416,12 +1415,12 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                 String c1 = skillDisplays.get(i);
                 String c2 = (i + 1 < skillDisplays.size()) ? skillDisplays.get(i + 1) : "";
                 String c3 = (i + 2 < skillDisplays.size()) ? skillDisplays.get(i + 2) : "";
-                out.println("  %-21s %-21s %-21s".formatted(c1, c2, c3));
+                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
             }
             
             out.println();
             out.println("-------------------------------------------------------------------");
-            out.println("  Total: %d skills".formatted(allSkills.size()));
+            out.println(String.format("  Total: %d skills", allSkills.size()));
             out.println("===================================================================");
             out.println();
             return true;

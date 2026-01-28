@@ -1,7 +1,5 @@
 package com.example.tassmud.util;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 /**
  * Utility class for opposed checks between two entities (characters, mobs, etc).
  * 
@@ -54,7 +52,7 @@ public class OpposedCheck {
      */
     public static boolean check(int attackerLevel, int defenderLevel) {
         double chance = getSuccessChance(attackerLevel, defenderLevel);
-        return ThreadLocalRandom.current().nextDouble() < chance;
+        return Math.random() < chance;
     }
     
     /**
@@ -70,7 +68,7 @@ public class OpposedCheck {
     public static boolean checkWithModifier(int attackerLevel, int defenderLevel, double modifier) {
         double chance = getSuccessChance(attackerLevel, defenderLevel) + modifier;
         chance = Math.max(0.0, Math.min(1.0, chance));
-        return ThreadLocalRandom.current().nextDouble() < chance;
+        return Math.random() < chance;
     }
     
     /**
@@ -183,7 +181,7 @@ public class OpposedCheck {
      */
     public static boolean checkWithProficiency(int attackerLevel, int defenderLevel, int proficiencyPercent) {
         double chance = getSuccessChanceWithProficiency(attackerLevel, defenderLevel, proficiencyPercent);
-        return ThreadLocalRandom.current().nextDouble() < chance;
+        return Math.random() < chance;
     }
     
     /**
@@ -196,6 +194,6 @@ public class OpposedCheck {
      */
     public static boolean checkWithProficiencyDecimal(int attackerLevel, int defenderLevel, double proficiency) {
         double chance = getSuccessChanceWithProficiencyDecimal(attackerLevel, defenderLevel, proficiency);
-        return ThreadLocalRandom.current().nextDouble() < chance;
+        return Math.random() < chance;
     }
 }

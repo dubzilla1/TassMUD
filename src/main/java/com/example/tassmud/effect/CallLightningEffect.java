@@ -11,7 +11,6 @@ import com.example.tassmud.util.WeatherService;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Effect handler for Call Lightning spell.
@@ -80,7 +79,7 @@ public class CallLightningEffect implements EffectHandler {
         // Roll damage
         int baseDamage = 0;
         for (int i = 0; i < scaledN; i++) {
-            baseDamage += (int) (ThreadLocalRandom.current().nextDouble() * dieM) + 1;
+            baseDamage += (int) (Math.random() * dieM) + 1;
         }
 
         // Apply weather multiplier

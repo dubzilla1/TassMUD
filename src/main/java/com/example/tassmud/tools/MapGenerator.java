@@ -199,7 +199,7 @@ public class MapGenerator {
         sb.append("ROOM LEGEND:\n");
         sb.append("-".repeat(60)).append("\n");
         for (Room r : rooms) {
-            sb.append("  %4d: %s\n".formatted(r.id, r.name));
+            sb.append(String.format("  %4d: %s\n", r.id, r.name));
         }
         
         return sb.toString();
@@ -215,7 +215,7 @@ public class MapGenerator {
         Map<Integer, int[]> positions = new HashMap<>(); // roomId -> [x, y]
         
         // Start from first room at origin
-        Room startRoom = rooms.getFirst();
+        Room startRoom = rooms.get(0);
         positions.put(startRoom.id, new int[]{0, 0});
         
         Queue<Integer> queue = new LinkedList<>();
@@ -362,7 +362,7 @@ public class MapGenerator {
      */
     private void drawRoomBox(char[][] grid, int x, int y, int roomId, Room room) {
         // Format room ID to fit in box (max 4 digits displayed)
-        String idStr = "%4d".formatted(roomId % 10000);
+        String idStr = String.format("%4d", roomId % 10000);
         
         // Bounds check
         if (y + 2 >= grid.length || x + 5 >= grid[0].length) {

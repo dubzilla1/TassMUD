@@ -539,7 +539,7 @@ public class CombatCalculator {
         
         @Override
         public String toString() {
-            return "CombatSkills[category=%.0f%%, family=%.0f%%]".formatted(
+            return String.format("CombatSkills[category=%.0f%%, family=%.0f%%]", 
                 categorySkill * 100, familySkill * 100);
         }
     }

@@ -30,8 +30,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ThreadLocalRandom;
-
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 
 /**
@@ -1009,8 +1007,8 @@ public class ClientHandler implements Runnable {
         out.println("=== SELECT YOUR CLASS ===");
         out.println();
         for (CharacterClass cls : allClasses) {
-            out.println("  [%d] %s".formatted(cls.id, cls.name));
-            out.println("      HP/lvl: %+d  MP/lvl: %+d  MV/lvl: %+d".formatted(
+            out.println(String.format("  [%d] %s", cls.id, cls.name));
+            out.println(String.format("      HP/lvl: %+d  MP/lvl: %+d  MV/lvl: %+d", 
                 cls.hpPerLevel, cls.mpPerLevel, cls.mvPerLevel));
         }
         out.println();
@@ -1180,8 +1178,8 @@ public class ClientHandler implements Runnable {
         long hrs = seconds / 3600;
         long mins = (seconds % 3600) / 60;
         long secs = seconds % 60;
-        if (hrs > 0) return "%d:%02d:%02d".formatted(hrs, mins, secs);
-        return "%d:%02d".formatted(mins, secs);
+        if (hrs > 0) return String.format("%d:%02d:%02d", hrs, mins, secs);
+        return String.format("%d:%02d", mins, secs);
     }
 
     /**
@@ -1240,7 +1238,7 @@ public class ClientHandler implements Runnable {
      * Print a row of up to 3 commands, evenly spaced.
      */
     public void printCommandRow(String cmd1, String cmd2, String cmd3) {
-        out.println("    %-20s %-20s %-20s".formatted(cmd1, cmd2, cmd3));
+        out.println(String.format("    %-20s %-20s %-20s", cmd1, cmd2, cmd3));
     }
 
     /**
@@ -1343,7 +1341,7 @@ public class ClientHandler implements Runnable {
         }
         
         // Perform opposed check at 100% proficiency (innate skill)
-        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
+        int roll = (int)(Math.random() * 100) + 1;
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
             userLevel, opponentLevel, 100);
         
@@ -1357,7 +1355,7 @@ public class ClientHandler implements Runnable {
         }
         
         // Flee succeeded - pick a random exit
-        String fleeDirection = availableExits.get((int)(ThreadLocalRandom.current().nextDouble() * availableExits.size()));
+        String fleeDirection = availableExits.get((int)(Math.random() * availableExits.size()));
         Integer destRoomId = exitRooms.get(fleeDirection);
         
         // Check movement cost

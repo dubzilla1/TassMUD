@@ -5,7 +5,6 @@ import com.example.tassmud.model.Mobile;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
@@ -258,7 +257,7 @@ public class Combat {
     public Combatant getRandomTarget(Combatant attacker) {
         List<Combatant> targets = getValidTargets(attacker);
         if (targets.isEmpty()) return null;
-        return targets.get((int)(ThreadLocalRandom.current().nextDouble() * targets.size()));
+        return targets.get((int)(Math.random() * targets.size()));
     }
     
     /**
@@ -430,7 +429,7 @@ public class Combat {
     // Combat Log
     
     public void logEvent(String event) {
-        String timestamp = "[R%d %.1fs]".formatted(currentRound,
+        String timestamp = String.format("[R%d %.1fs]", currentRound, 
             (System.currentTimeMillis() - startedAt) / 1000.0);
         combatLog.add(timestamp + " " + event);
     }
@@ -587,7 +586,7 @@ public class Combat {
         
         // If no aggro data or all zero, return random target
         if (highestAggro == null || maxAggro <= 0) {
-            return validTargets.get((int)(ThreadLocalRandom.current().nextDouble() * validTargets.size()));
+            return validTargets.get((int)(Math.random() * validTargets.size()));
         }
         
         return highestAggro;
@@ -613,7 +612,7 @@ public class Combat {
         int players = (int) active.stream().filter(Combatant::isPlayer).count();
         int mobs = (int) active.stream().filter(Combatant::isMobile).count();
         
-        return "Combat #%d [%s] Round %d - %d players, %d mobs - Room %d".formatted(
+        return String.format("Combat #%d [%s] Round %d - %d players, %d mobs - Room %d",
             combatId, state.getDisplayName(), currentRound, players, mobs, roomId);
     }
     
