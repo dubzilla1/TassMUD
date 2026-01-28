@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Damage-over-time (DOT) effect handler.
@@ -201,7 +202,7 @@ public class DotEffect implements EffectHandler {
         // Roll damage
         int total = 0;
         for (int i = 0; i < scaledN; i++) {
-            total += (int) (Math.random() * dieM) + 1;
+            total += (int) (ThreadLocalRandom.current().nextDouble() * dieM) + 1;
         }
 
         if (total <= 0) return;

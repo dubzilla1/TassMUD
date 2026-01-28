@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/BasicAttackCommand.java:java/util/Map#get().
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/BasicAttackCommand.java
+empty definition using pc, found symbol in pc: java/util/Map#get().
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2774
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/combat/BasicAttackCommand.java
+text:
+```scala
 package com.example.tassmud.combat;
 
 import com.example.tassmud.effect.WeaponInfusionEffect;
@@ -75,7 +86,7 @@ public class BasicAttackCommand implements CombatCommand {
     @Override
     public boolean canUse(Combatant user, Combat combat) {
         // Check cooldown
-        Long cooldownEnd = cooldowns.get(user.getCombatantId());
+        Long cooldownEnd = cooldowns.@@get(user.getCombatantId());
         if (cooldownEnd != null && System.currentTimeMillis() < cooldownEnd) {
             return false;
         }
@@ -814,3 +825,10 @@ public class BasicAttackCommand implements CombatCommand {
         return 0; // Basic attack is lowest priority
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/util/Map#get().

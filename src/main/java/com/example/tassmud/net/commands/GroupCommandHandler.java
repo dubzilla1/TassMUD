@@ -131,7 +131,7 @@ public class GroupCommandHandler implements CommandHandler {
                 else if (hpPercent > 50) hpColor = "\u001B[33m"; // Yellow
                 else if (hpPercent > 25) hpColor = "\u001B[31m"; // Red
                 else hpColor = "\u001B[35m";                      // Magenta (critical)
-                line.append(String.format(" - %s%d%%\u001B[0m HP", hpColor, hpPercent));
+                line.append(" - %s%d%%\u001B[0m HP".formatted(hpColor, hpPercent));
             }
             
             out.println(line.toString());

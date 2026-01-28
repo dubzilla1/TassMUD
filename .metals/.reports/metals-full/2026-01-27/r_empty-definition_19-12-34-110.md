@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/effect/BurningHandsEffect.java:java/lang/String#
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/effect/BurningHandsEffect.java
+empty definition using pc, found symbol in pc: java/lang/String#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 3344
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/effect/BurningHandsEffect.java
+text:
+```scala
 package com.example.tassmud.effect;
 
 import com.example.tassmud.combat.Combat;
@@ -73,7 +84,7 @@ public class BurningHandsEffect implements EffectHandler {
         long expiresAtMs = nowMs + durationMs;
 
         // Store proficiency and last tick time
-        p.put("proficiency", String.valueOf(proficiency));
+        p.put("proficiency", @@String.valueOf(proficiency));
         p.put("last_tick_ms", String.valueOf(nowMs));
 
         UUID id = UUID.randomUUID();
@@ -440,3 +451,10 @@ public class BurningHandsEffect implements EffectHandler {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/lang/String#

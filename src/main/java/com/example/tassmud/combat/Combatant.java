@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Wraps a Character or Mobile participating in combat.
@@ -183,7 +184,7 @@ public class Combatant {
         // For now: random 1-20 + DEX modifier
         GameCharacter c = getAsCharacter();
         int dexMod = c != null ? (c.getDex() - 10) / 2 : 0;
-        this.initiative = (int)(Math.random() * 20) + 1 + dexMod;
+        this.initiative = (int)(ThreadLocalRandom.current().nextDouble() * 20) + 1 + dexMod;
     }
     
     // Command Queue
@@ -589,7 +590,7 @@ public class Combatant {
     @Override
     public String toString() {
         String type = isPlayer() ? "Player" : "Mobile";
-        return String.format("Combatant[%s %s, HP=%d/%d, alliance=%d]",
+        return "Combatant[%s %s, HP=%d/%d, alliance=%d]".formatted(
             type, getName(), getHpCurrent(), getHpMax(), alliance);
     }
 }

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Effect handler for Cause Light/Serious/Critical Wounds spells.
@@ -83,7 +84,7 @@ public class CauseWoundsEffect implements EffectHandler {
         // Roll dice
         int diceTotal = 0;
         for (int i = 0; i < numDice; i++) {
-            diceTotal += (int) (Math.random() * dieSides) + 1;
+            diceTotal += (int) (ThreadLocalRandom.current().nextDouble() * dieSides) + 1;
         }
 
         // Calculate level bonus: caster_level * (0.5 + proficiency%)

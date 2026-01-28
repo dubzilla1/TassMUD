@@ -21,6 +21,8 @@ import com.example.tassmud.util.PasswordUtil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -429,7 +431,7 @@ public class CharacterDAO {
             if (charSkill == null || charSkill.isMastered()) return false;
             
             int gainChance = skillDef.getProgression().getGainChance(charSkill.getProficiency());
-            int roll = (int) (Math.random() * 100) + 1;
+            int roll = (int) (ThreadLocalRandom.current().nextDouble() * 100) + 1;
             
             if (roll <= gainChance) {
                 increaseSkillProficiency(characterId, skillId, 1);
@@ -553,7 +555,7 @@ public class CharacterDAO {
             if (charSpell == null || charSpell.isMastered()) return false;
             
             int gainChance = spellDef.getProgression().getGainChance(charSpell.getProficiency());
-            int roll = (int) (Math.random() * 100) + 1;
+            int roll = (int) (ThreadLocalRandom.current().nextDouble() * 100) + 1;
             
             if (roll <= gainChance) {
                 increaseSpellProficiency(characterId, spellId, 1);

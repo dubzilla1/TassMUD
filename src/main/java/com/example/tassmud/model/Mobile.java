@@ -2,6 +2,7 @@ package com.example.tassmud.model;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * A mobile (NPC/monster) that extends Character with mob-specific attributes.
@@ -224,7 +225,7 @@ public class Mobile extends GameCharacter {
      */
     public int rollDamage() {
         // Roll 1d(baseDamage) + damageBonus + STR modifier
-        int roll = (int) (Math.random() * baseDamage) + 1;
+        int roll = (int) (ThreadLocalRandom.current().nextDouble() * baseDamage) + 1;
         int strMod = (getStr() - 10) / 2;
         return Math.max(1, roll + damageBonus + strMod);
     }

@@ -2,6 +2,7 @@ package com.example.tassmud.net.commands;
 
 import java.io.PrintWriter;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -229,7 +230,7 @@ public class CombatCommandHandler implements CommandHandler {
         
         // Perform proficiency roll to determine success
         // Success chance = proficiency%
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int proficiency = charHide.getProficiency();
         boolean hideSucceeded = roll <= proficiency;
         
@@ -439,7 +440,7 @@ public class CombatCommandHandler implements CommandHandler {
         
         // Roll attack (d20 + level bonus + DEX mod for backstab)
         int dexMod = (attacker.getDex() - 10) / 2;
-        int attackRoll = (int)(Math.random() * 20) + 1;
+        int attackRoll = (int)(ThreadLocalRandom.current().nextDouble() * 20) + 1;
         int totalAttack = attackRoll + playerLevel + dexMod;
         
         // Target's AC (we'll use the mob's level-based defense)
@@ -476,7 +477,7 @@ public class CombatCommandHandler implements CommandHandler {
         
         // Hit! Calculate damage
         // Use a simple damage formula based on player level and DEX
-        int baseDamage = (int)(Math.random() * (4 + playerLevel)) + 1 + dexMod;
+        int baseDamage = (int)(ThreadLocalRandom.current().nextDouble() * (4 + playerLevel)) + 1 + dexMod;
         if (baseDamage < 1) baseDamage = 1;
         
         // Apply backstab multiplier: 2x on hit, 4x on crit
@@ -694,7 +695,7 @@ public class CombatCommandHandler implements CommandHandler {
         
         // Roll attack (d20 + level bonus + DEX mod)
         int dexMod = (attacker.getDex() - 10) / 2;
-        int attackRoll = (int)(Math.random() * 20) + 1;
+        int attackRoll = (int)(ThreadLocalRandom.current().nextDouble() * 20) + 1;
         int totalAttack = attackRoll + playerLevel + dexMod;
         
         // Target's defense
@@ -730,7 +731,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
         
         // Hit! Calculate damage
-        int baseDamage = (int)(Math.random() * (4 + playerLevel)) + 1 + dexMod;
+        int baseDamage = (int)(ThreadLocalRandom.current().nextDouble() * (4 + playerLevel)) + 1 + dexMod;
         if (baseDamage < 1) baseDamage = 1;
         
         // Apply circle multiplier: 2x on hit, 4x on crit
@@ -894,7 +895,7 @@ public class CombatCommandHandler implements CommandHandler {
         
         // Roll attack (d20 + level bonus + DEX mod)
         int dexMod = (attacker.getDex() - 10) / 2;
-        int attackRoll = (int)(Math.random() * 20) + 1;
+        int attackRoll = (int)(ThreadLocalRandom.current().nextDouble() * 20) + 1;
         int totalAttack = attackRoll + playerLevel + dexMod;
         
         // Target's AC (level-based defense)
@@ -948,7 +949,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
         
         // Regular hit - 4x damage
-        int baseDamage = (int)(Math.random() * (4 + playerLevel)) + 1 + dexMod;
+        int baseDamage = (int)(ThreadLocalRandom.current().nextDouble() * (4 + playerLevel)) + 1 + dexMod;
         if (baseDamage < 1) baseDamage = 1;
         int totalDamage = baseDamage * 4; // Always 4x on hit
         
@@ -1320,7 +1321,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int proficiency = charTaunt.getProficiency();
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
 
@@ -1483,7 +1484,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int proficiency = charFeign.getProficiency();
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
 
@@ -1690,7 +1691,7 @@ public class CombatCommandHandler implements CommandHandler {
             com.example.tassmud.model.CooldownType.SKILL, HEROIC_STRIKE_SKILL_ID);
         
         if (remainingCooldown > 0) {
-            out.println("Heroic Strike is on cooldown for " + String.format("%.1f", remainingCooldown) + " more seconds.");
+            out.println("Heroic Strike is on cooldown for " + "%.1f".formatted(remainingCooldown) + " more seconds.");
             return true;
         }
         
@@ -1759,7 +1760,7 @@ public class CombatCommandHandler implements CommandHandler {
                 targetLevel = Math.max(1, targetCombatant.getHpMax() / 10);
             }
 
-            int roll = (int)(Math.random() * 100) + 1;
+            int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
             int proficiency = charHeroic.getProficiency();
             int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
             heroicSucceeded = roll <= successChance;
@@ -2004,7 +2005,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int proficiency = charBash.getProficiency();
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
 
@@ -2013,7 +2014,7 @@ public class CombatCommandHandler implements CommandHandler {
 
         if (bashSucceeded) {
             // Success! Apply STUNNED and SLOWED for 1d6 rounds
-            int stunDuration = (int)(Math.random() * 6) + 1;
+            int stunDuration = (int)(ThreadLocalRandom.current().nextDouble() * 6) + 1;
             targetCombatant.addStatusFlag(Combatant.StatusFlag.STUNNED);
             targetCombatant.addStatusFlag(Combatant.StatusFlag.SLOWED);
 
@@ -2146,7 +2147,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int proficiency = charKick.getProficiency();
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
 
@@ -2341,7 +2342,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int proficiency = charDisarm.getProficiency();
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
 
@@ -2521,7 +2522,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Perform opposed check with proficiency (1d100 vs success chance)
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int proficiency = charTrip.getProficiency();
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
 
@@ -2817,7 +2818,7 @@ public class CombatCommandHandler implements CommandHandler {
                 if (casterCombatant != null) {
                     java.util.List<Combatant> enemies = activeCombat.getValidTargets(casterCombatant);
                     if (!enemies.isEmpty()) {
-                        Combatant target = enemies.get(0);
+                        Combatant target = enemies.getFirst();
                         // For players, use characterId; for mobs, use negative instanceId as a convention
                         if (target.isPlayer()) {
                             targets.add(target.getCharacterId());
@@ -2876,7 +2877,7 @@ public class CombatCommandHandler implements CommandHandler {
                     if (casterCombatant != null) {
                         java.util.List<Combatant> enemies = activeCombat.getValidTargets(casterCombatant);
                         if (!enemies.isEmpty()) {
-                            Combatant target = enemies.get(0);
+                            Combatant target = enemies.getFirst();
                             if (target.isPlayer()) {
                                 targetId = target.getCharacterId();
                             } else if (target.getMobile() != null) {
@@ -3048,7 +3049,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Perform opposed check at 100% proficiency (innate skill)
-        int roll = (int)(Math.random() * 100) + 1;
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
         int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
             userLevel, opponentLevel, 100);
 
@@ -3064,7 +3065,7 @@ public class CombatCommandHandler implements CommandHandler {
         }
 
         // Flee succeeded - pick a random exit
-        String fleeDirection = availableExits.get((int)(Math.random() * availableExits.size()));
+        String fleeDirection = availableExits.get((int)(ThreadLocalRandom.current().nextDouble() * availableExits.size()));
         Integer destRoomId = exitRooms.get(fleeDirection);
 
         // Check movement cost

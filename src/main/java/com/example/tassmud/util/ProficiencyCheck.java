@@ -4,6 +4,8 @@ import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.persistence.CharacterDAO;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * Utility class for handling skill proficiency growth checks.
  * 
@@ -101,7 +103,7 @@ public class ProficiencyCheck {
      * @return true if the roll passed
      */
     private static boolean rollProficiencyCheck(int gainChance) {
-        int roll = (int)(Math.random() * 100) + 1; // 1-100
+        int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1; // 1-100
         return roll <= gainChance;
     }
     

@@ -27,6 +27,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -294,7 +295,7 @@ public class CombatManager {
         }
         
         // Pick a random exit
-        Integer destRoom = availableRooms.get((int)(Math.random() * availableRooms.size()));
+        Integer destRoom = availableRooms.get((int)(ThreadLocalRandom.current().nextDouble() * availableRooms.size()));
         
         // Announce and move
         broadcastToRoom(roomId, mob.getName() + " flees in terror!");
@@ -1086,7 +1087,7 @@ public class CombatManager {
             int successThreshold = (int) Math.round(successChance * 100); // Convert to 1-100 scale
             
             // Roll 1d100
-            int roll = (int)(Math.random() * 100) + 1;
+            int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
             
             if (roll <= successThreshold) {
                 // Success! Increase proficiency by 1%
@@ -1261,7 +1262,7 @@ public class CombatManager {
         GroupManager gm = GroupManager.getInstance();
         java.util.Optional<Group> groupOpt = gm.getGroupForCharacter(initiatorId);
         
-        if (!groupOpt.isPresent()) {
+        if (groupOpt.isEmpty()) {
             // Not in a group, nothing to do
             return;
         }
@@ -1521,44 +1522,44 @@ public class CombatManager {
         String message;
         switch (result.getType()) {
             case HIT:
-                message = String.format("%s's attack %s %s!", 
+                message = "%s's attack %s %s!".formatted(
                     attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 break;
             case CRITICAL_HIT:
-                message = String.format("CRITICAL! %s's attack %s %s!", 
+                message = "CRITICAL! %s's attack %s %s!".formatted(
                     attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 break;
             case MISS:
-                message = String.format("%s's attack %s %s!", 
+                message = "%s's attack %s %s!".formatted(
                     attackerName, getDamageVerb(0, false), targetName);
                 break;
             case SHRUGGED_OFF:
-                message = String.format("%s's melee attack is shrugged off by %s!", 
+                message = "%s's melee attack is shrugged off by %s!".formatted(
                     attackerName, targetName);
                 break;
             case DODGED:
-                message = String.format("%s's ranged attack is dodged by %s!", 
+                message = "%s's ranged attack is dodged by %s!".formatted(
                     attackerName, targetName);
                 break;
             case RESISTED:
-                message = String.format("%s's magical attack is resisted by %s!", 
+                message = "%s's magical attack is resisted by %s!".formatted(
                     attackerName, targetName);
                 break;
             case BLOCKED:
-                message = String.format("%s's attack is blocked by %s!", 
+                message = "%s's attack is blocked by %s!".formatted(
                     attackerName, targetName);
                 break;
             case PARRIED:
-                message = String.format("%s's attack is parried by %s!", 
+                message = "%s's attack is parried by %s!".formatted(
                     attackerName, targetName);
                 break;
             case HEAL:
-                message = String.format("%s heals %s for %d HP!", 
+                message = "%s heals %s for %d HP!".formatted(
                     attackerName, targetName, result.getHealing());
                 break;
             case DEATH:
                 // Show the killing blow damage before the death message
-                message = String.format("%s's attack %s %s!", 
+                message = "%s's attack %s %s!".formatted(
                     attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 broadcastToRoom(combat.getRoomId(), message);
                 combat.logEvent(message);
@@ -1591,7 +1592,7 @@ public class CombatManager {
             Integer attackerId = result.getAttacker().getCharacterId();
             if (com.example.tassmud.effect.EffectRegistry.hasInsight(attackerId)) {
                 Combatant target = result.getTarget();
-                String hpMsg = String.format("  %s: %d/%d HP", 
+                String hpMsg = "  %s: %d/%d HP".formatted(
                     target.getName(), target.getHpCurrent(), target.getHpMax());
                 sendToPlayer(attackerId, hpMsg);
             }

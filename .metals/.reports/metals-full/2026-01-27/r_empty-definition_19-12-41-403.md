@@ -1,3 +1,14 @@
+error id: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/persistence/DataLoader.java:java/nio/file/Path#
+file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/persistence/DataLoader.java
+empty definition using pc, found symbol in pc: java/nio/file/Path#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 686
+uri: file:///C:/Users/jason/dev/TassMUD/src/main/java/com/example/tassmud/persistence/DataLoader.java
+text:
+```scala
 package com.example.tassmud.persistence;
 
 import com.example.tassmud.model.*;
@@ -16,7 +27,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.@@Path;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.slf4j.Logger;
@@ -1353,3 +1364,10 @@ public class DataLoader {
         return s.isEmpty() ? null : s;
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/nio/file/Path#

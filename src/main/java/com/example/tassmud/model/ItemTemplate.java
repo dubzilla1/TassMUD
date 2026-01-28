@@ -338,7 +338,7 @@ public class ItemTemplate {
             this.types = Collections.unmodifiableList(normalizedTypes);
             this.typeSet = Collections.unmodifiableSet(normalizedSet);
             // Set deprecated type field to first type for backwards compatibility
-            this.type = normalizedTypes.isEmpty() ? null : normalizedTypes.get(0);
+            this.type = normalizedTypes.isEmpty() ? null : normalizedTypes.getFirst();
         }
         this.subtype = subtype;
         this.slot = slot;

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Handles mobile (NPC/monster) roaming behavior.
@@ -88,7 +89,7 @@ public class MobileRoamingService {
      * Roll how long a mob stays in a room: 1d100+10 seconds.
      */
     private long rollStayDuration() {
-        return (long) (Math.random() * 100) + 1 + 10; // 11-110 seconds
+        return (long) (ThreadLocalRandom.current().nextDouble() * 100) + 1 + 10; // 11-110 seconds
     }
     
     /**
@@ -180,7 +181,7 @@ public class MobileRoamingService {
         }
         
         // Pick a random exit
-        ExitChoice chosen = validExits.get((int) (Math.random() * validExits.size()));
+        ExitChoice chosen = validExits.get((int) (ThreadLocalRandom.current().nextDouble() * validExits.size()));
         
         // Check movement cost
         int moveCost = dao.getMoveCostForRoom(chosen.destinationRoomId);

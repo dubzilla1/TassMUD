@@ -21,6 +21,7 @@ import com.example.tassmud.model.Group;
 
 import java.io.PrintWriter;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 /**
@@ -131,7 +132,7 @@ public class MovementCommandHandler implements CommandHandler {
             }
             
             // Perform opposed check at 100% proficiency (innate skill)
-            int roll = (int)(Math.random() * 100) + 1;
+            int roll = (int)(ThreadLocalRandom.current().nextDouble() * 100) + 1;
             int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
                 userLevel, opponentLevel, 100); // 100% proficiency for innate skills
             
@@ -563,7 +564,7 @@ public class MovementCommandHandler implements CommandHandler {
                                             com.example.tassmud.model.ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
                                             itemName = com.example.tassmud.net.ClientHandler.getItemDisplayName(inst, tmpl);
                                         }
-                                        String paddedSlot = String.format("%-" + maxLen + "s", slot.displayName);
+                                        String paddedSlot = ("%-" + maxLen + "s").formatted(slot.displayName);
                                         out.println("    " + paddedSlot + ": " + itemName);
                                     }
                                 }
