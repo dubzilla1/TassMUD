@@ -347,6 +347,8 @@ public class DataLoader {
     }
 
     private static void loadSkills(CharacterDAO dao) {
+        // Clear stale skill definitions before reloading from YAML.
+        DaoProvider.skills().clearSkillDefinitions();
         loadSkillsFromYaml(dao);
     }
     
@@ -437,6 +439,9 @@ public class DataLoader {
     }
 
     private static void loadSpells(CharacterDAO dao) {
+        // Clear stale spell definitions before reloading from YAML.
+        // Spell defs are fully seed data; character_spell (player progress) is preserved.
+        DaoProvider.spells().clearSpellDefinitions();
         loadSpellsFromYaml(dao);
     }
     

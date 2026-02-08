@@ -115,8 +115,8 @@ public class Server {
         
         // Initialize combat system
         CombatManager combatManager = CombatManager.getInstance();
-        combatManager.initialize(tickService);
-        // Set up message callbacks for combat
+        // Set up message callbacks BEFORE initialize() — initialize() captures these
+        // into CombatMessagingService, DeathHandler, and CombatRewardService
         combatManager.setRoomMessageCallback((roomId, message) -> {
             // Don't add [COMBAT] prefix to blank separator lines
             if (message.isEmpty()) {
@@ -138,6 +138,7 @@ public class Server {
         combatManager.setPlayerAutofleeCallback((charId, combat) -> {
             return CombatManager.triggerAutoflee(charId, combat);
         });
+        combatManager.initialize(tickService);
 
         // Initialize event scheduler for spawn system
         EventScheduler eventScheduler = EventScheduler.getInstance();

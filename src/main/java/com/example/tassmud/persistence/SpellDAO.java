@@ -77,6 +77,20 @@ public class SpellDAO {
 
     // ========================== Spell Definition Methods ==========================
 
+    /**
+     * Remove all spell definitions (spelltb rows) so they can be cleanly
+     * reloaded from YAML.  Does NOT touch character_spell (player progress).
+     */
+    public void clearSpellDefinitions() {
+        try (Connection c = TransactionManager.getConnection();
+             Statement s = c.createStatement()) {
+            int deleted = s.executeUpdate("DELETE FROM spelltb");
+            logger.info("Cleared {} stale spell definitions before YAML reload", deleted);
+        } catch (SQLException e) {
+            logger.warn("Failed to clear spell definitions: {}", e.getMessage());
+        }
+    }
+
     public boolean addSpell(String name, String description) {
         String sql = "INSERT INTO spelltb (name, description) VALUES (?, ?)";
         try (Connection c = TransactionManager.getConnection();

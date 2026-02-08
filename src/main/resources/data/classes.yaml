@@ -73,23 +73,20 @@ classes:
       - level: 1
         skill_id: 950  # cloth armor
       - level: 5
-        spell_id: 101  # detect magic
+        spell_id: 3    # detect magic
       - level: 8
-        spell_id: 102  # shield
+        spell_id: 11   # shield
       - level: 12
-        spell_id: 103  # fireball
+        spell_id: 20   # fireball
       - level: 18
-        spell_id: 104  # lightning bolt
-      - level: 25
-        spell_id: 105  # teleport
+        spell_id: 21   # lightning bolt
+      # TODO: Teleport spell not yet implemented
       - level: 30
-        spell_id: 106  # cone of cold
+        spell_id: 40   # cone of cold
       - level: 30
         skill_id: 110  # greater arcane infusion
-      - level: 40
-        spell_id: 107  # disintegrate
-      - level: 50
-        spell_id: 108  # meteor swarm
+      # TODO: Disintegrate spell not yet implemented
+      # TODO: Meteor Swarm spell not yet implemented
       - level: 51
         skill_id: 109  # arcane mastery (hero level)
 
@@ -114,13 +111,12 @@ classes:
       - level: 2
         skill_id: 19   # shields
       - level: 3
-        spell_id: 201  # bless
+        spell_id: 101  # bless
       - level: 5
         spell_id: 100  # cure light wounds
-      - level: 8
-        spell_id: 202  # detect evil
+      # TODO: Detect Evil spell not yet implemented
       - level: 12
-        spell_id: 203  # remove curse
+        spell_id: 112  # remove curse
       - level: 15
         spell_id: 110  # cure moderate wounds
       - level: 15
@@ -135,8 +131,7 @@ classes:
         spell_id: 130  # cure critical wounds
       - level: 40
         skill_id: 205  # sanctuary
-      - level: 51
-        spell_id: 207  # divine intervention (hero level)
+      # TODO: Divine Intervention spell not yet implemented
 
   # ============================================================
   # ROGUE - Stealth and agility specialist
@@ -252,30 +247,23 @@ classes:
         skill_id: 19   # shields
       - level: 3
         skill_id: 901  # martial weapons
-      - level: 5
-        spell_id: 501  # detect evil
+      # TODO: Detect Evil spell not yet implemented
       - level: 5
         spell_id: 142  # insight
       - level: 10
         spell_id: 100  # cure light wounds
-      - level: 10
-        spell_id: 502  # smite evil
-      - level: 15
-        spell_id: 503  # divine shield
+      # TODO: Smite Evil spell not yet implemented
+      # TODO: Divine Shield spell not yet implemented
       - level: 20
         spell_id: 110  # cure moderate wounds
-      - level: 20
-        spell_id: 504  # turn undead
-      - level: 28
-        spell_id: 505  # holy weapon
+      # TODO: Turn Undead spell not yet implemented
+      # TODO: Holy Weapon spell not yet implemented
       - level: 30
         spell_id: 120  # cure serious wounds
-      - level: 35
-        spell_id: 506  # aura of protection
+      # TODO: Aura of Protection spell not yet implemented
       - level: 40
         spell_id: 130  # cure critical wounds
-      - level: 42
-        spell_id: 507  # divine mount
+      # TODO: Divine Mount spell not yet implemented
       - level: 50
         skill_id: 508  # holy avenger
       - level: 51
@@ -298,25 +286,18 @@ classes:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
       - level: 1
-        spell_id: 600  # drain life
-      - level: 1
         skill_id: 950  # cloth armor
+      # TODO: Drain Life spell not yet implemented
       - level: 5
-        spell_id: 601  # animate dead
+        spell_id: 321  # animate dead
       - level: 10
-        spell_id: 602  # fear
-      - level: 15
-        spell_id: 603  # corpse explosion
-      - level: 22
-        spell_id: 604  # bone armor
-      - level: 28
-        spell_id: 605  # summon skeleton
-      - level: 35
-        spell_id: 606  # plague
-      - level: 42
-        spell_id: 607  # death coil
-      - level: 50
-        spell_id: 608  # army of the dead
+        spell_id: 331  # fear
+      # TODO: Corpse Explosion spell not yet implemented
+      # TODO: Bone Armor spell not yet implemented
+      # TODO: Summon Skeleton spell not yet implemented
+      # TODO: Plague spell not yet implemented
+      # TODO: Death Coil spell not yet implemented
+      # TODO: Army of the Dead spell not yet implemented
       - level: 51
         skill_id: 609  # lich form (hero level)
 

@@ -72,6 +72,20 @@ public class SkillDAO {
 
     // ========================== Skill Definition Methods ==========================
 
+    /**
+     * Remove all skill definitions (skilltb rows) so they can be cleanly
+     * reloaded from YAML.  Does NOT touch character_skill (player progress).
+     */
+    public void clearSkillDefinitions() {
+        try (Connection c = TransactionManager.getConnection();
+             Statement s = c.createStatement()) {
+            int deleted = s.executeUpdate("DELETE FROM skilltb");
+            logger.info("Cleared {} stale skill definitions before YAML reload", deleted);
+        } catch (SQLException e) {
+            logger.warn("Failed to clear skill definitions: {}", e.getMessage());
+        }
+    }
+
     public boolean addSkill(String name, String description) {
         String sql = "INSERT INTO skilltb (name, description) VALUES (?, ?)";
         try (Connection c = TransactionManager.getConnection();

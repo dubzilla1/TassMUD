@@ -41,17 +41,17 @@ public class CharacterClassDAO {
             """);
             
             // Class skill grants - which skills/spells become available at which class level
+            // Drop and recreate with correct composite PK (data is reloaded from YAML every startup)
+            s.execute("DROP TABLE IF EXISTS class_skill_grant");
             s.execute("""
-                CREATE TABLE IF NOT EXISTS class_skill_grant (
+                CREATE TABLE class_skill_grant (
                     class_id INT NOT NULL,
                     class_level INT NOT NULL,
-                    skill_id INT NOT NULL,
-                    PRIMARY KEY (class_id, class_level, skill_id)
+                    skill_id INT NOT NULL DEFAULT 0,
+                    spell_id INT NOT NULL DEFAULT 0,
+                    PRIMARY KEY (class_id, class_level, skill_id, spell_id)
                 )
             """);
-            
-            // Migration: Add spell_id column for spell grants
-            s.execute("ALTER TABLE class_skill_grant ADD COLUMN IF NOT EXISTS spell_id INT DEFAULT 0");
             
             // Character class progress - tracks a character's level/XP in each class
             s.execute("""
