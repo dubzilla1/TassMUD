@@ -6,6 +6,11 @@
 *.iml
 *.ipr
 *.iws
+/.metals/
+/.bloop/
+
+# Backups
+*.bak
 
 # OS
 .DS_Store

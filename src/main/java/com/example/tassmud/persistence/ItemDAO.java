@@ -3,6 +3,7 @@ package com.example.tassmud.persistence;
 import com.example.tassmud.model.*;
 import java.io.InputStream;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 import org.yaml.snakeyaml.Yaml;
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,13 +13,88 @@ import org.slf4j.LoggerFactory;
 
 public class ItemDAO {
     private static final Logger logger = LoggerFactory.getLogger(ItemDAO.class);
-    private final String url;
-    private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
-    private static final String USER = "sa";
-    private static final String PASS = "";
+
+    /** Build a non-null spell effect list from individual column values. */
+    static List<String> buildSpellEffectList(String... values) {
+        List<String> list = new ArrayList<>();
+        for (String v : values) {
+            if (v != null && !v.isEmpty()) list.add(v);
+        }
+        return list;
+    }
+
+    /** Get spell effect at index, or null if out of bounds. */
+    static String getSpellEffect(List<String> effects, int index) {
+        return effects != null && index < effects.size() ? effects.get(index) : null;
+    }
+
+    /** Parse a CSV string into a list of trimmed strings, or null if empty. */
+    private static List<String> parseCsvList(String csv) {
+        if (csv == null || csv.isEmpty()) return null;
+        List<String> list = new ArrayList<>();
+        for (String s : csv.split(",")) { if (!s.trim().isEmpty()) list.add(s.trim()); }
+        return list.isEmpty() ? null : list;
+    }
+
+    /** Parse a CSV string of integers, or null if empty. */
+    private static List<Integer> parseCsvInts(String csv) {
+        if (csv == null || csv.isEmpty()) return null;
+        List<Integer> list = new ArrayList<>();
+        for (String s : csv.split(",")) {
+            try { list.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
+        }
+        return list.isEmpty() ? null : list;
+    }
+
+    /**
+     * Extract an ItemTemplate from a ResultSet row using the builder pattern.
+     * @param rs the result set positioned on the current row
+     * @param idColumn the column name for the template ID ("id" or "tid")
+     */
+    private ItemTemplate extractItemTemplate(ResultSet rs, String idColumn) throws SQLException {
+        return ItemTemplate.builder()
+            .id(rs.getInt(idColumn))
+            .key(rs.getString("template_key"))
+            .name(rs.getString("name"))
+            .description(rs.getString("description"))
+            .weight(rs.getDouble("weight"))
+            .value(rs.getInt("template_value"))
+            .traits(parseCsvList(rs.getString("traits")))
+            .keywords(parseCsvList(rs.getString("keywords")))
+            .types(parseTypesFromDb(rs.getString("type")))
+            .subtype(rs.getString("subtype"))
+            .slot(rs.getString("slot"))
+            .capacity(rs.getInt("capacity"))
+            .handCount(rs.getInt("hand_count"))
+            .indestructable(rs.getBoolean("indestructable"))
+            .magical(rs.getBoolean("magical"))
+            .maxItems(rs.getInt("max_items"))
+            .maxWeight(rs.getInt("max_weight"))
+            .armorSaveBonus(rs.getInt("armor_save_bonus"))
+            .fortSaveBonus(rs.getInt("fort_save_bonus"))
+            .refSaveBonus(rs.getInt("ref_save_bonus"))
+            .willSaveBonus(rs.getInt("will_save_bonus"))
+            .baseDie(rs.getInt("base_die"))
+            .multiplier(rs.getInt("multiplier"))
+            .hands(rs.getInt("hands"))
+            .abilityScore(rs.getString("ability_score"))
+            .abilityMultiplier(rs.getDouble("ability_multiplier"))
+            .spellEffectIds(buildSpellEffectList(
+                rs.getString("spell_effect_id_1"), rs.getString("spell_effect_id_2"),
+                rs.getString("spell_effect_id_3"), rs.getString("spell_effect_id_4")))
+            .templateJson(rs.getString("template_json"))
+            .weaponCategory(WeaponCategory.fromString(rs.getString("weapon_category")))
+            .weaponFamily(WeaponFamily.fromString(rs.getString("weapon_family")))
+            .armorCategory(ArmorCategory.fromString(rs.getString("armor_category")))
+            .minItemLevel(rs.getInt("min_item_level"))
+            .maxItemLevel(rs.getInt("max_item_level"))
+            .onUseSpellIds(parseCsvInts(rs.getString("on_use_spell_ids")))
+            .uses(rs.getInt("uses"))
+            .onEquipEffectIds(parseCsvList(rs.getString("on_equip_effect_ids")))
+            .build();
+    }
 
     public ItemDAO() {
-        this.url = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
         // Run migrations/ensureTables once per DAO class to avoid repeating expensive
         // schema checks for every DAO instance during startup.
         MigrationManager.ensureMigration("ItemDAO", this::ensureTables);
@@ -42,7 +118,7 @@ public class ItemDAO {
     }
 
     private void ensureTables() {
-        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              Statement s = c.createStatement()) {
                 s.execute("CREATE TABLE IF NOT EXISTS item_template (" +
                         "id INT PRIMARY KEY, template_key VARCHAR(200) UNIQUE, name VARCHAR(500), description VARCHAR(4000), weight DOUBLE, template_value INT, type VARCHAR(50), subtype VARCHAR(50), slot VARCHAR(100), capacity INT, hand_count INT, indestructable BOOLEAN, magical BOOLEAN, max_items INT, max_weight INT, armor_save_bonus INT, fort_save_bonus INT, ref_save_bonus INT, will_save_bonus INT, base_die INT, multiplier INT, hands INT, ability_score VARCHAR(50), ability_multiplier DOUBLE, spell_effect_id_1 VARCHAR(50), spell_effect_id_2 VARCHAR(50), spell_effect_id_3 VARCHAR(50), spell_effect_id_4 VARCHAR(50), traits VARCHAR(500), keywords VARCHAR(500), template_json CLOB)");
@@ -54,7 +130,7 @@ public class ItemDAO {
                 }
 
         // For existing DBs, ensure new columns exist (migrations)
-           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+           try (Connection c = TransactionManager.getConnection();
                Statement s = c.createStatement()) {
             s.execute("ALTER TABLE item_template ADD COLUMN IF NOT EXISTS traits VARCHAR(500)");
             logger.debug("Migration: ensured column item_template.traits");
@@ -216,10 +292,12 @@ public class ItemDAO {
                 int hands = parseIntSafe(item.get("hands"));
                 String abilityScore = str(item.get("ability_score"));
                 double abilityMultiplier = parseDoubleSafe(item.get("ability_multiplier"));
-                String spellEffectId1 = str(item.get("spell_effect_id_1"));
-                String spellEffectId2 = str(item.get("spell_effect_id_2"));
-                String spellEffectId3 = str(item.get("spell_effect_id_3"));
-                String spellEffectId4 = str(item.get("spell_effect_id_4"));
+                List<String> spellEffectIds = buildSpellEffectList(
+                    str(item.get("spell_effect_id_1")),
+                    str(item.get("spell_effect_id_2")),
+                    str(item.get("spell_effect_id_3")),
+                    str(item.get("spell_effect_id_4"))
+                );
                 
                 // Weapon categorization
                 String weaponCategoryStr = str(item.get("weapon_category"));
@@ -301,10 +379,7 @@ public class ItemDAO {
                 prepared.put("hands", hands);
                 prepared.put("abilityScore", abilityScore);
                 prepared.put("abilityMultiplier", abilityMultiplier);
-                prepared.put("spellEffectId1", spellEffectId1);
-                prepared.put("spellEffectId2", spellEffectId2);
-                prepared.put("spellEffectId3", spellEffectId3);
-                prepared.put("spellEffectId4", spellEffectId4);
+                prepared.put("spellEffectIds", spellEffectIds);
                 prepared.put("traits", String.join(",", traits));
                 prepared.put("keywords", String.join(",", keywords));
                 prepared.put("templateJson", templateJson);
@@ -324,7 +399,7 @@ public class ItemDAO {
         // Perform batched DB upsert of all prepared templates
         if (!batchedItems.isEmpty()) {
             final int BATCH_SIZE = 100;
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+            try (Connection c = TransactionManager.getConnection()) {
                 c.setAutoCommit(false);
                 try (PreparedStatement check = c.prepareStatement("SELECT id FROM item_template WHERE template_key = ?");
                      PreparedStatement ps = c.prepareStatement("MERGE INTO item_template (id,template_key,name,description,weight,template_value,type,subtype,slot,capacity,hand_count,indestructable,magical,max_items,max_weight,armor_save_bonus,fort_save_bonus,ref_save_bonus,will_save_bonus,base_die,multiplier,hands,ability_score,ability_multiplier,spell_effect_id_1,spell_effect_id_2,spell_effect_id_3,spell_effect_id_4,traits,keywords,template_json,weapon_category,weapon_family,armor_category,min_item_level,max_item_level,on_use_spell_ids,uses,on_equip_effect_ids) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
@@ -366,10 +441,12 @@ public class ItemDAO {
                         ps.setInt(22, (int) prepared.get("hands"));
                         ps.setString(23, (String) prepared.get("abilityScore"));
                         ps.setDouble(24, (double) prepared.get("abilityMultiplier"));
-                        ps.setString(25, (String) prepared.get("spellEffectId1"));
-                        ps.setString(26, (String) prepared.get("spellEffectId2"));
-                        ps.setString(27, (String) prepared.get("spellEffectId3"));
-                        ps.setString(28, (String) prepared.get("spellEffectId4"));
+                        @SuppressWarnings("unchecked")
+                        List<String> spellEffects = (List<String>) prepared.get("spellEffectIds");
+                        ps.setString(25, getSpellEffect(spellEffects, 0));
+                        ps.setString(26, getSpellEffect(spellEffects, 1));
+                        ps.setString(27, getSpellEffect(spellEffects, 2));
+                        ps.setString(28, getSpellEffect(spellEffects, 3));
                         ps.setString(29, (String) prepared.get("traits"));
                         ps.setString(30, (String) prepared.get("keywords"));
                         String templateJson = (String) prepared.get("templateJson");
@@ -446,12 +523,12 @@ public class ItemDAO {
             int min = template.minItemLevel;
             int max = template.maxItemLevel;
             if (min > 0 && max >= min) {
-                itemLevel = min + (int)(Math.random() * (max - min + 1));
+                itemLevel = min + ThreadLocalRandom.current().nextInt(max - min + 1);
             }
         }
         
         long now = System.currentTimeMillis();
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("INSERT INTO item_instance (template_id, location_room_id, owner_character_id, created_at, item_level) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, templateId);
             if (roomId == null) ps.setNull(2, Types.INTEGER); else ps.setInt(2, roomId);
@@ -475,12 +552,12 @@ public class ItemDAO {
             int min = template.minItemLevel;
             int max = template.maxItemLevel;
             if (min > 0 && max >= min) {
-                itemLevel = min + (int)(Math.random() * (max - min + 1));
+                itemLevel = min + ThreadLocalRandom.current().nextInt(max - min + 1);
             }
         }
         
         long now = System.currentTimeMillis();
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("INSERT INTO item_instance (template_id, location_room_id, owner_character_id, container_instance_id, created_at, item_level) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, templateId);
             if (roomId == null) ps.setNull(2, Types.INTEGER); else ps.setInt(2, roomId);
@@ -512,10 +589,7 @@ public class ItemDAO {
      * @param fortSaveOverride Fort save bonus override (null for template value)
      * @param refSaveOverride Ref save bonus override (null for template value)
      * @param willSaveOverride Will save bonus override (null for template value)
-     * @param spellEffect1 Spell effect 1 ID override (null for template value)
-     * @param spellEffect2 Spell effect 2 ID override (null for template value)
-     * @param spellEffect3 Spell effect 3 ID override (null for template value)
-     * @param spellEffect4 Spell effect 4 ID override (null for template value)
+     * @param spellEffects Spell effect ID overrides (empty for template values)
      * @param valueOverride Gold value override (null for template value)
      * @return The created instance ID, or -1 on failure
      */
@@ -524,7 +598,7 @@ public class ItemDAO {
             String customName, String customDescription, int itemLevel,
             Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
             Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
-            String spellEffect1, String spellEffect2, String spellEffect3, String spellEffect4,
+            List<String> spellEffects,
             Integer valueOverride) {
         long now = System.currentTimeMillis();
         String sql = "INSERT INTO item_instance (" +
@@ -533,7 +607,7 @@ public class ItemDAO {
             "armor_save_override, fort_save_override, ref_save_override, will_save_override, " +
             "spell_effect_1_override, spell_effect_2_override, spell_effect_3_override, spell_effect_4_override, " +
             "value_override, is_generated) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,TRUE)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             int idx = 1;
             ps.setInt(idx++, templateId);
@@ -549,10 +623,10 @@ public class ItemDAO {
             if (fortSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, fortSaveOverride);
             if (refSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, refSaveOverride);
             if (willSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, willSaveOverride);
-            if (spellEffect1 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect1);
-            if (spellEffect2 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect2);
-            if (spellEffect3 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect3);
-            if (spellEffect4 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect4);
+            { String e = getSpellEffect(spellEffects, 0); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
+            { String e = getSpellEffect(spellEffects, 1); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
+            { String e = getSpellEffect(spellEffects, 2); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
+            { String e = getSpellEffect(spellEffects, 3); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
             if (valueOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, valueOverride);
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) { if (rs.next()) return rs.getLong(1); }
@@ -578,10 +652,7 @@ public class ItemDAO {
      * @param fortSaveOverride Fort save bonus override (null for template value)
      * @param refSaveOverride Ref save bonus override (null for template value)
      * @param willSaveOverride Will save bonus override (null for template value)
-     * @param spellEffect1 Spell effect 1 ID override (null for template value)
-     * @param spellEffect2 Spell effect 2 ID override (null for template value)
-     * @param spellEffect3 Spell effect 3 ID override (null for template value)
-     * @param spellEffect4 Spell effect 4 ID override (null for template value)
+     * @param spellEffects Spell effect ID overrides (empty for template values)
      * @param valueOverride Gold value override (null for template value)
      * @return The created instance ID, or -1 on failure
      */
@@ -590,7 +661,7 @@ public class ItemDAO {
             String customName, String customDescription, int itemLevel,
             Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
             Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
-            String spellEffect1, String spellEffect2, String spellEffect3, String spellEffect4,
+            List<String> spellEffects,
             Integer valueOverride) {
         long now = System.currentTimeMillis();
         String sql = "INSERT INTO item_instance (" +
@@ -599,7 +670,7 @@ public class ItemDAO {
             "armor_save_override, fort_save_override, ref_save_override, will_save_override, " +
             "spell_effect_1_override, spell_effect_2_override, spell_effect_3_override, spell_effect_4_override, " +
             "value_override, is_generated) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,TRUE)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             int idx = 1;
             ps.setInt(idx++, templateId);
@@ -615,10 +686,10 @@ public class ItemDAO {
             if (fortSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, fortSaveOverride);
             if (refSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, refSaveOverride);
             if (willSaveOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, willSaveOverride);
-            if (spellEffect1 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect1);
-            if (spellEffect2 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect2);
-            if (spellEffect3 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect3);
-            if (spellEffect4 == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, spellEffect4);
+            { String e = getSpellEffect(spellEffects, 0); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
+            { String e = getSpellEffect(spellEffects, 1); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
+            { String e = getSpellEffect(spellEffects, 2); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
+            { String e = getSpellEffect(spellEffects, 3); if (e == null) ps.setNull(idx++, Types.VARCHAR); else ps.setString(idx++, e); }
             if (valueOverride == null) ps.setNull(idx++, Types.INTEGER); else ps.setInt(idx++, valueOverride);
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) { if (rs.next()) return rs.getLong(1); }
@@ -629,7 +700,7 @@ public class ItemDAO {
     }
 
     public ItemInstance getInstance(long instanceId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("SELECT * FROM item_instance WHERE instance_id = ?")) {
             ps.setLong(1, instanceId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -660,22 +731,38 @@ public class ItemDAO {
         Integer fortSaveOverride = (Integer) rs.getObject("fort_save_override");
         Integer refSaveOverride = (Integer) rs.getObject("ref_save_override");
         Integer willSaveOverride = (Integer) rs.getObject("will_save_override");
-        String spellEffect1Override = rs.getString("spell_effect_1_override");
-        String spellEffect2Override = rs.getString("spell_effect_2_override");
-        String spellEffect3Override = rs.getString("spell_effect_3_override");
-        String spellEffect4Override = rs.getString("spell_effect_4_override");
+        List<String> spellEffectOverrides = buildSpellEffectList(
+            rs.getString("spell_effect_1_override"),
+            rs.getString("spell_effect_2_override"),
+            rs.getString("spell_effect_3_override"),
+            rs.getString("spell_effect_4_override")
+        );
         Integer valueOverride = (Integer) rs.getObject("value_override");
         boolean isGenerated = rs.getBoolean("is_generated");
         Integer usesRemaining = (Integer) rs.getObject("uses_remaining");
         
-        return new ItemInstance(
-            rs.getLong("instance_id"), rs.getInt("template_id"), room, owner, container, 
-            rs.getLong("created_at"), customName, customDesc, itemLevel,
-            baseDieOverride, multiplierOverride, abilityMultOverride,
-            armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
-            spellEffect1Override, spellEffect2Override, spellEffect3Override, spellEffect4Override,
-            valueOverride, isGenerated, usesRemaining
-        );
+        return ItemInstance.builder()
+            .instanceId(rs.getLong("instance_id"))
+            .templateId(rs.getInt("template_id"))
+            .locationRoomId(room)
+            .ownerCharacterId(owner)
+            .containerInstanceId(container)
+            .createdAt(rs.getLong("created_at"))
+            .customName(customName)
+            .customDescription(customDesc)
+            .itemLevel(itemLevel)
+            .baseDieOverride(baseDieOverride)
+            .multiplierOverride(multiplierOverride)
+            .abilityMultOverride(abilityMultOverride)
+            .armorSaveOverride(armorSaveOverride)
+            .fortSaveOverride(fortSaveOverride)
+            .refSaveOverride(refSaveOverride)
+            .willSaveOverride(willSaveOverride)
+            .spellEffectOverrides(spellEffectOverrides)
+            .valueOverride(valueOverride)
+            .isGenerated(isGenerated)
+            .usesRemaining(usesRemaining)
+            .build();
     }
 
     // --- Corpse-related methods ---
@@ -707,7 +794,7 @@ public class ItemDAO {
         String customDesc = "The corpse of " + mobName + " lies here.";
         
         long now = System.currentTimeMillis();
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                  "INSERT INTO item_instance (template_id, location_room_id, owner_character_id, container_instance_id, created_at, custom_name, custom_description, gold_contents) VALUES (?,?,?,?,?,?,?,?)",
                  Statement.RETURN_GENERATED_KEYS)) {
@@ -736,7 +823,7 @@ public class ItemDAO {
      */
     public long getGoldContents(long instanceId) {
         String sql = "SELECT gold_contents FROM item_instance WHERE instance_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, instanceId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -759,7 +846,7 @@ public class ItemDAO {
         long gold = getGoldContents(instanceId);
         if (gold > 0) {
             String sql = "UPDATE item_instance SET gold_contents = 0 WHERE instance_id = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+            try (Connection c = TransactionManager.getConnection();
                  PreparedStatement ps = c.prepareStatement(sql)) {
                 ps.setLong(1, instanceId);
                 ps.executeUpdate();
@@ -778,7 +865,7 @@ public class ItemDAO {
      */
     public boolean deleteInstance(long instanceId) {
         String sql = "DELETE FROM item_instance WHERE instance_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, instanceId);
             return ps.executeUpdate() > 0;
@@ -797,7 +884,7 @@ public class ItemDAO {
         // Find corpses that have no items inside
         String sql = "DELETE FROM item_instance WHERE template_id = ? AND location_room_id = ? " +
                      "AND instance_id NOT IN (SELECT DISTINCT container_instance_id FROM item_instance WHERE container_instance_id IS NOT NULL)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, CORPSE_TEMPLATE_ID);
             ps.setInt(2, roomId);
@@ -815,7 +902,7 @@ public class ItemDAO {
     public int deleteAllEmptyCorpses() {
         String sql = "DELETE FROM item_instance WHERE template_id = ? " +
                      "AND instance_id NOT IN (SELECT DISTINCT container_instance_id FROM item_instance WHERE container_instance_id IS NOT NULL)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, CORPSE_TEMPLATE_ID);
             return ps.executeUpdate();
@@ -827,7 +914,7 @@ public class ItemDAO {
 
     // --- Equipment-related helpers ---
     public EquipmentSlot getTemplateEquipmentSlot(int templateId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("SELECT type, slot FROM item_template WHERE id = ?")) {
             ps.setInt(1, templateId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -865,7 +952,7 @@ public class ItemDAO {
      */
     public boolean isTemplateTwoHanded(int templateId) {
         String sql = "SELECT type, hands FROM item_template WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, templateId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -886,7 +973,7 @@ public class ItemDAO {
      */
     public boolean isTemplateShield(int templateId) {
         String sql = "SELECT type FROM item_template WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, templateId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -901,7 +988,7 @@ public class ItemDAO {
     }
 
     public void moveInstanceToRoom(long instanceId, int roomId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("UPDATE item_instance SET location_room_id = ?, owner_character_id = NULL, container_instance_id = NULL WHERE instance_id = ?")) {
             ps.setInt(1, roomId);
             ps.setLong(2, instanceId);
@@ -910,7 +997,7 @@ public class ItemDAO {
     }
 
     public void moveInstanceToCharacter(long instanceId, int characterId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("UPDATE item_instance SET owner_character_id = ?, location_room_id = NULL, container_instance_id = NULL WHERE instance_id = ?")) {
             ps.setInt(1, characterId);
             ps.setLong(2, instanceId);
@@ -919,7 +1006,7 @@ public class ItemDAO {
     }
 
     public void moveInstanceToContainer(long instanceId, long containerInstanceId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("UPDATE item_instance SET container_instance_id = ?, owner_character_id = NULL, location_room_id = NULL WHERE instance_id = ?")) {
             ps.setLong(1, containerInstanceId);
             ps.setLong(2, instanceId);
@@ -937,7 +1024,7 @@ public class ItemDAO {
      * Used when an item with limited uses is used.
      */
     public void updateUsesRemaining(long instanceId, int usesRemaining) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("UPDATE item_instance SET uses_remaining = ? WHERE instance_id = ?")) {
             ps.setInt(1, usesRemaining);
             ps.setLong(2, instanceId);
@@ -947,80 +1034,12 @@ public class ItemDAO {
 
     // Retrieve a template by its numeric ID
     public ItemTemplate getTemplateById(int id) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("SELECT * FROM item_template WHERE id = ?")) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) return null;
-                // Parse on_use_spell_ids from comma-separated string
-                List<Integer> onUseSpellIds = new ArrayList<>();
-                String onUseStr = rs.getString("on_use_spell_ids");
-                if (onUseStr != null && !onUseStr.isEmpty()) {
-                    for (String s : onUseStr.split(",")) {
-                        try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
-                    }
-                }
-                // Parse on_equip_effect_ids from comma-separated string
-                List<String> onEquipEffectIds = new ArrayList<>();
-                String onEquipStr = rs.getString("on_equip_effect_ids");
-                if (onEquipStr != null && !onEquipStr.isEmpty()) {
-                    for (String s : onEquipStr.split(",")) {
-                        if (!s.trim().isEmpty()) onEquipEffectIds.add(s.trim());
-                    }
-                }
-                // Parse traits and keywords fields from template row
-                List<String> traits = new ArrayList<>();
-                List<String> keywords = new ArrayList<>();
-                String traitsStr = rs.getString("traits");
-                String keywordsStr = rs.getString("keywords");
-                if (traitsStr != null && !traitsStr.isEmpty()) {
-                    for (String s : traitsStr.split(",")) if (s != null && !s.trim().isEmpty()) traits.add(s.trim());
-                }
-                if (keywordsStr != null && !keywordsStr.isEmpty()) {
-                    for (String s : keywordsStr.split(",")) if (s != null && !s.trim().isEmpty()) keywords.add(s.trim());
-                }
-
-                return new ItemTemplate(
-                    rs.getInt("id"),
-                    rs.getString("template_key"),
-                    rs.getString("name"),
-                    rs.getString("description"),
-                    rs.getDouble("weight"),
-                    rs.getInt("template_value"),
-                    traits,
-                    keywords,
-                    parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
-                    rs.getString("subtype"),
-                    rs.getString("slot"),
-                    rs.getInt("capacity"),
-                    rs.getInt("hand_count"),
-                    rs.getBoolean("indestructable"),
-                    rs.getBoolean("magical"),
-                    rs.getInt("max_items"),
-                    rs.getInt("max_weight"),
-                    rs.getInt("armor_save_bonus"),
-                    rs.getInt("fort_save_bonus"),
-                    rs.getInt("ref_save_bonus"),
-                    rs.getInt("will_save_bonus"),
-                    rs.getInt("base_die"),
-                    rs.getInt("multiplier"),
-                    rs.getInt("hands"),
-                    rs.getString("ability_score"),
-                    rs.getDouble("ability_multiplier"),
-                    rs.getString("spell_effect_id_1"),
-                    rs.getString("spell_effect_id_2"),
-                    rs.getString("spell_effect_id_3"),
-                    rs.getString("spell_effect_id_4"),
-                    rs.getString("template_json"),
-                    WeaponCategory.fromString(rs.getString("weapon_category")),
-                    WeaponFamily.fromString(rs.getString("weapon_family")),
-                    ArmorCategory.fromString(rs.getString("armor_category")),
-                    rs.getInt("min_item_level"),
-                    rs.getInt("max_item_level"),
-                    onUseSpellIds,
-                    rs.getInt("uses"),
-                    onEquipEffectIds
-                );
+                return extractItemTemplate(rs, "id");
             }
         } catch (SQLException e) {
             return null;
@@ -1029,7 +1048,7 @@ public class ItemDAO {
 
     // Check if a template with given ID exists
     public boolean templateExists(int id) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("SELECT 1 FROM item_template WHERE id = ?")) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
@@ -1047,7 +1066,7 @@ public class ItemDAO {
     public List<Integer> getTemplateIdsInRange(int minId, int maxId) {
         List<Integer> ids = new ArrayList<>();
         String sql = "SELECT id FROM item_template WHERE id >= ? AND id <= ? ORDER BY id";
-        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, minId);
             ps.setInt(2, maxId);
@@ -1086,79 +1105,13 @@ public class ItemDAO {
                      "t.min_item_level, t.max_item_level, t.on_use_spell_ids, t.uses, t.on_equip_effect_ids " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.location_room_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, roomId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     ItemInstance inst = extractItemInstance(rs);
-                    // Parse traits and keywords from comma-separated strings
-                    List<String> traits = new ArrayList<>();
-                    List<String> keywords = new ArrayList<>();
-                    String traitsStr = rs.getString("traits");
-                    String keywordsStr = rs.getString("keywords");
-                    if (traitsStr != null && !traitsStr.isEmpty()) {
-                        for (String s : traitsStr.split(",")) traits.add(s.trim());
-                    }
-                    if (keywordsStr != null && !keywordsStr.isEmpty()) {
-                        for (String s : keywordsStr.split(",")) keywords.add(s.trim());
-                    }
-                    // Parse on_use_spell_ids from comma-separated string
-                    List<Integer> onUseSpellIds = new ArrayList<>();
-                    String onUseStr = rs.getString("on_use_spell_ids");
-                    if (onUseStr != null && !onUseStr.isEmpty()) {
-                        for (String s : onUseStr.split(",")) {
-                            try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
-                        }
-                    }
-                    int uses = rs.getInt("uses");
-                    // Parse on_equip_effect_ids from comma-separated string
-                    List<String> onEquipEffectIds = new ArrayList<>();
-                    String onEquipStr = rs.getString("on_equip_effect_ids");
-                    if (onEquipStr != null && !onEquipStr.isEmpty()) {
-                        for (String s : onEquipStr.split(",")) onEquipEffectIds.add(s.trim());
-                    }
-                    ItemTemplate tmpl = new ItemTemplate(
-                        rs.getInt("tid"),
-                        rs.getString("template_key"),
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getDouble("weight"),
-                        rs.getInt("template_value"),
-                        traits,
-                        keywords,
-                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
-                        rs.getString("subtype"),
-                        rs.getString("slot"),
-                        rs.getInt("capacity"),
-                        rs.getInt("hand_count"),
-                        rs.getBoolean("indestructable"),
-                        rs.getBoolean("magical"),
-                        rs.getInt("max_items"),
-                        rs.getInt("max_weight"),
-                        rs.getInt("armor_save_bonus"),
-                        rs.getInt("fort_save_bonus"),
-                        rs.getInt("ref_save_bonus"),
-                        rs.getInt("will_save_bonus"),
-                        rs.getInt("base_die"),
-                        rs.getInt("multiplier"),
-                        rs.getInt("hands"),
-                        rs.getString("ability_score"),
-                        rs.getDouble("ability_multiplier"),
-                        rs.getString("spell_effect_id_1"),
-                        rs.getString("spell_effect_id_2"),
-                        rs.getString("spell_effect_id_3"),
-                        rs.getString("spell_effect_id_4"),
-                        rs.getString("template_json"),
-                        WeaponCategory.fromString(rs.getString("weapon_category")),
-                        WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category")),
-                        rs.getInt("min_item_level"),
-                        rs.getInt("max_item_level"),
-                        onUseSpellIds,
-                        uses,
-                        onEquipEffectIds
-                    );
+                    ItemTemplate tmpl = extractItemTemplate(rs, "tid");
                     result.add(new RoomItem(inst, tmpl));
                 }
             }
@@ -1181,79 +1134,13 @@ public class ItemDAO {
                      "t.min_item_level, t.max_item_level, t.on_use_spell_ids, t.uses, t.on_equip_effect_ids " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.owner_character_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     ItemInstance inst = extractItemInstance(rs);
-                    // Parse traits and keywords from comma-separated strings
-                    List<String> traits = new ArrayList<>();
-                    List<String> keywords = new ArrayList<>();
-                    String traitsStr = rs.getString("traits");
-                    String keywordsStr = rs.getString("keywords");
-                    if (traitsStr != null && !traitsStr.isEmpty()) {
-                        for (String s : traitsStr.split(",")) traits.add(s.trim());
-                    }
-                    if (keywordsStr != null && !keywordsStr.isEmpty()) {
-                        for (String s : keywordsStr.split(",")) keywords.add(s.trim());
-                    }
-                    // Parse on_use_spell_ids from comma-separated string
-                    List<Integer> onUseSpellIds = new ArrayList<>();
-                    String onUseStr = rs.getString("on_use_spell_ids");
-                    if (onUseStr != null && !onUseStr.isEmpty()) {
-                        for (String s : onUseStr.split(",")) {
-                            try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
-                        }
-                    }
-                    int uses = rs.getInt("uses");
-                    // Parse on_equip_effect_ids from comma-separated string
-                    List<String> onEquipEffectIds = new ArrayList<>();
-                    String onEquipStr = rs.getString("on_equip_effect_ids");
-                    if (onEquipStr != null && !onEquipStr.isEmpty()) {
-                        for (String s : onEquipStr.split(",")) onEquipEffectIds.add(s.trim());
-                    }
-                    ItemTemplate tmpl = new ItemTemplate(
-                        rs.getInt("tid"),
-                        rs.getString("template_key"),
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getDouble("weight"),
-                        rs.getInt("template_value"),
-                        traits,
-                        keywords,
-                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
-                        rs.getString("subtype"),
-                        rs.getString("slot"),
-                        rs.getInt("capacity"),
-                        rs.getInt("hand_count"),
-                        rs.getBoolean("indestructable"),
-                        rs.getBoolean("magical"),
-                        rs.getInt("max_items"),
-                        rs.getInt("max_weight"),
-                        rs.getInt("armor_save_bonus"),
-                        rs.getInt("fort_save_bonus"),
-                        rs.getInt("ref_save_bonus"),
-                        rs.getInt("will_save_bonus"),
-                        rs.getInt("base_die"),
-                        rs.getInt("multiplier"),
-                        rs.getInt("hands"),
-                        rs.getString("ability_score"),
-                        rs.getDouble("ability_multiplier"),
-                        rs.getString("spell_effect_id_1"),
-                        rs.getString("spell_effect_id_2"),
-                        rs.getString("spell_effect_id_3"),
-                        rs.getString("spell_effect_id_4"),
-                        rs.getString("template_json"),
-                        WeaponCategory.fromString(rs.getString("weapon_category")),
-                        WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category")),
-                        rs.getInt("min_item_level"),
-                        rs.getInt("max_item_level"),
-                        onUseSpellIds,
-                        uses,
-                        onEquipEffectIds
-                    );
+                    ItemTemplate tmpl = extractItemTemplate(rs, "tid");
                     result.add(new RoomItem(inst, tmpl));
                 }
             }
@@ -1276,79 +1163,13 @@ public class ItemDAO {
                      "t.min_item_level, t.max_item_level, t.on_use_spell_ids, t.uses, t.on_equip_effect_ids " +
                      "FROM item_instance i JOIN item_template t ON i.template_id = t.id " +
                      "WHERE i.container_instance_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, containerInstanceId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     ItemInstance inst = extractItemInstance(rs);
-                    // Parse traits and keywords from comma-separated strings
-                    List<String> traits = new ArrayList<>();
-                    List<String> keywords = new ArrayList<>();
-                    String traitsStr = rs.getString("traits");
-                    String keywordsStr = rs.getString("keywords");
-                    if (traitsStr != null && !traitsStr.isEmpty()) {
-                        for (String s : traitsStr.split(",")) traits.add(s.trim());
-                    }
-                    if (keywordsStr != null && !keywordsStr.isEmpty()) {
-                        for (String s : keywordsStr.split(",")) keywords.add(s.trim());
-                    }
-                    // Parse on_use_spell_ids from comma-separated string
-                    List<Integer> onUseSpellIds = new ArrayList<>();
-                    String onUseStr = rs.getString("on_use_spell_ids");
-                    if (onUseStr != null && !onUseStr.isEmpty()) {
-                        for (String s : onUseStr.split(",")) {
-                            try { onUseSpellIds.add(Integer.parseInt(s.trim())); } catch (Exception ignored) {}
-                        }
-                    }
-                    int uses = rs.getInt("uses");
-                    // Parse on_equip_effect_ids from comma-separated string
-                    List<String> onEquipEffectIds = new ArrayList<>();
-                    String onEquipStr = rs.getString("on_equip_effect_ids");
-                    if (onEquipStr != null && !onEquipStr.isEmpty()) {
-                        for (String s : onEquipStr.split(",")) onEquipEffectIds.add(s.trim());
-                    }
-                    ItemTemplate tmpl = new ItemTemplate(
-                        rs.getInt("tid"),
-                        rs.getString("template_key"),
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getDouble("weight"),
-                        rs.getInt("template_value"),
-                        traits,
-                        keywords,
-                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
-                        rs.getString("subtype"),
-                        rs.getString("slot"),
-                        rs.getInt("capacity"),
-                        rs.getInt("hand_count"),
-                        rs.getBoolean("indestructable"),
-                        rs.getBoolean("magical"),
-                        rs.getInt("max_items"),
-                        rs.getInt("max_weight"),
-                        rs.getInt("armor_save_bonus"),
-                        rs.getInt("fort_save_bonus"),
-                        rs.getInt("ref_save_bonus"),
-                        rs.getInt("will_save_bonus"),
-                        rs.getInt("base_die"),
-                        rs.getInt("multiplier"),
-                        rs.getInt("hands"),
-                        rs.getString("ability_score"),
-                        rs.getDouble("ability_multiplier"),
-                        rs.getString("spell_effect_id_1"),
-                        rs.getString("spell_effect_id_2"),
-                        rs.getString("spell_effect_id_3"),
-                        rs.getString("spell_effect_id_4"),
-                        rs.getString("template_json"),
-                        WeaponCategory.fromString(rs.getString("weapon_category")),
-                        WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category")),
-                        rs.getInt("min_item_level"),
-                        rs.getInt("max_item_level"),
-                        onUseSpellIds,
-                        uses,
-                        onEquipEffectIds
-                    );
+                    ItemTemplate tmpl = extractItemTemplate(rs, "tid");
                     result.add(new RoomItem(inst, tmpl));
                 }
             }
@@ -1366,50 +1187,13 @@ public class ItemDAO {
         java.util.List<ItemTemplate> results = new java.util.ArrayList<>();
         if (searchStr == null || searchStr.trim().isEmpty()) return results;
         String pattern = "%" + searchStr.trim().toLowerCase() + "%";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                  "SELECT * FROM item_template WHERE LOWER(name) LIKE ? ORDER BY id")) {
             ps.setString(1, pattern);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    results.add(new ItemTemplate(
-                        rs.getInt("id"),
-                        rs.getString("template_key"),
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getDouble("weight"),
-                        rs.getInt("template_value"),
-                        null, // traits
-                        null, // keywords
-                        parseTypesFromDb(rs.getString("type")), // Parse comma-separated types
-                        rs.getString("subtype"),
-                        rs.getString("slot"),
-                        rs.getInt("capacity"),
-                        rs.getInt("hand_count"),
-                        rs.getBoolean("indestructable"),
-                        rs.getBoolean("magical"),
-                        rs.getInt("max_items"),
-                        rs.getInt("max_weight"),
-                        rs.getInt("armor_save_bonus"),
-                        rs.getInt("fort_save_bonus"),
-                        rs.getInt("ref_save_bonus"),
-                        rs.getInt("will_save_bonus"),
-                        rs.getInt("base_die"),
-                        rs.getInt("multiplier"),
-                        rs.getInt("hands"),
-                        rs.getString("ability_score"),
-                        rs.getDouble("ability_multiplier"),
-                        rs.getString("spell_effect_id_1"),
-                        rs.getString("spell_effect_id_2"),
-                        rs.getString("spell_effect_id_3"),
-                        rs.getString("spell_effect_id_4"),
-                        rs.getString("template_json"),
-                        WeaponCategory.fromString(rs.getString("weapon_category")),
-                        WeaponFamily.fromString(rs.getString("weapon_family")),
-                        ArmorCategory.fromString(rs.getString("armor_category")),
-                        rs.getInt("min_item_level"),
-                        rs.getInt("max_item_level")
-                    ));
+                    results.add(extractItemTemplate(rs, "id"));
                 }
             }
         } catch (SQLException e) {
@@ -1424,7 +1208,7 @@ public class ItemDAO {
      */
     public java.util.List<ItemInstance> findInstancesByTemplateId(int templateId) {
         java.util.List<ItemInstance> results = new java.util.ArrayList<>();
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                  "SELECT * FROM item_instance WHERE template_id = ? ORDER BY instance_id")) {
             ps.setInt(1, templateId);
@@ -1443,7 +1227,7 @@ public class ItemDAO {
      * Get an item instance by its instance ID.
      */
     public ItemInstance getInstanceById(long instanceId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement("SELECT * FROM item_instance WHERE instance_id = ?")) {
             ps.setLong(1, instanceId);
             try (ResultSet rs = ps.executeQuery()) {

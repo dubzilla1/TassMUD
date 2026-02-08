@@ -44,10 +44,9 @@ public class GameCharacter {
                      int mpMax, int mpCur,
                      int mvMax, int mvCur,
                      Integer currentRoom,
-                     int str, int dex, int con, int intel, int wis, int cha,
-                     int armor, int fortitude, int reflex, int will) {
+                     StatBlock stats) {
         this(name, age, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom,
-             str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, Stance.STANDING);
+             stats, Stance.STANDING);
     }
     
     public GameCharacter(String name, int age, String description,
@@ -55,8 +54,7 @@ public class GameCharacter {
                      int mpMax, int mpCur,
                      int mvMax, int mvCur,
                      Integer currentRoom,
-                     int str, int dex, int con, int intel, int wis, int cha,
-                     int armor, int fortitude, int reflex, int will,
+                     StatBlock stats,
                      Stance stance) {
         this.name = name;
         this.age = age;
@@ -68,19 +66,24 @@ public class GameCharacter {
         this.mvMax = mvMax;
         this.mvCur = mvCur;
         this.currentRoom = currentRoom;
-        this.str = str;
-        this.dex = dex;
-        this.con = con;
-        this.intel = intel;
-        this.wis = wis;
-        this.cha = cha;
-        this.armor = armor;
-        this.fortitude = fortitude;
-        this.reflex = reflex;
-        this.will = will;
+        this.str = stats.str();
+        this.dex = stats.dex();
+        this.con = stats.con();
+        this.intel = stats.intel();
+        this.wis = stats.wis();
+        this.cha = stats.cha();
+        this.armor = stats.armor();
+        this.fortitude = stats.fortitude();
+        this.reflex = stats.reflex();
+        this.will = stats.will();
         this.stance = stance != null ? stance : Stance.STANDING;
         // initialize modifier base values and caches
         initBaseStats();
+    }
+
+    /** Snapshot current stat values into an immutable StatBlock. */
+    public StatBlock toStatBlock() {
+        return new StatBlock(str, dex, con, intel, wis, cha, armor, fortitude, reflex, will);
     }
 
     public String getName() { return name; }
@@ -125,12 +128,12 @@ public class GameCharacter {
     public int getWis() { return wis; }
     public int getCha() { return cha; }
 
-    public void setStr(int str) { this.str = str; markDirty(Stat.STRENGTH); }
-    public void setDex(int dex) { this.dex = dex; markDirty(Stat.DEXTERITY); }
-    public void setCon(int con) { this.con = con; markDirty(Stat.CONSTITUTION); }
-    public void setIntel(int intel) { this.intel = intel; markDirty(Stat.INTELLIGENCE); }
-    public void setWis(int wis) { this.wis = wis; markDirty(Stat.WISDOM); }
-    public void setCha(int cha) { this.cha = cha; markDirty(Stat.CHARISMA); }
+    public void setStr(int str) { this.str = str; baseStats.put(Stat.STRENGTH, (double) str); markDirty(Stat.STRENGTH); }
+    public void setDex(int dex) { this.dex = dex; baseStats.put(Stat.DEXTERITY, (double) dex); markDirty(Stat.DEXTERITY); }
+    public void setCon(int con) { this.con = con; baseStats.put(Stat.CONSTITUTION, (double) con); markDirty(Stat.CONSTITUTION); }
+    public void setIntel(int intel) { this.intel = intel; baseStats.put(Stat.INTELLIGENCE, (double) intel); markDirty(Stat.INTELLIGENCE); }
+    public void setWis(int wis) { this.wis = wis; baseStats.put(Stat.WISDOM, (double) wis); markDirty(Stat.WISDOM); }
+    public void setCha(int cha) { this.cha = cha; baseStats.put(Stat.CHARISMA, (double) cha); markDirty(Stat.CHARISMA); }
 
     // Save getters
     public int getArmor() { return armor; }
@@ -138,10 +141,10 @@ public class GameCharacter {
     public int getReflex() { return reflex; }
     public int getWill() { return will; }
 
-    public void setArmor(int armor) { this.armor = armor; markDirty(Stat.ARMOR); }
-    public void setFortitude(int fortitude) { this.fortitude = fortitude; markDirty(Stat.FORTITUDE); }
-    public void setReflex(int reflex) { this.reflex = reflex; markDirty(Stat.REFLEX); }
-    public void setWill(int will) { this.will = will; markDirty(Stat.WILL); }
+    public void setArmor(int armor) { this.armor = armor; baseStats.put(Stat.ARMOR, (double) armor); markDirty(Stat.ARMOR); }
+    public void setFortitude(int fortitude) { this.fortitude = fortitude; baseStats.put(Stat.FORTITUDE, (double) fortitude); markDirty(Stat.FORTITUDE); }
+    public void setReflex(int reflex) { this.reflex = reflex; baseStats.put(Stat.REFLEX, (double) reflex); markDirty(Stat.REFLEX); }
+    public void setWill(int will) { this.will = will; baseStats.put(Stat.WILL, (double) will); markDirty(Stat.WILL); }
 
     // -- Modifier system backing fields --
     private final EnumMap<Stat, Double> baseStats = new EnumMap<>(Stat.class);
@@ -345,27 +348,6 @@ public class GameCharacter {
         return out;
     }
 
-    
-    /**
-     * Apply regeneration based on current stance.
-     * Returns the amounts regenerated as [hp, mp, mv].
-     */
-    public int[] regenerate() {
-        int percent = stance.getRegenPercent();
-        int hpRegen = Math.max(1, (hpMax * percent) / 100);
-        int mpRegen = Math.max(1, (mpMax * percent) / 100);
-        int mvRegen = Math.max(1, (mvMax * percent) / 100);
-        
-        int oldHp = hpCur;
-        int oldMp = mpCur;
-        int oldMv = mvCur;
-        
-        setHpCur(hpCur + hpRegen);
-        setMpCur(mpCur + mpRegen);
-        setMvCur(mvCur + mvRegen);
-        
-        return new int[] { hpCur - oldHp, mpCur - oldMp, mvCur - oldMv };
-    }
     
     /**
      * Check if this character needs regeneration (any stat below max).

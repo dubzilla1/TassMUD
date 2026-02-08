@@ -1,5 +1,7 @@
 package com.example.tassmud.util;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.model.Mobile;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Handles mobile (NPC/monster) roaming behavior.
@@ -47,8 +50,8 @@ public class MobileRoamingService {
     private final Map<Long, Long> nextMoveTime = new ConcurrentHashMap<>();
     
     private MobileRoamingService() {
-        this.dao = new CharacterDAO();
-        this.mobileDao = new MobileDAO();
+        this.dao = DaoProvider.characters();
+        this.mobileDao = DaoProvider.mobiles();
         this.combatManager = CombatManager.getInstance();
     }
     
@@ -88,7 +91,7 @@ public class MobileRoamingService {
      * Roll how long a mob stays in a room: 1d100+10 seconds.
      */
     private long rollStayDuration() {
-        return (long) (Math.random() * 100) + 1 + 10; // 11-110 seconds
+        return ThreadLocalRandom.current().nextInt(11, 111); // 11-110 seconds
     }
     
     /**
@@ -97,14 +100,9 @@ public class MobileRoamingService {
     private void tick() {
         long now = System.currentTimeMillis();
         
-        // Get all alive mobiles
-        List<Mobile> allMobiles;
-        try {
-            allMobiles = mobileDao.getAllInstances();
-        } catch (Exception e) {
-            logger.warn("[MobileRoamingService] Error getting mobiles: {}", e.getMessage(), e);
-            return;
-        }
+        // Get all alive mobiles from in-memory registry (no DB query)
+        MobileRegistry registry = MobileRegistry.getInstance();
+        List<Mobile> allMobiles = new ArrayList<>(registry.getAll());
         
         for (Mobile mobile : allMobiles) {
             try {
@@ -168,7 +166,7 @@ public class MobileRoamingService {
             return;
         }
         
-        Room currentRoom = dao.getRoomById(currentRoomId);
+        Room currentRoom = DaoProvider.rooms().getRoomById(currentRoomId);
         if (currentRoom == null) {
             return;
         }
@@ -180,10 +178,10 @@ public class MobileRoamingService {
         }
         
         // Pick a random exit
-        ExitChoice chosen = validExits.get((int) (Math.random() * validExits.size()));
+        ExitChoice chosen = validExits.get(ThreadLocalRandom.current().nextInt(validExits.size()));
         
         // Check movement cost
-        int moveCost = dao.getMoveCostForRoom(chosen.destinationRoomId);
+        int moveCost = DaoProvider.rooms().getMoveCostForRoom(chosen.destinationRoomId);
         if (mobile.getMvCur() < moveCost) {
             return; // Not enough movement points
         }
@@ -207,6 +205,7 @@ public class MobileRoamingService {
         
         // Move the mob
         mobile.setCurrentRoom(chosen.destinationRoomId);
+        MobileRegistry.getInstance().moveToRoom(mobile.getInstanceId(), currentRoomId, chosen.destinationRoomId);
         
         // Announce arrival in new room (use the same cleaned name)
         String arrivalMsg = makeArrivalMessage(departureName, chosen.direction);
@@ -295,12 +294,9 @@ public class MobileRoamingService {
         Integer spawnAreaId = getSpawnAreaId(mobile);
         
         // Check each direction
-        addExitIfValid(exits, mobile, currentRoom.getExitN(), "north", currentAreaId, spawnAreaId);
-        addExitIfValid(exits, mobile, currentRoom.getExitS(), "south", currentAreaId, spawnAreaId);
-        addExitIfValid(exits, mobile, currentRoom.getExitE(), "east", currentAreaId, spawnAreaId);
-        addExitIfValid(exits, mobile, currentRoom.getExitW(), "west", currentAreaId, spawnAreaId);
-        addExitIfValid(exits, mobile, currentRoom.getExitU(), "up", currentAreaId, spawnAreaId);
-        addExitIfValid(exits, mobile, currentRoom.getExitD(), "down", currentAreaId, spawnAreaId);
+        for (var entry : currentRoom.getExits().entrySet()) {
+            addExitIfValid(exits, mobile, entry.getValue(), entry.getKey().fullName(), currentAreaId, spawnAreaId);
+        }
         
         return exits;
     }
@@ -314,7 +310,7 @@ public class MobileRoamingService {
             return; // No exit in this direction
         }
         
-        Room destRoom = dao.getRoomById(destRoomId);
+        Room destRoom = DaoProvider.rooms().getRoomById(destRoomId);
         if (destRoom == null) {
             return; // Invalid destination
         }
@@ -345,7 +341,7 @@ public class MobileRoamingService {
         if (spawnRoomId == null) {
             return null;
         }
-        Room spawnRoom = dao.getRoomById(spawnRoomId);
+        Room spawnRoom = DaoProvider.rooms().getRoomById(spawnRoomId);
         return spawnRoom != null ? spawnRoom.getAreaId() : null;
     }
     
@@ -388,7 +384,7 @@ public class MobileRoamingService {
         // Determine the from-room id for this mobile
         Integer fromRoomId = mobile.getCurrentRoom();
         if (fromRoomId == null) return false;
-        com.example.tassmud.model.Door door = dao.getDoor(fromRoomId, direction);
+        com.example.tassmud.model.Door door = DaoProvider.rooms().getDoor(fromRoomId, direction);
         if (door == null) return true;
         // Block passage for blocked doors
         if (door.blocked) return false;
@@ -408,13 +404,13 @@ public class MobileRoamingService {
      */
     private boolean canEnterRoom(Mobile mobile, int destRoomId) {
         // Check NO_MOB flag - mobs cannot enter by normal movement
-        if (dao.isRoomNoMob(destRoomId)) {
+        if (DaoProvider.rooms().isRoomNoMob(destRoomId)) {
             return false;
         }
         
         // Check SAFE flag - aggressive mobs won't naturally wander into safe rooms
         // (though they can be summoned/teleported there)
-        if (mobile.hasBehavior(MobileBehavior.AGGRESSIVE) && dao.isRoomSafe(destRoomId)) {
+        if (mobile.hasBehavior(MobileBehavior.AGGRESSIVE) && DaoProvider.rooms().isRoomSafe(destRoomId)) {
             return false;
         }
         
@@ -492,7 +488,7 @@ public class MobileRoamingService {
      */
     public void checkAggroOnPlayerEntry(int roomId, int characterId, int playerLevel) {
         // Skip aggro check if the room is SAFE
-        if (dao.isRoomSafe(roomId)) {
+        if (DaoProvider.rooms().isRoomSafe(roomId)) {
             return; // No combat allowed in safe rooms
         }
         
@@ -512,7 +508,7 @@ public class MobileRoamingService {
         }
         
         // Get all mobs in the room
-        List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(roomId);
+        List<Mobile> mobsInRoom = MobileRegistry.getInstance().getByRoom(roomId);
         if (mobsInRoom.isEmpty()) {
             return;
         }
@@ -567,7 +563,7 @@ public class MobileRoamingService {
         }
         
         // Skip aggro in SAFE rooms
-        if (dao.isRoomSafe(roomId)) {
+        if (DaoProvider.rooms().isRoomSafe(roomId)) {
             return; // No combat allowed in safe rooms
         }
         
@@ -655,7 +651,7 @@ public class MobileRoamingService {
      */
     private List<PlayerInRoom> getPlayersInRoom(int roomId) {
         List<PlayerInRoom> result = new ArrayList<>();
-        CharacterClassDAO classDao = new CharacterClassDAO();
+        CharacterClassDAO classDao = DaoProvider.classes();
         
         for (Integer charId : ClientHandler.getConnectedCharacterIds()) {
             ClientHandler handler = ClientHandler.getHandlerByCharacterId(charId);

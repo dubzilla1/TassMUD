@@ -1,5 +1,8 @@
 package com.example.tassmud.net.commands;
 
+
+import com.example.tassmud.persistence.DaoProvider;
+import com.example.tassmud.persistence.TransactionManager;
 import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.effect.EffectRegistry;
@@ -32,6 +35,9 @@ import java.util.stream.Collectors;
  */
 public class ItemCommandHandler implements CommandHandler {
     
+    private final ShopCommandHandler shopCommands = new ShopCommandHandler();
+    private final EquipmentCommandHandler equipCommands = new EquipmentCommandHandler();
+
     private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.ITEMS).stream()
             .map(cmd -> cmd.getName())
             .collect(Collectors.toUnmodifiableSet());
@@ -58,772 +64,26 @@ public class ItemCommandHandler implements CommandHandler {
                 return handleSacrificeCommand(ctx);
             case "wear":
             case "equip":
-                return handleEquipCommand(ctx); 
+                return equipCommands.handleEquipCommand(ctx); 
             case "dequip":
             case "remove":
-                return handleRemoveCommand(ctx);
+                return equipCommands.handleRemoveCommand(ctx);
             case "quaff":
             case "drink":
                 return handleQuaffCommand(ctx);
             case "use":
                 return handleUseCommand(ctx);
             case "list":
-                return handleListCommand(ctx);
+                return shopCommands.handleListCommand(ctx);
             case "buy":
-                return handleBuyCommand(ctx);
+                return shopCommands.handleBuyCommand(ctx);
             case "sell":
-                return handleSellCommand(ctx);
+                return shopCommands.handleSellCommand(ctx);
             default:
                 return false;
         }
     }
     
-    private boolean handleBuyCommand(CommandContext ctx) {
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-
-        // BUY <item> [quantity] - purchase an item from a shopkeeper
-        if (rec == null || rec.currentRoom == null) {
-            out.println("You must be in a room to buy items.");
-            return true;
-        }
-        String buyArgs = ctx.getArgs();
-        if (buyArgs == null || buyArgs.trim().isEmpty()) {
-            out.println("Usage: buy <item> [quantity]");
-            return true;
-        }
-        
-        // Parse args: item name and optional quantity
-        String buyArg = buyArgs.trim();
-        int quantity = 1;
-        String itemSearchStr;
-        
-        // Check if last word is a number (quantity)
-        String[] parts = buyArg.split("\\s+");
-        if (parts.length > 1) {
-            String lastPart = parts[parts.length - 1];
-            try {
-                quantity = Integer.parseInt(lastPart);
-                if (quantity < 1) quantity = 1;
-                if (quantity > 100) {
-                    out.println("You can only buy up to 100 items at once.");
-                    return true;
-                }
-                // Reconstruct item name without quantity
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < parts.length - 1; i++) {
-                    if (i > 0) sb.append(" ");
-                    sb.append(parts[i]);
-                }
-                itemSearchStr = sb.toString();
-            } catch (NumberFormatException e) {
-                itemSearchStr = buyArg;
-            }
-        } else {
-            itemSearchStr = buyArg;
-        }
-        
-        // Find shopkeepers
-        MobileDAO mobileDao = new MobileDAO();
-        ShopDAO shopDao = new ShopDAO();
-        ItemDAO itemDao = new ItemDAO();
-        
-        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
-        java.util.List<Integer> shopkeeperTemplateIds = new java.util.ArrayList<>();
-        
-        
-        for (Mobile mob : mobsInRoom) {
-            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
-                shopkeeperTemplateIds.add(mob.getTemplateId());
-            }
-        }
-        
-        
-        if (shopkeeperTemplateIds.isEmpty()) {
-            out.println("There are no shopkeepers here.");
-            return true;
-        }
-        
-        java.util.List<Shop> shops = shopDao.getShopsForMobTemplateIds(shopkeeperTemplateIds);
-        java.util.Set<Integer> availableItemIds = shopDao.getAllItemIds(shops);
-        
-        if (availableItemIds.isEmpty()) {
-            out.println("There is nothing for sale here.");
-            return true;
-        }
-        
-        // Build list of available items for matching
-        java.util.List<ItemTemplate> availableItems = new java.util.ArrayList<>();
-        for (Integer itemId : availableItemIds) {
-            ItemTemplate tmpl = itemDao.getTemplateById(itemId);
-            if (tmpl != null) {
-                availableItems.add(tmpl);
-            }
-        }
-        
-        // Smart match the item by name/keywords
-        String searchLower = itemSearchStr.toLowerCase();
-        ItemTemplate matchedItem = null;
-        
-        // Priority 1: Exact name match
-        for (ItemTemplate tmpl : availableItems) {
-            if (tmpl.name != null && tmpl.name.equalsIgnoreCase(itemSearchStr)) {
-                matchedItem = tmpl;
-                break;
-            }
-        }
-        
-        // Priority 2: Name word match
-        if (matchedItem == null) {
-            for (ItemTemplate tmpl : availableItems) {
-                if (tmpl.name != null) {
-                    String[] nameWords = tmpl.name.toLowerCase().split("\\s+");
-                    for (String w : nameWords) {
-                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                            matchedItem = tmpl;
-                            break;
-                        }
-                    }
-                    if (matchedItem != null) break;
-                }
-            }
-        }
-        
-        // Priority 3: Keyword match
-        if (matchedItem == null) {
-            for (ItemTemplate tmpl : availableItems) {
-                if (tmpl.keywords != null) {
-                    for (String kw : tmpl.keywords) {
-                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                            matchedItem = tmpl;
-                            break;
-                        }
-                    }
-                    if (matchedItem != null) break;
-                }
-            }
-        }
-        
-        // Priority 4: Name starts with
-        if (matchedItem == null) {
-            for (ItemTemplate tmpl : availableItems) {
-                if (tmpl.name != null && tmpl.name.toLowerCase().startsWith(searchLower)) {
-                    matchedItem = tmpl;
-                    break;
-                }
-            }
-        }
-        
-        // Priority 5: Name contains
-        if (matchedItem == null) {
-            for (ItemTemplate tmpl : availableItems) {
-                if (tmpl.name != null && tmpl.name.toLowerCase().contains(searchLower)) {
-                    matchedItem = tmpl;
-                    break;
-                }
-            }
-        }
-        
-        if (matchedItem == null) {
-            out.println("'" + itemSearchStr + "' is not for sale here.");
-            return true;
-        }
-        
-        // Calculate total cost
-        long totalCost = (long) matchedItem.value * quantity;
-        
-        // Check if player has enough gold
-        Integer charId = dao.getCharacterIdByName(name);
-        if (charId == null) {
-            out.println("Failed to locate your character record.");
-            return true;
-        }
-        
-        long playerGold = dao.getGold(charId);
-        if (playerGold < totalCost) {
-            out.println("You need " + String.format("%,d", totalCost) + " gp to buy " + 
-                (quantity > 1 ? quantity + " " + matchedItem.name : matchedItem.name) + 
-                ", but you only have " + String.format("%,d", playerGold) + " gp.");
-            return true;
-        }
-        
-        // Subtract gold and add items
-        dao.addGold(charId, -totalCost);
-        for (int i = 0; i < quantity; i++) {
-            itemDao.createInstance(matchedItem.id, null, charId);
-        }
-        
-        String itemName = matchedItem.name != null ? matchedItem.name : "an item";
-        if (quantity == 1) {
-            out.println("You buy " + itemName + " for " + String.format("%,d", totalCost) + " gp.");
-        } else {
-            out.println("You buy " + quantity + " " + itemName + " for " + String.format("%,d", totalCost) + " gp.");
-        }
-        return true;
-    }
-
-    private boolean handleListCommand(CommandContext ctx) {
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        
-        // LIST - show items for sale from shopkeepers in the room
-        if (rec == null || rec.currentRoom == null) {
-            out.println("You must be in a room to see what's for sale.");
-            return true;
-        }
-        
-        // Find all shopkeeper mobs in the room
-        MobileDAO mobileDao = new MobileDAO();
-        ShopDAO shopDao = new ShopDAO();
-        ItemDAO itemDao = new ItemDAO();
-        
-        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
-        java.util.List<Integer> shopkeeperTemplateIds = new java.util.ArrayList<>();
-        
-        for (Mobile mob : mobsInRoom) {
-            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
-                shopkeeperTemplateIds.add(mob.getTemplateId());
-            }
-        }
-        
-        if (shopkeeperTemplateIds.isEmpty()) {
-            out.println("There are no shopkeepers here.");
-            return true;
-        }
-        
-        // Get all shops for these shopkeepers
-        java.util.List<Shop> shops = shopDao.getShopsForMobTemplateIds(shopkeeperTemplateIds);
-        if (shops.isEmpty()) {
-            out.println("The shopkeeper has nothing for sale.");
-            return true;
-        }
-        
-        // Get all item IDs available for sale
-        java.util.Set<Integer> itemIds = shopDao.getAllItemIds(shops);
-        if (itemIds.isEmpty()) {
-            out.println("The shopkeeper has nothing for sale.");
-            return true;
-        }
-        
-        // Build list of items with prices
-        java.util.List<ItemTemplate> itemsForSale = new java.util.ArrayList<>();
-        for (Integer itemId : itemIds) {
-            ItemTemplate tmpl = itemDao.getTemplateById(itemId);
-            if (tmpl != null) {
-                itemsForSale.add(tmpl);
-            }
-        }
-        
-        if (itemsForSale.isEmpty()) {
-            out.println("The shopkeeper has nothing for sale.");
-            return true;
-        }
-        
-        // Sort by price ascending
-        itemsForSale.sort((item1, item2) -> Integer.compare(item1.value, item2.value));
-        
-        out.println("Items for sale:");
-        for (ItemTemplate item : itemsForSale) {
-            String itemName = item.name != null ? item.name : "(unnamed)";
-            out.println(String.format("  %-40s %,d gp", itemName, item.value));
-        }
-        return true;
-    }
-
-    private boolean handleRemoveCommand(CommandContext ctx) {
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-
-        // REMOVE <item_name> or REMOVE <slot_name> - unequip an item
-        if (rec == null) {
-            out.println("No character record found.");
-            return true;
-        }
-        String removeArgs = ctx.getArgs();
-        if (removeArgs == null || removeArgs.trim().isEmpty()) {
-            out.println("Usage: remove <item_name>  or  remove <slot_name>");
-            return true;
-        }
-        String removeArg = removeArgs.trim();
-        ItemDAO itemDao = new ItemDAO();
-        Integer charId = dao.getCharacterIdByName(name);
-        if (charId == null) {
-            out.println("Failed to locate your character record.");
-            return true;
-        }
-
-        // Get currently equipped items
-        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
-        if (equippedMap.isEmpty()) {
-            out.println("You have nothing equipped.");
-            return true;
-        }
-
-        // Check if no items are actually equipped (all slots null)
-        boolean hasEquipped = false;
-        for (Long iid : equippedMap.values()) {
-            if (iid != null) { hasEquipped = true; break; }
-        }
-        if (!hasEquipped) {
-            out.println("You have nothing equipped.");
-            return true;
-        }
-
-        // Try to match by slot name first
-        EquipmentSlot slotMatch = EquipmentSlot.fromKey(removeArg);
-        if (slotMatch != null) {
-            Long instanceInSlot = equippedMap.get(slotMatch.id);
-            if (instanceInSlot == null) {
-                out.println("You have nothing equipped in your " + slotMatch.displayName + " slot.");
-                return true;
-            }
-            // Get item name for message
-            ItemInstance inst = itemDao.getInstance(instanceInSlot);
-            String itemName = "an item";
-            int armorBonus = 0, fortBonus = 0, refBonus = 0, willBonus = 0;
-            boolean isTwoHanded = false;
-            if (inst != null) {
-                ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-                if (tmpl != null) {
-                    if (tmpl.name != null) itemName = tmpl.name;
-                    armorBonus = tmpl.armorSaveBonus;
-                    fortBonus = tmpl.fortSaveBonus;
-                    refBonus = tmpl.refSaveBonus;
-                    willBonus = tmpl.willSaveBonus;
-                    isTwoHanded = itemDao.isTemplateTwoHanded(tmpl.id);
-                }
-            }
-            // Clear the slot(s)
-            dao.setCharacterEquipment(charId, slotMatch.id, null);
-            // For two-handed weapons, clear both slots
-            if (isTwoHanded) {
-                dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
-                dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
-            }
-            dao.recalculateEquipmentBonuses(charId, itemDao);
-            rec = dao.findByName(name);
-            String slotDisplay = isTwoHanded ? "Both Hands" : slotMatch.displayName;
-            out.println("You remove " + itemName + " (" + slotDisplay + ").");
-            if (armorBonus != 0 || fortBonus != 0 || refBonus != 0 || willBonus != 0) {
-                out.println("  Saves: Armor " + rec.getArmorTotal() + ", Fort " + rec.getFortitudeTotal() + ", Ref " + rec.getReflexTotal() + ", Will " + rec.getWillTotal());
-            }
-            return true;
-        }
-
-        // Otherwise, try to match by item name among equipped items
-        String searchLower = removeArg.toLowerCase();
-        Integer matchedSlotId = null;
-        Long matchedInstanceId = null;
-        ItemInstance matchedInstance = null;
-        ItemTemplate matchedTemplate = null;
-
-        // Build list of equipped items with their instances and templates
-        java.util.List<Object[]> equippedItems = new java.util.ArrayList<>();
-        for (java.util.Map.Entry<Integer, Long> entry : equippedMap.entrySet()) {
-            if (entry.getValue() == null) continue;
-            ItemInstance inst = itemDao.getInstance(entry.getValue());
-            if (inst == null) continue;
-            ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-            if (tmpl == null) continue;
-            equippedItems.add(new Object[] { entry.getKey(), entry.getValue(), inst, tmpl });
-        }
-
-        // Priority 1: Exact display name match
-        for (Object[] arr : equippedItems) {
-            ItemInstance inst = (ItemInstance) arr[2];
-            ItemTemplate tmpl = (ItemTemplate) arr[3];
-            String displayName = ClientHandler.getItemDisplayName(inst, tmpl);
-            if (displayName.equalsIgnoreCase(removeArg)) {
-                matchedSlotId = (Integer) arr[0];
-                matchedInstanceId = (Long) arr[1];
-                matchedInstance = inst;
-                matchedTemplate = tmpl;
-                break;
-            }
-        }
-
-        // Priority 2: Word match on display name
-        if (matchedSlotId == null) {
-            for (Object[] arr : equippedItems) {
-                ItemInstance inst = (ItemInstance) arr[2];
-                ItemTemplate tmpl = (ItemTemplate) arr[3];
-                String displayName = ClientHandler.getItemDisplayName(inst, tmpl);
-                String[] words = displayName.toLowerCase().split("\\s+");
-                for (String w : words) {
-                    if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                        matchedSlotId = (Integer) arr[0];
-                        matchedInstanceId = (Long) arr[1];
-                        matchedInstance = inst;
-                        matchedTemplate = tmpl;
-                        break;
-                    }
-                }
-                if (matchedSlotId != null) break;
-            }
-        }
-
-        // Priority 3: Keyword match
-        if (matchedSlotId == null) {
-            for (Object[] arr : equippedItems) {
-                ItemInstance inst = (ItemInstance) arr[2];
-                ItemTemplate tmpl = (ItemTemplate) arr[3];
-                if (tmpl.keywords != null) {
-                    for (String kw : tmpl.keywords) {
-                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                            matchedSlotId = (Integer) arr[0];
-                            matchedInstanceId = (Long) arr[1];
-                            matchedInstance = inst;
-                            matchedTemplate = tmpl;
-                            break;
-                        }
-                    }
-                    if (matchedSlotId != null) break;
-                }
-            }
-        }
-
-        // Priority 4: Display name starts with
-        if (matchedSlotId == null) {
-            for (Object[] arr : equippedItems) {
-                ItemInstance inst = (ItemInstance) arr[2];
-                ItemTemplate tmpl = (ItemTemplate) arr[3];
-                String displayName = ClientHandler.getItemDisplayName(inst, tmpl);
-                if (displayName.toLowerCase().startsWith(searchLower)) {
-                    matchedSlotId = (Integer) arr[0];
-                    matchedInstanceId = (Long) arr[1];
-                    matchedInstance = inst;
-                    matchedTemplate = tmpl;
-                    break;
-                }
-            }
-        }
-
-        // Priority 5: Display name contains
-        if (matchedSlotId == null) {
-            for (Object[] arr : equippedItems) {
-                ItemInstance inst = (ItemInstance) arr[2];
-                ItemTemplate tmpl = (ItemTemplate) arr[3];
-                String displayName = ClientHandler.getItemDisplayName(inst, tmpl);
-                if (displayName.toLowerCase().contains(searchLower)) {
-                    matchedSlotId = (Integer) arr[0];
-                    matchedInstanceId = (Long) arr[1];
-                    matchedInstance = inst;
-                    matchedTemplate = tmpl;
-                    break;
-                }
-            }
-        }
-
-        if (matchedSlotId == null) {
-            out.println("You don't have '" + removeArg + "' equipped.");
-            return true;
-        }
-
-        // Remove the item
-        EquipmentSlot slot = EquipmentSlot.fromId(matchedSlotId);
-        String slotName = slot != null ? slot.displayName : "unknown slot";
-        boolean isTwoHanded = itemDao.isTemplateTwoHanded(matchedTemplate.id);
-        
-        dao.setCharacterEquipment(charId, matchedSlotId, null);
-        // For two-handed weapons, clear both slots
-        if (isTwoHanded) {
-            dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
-            dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
-            slotName = "Both Hands";
-        }
-        dao.recalculateEquipmentBonuses(charId, itemDao);
-        rec = dao.findByName(name);
-
-        out.println("You remove " + ClientHandler.getItemDisplayName(matchedInstance, matchedTemplate) + " (" + slotName + ").");
-        if (matchedTemplate.armorSaveBonus != 0 || matchedTemplate.fortSaveBonus != 0 || 
-            matchedTemplate.refSaveBonus != 0 || matchedTemplate.willSaveBonus != 0) {
-            out.println("  Saves: Armor " + rec.getArmorTotal() + ", Fort " + rec.getFortitudeTotal() + ", Ref " + rec.getReflexTotal() + ", Will " + rec.getWillTotal());
-        }
-        return true;
-    }
-
-    private boolean handleEquipCommand(CommandContext ctx) {
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-        
-        // EQUIP [item_name] - with no args, show current equipment; with args, equip item
-        if (rec == null) {
-            out.println("No character record found.");
-            return true;
-        }
-        String equipArgs = ctx.getArgs();
-        ItemDAO itemDao = new ItemDAO();
-        Integer charId = dao.getCharacterIdByName(name);
-        if (charId == null) {
-            out.println("Failed to locate your character record.");
-            return true;
-        }
-
-        // Get currently equipped items
-        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
-
-        // If no arguments, display current equipment loadout
-        if (equipArgs == null || equipArgs.trim().isEmpty()) {
-            out.println("Currently equipped:");
-            // Get all slots sorted by ID
-            EquipmentSlot[] slots = EquipmentSlot.values();
-            java.util.Arrays.sort(slots, (slotA, slotB) -> Integer.compare(slotA.id, slotB.id));
-            // Find max display name length for padding
-            int maxLen = 0;
-            for (EquipmentSlot s : slots) {
-                if (s.displayName.length() > maxLen) maxLen = s.displayName.length();
-            }
-            for (EquipmentSlot slot : slots) {
-                Long instanceId = equippedMap.get(slot.id);
-                String itemName = "(empty)";
-                if (instanceId != null) {
-                    ItemInstance inst = itemDao.getInstance(instanceId);
-                    if (inst != null) {
-                        ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-                        itemName = ClientHandler.getItemDisplayName(inst, tmpl);
-                    }
-                }
-                // Pad slot name to maxLen
-                String paddedSlot = String.format("%-" + maxLen + "s", slot.displayName);
-                out.println("  " + paddedSlot + ": " + itemName);
-            }
-            return true;
-        }
-
-        String equipArg = equipArgs.trim();
-
-        java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
-        for (Long iid : equippedMap.values()) {
-            if (iid != null) equippedInstanceIds.add(iid);
-        }
-
-        // Get inventory items (not equipped)
-        java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
-        // Filter out already equipped items
-        java.util.List<ItemDAO.RoomItem> unequippedItems = new java.util.ArrayList<>();
-        for (ItemDAO.RoomItem ri : invItems) {
-            if (!equippedInstanceIds.contains(ri.instance.instanceId)) {
-                unequippedItems.add(ri);
-            }
-        }
-
-        if (unequippedItems.isEmpty()) {
-            out.println("You have nothing in your inventory to equip.");
-            return true;
-        }
-
-        // Smart matching to find the item
-        ItemDAO.RoomItem matched = null;
-        String searchLower = equipArg.toLowerCase();
-
-        // Priority 1: Exact name match (check both customName and template name)
-        for (ItemDAO.RoomItem ri : unequippedItems) {
-            String displayName = ClientHandler.getItemDisplayName(ri);
-            if (displayName.equalsIgnoreCase(equipArg)) {
-                matched = ri;
-                break;
-            }
-        }
-
-        // Priority 2: Word match
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : unequippedItems) {
-                String displayName = ClientHandler.getItemDisplayName(ri);
-                String[] nameWords = displayName.toLowerCase().split("\\s+");
-                for (String w : nameWords) {
-                    if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                        matched = ri;
-                        break;
-                    }
-                }
-                if (matched != null) break;
-            }
-        }
-
-        // Priority 3: Keyword match
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : unequippedItems) {
-                if (ri.template.keywords != null) {
-                    for (String kw : ri.template.keywords) {
-                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                            matched = ri;
-                            break;
-                        }
-                    }
-                    if (matched != null) break;
-                }
-            }
-        }
-
-        // Priority 4: Name starts with search
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : unequippedItems) {
-                String displayName = ClientHandler.getItemDisplayName(ri);
-                if (displayName.toLowerCase().startsWith(searchLower)) {
-                    matched = ri;
-                    break;
-                }
-            }
-        }
-
-        // Priority 5: Name contains search
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : unequippedItems) {
-                String displayName = ClientHandler.getItemDisplayName(ri);
-                if (displayName.toLowerCase().contains(searchLower)) {
-                    matched = ri;
-                    break;
-                }
-            }
-        }
-
-        if (matched == null) {
-            out.println("You don't have '" + equipArg + "' in your inventory to equip.");
-            return true;
-        }
-
-        // Check if item is equipable (has a slot)
-        EquipmentSlot slot = itemDao.getTemplateEquipmentSlot(matched.template.id);
-        if (slot == null) {
-            out.println(ClientHandler.getItemDisplayName(matched) + " cannot be equipped.");
-            return true;
-        }
-
-        // Check armor proficiency requirement
-        if (matched.template.isArmor()) {
-            ArmorCategory armorCat = matched.template.getArmorCategory();
-            if (armorCat != null) {
-                String skillKey = armorCat.getSkillKey();
-                Skill armorSkill = dao.getSkillByKey(skillKey);
-                if (armorSkill == null || !dao.hasSkill(charId, armorSkill.getId())) {
-                    out.println("You lack proficiency in " + armorCat.getDisplayName() + " armor to equip " + ClientHandler.getItemDisplayName(matched) + ".");
-                    return true;
-                }
-            }
-        }
-
-        // Check shield proficiency requirement
-        if (matched.template.isShield()) {
-            Skill shieldSkill = dao.getSkillByKey("shields");
-            if (shieldSkill == null || !dao.hasSkill(charId, shieldSkill.getId())) {
-                out.println("You lack proficiency with shields to equip " + ClientHandler.getItemDisplayName(matched) + ".");
-                return true;
-            }
-        }
-
-        // Check item level requirement
-        if (matched.instance.itemLevel > dao.getPlayerLevel(charId) && dao.getCharacterFlag(charId,"s_gm") != "1") {
-            out.println("You must be at least level " + matched.instance.itemLevel + " to equip " + ClientHandler.getItemDisplayName(matched) + ".");
-            return true;
-        }
-        // Check if this is a two-handed weapon
-        boolean isTwoHanded = itemDao.isTemplateTwoHanded(matched.template.id);
-        // Track what we're removing
-        java.util.List<String> removedItems = new java.util.ArrayList<>();
-        
-        // For two-handed weapons, need to clear both main and off hand
-        if (isTwoHanded) {
-            // Clear main hand if occupied
-            Long mainHandItem = equippedMap.get(EquipmentSlot.MAIN_HAND.id);
-            if (mainHandItem != null) {
-                ItemInstance inst = itemDao.getInstance(mainHandItem);
-                if (inst != null) {
-                    ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-                    removedItems.add(ClientHandler.getItemDisplayName(inst, tmpl));
-                }
-                dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
-            }
-            // Clear off hand if occupied
-            Long offHandItem = equippedMap.get(EquipmentSlot.OFF_HAND.id);
-            if (offHandItem != null) {
-                ItemInstance inst = itemDao.getInstance(offHandItem);
-                if (inst != null) {
-                    ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-                    removedItems.add(ClientHandler.getItemDisplayName(inst, tmpl));
-                }
-                dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
-            }
-        } else {
-            // For shields/off-hand items being equipped, check if a two-hander is in main hand
-            if (slot == EquipmentSlot.OFF_HAND) {
-                Long mainHandItem = equippedMap.get(EquipmentSlot.MAIN_HAND.id);
-                if (mainHandItem != null) {
-                    ItemInstance mainInst = itemDao.getInstance(mainHandItem);
-                    if (mainInst != null && itemDao.isTemplateTwoHanded(mainInst.templateId)) {
-                        ItemTemplate mainTmpl = itemDao.getTemplateById(mainInst.templateId);
-                        removedItems.add(ClientHandler.getItemDisplayName(mainInst, mainTmpl));
-                        dao.setCharacterEquipment(charId, EquipmentSlot.MAIN_HAND.id, null);
-                    }
-                }
-            }
-            // For one-handed weapons being equipped, check if a two-hander is in main hand
-            if (slot == EquipmentSlot.MAIN_HAND) {
-                Long mainHandItem = equippedMap.get(EquipmentSlot.MAIN_HAND.id);
-                if (mainHandItem != null) {
-                    ItemInstance mainInst = itemDao.getInstance(mainHandItem);
-                    if (mainInst != null && itemDao.isTemplateTwoHanded(mainInst.templateId)) {
-                        // Two-hander was taking both slots, clear off-hand too
-                        dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, null);
-                    }
-                }
-            }
-            // Check if target slot is already occupied - if so, auto-remove the old item
-            Long currentInSlot = equippedMap.get(slot.id);
-            if (currentInSlot != null) {
-                ItemInstance curInst = itemDao.getInstance(currentInSlot);
-                if (curInst != null) {
-                    ItemTemplate curTmpl = itemDao.getTemplateById(curInst.templateId);
-                    removedItems.add(ClientHandler.getItemDisplayName(curInst, curTmpl));
-                }
-                dao.setCharacterEquipment(charId, slot.id, null);
-            }
-        }
-
-        // Equip the new item to main hand
-        boolean equipped = dao.setCharacterEquipment(charId, slot.id, matched.instance.instanceId);
-        if (!equipped) {
-            out.println("Failed to equip " + ClientHandler.getItemDisplayName(matched) + ".");
-            return true;
-        }
-        
-        // For two-handed weapons, also mark off-hand as occupied (same instance)
-        if (isTwoHanded) {
-            dao.setCharacterEquipment(charId, EquipmentSlot.OFF_HAND.id, matched.instance.instanceId);
-        }
-
-        // Recalculate and persist equipment bonuses
-        dao.recalculateEquipmentBonuses(charId, itemDao);
-
-        // Refresh character record
-        rec = dao.findByName(name);
-
-        // Build equip message
-        String slotDisplay = isTwoHanded ? "Both Hands" : slot.displayName;
-        if (!removedItems.isEmpty()) {
-            String removedStr = String.join(" and ", removedItems);
-            out.println("You remove " + removedStr + " and equip " + ClientHandler.getItemDisplayName(matched) + " (" + slotDisplay + ").");
-        } else {
-            out.println("You equip " + ClientHandler.getItemDisplayName(matched) + " (" + slotDisplay + ").");
-        }
-        
-        // Show new totals if any bonuses changed
-        int armorTotal = rec.getArmorTotal();
-        int fortTotal = rec.getFortitudeTotal();
-        int refTotal = rec.getReflexTotal();
-        int willTotal = rec.getWillTotal();
-        if (matched.template.armorSaveBonus != 0 || matched.template.fortSaveBonus != 0 || 
-            matched.template.refSaveBonus != 0 || matched.template.willSaveBonus != 0) {
-            out.println("  Saves: Armor " + armorTotal + ", Fort " + fortTotal + ", Ref " + refTotal + ", Will " + willTotal);
-        }
-        return true;
-    }
-
     private boolean handleSacrificeCommand(CommandContext ctx) {
         PrintWriter out = ctx.out;
         CharacterDAO.CharacterRecord rec = ctx.character;
@@ -845,7 +105,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
         
         String sacArg = sacArgs.trim().toLowerCase();
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         Integer charId = dao.getCharacterIdByName(name);
         if (charId == null) {
             out.println("Failed to locate your character record.");
@@ -932,32 +192,29 @@ public class ItemCommandHandler implements CommandHandler {
             }
         }
         
-        // Delete the item
-        boolean deleted = itemDao.deleteInstance(matched.instance.instanceId);
-        if (!deleted) {
-            out.println("Failed to sacrifice " + itemDisplayName + ".");
-            return true;
+        // Delete the item and grant XP in a single transaction
+        final ItemDAO.RoomItem sacItem = matched;
+        try {
+            TransactionManager.runInTransaction(() -> {
+                boolean del = itemDao.deleteInstance(sacItem.instance.instanceId);
+                if (!del) throw new RuntimeException("SACRIFICE_FAILED");
+            });
+        } catch (RuntimeException e) {
+            if ("SACRIFICE_FAILED".equals(e.getMessage())) {
+                out.println("Failed to sacrifice " + itemDisplayName + ".");
+                return true;
+            }
+            throw e;
         }
-        
-        // Grant 1 XP using CharacterClassDAO
-        CharacterClassDAO classDao = new CharacterClassDAO();
-        boolean leveledUp = classDao.addXpToCurrentClass(charId, 1);
         
         // Announce to room
         out.println("You sacrifice " + itemDisplayName + " to the gods.");
-        out.println("The gods grant you 1 experience point.");
         ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " sacrifices " + itemDisplayName + " to the gods.");
         
-        // Handle level-up if it occurred
-        if (leveledUp) {
-            Integer classId = classDao.getCharacterCurrentClassId(charId);
-            if (classId != null) {
-                int newLevel = classDao.getCharacterClassLevel(charId, classId);
-                out.println("You have reached level " + newLevel + "!");
-                final int charIdFinal = charId;
-                classDao.processLevelUp(charId, newLevel, msg -> ClientHandler.sendToCharacter(charIdFinal, msg));
-            }
-        }
+        // Award 1 XP (ExperienceService handles the transaction for XP + level-up)
+        com.example.tassmud.util.ExperienceService.awardFlatXp(charId, 1, msg -> {
+            out.println(msg);
+        });
         return true;
     }
 
@@ -978,7 +235,7 @@ public class ItemCommandHandler implements CommandHandler {
             return true;
         }
         
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         Integer charId = dao.getCharacterIdByName(name);
         if (charId == null) {
             out.println("Failed to locate your character record.");
@@ -995,7 +252,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
         
         // Get equipped items to prevent putting equipped items
-        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        java.util.Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
         java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
         for (Long iid : equippedMap.values()) {
             if (iid != null) equippedInstanceIds.add(iid);
@@ -1203,7 +460,7 @@ public class ItemCommandHandler implements CommandHandler {
             return true;
         }
         String dropArg = dropArgs.trim();
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         Integer charId = dao.getCharacterIdByName(name);
         if (charId == null) {
             out.println("Failed to locate your character record.");
@@ -1211,7 +468,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
 
         // Get equipped items to check if item is equipped
-        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        java.util.Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
         java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
         for (Long iid : equippedMap.values()) {
             if (iid != null) equippedInstanceIds.add(iid);
@@ -1371,7 +628,7 @@ public class ItemCommandHandler implements CommandHandler {
             return true;
         }
         String itemArg = getArgs.trim();
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         Integer charId = dao.getCharacterIdByName(name);
         if (charId == null) {
             out.println("Failed to locate your character record.");
@@ -1445,8 +702,12 @@ public class ItemCommandHandler implements CommandHandler {
                 if (containerGold <= 0) {
                     out.println(ClientHandler.getItemDisplayName(matchedContainer) + " contains no gold.");
                 } else {
-                    long goldTaken = itemDao.takeGoldContents(matchedContainer.instance.instanceId);
-                    dao.addGold(charId, goldTaken);
+                    final ItemDAO.RoomItem goldContainer = matchedContainer;
+                    long goldTaken = TransactionManager.runInTransaction(() -> {
+                        long taken = itemDao.takeGoldContents(goldContainer.instance.instanceId);
+                        dao.addGold(charId, taken);
+                        return taken;
+                    });
                     out.println("You get " + goldTaken + " gold from " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
                 }
                 return true;
@@ -1460,10 +721,14 @@ public class ItemCommandHandler implements CommandHandler {
                 }
                 int count = 0;
                 int skipped = 0;
-                // Take gold first
+                // Take gold first (in transaction to prevent gold loss)
                 if (containerGold > 0) {
-                    long goldTaken = itemDao.takeGoldContents(matchedContainer.instance.instanceId);
-                    dao.addGold(charId, goldTaken);
+                    final ItemDAO.RoomItem allContainer = matchedContainer;
+                    long goldTaken = TransactionManager.runInTransaction(() -> {
+                        long taken = itemDao.takeGoldContents(allContainer.instance.instanceId);
+                        dao.addGold(charId, taken);
+                        return taken;
+                    });
                     out.println("You get " + goldTaken + " gold from " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
                 }
                 for (ItemDAO.RoomItem ci : containerContents) {
@@ -1477,64 +742,7 @@ public class ItemCommandHandler implements CommandHandler {
                 return true;
             } else {
                 // Get specific item from container
-                String searchLower = itemSearchPart.toLowerCase();
-                ItemDAO.RoomItem matchedItem = null;
-                
-                // Smart match within container contents
-                // Priority 1: Exact name match
-                for (ItemDAO.RoomItem ci : containerContents) {
-                    if (ci.template.name != null && ci.template.name.equalsIgnoreCase(itemSearchPart)) {
-                        matchedItem = ci;
-                        break;
-                    }
-                }
-                // Priority 2: Name word starts with search
-                if (matchedItem == null) {
-                    for (ItemDAO.RoomItem ci : containerContents) {
-                        if (ci.template.name != null) {
-                            String[] nameWords = ci.template.name.toLowerCase().split("\\s+");
-                            for (String w : nameWords) {
-                                if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                                    matchedItem = ci;
-                                    break;
-                                }
-                            }
-                            if (matchedItem != null) break;
-                        }
-                    }
-                }
-                // Priority 3: Keyword match
-                if (matchedItem == null) {
-                    for (ItemDAO.RoomItem ci : containerContents) {
-                        if (ci.template.keywords != null) {
-                            for (String kw : ci.template.keywords) {
-                                if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                                    matchedItem = ci;
-                                    break;
-                                }
-                            }
-                            if (matchedItem != null) break;
-                        }
-                    }
-                }
-                // Priority 4: Name starts with search
-                if (matchedItem == null) {
-                    for (ItemDAO.RoomItem ci : containerContents) {
-                        if (ci.template.name != null && ci.template.name.toLowerCase().startsWith(searchLower)) {
-                            matchedItem = ci;
-                            break;
-                        }
-                    }
-                }
-                // Priority 5: Name contains search
-                if (matchedItem == null) {
-                    for (ItemDAO.RoomItem ci : containerContents) {
-                        if (ci.template.name != null && ci.template.name.toLowerCase().contains(searchLower)) {
-                            matchedItem = ci;
-                            break;
-                        }
-                    }
-                }
+                ItemDAO.RoomItem matchedItem = com.example.tassmud.util.ItemMatchingService.findMatchingItem(containerContents, itemSearchPart);
                 
                 if (matchedItem == null) {
                     out.println("You don't see '" + itemSearchPart + "' in " + ClientHandler.getItemDisplayName(matchedContainer) + ".");
@@ -1581,69 +789,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
 
         // Try to find best match
-        ItemDAO.RoomItem matched = null;
-        String searchLower = itemArg.toLowerCase();
-
-        // Priority 1: Exact name match (case-insensitive)
-        for (ItemDAO.RoomItem ri : roomItems) {
-            if (ri.template.name != null && ri.template.name.equalsIgnoreCase(itemArg)) {
-                matched = ri;
-                break;
-            }
-        }
-
-        // Priority 2: Name contains the search term as a word
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : roomItems) {
-                if (ri.template.name != null) {
-                    String nameLower = ri.template.name.toLowerCase();
-                    // Check if any word in the name matches
-                    String[] nameWords = nameLower.split("\\s+");
-                    for (String w : nameWords) {
-                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                            matched = ri;
-                            break;
-                        }
-                    }
-                    if (matched != null) break;
-                }
-            }
-        }
-
-        // Priority 3: Keyword match
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : roomItems) {
-                if (ri.template.keywords != null) {
-                    for (String kw : ri.template.keywords) {
-                        if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                            matched = ri;
-                            break;
-                        }
-                    }
-                    if (matched != null) break;
-                }
-            }
-        }
-
-        // Priority 4: Partial name match (name starts with search term)
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : roomItems) {
-                if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
-                    matched = ri;
-                    break;
-                }
-            }
-        }
-
-        // Priority 5: Name contains search term anywhere
-        if (matched == null) {
-            for (ItemDAO.RoomItem ri : roomItems) {
-                if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
-                    matched = ri;
-                    break;
-                }
-            }
-        }
+        ItemDAO.RoomItem matched = com.example.tassmud.util.ItemMatchingService.findMatchingItem(roomItems, itemArg);
 
         if (matched == null) {
             out.println("You don't see '" + itemArg + "' here.");
@@ -1662,222 +808,6 @@ public class ItemCommandHandler implements CommandHandler {
         return true;
     }
 
-    private boolean handleSellCommand(CommandContext ctx) {
-        // SELL <item> [quantity] - sell an item to a shopkeeper (half value)
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        Integer charId = ctx.characterId;
-        String sellArgs = ctx.getArgs();
-
-        if (rec == null || rec.currentRoom == null) {
-            out.println("You must be in a room to sell items.");
-            return true;
-        }
-         // Find shopkeepers (must be one present to sell)
-        MobileDAO mobileDao = new MobileDAO();
-        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
-        boolean hasShopkeeper = false;
-        
-        for (Mobile mob : mobsInRoom) {
-            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
-                hasShopkeeper = true;
-                break;
-            }
-        }
-        
-        if (!hasShopkeeper) {
-            out.println("There are no shopkeepers here.");
-            return true;
-        }
-        
-        // Get player's inventory
-        ItemDAO itemDao = new ItemDAO();
-        if (charId == null) {
-            out.println("Failed to locate your character record.");
-            return true;
-        }
-        
-        // Get equipped items to exclude
-        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
-        java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
-        for (Long iid : equippedMap.values()) {
-            if (iid != null) equippedInstanceIds.add(iid);
-        }
-        Boolean soldJunk = false;
-        if (rec.autojunk || sellArgs.equalsIgnoreCase("junk") || sellArgs.equalsIgnoreCase("trash")) {
-            
-            // Get all items in inventory (not equipped, not in containers)
-            java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
-            java.util.List<ItemDAO.RoomItem> inventoryToJunkItems = new java.util.ArrayList<>();
-            Integer sellGold = 0;
-            for (ItemDAO.RoomItem ri : allItems) {
-                if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
-                if (ri.template.types.contains("trash")) {
-                    inventoryToJunkItems.add(ri);
-                    sellGold += 1;
-                }
-            }
-            
-            if (!inventoryToJunkItems.isEmpty()) {
-                // Delete items and add gold
-                soldJunk = true;
-                for (ItemDAO.RoomItem ri : inventoryToJunkItems) {
-                    itemDao.deleteInstance(ri.instance.instanceId);
-                    out.println("Sold " + ri.instance.getEffectiveName(ri.template));
-                }
-                dao.addGold(charId, sellGold);
-                out.println("Sold all junk items for "+ sellGold + " gp");
-            }
-        }
-       
-        // stop here if we were just selling junk
-        if (sellArgs.equalsIgnoreCase("junk") || sellArgs.equalsIgnoreCase("trash")) {
-            if (!soldJunk) out.println("You have no more junk left to sell.");
-            return true;
-        }
-        
-        if (sellArgs == null || sellArgs.trim().isEmpty())  {
-            if (!soldJunk) out.println("Usage: sell <item> [quantity]");
-            return true;
-        }
-
-        // Parse args: item name and optional quantity
-        String sellArg = sellArgs.trim();
-        int quantity = 1;
-        String itemSearchStr;
-        
-        // Check if last word is a number (quantity)
-        String[] parts = sellArg.split("\\s+");
-        if (parts.length > 1) {
-            String lastPart = parts[parts.length - 1];
-            try {
-                quantity = Integer.parseInt(lastPart);
-                if (quantity < 1) quantity = 1;
-                if (quantity > 100) {
-                    out.println("You can only sell up to 100 items at once.");
-                    return true;
-                }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < parts.length - 1; i++) {
-                    if (i > 0) sb.append(" ");
-                    sb.append(parts[i]);
-                }
-                itemSearchStr = sb.toString();
-            } catch (NumberFormatException e) {
-                itemSearchStr = sellArg;
-            }
-        } else {
-            itemSearchStr = sellArg;
-        }
-       
-        // Get all items in inventory (not equipped, not in containers)
-        java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
-        java.util.List<ItemDAO.RoomItem> inventoryItems = new java.util.ArrayList<>();
-        for (ItemDAO.RoomItem ri : allItems) {
-            if (equippedInstanceIds.contains(ri.instance.instanceId)) continue;
-            if (ri.instance.containerInstanceId != null) continue;
-            inventoryItems.add(ri);
-        }
-        
-        if (inventoryItems.isEmpty()) {
-            out.println("You have nothing to sell.");
-            return true;
-        }
-        
-        // Smart match the item by name/keywords
-        String searchLower = itemSearchStr.toLowerCase();
-        java.util.List<ItemDAO.RoomItem> matchingItems = new java.util.ArrayList<>();
-        
-        // Find all items matching the search term
-        for (ItemDAO.RoomItem ri : inventoryItems) {
-            boolean match = false;
-            
-            // Check customName first (for generated/renamed items)
-            if (ri.instance.customName != null && !ri.instance.customName.isEmpty()) {
-                String customLower = ri.instance.customName.toLowerCase();
-                if (customLower.equalsIgnoreCase(itemSearchStr) ||
-                    customLower.startsWith(searchLower) ||
-                    customLower.contains(searchLower)) {
-                    match = true;
-                } else {
-                    // Check customName words
-                    String[] customWords = customLower.split("\\s+");
-                    for (String w : customWords) {
-                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                            match = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            
-            // Check template name
-            if (!match && ri.template.name != null) {
-                String nameLower = ri.template.name.toLowerCase();
-                if (nameLower.equalsIgnoreCase(itemSearchStr) ||
-                    nameLower.startsWith(searchLower) ||
-                    nameLower.contains(searchLower)) {
-                    match = true;
-                } else {
-                    // Check name words
-                    String[] nameWords = nameLower.split("\\s+");
-                    for (String w : nameWords) {
-                        if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                            match = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            
-            // Check keywords
-            if (!match && ri.template.keywords != null) {
-                for (String kw : ri.template.keywords) {
-                    if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                        match = true;
-                        break;
-                    }
-                }
-            }
-            
-            if (match) {
-                matchingItems.add(ri);
-            }
-        }
-        
-        if (matchingItems.isEmpty()) {
-            out.println("You don't have '" + itemSearchStr + "' to sell.");
-            return true;
-        }
-        
-        // Limit to requested quantity
-        int actualQuantity = Math.min(quantity, matchingItems.size());
-        java.util.List<ItemDAO.RoomItem> toSell = matchingItems.subList(0, actualQuantity);
-        
-        // Calculate sell value (half of item value, minimum 1)
-        ItemDAO.RoomItem soldItem = toSell.get(0);
-        int sellPrice = Math.max(1, soldItem.template.value / 2);
-        long totalGold = (long) sellPrice * actualQuantity;
-        
-        // Delete items and add gold
-        for (ItemDAO.RoomItem ri : toSell) {
-            itemDao.deleteInstance(ri.instance.instanceId);
-        }
-        dao.addGold(charId, totalGold);
-        
-        String itemName = ClientHandler.getItemDisplayName(soldItem);
-        if (actualQuantity == 1) {
-            out.println("You sell " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
-        } else {
-            out.println("You sell " + actualQuantity + " " + itemName + " for " + String.format("%,d", totalGold) + " gp.");
-        }
-        
-        if (actualQuantity < quantity) {
-            out.println("(You only had " + actualQuantity + " to sell.)");
-        }
-                return true;
-    }
 
     /**
      * Handle the quaff/drink command - consume a potion from inventory.
@@ -1901,7 +831,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
         
         String quaffArg = quaffArgs.trim();
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         
         if (charId == null) {
             out.println("Failed to locate your character record.");
@@ -1909,7 +839,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
 
         // Get equipped item IDs so we don't try to quaff equipped items
-        Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
         Set<Long> equippedInstanceIds = new HashSet<>();
         for (Long iid : equippedMap.values()) {
             if (iid != null) equippedInstanceIds.add(iid);
@@ -1938,7 +868,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
 
         // Get the potion's effect
-        String effectId = matched.template.spellEffectId1;
+        String effectId = matched.template.spellEffectIds.isEmpty() ? null : matched.template.spellEffectIds.get(0);
         if (effectId == null || effectId.isEmpty()) {
             out.println("You quaff " + matched.template.name + " but it has no magical effect.");
             // Still consume the potion
@@ -2008,7 +938,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
         
         String useArg = useArgs.trim();
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         
         if (charId == null) {
             out.println("Failed to locate your character record.");
@@ -2016,7 +946,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
         
         // Get equipped item IDs
-        Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
         Set<Long> equippedInstanceIds = new HashSet<>();
         for (Long iid : equippedMap.values()) {
             if (iid != null) equippedInstanceIds.add(iid);
@@ -2123,7 +1053,7 @@ public class ItemCommandHandler implements CommandHandler {
         
         // Cast each spell from the item
         for (Integer spellId : spellIds) {
-            Spell spell = dao.getSpellById(spellId);
+            Spell spell = DaoProvider.spells().getSpellById(spellId);
             if (spell == null) {
                 out.println("  (Spell #" + spellId + " not found)");
                 continue;
@@ -2206,57 +1136,11 @@ public class ItemCommandHandler implements CommandHandler {
     
     /**
      * Smart matching to find an item by name/keywords.
-     * Uses priority: exact match > word match > keyword match > prefix > contains
+     * Delegates to {@link com.example.tassmud.util.ItemMatchingService}.
+     * @deprecated Use {@link com.example.tassmud.util.ItemMatchingService#findMatchingItem} directly.
      */
+    @Deprecated
     public static ItemDAO.RoomItem findMatchingItem(List<ItemDAO.RoomItem> items, String searchTerm) {
-        if (items == null || items.isEmpty() || searchTerm == null) return null;
-        
-        String searchLower = searchTerm.toLowerCase();
-        
-        // Priority 1: Exact name match
-        for (ItemDAO.RoomItem ri : items) {
-            if (ri.template.name != null && ri.template.name.equalsIgnoreCase(searchTerm)) {
-                return ri;
-            }
-        }
-
-        // Priority 2: Word match
-        for (ItemDAO.RoomItem ri : items) {
-            if (ri.template.name != null) {
-                String[] nameWords = ri.template.name.toLowerCase().split("\\s+");
-                for (String w : nameWords) {
-                    if (w.equals(searchLower) || w.startsWith(searchLower)) {
-                        return ri;
-                    }
-                }
-            }
-        }
-
-        // Priority 3: Keyword match
-        for (ItemDAO.RoomItem ri : items) {
-            if (ri.template.keywords != null) {
-                for (String kw : ri.template.keywords) {
-                    if (kw.equalsIgnoreCase(searchLower) || kw.toLowerCase().startsWith(searchLower)) {
-                        return ri;
-                    }
-                }
-            }
-        }
-
-        // Priority 4: Name starts with search
-        for (ItemDAO.RoomItem ri : items) {
-            if (ri.template.name != null && ri.template.name.toLowerCase().startsWith(searchLower)) {
-                return ri;
-            }
-        }
-
-        // Priority 5: Name contains search
-        for (ItemDAO.RoomItem ri : items) {
-            if (ri.template.name != null && ri.template.name.toLowerCase().contains(searchLower)) {
-                return ri;
-            }
-        }
-
-        return null;
+        return com.example.tassmud.util.ItemMatchingService.findMatchingItem(items, searchTerm);
     }
 }

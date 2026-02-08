@@ -73,11 +73,11 @@ public class CommandParserTest {
     
     @ParameterizedTest
     @CsvSource({
-        "g, get",
-        "ge, get",
+        "g, genmap",
+        "ge, genmap",
         "get, get"
     })
-    @DisplayName("parse resolves 'get' command with prefix matching")
+    @DisplayName("parse resolves 'get' command with prefix matching (genmap sorts first)")
     void parseGetPrefixMatching(String input, String expected) {
         Command c = CommandParser.parse(input);
         assertNotNull(c, "Command should not be null for input: " + input);

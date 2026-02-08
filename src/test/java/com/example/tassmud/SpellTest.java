@@ -27,7 +27,7 @@ class SpellTest {
         assertEquals(1, spell.getLevel());
         assertEquals(1.0, spell.getBaseCastingTime());
         assertEquals(Spell.SpellTarget.SELF, spell.getTarget());
-        assertEquals(Skill.SkillProgression.NORMAL, spell.getProgression());
+        assertEquals(SkillProgression.NORMAL, spell.getProgression());
         assertTrue(spell.getEffectIds().isEmpty());
     }
     
@@ -38,7 +38,7 @@ class SpellTest {
         Spell spell = new Spell(5, "Fireball", "A ball of fire", 
                                 Spell.SpellSchool.ARCANE, 3, 2.5,
                                 Spell.SpellTarget.ALL_ENEMIES, effects,
-                                Skill.SkillProgression.HARD);
+                                SkillProgression.HARD);
         
         assertEquals(5, spell.getId());
         assertEquals("Fireball", spell.getName());
@@ -47,7 +47,7 @@ class SpellTest {
         assertEquals(3, spell.getLevel());
         assertEquals(2.5, spell.getBaseCastingTime());
         assertEquals(Spell.SpellTarget.ALL_ENEMIES, spell.getTarget());
-        assertEquals(Skill.SkillProgression.HARD, spell.getProgression());
+        assertEquals(SkillProgression.HARD, spell.getProgression());
         assertEquals(2, spell.getEffectIds().size());
         assertTrue(spell.getEffectIds().contains("101"));
     }
@@ -85,7 +85,7 @@ class SpellTest {
     void nullProgressionDefaultsToNormal() {
         Spell spell = new Spell(1, "Test", "Test", Spell.SpellSchool.ARCANE, 
                                 1, 1.0, Spell.SpellTarget.SELF, null, null);
-        assertEquals(Skill.SkillProgression.NORMAL, spell.getProgression());
+        assertEquals(SkillProgression.NORMAL, spell.getProgression());
     }
     
     @Test

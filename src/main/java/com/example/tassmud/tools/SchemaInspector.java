@@ -1,5 +1,7 @@
 package com.example.tassmud.tools;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
 import org.slf4j.Logger;
@@ -30,9 +32,9 @@ public class SchemaInspector {
                 logger.info(" - <no data directory present>");
             }
 
-            CharacterDAO dao = new CharacterDAO();
+            CharacterDAO dao = DaoProvider.characters();
             // Instantiate ItemDAO to run its ensureTables() and migrations (item tables live there)
-            ItemDAO itemDao = new ItemDAO();
+            ItemDAO itemDao = DaoProvider.items();
             logger.info("ItemDAO instantiated to apply item table migrations and ensure tables.");
 
             printCols("item_template", dao.listTableColumns("item_template"));

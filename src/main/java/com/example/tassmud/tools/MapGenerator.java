@@ -48,16 +48,15 @@ public class MapGenerator {
     public static String generateMapForAreaInGame(int areaId) {
         MapGenerator gen = new MapGenerator();
         
-        // Use CharacterDAO for DB access (shares server's connection)
-        com.example.tassmud.persistence.CharacterDAO charDao = new com.example.tassmud.persistence.CharacterDAO();
-        com.example.tassmud.model.Area areaModel = charDao.getAreaById(areaId);
+        // Use DaoProvider for DB access
+        com.example.tassmud.model.Area areaModel = com.example.tassmud.persistence.DaoProvider.rooms().getAreaById(areaId);
         
         if (areaModel == null) {
             return "Area " + areaId + " not found.";
         }
         
         // Get all rooms for this area
-        List<Room> rooms = gen.getRoomsByAreaUsingCharacterDAO(areaId, charDao);
+        List<Room> rooms = gen.getRoomsByArea(areaId);
         if (rooms.isEmpty()) {
             return "Area " + areaId + " (" + areaModel.getName() + ") has no rooms.";
         }
@@ -79,37 +78,6 @@ public class MapGenerator {
         }
         
         return map;
-    }
-    
-    /**
-     * Get rooms using CharacterDAO (for in-game use).
-     */
-    private List<Room> getRoomsByAreaUsingCharacterDAO(int areaId, com.example.tassmud.persistence.CharacterDAO charDao) {
-        List<Room> rooms = new ArrayList<>();
-        // We need to query all rooms for this area - CharacterDAO doesn't have this method
-        // So we'll use direct SQL but through the same connection pattern
-        String sql = "SELECT id, name, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d FROM room WHERE area_id = ? ORDER BY id";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, areaId);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    rooms.add(new Room(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getObject("exit_n") == null ? null : rs.getInt("exit_n"),
-                        rs.getObject("exit_e") == null ? null : rs.getInt("exit_e"),
-                        rs.getObject("exit_s") == null ? null : rs.getInt("exit_s"),
-                        rs.getObject("exit_w") == null ? null : rs.getInt("exit_w"),
-                        rs.getObject("exit_u") == null ? null : rs.getInt("exit_u"),
-                        rs.getObject("exit_d") == null ? null : rs.getInt("exit_d")
-                    ));
-                }
-            }
-        } catch (SQLException e) {
-            logger.warn("Failed to get rooms: {}", e.getMessage(), e);
-        }
-        return rooms;
     }
     
     /**

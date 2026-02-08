@@ -67,4 +67,48 @@ public class CommandContext {
     public void send(String message) {
         out.println(message);
     }
+
+    /**
+     * Returns the character record if present, otherwise prints an error and
+     * returns {@code null}. Handlers that require a logged-in character can
+     * call this at the top of their method and bail on {@code null}.
+     */
+    public CharacterRecord requireRecord() {
+        if (character != null) return character;
+        out.println("You must be logged in to do that.");
+        return null;
+    }
+
+    /**
+     * Returns the character record, requiring a non-null room. Prints an
+     * appropriate error and returns {@code null} if either is missing.
+     */
+    public CharacterRecord requireRecordInRoom() {
+        if (character == null) {
+            out.println("You must be logged in to do that.");
+            return null;
+        }
+        if (character.currentRoom == null) {
+            out.println("You must be in a room to do that.");
+            return null;
+        }
+        return character;
+    }
+
+    /**
+     * Returns a fresh {@link CharacterRecord} from the database. Useful after
+     * a handler has mutated state and needs the latest values.
+     */
+    public CharacterRecord freshRecord() {
+        return dao.findByName(playerName);
+    }
+
+    /**
+     * Returns characterId, resolving from the database if the context value is
+     * null. The resolved value is NOT cached — the field is final.
+     */
+    public Integer resolveCharacterId() {
+        if (characterId != null) return characterId;
+        return dao.getCharacterIdByName(playerName);
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.tassmud.effect;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
 import com.example.tassmud.persistence.CharacterDAO;
@@ -7,6 +9,7 @@ import com.example.tassmud.persistence.CharacterDAO;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Effect handler that deals instant dice-based damage to a target.
@@ -52,7 +55,7 @@ public class InstantDamageEffect implements EffectHandler {
         // Roll damage
         int total = 0;
         for (int i = 0; i < scaledN; i++) {
-            total += (int)(Math.random() * dieM) + 1;
+            total += ThreadLocalRandom.current().nextInt(1, dieM + 1);
         }
 
         // Optional flat bonus param
@@ -64,7 +67,7 @@ public class InstantDamageEffect implements EffectHandler {
         CombatManager cm = CombatManager.getInstance();
         Combatant targetCombatant = cm.getCombatantForCharacter(targetId);
 
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
 
         String casterName = null;
         if (casterId != null) {

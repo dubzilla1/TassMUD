@@ -1,5 +1,7 @@
 package com.example.tassmud.util;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.persistence.ItemDAO;
 import java.sql.*;
 import org.slf4j.Logger;
@@ -11,7 +13,7 @@ public class CheckDb {
     public static void main(String[] args) {
         try {
             // Ensure migrations run
-            new ItemDAO();
+            DaoProvider.items();
         } catch (Exception e) {
             logger.warn("ItemDAO init failed: {}", e.getMessage(), e);
         }

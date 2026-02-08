@@ -1,0 +1,3 @@
+- Prefer solving tasks in a single session
+- Only spawn sub-agents for genuinely independent workstreams
+- For file edits across <5 files, handle inline — don't spawn per-file agents

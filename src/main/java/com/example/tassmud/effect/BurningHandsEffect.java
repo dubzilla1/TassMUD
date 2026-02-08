@@ -1,5 +1,7 @@
 package com.example.tassmud.effect;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
@@ -11,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 /**
@@ -163,7 +166,7 @@ public class BurningHandsEffect implements EffectHandler {
      */
     private void attemptSpread(EffectInstance instance, EffectDefinition def) {
         // Roll for spread
-        if (Math.random() > SPREAD_CHANCE) {
+        if (ThreadLocalRandom.current().nextDouble() > SPREAD_CHANCE) {
             return; // No spread this tick
         }
 
@@ -218,7 +221,7 @@ public class BurningHandsEffect implements EffectHandler {
         }
 
         // Pick a random target
-        Combatant newTarget = potentialTargets.get((int) (Math.random() * potentialTargets.size()));
+        Combatant newTarget = potentialTargets.get(ThreadLocalRandom.current().nextInt(potentialTargets.size()));
         Integer newTargetId = getTargetIdForCombatant(newTarget);
 
         if (newTargetId == null) {
@@ -345,7 +348,7 @@ public class BurningHandsEffect implements EffectHandler {
         // Roll damage
         int total = 0;
         for (int i = 0; i < scaledN; i++) {
-            total += (int) (Math.random() * dieM) + 1;
+            total += ThreadLocalRandom.current().nextInt(1, dieM + 1);
         }
 
         if (total <= 0) return;
@@ -369,7 +372,7 @@ public class BurningHandsEffect implements EffectHandler {
             targetCombatant = cm.getCombatantForCharacter(targetId);
         }
 
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
 
         if (targetCombatant != null && targetCombatant.getAsCharacter() != null) {
             // In combat - apply damage to combatant
@@ -428,12 +431,12 @@ public class BurningHandsEffect implements EffectHandler {
         if (id == null) return "unknown";
         
         if (id > 0) {
-            CharacterDAO dao = new CharacterDAO();
+            CharacterDAO dao = DaoProvider.characters();
             CharacterDAO.CharacterRecord rec = dao.findById(id);
             return rec != null ? rec.name : "unknown";
         } else {
             long mobInstanceId = -id;
-            MobileDAO mobDao = new MobileDAO();
+            MobileDAO mobDao = DaoProvider.mobiles();
             Mobile mob = mobDao.getInstanceById(mobInstanceId);
             return mob != null ? mob.getName() : "unknown";
         }

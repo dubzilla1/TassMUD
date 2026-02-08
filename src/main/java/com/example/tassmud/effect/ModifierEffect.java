@@ -1,5 +1,7 @@
 package com.example.tassmud.effect;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.model.Modifier;
 import com.example.tassmud.model.Stat;
@@ -75,7 +77,7 @@ public class ModifierEffect implements EffectHandler {
 
         Modifier m = new Modifier(instanceId, sourceName, stat, op, value, expiresAt, def.getPriority());
 
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
 
         // If target has live Character instance via CombatManager, apply directly
         CombatManager cm = CombatManager.getInstance();
@@ -130,7 +132,7 @@ public class ModifierEffect implements EffectHandler {
         Integer targetId = instance.getTargetId();
         if (targetId == null) return;
 
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
 
         // If target has live character, remove modifier from in-memory Character and persist
         com.example.tassmud.combat.Combatant combatant = com.example.tassmud.combat.CombatManager.getInstance().getCombatantForCharacter(targetId);

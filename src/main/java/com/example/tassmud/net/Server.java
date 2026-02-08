@@ -1,5 +1,7 @@
 package com.example.tassmud.net;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.event.EventScheduler;
 import com.example.tassmud.event.SpawnManager;
@@ -58,7 +60,7 @@ public class Server {
         }
 
         // Ensure database table(s) exist before accepting players
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
         dao.ensureTable();
         // Load default data from resources (idempotent)
         DataLoader.loadDefaults(dao);
@@ -70,7 +72,7 @@ public class Server {
         if (gmSet) logger.info("[startup] is_gm flag set for 'Tass'");
         
         // Set Tass's class to Ranger (id=5) at level 1 if not already set
-        CharacterClassDAO classDao = new CharacterClassDAO();
+        CharacterClassDAO classDao = DaoProvider.classes();
         try {
             classDao.loadClassesFromYamlResource("/data/classes.yaml");
         } catch (Exception e) {
@@ -146,8 +148,9 @@ public class Server {
         if (spawnManager.getSpawnCount() > 0) {
             // Wipe any existing mobile instances so restarts don't multiply spawns.
             try {
-                com.example.tassmud.persistence.MobileDAO mobileDao = new com.example.tassmud.persistence.MobileDAO();
+                com.example.tassmud.persistence.MobileDAO mobileDao = DaoProvider.mobiles();
                 mobileDao.clearAllInstances();
+                com.example.tassmud.util.MobileRegistry.getInstance().clear();
             } catch (Exception e) {
                 logger.warn("[startup] Warning: failed to clear mobile instances: {}", e.getMessage(), e);
             }

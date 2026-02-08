@@ -1,5 +1,7 @@
 package com.example.tassmud.util;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.persistence.CharacterDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +11,7 @@ public class MakeCheckGM {
 
     public static void main(String[] args) {
         try {
-            CharacterDAO dao = new CharacterDAO();
+            CharacterDAO dao = DaoProvider.characters();
             String[] names = new String[] {"Tass", "tass"};
             for (String n : names) {
                 String v = dao.getCharacterFlagByName(n, "is_gm");

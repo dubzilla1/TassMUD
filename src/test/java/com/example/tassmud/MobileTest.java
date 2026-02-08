@@ -19,25 +19,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MobileTest {
 
     private MobileTemplate createTestTemplate() {
-        return new MobileTemplate(
-            1, "test_goblin", "Test Goblin", 
-            "A test goblin is here.", "This is a test goblin for unit tests.",
-            Arrays.asList("goblin", "test"),
-            3, // level
-            25, // hpMax
-            10, // mpMax
-            100, // mvMax
-            12, 14, 10, 8, 8, 6, // str, dex, con, int, wis, cha
-            14, 1, 2, 0, // armor, fort, ref, will
-            6, 1, 2, // baseDamage, damageBonus, attackBonus
-            Arrays.asList(MobileBehavior.AGGRESSIVE, MobileBehavior.SCAVENGER),
-            0, // aggroRange
-            25, // experienceValue
-            2, 8, // goldMin, goldMax
-            180, // respawnSeconds
-            0, // autoflee
-            null // templateJson
-        );
+        return MobileTemplate.builder()
+            .id(1).key("test_goblin").name("Test Goblin")
+            .shortDesc("A test goblin is here.").longDesc("This is a test goblin for unit tests.")
+            .keywords(Arrays.asList("goblin", "test"))
+            .level(3).hpMax(25).mpMax(10).mvMax(100)
+            .str(12).dex(14).con(10).intel(8).wis(8).cha(6)
+            .armor(14).fortitude(1).reflex(2).will(0)
+            .baseDamage(6).damageBonus(1).attackBonus(2)
+            .behaviors(Arrays.asList(MobileBehavior.AGGRESSIVE, MobileBehavior.SCAVENGER))
+            .aggroRange(0).experienceValue(25)
+            .goldMin(2).goldMax(8)
+            .respawnSeconds(180).autoflee(0)
+            .build();
     }
     
     // ==================== MobileBehavior Enum Tests ====================
@@ -163,12 +157,18 @@ public class MobileTest {
         assertFalse(aggressive.isImmortal());
         assertFalse(aggressive.isShopkeeper());
         
-        MobileTemplate shopkeeper = new MobileTemplate(
-            2, "key", "Shopkeeper", "Short", "Long", Collections.emptyList(),
-            1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, Arrays.asList(MobileBehavior.SHOPKEEPER, MobileBehavior.IMMORTAL),
-            0, 0, 0, 0, 60, 0, null
-        );
+        MobileTemplate shopkeeper = MobileTemplate.builder()
+            .id(2).key("key").name("Shopkeeper").shortDesc("Short").longDesc("Long")
+            .keywords(Collections.emptyList())
+            .level(1).hpMax(10).mpMax(0).mvMax(100)
+            .str(10).dex(10).con(10).intel(10).wis(10).cha(10)
+            .armor(10).fortitude(0).reflex(0).will(0)
+            .baseDamage(4).damageBonus(0).attackBonus(0)
+            .behaviors(Arrays.asList(MobileBehavior.SHOPKEEPER, MobileBehavior.IMMORTAL))
+            .aggroRange(0).experienceValue(0)
+            .goldMin(0).goldMax(0)
+            .respawnSeconds(60).autoflee(0)
+            .build();
         assertTrue(shopkeeper.isShopkeeper());
         assertTrue(shopkeeper.isImmortal());
         assertFalse(shopkeeper.isAggressive());
@@ -221,11 +221,18 @@ public class MobileTest {
     @Test
     @DisplayName("MobileTemplate with null keywords/behaviors should use empty list")
     void templateNullCollections() {
-        MobileTemplate template = new MobileTemplate(
-            1, "key", "Name", "Short", "Long", null,
-            1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, null, 0, 10, 0, 0, 60, 0, null
-        );
+        MobileTemplate template = MobileTemplate.builder()
+            .id(1).key("key").name("Name").shortDesc("Short").longDesc("Long")
+            .keywords(null)
+            .level(1).hpMax(10).mpMax(0).mvMax(100)
+            .str(10).dex(10).con(10).intel(10).wis(10).cha(10)
+            .armor(10).fortitude(0).reflex(0).will(0)
+            .baseDamage(4).damageBonus(0).attackBonus(0)
+            .behaviors(null)
+            .aggroRange(0).experienceValue(10)
+            .goldMin(0).goldMax(0)
+            .respawnSeconds(60).autoflee(0)
+            .build();
         
         assertNotNull(template.getKeywords());
         assertTrue(template.getKeywords().isEmpty());
@@ -343,26 +350,54 @@ public class MobileTest {
     @Test
     @DisplayName("Mobile behavior checks should work correctly")
     void mobileBehaviorChecks() {
-        MobileTemplate aggressive = new MobileTemplate(
-            1, "key", "Name", "Short", "Long", Collections.emptyList(),
-            1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, Arrays.asList(MobileBehavior.AGGRESSIVE), 0, 10, 0, 0, 60, 0, null
-        );
-        MobileTemplate passive = new MobileTemplate(
-            2, "key2", "Name2", "Short", "Long", Collections.emptyList(),
-            1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, Arrays.asList(MobileBehavior.PASSIVE), 0, 10, 0, 0, 60, 0, null
-        );
-        MobileTemplate immortalShopkeeper = new MobileTemplate(
-            3, "key3", "Name3", "Short", "Long", Collections.emptyList(),
-            1, 10, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0,
-            4, 0, 0, Arrays.asList(MobileBehavior.SHOPKEEPER, MobileBehavior.IMMORTAL), 0, 0, 0, 0, 60, 0, null
-        );
-        MobileTemplate cowardly = new MobileTemplate(
-            4, "key4", "Name4", "Short", "Long", Collections.emptyList(),
-            1, 100, 0, 100, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0, // 100 HP for flee test
-            4, 0, 0, Arrays.asList(MobileBehavior.COWARDLY), 0, 10, 0, 0, 60, 0, null
-        );
+        MobileTemplate aggressive = MobileTemplate.builder()
+            .id(1).key("key").name("Name").shortDesc("Short").longDesc("Long")
+            .keywords(Collections.emptyList())
+            .level(1).hpMax(10).mpMax(0).mvMax(100)
+            .str(10).dex(10).con(10).intel(10).wis(10).cha(10)
+            .armor(10).fortitude(0).reflex(0).will(0)
+            .baseDamage(4).damageBonus(0).attackBonus(0)
+            .behaviors(Arrays.asList(MobileBehavior.AGGRESSIVE))
+            .aggroRange(0).experienceValue(10)
+            .goldMin(0).goldMax(0)
+            .respawnSeconds(60).autoflee(0)
+            .build();
+        MobileTemplate passive = MobileTemplate.builder()
+            .id(2).key("key2").name("Name2").shortDesc("Short").longDesc("Long")
+            .keywords(Collections.emptyList())
+            .level(1).hpMax(10).mpMax(0).mvMax(100)
+            .str(10).dex(10).con(10).intel(10).wis(10).cha(10)
+            .armor(10).fortitude(0).reflex(0).will(0)
+            .baseDamage(4).damageBonus(0).attackBonus(0)
+            .behaviors(Arrays.asList(MobileBehavior.PASSIVE))
+            .aggroRange(0).experienceValue(10)
+            .goldMin(0).goldMax(0)
+            .respawnSeconds(60).autoflee(0)
+            .build();
+        MobileTemplate immortalShopkeeper = MobileTemplate.builder()
+            .id(3).key("key3").name("Name3").shortDesc("Short").longDesc("Long")
+            .keywords(Collections.emptyList())
+            .level(1).hpMax(10).mpMax(0).mvMax(100)
+            .str(10).dex(10).con(10).intel(10).wis(10).cha(10)
+            .armor(10).fortitude(0).reflex(0).will(0)
+            .baseDamage(4).damageBonus(0).attackBonus(0)
+            .behaviors(Arrays.asList(MobileBehavior.SHOPKEEPER, MobileBehavior.IMMORTAL))
+            .aggroRange(0).experienceValue(0)
+            .goldMin(0).goldMax(0)
+            .respawnSeconds(60).autoflee(0)
+            .build();
+        MobileTemplate cowardly = MobileTemplate.builder()
+            .id(4).key("key4").name("Name4").shortDesc("Short").longDesc("Long")
+            .keywords(Collections.emptyList())
+            .level(1).hpMax(100).mpMax(0).mvMax(100) // 100 HP for flee test
+            .str(10).dex(10).con(10).intel(10).wis(10).cha(10)
+            .armor(10).fortitude(0).reflex(0).will(0)
+            .baseDamage(4).damageBonus(0).attackBonus(0)
+            .behaviors(Arrays.asList(MobileBehavior.COWARDLY))
+            .aggroRange(0).experienceValue(10)
+            .goldMin(0).goldMax(0)
+            .respawnSeconds(60).autoflee(0)
+            .build();
         
         Mobile aggMob = new Mobile(1L, aggressive, 1000);
         Mobile pasMob = new Mobile(2L, passive, 1000);

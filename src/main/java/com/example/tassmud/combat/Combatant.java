@@ -4,12 +4,13 @@ import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.Mobile;
 
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.Queue;
 import java.util.Set;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Wraps a Character or Mobile participating in combat.
@@ -36,7 +37,7 @@ public class Combatant {
     private int initiative;
     
     /** Combat commands queued by this combatant (for players: from input, for mobs: from AI) */
-    private final Queue<CombatCommand> commandQueue = new LinkedList<>();
+    private final ConcurrentLinkedQueue<CombatCommand> commandQueue = new ConcurrentLinkedQueue<>();
     
     /** The command being executed this turn (if any) */
     private CombatCommand currentCommand;
@@ -65,8 +66,8 @@ public class Combatant {
     /** Damage taken per armor category (for armor proficiency training) */
     private final Map<ArmorCategory, Integer> armorDamageCounters = new EnumMap<>(ArmorCategory.class);
     
-    /** Active status flags on this combatant */
-    private final Set<StatusFlag> statusFlags = EnumSet.noneOf(StatusFlag.class);
+    /** Active status flags on this combatant (synchronized for thread safety) */
+    private final Set<StatusFlag> statusFlags = Collections.synchronizedSet(EnumSet.noneOf(StatusFlag.class));
     
     /**
      * Status flags that can be applied to combatants.
@@ -183,7 +184,7 @@ public class Combatant {
         // For now: random 1-20 + DEX modifier
         GameCharacter c = getAsCharacter();
         int dexMod = c != null ? (c.getDex() - 10) / 2 : 0;
-        this.initiative = (int)(Math.random() * 20) + 1 + dexMod;
+        this.initiative = ThreadLocalRandom.current().nextInt(1, 21) + dexMod;
     }
     
     // Command Queue

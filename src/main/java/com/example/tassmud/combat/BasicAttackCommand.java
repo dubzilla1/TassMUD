@@ -1,18 +1,20 @@
 package com.example.tassmud.combat;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.effect.WeaponInfusionEffect;
 import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.net.ClientHandler;
-import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.util.OpposedCheck;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The basic melee attack command available to all combatants.
@@ -195,7 +197,7 @@ public class BasicAttackCommand implements CombatCommand {
         Integer attackerId = user.isPlayer() ? user.getCharacterId() : 
                 (user.getMobile() != null ? -(int)user.getMobile().getInstanceId() : null);
         if (attackerId != null && com.example.tassmud.effect.EffectRegistry.isBlind(attackerId)) {
-            if (Math.random() < 0.5) {
+            if (ThreadLocalRandom.current().nextBoolean()) {
                 // Blind miss - 50% chance to miss outright
                 CombatResult result = CombatResult.miss(user, target);
                 result.setAttackRoll(0);
@@ -253,8 +255,7 @@ public class BasicAttackCommand implements CombatCommand {
             // Player with weapon - use weapon's ability score and multiplier
             damageBonus = getWeaponAbilityDamageBonus(user, attacker);
             // If unarmed (returns 0), fall back to STR mod
-            CharacterDAO tempDao = new CharacterDAO();
-            Long mainHandId = tempDao.getCharacterEquipment(user.getCharacterId(), 
+            Long mainHandId = DaoProvider.equipment().getCharacterEquipment(user.getCharacterId(), 
                 com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
             if (mainHandId == null) {
                 damageBonus = strMod; // Unarmed uses STR
@@ -275,9 +276,8 @@ public class BasicAttackCommand implements CombatCommand {
         if (!isRangedAttack && !isMagicalAttack && infusion == null && isTwoHandedWeapon(user)) {
             // Only apply 1.5x bonus if using default STR calculation (not custom weapon ability)
             // Check if weapon has custom ability multiplier > 1.0
-            CharacterDAO th2Dao = new CharacterDAO();
             com.example.tassmud.persistence.ItemDAO th2ItemDAO = new com.example.tassmud.persistence.ItemDAO();
-            Long mainHandId = th2Dao.getCharacterEquipment(user.getCharacterId(), 
+            Long mainHandId = DaoProvider.equipment().getCharacterEquipment(user.getCharacterId(), 
                 com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
             if (mainHandId != null) {
                 com.example.tassmud.model.ItemInstance weaponInst = th2ItemDAO.getInstance(mainHandId);
@@ -458,8 +458,7 @@ public class BasicAttackCommand implements CombatCommand {
         }
         
         // Check if defender knows the parry skill
-        CharacterDAO dao = new CharacterDAO();
-        CharacterSkill parrySkill = dao.getCharacterSkill(defender.getCharacterId(), PARRY_SKILL_ID);
+        CharacterSkill parrySkill = DaoProvider.skills().getCharacterSkill(defender.getCharacterId(), PARRY_SKILL_ID);
         if (parrySkill == null) {
             return null;
         }
@@ -511,8 +510,7 @@ public class BasicAttackCommand implements CombatCommand {
         }
         
         // Check if defender knows Riposte skill
-        CharacterDAO dao = new CharacterDAO();
-        CharacterSkill riposteSkill = dao.getCharacterSkill(defender.getCharacterId(), RIPOSTE_SKILL_ID);
+        CharacterSkill riposteSkill = DaoProvider.skills().getCharacterSkill(defender.getCharacterId(), RIPOSTE_SKILL_ID);
         if (riposteSkill == null) {
             return; // Doesn't know Riposte
         }
@@ -522,7 +520,7 @@ public class BasicAttackCommand implements CombatCommand {
         // Riposte chance scales from 25% to 75% based on proficiency
         // Formula: 25 + (proficiency / 2)
         int riposteChance = 25 + (proficiency / 2);
-        int roll = (int)(Math.random() * 100) + 1; // 1-100
+        int roll = ThreadLocalRandom.current().nextInt(1, 101); // 1-100
         
         boolean riposteSuccess = roll <= riposteChance;
         
@@ -530,9 +528,9 @@ public class BasicAttackCommand implements CombatCommand {
             defender.addRiposteAttack();
             
             // Try to improve proficiency on successful riposte
-            Skill riposteDef = dao.getSkillById(RIPOSTE_SKILL_ID);
+            Skill riposteDef = DaoProvider.skills().getSkillById(RIPOSTE_SKILL_ID);
             if (riposteDef != null) {
-                dao.tryImproveSkill(defender.getCharacterId(), RIPOSTE_SKILL_ID, riposteDef);
+                DaoProvider.skills().tryImproveSkill(defender.getCharacterId(), RIPOSTE_SKILL_ID, riposteDef);
             }
             
             // Send riposte message to defender
@@ -545,7 +543,7 @@ public class BasicAttackCommand implements CombatCommand {
      * Roll a d20.
      */
     private int rollD20() {
-        return (int)(Math.random() * 20) + 1;
+        return ThreadLocalRandom.current().nextInt(1, 21);
     }
     
     /**
@@ -563,10 +561,9 @@ public class BasicAttackCommand implements CombatCommand {
         
         // For players: check equipped main-hand weapon
         if (attacker.isPlayer() && attacker.getCharacterId() != null) {
-            CharacterDAO dao = new CharacterDAO();
             com.example.tassmud.persistence.ItemDAO itemDAO = new com.example.tassmud.persistence.ItemDAO();
             
-            Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+            Long mainHandId = DaoProvider.equipment().getCharacterEquipment(attacker.getCharacterId(), 
                 com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
             
             if (mainHandId != null) {
@@ -635,16 +632,15 @@ public class BasicAttackCommand implements CombatCommand {
         if (attacker.isMobile() && attacker.getMobile() != null) {
             int baseDie = attacker.getMobile().getBaseDamage();
             if (baseDie > 0) {
-                return (int)(Math.random() * baseDie) + 1 + attacker.getMobile().getDamageBonus();
+                return ThreadLocalRandom.current().nextInt(1, baseDie + 1) + attacker.getMobile().getDamageBonus();
             }
         }
         
         // For players: check equipped main-hand weapon
         if (attacker.isPlayer() && attacker.getCharacterId() != null) {
-            CharacterDAO dao = new CharacterDAO();
             com.example.tassmud.persistence.ItemDAO itemDAO = new com.example.tassmud.persistence.ItemDAO();
             
-            Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+            Long mainHandId = DaoProvider.equipment().getCharacterEquipment(attacker.getCharacterId(), 
                 com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
             
             if (mainHandId != null) {
@@ -659,7 +655,7 @@ public class BasicAttackCommand implements CombatCommand {
                         int mult = effectiveMultiplier > 0 ? effectiveMultiplier : 1;
                         int total = 0;
                         for (int i = 0; i < mult; i++) {
-                            total += (int)(Math.random() * effectiveBaseDie) + 1;
+                            total += ThreadLocalRandom.current().nextInt(1, effectiveBaseDie + 1);
                         }
                         return total;
                     }
@@ -668,7 +664,7 @@ public class BasicAttackCommand implements CombatCommand {
         }
         
         // Unarmed: 1d4
-        return (int)(Math.random() * UNARMED_DIE) + 1;
+        return ThreadLocalRandom.current().nextInt(1, UNARMED_DIE + 1);
     }
     
     /**
@@ -684,10 +680,9 @@ public class BasicAttackCommand implements CombatCommand {
             return 0; // Mobs don't use this system
         }
         
-        CharacterDAO dao = new CharacterDAO();
         com.example.tassmud.persistence.ItemDAO itemDAO = new com.example.tassmud.persistence.ItemDAO();
         
-        Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+        Long mainHandId = DaoProvider.equipment().getCharacterEquipment(attacker.getCharacterId(), 
             com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
         
         if (mainHandId == null) {
@@ -723,10 +718,9 @@ public class BasicAttackCommand implements CombatCommand {
             return false;
         }
         
-        CharacterDAO dao = new CharacterDAO();
-        Long mainHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+        Long mainHandId = DaoProvider.equipment().getCharacterEquipment(attacker.getCharacterId(), 
             com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
-        Long offHandId = dao.getCharacterEquipment(attacker.getCharacterId(), 
+        Long offHandId = DaoProvider.equipment().getCharacterEquipment(attacker.getCharacterId(), 
             com.example.tassmud.model.EquipmentSlot.OFF_HAND.getId());
         
         // Two-handed if both slots have the same non-null item

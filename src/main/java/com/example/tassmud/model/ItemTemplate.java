@@ -37,10 +37,8 @@ public class ItemTemplate {
     public final int hands;
     public final String abilityScore;
     public final double abilityMultiplier;
-    public final String spellEffectId1;
-    public final String spellEffectId2;
-    public final String spellEffectId3;
-    public final String spellEffectId4;
+    /** Spell effects on this item (e.g., for potions, magical weapons). Up to 4 effect IDs. */
+    public final List<String> spellEffectIds;
     public final String templateJson;
     public final WeaponCategory weaponCategory;
     public final WeaponFamily weaponFamily;
@@ -61,114 +59,13 @@ public class ItemTemplate {
     /** Cached lowercase type set for efficient lookups */
     private final Set<String> typeSet;
 
-    public ItemTemplate(
-        int id,
-        String key,
-        String name,
-        String description,
-        double weight,
-        int value,
-        java.util.List<String> traits,
-        java.util.List<String> keywords,
-        String type,
-        String subtype,
-        String slot,
-        int capacity,
-        int handCount,
-        boolean indestructable,
-        boolean magical,
-        int maxItems,
-        int maxWeight,
-        int armorSaveBonus,
-        int fortSaveBonus,
-        int refSaveBonus,
-        int willSaveBonus,
-        int baseDie,
-        int multiplier,
-        int hands,
-        String abilityScore,
-        double abilityMultiplier,
-        String spellEffectId1,
-        String spellEffectId2,
-        String spellEffectId3,
-        String spellEffectId4,
-        String templateJson,
-        WeaponCategory weaponCategory,
-        WeaponFamily weaponFamily,
-        ArmorCategory armorCategory
-    ) {
-        // Delegate to full constructor with default item levels
-        // Convert single type to list inline for Java 17 compatibility
-        this(id, key, name, description, weight, value, traits, keywords,
-             (type == null || type.isBlank()) ? null : List.of(type), // convert type to list
-             subtype, slot, capacity, handCount, indestructable, magical, maxItems, maxWeight,
-             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
-             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
-             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
-             templateJson, weaponCategory, weaponFamily, armorCategory,
-             1, 1, // default minItemLevel=1, maxItemLevel=1
-             null, 0, null); // no on-use spells, no uses, no equip effects
-    }
-    
+    /** Creates a new builder for constructing ItemTemplate instances. */
+    public static Builder builder() { return new Builder(); }
+
     /**
-     * Full constructor with item level range.
+     * Canonical constructor — prefer using {@link #builder()} instead of calling directly.
      */
-    public ItemTemplate(
-        int id,
-        String key,
-        String name,
-        String description,
-        double weight,
-        int value,
-        java.util.List<String> traits,
-        java.util.List<String> keywords,
-        String type,
-        String subtype,
-        String slot,
-        int capacity,
-        int handCount,
-        boolean indestructable,
-        boolean magical,
-        int maxItems,
-        int maxWeight,
-        int armorSaveBonus,
-        int fortSaveBonus,
-        int refSaveBonus,
-        int willSaveBonus,
-        int baseDie,
-        int multiplier,
-        int hands,
-        String abilityScore,
-        double abilityMultiplier,
-        String spellEffectId1,
-        String spellEffectId2,
-        String spellEffectId3,
-        String spellEffectId4,
-        String templateJson,
-        WeaponCategory weaponCategory,
-        WeaponFamily weaponFamily,
-        ArmorCategory armorCategory,
-        int minItemLevel,
-        int maxItemLevel
-    ) {
-        // Delegate to full constructor with default on-use/equip effects
-        // Convert single type to list inline for Java 17 compatibility
-        this(id, key, name, description, weight, value, traits, keywords,
-             (type == null || type.isBlank()) ? null : List.of(type), // convert type to list
-             subtype, slot, capacity, handCount, indestructable, magical, maxItems, maxWeight,
-             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
-             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
-             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
-             templateJson, weaponCategory, weaponFamily, armorCategory,
-             minItemLevel, maxItemLevel,
-             null, 0, null); // no on-use spells, no uses, no equip effects
-    }
-    
-    /**
-     * Constructor that accepts multiple types.
-     * Use this constructor when loading items from YAML with a types list.
-     */
-    public ItemTemplate(
+    ItemTemplate(
         int id,
         String key,
         String name,
@@ -195,113 +92,7 @@ public class ItemTemplate {
         int hands,
         String abilityScore,
         double abilityMultiplier,
-        String spellEffectId1,
-        String spellEffectId2,
-        String spellEffectId3,
-        String spellEffectId4,
-        String templateJson,
-        WeaponCategory weaponCategory,
-        WeaponFamily weaponFamily,
-        ArmorCategory armorCategory
-    ) {
-        // Delegate to full constructor with default item levels and no use/equip effects
-        this(id, key, name, description, weight, value, traits, keywords, types, subtype, slot,
-             capacity, handCount, indestructable, magical, maxItems, maxWeight,
-             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
-             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
-             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
-             templateJson, weaponCategory, weaponFamily, armorCategory,
-             1, 1, // default minItemLevel=1, maxItemLevel=1
-             null, 0, null); // no on-use spells, no uses, no equip effects
-    }
-    
-    /**
-     * Constructor that accepts multiple types with item level range.
-     * Used by ItemDAO when loading items from database.
-     */
-    public ItemTemplate(
-        int id,
-        String key,
-        String name,
-        String description,
-        double weight,
-        int value,
-        java.util.List<String> traits,
-        java.util.List<String> keywords,
-        java.util.List<String> types,
-        String subtype,
-        String slot,
-        int capacity,
-        int handCount,
-        boolean indestructable,
-        boolean magical,
-        int maxItems,
-        int maxWeight,
-        int armorSaveBonus,
-        int fortSaveBonus,
-        int refSaveBonus,
-        int willSaveBonus,
-        int baseDie,
-        int multiplier,
-        int hands,
-        String abilityScore,
-        double abilityMultiplier,
-        String spellEffectId1,
-        String spellEffectId2,
-        String spellEffectId3,
-        String spellEffectId4,
-        String templateJson,
-        WeaponCategory weaponCategory,
-        WeaponFamily weaponFamily,
-        ArmorCategory armorCategory,
-        int minItemLevel,
-        int maxItemLevel
-    ) {
-        // Delegate to full constructor with no use/equip effects
-        this(id, key, name, description, weight, value, traits, keywords, types, subtype, slot,
-             capacity, handCount, indestructable, magical, maxItems, maxWeight,
-             armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
-             baseDie, multiplier, hands, abilityScore, abilityMultiplier,
-             spellEffectId1, spellEffectId2, spellEffectId3, spellEffectId4,
-             templateJson, weaponCategory, weaponFamily, armorCategory,
-             minItemLevel, maxItemLevel,
-             null, 0, null); // no on-use spells, no uses, no equip effects
-    }
-    
-    /**
-     * Full constructor that accepts multiple types and item level range.
-     */
-    public ItemTemplate(
-        int id,
-        String key,
-        String name,
-        String description,
-        double weight,
-        int value,
-        java.util.List<String> traits,
-        java.util.List<String> keywords,
-        java.util.List<String> types,
-        String subtype,
-        String slot,
-        int capacity,
-        int handCount,
-        boolean indestructable,
-        boolean magical,
-        int maxItems,
-        int maxWeight,
-        int armorSaveBonus,
-        int fortSaveBonus,
-        int refSaveBonus,
-        int willSaveBonus,
-        int baseDie,
-        int multiplier,
-        int hands,
-        String abilityScore,
-        double abilityMultiplier,
-        String spellEffectId1,
-        String spellEffectId2,
-        String spellEffectId3,
-        String spellEffectId4,
+        List<String> spellEffectIds,
         String templateJson,
         WeaponCategory weaponCategory,
         WeaponFamily weaponFamily,
@@ -357,10 +148,7 @@ public class ItemTemplate {
         this.hands = hands;
         this.abilityScore = abilityScore;
         this.abilityMultiplier = abilityMultiplier;
-        this.spellEffectId1 = spellEffectId1;
-        this.spellEffectId2 = spellEffectId2;
-        this.spellEffectId3 = spellEffectId3;
-        this.spellEffectId4 = spellEffectId4;
+        this.spellEffectIds = spellEffectIds == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList<>(spellEffectIds));
         this.templateJson = templateJson;
         this.weaponCategory = weaponCategory;
         this.weaponFamily = weaponFamily;
@@ -491,5 +279,94 @@ public class ItemTemplate {
      */
     public ArmorCategory getArmorCategory() {
         return armorCategory;
+    }
+
+    /** Fluent builder for {@link ItemTemplate}. All fields default to 0/null/false/empty except minItemLevel and maxItemLevel (default 1). */
+    public static class Builder {
+        private int id;
+        private String key;
+        private String name;
+        private String description;
+        private double weight;
+        private int value;
+        private List<String> traits;
+        private List<String> keywords;
+        private List<String> types;
+        private String subtype;
+        private String slot;
+        private int capacity;
+        private int handCount;
+        private boolean indestructable;
+        private boolean magical;
+        private int maxItems;
+        private int maxWeight;
+        private int armorSaveBonus;
+        private int fortSaveBonus;
+        private int refSaveBonus;
+        private int willSaveBonus;
+        private int baseDie;
+        private int multiplier;
+        private int hands;
+        private String abilityScore;
+        private double abilityMultiplier;
+        private List<String> spellEffectIds;
+        private String templateJson;
+        private WeaponCategory weaponCategory;
+        private WeaponFamily weaponFamily;
+        private ArmorCategory armorCategory;
+        private int minItemLevel = 1;
+        private int maxItemLevel = 1;
+        private List<Integer> onUseSpellIds;
+        private int uses;
+        private List<String> onEquipEffectIds;
+
+        private Builder() {}
+
+        public Builder id(int v) { this.id = v; return this; }
+        public Builder key(String v) { this.key = v; return this; }
+        public Builder name(String v) { this.name = v; return this; }
+        public Builder description(String v) { this.description = v; return this; }
+        public Builder weight(double v) { this.weight = v; return this; }
+        public Builder value(int v) { this.value = v; return this; }
+        public Builder traits(List<String> v) { this.traits = v; return this; }
+        public Builder keywords(List<String> v) { this.keywords = v; return this; }
+        public Builder types(List<String> v) { this.types = v; return this; }
+        public Builder subtype(String v) { this.subtype = v; return this; }
+        public Builder slot(String v) { this.slot = v; return this; }
+        public Builder capacity(int v) { this.capacity = v; return this; }
+        public Builder handCount(int v) { this.handCount = v; return this; }
+        public Builder indestructable(boolean v) { this.indestructable = v; return this; }
+        public Builder magical(boolean v) { this.magical = v; return this; }
+        public Builder maxItems(int v) { this.maxItems = v; return this; }
+        public Builder maxWeight(int v) { this.maxWeight = v; return this; }
+        public Builder armorSaveBonus(int v) { this.armorSaveBonus = v; return this; }
+        public Builder fortSaveBonus(int v) { this.fortSaveBonus = v; return this; }
+        public Builder refSaveBonus(int v) { this.refSaveBonus = v; return this; }
+        public Builder willSaveBonus(int v) { this.willSaveBonus = v; return this; }
+        public Builder baseDie(int v) { this.baseDie = v; return this; }
+        public Builder multiplier(int v) { this.multiplier = v; return this; }
+        public Builder hands(int v) { this.hands = v; return this; }
+        public Builder abilityScore(String v) { this.abilityScore = v; return this; }
+        public Builder abilityMultiplier(double v) { this.abilityMultiplier = v; return this; }
+        public Builder spellEffectIds(List<String> v) { this.spellEffectIds = v; return this; }
+        public Builder templateJson(String v) { this.templateJson = v; return this; }
+        public Builder weaponCategory(WeaponCategory v) { this.weaponCategory = v; return this; }
+        public Builder weaponFamily(WeaponFamily v) { this.weaponFamily = v; return this; }
+        public Builder armorCategory(ArmorCategory v) { this.armorCategory = v; return this; }
+        public Builder minItemLevel(int v) { this.minItemLevel = v; return this; }
+        public Builder maxItemLevel(int v) { this.maxItemLevel = v; return this; }
+        public Builder onUseSpellIds(List<Integer> v) { this.onUseSpellIds = v; return this; }
+        public Builder uses(int v) { this.uses = v; return this; }
+        public Builder onEquipEffectIds(List<String> v) { this.onEquipEffectIds = v; return this; }
+
+        public ItemTemplate build() {
+            return new ItemTemplate(id, key, name, description, weight, value,
+                traits, keywords, types, subtype, slot,
+                capacity, handCount, indestructable, magical, maxItems, maxWeight,
+                armorSaveBonus, fortSaveBonus, refSaveBonus, willSaveBonus,
+                baseDie, multiplier, hands, abilityScore, abilityMultiplier,
+                spellEffectIds, templateJson, weaponCategory, weaponFamily, armorCategory,
+                minItemLevel, maxItemLevel, onUseSpellIds, uses, onEquipEffectIds);
+        }
     }
 }

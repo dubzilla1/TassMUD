@@ -1,5 +1,7 @@
 package com.example.tassmud.effect;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.Combatant;
@@ -12,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Effect handler for Cause Light/Serious/Critical Wounds spells.
@@ -83,7 +86,7 @@ public class CauseWoundsEffect implements EffectHandler {
         // Roll dice
         int diceTotal = 0;
         for (int i = 0; i < numDice; i++) {
-            diceTotal += (int) (Math.random() * dieSides) + 1;
+            diceTotal += ThreadLocalRandom.current().nextInt(1, dieSides + 1);
         }
 
         // Calculate level bonus: caster_level * (0.5 + proficiency%)
@@ -95,7 +98,7 @@ public class CauseWoundsEffect implements EffectHandler {
         int totalAmount = diceTotal + levelBonus;
 
         // Get character info for messages
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
         String casterName = "Someone";
         if (casterId != null) {
             CharacterDAO.CharacterRecord crec = dao.findById(casterId);

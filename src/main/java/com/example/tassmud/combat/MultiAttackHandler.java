@@ -1,5 +1,7 @@
 package com.example.tassmud.combat;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.Mobile;
 import com.example.tassmud.model.Skill;
@@ -9,6 +11,7 @@ import com.example.tassmud.util.ProficiencyCheck;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Handles multiple attack rolls for combatants with second_attack, third_attack, 
@@ -49,7 +52,7 @@ public class MultiAttackHandler {
      */
     private CharacterDAO getDao() {
         if (dao == null) {
-            dao = new CharacterDAO();
+            dao = DaoProvider.characters();
         }
         return dao;
     }
@@ -120,7 +123,7 @@ public class MultiAttackHandler {
         if (characterId == null) return opportunities;
         
         // Check second attack
-        CharacterSkill secondAttack = getDao().getCharacterSkill(characterId, SECOND_ATTACK_SKILL_ID);
+        CharacterSkill secondAttack = DaoProvider.skills().getCharacterSkill(characterId, SECOND_ATTACK_SKILL_ID);
         if (secondAttack != null) {
             boolean triggered = rollForAttack(secondAttack.getProficiency());
             opportunities.add(new AttackOpportunity(2, SECOND_ATTACK_PENALTY, SECOND_ATTACK_SKILL_ID, triggered));
@@ -129,7 +132,7 @@ public class MultiAttackHandler {
             checkSkillProgression(characterId, SECOND_ATTACK_SKILL_ID, secondAttack, triggered);
             
             // Only check for third attack if we have second attack skill
-            CharacterSkill thirdAttack = getDao().getCharacterSkill(characterId, THIRD_ATTACK_SKILL_ID);
+            CharacterSkill thirdAttack = DaoProvider.skills().getCharacterSkill(characterId, THIRD_ATTACK_SKILL_ID);
             if (thirdAttack != null) {
                 boolean thirdTriggered = triggered && rollForAttack(thirdAttack.getProficiency());
                 opportunities.add(new AttackOpportunity(3, THIRD_ATTACK_PENALTY, THIRD_ATTACK_SKILL_ID, thirdTriggered));
@@ -140,7 +143,7 @@ public class MultiAttackHandler {
                 }
                 
                 // Only check for fourth attack if we have third attack skill
-                CharacterSkill fourthAttack = getDao().getCharacterSkill(characterId, FOURTH_ATTACK_SKILL_ID);
+                CharacterSkill fourthAttack = DaoProvider.skills().getCharacterSkill(characterId, FOURTH_ATTACK_SKILL_ID);
                 if (fourthAttack != null) {
                     boolean fourthTriggered = thirdTriggered && rollForAttack(fourthAttack.getProficiency());
                     opportunities.add(new AttackOpportunity(4, FOURTH_ATTACK_PENALTY, FOURTH_ATTACK_SKILL_ID, fourthTriggered));
@@ -204,7 +207,7 @@ public class MultiAttackHandler {
         if (proficiency <= 0) return false;
         if (proficiency >= 100) return true;
         
-        int roll = (int)(Math.random() * 100) + 1; // 1-100
+        int roll = ThreadLocalRandom.current().nextInt(1, 101); // 1-100
         return roll <= proficiency;
     }
     
@@ -213,7 +216,7 @@ public class MultiAttackHandler {
      * Uses the standard progression system: 1 check on success, 2 checks on failure.
      */
     private void checkSkillProgression(int characterId, int skillId, CharacterSkill charSkill, boolean succeeded) {
-        Skill skill = getDao().getSkillById(skillId);
+        Skill skill = DaoProvider.skills().getSkillById(skillId);
         if (skill == null) return;
         
         ProficiencyCheck.Result result = ProficiencyCheck.checkProficiencyGrowth(

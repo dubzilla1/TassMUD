@@ -1,5 +1,7 @@
 package com.example.tassmud.spell;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.effect.EffectRegistry;
@@ -145,7 +147,7 @@ public class ArcaneSpellHandler {
         // Check if caster is outdoors
         Integer roomId = cc.currentRoomId;
         if (roomId != null) {
-            java.util.Set<com.example.tassmud.model.RoomFlag> flags = cc.dao.getRoomFlags(roomId);
+            java.util.Set<com.example.tassmud.model.RoomFlag> flags = DaoProvider.rooms().getRoomFlags(roomId);
             if (flags != null && flags.contains(com.example.tassmud.model.RoomFlag.INDOORS)) {
                 cc.send("You cannot call lightning from indoors!");
                 return false;
@@ -263,7 +265,7 @@ public class ArcaneSpellHandler {
         
         Map<String, String> extraParams = ctx.getExtraParams();
         CommandContext cmdCtx = ctx.getCommandContext();
-        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
+        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : DaoProvider.characters();
         
         // Get caster info for messages
         String casterName = "Someone";
@@ -356,7 +358,7 @@ public class ArcaneSpellHandler {
         }
         
         CommandContext cmdCtx = ctx.getCommandContext();
-        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
+        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : DaoProvider.characters();
         
         // Get caster info
         String casterName = "Someone";
@@ -521,7 +523,7 @@ public class ArcaneSpellHandler {
         }
         
         CommandContext cmdCtx = ctx.getCommandContext();
-        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : new CharacterDAO();
+        CharacterDAO dao = cmdCtx != null ? cmdCtx.dao : DaoProvider.characters();
         
         // Get caster info
         String casterName = "Someone";

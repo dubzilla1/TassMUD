@@ -1,6 +1,7 @@
 package com.example.tassmud.util;
 
 import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.persistence.DaoProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,7 @@ public class GameClock {
     }
 
     private void loadOrInit() {
-        String v = dao.getSetting("game.date");
+        String v = DaoProvider.settings().getSetting("game.date");
         if (v == null) {
             // initialize to year 0, month 1, day 1, hour 0, minute 0
             this.year = 0;
@@ -58,7 +59,7 @@ public class GameClock {
 
     private void persist() {
         String s = String.format("%d:%d:%d:%d:%d", year, month, day, hour, minute);
-        dao.setSetting("game.date", s);
+        DaoProvider.settings().setSetting("game.date", s);
     }
 
     private void tick() {

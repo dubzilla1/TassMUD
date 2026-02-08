@@ -17,7 +17,7 @@ public class Spell {
     private final double baseCastingTime;       // in seconds
     private final SpellTarget target;
     private final List<String> effectIds;       // spell effect IDs
-    private final Skill.SkillProgression progression;
+    private final SkillProgression progression;
     private final List<SpellTrait> traits;
     private final double cooldown;              // cooldown in seconds, 0 means no cooldown
     private final double duration;              // duration in seconds, 0 means instant
@@ -25,26 +25,26 @@ public class Spell {
 
     public Spell(int id, String name, String description) {
         this(id, name, description, SpellSchool.ARCANE, 1, 1.0, SpellTarget.SELF, 
-             null, Skill.SkillProgression.NORMAL, null, 0, 0, 0);
+             null, SkillProgression.NORMAL, null, 0, 0, 0);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
-                 Skill.SkillProgression progression) {
+                 SkillProgression progression) {
         this(id, name, description, school, level, baseCastingTime, target, effectIds,
              progression, null, 0, 0, 0);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
-                 Skill.SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration) {
+                 SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration) {
         this(id, name, description, school, level, baseCastingTime, target, effectIds,
              progression, traits, cooldown, duration, 0);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
-                 Skill.SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration,
+                 SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration,
                  int mpCost) {
         this.id = id;
         this.name = name;
@@ -54,7 +54,7 @@ public class Spell {
         this.baseCastingTime = baseCastingTime;
         this.target = target != null ? target : SpellTarget.SELF;
         this.effectIds = effectIds != null ? new ArrayList<>(effectIds) : new ArrayList<>();
-        this.progression = progression != null ? progression : Skill.SkillProgression.NORMAL;
+        this.progression = progression != null ? progression : SkillProgression.NORMAL;
         this.traits = traits != null ? new ArrayList<>(traits) : new ArrayList<>();
         this.cooldown = Math.max(0, cooldown);
         this.duration = Math.max(0, duration);
@@ -69,7 +69,7 @@ public class Spell {
     public double getBaseCastingTime() { return baseCastingTime; }
     public SpellTarget getTarget() { return target; }
     public List<String> getEffectIds() { return Collections.unmodifiableList(effectIds); }
-    public Skill.SkillProgression getProgression() { return progression; }
+    public SkillProgression getProgression() { return progression; }
     public List<SpellTrait> getTraits() { return Collections.unmodifiableList(traits); }
     public double getCooldown() { return cooldown; }
     public double getDuration() { return duration; }

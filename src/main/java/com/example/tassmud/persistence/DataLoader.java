@@ -1,5 +1,7 @@
 package com.example.tassmud.persistence;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.*;
 import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.model.MobileBehavior;
@@ -51,7 +53,7 @@ public class DataLoader {
         // Load item templates from YAML resource into item_template table
         ItemDAO itemDao = null;
         try {
-            itemDao = new ItemDAO();
+            itemDao = DaoProvider.items();
             itemDao.loadTemplatesFromYamlResource("/data/items.yaml");
             // Also load any MERC-area-specific item template files under /data/MERC/*/items.yaml
             List<String> mercDirs = listMercAreaDirs();
@@ -70,7 +72,7 @@ public class DataLoader {
         }
         // Load character classes from YAML resource
         try {
-            CharacterClassDAO classDao = new CharacterClassDAO();
+            CharacterClassDAO classDao = DaoProvider.classes();
             classDao.loadClassesFromYamlResource("/data/classes.yaml");
         } catch (Exception e) {
             logger.warn("Failed to load classes.yaml: {}", e.getMessage());
@@ -147,7 +149,7 @@ public class DataLoader {
         logger.info("[DataLoader] Seeding templates only into current DB");
         // Load item templates
         try {
-            ItemDAO itemDao = new ItemDAO();
+            ItemDAO itemDao = DaoProvider.items();
             itemDao.loadTemplatesFromYamlResource("/data/items.yaml");
             List<String> mercDirs = listMercAreaDirs();
             for (String dir : mercDirs) {
@@ -216,7 +218,7 @@ public class DataLoader {
      * Load mobile templates from YAML resource.
      */
     private static void loadMobileTemplates() {
-        MobileDAO mobileDao = new MobileDAO();
+        MobileDAO mobileDao = DaoProvider.mobiles();
         java.util.concurrent.atomic.AtomicInteger totalLoaded = new java.util.concurrent.atomic.AtomicInteger(0);
         // Helper to load a list from an InputStream
         @SuppressWarnings("unchecked")
@@ -296,16 +298,16 @@ public class DataLoader {
                     int goldMax = getInt(mobData, "gold_max", 0);
                     int respawnSeconds = getInt(mobData, "respawn_seconds", 300);
                     int autoflee = getInt(mobData, "autoflee", 0);
-                    MobileTemplate template = new MobileTemplate(
-                        id, key, name, shortDesc, longDesc, keywords,
-                        level, hpMax, mpMax, mvMax,
-                        str, dex, con, intel, wis, cha,
-                        armor, fortitude, reflex, will,
-                        baseDamage, damageBonus, attackBonus,
-                        behaviors, aggroRange,
-                        experienceValue, goldMin, goldMax,
-                        respawnSeconds, autoflee, null
-                    );
+                    MobileTemplate template = MobileTemplate.builder()
+                        .id(id).key(key).name(name).shortDesc(shortDesc).longDesc(longDesc).keywords(keywords)
+                        .level(level).hpMax(hpMax).mpMax(mpMax).mvMax(mvMax)
+                        .str(str).dex(dex).con(con).intel(intel).wis(wis).cha(cha)
+                        .armor(armor).fortitude(fortitude).reflex(reflex).will(will)
+                        .baseDamage(baseDamage).damageBonus(damageBonus).attackBonus(attackBonus)
+                        .behaviors(behaviors).aggroRange(aggroRange)
+                        .experienceValue(experienceValue).goldMin(goldMin).goldMax(goldMax)
+                        .respawnSeconds(respawnSeconds).autoflee(autoflee)
+                        .build();
                     mobileDao.upsertTemplate(template);
                     totalLoaded.incrementAndGet();
                     // Diagnostic logging for specific templates or when debug enabled
@@ -400,10 +402,10 @@ public class DataLoader {
                 
                 if (id < 0 || key.isEmpty() || name.isEmpty()) continue;
                 
-                com.example.tassmud.model.Skill.SkillProgression progression = 
-                    com.example.tassmud.model.Skill.SkillProgression.fromString(progressionStr);
+                SkillProgression progression = 
+                    SkillProgression.fromString(progressionStr);
                 
-                if (dao.addSkillFull(id, key, name, description, isPassive, maxLevel, progression, traits, cooldown, duration, effectIds)) {
+                if (DaoProvider.skills().addSkillFull(id, key, name, description, isPassive, maxLevel, progression, traits, cooldown, duration, effectIds)) {
                     count++;
                 }
             }
@@ -428,7 +430,7 @@ public class DataLoader {
                     String[] parts = line.split(",", 2);
                     String name = parts[0].trim();
                     String desc = parts.length > 1 ? parts[1].trim() : "";
-                    dao.addSkill(name, desc);
+                    DaoProvider.skills().addSkill(name, desc);
                 }
             }
         } catch (Exception ignored) {}
@@ -479,7 +481,7 @@ public class DataLoader {
                 
                 Spell.SpellSchool school = Spell.SpellSchool.fromString(schoolStr);
                 Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
-                Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
+                SkillProgression progression = SkillProgression.fromString(progressionStr);
                 double cooldown = getDouble(spellData, "cooldown", 0);
                 double duration = getDouble(spellData, "duration", 0);
                 int mpCost = getInt(spellData, "mpCost", 0);  // 0 means use spell level as cost
@@ -497,7 +499,7 @@ public class DataLoader {
                                         castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost);
                 
                 // Store in DAO
-                boolean added = dao.addSpellFull(spell);
+                boolean added = DaoProvider.spells().addSpellFull(spell);
                 if (added) count++;
             }
             logger.info("Loaded {} spells from spells.yaml", count);
@@ -656,7 +658,7 @@ public class DataLoader {
                     String[] parts = line.split(",", 2);
                     String name = parts[0].trim();
                     String desc = parts.length > 1 ? parts[1].trim() : "";
-                    dao.addSpell(name, desc);
+                    DaoProvider.spells().addSpell(name, desc);
                 }
             }
         } catch (Exception ignored) {}
@@ -747,7 +749,7 @@ public class DataLoader {
                     String sectorStr = getString(areaData, "sector_type", "FIELD");
                     SectorType sectorType = SectorType.fromString(sectorStr);
                     if (id < 0 || name.isEmpty()) continue;
-                    int used = dao.addAreaWithId(id, name, desc, sectorType);
+                    int used = DaoProvider.rooms().addAreaWithId(id, name, desc, sectorType);
                     if (used > 0) {
                         map.put(name, used);
                         // record mapping from MERC area id -> actual persisted id (may differ if name conflict)
@@ -839,7 +841,7 @@ public class DataLoader {
                 
                 if (id < 0 || name.isEmpty()) continue;
                 
-                int used = dao.addAreaWithId(id, name, desc, sectorType);
+                int used = DaoProvider.rooms().addAreaWithId(id, name, desc, sectorType);
                 if (used > 0) {
                     map.put(name, used);
                     count++;
@@ -869,13 +871,13 @@ public class DataLoader {
                         id = Integer.parseInt(parts[0].trim());
                         name = parts.length > 1 ? parts[1].trim() : "";
                         desc = parts.length > 2 ? parts[2].trim() : "";
-                        int used = dao.addAreaWithId(id, name, desc);
+                        int used = DaoProvider.rooms().addAreaWithId(id, name, desc);
                         if (used > 0) map.put(name, used);
                     } catch (NumberFormatException nfe) {
                         String[] parts2 = line.split(",", 2);
                         name = parts2[0].trim();
                         desc = parts2.length > 1 ? parts2[1].trim() : "";
-                        int used = dao.addArea(name, desc);
+                        int used = DaoProvider.rooms().addArea(name, desc);
                         if (used > 0) map.put(name, used);
                     }
                 }
@@ -1125,7 +1127,7 @@ public class DataLoader {
                     t.name = p[idx + 1].trim();
                     String areaName = p[idx + 2].trim();
                     Integer areaId = areaMap.get(areaName);
-                    if (areaId == null) areaId = dao.addArea(areaName, "");
+                    if (areaId == null) areaId = DaoProvider.rooms().addArea(areaName, "");
                     t.areaId = areaId;
                     t.shortDesc = p[idx + 3].trim();
                     t.longDesc = p[idx + 4].trim();
@@ -1150,10 +1152,10 @@ public class DataLoader {
                 // Ensure the referenced area exists; if not, attempt to create it so FK won't fail
                 if (t.areaId > 0) {
                     try {
-                        com.example.tassmud.model.Area a = dao.getAreaById(t.areaId);
+                        com.example.tassmud.model.Area a = DaoProvider.rooms().getAreaById(t.areaId);
                         if (a == null) {
                             // create a minimal MERC area placeholder with the explicit id
-                            int res = dao.addAreaWithId(t.areaId, "Imported MERC area " + t.areaId, "Imported from MERC");
+                            int res = DaoProvider.rooms().addAreaWithId(t.areaId, "Imported MERC area " + t.areaId, "Imported from MERC");
                             if (res <= 0) {
                                 logger.warn("[DataLoader] addAreaWithId placeholder failed for areaId={}", t.areaId);
                             } else {
@@ -1164,7 +1166,7 @@ public class DataLoader {
                         logger.warn("[DataLoader] Exception while ensuring area {}: {}", t.areaId, e.getMessage(), e);
                     }
                 }
-                roomId = dao.addRoomWithId(t.explicitId, t.areaId, t.name, t.shortDesc, t.longDesc, 
+                roomId = DaoProvider.rooms().addRoomWithId(t.explicitId, t.areaId, t.name, t.shortDesc, t.longDesc, 
                     t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
                 if (roomId <= 0) {
                     logger.warn("[DataLoader] Failed to insert room with explicit id {} key={} name={}", t.explicitId, t.key, t.name);
@@ -1172,10 +1174,10 @@ public class DataLoader {
             } else {
                 int nextLocal = areaCounters.getOrDefault(t.areaId, 0);
                 if (nextLocal > 999) {
-                    roomId = dao.addRoom(t.areaId, t.name, t.shortDesc, t.longDesc, null, null, null, null, null, null);
+                    roomId = DaoProvider.rooms().addRoom(t.areaId, t.name, t.shortDesc, t.longDesc, null, null, null, null, null, null);
                 } else {
                     int computed = t.areaId * 1000 + nextLocal;
-                    roomId = dao.addRoomWithId(computed, t.areaId, t.name, t.shortDesc, t.longDesc,
+                    roomId = DaoProvider.rooms().addRoomWithId(computed, t.areaId, t.name, t.shortDesc, t.longDesc,
                         t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
                     if (roomId <= 0) {
                         logger.warn("[DataLoader] Failed to insert room with computed id {} key={} name={}", computed, t.key, t.name);
@@ -1189,7 +1191,7 @@ public class DataLoader {
                 // Insert room flags into the room_flag table
                 if (t.flags != null && !t.flags.isEmpty()) {
                     for (String flagKey : t.flags) {
-                        dao.addRoomFlag(roomId, flagKey);
+                        DaoProvider.rooms().addRoomFlag(roomId, flagKey);
                     }
                     logger.debug("[DataLoader] Added {} flags to room {}: {}", t.flags.size(), roomId, t.flags);
                 }
@@ -1254,7 +1256,7 @@ public class DataLoader {
                                 Integer exitW = resolveExitTokenFromYaml(exits.get("west"), keyToId);
                                 Integer exitU = resolveExitTokenFromYaml(exits.get("up"), keyToId);
                                 Integer exitD = resolveExitTokenFromYaml(exits.get("down"), keyToId);
-                                dao.updateRoomExits(roomId, exitN, exitE, exitS, exitW, exitU, exitD);
+                                DaoProvider.rooms().updateRoomExits(roomId, exitN, exitE, exitS, exitW, exitU, exitD);
                             }
 
                             // Doors
@@ -1290,7 +1292,7 @@ public class DataLoader {
                                         keyItem = getInt(props, "key", 0);
                                         String doorDesc = getString(props, "description", "");
                                         if (keyItem != null && keyItem == 0) keyItem = null;
-                                        dao.upsertDoor(roomId, doorDir, toId, state, locked, hidden, blocked, keyItem, doorDesc);
+                                        DaoProvider.rooms().upsertDoor(roomId, doorDir, toId, state, locked, hidden, blocked, keyItem, doorDesc);
                                     } else {
                                         Object exitsObj2 = roomData.get("exits");
                                         if (exitsObj2 instanceof Map) {
@@ -1300,7 +1302,7 @@ public class DataLoader {
                                         }
                                     }
                                     if (!(v instanceof Map)) {
-                                        dao.upsertDoor(roomId, doorDir, toId, state, locked, hidden, blocked, keyItem, null);
+                                        DaoProvider.rooms().upsertDoor(roomId, doorDir, toId, state, locked, hidden, blocked, keyItem, null);
                                     }
                                 }
                             }
@@ -1314,7 +1316,7 @@ public class DataLoader {
                                     String exKey = ex.getKey();
                                     Object exVal = ex.getValue();
                                     String exDesc = exVal == null ? "" : exVal.toString();
-                                    dao.upsertRoomExtra(roomId, exKey, exDesc);
+                                    DaoProvider.rooms().upsertRoomExtra(roomId, exKey, exDesc);
                                 }
                             }
                         }

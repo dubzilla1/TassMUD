@@ -1,5 +1,7 @@
 package com.example.tassmud.effect;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterDAO;
 import org.slf4j.Logger;
@@ -51,7 +53,7 @@ public class SlowEffect implements EffectHandler {
         long durationMs = (long)(scaledDuration * 1000);
 
         // Get names for messaging
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
         String casterName = "Someone";
         if (casterId != null) {
             CharacterDAO.CharacterRecord crec = dao.findById(casterId);
@@ -95,7 +97,7 @@ public class SlowEffect implements EffectHandler {
         if (targetId == null) return;
 
         // Get target name for message
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
         CharacterDAO.CharacterRecord trec = dao.findById(targetId);
         if (trec != null) {
             String msg = trec.name + "'s movements return to normal speed.";

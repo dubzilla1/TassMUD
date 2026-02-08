@@ -1,5 +1,7 @@
 package com.example.tassmud.util;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.ItemTemplate;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.ItemDAO;
@@ -90,8 +92,8 @@ public class LootGenerator {
         "500",  // Heroism
     };
     
-    // Cache of valid template IDs in range
-    private static List<Integer> cachedTemplateIds = null;
+    // Cache of valid template IDs in range (volatile for thread-safe lazy init)
+    private static volatile List<Integer> cachedTemplateIds = null;
     
     /**
      * Result of loot generation for a single item.
@@ -108,17 +110,14 @@ public class LootGenerator {
         public final Integer fortSaveOverride;
         public final Integer refSaveOverride;
         public final Integer willSaveOverride;
-        public final String spellEffect1;
-        public final String spellEffect2;
-        public final String spellEffect3;
-        public final String spellEffect4;
+        public final List<String> spellEffects;
         public final Integer valueOverride;
         public final LootType lootType;
         
         public GeneratedItem(int templateId, String customName, String customDescription, int itemLevel,
                             Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
                             Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
-                            String spellEffect1, String spellEffect2, String spellEffect3, String spellEffect4,
+                            List<String> spellEffects,
                             Integer valueOverride, LootType lootType) {
             this.templateId = templateId;
             this.customName = customName;
@@ -131,10 +130,7 @@ public class LootGenerator {
             this.fortSaveOverride = fortSaveOverride;
             this.refSaveOverride = refSaveOverride;
             this.willSaveOverride = willSaveOverride;
-            this.spellEffect1 = spellEffect1;
-            this.spellEffect2 = spellEffect2;
-            this.spellEffect3 = spellEffect3;
-            this.spellEffect4 = spellEffect4;
+            this.spellEffects = spellEffects == null ? List.of() : List.copyOf(spellEffects);
             this.valueOverride = valueOverride;
             this.lootType = lootType;
         }
@@ -187,7 +183,7 @@ public class LootGenerator {
                     item.customName, item.customDescription, item.itemLevel,
                     item.baseDieOverride, item.multiplierOverride, item.abilityMultOverride,
                     item.armorSaveOverride, item.fortSaveOverride, item.refSaveOverride, item.willSaveOverride,
-                    item.spellEffect1, item.spellEffect2, item.spellEffect3, item.spellEffect4,
+                    item.spellEffects,
                     item.valueOverride
                 );
                 if (instanceId > 0) {
@@ -215,7 +211,7 @@ public class LootGenerator {
             item.customName, item.customDescription, item.itemLevel,
             item.baseDieOverride, item.multiplierOverride, item.abilityMultOverride,
             item.armorSaveOverride, item.fortSaveOverride, item.refSaveOverride, item.willSaveOverride,
-            item.spellEffect1, item.spellEffect2, item.spellEffect3, item.spellEffect4,
+            item.spellEffects,
             item.valueOverride
         );
 
@@ -241,7 +237,7 @@ public class LootGenerator {
             item.customName, item.customDescription, item.itemLevel,
             item.baseDieOverride, item.multiplierOverride, item.abilityMultOverride,
             item.armorSaveOverride, item.fortSaveOverride, item.refSaveOverride, item.willSaveOverride,
-            item.spellEffect1, item.spellEffect2, item.spellEffect3, item.spellEffect4,
+            item.spellEffects,
             item.valueOverride
         );
     }
@@ -280,7 +276,7 @@ public class LootGenerator {
      */
     public static GeneratedItem sampleSingleItem(int mobLevel) {
         if (LOOT_GENERATION_DISABLED) return null;
-        ItemDAO itemDAO = new ItemDAO();
+        ItemDAO itemDAO = DaoProvider.items();
         return generateSingleItem(mobLevel, itemDAO);
     }
     
@@ -297,7 +293,7 @@ public class LootGenerator {
             mobLevel,
             null, null, null,
             null, null, null, null,
-            null, null, null, null,
+            List.of(),
             0, // Value is always 0
             LootType.TRASH
         );
@@ -342,7 +338,7 @@ public class LootGenerator {
                 template.id, null, null, mobLevel,
                 null, null, null,
                 null, null, null, null,
-                null, null, null, null,
+                List.of(),
                 template.value,
                 LootType.OTHER
             );
@@ -409,7 +405,7 @@ public class LootGenerator {
         abilityMult = Math.round(abilityMult * 10.0) / 10.0; // Round to 1 decimal
         
         // Generate magic effects
-        String[] effects = generateMagicEffects(mobLevel);
+        List<String> effects = generateMagicEffects(mobLevel);
         
         // Calculate weapon score and quality name
         double weaponScore = calculateWeaponScore(multiplier, baseDie);
@@ -424,7 +420,7 @@ public class LootGenerator {
             customName, null, mobLevel,
             baseDie, multiplier, abilityMult,
             null, null, null, null,
-            effects[0], effects[1], effects[2], effects[3],
+            effects,
             value, LootType.WEAPON
         );
     }
@@ -467,7 +463,7 @@ public class LootGenerator {
         }
         
         // Generate magic effects
-        String[] effects = generateMagicEffects(mobLevel);
+        List<String> effects = generateMagicEffects(mobLevel);
         
         // Calculate armor score and quality name
         double armorScore = ac + fort + ref + will;
@@ -482,7 +478,7 @@ public class LootGenerator {
             customName, null, mobLevel,
             null, null, null,
             ac, fort, ref, will,
-            effects[0], effects[1], effects[2], effects[3],
+            effects,
             value, isShield ? LootType.SHIELD : LootType.ARMOR
         );
     }
@@ -586,8 +582,8 @@ public class LootGenerator {
      * Generate magic effects based on mob level.
      * level% chance for 1, level/2% for 2, level/4% for 3, level/8% for 4
      */
-    private static String[] generateMagicEffects(int mobLevel) {
-        String[] effects = new String[4];
+    private static List<String> generateMagicEffects(int mobLevel) {
+        List<String> effects = new ArrayList<>();
         
         if (MAGIC_EFFECT_IDS.length == 0) {
             return effects;
@@ -595,19 +591,19 @@ public class LootGenerator {
         
         // 1st effect: level% chance
         if (RNG.nextInt(100) < mobLevel) {
-            effects[0] = MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
+            effects.add(MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)]);
             
             // 2nd effect: level/2% chance
             if (RNG.nextInt(100) < mobLevel / 2) {
-                effects[1] = pickDifferentEffect(effects, 1);
+                effects.add(pickDifferentEffect(effects));
                 
                 // 3rd effect: level/4% chance
                 if (RNG.nextInt(100) < mobLevel / 4) {
-                    effects[2] = pickDifferentEffect(effects, 2);
+                    effects.add(pickDifferentEffect(effects));
                     
                     // 4th effect: level/8% chance
                     if (RNG.nextInt(100) < mobLevel / 8) {
-                        effects[3] = pickDifferentEffect(effects, 3);
+                        effects.add(pickDifferentEffect(effects));
                     }
                 }
             }
@@ -619,21 +615,14 @@ public class LootGenerator {
     /**
      * Pick a magic effect different from already selected ones.
      */
-    private static String pickDifferentEffect(String[] currentEffects, int count) {
-        if (MAGIC_EFFECT_IDS.length <= count) {
+    private static String pickDifferentEffect(List<String> currentEffects) {
+        if (MAGIC_EFFECT_IDS.length <= currentEffects.size()) {
             return MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
         }
         
         for (int attempts = 0; attempts < 10; attempts++) {
             String effect = MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
-            boolean found = false;
-            for (String e : currentEffects) {
-                if (effect.equals(e)) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) return effect;
+            if (!currentEffects.contains(effect)) return effect;
         }
         
         return MAGIC_EFFECT_IDS[RNG.nextInt(MAGIC_EFFECT_IDS.length)];
@@ -642,7 +631,7 @@ public class LootGenerator {
     /**
      * Calculate gold value of a weapon based on its stats.
      */
-    private static int calculateWeaponValue(int baseDie, int multiplier, double abilityMult, String[] effects) {
+    private static int calculateWeaponValue(int baseDie, int multiplier, double abilityMult, List<String> effects) {
         int baseValue = baseDie * multiplier * 10;
         int abilityBonus = (int) (abilityMult * 50);
         int magicBonus = countEffects(effects) * 100;
@@ -652,7 +641,7 @@ public class LootGenerator {
     /**
      * Calculate gold value of armor based on its stats.
      */
-    private static int calculateArmorValue(int armorSave, int fortSave, int refSave, int willSave, String[] effects) {
+    private static int calculateArmorValue(int armorSave, int fortSave, int refSave, int willSave, List<String> effects) {
         int baseValue = armorSave * 20;
         int saveBonus = (fortSave + refSave + willSave) * 10;
         int magicBonus = countEffects(effects) * 100;
@@ -660,14 +649,10 @@ public class LootGenerator {
     }
     
     /**
-     * Count non-null effects in array.
+     * Count effects in list.
      */
-    private static int countEffects(String[] effects) {
-        int count = 0;
-        for (String e : effects) {
-            if (e != null) count++;
-        }
-        return count;
+    private static int countEffects(List<String> effects) {
+        return effects != null ? effects.size() : 0;
     }
     
     /**
@@ -676,20 +661,24 @@ public class LootGenerator {
      * Uses ItemDAO's connection logic for consistent DB access.
      */
     private static List<Integer> getTemplateIdsInRange(ItemDAO itemDAO) {
-        if (cachedTemplateIds != null) {
-            return cachedTemplateIds;
+        List<Integer> local = cachedTemplateIds; // read volatile once
+        if (local != null) {
+            return local;
         }
-        
-        List<Integer> ids = itemDAO.getTemplateIdsInRange(TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
-        
-        if (!ids.isEmpty()) {
-            cachedTemplateIds = ids;
-            logger.info("LootGenerator: Cached {} template IDs in range {}-{}", ids.size(), TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
-        } else {
-            logger.warn("LootGenerator: No templates found in range {}-{}", TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
+        synchronized (LootGenerator.class) {
+            // Double-check after acquiring lock
+            if (cachedTemplateIds != null) {
+                return cachedTemplateIds;
+            }
+            List<Integer> ids = itemDAO.getTemplateIdsInRange(TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
+            if (!ids.isEmpty()) {
+                cachedTemplateIds = ids;
+                logger.info("LootGenerator: Cached {} template IDs in range {}-{}", ids.size(), TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
+            } else {
+                logger.warn("LootGenerator: No templates found in range {}-{}", TEMPLATE_MIN_ID, TEMPLATE_MAX_ID);
+            }
+            return ids;
         }
-        
-        return ids;
     }
     
     /**

@@ -20,15 +20,15 @@ class SkillTest {
         assertEquals(1, skill.getId());
         assertEquals("Sword Fighting", skill.getName());
         assertEquals("Basic sword combat", skill.getDescription());
-        assertEquals(Skill.SkillProgression.NORMAL, skill.getProgression());
+        assertEquals(SkillProgression.NORMAL, skill.getProgression());
     }
     
     @Test
     @DisplayName("Skill constructor with progression sets progression correctly")
     void skillConstructorWithProgression() {
-        Skill skill = new Skill(2, "Arcane Magic", "Magic proficiency", Skill.SkillProgression.INSTANT);
+        Skill skill = new Skill(2, "Arcane Magic", "Magic proficiency", SkillProgression.INSTANT);
         
-        assertEquals(Skill.SkillProgression.INSTANT, skill.getProgression());
+        assertEquals(SkillProgression.INSTANT, skill.getProgression());
     }
     
     @Test
@@ -36,7 +36,7 @@ class SkillTest {
     void skillConstructorNullProgressionDefaultsToNormal() {
         Skill skill = new Skill(3, "Test", "Test desc", null);
         
-        assertEquals(Skill.SkillProgression.NORMAL, skill.getProgression());
+        assertEquals(SkillProgression.NORMAL, skill.getProgression());
     }
     
     // --- SkillProgression Tests ---
@@ -44,45 +44,45 @@ class SkillTest {
     @Test
     @DisplayName("INSTANT progression is instant")
     void instantProgressionIsInstant() {
-        assertTrue(Skill.SkillProgression.INSTANT.isInstant());
+        assertTrue(SkillProgression.INSTANT.isInstant());
     }
     
     @ParameterizedTest
-    @EnumSource(value = Skill.SkillProgression.class, names = {"TRIVIAL", "EASY", "NORMAL", "HARD", "VERY_HARD", "LEGENDARY"})
+    @EnumSource(value = SkillProgression.class, names = {"TRIVIAL", "EASY", "NORMAL", "HARD", "VERY_HARD", "LEGENDARY"})
     @DisplayName("Non-INSTANT progressions are not instant")
-    void nonInstantProgressionsAreNotInstant(Skill.SkillProgression progression) {
+    void nonInstantProgressionsAreNotInstant(SkillProgression progression) {
         assertFalse(progression.isInstant());
     }
     
     @Test
     @DisplayName("INSTANT progression starting proficiency is 100")
     void instantProgressionStartsAt100() {
-        assertEquals(100, Skill.SkillProgression.INSTANT.getStartingProficiency());
+        assertEquals(100, SkillProgression.INSTANT.getStartingProficiency());
     }
     
     @ParameterizedTest
-    @EnumSource(value = Skill.SkillProgression.class, names = {"TRIVIAL", "EASY", "NORMAL", "HARD", "VERY_HARD", "LEGENDARY"})
+    @EnumSource(value = SkillProgression.class, names = {"TRIVIAL", "EASY", "NORMAL", "HARD", "VERY_HARD", "LEGENDARY"})
     @DisplayName("Non-INSTANT progressions start at proficiency 1")
-    void nonInstantProgressionsStartAt1(Skill.SkillProgression progression) {
+    void nonInstantProgressionsStartAt1(SkillProgression progression) {
         assertEquals(1, progression.getStartingProficiency());
     }
     
     @Test
     @DisplayName("INSTANT progression has 0% gain chance")
     void instantProgressionHasZeroGainChance() {
-        assertEquals(0, Skill.SkillProgression.INSTANT.getGainChance(50));
+        assertEquals(0, SkillProgression.INSTANT.getGainChance(50));
     }
     
     @Test
     @DisplayName("Mastered skill has 0% gain chance")
     void masteredSkillHasZeroGainChance() {
-        assertEquals(0, Skill.SkillProgression.NORMAL.getGainChance(100));
+        assertEquals(0, SkillProgression.NORMAL.getGainChance(100));
     }
     
     @Test
     @DisplayName("Gain chance decreases as proficiency increases")
     void gainChanceDecreasesWithProficiency() {
-        Skill.SkillProgression prog = Skill.SkillProgression.NORMAL;
+        SkillProgression prog = SkillProgression.NORMAL;
         int chanceAt1 = prog.getGainChance(1);
         int chanceAt50 = prog.getGainChance(50);
         int chanceAt99 = prog.getGainChance(99);
@@ -96,7 +96,7 @@ class SkillTest {
     @Test
     @DisplayName("Gain chance is always at least 1% for non-INSTANT progressions")
     void gainChanceMinimumIs1Percent() {
-        for (Skill.SkillProgression prog : Skill.SkillProgression.values()) {
+        for (SkillProgression prog : SkillProgression.values()) {
             if (!prog.isInstant()) {
                 int chance = prog.getGainChance(99);
                 assertTrue(chance >= 1, prog + " should have at least 1% chance at 99 proficiency");
@@ -115,29 +115,29 @@ class SkillTest {
         "LEGENDARY, legendary"
     })
     @DisplayName("fromString parses progression strings correctly")
-    void fromStringParsesCorrectly(Skill.SkillProgression expected, String input) {
-        assertEquals(expected, Skill.SkillProgression.fromString(input));
+    void fromStringParsesCorrectly(SkillProgression expected, String input) {
+        assertEquals(expected, SkillProgression.fromString(input));
     }
     
     @Test
     @DisplayName("fromString is case-insensitive")
     void fromStringIsCaseInsensitive() {
-        assertEquals(Skill.SkillProgression.NORMAL, Skill.SkillProgression.fromString("NORMAL"));
-        assertEquals(Skill.SkillProgression.NORMAL, Skill.SkillProgression.fromString("normal"));
-        assertEquals(Skill.SkillProgression.NORMAL, Skill.SkillProgression.fromString("Normal"));
+        assertEquals(SkillProgression.NORMAL, SkillProgression.fromString("NORMAL"));
+        assertEquals(SkillProgression.NORMAL, SkillProgression.fromString("normal"));
+        assertEquals(SkillProgression.NORMAL, SkillProgression.fromString("Normal"));
     }
     
     @Test
     @DisplayName("fromString handles hyphenated input")
     void fromStringHandlesHyphens() {
-        assertEquals(Skill.SkillProgression.VERY_HARD, Skill.SkillProgression.fromString("very-hard"));
+        assertEquals(SkillProgression.VERY_HARD, SkillProgression.fromString("very-hard"));
     }
     
     @Test
     @DisplayName("fromString returns NORMAL for invalid input")
     void fromStringDefaultsToNormal() {
-        assertEquals(Skill.SkillProgression.NORMAL, Skill.SkillProgression.fromString("invalid"));
-        assertEquals(Skill.SkillProgression.NORMAL, Skill.SkillProgression.fromString(""));
-        assertEquals(Skill.SkillProgression.NORMAL, Skill.SkillProgression.fromString(null));
+        assertEquals(SkillProgression.NORMAL, SkillProgression.fromString("invalid"));
+        assertEquals(SkillProgression.NORMAL, SkillProgression.fromString(""));
+        assertEquals(SkillProgression.NORMAL, SkillProgression.fromString(null));
     }
 }

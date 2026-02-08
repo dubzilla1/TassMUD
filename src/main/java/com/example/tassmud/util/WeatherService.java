@@ -5,6 +5,7 @@ import com.example.tassmud.model.Stance;
 import com.example.tassmud.model.Weather;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.persistence.DaoProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -106,7 +107,7 @@ public class WeatherService {
      * Load persisted weather from database.
      */
     private void loadWeather() {
-        String saved = dao.getSetting("weather.current");
+        String saved = DaoProvider.settings().getSetting("weather.current");
         if (saved != null) {
             currentWeather = Weather.fromKey(saved);
         } else {
@@ -119,7 +120,7 @@ public class WeatherService {
      * Persist current weather to database.
      */
     private void persistWeather() {
-        dao.setSetting("weather.current", currentWeather.getKey());
+        DaoProvider.settings().setSetting("weather.current", currentWeather.getKey());
     }
     
     /**
@@ -401,7 +402,7 @@ public class WeatherService {
             }
             
             // Check if room is indoors
-            Set<RoomFlag> flags = dao.getRoomFlags(roomId);
+            Set<RoomFlag> flags = DaoProvider.rooms().getRoomFlags(roomId);
             if (flags != null && flags.contains(RoomFlag.INDOORS)) {
                 continue; // Skip players indoors
             }

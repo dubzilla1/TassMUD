@@ -1,5 +1,7 @@
 package com.example.tassmud.effect;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
 import com.example.tassmud.model.GameCharacter;
@@ -8,6 +10,7 @@ import com.example.tassmud.persistence.CharacterDAO;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Effect handler that provides instant healing to a target.
@@ -63,7 +66,7 @@ public class InstantHealEffect implements EffectHandler {
         // Roll healing dice
         int diceTotal = 0;
         for (int i = 0; i < scaledN; i++) {
-            diceTotal += (int) (Math.random() * dieM) + 1;
+            diceTotal += ThreadLocalRandom.current().nextInt(1, dieM + 1);
         }
 
         // Add level-based bonus: levelMultiplier * casterLevel
@@ -76,7 +79,7 @@ public class InstantHealEffect implements EffectHandler {
         totalHeal += bonus;
 
         // Apply healing to target
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
         
         String casterName = null;
         if (casterId != null) {

@@ -1,5 +1,7 @@
 package com.example.tassmud.util;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.model.Mobile;
 import com.example.tassmud.model.Stance;
@@ -39,8 +41,8 @@ public class RegenerationService {
     private final ConcurrentHashMap<Integer, Stance> playerStances = new ConcurrentHashMap<>();
     
     private RegenerationService() {
-        this.dao = new CharacterDAO();
-        this.mobileDao = new MobileDAO();
+        this.dao = DaoProvider.characters();
+        this.mobileDao = DaoProvider.mobiles();
         this.combatManager = CombatManager.getInstance();
     }
     
@@ -152,8 +154,9 @@ public class RegenerationService {
      * Regenerate all mobiles who are not in combat and not dead.
      */
     private void regenerateMobiles() {
-        List<Mobile> mobiles = mobileDao.getAllInstances();
-        for (Mobile mobile : mobiles) {
+        // Use in-memory registry instead of DB query (no more getAllInstances() every 10s)
+        MobileRegistry registry = MobileRegistry.getInstance();
+        for (Mobile mobile : new java.util.ArrayList<>(registry.getAll())) {
             try {
                 // Skip if dead or in combat
                 if (mobile.isDead()) continue;

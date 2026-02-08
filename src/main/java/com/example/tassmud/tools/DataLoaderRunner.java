@@ -1,5 +1,7 @@
 package com.example.tassmud.tools;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.persistence.DataLoader;
 import com.example.tassmud.persistence.CharacterDAO;
 import org.slf4j.Logger;
@@ -12,14 +14,14 @@ public class DataLoaderRunner {
     private static final Logger logger = LoggerFactory.getLogger(DataLoaderRunner.class);
 
     public static void main(String[] args) throws Exception {
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
         DataLoader.loadDefaults(dao);
         logger.info("DataLoader.run completed");
         // Debug: print area rows we expect from MERC import
         int[] check = {30,31,32};
         for (int a : check) {
             try {
-                com.example.tassmud.model.Area area = dao.getAreaById(a);
+                com.example.tassmud.model.Area area = DaoProvider.rooms().getAreaById(a);
                 if (area != null) logger.info("Area {}: {} / {}", a, area.getName(), area.getDescription());
                 else logger.info("Area {} not found", a);
             } catch (Exception e) {

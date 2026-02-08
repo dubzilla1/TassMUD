@@ -1,5 +1,7 @@
 package com.example.tassmud.net.commands;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combatant;
@@ -21,6 +23,7 @@ import com.example.tassmud.model.Group;
 
 import java.io.PrintWriter;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 /**
@@ -102,7 +105,7 @@ public class MovementCommandHandler implements CommandHandler {
             
             // Combat stand from prone - this is an innate skill
             // Get user's level for opposed check
-            CharacterClassDAO standClassDao = new CharacterClassDAO();
+            CharacterClassDAO standClassDao = DaoProvider.classes();
             int userLevel = rec.currentClassId != null 
                 ? standClassDao.getCharacterClassLevel(characterId, rec.currentClassId) : 1;
             
@@ -131,7 +134,7 @@ public class MovementCommandHandler implements CommandHandler {
             }
             
             // Perform opposed check at 100% proficiency (innate skill)
-            int roll = (int)(Math.random() * 100) + 1;
+            int roll = ThreadLocalRandom.current().nextInt(1, 101);
             int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(
                 userLevel, opponentLevel, 100); // 100% proficiency for innate skills
             
@@ -243,11 +246,11 @@ public class MovementCommandHandler implements CommandHandler {
         boolean isGm = dao.isCharacterFlagTrueByName(name, "is_gm");
         Integer currentRoomId = rec.currentRoom;
         if (currentRoomId != null && !isGm) {
-            if (dao.isRoomPrison(currentRoomId)) {
+            if (DaoProvider.rooms().isRoomPrison(currentRoomId)) {
                 out.println("You cannot leave this room.");
                 return true;
             }
-            if (dao.isRoomNoRecall(currentRoomId)) {
+            if (DaoProvider.rooms().isRoomNoRecall(currentRoomId)) {
                 out.println("Something prevents you from recalling.");
                 return true;
             }
@@ -262,7 +265,7 @@ public class MovementCommandHandler implements CommandHandler {
         }
         
         // Verify the destination exists
-        Room innRoom = dao.getRoomById(TEMPLE_OF_MIDGAARD);
+        Room innRoom = DaoProvider.rooms().getRoomById(TEMPLE_OF_MIDGAARD);
         if (innRoom == null) {
             out.println("The Mead-Gaard Inn seems to have vanished from reality. Something is very wrong.");
             return true;
@@ -309,7 +312,7 @@ public class MovementCommandHandler implements CommandHandler {
                     out.println("You are not located in any room.");
                     return true;
                 }
-                Room room = dao.getRoomById(lookRoomId);
+                Room room = DaoProvider.rooms().getRoomById(lookRoomId);
                 if (room == null) {
                     out.println("You are in an unknown place (room id " + lookRoomId + ").");
                     return true;
@@ -328,7 +331,7 @@ public class MovementCommandHandler implements CommandHandler {
                         return true;
                     }
 
-                    ItemDAO itemDao = new ItemDAO();
+                    ItemDAO itemDao = DaoProvider.items();
 
                     java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
                     java.util.List<ItemDAO.RoomItem> invItems = charId != null ? itemDao.getItemsByCharacter(charId) : new java.util.ArrayList<>();
@@ -439,7 +442,7 @@ public class MovementCommandHandler implements CommandHandler {
                 // Mob lookup moved later to prefer items; handled after inventory search
 
                 if (!found) {
-                    ItemDAO itemDao = new ItemDAO();
+                    ItemDAO itemDao = DaoProvider.items();
                     java.util.List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(lookRoomId);
                     for (ItemDAO.RoomItem ri : roomItems) {
                         String itemName = ri.template.name != null ? ri.template.name.toLowerCase() : "";
@@ -468,7 +471,7 @@ public class MovementCommandHandler implements CommandHandler {
 
                 if (!found) {
                     if (charId != null) {
-                        ItemDAO itemDao = new ItemDAO();
+                        ItemDAO itemDao = DaoProvider.items();
                         java.util.List<ItemDAO.RoomItem> invItems = itemDao.getItemsByCharacter(charId);
                         for (ItemDAO.RoomItem ii : invItems) {
                             String itemName = ii.template.name != null ? ii.template.name.toLowerCase() : "";
@@ -499,8 +502,8 @@ public class MovementCommandHandler implements CommandHandler {
                 if (!found) {
                     // Check for door/exits (direction look) and room extras (plaques, signs)
                         // Before checking doors/extras, try mobiles (search after items so items win ties)
-                        MobileDAO mobDao = new MobileDAO();
-                        java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(lookRoomId);
+                        MobileDAO mobDao = DaoProvider.mobiles();
+                        java.util.List<Mobile> roomMobs = com.example.tassmud.util.MobileRegistry.getInstance().getByRoom(lookRoomId);
                         for (Mobile mob : roomMobs) {
                             String mobNameLower = mob.getName() != null ? mob.getName().toLowerCase() : "";
                             boolean mobMatch = false;
@@ -527,7 +530,7 @@ public class MovementCommandHandler implements CommandHandler {
                                 }
 
                                 // Show equipment for explicit mob look
-                                ItemDAO itemDao = new ItemDAO();
+                                ItemDAO itemDao = DaoProvider.items();
                                 java.util.List<com.example.tassmud.model.Modifier> mods = mob.getAllModifiers();
                                 java.util.Map<Integer, Long> equippedMap = new java.util.HashMap<>();
                                 for (com.example.tassmud.model.Modifier m : mods) {
@@ -585,8 +588,7 @@ public class MovementCommandHandler implements CommandHandler {
                     }
                     if (dirToken != null) {
                         // Try to fetch door metadata and show its description if present
-                        com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
-                        com.example.tassmud.model.Door door = dao2.getDoor(lookRoomId, dirToken);
+                        com.example.tassmud.model.Door door = DaoProvider.rooms().getDoor(lookRoomId, dirToken);
                         if (door != null && door.description != null && !door.description.isEmpty()) {
                             out.println(door.description);
                             found = true;
@@ -595,8 +597,7 @@ public class MovementCommandHandler implements CommandHandler {
 
                     if (!found) {
                         // Check room extras (plaques, signs, etc.)
-                        com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
-                        java.util.Map<String,String> extras = dao2.getRoomExtras(lookRoomId);
+                        java.util.Map<String,String> extras = DaoProvider.rooms().getRoomExtras(lookRoomId);
                         if (extras != null && !extras.isEmpty()) {
                             // direct key match or prefix match
                             String matchKey = null;
@@ -646,13 +647,12 @@ public class MovementCommandHandler implements CommandHandler {
                     case "d": case "down": dirToken = "down"; break;
                 }
 
-                com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
                 com.example.tassmud.model.Door door = null;
                 if (dirToken != null) {
-                    door = dao2.getDoor(curRoomId, dirToken);
+                    door = DaoProvider.rooms().getDoor(curRoomId, dirToken);
                 } else {
                     // try to match by door description or keywords
-                    java.util.List<com.example.tassmud.model.Door> doors = dao2.getDoorsForRoom(curRoomId);
+                    java.util.List<com.example.tassmud.model.Door> doors = DaoProvider.rooms().getDoorsForRoom(curRoomId);
                     for (com.example.tassmud.model.Door d : doors) {
                         if (d.description != null && d.description.toLowerCase().contains(target)) {
                             door = d; break;
@@ -687,7 +687,7 @@ public class MovementCommandHandler implements CommandHandler {
                         return true;
                     }
                     // open it
-                    dao2.upsertDoor(curRoomId, door.direction, door.toRoomId, "OPEN", false, door.hidden, door.blocked, door.keyItemId, door.description);
+                    DaoProvider.rooms().upsertDoor(curRoomId, door.direction, door.toRoomId, "OPEN", false, door.hidden, door.blocked, door.keyItemId, door.description);
                     out.println("You open the " + door.direction + " door.");
                     ClientHandler.roomAnnounceFromActor(curRoomId, name + " opens the " + door.direction + " door.", charId);
                     return true;
@@ -697,7 +697,7 @@ public class MovementCommandHandler implements CommandHandler {
                         out.println("It's already closed.");
                         return true;
                     }
-                    dao2.upsertDoor(curRoomId, door.direction, door.toRoomId, "CLOSED", door.locked, door.hidden, door.blocked, door.keyItemId, door.description);
+                    DaoProvider.rooms().upsertDoor(curRoomId, door.direction, door.toRoomId, "CLOSED", door.locked, door.hidden, door.blocked, door.keyItemId, door.description);
                     out.println("You close the " + door.direction + " door.");
                     ClientHandler.roomAnnounceFromActor(curRoomId, name + " closes the " + door.direction + " door.", charId);
                     return true;
@@ -738,7 +738,7 @@ public class MovementCommandHandler implements CommandHandler {
                     out.println("You are not located in any room.");
                     return true;
                 }
-                Room curRoom = dao.getRoomById(curRoomId);
+                Room curRoom = DaoProvider.rooms().getRoomById(curRoomId);
                 if (curRoom == null) {
                     out.println("You seem to be in an unknown place.");
                     return true;
@@ -746,19 +746,10 @@ public class MovementCommandHandler implements CommandHandler {
 
                 Integer destId = null;
                 String directionName = null;
-                switch (cmdName) {
-                    case "north":
-                    case "n": destId = curRoom.getExitN(); directionName = "north"; break;
-                    case "east":
-                    case "e": destId = curRoom.getExitE(); directionName = "east"; break;
-                    case "south":
-                    case "s": destId = curRoom.getExitS(); directionName = "south"; break;
-                    case "west":
-                    case "w": destId = curRoom.getExitW(); directionName = "west"; break;
-                    case "up":
-                    case "u": destId = curRoom.getExitU(); directionName = "up"; break;
-                    case "down":
-                    case "d": destId = curRoom.getExitD(); directionName = "down"; break;
+                com.example.tassmud.model.Direction moveDir = com.example.tassmud.model.Direction.fromString(cmdName);
+                if (moveDir != null) {
+                    destId = curRoom.getExit(moveDir);
+                    directionName = moveDir.fullName();
                 }
 
                 if (destId == null) {
@@ -767,14 +758,13 @@ public class MovementCommandHandler implements CommandHandler {
                 }
 
                 // If the destination room id refers to a missing room (broken world), redirect to The Void (id 0)
-                Room maybeDest = (destId == null) ? null : dao.getRoomById(destId);
+                Room maybeDest = (destId == null) ? null : DaoProvider.rooms().getRoomById(destId);
                 if (destId != null && maybeDest == null) {
                     destId = 0;
                 }
 
                 // Check door state for player movement (block if closed/locked/blocked/hidden)
-                com.example.tassmud.persistence.CharacterDAO dao2 = new com.example.tassmud.persistence.CharacterDAO();
-                com.example.tassmud.model.Door door = dao2.getDoor(curRoomId, directionName);
+                com.example.tassmud.model.Door door = DaoProvider.rooms().getDoor(curRoomId, directionName);
                 if (door != null) {
                     if (door.blocked) {
                         out.println("Something blocks your way.");
@@ -798,13 +788,13 @@ public class MovementCommandHandler implements CommandHandler {
                 boolean isGm = dao.isCharacterFlagTrueByName(name, "is_gm");
                 
                 // PRISON check - cannot leave by normal movement (only GM teleport)
-                if (dao.isRoomPrison(curRoomId) && !isGm) {
+                if (DaoProvider.rooms().isRoomPrison(curRoomId) && !isGm) {
                     out.println("You cannot leave this room.");
                     return true;
                 }
                 
                 // PRIVATE check - destination room can only have 1 non-GM player
-                if (dao.isRoomPrivate(destId) && !isGm) {
+                if (DaoProvider.rooms().isRoomPrivate(destId) && !isGm) {
                     int nonGmCount = countNonGmPlayersInRoom(destId, dao);
                     if (nonGmCount >= 1) {
                         out.println("That room is currently occupied.");
@@ -813,7 +803,7 @@ public class MovementCommandHandler implements CommandHandler {
                 }
 
                 // Check and deduct movement points based on destination room/area
-                int moveCost = dao.getMoveCostForRoom(destId);
+                int moveCost = DaoProvider.rooms().getMoveCostForRoom(destId);
                 if (rec.mvCur < moveCost) {
                     out.println("You are too exhausted to move.");
                     return true;
@@ -839,7 +829,7 @@ public class MovementCommandHandler implements CommandHandler {
                 // Refresh character record and show new room
                 rec = dao.findByName(name);
                 ctx.handler.currentRoomId = rec != null ? rec.currentRoom : null;
-                Room newRoom = dao.getRoomById(destId);
+                Room newRoom = DaoProvider.rooms().getRoomById(destId);
                 if (newRoom == null) {
                     out.println("You arrive at an unknown place.");
                     return true;
@@ -854,7 +844,7 @@ public class MovementCommandHandler implements CommandHandler {
 
                 // Check for aggressive mobs in the new room
                 {
-                    CharacterClassDAO moveClassDao = new CharacterClassDAO();
+                    CharacterClassDAO moveClassDao = DaoProvider.classes();
                     int playerLevel = rec.currentClassId != null
                         ? moveClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
                     MobileRoamingService.getInstance().checkAggroOnPlayerEntry(destId, charId, playerLevel);
@@ -894,39 +884,20 @@ public class MovementCommandHandler implements CommandHandler {
         // Room description (indented with tab)
         out.println("\t" + room.getLongDesc());
         // Exits - only show available exits in order: north east south west up down
-        com.example.tassmud.persistence.CharacterDAO doorDao = new com.example.tassmud.persistence.CharacterDAO();
         StringBuilder exits = new StringBuilder();
         exits.append("[Exits:");
-        if (room.getExitN() != null) {
-            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "north");
-            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" north");
-        }
-        if (room.getExitE() != null) {
-            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "east");
-            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" east");
-        }
-        if (room.getExitS() != null) {
-            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "south");
-            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" south");
-        }
-        if (room.getExitW() != null) {
-            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "west");
-            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" west");
-        }
-        if (room.getExitU() != null) {
-            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "up");
-            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" up");
-        }
-        if (room.getExitD() != null) {
-            com.example.tassmud.model.Door d = doorDao.getDoor(roomId, "down");
-            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) exits.append(" down");
+        for (com.example.tassmud.model.Direction dir : room.getExits().keySet()) {
+            com.example.tassmud.model.Door d = DaoProvider.rooms().getDoor(roomId, dir.fullName());
+            if (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked())) {
+                exits.append(" ").append(dir.fullName());
+            }
         }
         exits.append("]");
         out.println(exits.toString());
         // Blank line
         out.println();
         // Other players in this room (before mobs and items)
-        CharacterDAO visDao = new CharacterDAO();
+        CharacterDAO visDao = DaoProvider.characters();
         boolean iAmGm = name != null && visDao.isCharacterFlagTrueByName(name, "is_gm");
         for (ClientHandler s : ClientHandler.sessions) {
             // Skip self, skip sessions without a character, skip sessions not in this room
@@ -960,10 +931,10 @@ public class MovementCommandHandler implements CommandHandler {
             }
         }
         // Mobs in this room
-        MobileDAO mobDao = new MobileDAO();
+        MobileDAO mobDao = DaoProvider.mobiles();
         // Shared ItemDAO for equipment lookups (used for mob equipment and room items)
-        ItemDAO itemDao = new ItemDAO();
-        java.util.List<Mobile> roomMobs = mobDao.getMobilesInRoom(roomId);
+        ItemDAO itemDao = DaoProvider.items();
+        java.util.List<Mobile> roomMobs = com.example.tassmud.util.MobileRegistry.getInstance().getByRoom(roomId);
         for (Mobile mob : roomMobs) {
             // Check if mob is invisible (mobiles use negative IDs for effect tracking)
             // For now, mobs don't have invisibility effects - that could be added later
@@ -1061,7 +1032,7 @@ public class MovementCommandHandler implements CommandHandler {
             }
 
             // Check if follower has enough movement points
-            int moveCost = dao.getMoveCostForRoom(toRoomId);
+            int moveCost = DaoProvider.rooms().getMoveCostForRoom(toRoomId);
             if (followerRec.mvCur < moveCost) {
                 followerHandler.out.println("You are too exhausted to follow " + leaderName + ".");
                 ClientHandler.sendPromptToCharacter(followerId);
@@ -1099,7 +1070,7 @@ public class MovementCommandHandler implements CommandHandler {
 
             // Show the new room to the follower
             followerHandler.out.println("You follow " + leaderName + " " + direction + ".");
-            Room newRoom = dao.getRoomById(toRoomId);
+            Room newRoom = DaoProvider.rooms().getRoomById(toRoomId);
             if (newRoom != null) {
                 // Create a temporary context for showing the room
                 CommandContext followerCtx = new CommandContext(
@@ -1118,7 +1089,7 @@ public class MovementCommandHandler implements CommandHandler {
             }
 
             // Check for aggressive mobs
-            CharacterClassDAO classDao = new CharacterClassDAO();
+            CharacterClassDAO classDao = DaoProvider.classes();
             int followerLevel = followerRec.currentClassId != null
                 ? classDao.getCharacterClassLevel(followerId, followerRec.currentClassId) : 1;
             MobileRoamingService.getInstance().checkAggroOnPlayerEntry(toRoomId, followerId, followerLevel);

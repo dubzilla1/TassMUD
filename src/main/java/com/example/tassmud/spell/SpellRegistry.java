@@ -1,8 +1,8 @@
 package com.example.tassmud.spell;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Registry for spell handlers. Similar in spirit to CommandRegistry: a central
@@ -10,8 +10,8 @@ import java.util.Map;
  */
 public class SpellRegistry {
 
-    private static final Map<String, SpellHandler> SPELLS = new HashMap<>();
-    private static final Map<String, SpellSchool> SCHOOLS = new HashMap<>();
+    private static final Map<String, SpellHandler> SPELLS = new ConcurrentHashMap<>();
+    private static final Map<String, SpellSchool> SCHOOLS = new ConcurrentHashMap<>();
 
     static {
         // Example registration point. Actual spell implementations should

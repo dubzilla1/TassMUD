@@ -1,5 +1,7 @@
 package com.example.tassmud.util;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.persistence.CharacterDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +14,7 @@ public class MakeTassGM {
 
     public static void main(String[] args) {
         try {
-            CharacterDAO dao = new CharacterDAO();
+            CharacterDAO dao = DaoProvider.characters();
             boolean ok = dao.setCharacterFlagByName("Tass", "is_gm", "1");
             logger.info("setCharacterFlagByName returned: {}", ok);
             if (ok) logger.info("Tass is now a GM (is_gm=1) in the DB.");

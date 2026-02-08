@@ -1,5 +1,7 @@
 package com.example.tassmud.spell;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.effect.EffectRegistry;
@@ -116,7 +118,7 @@ public class OccultSpellHandler {
         CharacterDAO.CharacterRecord casterRec = cc.dao.findById(casterId);
         int casterLevel = 1;
         if (casterRec != null && casterRec.currentClassId != null) {
-            CharacterClassDAO classDao = new CharacterClassDAO();
+            CharacterClassDAO classDao = DaoProvider.classes();
             casterLevel = classDao.getCharacterClassLevel(casterId, casterRec.currentClassId);
         }
         

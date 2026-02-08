@@ -1,5 +1,7 @@
 package com.example.tassmud.effect;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.CombatManager;
 import com.example.tassmud.combat.Combat;
 import com.example.tassmud.combat.Combatant;
@@ -9,6 +11,7 @@ import com.example.tassmud.persistence.CharacterDAO;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Effect handler for Call Lightning spell.
@@ -77,7 +80,7 @@ public class CallLightningEffect implements EffectHandler {
         // Roll damage
         int baseDamage = 0;
         for (int i = 0; i < scaledN; i++) {
-            baseDamage += (int) (Math.random() * dieM) + 1;
+            baseDamage += ThreadLocalRandom.current().nextInt(1, dieM + 1);
         }
 
         // Apply weather multiplier
@@ -93,7 +96,7 @@ public class CallLightningEffect implements EffectHandler {
         // Apply damage to target
         CombatManager cm = CombatManager.getInstance();
         Combatant targetCombatant = cm.getCombatantForCharacter(targetId);
-        CharacterDAO dao = new CharacterDAO();
+        CharacterDAO dao = DaoProvider.characters();
 
         String targetName = null;
         CharacterDAO.CharacterRecord trec = dao.findById(targetId);

@@ -1,637 +1,29 @@
 package com.example.tassmud.persistence;
 
-import com.example.tassmud.model.Area;
-import com.example.tassmud.model.ArmorCategory;
+
 import com.example.tassmud.model.GameCharacter;
-import com.example.tassmud.model.CharacterSkill;
-import com.example.tassmud.model.CharacterSpell;
-import com.example.tassmud.model.EquipmentSlot;
-import com.example.tassmud.model.ItemInstance;
-import com.example.tassmud.model.ItemTemplate;
-import com.example.tassmud.model.Room;
-import com.example.tassmud.model.SectorType;
-import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Modifier;
 import com.example.tassmud.model.Stat;
-import com.example.tassmud.model.SkillTrait;
-import com.example.tassmud.model.Spell;
-import com.example.tassmud.model.SpellTrait;
+import com.example.tassmud.model.StatBlock;
 import com.example.tassmud.util.PasswordUtil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CharacterDAO {
 
     private static final Logger logger = LoggerFactory.getLogger(CharacterDAO.class);
-
-        // --- Skill DAO ---
-        public boolean addSkill(String name, String description) {
-            String sql = "INSERT INTO skilltb (name, description) VALUES (?, ?)";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setString(1, name);
-                ps.setString(2, description);
-                ps.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                return false;
-            }
-        }
-        
-        /**
-         * Add a skill with full details. Uses MERGE to update if exists.
-         */
-        public boolean addSkillFull(int id, String key, String name, String description, 
-                                    boolean isPassive, int maxLevel, Skill.SkillProgression progression,
-                                    java.util.List<SkillTrait> traits, double cooldown,
-                                    double duration, java.util.List<String> effectIds) {
-            String sql = "MERGE INTO skilltb (id, skill_key, name, description, is_passive, max_level, progression, traits, cooldown, duration, effect_ids) " +
-                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            String traitsStr = traits != null ? traits.stream().map(Enum::name).collect(java.util.stream.Collectors.joining(",")) : "";
-            String effectStr = effectIds != null ? String.join(",", effectIds) : "";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, id);
-                ps.setString(2, key);
-                ps.setString(3, name);
-                ps.setString(4, description);
-                ps.setBoolean(5, isPassive);
-                ps.setInt(6, maxLevel);
-                ps.setString(7, progression != null ? progression.name() : "NORMAL");
-                ps.setString(8, traitsStr);
-                ps.setDouble(9, cooldown);
-                ps.setDouble(10, duration);
-                ps.setString(11, effectStr);
-                ps.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                logger.warn("Failed to add skill {} ({}): {}", id, name, e.getMessage());
-                return false;
-            }
-        }
-        
-        /**
-         * Get a skill by its key (e.g., "simple_weapons").
-         */
-        public Skill getSkillByKey(String key) {
-            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown, duration, effect_ids FROM skilltb WHERE skill_key = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setString(1, key);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        return mapSkillFromResultSet(rs);
-                    }
-                }
-            } catch (SQLException e) {
-                return null;
-            }
-            return null;
-        }
-
-        public Skill getSkillById(int id) {
-            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown, duration, effect_ids FROM skilltb WHERE id = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, id);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        return mapSkillFromResultSet(rs);
-                    }
-                }
-            } catch (SQLException e) {
-                return null;
-            }
-            return null;
-        }
-        
-        /**
-         * Get all skills from the database.
-         */
-        public java.util.List<Skill> getAllSkills() {
-            java.util.List<Skill> skills = new java.util.ArrayList<>();
-            String sql = "SELECT id, skill_key, name, description, progression, traits, cooldown, duration, effect_ids FROM skilltb ORDER BY name";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql);
-                 ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    skills.add(mapSkillFromResultSet(rs));
-                }
-            } catch (SQLException e) {
-                // Return empty list on error
-            }
-            return skills;
-        }
-        
-        /**
-         * Map a ResultSet row to a Skill object.
-         */
-        private Skill mapSkillFromResultSet(ResultSet rs) throws SQLException {
-            int id = rs.getInt("id");
-            String name = rs.getString("name");
-            String description = rs.getString("description");
-            String progressionStr = rs.getString("progression");
-            String traitsStr = rs.getString("traits");
-            double cooldown = rs.getDouble("cooldown");
-            double duration = rs.getDouble("duration");
-            String effectIdsStr = rs.getString("effect_ids");
-            
-            Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
-            
-            // Parse traits from comma-separated string
-            java.util.List<SkillTrait> traits = new java.util.ArrayList<>();
-            if (traitsStr != null && !traitsStr.isEmpty()) {
-                for (String t : traitsStr.split(",")) {
-                    SkillTrait trait = SkillTrait.fromString(t.trim());
-                    if (trait != null) traits.add(trait);
-                }
-            }
-            
-            // Parse effect IDs from comma-separated string
-            java.util.List<String> effectIds = new java.util.ArrayList<>();
-            if (effectIdsStr != null && !effectIdsStr.isEmpty()) {
-                for (String e : effectIdsStr.split(",")) {
-                    String trimmed = e.trim();
-                    if (!trimmed.isEmpty()) effectIds.add(trimmed);
-                }
-            }
-            
-            return new Skill(id, name, description, progression, traits, cooldown, duration, effectIds);
-        }
-
-        // --- Spell DAO ---
-        public boolean addSpell(String name, String description) {
-            String sql = "INSERT INTO spelltb (name, description) VALUES (?, ?)";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setString(1, name);
-                ps.setString(2, description);
-                ps.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                return false;
-            }
-        }
-        
-        /**
-         * Add a spell with full details. Uses MERGE to update if exists.
-         */
-        public boolean addSpellFull(Spell spell) {
-            String sql = "MERGE INTO spelltb (id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost) " +
-                         "KEY (id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, spell.getId());
-                ps.setString(2, spell.getName());
-                ps.setString(3, spell.getDescription());
-                ps.setString(4, spell.getSchool().name());
-                ps.setInt(5, spell.getLevel());
-                ps.setDouble(6, spell.getBaseCastingTime());
-                ps.setString(7, spell.getTarget().name());
-                ps.setString(8, spell.getProgression().name());
-                // Store effect IDs as comma-separated string
-                String effectStr = String.join(",", spell.getEffectIds());
-                ps.setString(9, effectStr);
-                // Store traits as comma-separated string
-                String traitsStr = spell.getTraits().stream().map(Enum::name).collect(java.util.stream.Collectors.joining(","));
-                ps.setString(10, traitsStr);
-                ps.setDouble(11, spell.getCooldown());
-                ps.setDouble(12, spell.getDuration());
-                ps.setInt(13, spell.getMpCost());
-                ps.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                logger.warn("Failed to add spell {}: {}", spell.getName(), e.getMessage());
-                return false;
-            }
-        }
-
-        public Spell getSpellById(int id) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE id = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, id);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        return mapSpellFromResultSet(rs);
-                    }
-                }
-            } catch (SQLException e) {
-                return null;
-            }
-            return null;
-        }
-        
-        public Spell getSpellByName(String name) {
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE name = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setString(1, name);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        return mapSpellFromResultSet(rs);
-                    }
-                }
-            } catch (SQLException e) {
-                return null;
-            }
-            return null;
-        }
-        
-        public java.util.List<Spell> getAllSpells() {
-            java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb ORDER BY school, level, name";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql);
-                 ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    spells.add(mapSpellFromResultSet(rs));
-                }
-            } catch (SQLException e) {
-                // Return empty list on error
-            }
-            return spells;
-        }
-        
-        public java.util.List<Spell> getSpellsBySchool(Spell.SpellSchool school) {
-            java.util.List<Spell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE school = ? ORDER BY level, name";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setString(1, school.name());
-                try (ResultSet rs = ps.executeQuery()) {
-                    while (rs.next()) {
-                        spells.add(mapSpellFromResultSet(rs));
-                    }
-                }
-            } catch (SQLException e) {
-                // Return empty list on error
-            }
-            return spells;
-        }
-        
-        private Spell mapSpellFromResultSet(ResultSet rs) throws SQLException {
-            int id = rs.getInt("id");
-            String name = rs.getString("name");
-            String description = rs.getString("description");
-            String schoolStr = rs.getString("school");
-            int level = rs.getInt("level");
-            double castingTime = rs.getDouble("casting_time");
-            String targetStr = rs.getString("target");
-            String progressionStr = rs.getString("progression");
-            String effectStr = rs.getString("effect_ids");
-            String traitsStr = rs.getString("traits");
-            double cooldown = rs.getDouble("cooldown");
-            double duration = rs.getDouble("duration");
-            int mpCost = 0;
-            try { mpCost = rs.getInt("mp_cost"); } catch (SQLException ignored) {}
-            
-            Spell.SpellSchool school = Spell.SpellSchool.fromString(schoolStr);
-            Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
-            Skill.SkillProgression progression = Skill.SkillProgression.fromString(progressionStr);
-            
-            java.util.List<String> effectIds = new java.util.ArrayList<>();
-            if (effectStr != null && !effectStr.isEmpty()) {
-                for (String e : effectStr.split(",")) {
-                    String trimmed = e.trim();
-                    if (!trimmed.isEmpty()) effectIds.add(trimmed);
-                }
-            }
-            
-            // Parse traits from comma-separated string
-            java.util.List<SpellTrait> traits = new java.util.ArrayList<>();
-            if (traitsStr != null && !traitsStr.isEmpty()) {
-                for (String t : traitsStr.split(",")) {
-                    SpellTrait trait = SpellTrait.fromString(t.trim());
-                    if (trait != null) traits.add(trait);
-                }
-            }
-            
-            return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost);
-        }
-
-        // --- CharacterSkill DAO ---
-        public boolean setCharacterSkillLevel(int characterId, int skillId, int level) {
-            String sql = "MERGE INTO character_skill (character_id, skill_id, level) KEY (character_id, skill_id) VALUES (?, ?, ?)";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, characterId);
-                ps.setInt(2, skillId);
-                ps.setInt(3, level);
-                ps.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                return false;
-            }
-        }
-
-        public CharacterSkill getCharacterSkill(int characterId, int skillId) {
-            String sql = "SELECT character_id, skill_id, level FROM character_skill WHERE character_id = ? AND skill_id = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, characterId);
-                ps.setInt(2, skillId);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        return new CharacterSkill(rs.getInt("character_id"), rs.getInt("skill_id"), rs.getInt("level"));
-                    }
-                }
-            } catch (SQLException e) {
-                return null;
-            }
-            return null;
-        }
-        
-        /**
-         * Learn a new skill (starts at 1% proficiency, or 100% for INSTANT skills).
-         * If already known, does nothing and returns false.
-         */
-        public boolean learnSkill(int characterId, int skillId) {
-            // Check if already known
-            if (getCharacterSkill(characterId, skillId) != null) {
-                return false;
-            }
-            return setCharacterSkillLevel(characterId, skillId, CharacterSkill.MIN_PROFICIENCY);
-        }
-        
-        /**
-         * Learn a new skill with a specific starting proficiency based on skill definition.
-         * INSTANT progression skills start at 100% (mastered).
-         * If already known, does nothing and returns false.
-         */
-        public boolean learnSkill(int characterId, int skillId, Skill skillDef) {
-            // Check if already known
-            if (getCharacterSkill(characterId, skillId) != null) {
-                return false;
-            }
-            int startingProficiency = skillDef != null 
-                ? skillDef.getProgression().getStartingProficiency() 
-                : CharacterSkill.MIN_PROFICIENCY;
-            return setCharacterSkillLevel(characterId, skillId, startingProficiency);
-        }
-        
-        /**
-         * Check if a character knows a skill.
-         */
-        public boolean hasSkill(int characterId, int skillId) {
-            return getCharacterSkill(characterId, skillId) != null;
-        }
-        
-        /**
-         * Get all skills learned by a character.
-         */
-        public java.util.List<CharacterSkill> getAllCharacterSkills(int characterId) {
-            java.util.List<CharacterSkill> skills = new java.util.ArrayList<>();
-            String sql = "SELECT character_id, skill_id, level FROM character_skill WHERE character_id = ? ORDER BY skill_id";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, characterId);
-                try (ResultSet rs = ps.executeQuery()) {
-                    while (rs.next()) {
-                        skills.add(new CharacterSkill(
-                            rs.getInt("character_id"), 
-                            rs.getInt("skill_id"), 
-                            rs.getInt("level")
-                        ));
-                    }
-                }
-            } catch (SQLException e) {
-                // Return empty list on error
-            }
-            return skills;
-        }
-        
-        /**
-         * Increase skill proficiency by a given amount.
-         * Returns the new proficiency level, or -1 on error.
-         */
-        public int increaseSkillProficiency(int characterId, int skillId, int amount) {
-            CharacterSkill skill = getCharacterSkill(characterId, skillId);
-            if (skill == null) return -1;
-            
-            int newProficiency = Math.min(CharacterSkill.MAX_PROFICIENCY, skill.getProficiency() + amount);
-            if (setCharacterSkillLevel(characterId, skillId, newProficiency)) {
-                return newProficiency;
-            }
-            return -1;
-        }
-        
-        /**
-         * Try to improve a skill based on its progression curve.
-         * Returns true if proficiency increased, false otherwise.
-         */
-        public boolean tryImproveSkill(int characterId, int skillId, Skill skillDef) {
-            CharacterSkill charSkill = getCharacterSkill(characterId, skillId);
-            if (charSkill == null || charSkill.isMastered()) return false;
-            
-            int gainChance = skillDef.getProgression().getGainChance(charSkill.getProficiency());
-            int roll = (int) (Math.random() * 100) + 1;
-            
-            if (roll <= gainChance) {
-                increaseSkillProficiency(characterId, skillId, 1);
-                return true;
-            }
-            return false;
-        }
-
-        // --- CharacterSpell DAO ---
-        public boolean setCharacterSpellLevel(int characterId, int spellId, int level) {
-            String sql = "MERGE INTO character_spell (character_id, spell_id, level) KEY (character_id, spell_id) VALUES (?, ?, ?)";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, characterId);
-                ps.setInt(2, spellId);
-                ps.setInt(3, level);
-                ps.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                return false;
-            }
-        }
-
-        public CharacterSpell getCharacterSpell(int characterId, int spellId) {
-            String sql = "SELECT character_id, spell_id, level FROM character_spell WHERE character_id = ? AND spell_id = ?";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, characterId);
-                ps.setInt(2, spellId);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        return new CharacterSpell(rs.getInt("character_id"), rs.getInt("spell_id"), rs.getInt("level"));
-                    }
-                }
-            } catch (SQLException e) {
-                return null;
-            }
-            return null;
-        }
-        
-        /**
-         * Learn a new spell (starts at 1% proficiency, or 100% for INSTANT spells).
-         * If already known, does nothing and returns false.
-         */
-        public boolean learnSpell(int characterId, int spellId) {
-            // Check if already known
-            if (getCharacterSpell(characterId, spellId) != null) {
-                return false;
-            }
-            return setCharacterSpellLevel(characterId, spellId, CharacterSpell.MIN_PROFICIENCY);
-        }
-        
-        /**
-         * Learn a new spell with a specific starting proficiency based on spell definition.
-         * INSTANT progression spells start at 100% (mastered).
-         * If already known, does nothing and returns false.
-         */
-        public boolean learnSpell(int characterId, int spellId, Spell spellDef) {
-            // Check if already known
-            if (getCharacterSpell(characterId, spellId) != null) {
-                return false;
-            }
-            int startingProficiency = spellDef != null 
-                ? spellDef.getProgression().getStartingProficiency() 
-                : CharacterSpell.MIN_PROFICIENCY;
-            return setCharacterSpellLevel(characterId, spellId, startingProficiency);
-        }
-        
-        /**
-         * Check if a character knows a spell.
-         */
-        public boolean hasSpell(int characterId, int spellId) {
-            return getCharacterSpell(characterId, spellId) != null;
-        }
-        
-        /**
-         * Get all spells learned by a character.
-         */
-        public java.util.List<CharacterSpell> getAllCharacterSpells(int characterId) {
-            java.util.List<CharacterSpell> spells = new java.util.ArrayList<>();
-            String sql = "SELECT character_id, spell_id, level FROM character_spell WHERE character_id = ? ORDER BY spell_id";
-            try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement ps = c.prepareStatement(sql)) {
-                ps.setInt(1, characterId);
-                try (ResultSet rs = ps.executeQuery()) {
-                    while (rs.next()) {
-                        spells.add(new CharacterSpell(
-                            rs.getInt("character_id"), 
-                            rs.getInt("spell_id"), 
-                            rs.getInt("level")
-                        ));
-                    }
-                }
-            } catch (SQLException e) {
-                // Return empty list on error
-            }
-            return spells;
-        }
-        
-        /**
-         * Increase spell proficiency by a given amount.
-         * Returns the new proficiency level, or -1 on error.
-         */
-        public int increaseSpellProficiency(int characterId, int spellId, int amount) {
-            CharacterSpell spell = getCharacterSpell(characterId, spellId);
-            if (spell == null) return -1;
-            
-            int newProficiency = Math.min(CharacterSpell.MAX_PROFICIENCY, spell.getProficiency() + amount);
-            if (setCharacterSpellLevel(characterId, spellId, newProficiency)) {
-                return newProficiency;
-            }
-            return -1;
-        }
-        
-        /**
-         * Try to improve a spell based on its progression curve.
-         * Returns true if proficiency increased, false otherwise.
-         */
-        public boolean tryImproveSpell(int characterId, int spellId, Spell spellDef) {
-            CharacterSpell charSpell = getCharacterSpell(characterId, spellId);
-            if (charSpell == null || charSpell.isMastered()) return false;
-            
-            int gainChance = spellDef.getProgression().getGainChance(charSpell.getProficiency());
-            int roll = (int) (Math.random() * 100) + 1;
-            
-            if (roll <= gainChance) {
-                increaseSpellProficiency(characterId, spellId, 1);
-                return true;
-            }
-            return false;
-        }
-        
-    private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
-    private static final String USER = "sa";
-    private static final String PASS = "";
-
     public CharacterDAO() {
         // Ensure character-related tables/migrations run only once per JVM startup
         MigrationManager.ensureMigration("CharacterDAO", this::ensureTable);
     }
 
     public void ensureTable() {
-                // Skills table
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     Statement s = c.createStatement()) {
-                    s.execute("CREATE TABLE IF NOT EXISTS skilltb (" +
-                            "id INT PRIMARY KEY, " +
-                            "skill_key VARCHAR(100) UNIQUE NOT NULL, " +
-                            "name VARCHAR(100) NOT NULL, " +
-                            "description VARCHAR(1024) DEFAULT '', " +
-                            "is_passive BOOLEAN DEFAULT FALSE, " +
-                            "max_level INT DEFAULT 100, " +
-                            "progression VARCHAR(50) DEFAULT 'NORMAL', " +
-                            "traits VARCHAR(500) DEFAULT '', " +
-                            "cooldown DOUBLE DEFAULT 0 " +
-                            ")");
-                    // Migration: add columns for existing databases
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS skill_key VARCHAR(100)");
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS is_passive BOOLEAN DEFAULT FALSE");
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS max_level INT DEFAULT 100");
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS progression VARCHAR(50) DEFAULT 'NORMAL'");
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS traits VARCHAR(500) DEFAULT ''");
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS cooldown DOUBLE DEFAULT 0");
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS duration DOUBLE DEFAULT 0");
-                    s.execute("ALTER TABLE skilltb ADD COLUMN IF NOT EXISTS effect_ids VARCHAR(500) DEFAULT ''");
-                } catch (SQLException e) {
-                    throw new RuntimeException("Failed to create skilltb table", e);
-                }
-
-                // Spells table
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     Statement s = c.createStatement()) {
-                        s.execute("CREATE TABLE IF NOT EXISTS spelltb (" +
-                            "id INT PRIMARY KEY, " +
-                            "name VARCHAR(100) UNIQUE NOT NULL, " +
-                            "description VARCHAR(1024) DEFAULT '', " +
-                            "school VARCHAR(50) DEFAULT 'ARCANE', " +
-                            "level INT DEFAULT 1, " +
-                            "casting_time DOUBLE DEFAULT 1.0, " +
-                            "target VARCHAR(50) DEFAULT 'SELF', " +
-                            "progression VARCHAR(50) DEFAULT 'NORMAL', " +
-                            "effect_ids VARCHAR(500) DEFAULT '', " +
-                            "traits VARCHAR(500) DEFAULT '', " +
-                            "cooldown DOUBLE DEFAULT 0, " +
-                            "duration DOUBLE DEFAULT 0 " +
-                            ")");
-                    // Migration: add columns for existing databases
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS school VARCHAR(50) DEFAULT 'ARCANE'");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS level INT DEFAULT 1");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS casting_time DOUBLE DEFAULT 1.0");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS target VARCHAR(50) DEFAULT 'SELF'");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS progression VARCHAR(50) DEFAULT 'NORMAL'");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS effect_ids VARCHAR(500) DEFAULT ''");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS traits VARCHAR(500) DEFAULT ''");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS cooldown DOUBLE DEFAULT 0");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS duration DOUBLE DEFAULT 0");
-                    s.execute("ALTER TABLE spelltb ADD COLUMN IF NOT EXISTS mp_cost INT DEFAULT 0");
-                } catch (SQLException e) {
-                    throw new RuntimeException("Failed to create spelltb table", e);
-                }
-
                 // Characters table must exist before join tables that reference it
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                try (Connection c = TransactionManager.getConnection();
                      Statement s = c.createStatement()) {
                     s.execute("CREATE TABLE IF NOT EXISTS characters (" +
                         "id IDENTITY PRIMARY KEY, " +
@@ -711,120 +103,8 @@ public class CharacterDAO {
                     throw new RuntimeException("Failed to create characters table", e);
                 }
 
-                // Character-Skill join table
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     Statement s = c.createStatement()) {
-                    s.execute("CREATE TABLE IF NOT EXISTS character_skill (" +
-                            "character_id INT NOT NULL, " +
-                            "skill_id INT NOT NULL, " +
-                            "level INT DEFAULT 1, " +
-                            "PRIMARY KEY (character_id, skill_id) " +
-                            ")");
-                } catch (SQLException e) {
-                    throw new RuntimeException("Failed to create character_skill table", e);
-                }
-
-                // Character-Spell join table (tracks which spells a character knows and at what level)
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     Statement s = c.createStatement()) {
-                    s.execute("CREATE TABLE IF NOT EXISTS character_spell (" +
-                            "character_id INT NOT NULL, " +
-                            "spell_id INT NOT NULL, " +
-                            "level INT DEFAULT 1, " +
-                            "PRIMARY KEY (character_id, spell_id) " +
-                            ")");
-                } catch (SQLException e) {
-                    throw new RuntimeException("Failed to create character_spell table", e);
-                }
-
-                // Area table
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     Statement s = c.createStatement()) {
-                    s.execute("CREATE TABLE IF NOT EXISTS area (" +
-                            "id IDENTITY PRIMARY KEY, " +
-                            "name VARCHAR(200) UNIQUE NOT NULL, " +
-                            "description VARCHAR(2048) DEFAULT '' " +
-                            ")");
-                    // Migration: add sector_type column for movement costs
-                    s.execute("ALTER TABLE area ADD COLUMN IF NOT EXISTS sector_type VARCHAR(50) DEFAULT 'FIELD'");
-                    logger.debug("Migration: ensured column area.sector_type");
-                } catch (SQLException e) {
-                    throw new RuntimeException("Failed to create area table", e);
-                }
-
-                // Room table with explicit exits (nullable room IDs)
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-                     Statement s = c.createStatement()) {
-                    s.execute("CREATE TABLE IF NOT EXISTS room (" +
-                            "id IDENTITY PRIMARY KEY, " +
-                            "area_id INT NOT NULL, " +
-                            "name VARCHAR(200) NOT NULL, " +
-                            "short_desc VARCHAR(512) DEFAULT '', " +
-                            "long_desc VARCHAR(2048) DEFAULT '', " +
-                            "exit_n INT, " +
-                            "exit_e INT, " +
-                            "exit_s INT, " +
-                            "exit_w INT, " +
-                            "exit_u INT, " +
-                            "exit_d INT " +
-                            ")");
-                    // Add missing columns if needed (migrations)
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS area_id INT NOT NULL");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS name VARCHAR(200) NOT NULL");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS short_desc VARCHAR(512) DEFAULT ''");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS long_desc VARCHAR(2048) DEFAULT ''");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_n INT");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_e INT");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_s INT");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_w INT");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_u INT");
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_d INT");
-                    // Migration: add move_cost column for room-specific movement cost override
-                    s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS move_cost INT");
-                    logger.debug("Migration: ensured column room.move_cost");
-                    // Door table for exit metadata (open/closed/locked/hidden/blocked)
-                    s.execute("CREATE TABLE IF NOT EXISTS door (" +
-                              "from_room_id INT NOT NULL, " +
-                              "direction VARCHAR(16) NOT NULL, " +
-                              "to_room_id INT, " +
-                              "state VARCHAR(32) DEFAULT 'OPEN', " +
-                              "locked BOOLEAN DEFAULT FALSE, " +
-                              "hidden BOOLEAN DEFAULT FALSE, " +
-                              "blocked BOOLEAN DEFAULT FALSE, " +
-                              "key_item_id INT, " +
-                              "description VARCHAR(2048) DEFAULT '', " +
-                              "PRIMARY KEY (from_room_id, direction) " +
-                              ")");
-                    // Add convenience migration columns if missing
-                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS state VARCHAR(32) DEFAULT 'OPEN'");
-                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS locked BOOLEAN DEFAULT FALSE");
-                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS hidden BOOLEAN DEFAULT FALSE");
-                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS blocked BOOLEAN DEFAULT FALSE");
-                    s.execute("ALTER TABLE door ADD COLUMN IF NOT EXISTS description VARCHAR(2048) DEFAULT ''");
-                } catch (SQLException e) {
-                    throw new RuntimeException("Failed to create room table", e);
-                }
-        
-
-        // Key/value settings table for game-wide state (e.g., current date)
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             Statement s = c.createStatement()) {
-            s.execute("CREATE TABLE IF NOT EXISTS settings (k VARCHAR(200) PRIMARY KEY, v VARCHAR(2000))");
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to create settings table", e);
-        }
-
-        // Room extras table: key/value textual extras for rooms (e.g., plaques, signs)
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             Statement s = c.createStatement()) {
-            s.execute("CREATE TABLE IF NOT EXISTS room_extra (room_id INT NOT NULL, k VARCHAR(200) NOT NULL, v VARCHAR(2048), PRIMARY KEY(room_id, k))");
-            s.execute("ALTER TABLE room_extra ADD COLUMN IF NOT EXISTS v VARCHAR(2048)");
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to create room_extra table", e);
-        }
-
         // Per-character flag table (expandable key/value toggles)
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              Statement s = c.createStatement()) {
             s.execute("CREATE TABLE IF NOT EXISTS character_flag (" +
                     "character_id INT NOT NULL, " +
@@ -836,21 +116,8 @@ public class CharacterDAO {
             throw new RuntimeException("Failed to create character_flag table", e);
         }
 
-        // Per-character equipment table (maps slot_id -> item_instance_id)
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             Statement s = c.createStatement()) {
-            s.execute("CREATE TABLE IF NOT EXISTS character_equipment (" +
-                    "character_id INT NOT NULL, " +
-                    "slot_id INT NOT NULL, " +
-                    "item_instance_id BIGINT NULL, " +
-                    "PRIMARY KEY (character_id, slot_id)" +
-                    ")");
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to create character_equipment table", e);
-        }
-
         // Character modifiers (stat-affecting temporary/permanent effects)
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              Statement s = c.createStatement()) {
                 s.execute("CREATE TABLE IF NOT EXISTS character_modifier (" +
                     "id VARCHAR(36) PRIMARY KEY, " +
@@ -865,39 +132,12 @@ public class CharacterDAO {
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create character_modifier table", e);
         }
-
-        // Room flags table (maps room_id -> flag key)
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             Statement s = c.createStatement()) {
-            s.execute("CREATE TABLE IF NOT EXISTS room_flag (" +
-                    "room_id INT NOT NULL, " +
-                    "flag VARCHAR(50) NOT NULL, " +
-                    "PRIMARY KEY (room_id, flag)" +
-                    ")");
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to create room_flag table", e);
-        }
-    }
-
-    // Simple settings accessor
-    public String getSetting(String key) {
-        String sql = "SELECT v FROM settings WHERE k = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setString(1, key);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) return rs.getString("v");
-            }
-        } catch (SQLException e) {
-            return null;
-        }
-        return null;
     }
 
     // --- Character flag accessors ---
     public boolean setCharacterFlag(int characterId, String key, String value) {
         String sql = "MERGE INTO character_flag (character_id, k, v) KEY (character_id, k) VALUES (?, ?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             ps.setString(2, key);
@@ -909,228 +149,9 @@ public class CharacterDAO {
         }
     }
 
-    // --- Equipment accessors ---
-    public boolean setCharacterEquipment(int characterId, int slotId, Long itemInstanceId) {
-        String sql = "MERGE INTO character_equipment (character_id, slot_id, item_instance_id) KEY (character_id, slot_id) VALUES (?, ?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, characterId);
-            ps.setInt(2, slotId);
-            if (itemInstanceId == null) ps.setNull(3, Types.BIGINT); else ps.setLong(3, itemInstanceId);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            return false;
-        }
-    }
-
-    public Long getCharacterEquipment(int characterId, int slotId) {
-        String sql = "SELECT item_instance_id FROM character_equipment WHERE character_id = ? AND slot_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, characterId);
-            ps.setInt(2, slotId);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getObject("item_instance_id") == null ? null : rs.getLong("item_instance_id");
-                }
-            }
-        } catch (SQLException e) {
-            return null;
-        }
-        return null;
-    }
-
-    public java.util.Map<Integer, Long> getEquipmentMapByCharacterId(int characterId) {
-        java.util.Map<Integer, Long> map = new java.util.HashMap<>();
-        String sql = "SELECT slot_id, item_instance_id FROM character_equipment WHERE character_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, characterId);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    int slot = rs.getInt("slot_id");
-                    Long iid = rs.getObject("item_instance_id") == null ? null : rs.getLong("item_instance_id");
-                    map.put(slot, iid);
-                }
-            }
-        } catch (SQLException e) {
-            return map;
-        }
-        return map;
-    }
-
-    public boolean setCharacterEquipmentByName(String name, int slotId, Long itemInstanceId) {
-        Integer id = getCharacterIdByName(name);
-        if (id == null) return false;
-        return setCharacterEquipment(id, slotId, itemInstanceId);
-    }
-
-    public java.util.Map<Integer, Long> getEquipmentMapByName(String name) {
-        Integer id = getCharacterIdByName(name);
-        if (id == null) return java.util.Collections.emptyMap();
-        return getEquipmentMapByCharacterId(id);
-    }
-
-    /**
-     * Clear all equipment from a character (unequip all slots).
-     * Used for player death to move equipment to corpse.
-     */
-    public void clearAllEquipment(int characterId) {
-        String sql = "DELETE FROM character_equipment WHERE character_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, characterId);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            logger.warn("Failed to clear equipment: {}", e.getMessage());
-        }
-    }
-
-    /**
-     * Check if a character has a shield equipped in their off-hand.
-     * This is used for skills with the SHIELD trait (e.g., Bash).
-     * @param characterId The character to check
-     * @param itemDao ItemDAO instance for looking up item templates
-     * @return true if the character has a shield equipped in off-hand
-     */
-    public boolean hasShield(int characterId, ItemDAO itemDao) {
-        Long offHandInstanceId = getCharacterEquipment(characterId, EquipmentSlot.OFF_HAND.id);
-        if (offHandInstanceId == null) return false;
-        
-        ItemInstance instance = itemDao.getInstance(offHandInstanceId);
-        if (instance == null) return false;
-        
-        ItemTemplate template = itemDao.getTemplateById(instance.templateId);
-        if (template == null) return false;
-        
-        // Must be explicitly a shield type, not just any item in off-hand
-        // This handles two-handed weapons which occupy both hands but are NOT shields
-        if (!template.isShield()) return false;
-        
-        // Extra safety: weapons are never shields (handles edge case where type might be misconfigured)
-        if (template.isWeapon()) return false;
-        
-        return true;
-    }
-
-    /**
-     * Check if a character has a shield equipped in their off-hand (by name).
-     * @param name The character name
-     * @param itemDao ItemDAO instance for looking up item templates
-     * @return true if the character has a shield equipped in off-hand
-     */
-    public boolean hasShieldByName(String name, ItemDAO itemDao) {
-        Integer id = getCharacterIdByName(name);
-        if (id == null) return false;
-        return hasShield(id, itemDao);
-    }
-
-    // Recalculate equipment bonuses by averaging stats across all equipment slots and persist to DB
-    // Empty slots and weapons count as 0 in the average (allows future armor-on-weapons and shields)
-    // Armor bonuses are scaled by proficiency: effectiveness = 50% + proficiency%
-    public boolean recalculateEquipmentBonuses(int characterId, ItemDAO itemDao) {
-        java.util.Map<Integer, Long> equipped = getEquipmentMapByCharacterId(characterId);
-        
-        // Total number of equipment slots (all slots count in the average, empty = 0)
-        int totalSlots = EquipmentSlot.values().length;
-        
-        // Sum up bonuses from all equipped items
-        int armorSum = 0, fortSum = 0, reflexSum = 0, willSum = 0;
-        
-        for (EquipmentSlot slot : EquipmentSlot.values()) {
-            Long instanceId = equipped.get(slot.getId());
-            if (instanceId == null) continue; // Empty slot counts as 0
-            
-            ItemInstance inst = itemDao.getInstance(instanceId);
-            if (inst == null) continue;
-            ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
-            if (tmpl == null) continue;
-            
-            // Use effective values (instance overrides if present, otherwise template)
-            int baseArmorBonus = inst.getEffectiveArmorSave(tmpl);
-            int baseFortBonus = inst.getEffectiveFortSave(tmpl);
-            int baseRefBonus = inst.getEffectiveRefSave(tmpl);
-            int baseWillBonus = inst.getEffectiveWillSave(tmpl);
-            
-            // Scale armor bonus by proficiency if this is armor
-            int effectiveArmorBonus = baseArmorBonus;
-            if (tmpl.isArmor() && baseArmorBonus != 0) {
-                ArmorCategory armorCat = tmpl.getArmorCategory();
-                if (armorCat != null) {
-                    // Look up character's proficiency in this armor category
-                    double effectiveness = 0.50; // Base 50% with no proficiency
-                    Skill armorSkill = getSkillByKey(armorCat.getSkillKey());
-                    if (armorSkill != null) {
-                        CharacterSkill charSkill = getCharacterSkill(characterId, armorSkill.getId());
-                        if (charSkill != null) {
-                            // Effectiveness = 50% + proficiency% (e.g., 25% prof = 75% effectiveness)
-                            effectiveness = 0.50 + (charSkill.getProficiency() / 100.0);
-                        }
-                    }
-                    // Apply effectiveness: round to nearest integer
-                    effectiveArmorBonus = (int) Math.round(baseArmorBonus * effectiveness);
-                }
-            }
-            
-            armorSum += effectiveArmorBonus;
-            fortSum += baseFortBonus;
-            reflexSum += baseRefBonus;
-            willSum += baseWillBonus;
-        }
-        
-        // Calculate averages (round to nearest integer)
-        int armorBonus = Math.round((float) armorSum / totalSlots);
-        int fortBonus = Math.round((float) fortSum / totalSlots);
-        int reflexBonus = Math.round((float) reflexSum / totalSlots);
-        int willBonus = Math.round((float) willSum / totalSlots);
-        
-        String sql = "UPDATE characters SET armor_equip_bonus = ?, fortitude_equip_bonus = ?, reflex_equip_bonus = ?, will_equip_bonus = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, armorBonus);
-            ps.setInt(2, fortBonus);
-            ps.setInt(3, reflexBonus);
-            ps.setInt(4, willBonus);
-            ps.setInt(5, characterId);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            return false;
-        }
-    }
-
-    public boolean recalculateEquipmentBonusesByName(String name, ItemDAO itemDao) {
-        Integer id = getCharacterIdByName(name);
-        if (id == null) return false;
-        return recalculateEquipmentBonuses(id, itemDao);
-    }
-
-    /**
-     * Update a character's current class ID on the characters table.
-     */
-    public boolean updateCharacterClass(int characterId, Integer classId) {
-        String sql = "UPDATE characters SET current_class_id = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            if (classId == null) ps.setNull(1, Types.INTEGER); else ps.setInt(1, classId);
-            ps.setInt(2, characterId);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            return false;
-        }
-    }
-
-    public boolean updateCharacterClassByName(String name, Integer classId) {
-        Integer id = getCharacterIdByName(name);
-        if (id == null) return false;
-        return updateCharacterClass(id, classId);
-    }
-
     public String getCharacterFlag(int characterId, String key) {
         String sql = "SELECT v FROM character_flag WHERE character_id = ? AND k = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             ps.setString(2, key);
@@ -1155,11 +176,20 @@ public class CharacterDAO {
         return getCharacterFlag(id, key);
     }
 
+    public boolean isCharacterFlagTrueByName(String name, String key) {
+        String v = getCharacterFlagByName(name, key);
+        if (v == null) return false;
+        // Accept a few common truthy values for flag checks so both '1' and 'true'
+        // (or 'yes', 'on') work regardless of how they were set elsewhere.
+        String tv = v.trim().toLowerCase();
+        return tv.equals("1") || tv.equals("true") || tv.equals("yes") || tv.equals("on");
+    }
+
     // Return list of columns for a given table (name case-insensitive)
     public java.util.List<String> listTableColumns(String tableName) {
         java.util.List<String> cols = new java.util.ArrayList<>();
         String sql = "SELECT COLUMN_NAME, TYPE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ? ORDER BY ORDINAL_POSITION";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, tableName == null ? "" : tableName.trim().toUpperCase());
             try (ResultSet rs = ps.executeQuery()) {
@@ -1173,18 +203,9 @@ public class CharacterDAO {
         return cols;
     }
 
-    public boolean isCharacterFlagTrueByName(String name, String key) {
-        String v = getCharacterFlagByName(name, key);
-        if (v == null) return false;
-        // Accept a few common truthy values for flag checks so both '1' and 'true'
-        // (or 'yes', 'on') work regardless of how they were set elsewhere.
-        String tv = v.trim().toLowerCase();
-        return tv.equals("1") || tv.equals("true") || tv.equals("yes") || tv.equals("on");
-    }
-
     public Integer getCharacterIdByName(String name) {
         String sql = "SELECT id FROM characters WHERE name = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);
             try (ResultSet rs = ps.executeQuery()) {
@@ -1194,12 +215,15 @@ public class CharacterDAO {
         return null;
     }
 
-    public boolean setSetting(String key, String value) {
-        String sql = "MERGE INTO settings (k, v) KEY(k) VALUES (?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+    /**
+     * Update a character's current class ID on the characters table.
+     */
+    public boolean updateCharacterClass(int characterId, Integer classId) {
+        String sql = "UPDATE characters SET current_class_id = ? WHERE id = ?";
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setString(1, key);
-            ps.setString(2, value);
+            if (classId == null) ps.setNull(1, Types.INTEGER); else ps.setInt(1, classId);
+            ps.setInt(2, characterId);
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -1207,38 +231,20 @@ public class CharacterDAO {
         }
     }
 
+    public boolean updateCharacterClassByName(String name, Integer classId) {
+        Integer id = getCharacterIdByName(name);
+        if (id == null) return false;
+        return updateCharacterClass(id, classId);
+    }
+
     public CharacterRecord findByName(String name) {
         String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac, autojunk, autoassist FROM characters WHERE name = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                        Integer currentRoom = rs.getObject("current_room") == null ? null : rs.getInt("current_room");
-                        Integer currentClassId = rs.getObject("current_class_id") == null ? null : rs.getInt("current_class_id");
-                        return new CharacterRecord(
-                            rs.getString("name"),
-                            rs.getString("password_hash"),
-                            rs.getString("salt"),
-                            rs.getInt("age"),
-                            rs.getString("description"),
-                            rs.getInt("hp_max"), rs.getInt("hp_cur"),
-                            rs.getInt("mp_max"), rs.getInt("mp_cur"),
-                            rs.getInt("mv_max"), rs.getInt("mv_cur"),
-                            rs.getInt("str"), rs.getInt("dex"), rs.getInt("con"),
-                            rs.getInt("intel"), rs.getInt("wis"), rs.getInt("cha"),
-                            rs.getInt("armor"), rs.getInt("fortitude"), rs.getInt("reflex"), rs.getInt("will"),
-                            rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
-                            currentRoom,
-                            currentClassId,
-                            rs.getInt("autoflee"),
-                            rs.getInt("talent_points"),
-                            rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
-                            rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
-                            rs.getLong("gold_pieces"),
-                            rs.getBoolean("autoloot"), rs.getBoolean("autogold"), rs.getBoolean("autosac"), rs.getBoolean("autojunk"),
-                            rs.getBoolean("autoassist")
-                        );
+                        return extractCharacterRecord(rs);
                 }
             }
         } catch (SQLException e) {
@@ -1252,36 +258,12 @@ public class CharacterDAO {
      */
     public CharacterRecord findById(int characterId) {
         String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac, autojunk, autoassist FROM characters WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    Integer currentRoom = rs.getObject("current_room") == null ? null : rs.getInt("current_room");
-                    Integer currentClassId = rs.getObject("current_class_id") == null ? null : rs.getInt("current_class_id");
-                    return new CharacterRecord(
-                        rs.getString("name"),
-                        rs.getString("password_hash"),
-                        rs.getString("salt"),
-                        rs.getInt("age"),
-                        rs.getString("description"),
-                        rs.getInt("hp_max"), rs.getInt("hp_cur"),
-                        rs.getInt("mp_max"), rs.getInt("mp_cur"),
-                        rs.getInt("mv_max"), rs.getInt("mv_cur"),
-                        rs.getInt("str"), rs.getInt("dex"), rs.getInt("con"),
-                        rs.getInt("intel"), rs.getInt("wis"), rs.getInt("cha"),
-                        rs.getInt("armor"), rs.getInt("fortitude"), rs.getInt("reflex"), rs.getInt("will"),
-                        rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
-                        currentRoom,
-                        currentClassId,
-                        rs.getInt("autoflee"),
-                        rs.getInt("talent_points"),
-                        rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
-                        rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
-                        rs.getLong("gold_pieces"),
-                        rs.getBoolean("autoloot"), rs.getBoolean("autogold"), rs.getBoolean("autosac"), rs.getBoolean("autojunk"),
-                        rs.getBoolean("autoassist")
-                    );
+                    return extractCharacterRecord(rs);
                 }
             }
         } catch (SQLException e) {
@@ -1291,12 +273,19 @@ public class CharacterDAO {
     }
 
     /**
+     * Get character record by their ID (backward-compatible delegate to findById).
+     */
+    public CharacterRecord getCharacterById(int characterId) {
+        return findById(characterId);
+    }
+
+    /**
      * Load all modifiers for a character.
      */
     public java.util.List<Modifier> getModifiersForCharacter(int characterId) {
         java.util.List<Modifier> out = new java.util.ArrayList<>();
         String sql = "SELECT id, source, stat, op, val, expires_at, priority FROM character_modifier WHERE character_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -1332,7 +321,7 @@ public class CharacterDAO {
 
         String deleteSql = "DELETE FROM character_modifier WHERE character_id = ?";
         String insertSql = "INSERT INTO character_modifier (id, character_id, source, stat, op, val, expires_at, priority) VALUES (?,?,?,?,?,?,?,?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+        try (Connection c = TransactionManager.getConnection()) {
             c.setAutoCommit(false);
             try (PreparedStatement del = c.prepareStatement(deleteSql)) {
                 del.setInt(1, characterId);
@@ -1369,7 +358,7 @@ public class CharacterDAO {
 
         String deleteSql = "DELETE FROM character_modifier WHERE character_id = ?";
         String insertSql = "INSERT INTO character_modifier (id, character_id, source, stat, op, val, expires_at, priority) VALUES (?,?,?,?,?,?,?,?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+        try (Connection c = TransactionManager.getConnection()) {
             c.setAutoCommit(false);
             try (PreparedStatement del = c.prepareStatement(deleteSql)) {
                 del.setInt(1, characterId);
@@ -1397,526 +386,9 @@ public class CharacterDAO {
         }
     }
 
-    // --- Area / Room DAO ---
-    public int addArea(String name, String description) {
-        String sql = "INSERT INTO area (name, description) VALUES (?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setString(1, name);
-            ps.setString(2, description);
-            ps.executeUpdate();
-            try (ResultSet rs = ps.getGeneratedKeys()) {
-                if (rs.next()) return rs.getInt(1);
-            }
-        } catch (SQLException e) {
-            logger.warn("[CharacterDAO] addArea (auto id) failed for name={}: {}", name, e.getMessage(), e);
-            return -1;
-        }
-        return -1;
-    }
-
-    // Insert area with explicit id (idempotent via MERGE)
-    public int addAreaWithId(int id, String name, String description) {
-        return addAreaWithId(id, name, description, SectorType.FIELD);
-    }
-    
-    // Insert area with explicit id and sector type (idempotent via MERGE)
-    public int addAreaWithId(int id, String name, String description, SectorType sectorType) {
-        String sql = "MERGE INTO area (id, name, description, sector_type) KEY(id) VALUES (?, ?, ?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.setString(2, name);
-            ps.setString(3, description == null ? "" : description);
-            ps.setString(4, sectorType != null ? sectorType.name() : "FIELD");
-            ps.executeUpdate();
-            return id;
-        } catch (SQLException e) {
-            // If MERGE failed, try a direct INSERT with explicit id as a fallback
-            String insertSql = "INSERT INTO area (id, name, description, sector_type) VALUES (?, ?, ?, ?)";
-            try (Connection c2 = DriverManager.getConnection(URL, USER, PASS);
-                 PreparedStatement psIns = c2.prepareStatement(insertSql)) {
-                psIns.setInt(1, id);
-                psIns.setString(2, name);
-                psIns.setString(3, description == null ? "" : description);
-                psIns.setString(4, sectorType != null ? sectorType.name() : "FIELD");
-                psIns.executeUpdate();
-                return id;
-            } catch (SQLException e2) {
-                // fallback: try to find by name
-                String sql2 = "SELECT id FROM area WHERE name = ?";
-                try (Connection c3 = DriverManager.getConnection(URL, USER, PASS);
-                     PreparedStatement ps2 = c3.prepareStatement(sql2)) {
-                    ps2.setString(1, name);
-                    try (ResultSet rs = ps2.executeQuery()) {
-                        if (rs.next()) return rs.getInt(1);
-                    }
-                } catch (SQLException ignored) {}
-                return -1;
-            }
-        }
-    }
-
-    public Area getAreaById(int id) {
-        String sql = "SELECT id, name, description, sector_type FROM area WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    String sectorStr = rs.getString("sector_type");
-                    SectorType sectorType = SectorType.fromString(sectorStr);
-                    return new Area(rs.getInt("id"), rs.getString("name"), rs.getString("description"), sectorType);
-                }
-            }
-        } catch (SQLException e) {
-            return null;
-        }
-        return null;
-    }
-
-    public int addRoom(int areaId, String name, String shortDesc, String longDesc,
-                       Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD) {
-        String sql = "INSERT INTO room (area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setInt(1, areaId);
-            ps.setString(2, name);
-            ps.setString(3, shortDesc == null ? "" : shortDesc);
-            ps.setString(4, longDesc == null ? "" : longDesc);
-            if (exitN == null) ps.setNull(5, Types.INTEGER); else ps.setInt(5, exitN);
-            if (exitE == null) ps.setNull(6, Types.INTEGER); else ps.setInt(6, exitE);
-            if (exitS == null) ps.setNull(7, Types.INTEGER); else ps.setInt(7, exitS);
-            if (exitW == null) ps.setNull(8, Types.INTEGER); else ps.setInt(8, exitW);
-            if (exitU == null) ps.setNull(9, Types.INTEGER); else ps.setInt(9, exitU);
-            if (exitD == null) ps.setNull(10, Types.INTEGER); else ps.setInt(10, exitD);
-            ps.executeUpdate();
-            try (ResultSet rs = ps.getGeneratedKeys()) {
-                if (rs.next()) return rs.getInt(1);
-            }
-        } catch (SQLException e) {
-            logger.warn("[CharacterDAO] addRoom (auto id) failed for areaId={} name={}: {}", areaId, name, e.getMessage(), e);
-            return -1;
-        }
-        return -1;
-    }
-
-    // Insert room with explicit id (idempotent via MERGE)
-    public int addRoomWithId(int id, int areaId, String name, String shortDesc, String longDesc,
-                             Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD) {
-        String sql = "MERGE INTO room (id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.setInt(2, areaId);
-            ps.setString(3, name);
-            ps.setString(4, shortDesc == null ? "" : shortDesc);
-            ps.setString(5, longDesc == null ? "" : longDesc);
-            if (exitN == null) ps.setNull(6, Types.INTEGER); else ps.setInt(6, exitN);
-            if (exitE == null) ps.setNull(7, Types.INTEGER); else ps.setInt(7, exitE);
-            if (exitS == null) ps.setNull(8, Types.INTEGER); else ps.setInt(8, exitS);
-            if (exitW == null) ps.setNull(9, Types.INTEGER); else ps.setInt(9, exitW);
-            if (exitU == null) ps.setNull(10, Types.INTEGER); else ps.setInt(10, exitU);
-            if (exitD == null) ps.setNull(11, Types.INTEGER); else ps.setInt(11, exitD);
-            ps.executeUpdate();
-            return id;
-        } catch (SQLException e) {
-            logger.warn("[CharacterDAO] addRoomWithId failed for id={}: {}", id, e.getMessage(), e);
-            return -1;
-        }
-    }
-
-    public Room getRoomById(int id) {
-        String sql = "SELECT id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d, move_cost FROM room WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    Integer exitN = rs.getObject("exit_n") == null ? null : rs.getInt("exit_n");
-                    Integer exitE = rs.getObject("exit_e") == null ? null : rs.getInt("exit_e");
-                    Integer exitS = rs.getObject("exit_s") == null ? null : rs.getInt("exit_s");
-                    Integer exitW = rs.getObject("exit_w") == null ? null : rs.getInt("exit_w");
-                    Integer exitU = rs.getObject("exit_u") == null ? null : rs.getInt("exit_u");
-                    Integer exitD = rs.getObject("exit_d") == null ? null : rs.getInt("exit_d");
-                    Integer moveCost = rs.getObject("move_cost") == null ? null : rs.getInt("move_cost");
-                    return new Room(rs.getInt("id"), rs.getInt("area_id"), rs.getString("name"), rs.getString("short_desc"), rs.getString("long_desc"), exitN, exitE, exitS, exitW, exitU, exitD, moveCost);
-                }
-            }
-        } catch (SQLException e) {
-            return null;
-        }
-        return null;
-    }
-    
-    /**
-     * Get the movement cost for entering a room.
-     * Uses the room's custom move_cost if set, otherwise falls back to the area's sector type.
-     * @return movement cost in movement points
-     */
-    public int getMoveCostForRoom(int roomId) {
-        Room room = getRoomById(roomId);
-        if (room == null) return 1; // default
-        
-        // If room has a custom move cost, use it
-        if (room.hasCustomMoveCost()) {
-            return room.getMoveCost();
-        }
-        
-        // Otherwise, get the area's sector type cost
-        Area area = getAreaById(room.getAreaId());
-        if (area == null) return 1; // default
-        
-        return area.getMoveCost();
-    }
-
-    public boolean updateRoomExits(int roomId, Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD) {
-        String sql = "UPDATE room SET exit_n = ?, exit_e = ?, exit_s = ?, exit_w = ?, exit_u = ?, exit_d = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            if (exitN == null) ps.setNull(1, Types.INTEGER); else ps.setInt(1, exitN);
-            if (exitE == null) ps.setNull(2, Types.INTEGER); else ps.setInt(2, exitE);
-            if (exitS == null) ps.setNull(3, Types.INTEGER); else ps.setInt(3, exitS);
-            if (exitW == null) ps.setNull(4, Types.INTEGER); else ps.setInt(4, exitW);
-            if (exitU == null) ps.setNull(5, Types.INTEGER); else ps.setInt(5, exitU);
-            if (exitD == null) ps.setNull(6, Types.INTEGER); else ps.setInt(6, exitD);
-            ps.setInt(7, roomId);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            return false;
-        }
-    }
-
-    // --- Door accessors ---
-    /**
-     * Insert or update a door record for an exit. Uses MERGE so it's idempotent.
-     */
-    public boolean upsertDoor(int fromRoomId, String direction, Integer toRoomId, String state, boolean locked, boolean hidden, boolean blocked, Integer keyItemId, String description) {
-        String sql = "MERGE INTO door (from_room_id, direction, to_room_id, state, locked, hidden, blocked, key_item_id, description) KEY(from_room_id, direction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, fromRoomId);
-            ps.setString(2, direction == null ? "" : direction.toLowerCase());
-            if (toRoomId == null) ps.setNull(3, Types.INTEGER); else ps.setInt(3, toRoomId);
-            ps.setString(4, state == null ? "OPEN" : state);
-            ps.setBoolean(5, locked);
-            ps.setBoolean(6, hidden);
-            ps.setBoolean(7, blocked);
-            if (keyItemId == null) ps.setNull(8, Types.INTEGER); else ps.setInt(8, keyItemId);
-            if (description == null) ps.setString(9, ""); else ps.setString(9, description);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            logger.warn("Failed to upsert door for room {} dir {}: {}", fromRoomId, direction, e.getMessage());
-            return false;
-        }
-    }
-
-    public java.util.List<com.example.tassmud.model.Door> getDoorsForRoom(int fromRoomId) {
-        java.util.List<com.example.tassmud.model.Door> out = new java.util.ArrayList<>();
-        String sql = "SELECT direction, to_room_id, state, locked, hidden, blocked, key_item_id FROM door WHERE from_room_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, fromRoomId);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    String dir = rs.getString("direction");
-                    Integer to = rs.getObject("to_room_id") == null ? null : rs.getInt("to_room_id");
-                    String state = rs.getString("state");
-                    boolean locked = rs.getBoolean("locked");
-                    boolean hidden = rs.getBoolean("hidden");
-                    boolean blocked = rs.getBoolean("blocked");
-                    Integer keyId = rs.getObject("key_item_id") == null ? null : rs.getInt("key_item_id");
-                    String desc = "";
-                    try { desc = rs.getString("description"); } catch (Exception ignored) {}
-                    out.add(new com.example.tassmud.model.Door(fromRoomId, dir, to, state, locked, hidden, blocked, keyId, desc));
-                }
-            }
-        } catch (SQLException e) {
-            // return what we have
-        }
-        return out;
-    }
-
-    public com.example.tassmud.model.Door getDoor(int fromRoomId, String direction) {
-        String sql = "SELECT direction, to_room_id, state, locked, hidden, blocked, key_item_id, description FROM door WHERE from_room_id = ? AND direction = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, fromRoomId);
-            ps.setString(2, direction == null ? "" : direction.toLowerCase());
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    Integer to = rs.getObject("to_room_id") == null ? null : rs.getInt("to_room_id");
-                    String state = rs.getString("state");
-                    boolean locked = rs.getBoolean("locked");
-                    boolean hidden = rs.getBoolean("hidden");
-                    boolean blocked = rs.getBoolean("blocked");
-                    Integer keyId = rs.getObject("key_item_id") == null ? null : rs.getInt("key_item_id");
-                    String desc = "";
-                    try { desc = rs.getString("description"); } catch (Exception ignored) {}
-                    return new com.example.tassmud.model.Door(fromRoomId, direction, to, state, locked, hidden, blocked, keyId, desc);
-                }
-            }
-        } catch (SQLException e) {
-            // ignore
-        }
-        return null;
-    }
-
-    // Room extras accessors
-    public boolean upsertRoomExtra(int roomId, String key, String value) {
-        String sql = "MERGE INTO room_extra (room_id, k, v) KEY(room_id, k) VALUES (?, ?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, roomId);
-            ps.setString(2, key == null ? "" : key);
-            ps.setString(3, value == null ? "" : value);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            return false;
-        }
-    }
-
-    public java.util.Map<String,String> getRoomExtras(int roomId) {
-        java.util.Map<String,String> out = new java.util.HashMap<>();
-        String sql = "SELECT k, v FROM room_extra WHERE room_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, roomId);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    out.put(rs.getString("k"), rs.getString("v"));
-                }
-            }
-        } catch (SQLException e) {
-            // ignore
-        }
-        return out;
-    }
-
-    public String getRoomExtra(int roomId, String key) {
-        String sql = "SELECT v FROM room_extra WHERE room_id = ? AND k = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, roomId);
-            ps.setString(2, key == null ? "" : key);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) return rs.getString("v");
-            }
-        } catch (SQLException e) {
-            // ignore
-        }
-        return null;
-    }
-
-    // --- Room flag accessors ---
-    
-    /**
-     * Add a flag to a room. Uses MERGE so it's idempotent.
-     * @param roomId the room ID
-     * @param flag the RoomFlag to add
-     * @return true if successful
-     */
-    public boolean addRoomFlag(int roomId, com.example.tassmud.model.RoomFlag flag) {
-        if (flag == null) return false;
-        return addRoomFlag(roomId, flag.getKey());
-    }
-    
-    /**
-     * Add a flag to a room by key string. Uses MERGE so it's idempotent.
-     * @param roomId the room ID
-     * @param flagKey the flag key string
-     * @return true if successful
-     */
-    public boolean addRoomFlag(int roomId, String flagKey) {
-        if (flagKey == null || flagKey.trim().isEmpty()) return false;
-        String sql = "MERGE INTO room_flag (room_id, flag) KEY(room_id, flag) VALUES (?, ?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, roomId);
-            ps.setString(2, flagKey.toLowerCase().trim());
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            logger.warn("Failed to add room flag {} to room {}: {}", flagKey, roomId, e.getMessage());
-            return false;
-        }
-    }
-    
-    /**
-     * Remove a flag from a room.
-     * @param roomId the room ID
-     * @param flag the RoomFlag to remove
-     * @return true if successful
-     */
-    public boolean removeRoomFlag(int roomId, com.example.tassmud.model.RoomFlag flag) {
-        if (flag == null) return false;
-        return removeRoomFlag(roomId, flag.getKey());
-    }
-    
-    /**
-     * Remove a flag from a room by key string.
-     * @param roomId the room ID
-     * @param flagKey the flag key string
-     * @return true if successful
-     */
-    public boolean removeRoomFlag(int roomId, String flagKey) {
-        if (flagKey == null || flagKey.trim().isEmpty()) return false;
-        String sql = "DELETE FROM room_flag WHERE room_id = ? AND flag = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, roomId);
-            ps.setString(2, flagKey.toLowerCase().trim());
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            logger.warn("Failed to remove room flag {} from room {}: {}", flagKey, roomId, e.getMessage());
-            return false;
-        }
-    }
-    
-    /**
-     * Check if a room has a specific flag.
-     * @param roomId the room ID
-     * @param flag the RoomFlag to check
-     * @return true if the room has the flag
-     */
-    public boolean hasRoomFlag(int roomId, com.example.tassmud.model.RoomFlag flag) {
-        if (flag == null) return false;
-        return hasRoomFlag(roomId, flag.getKey());
-    }
-    
-    /**
-     * Check if a room has a specific flag by key string.
-     * @param roomId the room ID
-     * @param flagKey the flag key string
-     * @return true if the room has the flag
-     */
-    public boolean hasRoomFlag(int roomId, String flagKey) {
-        if (flagKey == null || flagKey.trim().isEmpty()) return false;
-        String sql = "SELECT 1 FROM room_flag WHERE room_id = ? AND flag = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, roomId);
-            ps.setString(2, flagKey.toLowerCase().trim());
-            try (ResultSet rs = ps.executeQuery()) {
-                return rs.next();
-            }
-        } catch (SQLException e) {
-            return false;
-        }
-    }
-    
-    /**
-     * Get all flags for a room.
-     * @param roomId the room ID
-     * @return set of RoomFlags for the room
-     */
-    public java.util.Set<com.example.tassmud.model.RoomFlag> getRoomFlags(int roomId) {
-        java.util.Set<com.example.tassmud.model.RoomFlag> flags = java.util.EnumSet.noneOf(com.example.tassmud.model.RoomFlag.class);
-        String sql = "SELECT flag FROM room_flag WHERE room_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, roomId);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    String key = rs.getString("flag");
-                    com.example.tassmud.model.RoomFlag flag = com.example.tassmud.model.RoomFlag.fromKey(key);
-                    if (flag != null) {
-                        flags.add(flag);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            // return what we have
-        }
-        return flags;
-    }
-    
-    /**
-     * Set all flags for a room (replaces existing flags).
-     * @param roomId the room ID
-     * @param flags the set of flags to apply
-     * @return true if successful
-     */
-    public boolean setRoomFlags(int roomId, java.util.Set<com.example.tassmud.model.RoomFlag> flags) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
-            // Clear existing flags
-            try (PreparedStatement ps = c.prepareStatement("DELETE FROM room_flag WHERE room_id = ?")) {
-                ps.setInt(1, roomId);
-                ps.executeUpdate();
-            }
-            // Add new flags
-            if (flags != null && !flags.isEmpty()) {
-                try (PreparedStatement ps = c.prepareStatement("INSERT INTO room_flag (room_id, flag) VALUES (?, ?)")) {
-                    for (com.example.tassmud.model.RoomFlag flag : flags) {
-                        ps.setInt(1, roomId);
-                        ps.setString(2, flag.getKey());
-                        ps.addBatch();
-                    }
-                    ps.executeBatch();
-                }
-            }
-            return true;
-        } catch (SQLException e) {
-            logger.warn("Failed to set room flags for room {}: {}", roomId, e.getMessage());
-            return false;
-        }
-    }
-    
-    /**
-     * Check if a room is a SAFE room (no combat allowed).
-     * Convenience method for combat checks.
-     */
-    public boolean isRoomSafe(int roomId) {
-        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.SAFE);
-    }
-    
-    /**
-     * Check if a room is a PRISON room (no exit except GM teleport).
-     * Convenience method for movement checks.
-     */
-    public boolean isRoomPrison(int roomId) {
-        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.PRISON);
-    }
-    
-    /**
-     * Check if a room has NO_MOB flag (mobs cannot enter by normal movement).
-     * Convenience method for mob movement checks.
-     */
-    public boolean isRoomNoMob(int roomId) {
-        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.NO_MOB);
-    }
-    
-    /**
-     * Check if a room is PRIVATE (only one non-GM PC allowed).
-     * Convenience method for entry checks.
-     */
-    public boolean isRoomPrivate(int roomId) {
-        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.PRIVATE);
-    }
-    
-    /**
-     * Check if a room has NO_RECALL flag.
-     * Convenience method for recall checks.
-     */
-    public boolean isRoomNoRecall(int roomId) {
-        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.NO_RECALL);
-    }
-    
-    /**
-     * Check if a room is DARK (requires light source).
-     * Convenience method for visibility checks.
-     */
-    public boolean isRoomDark(int roomId) {
-        return hasRoomFlag(roomId, com.example.tassmud.model.RoomFlag.DARK);
-    }
-
     public boolean createCharacter(GameCharacter ch, String passwordHashBase64, String saltBase64) {
         String sql = "INSERT INTO characters (name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, current_room) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, ch.getName());
             ps.setString(2, passwordHashBase64);
@@ -1949,18 +421,12 @@ public class CharacterDAO {
     }
 
     public int getAnyRoomId() {
-        String sql = "SELECT id FROM room LIMIT 1";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) return rs.getInt("id");
-        } catch (SQLException ignored) {}
-        return -1;
+        return DaoProvider.rooms().getAnyRoomId();
     }
 
     public boolean updateCharacterRoom(String name, Integer roomId) {
         String sql = "UPDATE characters SET current_room = ? WHERE name = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             if (roomId == null) ps.setNull(1, Types.INTEGER); else ps.setInt(1, roomId);
             ps.setString(2, name);
@@ -1974,7 +440,7 @@ public class CharacterDAO {
     // Persist mutable character state: current HP/MP/MV and room
     public boolean saveCharacterStateByName(String name, int hpCur, int mpCur, int mvCur, Integer currentRoom) {
         String sql = "UPDATE characters SET hp_cur = ?, mp_cur = ?, mv_cur = ?, current_room = ? WHERE name = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, hpCur);
             ps.setInt(2, mpCur);
@@ -1994,7 +460,7 @@ public class CharacterDAO {
      */
     public boolean deductMovementPoints(String name, int cost) {
         String sql = "UPDATE characters SET mv_cur = mv_cur - ? WHERE name = ? AND mv_cur >= ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, cost);
             ps.setString(2, name);
@@ -2012,7 +478,7 @@ public class CharacterDAO {
      */
     public boolean deductManaPoints(String name, int cost) {
         String sql = "UPDATE characters SET mp_cur = mp_cur - ? WHERE name = ? AND mp_cur >= ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, cost);
             ps.setString(2, name);
@@ -2032,7 +498,7 @@ public class CharacterDAO {
         String sql = "UPDATE characters SET hp_max = hp_max + ?, hp_cur = hp_cur + ?, " +
                      "mp_max = mp_max + ?, mp_cur = mp_cur + ?, " +
                      "mv_max = mv_max + ?, mv_cur = mv_cur + ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, hpAdd);
             ps.setInt(2, hpAdd);
@@ -2054,7 +520,7 @@ public class CharacterDAO {
      */
     public boolean restoreVitals(int characterId) {
         String sql = "UPDATE characters SET hp_cur = hp_max, mp_cur = mp_max, mv_cur = mv_max WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             ps.executeUpdate();
@@ -2098,7 +564,7 @@ public class CharacterDAO {
         
         sql.append(" WHERE id = ?");
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql.toString())) {
             int idx = 1;
             for (Integer p : params) {
@@ -2133,16 +599,7 @@ public class CharacterDAO {
         public final int mpCur;
         public final int mvMax;
         public final int mvCur;
-        public final int str;
-        public final int dex;
-        public final int con;
-        public final int intel;
-        public final int wis;
-        public final int cha;
-        public final int armor;
-        public final int fortitude;
-        public final int reflex;
-        public final int will;
+        public final StatBlock baseStats;
         // Equipment bonuses (persisted from equipped items)
         public final int armorEquipBonus;
         public final int fortitudeEquipBonus;
@@ -2169,26 +626,28 @@ public class CharacterDAO {
         public final boolean autoassist; // Auto-assist group members in combat
 
         // Convenience methods to get total saves (base + equipment)
-        public int getArmorTotal() { return armor + armorEquipBonus; }
-        public int getFortitudeTotal() { return fortitude + fortitudeEquipBonus; }
-        public int getReflexTotal() { return reflex + reflexEquipBonus; }
-        public int getWillTotal() { return will + willEquipBonus; }
+        public int getArmorTotal() { return baseStats.armor() + armorEquipBonus; }
+        public int getFortitudeTotal() { return baseStats.fortitude() + fortitudeEquipBonus; }
+        public int getReflexTotal() { return baseStats.reflex() + reflexEquipBonus; }
+        public int getWillTotal() { return baseStats.will() + willEquipBonus; }
         
         // Convenience methods to get total ability scores (base + trained)
-        public int getStrTotal() { return str + trainedStr; }
-        public int getDexTotal() { return dex + trainedDex; }
-        public int getConTotal() { return con + trainedCon; }
-        public int getIntTotal() { return intel + trainedInt; }
-        public int getWisTotal() { return wis + trainedWis; }
-        public int getChaTotal() { return cha + trainedCha; }
+        public int getStrTotal() { return baseStats.str() + trainedStr; }
+        public int getDexTotal() { return baseStats.dex() + trainedDex; }
+        public int getConTotal() { return baseStats.con() + trainedCon; }
+        public int getIntTotal() { return baseStats.intel() + trainedInt; }
+        public int getWisTotal() { return baseStats.wis() + trainedWis; }
+        public int getChaTotal() { return baseStats.cha() + trainedCha; }
 
-        public CharacterRecord(String name, String passwordHashBase64, String saltBase64,
+        /** Creates a new builder for constructing CharacterRecord instances. */
+        public static Builder builder() { return new Builder(); }
+
+        CharacterRecord(String name, String passwordHashBase64, String saltBase64,
                                int age, String description,
                                int hpMax, int hpCur,
                                int mpMax, int mpCur,
                                int mvMax, int mvCur,
-                               int str, int dex, int con, int intel, int wis, int cha,
-                               int armor, int fortitude, int reflex, int will,
+                               StatBlock baseStats,
                                int armorEquipBonus, int fortitudeEquipBonus, int reflexEquipBonus, int willEquipBonus,
                                Integer currentRoom,
                                Integer currentClassId,
@@ -2209,16 +668,7 @@ public class CharacterDAO {
             this.mpCur = mpCur;
             this.mvMax = mvMax;
             this.mvCur = mvCur;
-            this.str = str;
-            this.dex = dex;
-            this.con = con;
-            this.intel = intel;
-            this.wis = wis;
-            this.cha = cha;
-            this.armor = armor;
-            this.fortitude = fortitude;
-            this.reflex = reflex;
-            this.will = will;
+            this.baseStats = baseStats;
             this.armorEquipBonus = armorEquipBonus;
             this.fortitudeEquipBonus = fortitudeEquipBonus;
             this.reflexEquipBonus = reflexEquipBonus;
@@ -2240,6 +690,117 @@ public class CharacterDAO {
             this.autojunk = autojunk;
             this.autoassist = autoassist;
         }
+
+        /** Fluent builder for {@link CharacterRecord}. */
+        public static class Builder {
+            private String name;
+            private String passwordHashBase64;
+            private String saltBase64;
+            private int age;
+            private String description;
+            private int hpMax, hpCur, mpMax, mpCur, mvMax, mvCur;
+            private int str, dex, con, intel, wis, cha;
+            private int armor, fortitude, reflex, will;
+            private int armorEquipBonus, fortitudeEquipBonus, reflexEquipBonus, willEquipBonus;
+            private Integer currentRoom;
+            private Integer currentClassId;
+            private int autoflee;
+            private int talentPoints;
+            private int trainedStr, trainedDex, trainedCon, trainedInt, trainedWis, trainedCha;
+            private long goldPieces;
+            private boolean autoloot, autogold, autosac, autojunk, autoassist;
+
+            private Builder() {}
+
+            public Builder name(String v) { this.name = v; return this; }
+            public Builder passwordHashBase64(String v) { this.passwordHashBase64 = v; return this; }
+            public Builder saltBase64(String v) { this.saltBase64 = v; return this; }
+            public Builder age(int v) { this.age = v; return this; }
+            public Builder description(String v) { this.description = v; return this; }
+            public Builder hpMax(int v) { this.hpMax = v; return this; }
+            public Builder hpCur(int v) { this.hpCur = v; return this; }
+            public Builder mpMax(int v) { this.mpMax = v; return this; }
+            public Builder mpCur(int v) { this.mpCur = v; return this; }
+            public Builder mvMax(int v) { this.mvMax = v; return this; }
+            public Builder mvCur(int v) { this.mvCur = v; return this; }
+            public Builder str(int v) { this.str = v; return this; }
+            public Builder dex(int v) { this.dex = v; return this; }
+            public Builder con(int v) { this.con = v; return this; }
+            public Builder intel(int v) { this.intel = v; return this; }
+            public Builder wis(int v) { this.wis = v; return this; }
+            public Builder cha(int v) { this.cha = v; return this; }
+            public Builder armor(int v) { this.armor = v; return this; }
+            public Builder fortitude(int v) { this.fortitude = v; return this; }
+            public Builder reflex(int v) { this.reflex = v; return this; }
+            public Builder will(int v) { this.will = v; return this; }
+            public Builder armorEquipBonus(int v) { this.armorEquipBonus = v; return this; }
+            public Builder fortitudeEquipBonus(int v) { this.fortitudeEquipBonus = v; return this; }
+            public Builder reflexEquipBonus(int v) { this.reflexEquipBonus = v; return this; }
+            public Builder willEquipBonus(int v) { this.willEquipBonus = v; return this; }
+            public Builder currentRoom(Integer v) { this.currentRoom = v; return this; }
+            public Builder currentClassId(Integer v) { this.currentClassId = v; return this; }
+            public Builder autoflee(int v) { this.autoflee = v; return this; }
+            public Builder talentPoints(int v) { this.talentPoints = v; return this; }
+            public Builder trainedStr(int v) { this.trainedStr = v; return this; }
+            public Builder trainedDex(int v) { this.trainedDex = v; return this; }
+            public Builder trainedCon(int v) { this.trainedCon = v; return this; }
+            public Builder trainedInt(int v) { this.trainedInt = v; return this; }
+            public Builder trainedWis(int v) { this.trainedWis = v; return this; }
+            public Builder trainedCha(int v) { this.trainedCha = v; return this; }
+            public Builder goldPieces(long v) { this.goldPieces = v; return this; }
+            public Builder autoloot(boolean v) { this.autoloot = v; return this; }
+            public Builder autogold(boolean v) { this.autogold = v; return this; }
+            public Builder autosac(boolean v) { this.autosac = v; return this; }
+            public Builder autojunk(boolean v) { this.autojunk = v; return this; }
+            public Builder autoassist(boolean v) { this.autoassist = v; return this; }
+
+            public CharacterRecord build() {
+                StatBlock stats = new StatBlock(str, dex, con, intel, wis, cha,
+                    armor, fortitude, reflex, will);
+                return new CharacterRecord(name, passwordHashBase64, saltBase64, age, description,
+                    hpMax, hpCur, mpMax, mpCur, mvMax, mvCur,
+                    stats,
+                    armorEquipBonus, fortitudeEquipBonus, reflexEquipBonus, willEquipBonus,
+                    currentRoom, currentClassId, autoflee,
+                    talentPoints, trainedStr, trainedDex, trainedCon, trainedInt, trainedWis, trainedCha,
+                    goldPieces, autoloot, autogold, autosac, autojunk, autoassist);
+            }
+        }
+    }
+
+    /** Extract a CharacterRecord from a ResultSet row using the builder pattern. */
+    private CharacterRecord extractCharacterRecord(ResultSet rs) throws SQLException {
+        Integer currentRoom = rs.getObject("current_room") == null ? null : rs.getInt("current_room");
+        Integer currentClassId = rs.getObject("current_class_id") == null ? null : rs.getInt("current_class_id");
+        return CharacterRecord.builder()
+            .name(rs.getString("name"))
+            .passwordHashBase64(rs.getString("password_hash"))
+            .saltBase64(rs.getString("salt"))
+            .age(rs.getInt("age"))
+            .description(rs.getString("description"))
+            .hpMax(rs.getInt("hp_max")).hpCur(rs.getInt("hp_cur"))
+            .mpMax(rs.getInt("mp_max")).mpCur(rs.getInt("mp_cur"))
+            .mvMax(rs.getInt("mv_max")).mvCur(rs.getInt("mv_cur"))
+            .str(rs.getInt("str")).dex(rs.getInt("dex")).con(rs.getInt("con"))
+            .intel(rs.getInt("intel")).wis(rs.getInt("wis")).cha(rs.getInt("cha"))
+            .armor(rs.getInt("armor")).fortitude(rs.getInt("fortitude"))
+            .reflex(rs.getInt("reflex")).will(rs.getInt("will"))
+            .armorEquipBonus(rs.getInt("armor_equip_bonus"))
+            .fortitudeEquipBonus(rs.getInt("fortitude_equip_bonus"))
+            .reflexEquipBonus(rs.getInt("reflex_equip_bonus"))
+            .willEquipBonus(rs.getInt("will_equip_bonus"))
+            .currentRoom(currentRoom)
+            .currentClassId(currentClassId)
+            .autoflee(rs.getInt("autoflee"))
+            .talentPoints(rs.getInt("talent_points"))
+            .trainedStr(rs.getInt("trained_str")).trainedDex(rs.getInt("trained_dex"))
+            .trainedCon(rs.getInt("trained_con")).trainedInt(rs.getInt("trained_int"))
+            .trainedWis(rs.getInt("trained_wis")).trainedCha(rs.getInt("trained_cha"))
+            .goldPieces(rs.getLong("gold_pieces"))
+            .autoloot(rs.getBoolean("autoloot")).autogold(rs.getBoolean("autogold"))
+            .autosac(rs.getBoolean("autosac")).autojunk(rs.getBoolean("autojunk"))
+            .autoassist(rs.getBoolean("autoassist"))
+            .build();
     }
 
     /**
@@ -2247,7 +808,7 @@ public class CharacterDAO {
      */
     public String getCharacterNameById(int characterId) {
         String sql = "SELECT name FROM characters WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -2262,49 +823,6 @@ public class CharacterDAO {
     }
 
     /**
-     * Get character record by their ID (includes current_room).
-     */
-    public CharacterRecord getCharacterById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac, autojunk, autoassist FROM characters WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, characterId);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    Integer currentRoom = rs.getObject("current_room") == null ? null : rs.getInt("current_room");
-                    Integer currentClassId = rs.getObject("current_class_id") == null ? null : rs.getInt("current_class_id");
-                    return new CharacterRecord(
-                        rs.getString("name"),
-                        rs.getString("password_hash"),
-                        rs.getString("salt"),
-                        rs.getInt("age"),
-                        rs.getString("description"),
-                        rs.getInt("hp_max"), rs.getInt("hp_cur"),
-                        rs.getInt("mp_max"), rs.getInt("mp_cur"),
-                        rs.getInt("mv_max"), rs.getInt("mv_cur"),
-                        rs.getInt("str"), rs.getInt("dex"), rs.getInt("con"),
-                        rs.getInt("intel"), rs.getInt("wis"), rs.getInt("cha"),
-                        rs.getInt("armor"), rs.getInt("fortitude"), rs.getInt("reflex"), rs.getInt("will"),
-                        rs.getInt("armor_equip_bonus"), rs.getInt("fortitude_equip_bonus"), rs.getInt("reflex_equip_bonus"), rs.getInt("will_equip_bonus"),
-                        currentRoom,
-                        currentClassId,
-                        rs.getInt("autoflee"),
-                        rs.getInt("talent_points"),
-                        rs.getInt("trained_str"), rs.getInt("trained_dex"), rs.getInt("trained_con"),
-                        rs.getInt("trained_int"), rs.getInt("trained_wis"), rs.getInt("trained_cha"),
-                        rs.getLong("gold_pieces"),
-                        rs.getBoolean("autoloot"), rs.getBoolean("autogold"), rs.getBoolean("autosac"), rs.getBoolean("autojunk"),
-                        rs.getBoolean("autoassist")
-                    );
-                }
-            }
-        } catch (SQLException e) {
-            // ignore
-        }
-        return null;
-    }
-    
-    /**
      * Set a character's autoflee threshold.
      * @param characterId the character ID
      * @param autoflee the autoflee percentage (0-100)
@@ -2315,7 +833,7 @@ public class CharacterDAO {
         autoflee = Math.max(0, Math.min(100, autoflee));
         
         String sql = "UPDATE characters SET autoflee = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, autoflee);
             ps.setInt(2, characterId);
@@ -2333,7 +851,7 @@ public class CharacterDAO {
      */
     public int getAutoflee(int characterId) {
         String sql = "SELECT autoflee FROM characters WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -2354,73 +872,22 @@ public class CharacterDAO {
      * @return true if successful
      */
     public boolean setAutoloot(int characterId, boolean autoloot) {
-        String sql = "UPDATE characters SET autoloot = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setBoolean(1, autoloot);
-            ps.setInt(2, characterId);
-            return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            logger.warn("Failed to set autoloot: {}", e.getMessage());
-            return false;
-        }
+        return setAutoFlag(characterId, "autoloot", autoloot);
     }
     
-    /**
-     * Set a character's autogold flag.
-     * @param characterId the character ID
-     * @param autogold whether to automatically loot gold from corpses
-     * @return true if successful
-     */
+    /** @see #setAutoFlag(int, String, boolean) */
     public boolean setAutogold(int characterId, boolean autogold) {
-        String sql = "UPDATE characters SET autogold = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setBoolean(1, autogold);
-            ps.setInt(2, characterId);
-            return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            logger.warn("Failed to set autogold: {}", e.getMessage());
-            return false;
-        }
+        return setAutoFlag(characterId, "autogold", autogold);
     }
     
-    /**
-     * Set a character's autosac flag.
-     * @param characterId the character ID
-     * @param autosac whether to automatically sacrifice empty corpses
-     * @return true if successful
-     */
+    /** @see #setAutoFlag(int, String, boolean) */
     public boolean setAutosac(int characterId, boolean autosac) {
-        String sql = "UPDATE characters SET autosac = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setBoolean(1, autosac);
-            ps.setInt(2, characterId);
-            return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            logger.warn("Failed to set autosac: {}", e.getMessage());
-            return false;
-        }
+        return setAutoFlag(characterId, "autosac", autosac);
     }
     
-    /**
-     * Set a character's autoassist flag.
-     * @param characterId the character ID
-     * @param autoassist whether to automatically assist group members in combat
-     * @return true if successful
-     */
+    /** @see #setAutoFlag(int, String, boolean) */
     public boolean setAutoassist(int characterId, boolean autoassist) {
-        String sql = "UPDATE characters SET autoassist = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setBoolean(1, autoassist);
-            ps.setInt(2, characterId);
-            return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            logger.warn("Failed to set autoassist: {}", e.getMessage());
-            return false;
-        }
+        return setAutoFlag(characterId, "autoassist", autoassist);
     }
     
     // ===================== TALENT POINTS =====================
@@ -2432,7 +899,7 @@ public class CharacterDAO {
      */
     public int getTalentPoints(int characterId) {
         String sql = "SELECT talent_points FROM characters WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -2454,7 +921,7 @@ public class CharacterDAO {
      */
     public boolean setTalentPoints(int characterId, int points) {
         String sql = "UPDATE characters SET talent_points = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, Math.max(0, points));
             ps.setInt(2, characterId);
@@ -2473,7 +940,7 @@ public class CharacterDAO {
      */
     public boolean addTalentPoints(int characterId, int points) {
         String sql = "UPDATE characters SET talent_points = talent_points + ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, points);
             ps.setInt(2, characterId);
@@ -2495,7 +962,7 @@ public class CharacterDAO {
         if (column == null) return 0;
         
         String sql = "SELECT " + column + " FROM characters WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -2521,7 +988,7 @@ public class CharacterDAO {
         if (column == null) return false;
         
         String sql = "UPDATE characters SET " + column + " = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, Math.max(0, bonus));
             ps.setInt(2, characterId);
@@ -2543,7 +1010,7 @@ public class CharacterDAO {
         if (column == null) return false;
         
         String sql = "UPDATE characters SET " + column + " = " + column + " + 1 WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             return ps.executeUpdate() > 0;
@@ -2592,7 +1059,7 @@ public class CharacterDAO {
      */
     public long getGold(int characterId) {
         String sql = "SELECT gold_pieces FROM characters WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -2618,7 +1085,7 @@ public class CharacterDAO {
             return false;
         }
         String sql = "UPDATE characters SET gold_pieces = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, amount);
             ps.setInt(2, characterId);
@@ -2638,7 +1105,7 @@ public class CharacterDAO {
      */
     public boolean addGold(int characterId, long amount) {
         String sql = "UPDATE characters SET gold_pieces = gold_pieces + ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, amount);
             ps.setInt(2, characterId);
@@ -2674,11 +1141,11 @@ public class CharacterDAO {
             case "xp": {
                 try {
                     int xp = Integer.parseInt(value);
-                    CharacterClassDAO classDAO = new CharacterClassDAO();
+                    CharacterClassDAO classDAO = DaoProvider.classes();
                     Integer classId = classDAO.getCharacterCurrentClassId(characterId);
                     if (classId == null) return "Character has no class.";
                     String sql = "UPDATE character_class_progress SET class_xp = ? WHERE character_id = ? AND class_id = ?";
-                    try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                    try (Connection c = TransactionManager.getConnection();
                          PreparedStatement ps = c.prepareStatement(sql)) {
                         ps.setInt(1, Math.max(0, xp));
                         ps.setInt(2, characterId);
@@ -2692,11 +1159,11 @@ public class CharacterDAO {
                 try {
                     int level = Integer.parseInt(value);
                     if (level < 1 || level > 55) return "Level must be between 1 and 55.";
-                    CharacterClassDAO classDAO = new CharacterClassDAO();
+                    CharacterClassDAO classDAO = DaoProvider.classes();
                     Integer classId = classDAO.getCharacterCurrentClassId(characterId);
                     if (classId == null) return "Character has no class.";
                     String sql = "UPDATE character_class_progress SET class_level = ? WHERE character_id = ? AND class_id = ?";
-                    try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                    try (Connection c = TransactionManager.getConnection();
                          PreparedStatement ps = c.prepareStatement(sql)) {
                         ps.setInt(1, level);
                         ps.setInt(2, characterId);
@@ -2710,7 +1177,7 @@ public class CharacterDAO {
                 try {
                     int classId = Integer.parseInt(value);
                     String sql = "UPDATE characters SET current_class_id = ? WHERE id = ?";
-                    try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                    try (Connection c = TransactionManager.getConnection();
                          PreparedStatement ps = c.prepareStatement(sql)) {
                         ps.setInt(1, classId);
                         ps.setInt(2, characterId);
@@ -2721,7 +1188,7 @@ public class CharacterDAO {
             }
             case "description": case "desc": {
                 String sql = "UPDATE characters SET description = ? WHERE id = ?";
-                try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+                try (Connection c = TransactionManager.getConnection();
                      PreparedStatement ps = c.prepareStatement(sql)) {
                     ps.setString(1, value);
                     ps.setInt(2, characterId);
@@ -2785,7 +1252,7 @@ public class CharacterDAO {
         
         // Parse and update
         String sql = "UPDATE characters SET " + column + " = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             if (isLong) {
                 long longVal = Long.parseLong(value);
@@ -2821,21 +1288,34 @@ public class CharacterDAO {
     }
 
     public boolean setAutojunk(int characterId, boolean autojunk) {
-        String sql = "UPDATE characters SET autojunk = ? WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        return setAutoFlag(characterId, "autojunk", autojunk);
+    }
+
+    /**
+     * Generic setter for boolean auto-flags (autoloot, autogold, autosac, autojunk, autoassist).
+     * The column name is validated against an allowlist to prevent SQL injection.
+     */
+    public boolean setAutoFlag(int characterId, String flagColumn, boolean value) {
+        // Allowlist of valid auto-flag columns
+        if (!Set.of("autoloot", "autogold", "autosac", "autojunk", "autoassist").contains(flagColumn)) {
+            logger.warn("Invalid auto-flag column: {}", flagColumn);
+            return false;
+        }
+        String sql = "UPDATE characters SET " + flagColumn + " = ? WHERE id = ?";
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setBoolean(1, autojunk);
+            ps.setBoolean(1, value);
             ps.setInt(2, characterId);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.warn("Failed to set autojunk: {}", e.getMessage());
+            logger.warn("Failed to set {}: {}", flagColumn, e.getMessage());
             return false;
         }
     }
 
     public int getPlayerLevel(Integer characterId) {
         if (characterId == null) return 1;
-        CharacterClassDAO classDAO = new CharacterClassDAO();
+        CharacterClassDAO classDAO = DaoProvider.classes();
         
         Integer currentClassId = classDAO.getCharacterCurrentClassId(characterId);
         if (currentClassId != null) {

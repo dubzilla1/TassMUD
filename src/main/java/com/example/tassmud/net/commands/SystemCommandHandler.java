@@ -8,11 +8,14 @@ import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.CommandRegistry;
 import com.example.tassmud.net.CommandDefinition.Category;
 import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.persistence.DaoProvider;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Handles SYSTEM category commands: save, quit, prompt, motd, train, autoloot, autogold, autosac, autoflee, autojunk.
@@ -20,6 +23,7 @@ import java.util.stream.Collectors;
  * method size and improve maintainability.
  */
 public class SystemCommandHandler implements CommandHandler {
+    private static final Logger logger = LoggerFactory.getLogger(SystemCommandHandler.class);
     
     private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.SYSTEM).stream()
             .map(cmd -> cmd.getName())
@@ -46,15 +50,11 @@ public class SystemCommandHandler implements CommandHandler {
             case "train":
                 return handleTrainCommand(ctx);
             case "autoloot":
-                return handleAutolootCommand(ctx);
             case "autogold":
-                return handleAutogoldCommand(ctx);
             case "autosac":
-                return handleAutosacCommand(ctx);
             case "autojunk":
-                return handleAutojunkCommand(ctx);
             case "autoassist":
-                return handleAutoassistCommand(ctx);
+                return handleAutoToggle(ctx, cmdName);
             case "autoflee":
                 return handleAutofleeCommand(ctx);
             default:
@@ -136,8 +136,8 @@ public class SystemCommandHandler implements CommandHandler {
         try {
             ctx.handler.getSocket().close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            // Socket may already be closed; log and move on
+            logger.debug("Error closing socket on quit: {}", e.getMessage());
         }
         return true;
     }
@@ -162,7 +162,7 @@ public class SystemCommandHandler implements CommandHandler {
         String name = ctx.playerName;
 
         if (margs == null || margs.trim().isEmpty()) {
-            String motd = dao.getSetting("motd");
+            String motd = DaoProvider.settings().getSetting("motd");
             if (motd == null || motd.trim().isEmpty()) out.println("No MOTD is set.");
             else {
                 out.println("--- Message of the Day ---");
@@ -183,11 +183,11 @@ public class SystemCommandHandler implements CommandHandler {
                         val = val.replace("\\r\\n", "\n").replace("\\n", "\n");
                     }
                 } catch (Exception ignored) {}
-                boolean ok = dao.setSetting("motd", val == null ? "" : val);
+                boolean ok = DaoProvider.settings().setSetting("motd", val == null ? "" : val);
                 if (ok) out.println("MOTD updated (\n sequences allowed for newlines)."); else out.println("Failed to update MOTD.");
             } else if (verb.equals("clear") || verb.equals("remove")) {
                 if (!dao.isCharacterFlagTrueByName(name, "is_gm")) { out.println("You do not have permission to clear the MOTD."); return true; }
-                boolean ok = dao.setSetting("motd", "");
+                boolean ok = DaoProvider.settings().setSetting("motd", "");
                 if (ok) out.println("MOTD cleared."); else out.println("Failed to clear MOTD.");
             } else {
                 out.println("Usage: motd [set <message>|clear]");
@@ -237,24 +237,24 @@ public class SystemCommandHandler implements CommandHandler {
             int chaTotal = rec.getChaTotal();
             
             trainInfo.append(String.format("  STR: %2d + %d = %2d (%+d)    Cost: %s\n",
-                rec.str, rec.trainedStr, strTotal, (strTotal - 10) / 2, ClientHandler.formatTrainCost(strTotal)));
+                rec.baseStats.str(), rec.trainedStr, strTotal, (strTotal - 10) / 2, ClientHandler.formatTrainCost(strTotal)));
             trainInfo.append(String.format("  DEX: %2d + %d = %2d (%+d)    Cost: %s\n",
-                rec.dex, rec.trainedDex, dexTotal, (dexTotal - 10) / 2, ClientHandler.formatTrainCost(dexTotal)));
+                rec.baseStats.dex(), rec.trainedDex, dexTotal, (dexTotal - 10) / 2, ClientHandler.formatTrainCost(dexTotal)));
             trainInfo.append(String.format("  CON: %2d + %d = %2d (%+d)    Cost: %s\n",
-                rec.con, rec.trainedCon, conTotal, (conTotal - 10) / 2, ClientHandler.formatTrainCost(conTotal)));
+                rec.baseStats.con(), rec.trainedCon, conTotal, (conTotal - 10) / 2, ClientHandler.formatTrainCost(conTotal)));
             trainInfo.append(String.format("  INT: %2d + %d = %2d (%+d)    Cost: %s\n",
-                rec.intel, rec.trainedInt, intTotal, (intTotal - 10) / 2, ClientHandler.formatTrainCost(intTotal)));
+                rec.baseStats.intel(), rec.trainedInt, intTotal, (intTotal - 10) / 2, ClientHandler.formatTrainCost(intTotal)));
             trainInfo.append(String.format("  WIS: %2d + %d = %2d (%+d)    Cost: %s\n",
-                rec.wis, rec.trainedWis, wisTotal, (wisTotal - 10) / 2, ClientHandler.formatTrainCost(wisTotal)));
+                rec.baseStats.wis(), rec.trainedWis, wisTotal, (wisTotal - 10) / 2, ClientHandler.formatTrainCost(wisTotal)));
             trainInfo.append(String.format("  CHA: %2d + %d = %2d (%+d)    Cost: %s\n",
-                rec.cha, rec.trainedCha, chaTotal, (chaTotal - 10) / 2, ClientHandler.formatTrainCost(chaTotal)));
+                rec.baseStats.cha(), rec.trainedCha, chaTotal, (chaTotal - 10) / 2, ClientHandler.formatTrainCost(chaTotal)));
             
             // Show trainable skills (under 80%)
-            java.util.List<CharacterSkill> trainSkills = dao.getAllCharacterSkills(trainCharId);
+            java.util.List<CharacterSkill> trainSkills = DaoProvider.skills().getAllCharacterSkills(trainCharId);
             java.util.List<String> trainableSkills = new java.util.ArrayList<>();
             for (CharacterSkill cs : trainSkills) {
                 if (cs.getProficiency() < 80) {
-                    Skill skillDef = dao.getSkillById(cs.getSkillId());
+                    Skill skillDef = DaoProvider.skills().getSkillById(cs.getSkillId());
                     String skillName = skillDef != null ? skillDef.getName() : "Skill #" + cs.getSkillId();
                     trainableSkills.add(String.format("%-22s %3d%%", skillName, cs.getProficiency()));
                 }
@@ -269,11 +269,11 @@ public class SystemCommandHandler implements CommandHandler {
             }
             
             // Show trainable spells (under 80%)
-            java.util.List<CharacterSpell> trainSpells = dao.getAllCharacterSpells(trainCharId);
+            java.util.List<CharacterSpell> trainSpells = DaoProvider.spells().getAllCharacterSpells(trainCharId);
             java.util.List<String> trainableSpells = new java.util.ArrayList<>();
             for (CharacterSpell cs : trainSpells) {
                 if (cs.getProficiency() < 80) {
-                    Spell spellDef = dao.getSpellById(cs.getSpellId());
+                    Spell spellDef = DaoProvider.spells().getSpellById(cs.getSpellId());
                     String spellName = spellDef != null ? spellDef.getName() : "Spell #" + cs.getSpellId();
                     trainableSpells.add(String.format("%-22s %3d%%", spellName, cs.getProficiency()));
                 }
@@ -369,9 +369,9 @@ public class SystemCommandHandler implements CommandHandler {
                 // Train a skill
                 Skill targetSkill = null;
                 CharacterSkill charSkill = null;
-                java.util.List<CharacterSkill> allSkills = dao.getAllCharacterSkills(trainCharId);
+                java.util.List<CharacterSkill> allSkills = DaoProvider.skills().getAllCharacterSkills(trainCharId);
                 for (CharacterSkill cs : allSkills) {
-                    Skill def = dao.getSkillById(cs.getSkillId());
+                    Skill def = DaoProvider.skills().getSkillById(cs.getSkillId());
                     if (def != null && def.getName().equalsIgnoreCase(trainTarget)) {
                         targetSkill = def;
                         charSkill = cs;
@@ -383,7 +383,7 @@ public class SystemCommandHandler implements CommandHandler {
                 if (targetSkill == null) {
                     String targetLower = trainTarget.toLowerCase();
                     for (CharacterSkill cs : allSkills) {
-                        Skill def = dao.getSkillById(cs.getSkillId());
+                        Skill def = DaoProvider.skills().getSkillById(cs.getSkillId());
                         if (def != null && def.getName().toLowerCase().startsWith(targetLower)) {
                             targetSkill = def;
                             charSkill = cs;
@@ -405,7 +405,7 @@ public class SystemCommandHandler implements CommandHandler {
                 
                 // Training costs 1 point for +5% proficiency
                 int newProf = Math.min(80, currentProf + 5);
-                dao.setCharacterSkillLevel(trainCharId, charSkill.getSkillId(), newProf);
+                DaoProvider.skills().setCharacterSkillLevel(trainCharId, charSkill.getSkillId(), newProf);
                 dao.setTalentPoints(trainCharId, talentPoints - 1);
                 
                 out.println("You train " + targetSkill.getName() + "!");
@@ -417,9 +417,9 @@ public class SystemCommandHandler implements CommandHandler {
                 // Train a spell
                 Spell targetSpell = null;
                 CharacterSpell charSpell = null;
-                java.util.List<CharacterSpell> allSpells = dao.getAllCharacterSpells(trainCharId);
+                java.util.List<CharacterSpell> allSpells = DaoProvider.spells().getAllCharacterSpells(trainCharId);
                 for (CharacterSpell cs : allSpells) {
-                    Spell def = dao.getSpellById(cs.getSpellId());
+                    Spell def = DaoProvider.spells().getSpellById(cs.getSpellId());
                     if (def != null && def.getName().equalsIgnoreCase(trainTarget)) {
                         targetSpell = def;
                         charSpell = cs;
@@ -431,7 +431,7 @@ public class SystemCommandHandler implements CommandHandler {
                 if (targetSpell == null) {
                     String targetLower = trainTarget.toLowerCase();
                     for (CharacterSpell cs : allSpells) {
-                        Spell def = dao.getSpellById(cs.getSpellId());
+                        Spell def = DaoProvider.spells().getSpellById(cs.getSpellId());
                         if (def != null && def.getName().toLowerCase().startsWith(targetLower)) {
                             targetSpell = def;
                             charSpell = cs;
@@ -453,7 +453,7 @@ public class SystemCommandHandler implements CommandHandler {
                 
                 // Training costs 1 point for +5% proficiency
                 int newProf = Math.min(80, currentProf + 5);
-                dao.setCharacterSpellLevel(trainCharId, charSpell.getSpellId(), newProf);
+                DaoProvider.spells().setCharacterSpellLevel(trainCharId, charSpell.getSpellId(), newProf);
                 dao.setTalentPoints(trainCharId, talentPoints - 1);
                 
                 out.println("You train " + targetSpell.getName() + "!");
@@ -470,206 +470,56 @@ public class SystemCommandHandler implements CommandHandler {
         return true;
     }
 
-    private boolean handleAutolootCommand(CommandContext ctx) {
-        // AUTOLOOT - Toggle automatic looting of items from corpses
+// ── Auto-toggle messages keyed by flag name ────────────────────────
+    private static final Map<String, String[]> AUTO_TOGGLE_MESSAGES = Map.of(
+        "autoloot",   new String[]{"Autoloot enabled. You will automatically loot items from corpses.",
+                                   "Autoloot disabled. You must manually loot items from corpses."},
+        "autogold",   new String[]{"Autogold enabled. You will automatically loot gold from corpses.",
+                                   "Autogold disabled. You must manually loot gold from corpses."},
+        "autosac",    new String[]{"Autosac enabled. You will automatically sacrifice empty corpses for 1 XP.",
+                                   "Autosac disabled. Corpses will remain after looting."},
+        "autojunk",   new String[]{"Autojunk enabled. You will automatically junk items marked as junk.",
+                                   "Autojunk disabled. Items marked as junk will remain in your inventory."},
+        "autoassist", new String[]{"Autoassist enabled. You will automatically join combat when group members are attacked.",
+                                   "Autoassist disabled. You must manually join combat when group members fight."}
+    );
+
+    /**
+     * Unified handler for all boolean auto-toggle commands.
+     * Replaces the five near-identical handleAutoXxxCommand methods.
+     */
+    private boolean handleAutoToggle(CommandContext ctx, String flagName) {
         PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-        Integer charId = ctx.characterId;
+        CharacterDAO.CharacterRecord rec = ctx.requireRecord();
+        if (rec == null) return true;
 
-        if (rec == null) {
-            out.println("You must be logged in to use autoloot.");
-            return true;
-        }
-        if (charId == null && name != null) {
-            charId = dao.getCharacterIdByName(name);
-        }
-        if (charId == null) {
-            out.println("Unable to find your character.");
-            return true;
-        }
-        
-        // Toggle current value
-        boolean currentValue = rec.autoloot;
+        Integer charId = ctx.resolveCharacterId();
+        if (charId == null) { out.println("Unable to find your character."); return true; }
+
+        // Read the current value reflectively from the record
+        boolean currentValue = switch (flagName) {
+            case "autoloot"   -> rec.autoloot;
+            case "autogold"   -> rec.autogold;
+            case "autosac"    -> rec.autosac;
+            case "autojunk"   -> rec.autojunk;
+            case "autoassist" -> rec.autoassist;
+            default           -> false;
+        };
         boolean newValue = !currentValue;
-        boolean success = dao.setAutoloot(charId, newValue);
-        if (success) {
-            if (newValue) {
-                out.println("Autoloot enabled. You will automatically loot items from corpses.");
-            } else {
-                out.println("Autoloot disabled. You must manually loot items from corpses.");
-            }
-            // Refresh rec
-            rec = dao.findByName(name);
-        } else {
-            out.println("Failed to toggle autoloot.");
-        }
-        return true;
-    }
 
-    private boolean handleAutogoldCommand(CommandContext ctx) {
-        // AUTOGOLD - Toggle automatic looting of gold from corpses
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-        Integer charId = ctx.characterId;
-
-        if (rec == null) {
-            out.println("You must be logged in to use autogold.");
-            return true;
-        }
-        if (charId == null && name != null) {
-            charId = dao.getCharacterIdByName(name);
-        }
-        if (charId == null) {
-            out.println("Unable to find your character.");
-            return true;
-        }
-        
-        // Toggle current value
-        boolean currentValue = rec.autogold;
-        boolean newValue = !currentValue;
-        boolean success = dao.setAutogold(charId, newValue);
-        if (success) {
-            if (newValue) {
-                out.println("Autogold enabled. You will automatically loot gold from corpses.");
-            } else {
-                out.println("Autogold disabled. You must manually loot gold from corpses.");
-            }
-            // Refresh rec
-            rec = dao.findByName(name);
-        } else {
-            out.println("Failed to toggle autogold.");
-        }
-        return true;
-    }
-
-    private boolean handleAutosacCommand(CommandContext ctx) {
-        // AUTOSAC - Toggle automatic sacrifice of empty corpses
-        // Requires both autoloot and autogold to be enabled
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-        Integer charId = ctx.characterId;
-        
-        if (rec == null) {
-            out.println("You must be logged in to use autosac.");
-            return true;
-        }
-        
-        if (charId == null && name != null) {
-            charId = dao.getCharacterIdByName(name);
-        }
-        if (charId == null) {
-            out.println("Unable to find your character.");
-            return true;
-        }
-        
-        // Toggle current value
-        boolean currentValue = rec.autosac;
-        boolean newValue = !currentValue;
-        
-        // If trying to enable, check that autoloot and autogold are both enabled
-        if (newValue && (!rec.autoloot || !rec.autogold)) {
+        // Autosac prerequisite: both autoloot and autogold must be enabled
+        if ("autosac".equals(flagName) && newValue && (!rec.autoloot || !rec.autogold)) {
             out.println("You must enable both autoloot and autogold before you can enable autosac.");
             return true;
         }
-        
-        boolean success = dao.setAutosac(charId, newValue);
-        if (success) {
-            if (newValue) {
-                out.println("Autosac enabled. You will automatically sacrifice empty corpses for 1 XP.");
-            } else {
-                out.println("Autosac disabled. Corpses will remain after looting.");
-            }
-            // Refresh rec
-            rec = dao.findByName(name);
-        } else {
-            out.println("Failed to toggle autosac.");
-        }
-        
-        return true;
-    }
 
-    private boolean handleAutojunkCommand(CommandContext ctx) {
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-        Integer charId = ctx.characterId;
-
-        if (rec == null) {
-            out.println("You must be logged in to use autojunk.");
-            return true;
-        }
-        
-        if (charId == null && name != null) {
-            charId = dao.getCharacterIdByName(name);
-        }
-        if (charId == null) {
-            out.println("Unable to find your character.");
-            return true;
-        }
-        
-        // Toggle current value
-        boolean currentValue = rec.autojunk;
-        boolean newValue = !currentValue;
-        
-        boolean success = dao.setAutojunk(charId, newValue);
+        boolean success = ctx.dao.setAutoFlag(charId, flagName, newValue);
         if (success) {
-            if (newValue) {
-                out.println("Autojunk enabled. You will automatically junk items marked as junk.");
-            } else {
-                out.println("Autojunk disabled. Items marked as junk will remain in your inventory.");
-            }
-            // Refresh rec
-            rec = dao.findByName(name);
+            String[] msgs = AUTO_TOGGLE_MESSAGES.get(flagName);
+            out.println(newValue ? msgs[0] : msgs[1]);
         } else {
-            out.println("Failed to toggle autojunk.");
+            out.println("Failed to toggle " + flagName + ".");
         }
         return true;
     }
-    
-    private boolean handleAutoassistCommand(CommandContext ctx) {
-        // AUTOASSIST - Toggle automatic assistance to group members in combat
-        PrintWriter out = ctx.out;
-        CharacterDAO.CharacterRecord rec = ctx.character;
-        CharacterDAO dao = ctx.dao;
-        String name = ctx.playerName;
-        Integer charId = ctx.characterId;
-
-        if (rec == null) {
-            out.println("You must be logged in to use autoassist.");
-            return true;
-        }
-        if (charId == null && name != null) {
-            charId = dao.getCharacterIdByName(name);
-        }
-        if (charId == null) {
-            out.println("Unable to find your character.");
-            return true;
-        }
-        
-        // Toggle current value
-        boolean currentValue = rec.autoassist;
-        boolean newValue = !currentValue;
-        boolean success = dao.setAutoassist(charId, newValue);
-        if (success) {
-            if (newValue) {
-                out.println("Autoassist enabled. You will automatically join combat when group members are attacked.");
-            } else {
-                out.println("Autoassist disabled. You must manually join combat when group members fight.");
-            }
-            // Refresh rec
-            rec = dao.findByName(name);
-        } else {
-            out.println("Failed to toggle autoassist.");
-        }
-        return true;
-    }
-    
-    
 }

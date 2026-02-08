@@ -1,9 +1,13 @@
 package com.example.tassmud.event;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.*;
 import com.example.tassmud.persistence.*;
+import com.example.tassmud.util.MobileRegistry;
 import com.example.tassmud.util.SpawnEventLogger;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Event that spawns items or mobs in a room based on a SpawnConfig.
@@ -17,8 +21,8 @@ public class SpawnEvent implements GameEvent {
     
     public SpawnEvent(SpawnConfig config) {
         this.config = config;
-        this.itemDao = new ItemDAO();
-        this.mobileDao = new MobileDAO();
+        this.itemDao = DaoProvider.items();
+        this.mobileDao = DaoProvider.mobiles();
     }
     
     @Override
@@ -113,13 +117,14 @@ public class SpawnEvent implements GameEvent {
                 if (spawned != null) {
                     int randStat;
                     for (int i=1; i<=spawned.getLevel(); i++) {
-                        randStat = (int)(Math.random() * 3);
+                        randStat = ThreadLocalRandom.current().nextInt(3);
                         switch (randStat) {
                             case 0: spawned.addStat(Stat.FORTITUDE, 1); break;
                             case 1: spawned.addStat(Stat.REFLEX, 1); break;
                             case 2: spawned.addStat(Stat.WILL, 1); break;
                         }
                     }
+                    MobileRegistry.getInstance().register(spawned);
                     SpawnEventLogger.info("[SpawnEvent] Spawned " + spawned.getName() + " (instance #" + spawned.getInstanceId() + ") in room " + config.roomId + " [uuid=" + uuid + "]");
                     // If this spawn config includes equipment, create item instances and apply their effects to the mobile
                     try {

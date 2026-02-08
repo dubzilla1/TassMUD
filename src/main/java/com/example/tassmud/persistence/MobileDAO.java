@@ -16,21 +16,14 @@ import org.slf4j.LoggerFactory;
  */
 public class MobileDAO {
     private static final Logger logger = LoggerFactory.getLogger(MobileDAO.class);
-    
-    private final String url;
-    private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
-    private static final String USER = "sa";
-    private static final String PASS = "";
-
     public MobileDAO() {
-        this.url = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
         // Run migrations/ensureTables once per DAO class to avoid repeating expensive
         // schema checks for every DAO instance during startup.
         MigrationManager.ensureMigration("MobileDAO", this::ensureTables);
     }
     
     private void ensureTables() {
-        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              Statement s = c.createStatement()) {
             
             // Mobile template table
@@ -121,7 +114,7 @@ public class MobileDAO {
             "behaviors, aggro_range, experience_value, gold_min, gold_max, respawn_seconds, autoflee, template_json) " +
             "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
-           try (Connection c = DriverManager.getConnection(url, USER, PASS)) {
+           try (Connection c = TransactionManager.getConnection()) {
             // If a different row already exists with the same template_key,
             // reuse that id to avoid UNIQUE constraint violations on template_key.
             int targetId = template.getId();
@@ -188,10 +181,10 @@ public class MobileDAO {
      */
     public MobileTemplate getTemplateById(int id) {
         String sql = "SELECT * FROM mobile_template WHERE id = ?";
-        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
                PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
-            logger.debug("[MobileDAO] getTemplateById: executing against URL={} SQL={} id={}", url, sql, id);
+            logger.debug("[MobileDAO] getTemplateById: executing SQL={} id={}", sql, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     logger.debug("[MobileDAO] getTemplateById: found template id={} name={}", id, rs.getString("name"));
@@ -215,7 +208,7 @@ public class MobileDAO {
     public List<Integer> getAllTemplateIds() {
         List<Integer> ids = new ArrayList<>();
         String sql = "SELECT id FROM mobile_template ORDER BY id";
-        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) ids.add(rs.getInt(1));
@@ -230,7 +223,7 @@ public class MobileDAO {
      */
     public MobileTemplate getTemplateByKey(String key) {
         String sql = "SELECT * FROM mobile_template WHERE template_key = ?";
-           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+           try (Connection c = TransactionManager.getConnection();
                PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, key);
             try (ResultSet rs = ps.executeQuery()) {
@@ -252,7 +245,7 @@ public class MobileDAO {
         if (searchStr == null || searchStr.trim().isEmpty()) return results;
         
         String sql = "SELECT * FROM mobile_template WHERE LOWER(name) LIKE ? ORDER BY id";
-        try (Connection c = DriverManager.getConnection(url, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, "%" + searchStr.toLowerCase() + "%");
             try (ResultSet rs = ps.executeQuery()) {
@@ -272,7 +265,7 @@ public class MobileDAO {
     public List<MobileTemplate> getAllTemplates() {
         List<MobileTemplate> results = new ArrayList<>();
         String sql = "SELECT * FROM mobile_template ORDER BY id";
-           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+           try (Connection c = TransactionManager.getConnection();
                PreparedStatement ps = c.prepareStatement(sql);
                ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -305,39 +298,39 @@ public class MobileDAO {
             behaviors.add(MobileBehavior.PASSIVE); // Default
         }
         
-        return new MobileTemplate(
-            rs.getInt("id"),
-            rs.getString("template_key"),
-            rs.getString("name"),
-            rs.getString("short_desc"),
-            rs.getString("long_desc"),
-            keywords,
-            rs.getInt("level"),
-            rs.getInt("hp_max"),
-            rs.getInt("mp_max"),
-            rs.getInt("mv_max"),
-            rs.getInt("str"),
-            rs.getInt("dex"),
-            rs.getInt("con"),
-            rs.getInt("intel"),
-            rs.getInt("wis"),
-            rs.getInt("cha"),
-            rs.getInt("armor"),
-            rs.getInt("fortitude"),
-            rs.getInt("reflex"),
-            rs.getInt("will_save"),
-            rs.getInt("base_damage"),
-            rs.getInt("damage_bonus"),
-            rs.getInt("attack_bonus"),
-            behaviors,
-            rs.getInt("aggro_range"),
-            rs.getInt("experience_value"),
-            rs.getInt("gold_min"),
-            rs.getInt("gold_max"),
-            rs.getInt("respawn_seconds"),
-            rs.getInt("autoflee"),
-            rs.getString("template_json")
-        );
+        return MobileTemplate.builder()
+            .id(rs.getInt("id"))
+            .key(rs.getString("template_key"))
+            .name(rs.getString("name"))
+            .shortDesc(rs.getString("short_desc"))
+            .longDesc(rs.getString("long_desc"))
+            .keywords(keywords)
+            .level(rs.getInt("level"))
+            .hpMax(rs.getInt("hp_max"))
+            .mpMax(rs.getInt("mp_max"))
+            .mvMax(rs.getInt("mv_max"))
+            .str(rs.getInt("str"))
+            .dex(rs.getInt("dex"))
+            .con(rs.getInt("con"))
+            .intel(rs.getInt("intel"))
+            .wis(rs.getInt("wis"))
+            .cha(rs.getInt("cha"))
+            .armor(rs.getInt("armor"))
+            .fortitude(rs.getInt("fortitude"))
+            .reflex(rs.getInt("reflex"))
+            .will(rs.getInt("will_save"))
+            .baseDamage(rs.getInt("base_damage"))
+            .damageBonus(rs.getInt("damage_bonus"))
+            .attackBonus(rs.getInt("attack_bonus"))
+            .behaviors(behaviors)
+            .aggroRange(rs.getInt("aggro_range"))
+            .experienceValue(rs.getInt("experience_value"))
+            .goldMin(rs.getInt("gold_min"))
+            .goldMax(rs.getInt("gold_max"))
+            .respawnSeconds(rs.getInt("respawn_seconds"))
+            .autoflee(rs.getInt("autoflee"))
+            .templateJson(rs.getString("template_json"))
+            .build();
     }
     
     // ==================== INSTANCE OPERATIONS ====================
@@ -349,7 +342,7 @@ public class MobileDAO {
         String sql = "INSERT INTO mobile_instance (template_id, current_room_id, spawn_room_id, " +
             "hp_cur, mp_cur, mv_cur, fortitude_cur, reflex_cur, will_cur, is_dead, spawned_at, died_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
-        try (Connection c = DriverManager.getConnection(System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1"), USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             long now = System.currentTimeMillis();
             ps.setInt(1, template.getId());
@@ -393,7 +386,7 @@ public class MobileDAO {
         String sql = "INSERT INTO mobile_instance (template_id, current_room_id, spawn_room_id, " +
             "hp_cur, mp_cur, mv_cur, is_dead, spawned_at, died_at, orig_uuid) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             long now = System.currentTimeMillis();
             ps.setInt(1, template.getId());
@@ -432,7 +425,7 @@ public class MobileDAO {
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.instance_id = ?";
         
-           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+           try (Connection c = TransactionManager.getConnection();
                PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, instanceId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -458,7 +451,7 @@ public class MobileDAO {
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.current_room_id = ? AND mi.is_dead = FALSE";
         
-           try (Connection c = DriverManager.getConnection(url, USER, PASS);
+           try (Connection c = TransactionManager.getConnection();
                PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, roomId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -483,7 +476,7 @@ public class MobileDAO {
             "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id";
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -501,7 +494,7 @@ public class MobileDAO {
      */
     public void clearAllInstances() {
         String sql = "DELETE FROM mobile_instance";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             int deleted = ps.executeUpdate();
             logger.info("MobileDAO: cleared {} mobile instances from DB", deleted);
@@ -517,7 +510,7 @@ public class MobileDAO {
         String sql = "UPDATE mobile_instance SET current_room_id = ?, hp_cur = ?, mp_cur = ?, mv_cur = ?, " +
             "is_dead = ?, died_at = ? WHERE instance_id = ?";
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setObject(1, mobile.getCurrentRoom());
             ps.setInt(2, mobile.getHpCur());
@@ -537,7 +530,7 @@ public class MobileDAO {
      */
     public void deleteInstance(long instanceId) {
         String sql = "DELETE FROM mobile_instance WHERE instance_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, instanceId);
             ps.executeUpdate();
@@ -558,7 +551,7 @@ public class MobileDAO {
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.template_id = ?";
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, templateId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -578,7 +571,7 @@ public class MobileDAO {
     public List<String> getSpawnMappingUUIDs(int roomId, int templateId) {
         List<String> uuids = new ArrayList<>();
         String sql = "SELECT orig_uuid FROM spawn_mapping WHERE room_id = ? AND template_id = ? ORDER BY orig_uuid";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, roomId);
             ps.setInt(2, templateId);
@@ -606,7 +599,7 @@ public class MobileDAO {
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.orig_uuid = ? AND mi.is_dead = FALSE";
 
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, originUuid);
             try (ResultSet rs = ps.executeQuery()) {
@@ -629,7 +622,7 @@ public class MobileDAO {
         if (need <= 0) return;
 
         String sql = "INSERT INTO spawn_mapping (room_id, template_id, orig_uuid) VALUES (?,?,?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             for (int i = 0; i < need; i++) {
                 String uuid = java.util.UUID.randomUUID().toString();
@@ -650,7 +643,7 @@ public class MobileDAO {
      */
     public void addMobileItemMarker(long mobileInstanceId, long itemInstanceId, String kind) {
         String sql = "MERGE INTO mobile_instance_item (mobile_instance_id, item_instance_id, kind) KEY (mobile_instance_id, item_instance_id) VALUES (?,?,?)";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, mobileInstanceId);
             ps.setLong(2, itemInstanceId);
@@ -670,7 +663,7 @@ public class MobileDAO {
     public List<MobileItemMarker> getMobileItemMarkers(long mobileInstanceId) {
         List<MobileItemMarker> out = new ArrayList<>();
         String sql = "SELECT item_instance_id, kind FROM mobile_instance_item WHERE mobile_instance_id = ?";
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setLong(1, mobileInstanceId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -711,43 +704,32 @@ public class MobileDAO {
         }
 
         String origUuid = rs.getString("orig_uuid");
-        Mobile mob = new Mobile(
-            rs.getLong("instance_id"),
-            rs.getInt("template_id"),
-            rs.getInt("level"),
-            rs.getString("name"),
-            rs.getString("long_desc"),
-            rs.getInt("hp_max"),
-            rs.getInt("hp_cur"),
-            rs.getInt("mp_max"),
-            rs.getInt("mp_cur"),
-            rs.getInt("mv_max"),
-            rs.getInt("mv_cur"),
-            rs.getObject("current_room_id") == null ? null : rs.getInt("current_room_id"),
-            rs.getObject("spawn_room_id") == null ? null : rs.getInt("spawn_room_id"),
-            rs.getInt("str"),
-            rs.getInt("dex"),
-            rs.getInt("con"),
-            rs.getInt("intel"),
-            rs.getInt("wis"),
-            rs.getInt("cha"),
-            rs.getInt("armor"),
-            rs.getInt("fortitude"),
-            rs.getInt("reflex"),
-            rs.getInt("will_save"),
-            keywords,
-            rs.getString("short_desc"),
-            behaviors,
-            rs.getInt("experience_value"),
-            rs.getInt("base_damage"),
-            rs.getInt("damage_bonus"),
-            rs.getInt("attack_bonus"),
-            rs.getInt("autoflee"),
-            origUuid,
-            rs.getLong("spawned_at"),
-            rs.getBoolean("is_dead"),
-            rs.getLong("died_at")
-        );
+        Mobile mob = Mobile.dbBuilder()
+            .instanceId(rs.getLong("instance_id"))
+            .templateId(rs.getInt("template_id"))
+            .level(rs.getInt("level"))
+            .name(rs.getString("name"))
+            .description(rs.getString("long_desc"))
+            .hpMax(rs.getInt("hp_max")).hpCur(rs.getInt("hp_cur"))
+            .mpMax(rs.getInt("mp_max")).mpCur(rs.getInt("mp_cur"))
+            .mvMax(rs.getInt("mv_max")).mvCur(rs.getInt("mv_cur"))
+            .currentRoom(rs.getObject("current_room_id") == null ? null : rs.getInt("current_room_id"))
+            .spawnRoomId(rs.getObject("spawn_room_id") == null ? null : rs.getInt("spawn_room_id"))
+            .str(rs.getInt("str")).dex(rs.getInt("dex")).con(rs.getInt("con"))
+            .intel(rs.getInt("intel")).wis(rs.getInt("wis")).cha(rs.getInt("cha"))
+            .armor(rs.getInt("armor")).fortitude(rs.getInt("fortitude"))
+            .reflex(rs.getInt("reflex")).will(rs.getInt("will_save"))
+            .keywords(keywords).shortDesc(rs.getString("short_desc")).behaviors(behaviors)
+            .experienceValue(rs.getInt("experience_value"))
+            .baseDamage(rs.getInt("base_damage"))
+            .damageBonus(rs.getInt("damage_bonus"))
+            .attackBonus(rs.getInt("attack_bonus"))
+            .autoflee(rs.getInt("autoflee"))
+            .originUuid(origUuid)
+            .spawnedAt(rs.getLong("spawned_at"))
+            .isDead(rs.getBoolean("is_dead"))
+            .diedAt(rs.getLong("died_at"))
+            .build();
 
         // Load persisted mobile->item markers and attach harmless modifiers so death handling can find them
         try {

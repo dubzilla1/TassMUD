@@ -1,6 +1,7 @@
 package com.example.tassmud;
 
 import com.example.tassmud.model.Skill;
+import com.example.tassmud.model.SkillProgression;
 import com.example.tassmud.util.ProficiencyCheck;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -51,11 +52,11 @@ public class ProficiencyCheckTest {
     @DisplayName("INSTANT progression skills never improve")
     void instantSkillsNeverImprove() {
         // INSTANT skills start at 100% and don't progress
-        Skill instantSkill = new Skill(1, "Sword Proficiency", "Sword use", Skill.SkillProgression.INSTANT);
+        Skill instantSkill = new Skill(1, "Sword Proficiency", "Sword use", SkillProgression.INSTANT);
         
         // Even with success, instant skills don't grow
         // We can't easily test without a real DAO, but we can verify the logic
-        assertEquals(Skill.SkillProgression.INSTANT, instantSkill.getProgression());
+        assertEquals(SkillProgression.INSTANT, instantSkill.getProgression());
         assertTrue(instantSkill.getProgression().isInstant());
         assertEquals(0, instantSkill.getProgression().getGainChance(100));
     }
@@ -63,7 +64,7 @@ public class ProficiencyCheckTest {
     @Test
     @DisplayName("Mastered skills (100%) don't improve further")
     void masteredSkillsDontImprove() {
-        Skill skill = new Skill(1, "Kick", "A kick", Skill.SkillProgression.NORMAL);
+        Skill skill = new Skill(1, "Kick", "A kick", SkillProgression.NORMAL);
         
         // At 100%, gain chance should be 0
         assertEquals(0, skill.getProgression().getGainChance(100));
@@ -72,7 +73,7 @@ public class ProficiencyCheckTest {
     @Test
     @DisplayName("Gain chance decreases as proficiency increases")
     void gainChanceDecreasesWithProficiency() {
-        Skill.SkillProgression normal = Skill.SkillProgression.NORMAL;
+        SkillProgression normal = SkillProgression.NORMAL;
         
         int chanceAt1 = normal.getGainChance(1);
         int chanceAt25 = normal.getGainChance(25);
@@ -90,11 +91,11 @@ public class ProficiencyCheckTest {
     @Test
     @DisplayName("Different progressions have different base chances")
     void progressionsHaveDifferentBaseChances() {
-        assertEquals(50, Skill.SkillProgression.TRIVIAL.baseGainChance);
-        assertEquals(35, Skill.SkillProgression.EASY.baseGainChance);
-        assertEquals(25, Skill.SkillProgression.NORMAL.baseGainChance);
-        assertEquals(15, Skill.SkillProgression.HARD.baseGainChance);
-        assertEquals(10, Skill.SkillProgression.VERY_HARD.baseGainChance);
-        assertEquals(5, Skill.SkillProgression.LEGENDARY.baseGainChance);
+        assertEquals(50, SkillProgression.TRIVIAL.baseGainChance);
+        assertEquals(35, SkillProgression.EASY.baseGainChance);
+        assertEquals(25, SkillProgression.NORMAL.baseGainChance);
+        assertEquals(15, SkillProgression.HARD.baseGainChance);
+        assertEquals(10, SkillProgression.VERY_HARD.baseGainChance);
+        assertEquals(5, SkillProgression.LEGENDARY.baseGainChance);
     }
 }

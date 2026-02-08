@@ -23,19 +23,8 @@ public class MobileTemplate {
     private final int mpMax;
     private final int mvMax;
     
-    // Ability scores
-    private final int str;
-    private final int dex;
-    private final int con;
-    private final int intel;
-    private final int wis;
-    private final int cha;
-    
-    // Defenses
-    private final int armor;
-    private final int fortitude;
-    private final int reflex;
-    private final int will;
+    // Ability scores & defenses (shared stat block)
+    private final StatBlock stats;
     
     // Combat
     private final int baseDamage;          // Base damage dice (e.g., 6 for 1d6)
@@ -60,11 +49,13 @@ public class MobileTemplate {
     // Optional JSON for extended data (loot tables, dialogue, etc.)
     private final String templateJson;
     
-    public MobileTemplate(
+    /** Creates a new builder for constructing MobileTemplate instances. */
+    public static Builder builder() { return new Builder(); }
+
+    MobileTemplate(
             int id, String key, String name, String shortDesc, String longDesc, List<String> keywords,
             int level, int hpMax, int mpMax, int mvMax,
-            int str, int dex, int con, int intel, int wis, int cha,
-            int armor, int fortitude, int reflex, int will,
+            StatBlock stats,
             int baseDamage, int damageBonus, int attackBonus,
             List<MobileBehavior> behaviors, int aggroRange,
             int experienceValue, int goldMin, int goldMax,
@@ -79,16 +70,7 @@ public class MobileTemplate {
         this.hpMax = hpMax;
         this.mpMax = mpMax;
         this.mvMax = mvMax;
-        this.str = str;
-        this.dex = dex;
-        this.con = con;
-        this.intel = intel;
-        this.wis = wis;
-        this.cha = cha;
-        this.armor = armor;
-        this.fortitude = fortitude;
-        this.reflex = reflex;
-        this.will = will;
+        this.stats = stats;
         this.baseDamage = baseDamage;
         this.damageBonus = damageBonus;
         this.attackBonus = attackBonus;
@@ -113,16 +95,18 @@ public class MobileTemplate {
     public int getHpMax() { return hpMax; }
     public int getMpMax() { return mpMax; }
     public int getMvMax() { return mvMax; }
-    public int getStr() { return str; }
-    public int getDex() { return dex; }
-    public int getCon() { return con; }
-    public int getIntel() { return intel; }
-    public int getWis() { return wis; }
-    public int getCha() { return cha; }
-    public int getArmor() { return armor; }
-    public int getFortitude() { return fortitude; }
-    public int getReflex() { return reflex; }
-    public int getWill() { return will; }
+    public int getStr() { return stats.str(); }
+    public int getDex() { return stats.dex(); }
+    public int getCon() { return stats.con(); }
+    public int getIntel() { return stats.intel(); }
+    public int getWis() { return stats.wis(); }
+    public int getCha() { return stats.cha(); }
+    public int getArmor() { return stats.armor(); }
+    public int getFortitude() { return stats.fortitude(); }
+    public int getReflex() { return stats.reflex(); }
+    public int getWill() { return stats.will(); }
+    /** Returns the immutable stat block for this template. */
+    public StatBlock getStats() { return stats; }
     public int getBaseDamage() { return baseDamage; }
     public int getDamageBonus() { return damageBonus; }
     public int getAttackBonus() { return attackBonus; }
@@ -178,5 +162,72 @@ public class MobileTemplate {
             if (kw.toLowerCase().startsWith(lower)) return true;
         }
         return false;
+    }
+
+    /** Fluent builder for {@link MobileTemplate}. */
+    public static class Builder {
+        private int id;
+        private String key;
+        private String name;
+        private String shortDesc;
+        private String longDesc;
+        private List<String> keywords;
+        private int level;
+        private int hpMax;
+        private int mpMax;
+        private int mvMax;
+        private int str, dex, con, intel, wis, cha;
+        private int armor, fortitude, reflex, will;
+        private int baseDamage, damageBonus, attackBonus;
+        private List<MobileBehavior> behaviors;
+        private int aggroRange;
+        private int experienceValue;
+        private int goldMin, goldMax;
+        private int respawnSeconds;
+        private int autoflee;
+        private String templateJson;
+
+        private Builder() {}
+
+        public Builder id(int v) { this.id = v; return this; }
+        public Builder key(String v) { this.key = v; return this; }
+        public Builder name(String v) { this.name = v; return this; }
+        public Builder shortDesc(String v) { this.shortDesc = v; return this; }
+        public Builder longDesc(String v) { this.longDesc = v; return this; }
+        public Builder keywords(List<String> v) { this.keywords = v; return this; }
+        public Builder level(int v) { this.level = v; return this; }
+        public Builder hpMax(int v) { this.hpMax = v; return this; }
+        public Builder mpMax(int v) { this.mpMax = v; return this; }
+        public Builder mvMax(int v) { this.mvMax = v; return this; }
+        public Builder str(int v) { this.str = v; return this; }
+        public Builder dex(int v) { this.dex = v; return this; }
+        public Builder con(int v) { this.con = v; return this; }
+        public Builder intel(int v) { this.intel = v; return this; }
+        public Builder wis(int v) { this.wis = v; return this; }
+        public Builder cha(int v) { this.cha = v; return this; }
+        public Builder armor(int v) { this.armor = v; return this; }
+        public Builder fortitude(int v) { this.fortitude = v; return this; }
+        public Builder reflex(int v) { this.reflex = v; return this; }
+        public Builder will(int v) { this.will = v; return this; }
+        public Builder baseDamage(int v) { this.baseDamage = v; return this; }
+        public Builder damageBonus(int v) { this.damageBonus = v; return this; }
+        public Builder attackBonus(int v) { this.attackBonus = v; return this; }
+        public Builder behaviors(List<MobileBehavior> v) { this.behaviors = v; return this; }
+        public Builder aggroRange(int v) { this.aggroRange = v; return this; }
+        public Builder experienceValue(int v) { this.experienceValue = v; return this; }
+        public Builder goldMin(int v) { this.goldMin = v; return this; }
+        public Builder goldMax(int v) { this.goldMax = v; return this; }
+        public Builder respawnSeconds(int v) { this.respawnSeconds = v; return this; }
+        public Builder autoflee(int v) { this.autoflee = v; return this; }
+        public Builder templateJson(String v) { this.templateJson = v; return this; }
+
+        public MobileTemplate build() {
+            StatBlock stats = new StatBlock(str, dex, con, intel, wis, cha,
+                armor, fortitude, reflex, will);
+            return new MobileTemplate(id, key, name, shortDesc, longDesc, keywords,
+                level, hpMax, mpMax, mvMax, stats, baseDamage, damageBonus, attackBonus,
+                behaviors, aggroRange, experienceValue, goldMin, goldMax,
+                respawnSeconds, autoflee, templateJson);
+        }
     }
 }

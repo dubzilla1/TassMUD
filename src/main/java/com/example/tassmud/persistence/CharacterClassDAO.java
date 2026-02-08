@@ -1,5 +1,7 @@
 package com.example.tassmud.persistence;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.*;
 import org.yaml.snakeyaml.Yaml;
 
@@ -15,10 +17,6 @@ import org.slf4j.LoggerFactory;
  */
 public class CharacterClassDAO {
     private static final Logger logger = LoggerFactory.getLogger(CharacterClassDAO.class);
-    private static final String URL = System.getProperty("tassmud.db.url", "jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1");
-    private static final String USER = "sa";
-    private static final String PASS = "";
-    
     // In-memory cache of loaded classes
     private static final Map<Integer, CharacterClass> classCache = new HashMap<>();
     
@@ -28,7 +26,7 @@ public class CharacterClassDAO {
     }
     
     private void ensureTables() {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              Statement s = c.createStatement()) {
             // Character class definitions (loaded from YAML, cached in DB)
             s.execute("""
@@ -124,7 +122,7 @@ public class CharacterClassDAO {
     }
     
     private void saveClassToDb(CharacterClass cls) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+        try (Connection c = TransactionManager.getConnection()) {
             // Save class definition
             try (PreparedStatement ps = c.prepareStatement(
                     "MERGE INTO character_class (id, name, description, hp_level, mp_level, mv_level) " +
@@ -194,7 +192,7 @@ public class CharacterClassDAO {
      * Set a character's current class.
      */
     public void setCharacterCurrentClass(int characterId, int classId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS)) {
+        try (Connection c = TransactionManager.getConnection()) {
             // First, clear current flag for all classes
             try (PreparedStatement ps = c.prepareStatement(
                     "UPDATE character_class_progress SET is_current = FALSE WHERE character_id = ?")) {
@@ -225,7 +223,7 @@ public class CharacterClassDAO {
      * Get a character's current class ID, or null if none set.
      */
     public Integer getCharacterCurrentClassId(int characterId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                      "SELECT class_id FROM character_class_progress WHERE character_id = ? AND is_current = TRUE")) {
             ps.setInt(1, characterId);
@@ -244,7 +242,7 @@ public class CharacterClassDAO {
      * Get a character's level in a specific class.
      */
     public int getCharacterClassLevel(int characterId, int classId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                      "SELECT class_level FROM character_class_progress WHERE character_id = ? AND class_id = ?")) {
             ps.setInt(1, characterId);
@@ -264,7 +262,7 @@ public class CharacterClassDAO {
      * Get a character's XP in a specific class.
      */
     public int getCharacterClassXp(int characterId, int classId) {
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                      "SELECT class_xp FROM character_class_progress WHERE character_id = ? AND class_id = ?")) {
             ps.setInt(1, characterId);
@@ -303,7 +301,7 @@ public class CharacterClassDAO {
             leveledUp = true;
         }
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                      "UPDATE character_class_progress SET class_xp = ?, class_level = ? " +
                      "WHERE character_id = ? AND class_id = ?")) {
@@ -333,7 +331,7 @@ public class CharacterClassDAO {
         int deducted = Math.min(currentXp, xpAmount);
         int newXp = currentXp - deducted;
         
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                      "UPDATE character_class_progress SET class_xp = ? " +
                      "WHERE character_id = ? AND class_id = ?")) {
@@ -354,7 +352,7 @@ public class CharacterClassDAO {
      */
     public List<ClassProgress> getCharacterClassProgress(int characterId) {
         List<ClassProgress> result = new ArrayList<>();
-        try (Connection c = DriverManager.getConnection(URL, USER, PASS);
+        try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(
                      "SELECT class_id, class_level, class_xp, is_current FROM character_class_progress " +
                      "WHERE character_id = ? ORDER BY class_id")) {
@@ -397,22 +395,22 @@ public class CharacterClassDAO {
         CharacterClass charClass = getClassById(classId);
         if (charClass == null) return learnedSkills;
         
-        CharacterDAO charDAO = new CharacterDAO();
+        CharacterDAO charDAO = DaoProvider.characters();
         
         // 1) Grant any skills/spells that unlock at this level
         for (CharacterClass.ClassSkillGrant grant : charClass.getSkillsUnlockedAtLevel(newLevel)) {
             if (grant.isSpellGrant()) {
                 // Grant spell
-                if (!charDAO.hasSpell(characterId, grant.spellId)) {
-                    Spell spellDef = charDAO.getSpellById(grant.spellId);
+                if (!DaoProvider.spells().hasSpell(characterId, grant.spellId)) {
+                    Spell spellDef = DaoProvider.spells().getSpellById(grant.spellId);
                     if (spellDef != null) {
-                        charDAO.learnSpell(characterId, grant.spellId, spellDef);
+                        DaoProvider.spells().learnSpell(characterId, grant.spellId, spellDef);
                         learnedSkills.add(spellDef.getName() + " (spell)");
                         if (messageCallback != null) {
                             messageCallback.accept("You have learned the spell " + spellDef.getName() + "!");
                         }
                     } else {
-                        charDAO.learnSpell(characterId, grant.spellId);
+                        DaoProvider.spells().learnSpell(characterId, grant.spellId);
                         learnedSkills.add("spell #" + grant.spellId);
                         if (messageCallback != null) {
                             messageCallback.accept("You have learned a new spell!");
@@ -421,16 +419,16 @@ public class CharacterClassDAO {
                 }
             } else if (grant.isSkillGrant()) {
                 // Grant skill
-                if (!charDAO.hasSkill(characterId, grant.skillId)) {
-                    Skill skillDef = charDAO.getSkillById(grant.skillId);
+                if (!DaoProvider.skills().hasSkill(characterId, grant.skillId)) {
+                    Skill skillDef = DaoProvider.skills().getSkillById(grant.skillId);
                     if (skillDef != null) {
-                        charDAO.learnSkill(characterId, grant.skillId, skillDef);
+                        DaoProvider.skills().learnSkill(characterId, grant.skillId, skillDef);
                         learnedSkills.add(skillDef.getName());
                         if (messageCallback != null) {
                             messageCallback.accept("You have learned " + skillDef.getName() + "!");
                         }
                     } else {
-                        charDAO.learnSkill(characterId, grant.skillId);
+                        DaoProvider.skills().learnSkill(characterId, grant.skillId);
                         learnedSkills.add("skill #" + grant.skillId);
                         if (messageCallback != null) {
                             messageCallback.accept("You have learned a new skill!");

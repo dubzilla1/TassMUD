@@ -6,6 +6,7 @@ import com.example.tassmud.model.Mobile;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 /**
@@ -20,8 +21,8 @@ public class Combat {
     /** Room where this combat is taking place */
     private final int roomId;
     
-    /** Current state of the combat */
-    private CombatState state = CombatState.INITIALIZING;
+    /** Current state of the combat (volatile for cross-thread visibility) */
+    private volatile CombatState state = CombatState.INITIALIZING;
     
     /** All combatants in this combat, keyed by combatant ID */
     private final Map<Long, Combatant> combatants = new ConcurrentHashMap<>();
@@ -32,8 +33,8 @@ public class Combat {
     /** Current round number (starts at 1) */
     private int currentRound = 0;
     
-    /** Combatants in initiative order for the current round */
-    private List<Combatant> initiativeOrder = new ArrayList<>();
+    /** Combatants in initiative order for the current round (volatile for safe publication) */
+    private volatile List<Combatant> initiativeOrder = new ArrayList<>();
     
     /** Index into initiative order for whose turn it is */
     private int currentTurnIndex = 0;
@@ -47,11 +48,11 @@ public class Combat {
     /** Timestamp when combat ended (0 if still active) */
     private long endedAt = 0;
     
-    /** Results from this round (for display) */
-    private final List<CombatResult> roundResults = new ArrayList<>();
+    /** Results from this round (for display, synchronized for thread safety) */
+    private final List<CombatResult> roundResults = Collections.synchronizedList(new ArrayList<>());
     
-    /** Log of all combat events (for recap) */
-    private final List<String> combatLog = new ArrayList<>();
+    /** Log of all combat events (for recap, synchronized for thread safety) */
+    private final List<String> combatLog = Collections.synchronizedList(new ArrayList<>());
     
     /** Alliance counter for assigning unique alliances */
     private int nextAlliance = 1;
@@ -257,7 +258,7 @@ public class Combat {
     public Combatant getRandomTarget(Combatant attacker) {
         List<Combatant> targets = getValidTargets(attacker);
         if (targets.isEmpty()) return null;
-        return targets.get((int)(Math.random() * targets.size()));
+        return targets.get(ThreadLocalRandom.current().nextInt(targets.size()));
     }
     
     /**
@@ -277,11 +278,10 @@ public class Combat {
     /**
      * Check if a mobile instance is in this combat.
      */
-    public boolean containsMobile(String mobileInstanceId) {
-        if (mobileInstanceId == null) return false;
+    public boolean containsMobile(long mobileInstanceId) {
         for (Combatant c : combatants.values()) {
             if (c.isMobile() && c.getMobile() != null 
-                    && mobileInstanceId.equals(c.getMobile().getInstanceId())) {
+                    && mobileInstanceId == c.getMobile().getInstanceId()) {
                 return true;
             }
         }
@@ -363,10 +363,10 @@ public class Combat {
     }
     
     /**
-     * Get the initiative order for display.
+     * Get the initiative order for display (returns a snapshot for safe iteration).
      */
     public List<Combatant> getInitiativeOrder() {
-        return Collections.unmodifiableList(initiativeOrder);
+        return List.copyOf(initiativeOrder);
     }
     
     // Combat Resolution
@@ -420,10 +420,12 @@ public class Combat {
     }
     
     /**
-     * Get results from this round.
+     * Get results from this round (returns a snapshot for safe iteration).
      */
     public List<CombatResult> getRoundResults() {
-        return Collections.unmodifiableList(roundResults);
+        synchronized (roundResults) {
+            return List.copyOf(roundResults);
+        }
     }
     
     // Combat Log
@@ -586,7 +588,7 @@ public class Combat {
         
         // If no aggro data or all zero, return random target
         if (highestAggro == null || maxAggro <= 0) {
-            return validTargets.get((int)(Math.random() * validTargets.size()));
+            return validTargets.get(ThreadLocalRandom.current().nextInt(validTargets.size()));
         }
         
         return highestAggro;

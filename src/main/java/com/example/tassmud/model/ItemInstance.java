@@ -26,11 +26,9 @@ public class ItemInstance {
     public final Integer refSaveOverride;       // reflex save bonus
     public final Integer willSaveOverride;      // will save bonus
     
-    // Magic effect overrides (null = use template value)
-    public final String spellEffect1Override;   // spell effect 1 id
-    public final String spellEffect2Override;   // spell effect 2 id
-    public final String spellEffect3Override;   // spell effect 3 id
-    public final String spellEffect4Override;   // spell effect 4 id
+    // Magic effect overrides (empty = use template values)
+    /** Spell effect overrides for generated items. Empty list means use template values. */
+    public final java.util.List<String> spellEffectOverrides;
     
     // Calculated item value (for generated items)
     public final Integer valueOverride;         // gold value override
@@ -41,44 +39,17 @@ public class ItemInstance {
     // Uses remaining for usable items (-1 = unlimited, null = use template default)
     public final Integer usesRemaining;
 
-    public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt) {
-        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, null, null, 1);
-    }
+    /** Creates a new builder for constructing ItemInstance instances. */
+    public static Builder builder() { return new Builder(); }
 
-    public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt, String customName, String customDescription) {
-        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, customName, customDescription, 1);
-    }
-    
-    public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, Long containerInstanceId, long createdAt, String customName, String customDescription, int itemLevel) {
-        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, customName, customDescription, itemLevel,
-             null, null, null, null, null, null, null, null, null, null, null, null, false, null);
-    }
-    
     /**
-     * Full constructor with all stat overrides for dynamically generated items.
+     * Canonical constructor — prefer using {@link #builder()} instead of calling directly.
      */
-    public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, 
+    ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, 
                        Long containerInstanceId, long createdAt, String customName, String customDescription, int itemLevel,
                        Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
                        Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
-                       String spellEffect1Override, String spellEffect2Override, String spellEffect3Override, String spellEffect4Override,
-                       Integer valueOverride, boolean isGenerated) {
-        this(instanceId, templateId, locationRoomId, ownerCharacterId, containerInstanceId, createdAt, 
-             customName, customDescription, itemLevel,
-             baseDieOverride, multiplierOverride, abilityMultOverride,
-             armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
-             spellEffect1Override, spellEffect2Override, spellEffect3Override, spellEffect4Override,
-             valueOverride, isGenerated, null);
-    }
-    
-    /**
-     * Full constructor with all stat overrides and uses remaining.
-     */
-    public ItemInstance(long instanceId, int templateId, Integer locationRoomId, Integer ownerCharacterId, 
-                       Long containerInstanceId, long createdAt, String customName, String customDescription, int itemLevel,
-                       Integer baseDieOverride, Integer multiplierOverride, Double abilityMultOverride,
-                       Integer armorSaveOverride, Integer fortSaveOverride, Integer refSaveOverride, Integer willSaveOverride,
-                       String spellEffect1Override, String spellEffect2Override, String spellEffect3Override, String spellEffect4Override,
+                       java.util.List<String> spellEffectOverrides,
                        Integer valueOverride, boolean isGenerated, Integer usesRemaining) {
         this.instanceId = instanceId;
         this.templateId = templateId;
@@ -98,10 +69,7 @@ public class ItemInstance {
         this.fortSaveOverride = fortSaveOverride;
         this.refSaveOverride = refSaveOverride;
         this.willSaveOverride = willSaveOverride;
-        this.spellEffect1Override = spellEffect1Override;
-        this.spellEffect2Override = spellEffect2Override;
-        this.spellEffect3Override = spellEffect3Override;
-        this.spellEffect4Override = spellEffect4Override;
+        this.spellEffectOverrides = spellEffectOverrides == null ? java.util.Collections.emptyList() : java.util.Collections.unmodifiableList(new java.util.ArrayList<>(spellEffectOverrides));
         this.valueOverride = valueOverride;
         this.isGenerated = isGenerated;
         this.usesRemaining = usesRemaining;
@@ -144,24 +112,13 @@ public class ItemInstance {
         return template != null ? template.willSaveBonus : 0;
     }
     
-    public String getEffectiveSpellEffect1(ItemTemplate template) {
-        if (spellEffect1Override != null) return spellEffect1Override;
-        return template != null ? template.spellEffectId1 : null;
-    }
-    
-    public String getEffectiveSpellEffect2(ItemTemplate template) {
-        if (spellEffect2Override != null) return spellEffect2Override;
-        return template != null ? template.spellEffectId2 : null;
-    }
-    
-    public String getEffectiveSpellEffect3(ItemTemplate template) {
-        if (spellEffect3Override != null) return spellEffect3Override;
-        return template != null ? template.spellEffectId3 : null;
-    }
-    
-    public String getEffectiveSpellEffect4(ItemTemplate template) {
-        if (spellEffect4Override != null) return spellEffect4Override;
-        return template != null ? template.spellEffectId4 : null;
+    /**
+     * Get effective spell effects, merging overrides with template.
+     * Returns overrides if present, otherwise template effects.
+     */
+    public java.util.List<String> getEffectiveSpellEffects(ItemTemplate template) {
+        if (spellEffectOverrides != null && !spellEffectOverrides.isEmpty()) return spellEffectOverrides;
+        return template != null ? template.spellEffectIds : java.util.Collections.emptyList();
     }
     
     public int getEffectiveValue(ItemTemplate template) {
@@ -229,5 +186,60 @@ public class ItemInstance {
         }
         int uses = getEffectiveUsesRemaining(template);
         return uses == -1 || uses > 0; // -1 = unlimited, >0 = has charges
+    }
+
+    /** Fluent builder for {@link ItemInstance}. */
+    public static class Builder {
+        private long instanceId;
+        private int templateId;
+        private Integer locationRoomId;
+        private Integer ownerCharacterId;
+        private Long containerInstanceId;
+        private long createdAt;
+        private String customName;
+        private String customDescription;
+        private int itemLevel = 1;
+        private Integer baseDieOverride;
+        private Integer multiplierOverride;
+        private Double abilityMultOverride;
+        private Integer armorSaveOverride;
+        private Integer fortSaveOverride;
+        private Integer refSaveOverride;
+        private Integer willSaveOverride;
+        private java.util.List<String> spellEffectOverrides;
+        private Integer valueOverride;
+        private boolean isGenerated;
+        private Integer usesRemaining;
+
+        private Builder() {}
+
+        public Builder instanceId(long v) { this.instanceId = v; return this; }
+        public Builder templateId(int v) { this.templateId = v; return this; }
+        public Builder locationRoomId(Integer v) { this.locationRoomId = v; return this; }
+        public Builder ownerCharacterId(Integer v) { this.ownerCharacterId = v; return this; }
+        public Builder containerInstanceId(Long v) { this.containerInstanceId = v; return this; }
+        public Builder createdAt(long v) { this.createdAt = v; return this; }
+        public Builder customName(String v) { this.customName = v; return this; }
+        public Builder customDescription(String v) { this.customDescription = v; return this; }
+        public Builder itemLevel(int v) { this.itemLevel = v; return this; }
+        public Builder baseDieOverride(Integer v) { this.baseDieOverride = v; return this; }
+        public Builder multiplierOverride(Integer v) { this.multiplierOverride = v; return this; }
+        public Builder abilityMultOverride(Double v) { this.abilityMultOverride = v; return this; }
+        public Builder armorSaveOverride(Integer v) { this.armorSaveOverride = v; return this; }
+        public Builder fortSaveOverride(Integer v) { this.fortSaveOverride = v; return this; }
+        public Builder refSaveOverride(Integer v) { this.refSaveOverride = v; return this; }
+        public Builder willSaveOverride(Integer v) { this.willSaveOverride = v; return this; }
+        public Builder spellEffectOverrides(java.util.List<String> v) { this.spellEffectOverrides = v; return this; }
+        public Builder valueOverride(Integer v) { this.valueOverride = v; return this; }
+        public Builder isGenerated(boolean v) { this.isGenerated = v; return this; }
+        public Builder usesRemaining(Integer v) { this.usesRemaining = v; return this; }
+
+        public ItemInstance build() {
+            return new ItemInstance(instanceId, templateId, locationRoomId, ownerCharacterId,
+                containerInstanceId, createdAt, customName, customDescription, itemLevel,
+                baseDieOverride, multiplierOverride, abilityMultOverride,
+                armorSaveOverride, fortSaveOverride, refSaveOverride, willSaveOverride,
+                spellEffectOverrides, valueOverride, isGenerated, usesRemaining);
+        }
     }
 }

@@ -10,6 +10,7 @@ import com.example.tassmud.net.CommandDefinition.Category;
 import com.example.tassmud.net.CommandParser.Command;
 import com.example.tassmud.net.CommandRegistry;
 import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.persistence.DaoProvider;
 
 /**
  * Handles communication commands (say, chat, yell, whisper, groupchat)
@@ -72,7 +73,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                     if (t == null || t.trim().isEmpty()) { out.println("Usage: yell <message>"); return true; }
                     Integer roomId = rec != null ? rec.currentRoom : null;
                     if (roomId == null) { out.println("You are nowhere to yell from."); return true; }
-                    Room roomObj = dao.getRoomById(roomId);
+                    Room roomObj = DaoProvider.rooms().getRoomById(roomId);
                     if (roomObj == null) { out.println("You are nowhere to yell from."); return true; }
                     int areaId = roomObj.getAreaId();
                     ClientHandler.broadcastArea(dao, areaId, "[yell] " + ctx.handler.playerName + ": " + t);

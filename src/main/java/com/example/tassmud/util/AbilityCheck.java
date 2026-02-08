@@ -76,9 +76,8 @@ public class AbilityCheck {
         
         // Check SHIELD trait - requires shield equipped in off-hand
         if (skill.hasTrait(SkillTrait.SHIELD) && characterId != null) {
-            com.example.tassmud.persistence.CharacterDAO charDao = new com.example.tassmud.persistence.CharacterDAO();
             com.example.tassmud.persistence.ItemDAO itemDao = new com.example.tassmud.persistence.ItemDAO();
-            if (!charDao.hasShield(characterId, itemDao)) {
+            if (!com.example.tassmud.persistence.DaoProvider.equipment().hasShield(characterId, itemDao)) {
                 return CheckResult.failure(skill.getName() + " requires a shield equipped.");
             }
         }

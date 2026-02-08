@@ -71,7 +71,15 @@ public class CommandDispatcher {
         if (!handler.supports(cmdName)) {
             return false; // Handler doesn't support this command yet
         }
-        
+
+        // Pre-check: ensure character record exists before dispatching.
+        // By this point the player is logged in, so a null record indicates
+        // a transient DB issue — no need for handlers to repeat this guard.
+        if (ctx.character == null) {
+            ctx.send("You must be logged in to do that.");
+            return true; // Handled (blocked)
+        }
+
         // Execute the command
         return handler.handle(ctx);
     }

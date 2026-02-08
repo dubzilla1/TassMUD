@@ -2,6 +2,7 @@ package com.example.tassmud.model;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * A mobile (NPC/monster) that extends Character with mob-specific attributes.
@@ -53,16 +54,7 @@ public class Mobile extends GameCharacter {
             template.getMvMax(),
             template.getMvMax(), // Start at full MV
             spawnRoomId,
-            template.getStr(),
-            template.getDex(),
-            template.getCon(),
-            template.getIntel(),
-            template.getWis(),
-            template.getCha(),
-            template.getArmor(),
-            template.getFortitude(),
-            template.getReflex(),
-            template.getWill()
+            template.getStats()
         );
         
         this.instanceId = instanceId;
@@ -85,21 +77,22 @@ public class Mobile extends GameCharacter {
         this.autoflee = template.getAutoflee();
     }
     
+    /** Creates a new builder for DB-loading Mobile instances. */
+    public static DbBuilder dbBuilder() { return new DbBuilder(); }
+
     /**
      * Create a Mobile instance with explicit values (for loading from DB).
      */
-    public Mobile(long instanceId, int templateId, int level, String name, String description,
+    Mobile(long instanceId, int templateId, int level, String name, String description,
                   int hpMax, int hpCur, int mpMax, int mpCur, int mvMax, int mvCur,
                   Integer currentRoom, Integer spawnRoomId,
-                  int str, int dex, int con, int intel, int wis, int cha,
-                  int armor, int fortitude, int reflex, int will,
+                  StatBlock stats,
                   java.util.List<String> keywords, String shortDesc, List<MobileBehavior> behaviors,
                   int experienceValue, int baseDamage, int damageBonus, int attackBonus,
                   int autoflee,
                   String originUuid,
                   long spawnedAt, boolean isDead, long diedAt) {
-        super(name, 0, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom,
-              str, dex, con, intel, wis, cha, armor, fortitude, reflex, will);
+        super(name, 0, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom, stats);
         
         this.instanceId = instanceId;
         this.templateId = templateId;
@@ -207,9 +200,10 @@ public class Mobile extends GameCharacter {
     /**
      * Check if this mobile should flee (cowardly behavior at low HP).
      */
+    /** @deprecated Use {@link com.example.tassmud.combat.CombatCalculator#shouldMobFlee(Mobile)} */
+    @Deprecated
     public boolean shouldFlee() {
-        if (!isCowardly()) return false;
-        return getHpCur() < (getHpMax() / 4); // Flee at 25% HP
+        return com.example.tassmud.combat.CombatCalculator.shouldMobFlee(this);
     }
     
     /**
@@ -222,11 +216,10 @@ public class Mobile extends GameCharacter {
     /**
      * Calculate damage for an attack.
      */
+    /** @deprecated Use {@link com.example.tassmud.combat.CombatCalculator#rollMobileDamage(Mobile)} */
+    @Deprecated
     public int rollDamage() {
-        // Roll 1d(baseDamage) + damageBonus + STR modifier
-        int roll = (int) (Math.random() * baseDamage) + 1;
-        int strMod = (getStr() - 10) / 2;
-        return Math.max(1, roll + damageBonus + strMod);
+        return com.example.tassmud.combat.CombatCalculator.rollMobileDamage(this);
     }
     
     /**
@@ -235,5 +228,77 @@ public class Mobile extends GameCharacter {
     public String getRoomLine() {
         if (isDead) return null;
         return shortDesc != null ? shortDesc : getName() + " is here.";
+    }
+
+    /** Fluent builder for DB-loaded {@link Mobile} instances (34-param constructor). */
+    public static class DbBuilder {
+        private long instanceId;
+        private int templateId;
+        private int level;
+        private String name;
+        private String description;
+        private int hpMax, hpCur, mpMax, mpCur, mvMax, mvCur;
+        private Integer currentRoom;
+        private Integer spawnRoomId;
+        private int str, dex, con, intel, wis, cha;
+        private int armor, fortitude, reflex, will;
+        private java.util.List<String> keywords;
+        private String shortDesc;
+        private java.util.List<MobileBehavior> behaviors;
+        private int experienceValue, baseDamage, damageBonus, attackBonus, autoflee;
+        private String originUuid;
+        private long spawnedAt;
+        private boolean isDead;
+        private long diedAt;
+
+        private DbBuilder() {}
+
+        public DbBuilder instanceId(long v) { this.instanceId = v; return this; }
+        public DbBuilder templateId(int v) { this.templateId = v; return this; }
+        public DbBuilder level(int v) { this.level = v; return this; }
+        public DbBuilder name(String v) { this.name = v; return this; }
+        public DbBuilder description(String v) { this.description = v; return this; }
+        public DbBuilder hpMax(int v) { this.hpMax = v; return this; }
+        public DbBuilder hpCur(int v) { this.hpCur = v; return this; }
+        public DbBuilder mpMax(int v) { this.mpMax = v; return this; }
+        public DbBuilder mpCur(int v) { this.mpCur = v; return this; }
+        public DbBuilder mvMax(int v) { this.mvMax = v; return this; }
+        public DbBuilder mvCur(int v) { this.mvCur = v; return this; }
+        public DbBuilder currentRoom(Integer v) { this.currentRoom = v; return this; }
+        public DbBuilder spawnRoomId(Integer v) { this.spawnRoomId = v; return this; }
+        public DbBuilder str(int v) { this.str = v; return this; }
+        public DbBuilder dex(int v) { this.dex = v; return this; }
+        public DbBuilder con(int v) { this.con = v; return this; }
+        public DbBuilder intel(int v) { this.intel = v; return this; }
+        public DbBuilder wis(int v) { this.wis = v; return this; }
+        public DbBuilder cha(int v) { this.cha = v; return this; }
+        public DbBuilder armor(int v) { this.armor = v; return this; }
+        public DbBuilder fortitude(int v) { this.fortitude = v; return this; }
+        public DbBuilder reflex(int v) { this.reflex = v; return this; }
+        public DbBuilder will(int v) { this.will = v; return this; }
+        public DbBuilder keywords(java.util.List<String> v) { this.keywords = v; return this; }
+        public DbBuilder shortDesc(String v) { this.shortDesc = v; return this; }
+        public DbBuilder behaviors(java.util.List<MobileBehavior> v) { this.behaviors = v; return this; }
+        public DbBuilder experienceValue(int v) { this.experienceValue = v; return this; }
+        public DbBuilder baseDamage(int v) { this.baseDamage = v; return this; }
+        public DbBuilder damageBonus(int v) { this.damageBonus = v; return this; }
+        public DbBuilder attackBonus(int v) { this.attackBonus = v; return this; }
+        public DbBuilder autoflee(int v) { this.autoflee = v; return this; }
+        public DbBuilder originUuid(String v) { this.originUuid = v; return this; }
+        public DbBuilder spawnedAt(long v) { this.spawnedAt = v; return this; }
+        public DbBuilder isDead(boolean v) { this.isDead = v; return this; }
+        public DbBuilder diedAt(long v) { this.diedAt = v; return this; }
+
+        public Mobile build() {
+            StatBlock stats = new StatBlock(str, dex, con, intel, wis, cha,
+                armor, fortitude, reflex, will);
+            return new Mobile(instanceId, templateId, level, name, description,
+                hpMax, hpCur, mpMax, mpCur, mvMax, mvCur,
+                currentRoom, spawnRoomId,
+                stats,
+                keywords, shortDesc, behaviors,
+                experienceValue, baseDamage, damageBonus, attackBonus, autoflee,
+                originUuid, spawnedAt, isDead, diedAt);
+        }
     }
 }

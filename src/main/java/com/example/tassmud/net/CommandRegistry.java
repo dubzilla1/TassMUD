@@ -102,7 +102,7 @@ public class CommandRegistry {
         registerCombat("leave", "Leave your current group", Category.GROUP);
         registerCombat("disband", "Disband your group (leader only)", Category.GROUP);
         register("boot", "Boot a member from your group (leader only)", Category.GROUP);
-        registerCombat("leader", "Transfer group leadership to another member", Category.GROUP, List.of("promote"));
+        registerCombat("leader", "Transfer group leadership to another member", Category.GROUP, List.of("lead"));
         registerCombat("follow", "Start following your group leader", Category.GROUP);
         registerCombat("unfollow", "Stop following your group leader", Category.GROUP);
         

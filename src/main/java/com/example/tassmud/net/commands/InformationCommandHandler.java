@@ -1,5 +1,7 @@
 package com.example.tassmud.net.commands;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.CharacterClass;
 import com.example.tassmud.model.CharacterSkill;
@@ -95,14 +97,14 @@ public class InformationCommandHandler implements CommandHandler {
         }
         
         // Get player's level
-        CharacterClassDAO classDao = new CharacterClassDAO();
+        CharacterClassDAO classDao = DaoProvider.classes();
         Integer currentClassId = rec.currentClassId;
         int playerLevel = currentClassId != null ? classDao.getCharacterClassLevel(charId, currentClassId) : 1;
         
         // Search for target mob in the room
         String targetName = conArgs.trim().toLowerCase();
-        MobileDAO mobileDao = new MobileDAO();
-        java.util.List<Mobile> mobsInRoom = mobileDao.getMobilesInRoom(rec.currentRoom);
+        MobileDAO mobileDao = DaoProvider.mobiles();
+        java.util.List<Mobile> mobsInRoom = com.example.tassmud.util.MobileRegistry.getInstance().getByRoom(rec.currentRoom);
         
         Mobile targetMob = null;
         for (Mobile mob : mobsInRoom) {
@@ -194,12 +196,12 @@ public class InformationCommandHandler implements CommandHandler {
             return true;
         }
         
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         String searchArg = args.trim();
         String searchLower = searchArg.toLowerCase();
         
         // Get equipped items to exclude from inventory search
-        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        java.util.Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
         java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
         for (Long iid : equippedMap.values()) {
             if (iid != null) equippedInstanceIds.add(iid);
@@ -307,8 +309,8 @@ public class InformationCommandHandler implements CommandHandler {
             ArmorCategory armorCat = newTmpl.getArmorCategory();
             if (armorCat != null) {
                 String skillKey = armorCat.getSkillKey();
-                Skill armorSkill = dao.getSkillByKey(skillKey);
-                if (armorSkill == null || !dao.hasSkill(charId, armorSkill.getId())) {
+                Skill armorSkill = DaoProvider.skills().getSkillByKey(skillKey);
+                if (armorSkill == null || !DaoProvider.skills().hasSkill(charId, armorSkill.getId())) {
                     out.println("You lack proficiency in " + armorCat.getDisplayName() + " armor to use " + newItemName + ".");
                     return true;
                 }
@@ -316,8 +318,8 @@ public class InformationCommandHandler implements CommandHandler {
         }
         
         if (isShield) {
-            Skill shieldSkill = dao.getSkillByKey("shields");
-            if (shieldSkill == null || !dao.hasSkill(charId, shieldSkill.getId())) {
+            Skill shieldSkill = DaoProvider.skills().getSkillByKey("shields");
+            if (shieldSkill == null || !DaoProvider.skills().hasSkill(charId, shieldSkill.getId())) {
                 out.println("You lack proficiency with shields to use " + newItemName + ".");
                 return true;
             }
@@ -499,7 +501,7 @@ public class InformationCommandHandler implements CommandHandler {
             return true;
         }
         
-        java.util.List<CharacterSpell> knownSpells = dao.getAllCharacterSpells(charId);
+        java.util.List<CharacterSpell> knownSpells = DaoProvider.spells().getAllCharacterSpells(charId);
         if (knownSpells.isEmpty()) {
             out.println("You don't know any spells yet.");
             return true;
@@ -512,7 +514,7 @@ public class InformationCommandHandler implements CommandHandler {
         }
         
         for (CharacterSpell cs : knownSpells) {
-            Spell spellDef = dao.getSpellById(cs.getSpellId());
+            Spell spellDef = DaoProvider.spells().getSpellById(cs.getSpellId());
             if (spellDef != null) {
                 bySchool.get(spellDef.getSchool()).add(spellDef);
             }
@@ -564,7 +566,7 @@ public class InformationCommandHandler implements CommandHandler {
             return true;
         }
         
-        java.util.List<CharacterSkill> knownSkills = dao.getAllCharacterSkills(charId);
+        java.util.List<CharacterSkill> knownSkills = DaoProvider.skills().getAllCharacterSkills(charId);
         if (knownSkills.isEmpty()) {
             out.println("You don't know any skills yet.");
             return true;
@@ -573,7 +575,7 @@ public class InformationCommandHandler implements CommandHandler {
         // Build list of skill name + proficiency pairs
         java.util.List<String> skillDisplays = new java.util.ArrayList<>();
         for (CharacterSkill cs : knownSkills) {
-            Skill skillDef = dao.getSkillById(cs.getSkillId());
+            Skill skillDef = DaoProvider.skills().getSkillById(cs.getSkillId());
             if (skillDef != null) {
                 String display = String.format("%s %3d%%", skillDef.getName(), cs.getProficiency());
                 skillDisplays.add(display);
@@ -615,14 +617,14 @@ public class InformationCommandHandler implements CommandHandler {
             out.println("No character record found.");
             return true;
         }
-        ItemDAO itemDao = new ItemDAO();
+        ItemDAO itemDao = DaoProvider.items();
         if (charId == null) {
             out.println("Failed to locate your character record.");
             return true;
         }
 
         // Get equipped item instance IDs to exclude
-        java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+        java.util.Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
         java.util.Set<Long> equippedInstanceIds = new java.util.HashSet<>();
         for (Long iid : equippedMap.values()) {
             if (iid != null) equippedInstanceIds.add(iid);
@@ -682,7 +684,7 @@ public class InformationCommandHandler implements CommandHandler {
             }
             
             // Get class information
-            CharacterClassDAO classDao = new CharacterClassDAO();
+            CharacterClassDAO classDao = DaoProvider.classes();
             try {
                 classDao.loadClassesFromYamlResource("/data/classes.yaml");
             } catch (Exception ignored) {}
@@ -698,8 +700,8 @@ public class InformationCommandHandler implements CommandHandler {
             java.util.List<CharacterClassDAO.ClassProgress> allProgress = classDao.getCharacterClassProgress(charId);
             
             // Get equipment for AC and weapon damage
-            ItemDAO itemDao = new ItemDAO();
-            java.util.Map<Integer, Long> equippedMap = dao.getEquipmentMapByCharacterId(charId);
+            ItemDAO itemDao = DaoProvider.items();
+            java.util.Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
             
             // Calculate ability modifiers using totals (base + trained)
             int strTotal = rec.getStrTotal();
@@ -880,14 +882,14 @@ public class InformationCommandHandler implements CommandHandler {
             }
             
             // ═══ SKILLS ═══
-            java.util.List<CharacterSkill> knownSkills = dao.getAllCharacterSkills(charId);
+            java.util.List<CharacterSkill> knownSkills = DaoProvider.skills().getAllCharacterSkills(charId);
             if (!knownSkills.isEmpty()) {
                 sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
                 sheet.append("  [ SKILLS ]\n");
                 // Sort by name
                 java.util.List<String> skillLines = new java.util.ArrayList<>();
                 for (CharacterSkill cs : knownSkills) {
-                    Skill skillDef = dao.getSkillById(cs.getSkillId());
+                    Skill skillDef = DaoProvider.skills().getSkillById(cs.getSkillId());
                     String skillName = skillDef != null ? skillDef.getName() : "Skill #" + cs.getSkillId();
                     int prof = cs.getProficiency();
                     String profStr = prof >= 100 ? "MASTERED" : prof + "%";
@@ -906,14 +908,14 @@ public class InformationCommandHandler implements CommandHandler {
             }
             
             // ═══ SPELLS ═══
-            java.util.List<CharacterSpell> knownSpells = dao.getAllCharacterSpells(charId);
+            java.util.List<CharacterSpell> knownSpells = DaoProvider.spells().getAllCharacterSpells(charId);
             sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
             sheet.append("  [ SPELLS ]\n");
             if (!knownSpells.isEmpty()) {
                 // Group by spell level
                 java.util.Map<Integer, java.util.List<String>> spellsByLevel = new java.util.TreeMap<>();
                 for (CharacterSpell cs : knownSpells) {
-                    Spell spellDef = dao.getSpellById(cs.getSpellId());
+                    Spell spellDef = DaoProvider.spells().getSpellById(cs.getSpellId());
                     if (spellDef != null) {
                         int lvl = spellDef.getLevel();
                         spellsByLevel.computeIfAbsent(lvl, k -> new java.util.ArrayList<>());
@@ -1106,7 +1108,7 @@ public class InformationCommandHandler implements CommandHandler {
         out.println("  Players Online");
         out.println("===================================================================");
         
-        CharacterClassDAO classDao = new CharacterClassDAO();
+        CharacterClassDAO classDao = DaoProvider.classes();
         try {
             classDao.loadClassesFromYamlResource("/data/classes.yaml");
         } catch (Exception ignored) {}
@@ -1188,11 +1190,11 @@ public class InformationCommandHandler implements CommandHandler {
         
         // Get the skill key for this category (e.g., "skill_martial_weapons")
         String categorySkillKey = weaponCategory.getSkillKey();
-        Skill catSkill = dao.getSkillByKey(categorySkillKey);
+        Skill catSkill = DaoProvider.skills().getSkillByKey(categorySkillKey);
         if (catSkill == null) return false; // Skill doesn't exist in system
         
         // Check if character has this skill
-        CharacterSkill charCatSkill = dao.getCharacterSkill(characterId, catSkill.getId());
+        CharacterSkill charCatSkill = DaoProvider.skills().getCharacterSkill(characterId, catSkill.getId());
         return charCatSkill != null;
     }
     
@@ -1206,7 +1208,7 @@ public class InformationCommandHandler implements CommandHandler {
         // Check if player is indoors
         boolean isIndoors = false;
         if (roomId != null) {
-            java.util.Set<com.example.tassmud.model.RoomFlag> flags = ctx.dao.getRoomFlags(roomId);
+            java.util.Set<com.example.tassmud.model.RoomFlag> flags = DaoProvider.rooms().getRoomFlags(roomId);
             if (flags != null && flags.contains(com.example.tassmud.model.RoomFlag.INDOORS)) {
                 isIndoors = true;
             }

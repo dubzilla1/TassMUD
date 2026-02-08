@@ -1,5 +1,7 @@
 package com.example.tassmud.combat;
 
+
+import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.EquipmentSlot;
 import com.example.tassmud.model.ItemInstance;
@@ -9,7 +11,6 @@ import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.WeaponCategory;
 import com.example.tassmud.model.WeaponFamily;
 import com.example.tassmud.persistence.CharacterClassDAO;
-import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
 
 /**
@@ -33,7 +34,6 @@ public class CombatCalculator {
     private static final double MAX_SKILL_PROFICIENCY = 1.0;
     
     // Lazy-loaded DAOs (created once per calculator instance)
-    private CharacterDAO characterDAO;
     private CharacterClassDAO classDAO;
     private ItemDAO itemDAO;
     
@@ -122,7 +122,7 @@ public class CombatCalculator {
         ensureDAOs();
         
         // Get equipped main-hand weapon
-        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        Long mainHandInstanceId = DaoProvider.equipment().getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
         if (mainHandInstanceId == null) {
             // Unarmed - use minimum skill (could add unarmed skill later)
             return new CombatSkills(MIN_SKILL_PROFICIENCY, MIN_SKILL_PROFICIENCY);
@@ -149,9 +149,9 @@ public class CombatCalculator {
         
         // Get category skill
         if (weaponCategory != null) {
-            Skill catSkill = characterDAO.getSkillByKey(weaponCategory.getSkillKey());
+            Skill catSkill = DaoProvider.skills().getSkillByKey(weaponCategory.getSkillKey());
             if (catSkill != null) {
-                CharacterSkill charCatSkill = characterDAO.getCharacterSkill(characterId, catSkill.getId());
+                CharacterSkill charCatSkill = DaoProvider.skills().getCharacterSkill(characterId, catSkill.getId());
                 if (charCatSkill != null) {
                     categorySkill = charCatSkill.getProficiency() / 100.0; // Convert 0-100 to 0.0-1.0
                 }
@@ -160,9 +160,9 @@ public class CombatCalculator {
         
         // Get family skill
         if (weaponFamily != null) {
-            Skill famSkill = characterDAO.getSkillByKey(weaponFamily.getSkillKey());
+            Skill famSkill = DaoProvider.skills().getSkillByKey(weaponFamily.getSkillKey());
             if (famSkill != null) {
-                CharacterSkill charFamSkill = characterDAO.getCharacterSkill(characterId, famSkill.getId());
+                CharacterSkill charFamSkill = DaoProvider.skills().getCharacterSkill(characterId, famSkill.getId());
                 if (charFamSkill != null) {
                     familySkill = charFamSkill.getProficiency() / 100.0;
                 }
@@ -280,7 +280,7 @@ public class CombatCalculator {
         ensureDAOs();
         
         // Get equipped main-hand weapon
-        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        Long mainHandInstanceId = DaoProvider.equipment().getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
         if (mainHandInstanceId == null) {
             return true; // Unarmed - no training needed
         }
@@ -310,13 +310,13 @@ public class CombatCalculator {
         
         // Check if character has the category skill
         String categorySkillKey = weaponCategory.getSkillKey();
-        Skill catSkill = characterDAO.getSkillByKey(categorySkillKey);
+        Skill catSkill = DaoProvider.skills().getSkillByKey(categorySkillKey);
         if (catSkill == null) {
             return false; // Skill doesn't exist in the system
         }
         
         // Check if character has this skill (any proficiency means trained)
-        CharacterSkill charCatSkill = characterDAO.getCharacterSkill(characterId, catSkill.getId());
+        CharacterSkill charCatSkill = DaoProvider.skills().getCharacterSkill(characterId, catSkill.getId());
         return charCatSkill != null;
     }
     
@@ -370,14 +370,11 @@ public class CombatCalculator {
      * Ensure DAOs are initialized.
      */
     private void ensureDAOs() {
-        if (characterDAO == null) {
-            characterDAO = new CharacterDAO();
-        }
         if (classDAO == null) {
-            classDAO = new CharacterClassDAO();
+            classDAO = DaoProvider.classes();
         }
         if (itemDAO == null) {
-            itemDAO = new ItemDAO();
+            itemDAO = DaoProvider.items();
         }
     }
     
@@ -409,7 +406,7 @@ public class CombatCalculator {
         
         ensureDAOs();
         
-        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        Long mainHandInstanceId = DaoProvider.equipment().getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
         if (mainHandInstanceId == null) {
             return null; // Unarmed
         }
@@ -447,11 +444,11 @@ public class CombatCalculator {
         return false;
     }
 
-        /**
-     * Check if a combatant is using a ranged weapon.
+    /**
+     * Check if a combatant is using a magical weapon.
      * 
      * @param combatant The combatant to check
-     * @return true if using a ranged weapon (bow, crossbow, sling), false otherwise
+     * @return true if using a magical weapon, false otherwise
      */
     public boolean isUsingMagicalWeapon(Combatant combatant) {
         if (combatant == null) return false;
@@ -459,8 +456,7 @@ public class CombatCalculator {
         if (combatant.isPlayer()) {
             return isPlayerUsingMagicalWeapon(combatant.getCharacterId());
         } else if (combatant.isMobile()) {
-            // For now, mobs are assumed to be melee unless we add ranged mob support later
-            // TODO: Add ranged weapon support for mobiles
+            // TODO: Add magical weapon support for mobiles
             return false;
         }
         
@@ -476,7 +472,7 @@ public class CombatCalculator {
         ensureDAOs();
         
         // Get equipped main-hand weapon
-        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        Long mainHandInstanceId = DaoProvider.equipment().getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
         if (mainHandInstanceId == null) {
             return false; // Unarmed is melee
         }
@@ -497,7 +493,8 @@ public class CombatCalculator {
     }
     
     /**
-     * Check if a player character is using a ranged weapon.
+     * Check if a player character is using a magical weapon.
+     * A weapon is magical if it has the 'magical' flag set on its template.
      */
     private boolean isPlayerUsingMagicalWeapon(Integer characterId) {
         if (characterId == null) return false;
@@ -505,12 +502,12 @@ public class CombatCalculator {
         ensureDAOs();
         
         // Get equipped main-hand weapon
-        Long mainHandInstanceId = characterDAO.getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
+        Long mainHandInstanceId = DaoProvider.equipment().getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
         if (mainHandInstanceId == null) {
-            return false; // Unarmed is melee
+            return false; // Unarmed is not magical
         }
         
-        // Get weapon template to find family
+        // Get weapon instance and template
         ItemInstance weaponInstance = itemDAO.getInstance(mainHandInstanceId);
         if (weaponInstance == null) {
             return false;
@@ -521,8 +518,30 @@ public class CombatCalculator {
             return false;
         }
         
-        WeaponFamily weaponFamily = weaponTemplate.getWeaponFamily();
-        return weaponFamily != null && weaponFamily.isRanged();
+        return weaponTemplate.magical;
+    }
+
+    // ==================== Mobile Combat Helpers ====================
+
+    /**
+     * Roll damage for a mobile's basic attack.
+     * Rolls 1d(baseDamage) + damageBonus + STR modifier.
+     * Moved from Mobile.rollDamage() — combat logic belongs in CombatCalculator.
+     */
+    public static int rollMobileDamage(Mobile mob) {
+        int roll = java.util.concurrent.ThreadLocalRandom.current().nextInt(1, mob.getBaseDamage() + 1);
+        int strMod = (mob.getStr() - 10) / 2;
+        return Math.max(1, roll + mob.getDamageBonus() + strMod);
+    }
+
+    /**
+     * Check if a mobile should flee (cowardly behavior at low HP).
+     * Returns true if mob has COWARDLY behavior and HP < 25%.
+     * Moved from Mobile.shouldFlee() — combat decision logic belongs here.
+     */
+    public static boolean shouldMobFlee(Mobile mob) {
+        if (!mob.isCowardly()) return false;
+        return mob.getHpCur() < (mob.getHpMax() / 4);
     }
 
     /**
