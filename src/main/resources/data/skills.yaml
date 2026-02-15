@@ -569,20 +569,28 @@ skills:
   - id: 700
     key: unarmed_strike
     name: Unarmed Strike
-    description: Strike with fists and feet as effectively as any weapon.
-    progression: TRIVIAL
+    description: >-
+      Strike with fists and feet as effectively as any weapon. Unarmed damage
+      scales with level and ability scores. Monk weapons (nunchaku, kama, sai)
+      use unarmed strike damage instead of the weapon's own dice.
+    progression: INSTANT
 
   - id: 701
     key: flurry_of_blows
     name: Flurry of Blows
-    description: Unleash a rapid series of unarmed strikes.
-    progression: EASY
+    description: >
+      Channel ki to unleash a rapid series of strikes. Costs 1 ki to activate.
+      While active, you have a chance each round to strike an additional time,
+      but normal hits no longer generate ki (critical hits still do).
+    progression: AVERAGE
 
   - id: 702
     key: stunning_fist
     name: Stunning Fist
     description: Strike a pressure point to stun an opponent.
     progression: EASY
+    traits: [COMBAT]
+    cooldown: 10
 
   - id: 703
     key: deflect_missiles
@@ -626,6 +634,15 @@ skills:
     description: Achieve physical and spiritual perfection, transcending mortality.
     progression: LEGENDARY
 
+  - id: 710
+    key: ki_pool
+    name: Ki Pool
+    description: >
+      Channel inner energy through combat focus. Each time you deal damage,
+      you have a chance to gain a ki point. Critical hits guarantee ki gain.
+      Your maximum ki is determined by your wisdom modifier.
+    progression: LEGENDARY
+
   # ============================================================
   # WEAPON CATEGORY SKILLS (900-999)
   # These are passive proficiencies granted by class
@@ -646,6 +663,12 @@ skills:
     key: exotic_weapons
     name: Exotic Weapons
     description: Proficiency with exotic weapons like glaives, flails, and unusual armaments.
+    progression: INSTANT
+
+  - id: 903
+    key: monk_weapons
+    name: Monk Weapons
+    description: Proficiency with traditional monk weapons — nunchaku, kama, and sai.
     progression: INSTANT
 
   # ============================================================
@@ -722,6 +745,24 @@ skills:
     key: skill_exotic_other
     name: Exotic Other
     description: Expertise with unusual weapons that defy classification.
+    progression: NORMAL
+
+  - id: 933
+    key: skill_nunchaku
+    name: Nunchaku
+    description: Expertise with nunchaku — whirling sticks connected by chain or cord.
+    progression: NORMAL
+
+  - id: 934
+    key: skill_kama
+    name: Kama
+    description: Expertise with kama — short-handled sickles used as monk weapons.
+    progression: NORMAL
+
+  - id: 935
+    key: skill_sai
+    name: Sai
+    description: Expertise with sai — three-pronged truncheons for trapping and striking.
     progression: NORMAL
 
   # ============================================================

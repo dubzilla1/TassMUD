@@ -157,7 +157,7 @@ public class DataLoader {
                 try (InputStream in = DataLoader.class.getResourceAsStream(mercItemsPath)) {
                     if (in == null) continue;
                     itemDao.loadTemplatesFromYamlResource(mercItemsPath);
-                    logger.info("[DataLoader] Loaded MERC items from {}", mercItemsPath);
+                    logger.debug("[DataLoader] Loaded MERC items from {}", mercItemsPath);
                 } catch (Exception e) {
                     logger.warn("[DataLoader] Failed to load MERC items from {}: {}", mercItemsPath, e.getMessage());
                 }
@@ -644,6 +644,8 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("CURSED", new com.example.tassmud.effect.CursedEffect());
             // Register flying handler for FLYING effects (free movement, sector access)
             com.example.tassmud.effect.EffectRegistry.registerHandler("FLYING", new com.example.tassmud.effect.FlyingEffect());
+            // Register flurry handler for monk Flurry of Blows
+            com.example.tassmud.effect.EffectRegistry.registerHandler("flurry", new com.example.tassmud.effect.FlurryEffect());
             // UNDEAD is a flag effect - no handler needed, just presence check
 
             logger.info("Loaded {} effects from effects.yaml", count);
@@ -1207,7 +1209,7 @@ public class DataLoader {
                     // since its fields are final; only limit mapping quantity to 1 for MOBs and Objects in room.
                     int mappingQty = spawn.quantity;
                     if ((spawn.type == SpawnConfig.SpawnType.MOB || spawn.type == SpawnConfig.SpawnType.ITEM) && spawn.quantity > 1) {
-                        logger.info("[DataLoader] Limiting spawn mappings to 1 for room {} template {} (configured {})", roomId, spawn.templateId, spawn.quantity);
+                        logger.debug("[DataLoader] Limiting spawn mappings to 1 for room {} template {} (configured {})", roomId, spawn.templateId, spawn.quantity);
                         mappingQty = 1;
                     }
 

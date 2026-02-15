@@ -2,13 +2,17 @@ package com.example.tassmud.combat;
 
 
 import com.example.tassmud.persistence.DaoProvider;
+import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.Mobile;
+import com.example.tassmud.model.Skill;
 import com.example.tassmud.model.Stance;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 import com.example.tassmud.persistence.MobileDAO;
+import com.example.tassmud.persistence.SkillDAO;
+import com.example.tassmud.effect.FlurryEffect;
 import com.example.tassmud.util.TickService;
 import com.example.tassmud.util.GroupManager;
 import com.example.tassmud.util.RegenerationService;
@@ -47,6 +51,12 @@ public class CombatManager {
     /** Combat ID generator */
     private final AtomicLong combatIdGenerator = new AtomicLong(1);
     private static final Logger logger = LoggerFactory.getLogger(CombatManager.class);
+    
+    /** Ki Pool skill ID (from skills.yaml) */
+    private static final int KI_POOL_SKILL_ID = 710;
+    
+    /** Flurry of Blows skill ID (from skills.yaml) */
+    private static final int FLURRY_SKILL_ID = 701;
     
     /** Callback for sending messages to players */
     private BiConsumer<Integer, String> playerMessageCallback;
@@ -328,6 +338,18 @@ public class CombatManager {
             broadcastToRoom(combat.getRoomId(), name + " struggles against the paralysis but cannot move!");
             return;
         }
+
+        // Check for stun - completely skip turn if stunned, decrement duration
+        if (combatant.isStunned()) {
+            String name = combatant.getName();
+            boolean stillStunned = combatant.tickStun();
+            if (stillStunned) {
+                broadcastToRoom(combat.getRoomId(), name + " is stunned and unable to act!");
+            } else {
+                broadcastToRoom(combat.getRoomId(), name + " shakes off the stun and recovers!");
+            }
+            return;
+        }
         
         // Check if there are valid targets
         List<Combatant> targets = combat.getValidTargets(combatant);
@@ -387,6 +409,7 @@ public class CombatManager {
             for (CombatResult result : aoeResults) {
                 combat.addRoundResult(result);
                 messagingService.broadcastCombatResult(combat, result);
+                tryGenerateKi(combatant, result);
                 totalAoeDamage += Math.max(0, result.getDamage());
                 
                 Combatant aoeTarget = result.getTarget();
@@ -417,6 +440,9 @@ public class CombatManager {
         // Send messages based on result
         messagingService.broadcastCombatResult(combat, result);
         
+        // Ki generation for monks on successful damage
+        tryGenerateKi(combatant, result);
+        
         // Track aggro for player attackers (attacks generate 10 base + damage)
         if (combatant.isPlayer() && combatant.getCharacterId() != null) {
             combat.addAttackAggro(combatant.getCharacterId(), result.getDamage());
@@ -438,6 +464,11 @@ public class CombatManager {
         // Multi-attack only applies when using basic attack, not special abilities
         if (command == basicAttack && combatant.isAlive() && !combat.shouldEnd()) {
             processMultiAttacks(combat, combatant, target);
+        }
+        
+        // Flurry of Blows: chance of an additional attack each round
+        if (command == basicAttack && combatant.isAlive() && !combat.shouldEnd()) {
+            processFlurryAttack(combat, combatant, target);
         }
         
         // Apply end-of-turn effects (damage over time, healing, etc.)
@@ -482,6 +513,9 @@ public class CombatManager {
             // Send messages
             messagingService.broadcastCombatResult(combat, result);
             
+            // Ki generation for monks on extra attacks
+            tryGenerateKi(combatant, result);
+            
             // Track aggro for multi-attacks (same as primary: 10 base + damage)
             if (combatant.isPlayer() && combatant.getCharacterId() != null) {
                 combat.addAttackAggro(combatant.getCharacterId(), result.getDamage());
@@ -497,6 +531,67 @@ public class CombatManager {
             if (result.isDeath() || !target.isAlive()) {
                 deathHandler.handleCombatantDeath(combat, target, combatant);
             }
+        }
+    }
+    
+    /**
+     * Process a possible bonus attack from Flurry of Blows.
+     * Only triggers for player combatants who currently have the flurry effect.
+     * Chance = 25% + (flurry proficiency / 2).
+     */
+    private void processFlurryAttack(Combat combat, Combatant combatant, Combatant initialTarget) {
+        if (!combatant.isPlayer() || combatant.getCharacterId() == null) return;
+        Integer charId = combatant.getCharacterId();
+        if (!FlurryEffect.hasFlurry(charId)) return;
+        
+        // Look up flurry skill proficiency
+        SkillDAO skillDao = DaoProvider.skills();
+        CharacterSkill flurrySkill = skillDao.getCharacterSkill(charId, FLURRY_SKILL_ID);
+        if (flurrySkill == null) return;
+        
+        int proficiency = flurrySkill.getProficiency();
+        int chance = 25 + proficiency / 2;   // 25% at 1 prof → 75% at 100 prof
+        
+        if (ThreadLocalRandom.current().nextInt(100) >= chance) return; // didn't trigger
+        
+        // Pick a valid target (may have changed if initial died)
+        Combatant target = initialTarget;
+        if (!target.isAlive() || !target.isActive()) {
+            target = combat.getRandomTarget(combatant);
+        }
+        if (target == null || !combatant.isAlive() || combat.shouldEnd()) return;
+        
+        // Execute the bonus attack (no level penalty)
+        CombatResult result = basicAttack.executeWithPenalty(combatant, target, combat, 0);
+        combat.addRoundResult(result);
+        
+        // Flurry hit message
+        sendToPlayer(charId, "\u001b[1;33mYour flurry lands an extra strike!\u001b[0m");
+        messagingService.broadcastCombatResult(combat, result);
+        
+        // Ki generation (tryGenerateKi handles flurry suppression internally)
+        tryGenerateKi(combatant, result);
+        
+        // Track aggro
+        if (combatant.isPlayer() && combatant.getCharacterId() != null) {
+            combat.addAttackAggro(combatant.getCharacterId(), result.getDamage());
+        }
+        
+        // Track armor damage
+        if (result.getDamage() > 0 && target.isPlayer()) {
+            rewardService.trackArmorDamage(target, result.getDamage());
+            messagingService.syncPlayerHpToDatabase(target);
+        }
+        
+        // Check for death
+        if (result.isDeath() || !target.isAlive()) {
+            deathHandler.handleCombatantDeath(combat, target, combatant);
+        }
+        
+        // Try to improve flurry proficiency on successful extra attack
+        Skill flurryDef = skillDao.getSkillById(FLURRY_SKILL_ID);
+        if (flurryDef != null && skillDao.tryImproveSkill(charId, FLURRY_SKILL_ID, flurryDef)) {
+            sendToPlayer(charId, "\u001b[1;36mYour Flurry of Blows skill has improved!\u001b[0m");
         }
     }
     
@@ -900,6 +995,62 @@ public class CombatManager {
         combatant.clearCommandQueue();
         combatant.queueCommand(command);
         return true;
+    }
+    
+    // === Ki Generation ===
+    
+    /**
+     * Attempt to generate ki for a player combatant after dealing damage.
+     * Only triggers for monks with the Ki Pool skill.
+     *
+     * Chance = 25% + (proficiency / 2).  Critical hits guarantee ki gain.
+     * On successful generation the skill can improve (LEGENDARY curve).
+     */
+    private void tryGenerateKi(Combatant attacker, CombatResult result) {
+        if (!attacker.isPlayer() || attacker.getCharacterId() == null) return;
+        if (!result.isHit() || result.getDamage() <= 0) return;
+        
+        Integer charId = attacker.getCharacterId();
+        SkillDAO skillDao = DaoProvider.skills();
+        CharacterSkill kiSkill = skillDao.getCharacterSkill(charId, KI_POOL_SKILL_ID);
+        if (kiSkill == null) return; // not a ki user
+        
+        GameCharacter gc = attacker.getCharacter();
+        if (gc == null) return;
+        
+        // Already at max ki?
+        if (gc.getKiCur() >= gc.getKiMax()) return;
+        
+        boolean isCrit = result.getType() == CombatResult.ResultType.CRITICAL_HIT;
+        
+        // Flurry of Blows suppresses ki generation on normal hits — only crits generate ki
+        if (FlurryEffect.hasFlurry(charId) && !isCrit) return;
+        
+        boolean gained;
+        
+        if (isCrit) {
+            gained = true;
+        } else {
+            int chance = 25 + kiSkill.getProficiency() / 2; // 25% at 1 prof, 75% at 100 prof
+            gained = ThreadLocalRandom.current().nextInt(100) < chance;
+        }
+        
+        if (gained) {
+            int actual = gc.gainKi(1);
+            if (actual > 0) {
+                sendToPlayer(charId, "\u001b[1;33mYou channel your inner energy! (Ki: "
+                    + gc.getKiCur() + "/" + gc.getKiMax() + ")\u001b[0m");
+                
+                // Persist ki to DB
+                DaoProvider.characters().saveKiByName(attacker.getName(), gc.getKiMax(), gc.getKiCur());
+                
+                // Try to improve Ki Pool proficiency (LEGENDARY curve)
+                Skill kiDef = skillDao.getSkillById(KI_POOL_SKILL_ID);
+                if (kiDef != null && skillDao.tryImproveSkill(charId, KI_POOL_SKILL_ID, kiDef)) {
+                    sendToPlayer(charId, "\u001b[1;36mYour Ki Pool skill has improved!\u001b[0m");
+                }
+            }
+        }
     }
     
     // === Messaging (delegates to CombatMessagingService) ===

@@ -97,6 +97,12 @@ public class MovementCommandHandler implements CommandHandler {
                 out.println("Combat error: could not find your combatant.");
                 return true;
             }
+
+            // Cannot stand while stunned
+            if (userCombatant.isStunned()) {
+                out.println("You are too stunned to stand up!");
+                return true;
+            }
             
             if (!userCombatant.isProne()) {
                 out.println("You are already standing.");
@@ -880,7 +886,7 @@ public class MovementCommandHandler implements CommandHandler {
         }
         
         // Room name
-        out.println(room.getName());
+        out.println(com.example.tassmud.util.Colors.room(room.getName()));
         // Room description (indented with tab)
         out.println("\t" + room.getLongDesc());
         // Exits - only show available exits in order: north east south west up down
@@ -893,7 +899,7 @@ public class MovementCommandHandler implements CommandHandler {
             }
         }
         exits.append("]");
-        out.println(exits.toString());
+        out.println(com.example.tassmud.util.Colors.exit(exits.toString()));
         // Blank line
         out.println();
         // Other players in this room (before mobs and items)
@@ -940,9 +946,9 @@ public class MovementCommandHandler implements CommandHandler {
             // For now, mobs don't have invisibility effects - that could be added later
             String desc = mob.getShortDesc();
             if (desc != null && !desc.isEmpty()) {
-                out.println(desc);
+                out.println(com.example.tassmud.util.Colors.mob(desc));
             } else {
-                out.println(mob.getName() + " is here.");
+                out.println(com.example.tassmud.util.Colors.mob(mob.getName() + " is here."));
             }
 
             // (Equipment display for mobs is shown only on explicit "look <mob>" commands.)

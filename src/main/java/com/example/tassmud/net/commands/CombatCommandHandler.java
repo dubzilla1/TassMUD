@@ -82,6 +82,10 @@ public class CombatCommandHandler implements CommandHandler {
                 return meleeSkills.handleFeignCommand(ctx);
             case "infuse":
                 return meleeSkills.handleInfuseCommand(ctx);
+            case "flurry":
+                return meleeSkills.handleFlurryCommand(ctx);
+            case "stun":
+                return meleeSkills.handleStunningFistCommand(ctx);
             case "hide":
                 return rogueSkills.handleHideCommand(ctx);
             case "visible":
@@ -172,6 +176,12 @@ public class CombatCommandHandler implements CommandHandler {
         Combatant userCombatant = activeCombat.findByCharacterId(charId);
         if (userCombatant == null) {
             out.println("Combat error: could not find your combatant.");
+            return true;
+        }
+
+        // Cannot flee while stunned
+        if (userCombatant.isStunned()) {
+            out.println("You are too stunned to flee!");
             return true;
         }
 

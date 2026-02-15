@@ -161,15 +161,16 @@ try {
         $javaCommand = "`"$javaExe`""
         if ($debugArgs -ne "") { $javaCommand = "$javaCommand $debugArgs" }
         $javaCommand = "$javaCommand -jar `"$jarPath`""
-        $cmdArgs = "/c set TASSMUD_PORT=$port && $javaCommand > `"$logsDir\\server.out`" 2> `"$logsDir\\server.err`""
+        $cmdArgs = "/c set TASSMUD_PORT=$port && $javaCommand > `"$logsDir\\server.out`" 2> `"$logsDir\\jvm_stderr.log`""
         Start-Process -FilePath "cmd.exe" -ArgumentList $cmdArgs -WorkingDirectory (Get-Location) -WindowStyle Hidden | Out-Null
 
         # Give the JVM a short moment to start and write any immediate errors
         Start-Sleep -Seconds 2
 
-        # Inspect recent server.err for bind failures
+        # Inspect JVM stderr and Logback error log for bind failures
         $errText = ""
-        try { $errText = Get-Content -Path (Join-Path $logsDir "server.err") -Raw -ErrorAction SilentlyContinue } catch {}
+        try { $errText = Get-Content -Path (Join-Path $logsDir "jvm_stderr.log") -Raw -ErrorAction SilentlyContinue } catch {}
+        try { $errText += Get-Content -Path (Join-Path $logsDir "server.err") -Raw -ErrorAction SilentlyContinue } catch {}
         if ($errText -and $errText -match "Address already in use|BindException") {
             Write-Warning "Detected bind error in logs (attempt $attempt)."
             # Dump diagnostic info to help investigate which process owns the port
@@ -197,11 +198,11 @@ try {
             if ($attempt -lt $maxAttempts) { Start-Sleep -Seconds (2 * $attempt) }
         } else {
             $startedOk = $true
-            Write-Host "TassMUD server started. Logs: $logsDir\\server.out, $logsDir\\server.err"
+            Write-Host "TassMUD server started. Logs: $logsDir\\server.log (INFO+), server.err (WARN+), spawn.log"
         }
     }
     if (-not $startedOk) {
-        Write-Warning "Failed to start server after $maxAttempts attempts; inspect $logsDir\\server.err for details."
+        Write-Warning "Failed to start server after $maxAttempts attempts; inspect $logsDir\\server.err and $logsDir\\jvm_stderr.log for details."
         exit 1
     }
 } catch {

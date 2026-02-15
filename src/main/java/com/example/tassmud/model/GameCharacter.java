@@ -19,6 +19,9 @@ public class GameCharacter {
 
     private int mvMax;
     private int mvCur;
+
+    private int kiMax;
+    private int kiCur;
     // Current room (nullable)
     private Integer currentRoom;
     
@@ -45,7 +48,7 @@ public class GameCharacter {
                      int mvMax, int mvCur,
                      Integer currentRoom,
                      StatBlock stats) {
-        this(name, age, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom,
+        this(name, age, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, 0, 0, currentRoom,
              stats, Stance.STANDING);
     }
     
@@ -53,6 +56,18 @@ public class GameCharacter {
                      int hpMax, int hpCur,
                      int mpMax, int mpCur,
                      int mvMax, int mvCur,
+                     Integer currentRoom,
+                     StatBlock stats,
+                     Stance stance) {
+        this(name, age, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, 0, 0, currentRoom,
+             stats, stance);
+    }
+
+    public GameCharacter(String name, int age, String description,
+                     int hpMax, int hpCur,
+                     int mpMax, int mpCur,
+                     int mvMax, int mvCur,
+                     int kiMax, int kiCur,
                      Integer currentRoom,
                      StatBlock stats,
                      Stance stance) {
@@ -65,6 +80,8 @@ public class GameCharacter {
         this.mpCur = mpCur;
         this.mvMax = mvMax;
         this.mvCur = mvCur;
+        this.kiMax = kiMax;
+        this.kiCur = Math.min(kiCur, kiMax);
         this.currentRoom = currentRoom;
         this.str = stats.str();
         this.dex = stats.dex();
@@ -113,6 +130,31 @@ public class GameCharacter {
     public int getMvCur() { return mvCur; }
     public void setMvCur(int mvCur) { this.mvCur = Math.max(0, Math.min(mvCur, mvMax)); }
     public void setMvMax(int mvMax) { this.mvMax = Math.max(1, mvMax); }
+
+    public int getKiMax() { return kiMax; }
+    public int getKiCur() { return kiCur; }
+    public void setKiCur(int kiCur) { this.kiCur = Math.max(0, Math.min(kiCur, kiMax)); }
+    public void setKiMax(int kiMax) { this.kiMax = Math.max(0, kiMax); if (this.kiCur > this.kiMax) this.kiCur = this.kiMax; }
+
+    /**
+     * Gain ki points (capped at kiMax). Returns the number actually gained.
+     */
+    public int gainKi(int amount) {
+        if (amount <= 0 || kiMax <= 0) return 0;
+        int old = kiCur;
+        setKiCur(kiCur + amount);
+        return kiCur - old;
+    }
+
+    /**
+     * Spend ki points. Returns true if the character had enough ki.
+     */
+    public boolean spendKi(int amount) {
+        if (amount <= 0) return true;
+        if (kiCur < amount) return false;
+        setKiCur(kiCur - amount);
+        return true;
+    }
 
     public Integer getCurrentRoom() { return currentRoom; }
     public void setCurrentRoom(Integer currentRoom) { this.currentRoom = currentRoom; }
@@ -166,6 +208,9 @@ public class GameCharacter {
         baseStats.put(Stat.MP_CURRENT, (double) mpCur);
         baseStats.put(Stat.MV_MAX, (double) mvMax);
         baseStats.put(Stat.MV_CURRENT, (double) mvCur);
+
+        baseStats.put(Stat.KI_MAX, (double) kiMax);
+        baseStats.put(Stat.KI_CURRENT, (double) kiCur);
 
         baseStats.put(Stat.ARMOR, (double) armor);
         baseStats.put(Stat.FORTITUDE, (double) fortitude);
@@ -286,6 +331,12 @@ public class GameCharacter {
             case MV_CURRENT:
                 setMvCur(value);
                 break;
+            case KI_MAX:
+                setKiMax(value);
+                break;
+            case KI_CURRENT:
+                setKiCur(value);
+                break;
             case STRENGTH:
                 setStr(value);
                 break;
@@ -354,5 +405,18 @@ public class GameCharacter {
      */
     public boolean needsRegen() {
         return hpCur < hpMax || mpCur < mpMax || mvCur < mvMax;
+    }
+
+    /**
+     * Recalculate ki max based on wisdom modifier: (wis - 10) / 2, minimum 1 if monk.
+     * Call this after loading/modifying WIS to keep kiMax in sync.
+     */
+    public void recalcKiMax(boolean isMonk) {
+        if (!isMonk) {
+            setKiMax(0);
+            return;
+        }
+        int wisMod = (wis - 10) / 2;
+        setKiMax(Math.max(1, wisMod));
     }
 }

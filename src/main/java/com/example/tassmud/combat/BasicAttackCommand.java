@@ -45,6 +45,12 @@ public class BasicAttackCommand implements CombatCommand {
     /** Critical hit damage multiplier */
     private static final double CRIT_MULTIPLIER = 2.0;
     
+    /** Unarmed Strike skill ID (from skills.yaml) */
+    private static final int UNARMED_STRIKE_SKILL_ID = 700;
+    
+    /** Monk class ID */
+    private static final int MONK_CLASS_ID = 8;
+    
     /** Parry skill ID (from skills.yaml) */
     private static final int PARRY_SKILL_ID = 13;
     
@@ -246,11 +252,15 @@ public class BasicAttackCommand implements CombatCommand {
         // Calculate damage bonus from ability score
         // For weapons: use weapon's abilityScore and abilityMultiplier (from instance or template)
         // For infusions: use the infusion's specified stat
+        // For monk unarmed/monk weapons: STR + DEX + WIS mods
         // For unarmed/mobs: use default STR
         int damageBonus;
         if (infusion != null) {
             // Infusion overrides weapon ability - use infusion's stat with 1x multiplier
             damageBonus = damageStatMod;
+        } else if (shouldUseMonkUnarmedDamage(user)) {
+            // Monk unarmed strike (fists or monk weapon): Z = strMod + dexMod + wisMod
+            damageBonus = getMonkUnarmedDamageBonus(attacker);
         } else if (user.isPlayer() && user.getCharacterId() != null) {
             // Player with weapon - use weapon's ability score and multiplier
             damageBonus = getWeaponAbilityDamageBonus(user, attacker);
@@ -559,6 +569,11 @@ public class BasicAttackCommand implements CombatCommand {
             }
         }
         
+        // Monk Unarmed Strike: overrides both unarmed and monk-weapon dice notation
+        if (shouldUseMonkUnarmedDamage(attacker)) {
+            return getMonkUnarmedDiceNotation(attacker);
+        }
+        
         // For players: check equipped main-hand weapon
         if (attacker.isPlayer() && attacker.getCharacterId() != null) {
             com.example.tassmud.persistence.ItemDAO itemDAO = new com.example.tassmud.persistence.ItemDAO();
@@ -625,7 +640,7 @@ public class BasicAttackCommand implements CombatCommand {
     /**
      * Roll damage for this attacker based on equipped weapon.
      * Uses weapon's baseDie and multiplier, or mob's base damage, or 1d4 unarmed.
-     * Now correctly uses instance overrides for generated loot.
+     * Monks with Unarmed Strike use their scaling XdY formula (unarmed or monk weapons).
      */
     private int rollDamage(Combatant attacker) {
         // For mobs: use mob's base damage
@@ -634,6 +649,11 @@ public class BasicAttackCommand implements CombatCommand {
             if (baseDie > 0) {
                 return ThreadLocalRandom.current().nextInt(1, baseDie + 1) + attacker.getMobile().getDamageBonus();
             }
+        }
+        
+        // Monk Unarmed Strike: overrides both unarmed and monk-weapon dice
+        if (shouldUseMonkUnarmedDamage(attacker)) {
+            return rollMonkUnarmedDamage(attacker);
         }
         
         // For players: check equipped main-hand weapon
@@ -665,6 +685,86 @@ public class BasicAttackCommand implements CombatCommand {
         
         // Unarmed: 1d4
         return ThreadLocalRandom.current().nextInt(1, UNARMED_DIE + 1);
+    }
+    
+    // === Monk Unarmed Strike Helpers ===
+    
+    /**
+     * Check if a player combatant is a monk with the Unarmed Strike skill
+     * AND is either unarmed or wielding a monk weapon (nunchaku, kama, sai).
+     * When true, the monk's unarmed strike damage formula overrides normal weapon/unarmed dice.
+     */
+    private boolean shouldUseMonkUnarmedDamage(Combatant attacker) {
+        if (!attacker.isPlayer() || attacker.getCharacterId() == null) return false;
+        
+        // Must have Unarmed Strike skill
+        com.example.tassmud.model.CharacterSkill unarmedSkill = 
+            DaoProvider.skills().getCharacterSkill(attacker.getCharacterId(), UNARMED_STRIKE_SKILL_ID);
+        if (unarmedSkill == null) return false;
+        
+        // Check if unarmed or wielding a monk weapon
+        Long mainHandId = DaoProvider.equipment().getCharacterEquipment(attacker.getCharacterId(), 
+            com.example.tassmud.model.EquipmentSlot.MAIN_HAND.getId());
+        if (mainHandId == null) return true; // Unarmed — use monk damage
+        
+        // Wielding something — check if it's a monk weapon
+        WeaponFamily family = calculator.getEquippedWeaponFamily(attacker);
+        return family != null && family.isMonkWeapon();
+    }
+    
+    /**
+     * Get the unarmed strike die size based on level.
+     * d4 < level 10, d6 < 20, d8 < 30, d10 < 40, d12 < 50, d20 at 50+.
+     */
+    private int getMonkUnarmedDie(int level) {
+        if (level >= 50) return 20;
+        if (level >= 40) return 12;
+        if (level >= 30) return 10;
+        if (level >= 20) return 8;
+        if (level >= 10) return 6;
+        return 4;
+    }
+    
+    /**
+     * Roll monk unarmed strike damage: XdY where X = max(1, strMod + dexMod), Y = level-scaled die.
+     */
+    private int rollMonkUnarmedDamage(Combatant attacker) {
+        GameCharacter ch = attacker.getAsCharacter();
+        int strMod = (ch.getStr() - 10) / 2;
+        int dexMod = (ch.getDex() - 10) / 2;
+        int numDice = Math.max(1, strMod + dexMod);
+        int level = calculator.getCombatantLevel(attacker);
+        int die = getMonkUnarmedDie(level);
+        
+        int total = 0;
+        for (int i = 0; i < numDice; i++) {
+            total += ThreadLocalRandom.current().nextInt(1, die + 1);
+        }
+        return total;
+    }
+    
+    /**
+     * Get the monk unarmed strike dice notation (e.g. "3d8").
+     */
+    private String getMonkUnarmedDiceNotation(Combatant attacker) {
+        GameCharacter ch = attacker.getAsCharacter();
+        int strMod = (ch.getStr() - 10) / 2;
+        int dexMod = (ch.getDex() - 10) / 2;
+        int numDice = Math.max(1, strMod + dexMod);
+        int level = calculator.getCombatantLevel(attacker);
+        int die = getMonkUnarmedDie(level);
+        return numDice + "d" + die;
+    }
+    
+    /**
+     * Calculate the monk unarmed strike damage bonus (the Z component):
+     * Z = strMod + dexMod + wisMod.
+     */
+    private int getMonkUnarmedDamageBonus(GameCharacter ch) {
+        int strMod = (ch.getStr() - 10) / 2;
+        int dexMod = (ch.getDex() - 10) / 2;
+        int wisMod = (ch.getWis() - 10) / 2;
+        return strMod + dexMod + wisMod;
     }
     
     /**

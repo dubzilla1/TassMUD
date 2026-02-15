@@ -68,6 +68,9 @@ public class Combatant {
     
     /** Active status flags on this combatant (synchronized for thread safety) */
     private final Set<StatusFlag> statusFlags = Collections.synchronizedSet(EnumSet.noneOf(StatusFlag.class));
+
+    /** Number of combat rounds remaining for the STUNNED status effect (0 = not stunned) */
+    private volatile int stunRoundsRemaining = 0;
     
     /**
      * Status flags that can be applied to combatants.
@@ -482,18 +485,52 @@ public class Combatant {
     }
     
     /**
-     * Check if this combatant is stunned (cannot use skills with cooldowns).
+     * Check if this combatant is stunned (cannot attack, cast, move, or flee).
      */
     public boolean isStunned() {
         return hasStatusFlag(StatusFlag.STUNNED);
     }
-    
+
+    /**
+     * Apply a multi-round stun effect.
+     * @param rounds number of combat rounds the stun lasts
+     */
+    public void applyStun(int rounds) {
+        this.stunRoundsRemaining = Math.max(1, rounds);
+        addStatusFlag(StatusFlag.STUNNED);
+    }
+
+    /**
+     * Decrement the stun duration by one round. If the counter reaches zero,
+     * the STUNNED flag is automatically removed.
+     * @return true if still stunned after decrementing, false if stun has worn off
+     */
+    public boolean tickStun() {
+        if (stunRoundsRemaining > 0) {
+            stunRoundsRemaining--;
+            if (stunRoundsRemaining <= 0) {
+                statusFlags.remove(StatusFlag.STUNNED);
+                return false; // stun worn off
+            }
+            return true; // still stunned
+        }
+        return false;
+    }
+
+    /**
+     * Get remaining stun rounds.
+     */
+    public int getStunRoundsRemaining() {
+        return stunRoundsRemaining;
+    }
+
     /**
      * Consume the stunned status (check and remove if present).
-     * Stunned wears off after attempting to use a cooldown skill.
+     * Used for single-round stun effects (e.g., bash).
      * @return true if was stunned
      */
     public boolean consumeStunned() {
+        stunRoundsRemaining = 0;
         return statusFlags.remove(StatusFlag.STUNNED);
     }
     

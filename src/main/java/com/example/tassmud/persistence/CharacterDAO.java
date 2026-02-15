@@ -99,6 +99,9 @@ public class CharacterDAO {
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS autojunk BOOLEAN DEFAULT FALSE");
                     // Autoassist flag (auto-assist group members in combat, default true)
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS autoassist BOOLEAN DEFAULT TRUE");
+                    // Ki resource pool for monks (current and max)
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS ki_max INT DEFAULT 0");
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS ki_cur INT DEFAULT 0");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create characters table", e);
                 }
@@ -238,7 +241,7 @@ public class CharacterDAO {
     }
 
     public CharacterRecord findByName(String name) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac, autojunk, autoassist FROM characters WHERE name = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac, autojunk, autoassist, ki_max, ki_cur FROM characters WHERE name = ?";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);
@@ -257,7 +260,7 @@ public class CharacterDAO {
      * Find a character by their ID.
      */
     public CharacterRecord findById(int characterId) {
-        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac, autojunk, autoassist FROM characters WHERE id = ?";
+        String sql = "SELECT name, password_hash, salt, age, description, hp_max, hp_cur, mp_max, mp_cur, mv_max, mv_cur, str, dex, con, intel, wis, cha, armor, fortitude, reflex, will, armor_equip_bonus, fortitude_equip_bonus, reflex_equip_bonus, will_equip_bonus, current_room, current_class_id, autoflee, talent_points, trained_str, trained_dex, trained_con, trained_int, trained_wis, trained_cha, gold_pieces, autoloot, autogold, autosac, autojunk, autoassist, ki_max, ki_cur FROM characters WHERE id = ?";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, characterId);
@@ -437,16 +440,40 @@ public class CharacterDAO {
         }
     }
 
-    // Persist mutable character state: current HP/MP/MV and room
-    public boolean saveCharacterStateByName(String name, int hpCur, int mpCur, int mvCur, Integer currentRoom) {
-        String sql = "UPDATE characters SET hp_cur = ?, mp_cur = ?, mv_cur = ?, current_room = ? WHERE name = ?";
+    // Persist mutable character state: current HP/MP/MV/KI and room
+    public boolean saveCharacterStateByName(String name, int hpCur, int mpCur, int mvCur, int kiCur, Integer currentRoom) {
+        String sql = "UPDATE characters SET hp_cur = ?, mp_cur = ?, mv_cur = ?, ki_cur = ?, current_room = ? WHERE name = ?";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, hpCur);
             ps.setInt(2, mpCur);
             ps.setInt(3, mvCur);
-            if (currentRoom == null) ps.setNull(4, Types.INTEGER); else ps.setInt(4, currentRoom);
-            ps.setString(5, name);
+            ps.setInt(4, kiCur);
+            if (currentRoom == null) ps.setNull(5, Types.INTEGER); else ps.setInt(5, currentRoom);
+            ps.setString(6, name);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+    /** @deprecated Use the overload that includes kiCur. */
+    @Deprecated
+    public boolean saveCharacterStateByName(String name, int hpCur, int mpCur, int mvCur, Integer currentRoom) {
+        return saveCharacterStateByName(name, hpCur, mpCur, mvCur, 0, currentRoom);
+    }
+
+    /**
+     * Update a character's ki pool max and current values.
+     */
+    public boolean saveKiByName(String name, int kiMax, int kiCur) {
+        String sql = "UPDATE characters SET ki_max = ?, ki_cur = ? WHERE name = ?";
+        try (Connection c = TransactionManager.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, kiMax);
+            ps.setInt(2, kiCur);
+            ps.setString(3, name);
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -624,6 +651,9 @@ public class CharacterDAO {
         public final boolean autosac;   // Auto-sacrifice empty corpses (requires autoloot+autogold)
         public final boolean autojunk;
         public final boolean autoassist; // Auto-assist group members in combat
+        // Ki resource pool (monks)
+        public final int kiMax;
+        public final int kiCur;
 
         // Convenience methods to get total saves (base + equipment)
         public int getArmorTotal() { return baseStats.armor() + armorEquipBonus; }
@@ -656,7 +686,8 @@ public class CharacterDAO {
                                int trainedStr, int trainedDex, int trainedCon, int trainedInt, int trainedWis, int trainedCha,
                                long goldPieces,
                                boolean autoloot, boolean autogold, boolean autosac, boolean autojunk,
-                               boolean autoassist) {
+                               boolean autoassist,
+                               int kiMax, int kiCur) {
             this.name = name;
             this.passwordHashBase64 = passwordHashBase64;
             this.saltBase64 = saltBase64;
@@ -689,6 +720,8 @@ public class CharacterDAO {
             this.autosac = autosac;
             this.autojunk = autojunk;
             this.autoassist = autoassist;
+            this.kiMax = kiMax;
+            this.kiCur = kiCur;
         }
 
         /** Fluent builder for {@link CharacterRecord}. */
@@ -709,6 +742,7 @@ public class CharacterDAO {
             private int trainedStr, trainedDex, trainedCon, trainedInt, trainedWis, trainedCha;
             private long goldPieces;
             private boolean autoloot, autogold, autosac, autojunk, autoassist;
+            private int kiMax, kiCur;
 
             private Builder() {}
 
@@ -753,6 +787,8 @@ public class CharacterDAO {
             public Builder autosac(boolean v) { this.autosac = v; return this; }
             public Builder autojunk(boolean v) { this.autojunk = v; return this; }
             public Builder autoassist(boolean v) { this.autoassist = v; return this; }
+            public Builder kiMax(int v) { this.kiMax = v; return this; }
+            public Builder kiCur(int v) { this.kiCur = v; return this; }
 
             public CharacterRecord build() {
                 StatBlock stats = new StatBlock(str, dex, con, intel, wis, cha,
@@ -763,7 +799,8 @@ public class CharacterDAO {
                     armorEquipBonus, fortitudeEquipBonus, reflexEquipBonus, willEquipBonus,
                     currentRoom, currentClassId, autoflee,
                     talentPoints, trainedStr, trainedDex, trainedCon, trainedInt, trainedWis, trainedCha,
-                    goldPieces, autoloot, autogold, autosac, autojunk, autoassist);
+                    goldPieces, autoloot, autogold, autosac, autojunk, autoassist,
+                    kiMax, kiCur);
             }
         }
     }
@@ -800,6 +837,7 @@ public class CharacterDAO {
             .autoloot(rs.getBoolean("autoloot")).autogold(rs.getBoolean("autogold"))
             .autosac(rs.getBoolean("autosac")).autojunk(rs.getBoolean("autojunk"))
             .autoassist(rs.getBoolean("autoassist"))
+            .kiMax(rs.getInt("ki_max")).kiCur(rs.getInt("ki_cur"))
             .build();
     }
 

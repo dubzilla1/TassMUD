@@ -520,7 +520,7 @@ public class InformationCommandHandler implements CommandHandler {
             }
         }
         
-        out.println("=== Known Spells ===");
+        out.println(com.example.tassmud.util.Colors.header("=== Known Spells ==="));
         boolean anySpells = false;
         for (java.util.Map.Entry<Spell.SpellSchool, java.util.List<Spell>> entry : bySchool.entrySet()) {
             if (!entry.getValue().isEmpty()) {
@@ -586,9 +586,9 @@ public class InformationCommandHandler implements CommandHandler {
         skillDisplays.sort(String::compareToIgnoreCase);
         
         out.println();
-        out.println("===================================================================");
-        out.println("                          KNOWN SKILLS");
-        out.println("===================================================================");
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
+        out.println(com.example.tassmud.util.Colors.header("                          KNOWN SKILLS"));
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
         out.println();
         
         // Print in rows of 3, formatted nicely
@@ -600,9 +600,9 @@ public class InformationCommandHandler implements CommandHandler {
         }
         
         out.println();
-        out.println("-------------------------------------------------------------------");
+        out.println(com.example.tassmud.util.Colors.border("-------------------------------------------------------------------"));
         out.println(String.format("  Total: %d skill%s known", skillDisplays.size(), skillDisplays.size() == 1 ? "" : "s"));
-        out.println("===================================================================");
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
         out.println();
         return true;
     }
@@ -719,8 +719,8 @@ public class InformationCommandHandler implements CommandHandler {
             
             // Build the character sheet
             StringBuilder sheet = new StringBuilder();
-            String divider = "===================================================================";
-            String thinDiv = "-------------------------------------------------------------------";
+            String divider = com.example.tassmud.util.Colors.border("===================================================================");
+            String thinDivRaw = "----------------------------------------";
             
             // === HEADER ===
             sheet.append("\n").append(divider).append("\n");
@@ -731,9 +731,15 @@ public class InformationCommandHandler implements CommandHandler {
             sheet.append(divider).append("\n");
             
             // ═══ VITALS ═══
-            sheet.append("\n  [ VITALS ]\n");
-            sheet.append(String.format("  HP: %4d / %-4d    MP: %4d / %-4d    MV: %4d / %-4d\n",
-                rec.hpCur, rec.hpMax, rec.mpCur, rec.mpMax, rec.mvCur, rec.mvMax));
+            sheet.append("\n  ").append(com.example.tassmud.util.Colors.header("[ VITALS ]")).append("\n");
+            boolean isMonkClass = rec.currentClassId != null && rec.currentClassId == 8;
+            if (isMonkClass) {
+                sheet.append(String.format("  HP: %4d / %-4d    Ki: %4d / %-4d    MV: %4d / %-4d\n",
+                    rec.hpCur, rec.hpMax, rec.kiCur, rec.kiMax, rec.mvCur, rec.mvMax));
+            } else {
+                sheet.append(String.format("  HP: %4d / %-4d    MP: %4d / %-4d    MV: %4d / %-4d\n",
+                    rec.hpCur, rec.hpMax, rec.mpCur, rec.mpMax, rec.mvCur, rec.mvMax));
+            }
             
             // Stance info
             Stance playerStance = RegenerationService.getInstance().getPlayerStance(charId);
@@ -755,8 +761,8 @@ public class InformationCommandHandler implements CommandHandler {
             }
             
             // ═══ ABILITY SCORES ═══
-            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-            sheet.append("  [ ABILITY SCORES ]");
+            sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+            sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ ABILITY SCORES ]"));
             if (rec.talentPoints > 0) {
                 sheet.append("  (").append(rec.talentPoints).append(" Talent Point").append(rec.talentPoints == 1 ? "" : "s").append(")");
             }
@@ -767,16 +773,16 @@ public class InformationCommandHandler implements CommandHandler {
                 intTotal, intMod, wisTotal, wisMod, chaTotal, chaMod));
             
             // ═══ SAVES & DEFENSES ═══
-            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-            sheet.append("  [ SAVES & DEFENSES ]\n");
+            sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+            sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ SAVES & DEFENSES ]")).append("\n");
             sheet.append(String.format("  Armor: %2d (%+d equip)    Fortitude: %2d (%+d equip)\n",
                 rec.getArmorTotal(), rec.armorEquipBonus, rec.getFortitudeTotal(), rec.fortitudeEquipBonus));
             sheet.append(String.format("  Reflex: %2d (%+d equip)   Will: %2d (%+d equip)\n",
                 rec.getReflexTotal(), rec.reflexEquipBonus, rec.getWillTotal(), rec.willEquipBonus));
             
             // ═══ COMBAT ═══
-            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-            sheet.append("  [ COMBAT ]\n");
+            sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+            sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ COMBAT ]")).append("\n");
             
             // Get weapon info from hands
             Long mainHandId = equippedMap.get(EquipmentSlot.MAIN_HAND.getId());
@@ -807,15 +813,33 @@ public class InformationCommandHandler implements CommandHandler {
                         int hitBonus = statMod + levelBonus + trainedBonus;
                         String hitStr = ClientHandler.formatHitBonus(hitBonus);
                         
-                        // Damage bonus: apply damage multiplier from weapon skills
-                        // At same level with average 50% proficiency, multiplier is ~1.0
-                        // For display, just show base ability bonus (multiplier varies by opponent)
-                        int abilityDmgBonus = ClientHandler.getAbilityBonus(abilityScore, effectiveAbilityMult, rec);
-                        // Two-handed bonus for melee weapons with 1.0 multiplier
-                        if (isTwoHanded && effectiveAbilityMult <= 1.0) {
-                            abilityDmgBonus = (int) Math.floor(abilityDmgBonus * 1.5);
+                        // Check if this is a monk weapon wielded by a monk with Unarmed Strike
+                        WeaponFamily mainFamily = mainTmpl != null ? mainTmpl.getWeaponFamily() : null;
+                        CharacterSkill monkUnarmed = DaoProvider.skills().getCharacterSkill(charId, 700);
+                        boolean useMonkDmg = mainFamily != null && mainFamily.isMonkWeapon() && monkUnarmed != null;
+                        
+                        String dmgStr;
+                        if (useMonkDmg) {
+                            // Monk weapon uses unarmed strike damage: XdY + Z
+                            int numDice = Math.max(1, strMod + dexMod);
+                            int die;
+                            if (classLevel >= 50) die = 20;
+                            else if (classLevel >= 40) die = 12;
+                            else if (classLevel >= 30) die = 10;
+                            else if (classLevel >= 20) die = 8;
+                            else if (classLevel >= 10) die = 6;
+                            else die = 4;
+                            int monkDmgBonus = strMod + dexMod + wisMod;
+                            dmgStr = ClientHandler.formatDamage(numDice, die, monkDmgBonus);
+                        } else {
+                            // Normal weapon damage
+                            int abilityDmgBonus = ClientHandler.getAbilityBonus(abilityScore, effectiveAbilityMult, rec);
+                            // Two-handed bonus for melee weapons with 1.0 multiplier
+                            if (isTwoHanded && effectiveAbilityMult <= 1.0) {
+                                abilityDmgBonus = (int) Math.floor(abilityDmgBonus * 1.5);
+                            }
+                            dmgStr = ClientHandler.formatDamage(effectiveMultiplier, effectiveBaseDie, abilityDmgBonus);
                         }
-                        String dmgStr = ClientHandler.formatDamage(effectiveMultiplier, effectiveBaseDie, abilityDmgBonus);
                         String handLabel = isTwoHanded ? "Both Hands:" : "Main Hand: ";
                         String weaponName = ClientHandler.getItemDisplayName(mainInst, mainTmpl);
                         String trainedMarker = isTrained ? "" : " (untrained)";
@@ -860,17 +884,36 @@ public class InformationCommandHandler implements CommandHandler {
                 }
             }
             if (!hasWeapon) {
-                // Unarmed combat - 1d4 + STR, always trained
-                int hitBonus = strMod + levelBonus + (classLevel / 2) + 2;
-                String hitStr = ClientHandler.formatHitBonus(hitBonus);
-                String unarmedDmg = ClientHandler.formatDamage(1, 4, strMod);
-                sheet.append(String.format("  Unarmed:   %-16s  Hit: %-9s  Damage: %s\n", "Fists", hitStr, unarmedDmg));
+                // Check for Monk Unarmed Strike — scaling damage
+                CharacterSkill unarmedSkill = DaoProvider.skills().getCharacterSkill(charId, 700);
+                if (unarmedSkill != null) {
+                    // Monk unarmed damage: XdY + Z where X=max(1,strMod+dexMod), Y=level die, Z=str+dex+wis mods
+                    int numDice = Math.max(1, strMod + dexMod);
+                    int die;
+                    if (classLevel >= 50) die = 20;
+                    else if (classLevel >= 40) die = 12;
+                    else if (classLevel >= 30) die = 10;
+                    else if (classLevel >= 20) die = 8;
+                    else if (classLevel >= 10) die = 6;
+                    else die = 4;
+                    int monkDmgBonus = strMod + dexMod + wisMod;
+                    int hitBonus = strMod + levelBonus + (classLevel / 2) + 2;
+                    String hitStr = ClientHandler.formatHitBonus(hitBonus);
+                    String dmgStr = ClientHandler.formatDamage(numDice, die, monkDmgBonus);
+                    sheet.append(String.format("  Unarmed:   %-16s  Hit: %-9s  Damage: %s\n", "Unarmed Strike", hitStr, dmgStr));
+                } else {
+                    // Standard unarmed combat - 1d4 + STR
+                    int hitBonus = strMod + levelBonus + (classLevel / 2) + 2;
+                    String hitStr = ClientHandler.formatHitBonus(hitBonus);
+                    String unarmedDmg = ClientHandler.formatDamage(1, 4, strMod);
+                    sheet.append(String.format("  Unarmed:   %-16s  Hit: %-9s  Damage: %s\n", "Fists", hitStr, unarmedDmg));
+                }
             }
             
             // ═══ CLASS PROGRESSION ═══
             if (!allProgress.isEmpty()) {
-                sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-                sheet.append("  [ CLASS PROGRESSION ]\n");
+                sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+                sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ CLASS PROGRESSION ]")).append("\n");
                 for (CharacterClassDAO.ClassProgress cp : allProgress) {
                     CharacterClass cls = classDao.getClassById(cp.classId);
                     String className = cls != null ? cls.name : "Unknown";
@@ -884,8 +927,8 @@ public class InformationCommandHandler implements CommandHandler {
             // ═══ SKILLS ═══
             java.util.List<CharacterSkill> knownSkills = DaoProvider.skills().getAllCharacterSkills(charId);
             if (!knownSkills.isEmpty()) {
-                sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-                sheet.append("  [ SKILLS ]\n");
+                sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+                sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ SKILLS ]")).append("\n");
                 // Sort by name
                 java.util.List<String> skillLines = new java.util.ArrayList<>();
                 for (CharacterSkill cs : knownSkills) {
@@ -903,14 +946,14 @@ public class InformationCommandHandler implements CommandHandler {
                     sheet.append(String.format("  %s  %s\n", col1, col2));
                 }
             } else {
-                sheet.append("\n  [ SKILLS ]\n");
+                sheet.append("\n  ").append(com.example.tassmud.util.Colors.header("[ SKILLS ]")).append("\n");
                 sheet.append("  No skills learned yet.\n");
             }
             
             // ═══ SPELLS ═══
             java.util.List<CharacterSpell> knownSpells = DaoProvider.spells().getAllCharacterSpells(charId);
-            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-            sheet.append("  [ SPELLS ]\n");
+            sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+            sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ SPELLS ]")).append("\n");
             if (!knownSpells.isEmpty()) {
                 // Group by spell level
                 java.util.Map<Integer, java.util.List<String>> spellsByLevel = new java.util.TreeMap<>();
@@ -934,8 +977,8 @@ public class InformationCommandHandler implements CommandHandler {
             }
             
             // ═══ AUTO SETTINGS ═══
-            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-            sheet.append("  [ AUTO SETTINGS ]\n");
+            sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+            sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ AUTO SETTINGS ]")).append("\n");
             int autoflee = rec.autoflee;
             if (autoflee > 0) {
                 sheet.append(String.format("  Autoflee: %d%% HP\n", autoflee));
@@ -946,8 +989,8 @@ public class InformationCommandHandler implements CommandHandler {
                 rec.autoloot ? "ON" : "OFF", rec.autogold ? "ON" : "OFF", rec.autosac ? "ON" : "OFF", rec.autojunk ? "ON" : "OFF"));
             
             // ═══ ACTIVE EFFECTS ═══
-            sheet.append("\n  ").append(thinDiv.substring(0, 40)).append("\n");
-            sheet.append("  [ ACTIVE EFFECTS ]\n");
+            sheet.append("\n  ").append(com.example.tassmud.util.Colors.border(thinDivRaw)).append("\n");
+            sheet.append("  ").append(com.example.tassmud.util.Colors.header("[ ACTIVE EFFECTS ]")).append("\n");
             // Attempt to get live modifiers (combat) else load from DB
             java.util.List<com.example.tassmud.model.Modifier> activeMods = new java.util.ArrayList<>();
             com.example.tassmud.combat.Combatant combatant = com.example.tassmud.combat.CombatManager.getInstance().getCombatantForCharacter(charId);
@@ -1052,9 +1095,9 @@ public class InformationCommandHandler implements CommandHandler {
      */
     private void displayHelpCommandList(boolean isGm, PrintWriter out) {
         out.println();
-        out.println("===================================================================");
-        out.println("                        AVAILABLE COMMANDS");
-        out.println("===================================================================");
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
+        out.println(com.example.tassmud.util.Colors.header("                        AVAILABLE COMMANDS"));
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
         
         // Display commands by category from the registry
         for (CommandDefinition.Category category : CommandDefinition.Category.values()) {
@@ -1067,7 +1110,7 @@ public class InformationCommandHandler implements CommandHandler {
             if (cmds.isEmpty()) continue;
             
             out.println();
-            out.println("  [ " + category.getDisplayName() + " ]");
+            out.println("  " + com.example.tassmud.util.Colors.header("[ " + category.getDisplayName() + " ]"));
             
             // Collect display names
             java.util.List<String> displayNames = new java.util.ArrayList<>();
@@ -1085,9 +1128,9 @@ public class InformationCommandHandler implements CommandHandler {
         }
         
         out.println();
-        out.println("-------------------------------------------------------------------");
+        out.println(com.example.tassmud.util.Colors.border("-------------------------------------------------------------------"));
         out.println("  Type 'help <command>' for detailed information on any command.");
-        out.println("===================================================================");
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
         out.println();
     }
 
@@ -1104,9 +1147,9 @@ public class InformationCommandHandler implements CommandHandler {
         String name = ctx.playerName;
 
         out.println();
-        out.println("===================================================================");
-        out.println("  Players Online");
-        out.println("===================================================================");
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
+        out.println(com.example.tassmud.util.Colors.header("  Players Online"));
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
         
         CharacterClassDAO classDao = DaoProvider.classes();
         try {
@@ -1163,9 +1206,9 @@ public class InformationCommandHandler implements CommandHandler {
             count++;
         }
         
-        out.println("-------------------------------------------------------------------");
+        out.println(com.example.tassmud.util.Colors.border("-------------------------------------------------------------------"));
         out.println(String.format("  %d player%s online", count, count == 1 ? "" : "s"));
-        out.println("===================================================================");
+        out.println(com.example.tassmud.util.Colors.border("==================================================================="));
         out.println();
 
         return true;

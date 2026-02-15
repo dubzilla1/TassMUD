@@ -478,7 +478,7 @@ public class ClientHandler implements Runnable {
                 CharacterRecord rec = dao.findByName(playerName);
                 String prompt = formatPrompt(promptFormat, rec, dao);
                 o.println();  // blank line for visual separation
-                o.print(prompt);
+                o.print(com.example.tassmud.util.Colors.prompt(prompt));
                 o.flush();
             }
         } catch (Exception ignored) {}
@@ -580,6 +580,8 @@ public class ClientHandler implements Runnable {
                 case 'M': out.append(rec != null ? Integer.toString(rec.mpMax) : "0"); break;
                 case 'v': out.append(rec != null ? Integer.toString(rec.mvCur) : "0"); break;
                 case 'V': out.append(rec != null ? Integer.toString(rec.mvMax) : "0"); break;
+                case 'k': out.append(rec != null ? Integer.toString(rec.kiCur) : "0"); break;
+                case 'K': out.append(rec != null ? Integer.toString(rec.kiMax) : "0"); break;
                 case 'c': out.append(rec != null && rec.name != null ? rec.name : "<nochar>"); break;
                 case 'r': {
                     String rn = "<nowhere>";
@@ -665,16 +667,28 @@ public class ClientHandler implements Runnable {
             String name = this.playerName;
             CharacterRecord rec = dao.findByName(name);
             
+            // Monks use ki in their prompt instead of mp
+            if (rec != null && rec.currentClassId != null && rec.currentClassId == 8) {
+                this.promptFormat = "<%h/%Hhp %k/%Kki %v/%Vmv> ";
+                // Ensure ki max is initialized from wisdom modifier on login
+                if (rec.kiMax <= 0) {
+                    int wisMod = (rec.getWisTotal() - 10) / 2;
+                    int newKiMax = Math.max(1, wisMod);
+                    dao.saveKiByName(name, newKiMax, Math.min(rec.kiCur, newKiMax));
+                    rec = dao.findByName(name); // refresh
+                }
+            }
+            
             while (true) {
                 // print blank line before prompt for cleaner separation
                 out.println();
                 // print formatted prompt (reload rec to get fresh vitals)
                 try {
                     rec = dao.findByName(name);
-                    out.print(formatPrompt(promptFormat, rec, dao));
+                    out.print(com.example.tassmud.util.Colors.prompt(formatPrompt(promptFormat, rec, dao)));
                     out.flush();
                 } catch (Exception e) {
-                    out.print("> "); out.flush();
+                    out.print(com.example.tassmud.util.Colors.prompt("> ")); out.flush();
                 }
 
                 String line = in.readLine();
@@ -718,7 +732,12 @@ public class ClientHandler implements Runnable {
                 }
             }
         } catch (IOException e) {
-            logger.warn("Client connection error: {}", e.getMessage(), e);
+            if (isClientDisconnect(e)) {
+                String who = (playerName != null) ? playerName : socket.getRemoteSocketAddress().toString();
+                logger.info("Client disconnected: {} ({})", who, e.getMessage());
+            } else {
+                logger.warn("Client connection error: {}", e.getMessage(), e);
+            }
         } catch (Exception e) {
             logger.error("Generic error: {}", e.getMessage(), e);
         } finally {
@@ -729,7 +748,7 @@ public class ClientHandler implements Runnable {
                     // Persist vitals/state
                     CharacterDAO.CharacterRecord latest = dao.findById(characterId);
                     if (latest != null) {
-                        dao.saveCharacterStateByName(latest.name, latest.hpCur, latest.mpCur, latest.mvCur, latest.currentRoom);
+                        dao.saveCharacterStateByName(latest.name, latest.hpCur, latest.mpCur, latest.mvCur, latest.kiCur, latest.currentRoom);
                     }
 
                     // If in combat, try to persist modifiers from the combatant's Character instance
@@ -754,6 +773,25 @@ public class ClientHandler implements Runnable {
                 socket.close();
             } catch (IOException ignored) {}
         }
+    }
+
+    /**
+     * Returns true if the IOException is a routine client disconnect
+     * (socket closed, connection reset, broken pipe, etc.) rather than
+     * an unexpected I/O failure worth investigating.
+     */
+    private static boolean isClientDisconnect(IOException e) {
+        if (e instanceof java.net.SocketException || e instanceof java.io.EOFException) {
+            return true;
+        }
+        String msg = e.getMessage();
+        if (msg == null) return false;
+        String lower = msg.toLowerCase();
+        return lower.contains("connection reset")
+            || lower.contains("socket closed")
+            || lower.contains("broken pipe")
+            || lower.contains("connection aborted")
+            || lower.contains("stream closed");
     }
 
     // =========================================================================

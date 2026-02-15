@@ -12,7 +12,8 @@ public enum WeaponCategory {
     SIMPLE("Simple", "simple_weapons"),
     MARTIAL("Martial", "martial_weapons"),
     EXOTIC("Exotic", "exotic_weapons"),
-    MAGICAL("Magical", "magical_weapons");
+    MAGICAL("Magical", "magical_weapons"),
+    MONK("Monk", "monk_weapons");
     
     private final String displayName;
     private final String skillKey;

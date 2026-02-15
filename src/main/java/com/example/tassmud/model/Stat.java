@@ -30,5 +30,10 @@ public enum Stat {
     SPELL_DAMAGE_REDUCTION,
     
     /** Reduces the natural roll needed for a critical hit (default 0, so crit on 20; -1 means crit on 19+) */
-    CRITICAL_THRESHOLD_BONUS
+    CRITICAL_THRESHOLD_BONUS,
+
+    /** Maximum ki points (monk resource pool, derived from wisdom modifier) */
+    KI_MAX,
+    /** Current ki points */
+    KI_CURRENT
 }

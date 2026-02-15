@@ -1112,6 +1112,54 @@ items:
     weapon_family: GLAIVES
 
   # ============================================================
+  # MONK WEAPONS - Use unarmed strike damage for monks
+  # ============================================================
+  - id: 999255
+    key: nunchaku
+    name: Nunchaku
+    description: Two short sticks connected by a chain, wielded with blinding speed.
+    weight: 1.0
+    value: 12
+    type: weapon
+    hands: 1
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+    weapon_category: MONK
+    weapon_family: NUNCHAKU
+
+  - id: 999256
+    key: kama
+    name: Kama
+    description: A short-handled sickle used as a monk weapon for sweeping attacks.
+    weight: 1.0
+    value: 10
+    type: weapon
+    hands: 1
+    base_die: 6
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+    weapon_category: MONK
+    weapon_family: KAMA
+
+  - id: 999257
+    key: sai
+    name: Sai
+    description: A three-pronged truncheon designed for trapping blades and striking vital points.
+    weight: 0.8
+    value: 15
+    type: weapon
+    hands: 1
+    base_die: 4
+    multiplier: 1
+    ability_score: dexterity
+    ability_multiplier: 1.0
+    weapon_category: MONK
+    weapon_family: SAI
+
+  # ============================================================
   # SHIELDS - Equipped in off-hand
   # ============================================================
   - id: 999260

@@ -229,7 +229,7 @@ public class ItemDAO {
             }
             @SuppressWarnings("unchecked")
             List<Map<String, Object>> items = (List<Map<String, Object>>) itemsObj;
-            logger.info("[ItemDAO] Parsing {} items from {}", items.size(), resourcePath);
+            logger.debug("[ItemDAO] Parsing {} items from {}", items.size(), resourcePath);
             for (Map<String, Object> item : items) {
                 int id = parseIntSafe(item.get("id"));
                 String name = str(item.get("name"));
@@ -470,7 +470,7 @@ public class ItemDAO {
                         ps.executeBatch();
                         c.commit();
                     }
-                    logger.info("[ItemDAO] Batch processed {} items from YAML", batchCount);
+                    logger.debug("[ItemDAO] Batch processed {} items from YAML", batchCount);
                 }
 
                 // Final count log

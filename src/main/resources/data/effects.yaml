@@ -703,3 +703,18 @@ effects:
       stat: ATTACK_HIT_BONUS
       op: ADD
       value: -5
+
+  # ========== MONK EFFECTS ==========
+
+  - id: "flurry"
+    name: "Flurry of Blows"
+    type: CUSTOM
+    duration: 10
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params: {}

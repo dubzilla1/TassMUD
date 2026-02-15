@@ -49,6 +49,17 @@ class SpellCastHandler {
             out.println("Failed to locate your character record.");
             return true;
         }
+
+        // Cannot cast spells while stunned
+        CombatManager stunCheckMgr = CombatManager.getInstance();
+        Combat stunCheckCombat = stunCheckMgr.getCombatForCharacter(charId);
+        if (stunCheckCombat != null) {
+            Combatant stunCheckCombatant = stunCheckCombat.findByCharacterId(charId);
+            if (stunCheckCombatant != null && stunCheckCombatant.isStunned()) {
+                out.println("You are too stunned to cast spells!");
+                return true;
+            }
+        }
         
         // Get all spells the character knows
         java.util.List<CharacterSpell> knownSpells = DaoProvider.spells().getAllCharacterSpells(charId);

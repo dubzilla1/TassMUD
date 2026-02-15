@@ -124,7 +124,12 @@ public class CombatCalculator {
         // Get equipped main-hand weapon
         Long mainHandInstanceId = DaoProvider.equipment().getCharacterEquipment(characterId, EquipmentSlot.MAIN_HAND.getId());
         if (mainHandInstanceId == null) {
-            // Unarmed - use minimum skill (could add unarmed skill later)
+            // Unarmed — check for Unarmed Strike skill (monks)
+            CharacterSkill unarmedSkill = DaoProvider.skills().getCharacterSkill(characterId, 700);
+            if (unarmedSkill != null) {
+                double prof = unarmedSkill.getProficiency() / 100.0;
+                return new CombatSkills(prof, prof);
+            }
             return new CombatSkills(MIN_SKILL_PROFICIENCY, MIN_SKILL_PROFICIENCY);
         }
         

@@ -318,7 +318,11 @@ classes:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
       - level: 1
+        skill_id: 903  # monk weapons
+      - level: 1
         skill_id: 700  # unarmed strike
+      - level: 1
+        skill_id: 710  # ki pool
       - level: 1
         skill_id: 950  # cloth armor
       - level: 3
@@ -329,8 +333,6 @@ classes:
         skill_id: 702  # stunning fist
       - level: 15
         skill_id: 703  # deflect missiles
-      - level: 20
-        skill_id: 704  # slow fall
       - level: 20
         skill_id: 954  # unarmored
       - level: 25

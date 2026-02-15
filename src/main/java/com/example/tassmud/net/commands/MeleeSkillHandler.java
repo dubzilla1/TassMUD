@@ -1376,4 +1376,272 @@ class MeleeSkillHandler {
         }
         return true;
     }
+
+    // ── Flurry of Blows (Monk ki skill) ────────────────────────────
+
+    private static final int FLURRY_SKILL_ID = 701;
+
+    boolean handleFlurryCommand(CommandContext ctx) {
+        String name = ctx.playerName;
+        CharacterDAO dao = ctx.dao;
+        PrintWriter out = ctx.out;
+        CharacterRecord rec = dao.findByName(name);
+
+        if (rec == null) {
+            out.println("You must be logged in to use flurry.");
+            return true;
+        }
+        Integer charId = ctx.characterId;
+        if (charId == null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+
+        // Look up the flurry skill
+        Skill flurrySkill = DaoProvider.skills().getSkillById(FLURRY_SKILL_ID);
+        if (flurrySkill == null) {
+            out.println("Flurry of Blows skill not found in database.");
+            return true;
+        }
+
+        CharacterSkill charFlurry = DaoProvider.skills().getCharacterSkill(charId, FLURRY_SKILL_ID);
+        if (charFlurry == null) {
+            out.println("You don't know how to use Flurry of Blows.");
+            return true;
+        }
+
+        // Check cooldown and combat traits
+        com.example.tassmud.util.AbilityCheck.CheckResult flurryCheck =
+            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, flurrySkill);
+        if (flurryCheck.isFailure()) {
+            out.println(flurryCheck.getFailureMessage());
+            return true;
+        }
+
+        // Check for curse effect
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your focus! Your ki dissipates.\u001B[0m");
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId,
+                rec.name + " attempts to channel ki but dark energy disrupts their focus!");
+            return true;
+        }
+
+        // Must be in combat
+        CombatManager combatMgr = CombatManager.getInstance();
+        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+        if (activeCombat == null) {
+            out.println("You must be in combat to use Flurry of Blows.");
+            return true;
+        }
+
+        Combatant userCombatant = activeCombat.findByCharacterId(charId);
+        if (userCombatant == null) {
+            out.println("Combat error: could not find your combatant.");
+            return true;
+        }
+
+        // Check & spend ki
+        com.example.tassmud.model.GameCharacter gc = userCombatant.getCharacter();
+        if (gc == null || gc.getKiCur() < 1) {
+            out.println("You do not have enough ki. (Need 1, have " + (gc != null ? gc.getKiCur() : 0) + ")");
+            return true;
+        }
+        gc.spendKi(1);
+        DaoProvider.characters().saveKiByName(name, gc.getKiMax(), gc.getKiCur());
+
+        // Apply the flurry effect (handles messaging internally)
+        int proficiency = charFlurry.getProficiency();
+        java.util.Map<String, String> params = new java.util.HashMap<>();
+        params.put("proficiency", String.valueOf(proficiency));
+        com.example.tassmud.effect.EffectRegistry.apply(
+            com.example.tassmud.effect.FlurryEffect.EFFECT_FLURRY, charId, charId, params);
+
+        // Send ki update to player
+        out.println("\u001B[1;33mKi: " + gc.getKiCur() + "/" + gc.getKiMax() + "\u001B[0m");
+
+        // Proficiency improvement
+        com.example.tassmud.util.SkillExecution.Result skillResult =
+            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                name, charId, flurrySkill, charFlurry, dao, true);
+
+        ctx.handler.sendDebug("Flurry proficiency check:");
+        ctx.handler.sendDebug("  Current proficiency: " + charFlurry.getProficiency() + "%");
+        ctx.handler.sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
+        if (skillResult.getProficiencyResult() != null) {
+            ctx.handler.sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency()
+                + " -> New prof: " + skillResult.getProficiencyResult().getNewProficiency());
+        }
+
+        if (skillResult.didProficiencyImprove()) {
+            out.println(skillResult.getProficiencyMessage());
+        }
+        return true;
+    }
+
+    // ── Stunning Fist (Monk ki skill) ────────────────────────────────
+
+    private static final int STUNNING_FIST_SKILL_ID = 702;
+
+    boolean handleStunningFistCommand(CommandContext ctx) {
+        String name = ctx.playerName;
+        CharacterDAO dao = ctx.dao;
+        PrintWriter out = ctx.out;
+        CharacterRecord rec = dao.findByName(name);
+
+        if (rec == null) {
+            out.println("You must be logged in to use stunning fist.");
+            return true;
+        }
+        Integer charId = ctx.characterId;
+        if (charId == null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+
+        // Look up the stunning fist skill (id=702)
+        Skill stunSkill = DaoProvider.skills().getSkillById(STUNNING_FIST_SKILL_ID);
+        if (stunSkill == null) {
+            out.println("Stunning Fist skill not found in database.");
+            return true;
+        }
+
+        // Check if character knows the skill
+        CharacterSkill charStun = DaoProvider.skills().getCharacterSkill(charId, STUNNING_FIST_SKILL_ID);
+        if (charStun == null) {
+            out.println("You don't know how to use Stunning Fist.");
+            return true;
+        }
+
+        // Check cooldown and combat traits using unified check
+        com.example.tassmud.util.AbilityCheck.CheckResult stunCheck =
+            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, stunSkill);
+        if (stunCheck.isFailure()) {
+            out.println(stunCheck.getFailureMessage());
+            return true;
+        }
+
+        // Check for curse effect - may cause skill to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            out.println("\u001B[35mThe curse disrupts your focus! Your stunning fist goes wide.\u001B[0m");
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId,
+                rec.name + " attempts a pressure point strike but dark energy disrupts their focus!");
+            return true;
+        }
+
+        // Must be in combat
+        CombatManager combatMgr = CombatManager.getInstance();
+        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+        if (activeCombat == null) {
+            out.println("You must be in combat to use Stunning Fist.");
+            return true;
+        }
+
+        Combatant userCombatant = activeCombat.findByCharacterId(charId);
+        if (userCombatant == null) {
+            out.println("Combat error: could not find your combatant.");
+            return true;
+        }
+
+        // Check & spend ALL ki (minimum 1)
+        com.example.tassmud.model.GameCharacter gc = userCombatant.getCharacter();
+        if (gc == null || gc.getKiCur() < 1) {
+            out.println("You do not have enough ki. (Need at least 1, have " + (gc != null ? gc.getKiCur() : 0) + ")");
+            return true;
+        }
+        int kiSpent = gc.getKiCur();
+        gc.spendKi(kiSpent);
+        DaoProvider.characters().saveKiByName(name, gc.getKiMax(), gc.getKiCur());
+
+        // Find opponent (first combatant on different alliance)
+        Combatant targetCombatant = null;
+        for (Combatant c : activeCombat.getCombatants()) {
+            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                targetCombatant = c;
+                break;
+            }
+        }
+
+        if (targetCombatant == null) {
+            out.println("You have no opponent to strike.");
+            return true;
+        }
+
+        // Get levels for opposed check
+        CharacterClassDAO stunClassDao = DaoProvider.classes();
+        int userLevel = rec.currentClassId != null ? stunClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+        int targetLevel;
+        if (targetCombatant.isPlayer()) {
+            Integer targetCharId = targetCombatant.getCharacterId();
+            CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+            targetLevel = targetRec != null && targetRec.currentClassId != null
+                ? stunClassDao.getCharacterClassLevel(targetCharId, targetRec.currentClassId) : 1;
+        } else {
+            Mobile targetMob = targetCombatant.getMobile();
+            targetLevel = targetMob != null ? targetMob.getLevel() : 1;
+        }
+
+        // Perform opposed check with proficiency (same formula as kick)
+        int roll = ThreadLocalRandom.current().nextInt(1, 101);
+        int proficiency = charStun.getProficiency();
+        int successChance = com.example.tassmud.util.OpposedCheck.getSuccessPercentWithProficiency(userLevel, targetLevel, proficiency);
+
+        String targetName = targetCombatant.getName();
+        boolean stunSucceeded = roll <= successChance;
+
+        if (stunSucceeded) {
+            // Stun duration: 1d(kiSpent) rounds
+            int stunDuration = ThreadLocalRandom.current().nextInt(1, kiSpent + 1);
+            targetCombatant.applyStun(stunDuration);
+
+            out.println("\u001B[1;33mYou channel " + kiSpent + " ki into a devastating pressure point strike!\u001B[0m");
+            out.println("\u001B[1;31m" + targetName + " is stunned for " + stunDuration + " round" + (stunDuration != 1 ? "s" : "") + "!\u001B[0m");
+
+            // Notify the opponent if they're a player
+            if (targetCombatant.isPlayer()) {
+                Integer targetCharId = targetCombatant.getCharacterId();
+                ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
+                if (targetHandler != null) {
+                    targetHandler.out.println("\u001B[1;31m" + name + " strikes a pressure point! You are stunned!\u001B[0m");
+                }
+            }
+
+            // Room announcement
+            ClientHandler.broadcastRoomMessage(ctx.currentRoomId,
+                name + " channels ki into a devastating pressure point strike, stunning " + targetName + "!");
+        } else {
+            // Miss
+            out.println("\u001B[1;33mYou channel " + kiSpent + " ki into a pressure point strike, but miss!\u001B[0m");
+
+            // Notify the opponent if they're a player
+            if (targetCombatant.isPlayer()) {
+                Integer targetCharId = targetCombatant.getCharacterId();
+                ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
+                if (targetHandler != null) {
+                    targetHandler.out.println(name + " attempts a pressure point strike but misses.");
+                }
+            }
+        }
+
+        // Send ki update to player
+        out.println("\u001B[1;33mKi: " + gc.getKiCur() + "/" + gc.getKiMax() + "\u001B[0m");
+
+        // Use unified skill execution to apply cooldown and check proficiency growth
+        com.example.tassmud.util.SkillExecution.Result skillResult =
+            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                name, charId, stunSkill, charStun, dao, stunSucceeded);
+
+        // Debug channel output
+        ctx.handler.sendDebug("Stunning Fist check:");
+        ctx.handler.sendDebug("  Ki spent: " + kiSpent);
+        ctx.handler.sendDebug("  Roll: " + roll + " vs " + successChance + " (user L" + userLevel + " vs target L" + targetLevel + ", prof " + proficiency + "%)");
+        ctx.handler.sendDebug("  Result: " + (stunSucceeded ? "HIT" : "MISS"));
+        ctx.handler.sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
+        if (skillResult.getProficiencyResult() != null) {
+            ctx.handler.sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency()
+                + " -> New prof: " + skillResult.getProficiencyResult().getNewProficiency());
+        }
+
+        if (skillResult.didProficiencyImprove()) {
+            out.println(skillResult.getProficiencyMessage());
+        }
+        return true;
+    }
 }

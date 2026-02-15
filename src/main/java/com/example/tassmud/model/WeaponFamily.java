@@ -44,7 +44,12 @@ public enum WeaponFamily {
     // Magical weapon families
     WANDS(WeaponCategory.MAGICAL, "Wands", "skill_wands"),
     ORBS(WeaponCategory.MAGICAL, "Orbs", "skill_orbs"),
-    WIZSTAVES(WeaponCategory.MAGICAL, "Wizard Staves", "skill_wizard_staves");
+    WIZSTAVES(WeaponCategory.MAGICAL, "Wizard Staves", "skill_wizard_staves"),
+    
+    // Monk weapon families
+    NUNCHAKU(WeaponCategory.MONK, "Nunchaku", "skill_nunchaku"),
+    KAMA(WeaponCategory.MONK, "Kama", "skill_kama"),
+    SAI(WeaponCategory.MONK, "Sai", "skill_sai");
     
     private final WeaponCategory category;
     private final String displayName;
@@ -76,6 +81,14 @@ public enum WeaponFamily {
     
     public boolean isMagical() {
         return this == WANDS || this == ORBS || this == WIZSTAVES;
+    }
+    
+    /**
+     * Check if this weapon family is a monk weapon.
+     * Monk weapons use unarmed strike damage instead of weapon dice.
+     */
+    public boolean isMonkWeapon() {
+        return this == NUNCHAKU || this == KAMA || this == SAI;
     }
     /**
      * Get the skill key for this weapon family (e.g., "skill_swords").

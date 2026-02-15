@@ -73,11 +73,13 @@ public class CombatMessagingService {
         for (Object[] entry : DAMAGE_VERBS) {
             int threshold = (Integer) entry[0];
             if (damage <= threshold) {
-                return singular ? (String) entry[1] : (String) entry[2];
+                String verb = singular ? (String) entry[1] : (String) entry[2];
+                return com.example.tassmud.util.Colors.dmgVerb(verb, damage);
             }
         }
         // Damage exceeds all thresholds
-        return singular ? DAMAGE_VERB_MAX_SINGULAR : DAMAGE_VERB_MAX_PLURAL;
+        String verb = singular ? DAMAGE_VERB_MAX_SINGULAR : DAMAGE_VERB_MAX_PLURAL;
+        return com.example.tassmud.util.Colors.dmgVerb(verb, 201);
     }
 
     // ── low-level messaging helpers ────────────────────────────────────

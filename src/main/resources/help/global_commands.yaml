@@ -2376,3 +2376,44 @@ unfollow:
 
     EXAMPLE
         unfollow
+
+stun:
+  summary: "strike a pressure point to stun your opponent"
+  visibility: public
+  synopsis:
+    - "stun"
+  body: |
+    NAME
+        stun - Stunning Fist
+
+    SYNOPSIS
+        stun
+
+    DESCRIPTION
+        Channel all of your ki into a devastating pressure point strike,
+        stunning your opponent and leaving them unable to act.
+        
+        MECHANICS:
+        - Costs ALL of your current ki (minimum 1 ki required)
+        - On hit: stuns the target for 1d(ki spent) rounds
+          For example, spending 5 ki stuns for 1-5 rounds
+        - Uses the same success formula as kick (opposed level check
+          modified by proficiency)
+        - Stunned targets cannot attack, cast spells, flee, or stand up
+        - Has a cooldown between uses (same as kick)
+        - Skill progression: EASY
+        
+        REQUIREMENTS:
+        - You must know the Stunning Fist skill (Monk level 10)
+        - You must be in combat
+        - You must have at least 1 ki point
+        
+        STRATEGY:
+        Save up ki points before using Stunning Fist for a longer
+        stun duration. A well-timed stun can turn the tide of battle.
+
+    SEE ALSO
+        flurry, kick, skills, combat
+
+    EXAMPLE
+        stun
