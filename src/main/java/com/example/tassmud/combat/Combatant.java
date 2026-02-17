@@ -74,6 +74,9 @@ public class Combatant {
 
     /** Number of combat rounds remaining for the STUNNED status effect (0 = not stunned) */
     private volatile int stunRoundsRemaining = 0;
+
+    /** Consecutive miss count for Ki Strike escalating chance (resets on hit or ki gain) */
+    private int kiStrikeMissCount = 0;
     
     /**
      * Status flags that can be applied to combatants.
@@ -539,6 +542,31 @@ public class Combatant {
      */
     public int getStunRoundsRemaining() {
         return stunRoundsRemaining;
+    }
+
+    // === Ki Strike miss counter ===
+
+    /**
+     * Get the current Ki Strike consecutive miss count.
+     * Used for the escalating ki generation chance on misses.
+     */
+    public int getKiStrikeMissCount() {
+        return kiStrikeMissCount;
+    }
+
+    /**
+     * Increment the Ki Strike miss counter (failed ki generation on a miss).
+     * Each increment adds +5% chance on the next miss.
+     */
+    public void incrementKiStrikeMissCount() {
+        kiStrikeMissCount++;
+    }
+
+    /**
+     * Reset the Ki Strike miss counter (ki was generated or a hit landed).
+     */
+    public void resetKiStrikeMissCount() {
+        kiStrikeMissCount = 0;
     }
 
     /**

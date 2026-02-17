@@ -2486,3 +2486,44 @@ unarmored:
 
     SEE ALSO
         skills, equipment, deflect_missiles
+
+ki_strike:
+  keywords: [ki, ki_strike, strike, monk, miss]
+  see_also: [skills, ki_pool, flurry]
+  category: COMBAT
+  summary: "passive ki generation from missed attacks"
+  visibility: public
+  body: |
+    NAME
+        ki strike - passive ki generation on missed attacks
+
+    DESCRIPTION
+        A monk learns to channel the momentum of an errant blow inward,
+        converting missed strikes into focused ki energy.  This is a
+        passive skill with no command to type.
+
+        MECHANICS:
+        - Each time you miss an attack, there is a chance to gain 1 ki.
+        - Base chance: 5% + (Ki Strike proficiency / 2).
+        - If the check fails, the next consecutive miss adds another +5%
+          to the chance, stacking indefinitely.
+        - The escalating counter resets when:
+            * You successfully generate ki from a miss, OR
+            * You land a hit (including crits).
+        - Ki will not be generated if your ki pool is already full.
+        - There is no cooldown.
+        - Skill progression is LEGENDARY (very slow proficiency growth).
+
+        EXAMPLE:
+        At 50% proficiency the base chance is 5% + 25% = 30%.
+          Miss 1:  30% chance to gain ki
+          Miss 2:  35% chance (stacked +5%)
+          Miss 3:  40% chance (stacked +10%)
+          ...and so on until ki is gained or a hit lands.
+
+        REQUIREMENTS:
+        - You must know the Ki Strike skill (Monk level 25)
+        - You must have the Ki Pool skill to benefit
+
+    SEE ALSO
+        skills, ki_pool, flurry

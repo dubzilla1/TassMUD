@@ -66,6 +66,9 @@ public class BasicAttackCommand implements CombatCommand {
     /** Deflect Missiles cooldown in milliseconds (10 seconds, matching skills.yaml) */
     private static final long DEFLECT_COOLDOWN_MS = 10_000;
     
+    /** Ki Strike skill ID (from skills.yaml) — passive ki generation on misses */
+    private static final int KI_STRIKE_SKILL_ID = 705;
+    
     @Override
     public String getName() {
         return "attack";
@@ -215,6 +218,7 @@ public class BasicAttackCommand implements CombatCommand {
                 result.setAttackRoll(0);
                 result.setDebugInfo("BLIND MISS - 50% blind penalty");
                 setCooldown(user);
+                checkKiStrike(user);
                 return result;
             }
         }
@@ -242,10 +246,14 @@ public class BasicAttackCommand implements CombatCommand {
             result.setAttackRoll(attackRoll);
             result.setDebugInfo(debugInfo);
             setCooldown(user);
+            checkKiStrike(user);
             return result;
         }
         
-        // Hit confirmed - check if defender can parry
+        // Hit confirmed - reset Ki Strike miss counter (a hit landed)
+        user.resetKiStrikeMissCount();
+        
+        // Check if defender can parry
         CombatResult parryResult = tryParry(target, user, attackRoll);
         if (parryResult != null) {
             setCooldown(user);
@@ -573,6 +581,62 @@ public class BasicAttackCommand implements CombatCommand {
         return null;
     }
     
+    /**
+     * Check if the attacker can generate ki from a miss via the Ki Strike passive.
+     * 
+     * Escalating chance: 5% + proficiency/2 + (consecutiveMisses * 5%).
+     * On success: awards 1 ki, resets miss counter, tries proficiency improvement.
+     * On failure: increments miss counter (next miss gets +5% bonus).
+     * Counter is also reset externally when a hit lands.
+     * 
+     * @param attacker the combatant who missed
+     */
+    private void checkKiStrike(Combatant attacker) {
+        if (!attacker.isPlayer() || attacker.getCharacterId() == null) return;
+        
+        Integer charId = attacker.getCharacterId();
+        var skillDao = DaoProvider.skills();
+        CharacterSkill kiStrikeSkill = skillDao.getCharacterSkill(charId, KI_STRIKE_SKILL_ID);
+        if (kiStrikeSkill == null) return; // doesn't know Ki Strike
+        
+        GameCharacter gc = attacker.getCharacter();
+        if (gc == null) return;
+        
+        // Ki pool full?
+        if (gc.getKiCur() >= gc.getKiMax()) return;
+        
+        int proficiency = kiStrikeSkill.getProficiency();
+        int consecutiveMisses = attacker.getKiStrikeMissCount();
+        
+        // Escalating chance: 5% base + prof/2 + 5% per previous consecutive miss failure
+        int chance = 5 + (proficiency / 2) + (consecutiveMisses * 5);
+        int roll = ThreadLocalRandom.current().nextInt(100) + 1; // 1-100
+        
+        if (roll <= chance) {
+            // Ki generated — award 1 ki point
+            int actual = gc.gainKi(1);
+            if (actual > 0) {
+                ClientHandler.sendToCharacter(charId,
+                    "\u001b[1;33mYour missed strike channels your focus inward! (Ki: "
+                    + gc.getKiCur() + "/" + gc.getKiMax() + ")\u001b[0m");
+                
+                // Persist ki to DB
+                DaoProvider.characters().saveKiByName(attacker.getName(), gc.getKiMax(), gc.getKiCur());
+                
+                // Try to improve Ki Strike proficiency (LEGENDARY curve)
+                Skill kiStrikeDef = skillDao.getSkillById(KI_STRIKE_SKILL_ID);
+                if (kiStrikeDef != null && skillDao.tryImproveSkill(charId, KI_STRIKE_SKILL_ID, kiStrikeDef)) {
+                    ClientHandler.sendToCharacter(charId, "\u001b[1;36mYour Ki Strike skill has improved!\u001b[0m");
+                }
+            }
+            // Reset counter on success
+            attacker.resetKiStrikeMissCount();
+        } else {
+            // Failed — escalate chance for next miss
+            attacker.incrementKiStrikeMissCount();
+        }
+    }
+
     /**
      * Check if the defender can riposte after a successful parry.
      * Riposte chance scales from 25% (at 0 proficiency) to 75% (at 100 proficiency).
