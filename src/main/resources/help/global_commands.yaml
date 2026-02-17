@@ -2417,3 +2417,36 @@ stun:
 
     EXAMPLE
         stun
+
+deflect_missiles:
+  keywords: [deflect, missiles, deflect_missiles, monk]
+  see_also: [skills, combat]
+  category: COMBAT
+  summary: "passively deflect incoming ranged attacks"
+  visibility: public
+  body: |
+    NAME
+        deflect missiles - passive ranged defense
+
+    DESCRIPTION
+        With lightning reflexes, you knock aside incoming projectiles
+        with your bare hands. This ability triggers automatically
+        whenever you are hit by a ranged attack — there is no command
+        to type.
+
+        MECHANICS:
+        - Passive skill: triggers automatically on incoming ranged hits
+        - Deflection chance: 50% + (proficiency / 2)
+          At 0% proficiency: 50% deflection chance
+          At 100% proficiency: 100% deflection chance
+        - On success, the ranged attack deals no damage
+        - Triggers a 10-second cooldown before it can activate again
+        - Skill progression: NORMAL
+
+        REQUIREMENTS:
+        - You must know the Deflect Missiles skill (Monk level 15)
+        - You must be in combat
+        - Deflect Missiles must not be on cooldown
+
+    SEE ALSO
+        skills, combat, flurry, stun

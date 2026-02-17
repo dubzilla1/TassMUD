@@ -48,6 +48,9 @@ public class Combatant {
     /** Timestamp when parry can next be used (parry-specific cooldown) */
     private long parryCooldownUntil = 0;
     
+    /** Timestamp when deflect missiles can next be used */
+    private long deflectCooldownUntil = 0;
+    
     /** Number of attacks remaining this round (for multi-attack) */
     private int attacksRemaining = 1;
     
@@ -246,6 +249,20 @@ public class Combatant {
     
     public long getParryCooldownRemaining() {
         return Math.max(0, parryCooldownUntil - System.currentTimeMillis());
+    }
+    
+    // Deflect missiles cooldown
+    
+    public long getDeflectCooldownUntil() { return deflectCooldownUntil; }
+    
+    public void setDeflectCooldownUntil(long timestamp) { this.deflectCooldownUntil = timestamp; }
+    
+    public boolean isDeflectOnCooldown() {
+        return System.currentTimeMillis() < deflectCooldownUntil;
+    }
+    
+    public long getDeflectCooldownRemaining() {
+        return Math.max(0, deflectCooldownUntil - System.currentTimeMillis());
     }
     
     // Attack tracking

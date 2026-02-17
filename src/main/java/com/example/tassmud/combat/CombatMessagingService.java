@@ -184,6 +184,10 @@ public class CombatMessagingService {
                 message = String.format("%s's attack is parried by %s!",
                         attackerName, targetName);
                 break;
+            case DEFLECTED:
+                message = String.format("%s's ranged attack is deflected by %s!",
+                        attackerName, targetName);
+                break;
             case HEAL:
                 message = String.format("%s heals %s for %d HP!",
                         attackerName, targetName, result.getHealing());

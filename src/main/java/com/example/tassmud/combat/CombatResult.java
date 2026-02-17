@@ -49,6 +49,7 @@ public class CombatResult {
         GLANCING_BLOW,  // Partial hit (reduced damage)
         BLOCKED,        // Target blocked the attack
         PARRIED,        // Target parried the attack
+        DEFLECTED,      // Target deflected a ranged attack
         DODGED,         // Target dodged the attack
         INTERRUPTED,    // Attack was interrupted/canceled
         HEAL,           // Healing effect
@@ -95,6 +96,10 @@ public class CombatResult {
     
     public static CombatResult parried(Combatant attacker, Combatant target) {
         return new CombatResult(ResultType.PARRIED, false, 0, 0, attacker, target);
+    }
+    
+    public static CombatResult deflected(Combatant attacker, Combatant target) {
+        return new CombatResult(ResultType.DEFLECTED, false, 0, 0, attacker, target);
     }
     
     public static CombatResult heal(Combatant healer, Combatant target, int healing) {

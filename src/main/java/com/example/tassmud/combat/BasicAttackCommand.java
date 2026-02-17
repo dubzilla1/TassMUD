@@ -60,6 +60,12 @@ public class BasicAttackCommand implements CombatCommand {
     /** Parry cooldown in milliseconds (15 seconds, matching skills.yaml) */
     private static final long PARRY_COOLDOWN_MS = 15_000;
     
+    /** Deflect Missiles skill ID (from skills.yaml) */
+    private static final int DEFLECT_MISSILES_SKILL_ID = 703;
+    
+    /** Deflect Missiles cooldown in milliseconds (10 seconds, matching skills.yaml) */
+    private static final long DEFLECT_COOLDOWN_MS = 10_000;
+    
     @Override
     public String getName() {
         return "attack";
@@ -244,6 +250,15 @@ public class BasicAttackCommand implements CombatCommand {
         if (parryResult != null) {
             setCooldown(user);
             return parryResult;
+        }
+        
+        // For ranged attacks, check if defender can deflect missiles
+        if (isRangedAttack) {
+            CombatResult deflectResult = tryDeflectMissiles(target, user, attackRoll);
+            if (deflectResult != null) {
+                setCooldown(user);
+                return deflectResult;
+            }
         }
         
         // Hit! Calculate damage
@@ -502,6 +517,59 @@ public class BasicAttackCommand implements CombatCommand {
         }
         
         // Parry attempt failed - attack proceeds normally
+        return null;
+    }
+    
+    /**
+     * Try to deflect an incoming ranged attack.
+     * Only player characters with the Deflect Missiles skill can deflect.
+     * Deflection chance: 50% + (proficiency / 2), checked on any ranged hit.
+     * On success, triggers a 10-second cooldown.
+     * 
+     * @param defender the combatant being attacked
+     * @param attacker the combatant attacking with a ranged weapon
+     * @param attackRoll the attack roll for logging
+     * @return CombatResult.deflected if deflection succeeds, null otherwise
+     */
+    private CombatResult tryDeflectMissiles(Combatant defender, Combatant attacker, int attackRoll) {
+        // Only player characters can deflect
+        if (!defender.isPlayer() || defender.getCharacterId() == null) {
+            return null;
+        }
+        
+        // Check if defender knows the deflect missiles skill
+        CharacterSkill deflectSkill = DaoProvider.skills().getCharacterSkill(defender.getCharacterId(), DEFLECT_MISSILES_SKILL_ID);
+        if (deflectSkill == null) {
+            return null;
+        }
+        
+        // Check if deflect is on cooldown
+        if (defender.isDeflectOnCooldown()) {
+            return null;
+        }
+        
+        // Get proficiency percentage (0-100)
+        int proficiency = deflectSkill.getProficiency();
+        
+        // Deflection chance: 50% + proficiency/2 (ranges from 50% at 0 prof to 100% at 100 prof)
+        int deflectChance = 50 + (proficiency / 2);
+        int roll = ThreadLocalRandom.current().nextInt(100) + 1;
+        
+        if (roll <= deflectChance) {
+            // Set deflect on cooldown (10 seconds)
+            long cooldownEnd = System.currentTimeMillis() + DEFLECT_COOLDOWN_MS;
+            defender.setDeflectCooldownUntil(cooldownEnd);
+            
+            // Try to improve proficiency on successful use
+            DaoProvider.skills().increaseSkillProficiency(defender.getCharacterId(), DEFLECT_MISSILES_SKILL_ID, 1);
+            
+            // Return deflected result
+            CombatResult result = CombatResult.deflected(attacker, defender);
+            result.setAttackRoll(attackRoll);
+            return result;
+        }
+        
+        // Deflection failed - attack proceeds normally
         return null;
     }
     
