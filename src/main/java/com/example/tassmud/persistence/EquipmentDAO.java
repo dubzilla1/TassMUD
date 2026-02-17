@@ -159,6 +159,9 @@ public class EquipmentDAO {
      * Empty slots and weapons count as 0 in the average.
      * Armor bonuses are scaled by proficiency: effectiveness = 50% + proficiency%.
      */
+    /** Unarmored skill ID (from skills.yaml) — monk passive defense for empty slots */
+    private static final int UNARMORED_SKILL_ID = 954;
+
     public boolean recalculateEquipmentBonuses(int characterId, ItemDAO itemDao) {
         Map<Integer, Long> equipped = getEquipmentMapByCharacterId(characterId);
 
@@ -168,9 +171,27 @@ public class EquipmentDAO {
 
         SkillDAO skillDao = DaoProvider.skills();
 
+        // Check if character has unarmored defense skill (monk passive)
+        // If so, each empty equipment slot contributes the character's level to each defensive stat
+        int unarmoredBonus = 0;
+        CharacterSkill unarmoredSkill = skillDao.getCharacterSkill(characterId, UNARMORED_SKILL_ID);
+        if (unarmoredSkill != null) {
+            Integer classId = DaoProvider.classes().getCharacterCurrentClassId(characterId);
+            unarmoredBonus = classId != null ? DaoProvider.classes().getCharacterClassLevel(characterId, classId) : 1;
+        }
+
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             Long instanceId = equipped.get(slot.getId());
-            if (instanceId == null) continue;
+            if (instanceId == null) {
+                // Empty slot: apply unarmored defense bonus if the character has the skill
+                if (unarmoredBonus > 0) {
+                    armorSum += unarmoredBonus;
+                    fortSum += unarmoredBonus;
+                    reflexSum += unarmoredBonus;
+                    willSum += unarmoredBonus;
+                }
+                continue;
+            }
 
             ItemInstance inst = itemDao.getInstance(instanceId);
             if (inst == null) continue;

@@ -2450,3 +2450,39 @@ deflect_missiles:
 
     SEE ALSO
         skills, combat, flurry, stun
+
+unarmored:
+  keywords: [unarmored, unarmored_defense, monk, armor]
+  see_also: [skills, equipment]
+  category: COMBAT
+  summary: "passive defensive bonus for empty equipment slots"
+  visibility: public
+  body: |
+    NAME
+        unarmored - passive monk defense
+
+    DESCRIPTION
+        Through disciplined training of body and mind, a monk's natural
+        physique provides formidable protection without any armor at all.
+        This is a passive skill with no command to type.
+
+        MECHANICS:
+        - Each empty equipment slot counts as though it held a piece of
+          equipment with armor, fortitude, reflex, and will bonuses all
+          equal to your current class level.
+        - Bonuses are recalculated whenever equipment changes.
+        - Skill is mastered immediately upon learning (INSTANT progression).
+        - Stacks with whatever you do choose to wear: the trade-off is
+          raw defensive numbers from empty slots versus magical effects
+          and stats from actual gear.
+
+        EXAMPLE:
+        A level 30 monk with 4 empty slots and 8 equipped slots gains
+        30 armor/fort/reflex/will per empty slot (120 total before
+        averaging across all 12 slots).
+
+        REQUIREMENTS:
+        - You must know the Unarmored skill (Monk level 20)
+
+    SEE ALSO
+        skills, equipment, deflect_missiles
