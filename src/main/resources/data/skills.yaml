@@ -615,7 +615,7 @@ skills:
   - id: 706
     key: wholeness_of_body
     name: Wholeness of Body
-    description: Channel ki to heal your own wounds through meditation.
+    description: Channel ki to resist harmful effects. Passive chance (25% + prof/2) to negate debuffs.
     progression: HARD
 
   - id: 707

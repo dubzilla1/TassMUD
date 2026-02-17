@@ -1,5 +1,6 @@
 package com.example.tassmud.effect;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
@@ -21,11 +22,28 @@ public class EffectDefinition {
     private final StackPolicy stackPolicy;
     private final boolean persistent;
     private final int priority;
+    /** Categorization tags (e.g. "debuff", "magical", "mind", "physical", "dot"). */
+    private final Set<String> tags;
 
+    /**
+     * Original constructor — kept for backward compatibility. Tags default to empty.
+     */
     public EffectDefinition(String id, String name, Type type, Map<String,String> params,
                             double durationSeconds, double cooldownSeconds, String diceMultiplierRaw,
                             int levelMultiplier,
                             Set<ProficiencyImpact> proficiencyImpact, StackPolicy stackPolicy, boolean persistent, int priority) {
+        this(id, name, type, params, durationSeconds, cooldownSeconds, diceMultiplierRaw,
+             levelMultiplier, proficiencyImpact, stackPolicy, persistent, priority, Collections.emptySet());
+    }
+
+    /**
+     * Full constructor with tags.
+     */
+    public EffectDefinition(String id, String name, Type type, Map<String,String> params,
+                            double durationSeconds, double cooldownSeconds, String diceMultiplierRaw,
+                            int levelMultiplier,
+                            Set<ProficiencyImpact> proficiencyImpact, StackPolicy stackPolicy, boolean persistent, int priority,
+                            Set<String> tags) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -38,6 +56,7 @@ public class EffectDefinition {
         this.stackPolicy = stackPolicy;
         this.persistent = persistent;
         this.priority = priority;
+        this.tags = tags == null ? Collections.emptySet() : Collections.unmodifiableSet(new HashSet<>(tags));
     }
 
     public String getId() { return id; }
@@ -52,4 +71,6 @@ public class EffectDefinition {
     public StackPolicy getStackPolicy() { return stackPolicy; }
     public boolean isPersistent() { return persistent; }
     public int getPriority() { return priority; }
+    public Set<String> getTags() { return tags; }
+    public boolean hasTag(String tag) { return tags.contains(tag); }
 }

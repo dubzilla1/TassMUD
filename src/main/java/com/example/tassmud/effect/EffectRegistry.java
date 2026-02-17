@@ -43,6 +43,17 @@ public class EffectRegistry {
             h = handlers.get(def.getType().name());
         }
         if (h == null) return null;
+
+        // Resistance check — if the effect has a "debuff" tag, give the target a chance to resist
+        if (def.hasTag("debuff") && targetId != null) {
+            String resistMsg = EffectResistanceService.checkResistance(targetId, def.getTags());
+            if (resistMsg != null) {
+                // Effect was resisted — send message and skip application
+                com.example.tassmud.net.ClientHandler.sendToCharacter(targetId, resistMsg);
+                return null;
+            }
+        }
+
         EffectInstance inst = h.apply(def, casterId, targetId, extraParams);
         // Only track persistent effects with duration > 0 in activeInstances
         // Instant effects (heals, damage) should not be tracked

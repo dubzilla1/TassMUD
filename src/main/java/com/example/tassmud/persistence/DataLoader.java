@@ -597,6 +597,20 @@ public class DataLoader {
                 EffectDefinition.StackPolicy sp;
                 try { sp = EffectDefinition.StackPolicy.valueOf(stackStr); } catch (Exception e) { sp = EffectDefinition.StackPolicy.REFRESH; }
 
+                // Parse tags list (e.g. tags: [debuff, magical, mind])
+                java.util.Set<String> tags = new java.util.HashSet<>();
+                Object tagsObj = item.get("tags");
+                if (tagsObj instanceof java.util.List) {
+                    for (Object t : (java.util.List<?>) tagsObj) {
+                        tags.add(String.valueOf(t).toLowerCase().trim());
+                    }
+                } else if (tagsObj instanceof String) {
+                    for (String tok : ((String) tagsObj).split("[,\\s]+")) {
+                        String trimmed = tok.trim().toLowerCase();
+                        if (!trimmed.isEmpty()) tags.add(trimmed);
+                    }
+                }
+
                 com.example.tassmud.effect.EffectDefinition def = new com.example.tassmud.effect.EffectDefinition(
                     id == null ? String.valueOf(count) : id,
                     name,
@@ -609,7 +623,8 @@ public class DataLoader {
                     profImpactSet,
                     sp,
                     persistent,
-                    priority
+                    priority,
+                    tags
                 );
                 com.example.tassmud.effect.EffectRegistry.registerDefinition(def);
                 count++;

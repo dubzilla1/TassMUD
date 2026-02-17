@@ -93,6 +93,7 @@ effects:
   - id: "1001"
     name: "Acid Burn"
     type: DOT
+    tags: [debuff, magical, dot]
     duration: 15       # 15 seconds total duration
     cooldown: 3        # 3 second global spell cooldown
     dice_multiplier: 5d6
@@ -108,6 +109,7 @@ effects:
   - id: "1003"
     name: "Burning Hands"
     type: BURNING_HANDS    # Custom type with spread mechanic
+    tags: [debuff, magical, dot, fire]
     duration: 15           # 15 seconds total duration
     cooldown: 3            # 3 second global spell cooldown
     dice_multiplier: 5d4   # Scales up to 5d4 at 100% proficiency
@@ -201,6 +203,7 @@ effects:
   - id: "1009"
     name: "Slow"
     type: SLOW             # Limits target to single basic attack per round
+    tags: [debuff, magical, physical]
     duration: 60           # Up to 60 seconds at max proficiency
     cooldown: 3
     dice_multiplier: 0
@@ -215,6 +218,7 @@ effects:
   - id: "1010"
     name: "Confused"
     type: CONFUSED         # Attacks target random entities in room
+    tags: [debuff, magical, mind]
     duration: 60           # Up to 60 seconds at max proficiency
     cooldown: 0
     dice_multiplier: 0
@@ -229,6 +233,7 @@ effects:
   - id: "1011"
     name: "Paralyzed"
     type: PARALYZED        # Cannot attack or use commands
+    tags: [debuff, magical, physical]
     duration: 60           # Up to 60 seconds at max proficiency
     cooldown: 0
     dice_multiplier: 0
@@ -243,6 +248,7 @@ effects:
   - id: "1012"
     name: "Cursed"
     type: CURSED           # Skills and spells may fail
+    tags: [debuff, magical, curse]
     duration: 60           # Up to 60 seconds at max proficiency
     cooldown: 0
     dice_multiplier: 0
@@ -295,6 +301,7 @@ effects:
   - id: "1002"
     name: "Blindness"
     type: DEBUFF
+    tags: [debuff, magical, sense]
     duration: 30       # Up to 30 seconds at max proficiency
     cooldown: 3        # 3 second global spell cooldown
     dice_multiplier: 0

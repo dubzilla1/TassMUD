@@ -2527,3 +2527,39 @@ ki_strike:
 
     SEE ALSO
         skills, ki_pool, flurry
+
+wholeness_of_body:
+  keywords: [wholeness, body, wholeness_of_body, monk, resist, debuff]
+  see_also: [skills, ki_pool, stunning_fist]
+  category: COMBAT
+  summary: "passive resistance to harmful effects"
+  visibility: public
+  body: |
+    NAME
+        wholeness of body - passive resistance to harmful effects
+
+    DESCRIPTION
+        Through disciplined meditation and ki mastery, a monk learns to
+        shield body and mind from debilitating effects.  This is a passive
+        skill with no command to type.
+
+        Whenever a harmful effect would be inflicted on you — whether from
+        a spell (blindness, slow, curse, etc.) or a combat maneuver
+        (stun, disarm, prone, etc.) — Wholeness of Body automatically
+        rolls a resistance check.  If it succeeds, the effect is negated
+        entirely and you receive a message confirming the resistance.
+
+        MECHANICS:
+        - Resistance chance: 25% + (proficiency / 2).
+          At  1% proficiency: ~25% resistance chance
+          At 50% proficiency: ~50% resistance chance
+          At 100% proficiency: ~75% resistance chance
+        - Works against all negative effects tagged as debuffs.
+        - Passive — triggers automatically, no action required.
+        - Progression is HARD (steady proficiency growth).
+
+        REQUIREMENTS:
+        - You must know the Wholeness of Body skill (Monk level 32)
+
+    SEE ALSO
+        skills, ki_pool, stunning_fist

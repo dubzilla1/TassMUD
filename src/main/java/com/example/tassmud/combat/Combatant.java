@@ -1,5 +1,6 @@
 package com.example.tassmud.combat;
 
+import com.example.tassmud.effect.EffectResistanceService;
 import com.example.tassmud.model.ArmorCategory;
 import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.Mobile;
@@ -104,7 +105,34 @@ public class Combatant {
         /** Combatant has disadvantage (-1 level penalty to attacks this round) */
         DISADVANTAGE,
         /** Combatant is prone (melee attackers have advantage, ranged have disadvantage) */
-        PRONE
+        PRONE;
+
+        /**
+         * Whether this flag represents a harmful/negative status that can be resisted.
+         * Positive or neutral flags (ADVANTAGE) are NOT resistible.
+         */
+        public boolean isNegative() {
+            return switch (this) {
+                case INTERRUPTED, ROOTED, STUNNED, SLOWED, SILENCED,
+                     DISARMED, BLINDED, CONFUSED, DISADVANTAGE, PRONE -> true;
+                case ADVANTAGE -> false;
+            };
+        }
+
+        /**
+         * Return a resistance category tag that matches the effect tag taxonomy.
+         * Used by {@code EffectResistanceService} to classify status flags the same
+         * way as effect-engine debuffs.
+         */
+        public String resistanceCategory() {
+            return switch (this) {
+                case STUNNED, SLOWED, ROOTED, PRONE, DISARMED -> "physical";
+                case BLINDED, SILENCED -> "sense";
+                case CONFUSED -> "mind";
+                case INTERRUPTED, DISADVANTAGE -> "combat";
+                case ADVANTAGE -> "none";
+            };
+        }
     }
     
     /**
@@ -463,9 +491,22 @@ public class Combatant {
     
     /**
      * Add a status flag to this combatant.
+     * Negative flags are checked against the resistance service first;
+     * if the combatant resists, the flag is not applied.
+     * @return true if the flag was added, false if resisted
      */
-    public void addStatusFlag(StatusFlag flag) {
+    public boolean addStatusFlag(StatusFlag flag) {
+        if (flag.isNegative() && characterId != null) {
+            String resistMsg = EffectResistanceService.checkResistance(
+                    characterId, Set.of("debuff", flag.resistanceCategory()));
+            if (resistMsg != null) {
+                // Resisted — notify the target and skip applying the flag
+                com.example.tassmud.net.ClientHandler.sendToCharacter(characterId, resistMsg);
+                return false;
+            }
+        }
         statusFlags.add(flag);
+        return true;
     }
     
     /**

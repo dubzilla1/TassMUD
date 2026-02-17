@@ -3,8 +3,10 @@ package com.example.tassmud.net;
 
 import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.combat.CombatManager;
+import com.example.tassmud.effect.EffectResistanceService;
 import com.example.tassmud.event.EventScheduler;
 import com.example.tassmud.event.SpawnManager;
+import com.example.tassmud.model.CharacterSkill;
 import com.example.tassmud.persistence.*;
 import com.example.tassmud.util.*;
 import com.example.tassmud.util.CooldownManager;
@@ -175,6 +177,27 @@ public class Server {
 
         // Initialize effect scheduler to tick and expire active effects
         EffectScheduler.getInstance().initialize(tickService);
+
+        // Register effect resistance checks ----------------------------------
+
+        // Clear any prior checks (important for in-memory restarts / tests)
+        EffectResistanceService.clearAll();
+
+        // Wholeness of Body (monk skill 706):  passive chance to resist any
+        // negative effect.  Chance = 25% + proficiency / 2.
+        final int WHOLENESS_SKILL_ID = 706;
+        EffectResistanceService.register((targetId, categories) -> {
+            if (targetId == null || !categories.contains("debuff")) return null;
+            CharacterSkill cs = DaoProvider.skills().getCharacterSkill(targetId, WHOLENESS_SKILL_ID);
+            if (cs == null) return null;
+            int chance = 25 + cs.getProficiency() / 2;
+            if (java.util.concurrent.ThreadLocalRandom.current().nextInt(100) < chance) {
+                return "\u001b[36mYour inner calm repels the harmful effect!\u001b[0m";
+            }
+            return null;
+        });
+        logger.info("[startup] Registered {} effect resistance checks",
+                EffectResistanceService.registeredCheckCount());
 
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;
