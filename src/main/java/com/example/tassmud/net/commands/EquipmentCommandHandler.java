@@ -282,7 +282,7 @@ class EquipmentCommandHandler {
                     }
                 }
                 // Pad slot name to maxLen
-                String paddedSlot = String.format("%-" + maxLen + "s", slot.displayName);
+                String paddedSlot = ("%-" + maxLen + "s").formatted(slot.displayName);
                 out.println("  " + paddedSlot + ": " + itemName);
             }
             return true;

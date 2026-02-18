@@ -61,7 +61,7 @@ public class FlurryEffect implements EffectHandler {
         ClientHandler ts = ClientHandler.charIdToSession.get(targetId);
         if (ts != null) {
             ts.sendRaw("\u001B[1;33mYou focus your ki and unleash a flurry of blows! ("
-                    + String.format("%.0f", durationSec) + "s)\u001B[0m");
+                    + "%.0f".formatted(durationSec) + "s)\u001B[0m");
         }
 
         logger.debug("[flurry] applied to {} for {}s (prof {}%)", targetId, durationSec, proficiency);

@@ -73,7 +73,7 @@ public class HasteEffect implements EffectHandler {
         if (targetSession != null) {
             targetSession.sendRaw(
                     "\u001B[1;36mA surge of magical energy quickens your every motion! ("
-                    + String.format("%.0f", scaledDuration) + "s)\u001B[0m");
+                    + "%.0f".formatted(scaledDuration) + "s)\u001B[0m");
         }
 
         logger.debug("[haste] applied to {} for {}s ({}% proficiency)",

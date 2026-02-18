@@ -490,7 +490,7 @@ class MeleeSkillHandler {
             com.example.tassmud.model.CooldownType.SKILL, HEROIC_STRIKE_SKILL_ID);
         
         if (remainingCooldown > 0) {
-            out.println("Heroic Strike is on cooldown for " + String.format("%.1f", remainingCooldown) + " more seconds.");
+            out.println("Heroic Strike is on cooldown for " + "%.1f".formatted(remainingCooldown) + " more seconds.");
             return true;
         }
         

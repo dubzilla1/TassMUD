@@ -713,7 +713,7 @@ public class Combatant {
     @Override
     public String toString() {
         String type = isPlayer() ? "Player" : "Mobile";
-        return String.format("Combatant[%s %s, HP=%d/%d, alliance=%d]",
+        return "Combatant[%s %s, HP=%d/%d, alliance=%d]".formatted(
             type, getName(), getHpCurrent(), getHpMax(), alliance);
     }
 }

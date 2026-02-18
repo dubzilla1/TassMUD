@@ -277,7 +277,7 @@ class SpellCastHandler {
                 if (casterCombatant != null) {
                     java.util.List<Combatant> enemies = activeCombat.getValidTargets(casterCombatant);
                     if (!enemies.isEmpty()) {
-                        Combatant target = enemies.get(0);
+                        Combatant target = enemies.getFirst();
                         // For players, use characterId; for mobs, use negative instanceId as a convention
                         if (target.isPlayer()) {
                             targets.add(target.getCharacterId());
@@ -321,7 +321,7 @@ class SpellCastHandler {
                     if (casterCombatant != null) {
                         java.util.List<Combatant> enemies = activeCombat.getValidTargets(casterCombatant);
                         if (!enemies.isEmpty()) {
-                            Combatant target = enemies.get(0);
+                            Combatant target = enemies.getFirst();
                             if (target.isPlayer()) {
                                 targetId = target.getCharacterId();
                             } else if (target.getMobile() != null) {

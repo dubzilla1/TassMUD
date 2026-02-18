@@ -221,7 +221,7 @@ class GmCharacterHandler {
             // Format: "SpellName (ID)" in 3 columns
             java.util.List<String> spellDisplays = new java.util.ArrayList<>();
             for (Spell sp : allSpells) {
-                spellDisplays.add(String.format("%s (%d)", sp.getName(), sp.getId()));
+                spellDisplays.add("%s (%d)".formatted(sp.getName(), sp.getId()));
             }
             
             // Print in rows of 3
@@ -229,12 +229,12 @@ class GmCharacterHandler {
                 String c1 = spellDisplays.get(i);
                 String c2 = (i + 1 < spellDisplays.size()) ? spellDisplays.get(i + 1) : "";
                 String c3 = (i + 2 < spellDisplays.size()) ? spellDisplays.get(i + 2) : "";
-                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                out.println("  %-21s %-21s %-21s".formatted(c1, c2, c3));
             }
             
             out.println();
             out.println("-------------------------------------------------------------------");
-            out.println(String.format("  Total: %d spells", allSpells.size()));
+            out.println("  Total: %d spells".formatted(allSpells.size()));
             out.println("===================================================================");
             out.println();
             return true;
@@ -318,7 +318,7 @@ class GmCharacterHandler {
             // Format: "SkillName (ID)" in 3 columns
             java.util.List<String> skillDisplays = new java.util.ArrayList<>();
             for (Skill sk : allSkills) {
-                skillDisplays.add(String.format("%s (%d)", sk.getName(), sk.getId()));
+                skillDisplays.add("%s (%d)".formatted(sk.getName(), sk.getId()));
             }
             
             // Print in rows of 3
@@ -326,12 +326,12 @@ class GmCharacterHandler {
                 String c1 = skillDisplays.get(i);
                 String c2 = (i + 1 < skillDisplays.size()) ? skillDisplays.get(i + 1) : "";
                 String c3 = (i + 2 < skillDisplays.size()) ? skillDisplays.get(i + 2) : "";
-                out.println(String.format("  %-21s %-21s %-21s", c1, c2, c3));
+                out.println("  %-21s %-21s %-21s".formatted(c1, c2, c3));
             }
             
             out.println();
             out.println("-------------------------------------------------------------------");
-            out.println(String.format("  Total: %d skills", allSkills.size()));
+            out.println("  Total: %d skills".formatted(allSkills.size()));
             out.println("===================================================================");
             out.println();
             return true;

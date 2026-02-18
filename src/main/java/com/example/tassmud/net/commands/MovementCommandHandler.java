@@ -572,7 +572,7 @@ public class MovementCommandHandler implements CommandHandler {
                                             com.example.tassmud.model.ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
                                             itemName = com.example.tassmud.net.ClientHandler.getItemDisplayName(inst, tmpl);
                                         }
-                                        String paddedSlot = String.format("%-" + maxLen + "s", slot.displayName);
+                                        String paddedSlot = ("%-" + maxLen + "s").formatted(slot.displayName);
                                         out.println("    " + paddedSlot + ": " + itemName);
                                     }
                                 }

@@ -71,8 +71,8 @@ class GmInfoHandler {
         out.println();
 
         out.println("--- ABILITIES ---");
-        out.println("  STR: " + String.format("%2d", matchedMob.getStr()) + " (" + (matchedMob.getStr() >= 10 ? "+" : "") + ((matchedMob.getStr() - 10) / 2) + ")" + "   DEX: " + String.format("%2d", matchedMob.getDex()) + " (" + (matchedMob.getDex() >= 10 ? "+" : "") + ((matchedMob.getDex() - 10) / 2) + ")" + "   CON: " + String.format("%2d", matchedMob.getCon()) + " (" + (matchedMob.getCon() >= 10 ? "+" : "") + ((matchedMob.getCon() - 10) / 2) + ")");
-        out.println("  INT: " + String.format("%2d", matchedMob.getIntel()) + " (" + (matchedMob.getIntel() >= 10 ? "+" : "") + ((matchedMob.getIntel() - 10) / 2) + ")" + "   WIS: " + String.format("%2d", matchedMob.getWis()) + " (" + (matchedMob.getWis() >= 10 ? "+" : "") + ((matchedMob.getWis() - 10) / 2) + ")" + "   CHA: " + String.format("%2d", matchedMob.getCha()) + " (" + (matchedMob.getCha() >= 10 ? "+" : "") + ((matchedMob.getCha() - 10) / 2) + ")");
+        out.println("  STR: " + "%2d".formatted(matchedMob.getStr()) + " (" + (matchedMob.getStr() >= 10 ? "+" : "") + ((matchedMob.getStr() - 10) / 2) + ")" + "   DEX: " + "%2d".formatted(matchedMob.getDex()) + " (" + (matchedMob.getDex() >= 10 ? "+" : "") + ((matchedMob.getDex() - 10) / 2) + ")" + "   CON: " + "%2d".formatted(matchedMob.getCon()) + " (" + (matchedMob.getCon() >= 10 ? "+" : "") + ((matchedMob.getCon() - 10) / 2) + ")");
+        out.println("  INT: " + "%2d".formatted(matchedMob.getIntel()) + " (" + (matchedMob.getIntel() >= 10 ? "+" : "") + ((matchedMob.getIntel() - 10) / 2) + ")" + "   WIS: " + "%2d".formatted(matchedMob.getWis()) + " (" + (matchedMob.getWis() >= 10 ? "+" : "") + ((matchedMob.getWis() - 10) / 2) + ")" + "   CHA: " + "%2d".formatted(matchedMob.getCha()) + " (" + (matchedMob.getCha() >= 10 ? "+" : "") + ((matchedMob.getCha() - 10) / 2) + ")");
         out.println();
 
         out.println("--- DEFENSES ---");
@@ -201,8 +201,8 @@ class GmInfoHandler {
             out.println("  Base Die:        " + baseDie + (inst.baseDieOverride != null ? " (override)" : ""));
             out.println("  Multiplier:      " + mult + (inst.multiplierOverride != null ? " (override)" : ""));
             out.println("  Ability Score:   " + (abilScore != null ? abilScore : "STR"));
-            out.println("  Ability Mult:    " + String.format("%.1f", abilMult) + (inst.abilityMultOverride != null ? " (override)" : ""));
-            out.println("  Damage Formula:  " + mult + "d" + baseDie + " + " + String.format("%.1f", abilMult) + "x" + (abilScore != null ? abilScore : "STR") + " mod");
+            out.println("  Ability Mult:    " + "%.1f".formatted(abilMult) + (inst.abilityMultOverride != null ? " (override)" : ""));
+            out.println("  Damage Formula:  " + mult + "d" + baseDie + " + " + "%.1f".formatted(abilMult) + "x" + (abilScore != null ? abilScore : "STR") + " mod");
             out.println("  Hands:           " + (tmpl != null ? tmpl.hands : 1));
             if (tmpl != null) {
                 out.println("  Category:        " + (tmpl.weaponCategory != null ? tmpl.weaponCategory : "-"));
@@ -276,12 +276,12 @@ class GmInfoHandler {
             return true;
         }
         out.println();
-        out.println(String.format("%-6s %-25s %-12s %s", "ID", "Name", "Type", "Description"));
+        out.println("%-6s %-25s %-12s %s".formatted("ID", "Name", "Type", "Description"));
         out.println(ClientHandler.repeat("-", 75));
         for (ItemTemplate t : matches) {
             String typeName = t.types != null && !t.types.isEmpty() ? String.join(",", t.types) : "";
             String desc = t.description != null ? ClientHandler.truncate(t.description, 28) : "";
-            out.println(String.format("%-6d %-25s %-12s %s",
+            out.println("%-6d %-25s %-12s %s".formatted(
                 t.id,
                 ClientHandler.truncate(t.name, 25),
                 ClientHandler.truncate(typeName, 12),
@@ -312,11 +312,11 @@ class GmInfoHandler {
             return true;
         }
         out.println();
-        out.println(String.format("%-6s %-25s %-6s %s", "ID", "Name", "Lvl", "ShortDesc"));
+        out.println("%-6s %-25s %-6s %s".formatted("ID", "Name", "Lvl", "ShortDesc"));
         out.println(ClientHandler.repeat("-", 80));
         for (MobileTemplate t : matches) {
             String shortDesc = t.getShortDesc() != null ? ClientHandler.truncate(t.getShortDesc(), 40) : "";
-            out.println(String.format("%-6d %-25s %-6d %s",
+            out.println("%-6d %-25s %-6d %s".formatted(
                 t.getId(),
                 ClientHandler.truncate(t.getName(), 25),
                 t.getLevel(),
@@ -360,7 +360,7 @@ class GmInfoHandler {
         out.println();
         out.println("=== Instances of #" + tplId + " (" + tplName + ") ===");
         out.println();
-        out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
+        out.println("  %-10s %-6s %-20s %-6s %s".formatted("InstID", "TplID", "Name", "RoomID", "Room Name"));
         for (Mobile m : instances) {
             Integer roomId = m.getCurrentRoom();
             String roomName = "(no room)";
@@ -368,7 +368,7 @@ class GmInfoHandler {
                 Room r = DaoProvider.rooms().getRoomById(roomId);
                 roomName = r != null ? r.getName() : "Unknown";
             }
-            out.println(String.format("  %-10d %-6d %-20s %-6s %s",
+            out.println("  %-10d %-6d %-20s %-6s %s".formatted(
                 m.getInstanceId(), m.getTemplateId(), ClientHandler.truncate(m.getName(), 20),
                 roomId != null ? String.valueOf(roomId) : "-", ClientHandler.truncate(roomName, 30)));
         }
@@ -438,11 +438,11 @@ class GmInfoHandler {
             if (inRooms.isEmpty()) {
                 out.println("  (none)");
             } else {
-                out.println(String.format("  %-10s %-6s %-20s %-6s %s", "InstID", "TplID", "Name", "RoomID", "Room Name"));
+                out.println("  %-10s %-6s %-20s %-6s %s".formatted("InstID", "TplID", "Name", "RoomID", "Room Name"));
                 for (ItemInstance inst : inRooms) {
                     Room rm = DaoProvider.rooms().getRoomById(inst.locationRoomId);
                     String roomName = rm != null ? rm.getName() : "Unknown";
-                    out.println(String.format("  %-10d %-6d %-20s %-6d %s",
+                    out.println("  %-10d %-6d %-20s %-6d %s".formatted(
                         inst.instanceId, inst.templateId, ClientHandler.truncate(templateName, 20),
                         inst.locationRoomId, ClientHandler.truncate(roomName, 25)));
                 }
@@ -456,7 +456,7 @@ class GmInfoHandler {
             if (inChars.isEmpty()) {
                 out.println("  (none)");
             } else {
-                out.println(String.format("  %-10s %-6s %-20s %-12s %-6s %s", "InstID", "TplID", "Name", "CharName", "RoomID", "Room Name"));
+                out.println("  %-10s %-6s %-20s %-12s %-6s %s".formatted("InstID", "TplID", "Name", "CharName", "RoomID", "Room Name"));
                 for (ItemInstance inst : inChars) {
                     String charName = dao.getCharacterNameById(inst.ownerCharacterId);
                     if (charName == null) charName = "Char#" + inst.ownerCharacterId;
@@ -464,7 +464,7 @@ class GmInfoHandler {
                     Integer charRoomId = charRec != null ? charRec.currentRoom : null;
                     Room charRoom = charRoomId != null ? DaoProvider.rooms().getRoomById(charRoomId) : null;
                     String charRoomName = charRoom != null ? charRoom.getName() : "Unknown";
-                    out.println(String.format("  %-10d %-6d %-20s %-12s %-6s %s",
+                    out.println("  %-10d %-6d %-20s %-12s %-6s %s".formatted(
                         inst.instanceId, inst.templateId, ClientHandler.truncate(templateName, 20),
                         ClientHandler.truncate(charName, 12),
                         charRoomId != null ? String.valueOf(charRoomId) : "?",
@@ -480,14 +480,14 @@ class GmInfoHandler {
             if (inContainers.isEmpty()) {
                 out.println("  (none)");
             } else {
-                out.println(String.format("  %-10s %-6s %-20s %-10s %-6s %s", "InstID", "TplID", "Name", "ContInstID", "ContID", "Container Name"));
+                out.println("  %-10s %-6s %-20s %-10s %-6s %s".formatted("InstID", "TplID", "Name", "ContInstID", "ContID", "Container Name"));
                 for (ItemInstance inst : inContainers) {
                     // Look up the container instance to get its template
                     ItemInstance containerInst = ifindItemDao.getInstanceById(inst.containerInstanceId);
                     int containerId = containerInst != null ? containerInst.templateId : 0;
                     ItemTemplate containerTpl = containerInst != null ? ifindItemDao.getTemplateById(containerInst.templateId) : null;
                     String containerName = containerTpl != null ? containerTpl.name : "Unknown";
-                    out.println(String.format("  %-10d %-6d %-20s %-10d %-6d %s",
+                    out.println("  %-10d %-6d %-20s %-10d %-6d %s".formatted(
                         inst.instanceId, inst.templateId, ClientHandler.truncate(templateName, 20),
                         inst.containerInstanceId, containerId, ClientHandler.truncate(containerName, 20)));
                 }

@@ -109,7 +109,7 @@ public final class TransactionManager {
                     logger.warn("[tx] Rollback failed: {}", rollbackEx.getMessage());
                 }
             }
-            if (e instanceof RuntimeException) throw (RuntimeException) e;
+            if (e instanceof RuntimeException exception) throw exception;
             throw new RuntimeException("Transaction failed", e);
         } finally {
             TX_CONNECTION.remove();

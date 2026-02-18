@@ -58,7 +58,7 @@ public class GameClock {
     }
 
     private void persist() {
-        String s = String.format("%d:%d:%d:%d:%d", year, month, day, hour, minute);
+        String s = "%d:%d:%d:%d:%d".formatted(year, month, day, hour, minute);
         DaoProvider.settings().setSetting("game.date", s);
     }
 
@@ -89,7 +89,7 @@ public class GameClock {
     }
 
     public String getCurrentDateString() {
-        return String.format("%d:%02d:%02d:%02d:%02d", year, month, day, hour, minute);
+        return "%d:%02d:%02d:%02d:%02d".formatted(year, month, day, hour, minute);
     }
 
     public void shutdown() {

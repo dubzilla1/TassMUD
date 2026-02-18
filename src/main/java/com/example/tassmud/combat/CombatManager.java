@@ -855,7 +855,7 @@ public class CombatManager {
         GroupManager gm = GroupManager.getInstance();
         java.util.Optional<Group> groupOpt = gm.getGroupForCharacter(initiatorId);
         
-        if (!groupOpt.isPresent()) {
+        if (groupOpt.isEmpty()) {
             // Not in a group, nothing to do
             return;
         }

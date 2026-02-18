@@ -862,8 +862,8 @@ public class ClientHandler implements Runnable {
         long hrs = seconds / 3600;
         long mins = (seconds % 3600) / 60;
         long secs = seconds % 60;
-        if (hrs > 0) return String.format("%d:%02d:%02d", hrs, mins, secs);
-        return String.format("%d:%02d", mins, secs);
+        if (hrs > 0) return "%d:%02d:%02d".formatted(hrs, mins, secs);
+        return "%d:%02d".formatted(mins, secs);
     }
 
     /**
@@ -918,7 +918,7 @@ public class ClientHandler implements Runnable {
      * Print a row of up to 3 commands, evenly spaced.
      */
     public void printCommandRow(String cmd1, String cmd2, String cmd3) {
-        out.println(String.format("    %-20s %-20s %-20s", cmd1, cmd2, cmd3));
+        out.println("    %-20s %-20s %-20s".formatted(cmd1, cmd2, cmd3));
     }
 
     /**

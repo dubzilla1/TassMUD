@@ -868,7 +868,7 @@ public class ItemCommandHandler implements CommandHandler {
         }
 
         // Get the potion's effect
-        String effectId = matched.template.spellEffectIds.isEmpty() ? null : matched.template.spellEffectIds.get(0);
+        String effectId = matched.template.spellEffectIds.isEmpty() ? null : matched.template.spellEffectIds.getFirst();
         if (effectId == null || effectId.isEmpty()) {
             out.println("You quaff " + matched.template.name + " but it has no magical effect.");
             // Still consume the potion

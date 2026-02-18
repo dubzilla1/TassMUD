@@ -295,8 +295,8 @@ public class CharacterCreationHandler {
         out.println("=== SELECT YOUR CLASS ===");
         out.println();
         for (CharacterClass cls : allClasses) {
-            out.println(String.format("  [%d] %s", cls.id, cls.name));
-            out.println(String.format("      HP/lvl: %+d  MP/lvl: %+d  MV/lvl: %+d",
+            out.println("  [%d] %s".formatted(cls.id, cls.name));
+            out.println("      HP/lvl: %+d  MP/lvl: %+d  MV/lvl: %+d".formatted(
                 cls.hpPerLevel, cls.mpPerLevel, cls.mvPerLevel));
         }
         out.println();

@@ -153,49 +153,49 @@ public class CombatMessagingService {
         String message;
         switch (result.getType()) {
             case HIT:
-                message = String.format("%s's attack %s %s!",
-                        attackerName, getDamageVerb(result.getDamage(), false), targetName);
+                message = "%s's attack %s %s!".formatted(
+                    attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 break;
             case CRITICAL_HIT:
-                message = String.format("CRITICAL! %s's attack %s %s!",
-                        attackerName, getDamageVerb(result.getDamage(), false), targetName);
+                message = "CRITICAL! %s's attack %s %s!".formatted(
+                    attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 break;
             case MISS:
-                message = String.format("%s's attack %s %s!",
-                        attackerName, getDamageVerb(0, false), targetName);
+                message = "%s's attack %s %s!".formatted(
+                    attackerName, getDamageVerb(0, false), targetName);
                 break;
             case SHRUGGED_OFF:
-                message = String.format("%s's melee attack is shrugged off by %s!",
-                        attackerName, targetName);
+                message = "%s's melee attack is shrugged off by %s!".formatted(
+                    attackerName, targetName);
                 break;
             case DODGED:
-                message = String.format("%s's ranged attack is dodged by %s!",
-                        attackerName, targetName);
+                message = "%s's ranged attack is dodged by %s!".formatted(
+                    attackerName, targetName);
                 break;
             case RESISTED:
-                message = String.format("%s's magical attack is resisted by %s!",
-                        attackerName, targetName);
+                message = "%s's magical attack is resisted by %s!".formatted(
+                    attackerName, targetName);
                 break;
             case BLOCKED:
-                message = String.format("%s's attack is blocked by %s!",
-                        attackerName, targetName);
+                message = "%s's attack is blocked by %s!".formatted(
+                    attackerName, targetName);
                 break;
             case PARRIED:
-                message = String.format("%s's attack is parried by %s!",
-                        attackerName, targetName);
+                message = "%s's attack is parried by %s!".formatted(
+                    attackerName, targetName);
                 break;
             case DEFLECTED:
-                message = String.format("%s's ranged attack is deflected by %s!",
-                        attackerName, targetName);
+                message = "%s's ranged attack is deflected by %s!".formatted(
+                    attackerName, targetName);
                 break;
             case HEAL:
-                message = String.format("%s heals %s for %d HP!",
-                        attackerName, targetName, result.getHealing());
+                message = "%s heals %s for %d HP!".formatted(
+                    attackerName, targetName, result.getHealing());
                 break;
             case DEATH:
                 // Show the killing blow damage before the death message
-                message = String.format("%s's attack %s %s!",
-                        attackerName, getDamageVerb(result.getDamage(), false), targetName);
+                message = "%s's attack %s %s!".formatted(
+                    attackerName, getDamageVerb(result.getDamage(), false), targetName);
                 broadcastToRoom(combat.getRoomId(), message);
                 combat.logEvent(message);
 
@@ -227,8 +227,8 @@ public class CombatMessagingService {
             Integer attackerId = result.getAttacker().getCharacterId();
             if (com.example.tassmud.effect.EffectRegistry.hasInsight(attackerId)) {
                 Combatant target = result.getTarget();
-                String hpMsg = String.format("  %s: %d/%d HP",
-                        target.getName(), target.getHpCurrent(), target.getHpMax());
+                String hpMsg = "  %s: %d/%d HP".formatted(
+                    target.getName(), target.getHpCurrent(), target.getHpMax());
                 sendToPlayer(attackerId, hpMsg);
             }
         }

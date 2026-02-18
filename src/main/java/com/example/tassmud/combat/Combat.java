@@ -431,7 +431,7 @@ public class Combat {
     // Combat Log
     
     public void logEvent(String event) {
-        String timestamp = String.format("[R%d %.1fs]", currentRound, 
+        String timestamp = "[R%d %.1fs]".formatted(currentRound,
             (System.currentTimeMillis() - startedAt) / 1000.0);
         combatLog.add(timestamp + " " + event);
     }
@@ -614,7 +614,7 @@ public class Combat {
         int players = (int) active.stream().filter(Combatant::isPlayer).count();
         int mobs = (int) active.stream().filter(Combatant::isMobile).count();
         
-        return String.format("Combat #%d [%s] Round %d - %d players, %d mobs - Room %d",
+        return "Combat #%d [%s] Round %d - %d players, %d mobs - Room %d".formatted(
             combatId, state.getDisplayName(), currentRound, players, mobs, roomId);
     }
     
