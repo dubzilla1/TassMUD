@@ -68,6 +68,9 @@ public class SlowEffect implements EffectHandler {
             roomId = trec.currentRoom;
         }
 
+        // Cancel any active Haste on the target (opposite effect)
+        EffectRegistry.removeAllEffectsOfType(targetId, HasteEffect.EFFECT_HASTE);
+
         // Send messages
         String applyMsg = targetName + "'s movements become sluggish and slow!";
         ClientHandler.broadcastRoomMessage(roomId, applyMsg);

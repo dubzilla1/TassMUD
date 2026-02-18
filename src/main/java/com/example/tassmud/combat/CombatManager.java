@@ -13,6 +13,7 @@ import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.persistence.SkillDAO;
 import com.example.tassmud.effect.FlurryEffect;
+import com.example.tassmud.effect.HasteEffect;
 import com.example.tassmud.util.TickService;
 import com.example.tassmud.util.GroupManager;
 import com.example.tassmud.util.RegenerationService;
@@ -471,6 +472,11 @@ public class CombatManager {
             processFlurryAttack(combat, combatant, target);
         }
         
+        // Haste: one guaranteed extra attack per round
+        if (command == basicAttack && combatant.isAlive() && !combat.shouldEnd()) {
+            processHasteAttack(combat, combatant, target);
+        }
+        
         // Apply end-of-turn effects (damage over time, healing, etc.)
         applyEndOfTurnEffects(combat, combatant);
     }
@@ -592,6 +598,54 @@ public class CombatManager {
         Skill flurryDef = skillDao.getSkillById(FLURRY_SKILL_ID);
         if (flurryDef != null && skillDao.tryImproveSkill(charId, FLURRY_SKILL_ID, flurryDef)) {
             sendToPlayer(charId, "\u001b[1;36mYour Flurry of Blows skill has improved!\u001b[0m");
+        }
+    }
+
+    /**
+     * Process a guaranteed bonus attack from the Haste effect.
+     * Unlike Flurry (probabilistic), Haste always grants one extra basic attack
+     * per round for the duration of the effect.  Works for both players and mobs.
+     */
+    private void processHasteAttack(Combat combat, Combatant combatant, Combatant initialTarget) {
+        Integer charId = combatant.getCharacterId();
+        if (charId == null) return;                       // Only players for now
+        if (!HasteEffect.isHasted(charId)) return;
+
+        // Pick a valid target (may have changed if initial died)
+        Combatant target = initialTarget;
+        if (!target.isAlive() || !target.isActive()) {
+            target = combat.getRandomTarget(combatant);
+        }
+        if (target == null || !combatant.isAlive() || combat.shouldEnd()) return;
+
+        // Execute the bonus attack (no level penalty)
+        CombatResult result = basicAttack.executeWithPenalty(combatant, target, combat, 0);
+        combat.addRoundResult(result);
+
+        // Haste hit message
+        if (combatant.isPlayer() && combatant.getCharacterId() != null) {
+            sendToPlayer(combatant.getCharacterId(),
+                    "\u001b[1;36mYour magically quickened reflexes grant an extra strike!\u001b[0m");
+        }
+        messagingService.broadcastCombatResult(combat, result);
+
+        // Ki generation for monks
+        tryGenerateKi(combatant, result);
+
+        // Track aggro
+        if (combatant.isPlayer() && combatant.getCharacterId() != null) {
+            combat.addAttackAggro(combatant.getCharacterId(), result.getDamage());
+        }
+
+        // Track armor damage
+        if (result.getDamage() > 0 && target.isPlayer()) {
+            rewardService.trackArmorDamage(target, result.getDamage());
+            messagingService.syncPlayerHpToDatabase(target);
+        }
+
+        // Check for death
+        if (result.isDeath() || !target.isAlive()) {
+            deathHandler.handleCombatantDeath(combat, target, combatant);
         }
     }
     

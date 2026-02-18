@@ -277,6 +277,24 @@ effects:
       min_duration: 60     # Minimum 60 seconds at low proficiency
       immune_to_trip: true # Can't be tripped while flying
 
+  # ========== HASTE (opposite of SLOW) ==========
+
+  - id: "1020"
+    name: "Haste"
+    type: HASTE
+    tags: [buff, magical, physical]
+    duration: 120          # Up to 120 seconds at max proficiency
+    cooldown: 3
+    dice_multiplier: 0
+    level_multiplier: 4
+    profficiency_impact: DURATION
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      min_duration: 30     # Minimum 30 seconds at low proficiency
+      extra_attacks: 1     # One guaranteed bonus attack per round
+
   # ========== CREATURE TYPE FLAGS ==========
 
   - id: "2000"

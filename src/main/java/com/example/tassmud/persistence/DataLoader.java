@@ -659,6 +659,8 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("CURSED", new com.example.tassmud.effect.CursedEffect());
             // Register flying handler for FLYING effects (free movement, sector access)
             com.example.tassmud.effect.EffectRegistry.registerHandler("FLYING", new com.example.tassmud.effect.FlyingEffect());
+            // Register haste handler for HASTE buff (extra attack per round)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("HASTE", new com.example.tassmud.effect.HasteEffect());
             // Register flurry handler for monk Flurry of Blows
             com.example.tassmud.effect.EffectRegistry.registerHandler("flurry", new com.example.tassmud.effect.FlurryEffect());
             // UNDEAD is a flag effect - no handler needed, just presence check
