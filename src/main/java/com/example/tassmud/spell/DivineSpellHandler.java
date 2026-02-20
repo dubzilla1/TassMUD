@@ -141,7 +141,7 @@ public class DivineSpellHandler {
         if (targets.isEmpty()) {
             targetId = casterId;
         } else {
-            targetId = targets.getFirst();
+            targetId = targets.get(0);
         }
         
         // Verify target is a player in the same combat

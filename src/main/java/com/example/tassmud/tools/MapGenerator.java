@@ -183,7 +183,7 @@ public class MapGenerator {
         Map<Integer, int[]> positions = new HashMap<>(); // roomId -> [x, y]
         
         // Start from first room at origin
-        Room startRoom = rooms.getFirst();
+        Room startRoom = rooms.get(0);
         positions.put(startRoom.id, new int[]{0, 0});
         
         Queue<Integer> queue = new LinkedList<>();

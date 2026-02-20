@@ -72,6 +72,6 @@ public class CommandDefinition {
             return name;
         }
         // Show first alias in parentheses
-        return name + " (" + aliases.getFirst() + ")";
+        return name + " (" + aliases.get(0) + ")";
     }
 }

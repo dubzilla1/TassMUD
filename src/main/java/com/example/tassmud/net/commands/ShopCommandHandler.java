@@ -422,7 +422,7 @@ class ShopCommandHandler {
         java.util.List<ItemDAO.RoomItem> toSell = matchingItems.subList(0, actualQuantity);
         
         // Calculate sell value (half of item value, minimum 1)
-        ItemDAO.RoomItem soldItem = toSell.getFirst();
+        ItemDAO.RoomItem soldItem = toSell.get(0);
         int sellPrice = Math.max(1, soldItem.template.value / 2);
         long totalGold = (long) sellPrice * actualQuantity;
         
