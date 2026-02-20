@@ -8,6 +8,29 @@ param(
 
 try {
 
+# Ensure JAVA_HOME points to a JDK that supports the project's release version (21).
+# VS Code terminals and fresh shells may inherit a stale JAVA_HOME pointing to an older JDK.
+if ($env:JAVA_HOME) {
+    $javacExe = Join-Path $env:JAVA_HOME "bin\javac.exe"
+    if (Test-Path $javacExe) {
+        $verLine = & $javacExe -version 2>&1 | Select-Object -First 1
+        if ($verLine -match '(\d+)' -and [int]$Matches[1] -lt 21) {
+            Write-Host "Current JAVA_HOME points to JDK $($Matches[1]); need 21+. Auto-detecting..."
+            $env:JAVA_HOME = $null
+        }
+    }
+}
+if (-not $env:JAVA_HOME) {
+    # Try to locate a JDK 21+ installation
+    $jdk21 = Get-ChildItem "C:\Program Files\Microsoft","C:\Program Files\Eclipse Adoptium","C:\Program Files\Java" -Directory -ErrorAction SilentlyContinue |
+        Where-Object { $_.Name -match 'jdk-2[1-9]' -or $_.Name -match 'jdk-[3-9]\d' } |
+        Sort-Object Name -Descending | Select-Object -First 1
+    if ($jdk21 -and (Test-Path (Join-Path $jdk21.FullName "bin\javac.exe"))) {
+        $env:JAVA_HOME = $jdk21.FullName
+        Write-Host "Auto-detected JAVA_HOME: $($env:JAVA_HOME)"
+    }
+}
+
 # Also check for --nobuild and --clean in $args for unix-style flags
 if ($args -contains "--nobuild") {
     $NoBuild = $true
@@ -106,6 +129,24 @@ if ($busy) {
 # 2) Optionally build
 if (-not $NoBuild) {
     if ($Clean) {
+        # Pre-delete target\classes to avoid VS Code Java Language Server file locks
+        # that prevent mvn clean from deleting the directory
+        if (Test-Path "target\classes") {
+            $deleted = $false
+            for ($retry = 1; $retry -le 5; $retry++) {
+                try {
+                    Remove-Item "target\classes" -Recurse -Force -ErrorAction Stop
+                    $deleted = $true
+                    break
+                } catch {
+                    Write-Host "  target\classes locked (attempt $retry/5), retrying in 2s..."
+                    Start-Sleep -Seconds 2
+                }
+            }
+            if (-not $deleted) {
+                Write-Warning "Could not delete target\classes; mvn clean may fail."
+            }
+        }
         Write-Host "Running Maven clean build (skip tests)..."
         mvn -DskipTests clean package
     } else {
