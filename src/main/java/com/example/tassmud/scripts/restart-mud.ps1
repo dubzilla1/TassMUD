@@ -8,25 +8,26 @@ param(
 
 try {
 
-# Ensure JAVA_HOME points to a JDK that supports the project's release version (21).
+# Ensure JAVA_HOME points to a JDK that supports the project's release version (25).
 # VS Code terminals and fresh shells may inherit a stale JAVA_HOME pointing to an older JDK.
 if ($env:JAVA_HOME) {
     $javacExe = Join-Path $env:JAVA_HOME "bin\javac.exe"
     if (Test-Path $javacExe) {
         $verLine = & $javacExe -version 2>&1 | Select-Object -First 1
-        if ($verLine -match '(\d+)' -and [int]$Matches[1] -lt 21) {
-            Write-Host "Current JAVA_HOME points to JDK $($Matches[1]); need 21+. Auto-detecting..."
+        if ($verLine -match '(\d+)' -and [int]$Matches[1] -lt 25) {
+            Write-Host "Current JAVA_HOME points to JDK $($Matches[1]); need 25+. Auto-detecting..."
             $env:JAVA_HOME = $null
         }
     }
 }
 if (-not $env:JAVA_HOME) {
-    # Try to locate a JDK 21+ installation
-    $jdk21 = Get-ChildItem "C:\Program Files\Microsoft","C:\Program Files\Eclipse Adoptium","C:\Program Files\Java" -Directory -ErrorAction SilentlyContinue |
-        Where-Object { $_.Name -match 'jdk-2[1-9]' -or $_.Name -match 'jdk-[3-9]\d' } |
+    # Try to locate a JDK 25+ installation
+    $searchRoots = @("C:\Program Files\Microsoft","C:\Program Files\Eclipse Adoptium","C:\Program Files\Java","$env:USERPROFILE\.jdk")
+    $jdk25 = Get-ChildItem $searchRoots -Directory -ErrorAction SilentlyContinue |
+        Where-Object { $_.Name -match 'jdk-2[5-9]' -or $_.Name -match 'jdk-[3-9]\d' } |
         Sort-Object Name -Descending | Select-Object -First 1
-    if ($jdk21 -and (Test-Path (Join-Path $jdk21.FullName "bin\javac.exe"))) {
-        $env:JAVA_HOME = $jdk21.FullName
+    if ($jdk25 -and (Test-Path (Join-Path $jdk25.FullName "bin\javac.exe"))) {
+        $env:JAVA_HOME = $jdk25.FullName
         Write-Host "Auto-detected JAVA_HOME: $($env:JAVA_HOME)"
     }
 }
