@@ -26,6 +26,12 @@ public class CommandRegistry {
         register("consider", "Evaluate how dangerous a target would be to fight", Category.INFORMATION, List.of("con"));
         register("compare", "Compare an inventory item to your currently equipped gear", Category.INFORMATION);
         registerCombat("weather", "Check the current weather conditions", Category.INFORMATION);
+        register("time", "Display the current in-game date and time", Category.INFORMATION);
+        register("commands", "List all available commands by category", Category.INFORMATION);
+        register("examine", "Closely examine an item, mobile, or player", Category.INFORMATION, List.of("exam"));
+        register("exits", "Display available exits from the current room", Category.INFORMATION);
+        register("areas", "List all areas in the game", Category.INFORMATION);
+        register("where", "Show players and mobiles in your current area", Category.INFORMATION);
         
         // ===== MOVEMENT =====
         // Movement NOT allowed in combat (use flee instead)
@@ -50,8 +56,10 @@ public class CommandRegistry {
         // All communication allowed in combat
         registerCombat("say", "Say something to others in the room", Category.COMMUNICATION);
         registerCombat("chat", "Send a message to the global chat channel", Category.COMMUNICATION);
-        registerCombat("yell", "Yell something loudly", Category.COMMUNICATION);
-        registerCombat("whisper", "Send a private message to another player", Category.COMMUNICATION);
+        registerCombat("yell", "Yell something loudly", Category.COMMUNICATION, List.of("shout"));
+        registerCombat("whisper", "Send a private message to another player", Category.COMMUNICATION, List.of("tell", "t"));
+        registerCombat("reply", "Reply to the last player who sent you a tell", Category.COMMUNICATION, List.of("r"));
+        registerCombat("emote", "Perform an action visible to others in the room", Category.COMMUNICATION, List.of(","));
         registerCombat("groupchat", "Send a message to your group", Category.COMMUNICATION);
         
         // ===== ITEMS & EQUIPMENT =====
@@ -70,6 +78,8 @@ public class CommandRegistry {
         register("list", "List items for sale from shopkeepers in the room", Category.ITEMS);
         register("buy", "Buy an item from a shopkeeper", Category.ITEMS);
         register("sell", "Sell an item to a shopkeeper", Category.ITEMS);
+        register("give", "Give an item or gold to another player or mobile", Category.ITEMS);
+        register("value", "Appraise an item's sell value at a shop", Category.ITEMS);
         
         // ===== COMBAT & SKILLS =====
         // All combat commands allowed in combat
@@ -107,6 +117,7 @@ public class CommandRegistry {
         registerCombat("leader", "Transfer group leadership to another member", Category.GROUP, List.of("lead"));
         registerCombat("follow", "Start following your group leader", Category.GROUP);
         registerCombat("unfollow", "Stop following your group leader", Category.GROUP);
+        register("split", "Split gold evenly with your group members", Category.GROUP);
         
         // ===== SYSTEM =====
         // save, quit allowed in combat; prompt, motd not critical
@@ -120,7 +131,11 @@ public class CommandRegistry {
         register("autosac", "Toggle automatic sacrifice of empty corpses (requires autoloot and autogold)", Category.SYSTEM);
         register("autojunk", "Toggle automatic sale of junk", Category.SYSTEM);
         register("autoassist", "Toggle automatic assistance to group members in combat", Category.SYSTEM);
-        registerCombat("autoflee", "Configure automatic flee threshold (0-100)", Category.SYSTEM);
+        registerCombat("autoflee", "Configure automatic flee threshold (0-100)", Category.SYSTEM, List.of("wimpy"));
+        register("config", "Display all your current settings and toggles", Category.SYSTEM);
+        register("title", "Set or clear your character title", Category.SYSTEM);
+        register("description", "Set or view your character description", Category.SYSTEM, List.of("desc"));
+        register("channels", "Mute or unmute individual communication channels", Category.SYSTEM);
         
         // ===== GM COMMANDS =====
         // All GM commands allowed in combat (GMs need full control)

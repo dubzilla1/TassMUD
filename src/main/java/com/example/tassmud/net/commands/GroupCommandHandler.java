@@ -6,6 +6,7 @@ import com.example.tassmud.net.CommandDefinition.Category;
 import com.example.tassmud.net.CommandRegistry;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
+import com.example.tassmud.persistence.TransactionManager;
 import com.example.tassmud.util.GroupManager;
 
 import java.io.PrintWriter;
@@ -55,6 +56,8 @@ public class GroupCommandHandler implements CommandHandler {
                 return handleFollowCommand(ctx);
             case "unfollow":
                 return handleUnfollowCommand(ctx);
+            case "split":
+                return handleSplitCommand(ctx);
             default:
                 return false;
         }
@@ -650,6 +653,109 @@ public class GroupCommandHandler implements CommandHandler {
             }
         } else {
             out.println("Failed to stop following.");
+        }
+
+        return true;
+    }
+
+    // ========== SPLIT command ==========
+
+    private boolean handleSplitCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        Integer charId = ctx.characterId;
+        String args = ctx.getArgs();
+
+        if (charId == null) {
+            out.println("You must be logged in.");
+            return true;
+        }
+
+        GroupManager gm = GroupManager.getInstance();
+        Optional<Group> groupOpt = gm.getGroupForCharacter(charId);
+
+        if (groupOpt.isEmpty()) {
+            out.println("You are not in a group.");
+            return true;
+        }
+
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Usage: split <amount>");
+            return true;
+        }
+
+        long amount;
+        try {
+            amount = Long.parseLong(args.trim());
+        } catch (NumberFormatException e) {
+            out.println("Usage: split <amount>");
+            return true;
+        }
+
+        if (amount <= 0) {
+            out.println("How much gold do you want to split?");
+            return true;
+        }
+
+        CharacterRecord rec = dao.getCharacterById(charId);
+        if (rec == null) {
+            out.println("Failed to load your character.");
+            return true;
+        }
+
+        if (rec.goldPieces < amount) {
+            out.println("You don't have that much gold.");
+            return true;
+        }
+
+        Group group = groupOpt.get();
+
+        // Find group members in the same room
+        java.util.List<Integer> membersInRoom = new java.util.ArrayList<>();
+        for (int memberId : group.getMemberIds()) {
+            if (memberId == charId) {
+                membersInRoom.add(memberId);
+                continue;
+            }
+            ClientHandler handler = ClientHandler.getHandlerByCharacterId(memberId);
+            if (handler != null && rec.currentRoom.equals(handler.getCurrentRoomId())) {
+                membersInRoom.add(memberId);
+            }
+        }
+
+        if (membersInRoom.size() <= 1) {
+            out.println("There are no group members here to split with.");
+            return true;
+        }
+
+        int count = membersInRoom.size();
+        long share = amount / count;
+        long remainder = amount % count;
+
+        if (share <= 0) {
+            out.println("Not enough gold to split " + count + " ways.");
+            return true;
+        }
+
+        // Splitter pays the full amount and gets share + remainder
+        long splitterNet = -(amount - share - remainder);
+
+        TransactionManager.runInTransaction(() -> {
+            dao.addGold(charId, splitterNet);
+            for (int memberId : membersInRoom) {
+                if (memberId == charId) continue;
+                dao.addGold(memberId, share);
+            }
+        });
+
+        out.println("You split " + "%,d".formatted(amount) + " gold " + count + " ways. "
+                + "Each member receives " + "%,d".formatted(share) + " gp.");
+        for (int memberId : membersInRoom) {
+            if (memberId == charId) continue;
+            CharacterRecord memberRec = dao.getCharacterById(memberId);
+            String memberName = memberRec != null ? memberRec.name : "Someone";
+            ClientHandler.sendToCharacter(memberId,
+                    rec.name + " splits " + "%,d".formatted(amount) + " gold. You receive " + "%,d".formatted(share) + " gp.");
         }
 
         return true;

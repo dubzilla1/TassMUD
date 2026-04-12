@@ -24,7 +24,11 @@ import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
 import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.persistence.MobileDAO;
+import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.HelpManager;
+import com.example.tassmud.util.ItemMatchingService;
+import com.example.tassmud.util.MobileMatchingService;
+import com.example.tassmud.util.MobileRegistry;
 import com.example.tassmud.util.RegenerationService;
 
 import java.io.PrintWriter;
@@ -71,6 +75,18 @@ public class InformationCommandHandler implements CommandHandler {
                 return handleCompareCommand(ctx);
             case "weather":
                 return handleWeatherCommand(ctx);
+            case "time":
+                return handleTimeCommand(ctx);
+            case "commands":
+                return handleCommandsCommand(ctx);
+            case "examine":
+                return handleExamineCommand(ctx);
+            case "exits":
+                return handleExitsCommand(ctx);
+            case "areas":
+                return handleAreasCommand(ctx);
+            case "where":
+                return handleWhereCommand(ctx);
             default:
                 return false;
         }
@@ -725,9 +741,10 @@ public class InformationCommandHandler implements CommandHandler {
             // === HEADER ===
             sheet.append("\n").append(divider).append("\n");
             sheet.append("  %-30s %35s\n".formatted(name.toUpperCase(), "Age: " + rec.age));
+            String titleDisplay = rec.title != null && !rec.title.isEmpty() ? rec.title : "";
             sheet.append("  %-30s %35s\n".formatted(
                 currentClass != null ? currentClass.name + " Level " + classLevel : "(No Class)",
-                rec.description != null && !rec.description.isEmpty() ? "\"" + ClientHandler.truncate(rec.description, 30) + "\"" : ""));
+                !titleDisplay.isEmpty() ? titleDisplay : (rec.description != null && !rec.description.isEmpty() ? "\"" + ClientHandler.truncate(rec.description, 30) + "\"" : "")));
             sheet.append(divider).append("\n");
             
             // ═══ VITALS ═══
@@ -1188,6 +1205,8 @@ public class InformationCommandHandler implements CommandHandler {
                 ? classDao.getCharacterClassLevel(pCharId, pClassId) : 0;
             
             String className = pClass != null ? pClass.name : "Adventurer";
+            String titleStr = pRec.title != null && !pRec.title.isEmpty()
+                ? " " + pRec.title : "";
             String desc = pRec.description != null && !pRec.description.isEmpty() 
                 ? pRec.description : "";
             
@@ -1199,9 +1218,9 @@ public class InformationCommandHandler implements CommandHandler {
                 invisTag = " (INVIS)";
             }
             
-            // Format: [Lv ##] ClassName     PlayerName - Description
-            out.println("  [Lv %2d] %-12s  %-15s%s %s".formatted(
-                pLevel, className, pName, invisTag,
+            // Format: [Lv ##] ClassName     PlayerName Title - Description
+            out.println("  [Lv %2d] %-12s  %-15s%s%s %s".formatted(
+                pLevel, className, pName, titleStr, invisTag,
                 desc.isEmpty() ? "" : "- " + ClientHandler.truncate(desc, 30)));
             count++;
         }
@@ -1288,6 +1307,339 @@ public class InformationCommandHandler implements CommandHandler {
         }
         
         out.println("");
+        return true;
+    }
+
+    // ========== TIME command ==========
+
+    private boolean handleTimeCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        GameClock clock = ctx.handler.getGameClock();
+        if (clock == null) {
+            out.println("The clock is not available.");
+            return true;
+        }
+
+        int hour = clock.getHour();
+        String timeOfDay;
+        if (hour >= 5 && hour < 8) timeOfDay = "dawn";
+        else if (hour >= 8 && hour < 12) timeOfDay = "morning";
+        else if (hour >= 12 && hour < 14) timeOfDay = "midday";
+        else if (hour >= 14 && hour < 18) timeOfDay = "afternoon";
+        else if (hour >= 18 && hour < 21) timeOfDay = "dusk";
+        else timeOfDay = "night";
+
+        out.println("\u001B[36m=== Time and Date ===\u001B[0m");
+        out.printf("It is %d:%02d %s, day %d of month %d, year %d.%n",
+                hour, clock.getMinute(), timeOfDay, clock.getDay(), clock.getMonth(), clock.getYear());
+
+        // Uptime
+        long uptimeMs = System.currentTimeMillis() - clock.getBootTimeMillis();
+        long uptimeSec = uptimeMs / 1000;
+        long days = uptimeSec / 86400;
+        long hours = (uptimeSec % 86400) / 3600;
+        long mins = (uptimeSec % 3600) / 60;
+        long secs = uptimeSec % 60;
+        StringBuilder uptime = new StringBuilder("Server uptime: ");
+        if (days > 0) uptime.append(days).append("d ");
+        if (hours > 0 || days > 0) uptime.append(hours).append("h ");
+        uptime.append(mins).append("m ").append(secs).append("s");
+        out.println(uptime.toString());
+        out.println("");
+        return true;
+    }
+
+    // ========== COMMANDS command ==========
+
+    private boolean handleCommandsCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        boolean isGm = ctx.isGm;
+
+        out.println("\u001B[36m=== Available Commands ===\u001B[0m");
+        // Group commands by category
+        Map<Category, List<CommandDefinition>> byCategory = new LinkedHashMap<>();
+        for (CommandDefinition def : CommandRegistry.getAllCommands()) {
+            if (def.isGmOnly() && !isGm) continue;
+            byCategory.computeIfAbsent(def.getCategory(), k -> new ArrayList<>()).add(def);
+        }
+
+        for (var entry : byCategory.entrySet()) {
+            Category cat = entry.getKey();
+            List<CommandDefinition> cmds = entry.getValue();
+            out.println("\u001B[33m" + cat.name() + ":\u001B[0m");
+            StringBuilder sb = new StringBuilder("  ");
+            int col = 0;
+            for (CommandDefinition def : cmds) {
+                String name = def.getName();
+                if (col > 0 && col + name.length() + 2 > 75) {
+                    out.println(sb.toString());
+                    sb = new StringBuilder("  ");
+                    col = 0;
+                }
+                if (col > 0) { sb.append(", "); col += 2; }
+                sb.append(name);
+                col += name.length();
+            }
+            if (col > 0) out.println(sb.toString());
+        }
+        out.println("");
+        out.println("Type 'help <command>' for details on a specific command.");
+        return true;
+    }
+
+    // ========== EXAMINE command ==========
+
+    private boolean handleExamineCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterRecord rec = ctx.requireRecordInRoom();
+        if (rec == null) return true;
+        Integer charId = ctx.resolveCharacterId();
+
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Examine what?");
+            return true;
+        }
+        String target = args.trim().toLowerCase();
+
+        // 1. Check inventory items
+        ItemDAO itemDao = DaoProvider.items();
+        List<ItemDAO.RoomItem> inventory = itemDao.getItemsByCharacter(charId);
+        ItemDAO.RoomItem invItem = ItemMatchingService.findMatchingItem(inventory, target);
+        if (invItem != null) {
+            printItemExamine(out, invItem);
+            return true;
+        }
+
+        // 2. Check room items
+        List<ItemDAO.RoomItem> roomItems = itemDao.getItemsInRoom(rec.currentRoom);
+        ItemDAO.RoomItem roomItem = ItemMatchingService.findMatchingItem(roomItems, target);
+        if (roomItem != null) {
+            printItemExamine(out, roomItem);
+            return true;
+        }
+
+        // 3. Check mobs in room
+        Mobile mob = MobileMatchingService.findInRoom(rec.currentRoom, target);
+        if (mob != null) {
+            printMobExamine(out, mob);
+            return true;
+        }
+
+        // 4. Check players in room
+        for (Integer connectedId : ClientHandler.getConnectedCharacterIds()) {
+            if (connectedId.equals(charId)) continue;
+            ClientHandler ch = ClientHandler.getHandlerByCharacterId(connectedId);
+            if (ch == null) continue;
+            Integer otherRoom = ch.getCurrentRoomId();
+            if (otherRoom != null && otherRoom.equals(rec.currentRoom)) {
+                String otherName = ch.playerName;
+                if (otherName != null && otherName.toLowerCase().startsWith(target.toLowerCase())) {
+                    CharacterRecord prec = DaoProvider.characters().findByName(otherName);
+                    if (prec != null) {
+                        printPlayerExamine(out, prec);
+                        return true;
+                    }
+                }
+            }
+        }
+
+        out.println("You don't see that here.");
+        return true;
+    }
+
+    private void printItemExamine(PrintWriter out, ItemDAO.RoomItem item) {
+        ItemTemplate t = item.template;
+        out.println("\u001B[36m=== " + t.name + " ===\u001B[0m");
+        if (t.description != null && !t.description.isEmpty()) {
+            out.println(t.description);
+        }
+        out.printf("Type: %s  |  Value: %d gp  |  Weight: %.1f%n",
+                t.types != null ? t.types : t.type,
+                t.value, t.weight);
+        if (t.baseDie > 0) {
+            out.printf("Damage: %dd%d  |  Category: %s  |  Family: %s%n",
+                    t.multiplier > 0 ? t.multiplier : 1, t.baseDie,
+                    t.weaponCategory != null ? t.weaponCategory : "-",
+                    t.weaponFamily != null ? t.weaponFamily : "-");
+        }
+        if (t.armorSaveBonus > 0) {
+            out.printf("Armor: %d  |  Category: %s%n",
+                    t.armorSaveBonus,
+                    t.armorCategory != null ? t.armorCategory : "-");
+        }
+        if (t.slot != null && !t.slot.isEmpty()) {
+            out.println("Slot: " + t.slot);
+        }
+        out.println("");
+    }
+
+    private void printMobExamine(PrintWriter out, Mobile mob) {
+        out.println("\u001B[36m=== " + mob.getName() + " ===\u001B[0m");
+        if (mob.getDescription() != null && !mob.getDescription().isEmpty()) {
+            out.println(mob.getDescription());
+        }
+        out.printf("Level: %d  |  HP: %d/%d%n", mob.getLevel(), mob.getHpCur(), mob.getHpMax());
+        out.println("");
+    }
+
+    private void printPlayerExamine(PrintWriter out, CharacterRecord prec) {
+        out.println("\u001B[36m=== " + prec.name + " ===\u001B[0m");
+        if (prec.description != null && !prec.description.isEmpty()) {
+            out.println(prec.description);
+        } else {
+            out.println("You see nothing special about " + prec.name + ".");
+        }
+        // Show equipped items
+        Integer targetCharId = DaoProvider.characters().getCharacterIdByName(prec.name);
+        if (targetCharId != null) {
+            java.util.Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(targetCharId);
+            if (equippedMap != null && !equippedMap.isEmpty()) {
+                out.println("\u001B[33mEquipment:\u001B[0m");
+                ItemDAO itemDao = DaoProvider.items();
+                for (var entry : equippedMap.entrySet()) {
+                    if (entry.getValue() == null) continue;
+                    EquipmentSlot slot = EquipmentSlot.fromId(entry.getKey());
+                    String slotName = slot != null ? slot.getDisplayName() : "Slot " + entry.getKey();
+                    ItemInstance inst = itemDao.getInstanceById(entry.getValue());
+                    String itemName = "(unknown)";
+                    if (inst != null) {
+                        ItemTemplate tmpl = itemDao.getTemplateById(inst.templateId);
+                        if (tmpl != null) itemName = tmpl.name;
+                    }
+                    out.println("  " + slotName + ": " + itemName);
+                }
+            }
+        }
+        out.println("");
+    }
+
+    // ========================== Exits Command ==========================
+
+    private boolean handleExitsCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterRecord rec = ctx.character;
+
+        if (rec == null || rec.currentRoom == null) {
+            out.println("You are nowhere.");
+            return true;
+        }
+        Integer roomId = rec.currentRoom;
+        com.example.tassmud.model.Room room = DaoProvider.rooms().getRoomById(roomId);
+        if (room == null) {
+            out.println("You are nowhere.");
+            return true;
+        }
+
+        out.println("Obvious exits:");
+        boolean any = false;
+        for (com.example.tassmud.model.Direction dir : room.getExits().keySet()) {
+            com.example.tassmud.model.Door d = DaoProvider.rooms().getDoor(roomId, dir.fullName());
+            boolean passable = (d == null || (d.isOpen() && !d.blocked && !d.hidden && !d.isLocked()));
+            Integer destId = room.getExits().get(dir);
+            String destName = "unknown";
+            if (destId != null) {
+                com.example.tassmud.model.Room destRoom = DaoProvider.rooms().getRoomById(destId);
+                if (destRoom != null) destName = destRoom.getName();
+            }
+            String status = "";
+            if (d != null) {
+                if (d.isLocked()) status = " (locked)";
+                else if (!d.isOpen()) status = " (closed)";
+                else if (d.hidden) status = " (hidden)";
+            }
+            if (passable || (d != null && !d.hidden)) {
+                out.printf("  %-10s - %s%s%n", dir.fullName(), destName, status);
+                any = true;
+            }
+        }
+        if (!any) {
+            out.println("  None.");
+        }
+        return true;
+    }
+
+    // ========================== Areas Command ==========================
+
+    private boolean handleAreasCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        java.util.List<com.example.tassmud.model.Area> areas = DaoProvider.rooms().getAllAreas();
+        if (areas.isEmpty()) {
+            out.println("No areas found.");
+            return true;
+        }
+
+        out.println("\u001B[36m=== Areas ===\u001B[0m");
+        out.printf("  %-4s %-25s %-12s %s%n", "ID", "Name", "Level Range", "Terrain");
+        out.println("  " + "-".repeat(55));
+        for (com.example.tassmud.model.Area area : areas) {
+            String lr = area.getLevelRange() != null ? area.getLevelRange() : "all";
+            out.printf("  %-4d %-25s %-12s %s%n",
+                    area.getId(),
+                    area.getName(),
+                    lr,
+                    area.getSectorType().name().toLowerCase().replace('_', ' '));
+        }
+        out.printf("%n  %d area(s) total.%n", areas.size());
+        return true;
+    }
+
+    // ========================== Where Command ==========================
+
+    private boolean handleWhereCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterRecord rec = ctx.character;
+
+        if (rec == null || rec.currentRoom == null) {
+            out.println("You are nowhere.");
+            return true;
+        }
+        Integer roomId = rec.currentRoom;
+        com.example.tassmud.model.Room room = DaoProvider.rooms().getRoomById(roomId);
+        if (room == null) {
+            out.println("You are nowhere.");
+            return true;
+        }
+        int areaId = room.getAreaId();
+        com.example.tassmud.model.Area area = DaoProvider.rooms().getAreaById(areaId);
+        String areaName = area != null ? area.getName() : "Unknown";
+
+        String search = ctx.getArgs();
+
+        out.println("\u001B[36mNearby in " + areaName + ":\u001B[0m");
+
+        // Players in this area
+        boolean any = false;
+        out.println("\u001B[33mPlayers:\u001B[0m");
+        for (ClientHandler s : ClientHandler.sessions) {
+            if (s.playerName == null) continue;
+            Integer sRoomId = s.currentRoomId;
+            if (sRoomId == null) continue;
+            com.example.tassmud.model.Room sRoom = DaoProvider.rooms().getRoomById(sRoomId);
+            if (sRoom == null || sRoom.getAreaId() != areaId) continue;
+            if (s.gmInvisible) continue;
+            if (search != null && !search.isEmpty() &&
+                    !s.playerName.toLowerCase().contains(search.toLowerCase())) continue;
+            out.printf("  %-20s %s%n", s.playerName, sRoom.getName());
+            any = true;
+        }
+        if (!any) out.println("  None.");
+
+        // Mobs in this area
+        out.println("\u001B[33mMobiles:\u001B[0m");
+        boolean anyMob = false;
+        for (Mobile mob : MobileRegistry.getInstance().getAll()) {
+            Integer mobRoomId = mob.getCurrentRoom();
+            if (mobRoomId == null) continue;
+            com.example.tassmud.model.Room mobRoom = DaoProvider.rooms().getRoomById(mobRoomId);
+            if (mobRoom == null || mobRoom.getAreaId() != areaId) continue;
+            if (search != null && !search.isEmpty() &&
+                    !mob.getName().toLowerCase().contains(search.toLowerCase())) continue;
+            out.printf("  %-20s %s%n", mob.getName(), mobRoom.getName());
+            anyMob = true;
+        }
+        if (!anyMob) out.println("  None.");
+
         return true;
     }
 }

@@ -446,4 +446,63 @@ class ShopCommandHandler {
         }
                 return true;
     }
+
+    boolean handleValueCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.character;
+        Integer charId = ctx.characterId;
+        String args = ctx.getArgs();
+
+        if (rec == null || rec.currentRoom == null) {
+            out.println("You must be in a room to appraise items.");
+            return true;
+        }
+
+        // Find shopkeeper in room
+        java.util.List<Mobile> mobsInRoom = com.example.tassmud.util.MobileRegistry.getInstance().getByRoom(rec.currentRoom);
+        boolean hasShopkeeper = false;
+        for (Mobile mob : mobsInRoom) {
+            if (mob.hasBehavior(MobileBehavior.SHOPKEEPER)) {
+                hasShopkeeper = true;
+                break;
+            }
+        }
+
+        if (!hasShopkeeper) {
+            out.println("There are no shopkeepers here.");
+            return true;
+        }
+
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Usage: value <item>");
+            return true;
+        }
+
+        // Find item in inventory (exclude equipped)
+        ItemDAO itemDao = DaoProvider.items();
+        java.util.Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
+        java.util.Set<Long> equippedIds = new java.util.HashSet<>();
+        for (Long iid : equippedMap.values()) {
+            if (iid != null) equippedIds.add(iid);
+        }
+
+        java.util.List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
+        java.util.List<ItemDAO.RoomItem> inventoryItems = new java.util.ArrayList<>();
+        for (ItemDAO.RoomItem ri : allItems) {
+            if (equippedIds.contains(ri.instance.instanceId)) continue;
+            if (ri.instance.containerInstanceId != null) continue;
+            inventoryItems.add(ri);
+        }
+
+        ItemDAO.RoomItem matched = com.example.tassmud.util.ItemMatchingService.findMatchingItem(inventoryItems, args.trim());
+        if (matched == null) {
+            out.println("You don't have '" + args.trim() + "'.");
+            return true;
+        }
+
+        String itemName = ClientHandler.getItemDisplayName(matched);
+        int sellPrice = Math.max(1, matched.template.value / 2);
+        out.println("A shopkeeper would pay " + "%,d".formatted(sellPrice) + " gold for " + itemName + ".");
+        return true;
+    }
 }

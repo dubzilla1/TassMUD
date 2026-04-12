@@ -771,8 +771,9 @@ public class DataLoader {
                     String desc = getString(areaData, "description", "");
                     String sectorStr = getString(areaData, "sector_type", "FIELD");
                     SectorType sectorType = SectorType.fromString(sectorStr);
+                    String levelRange = getString(areaData, "level_range", null);
                     if (id < 0 || name.isEmpty()) continue;
-                    int used = DaoProvider.rooms().addAreaWithId(id, name, desc, sectorType);
+                    int used = DaoProvider.rooms().addAreaWithId(id, name, desc, sectorType, levelRange);
                     if (used > 0) {
                         map.put(name, used);
                         // record mapping from MERC area id -> actual persisted id (may differ if name conflict)
@@ -861,10 +862,11 @@ public class DataLoader {
                 String desc = getString(areaData, "description", "");
                 String sectorStr = getString(areaData, "sector_type", "FIELD");
                 SectorType sectorType = SectorType.fromString(sectorStr);
+                String levelRange = getString(areaData, "level_range", null);
                 
                 if (id < 0 || name.isEmpty()) continue;
                 
-                int used = DaoProvider.rooms().addAreaWithId(id, name, desc, sectorType);
+                int used = DaoProvider.rooms().addAreaWithId(id, name, desc, sectorType, levelRange);
                 if (used > 0) {
                     map.put(name, used);
                     count++;

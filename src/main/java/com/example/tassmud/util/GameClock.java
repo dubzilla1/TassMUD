@@ -21,9 +21,11 @@ public class GameClock {
     private int minute; // 0-59
 
     private volatile boolean running = false;
+    private final long bootTimeMillis;
 
     public GameClock(TickService tickService, CharacterDAO dao) {
         this.dao = dao;
+        this.bootTimeMillis = System.currentTimeMillis();
         loadOrInit();
         // schedule tick every 1000ms (1 real second == 1 in-game minute)
         tickService.scheduleAtFixedRate("game-clock", this::tick, 1000, 1000);
@@ -91,6 +93,13 @@ public class GameClock {
     public String getCurrentDateString() {
         return "%d:%02d:%02d:%02d:%02d".formatted(year, month, day, hour, minute);
     }
+
+    public long getYear() { return year; }
+    public int getMonth() { return month; }
+    public int getDay() { return day; }
+    public int getHour() { return hour; }
+    public int getMinute() { return minute; }
+    public long getBootTimeMillis() { return bootTimeMillis; }
 
     public void shutdown() {
         this.running = false;

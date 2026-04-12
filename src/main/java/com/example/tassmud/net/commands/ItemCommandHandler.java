@@ -79,6 +79,10 @@ public class ItemCommandHandler implements CommandHandler {
                 return shopCommands.handleBuyCommand(ctx);
             case "sell":
                 return shopCommands.handleSellCommand(ctx);
+            case "give":
+                return handleGiveCommand(ctx);
+            case "value":
+                return shopCommands.handleValueCommand(ctx);
             default:
                 return false;
         }
@@ -1134,6 +1138,173 @@ public class ItemCommandHandler implements CommandHandler {
         return true;
     }
     
+    private boolean handleGiveCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        Integer charId = ctx.characterId;
+        CharacterDAO.CharacterRecord rec = ctx.character;
+        String args = ctx.getArgs();
+
+        if (rec == null || rec.currentRoom == null) {
+            out.println("You must be in a room to give items.");
+            return true;
+        }
+
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Usage: give <item> <player>  or  give <amount> gold <player>");
+            return true;
+        }
+
+        String[] parts = args.trim().split("\\s+");
+
+        // Check for "give <amount> gold <target>" pattern
+        if (parts.length >= 3) {
+            try {
+                long amount = Long.parseLong(parts[0]);
+                if (parts[1].equalsIgnoreCase("gold") || parts[1].equalsIgnoreCase("gp")
+                        || parts[1].equalsIgnoreCase("coins")) {
+                    String targetName = parts[2];
+                    return handleGiveGold(ctx, amount, targetName);
+                }
+            } catch (NumberFormatException ignored) {
+                // Not a gold give — fall through to item give
+            }
+        }
+
+        // Item give: "give <item> <target>" — last word is target
+        if (parts.length < 2) {
+            out.println("Usage: give <item> <player>");
+            return true;
+        }
+
+        String targetName = parts[parts.length - 1];
+        StringBuilder itemSearch = new StringBuilder();
+        for (int i = 0; i < parts.length - 1; i++) {
+            if (i > 0) itemSearch.append(" ");
+            itemSearch.append(parts[i]);
+        }
+        String itemArg = itemSearch.toString();
+
+        // Find item in inventory (exclude equipped items)
+        ItemDAO itemDao = DaoProvider.items();
+        List<ItemDAO.RoomItem> allItems = itemDao.getItemsByCharacter(charId);
+        Map<Integer, Long> equippedMap = DaoProvider.equipment().getEquipmentMapByCharacterId(charId);
+        Set<Long> equippedIds = new HashSet<>();
+        for (Long iid : equippedMap.values()) {
+            if (iid != null) equippedIds.add(iid);
+        }
+        List<ItemDAO.RoomItem> inventoryItems = new ArrayList<>();
+        for (ItemDAO.RoomItem ri : allItems) {
+            if (equippedIds.contains(ri.instance.instanceId)) continue;
+            if (ri.instance.containerInstanceId != null) continue;
+            inventoryItems.add(ri);
+        }
+
+        ItemDAO.RoomItem matched = com.example.tassmud.util.ItemMatchingService.findMatchingItem(inventoryItems, itemArg);
+        if (matched == null) {
+            out.println("You don't have '" + itemArg + "'.");
+            return true;
+        }
+
+        // Check for immobile items
+        if (matched.template.types != null && matched.template.types.contains("immobile")) {
+            out.println("You can't give that away.");
+            return true;
+        }
+
+        // Find target player in room
+        Integer targetCharId = findPlayerInRoom(targetName, rec.currentRoom, charId);
+        if (targetCharId == null) {
+            out.println("You don't see '" + targetName + "' here.");
+            return true;
+        }
+
+        // Transfer item
+        String itemName = ClientHandler.getItemDisplayName(matched);
+        CharacterDAO.CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+        String targetDisplayName = targetRec != null ? targetRec.name : targetName;
+
+        TransactionManager.runInTransaction(() -> {
+            itemDao.moveInstanceToCharacter(matched.instance.instanceId, targetCharId);
+        });
+
+        out.println("You give " + itemName + " to " + targetDisplayName + ".");
+        ClientHandler.sendToCharacter(targetCharId, rec.name + " gives you " + itemName + ".");
+        String roomMsg = rec.name + " gives " + itemName + " to " + targetDisplayName + ".";
+        for (Integer sid : ClientHandler.getConnectedCharacterIds()) {
+            if (sid.equals(charId) || sid.equals(targetCharId)) continue;
+            ClientHandler sh = ClientHandler.getHandlerByCharacterId(sid);
+            if (sh != null && rec.currentRoom.equals(sh.getCurrentRoomId())) {
+                sh.sendRaw(roomMsg);
+            }
+        }
+        return true;
+    }
+
+    private boolean handleGiveGold(CommandContext ctx, long amount, String targetName) {
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        Integer charId = ctx.characterId;
+        CharacterDAO.CharacterRecord rec = ctx.character;
+
+        if (amount <= 0) {
+            out.println("How much gold do you want to give?");
+            return true;
+        }
+
+        if (rec.goldPieces < amount) {
+            out.println("You don't have that much gold.");
+            return true;
+        }
+
+        Integer targetCharId = findPlayerInRoom(targetName, rec.currentRoom, charId);
+        if (targetCharId == null) {
+            out.println("You don't see '" + targetName + "' here.");
+            return true;
+        }
+
+        CharacterDAO.CharacterRecord targetRec = dao.getCharacterById(targetCharId);
+        String targetDisplayName = targetRec != null ? targetRec.name : targetName;
+
+        TransactionManager.runInTransaction(() -> {
+            dao.addGold(charId, -amount);
+            dao.addGold(targetCharId, amount);
+        });
+
+        out.println("You give " + "%,d".formatted(amount) + " gold to " + targetDisplayName + ".");
+        ClientHandler.sendToCharacter(targetCharId, rec.name + " gives you " + "%,d".formatted(amount) + " gold.");
+        String goldMsg = rec.name + " gives " + "%,d".formatted(amount) + " gold to " + targetDisplayName + ".";
+        for (Integer sid : ClientHandler.getConnectedCharacterIds()) {
+            if (sid.equals(charId) || sid.equals(targetCharId)) continue;
+            ClientHandler sh = ClientHandler.getHandlerByCharacterId(sid);
+            if (sh != null && rec.currentRoom.equals(sh.getCurrentRoomId())) {
+                sh.sendRaw(goldMsg);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Find an online player in the given room by name prefix (case-insensitive).
+     * Returns their character ID, or null if not found.
+     */
+    private Integer findPlayerInRoom(String name, Integer roomId, Integer excludeCharId) {
+        String nameLower = name.toLowerCase();
+        for (Integer connectedId : ClientHandler.getConnectedCharacterIds()) {
+            if (connectedId.equals(excludeCharId)) continue;
+            ClientHandler handler = ClientHandler.getHandlerByCharacterId(connectedId);
+            if (handler == null) continue;
+            Integer otherRoom = handler.getCurrentRoomId();
+            if (otherRoom != null && otherRoom.equals(roomId)) {
+                String otherName = handler.playerName;
+                if (otherName != null && otherName.toLowerCase().startsWith(nameLower)) {
+                    return connectedId;
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * Smart matching to find an item by name/keywords.
      * Delegates to {@link com.example.tassmud.util.ItemMatchingService}.

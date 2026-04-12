@@ -57,6 +57,14 @@ public class SystemCommandHandler implements CommandHandler {
                 return handleAutoToggle(ctx, cmdName);
             case "autoflee":
                 return handleAutofleeCommand(ctx);
+            case "config":
+                return handleConfigCommand(ctx);
+            case "title":
+                return handleTitleCommand(ctx);
+            case "description":
+                return handleDescriptionCommand(ctx);
+            case "channels":
+                return handleChannelsCommand(ctx);
             default:
                 return false;
         }
@@ -519,6 +527,185 @@ public class SystemCommandHandler implements CommandHandler {
             out.println(newValue ? msgs[0] : msgs[1]);
         } else {
             out.println("Failed to toggle " + flagName + ".");
+        }
+        return true;
+    }
+
+    // ========== CONFIG command ==========
+
+    private boolean handleConfigCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.requireRecord();
+        if (rec == null) return true;
+
+        out.println("\u001B[36m=== Your Settings ===\u001B[0m");
+        out.printf("  Autoloot:   %s%n", rec.autoloot ? "\u001B[32mON\u001B[0m" : "\u001B[31mOFF\u001B[0m");
+        out.printf("  Autogold:   %s%n", rec.autogold ? "\u001B[32mON\u001B[0m" : "\u001B[31mOFF\u001B[0m");
+        out.printf("  Autosac:    %s%n", rec.autosac ? "\u001B[32mON\u001B[0m" : "\u001B[31mOFF\u001B[0m");
+        out.printf("  Autojunk:   %s%n", rec.autojunk ? "\u001B[32mON\u001B[0m" : "\u001B[31mOFF\u001B[0m");
+        out.printf("  Autoassist: %s%n", rec.autoassist ? "\u001B[32mON\u001B[0m" : "\u001B[31mOFF\u001B[0m");
+        out.printf("  Autoflee:   %d%%%n", rec.autoflee);
+        String title = ctx.dao.getTitle(ctx.resolveCharacterId());
+        out.printf("  Title:      %s%n", title != null && !title.isEmpty() ? title : "(none)");
+        out.println("");
+        out.println("\u001B[36m=== Channels ===\u001B[0m");
+        out.printf("  Chat:       %s%n", rec.deafChat ? "\u001B[31mMUTED\u001B[0m" : "\u001B[32mON\u001B[0m");
+        out.printf("  Yell:       %s%n", rec.deafYell ? "\u001B[31mMUTED\u001B[0m" : "\u001B[32mON\u001B[0m");
+        out.println("");
+        out.println("Use the individual commands to change these settings.");
+        out.println("Use 'channels' to mute/unmute channels.");
+        return true;
+    }
+
+    // ========== TITLE command ==========
+
+    private boolean handleTitleCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.requireRecord();
+        if (rec == null) return true;
+        Integer charId = ctx.resolveCharacterId();
+
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            // Show current title
+            String title = ctx.dao.getTitle(charId);
+            if (title != null && !title.isEmpty()) {
+                out.println("Your title is: " + title);
+            } else {
+                out.println("You have no title set.");
+            }
+            out.println("Usage: title <text> — set a new title");
+            out.println("       title clear  — remove your title");
+            return true;
+        }
+
+        String text = args.trim();
+        if (text.equalsIgnoreCase("clear") || text.equalsIgnoreCase("none")) {
+            ctx.dao.setTitle(charId, "");
+            out.println("Title cleared.");
+        } else {
+            if (text.length() > 60) {
+                out.println("Title must be 60 characters or fewer.");
+                return true;
+            }
+            ctx.dao.setTitle(charId, text);
+            out.println("Title set to: " + text);
+        }
+        return true;
+    }
+
+    // ========== DESCRIPTION command ==========
+
+    private boolean handleDescriptionCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.requireRecord();
+        if (rec == null) return true;
+        Integer charId = ctx.resolveCharacterId();
+
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            // Show current description
+            if (rec.description != null && !rec.description.isEmpty()) {
+                out.println("Your description:");
+                out.println(rec.description);
+            } else {
+                out.println("You have no description set.");
+            }
+            out.println("Usage: description <text>   — set your description");
+            out.println("       description clear    — remove your description");
+            out.println("       description +<text>  — append to your description");
+            return true;
+        }
+
+        String text = args.trim();
+        if (text.equalsIgnoreCase("clear") || text.equalsIgnoreCase("none")) {
+            ctx.dao.setCharacterAttribute(charId, "description", "");
+            out.println("Description cleared.");
+        } else if (text.startsWith("+")) {
+            // Append mode
+            String append = text.substring(1).trim();
+            if (append.isEmpty()) {
+                out.println("Append what? Usage: description +<text>");
+                return true;
+            }
+            String current = rec.description != null ? rec.description : "";
+            String newDesc = current.isEmpty() ? append : current + "\n" + append;
+            if (newDesc.length() > 1024) {
+                out.println("Description would exceed 1024 characters. Try a shorter addition.");
+                return true;
+            }
+            ctx.dao.setCharacterAttribute(charId, "description", newDesc);
+            out.println("Description updated.");
+        } else {
+            if (text.length() > 1024) {
+                out.println("Description must be 1024 characters or fewer.");
+                return true;
+            }
+            ctx.dao.setCharacterAttribute(charId, "description", text);
+            out.println("Description set.");
+        }
+        return true;
+    }
+
+    // ========== CHANNELS command ==========
+
+    private boolean handleChannelsCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        CharacterDAO.CharacterRecord rec = ctx.requireRecord();
+        if (rec == null) return true;
+        Integer charId = ctx.resolveCharacterId();
+        if (charId == null) { out.println("Unable to find your character."); return true; }
+
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            // Show channel status
+            out.println("\u001B[36m=== Channel Settings ===\u001B[0m");
+            out.printf("  Chat:       %s%n", rec.deafChat ? "\u001B[31mMUTED\u001B[0m" : "\u001B[32mON\u001B[0m");
+            out.printf("  Yell:       %s%n", rec.deafYell ? "\u001B[31mMUTED\u001B[0m" : "\u001B[32mON\u001B[0m");
+            out.println("");
+            out.println("Usage: channels +chat    — unmute a channel");
+            out.println("       channels -chat    — mute a channel");
+            return true;
+        }
+
+        String arg = args.trim().toLowerCase();
+        boolean enable;
+        String channel;
+        if (arg.startsWith("+")) {
+            enable = true;
+            channel = arg.substring(1);
+        } else if (arg.startsWith("-")) {
+            enable = false;
+            channel = arg.substring(1);
+        } else {
+            out.println("Usage: channels +<channel> to unmute, channels -<channel> to mute.");
+            out.println("Channels: chat, yell");
+            return true;
+        }
+
+        String flagColumn;
+        String channelName;
+        switch (channel) {
+            case "chat":
+                flagColumn = "deaf_chat";
+                channelName = "Chat";
+                break;
+            case "yell":
+                flagColumn = "deaf_yell";
+                channelName = "Yell";
+                break;
+            default:
+                out.println("Unknown channel '" + channel + "'. Available channels: chat, yell");
+                return true;
+        }
+
+        // enable means "turn the channel on" = set deaf to false
+        boolean deafValue = !enable;
+        boolean success = ctx.dao.setAutoFlag(charId, flagColumn, deafValue);
+        if (success) {
+            out.println(channelName + " channel " + (enable ? "unmuted." : "muted."));
+        } else {
+            out.println("Failed to update channel setting.");
         }
         return true;
     }

@@ -102,6 +102,11 @@ public class CharacterDAO {
                     // Ki resource pool for monks (current and max)
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS ki_max INT DEFAULT 0");
                     s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS ki_cur INT DEFAULT 0");
+                    // Player title (shown in who list and score)
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS title VARCHAR(60) DEFAULT ''");
+                    // Channel deafness flags (mute individual channels)
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS deaf_chat BOOLEAN DEFAULT FALSE");
+                    s.execute("ALTER TABLE characters ADD COLUMN IF NOT EXISTS deaf_yell BOOLEAN DEFAULT FALSE");
                 } catch (SQLException e) {
                     throw new RuntimeException("Failed to create characters table", e);
                 }
@@ -654,6 +659,10 @@ public class CharacterDAO {
         // Ki resource pool (monks)
         public final int kiMax;
         public final int kiCur;
+        public final String title;
+        // Channel deafness flags
+        public final boolean deafChat;
+        public final boolean deafYell;
 
         // Convenience methods to get total saves (base + equipment)
         public int getArmorTotal() { return baseStats.armor() + armorEquipBonus; }
@@ -687,7 +696,9 @@ public class CharacterDAO {
                                long goldPieces,
                                boolean autoloot, boolean autogold, boolean autosac, boolean autojunk,
                                boolean autoassist,
-                               int kiMax, int kiCur) {
+                               int kiMax, int kiCur,
+                               String title,
+                               boolean deafChat, boolean deafYell) {
             this.name = name;
             this.passwordHashBase64 = passwordHashBase64;
             this.saltBase64 = saltBase64;
@@ -722,6 +733,9 @@ public class CharacterDAO {
             this.autoassist = autoassist;
             this.kiMax = kiMax;
             this.kiCur = kiCur;
+            this.title = title;
+            this.deafChat = deafChat;
+            this.deafYell = deafYell;
         }
 
         /** Fluent builder for {@link CharacterRecord}. */
@@ -743,6 +757,8 @@ public class CharacterDAO {
             private long goldPieces;
             private boolean autoloot, autogold, autosac, autojunk, autoassist;
             private int kiMax, kiCur;
+            private String title;
+            private boolean deafChat, deafYell;
 
             private Builder() {}
 
@@ -789,6 +805,9 @@ public class CharacterDAO {
             public Builder autoassist(boolean v) { this.autoassist = v; return this; }
             public Builder kiMax(int v) { this.kiMax = v; return this; }
             public Builder kiCur(int v) { this.kiCur = v; return this; }
+            public Builder title(String v) { this.title = v; return this; }
+            public Builder deafChat(boolean v) { this.deafChat = v; return this; }
+            public Builder deafYell(boolean v) { this.deafYell = v; return this; }
 
             public CharacterRecord build() {
                 StatBlock stats = new StatBlock(str, dex, con, intel, wis, cha,
@@ -800,7 +819,7 @@ public class CharacterDAO {
                     currentRoom, currentClassId, autoflee,
                     talentPoints, trainedStr, trainedDex, trainedCon, trainedInt, trainedWis, trainedCha,
                     goldPieces, autoloot, autogold, autosac, autojunk, autoassist,
-                    kiMax, kiCur);
+                    kiMax, kiCur, title, deafChat, deafYell);
             }
         }
     }
@@ -838,6 +857,8 @@ public class CharacterDAO {
             .autosac(rs.getBoolean("autosac")).autojunk(rs.getBoolean("autojunk"))
             .autoassist(rs.getBoolean("autoassist"))
             .kiMax(rs.getInt("ki_max")).kiCur(rs.getInt("ki_cur"))
+            .title(rs.getString("title"))
+            .deafChat(rs.getBoolean("deaf_chat")).deafYell(rs.getBoolean("deaf_yell"))
             .build();
     }
 
@@ -901,6 +922,33 @@ public class CharacterDAO {
             logger.warn("Failed to get autoflee: {}", e.getMessage());
         }
         return 0;
+    }
+    
+    public String getTitle(int characterId) {
+        String sql = "SELECT title FROM characters WHERE id = ?";
+        try (Connection c = TransactionManager.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setInt(1, characterId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return rs.getString("title");
+            }
+        } catch (SQLException e) {
+            logger.warn("Failed to get title: {}", e.getMessage());
+        }
+        return "";
+    }
+
+    public boolean setTitle(int characterId, String title) {
+        String sql = "UPDATE characters SET title = ? WHERE id = ?";
+        try (Connection c = TransactionManager.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, title != null ? title : "");
+            ps.setInt(2, characterId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            logger.warn("Failed to set title: {}", e.getMessage());
+            return false;
+        }
     }
     
     /**
@@ -1335,7 +1383,7 @@ public class CharacterDAO {
      */
     public boolean setAutoFlag(int characterId, String flagColumn, boolean value) {
         // Allowlist of valid auto-flag columns
-        if (!Set.of("autoloot", "autogold", "autosac", "autojunk", "autoassist").contains(flagColumn)) {
+        if (!Set.of("autoloot", "autogold", "autosac", "autojunk", "autoassist", "deaf_chat", "deaf_yell").contains(flagColumn)) {
             logger.warn("Invalid auto-flag column: {}", flagColumn);
             return false;
         }

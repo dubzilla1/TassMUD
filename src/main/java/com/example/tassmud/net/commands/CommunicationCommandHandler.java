@@ -35,6 +35,8 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             case "chat":
             case "yell":
             case "whisper":
+            case "reply":
+            case "emote":
             case "groupchat":
                 return handleCommunication(ctx);
             default: return false;
@@ -65,7 +67,19 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                 case "chat": {
                     String t = cmd.getArgs();
                     if (t == null || t.trim().isEmpty()) { out.println("Usage: chat <message>"); return true; }
-                    ClientHandler.broadcastAll("[chat] " + ctx.handler.playerName + ": " + t);
+                    String chatMsg = "[chat] " + ctx.handler.playerName + ": " + t;
+                    for (ClientHandler s : ClientHandler.sessions) {
+                        if (s.playerName == null) continue;
+                        // Skip players who have muted the chat channel
+                        if (s != ctx.handler) {
+                            Integer sCharId = dao.getCharacterIdByName(s.playerName);
+                            if (sCharId != null) {
+                                CharacterDAO.CharacterRecord sRec = dao.findById(sCharId);
+                                if (sRec != null && sRec.deafChat) continue;
+                            }
+                        }
+                        s.sendRaw(chatMsg);
+                    }
                     return true;
                 }
                 case "yell": {
@@ -76,7 +90,23 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                     Room roomObj = DaoProvider.rooms().getRoomById(roomId);
                     if (roomObj == null) { out.println("You are nowhere to yell from."); return true; }
                     int areaId = roomObj.getAreaId();
-                    ClientHandler.broadcastArea(dao, areaId, "[yell] " + ctx.handler.playerName + ": " + t);
+                    String yellMsg = "[yell] " + ctx.handler.playerName + ": " + t;
+                    for (ClientHandler s : ClientHandler.sessions) {
+                        Integer rId = s.currentRoomId;
+                        if (rId == null) continue;
+                        Room r = DaoProvider.rooms().getRoomById(rId);
+                        if (r != null && Integer.valueOf(r.getAreaId()).equals(areaId)) {
+                            // Skip players who have muted the yell channel (but not the sender)
+                            if (s != ctx.handler) {
+                                Integer sCharId = dao.getCharacterIdByName(s.playerName);
+                                if (sCharId != null) {
+                                    CharacterDAO.CharacterRecord sRec = dao.findById(sCharId);
+                                    if (sRec != null && sRec.deafYell) continue;
+                                }
+                            }
+                            s.sendRaw(yellMsg);
+                        }
+                    }
                     return true;
                 }
                 case "whisper": {
@@ -88,8 +118,30 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
                     String msg = parts[1];
                     ClientHandler t = ClientHandler.nameToSession.get(target.toLowerCase());
                     if (t == null) { out.println("No such player online: " + target); return true; }
+                    t.lastTellSender = ctx.handler.playerName;
                     t.sendRaw("[whisper] " + ctx.handler.playerName + " -> you: " + msg);
                     ctx.handler.sendRaw("[whisper] you -> " + target + ": " + msg);
+                    return true;
+                }
+                case "reply": {
+                    String replyTarget = ctx.handler.lastTellSender;
+                    if (replyTarget == null) { out.println("No one has sent you a tell yet."); return true; }
+                    String replyMsg = cmd.getArgs();
+                    if (replyMsg == null || replyMsg.trim().isEmpty()) { out.println("Usage: reply <message>"); return true; }
+                    ClientHandler t = ClientHandler.nameToSession.get(replyTarget.toLowerCase());
+                    if (t == null) { out.println(replyTarget + " is no longer online."); return true; }
+                    t.lastTellSender = ctx.handler.playerName;
+                    t.sendRaw("[whisper] " + ctx.handler.playerName + " -> you: " + replyMsg);
+                    ctx.handler.sendRaw("[whisper] you -> " + replyTarget + ": " + replyMsg);
+                    return true;
+                }
+                case "emote": {
+                    String emoteText = cmd.getArgs();
+                    if (emoteText == null || emoteText.trim().isEmpty()) { out.println("Usage: emote <action>"); return true; }
+                    if (rec == null || rec.currentRoom == null) { out.println("You are nowhere to emote."); return true; }
+                    Integer roomId = rec.currentRoom;
+                    String emoteMsg = ctx.handler.playerName + " " + emoteText;
+                    ClientHandler.broadcastRoomMessage(roomId, emoteMsg);
                     return true;
                 }
                 case "gmchat": {

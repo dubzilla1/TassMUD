@@ -2563,3 +2563,405 @@ wholeness_of_body:
 
     SEE ALSO
         skills, ki_pool, stunning_fist
+time:
+  summary: "show the current game time and server uptime"
+  visibility: public
+  synopsis:
+    - "time"
+  body: |
+    NAME
+        time - show the current game time and server uptime
+
+    SYNOPSIS
+        time
+
+    DESCRIPTION
+        Displays the current in-game date and time, including the time of
+        day (dawn, morning, midday, afternoon, dusk, night), and how long
+        the server has been running.
+
+    SEE ALSO
+        score, who
+
+commands:
+  summary: "list all available commands"
+  visibility: public
+  synopsis:
+    - "commands"
+  body: |
+    NAME
+        commands - list all available commands
+
+    SYNOPSIS
+        commands
+
+    DESCRIPTION
+        Shows every command you can use, grouped by category (movement,
+        combat, items, information, etc.).  GM-only commands are hidden
+        from non-GM players.
+
+    SEE ALSO
+        help
+
+examine:
+  summary: "examine an item, mob, or player in detail"
+  visibility: public
+  synopsis:
+    - "examine <target>"
+    - "exam <target>"
+  body: |
+    NAME
+        examine - examine an item, mob, or player in detail
+
+    SYNOPSIS
+        examine <target>
+
+    DESCRIPTION
+        Provides detailed information about the target.  Searches your
+        inventory first, then items on the ground, then mobs in the room,
+        and finally other players.  For items, shows type, value, weight,
+        damage/armor stats, and equipment slot.  For mobs, shows level
+        and health.  For players, shows description and equipped gear.
+
+    SEE ALSO
+        look, inventory, score
+
+tell:
+  summary: "send a private message to another player"
+  visibility: public
+  synopsis:
+    - "tell <player> <message>"
+    - "t <player> <message>"
+  body: |
+    NAME
+        tell - send a private message to another player
+
+    SYNOPSIS
+        tell <player> <message>
+
+    DESCRIPTION
+        Sends a private message to the specified player, regardless of
+        what room they are in.  The target player's reply target is
+        automatically set so they can use the 'reply' command to respond.
+
+        'tell' is an alias for the 'whisper' command.
+
+    SEE ALSO
+        reply, whisper, say, chat
+
+reply:
+  summary: "reply to the last player who sent you a tell"
+  visibility: public
+  synopsis:
+    - "reply <message>"
+    - "r <message>"
+  body: |
+    NAME
+        reply - reply to the last player who sent you a tell
+
+    SYNOPSIS
+        reply <message>
+
+    DESCRIPTION
+        Sends a private message back to the last player who sent you a
+        tell or whisper.  Saves you from having to type their name.
+        If no one has sent you a tell yet, an error is shown.
+
+    EXAMPLE
+        > reply On my way!
+
+    SEE ALSO
+        tell, whisper, say
+
+emote:
+  summary: "perform an action visible to others in the room"
+  visibility: public
+  synopsis:
+    - "emote <action>"
+    - ", <action>"
+  body: |
+    NAME
+        emote - perform an action visible to others in the room
+
+    SYNOPSIS
+        emote <action>
+        , <action>
+
+    DESCRIPTION
+        Displays your name followed by the action text to everyone in
+        the current room.  For example, 'emote laughs loudly.' displays
+        "PlayerName laughs loudly." to all occupants.
+
+        You can also use a comma as a shorthand: , laughs loudly.
+
+    EXAMPLE
+        > emote waves hello.
+        PlayerName waves hello.
+
+    SEE ALSO
+        say, chat, yell
+
+shout:
+  summary: "shout something to your area"
+  visibility: public
+  synopsis:
+    - "shout <message>"
+  body: |
+    NAME
+        shout - shout something to your area
+
+    SYNOPSIS
+        shout <message>
+
+    DESCRIPTION
+        Shouts a message to all players in your current area.  This is
+        an alias for the 'yell' command.
+
+    SEE ALSO
+        yell, say, chat, channels
+
+exits:
+  summary: "display available exits from the current room"
+  visibility: public
+  synopsis:
+    - "exits"
+  body: |
+    NAME
+        exits - display available exits from the current room
+
+    SYNOPSIS
+        exits
+
+    DESCRIPTION
+        Shows a detailed list of exits from your current room, including
+        the destination room name for each direction.  Closed or locked
+        doors are indicated with their status.  Hidden exits are not
+        shown.
+
+    SEE ALSO
+        look, north, south, east, west, up, down
+
+areas:
+  summary: "list all areas in the game"
+  visibility: public
+  synopsis:
+    - "areas"
+  body: |
+    NAME
+        areas - list all areas in the game
+
+    SYNOPSIS
+        areas
+
+    DESCRIPTION
+        Displays a table of all areas in the game, including each area's
+        ID, name, recommended level range, and terrain type.
+
+    SEE ALSO
+        where, look
+
+where:
+  summary: "show players and mobiles in your current area"
+  visibility: public
+  synopsis:
+    - "where"
+    - "where <name>"
+  body: |
+    NAME
+        where - show players and mobiles in your current area
+
+    SYNOPSIS
+        where
+        where <name>
+
+    DESCRIPTION
+        Lists all visible players and mobiles in your current area,
+        along with the room each one is in.  If a name is provided,
+        only entries matching that name (case-insensitive) are shown.
+
+    EXAMPLE
+        > where guard
+        Shows all mobs and players whose name contains "guard" in
+        your current area.
+
+    SEE ALSO
+        who, areas, look
+
+config:
+  summary: "display all your toggle settings"
+  visibility: public
+  synopsis:
+    - "config"
+  body: |
+    NAME
+        config - display all your toggle settings
+
+    SYNOPSIS
+        config
+
+    DESCRIPTION
+        Shows the current state of all your auto-flags (autogold,
+        autoloot, autosac, autojunk, autoflee), your autoflee threshold,
+        and your title.  Each flag is shown as ON or OFF.
+
+    SEE ALSO
+        autogold, autoloot, autosac, autojunk, autoflee, title
+
+title:
+  summary: "set or clear your character title"
+  visibility: public
+  synopsis:
+    - "title"
+    - "title <text>"
+    - "title clear"
+  body: |
+    NAME
+        title - set or clear your character title
+
+    SYNOPSIS
+        title
+        title <text>
+        title clear
+
+    DESCRIPTION
+        With no arguments, shows your current title.  With text, sets
+        your title (max 60 characters).  Use "title clear" to remove it.
+
+    SEE ALSO
+        config, description, score
+
+description:
+  summary: "set or view your character description"
+  visibility: public
+  synopsis:
+    - "description"
+    - "description <text>"
+    - "description +<text>"
+    - "description clear"
+    - "desc"
+  body: |
+    NAME
+        description - set or view your character description
+
+    SYNOPSIS
+        description
+        description <text>
+        description +<text>
+        description clear
+
+    DESCRIPTION
+        With no arguments, shows your current description.  With text,
+        replaces your description (max 1024 characters).  Prefix with
+        + to append to the existing description.  Use "description clear"
+        to remove it entirely.
+
+    SEE ALSO
+        title, config, examine
+
+give:
+  summary: "give an item or gold to another player"
+  visibility: public
+  synopsis:
+    - "give <item> <player>"
+    - "give <amount> gold <player>"
+  body: |
+    NAME
+        give - give an item or gold to another player
+
+    SYNOPSIS
+        give <item> <player>
+        give <amount> gold <player>
+
+    DESCRIPTION
+        Transfers an item from your inventory or a specified amount of gold
+        to another player who is in the same room.  Equipped items cannot
+        be given; remove them first.  Both the giver and receiver see
+        confirmation messages, and other players in the room are notified.
+
+    EXAMPLE
+        give sword Tassadar
+        give 500 gold Tassadar
+
+    SEE ALSO
+        drop, get, inventory
+
+value:
+  summary: "check how much a shopkeeper would pay for an item"
+  visibility: public
+  synopsis:
+    - "value <item>"
+  body: |
+    NAME
+        value - check how much a shopkeeper would pay for an item
+
+    SYNOPSIS
+        value <item>
+
+    DESCRIPTION
+        Shows the price a shopkeeper in the room would pay if you sold
+        the specified item.  Does not actually sell the item.  You must
+        be in a room with a shopkeeper.  The sell price is half the
+        item's base value (minimum 1 gold).
+
+    SEE ALSO
+        sell, buy, list
+
+split:
+  summary: "split gold among your group members"
+  visibility: public
+  synopsis:
+    - "split <amount>"
+  body: |
+    NAME
+        split - split gold among your group members
+
+    SYNOPSIS
+        split <amount>
+
+    DESCRIPTION
+        Divides the specified amount of gold evenly among all group members
+        who are in the same room as you.  The remainder from integer
+        division stays with the splitter.  You must have enough gold and
+        be in a group with at least one other member present.
+
+    EXAMPLE
+        split 100
+
+    SEE ALSO
+        group, give
+
+channels:
+  summary: "mute or unmute communication channels"
+  visibility: public
+  synopsis:
+    - "channels"
+    - "channels +<channel>"
+    - "channels -<channel>"
+  body: |
+    NAME
+        channels - mute or unmute communication channels
+
+    SYNOPSIS
+        channels
+        channels +<channel>
+        channels -<channel>
+
+    DESCRIPTION
+        Controls which communication channels you receive messages on.
+        Without arguments, displays the current status of all channels.
+        Use +<channel> to unmute (turn on) a channel, or -<channel> to
+        mute (turn off) a channel.
+
+        Available channels: chat, yell
+
+        Muting a channel prevents you from seeing messages on it, but
+        you can still send messages on muted channels.  Your own messages
+        are always shown to you regardless of mute settings.
+
+    EXAMPLE
+        channels           — show channel status
+        channels -chat     — mute the chat channel
+        channels +yell     — unmute the yell channel
+
+    SEE ALSO
+        chat, yell, config

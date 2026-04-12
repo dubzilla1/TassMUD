@@ -54,9 +54,14 @@ public class ClientHandler implements Runnable {
     private volatile String promptFormat = "<%h/%Hhp %m/%Mmp %v/%Vmv> ";
     public volatile boolean debugChannelEnabled = false;  // GM-only debug output
     public volatile boolean gmInvisible = false;  // GM-only perfect invisibility
+    public volatile String lastTellSender = null;  // For reply command
     
     public Socket getSocket() {
         return this.socket;
+    }
+
+    public GameClock getGameClock() {
+        return this.gameClock;
     }
 
     public String getPromptFormat() {

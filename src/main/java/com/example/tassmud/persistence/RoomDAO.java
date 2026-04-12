@@ -42,7 +42,8 @@ public class RoomDAO {
                     "description VARCHAR(2048) DEFAULT '' " +
                     ")");
             s.execute("ALTER TABLE area ADD COLUMN IF NOT EXISTS sector_type VARCHAR(50) DEFAULT 'FIELD'");
-            logger.debug("Migration: ensured column area.sector_type");
+            s.execute("ALTER TABLE area ADD COLUMN IF NOT EXISTS level_range VARCHAR(20) DEFAULT ''");
+            logger.debug("Migration: ensured columns area.sector_type, area.level_range");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create area table", e);
         }
@@ -144,28 +145,32 @@ public class RoomDAO {
     }
 
     public int addAreaWithId(int id, String name, String description, SectorType sectorType) {
-        String sql = "MERGE INTO area (id, name, description, sector_type) KEY(id) VALUES (?, ?, ?, ?)";
+        return addAreaWithId(id, name, description, sectorType, null);
+    }
+
+    public int addAreaWithId(int id, String name, String description, SectorType sectorType, String levelRange) {
+        String sql = "MERGE INTO area (id, name, description, sector_type, level_range) KEY(id) VALUES (?, ?, ?, ?, ?)";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.setString(2, name);
             ps.setString(3, description == null ? "" : description);
             ps.setString(4, sectorType != null ? sectorType.name() : "FIELD");
+            ps.setString(5, levelRange == null ? "" : levelRange);
             ps.executeUpdate();
             return id;
         } catch (SQLException e) {
-            // If MERGE failed, try a direct INSERT with explicit id as a fallback
-            String insertSql = "INSERT INTO area (id, name, description, sector_type) VALUES (?, ?, ?, ?)";
+            String insertSql = "INSERT INTO area (id, name, description, sector_type, level_range) VALUES (?, ?, ?, ?, ?)";
             try (Connection c2 = TransactionManager.getConnection();
                  PreparedStatement psIns = c2.prepareStatement(insertSql)) {
                 psIns.setInt(1, id);
                 psIns.setString(2, name);
                 psIns.setString(3, description == null ? "" : description);
                 psIns.setString(4, sectorType != null ? sectorType.name() : "FIELD");
+                psIns.setString(5, levelRange == null ? "" : levelRange);
                 psIns.executeUpdate();
                 return id;
             } catch (SQLException e2) {
-                // fallback: try to find by name
                 String sql2 = "SELECT id FROM area WHERE name = ?";
                 try (Connection c3 = TransactionManager.getConnection();
                      PreparedStatement ps2 = c3.prepareStatement(sql2)) {
@@ -180,7 +185,7 @@ public class RoomDAO {
     }
 
     public Area getAreaById(int id) {
-        String sql = "SELECT id, name, description, sector_type FROM area WHERE id = ?";
+        String sql = "SELECT id, name, description, sector_type, level_range FROM area WHERE id = ?";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -188,13 +193,34 @@ public class RoomDAO {
                 if (rs.next()) {
                     String sectorStr = rs.getString("sector_type");
                     SectorType sectorType = SectorType.fromString(sectorStr);
-                    return new Area(rs.getInt("id"), rs.getString("name"), rs.getString("description"), sectorType);
+                    String levelRange = rs.getString("level_range");
+                    return new Area(rs.getInt("id"), rs.getString("name"), rs.getString("description"), sectorType,
+                            (levelRange != null && !levelRange.isEmpty()) ? levelRange : null);
                 }
             }
         } catch (SQLException e) {
             return null;
         }
         return null;
+    }
+
+    public List<Area> getAllAreas() {
+        String sql = "SELECT id, name, description, sector_type, level_range FROM area ORDER BY id";
+        List<Area> areas = new ArrayList<>();
+        try (Connection c = TransactionManager.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                String sectorStr = rs.getString("sector_type");
+                SectorType sectorType = SectorType.fromString(sectorStr);
+                String levelRange = rs.getString("level_range");
+                areas.add(new Area(rs.getInt("id"), rs.getString("name"), rs.getString("description"), sectorType,
+                        (levelRange != null && !levelRange.isEmpty()) ? levelRange : null));
+            }
+        } catch (SQLException e) {
+            logger.warn("Failed to get all areas: {}", e.getMessage());
+        }
+        return areas;
     }
 
     // ========================== Room Methods ==========================
