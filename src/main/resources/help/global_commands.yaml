@@ -125,56 +125,35 @@ close:
     EXAMPLE
         close north
 
-channels:
-  summary: "Chat channels and communication commands"
+communication:
+  keywords: [communication, chatting, talking]
+  see_also: [channels, say, chat, yell, whisper, tell, reply, emote, groupchat]
+  summary: "overview of communication commands"
   visibility: public
   synopsis:
-    - "chat <message>"
-    - "yell <message>"
-    - "say <text>"
-    - "whisper <target> <message>"
-    - "groupchat <message>"
-    - "gmchat <message>"
-    - "system <message>"
+    - "N/A - informational topic"
   body: |
     NAME
-        channels - communication channels and chatting commands
-
-    SYNOPSIS
-        chat <message>
-        yell <message>
-        say <text>
-        whisper <target> <message>
-        groupchat <message>
-        gmchat <message>
-        system <message>
+        communication - overview of communication commands
 
     DESCRIPTION
-        chat  broadcast a message to everyone currently online.
+        TassMUD has several ways to communicate with other players:
 
-        yell  broadcast a message to everyone in your current area.
+        say <text>              Speak to players in the same room.
+        chat <message>          Broadcast to everyone online.
+        yell <message>          Broadcast to your current area.
+        whisper <target> <msg>  Private message to one player.
+        tell <target> <msg>     Alias for whisper.
+        reply <message>         Reply to the last person who sent you a tell.
+        emote <action>          Perform a visible action in the room.
+        groupchat <message>     Message your party members.
+        gmchat <message>        GM-only channel (requires is_gm flag).
+        system <message>        Server-wide broadcast (admin only).
 
-        say  speak to other players in the same room as you.
+        Use the 'channels' command to mute or unmute chat and yell.
 
-        whisper  send a private message to a single online player. Usage: "whisper Alice Are you there?"
-
-        groupchat  send a message to the members of your current group.
-
-        gmchat  send a message to all GMs currently online. Only available to characters with the 'is_gm' flag set to '1'.
-
-        system  server/system-level broadcast to all connected players (used by admins/system processes).
-
-    PERMISSIONS
-        gmchat requires the sender to have the 'is_gm' flag set to '1'.
-
-    EXAMPLE
-        chat Hello everyone!
-        yell We're under attack!
-        say Hello, friends.
-        whisper Alice Are you there?
-        groupchat Meet at the tavern.
-        gmchat Please check the arena.
-        system Server will restart in 10 minutes.
+    SEE ALSO
+        channels, say, chat, yell, whisper, tell, reply, emote
 
 help:
   summary: "show help for commands and topics"
@@ -2958,10 +2937,17 @@ channels:
         you can still send messages on muted channels.  Your own messages
         are always shown to you regardless of mute settings.
 
+    AVAILABLE CHANNELS
+        chat      Global broadcast visible to all online players.
+        yell      Area-wide broadcast visible to players in your area.
+        say       Room-local speech (always on, cannot be muted).
+        whisper   Private messages (always on, cannot be muted).
+        groupchat Party chat (always on, cannot be muted).
+
     EXAMPLE
         channels           — show channel status
         channels -chat     — mute the chat channel
         channels +yell     — unmute the yell channel
 
     SEE ALSO
-        chat, yell, config
+        communication, chat, yell, say, whisper, tell, reply, config
