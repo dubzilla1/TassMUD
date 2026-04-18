@@ -194,6 +194,7 @@
   legacy_raw: 32 0 0 S 10 10 2 10d10+100 3d3+6 1000 3000 8 8 0
 
 - id: 2007
+  spec_fun: "spec_cast_undead"
   key: a_skeleton_2007
   name: a skeleton
   short_desc: A skeletal soldier fights in the battle of the underworld.
@@ -263,6 +264,7 @@
   legacy_raw: 36 0 600 S 12 9 3 12d12+120 1d4+8 500 5000 8 8 1
 
 - id: 2009
+  spec_fun: "spec_cast_undead"
   key: a_mysterious_wraith_2009
   name: a mysterious wraith
   short_desc: A mysterious ghostly wraith forms before your eyes.
@@ -327,6 +329,7 @@
   legacy_raw: 32 8 700 S 13 8 2 13d13+130 1d6+8 600 7000 8 8 1
 
 - id: 2011
+  spec_fun: "spec_cast_mage"
   key: zombie_2011
   name: zombie
   short_desc: A blank-faced zombie mage joins the battle.
@@ -391,6 +394,7 @@
   legacy_raw: 0 32|32768|1048576 0 S 14 6 1 14d14+140 2d9+1 800 10900 8 8 0
 
 - id: 2013
+  spec_fun: "spec_cast_undead"
   key: the_vampire_2013
   name: The vampire
   short_desc: A bat flaps wildly at you!
@@ -423,6 +427,7 @@
   legacy_raw: 34 32 -100 S 15 6 5 15d15+150 1d10+7 1000 17000 8 8 1
 
 - id: 2014
+  spec_fun: "spec_cast_undead"
   key: the_evil_necromancer_2014
   name: the evil necromancer
   short_desc: The evil necromancer makes undead soldiers from corpses.
@@ -489,6 +494,7 @@
   legacy_raw: 2 168 1000 S 16 5 -5 16d16+160 1d8+12 1500 20000 8 8 1
 
 - id: 2016
+  spec_fun: "spec_breath_any"
   key: the_prism_dragon_2016
   name: the prism dragon
   short_desc: The light shines off a beautiful but dangerous dragon lurking here.
@@ -521,6 +527,7 @@
   legacy_raw: 34 40 -303 S 20 0 -5 20d20+200 6d3+14 30000 30000 8 8 1
 
 - id: 2017
+  spec_fun: "spec_poison"
   key: the_darkenbeast_2017
   name: The DarkenBeast
   short_desc: You hear and smell the presense of the darkenbeast.

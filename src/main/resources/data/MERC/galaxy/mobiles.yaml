@@ -1,4 +1,5 @@
 - id: 9301
+  spec_fun: "spec_thief"
   key: a_poor_mudder_9301
   name: a poor mudder
   short_desc: A poor mudder, lost in this place.
@@ -393,6 +394,7 @@
   legacy_raw: 66 0 300 S 11 5 3 3d4+120 2d7+0 3000 7000 8 8 2
 
 - id: 9313
+  spec_fun: "spec_breath_fire"
   key: the_head_of_draco_9313
   name: the Head of Draco
   short_desc: The gigantic Head of Draco lurks out from beneath and prepares to roast you.
@@ -427,6 +429,7 @@
   legacy_raw: 98 136 -1000 S 25 0 -5 4d4+600 5d5+3 15000 100000 8 8 0
 
 - id: 9314
+  spec_fun: "spec_breath_fire"
   key: a_baby_draco_9314
   name: a baby draco
   short_desc: A baby draco is crawling on the Draco's body.
@@ -461,6 +464,7 @@
   legacy_raw: 196 0 -700 S 9 6 3 3d3+100 2d5+0 4000 6000 8 8 0
 
 - id: 9315
+  spec_fun: "spec_cast_cleric"
   key: aries_9315
   name: Aries
   short_desc: Aries is sitting here, welcoming you.
@@ -494,6 +498,7 @@
   legacy_raw: 66 128 700 S 22 0 -5 6d4+500 4d5+3 10000 80000 6 6 1
 
 - id: 9316
+  spec_fun: "spec_cast_cleric"
   key: taurus_9316
   name: Taurus
   short_desc: Taurus wants to leave, but has been forced to stay as a guardian here.
@@ -527,6 +532,7 @@
   legacy_raw: 98 136 -100 S 22 0 0 5d3+500 4d6+1 10000 80000 8 8 1
 
 - id: 9317
+  spec_fun: "spec_cast_cleric"
   key: gemini_9317
   name: Gemini
   short_desc: Gemini is looking for his brother; have you seen him?
@@ -560,6 +566,7 @@
   legacy_raw: 66 128 1000 S 22 0 -5 7d3+400 5d4+2 10000 80000 8 8 1
 
 - id: 9318
+  spec_fun: "spec_cast_cleric"
   key: gemini_9318
   name: Gemini
   short_desc: Gemini is hiding from his brother, grinning evilly at you.
@@ -593,6 +600,7 @@
   legacy_raw: 230 1048712 -1000 S 15 5 5 3d4+200 3d4+2 5000 20000 8 8 1
 
 - id: 9319
+  spec_fun: "spec_cast_cleric"
   key: cancer_9319
   name: Cancer
   short_desc: Cancer the crab is here, hoarding the treasure away from you.
@@ -627,6 +635,7 @@
   legacy_raw: 66 128 0 S 22 0 -5 2d10+500 4d4+3 12000 80000 8 8 1
 
 - id: 9320
+  spec_fun: "spec_cast_cleric"
   key: leo_9320
   name: Leo
   short_desc: Leo the lion is roaring at you, ready for a strike!
@@ -661,6 +670,7 @@
   legacy_raw: 98 136 -100 S 22 0 -7 2d20+500 5d3+3 10000 80000 8 8 1
 
 - id: 9321
+  spec_fun: "spec_cast_cleric"
   key: virgo_9321
   name: Virgo
   short_desc: Virgo is sitting here, winking at you suggestively ... you are alarmed!
@@ -695,6 +705,7 @@
   legacy_raw: 66 128 1000 S 22 0 -5 3d8+450 4d5+1 10000 80000 6 6 2
 
 - id: 9322
+  spec_fun: "spec_cast_cleric"
   key: libra_9322
   name: Libra
   short_desc: Libra, the fair and just, is staring at you, weighing up the sins of your past.
@@ -728,6 +739,7 @@
   legacy_raw: 66 128 1000 S 22 0 -5 4d5+500 5d4+2 10000 80000 8 8 1
 
 - id: 9323
+  spec_fun: "spec_cast_cleric"
   key: scorpio_9323
   name: Scorpio
   short_desc: Scorpio is moving his tail towards you, waiting to put an end to some mortals.
@@ -761,6 +773,7 @@
   legacy_raw: 98 136 -200 S 22 0 -5 4d3+470 3d7+1 10000 80000 8 8 1
 
 - id: 9324
+  spec_fun: "spec_cast_cleric"
   key: sagittarius_9324
   name: Sagittarius
   short_desc: Sagittarius the centaur is waiting to let go of his well aimed arrow ...
@@ -793,6 +806,7 @@
   legacy_raw: 66 128 1000 S 22 0 -5 5d6+500 3d9+2 10000 80000 8 8 1
 
 - id: 9325
+  spec_fun: "spec_cast_cleric"
   key: capricon_9325
   name: Capricon
   short_desc: Capricon is here, feeling bored ... he wants a fight!
@@ -827,6 +841,7 @@
   legacy_raw: 66 128 700 S 22 0 -5 4d7+520 3d10+0 10000 80000 8 8 1
 
 - id: 9326
+  spec_fun: "spec_cast_cleric"
   key: the_beautiful_aquarius_is_standing_here_holding_the_vessel_9326
   name: The beautiful Aquarius is standing here, holding THE vessel.
   short_desc: The beautiful Aquarius is standing here, holding THE vessel.
@@ -860,6 +875,7 @@
   legacy_raw: 66 128 1000 S 22 0 -5 3d5+500 2d10+1 10000 80000 8 8 2
 
 - id: 9327
+  spec_fun: "spec_cast_cleric"
   key: pisces_the_mermaid_9327
   name: Pisces the mermaid
   short_desc: Pisces the mermaid is sitting here, waiting for your help.
@@ -893,6 +909,7 @@
   legacy_raw: 66 128 1000 S 22 0 -5 4d5+500 3d7+0 10000 80000 6 6 2
 
 - id: 9328
+  spec_fun: "spec_cast_cleric"
   key: pisces_the_fish_9328
   name: Pisces the fish
   short_desc: Pisces the fish, is jealous of your approach...
@@ -926,6 +943,7 @@
   legacy_raw: 98 128 -1000 S 22 4 0 3d3+400 3d6+2  10000 80000 8 8 1
 
 - id: 9329
+  spec_fun: "spec_cast_cleric"
   key: ursa_major_the_bear_9329
   name: Ursa Major the bear
   short_desc: Ursa Major the bear is the last defense against any intruders.
@@ -959,6 +977,7 @@
   legacy_raw: 98 136 0 S 27 0 -7 2d4+800 5d5+3 15000 120000 8 8 0
 
 - id: 9330
+  spec_fun: "spec_cast_mage"
   key: cassiopeia_the_queen_9330
   name: Cassiopeia the Queen
   short_desc: Cassiopeia, the queen of the Universe, is sitting on her throne.
@@ -991,6 +1010,7 @@
   legacy_raw: 66 128 700 S 26 0 -6 10d3+700 4d7+2 12000 110000 6 6 2
 
 - id: 9331
+  spec_fun: "spec_cast_mage"
   key: cepheus_the_king_9331
   name: Cepheus the King
   short_desc: Cepheus, the king of the Universe, is sitting on his throne.
@@ -1024,6 +1044,7 @@
   legacy_raw: 66 128 700 S 26 0 -6 10d4+700 4d8+1 12000 110000 6 6 1
 
 - id: 9332
+  spec_fun: "spec_breath_acid"
   key: polaris_the_polar_star_9332
   name: Polaris, the polar star
   short_desc: Polaris, the polar star, who commands the whole Universe, stands before you!

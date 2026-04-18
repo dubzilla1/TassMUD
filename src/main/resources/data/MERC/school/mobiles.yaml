@@ -230,6 +230,7 @@
   legacy_raw: 2 512 0 S 2 19 9 2d2+20 1d4+1 200 50 8 8 0
 
 - id: 3707
+  spec_fun: "spec_cast_adept"
   key: the_adept_of_kahn_3707
   name: the adept of Kahn
   short_desc: An adept of Overlord Kahn is here, contemplating your progress.
@@ -422,6 +423,7 @@
   legacy_raw: 64 0 0 S 0 21 10 1d1+0 1d1+0 2 10 8 8 0
 
 - id: 3714
+  spec_fun: "spec_fido"
   key: the_beast_3714
   name: the beast
   short_desc: A beast tries to feed off of you.

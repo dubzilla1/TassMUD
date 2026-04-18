@@ -295,6 +295,7 @@
   legacy_raw: 96 0 -150 S 3 18 7 1d12+35 1d7+0 0 450 8 8 0
 
 - id: 6112
+  spec_fun: "spec_breath_gas"
   key: the_huge_green_dragon_6112
   name: the huge, green dragon
   short_desc: A huge green dragon is here, its narrow yellow eyes glowing with rage.
@@ -364,6 +365,7 @@
   legacy_raw: 148 32778 1000 S 10 1 -10 10d10+100 1d8+2 1000 3000 8 8 1
 
 - id: 6116
+  spec_fun: "spec_cast_cleric"
   key: the_elder_druid_6116
   name: the elder druid
   short_desc: The elder druid is here ... he looks very upset at your presence in his home.

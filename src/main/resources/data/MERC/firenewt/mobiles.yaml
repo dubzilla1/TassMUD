@@ -383,6 +383,7 @@
   legacy_raw: 2|32 8|128 -1000 S 13 9 1 13d13+150 1d5+12 1000 8000 8 8 1
 
 - id: 2913
+  spec_fun: "spec_cast_cleric"
   key: a_fire_newt_priest_2913
   name: a fire newt priest
   short_desc: A fire newt priest is standing here.
@@ -415,6 +416,7 @@
   legacy_raw: 2|32 8 -1000 S 10 11 2 10d10+100 1d4+8 700 3500 8 8 1
 
 - id: 2914
+  spec_fun: "spec_breath_fire"
   key: a_fire_lizard_2914
   name: a fire lizard
   short_desc: A fire lizard is crawling here.

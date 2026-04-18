@@ -297,6 +297,7 @@ public class DataLoader {
                     int goldMax = getInt(mobData, "gold_max", 0);
                     int respawnSeconds = getInt(mobData, "respawn_seconds", 300);
                     int autoflee = getInt(mobData, "autoflee", 0);
+                    String specFun = getString(mobData, "spec_fun", null);
                     MobileTemplate template = MobileTemplate.builder()
                         .id(id).key(key).name(name).shortDesc(shortDesc).longDesc(longDesc).keywords(keywords)
                         .level(level).hpMax(hpMax).mpMax(mpMax).mvMax(mvMax)
@@ -305,7 +306,7 @@ public class DataLoader {
                         .baseDamage(baseDamage).damageBonus(damageBonus).attackBonus(attackBonus)
                         .behaviors(behaviors).aggroRange(aggroRange)
                         .experienceValue(experienceValue).goldMin(goldMin).goldMax(goldMax)
-                        .respawnSeconds(respawnSeconds).autoflee(autoflee)
+                        .respawnSeconds(respawnSeconds).autoflee(autoflee).specFun(specFun)
                         .build();
                     mobileDao.upsertTemplate(template);
                     totalLoaded.incrementAndGet();
@@ -489,6 +490,7 @@ public class DataLoader {
                 double cooldown = getDouble(spellData, "cooldown", 0);
                 double duration = getDouble(spellData, "duration", 0);
                 int mpCost = getInt(spellData, "mpCost", 0);  // 0 means use spell level as cost
+                String incantation = getString(spellData, "incantation", null);
                 // Parse traits list
                 List<SpellTrait> traits = new ArrayList<>();
                 Object traitsObj = spellData.get("traits");
@@ -500,7 +502,7 @@ public class DataLoader {
                 }
                 
                 Spell spell = new Spell(id, name, description, school, level, 
-                                        castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost);
+                                        castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost, incantation);
                 
                 // Store in DAO
                 boolean added = DaoProvider.spells().addSpellFull(spell);

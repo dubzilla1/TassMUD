@@ -36,6 +36,7 @@ public class Mobile extends GameCharacter {
     private final int damageBonus;
     private final int attackBonus;
     private final int autoflee;            // Auto-flee threshold (0-100)
+    private final String specFun;          // Scripted special function key (nullable)
     // Runtime tracking of applied equipment modifiers (so they can be removed on death/respawn)
     private final java.util.List<java.util.UUID> equipModifierIds = new java.util.ArrayList<>();
     
@@ -75,6 +76,7 @@ public class Mobile extends GameCharacter {
         this.damageBonus = template.getDamageBonus();
         this.attackBonus = template.getAttackBonus();
         this.autoflee = template.getAutoflee();
+        this.specFun = template.getSpecFun();
     }
     
     /** Creates a new builder for DB-loading Mobile instances. */
@@ -89,7 +91,7 @@ public class Mobile extends GameCharacter {
                   StatBlock stats,
                   java.util.List<String> keywords, String shortDesc, List<MobileBehavior> behaviors,
                   int experienceValue, int baseDamage, int damageBonus, int attackBonus,
-                  int autoflee,
+                  int autoflee, String specFun,
                   String originUuid,
                   long spawnedAt, boolean isDead, long diedAt) {
         super(name, 0, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom, stats);
@@ -110,9 +112,8 @@ public class Mobile extends GameCharacter {
         this.damageBonus = damageBonus;
         this.attackBonus = attackBonus;
         this.autoflee = autoflee;
+        this.specFun = specFun;
     }
-    
-    // Instance-specific getters
     public long getInstanceId() { return instanceId; }
     public int getTemplateId() { return templateId; }
     public int getLevel() { return level; }
@@ -181,6 +182,7 @@ public class Mobile extends GameCharacter {
     public int getDamageBonus() { return damageBonus; }
     public int getAttackBonus() { return attackBonus; }
     public int getAutoflee() { return autoflee; }
+    public String getSpecFun() { return specFun; }
     
     /**
      * Check if this mobile has a specific behavior.
@@ -246,6 +248,7 @@ public class Mobile extends GameCharacter {
         private String shortDesc;
         private java.util.List<MobileBehavior> behaviors;
         private int experienceValue, baseDamage, damageBonus, attackBonus, autoflee;
+        private String specFun;
         private String originUuid;
         private long spawnedAt;
         private boolean isDead;
@@ -284,6 +287,7 @@ public class Mobile extends GameCharacter {
         public DbBuilder damageBonus(int v) { this.damageBonus = v; return this; }
         public DbBuilder attackBonus(int v) { this.attackBonus = v; return this; }
         public DbBuilder autoflee(int v) { this.autoflee = v; return this; }
+        public DbBuilder specFun(String v) { this.specFun = v; return this; }
         public DbBuilder originUuid(String v) { this.originUuid = v; return this; }
         public DbBuilder spawnedAt(long v) { this.spawnedAt = v; return this; }
         public DbBuilder isDead(boolean v) { this.isDead = v; return this; }
@@ -297,7 +301,7 @@ public class Mobile extends GameCharacter {
                 currentRoom, spawnRoomId,
                 stats,
                 keywords, shortDesc, behaviors,
-                experienceValue, baseDamage, damageBonus, attackBonus, autoflee,
+                experienceValue, baseDamage, damageBonus, attackBonus, autoflee, specFun,
                 originUuid, spawnedAt, isDead, diedAt);
         }
     }

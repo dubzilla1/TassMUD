@@ -193,4 +193,83 @@ class SpellTest {
         assertEquals(Spell.SpellTarget.SELF, Spell.SpellTarget.fromString(""));
         assertEquals(Spell.SpellTarget.SELF, Spell.SpellTarget.fromString(null));
     }
+
+    // --- Incantation Tests ---
+
+    @Test
+    @DisplayName("14-arg constructor stores incantation correctly")
+    void incantationStoredViaFullConstructor() {
+        Spell spell = new Spell(1, "Magic Missile", "Fires bolts",
+                Spell.SpellSchool.ARCANE, 1, 1.0, Spell.SpellTarget.CURRENT_ENEMY,
+                null, SkillProgression.NORMAL, null, 0, 0, 1, "arcavortus");
+        assertEquals("arcavortus", spell.getIncantation());
+    }
+
+    @Test
+    @DisplayName("Empty string incantation is normalized to null")
+    void emptyIncantationNormalizedToNull() {
+        Spell spell = new Spell(1, "Test", "Test",
+                Spell.SpellSchool.ARCANE, 1, 1.0, Spell.SpellTarget.SELF,
+                null, SkillProgression.NORMAL, null, 0, 0, 0, "");
+        assertNull(spell.getIncantation());
+    }
+
+    @Test
+    @DisplayName("Null incantation stays null")
+    void nullIncantationRemainsNull() {
+        Spell spell = new Spell(1, "Test", "Test",
+                Spell.SpellSchool.ARCANE, 1, 1.0, Spell.SpellTarget.SELF,
+                null, SkillProgression.NORMAL, null, 0, 0, 0, null);
+        assertNull(spell.getIncantation());
+    }
+
+    @Test
+    @DisplayName("3-arg convenience constructor has null incantation")
+    void simpleConstructorHasNullIncantation() {
+        Spell spell = new Spell(1, "Magic Missile", "Fires bolts");
+        assertNull(spell.getIncantation());
+    }
+
+    @Test
+    @DisplayName("9-arg convenience constructor has null incantation")
+    void nineArgConstructorHasNullIncantation() {
+        Spell spell = new Spell(5, "Fireball", "A ball of fire",
+                Spell.SpellSchool.ARCANE, 3, 2.5,
+                Spell.SpellTarget.ALL_ENEMIES, null, SkillProgression.HARD);
+        assertNull(spell.getIncantation());
+    }
+
+    @Test
+    @DisplayName("13-arg constructor (no incantation param) has null incantation")
+    void thirteenArgConstructorHasNullIncantation() {
+        Spell spell = new Spell(1, "Test", "Test",
+                Spell.SpellSchool.DIVINE, 2, 1.5, Spell.SpellTarget.SELF,
+                null, SkillProgression.NORMAL, null, 0, 0, 5);
+        assertNull(spell.getIncantation());
+    }
+
+    @Test
+    @DisplayName("Incantation whitespace-only string is NOT normalized to null")
+    void whitespaceOnlyIncantationIsNotNullNormalized() {
+        // Only empty string is normalized; whitespace-only passes through as non-empty
+        Spell spell = new Spell(1, "Test", "Test",
+                Spell.SpellSchool.ARCANE, 1, 1.0, Spell.SpellTarget.SELF,
+                null, SkillProgression.NORMAL, null, 0, 0, 0, "  ");
+        assertNotNull(spell.getIncantation());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "arcavortus,   ARCANE",
+        "rapha-or,     DIVINE",
+        "jordgrip,     PRIMAL",
+        "arru-temu,    OCCULT"
+    })
+    @DisplayName("School-flavored incantations are stored verbatim")
+    void incantationStoredVerbatimPerSchool(String incantation, Spell.SpellSchool school) {
+        Spell spell = new Spell(1, "Test", "Test",
+                school, 1, 1.0, Spell.SpellTarget.SELF,
+                null, SkillProgression.NORMAL, null, 0, 0, 0, incantation.trim());
+        assertEquals(incantation.trim(), spell.getIncantation());
+    }
 }

@@ -1,4 +1,5 @@
 - id: 1100
+  spec_fun: "spec_cast_mage"
   key: the_elven_wizard_1100
   name: the Elven Wizard
   short_desc: An Elven Wizard is here, creating fireworks for the festivities.
@@ -35,6 +36,7 @@
   legacy_raw: 2|64 8 500 S  18 5 0 18d18+180 3d2+15 2109 30000 8 8 1
 
 - id: 1101
+  spec_fun: "spec_poison"
   key: the_keeper_of_the_ring_1101
   name: the Keeper of the Ring
   short_desc: The Keeper of the Ring is here, guarding his treasure jealously.
@@ -338,6 +340,7 @@
   legacy_raw: 66 0 0 S 4 17 6 4d4+44 1d8+0 2 460 8 8 0
 
 - id: 1110
+  spec_fun: "spec_guard"
   key: a_shiriff_1110
   name: a shiriff
   short_desc: A shiriff of the Shire looks for signs of trouble.
@@ -373,6 +376,7 @@
   legacy_raw: 4|64 0 150 S 8 13 5 8d8+88 1d4+5 50 1000 6 6 1
 
 - id: 1111
+  spec_fun: "spec_guard"
   key: a_shiriff_1111
   name: a shiriff
   short_desc: A shiriff of the Shire looks for signs of trouble.
@@ -408,6 +412,7 @@
   legacy_raw: 4|64 0 150 S 8 13 5 8d8+88 1d4+5 50 1000 6 6 1
 
 - id: 1112
+  spec_fun: "spec_guard"
   key: the_thain_1112
   name: the Thain
   short_desc: The Thain commands respect from all Shire folk.
@@ -544,6 +549,7 @@
   legacy_raw: 2 0 0 S 5 16 5 5d5+55 1d6+3 50 450 8 8 1
 
 - id: 1116
+  spec_fun: "spec_cast_mage"
   key: the_elven_warrior_1116
   name: the elven warrior
   short_desc: The elven warrior watches you solemnly.
@@ -578,6 +584,7 @@
   legacy_raw: 2 0 600 S 17 4 -4 17d17+170 1d4+15 500 30000 6 6 1
 
 - id: 1117
+  spec_fun: "spec_cast_mage"
   key: the_dwarven_prince_1117
   name: the dwarven prince
   short_desc: The dwarven prince sits here patiently for the return of his king.
@@ -712,6 +719,7 @@
   legacy_raw: 2 0 600 S 50 -20 -30 50d50+500 1d6+36 18000 10000 8 8 1
 
 - id: 1121
+  spec_fun: "spec_guard"
   key: the_battle_master_1121
   name: the battle master
   short_desc: The battle master offers you the services of his fine trainees.
@@ -744,6 +752,7 @@
   legacy_raw: 2 0 350 S 25 -2 -15 25d25+250 2d6+20 1500 40000 8 8 1
 
 - id: 1122
+  spec_fun: "spec_thief"
   key: a_halfling_youth_1122
   name: a halfling youth
   short_desc: A halfling youth stands here, waiting for nothing in particular.
@@ -1044,6 +1053,7 @@
   legacy_raw: 2 0 200 S 12 4 -2 12d12+120 1d8+14 70 5000 8 8 1
 
 - id: 1132
+  spec_fun: "spec_guard"
   key: a_shiriff_1132
   name: a shiriff
   short_desc: A shiriff of the Shire looks for the lost halfling youth.

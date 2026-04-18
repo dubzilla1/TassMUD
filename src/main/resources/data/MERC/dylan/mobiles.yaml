@@ -200,6 +200,7 @@
   legacy_raw: 64 0 50 S 28 0 -8 5d9+800 5d6+15 40000 80000 8 8 1
 
 - id: 9107
+  spec_fun: "spec_cast_undead"
   key: the_ugly_wicked_witch_9107
   name: the ugly, wicked witch
   short_desc: The ugly, wicked witch cackles maniacally.

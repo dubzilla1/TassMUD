@@ -32,6 +32,7 @@
   legacy_raw: 68 8 0 S 5 17 8 5d4+50 2d4+1 100 600 8 8 2
 
 - id: 6302
+  spec_fun: "spec_breath_gas"
   key: yevaud_6302
   name: Yevaud
   short_desc: Yevaud the Usurper of Midgaard is here, grinning evilly at you.
@@ -418,6 +419,7 @@
   legacy_raw: 96 32768 250 S 17 4 -7 17d17+170 2d8+10 1600 20000 4 4 1
 
 - id: 6314
+  spec_fun: "spec_breath_gas"
   key: arachnos_6314
   name: Arachnos
   short_desc: Arachnos the Empress of Spiders welcomes you with an evil smile.
@@ -486,6 +488,7 @@
   legacy_raw: 6 8 1000 S 26 0 -2 26d26+260 3d4+12 15000 50000 8 8 2
 
 - id: 6316
+  spec_fun: "spec_breath_gas"
   key: the_young_dragon_wormkin_6316
   name: the young dragon wormkin
   short_desc: A wormkin with no teeth plays here.
@@ -518,6 +521,7 @@
   legacy_raw: 3 8 1000 S 10 2 0 10d10+120 2d6+3 1000 3700 8 8 1
 
 - id: 6317
+  spec_fun: "spec_breath_gas"
   key: the_medium_dragon_wormkin_6317
   name: the medium dragon wormkin
   short_desc: A wormkin that has grown a bit stares at you inquisitively.
@@ -550,6 +554,7 @@
   legacy_raw: 3 8 100 S 13 2 -2 13d13+150 3d6+5 5000 9500 8 8 1
 
 - id: 6318
+  spec_fun: "spec_poison"
   key: the_huge_poisonous_spider_6318
   name: the huge, poisonous spider
   short_desc: A huge, poisonous spider is here.
@@ -584,6 +589,7 @@
   legacy_raw: 67 0 -350 S 8 13 2 8d8+80 2d5+1 0 2500 8 8 0
 
 - id: 6319
+  spec_fun: "spec_poison"
   key: the_queen_spider_6319
   name: the Queen Spider
   short_desc: The huge, bulky Queen Spider is here.

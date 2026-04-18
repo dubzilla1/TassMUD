@@ -212,8 +212,8 @@ public class ItemCommandHandler implements CommandHandler {
         }
         
         // Announce to room
-        out.println("You sacrifice " + itemDisplayName + " to the gods.");
-        ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " sacrifices " + itemDisplayName + " to the gods.");
+        ctx.actorAnnounce("You sacrifice " + itemDisplayName + " to the gods.",
+            name + " sacrifices " + itemDisplayName + " to the gods.");
         
         // Award 1 XP (ExperienceService handles the transaction for XP + level-up)
         com.example.tassmud.util.ExperienceService.awardFlatXp(charId, 1, msg -> {

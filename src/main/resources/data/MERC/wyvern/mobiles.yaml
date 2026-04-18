@@ -127,6 +127,7 @@
   legacy_raw: 2|4 0 -600 S 12 10 0 12d12+120 6d2+4 800 5000 8 8 1
 
 - id: 1605
+  spec_fun: "spec_cast_cleric"
   key: the_gargoyle_shaman_1605
   name: the gargoyle shaman
   short_desc: The gargoyle shaman is here, preparing to do battle.
@@ -255,6 +256,7 @@
   legacy_raw: 4|32|64 2|8|32 -1000 S 10 12 0 10d10+100 4d3+4 900 4000 8 8 0
 
 - id: 1609
+  spec_fun: "spec_cast_undead"
   key: an_evil_wight_1609
   name: an evil wight
   short_desc: An evil wight lurks in the shadows!
@@ -383,6 +385,7 @@
   legacy_raw: 2|4|32|64 8 -900 S 17 5 -3 17d17+170 5d3+6 0 18000 8 8 1
 
 - id: 1614
+  spec_fun: "spec_breath_acid"
   key: the_black_pudding_1614
   name: the black pudding
   short_desc: A huge black pudding fills the center of the room!!
@@ -447,6 +450,7 @@
   legacy_raw: 2|64 8 0 S 16 8 -2 16d16+160 8d2+7 0 18000 8 8 0
 
 - id: 1616
+  spec_fun: "spec_breath_any"
   key: the_ancient_wyvern_1616
   name: the ancient wyvern
   short_desc: An enormous, ancient wyvern stares down at your tiny form...
@@ -479,6 +483,7 @@
   legacy_raw: 4|32|64 8|32 -1000 S 18 5 -2 18d18+180 10d2+8 0 28000 8 5 1
 
 - id: 1617
+  spec_fun: "spec_cast_undead"
   key: the_spectre_1617
   name: the spectre
   short_desc: A spectre has begun to materialize in front of you!
@@ -830,6 +835,7 @@
   legacy_raw: 2 2 200 S 10 12 1 10d10+100 2d4+3 0 4000 8 8 1
 
 - id: 1716
+  spec_fun: "spec_cast_undead"
   key: the_centaur_chief_1716
   name: the centaur chief
   short_desc: The chief of the centaur villagers reclines here.

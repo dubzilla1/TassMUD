@@ -71,8 +71,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your taunt falters.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your taunt falters.\u001B[0m",
                 rec.name + " attempts to taunt but the words come out garbled!");
             return true;
         }
@@ -233,8 +232,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your feign is unconvincing.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your feign is unconvincing.\u001B[0m",
                 rec.name + " attempts to feign weakness but the act is unconvincing!");
             return true;
         }
@@ -372,8 +370,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your concentration! The arcane energy dissipates.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your concentration! The arcane energy dissipates.\u001B[0m",
                 rec.name + " attempts to channel arcane energy but dark curse magic interferes!");
             return true;
         }
@@ -504,8 +501,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your heroic strike falters.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your heroic strike falters.\u001B[0m",
                 rec.name + " attempts a heroic strike but dark curse energy interferes!");
             // Apply cooldown even on curse failure
             cooldownMgr.setPlayerCooldown(name, com.example.tassmud.model.CooldownType.SKILL, 
@@ -751,8 +747,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your bash goes wide.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your bash goes wide.\u001B[0m",
                 rec.name + " attempts to bash but staggers, cursed energy disrupting their balance!");
             return true;
         }
@@ -896,8 +891,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your kick misses wildly.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your kick misses wildly.\u001B[0m",
                 rec.name + " attempts to kick but stumbles, cursed energy disrupting their movement!");
             return true;
         }
@@ -1044,8 +1038,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your disarm attempt fails miserably.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your disarm attempt fails miserably.\u001B[0m",
                 rec.name + " attempts to disarm but fumbles, cursed energy disrupting their movement!");
             return true;
         }
@@ -1169,8 +1162,7 @@ class MeleeSkillHandler {
             // Add DISARMED status flag to target
             targetCombatant.addStatusFlag(Combatant.StatusFlag.DISARMED);
             
-            out.println("Your disarm succeeds! " + targetName + " drops " + weaponName + " to the ground!");
-            ClientHandler.broadcastRoomMessage(roomId, 
+            ctx.actorAnnounce("Your disarm succeeds! " + targetName + " drops " + weaponName + " to the ground!",
                 name + " disarms " + targetName + ", sending " + weaponName + " clattering to the floor!");
 
             // Notify the opponent if they're a player
@@ -1258,8 +1250,7 @@ class MeleeSkillHandler {
         
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your trip attempt misses wildly.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your trip attempt misses wildly.\u001B[0m",
                 rec.name + " attempts to trip but stumbles, cursed energy disrupting their movement!");
             return true;
         }
@@ -1419,8 +1410,7 @@ class MeleeSkillHandler {
 
         // Check for curse effect
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your ki dissipates.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId,
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your ki dissipates.\u001B[0m",
                 rec.name + " attempts to channel ki but dark energy disrupts their focus!");
             return true;
         }
@@ -1520,8 +1510,7 @@ class MeleeSkillHandler {
 
         // Check for curse effect - may cause skill to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your focus! Your stunning fist goes wide.\u001B[0m");
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId,
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your focus! Your stunning fist goes wide.\u001B[0m",
                 rec.name + " attempts a pressure point strike but dark energy disrupts their focus!");
             return true;
         }

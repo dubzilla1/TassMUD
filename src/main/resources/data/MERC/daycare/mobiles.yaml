@@ -1,4 +1,5 @@
 - id: 6600
+  spec_fun: "spec_thief"
   key: the_dwarven_youth_6600
   name: the dwarven youth
   short_desc: A young dwarf plays with a toy axe.
@@ -31,6 +32,7 @@
   legacy_raw: 68 0 -5 S 3 17 6 1d4+30 1d4+3 50 400 6 8 1
 
 - id: 6601
+  spec_fun: "spec_thief"
   key: a_teddy_bear_6601
   name: a teddy bear
   short_desc: A cute and fuzzy teddy bear stands here.
@@ -63,6 +65,7 @@
   legacy_raw: 68 0 500 S 1 19 9 1d10+10 1d4+1 75 75 8 8 1
 
 - id: 6602
+  spec_fun: "spec_thief"
   key: a_raggedy_anne_doll_6602
   name: a raggedy anne doll
   short_desc: A raggedy anne doll is sitting here.
@@ -95,6 +98,7 @@
   legacy_raw: 68 0 300 S 2 18 9 2d5+19 1d5+1 250 200 6 8 1
 
 - id: 6603
+  spec_fun: "spec_thief"
   key: a_toy_soldier_6603
   name: a toy soldier
   short_desc: A toy soldier is standing here.
@@ -127,6 +131,7 @@
   legacy_raw: 68 0 -300 S 3 18 7 3d5+26 2d3+2 400 300 8 8 1
 
 - id: 6604
+  spec_fun: "spec_thief"
   key: the_ugly_bear_6604
   name: the ugly bear
   short_desc: An ugly stuffed bear stands here.
@@ -160,6 +165,7 @@
   legacy_raw: 68 0 -400 S 3 17 6 3d4+25 1d5+2 100 300 8 8 1
 
 - id: 6605
+  spec_fun: "spec_thief"
   key: an_old_doll_6605
   name: an old doll
   short_desc: An abused and old doll is here.
@@ -192,6 +198,7 @@
   legacy_raw: 68 0 -2 S 1 20 10 1d10+1 1d4+2 50 50 8 8 0
 
 - id: 6606
+  spec_fun: "spec_cast_cleric"
   key: the_nanny_6606
   name: the nanny
   short_desc: An old wrinkled nanny stands here, looking over the little ones.
@@ -258,6 +265,7 @@
   legacy_raw: 70 8 -800 S 8 9 2 3d10+100 3d5+2 2000 2000 8 8 1
 
 - id: 6608
+  spec_fun: "spec_thief"
   key: the_spoiled_brat_6608
   name: the spoiled brat
   short_desc: A spoiled brat is crying here.

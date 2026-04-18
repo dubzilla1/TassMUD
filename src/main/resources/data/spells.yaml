@@ -16,6 +16,7 @@ spells:
     target: CURRENT_ENEMY
     progression: EASY
     effectIds: [101]
+    incantation: arcavortus
     
   - id: 2
     name: Light
@@ -26,6 +27,7 @@ spells:
     target: TARGET
     progression: TRIVIAL
     effectIds: [102]
+    incantation: lumenvix
     
   - id: 3
     name: Detect Magic
@@ -36,6 +38,7 @@ spells:
     target: TARGET
     progression: EASY
     effectIds: [103]
+    incantation: mentarcis
     
   # Level 2 Arcane
   - id: 10
@@ -48,6 +51,7 @@ spells:
     target: EXPLICIT_MOB_TARGET
     progression: NORMAL
     effectIds: ["1003"]
+    incantation: ignamotis
     
   - id: 11
     name: Shield
@@ -58,6 +62,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [111]
+    incantation: aegivex
     
   # Level 3 Arcane
   - id: 20
@@ -69,6 +74,7 @@ spells:
     target: ALL_ENEMIES
     progression: HARD
     effectIds: [120]
+    incantation: ignarvortu
     
   - id: 21
     name: Lightning Bolt
@@ -79,6 +85,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: [121]
+    incantation: fulmenvex
     
   - id: 22
     name: Acid Blast
@@ -90,6 +97,7 @@ spells:
     target: EXPLICIT_MOB_TARGET
     progression: HARD
     effectIds: ["1001"]
+    incantation: corrosvex
     
   - id: 23
     name: Blindness
@@ -101,6 +109,7 @@ spells:
     target: EXPLICIT_MOB_TARGET
     progression: HARD
     effectIds: ["1002"]
+    incantation: mentumbrix
     
   # Level 4 Arcane  
   - id: 30
@@ -113,6 +122,7 @@ spells:
     target: CURRENT_ENEMY
     progression: NORMAL
     effectIds: ["1008", "1009"]
+    incantation: glacitactum
   - id: 32
     name: Ice Storm
     description: Hail pounds down in a cylinder of frigid air, battering and freezing all within.
@@ -122,6 +132,7 @@ spells:
     target: ALL_ENEMIES
     progression: HARD
     effectIds: [130]
+    incantation: glacivortus
     
   - id: 31
     name: Dimension Door
@@ -132,6 +143,7 @@ spells:
     target: TARGET
     progression: VERY_HARD
     effectIds: [131]
+    incantation: arcamotis
     
   # Level 5 Arcane
   - id: 40
@@ -143,6 +155,7 @@ spells:
     target: ALL_ENEMIES
     progression: VERY_HARD
     effectIds: [140]
+    incantation: glaciterra
     
   - id: 41
     name: Call Lightning
@@ -154,6 +167,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: ["1004"]
+    incantation: fulmarcis
 
   # Level 6 Arcane
   - id: 45
@@ -166,6 +180,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: ["1012"]
+    incantation: malivortex
 
   # Level 8 Arcane
   - id: 50
@@ -178,6 +193,7 @@ spells:
     target: CURRENT_ENEMY
     progression: VERY_HARD
     effectIds: []  # Effects applied by handler with 25% chance each
+    incantation: lumenvortus
 
   # Level 9 Arcane
   - id: 51
@@ -190,6 +206,7 @@ spells:
     target: ALL_ENEMIES
     progression: LEGENDARY
     effectIds: []  # Damage and trip handled by handler
+    incantation: terravortus
     
   # ========== DIVINE SPELLS (learned through prayer) ==========
   
@@ -203,6 +220,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [201]
+    incantation: rapha-or
     
   - id: 101
     name: Bless
@@ -214,6 +232,7 @@ spells:
     progression: EASY
     duration: 600  # lasts 10 minutes
     effectIds: [202]
+    incantation: el-shavar
     
   - id: 102
     name: Sanctuary
@@ -224,6 +243,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [203]
+    incantation: magen-el
     
   # Level 3 Divine
   - id: 110
@@ -235,6 +255,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [210]
+    incantation: rapha-kadol
 
   - id: 113
     name: Fly
@@ -245,6 +266,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: ["1013"]
+    incantation: halak-shamai
     
   - id: 111
     name: Hold Person
@@ -255,6 +277,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: [211]
+    incantation: el-amad
     
   - id: 112
     name: Remove Curse
@@ -265,6 +288,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [212]
+    incantation: shuv-qelalah
 
   - id: 115
     name: Fade
@@ -274,6 +298,7 @@ spells:
     castingTime: 1.0
     target: TARGET
     progression: NORMAL
+    incantation: choshek-ayin
 
   # Level 5 Divine
   - id: 120
@@ -285,6 +310,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [220]
+    incantation: rapha-gadol
     
   - id: 121
     name: Prayer
@@ -295,6 +321,7 @@ spells:
     target: EVERYONE
     progression: HARD
     effectIds: [221]
+    incantation: el-barak
     
   # Level 7 Divine
   - id: 130
@@ -306,6 +333,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [230]
+    incantation: rapha-elyon
     
   - id: 131
     name: Neutralize Poison
@@ -316,6 +344,7 @@ spells:
     target: TARGET
     progression: HARD
     effectIds: [231]
+    incantation: shuv-rosh
     
   # Level 5 Divine
   - id: 140
@@ -327,6 +356,7 @@ spells:
     target: EXPLICIT_MOB_TARGET
     progression: LEGENDARY
     effectIds: [240]
+    incantation: chai-maves
     
   - id: 141
     name: Flame Strike
@@ -337,6 +367,7 @@ spells:
     target: CURRENT_ENEMY
     progression: VERY_HARD
     effectIds: [241]
+    incantation: sharaph-el
     
   - id: 142
     name: Insight
@@ -347,6 +378,7 @@ spells:
     target: SELF
     progression: EASY
     effectIds: [115]
+    incantation: el-ayin
 
   # ========== PRIMAL SPELLS (learned through exploration/nature) ==========
   
@@ -360,6 +392,7 @@ spells:
     target: ALL_ENEMIES
     progression: EASY
     effectIds: [301]
+    incantation: jordgrip
     
   - id: 201
     name: Goodberry
@@ -370,6 +403,7 @@ spells:
     target: ITEM
     progression: TRIVIAL
     effectIds: [302]
+    incantation: lifber
     
   - id: 202
     name: Speak with Animals
@@ -380,6 +414,7 @@ spells:
     target: TARGET
     progression: EASY
     effectIds: [303]
+    incantation: hugrdyr
     
   # Level 2 Primal
   - id: 210
@@ -391,6 +426,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [310]
+    incantation: trjaskjold
     
   - id: 211
     name: Flame Blade
@@ -401,6 +437,7 @@ spells:
     target: TARGET
     progression: NORMAL
     effectIds: [311]
+    incantation: eldrslag
     
   # Level 3 Primal
   - id: 221
@@ -412,6 +449,7 @@ spells:
     target: EVERYONE
     progression: NORMAL
     effectIds: [321]
+    incantation: jordlif
     
   # Level 4 Primal
   - id: 230
@@ -423,6 +461,7 @@ spells:
     target: ALL_ENEMIES
     progression: HARD
     effectIds: [330]
+    incantation: iskalthymr
     
   - id: 231
     name: Stoneskin
@@ -433,6 +472,7 @@ spells:
     target: TARGET
     progression: VERY_HARD
     effectIds: [331]
+    incantation: steinskjold
     
   # Level 5 Primal
   - id: 240
@@ -444,6 +484,7 @@ spells:
     target: EVERYONE
     progression: LEGENDARY
     effectIds: [340]
+    incantation: jordveltir
 
   # ========== OCCULT SPELLS (learned through dark rituals/corpses) ==========
   
@@ -457,6 +498,7 @@ spells:
     target: CURRENT_ENEMY
     progression: NORMAL
     effectIds: [402]
+    incantation: arru-temu
     
   - id: 302
     name: Detect Undead
@@ -467,6 +509,7 @@ spells:
     target: TARGET
     progression: TRIVIAL
     effectIds: [403]
+    incantation: mutu-nuru
 
   - id: 303
     name: Cause Light Wounds
@@ -478,6 +521,7 @@ spells:
     target: CURRENT_ENEMY
     progression: EASY
     effectIds: ["1005"]
+    incantation: maqat-imtu
     
   # Level 2 Occult
   - id: 310
@@ -489,6 +533,7 @@ spells:
     target: CURRENT_ENEMY
     progression: NORMAL
     effectIds: [410]
+    incantation: salmu-temu
     
   - id: 311
     name: Ghoul Touch
@@ -499,6 +544,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: [411]
+    incantation: mutu-ilu
     
   # Level 3 Occult
   - id: 320
@@ -510,6 +556,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: [420]
+    incantation: mutu-balatu
     
   - id: 321
     name: Animate Dead
@@ -520,6 +567,7 @@ spells:
     target: EXPLICIT_MOB_TARGET
     progression: VERY_HARD
     effectIds: [421]
+    incantation: mutu-alaku
     
   # Level 4 Occult
   - id: 330
@@ -531,6 +579,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: [430]
+    incantation: ilu-mutu
 
   - id: 332
     name: Cause Serious Wounds
@@ -542,6 +591,7 @@ spells:
     target: CURRENT_ENEMY
     progression: NORMAL
     effectIds: ["1006"]
+    incantation: maqat-gal
     
   - id: 331
     name: Fear
@@ -552,6 +602,7 @@ spells:
     target: ALL_ENEMIES
     progression: HARD
     effectIds: [431]
+    incantation: arru-ersu
     
   # Level 5 Occult
   - id: 340
@@ -563,6 +614,7 @@ spells:
     target: EXPLICIT_MOB_TARGET
     progression: LEGENDARY
     effectIds: [440]
+    incantation: mutu-zaqiqu
     
   - id: 341
     name: Circle of Death
@@ -573,6 +625,7 @@ spells:
     target: ALL_ENEMIES
     progression: VERY_HARD
     effectIds: [441]
+    incantation: ersu-mutu
 
   # Level 7 Occult
   - id: 350
@@ -585,6 +638,7 @@ spells:
     target: CURRENT_ENEMY
     progression: HARD
     effectIds: ["1007"]
+    incantation: maqat-kalag
 
   - id: 500
     name: Heroism
@@ -596,3 +650,4 @@ spells:
     progression: LEGENDARY
     duration: 30  # lasts 30 seconds
     effectIds: [500]
+    incantation: el-gibor

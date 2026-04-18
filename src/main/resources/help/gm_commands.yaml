@@ -507,6 +507,42 @@ peace:
     SEE ALSO
         kill, combat
 
+enslave:
+  summary: "(GM) bind a mob in the room as your DEFENDER ally"
+  visibility: gm
+  synopsis:
+    - "ENSLAVE <mob> [minutes]"
+  body: |
+    NAME
+        enslave - bind a mob in the room as your ally
+
+    SYNOPSIS
+        ENSLAVE <mob> [minutes]
+
+    DESCRIPTION
+        Immediately breaks any combat the mob is engaged in and binds it to you
+        as a DEFENDER ally. The mob will auto-join combat on your behalf and
+        follow you between rooms.
+
+        Without a duration the binding is PERMANENT — the mob serves until it
+        dies (at which point the binding is released automatically).
+
+        With a duration in minutes the binding is TEMPORARY and expires after
+        that many minutes (the mob then returns to normal behaviour).
+
+    ARGUMENTS
+        mob       Name or keyword of a mobile in your current room.
+        minutes   Optional positive integer — duration of the binding.
+                  Omit entirely for a permanent binding.
+
+    EXAMPLES
+        enslave goblin         -- permanent DEFENDER ally
+        enslave troll 10       -- troll serves you for 10 minutes
+        enslave city guard 1   -- 1-minute escort binding
+
+    SEE ALSO
+        slay, spawn, peace
+
 slay:
   summary: "(GM) instantly kill a mob"
   visibility: gm

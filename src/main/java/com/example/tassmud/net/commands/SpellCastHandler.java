@@ -194,9 +194,7 @@ class SpellCastHandler {
         
         // Check for curse effect - may cause spell to fail
         if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
-            out.println("\u001B[35mThe curse disrupts your concentration! Your spell fizzles.\u001B[0m");
-            // Notify the room
-            ClientHandler.broadcastRoomMessage(ctx.currentRoomId, 
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your concentration! Your spell fizzles.\u001B[0m",
                 rec.name + " begins to cast " + matchedSpell.getName() + " but the spell fizzles!");
             return true;
         }
@@ -249,6 +247,15 @@ class SpellCastHandler {
             case EVERYONE:
                 castMsg.append(", targeting everyone in the room!");
                 break;
+        }
+        
+        // Display incantation if present
+        String incantation = matchedSpell.getIncantation();
+        if (incantation != null && !incantation.isEmpty()) {
+            out.println("You speak the words '" + incantation + "'!");
+            ClientHandler.roomAnnounceFromActor(ctx.currentRoomId,
+                rec.name + " speaks the words '" + incantation + "'!",
+                ctx.characterId);
         }
         
         out.println(castMsg.toString());

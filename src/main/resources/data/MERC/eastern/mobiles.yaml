@@ -162,6 +162,7 @@
   legacy_raw: 2|32 0 -100 S 18 -1 0 18d18+180 3d6+4 2540 50000 8 8 0
 
 - id: 5005
+  spec_fun: "spec_breath_any"
   key: the_brass_dragon_5005
   name: the brass dragon
   short_desc: The brass dragon steps out of the darkness and says 'Hello'. Then adds to it, 'Prepare to die, have a nice day!'
@@ -322,6 +323,7 @@
   legacy_raw: 130 0 1000 S 3 18 9 3d3+30 1d5+0 0 200 5 5 2
 
 - id: 5010
+  spec_fun: "spec_breath_fire"
   key: the_dracolich_5010
   name: The dracolich
   short_desc: A pile of bones rises up to form a skeletal dracolich.
@@ -452,6 +454,7 @@
   legacy_raw: 192 8 850 S 6 15 4 6d6+60 2d7+0 50 700 8 8 1
 
 - id: 5014
+  spec_fun: "spec_cast_cleric"
   key: the_myconoid_shaman_5014
   name: The myconoid shaman
   short_desc: A rather large myconoid stands here chanting in a strange tongue.

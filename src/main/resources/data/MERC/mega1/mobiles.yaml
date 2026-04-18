@@ -100,6 +100,7 @@
   legacy_raw: 2|32 8 0 S 17 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8003
+  spec_fun: "spec_cast_judge"
   key: a_citi_def_militiaman_8003
   name: a Citi-Def Militiaman
   short_desc: A Citi-Def Militiaman is here contemplating a Block War.
@@ -133,6 +134,7 @@
   legacy_raw: 4|64 512 0 S 16 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8004
+  spec_fun: "spec_thief"
   key: a_dunk_8004
   name: a dunk
   short_desc: A dunk is here blending into the crowd.
@@ -198,6 +200,7 @@
   legacy_raw: 4|64 0 -400 S 14 0 0 0d0+0 0d0+0 0 0 0 0 2
 
 - id: 8006
+  spec_fun: "spec_cast_judge"
   key: a_rookie_judge_8006
   name: a rookie judge
   short_desc: A Rookie judge is on his first beat here.
@@ -333,6 +336,7 @@
   legacy_raw: 2|4 0 -400 S 19 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8010
+  spec_fun: "spec_cast_judge"
   key: judge_eckersely_8010
   name: Judge Eckersely
   short_desc: Judge Eckersely is here shaking down a Perp.
@@ -366,6 +370,7 @@
   legacy_raw: 64 8|32|128 300 S 30 0 0 0d0+0 0d0+0 0 0 0 0 1
 
 - id: 8011
+  spec_fun: "spec_cast_judge"
   key: judge_beddows_8011
   name: Judge Beddows
   short_desc: Judge Beddows is here calling Resyk.

@@ -22,30 +22,39 @@ public class Spell {
     private final double cooldown;              // cooldown in seconds, 0 means no cooldown
     private final double duration;              // duration in seconds, 0 means instant
     private final int mpCost;                   // MP cost, 0 means use spell level as cost
+    private final String incantation;           // spoken words when casting (school-specific language)
 
     public Spell(int id, String name, String description) {
         this(id, name, description, SpellSchool.ARCANE, 1, 1.0, SpellTarget.SELF, 
-             null, SkillProgression.NORMAL, null, 0, 0, 0);
+             null, SkillProgression.NORMAL, null, 0, 0, 0, null);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
                  SkillProgression progression) {
         this(id, name, description, school, level, baseCastingTime, target, effectIds,
-             progression, null, 0, 0, 0);
+             progression, null, 0, 0, 0, null);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
                  SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration) {
         this(id, name, description, school, level, baseCastingTime, target, effectIds,
-             progression, traits, cooldown, duration, 0);
+             progression, traits, cooldown, duration, 0, null);
     }
     
     public Spell(int id, String name, String description, SpellSchool school, int level,
                  double baseCastingTime, SpellTarget target, List<String> effectIds,
                  SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration,
                  int mpCost) {
+        this(id, name, description, school, level, baseCastingTime, target, effectIds,
+             progression, traits, cooldown, duration, mpCost, null);
+    }
+
+    public Spell(int id, String name, String description, SpellSchool school, int level,
+                 double baseCastingTime, SpellTarget target, List<String> effectIds,
+                 SkillProgression progression, List<SpellTrait> traits, double cooldown, double duration,
+                 int mpCost, String incantation) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -59,6 +68,7 @@ public class Spell {
         this.cooldown = Math.max(0, cooldown);
         this.duration = Math.max(0, duration);
         this.mpCost = Math.max(0, mpCost);
+        this.incantation = (incantation != null && !incantation.isEmpty()) ? incantation : null;
     }
 
     public int getId() { return id; }
@@ -74,6 +84,7 @@ public class Spell {
     public double getCooldown() { return cooldown; }
     public double getDuration() { return duration; }
     public int getMpCost() { return mpCost; }
+    public String getIncantation() { return incantation; }
     
     /**
      * Check if this spell has a specific trait.

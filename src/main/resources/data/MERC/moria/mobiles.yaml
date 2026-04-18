@@ -1,4 +1,5 @@
 - id: 4000
+  spec_fun: "spec_poison"
   key: the_huge_python_4000
   name: the huge python
   short_desc: The huge python rears its head and hisses at you.
@@ -31,6 +32,7 @@
   legacy_raw: 35 8 -200 S 11 7 3 11d11+110 3d6+0 0 5000 8 8 1
 
 - id: 4001
+  spec_fun: "spec_poison"
   key: the_garter_snake_4001
   name: the garter snake
   short_desc: A small green garter snake slithers along the floor.
@@ -290,6 +292,7 @@
   legacy_raw: 68 0 -300 S 6 12 6 6d6+60 2d4+0 100 1000 8 8 1
 
 - id: 4053
+  spec_fun: "spec_poison"
   key: the_snake_4053
   name: the snake
   short_desc: A sickly brown snake watches you with caution.
@@ -487,6 +490,7 @@
   legacy_raw: 64 0 0 S 13 8 2 1d10+160 2d10+0 1000 16500 8 8 1
 
 - id: 4100
+  spec_fun: "spec_cast_mage"
   key: the_mage_4100
   name: the Mage
   short_desc: A small intelligent looking mage is standing here. It looks like he knows his way with magic.
@@ -552,6 +556,7 @@
   legacy_raw: 38 0 -800 S 12 8 1 2d10+100 2d7+1 500 15000 8 8 1
 
 - id: 4102
+  spec_fun: "spec_poison"
   key: the_guardian_snake_4102
   name: the guardian snake
   short_desc: A large green snake is guardian for something.
@@ -714,6 +719,7 @@
   legacy_raw: 100 0 -100 S 7 14 4 2d10+20 1d10+0 20 3000 8 8 1
 
 - id: 4150
+  spec_fun: "spec_breath_lightning"
   key: the_blue_bat_4150
   name: the blue bat
   short_desc: A blue bat flies in circles while electrical charges arc here and there.
@@ -746,6 +752,7 @@
   legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
 
 - id: 4151
+  spec_fun: "spec_breath_fire"
   key: the_red_bat_4151
   name: the red bat
   short_desc: A red bat hangs upside down from the ceiling, glowing.
@@ -778,6 +785,7 @@
   legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
 
 - id: 4152
+  spec_fun: "spec_breath_gas"
   key: the_green_bat_4152
   name: the green bat
   short_desc: A green bat flies from wall to wall leaving an awful smell.
@@ -810,6 +818,7 @@
   legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
 
 - id: 4153
+  spec_fun: "spec_breath_frost"
   key: the_white_bat_4153
   name: the white bat
   short_desc: A white bat rests on the ceiling.  You wonder where the cold is coming from.
@@ -842,6 +851,7 @@
   legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
 
 - id: 4154
+  spec_fun: "spec_breath_acid"
   key: the_black_bat_4154
   name: the black bat
   short_desc: A black bat flies from wall to wall leaving something hissing behind.
@@ -874,6 +884,7 @@
   legacy_raw: 35 0 -100 S 7 15 4 3d10+70 1d7+1 0 2200 8 8 0
 
 - id: 4155
+  spec_fun: "spec_thief"
   key: the_thief_4155
   name: the thief
   short_desc: A sneaky thief appears and disappears within the shadows.
@@ -938,6 +949,7 @@
   legacy_raw: 38 0 -700 S 14 8 1 8d20+140 2d7+1 3000 20000 8 8 1
 
 - id: 4157
+  spec_fun: "spec_cast_mage"
   key: the_mage_4157
   name: the Mage
   short_desc: A small man is here researching magical incantations.
@@ -971,6 +983,7 @@
   legacy_raw: 101 0 -200 S 11 10 2 4d10+80 2d5+1 800 11000 8 8 1
 
 - id: 4158
+  spec_fun: "spec_poison"
   key: the_snake_4158
   name: the snake
   short_desc: A brown snake hisses at you.

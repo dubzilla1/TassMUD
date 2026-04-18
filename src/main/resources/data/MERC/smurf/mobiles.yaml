@@ -1,4 +1,5 @@
 - id: 101
+  spec_fun: "spec_thief"
   key: a_smurf_101
   name: a smurf
   short_desc: A smurf is singing and walking along.
@@ -32,6 +33,7 @@
   legacy_raw: 192 0 100 S 1 19 8 10d2+2 1d2+1 20 200 8 8 1
 
 - id: 102
+  spec_fun: "spec_thief"
   key: a_smurf_102
   name: a smurf
   short_desc: A smurf is here, picking berries.
@@ -64,6 +66,7 @@
   legacy_raw: 130 0 100 S 1 19 8 2d5+20 1d2+1 20 200 8 8 1
 
 - id: 103
+  spec_fun: "spec_thief"
   key: brainy_smurf_103
   name: Brainy Smurf
   short_desc: Brainy Smurf is here, mumbling something to himself.
@@ -97,6 +100,7 @@
   legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
 
 - id: 104
+  spec_fun: "spec_thief"
   key: handy_smurf_104
   name: Handy Smurf
   short_desc: Handy Smurf is building something here.
@@ -130,6 +134,7 @@
   legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
 
 - id: 105
+  spec_fun: "spec_thief"
   key: sleepy_smurf_105
   name: Sleepy Smurf
   short_desc: Sleepy Smurf is sleep walking here.
@@ -163,6 +168,7 @@
   legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
 
 - id: 106
+  spec_fun: "spec_thief"
   key: hefty_smurf_106
   name: Hefty Smurf
   short_desc: Hefty Smurf is lifting weights here.
@@ -196,6 +202,7 @@
   legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
 
 - id: 107
+  spec_fun: "spec_thief"
   key: grumpy_smurf_107
   name: Grumpy Smurf
   short_desc: Grumpy Smurf is here, swearing.
@@ -228,6 +235,7 @@
   legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
 
 - id: 108
+  spec_fun: "spec_thief"
   key: jokey_smurf_108
   name: Jokey Smurf
   short_desc: Jokey Smurf is here, holding a present.
@@ -261,6 +269,7 @@
   legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 1
 
 - id: 109
+  spec_fun: "spec_thief"
   key: smurfette_109
   name: Smurfette
   short_desc: Smurfette is here, looking beautiful.
@@ -294,6 +303,7 @@
   legacy_raw: 192 0 100 S 3 18 7 3d10+1 1d4+1 30 300 8 8 2
 
 - id: 110
+  spec_fun: "spec_cast_mage"
   key: papa_smurf_110
   name: Papa Smurf
   short_desc: Papa Smurf is practicing magic here.
@@ -328,6 +338,7 @@
   legacy_raw: 192 0 100 S 10 10 0 10d10+50 2d2+12 50 4000 8 8 1
 
 - id: 111
+  spec_fun: "spec_cast_cleric"
   key: gargamel_111
   name: Gargamel
   short_desc: Gargamel is here, cursing out the smurfs.
@@ -361,6 +372,7 @@
   legacy_raw: 130 0 -100 S 10 10 0 10d10+50 2d2+12 50 4000 8 8 1
 
 - id: 112
+  spec_fun: "spec_poison"
   key: azreal_112
   name: Azreal
   short_desc: Azreal is here, licking himself.

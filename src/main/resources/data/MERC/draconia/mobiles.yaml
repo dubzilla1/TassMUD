@@ -1,4 +1,5 @@
 - id: 2200
+  spec_fun: "spec_breath_any"
   key: the_dragon_hatchling_2200
   name: the dragon hatchling
   short_desc: A dragon hatchling is here, chewing on a bone.
@@ -98,6 +99,7 @@
   legacy_raw: 2|4|32 524288 -1000 S 27 0 -2 27d27+270 3d6+8 35000 60000 8 8 1
 
 - id: 2203
+  spec_fun: "spec_cast_mage"
   key: a_powerful_mage_2203
   name: a powerful mage
   short_desc: A man is here, studying some books.
@@ -132,6 +134,7 @@
   legacy_raw: 2 2|8|128 -900 S 22 0 3 22d22+220 1d8+10 600 45000 8 8 1
 
 - id: 2204
+  spec_fun: "spec_cast_cleric"
   key: the_holy_draconian_2204
   name: the holy Draconian
   short_desc: A Draconian is here, deep in thought.
@@ -165,6 +168,7 @@
   legacy_raw: 2|4|32 8|128 -900 S 22 1 0 22d22+220 3d5+6 400 45000 8 8 1
 
 - id: 2205
+  spec_fun: "spec_breath_any"
   key: the_draconian_king_2205
   name: the Draconian King
   short_desc: A Draconian wearing fine clothes is here, pondering his greatness.
@@ -266,6 +270,7 @@
   legacy_raw: 2|32 4|8|32 -800 S 18 3 2 18d18+180 2d6+10 5000 30000 8 8 1
 
 - id: 2220
+  spec_fun: "spec_breath_any"
   key: tiamat_2220
   name: Tiamat
   short_desc: A five headed dragon hisses at you as you enter this room.
@@ -299,6 +304,7 @@
   legacy_raw: 2|4|32 8|32 -1000 S 35 0 -10 35d35+1000 4d9+15 50000 3500000 8 8 2
 
 - id: 2221
+  spec_fun: "spec_breath_fire"
   key: the_great_red_dragon_2221
   name: the Great Red Dragon
   short_desc: A red dragon is here, contemplating your existence.
@@ -332,6 +338,7 @@
   legacy_raw: 2|4|32 8|32 -1000 S 27 0 -5 27d27+270 2d8+10 10000 300000 8 8 1
 
 - id: 2222
+  spec_fun: "spec_breath_acid"
   key: the_great_black_dragon_2222
   name: the Great Black Dragon
   short_desc: A black dragon is here, laughing at your insolence.
@@ -365,6 +372,7 @@
   legacy_raw: 2|4|32 8|32 -900 S 26 1 -3 26d26+260 3d8+4 20000 250000 8 8 1
 
 - id: 2223
+  spec_fun: "spec_breath_frost"
   key: the_great_white_dragon_2223
   name: the Great White Dragon
   short_desc: A white dragon is here, waiting for you.
@@ -399,6 +407,7 @@
   legacy_raw: 2|4|32 8|32 -1000 S 27 0 -3 27d27+270 3d8+4 35000 200000 8 8 2
 
 - id: 2225
+  spec_fun: "spec_breath_gas"
   key: the_ancient_green_dragon_2225
   name: the Ancient Green Dragon
   short_desc: A green dragon is here, looking distraught.
@@ -433,6 +442,7 @@
   legacy_raw: 2|4|32 8|32 -1000 S 31 0 -4 31d31+310 3d8+15 20000 500000 8 8 2
 
 - id: 2226
+  spec_fun: "spec_poison"
   key: a_large_hydra_2226
   name: a large hydra
   short_desc: A hydra is here, blocking the doorway.
@@ -466,6 +476,7 @@
   legacy_raw: 2|4|32 8|32 -800 S 18 3 1 18d18+180 2d8+7 5000 35000 8 8 0
 
 - id: 2227
+  spec_fun: "spec_thief"
   key: a_human_slave_2227
   name: A human slave
   short_desc: A Human slave is here, hard at work.
@@ -499,6 +510,7 @@
   legacy_raw: 2 0 0 S  5 16 6 1d10+50 1d6+4  100 900  8 8 1
 
 - id: 2240
+  spec_fun: "spec_cast_undead"
   key: a_draconian_zombie_2240
   name: a Draconian zombie
   short_desc: A Draconian zombie is here, staring at nothing in particular.
@@ -532,6 +544,7 @@
   legacy_raw: 2|4|32 8|32 -400 S 9 9 4 1d100+175 1d8+6 1500 3000 8 8 0
 
 - id: 2241
+  spec_fun: "spec_breath_gas"
   key: the_phase_dragon_2241
   name: the phase dragon
   short_desc: A Phase Dragon is darting around the room.
@@ -564,6 +577,7 @@
   legacy_raw: 4|32|64|128 8|32 -300 S  10 11 3 10d10+150 2d6+6 5000 6000 8 8 1
 
 - id: 2242
+  spec_fun: "spec_thief"
   key: the_draconian_fool_2242
   name: the draconian fool
   short_desc: A Fool is here, making fun of you.
@@ -597,6 +611,7 @@
   legacy_raw: 64|128 0 0 S  5 16 5 1d10+50 3d3+4  500 800  8 8 1
 
 - id: 2243
+  spec_fun: "spec_breath_any"
   key: the_draconian_queen_2243
   name: the Draconian Queen
   short_desc: A Female Draconian sits, here, looking very important.

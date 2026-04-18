@@ -11,6 +11,9 @@ import com.example.tassmud.persistence.*;
 import com.example.tassmud.util.*;
 import com.example.tassmud.util.CooldownManager;
 import com.example.tassmud.util.MobileRoamingService;
+import com.example.tassmud.util.mob.MobileSpecialRegistry;
+import com.example.tassmud.util.mob.MobileSpecialService;
+import com.example.tassmud.util.mob.MobileSpecials;
 import com.example.tassmud.util.RegenerationService;
 import com.example.tassmud.effect.EffectScheduler;
 import org.slf4j.Logger;
@@ -198,6 +201,11 @@ public class Server {
         });
         logger.info("[startup] Registered {} effect resistance checks",
                 EffectResistanceService.registeredCheckCount());
+
+        // Initialize mobile special service (out-of-combat special ticks ~4s)
+        MobileSpecialService.getInstance().initialize(tickService);
+        MobileSpecials.registerAll(MobileSpecialRegistry.getInstance(), combatManager, gameClock);
+        logger.info("[startup] Registered {} mobile special handlers", MobileSpecialRegistry.getInstance().count());
 
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;

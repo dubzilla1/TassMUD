@@ -17,6 +17,9 @@ import com.example.tassmud.effect.HasteEffect;
 import com.example.tassmud.util.TickService;
 import com.example.tassmud.util.GroupManager;
 import com.example.tassmud.util.RegenerationService;
+import com.example.tassmud.util.AllyManager;
+import com.example.tassmud.util.MobileRegistry;
+import com.example.tassmud.model.AllyBinding;
 import com.example.tassmud.model.Group;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,6 +76,22 @@ public class CombatManager {
     
     /** The basic attack command available to all combatants */
     private final BasicAttackCommand basicAttack = new BasicAttackCommand();
+
+    /**
+     * Sentinel returned by selectMobileCommand when a spec_fun handler consumed
+     * the mobile's action. Prevents the fallback basicAttack from firing.
+     */
+    private static final CombatCommand SPEC_CONSUMED = new CombatCommand() {
+        @Override public String getName() { return "spec_consumed"; }
+        @Override public String getDisplayName() { return ""; }
+        @Override public long getCooldownMs() { return 0; }
+        @Override public boolean canUse(Combatant user, Combat combat) { return false; }
+        @Override public boolean requiresTarget() { return false; }
+        @Override public CombatResult execute(Combatant user, Combatant target, Combat combat) {
+            return CombatResult.miss(user, target);
+        }
+        @Override public long getCooldownEndTime(Combatant user) { return 0; }
+    };
     
     /** Handler for multiple attacks (second_attack, third_attack, fourth_attack) */
     private final MultiAttackHandler multiAttackHandler = new MultiAttackHandler();
@@ -275,6 +294,37 @@ public class CombatManager {
             }
         }
     }
+
+    /**
+     * Auto-join DEFENDER and HUNTER allies in the same room into an ongoing combat
+     * on the player alliance (0).
+     *
+     * @param ownerCharacterId the player whose allies should react
+     * @param roomId           the room where combat is happening
+     * @param combat           the combat instance to join
+     */
+    private void processAllyDefenders(int ownerCharacterId, int roomId, Combat combat) {
+        List<AllyBinding> defenders = AllyManager.getInstance()
+                .getDefenderAlliesInRoom(ownerCharacterId, roomId);
+        if (defenders.isEmpty()) return;
+
+        for (AllyBinding binding : defenders) {
+            Mobile mob = MobileRegistry.getInstance().getById(binding.getMobInstanceId());
+            if (mob == null) continue;
+
+            // Skip if already participating in this combat
+            if (combat.findByMobileInstanceId(mob.getInstanceId()) != null) continue;
+
+            // Join on player alliance (0) — fights alongside the player
+            combat.addMobileCombatant(mob, Combat.PLAYER_ALLIANCE);
+            combatsByMobile.put(mob.getInstanceId(), combat);
+
+            broadcastToRoom(roomId, mob.getName() + " rushes to defend " +
+                    DaoProvider.characters().getCharacterNameById(ownerCharacterId) + "!");
+            logger.debug("[CombatManager] Ally mob {} joined combat for owner {}",
+                    mob.getInstanceId(), ownerCharacterId);
+        }
+    }
     
     /**
      * Process autoflee for a mobile combatant.
@@ -376,7 +426,8 @@ public class CombatManager {
             target = combat.getRandomTarget(combatant);
         }
         
-        if (command == null) {
+        if (command == null || command == SPEC_CONSUMED) {
+            if (command == SPEC_CONSUMED) return; // spec_fun consumed the action
             command = basicAttack;
         }
         
@@ -651,10 +702,36 @@ public class CombatManager {
     
     /**
      * Select a combat command for a mobile based on AI.
+     * If the mobile has a registered spec_fun handler, invoke it first.
+     * The handler returns true if it consumed the action (suppresses basic attack).
      */
     private CombatCommand selectMobileCommand(Combat combat, Combatant mobile) {
-        // TODO: Check mob's skill list and cooldowns
-        // For now, just use basic attack
+        if (mobile.isMobile() && mobile.getMobile() != null) {
+            com.example.tassmud.model.Mobile mob = mobile.getMobile();
+            String specFun = mob.getSpecFun();
+            if (specFun != null) {
+                com.example.tassmud.util.mob.MobileSpecialHandler handler =
+                        com.example.tassmud.util.mob.MobileSpecialRegistry.getInstance().get(specFun);
+                if (handler != null) {
+                    Integer roomId = mob.getCurrentRoom();
+                    if (roomId != null) {
+                        com.example.tassmud.util.mob.MobileSpecialContext ctx =
+                                new com.example.tassmud.util.mob.MobileSpecialContext(
+                                        combat,
+                                        roomId,
+                                        playerMessageCallback,
+                                        roomMessageCallback,
+                                        this);
+                        try {
+                            if (handler.trigger(mob, ctx)) return SPEC_CONSUMED; // handler consumed action
+                        } catch (Exception e) {
+                            logger.warn("selectMobileCommand: error in spec '{}' for mob {}: {}",
+                                    specFun, mob.getName(), e.getMessage(), e);
+                        }
+                    }
+                }
+            }
+        }
         return basicAttack;
     }
     
@@ -756,6 +833,11 @@ public class CombatManager {
         
         // Handle autoassist for group members
         processAutoassist(attackerId, roomId, combat);
+
+        // Trigger DEFENDER/HUNTER ally auto-join for the player's allies
+        if (attackerId != null) {
+            processAllyDefenders(attackerId, roomId, combat);
+        }
         
         return combat;
     }
@@ -806,6 +888,11 @@ public class CombatManager {
         // Notify room
         String startMsg = attacker.getName() + " attacks " + target.getName() + "!";
         broadcastToRoom(roomId, startMsg);
+
+        // Trigger DEFENDER/HUNTER ally auto-join for the player being attacked
+        if (targetId != null) {
+            processAllyDefenders(targetId, roomId, combat);
+        }
         
         return combat;
     }

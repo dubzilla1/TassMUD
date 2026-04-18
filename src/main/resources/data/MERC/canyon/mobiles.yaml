@@ -31,6 +31,7 @@
   legacy_raw: 68 0 500 S 3 16 8 10d5+15 1d6+1 100 500 8 8 1
 
 - id: 9202
+  spec_fun: "spec_cast_cleric"
   key: the_cyclops_9202
   name: the cyclops
   short_desc: A hungry cyclops snarls at you!
@@ -95,6 +96,7 @@
   legacy_raw: 64 0 0 S 1 20 9 1d20+0 1d3+1 11 100 8 8 0
 
 - id: 9204
+  spec_fun: "spec_breath_any"
   key: the_elemental_guardian_9204
   name: the elemental guardian
   short_desc: The elemental guardian of the canyon.
@@ -191,6 +193,7 @@
   legacy_raw: 66 0 10 S 10 11 2 10d10+125 2d6+1 750 4000 8 8 0
 
 - id: 9207
+  spec_fun: "spec_breath_any"
   key: a_large_elemental_9207
   name: a large elemental
   short_desc: A large elemental.
@@ -223,6 +226,7 @@
   legacy_raw: 66 0 20 S 15 6 0 10d10+190 2d8+2 2000 21000 8 8 0
 
 - id: 9208
+  spec_fun: "spec_cast_cleric"
   key: the_earth_ruler_9208
   name: the Earth Ruler
   short_desc: The Ruler of the earth elementals.
@@ -257,6 +261,7 @@
   legacy_raw: 2 128 0 S 30 -2 -13 30d30+1000 2d6+25 100000 400000 8 8 0
 
 - id: 9209
+  spec_fun: "spec_breath_fire"
   key: the_fire_ruler_9209
   name: the Fire Ruler
   short_desc: The Ruler of the fire elementals.
@@ -289,6 +294,7 @@
   legacy_raw: 2 128 0 S 30 -5 -10 30d30+1000 4d5+5 100000 300000 8 8 0
 
 - id: 9210
+  spec_fun: "spec_breath_gas"
   key: the_air_ruler_9210
   name: The Air Ruler
   short_desc: The Ruler of the air elementals.
@@ -321,6 +327,7 @@
   legacy_raw: 2 128 0 S 30 0 -10 30d30+1000 9d3+9 100000 350000 8 8 0
 
 - id: 9211
+  spec_fun: "spec_breath_lightning"
   key: the_lightning_ruler_9211
   name: The Lightning Ruler
   short_desc: The Ruler of the lightning elementals.
@@ -354,6 +361,7 @@
   legacy_raw: 2 128 0 S 30 0 -6 30d30+1000 4d6+15 100000 350000 8 8 0
 
 - id: 9212
+  spec_fun: "spec_breath_acid"
   key: the_water_ruler_9212
   name: The Water Ruler
   short_desc: The Ruler of the water elementals.
@@ -547,6 +555,7 @@
   legacy_raw: 64 0 0 S 4 16 6 10d5+0 1d8+1 150 500 8 8 0
 
 - id: 9219
+  spec_fun: "spec_breath_acid"
   key: a_small_blob_of_acid_9219
   name: a small blob of acid
   short_desc: A small blob of acid eats away at the stone aimlessly.
@@ -675,6 +684,7 @@
   legacy_raw: 64 0 0 S 6 16 50 6d10+20 1d8+0 300 1000 8 8 0
 
 - id: 9223
+  spec_fun: "spec_breath_lightning"
   key: a_particle_9223
   name: a particle
   short_desc: A sub-atomic particle is too small for you to see.
@@ -707,6 +717,7 @@
   legacy_raw: 64 0 0 S 5 16 6 5d4+70 1d5+5 10 800 8 8 0
 
 - id: 9224
+  spec_fun: "spec_thief"
   key: a_dust_cloud_9224
   name: a dust cloud
   short_desc: A dust cloud blowing by makes you sneeze.
@@ -739,6 +750,7 @@
   legacy_raw: 64 0 0 S 6 15 4 9d9+4 1d8+1 100 980 8 8 0
 
 - id: 9225
+  spec_fun: "spec_thief"
   key: an_eddie_9225
   name: an eddie
   short_desc: A small eddie current swirls junk around here.
@@ -771,6 +783,7 @@
   legacy_raw: 64 0 0 S 2 19 8 5d5+0 1d6+0 30 150 8 8 0
 
 - id: 9226
+  spec_fun: "spec_breath_fire"
   key: the_blue_flame_9226
   name: the Blue Flame
   short_desc: The Blue Flame burns mysteriously here.
@@ -804,6 +817,7 @@
   legacy_raw: 66 0 -100 S 26 -3 -4 1d100+550 6d3+12 25000 100000 8 8 0
 
 - id: 9227
+  spec_fun: "spec_breath_lightning"
   key: the_magneto_9227
   name: the Magneto
   short_desc: The Magneto considers zapping you for the heck of it.
@@ -836,6 +850,7 @@
   legacy_raw: 66 0 -150 S 22 0 -8 3d10+350 3d8+5 10000 75000 8 8 0
 
 - id: 9228
+  spec_fun: "spec_breath_frost"
   key: the_ice_bandit_9228
   name: the Ice Bandit
   short_desc: The Ice Bandit strikes cold fear in your heart.
@@ -900,6 +915,7 @@
   legacy_raw: 66 0 -310 S 23 0 -6 40d10+550 3d8+4 19000 60000 8 8 0
 
 - id: 9230
+  spec_fun: "spec_breath_gas"
   key: the_hurricane_9230
   name: the Hurricane
   short_desc: A Hurricane rages across the sky.
@@ -932,6 +948,7 @@
   legacy_raw: 66 32768 -10 S 28 -4 -7 0d0+700 4d6+6 41082 350000 8 8 0
 
 - id: 9231
+  spec_fun: "spec_cast_mage"
   key: an_elemental_magician_9231
   name: an elemental magician
   short_desc: An elemental magician seeks magical stones for a spell.
@@ -965,6 +982,7 @@
   legacy_raw: 66 2 -50 S 17 6 2 1d11+200 3d5+3 8000 30000 8 8 0
 
 - id: 9232
+  spec_fun: "spec_cast_cleric"
   key: a_rainbow_warrior_9232
   name: a rainbow warrior
   short_desc: A warrior of the Rainbow Cult swears his loyalty.
@@ -998,6 +1016,7 @@
   legacy_raw: 64 0 150 S 18 1 0 0d0+340 3d6+4 8000 35000 8 8 0
 
 - id: 9233
+  spec_fun: "spec_cast_mage"
   key: the_illusionist_seeks_the_aid_of_the_elemental_forces_9233
   name: The illusionist seeks the aid of the elemental forces.
   short_desc: The illusionist seeks the aid of the elemental forces.
@@ -1032,6 +1051,7 @@
   legacy_raw: 66 0 -50 S 12 10 3 10d6+150 2d7+0 1900 13900 8 8 0
 
 - id: 9234
+  spec_fun: "spec_thief"
   key: an_alchemist_9234
   name: an alchemist
   short_desc: An alchemist wanders by in search of magical herbs.
@@ -1064,6 +1084,7 @@
   legacy_raw: 64 0 -50 S 13 8 1 1d2+270 2d7+1 1900 15000 8 8 0
 
 - id: 9235
+  spec_fun: "spec_breath_any"
   key: a_baby_rainbow_dragon_9235
   name: a baby rainbow dragon
   short_desc: A baby rainbow dragon plays among the elements here.
@@ -1128,6 +1149,7 @@
   legacy_raw: 4|64|128 32768|65536 -500 S 5 15 1 1d10+100 1d4+3 1 1000 8 8 0
 
 - id: 9237
+  spec_fun: "spec_breath_any"
   key: a_huge_elemental_9237
   name: a HUGE elemental
   short_desc: A HUGE elemental form stands here.
@@ -1160,6 +1182,7 @@
   legacy_raw: 66 0 30 S 20 1 0 0d0+750 3d6+4 10000 40000 8 8 0
 
 - id: 9238
+  spec_fun: "spec_cast_mage"
   key: the_elixir_vendor_9238
   name: the elixir vendor
   short_desc: A vendor is willing to sell you elixirs.

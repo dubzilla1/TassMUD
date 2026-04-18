@@ -150,6 +150,8 @@ public class DeathHandler {
         try {
             MobileDAO mobileDAO = DaoProvider.mobiles();
             mob.die();
+            // Notify AllyManager: removes TEMPORARY binding, flags PERMANENT for respawn
+            com.example.tassmud.util.AllyManager.getInstance().onAllyDeath(mob.getInstanceId());
             com.example.tassmud.util.MobileRegistry.getInstance().unregister(mob.getInstanceId());
             mobileDAO.deleteInstance(mob.getInstanceId());
         } catch (Exception e) {

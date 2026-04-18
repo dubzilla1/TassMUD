@@ -1,4 +1,5 @@
 - id: 8900
+  spec_fun: "spec_cast_cleric"
   key: the_hierophant_8900
   name: The Hierophant
   short_desc: The old Hierophant of the holy grove is here, gathering hollies.
@@ -33,6 +34,7 @@
   legacy_raw: 64|128 8|128|8192 +1000 S 20 0 -5 20d20+180 1d8+12 50 60000 8 8 1
 
 - id: 8901
+  spec_fun: "spec_cast_cleric"
   key: the_hierophant_8901
   name: The Hierophant
   short_desc: The old Hierophant of the holy grove is here, gathering ivy.
@@ -67,6 +69,7 @@
   legacy_raw: 64|128 8|128|8192 +1000 S 20 0 -5 20d20+180 1d8+12 50 60000 8 8 2
 
 - id: 8902
+  spec_fun: "spec_cast_cleric"
   key: an_elder_druid_8902
   name: an elder druid
   short_desc: An elder druid stands here, watching the local flora and wildlife.
@@ -100,6 +103,7 @@
   legacy_raw: 64|128 8192 1000 S 13 7 0 13d13+130 1d4+7 50 15000 8 8 1
 
 - id: 8903
+  spec_fun: "spec_cast_cleric"
   key: an_elder_druidess_8903
   name: an elder druidess
   short_desc: An elder druidess stands here, watching the local fauna and feeding rabbits.
@@ -262,6 +266,7 @@
   legacy_raw: 64|128 0 0 S 2 18 8 2d2+22 1d4+1 2 100 8 8 0
 
 - id: 8908
+  spec_fun: "spec_poison"
   key: a_harmless_snake_8908
   name: a harmless snake
   short_desc: A small snake slithers between the grass.
@@ -294,6 +299,7 @@
   legacy_raw: 32|64|128 32768 0 S 4 16 4 4d4+44 1d8+4 2 500 8 8 0
 
 - id: 8909
+  spec_fun: "spec_cast_cleric"
   key: a_druid_8909
   name: a druid
   short_desc: A druid is here in meditation.
@@ -326,6 +332,7 @@
   legacy_raw: 64|128 8|8192 1000 S 10 10 0 10d10+100 1d4+6 50 5000 8 8 1
 
 - id: 8910
+  spec_fun: "spec_cast_cleric"
   key: a_druidess_8910
   name: a druidess
   short_desc: A druidess is here, peering at you.

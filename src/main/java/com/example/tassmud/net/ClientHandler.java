@@ -21,6 +21,10 @@ import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.ItemDAO;
 import com.example.tassmud.util.GameClock;
 import com.example.tassmud.util.RegenerationService;
+import com.example.tassmud.util.AllyManager;
+import com.example.tassmud.util.MobileRegistry;
+import com.example.tassmud.model.AllyBinding;
+import com.example.tassmud.model.Mobile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
@@ -176,6 +180,17 @@ public class ClientHandler implements Runnable {
      */
     public static void broadcastRoomMessage(Integer roomId, String msg) {
         forEachInRoom(roomId, s -> s.sendRaw(msg));
+    }
+
+    /**
+     * Send a room message to every player in the room except the one with the
+     * given character ID.  Used so the acting player sees only their own
+     * first-person message without also receiving the third-person broadcast.
+     */
+    public static void broadcastRoomMessage(Integer roomId, String msg, Integer excludeCharacterId) {
+        forEachInRoom(roomId, s -> {
+            if (!s.characterId.equals(excludeCharacterId)) s.sendRaw(msg);
+        });
     }
     
     /**
@@ -1096,7 +1111,28 @@ public class ClientHandler implements Runnable {
             CommandContext cmdCtx = new CommandContext(null, playerName, characterId, currentRoomId, rec, dao, out, isGmForDispatch, inCombatForDispatch, this);
             MovementCommandHandler.showRoom(newRoom, destRoomId, cmdCtx);
         }
-        
+
+        // Move PERMANENT allies to the same destination room
+        if (characterId != null) {
+            final int fromRoomForAlly = combat.getRoomId();
+            java.util.List<AllyBinding> fleeingAllies =
+                    AllyManager.getInstance().getAlliesFollowingOwner(characterId, fromRoomForAlly);
+            for (AllyBinding binding : fleeingAllies) {
+                Mobile allyMob = MobileRegistry.getInstance().getById(binding.getMobInstanceId());
+                if (allyMob == null) continue;
+                allyMob.setCurrentRoom(destRoomId);
+                try {
+                    DaoProvider.mobiles().updateInstance(allyMob);
+                    MobileRegistry.getInstance().moveToRoom(allyMob.getInstanceId(), fromRoomForAlly, destRoomId);
+                    roomAnnounce(destRoomId, allyMob.getName() + " arrives following " + playerName + ".",
+                            null, false);
+                } catch (Exception e) {
+                    logger.warn("[ClientHandler] Failed to move fleeing ally mob {}: {}",
+                            allyMob.getInstanceId(), e.getMessage());
+                }
+            }
+        }
+
         return true;
     }
 }

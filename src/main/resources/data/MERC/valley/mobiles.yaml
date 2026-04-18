@@ -232,6 +232,7 @@
   legacy_raw: 64|128 512|32768 0 S 6 13 2 5d5+60 1d4+4 10 1000 8 8 2
 
 - id: 7807
+  spec_fun: "spec_cast_cleric"
   key: a_valley_elf_elder_7807
   name: a valley elf elder
   short_desc: A valley elf elder is here, studying.  He notices you. A valley elf elder shouts 'You have intruded wrongly.  Be prepared to die!'
@@ -265,6 +266,7 @@
   legacy_raw: 2|4|32 128|8192 0 S 15 3 -7 14d14+150 1d4+9 10 30000 8 8 1
 
 - id: 7808
+  spec_fun: "spec_cast_mage"
   key: a_valley_elf_elder_7808
   name: a valley elf elder
   short_desc: A valley elf elder is here, studying.  She notices you. A valley elf elder says 'Your arrogance will be your end, human.'
@@ -298,6 +300,7 @@
   legacy_raw: 2|4|32 8192 0 S 15 3 -10 14d14+150 1d4+9 10 30000 8 8 2
 
 - id: 7809
+  spec_fun: "spec_breath_fire"
   key: the_pyrohydra_7809
   name: the pyrohydra
   short_desc: A big beast with many heads, each breathing fire, stares at you with malice.
@@ -363,6 +366,7 @@
   legacy_raw: 2|4|128 0 0 S 3 17 7 3d3+33 1d4+2 10 300 8 8 1
 
 - id: 7811
+  spec_fun: "spec_cast_mage"
   key: talemon_7811
   name: Talemon
   short_desc: An old mage busies himself with some chemicals.

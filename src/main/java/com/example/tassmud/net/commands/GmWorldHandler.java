@@ -356,7 +356,7 @@ class GmWorldHandler {
             // Kill the mob instantly
             String mobName = targetMob.getName();
             out.println("You raise your hand and " + mobName + " is struck down by divine power!");
-            ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " raises their hand and " + mobName + " is struck down by divine power!");
+            ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " raises their hand and " + mobName + " is struck down by divine power!", charId);
             
             // Find combatant and set HP to 0 - then perform death handling immediately
             Combatant victimCombatant = null;
@@ -430,7 +430,7 @@ class GmWorldHandler {
             
             String mobName = targetMob.getName();
             out.println("You raise your hand and " + mobName + " is struck down by divine power!");
-            ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " raises their hand and " + mobName + " is struck down by divine power!");
+            ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " raises their hand and " + mobName + " is struck down by divine power!", charId);
             
             // Create corpse
             try {
@@ -469,7 +469,7 @@ class GmWorldHandler {
         }
         CombatManager.getInstance().endCombat(roomCombat);
         out.println("You wave your hand and combat ceases.");
-        ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " waves their hand and all combat in the room ceases.");
+        ClientHandler.broadcastRoomMessage(rec.currentRoom, name + " waves their hand and all combat in the room ceases.", ctx.characterId);
         return true;
     }
 
@@ -583,6 +583,125 @@ class GmWorldHandler {
         weatherService.setWeather(newWeather);
         
         out.println("[GM] Weather changed from " + oldWeather.getDisplayName() + " to " + newWeather.getDisplayName() + ".");
+        return true;
+    }
+
+    /**
+     * ENSLAVE <mob> [minutes]
+     * Binds a mob in the same room as a DEFENDER ally of the GM.
+     * With no duration it is permanent (until death); with a duration it is
+     * temporary and expires after the given number of minutes.
+     */
+    boolean handleEnslaveCommand(CommandContext ctx) {
+        PrintWriter out = ctx.out;
+        if (!ensureGm(ctx)) return true;
+
+        CharacterRecord rec = ctx.character;
+        if (rec == null || rec.currentRoom == null) {
+            out.println("You must be in a room to use enslave.");
+            return true;
+        }
+
+        Integer charId = ctx.characterId;
+        if (charId == null) {
+            charId = ctx.dao.getCharacterIdByName(ctx.playerName);
+        }
+        if (charId == null) {
+            out.println("Could not resolve your character ID.");
+            return true;
+        }
+
+        String args = ctx.getArgs();
+        if (args == null || args.trim().isEmpty()) {
+            out.println("Usage: enslave <mob> [minutes]");
+            out.println("  <mob>     - name or keyword of a mob in the room");
+            out.println("  [minutes] - duration; omit for permanent (until death)");
+            return true;
+        }
+
+        // Parse optional trailing numeric argument as duration in minutes
+        String[] parts = args.trim().split("\\s+");
+        String mobArg;
+        Integer durationMinutes = null;
+
+        // Check if the last token is a number
+        String lastToken = parts[parts.length - 1];
+        try {
+            durationMinutes = Integer.parseInt(lastToken);
+            if (durationMinutes <= 0) {
+                out.println("Duration must be a positive number of minutes.");
+                return true;
+            }
+            // mob arg is everything before the last token
+            if (parts.length == 1) {
+                out.println("Usage: enslave <mob> [minutes]");
+                return true;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < parts.length - 1; i++) {
+                if (i > 0) sb.append(' ');
+                sb.append(parts[i]);
+            }
+            mobArg = sb.toString();
+        } catch (NumberFormatException e) {
+            // No trailing number — entire arg is the mob name, permanent binding
+            mobArg = args.trim();
+        }
+
+        // Find the mob in the room
+        Mobile target = com.example.tassmud.util.MobileMatchingService.findInRoomFuzzy(rec.currentRoom, mobArg);
+        if (target == null) {
+            out.println("You don't see '" + mobArg + "' here.");
+            return true;
+        }
+        if (target.isDead()) {
+            out.println(target.getName() + " is already dead.");
+            return true;
+        }
+
+        // Determine persistence and expiry
+        long expiresAt;
+        com.example.tassmud.model.AllyPersistence persistence;
+        String durationDesc;
+        if (durationMinutes != null) {
+            expiresAt = System.currentTimeMillis() + (durationMinutes * 60_000L);
+            persistence = com.example.tassmud.model.AllyPersistence.TEMPORARY;
+            durationDesc = durationMinutes + " minute" + (durationMinutes == 1 ? "" : "s");
+        } else {
+            expiresAt = 0L;
+            persistence = com.example.tassmud.model.AllyPersistence.PERMANENT;
+            durationDesc = "permanent";
+        }
+
+        // Cancel any existing combat the mob is in against the player
+        CombatManager combatMgr = CombatManager.getInstance();
+        Combat existingCombat = combatMgr.getCombatInRoom(rec.currentRoom);
+        if (existingCombat != null) {
+            Combatant mobCombatant = existingCombat.findByMobileInstanceId(target.getInstanceId());
+            if (mobCombatant != null) {
+                existingCombat.removeCombatant(mobCombatant);
+            }
+        }
+
+        // Build and register the binding
+        com.example.tassmud.model.AllyBinding binding = new com.example.tassmud.model.AllyBinding(
+                target.getInstanceId(),
+                charId,
+                (long) target.getTemplateId(),
+                com.example.tassmud.model.AllyBehavior.DEFENDER,
+                persistence,
+                true,   // followsOwner
+                true,   // obeys
+                expiresAt
+        );
+        com.example.tassmud.util.AllyManager.getInstance().bindAlly(binding);
+
+        String mobName = target.getName();
+        out.println("You extend your will and " + mobName + " bows its head in submission. [" + durationDesc + ", DEFENDER]");
+        ClientHandler.broadcastRoomMessage(rec.currentRoom,
+                ctx.playerName + " reaches out and " + mobName + "'s eyes glaze over in thrall.", charId);
+        logger.info("[enslave] {} enslaved mob {} (instance {}) for {}",
+                ctx.playerName, mobName, target.getInstanceId(), durationDesc);
         return true;
     }
 

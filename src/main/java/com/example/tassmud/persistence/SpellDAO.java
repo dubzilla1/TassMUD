@@ -214,6 +214,8 @@ public class SpellDAO {
         double duration = rs.getDouble("duration");
         int mpCost = 0;
         try { mpCost = rs.getInt("mp_cost"); } catch (SQLException ignored) {}
+        String incantation = null;
+        try { incantation = rs.getString("incantation"); } catch (SQLException ignored) {}
 
         Spell.SpellSchool school = Spell.SpellSchool.fromString(schoolStr);
         Spell.SpellTarget target = Spell.SpellTarget.fromString(targetStr);
@@ -235,7 +237,7 @@ public class SpellDAO {
             }
         }
 
-        return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost);
+        return new Spell(id, name, description, school, level, castingTime, target, effectIds, progression, traits, cooldown, duration, mpCost, incantation);
     }
 
     // ========================== Character-Spell Methods ==========================

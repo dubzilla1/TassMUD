@@ -45,6 +45,9 @@ public class MobileTemplate {
     
     // Auto-combat behavior
     private final int autoflee;            // Auto-flee threshold (0-100), defaults to 0
+
+    // Scripted special function key (e.g. "spec_cast_mage", "spec_breath_fire")
+    private final String specFun;
     
     // Optional JSON for extended data (loot tables, dialogue, etc.)
     private final String templateJson;
@@ -59,7 +62,7 @@ public class MobileTemplate {
             int baseDamage, int damageBonus, int attackBonus,
             List<MobileBehavior> behaviors, int aggroRange,
             int experienceValue, int goldMin, int goldMax,
-            int respawnSeconds, int autoflee, String templateJson) {
+            int respawnSeconds, int autoflee, String specFun, String templateJson) {
         this.id = id;
         this.key = key;
         this.name = name;
@@ -81,6 +84,7 @@ public class MobileTemplate {
         this.goldMax = goldMax;
         this.respawnSeconds = respawnSeconds;
         this.autoflee = autoflee;
+        this.specFun = specFun;
         this.templateJson = templateJson;
     }
     
@@ -113,7 +117,8 @@ public class MobileTemplate {
     public List<MobileBehavior> getBehaviors() { return behaviors; }
     public int getAggroRange() { return aggroRange; }
     public int getAutoflee() { return autoflee; }
-    
+    public String getSpecFun() { return specFun; }
+
     /**
      * Check if this mobile has a specific behavior.
      */
@@ -185,6 +190,7 @@ public class MobileTemplate {
         private int goldMin, goldMax;
         private int respawnSeconds;
         private int autoflee;
+        private String specFun;
         private String templateJson;
 
         private Builder() {}
@@ -219,6 +225,7 @@ public class MobileTemplate {
         public Builder goldMax(int v) { this.goldMax = v; return this; }
         public Builder respawnSeconds(int v) { this.respawnSeconds = v; return this; }
         public Builder autoflee(int v) { this.autoflee = v; return this; }
+        public Builder specFun(String v) { this.specFun = v; return this; }
         public Builder templateJson(String v) { this.templateJson = v; return this; }
 
         public MobileTemplate build() {
@@ -227,7 +234,7 @@ public class MobileTemplate {
             return new MobileTemplate(id, key, name, shortDesc, longDesc, keywords,
                 level, hpMax, mpMax, mvMax, stats, baseDamage, damageBonus, attackBonus,
                 behaviors, aggroRange, experienceValue, goldMin, goldMax,
-                respawnSeconds, autoflee, templateJson);
+                respawnSeconds, autoflee, specFun, templateJson);
         }
     }
 }

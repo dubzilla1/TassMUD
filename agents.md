@@ -58,7 +58,10 @@ TassMUD is a **Java 17 Maven project**: a multi-user dungeon (MUD) server exposi
 
 ### Important Constraints
 
-- **H2 file locking**: Only one process can access the DB at a time. Stop the server before running external DB tools.
+- **H2 is file-based** (not in-memory): Game state persists across restarts. The DB lives at `./data/tassmud.mv.db`. H2 supports both modes — the URL prefix determines which: `jdbc:h2:file:...` = persistent file DB, `jdbc:h2:mem:...` = in-memory (wiped on JVM exit). TassMUD always uses file mode in production.
+- **`AUTO_SERVER=TRUE`**: Allows multiple JVM connections to the same file DB simultaneously (e.g., server + external tool). Without it, H2 file locking prevents a second process from connecting while the server is running.
+- **H2 file locking**: Even with `AUTO_SERVER=TRUE`, external tools should connect via the same URL. Stop the server before using tools that require exclusive access.
+- **Startup ping log is misleading**: `Server.java`'s `pingDatabase()` uses a hardcoded `jdbc:h2:mem:tassmud` URL and logs `Database ping successful (H2 in-memory)`. This is a throwaway connectivity check unrelated to the actual game DB — do not use it to determine the DB mode.
 - **Shaded JAR**: Always use the shaded jar for classpath operations to avoid H2 version mismatches.
 
 ---
@@ -202,7 +205,7 @@ src/test/java/com/example/tassmud/
 ├── CombatCalculatorTest.java  # Hit/damage formula tests
 ├── CommandParserTest.java     # Prefix matching, alias resolution
 ├── CommandRegistryTest.java   # Registration, collision, category tests
-└── ... (CharacterClassTest, SkillTest, SpellTest, EquipmentSlotTest, etc.)
+└── ... (CharacterClassTest, SkillTest, SpellTest [48 tests, incl. incantation field], EquipmentSlotTest, etc.)
 ```
 
 ★ = Created or significantly changed during Feb 2026 refactoring
@@ -359,6 +362,7 @@ Five model classes use the Builder pattern for construction (10+ fields each):
 - Spell effects stored as `List<String> spellEffectIds` (replaces old `spellEffectId1..4` individual fields)
 - Target types: `SELF`, `CURRENT_ENEMY`, `EXPLICIT_MOB_TARGET`, `ALL_ENEMIES`, etc.
 - **MP Cost**: Default = spell level. Override via `mpCost` field in YAML.
+- **`incantation: String?`** — Optional spoken words displayed when the spell is cast. `null` = no incantation. Empty string is normalized to `null` at construction. Each school uses a distinct language family: ARCANE (Latin/Greek compounds), DIVINE (Hebrew/Aramaic), PRIMAL (Old Norse), OCCULT (Sumerian/Akkadian). When non-null, the caster sees `You speak the words '[incantation]'!` and others in the room see `[Name] speaks the words '[incantation]'!` via `ClientHandler.roomAnnounceFromActor()`.
 
 **`CharacterClass`**:
 - Defines HP/MP/MV gains per level
@@ -443,7 +447,7 @@ Five model classes use the Builder pattern for construction (10+ fields each):
 
 ### Spawn System Design
 
-- Spawns are registered during `DataLoader.loadDefaults()` from `mobiles.yaml`
+- Spawns are registered during `DataLoader.loadDefaults()` from `/data/mobiles.yaml` **and** every `MERC/<area>/mobiles.yaml`
 - Each spawn has a unique `spawnId` (e.g., `"area_1_room_1001_mob_1"`)
 - `SpawnEvent` creates instances and logs to `SpawnEventLogger`
 - On server restart: existing instances are cleared, spawns re-triggered
@@ -512,7 +516,7 @@ DaoProvider.settings()     // SettingsDAO
 Centralized connection management with transaction support:
 
 - **All DB connections** come from `TransactionManager.getConnection()` (replaced 154 `DriverManager` calls).
-- DB URL/USER/PASS constants are centralized here; removed from all DAOs.
+- DB URL/USER/PASS constants are centralized here; removed from all DAOs. The URL defaults to `jdbc:h2:file:./data/tassmud;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1` and can be overridden via the `tassmud.db.url` system property (used by tests with `jdbc:h2:mem:` for an isolated in-memory DB).
 - **`runInTransaction(Runnable)`** — wraps a block of work in a single DB transaction:
   - Disables auto-commit, commits on success, rolls back on failure.
   - Uses `ThreadLocal<Connection>` — all DAO calls within the block share one connection.
@@ -548,28 +552,69 @@ This ensures schema evolves safely without breaking existing data.
 
 ### `DataLoader`
 
-Loads seed data from YAML resources on startup:
-- `/data/skills.yaml` → `skilltb`
-- `/data/spells.yaml` → `spelltb`
-- `/data/areas.yaml` → `areas`
-- `/data/rooms.yaml` → `rooms`
-- `/data/items.yaml` → `item_template`
-- `/data/classes.yaml` → `class` + `class_skill_grants`
-- `/data/mobiles.yaml` → `mobile_template` + spawn registration
+Loads seed data from YAML resources on startup. MERC area subdirectories (`/data/MERC/<areaname>/`) are discovered at runtime via `listMercAreaDirs()` and loaded in addition to (or in preference over) the global files.
+
+| Source | Target | Notes |
+|--------|--------|-------|
+| `/data/skills.yaml` | `skilltb` | |
+| `/data/spells.yaml` | `spelltb` | |
+| `/data/effects.yaml` | effect engine | |
+| `/data/MERC/*/areas.yaml` | `areas` | **Preferred** — loaded before `/data/areas.yaml` fallback |
+| `/data/areas.yaml` | `areas` | Fallback if no MERC area dirs found |
+| `/data/MERC/*/rooms.yaml` | `rooms` | Two-pass: first pass inserts rooms, second pass wires exits |
+| `/data/rooms.yaml` | `rooms` | Fallback if no MERC area dirs found |
+| `/data/items.yaml` | `item_template` | |
+| `/data/MERC/*/items.yaml` | `item_template` | Additional — loaded after global items |
+| `/data/classes.yaml` | `class` + `class_skill_grants` | |
+| `/data/mobiles.yaml` | `mobile_template` + spawn registration | |
+| `/data/MERC/*/mobiles.yaml` | `mobile_template` + spawn registration | Additional — loaded after global mobiles |
+| `/data/shops.yaml` | `shop` + `shop_inventory` | Global only (no per-MERC-area shop files) |
 
 ---
 
 ## Data Files (`src/main/resources/data/`)
 
+### Global files
+
 | File | Contents |
 |------|----------|
 | `skills.yaml` | Skill definitions (id, key, name, description, progression, traits) |
-| `spells.yaml` | Spell definitions (id, name, school, level, target, effects) |
+| `spells.yaml` | Spell definitions (id, name, school, level, target, effects, incantation) |
+| `effects.yaml` | Effect definitions for the status-effect engine |
 | `classes.yaml` | Character classes with skill grants per level |
 | `items.yaml` | Item templates (armor, weapons, containers, etc.) |
-| `mobiles.yaml` | Mobile templates with stats, behaviors, spawn configs |
-| `areas.yaml` | Area definitions (id, name, description, level range) |
-| `rooms.yaml` | Room definitions with exits and descriptions |
+| `mobiles.yaml` | Mobile templates for base-game mobs with stats, behaviors, spawn configs |
+| `areas.yaml` | Area definitions (fallback; normally overridden by MERC area dirs) |
+| `rooms.yaml` | Room definitions (fallback; normally overridden by MERC area dirs) |
+| `shops.yaml` | Shop definitions and inventory |
+
+### MERC area subdirectories (`data/MERC/<areaname>/`)
+
+Each converted MERC area lives in its own subdirectory. `DataLoader` discovers these at startup via `listMercAreaDirs()` and loads whichever files are present. **When searching for mob/room/item data, always look here first, not in the global files.**
+
+| File | Contents |
+|------|----------|
+| `areas.yaml` | Area definition for this MERC area |
+| `rooms.yaml` | Room definitions with exits, doors, descriptions |
+| `items.yaml` | Item templates specific to this area |
+| `mobiles.yaml` | Mobile templates for this area — includes `spec_fun`, `behaviors`, spawn configs |
+
+**Example**: Mayor mob (template 3143) is in `data/MERC/midgaard/mobiles.yaml`, not `data/mobiles.yaml`.
+
+### Mobile `spec_fun` field
+
+The `spec_fun` YAML field (e.g. `spec_fun: "spec_mayor"`) maps to `MobileTemplate.specFun`, which is copied onto each spawned `Mobile` instance. `MobileSpecialService` calls `mob.getSpecFun()` every 4 seconds to look up and invoke the registered handler from `MobileSpecialRegistry`.
+
+All handlers are registered in `MobileSpecials.registerAll(registry, combatManager, gameClock)` called from `Server.java` at startup. Key handlers:
+
+| Key | Behavior |
+|-----|----------|
+| `spec_breath_fire/acid/frost/lightning/gas` | Breath weapon attacks in combat |
+| `spec_cast_adept/cleric/mage/undead` | Spellcasting AI |
+| `spec_executioner` | Guard that kills PKers |
+| `spec_mayor` | Timed path walk through Midgaard at hours 6 (open) and 20 (close) |
+| `spec_janitor` | Picks up trash items from the floor |
+| `spec_poison` | Poisons targets in combat |
 
 ---
 
@@ -735,6 +780,18 @@ Database may be already in use / Connection is broken
 ```
 - Stop the running server before using external DB tools
 - Use the shaded jar for consistent H2 version
+
+### "Column X not found" at Login / `extractCharacterRecord`
+
+```
+JdbcSQLSyntaxErrorException: Column "title" not found [42122-224]
+  at CharacterDAO.extractCharacterRecord(CharacterDAO.java:860)
+```
+**This does NOT mean the column is missing from the table.** H2 throws the same error when the column is absent from the `ResultSet` — i.e., it was not included in the `SELECT` column list. `extractCharacterRecord` reads a hardcoded set of named columns; if a new column is added to the method but not added to the `SELECT` queries in `findByName` and `findById`, you get this error even though the migration ran correctly and the column exists in the DB.
+
+**Fix:** Add the new column name to the explicit SELECT lists in both `findByName` (line ~249) and `findById` (line ~268) in `CharacterDAO.java`.
+
+**Misleading signal:** `Server.java`'s `pingDatabase()` method has a hardcoded `jdbc:h2:mem:tassmud` URL (in-memory), so the startup log prints `Database ping successful (H2 in-memory)` regardless of the actual DB mode. The real game connections use the file-based URL from `TransactionManager.URL`. Don't trust the ping log to diagnose DB issues.
 
 ### Command Not Found
 

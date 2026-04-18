@@ -1,4 +1,5 @@
 - id: 1300
+  spec_fun: "spec_cast_undead"
   key: a_shadow_guardian_1300
   name: a shadow guardian
   short_desc: A shadow guardian screams a challenge and attacks.
@@ -31,6 +32,7 @@
   legacy_raw: 4|32|64 2|8|512|32768 -350 S 9 10 1 9d9+90 2d5+5 100 4000 8 8 0
 
 - id: 1301
+  spec_fun: "spec_cast_cleric"
   key: a_lost_adventurer_1301
   name: a lost adventurer
   short_desc: An emaciated adventurer is here looking lost and hopeless.
@@ -130,6 +132,7 @@
   legacy_raw: 66 8 500 S 23 5 -10 23d23+230 3d6+15 985 15000 8 8 0
 
 - id: 1304
+  spec_fun: "spec_cast_mage"
   key: a_mage_1304
   name: a mage
   short_desc: A young mage wanders about, oblivious to all.
@@ -195,6 +198,7 @@
   legacy_raw: 66 8 750 S 25 1 -6 1d1+30000 3d7+20 2000 20000 8 8 1
 
 - id: 1306
+  spec_fun: "spec_cast_mage"
   key: tatorious_1306
   name: Tatorious
   short_desc: Tatorious the wizard is here counting his earnings.
@@ -227,6 +231,7 @@
   legacy_raw: 66 8 900 S 25 0 -8 1d1+3000 3d7+21 5000 24000 8 8 1
 
 - id: 1307
+  spec_fun: "spec_cast_mage"
   key: ezmerelda_1307
   name: Ezmerelda
   short_desc: Ezmerelda the cook is here stirring a large pot of something.
@@ -258,6 +263,7 @@
   legacy_raw: 66 8 -500 S 20 6 -1 20d20+200 3d4+8 1092 31300 8 8 2
 
 - id: 1308
+  spec_fun: "spec_cast_mage"
   key: the_cook_s_assistant_1308
   name: The cook's assistant
   short_desc: The cook's assistant is here assisting the cook.
@@ -289,6 +295,7 @@
   legacy_raw: 194 8 -200 S 11 8 1 11d11+110 3d4+4 116 4600 8 8 1
 
 - id: 1309
+  spec_fun: "spec_cast_mage"
   key: the_prisoner_1309
   name: The prisoner
   short_desc: A prisoner is chained to the wall here.
@@ -326,6 +333,7 @@
   legacy_raw: 230 0 100 S 16 6 2 3d30+30 2d4+9 0 1800 8 8 1
 
 - id: 1310
+  spec_fun: "spec_cast_mage"
   key: the_jailor_1310
   name: the Jailor
   short_desc: The Jailor is here enjoying a comfortable nap.
@@ -358,6 +366,7 @@
   legacy_raw: 66 8 100 S 17 5 -3 17d17+170 3d5+10 1326 12000 4 4 1
 
 - id: 1311
+  spec_fun: "spec_thief"
   key: a_broom_1311
   name: a broom
   short_desc: A straw broom is here leaning against the wall.
@@ -390,6 +399,7 @@
   legacy_raw: 102 8 50 S 7 10 2 7d7+70 2d4+4 0 1600 8 8 0
 
 - id: 1312
+  spec_fun: "spec_cast_undead"
   key: a_pair_of_disembodied_hands_1312
   name: a pair of disembodied hands
   short_desc: A pair of disembodied hands floats in the air here.
@@ -422,6 +432,7 @@
   legacy_raw: 96 0 -400 S 9 7 -5 9d9+90 2d4+5 0 3100 8 8 0
 
 - id: 1313
+  spec_fun: "spec_cast_undead"
   key: a_pair_of_disembodied_eyes_1313
   name: a pair of disembodied eyes
   short_desc: A pair of disembodied eyes floats here glaring at you.
@@ -454,6 +465,7 @@
   legacy_raw: 96 8 -600 S 15 5 -9 15d15+150 3d4+8 0 9100 8 8 0
 
 - id: 1314
+  spec_fun: "spec_cast_mage"
   key: the_mage_1314
   name: the mage
   short_desc: A visiting mage is here snoring away in peaceful slumber.
@@ -486,6 +498,7 @@
   legacy_raw: 198 8 250 S 12 8 -2 12d12+120 2d4+5 726 6200 4 4 1
 
 - id: 1315
+  spec_fun: "spec_cast_mage"
   key: a_young_apprentice_magic_user_1315
   name: a young apprentice magic user
   short_desc: A young apprentice magic user is here doing magical studies.
@@ -518,6 +531,7 @@
   legacy_raw: 194 0 400 S 7 7 2 7d6+25 2d4+5 369 2950 6 6 2
 
 - id: 1316
+  spec_fun: "spec_cast_mage"
   key: a_young_apprentice_1316
   name: a young apprentice
   short_desc: A young apprentice is here mumbling words of magic to himself.
@@ -550,6 +564,7 @@
   legacy_raw: 194 0 380 S 7 6 2 7d6+25 2d4+5 487 2750 8 8 1
 
 - id: 1317
+  spec_fun: "spec_cast_mage"
   key: a_young_apprentice_1317
   name: a young apprentice
   short_desc: A young apprentice is sleeping here.
@@ -582,6 +597,7 @@
   legacy_raw: 194 0 350 S 7 7 2 7d6+25 2d4+4 211 2650 4 4 1
 
 - id: 1318
+  spec_fun: "spec_cast_mage"
   key: a_young_apprentice_1318
   name: A young apprentice
   short_desc: A young apprentice is here teasing a cornered kitten.
@@ -647,6 +663,7 @@
   legacy_raw: 194 0 500 S 1 20 1 1d1+10 1d4+1 0 11 8 8 2
 
 - id: 1320
+  spec_fun: "spec_cast_mage"
   key: a_student_1320
   name: a student
   short_desc: A student of spells is here looking quite bored
@@ -679,6 +696,7 @@
   legacy_raw: 194 0 350 S 8 9 1 8d8+80 2d4+6 263 3000 6 6 1
 
 - id: 1321
+  spec_fun: "spec_cast_mage"
   key: the_instructor_screams_at_your_interruption_and_attacks_you_1321
   name: The instructor screams at your interruption and attacks you.
   short_desc: The instructor screams at your interruption and attacks you.
@@ -711,6 +729,7 @@
   legacy_raw: 98 8 300 S 14 6 -2 14d14+140 3d4+8 880 18500 8 8 1
 
 - id: 1322
+  spec_fun: "spec_cast_mage"
   key: a_student_of_spells_1322
   name: a student of spells
   short_desc: A student of spells is here trying to master invisibility.
@@ -743,6 +762,7 @@
   legacy_raw: 194 10 400 S 8 8 -2 8d8+80 2d4+6 198 2200 8 8 1
 
 - id: 1323
+  spec_fun: "spec_cast_mage"
   key: a_spell_teacher_1323
   name: a spell teacher
   short_desc: A spell teacher screams at your interruption and attacks.
@@ -774,6 +794,7 @@
   legacy_raw: 98 10 300 S 15 5 -4 15d15+150 3d4+9 1256 20500 8 8 1
 
 - id: 1324
+  spec_fun: "spec_cast_mage"
   key: a_student_of_spells_1324
   name: a student of spells
   short_desc: A student of spells has fallen asleep at her desk here.
@@ -806,6 +827,7 @@
   legacy_raw: 194 8 400 S 9 11 -2 9d9+90 2d4+7 567 3800 4 4 2
 
 - id: 1325
+  spec_fun: "spec_cast_mage"
   key: a_wizard_1325
   name: a wizard
   short_desc: An old wizard is here making a speech
@@ -837,6 +859,7 @@
   legacy_raw: 194 8 400 S 18 4 -5 18d18+180 3d4+8 2468 31000 8 8 1
 
 - id: 1326
+  spec_fun: "spec_cast_mage"
   key: a_young_mage_1326
   name: a young mage
   short_desc: A young mage is here learning hand to hand combat.
@@ -868,6 +891,7 @@
   legacy_raw: 194 8 300 S 9 11 -1 9d9+90 2d4+8 695 3800 8 8 1
 
 - id: 1327
+  spec_fun: "spec_cast_mage"
   key: the_battle_mistress_1327
   name: the battle mistress
   short_desc: The battle mistress is here teaching the fine uses of a dagger.
@@ -901,6 +925,7 @@
   legacy_raw: 98 8 200 S 17 2 -2 17d17+170 3d5+8 3211 23050 8 8 2
 
 - id: 1328
+  spec_fun: "spec_cast_mage"
   key: a_spell_teacher_1328
   name: a spell teacher
   short_desc: A spell teacher is here relaxing.
@@ -932,6 +957,7 @@
   legacy_raw: 66 8 200 S 15 5 1 15d15+150 3d4+4 1002 15800 5 5 1
 
 - id: 1329
+  spec_fun: "spec_cast_mage"
   key: an_aged_wizard_1329
   name: an aged wizard
   short_desc: An aged wizard is sleeping here.
@@ -963,6 +989,7 @@
   legacy_raw: 226 8 350 S 20 5 -5 20d20+200 3d4+9 1567 37500 4 4 1
 
 - id: 1330
+  spec_fun: "spec_cast_mage"
   key: a_scribe_1330
   name: a scribe
   short_desc: A scribe is here working on some manuscripts.
@@ -994,6 +1021,7 @@
   legacy_raw: 198 8 400 S 14 6 -1 14d14+140 3d4+4 312 14850 8 8 1
 
 - id: 1331
+  spec_fun: "spec_cast_mage"
   key: a_scribe_1331
   name: a scribe
   short_desc: A scribe is here working diligently on some translations.
@@ -1027,6 +1055,7 @@
   legacy_raw: 194 8 500 S 15 6 -1 15d15+150 2d4+10 684 16550 8 8 2
 
 - id: 1332
+  spec_fun: "spec_cast_mage"
   key: the_master_scribe_1332
   name: the master scribe
   short_desc: The master scribe is here looking a little upset
@@ -1060,6 +1089,7 @@
   legacy_raw: 226 8 100 S 22 4 -5 22d22+220 3d5+8 5634 29500 8 8 1
 
 - id: 1333
+  spec_fun: "spec_cast_mage"
   key: the_scribe_s_assistant_1333
   name: the scribe's assistant
   short_desc: The scribe's assistant is here folding parchments.
@@ -1091,6 +1121,7 @@
   legacy_raw: 226 8 100 S 16 6 -2 16d16+160 3d4+6 1050 21300 8 8 1
 
 - id: 1334
+  spec_fun: "spec_cast_mage"
   key: the_enchanter_1334
   name: the Enchanter
   short_desc: The Enchanter is here placing a dweomer upon well made sword.
@@ -1154,6 +1185,7 @@
   legacy_raw: 98 0 -500 S 10 1 -10 10d10+100 3d5+5 0 4000 8 8 0
 
 - id: 1336
+  spec_fun: "spec_cast_mage"
   key: the_mad_alchemist_1336
   name: the Mad Alchemist
   short_desc: The Mad Alchemist babbles something incomprehensible and attacks.
@@ -1189,6 +1221,7 @@
   legacy_raw: 230 8 150 S 24 4 -4 24d24+240 3d5+10 2346 31500 8 8 1
 
 - id: 1337
+  spec_fun: "spec_cast_mage"
   key: the_master_summoner_1337
   name: the master summoner
   short_desc: The master summoner is here holding gateways open to other planes.
@@ -1220,6 +1253,7 @@
   legacy_raw: 2|32|64|128 8 -200 S 22 5 -2 22d22+220 3d5+6 1019 27050 8 8 1
 
 - id: 1338
+  spec_fun: "spec_cast_mage"
   key: the_master_charmer_1338
   name: the master charmer
   short_desc: The master charmer utters the words, 'uuuzzldctz'.
@@ -1284,6 +1318,7 @@
   legacy_raw: 98 8 100 S 16 7 -5 16d16+160 1d10+10 1000 17500 8 8 0
 
 - id: 1340
+  spec_fun: "spec_cast_mage"
   key: the_master_spell_binder_1340
   name: the master spell binder
   short_desc: The master spell binder is here re-charging a blackened wand.
@@ -1316,6 +1351,7 @@
   legacy_raw: 230 8 -500 S 23 5 -4 23d23+230 3d5+8 2315 30500 8 8 1
 
 - id: 1341
+  spec_fun: "spec_cast_mage"
   key: the_golem_maker_1341
   name: the golem maker
   short_desc: The golem maker is here chiseling some stone.
@@ -1540,6 +1576,7 @@
   legacy_raw: 102 8 200 S 15 5 -1 15d15+150 4d5+3 0 18320 8 8 0
 
 - id: 1348
+  spec_fun: "spec_cast_mage"
   key: the_master_of_illusions_1348
   name: the master of illusions
   short_desc: An enormous multi-colored three-headed dragon growls at you.
@@ -1573,6 +1610,7 @@
   legacy_raw: 198 8 150 S 21 6 -4 21d21+210 3d5+5 2345 26450 8 8 1
 
 - id: 1349
+  spec_fun: "spec_cast_mage"
   key: the_necromancer_1349
   name: the Necromancer
   short_desc: The Necromancer is here raising undead servants
@@ -1608,6 +1646,7 @@
   legacy_raw: 230 8 -950 S 25 0 -8 25d25+250 3d7+7 11684 35250 8 8 1
 
 - id: 1350
+  spec_fun: "spec_cast_undead"
   key: an_animated_skeleton_1350
   name: an animated skeleton
   short_desc: An animated skeleton screams silently and attacks.
@@ -1640,6 +1679,7 @@
   legacy_raw: 98 8 -500 S 15 5 -2 15d15+150 3d4+10 0 16500 8 8 0
 
 - id: 1351
+  spec_fun: "spec_cast_undead"
   key: an_undead_giant_1351
   name: an undead giant
   short_desc: An undead giant lumbers towards you.
@@ -1671,6 +1711,7 @@
   legacy_raw: 102 8 -500 S 18 5 -4 18d18+180 3d5+10 0 22000 8 8 0
 
 - id: 1352
+  spec_fun: "spec_cast_mage"
   key: an_ugly_witch_1352
   name: an ugly witch
   short_desc: An ugly witch is here scrying out secrets.
@@ -1705,6 +1746,7 @@
   legacy_raw: 102 8 -450 S 20 5 -2 20d20+200 3d6+5 2150 26850 8 8 2
 
 - id: 1353
+  spec_fun: "spec_cast_mage"
   key: the_librarian_1353
   name: the Librarian
   short_desc: The Librarian has fallen asleep at his desk here.
@@ -1737,6 +1779,7 @@
   legacy_raw: 226 8 450 S 23 3 -6 23d23+230 3d6+5 1287 29500 4 4 1
 
 - id: 1354
+  spec_fun: "spec_cast_mage"
   key: the_master_s_apprentice_1354
   name: the master's apprentice
   short_desc: The master's apprentice leaps to halt your passage.
@@ -1772,6 +1815,7 @@
   legacy_raw: 102 8 0 S 24 -3 -12 24d24+240 3d6+6 6723 30750 8 8 1
 
 - id: 1355
+  spec_fun: "spec_cast_mage"
   key: a_grey_cat_1355
   name: a grey cat
   short_desc: A grey cat is lounging lazily here.
@@ -1805,6 +1849,7 @@
   legacy_raw: 66 32770 0 S 15 5 -5 15d15+150 5d5+5 0 18750 8 8 2
 
 - id: 1356
+  spec_fun: "spec_cast_mage"
   key: the_master_of_neutrality_1356
   name: the master of Neutrality
   short_desc: The master of Neutrality stands here contemplating the balance of the universe.
@@ -1837,6 +1882,7 @@
   legacy_raw: 66 136 0 S 30 -10 -20 30d30+300 2d5+20 15350 150000 8 8 1
 
 - id: 1357
+  spec_fun: "spec_cast_mage"
   key: a_black_robed_apprentice_1357
   name: a black robed apprentice
   short_desc: A black robed apprentice jumps from the shadows and attacks.
@@ -1871,6 +1917,7 @@
   legacy_raw: 102 32776 -750 S 20 2 -6 20d20+200 3d6+6 13876 27800 8 8 2
 
 - id: 1358
+  spec_fun: "spec_cast_mage"
   key: a_black_cat_1358
   name: a black cat
   short_desc: A black cat with its fur up hisses at you.
@@ -1904,6 +1951,7 @@
   legacy_raw: 66 32776 -800 S 16 5 -4 16d16+160 3d7+3 0 19950 8 8 0
 
 - id: 1359
+  spec_fun: "spec_cast_mage"
   key: the_master_of_the_black_robes_1359
   name: the master of the black robes
   short_desc: The master of the black robes is here plotting vile deeds.
@@ -1936,6 +1984,7 @@
   legacy_raw: 70 136 -1000 S 30 -10 -20 30d30+300 2d5+20 22100 150000 8 8 1
 
 - id: 1360
+  spec_fun: "spec_cast_mage"
   key: a_white_robed_apprentice_1360
   name: a white robed apprentice
   short_desc: A white robed apprentice screams at your desecration of goodness.
@@ -1969,6 +2018,7 @@
   legacy_raw: 98 8 750 S 20 2 -6 20d20+200 3d6+6 7400 27850 8 8 1
 
 - id: 1361
+  spec_fun: "spec_cast_mage"
   key: a_white_cat_1361
   name: a white cat
   short_desc: A white cat is here preening its fur.
@@ -2001,6 +2051,7 @@
   legacy_raw: 66 32776 800 S 15 4 -4 15d8+10 3d7+3 0 7950 8 8 0
 
 - id: 1362
+  spec_fun: "spec_cast_mage"
   key: the_master_of_goodness_1362
   name: The master of goodness
   short_desc: The master of goodness is here frowning at your intrusion.
@@ -2033,6 +2084,7 @@
   legacy_raw: 66 136 1000 S 30 -10 -20 30d30+300 2d5+20 21900 150000 8 8 1
 
 - id: 1363
+  spec_fun: "spec_cast_mage"
   key: a_calico_cat_1363
   name: A calico cat
   short_desc: A large calico cat is here
@@ -2066,6 +2118,7 @@
   legacy_raw: 66 32776 800 S 25 1 -9 25d25+250 5d5+10 0 30000 8 8 0
 
 - id: 1364
+  spec_fun: "spec_cast_mage"
   key: the_grand_mistress_1364
   name: The Grand Mistress
   short_desc: The Grand Mistress of Magic is sitting here.
@@ -2101,6 +2154,7 @@
   legacy_raw: 66 136 0 S 50 -20 -30 50d50+500 3d4+20 50000 500000 8 8 2
 
 - id: 1365
+  spec_fun: "spec_cast_mage"
   key: a_wizard_1365
   name: a wizard
   short_desc: A wandering wizard is here mumbling to himself.

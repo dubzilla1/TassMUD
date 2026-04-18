@@ -1,4 +1,5 @@
 - id: 2300
+  spec_fun: "spec_cast_undead"
   key: the_dark_ethereal_knight_2300
   name: the Dark Ethereal Knight
   short_desc: A dark ethereal knight hovers over the bloody clearing.
@@ -67,6 +68,7 @@
   legacy_raw: 2 0 250 S 20 0 -3 250d1+50 3d6+5 5000 35000 8 8 0
 
 - id: 2302
+  spec_fun: "spec_breath_acid"
   key: the_cave_dweller_2302
   name: the Cave Dweller
   short_desc: A slimy, gross creature is here munching on a corpse.
@@ -198,6 +200,7 @@
   legacy_raw: 34 65536 0 S 15 1 5 200d1+20 2d9+3 1000 22000 8 8 0
 
 - id: 2306
+  spec_fun: "spec_poison"
   key: the_swamp_wraith_2306
   name: the Swamp Wraith
   short_desc: A swamp wraith emerges from the mist here.
@@ -331,6 +334,7 @@
   legacy_raw: 102 0 -500 S 19 0 2 200d1+50 3d6+5 10000 35000 8 8 1
 
 - id: 2310
+  spec_fun: "spec_cast_cleric"
   key: the_ogre_shaman_2310
   name: The Ogre Shaman
   short_desc: The ogre shaman is here chanting arcane words and waving his arms.
@@ -430,6 +434,7 @@
   legacy_raw: 230 0 0 S 20 0 1 250d1+50 3D6+4 5000 50000 8 8 1
 
 - id: 2313
+  spec_fun: "spec_breath_frost"
   key: the_white_yeti_2313
   name: the White Yeti
   short_desc: The white yeti crouches here snarling.
@@ -463,6 +468,7 @@
   legacy_raw: 230 0 -350 S 16 1 5 200d1+25 3d7+3 1000 28000 8 8 0
 
 - id: 2314
+  spec_fun: "spec_breath_acid"
   key: the_ice_worm_2314
   name: the Ice Worm
   short_desc: A huge ice worm burrows through the ice and snow here. It rears up and attacks!
@@ -792,6 +798,7 @@
   legacy_raw: 198 0 250 S 20 1 0 1d12+247 3d6+4 5000 40000 8 8 1
 
 - id: 2324
+  spec_fun: "spec_cast_mage"
   key: the_minotaur_ring_keeper_2324
   name: the Minotaur Ring-Keeper
   short_desc: The minotaur ring-keeper stands guarding his post.
@@ -858,6 +865,7 @@
   legacy_raw: 34 136 -300 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
 
 - id: 2326
+  spec_fun: "spec_cast_undead"
   key: darkoth_2326
   name: Darkoth
   short_desc: Darkoth, the minotaur anti-paladin, stands here grinning wickedly.
@@ -924,6 +932,7 @@
   legacy_raw: 2 136 1000 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
 
 - id: 2328
+  spec_fun: "spec_cast_mage"
   key: amyrok_2328
   name: Amyrok
   short_desc: Amyrok, the minotaur archmage, is here chanting arcane spells.
@@ -958,6 +967,7 @@
   legacy_raw: 34 136 300 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
 
 - id: 2329
+  spec_fun: "spec_cast_cleric"
   key: sumaron_2329
   name: Sumaron
   short_desc: Sumaron, master cleric of Mahn-Tor, is here looking holy.
@@ -991,6 +1001,7 @@
   legacy_raw: 34 136 1000 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
 
 - id: 2330
+  spec_fun: "spec_cast_cleric"
   key: nasturn_2330
   name: Nasturn
   short_desc: Nasturn, the minotaur druid, is here studying the arts of nature.
@@ -1090,6 +1101,7 @@
   legacy_raw: 38 65536 -500 S 30 -9 -10 2500d1+500 6d6+5 100000 800000 8 8 1
 
 - id: 2333
+  spec_fun: "spec_cast_mage"
   key: mahn_tor_2333
   name: Mahn-Tor
   short_desc: Mahn-Tor, the minotaur grand master, is here looking down at you.

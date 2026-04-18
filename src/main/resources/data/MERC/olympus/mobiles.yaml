@@ -1,4 +1,5 @@
 - id: 901
+  spec_fun: "spec_cast_cleric"
   key: zeus_901
   name: Zeus
   short_desc: Zeus sits here on a throne.
@@ -33,6 +34,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 35d35+1000 20d3+25 100000 2000000 8 8 1
 
 - id: 902
+  spec_fun: "spec_breath_fire"
   key: prometheus_902
   name: Prometheus
   short_desc: Prometheus is here, playing with a match.
@@ -66,6 +68,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 31 0 -7 31d31+310 15d2+20 40000 300000 8 8 1
 
 - id: 903
+  spec_fun: "spec_thief"
   key: hermes_903
   name: Hermes
   short_desc: Hermes is busy, delivering a message.
@@ -100,6 +103,7 @@
   legacy_raw: 4 2|8|32|128|8192|32768|524288 1000 S 33 0 -7 33d33+330 20d2+20 50000 400000 8 8 1
 
 - id: 904
+  spec_fun: "spec_cast_mage"
   key: poseidon_904
   name: Poseidon
   short_desc: Poseidon is dining here.
@@ -134,6 +138,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 35d35+1000 20d3+25 100000 2000000 6 8 1
 
 - id: 905
+  spec_fun: "spec_cast_adept"
   key: apollo_905
   name: Apollo
   short_desc: Apollo is here, playing a tune.
@@ -201,6 +206,7 @@
   legacy_raw: 2|4|32 2|8|32|128|524288 -1000 S 35 0 -10 35d35+1500 10d2+25 50000 2000000 8 8 1
 
 - id: 907
+  spec_fun: "spec_cast_adept"
   key: athena_907
   name: Athena
   short_desc: Athena is relaxing here.
@@ -234,6 +240,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 33 0 -7 33d33+330 15d2+10 60000 300000 8 8 2
 
 - id: 908
+  spec_fun: "spec_breath_lightning"
   key: hephaestus_908
   name: Hephaestus
   short_desc: Hephaestus the Smith is here, crafting a fine weapon.
@@ -268,6 +275,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 33 0 -7 33d33+330 12d2+26 60000 550000 8 8 1
 
 - id: 909
+  spec_fun: "spec_guard"
   key: a_golden_maiden_909
   name: A Golden Maiden
   short_desc: A Handmaid of gold is here, assisting the smith.
@@ -432,6 +440,7 @@
   legacy_raw: 2|4|32 2|8|32|128|524288 -600 S 20 0 0 1d8+450 2d12+10 0 45000 8 8 0
 
 - id: 914
+  spec_fun: "spec_breath_any"
   key: odin_914
   name: Odin
   short_desc: Odin is resting here.
@@ -601,6 +610,7 @@
   legacy_raw: 2|4|32 2|8|32|128|8192|524288 1000 S 20 0 -3 1d8+400 10d3+20 10000 60000 8 8 1
 
 - id: 919
+  spec_fun: "spec_breath_any"
   key: ra_the_sun_god_919
   name: Ra the Sun God
   short_desc: Ra the Egyptian Sun God is resting here.
@@ -635,6 +645,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 1d8+2500 25d2+25 100000 3000000 8 8 1
 
 - id: 920
+  spec_fun: "spec_breath_fire"
   key: a_chimera_920
   name: a chimera
   short_desc: A chimera prowls the cell.
@@ -668,6 +679,7 @@
   legacy_raw: 2|4|32 2|8|32|128|524288 -1000 S 20 0 -3 20d20+200 5d5+15 1000 75000 8 8 1
 
 - id: 921
+  spec_fun: "spec_cast_cleric"
   key: hera_921
   name: Hera
   short_desc: Hera is here.
@@ -701,6 +713,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 35 0 -10 1d8+1500 15d3+15 100000 1500000 8 8 2
 
 - id: 922
+  spec_fun: "spec_poison"
   key: a_roc_922
   name: a roc
   short_desc: A roc is here.
@@ -734,6 +747,7 @@
   legacy_raw: 4 2|8|32|128|8192|524288 0 S 15 0 0 1d8+400 3d8+6 5000 40000 8 8 0
 
 - id: 923
+  spec_fun: "spec_thief"
   key: a_citizen_923
   name: A citizen
   short_desc: A citizen of this town is strolling down the street here.
@@ -831,6 +845,7 @@
   legacy_raw: 2|4 2|8|32|128|8192|524288 1000 S 5 15 5 1d8+75 2d4+2 100 1000 8 8 1
 
 - id: 926
+  spec_fun: "spec_cast_mage"
   key: the_jailer_926
   name: The Jailer
   short_desc: The jailer is here, watching for intruders.

@@ -158,6 +158,7 @@ public class CommandRegistry {
         registerGm("peace", "End all combat in the current room");
         registerGm("promote", "Level up a character");
         registerGm("restore", "Restore a character's HP/MP/MV to full");
+        registerGm("enslave", "Bind a mob in the room as your ally");
         registerGm("slay", "Instantly kill a target mob");
         registerGm("spawn", "Create item or mob instances");
         registerGm("seedtemplates", "Seed item & mob templates into the running server (GM only)");

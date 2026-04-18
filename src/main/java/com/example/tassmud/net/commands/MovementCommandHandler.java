@@ -19,6 +19,9 @@ import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.util.MobileRoamingService;
 import com.example.tassmud.util.RegenerationService;
 import com.example.tassmud.util.GroupManager;
+import com.example.tassmud.util.AllyManager;
+import com.example.tassmud.util.MobileRegistry;
+import com.example.tassmud.model.AllyBinding;
 import com.example.tassmud.model.Group;
 
 import java.io.PrintWriter;
@@ -863,6 +866,9 @@ public class MovementCommandHandler implements CommandHandler {
                 final Integer leaderOldRoomId = oldRoomId;
                 moveGroupFollowers(dao, leaderCharId, leaderOldRoomId, leaderDestId, leaderDirection);
 
+                // Ally follow mechanic - move any following allies with the player
+                moveAllyFollowers(leaderCharId, leaderOldRoomId, leaderDestId, leaderDirection);
+
                 return true;
             }
 
@@ -1099,6 +1105,50 @@ public class MovementCommandHandler implements CommandHandler {
             int followerLevel = followerRec.currentClassId != null
                 ? classDao.getCharacterClassLevel(followerId, followerRec.currentClassId) : 1;
             MobileRoamingService.getInstance().checkAggroOnPlayerEntry(toRoomId, followerId, followerLevel);
+        }
+    }
+
+    /**
+     * Move ally mobs that are following the owner when the owner changes rooms.
+     * Only moves allies that are in {@code fromRoomId} and have {@code followsOwner} set.
+     *
+     * @param ownerCharId the character ID of the player who just moved
+     * @param fromRoomId  the room the player left
+     * @param toRoomId    the room the player entered
+     * @param direction   direction name (for messaging)
+     */
+    private void moveAllyFollowers(int ownerCharId, int fromRoomId, int toRoomId, String direction) {
+        java.util.List<AllyBinding> following =
+                AllyManager.getInstance().getFollowingAlliesInRoom(ownerCharId, fromRoomId);
+        if (following.isEmpty()) return;
+
+        String ownerName = null; // resolve lazily
+
+        for (AllyBinding binding : following) {
+            Mobile mob = MobileRegistry.getInstance().getById(binding.getMobInstanceId());
+            if (mob == null) continue;
+
+            if (ownerName == null) {
+                CharacterRecord ownerRec = DaoProvider.characters().getCharacterById(ownerCharId);
+                ownerName = ownerRec != null ? ownerRec.name : "their master";
+            }
+
+            // Announce departure
+            ClientHandler.broadcastRoomMessage(fromRoomId,
+                    mob.getName() + " follows " + ownerName + " " + direction + ".");
+
+            // Move the ally
+            mob.setCurrentRoom(toRoomId);
+            try {
+                DaoProvider.mobiles().updateInstance(mob);
+                MobileRegistry.getInstance().moveToRoom(mob.getInstanceId(), fromRoomId, toRoomId);
+            } catch (Exception e) {
+                // Non-fatal: log and continue
+            }
+
+            // Announce arrival
+            ClientHandler.broadcastRoomMessage(toRoomId,
+                    mob.getName() + " arrives following " + ownerName + ".");
         }
     }
 }

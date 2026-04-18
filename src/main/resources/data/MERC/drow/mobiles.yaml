@@ -95,6 +95,7 @@
   legacy_raw: 34 8 -1000 S 12 9 0 2d20+160 15d1+2 1000 11000 8 8 1
 
 - id: 5103
+  spec_fun: "spec_cast_mage"
   key: the_drow_mage_noble_5103
   name: the drow mage noble
   short_desc: The drow mage noble is here protecting his home.
@@ -127,6 +128,7 @@
   legacy_raw: 34 8 -1000 S 15 8 2 1d12+190 8d2+2 2000 16000 8 8 1
 
 - id: 5104
+  spec_fun: "spec_cast_cleric"
   key: the_drow_priestess_5104
   name: the drow priestess
   short_desc: The drow priestess is here shouting orders.
@@ -255,6 +257,7 @@
   legacy_raw: 34 8 -1000 S 24 0 -3 1d50+450 15d2+4 30000 90000 8 8 2
 
 - id: 5108
+  spec_fun: "spec_cast_cleric"
   key: the_matron_mother_5108
   name: the matron mother
   short_desc: The matron mother of the 1st house is waiting for you.
@@ -287,6 +290,7 @@
   legacy_raw: 2|32 8|128 -1000 S 25 0 -4 1d50+350 20d2+4 30000 90000 8 8 2
 
 - id: 5109
+  spec_fun: "spec_breath_any"
   key: the_yochlol_5109
   name: the yochlol
   short_desc: A yochlol forms out of a swirling mist.

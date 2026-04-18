@@ -191,6 +191,7 @@
   legacy_raw: 0 512 300 S 3 17 9 2d5+35 1d7+0 2 350 8 8 1
 
 - id: 7006
+  spec_fun: "spec_poison"
   key: the_slithering_snake_7006
   name: the slithering snake
   short_desc: The snake slithers towards you.
@@ -389,6 +390,7 @@
   legacy_raw: 96 32768 -250 S 12 9 -2 12d12+120 2d6+5 1000 8000 5 5 0
 
 - id: 7040
+  spec_fun: "spec_breath_fire"
   key: the_red_dragon_7040
   name: the red dragon
   short_desc: The red fierce-looking dragon stares at you angrily.
@@ -423,6 +425,7 @@
   legacy_raw: 35 520 -1000 S 30 -10 -10 30d30+300 3d4+30 100000 450000 8 8 0
 
 - id: 7041
+  spec_fun: "spec_cast_undead"
   key: the_sea_hag_7041
   name: the sea hag
   short_desc: The sea hag is swimming around here.
@@ -457,6 +460,7 @@
   legacy_raw: 32 512 -800 S 14 7 1 1d8+172 2d8+1 0 18000 8 8 2
 
 - id: 7042
+  spec_fun: "spec_cast_cleric"
   key: the_guardian_naga_7042
   name: the guardian naga
   short_desc: The guardian naga looks kindly at you.
@@ -492,6 +496,7 @@
   legacy_raw: 2 512 700 S 12 9 2 1d18+148 2d7+1 100 13500 8 8 2
 
 - id: 7043
+  spec_fun: "spec_breath_any"
   key: the_scaled_basilisk_7043
   name: the scaled basilisk
   short_desc: The scaled basilisk crawls towards you slowly.
@@ -629,6 +634,7 @@
   legacy_raw: 4 512 +200 S 6 14 4 6d6+60 1d8+0 40 1000 5 5 1
 
 - id: 7200
+  spec_fun: "spec_cast_mage"
   key: the_master_mindflayer_7200
   name: the master mindflayer
   short_desc: The master mindflayer is here, looking at you with an evil look.
@@ -663,6 +669,7 @@
   legacy_raw: 37 520 -800 S 14 7 0 14d14+140 3d4+4 1000 18000 8 8 0
 
 - id: 7201
+  spec_fun: "spec_cast_mage"
   key: the_senior_mindflayer_7201
   name: the senior mindflayer
   short_desc: The senior mindflayer walks around here, looking for something useful.
@@ -697,6 +704,7 @@
   legacy_raw: 37 520 -600 S 8 13 2 8d8+80 2d4+3 400 3000 8 8 0
 
 - id: 7202
+  spec_fun: "spec_cast_mage"
   key: the_junior_mindflayer_7202
   name: the junior mindflayer
   short_desc: The junior mindflayer is here, watching you carefully from the corner.
@@ -731,6 +739,7 @@
   legacy_raw: 37 520 -350 S 6 15 4 6d6+60 1d4+3 200 1500 8 8 0
 
 - id: 7203
+  spec_fun: "spec_poison"
   key: the_ugly_wererat_7203
   name: the ugly wererat
   short_desc: An ugly wererat is here, looking at you with a strange flick in his eyes.
@@ -764,6 +773,7 @@
   legacy_raw: 100 512 -700 S 6 15 3 4d6+69 2d4+2 50 1200 8 8 0
 
 - id: 7204
+  spec_fun: "spec_poison"
   key: the_gigantic_rat_7204
   name: the gigantic rat
   short_desc: There is a gigantic rat here, looking at you with a hungry look.

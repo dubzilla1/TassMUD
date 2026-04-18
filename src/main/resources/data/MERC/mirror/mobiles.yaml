@@ -1,4 +1,5 @@
 - id: 5300
+  spec_fun: "spec_cast_mage"
   key: the_baby_beholder_5300
   name: the baby beholder
   short_desc: You meet a baby beholder's cute gaze!
@@ -99,6 +100,7 @@
   legacy_raw: 64|128 0 500 S 5 16 5 5d5+55 1d4+3 100 700 8 8 1
 
 - id: 5303
+  spec_fun: "spec_guard"
   key: an_imperial_cityguard_5303
   name: an imperial cityguard
   short_desc: An imperial cityguard is here, keeping the peace of Thalos.
@@ -166,6 +168,7 @@
   legacy_raw: 64|128 0 500 S 5 16 5 5d5+55 1d4+3 100 700 8 8 2
 
 - id: 5305
+  spec_fun: "spec_guard"
   key: gordon_the_brave_5305
   name: Gordon the Brave
   short_desc: Gordon the Brave, the Defender of Thalos, is here, looking at no one but you, the only stranger in town.
@@ -200,6 +203,7 @@
   legacy_raw: 0 128 1000 S 35 0 -10 35d35+350 1d8+30 10000 150000 8 8 1
 
 - id: 5306
+  spec_fun: "spec_cast_cleric"
   key: the_fanatic_priest_5306
   name: the fanatic priest
   short_desc: A fanatic priest is here, foretelling the destruction of Thalos.
@@ -235,6 +239,7 @@
   legacy_raw: 2|128 0 -500 S 10 10 0 10d10+100 1d4+8 100 5000 8 8 1
 
 - id: 5307
+  spec_fun: "spec_cast_cleric"
   key: the_priest_of_thalos_5307
   name: the priest of Thalos
   short_desc: The priest of Thalos tells you of the glories of this city.
@@ -560,6 +565,7 @@
   legacy_raw: 2|128 0 500 S 6 14 4 6d6+60 1d4+4 10 1000 8 8 1
 
 - id: 5317
+  spec_fun: "spec_cast_mage"
   key: an_old_wizard_5317
   name: an old wizard
   short_desc: An old wizard sits quietly at the counter waiting for a sale.
@@ -659,6 +665,7 @@
   legacy_raw: 2|128 0 650 S 5 15 5 5d5+50 1d4+4 0 600 8 8 1
 
 - id: 5320
+  spec_fun: "spec_guard"
   key: an_imperial_cityguard_5320
   name: An imperial cityguard
   short_desc: An imperial cityguard overseeing patrols in the city.
@@ -693,6 +700,7 @@
   legacy_raw: 2|4|64 128 1000 S 17 6 -5 15d15+150 1d4+10 1500 15000 8 8 1
 
 - id: 5321
+  spec_fun: "spec_guard"
   key: an_imperial_cityguard_5321
   name: an imperial cityguard
   short_desc: An imperial cityguard guards the Grand Gate.
@@ -888,6 +896,7 @@
   legacy_raw: 32|64|128 32768 0 S 4 16 4 4d4+44 1d8+4 2 500 8 8 0
 
 - id: 5327
+  spec_fun: "spec_cast_cleric"
   key: a_druid_5327
   name: a druid
   short_desc: A druid is here in meditation.
@@ -920,6 +929,7 @@
   legacy_raw: 64|128 8|8192 1000 S 10 10 0 10d10+100 1d4+6 50 5000 8 8 1
 
 - id: 5328
+  spec_fun: "spec_cast_cleric"
   key: a_druidess_5328
   name: a druidess
   short_desc: A druidess peers at you.
@@ -1016,6 +1026,7 @@
   legacy_raw: 4 0 550 S 7 14 3 7d7+70 1d4+5 150 850 8 8 1
 
 - id: 5331
+  spec_fun: "spec_guard"
   key: the_cityguard_5331
   name: the cityguard
   short_desc: A cityguard stands here.
@@ -1048,6 +1059,7 @@
   legacy_raw: 69 0 1000 S 15 15 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 5332
+  spec_fun: "spec_janitor"
   key: the_janitor_5332
   name: the janitor
   short_desc: A janitor is walking around, cleaning up.
@@ -1079,6 +1091,7 @@
   legacy_raw: 1 0 900 S 1 20 9 2d6+10 1d5+0 34 100 8 8 1
 
 - id: 5333
+  spec_fun: "spec_fido"
   key: the_beastly_fido_5333
   name: the beastly fido
   short_desc: Beastly Fido is here.
@@ -1112,6 +1125,7 @@
   legacy_raw: 161 0 -200 S 0 20 10 1d6+4 1d4+0 10 25 8 8 1
 
 - id: 5334
+  spec_fun: "spec_guard"
   key: the_cityguard_5334
   name: the cityguard
   short_desc: A cityguard is here, guarding the gate.

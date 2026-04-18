@@ -262,6 +262,7 @@
   legacy_raw: 4|64|128 32768 0 S 10 11 -5 5d5+100 3d3+3 3000 5000 8 8 0
 
 - id: 8309
+  spec_fun: "spec_poison"
   key: the_monstrous_snake_8309
   name: the monstrous snake
   short_desc: A monstrous snake slithers towards you, thinking 'breakfast'.
@@ -294,6 +295,7 @@
   legacy_raw: 4|32|64|128 32768|65536 -100 S 16 5 1 16d16+200 4d4+6 10000 26000 8 8 1
 
 - id: 8310
+  spec_fun: "spec_poison"
   key: a_large_snake_8310
   name: a large snake
   short_desc: A rather large python rests in a coil here.
@@ -326,6 +328,7 @@
   legacy_raw: 4|32|64|128 32768|65536 -100 S 11 10 2 4d10+100 3d3+5 0 9000 8 8 2
 
 - id: 8312
+  spec_fun: "spec_thief"
   key: the_marsh_hag_8312
   name: the Marsh Hag
   short_desc: A Marsh Hag is here.
@@ -359,6 +362,7 @@
   legacy_raw: 4|64 0 -200 S 9 12 3 2d10+300 3d5+10 1000 6000 8 8 2
 
 - id: 8313
+  spec_fun: "spec_cast_undead"
   key: a_death_slaad_8313
   name: a Death Slaad
   short_desc: A Death Slaad is standing here distraught.  He seems lost.
@@ -457,6 +461,7 @@
   legacy_raw: 4|64 65536 -100 S 13 8 10 10d10+150 3d6+2 0 10000 8 8 0
 
 - id: 8319
+  spec_fun: "spec_cast_cleric"
   key: the_orc_shaman_8319
   name: the orc shaman
   short_desc: An orc shaman stands before you holding a staff and wearing robes.

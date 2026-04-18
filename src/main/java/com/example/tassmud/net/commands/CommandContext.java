@@ -69,6 +69,16 @@ public class CommandContext {
     }
 
     /**
+     * Sends {@code selfMsg} to this actor and broadcasts {@code othersMsg} to
+     * everyone else in the current room. Prevents the actor from receiving
+     * both the first-person and third-person versions of the same action.
+     */
+    public void actorAnnounce(String selfMsg, String othersMsg) {
+        out.println(selfMsg);
+        ClientHandler.broadcastRoomMessage(currentRoomId, othersMsg, characterId);
+    }
+
+    /**
      * Returns the character record if present, otherwise prints an error and
      * returns {@code null}. Handlers that require a logged-in character can
      * call this at the top of their method and bail on {@code null}.

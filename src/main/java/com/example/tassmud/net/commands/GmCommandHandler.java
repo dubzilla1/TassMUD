@@ -81,6 +81,7 @@ private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommand
             case "gminvis": return worldHandler.handleGminvisCommand(ctx);
             case "system": return worldHandler.handleSystemCommand(ctx);
             case "spawn": return worldHandler.handleSpawnCommand(ctx);
+            case "enslave": return worldHandler.handleEnslaveCommand(ctx);
             case "slay": return worldHandler.handleSlayCommand(ctx);
             case "peace": return worldHandler.handlePeaceCommand(ctx);
             case "goto": return worldHandler.handleGotoCommand(ctx);

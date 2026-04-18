@@ -1,4 +1,5 @@
 - id: 3000
+  spec_fun: "spec_cast_mage"
   key: the_wizard_3000
   name: the wizard
   short_desc: A wizard walks around behind the counter, talking to himself.
@@ -163,6 +164,7 @@
   legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+32 150000 80000 8 8 1
 
 - id: 3005
+  spec_fun: "spec_thief"
   key: the_thief_3005
   name: the thief
   short_desc: A thief, all dressed in black.
@@ -356,6 +358,7 @@
   legacy_raw: 2 0 900 S 23 2 2 1d1+30000 1d8+20 100000 80000 8 8 1
 
 - id: 3011
+  spec_fun: "spec_executioner"
   key: the_executioner_3011
   name: the executioner
   short_desc: The executioner is here polishing his blade.
@@ -389,6 +392,7 @@
   legacy_raw: 2|64 8|128 1000 S 50 -10 -20 1d1+1499 1d4+30 5000 500000 8 8 1
 
 - id: 3012
+  spec_fun: "spec_cast_adept"
   key: the_healer_3012
   name: the healer
   short_desc: A healer is here.
@@ -421,6 +425,7 @@
   legacy_raw: 2|64 8|128 1000 S 40 -10 -20 1d1+29999 2d4+30 0 -99000 8 8 1
 
 - id: 3020
+  spec_fun: "spec_cast_mage"
   key: the_guildmaster_3020
   name: the guildmaster
   short_desc: Your guildmaster is standing here.
@@ -455,6 +460,7 @@
   legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 2
 
 - id: 3021
+  spec_fun: "spec_cast_cleric"
   key: the_guildmaster_3021
   name: the guildmaster
   short_desc: Your guildmaster is standing here.
@@ -488,6 +494,7 @@
   legacy_raw: 2|1024 128 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 1
 
 - id: 3022
+  spec_fun: "spec_thief"
   key: the_guildmaster_3022
   name: the guildmaster
   short_desc: Your guildmaster is standing here.
@@ -556,6 +563,7 @@
   legacy_raw: 2|1024 0 1000 S 24 0 0 6d10+440 3d8+24 8794 100000 8 8 1
 
 - id: 3024
+  spec_fun: "spec_cast_mage"
   key: the_sorcerer_3024
   name: the sorcerer
   short_desc: A sorcerer is guarding the entrance.
@@ -758,6 +766,7 @@
   legacy_raw: 2 0 900 S 23 2 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3042
+  spec_fun: "spec_cast_mage"
   key: the_waiter_3042
   name: the waiter
   short_desc: A man who in his young days was a famous sorcerer but now leads a quiet, peaceful life as a waiter.
@@ -789,6 +798,7 @@
   legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3043
+  spec_fun: "spec_cast_cleric"
   key: the_waiter_3043
   name: the waiter
   short_desc: A waiter who seems to have reached contact with God.
@@ -820,6 +830,7 @@
   legacy_raw: 2 0 600 S 23 1 2 6d10+390 1d8+18 2000 20000 8 8 1
 
 - id: 3044
+  spec_fun: "spec_thief"
   key: the_waiter_3044
   name: the waiter
   short_desc: A waiter who knows where all his customers keep their money.
@@ -915,6 +926,7 @@
   legacy_raw: 2 0 600 S 23 1 2 1d1+30000 1d8+18 2000 80000 8 8 1
 
 - id: 3050
+  spec_fun: "spec_cast_undead"
   key: aod_the_dealer_3050
   name: Aod the Dealer
   short_desc: Aod the Dealer stands in the shadows here.
@@ -953,6 +965,7 @@
   legacy_raw: 4|64 8|32|512 0 S 15 15 -2 1d1+999 2d10+20 500 19000 8 8 1
 
 - id: 3060
+  spec_fun: "spec_guard"
   key: the_cityguard_3060
   name: the cityguard
   short_desc: A cityguard stands here.
@@ -985,6 +998,7 @@
   legacy_raw: 69 0 1000 S 15 15 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 3061
+  spec_fun: "spec_janitor"
   key: the_janitor_3061
   name: the janitor
   short_desc: A janitor is walking around, cleaning up.
@@ -1016,6 +1030,7 @@
   legacy_raw: 1 0 900 S 1 20 9 2d6+10 1d5+0 34 100 8 8 1
 
 - id: 3062
+  spec_fun: "spec_fido"
   key: the_beastly_fido_3062
   name: the beastly fido
   short_desc: Beastly Fido is here.
@@ -1145,6 +1160,7 @@
   legacy_raw: 2 0 400 S 1 20 9 2d6+10 1d5+0 0 100 8 8 2
 
 - id: 3066
+  spec_fun: "spec_fido"
   key: an_alley_cat_3066
   name: an alley cat
   short_desc: An alley cat hisses at you.
@@ -1177,6 +1193,7 @@
   legacy_raw: 161 0 -200 S 0 20 10 1d6+4 1d4+0 10 25 8 8 1
 
 - id: 3067
+  spec_fun: "spec_guard"
   key: the_cityguard_3067
   name: the cityguard
   short_desc: A cityguard is here, guarding the gate.
@@ -1209,6 +1226,7 @@
   legacy_raw: 67 0 1000 S 15 5 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 3068
+  spec_fun: "spec_guard"
   key: the_cityguard_3068
   name: the cityguard
   short_desc: A cityguard is here, guarding the gate.
@@ -1241,6 +1259,7 @@
   legacy_raw: 67 0 1000 S 15 5 -2 15d15+150 1d4+10 500 19000 8 8 1
 
 - id: 3069
+  spec_fun: "spec_guard"
   key: the_cityguard_3069
   name: the cityguard
   short_desc: A cityguard is here, guarding the mayor.
@@ -1433,6 +1452,7 @@
   legacy_raw: 6 0 0 S 9 17 6 1d12+47 1d8+0 0 1600 8 8 0
 
 - id: 3100
+  spec_fun: "spec_cast_cleric"
   key: the_maid_3100
   name: the maid
   short_desc: The maid is waiting for your order.
@@ -1466,6 +1486,7 @@
   legacy_raw: 2 0 1000 S 23 2 -2 6d10+390 1d8+12 2000 80000 8 8 2
 
 - id: 3120
+  spec_fun: "spec_cast_cleric"
   key: the_sexton_3120
   name: the sexton
   short_desc: A sexton is sitting here, drinking hot tea.
@@ -1724,6 +1745,7 @@
   legacy_raw: 2 0 900 S 12 9 2 1d12+148 2d7+1 100 3000 8 8 2
 
 - id: 3143
+  spec_fun: "spec_mayor"
   key: the_mayor_3143
   name: the mayor
   short_desc: The mayor is here.  He shakes your hand.
