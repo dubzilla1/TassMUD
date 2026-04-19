@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 
 /**
@@ -29,6 +30,15 @@ import java.util.function.BiConsumer;
 public class DeathHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(DeathHandler.class);
+
+    /** Template ID for summoned Lich (from UndeadTemplateFactory: base 90001 + LICH ordinal 5). */
+    private static final int LICH_TEMPLATE_ID = 90006;
+
+    /**
+     * Tracks Lich instances that have already used their one-time resurrect.
+     * Keyed by mob instance ID; present = already resurrected once.
+     */
+    private static final Set<Long> lichResurrected = ConcurrentHashMap.newKeySet();
 
     private final BiConsumer<Integer, String> playerMessageCallback;
     private final BiConsumer<Integer, String> roomMessageCallback;
@@ -91,6 +101,26 @@ public class DeathHandler {
         Mobile mob = victim.getMobile();
         if (mob == null) return;
 
+        // ── Lich resurrect: one-time full-HP revival ─────────────────────
+        if (mob.getTemplateId() == LICH_TEMPLATE_ID
+                && com.example.tassmud.util.AllyManager.getInstance().isAlly(mob.getInstanceId())
+                && lichResurrected.add(mob.getInstanceId())) {
+            // First death — resurrect at full HP and keep fighting
+            mob.setHpCur(mob.getHpMax());
+            victim.setActive(true);
+            broadcastToRoom(combat.getRoomId(),
+                mob.getName() + " collapses, then dark energy surges and it rises again at full strength!");
+            com.example.tassmud.model.AllyBinding binding =
+                    com.example.tassmud.util.AllyManager.getInstance().getBindingForMob(mob.getInstanceId());
+            if (binding != null) {
+                ClientHandler.sendToCharacter(binding.getOwnerCharacterId(),
+                    mob.getName() + " has used its one-time resurrection!");
+            }
+            logger.info("[DeathHandler] Lich {} resurrected at full HP in room {}",
+                    mob.getName(), combat.getRoomId());
+            return; // skip normal death processing
+        }
+
         int roomId = combat.getRoomId();
         String mobName = mob.getName();
         int mobLevel = Math.max(1, mob.getLevel());
@@ -150,6 +180,7 @@ public class DeathHandler {
         try {
             MobileDAO mobileDAO = DaoProvider.mobiles();
             mob.die();
+            lichResurrected.remove(mob.getInstanceId()); // cleanup lich tracking if applicable
             // Notify AllyManager: removes TEMPORARY binding, flags PERMANENT for respawn
             com.example.tassmud.util.AllyManager.getInstance().onAllyDeath(mob.getInstanceId());
             com.example.tassmud.util.MobileRegistry.getInstance().unregister(mob.getInstanceId());

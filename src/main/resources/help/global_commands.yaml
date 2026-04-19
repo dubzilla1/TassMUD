@@ -854,6 +854,90 @@ spells:
     EXAMPLE
         spells
 
+cast:
+  summary: "cast a spell"
+  visibility: public
+  synopsis:
+    - "cast <spell name>"
+    - "cast <spell name> <target>"
+  body: |
+    NAME
+        cast - cast a spell you have learned
+
+    SYNOPSIS
+        cast <spell name>
+        cast <spell name> <target>
+
+    DESCRIPTION
+        Casts a spell from your spell list. You must know the spell
+        (learned via class skill grants or GM command) and have enough MP.
+
+        The spell name is matched by prefix, so 'cast mag' will match
+        'magic missile' if it's the only match. If multiple spells match,
+        you'll be asked to be more specific.
+
+        MP cost defaults to the spell's level unless overridden.
+        Spells may have cooldowns that prevent repeated rapid casting.
+
+        Some spells target yourself automatically, others require a target
+        (the mob you are fighting, or a named target in the room).
+
+    SEE ALSO
+        spells, skills
+
+    EXAMPLE
+        cast magic missile
+        cast heal
+        cast animate dead
+
+animate dead:
+  summary: "raise an undead minion from a corpse"
+  visibility: public
+  synopsis:
+    - "cast animate dead"
+  body: |
+    NAME
+        animate dead - raise an undead servant from a corpse
+
+    SYNOPSIS
+        cast animate dead
+
+    DESCRIPTION
+        An occult spell that reanimates a corpse in the room into an undead
+        servant that fights alongside you. Requires a corpse to be present.
+
+        The type of undead summoned depends on your caster level:
+
+          Level  1+  Skeleton    - basic melee fighter
+          Level 10+  Ghoul       - venomous bite (spec_poison)
+          Level 20+  Mummy       - bonus slam attacks
+          Level 30+  Vampire     - drains life, healing you and itself
+          Level 40+  Death Knight - taunts enemies with AoE challenge
+          Level 50+  Lich        - casts offensive spells, resurrects once
+
+        A random type is chosen from those available at your level.
+        Higher-level corpses produce stronger undead with better stats.
+
+        The undead's level is based on the corpse's original level plus
+        a type-specific offset. Its stats scale with level and have
+        type-specific multipliers (e.g., Mummies are tough but slow,
+        Vampires are balanced, Death Knights are heavily armored).
+
+        DURATION: 1 minute base + 1 minute per 10 points of proficiency.
+        The undead crumbles to dust when the duration expires.
+
+        The summoned undead follows you and will assist in combat. You
+        may have multiple undead servants active at once. Summoned undead
+        yield no experience when killed by enemies.
+
+        Cooldown: 3 minutes.  MP cost: 10.
+
+    SEE ALSO
+        cast, spells
+
+    EXAMPLE
+        cast animate dead
+
 kill:
   summary: "attack a target and initiate combat"
   visibility: public

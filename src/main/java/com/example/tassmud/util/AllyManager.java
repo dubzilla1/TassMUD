@@ -3,6 +3,8 @@ package com.example.tassmud.util;
 import com.example.tassmud.model.AllyBinding;
 import com.example.tassmud.model.AllyBehavior;
 import com.example.tassmud.model.Mobile;
+import com.example.tassmud.net.ClientHandler;
+import com.example.tassmud.persistence.DaoProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -272,6 +274,50 @@ public class AllyManager {
     /** Total number of active (live) bindings tracked. */
     public int size() {
         return bindingByMobInstance.size();
+    }
+
+    // ── expiry cleanup ────────────────────────────────────────────────
+
+    /**
+     * Sweep all bindings and remove expired ones.  For TEMPORARY expired bindings,
+     * the mob is also killed (marked dead, removed from MobileRegistry) and the
+     * owner is notified.
+     *
+     * <p>Intended to be called periodically from a TickService task (e.g. every 10s).
+     */
+    public void sweepExpiredBindings() {
+        long now = System.currentTimeMillis();
+        // Snapshot the values — iterating ConcurrentHashMap is safe
+        for (AllyBinding b : bindingByMobInstance.values()) {
+            if (b.getExpiresAt() > 0 && now > b.getExpiresAt()) {
+                long mobId = b.getMobInstanceId();
+                int ownerId = b.getOwnerCharacterId();
+
+                // Remove the binding
+                bindingByMobInstance.remove(mobId);
+                removeFromOwnerList(ownerId, mobId);
+
+                // Despawn the mob
+                Mobile mob = MobileRegistry.getInstance().getById(mobId);
+                if (mob != null) {
+                    Integer roomId = mob.getCurrentRoom();
+                    String mobName = mob.getName();
+                    MobileRegistry.getInstance().unregister(mobId);
+                    DaoProvider.mobiles().deleteInstance(mobId);
+
+                    // Notify owner and room
+                    ClientHandler.sendToCharacter(ownerId,
+                            mobName + " crumbles to dust as the dark magic fades.");
+                    if (roomId != null) {
+                        ClientHandler.broadcastRoomMessage(roomId,
+                                mobName + " crumbles to dust.", ownerId);
+                    }
+                    logger.debug("[AllyManager] Expired binding — despawned {} for owner {}", mobId, ownerId);
+                } else {
+                    logger.debug("[AllyManager] Expired binding for mob {} (already gone) — cleaned up", mobId);
+                }
+            }
+        }
     }
 
     // ── private helpers ───────────────────────────────────────────────

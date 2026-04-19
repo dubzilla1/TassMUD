@@ -1,11 +1,39 @@
 # TassMUD – Agent Context Document
 
-> **Last Updated**: February 2026  
+> **Last Updated**: April 2026  
 > This document provides AI agents with comprehensive project context for effective assistance.
 
 ---
 
-## Recent Updates (Feb 5, 2026) — Major Architectural Refactoring
+## Recent Updates (Apr 19, 2026) — Animate Dead Spell System
+
+- **Animate Dead Spell** (id 321, OCCULT school): Full necromancer summoning system with 6 undead tiers (Skeleton, Ghoul, Mummy, Vampire, Death Knight, Lich), each with unique combat abilities.
+- **UndeadType Enum** (`spell/UndeadType.java`): 6 tiers with stat multipliers, level-gate requirements (1/10/20/30/40/50), spec_fun assignments, and random name variants.
+- **UndeadTemplateFactory** (`spell/UndeadTemplateFactory.java`): Runtime `MobileTemplate` generation with level-scaling stats (HP∝level², ±10% variance), reserved template IDs 90001-90006.
+- **AnimateDeadHandler** (`spell/AnimateDeadHandler.java`): Find corpse → roll type → build+spawn → consume corpse → bind as timed DEFENDER ally. Duration: 1min base + 1min per 10 proficiency. Cooldown 3min, MP cost 10.
+- **Custom Undead Spec_funs** (in `MobileSpecials.java`): `spec_undead_mummy` (bonus slam attack), `spec_undead_drain` (HP drain + heal vampire & owner), `spec_undead_taunt` (periodic AoE damage).
+- **Lich Resurrect**: `DeathHandler` intercepts first Lich death — heals to full HP and continues fighting. One-time only per summon.
+- **Ally Expiry Sweep**: `AllyManager.sweepExpiredBindings()` despawns expired summons, called every 10s from `TickService`.
+- **No ally cap**: Multiple summoned undead allowed simultaneously.
+- **Test Suite**: 639 tests, 0 failures — new `AnimateDeadTest` (+57 tests) covering UndeadType, UndeadTemplateFactory, and AllyBinding patterns.
+
+---
+
+## Previous Updates (Apr 19, 2026) — Animate Dead Spell System
+
+- **Animate Dead Spell** (id 321, OCCULT school): Full necromancer summoning system with 6 undead tiers (Skeleton, Ghoul, Mummy, Vampire, Death Knight, Lich), each with unique combat abilities.
+- **UndeadType Enum** (`spell/UndeadType.java`): 6 tiers with stat multipliers, level-gate requirements (1/10/20/30/40/50), spec_fun assignments, and random name variants.
+- **UndeadTemplateFactory** (`spell/UndeadTemplateFactory.java`): Runtime `MobileTemplate` generation with level-scaling stats (HP∝level², ±10% variance), reserved template IDs 90001-90006.
+- **AnimateDeadHandler** (`spell/AnimateDeadHandler.java`): Find corpse → roll type → build+spawn → consume corpse → bind as timed DEFENDER ally. Duration: 1min base + 1min per 10 proficiency. Cooldown 3min, MP cost 10.
+- **Custom Undead Spec_funs** (in `MobileSpecials.java`): `spec_undead_mummy` (bonus slam attack), `spec_undead_drain` (HP drain + heal vampire & owner), `spec_undead_taunt` (periodic AoE damage).
+- **Lich Resurrect**: `DeathHandler` intercepts first Lich death — heals to full HP and continues fighting. One-time only per summon.
+- **Ally Expiry Sweep**: `AllyManager.sweepExpiredBindings()` despawns expired summons, called every 10s from `TickService`.
+- **No ally cap**: Multiple summoned undead allowed simultaneously.
+- **Test Suite**: 639 tests, 0 failures — new `AnimateDeadTest` (+57 tests) covering UndeadType, UndeadTemplateFactory, and AllyBinding patterns.
+
+---
+
+## Previous Updates (Feb 5, 2026) — Major Architectural Refactoring
 
 A comprehensive audit and refactoring was completed covering bugs, thread safety, architecture, model design, and test coverage. Key outcomes:
 
@@ -154,7 +182,10 @@ src/main/java/com/example/tassmud/
 │   ├── RoomDAO.java               # ★ Rooms, areas, doors, exits (~490 lines)
 │   ├── SkillDAO.java              # ★ Skills, character_skill (~280 lines)
 │   ├── SpellDAO.java              # ★ Spells, character_spell (~310 lines)
-│   ├── EquipmentDAO.java          # ★ Character equipment (~210 lines)
+│   ├── *SpellHandler.java        # Per-school: Arcane, Divine, Primal, Occult
+│   ├── AnimateDeadHandler.java    # ★ Animate Dead spell — corpse → undead minion summoning
+│   ├── UndeadType.java            # ★ 6-tier undead enum (Skeleton→Lich) with stat multipliers
+│   └── UndeadTemplateFactory.java # ★ Runtime MobileTemplate generation for summoned undead
 │   ├── SettingsDAO.java           # ★ Global settings (~55 lines)
 │   ├── CharacterClassDAO.java     # Class definitions and skill grants
 │   ├── ItemDAO.java               # Item templates and instances
@@ -168,7 +199,10 @@ src/main/java/com/example/tassmud/
 │   ├── SpellRegistry.java         # Maps spell names → handlers (ConcurrentHashMap)
 │   ├── SpellContext.java          # Cast context (CommandContext, Combat, targets, spell def)
 │   ├── SpellSchool.java           # School enum (ARCANE, DIVINE, PRIMAL, OCCULT)
-│   └── *SpellHandler.java        # Per-school: Arcane, Divine, Primal, Occult
+│   ├── *SpellHandler.java        # Per-school: Arcane, Divine, Primal, Occult
+│   ├── AnimateDeadHandler.java    # ★ Animate Dead spell — corpse → undead minion summoning
+│   ├── UndeadType.java            # ★ 6-tier undead enum (Skeleton→Lich) with stat multipliers
+│   └── UndeadTemplateFactory.java # ★ Runtime MobileTemplate generation for summoned undead
 │
 ├── tools/                # Dev utilities (SchemaInspector)
 │
@@ -615,6 +649,9 @@ All handlers are registered in `MobileSpecials.registerAll(registry, combatManag
 | `spec_mayor` | Timed path walk through Midgaard at hours 6 (open) and 20 (close) |
 | `spec_janitor` | Picks up trash items from the floor |
 | `spec_poison` | Poisons targets in combat |
+| `spec_undead_mummy` | ★ Bonus slam attack (33% chance, level-scaled damage) |
+| `spec_undead_drain` | ★ HP drain + heal vampire & summoner (33% chance) |
+| `spec_undead_taunt` | ★ Periodic AoE damage (every 5 ticks) |
 
 ---
 
@@ -723,7 +760,7 @@ java -cp .\target\tass-mud-0.1.0-shaded.jar com.example.tassmud.tools.SchemaInsp
 **New Skill**:
 1. `skills.yaml` – Add skill definition
 2. `classes.yaml` – Add to class skill grants (if class-specific)
-3. Implement in appropriate handler (e.g., `MeleeSkillHandler`, `RogueSkillHandler`)
+3.639 tests, 0 failures** across 23 (e.g., `MeleeSkillHandler`, `RogueSkillHandler`)
 
 **New Item Type**:
 1. `items.yaml` – Add template with appropriate type/stats
@@ -740,10 +777,11 @@ java -cp .\target\tass-mud-0.1.0-shaded.jar com.example.tassmud.tools.SchemaInsp
 3. Update SQL queries to use new column
 
 ---
-
+`AnimateDeadTest` ★ | 57 | UndeadType tiers/levels, factory templates, ally binding patterns |
+| 
 ## Test Infrastructure
 
-**540 tests, 0 failures** across 21 test files. JUnit 5.10.0. No Mockito.
+**639 tests, 0 failures** across 23 test files. JUnit 5.10.0. No Mockito.
 
 ### Test Files (★ = created Feb 2026)
 
@@ -760,6 +798,7 @@ java -cp .\target\tass-mud-0.1.0-shaded.jar com.example.tassmud.tools.SchemaInsp
 | `CombatCalculatorTest` | 41 | Hit/damage formula correctness |
 | `CommandParserTest` | 30 | Prefix matching, alias resolution |
 | `CommandRegistryTest` | 27 | Registration, collision, category |
+| `AnimateDeadTest` ★ | 57 | UndeadType tiers/levels, factory templates, ally binding patterns |
 | + 10 more | ~225 | Models, skills, spells, equipment, proficiency, etc. |
 
 ### Testing Patterns

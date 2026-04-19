@@ -564,9 +564,10 @@ spells:
     school: OCCULT
     level: 3
     castingTime: 5.0
-    target: EXPLICIT_MOB_TARGET
+    cooldown: 180.0
+    target: SELF
     progression: VERY_HARD
-    effectIds: [421]
+    effectIds: []
     incantation: mutu-alaku
     
   # Level 4 Occult

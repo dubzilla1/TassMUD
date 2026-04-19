@@ -46,6 +46,7 @@ public class OccultSpellHandler {
         registerOccult("fear");
         registerOccult("create undead");
         registerOccult("circle of death");
+        registerOccult("animate dead");
     }
 
     private static void registerOccult(String spellName) {
@@ -67,6 +68,7 @@ public class OccultSpellHandler {
             case "fear": return handleFear(casterId, args, ctx);
             case "create undead": return handleCreateUndead(casterId, args, ctx);
             case "circle of death": return handleCircleOfDeath(casterId, args, ctx);
+            case "animate dead": return AnimateDeadHandler.handle(casterId, args, ctx);
             default:
                 return notImplemented(spellName, casterId, args, ctx);
         }

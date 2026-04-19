@@ -207,6 +207,10 @@ public class Server {
         MobileSpecials.registerAll(MobileSpecialRegistry.getInstance(), combatManager, gameClock);
         logger.info("[startup] Registered {} mobile special handlers", MobileSpecialRegistry.getInstance().count());
 
+        // Sweep expired ally bindings every 10 seconds (despawns timed-out summoned mobs)
+        tickService.scheduleAtFixedRate("ally-expiry-sweep",
+                () -> AllyManager.getInstance().sweepExpiredBindings(), 10_000, 10_000);
+
         // Ensure the tick service and thread pool are stopped on JVM shutdown
         final GameClock gameClockRef = gameClock;
         final CombatManager combatManagerRef = combatManager;

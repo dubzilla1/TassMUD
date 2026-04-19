@@ -688,6 +688,101 @@ public final class MobileSpecials {
             return false; // bite doesn't consume the main attack action
         });
 
+        // ── Summoned-undead specials ──────────────────────────────────────────
+
+        // spec_undead_mummy: guaranteed bonus slam attack every combat tick (33% chance)
+        registry.register("spec_undead_mummy", (mob, ctx) -> {
+            if (ctx.combat == null) return false;
+            if (!ctx.chance(33)) return false;
+            Combatant self = ctx.combat.findByMobileInstanceId(mob.getInstanceId());
+            if (self == null) return false;
+            Combatant target = ctx.combat.getRandomTarget(self);
+            if (target == null) return false;
+            GameCharacter tc = getCharacterFromCombatant(target);
+            if (tc == null) return false;
+            int damage = mob.getLevel() + ctx.rng.nextInt(mob.getLevel() / 2 + 1);
+            tc.setHpCur(tc.getHpCur() - damage);
+            ctx.sendToRoom.accept(ctx.roomId,
+                mob.getName() + " slams " + targetName(target) + " with a bandaged fist for " + damage + " damage!");
+            notifyIfPlayer(target, mob.getName() + "'s crushing slam hits you for " + damage + " damage!");
+            return false; // don't consume main attack — this is a bonus hit
+        });
+
+        // spec_undead_drain: vampiric bite that heals the vampire and its summoner 50/50
+        registry.register("spec_undead_drain", (mob, ctx) -> {
+            if (ctx.combat == null) return false;
+            if (!ctx.chance(33)) return false;
+            Combatant self = ctx.combat.findByMobileInstanceId(mob.getInstanceId());
+            if (self == null) return false;
+            Combatant target = ctx.combat.getRandomTarget(self);
+            if (target == null) return false;
+            GameCharacter tc = getCharacterFromCombatant(target);
+            if (tc == null) return false;
+            int drain = mob.getLevel() + ctx.rng.nextInt(mob.getLevel() / 2 + 1);
+            tc.setHpCur(tc.getHpCur() - drain);
+            // Heal the vampire (50%)
+            int vampHeal = drain / 2;
+            mob.setHpCur(Math.min(mob.getHpMax(), mob.getHpCur() + vampHeal));
+            // Heal the summoner (50%) — look up owner from AllyManager
+            int ownerHeal = drain - vampHeal; // remainder to owner
+            com.example.tassmud.model.AllyBinding binding =
+                    com.example.tassmud.util.AllyManager.getInstance().getBindingForMob(mob.getInstanceId());
+            if (binding != null) {
+                int ownerId = binding.getOwnerCharacterId();
+                // Find the owner's combatant (if in same combat) or heal via DB
+                Combatant ownerCombatant = null;
+                for (Combatant c : ctx.combat.getPlayerCombatants()) {
+                    if (c.getCharacterId() != null && c.getCharacterId() == ownerId) {
+                        ownerCombatant = c;
+                        break;
+                    }
+                }
+                if (ownerCombatant != null && ownerCombatant.getCharacter() != null) {
+                    GameCharacter ownerGc = ownerCombatant.getCharacter();
+                    ownerGc.setHpCur(Math.min(ownerGc.getHpMax(), ownerGc.getHpCur() + ownerHeal));
+                    ClientHandler.sendToCharacter(ownerId,
+                        mob.getName() + "'s bite drains " + drain + " life! You absorb " + ownerHeal + " HP.");
+                }
+            }
+            ctx.sendToRoom.accept(ctx.roomId,
+                mob.getName() + " sinks its fangs into " + targetName(target) + ", draining " + drain + " life!");
+            notifyIfPlayer(target, mob.getName() + " drains " + drain + " life from you!");
+            return false; // bonus attack, doesn't consume main
+        });
+
+        // spec_undead_taunt: Death Knight periodically forces enemies to target it via massive aggro
+        // Fires every ~5 combat ticks (~2.5s) at 100% chance = effective 20% per tick (fires every ~5th)
+        {
+            Map<Long, Integer> dkTickCounters = new ConcurrentHashMap<>();
+            registry.register("spec_undead_taunt", (mob, ctx) -> {
+                if (ctx.combat == null) return false;
+                int count = dkTickCounters.merge(mob.getInstanceId(), 1, Integer::sum);
+                if (count < 5) return false; // wait 5 ticks between taunts
+                dkTickCounters.put(mob.getInstanceId(), 0);
+
+                Combatant self = ctx.combat.findByMobileInstanceId(mob.getInstanceId());
+                if (self == null) return false;
+                List<Combatant> enemies = ctx.combat.getValidTargets(self);
+                if (enemies.isEmpty()) return false;
+
+                // Generate massive aggro for the Death Knight so all mobs target it
+                // The DK isn't a player so aggro doesn't apply to it directly —
+                // instead, taunt each enemy by dealing light damage + message
+                ctx.sendToRoom.accept(ctx.roomId,
+                    mob.getName() + " slams its shield and bellows a challenge that shakes the ground!");
+                for (Combatant enemy : enemies) {
+                    GameCharacter ec = getCharacterFromCombatant(enemy);
+                    if (ec == null) continue;
+                    int tauntDmg = 1 + ctx.rng.nextInt(3); // trivial damage, it's about the aggro
+                    ec.setHpCur(ec.getHpCur() - tauntDmg);
+                    // If enemy is a player, add massive negative aggro to other targets so DK is preferred
+                    // Since aggro system tracks player→mob aggro, taunt for enemy mobs
+                    // works by dealing light AoE damage to draw mob AI attention.
+                }
+                return false; // bonus action, doesn't consume main attack
+            });
+        }
+
         // spec_thief: steals gold from players in the room while standing
         registry.register("spec_thief", (mob, ctx) -> {
             if (ctx.combat != null) return false; // only while not fighting
