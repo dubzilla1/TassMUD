@@ -830,6 +830,22 @@ effects:
       tick_interval: 3
       ticks_remaining: 5
 
+  # ========== DIVINE INTERVENTION ==========
+
+  - id: "1020"
+    name: "Divine Intervention"
+    description: "Protected by a divine ward. If this effect is active when you would die, the ward intercepts the killing blow and restores you to full health."
+    type: DIVINE_INTERVENTION
+    duration: 86400
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: []
+    stackPolicy: REPLACE
+    persistent: true
+    priority: 100
+    params: {}
+
   # ========== MONK EFFECTS ==========
 
   - id: "flurry"

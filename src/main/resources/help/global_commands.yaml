@@ -48,7 +48,7 @@ prompt:
 
     DESCRIPTION
         With no arguments prints your current prompt format. With FORMAT sets your session prompt.
-        Tokens: %h/%H hp, %m/%M mp, %v/%V mv, %c char name, %r room name, %a area name, %e exits, %T game time
+        Tokens: %h/%H hp, %m/%M mp, %v/%V mv, %c char name, %r room name, %R room ID, %a area name, %e exits, %T game time
 
     EXAMPLE
         prompt <%c@%r>
@@ -1169,6 +1169,54 @@ mass teleport:
     EXAMPLE
         cast mass teleport 3001
         cast mass teleport 1200
+
+divine intervention:
+  summary: "place a divine ward on an ally that saves them from death once"
+  visibility: public
+  synopsis:
+    - "cast 'divine intervention'"
+    - "cast 'divine intervention' <player>"
+  body: |
+    NAME
+        divine intervention - cleric capstone ward that intercepts the killing blow
+
+    SYNOPSIS
+        cast 'divine intervention'
+        cast 'divine intervention' <player>
+
+    DESCRIPTION
+        You invoke the direct power of your deity, placing a golden divine
+        ward upon yourself or a target player. Should the protected character
+        receive a killing blow while the ward is active, an Angel intervenes:
+        the killing blow is negated, the ward is consumed, and the target is
+        immediately restored to full health.
+
+        TARGET
+          If no target is specified, the ward is placed on yourself.
+          The target must be a player in the same room as you.
+
+        ONE WARD PER CASTER
+          A cleric can only protect one person at a time. If you cast
+          Divine Intervention on a second target before the first expires,
+          the original ward is removed and the new target receives the
+          blessing instead.
+
+        RESTRICTIONS
+          - Cannot be cast in combat (NOCOMBAT).
+          - Requires level 9 Divine proficiency.
+          - Cleric capstone: granted automatically at level 50.
+
+        DURATION  : 24 hours
+        CASTING   : 10.0 seconds
+        COOLDOWN  : 3 minutes
+        MP COST   : 9
+
+    SEE ALSO
+        cast, spells
+
+    EXAMPLES
+        cast 'divine intervention'
+        cast 'divine intervention' Aelindra
 
 disintegrate:
   summary: "channel your life force into a beam that destroys your foe — and you"

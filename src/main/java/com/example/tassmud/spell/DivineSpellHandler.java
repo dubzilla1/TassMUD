@@ -50,6 +50,7 @@ public class DivineSpellHandler {
         registerDivine("sanctuary");
         registerDivine("shield");
         registerDivine("stone skin");
+        registerDivine("divine intervention");
         
         
         
@@ -85,6 +86,7 @@ public class DivineSpellHandler {
             case "sanctuary": return handleSanctuary(casterId, args, ctx);
             case "shield": return handleShield(casterId, args, ctx);
             case "stone skin": return handleStoneSkin(casterId, args, ctx);
+            case "divine intervention": return handleDivineIntervention(casterId, args, ctx);
             default:
                 return notImplemented(spellName, casterId, args, ctx);
         }
@@ -221,6 +223,87 @@ public class DivineSpellHandler {
     { return notImplemented("shield", casterId, args, ctx); }
     private static boolean handleStoneSkin(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("stone skin", casterId, args, ctx); }
+
+    private static boolean handleDivineIntervention(Integer casterId, String args, SpellContext ctx) {
+        // Divine Intervention: Level 9 DIVINE capstone, out-of-combat only (NOCOMBAT trait)
+        // Places a 24-hour death-save ward on a target player.
+        // Only one ward per caster; re-casting on a new target displaces the old one.
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[divine intervention] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+
+        // Resolve target: the spell target type is TARGET (player by name), defaults to self
+        List<Integer> targetIds = ctx.getTargetIds();
+        Integer targetId;
+        String targetName;
+
+        if (targetIds.isEmpty()) {
+            // Default to self
+            targetId = casterId;
+        } else {
+            targetId = targetIds.get(0);
+        }
+
+        if (targetId == null) {
+            cmdCtx.send("You must specify a target for Divine Intervention.");
+            return false;
+        }
+
+        // Look up target record
+        CharacterDAO.CharacterRecord targetRec =
+            com.example.tassmud.persistence.DaoProvider.characters().findById(targetId);
+        if (targetRec == null) {
+            cmdCtx.send("No such player found.");
+            return false;
+        }
+        targetName = targetRec.name;
+
+        // Verify target is in the same room (or is self)
+        if (!targetId.equals(casterId)) {
+            com.example.tassmud.net.ClientHandler targetSession =
+                com.example.tassmud.net.ClientHandler.charIdToSession.get(targetId);
+            if (targetSession == null || !Integer.valueOf(cmdCtx.currentRoomId).equals(targetSession.currentRoomId)) {
+                cmdCtx.send(targetName + " is not in the room with you.");
+                return false;
+            }
+        }
+
+        // Build extra params (proficiency forwarded from context)
+        java.util.Map<String, String> extraParams = new java.util.HashMap<>();
+        int proficiency = ctx.getProficiency();
+        extraParams.put("proficiency", String.valueOf(proficiency));
+        if (casterId != null) extraParams.put("casterId", casterId.toString());
+
+        // Apply the effect
+        com.example.tassmud.effect.EffectInstance inst =
+            com.example.tassmud.effect.EffectRegistry.apply(
+                com.example.tassmud.effect.DivineInterventionEffect.EFFECT_DEF_ID,
+                casterId, targetId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("The divine ward failed to take hold.");
+            return false;
+        }
+
+        // Messages
+        if (targetId.equals(casterId)) {
+            cmdCtx.send("\u001B[93mYou invoke the power of your deity. A divine ward now shields your life!\u001B[0m");
+            com.example.tassmud.net.ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                cmdCtx.playerName + " is surrounded by a faint divine light.", casterId);
+        } else {
+            cmdCtx.send("\u001B[93mYou invoke the power of your deity, placing a divine ward upon " + targetName + "!\u001B[0m");
+            com.example.tassmud.net.ClientHandler.sendToCharacter(targetId,
+                "\u001B[93m" + cmdCtx.playerName + " places a divine ward upon you! An Angel stands ready to intercept death.\u001B[0m");
+            com.example.tassmud.net.ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                cmdCtx.playerName + " surrounds " + targetName + " with a faint divine light.", casterId);
+        }
+
+        logger.debug("[divine intervention] Cast by {} on {} (proficiency={})", casterId, targetId, proficiency);
+        return true;
+    }
     
     private static boolean notImplemented(String spellName, Integer casterId, String args, SpellContext ctx) {
         if (ctx != null && ctx.getCommandContext() != null) {

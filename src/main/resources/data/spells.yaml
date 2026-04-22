@@ -429,6 +429,19 @@ spells:
     effectIds: [115]
     incantation: el-ayin
 
+  - id: 143
+    name: Divine Intervention
+    description: You invoke the direct power of your deity, placing a divine ward upon an ally. Should they fall in battle, an Angel's hand will intercept the killing blow, dispelling the ward and restoring them to full health.
+    school: DIVINE
+    level: 9
+    castingTime: 10.0
+    cooldown: 3.0
+    target: TARGET
+    progression: INSTANT
+    traits: [NOCOMBAT]
+    effectIds: ["1020"]
+    incantation: el-magen-elyon
+
   # ========== PRIMAL SPELLS (learned through exploration/nature) ==========
   
   # Level 1 Primal

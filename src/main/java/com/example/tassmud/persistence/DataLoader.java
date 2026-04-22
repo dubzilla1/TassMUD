@@ -673,6 +673,8 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("HASTE", new com.example.tassmud.effect.HasteEffect());
             // Register flurry handler for monk Flurry of Blows
             com.example.tassmud.effect.EffectRegistry.registerHandler("flurry", new com.example.tassmud.effect.FlurryEffect());
+            // Register divine intervention handler (death-save ward for clerics)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("DIVINE_INTERVENTION", new com.example.tassmud.effect.DivineInterventionEffect());
             // UNDEAD is a flag effect - no handler needed, just presence check
 
             logger.info("Loaded {} effects from effects.yaml", count);

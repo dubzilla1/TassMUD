@@ -637,6 +637,7 @@ public class ClientHandler implements Runnable {
                     String s = sb.length() == 0 ? "none" : sb.toString();
                     out.append(s);
                 } break;
+                case 'R': out.append(rec != null && rec.currentRoom != null ? Integer.toString(rec.currentRoom) : "0"); break;
                 default:
                     // unknown token, emit as-is
                     out.append('%').append(t);

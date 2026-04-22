@@ -74,6 +74,12 @@ public class DeathHandler {
      * then awards XP and weapon proficiency to the killer.
      */
     public void handleCombatantDeath(Combat combat, Combatant victim, Combatant killer) {
+        // Divine Intervention: if the victim is a player with an active ward, intercept the death
+        if (victim.isPlayer() && victim.getCharacterId() != null &&
+                com.example.tassmud.effect.DivineInterventionEffect.checkAndIntercept(victim, combat.getRoomId())) {
+            return;
+        }
+
         String deathMessage = victim.getName() + " has been slain by " + killer.getName() + "!";
         broadcastToRoom(combat.getRoomId(), deathMessage);
         combat.logEvent(deathMessage);
