@@ -88,6 +88,21 @@ effects:
     priority: 0
     params: {}
 
+  - id: "122"
+    name: "Meteor Swarm"
+    type: METEOR_SWARM
+    duration: 120
+    cooldown: 0
+    dice_multiplier: 4d6
+    level_multiplier: 0
+    proficiency_impact: [DURATION, TICKS_REMAINING]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      tick_interval: 3
+      damage_type: fire
+
   # ========== DAMAGE-OVER-TIME (DOT) EFFECTS ==========
 
   - id: "1001"
@@ -728,6 +743,92 @@ effects:
       stat: ATTACK_HIT_BONUS
       op: ADD
       value: -5
+
+  # ========== NECROMANCER EFFECTS ==========
+
+  - id: "1014"
+    name: "Drain Life"
+    type: DRAIN_LIFE
+    duration: 0            # Instant
+    cooldown: 5
+    dice_multiplier: 10d8
+    level_multiplier: 1
+    proficiency_impact: [DICE_MULTIPLIER]
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: negative
+
+  - id: "1015"
+    name: "Corpse Explosion"
+    type: CORPSE_EXPLOSION
+    duration: 0            # Instant AoE
+    cooldown: 1
+    dice_multiplier: 10d10
+    level_multiplier: 2
+    proficiency_impact: [DICE_MULTIPLIER]
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: negative
+
+  - id: "1016"
+    name: "Bone Armor"
+    type: BONE_ARMOR
+    duration: 86400        # 24 hours
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params: {}
+
+  - id: "1017"
+    name: "Plague"
+    type: PLAGUE
+    duration: 120          # Max possible duration (100% prof = 120s); actual computed by PlagueEffect.apply()
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      damage_type: disease
+
+  - id: "1018"
+    name: "Death Coil"
+    type: DEATH_COIL
+    duration: 0
+    cooldown: 15
+    dice_multiplier: 10d6
+    level_multiplier: 0
+    proficiency_impact: [DICE_MULTIPLIER]
+    stackPolicy: NONE
+    persistent: false
+    priority: 0
+    params:
+      damage_type: negative
+
+  - id: "1019"
+    name: "Death Coil Residue"
+    type: DEATH_COIL_DOT
+    duration: 20
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      tick_interval: 3
+      ticks_remaining: 5
 
   # ========== MONK EFFECTS ==========
 

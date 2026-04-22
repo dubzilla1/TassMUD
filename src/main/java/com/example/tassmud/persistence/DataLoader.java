@@ -1,7 +1,4 @@
 package com.example.tassmud.persistence;
-
-
-import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.model.*;
 import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.model.MobileBehavior;
@@ -650,6 +647,18 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("CALL_LIGHTNING", new com.example.tassmud.effect.CallLightningEffect());
             // Register cause wounds handler for CAUSE_WOUNDS effects (negative energy damage/healing)
             com.example.tassmud.effect.EffectRegistry.registerHandler("CAUSE_WOUNDS", new com.example.tassmud.effect.CauseWoundsEffect());
+            // Register drain life handler for DRAIN_LIFE effects (damage + heal caster)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("DRAIN_LIFE", new com.example.tassmud.effect.DrainLifeEffect());
+            // Register corpse explosion handler for CORPSE_EXPLOSION effects (AoE negative damage)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("CORPSE_EXPLOSION", new com.example.tassmud.effect.CorpseExplosionEffect());
+            // Register bone armor and plague handlers
+            com.example.tassmud.effect.EffectRegistry.registerHandler("BONE_ARMOR", new com.example.tassmud.effect.BoneArmorEffect());
+            com.example.tassmud.effect.EffectRegistry.registerHandler("PLAGUE", new com.example.tassmud.effect.PlagueEffect());
+            // Register death coil handlers (instant strike + crit-applied DOT)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("DEATH_COIL", new com.example.tassmud.effect.DeathCoilEffect());
+            com.example.tassmud.effect.EffectRegistry.registerHandler("DEATH_COIL_DOT", new com.example.tassmud.effect.DeathCoilDotEffect());
+            // Register wizard meteor swarm handler (persistent random meteor volleys)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("METEOR_SWARM", new com.example.tassmud.effect.MeteorSwarmEffect());
             // Register slow handler for SLOW effects (limits attacks per round)
             com.example.tassmud.effect.EffectRegistry.registerHandler("SLOW", new com.example.tassmud.effect.SlowEffect());
             // Register confused handler for CONFUSED effects (random target selection)

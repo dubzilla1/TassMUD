@@ -373,14 +373,14 @@ necromancer:
         HP: +4    MP: +14    MV: +2
 
     SKILL PROGRESSION
-        Level  1: Simple Weapons, Drain Life
+        Level  1: Simple Weapons, Death Coil
+        Level  3: Drain Life
         Level  5: Animate Dead
+        Level  6: Summon Skeleton
         Level 10: Fear
         Level 15: Corpse Explosion
         Level 22: Bone Armor
-        Level 28: Summon Skeleton
         Level 35: Plague
-        Level 42: Death Coil
         Level 50: Army of the Dead
         Level 51: Lich Form (hero level)
 

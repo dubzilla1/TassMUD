@@ -938,6 +938,273 @@ animate dead:
     EXAMPLE
         cast animate dead
 
+summon skeleton:
+  summary: "summon a skeleton ally without a corpse"
+  visibility: public
+  synopsis:
+    - "cast summon skeleton"
+  body: |
+    NAME
+        summon skeleton - call a skeleton from the spirit realm
+
+    SYNOPSIS
+        cast summon skeleton
+
+    DESCRIPTION
+        An occult emergency summoning spell that calls forth a skeleton
+        servant even when no corpses are present in the room.
+
+        Unlike animate dead, this spell:
+        1) Always summons a skeleton
+        2) Does not consume or require any corpse
+
+        The skeleton scales with your caster level and will follow you,
+        defending you in combat.
+
+        DURATION: 1 minute base + 1 minute per 10 points of proficiency.
+
+        Cooldown: 15 minutes.  MP cost: 6.
+
+    SEE ALSO
+        cast, animate dead, army of the dead, spells
+
+    EXAMPLE
+        cast summon skeleton
+
+army of the dead:
+  summary: "consume one corpse to raise five undead warriors"
+  visibility: public
+  synopsis:
+    - "cast army of the dead"
+  body: |
+    NAME
+        army of the dead - raise five undead from a single corpse
+
+    SYNOPSIS
+        cast army of the dead
+
+    DESCRIPTION
+        The pinnacle of necromantic summoning. You shatter the veil between
+        worlds, consuming a single corpse to tear through and drag back five
+        undead warriors simultaneously.
+
+        The five undead are random — anything from skeletons to ghouls to
+        worse, scaled to your caster level. They all arrive at once and
+        fight as your DEFENDER allies.
+
+        These servants are unstable. They dissolve into shadow after
+        exactly 60 seconds, regardless of proficiency.
+
+        One corpse required. No corpse, no army.
+
+        Cooldown: 30 minutes.  MP cost: 9.
+
+    SEE ALSO
+        cast, animate dead, summon skeleton, spells
+
+plague:
+  summary: "infect your enemy with an escalating disease"
+  visibility: public
+  synopsis:
+    - "cast plague"
+  body: |
+    NAME
+        plague - infect your enemy with an escalating, self-amplifying disease
+
+    SYNOPSIS
+        cast plague
+
+    DESCRIPTION
+        You breathe dark contagion upon your enemy. A hideous plague takes
+        root in the victim's body, growing more virulent with every passing
+        moment.
+
+        On the first tick, the plague deals 1d6 damage. On subsequent ticks,
+        the damage is (accumulated prior damage + 1d6), so the disease
+        spirals out of control the longer it lasts.
+
+        After each tick, the target has a chance to fight it off. The chance
+        equals the damage dealt that tick (roll 1-100, success if roll is
+        less than damage). A plague that has escalated high enough can end
+        itself.
+
+        Ticks every 3 seconds. Duration scales with proficiency:
+        base 20 seconds + 1 second per % proficiency (20s–120s).
+
+        Undead are completely immune to plague.
+
+        Cooldown: 1 minute.  MP cost: 7.
+
+    SEE ALSO
+        cast, animate dead, bone armor, spells
+
+    EXAMPLE
+        cast plague
+
+death coil:
+  summary: "launch a necrotic bolt that can leave lingering deathly residue"
+  visibility: public
+  synopsis:
+    - "cast death coil"
+  body: |
+    NAME
+        death coil - instant necrotic strike with crit-triggered damage-over-time
+
+    SYNOPSIS
+        cast death coil
+
+    DESCRIPTION
+        A staple necromancer strike. Death Coil lashes your current enemy
+        with concentrated necrotic force.
+
+        Base damage uses proficiency-scaled dice from 1d6 up to 10d6.
+        On a critical hit, Death Coil deals critical damage and applies
+        lingering necrotic residue.
+
+        Residue effect (on crit):
+        - Per-tick damage: half of the critical hit damage
+        - Ticks: 5
+        - Tick interval: every 3 seconds
+
+        Cooldown: 15 seconds. MP cost: 1.
+
+    SEE ALSO
+        cast, drain life, plague, spells
+
+    EXAMPLE
+        cast death coil
+
+meteor swarm:
+  summary: "call repeated meteor volleys onto random enemies"
+  visibility: public
+  synopsis:
+    - "cast meteor swarm"
+  body: |
+    NAME
+        meteor swarm - sustained battlefield bombardment
+
+    SYNOPSIS
+        cast meteor swarm
+
+    DESCRIPTION
+        You open the heavens and call down waves of meteors for a sustained
+        bombardment.
+
+        Every 3 seconds, a volley lands:
+        - Roll 1d10 meteors for that volley
+        - Each meteor randomly chooses an enemy
+        - Each meteor deals proficiency-scaled 4d6 damage
+
+        Proficiency scaling:
+        - Tick count scales from 1 up to 40 volleys (max 120s at 3s intervals)
+
+        Targeting is dynamic: each meteor picks from currently active enemies,
+        so the barrage adapts as combat changes.
+
+    SEE ALSO
+        cast, fireball, earthquake, lightning bolt, spells
+
+    EXAMPLE
+        cast meteor swarm
+
+teleport:
+  summary: "instantly transport yourself to a room by ID"
+  visibility: public
+  synopsis:
+    - "cast teleport <room_id>"
+  body: |
+    NAME
+        teleport - arcane self-transport to any known room
+
+    SYNOPSIS
+        cast teleport <room_id>
+
+    DESCRIPTION
+        You tear a rift through space, instantly transporting yourself to
+        the specified room. The room ID must be a valid numeric room ID.
+
+        Requires 10 seconds to cast and cannot be cast while in combat.
+
+        Departure: you vanish in a flash of arcane light.
+        Arrival: you materialize from a swirling portal of arcane energy.
+
+        Cooldown: 30 seconds. MP cost: 6.
+
+    SEE ALSO
+        cast, dimension door, spells
+
+    EXAMPLE
+        cast teleport 3001
+        cast teleport 1200
+
+mass teleport:
+  summary: "transport your entire party to a room by ID"
+  visibility: public
+  synopsis:
+    - "cast mass teleport <room_id>"
+  body: |
+    NAME
+        mass teleport - arcane group-transport to any known room
+
+    SYNOPSIS
+        cast mass teleport <room_id>
+
+    DESCRIPTION
+        You rip open a massive portal through the fabric of space,
+        sweeping your entire party through it to the specified room.
+
+        All online party members are transported simultaneously. Offline
+        members are unaffected. If you have no party, only you move.
+
+        Requires 10 seconds to cast and cannot be cast while in combat.
+
+        Departure: each member vanishes in a flash of arcane light.
+        Arrival: each member materializes from a swirling portal.
+
+        Cooldown: 60 seconds. MP cost: 9.
+
+    SEE ALSO
+        cast, teleport, group, spells
+
+    EXAMPLE
+        cast mass teleport 3001
+        cast mass teleport 1200
+
+disintegrate:
+  summary: "channel your life force into a beam that destroys your foe — and you"
+  visibility: public
+  synopsis:
+    - "cast disintegrate"
+  body: |
+    NAME
+        disintegrate - arcane seppuku that destroys caster and target alike
+
+    SYNOPSIS
+        cast disintegrate
+
+    DESCRIPTION
+        You tear open a vein of raw arcane force and channel your own life
+        energy into a beam of annihilating light. The beam deals damage
+        equal to your CURRENT HP to your enemy — then the backlash tears
+        through you for the same amount.
+
+        PROFICIENCY REDUCES YOUR BACKLASH:
+          - Each 1% of proficiency reduces the damage you take by 0.5%.
+          - At 0% proficiency  : you take 100% damage (same as the beam).
+          - At 100% proficiency: you take 50% damage (half the beam).
+
+        The target damage is always full — there is no way to reduce it.
+        Use this spell when you need to guarantee the kill, not when you
+        need to survive.
+
+        Casting time: 1.5 seconds. Cooldown: 120 seconds. MP cost: 8.
+
+    SEE ALSO
+        cast, spells
+
+    EXAMPLE
+        cast disintegrate
+
 kill:
   summary: "attack a target and initiate combat"
   visibility: public

@@ -5,15 +5,21 @@ import com.example.tassmud.persistence.DaoProvider;
 import com.example.tassmud.effect.EffectDefinition;
 import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.effect.EffectRegistry;
+import com.example.tassmud.model.Group;
+import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Spell;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.commands.CommandContext;
+import com.example.tassmud.net.commands.MovementCommandHandler;
 import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.util.GroupManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Central dispatcher for ARCANE spells. Registers handlers for all arcane
@@ -58,6 +64,10 @@ public class ArcaneSpellHandler {
         registerArcane("shocking grasp");
         registerArcane("sleep");
         registerArcane("weaken");
+        registerArcane("disintegrate");
+        registerArcane("meteor swarm");
+        registerArcane("teleport");
+        registerArcane("mass teleport");
 
         // Dragon breath spells
         registerArcane("acid breath");
@@ -96,6 +106,10 @@ public class ArcaneSpellHandler {
             case "shocking grasp": return handleShockingGrasp(casterId, args, ctx);
             case "sleep": return handleSleep(casterId, args, ctx);
             case "weaken": return handleWeaken(casterId, args, ctx);
+            case "meteor swarm": return handleMeteorSwarm(casterId, args, ctx);
+            case "teleport": return handleTeleport(casterId, args, ctx);
+            case "disintegrate": return handleDisintegrate(casterId, args, ctx);
+            case "mass teleport": return handleMassTeleport(casterId, args, ctx);
             case "acid breath": return handleAcidBreath(casterId, args, ctx);
             case "fire breath": return handleFireBreath(casterId, args, ctx);
             case "frost breath": return handleFrostBreath(casterId, args, ctx);
@@ -610,6 +624,228 @@ public class ArcaneSpellHandler {
     private static boolean handleShockingGrasp(Integer casterId, String args, SpellContext ctx) { return notImplemented("shocking grasp", casterId, args, ctx); }
     private static boolean handleSleep(Integer casterId, String args, SpellContext ctx) { return notImplemented("sleep", casterId, args, ctx); }
     private static boolean handleWeaken(Integer casterId, String args, SpellContext ctx) { return notImplemented("weaken", casterId, args, ctx); }
+
+    private static boolean handleMeteorSwarm(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[meteor swarm] No context available");
+            return false;
+        }
+
+        // Requires active enemies in combat to start the swarm field.
+        if (ctx.getTargetIds() == null || ctx.getTargetIds().isEmpty()) {
+            ctx.getCommandContext().send("There are no enemies for your meteors to strike.");
+            return false;
+        }
+
+        Spell spell = ctx.getSpell();
+        if (spell == null || spell.getEffectIds() == null || spell.getEffectIds().isEmpty()) {
+            logger.warn("[meteor swarm] No effects defined for spell");
+            return false;
+        }
+
+        String effectId = spell.getEffectIds().get(0);
+        EffectInstance inst = EffectRegistry.apply(effectId, casterId, casterId, ctx.getExtraParams());
+        return inst != null;
+    }
+
+    private static boolean handleTeleport(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) return false;
+        CommandContext cc = ctx.getCommandContext();
+
+        if (args == null || args.trim().isEmpty()) {
+            cc.send("Teleport where? Usage: cast teleport <room_id>");
+            return false;
+        }
+
+        int roomId;
+        try {
+            roomId = Integer.parseInt(args.trim());
+        } catch (NumberFormatException e) {
+            cc.send("Invalid room ID '" + args.trim() + "'. Usage: cast teleport <room_id>");
+            return false;
+        }
+
+        Room destRoom = DaoProvider.rooms().getRoomById(roomId);
+        if (destRoom == null) {
+            cc.send("No room with ID " + roomId + " exists.");
+            return false;
+        }
+
+        String casterName = cc.playerName;
+        Integer oldRoomId = cc.currentRoomId;
+
+        ClientHandler.roomAnnounce(oldRoomId,
+            casterName + " vanishes in a flash of arcane light!", cc.characterId, true);
+
+        DaoProvider.characters().updateCharacterRoom(casterName, roomId);
+        cc.handler.currentRoomId = roomId;
+
+        cc.send("\nYou tear a hole through space and emerge in " + destRoom.getName() + ".\n");
+        ClientHandler.roomAnnounce(roomId,
+            casterName + " materializes from a swirling portal of arcane energy!", cc.characterId, true);
+
+        MovementCommandHandler.showRoom(destRoom, roomId, cc);
+        return true;
+    }
+
+    private static boolean handleMassTeleport(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) return false;
+        CommandContext cc = ctx.getCommandContext();
+
+        if (args == null || args.trim().isEmpty()) {
+            cc.send("Mass Teleport where? Usage: cast mass teleport <room_id>");
+            return false;
+        }
+
+        int roomId;
+        try {
+            roomId = Integer.parseInt(args.trim());
+        } catch (NumberFormatException e) {
+            cc.send("Invalid room ID '" + args.trim() + "'. Usage: cast mass teleport <room_id>");
+            return false;
+        }
+
+        Room destRoom = DaoProvider.rooms().getRoomById(roomId);
+        if (destRoom == null) {
+            cc.send("No room with ID " + roomId + " exists.");
+            return false;
+        }
+
+        // Build member set: caster first, then any party members
+        Set<Integer> memberIds = new LinkedHashSet<>();
+        memberIds.add(casterId);
+        GroupManager.getInstance().getGroupForCharacter(casterId)
+            .ifPresent(group -> memberIds.addAll(group.getMemberIds()));
+
+        int teleported = 0;
+        for (Integer memberId : memberIds) {
+            ClientHandler memberHandler = ClientHandler.getHandlerByCharacterId(memberId);
+            if (memberHandler == null || memberHandler.playerName == null || memberHandler.out == null) continue;
+
+            String memberName = memberHandler.playerName;
+            Integer oldRoomId = memberHandler.currentRoomId;
+
+            ClientHandler.roomAnnounce(oldRoomId,
+                memberName + " vanishes in a flash of arcane light!", memberId, true);
+
+            DaoProvider.characters().updateCharacterRoom(memberName, roomId);
+            memberHandler.currentRoomId = roomId;
+
+            if (memberId.equals(casterId)) {
+                cc.send("\nYou rip open a portal through space, pulling your party to " + destRoom.getName() + ".\n");
+            } else {
+                memberHandler.out.println("\nYou are swept through a shimmering portal and emerge in " + destRoom.getName() + ".\n");
+            }
+
+            ClientHandler.roomAnnounce(roomId,
+                memberName + " materializes from a swirling portal of arcane energy!", memberId, true);
+
+            // Build a synthetic CommandContext so showRoom works for each member
+            CommandContext memberCtx = new CommandContext(
+                null, memberName, memberId, roomId,
+                null, DaoProvider.characters(), memberHandler.out,
+                false, false, memberHandler
+            );
+            MovementCommandHandler.showRoom(destRoom, roomId, memberCtx);
+            teleported++;
+        }
+
+        if (teleported <= 1) {
+            // Teleported only self — no online party members
+            cc.send("(No party members were online to bring along.)");
+        }
+
+        return true;
+    }
+
+    private static boolean handleDisintegrate(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) return false;
+        CommandContext cc = ctx.getCommandContext();
+
+        com.example.tassmud.combat.Combat combat = ctx.getCombat();
+        if (combat == null) {
+            cc.send("You must be in combat to channel your life force into destruction.");
+            return false;
+        }
+
+        // Resolve the primary target from context
+        List<Integer> targets = ctx.getTargetIds();
+        if (targets == null || targets.isEmpty()) {
+            cc.send("There is no target to disintegrate.");
+            return false;
+        }
+        Integer targetId = targets.get(0);
+
+        com.example.tassmud.combat.Combatant targetCombatant = combat.findByCharacterId(targetId);
+        com.example.tassmud.combat.Combatant casterCombatant = combat.findByCharacterId(casterId);
+        if (targetCombatant == null || casterCombatant == null) {
+            cc.send("The spell fizzles — you cannot locate your target.");
+            return false;
+        }
+
+        // Damage = caster's current HP
+        int casterCurrentHp = casterCombatant.getHpCurrent();
+        if (casterCurrentHp <= 0) {
+            cc.send("You have no life force left to channel.");
+            return false;
+        }
+
+        // Proficiency reduces caster's backlash: 0% prof = 100% damage, 100% prof = 50% damage
+        int proficiency = Math.max(0, Math.min(100, ctx.getProficiency()));
+        double casterMultiplier = 1.0 - (proficiency * 0.005);  // 1.0 → 0.5
+
+        int targetDamage = casterCurrentHp;
+        int casterDamage = (int) Math.max(1, Math.round(casterCurrentHp * casterMultiplier));
+
+        String targetName = targetCombatant.getName();
+        String casterName = cc.playerName != null ? cc.playerName : "The wizard";
+        int casterRoom = cc.currentRoomId != null ? cc.currentRoomId : -1;
+
+        // Dramatic cast announcement
+        ClientHandler.broadcastRoomMessage(casterRoom,
+            casterName + " tears open a vein of raw arcane force, channeling their very life into a beam of white destruction!");
+
+        // --- Apply damage to target ---
+        int targetOldHp = targetCombatant.getHpCurrent();
+        targetCombatant.damage(targetDamage);
+        int targetNewHp = targetCombatant.getHpCurrent();
+
+        ClientHandler.broadcastRoomMessage(casterRoom,
+            "The beam strikes %s for %d damage!".formatted(targetName, targetDamage));
+
+        if (targetCombatant.isPlayer()) {
+            ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetId);
+            if (targetHandler != null) {
+                targetHandler.out.println(
+                    "\u001B[31mDisintegrate deals %d damage to you! [%d -> %d HP]\u001B[0m"
+                        .formatted(targetDamage, targetOldHp, targetNewHp));
+            }
+        }
+
+        if (!targetCombatant.isAlive()) {
+            ClientHandler.broadcastRoomMessage(casterRoom,
+                targetName + " is utterly disintegrated!");
+        }
+
+        // --- Apply backlash to caster ---
+        int casterOldHp = casterCombatant.getHpCurrent(); // may have changed if target hit back, but typically unchanged
+        casterCombatant.damage(casterDamage);
+        int casterNewHp = casterCombatant.getHpCurrent();
+
+        ClientHandler.broadcastRoomMessage(casterRoom,
+            casterName + " reels from the backlash, taking %d damage!".formatted(casterDamage));
+
+        cc.send("\u001B[31mThe backlash tears through you for %d damage! [%d -> %d HP]\u001B[0m"
+            .formatted(casterDamage, casterOldHp, casterNewHp));
+
+        if (!casterCombatant.isAlive()) {
+            ClientHandler.broadcastRoomMessage(casterRoom,
+                casterName + " is consumed by the backlash of their own spell!");
+        }
+
+        ctx.addDamageSpellAggro(targetDamage);
+        return true;
+    }
 
     // Dragon breaths
     private static boolean handleAcidBreath(Integer casterId, String args, SpellContext ctx) { return notImplemented("acid breath", casterId, args, ctx); }

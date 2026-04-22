@@ -70,23 +70,28 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 100  # arcane infusion
-      - level: 1
+      - level: 2
         skill_id: 950  # cloth armor
       - level: 5
         spell_id: 3    # detect magic
-      - level: 8
+      - level: 10
         spell_id: 11   # shield
-      - level: 12
+      - level: 15
         spell_id: 20   # fireball
-      - level: 18
+      - level: 20
         spell_id: 21   # lightning bolt
-      # TODO: Teleport spell not yet implemented
-      - level: 30
+      - level: 20
+        spell_id: 53   # teleport
+      - level: 25
         spell_id: 40   # cone of cold
-      - level: 30
+      - level: 35
         skill_id: 110  # greater arcane infusion
-      # TODO: Disintegrate spell not yet implemented
-      # TODO: Meteor Swarm spell not yet implemented
+      - level: 40
+        spell_id: 55   # disintegrate
+      - level: 40
+        spell_id: 54   # mass teleport
+      - level: 45
+        spell_id: 52   # meteor swarm
       - level: 51
         skill_id: 109  # arcane mastery (hero level)
 
@@ -287,17 +292,24 @@ classes:
         skill_id: 900  # simple weapons (all classes)
       - level: 1
         skill_id: 950  # cloth armor
-      # TODO: Drain Life spell not yet implemented
+      - level: 2
+        spell_id: 327  # death coil
+      - level: 3
+        spell_id: 304  # drain life
       - level: 5
-        spell_id: 321  # animate dead
+        spell_id: 324  # summon skeleton
       - level: 10
+        spell_id: 322  # corpse explosion
+      - level: 15
         spell_id: 331  # fear
-      # TODO: Corpse Explosion spell not yet implemented
-      # TODO: Bone Armor spell not yet implemented
-      # TODO: Summon Skeleton spell not yet implemented
-      # TODO: Plague spell not yet implemented
-      # TODO: Death Coil spell not yet implemented
-      # TODO: Army of the Dead spell not yet implemented
+      - level: 20
+        spell_id: 323  # bone armor
+      - level: 25
+        spell_id: 321  # animate dead
+      - level: 35
+        spell_id: 326  # plague
+      - level: 45
+        spell_id: 325  # army of the dead
       - level: 51
         skill_id: 609  # lich form (hero level)
 

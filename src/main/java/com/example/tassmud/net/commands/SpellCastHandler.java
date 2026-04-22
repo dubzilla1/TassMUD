@@ -299,6 +299,26 @@ class SpellCastHandler {
                 out.println("You don't have a current combat target.");
                 return true;
             }
+        } else if (ttype == Spell.SpellTarget.ALL_ENEMIES) {
+            // Resolve all enemy combatants from active combat
+            Combat activeCombat = CombatManager.getInstance().getCombatForCharacter(charId);
+            if (activeCombat != null) {
+                Combatant casterCombatant = activeCombat.findByCharacterId(charId);
+                if (casterCombatant != null) {
+                    java.util.List<Combatant> enemies = activeCombat.getValidTargets(casterCombatant);
+                    for (Combatant enemy : enemies) {
+                        if (enemy.isPlayer()) {
+                            targets.add(enemy.getCharacterId());
+                        } else if (enemy.getMobile() != null) {
+                            targets.add(-(int)enemy.getMobile().getInstanceId());
+                        }
+                    }
+                }
+            }
+            if (targets.isEmpty()) {
+                out.println("There are no enemies to target.");
+                return true;
+            }
         } else if (ttype == Spell.SpellTarget.EXPLICIT_MOB_TARGET) {
             // Blindness check - can't target explicitly if blind (but current enemy fallback still works)
             if (targetArg != null && !targetArg.trim().isEmpty() && 
