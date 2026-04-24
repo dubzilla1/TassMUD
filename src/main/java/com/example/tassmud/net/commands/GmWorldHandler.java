@@ -526,6 +526,10 @@ class GmWorldHandler {
         ctx.handler.currentRoomId = gotoRoomId;
         rec = dao.findByName(name);
 
+        // Aura room-change: update recipient sets for sanctuary-like auras
+        com.example.tassmud.effect.AuraManager.getInstance()
+                .onPlayerRoomChange(charId, oldRoom, gotoRoomId);
+
         if (!ctx.handler.gmInvisible) { ClientHandler.roomAnnounce(gotoRoomId, ClientHandler.makeArrivalMessage(name, null), charId, true); }
 
         out.println();

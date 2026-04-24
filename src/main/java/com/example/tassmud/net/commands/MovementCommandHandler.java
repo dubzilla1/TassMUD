@@ -288,6 +288,10 @@ public class MovementCommandHandler implements CommandHandler {
         dao.updateCharacterRoom(name, TEMPLE_OF_MIDGAARD);
         ctx.handler.currentRoomId = TEMPLE_OF_MIDGAARD;
         rec = dao.findByName(name);
+
+        // Aura room-change: update recipient sets for sanctuary-like auras
+        com.example.tassmud.effect.AuraManager.getInstance()
+                .onPlayerRoomChange(charId, recallOldRoom, TEMPLE_OF_MIDGAARD);
         
         // Announce magical arrival in new room (respecting invisibility)
         ClientHandler.roomAnnounceFromActor(TEMPLE_OF_MIDGAARD, name + " appears in a shimmer of light.", charId);
@@ -869,6 +873,10 @@ public class MovementCommandHandler implements CommandHandler {
                 // Ally follow mechanic - move any following allies with the player
                 moveAllyFollowers(leaderCharId, leaderOldRoomId, leaderDestId, leaderDirection);
 
+                // Aura room-change: update recipient sets for sanctuary-like auras
+                com.example.tassmud.effect.AuraManager.getInstance()
+                        .onPlayerRoomChange(leaderCharId, leaderOldRoomId, leaderDestId);
+
                 return true;
             }
 
@@ -1073,6 +1081,10 @@ public class MovementCommandHandler implements CommandHandler {
 
             // Update handler state
             followerHandler.currentRoomId = toRoomId;
+
+            // Aura room-change: update recipient sets for sanctuary-like auras
+            com.example.tassmud.effect.AuraManager.getInstance()
+                    .onPlayerRoomChange(followerId, fromRoomId, toRoomId);
 
             // Announce arrival
             if (!followerHandler.gmInvisible) {

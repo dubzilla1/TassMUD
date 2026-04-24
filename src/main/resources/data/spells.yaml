@@ -442,6 +442,29 @@ spells:
     effectIds: ["1020"]
     incantation: el-magen-elyon
 
+  - id: 144
+    name: Regen
+    description: You channel divine energy into a target, weaving a continuous healing effect. Every 3 seconds, the target regains 1d8 hit points. Duration scales with proficiency (up to 120 seconds at full mastery).
+    school: DIVINE
+    level: 4
+    castingTime: 1.5
+    target: TARGET
+    progression: VERY_HARD
+    effectIds: ["1021"]
+    incantation: rapha-tamid
+
+  - id: 145
+    name: Sanctuary
+    description: The cleric opens their soul to the divine and becomes a beacon of sacred healing, radiating a continuous regenerative aura to all nearby allies. Duration scales with proficiency (up to 600 seconds at full mastery).
+    school: DIVINE
+    level: 8
+    castingTime: 1.5
+    target: SELF
+    progression: VERY_HARD
+    mpCost: 20
+    effectIds: ["1022"]
+    incantation: qodesh-tamid
+
   # ========== PRIMAL SPELLS (learned through exploration/nature) ==========
   
   # Level 1 Primal

@@ -248,8 +248,8 @@ skills:
   - id: 109
     key: arcane_mastery
     name: Arcane Mastery
-    description: Perfect understanding of magic itself. All spells cost less and hit harder.
-    progression: LEGENDARY
+    description: Perfect understanding of magic itself. Halves the MP cost, casting time, and cooldown of every arcane spell.
+    progression: INSTANT
 
   - id: 110
     key: greater_arcane_infusion
@@ -304,6 +304,12 @@ skills:
     name: Divine Intervention
     description: Petition your deity directly for miraculous aid in dire circumstances.
     progression: LEGENDARY
+
+  - id: 208
+    key: divine_mastery
+    name: Divine Mastery
+    description: Perfect union with your deity. Halves the MP cost, casting time, and cooldown of every divine spell.
+    progression: INSTANT
 
   # ============================================================
   # ROGUE SKILLS (300-399)
@@ -437,6 +443,12 @@ skills:
     description: Become one with the ultimate hunter. Track anything, hit everything.
     progression: LEGENDARY
 
+  - id: 410
+    key: primal_mastery
+    name: Primal Mastery
+    description: Become one with the wild forces of nature. Halves the MP cost, casting time, and cooldown of every primal spell.
+    progression: INSTANT
+
   # ============================================================
   # PALADIN SKILLS (500-599)
   # ============================================================
@@ -562,6 +574,12 @@ skills:
     name: Lich Form
     description: Transform into an undying lich, gaining immense dark power.
     progression: LEGENDARY
+
+  - id: 610
+    key: occult_mastery
+    name: Occult Mastery
+    description: Absolute command over the forbidden arts. Halves the MP cost, casting time, and cooldown of every occult spell.
+    progression: INSTANT
 
   # ============================================================
   # MONK SKILLS (700-799)

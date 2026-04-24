@@ -654,6 +654,12 @@ public class DataLoader {
             // Register bone armor and plague handlers
             com.example.tassmud.effect.EffectRegistry.registerHandler("BONE_ARMOR", new com.example.tassmud.effect.BoneArmorEffect());
             com.example.tassmud.effect.EffectRegistry.registerHandler("PLAGUE", new com.example.tassmud.effect.PlagueEffect());
+            // Register regen HOT handler (divine heal over time)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("REGEN_HOT", new com.example.tassmud.effect.RegenEffect());
+            // Register aura regen HOT handler (child effect of Sanctuary aura — uses same tick logic as REGEN_HOT)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("AURA_REGEN_HOT", new com.example.tassmud.effect.RegenEffect());
+            // Register sanctuary aura handler (radiating divine HOT to all PCs in room)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("SANCTUARY_AURA", new com.example.tassmud.effect.SanctuaryAuraEffect());
             // Register death coil handlers (instant strike + crit-applied DOT)
             com.example.tassmud.effect.EffectRegistry.registerHandler("DEATH_COIL", new com.example.tassmud.effect.DeathCoilEffect());
             com.example.tassmud.effect.EffectRegistry.registerHandler("DEATH_COIL_DOT", new com.example.tassmud.effect.DeathCoilDotEffect());

@@ -846,6 +846,56 @@ effects:
     priority: 100
     params: {}
 
+  # ========== REGEN HOT ==========
+
+  - id: "1021"
+    name: "Regen"
+    description: "Divine energy flows through you, continuously mending your wounds."
+    type: REGEN_HOT
+    tags: [buff, magical, hot]
+    duration: 120
+    cooldown: 0
+    dice_multiplier: 1d8
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params: {}
+
+  # ========== SANCTUARY AURA ==========
+
+  - id: "1022"
+    name: "Sanctuary Aura"
+    description: "The cleric radiates divine light, mending wounds of all nearby companions."
+    type: SANCTUARY_AURA
+    tags: [buff, magical, aura]
+    duration: 600
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REPLACE
+    persistent: true
+    priority: 0
+    params:
+      child_effect_id: "1023"
+
+  - id: "1023"
+    name: "Aura Regen"
+    description: "Blessed by a nearby sanctuary, divine energy continuously mends your wounds."
+    type: AURA_REGEN_HOT
+    tags: [buff, magical, hot, aura]
+    duration: 120
+    cooldown: 0
+    dice_multiplier: 1d8
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REPLACE
+    persistent: true
+    priority: 0
+    params: {}
+
   # ========== MONK EFFECTS ==========
 
   - id: "flurry"

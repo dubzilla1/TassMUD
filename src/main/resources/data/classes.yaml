@@ -92,7 +92,8 @@ classes:
         spell_id: 54   # mass teleport
       - level: 45
         spell_id: 52   # meteor swarm
-      # TODO: arcane mastery skill not yet implemented (hero level)
+      - level: 50
+        skill_id: 109  # arcane mastery
 
   # ============================================================
   # CLERIC - Divine spellcaster and healer
@@ -118,23 +119,26 @@ classes:
         spell_id: 101  # bless
       - level: 5
         spell_id: 100  # cure light wounds
-      # TODO: Detect Evil spell not yet implemented
-      - level: 12
+      - level: 10
         spell_id: 112  # remove curse
       - level: 15
         spell_id: 110  # cure moderate wounds
-      - level: 15
+      - level: 20
         spell_id: 142  # insight
-      # TODO: heal skill not yet implemented
+      - level: 22
+        spell_id: 144  # regen (heal over time)
       - level: 25
         spell_id: 120  # cure serious wounds
       - level: 30
         skill_id: 953  # plate armor
       - level: 35
         spell_id: 130  # cure critical wounds
-      # TODO: sanctuary skill not yet implemented
+      - level: 30
+        spell_id: 145  # sanctuary (aura)
       - level: 50
         spell_id: 143  # divine intervention (capstone)
+      - level: 50
+        skill_id: 208  # divine mastery
 
   # ============================================================
   # ROGUE - Stealth and agility specialist
@@ -213,6 +217,8 @@ classes:
         spell_id: 110  # cure moderate wounds
       # TODO: nature's ally skill not yet implemented
       # TODO: apex predator skill not yet implemented (hero level)
+      - level: 50
+        skill_id: 410  # primal mastery
 
   # ============================================================
   # PALADIN - Holy warrior
@@ -294,6 +300,8 @@ classes:
       - level: 45
         spell_id: 325  # army of the dead
       # TODO: lich form skill not yet implemented (hero level)
+      - level: 50
+        skill_id: 610  # occult mastery
 
   # ============================================================
   # MONK - Unarmed combat master

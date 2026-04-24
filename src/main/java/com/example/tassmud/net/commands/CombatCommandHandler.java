@@ -296,6 +296,10 @@ public class CombatCommandHandler implements CommandHandler {
         ctx.handler.currentRoomId = rec != null ? rec.currentRoom : null;
         Room newRoom = DaoProvider.rooms().getRoomById(destRoomId);
 
+        // Aura room-change: update recipient sets for sanctuary-like auras
+        com.example.tassmud.effect.AuraManager.getInstance()
+                .onPlayerRoomChange(charId, currentRoomId, destRoomId);
+
         // Announce arrival
         if (!ctx.handler.gmInvisible) {
             ClientHandler.roomAnnounce(destRoomId, ClientHandler.makeArrivalMessage(name, fleeDirection), charId, true);

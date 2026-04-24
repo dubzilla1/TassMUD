@@ -1097,9 +1097,14 @@ public class ClientHandler implements Runnable {
         }
         
         // Update cached room and show new location
+        Integer autofleeOldRoom = this.currentRoomId;
         rec = dao.findByName(playerName);
         this.currentRoomId = rec != null ? rec.currentRoom : null;
         Room newRoom = DaoProvider.rooms().getRoomById(destRoomId);
+
+        // Aura room-change: update recipient sets for sanctuary-like auras
+        com.example.tassmud.effect.AuraManager.getInstance()
+                .onPlayerRoomChange(this.characterId, autofleeOldRoom, destRoomId);
         
         // Announce arrival
         if (!this.gmInvisible) {

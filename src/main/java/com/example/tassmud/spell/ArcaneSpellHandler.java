@@ -680,6 +680,10 @@ public class ArcaneSpellHandler {
         DaoProvider.characters().updateCharacterRoom(casterName, roomId);
         cc.handler.currentRoomId = roomId;
 
+        // Aura room-change: update recipient sets for sanctuary-like auras
+        com.example.tassmud.effect.AuraManager.getInstance()
+                .onPlayerRoomChange(cc.characterId, oldRoomId, roomId);
+
         cc.send("\nYou tear a hole through space and emerge in " + destRoom.getName() + ".\n");
         ClientHandler.roomAnnounce(roomId,
             casterName + " materializes from a swirling portal of arcane energy!", cc.characterId, true);

@@ -202,7 +202,20 @@ class SpellCastHandler {
         // Calculate MP cost: spell level (default), or spell-specific cost if defined
         int spellLevel = matchedSpell.getLevel();
         int mpCost = matchedSpell.getMpCost() > 0 ? matchedSpell.getMpCost() : spellLevel;
-        
+
+        // School mastery passives: halve MP cost and cooldown for the matching school
+        // 109=Arcane Mastery, 208=Divine Mastery, 410=Primal Mastery, 610=Occult Mastery
+        Spell.SpellSchool castSchool = matchedSpell.getSchool();
+        int masterySkillId = castSchool == Spell.SpellSchool.ARCANE  ? 109
+                           : castSchool == Spell.SpellSchool.DIVINE   ? 208
+                           : castSchool == Spell.SpellSchool.PRIMAL   ? 410
+                           : castSchool == Spell.SpellSchool.OCCULT   ? 610
+                           : -1;
+        boolean hasMastery = masterySkillId > 0 && DaoProvider.skills().hasSkill(charId, masterySkillId);
+        if (hasMastery) {
+            mpCost = Math.max(1, mpCost / 2);
+        }
+
         // Check if player has enough MP (checked before casting, deducted only on success)
         if (rec.mpCur < mpCost) {
             out.println("You don't have enough mana to cast " + matchedSpell.getName() + ". (Need " + mpCost + " MP, have " + rec.mpCur + ")");
@@ -395,6 +408,11 @@ class SpellCastHandler {
                     cdSecs = (int) Math.round(effectCd);
                 }
                 if (cdSecs > finalCooldown) finalCooldown = cdSecs;
+            }
+
+            // School mastery: halve cooldown
+            if (hasMastery) {
+                finalCooldown = Math.max(1, finalCooldown / 2);
             }
 
             // Apply the computed cooldown for this spell

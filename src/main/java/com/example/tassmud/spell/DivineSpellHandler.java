@@ -42,6 +42,7 @@ public class DivineSpellHandler {
         registerDivine("fly");
         registerDivine("giant strength");
         registerDivine("heal");
+        registerDivine("regen");
         registerDivine("infravision");
         registerDivine("invis");
         registerDivine("protection");
@@ -78,6 +79,7 @@ public class DivineSpellHandler {
             case "fly": return handleFly(casterId, args, ctx);
             case "giant strength": return handleGiantStrength(casterId, args, ctx);
             case "heal": return handleHeal(casterId, args, ctx);
+            case "regen": return handleRegen(casterId, args, ctx);
             case "infravision": return handleInfravision(casterId, args, ctx);
             case "invis": return handleInvis(casterId, args, ctx);
             case "protection": return handleProtection(casterId, args, ctx);
@@ -207,6 +209,8 @@ public class DivineSpellHandler {
     { return notImplemented("giant strength", casterId, args, ctx); }
     private static boolean handleHeal(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("heal", casterId, args, ctx); }
+    private static boolean handleRegen(Integer casterId, String args, SpellContext ctx)
+    { return applySpellEffects(ctx, "regen"); }
     private static boolean handleInfravision(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("infravision", casterId, args, ctx); }
     private static boolean handleInvis(Integer casterId, String args, SpellContext ctx)
@@ -218,7 +222,7 @@ public class DivineSpellHandler {
     private static boolean handleRemoveCurse(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("remove curse", casterId, args, ctx); }
     private static boolean handleSanctuary(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("sanctuary", casterId, args, ctx); }
+    { return applySpellEffects(ctx, "sanctuary"); }
     private static boolean handleShield(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("shield", casterId, args, ctx); }
     private static boolean handleStoneSkin(Integer casterId, String args, SpellContext ctx)
