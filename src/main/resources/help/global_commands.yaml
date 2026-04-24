@@ -125,6 +125,44 @@ close:
     EXAMPLE
         close north
 
+lock:
+  summary: "lock a door using a key in your inventory"
+  visibility: public
+  synopsis:
+    - "lock <direction|door>"
+  body: |
+    NAME
+        lock - lock a door using a key in your inventory
+
+    SYNOPSIS
+        lock <direction|door>
+
+    DESCRIPTION
+        Locks a closed door using a matching key from your inventory. The door must
+        be closed before it can be locked. You must be carrying the correct key.
+
+    EXAMPLE
+        lock north
+
+unlock:
+  summary: "unlock a door using a key in your inventory"
+  visibility: public
+  synopsis:
+    - "unlock <direction|door>"
+  body: |
+    NAME
+        unlock - unlock a door using a key in your inventory
+
+    SYNOPSIS
+        unlock <direction|door>
+
+    DESCRIPTION
+        Unlocks a locked door using a matching key from your inventory. Once
+        unlocked, you can open the door normally.
+
+    EXAMPLE
+        unlock north
+
 communication:
   keywords: [communication, chatting, talking]
   see_also: [channels, say, chat, yell, whisper, tell, reply, emote, groupchat]

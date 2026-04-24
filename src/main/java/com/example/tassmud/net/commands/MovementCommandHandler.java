@@ -65,6 +65,8 @@ public class MovementCommandHandler implements CommandHandler {
             case "look":
             case "open":
             case "close":
+            case "lock":
+            case "unlock":
                 return handleLookAndMovementCommand(cmdName,ctx);
             case "recall":
                 return handleRecallCommand(ctx);
@@ -713,6 +715,110 @@ public class MovementCommandHandler implements CommandHandler {
                     DaoProvider.rooms().upsertDoor(curRoomId, door.direction, door.toRoomId, "CLOSED", door.locked, door.hidden, door.blocked, door.keyItemId, door.description);
                     out.println("You close the " + door.direction + " door.");
                     ClientHandler.roomAnnounceFromActor(curRoomId, name + " closes the " + door.direction + " door.", charId);
+                    return true;
+                }
+            }
+
+            // Handle lock/unlock commands for doors
+            if ("lock".equals(cmdName) || "unlock".equals(cmdName)) {
+                String argsStr = ctx.getArgs();
+                if (argsStr == null || argsStr.trim().isEmpty()) {
+                    out.println(("lock".equals(cmdName) ? "Lock" : "Unlock") + " what?");
+                    return true;
+                }
+                String target = argsStr.trim().toLowerCase();
+                Integer curRoomId = rec.currentRoom;
+                if (curRoomId == null) {
+                    out.println("You are nowhere.");
+                    return true;
+                }
+
+                // Resolve direction token first
+                String dirToken = null;
+                switch (target) {
+                    case "n": case "north": dirToken = "north"; break;
+                    case "e": case "east": dirToken = "east"; break;
+                    case "s": case "south": dirToken = "south"; break;
+                    case "w": case "west": dirToken = "west"; break;
+                    case "u": case "up": dirToken = "up"; break;
+                    case "d": case "down": dirToken = "down"; break;
+                }
+
+                com.example.tassmud.model.Door door = null;
+                if (dirToken != null) {
+                    door = DaoProvider.rooms().getDoor(curRoomId, dirToken);
+                } else {
+                    java.util.List<com.example.tassmud.model.Door> doors = DaoProvider.rooms().getDoorsForRoom(curRoomId);
+                    for (com.example.tassmud.model.Door d : doors) {
+                        if (d.description != null && d.description.toLowerCase().contains(target)) {
+                            door = d; break;
+                        }
+                        if (d.direction != null && d.direction.startsWith(target)) {
+                            door = d; break;
+                        }
+                    }
+                }
+
+                if (door == null) {
+                    out.println("You don't see a door like that here.");
+                    return true;
+                }
+                if (door.hidden) {
+                    out.println("You don't see a way that way.");
+                    return true;
+                }
+                if (door.blocked) {
+                    out.println("Something blocks your way.");
+                    return true;
+                }
+                if (door.keyItemId == null) {
+                    out.println("That door doesn't have a lock.");
+                    return true;
+                }
+
+                // Check player inventory for a matching key
+                Integer resolvedCharId = charId != null ? charId : ctx.resolveCharacterId();
+                boolean hasKey = false;
+                String keyName = "key";
+                if (resolvedCharId != null) {
+                    java.util.List<com.example.tassmud.persistence.ItemDAO.RoomItem> inv =
+                        DaoProvider.items().getItemsByCharacter(resolvedCharId);
+                    for (com.example.tassmud.persistence.ItemDAO.RoomItem ri : inv) {
+                        if (ri.instance.templateId == door.keyItemId) {
+                            hasKey = true;
+                            keyName = ri.template.name;
+                            break;
+                        }
+                    }
+                }
+
+                if (!hasKey) {
+                    out.println("You don't have the right key.");
+                    return true;
+                }
+
+                if ("unlock".equals(cmdName)) {
+                    if (!door.isLocked()) {
+                        out.println("It's not locked.");
+                        return true;
+                    }
+                    DaoProvider.rooms().upsertDoor(curRoomId, door.direction, door.toRoomId, "CLOSED", false, door.hidden, door.blocked, door.keyItemId, door.description);
+                    out.println("You unlock the " + door.direction + " door with " + keyName + ".");
+                    ClientHandler.roomAnnounceFromActor(curRoomId, name + " unlocks the " + door.direction + " door.", charId);
+                    return true;
+                } else {
+                    // lock
+                    if (door.isLocked()) {
+                        out.println("It's already locked.");
+                        return true;
+                    }
+                    if (door.isOpen()) {
+                        out.println("Close the door first.");
+                        return true;
+                    }
+                    DaoProvider.rooms().upsertDoor(curRoomId, door.direction, door.toRoomId, "LOCKED", true, door.hidden, door.blocked, door.keyItemId, door.description);
+                    out.println("You lock the " + door.direction + " door with " + keyName + ".");
+                    ClientHandler.roomAnnounceFromActor(curRoomId, name + " locks the " + door.direction + " door.", charId);
                     return true;
                 }
             }

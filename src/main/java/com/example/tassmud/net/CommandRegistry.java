@@ -45,6 +45,8 @@ public class CommandRegistry {
         registerCombat("look", "Look at your surroundings or examine something", Category.MOVEMENT, List.of("l"));
         register("open", "Open a door or exit", Category.MOVEMENT);
         register("close", "Close a door or exit", Category.MOVEMENT);
+        register("lock", "Lock a door using a key in your inventory", Category.MOVEMENT);
+        register("unlock", "Unlock a door using a key in your inventory", Category.MOVEMENT);
         
         // ===== STANCE =====
         // Stance changes NOT allowed in combat
