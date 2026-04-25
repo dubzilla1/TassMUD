@@ -171,8 +171,8 @@ skills:
   - id: 50
     key: lockpicking
     name: Lockpicking
-    description: Ability to pick locks and disable simple traps.
-    progression: NORMAL
+    description: Manipulate a lock mechanism using a lockpick tool. Success chance is 10% + half your proficiency (max 60%). One lockpick is always consumed on each attempt.
+    progression: LEGENDARY
 
   - id: 51
     key: stealth
@@ -329,10 +329,10 @@ skills:
     cooldown: 15
 
   - id: 302
-    key: pick_lock
-    name: Pick Lock
-    description: Open locked doors and containers without the proper key.
-    progression: EASY
+    key: detect_hidden
+    name: Detect Hidden
+    description: Sense the presence of hidden doors and concealed passages.
+    progression: NORMAL
 
   - id: 303
     key: detect_traps
@@ -378,6 +378,17 @@ skills:
     name: Shadow Step
     description: Step through the shadows to a location you've marked. Use 'shadow set' to mark your current room, then 'shadow step' or 'ss' to return there from anywhere (except prison).
     progression: HARD
+    cooldown: 60
+
+  - id: 310
+    key: poison_weapon
+    name: Poison Weapon
+    description: >
+      Coat your weapon with a contact poison before combat. The next critical hit you land
+      will inject poison into the target, dealing damage over time. The poison's potency
+      and duration scale with your proficiency in this skill. Requires a poison vial in
+      your inventory, which is consumed on use.
+    progression: VERY_HARD
     cooldown: 60
 
   # ============================================================

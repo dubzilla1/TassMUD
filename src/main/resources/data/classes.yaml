@@ -162,7 +162,8 @@ classes:
         skill_id: 951  # leather armor
       - level: 3
         skill_id: 301  # backstab
-      # TODO: pick lock skill not yet implemented
+      - level: 5
+        skill_id: 50   # lockpicking
       - level: 10
         skill_id: 23   # improved critical
       - level: 15
@@ -173,7 +174,8 @@ classes:
         skill_id: 24   # greater critical
       - level: 30
         skill_id: 15   # second attack
-      # TODO: poison weapon skill not yet implemented
+      - level: 35
+        skill_id: 310  # poison weapon
       - level: 40
         skill_id: 308  # assassinate
       - level: 40

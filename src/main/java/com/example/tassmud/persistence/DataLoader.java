@@ -637,6 +637,8 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("INSTANT_HEAL", new com.example.tassmud.effect.InstantHealEffect());
             // Register weapon infusion handler for WEAPON_INFUSION effects (arcane infusion, etc.)
             com.example.tassmud.effect.EffectRegistry.registerHandler("WEAPON_INFUSION", new com.example.tassmud.effect.WeaponInfusionEffect());
+            // Register weapon coating handler for WEAPON_COATING effects (poison, acid, venom, etc.)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("WEAPON_COATING", new com.example.tassmud.effect.WeaponCoatingEffect());
             // Register damage-over-time handler for DOT effects (acid blast, poison, etc.)
             com.example.tassmud.effect.EffectRegistry.registerHandler("DOT", new com.example.tassmud.effect.DotEffect());
             // Register debuff handler for DEBUFF effects (blindness, etc.)

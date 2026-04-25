@@ -81,6 +81,10 @@ public class EffectRegistry {
     public static void removeInstance(UUID id) {
         activeInstances.remove(id);
     }
+
+    public static EffectInstance getInstance(UUID id) {
+        return id != null ? activeInstances.get(id) : null;
+    }
     
     // === Visibility Effect Constants ===
     public static final String EFFECT_INVISIBILITY = "110";

@@ -163,6 +163,62 @@ unlock:
     EXAMPLE
         unlock north
 
+pick:
+  summary: "pick a locked door using a lockpick from your inventory"
+  visibility: public
+  synopsis:
+    - "pick <direction>"
+  body: |
+    NAME
+        pick - pick a locked door using a lockpick from your inventory
+
+    SYNOPSIS
+        pick <direction>
+
+    DESCRIPTION
+        Attempts to pick the lock on a door in the given direction. Requires the
+        Lockpicking skill (Rogue, level 5) and a lockpick in your inventory.
+
+        One lockpick is always consumed on each attempt — the pick breaks whether
+        you succeed or fail. Lockpicks can be purchased from thieves' supply shops
+        for 10 gold each.
+
+        Success chance: 10% + half your Lockpicking proficiency (max 60% at 100%).
+
+    EXAMPLE
+        pick north
+
+poison:
+  summary: "coat your weapon with contact poison (requires a vial of poison)"
+  visibility: public
+  synopsis:
+    - "poison"
+  body: |
+    NAME
+        poison - coat your weapon with contact poison
+
+    SYNOPSIS
+        poison
+
+    DESCRIPTION
+        Applies a contact poison to your currently equipped weapon. The next
+        critical hit you land will inject the poison into your target, dealing
+        damage over time for 30 seconds.
+
+        Requires the Poison Weapon skill (Rogue, level 35) and a vial of poison
+        in your inventory. The vial is consumed on use.
+
+        The poison's potency scales with your Poison Weapon proficiency. At low
+        proficiency the DoT deals minimal damage; at high proficiency it deals
+        significantly more damage per tick.
+
+        A fresh coat of poison will replace any existing coating on your weapon.
+        The coating lasts 5 minutes or until a critical hit procs it (whichever
+        comes first).
+
+    EXAMPLE
+        poison
+
 communication:
   keywords: [communication, chatting, talking]
   see_also: [channels, say, chat, yell, whisper, tell, reply, emote, groupchat]

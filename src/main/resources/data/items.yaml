@@ -54,7 +54,30 @@ items:
     type: container
     max_items: 10
     max_weight: 5
-  
+  - id: 5
+    key: lockpick
+    name: lockpick
+    description: A slender steel pick used to manipulate lock mechanisms. Delicate enough to feel the tumblers — one false move and it snaps.
+    weight: 0.1
+    value: 10
+    type: inventory
+
+  - id: 6
+    key: poison_vial
+    name: vial of poison
+    description: A small glass vial containing a dark, viscous contact poison. Rogues use these to coat their weapons before battle.
+    weight: 0.1
+    value: 25
+    type: inventory
+
+  - id: 7
+    key: plague_vial
+    name: vial of plague
+    description: A sealed vial of foul contagion, harvested from the afflicted. Coating a weapon with this ensures that the next critical hit delivers a virulent, self-amplifying plague.
+    weight: 0.1
+    value: 250
+    type: inventory
+
   # ============================================================
   # CLOTH ARMOR SET (light, caster-friendly)
   # ============================================================

@@ -1045,4 +1045,224 @@ class RogueSkillHandler {
         
         return true;
     }
+
+    boolean handlePickCommand(CommandContext ctx) {
+        final int LOCKPICK_TEMPLATE_ID = 5;
+        final int LOCKPICKING_SKILL_ID = 50;
+
+        String name = ctx.playerName;
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        CharacterDAO.CharacterRecord rec = dao.findByName(name);
+        if (rec == null) {
+            out.println("You must be logged in to pick locks.");
+            return true;
+        }
+        Integer charId = ctx.characterId;
+        if (charId == null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+
+        // Check lockpicking skill
+        Skill lockSkill = DaoProvider.skills().getSkillById(LOCKPICKING_SKILL_ID);
+        if (lockSkill == null) {
+            out.println("Lockpicking skill not found in database.");
+            return true;
+        }
+        CharacterSkill charLock = DaoProvider.skills().getCharacterSkill(charId, LOCKPICKING_SKILL_ID);
+        if (charLock == null) {
+            out.println("You don't know how to pick locks.");
+            return true;
+        }
+
+        // Parse direction argument
+        String targetArg = ctx.getArgs();
+        if (targetArg == null || targetArg.trim().isEmpty()) {
+            out.println("Pick which direction?");
+            return true;
+        }
+        String target = targetArg.trim().toLowerCase();
+        Integer curRoomId = rec.currentRoom;
+        if (curRoomId == null) {
+            out.println("You are nowhere.");
+            return true;
+        }
+
+        String dirToken = null;
+        switch (target) {
+            case "n": case "north": dirToken = "north"; break;
+            case "e": case "east":  dirToken = "east";  break;
+            case "s": case "south": dirToken = "south"; break;
+            case "w": case "west":  dirToken = "west";  break;
+            case "u": case "up":    dirToken = "up";    break;
+            case "d": case "down":  dirToken = "down";  break;
+        }
+
+        com.example.tassmud.model.Door door = null;
+        if (dirToken != null) {
+            door = DaoProvider.rooms().getDoor(curRoomId, dirToken);
+        } else {
+            java.util.List<com.example.tassmud.model.Door> doors = DaoProvider.rooms().getDoorsForRoom(curRoomId);
+            for (com.example.tassmud.model.Door d : doors) {
+                if (d.description != null && d.description.toLowerCase().contains(target)) {
+                    door = d; break;
+                }
+                if (d.direction != null && d.direction.startsWith(target)) {
+                    door = d; break;
+                }
+            }
+        }
+
+        if (door == null) {
+            out.println("You don't see a door like that here.");
+            return true;
+        }
+        if (door.hidden) {
+            out.println("You don't see a way that way.");
+            return true;
+        }
+        if (!door.isLocked()) {
+            out.println("That door isn't locked.");
+            return true;
+        }
+
+        // Find a lockpick in inventory
+        java.util.List<com.example.tassmud.persistence.ItemDAO.RoomItem> inv =
+            DaoProvider.items().getItemsByCharacter(charId);
+        com.example.tassmud.persistence.ItemDAO.RoomItem lockpick = null;
+        for (com.example.tassmud.persistence.ItemDAO.RoomItem ri : inv) {
+            if (ri.instance.templateId == LOCKPICK_TEMPLATE_ID) {
+                lockpick = ri;
+                break;
+            }
+        }
+        if (lockpick == null) {
+            out.println("You need a lockpick to pick a lock.");
+            return true;
+        }
+
+        // Always consume the lockpick, regardless of outcome
+        DaoProvider.items().deleteInstance(lockpick.instance.instanceId);
+
+        // Roll: success if roll <= (10 + proficiency/2), max 60%
+        int proficiency = charLock.getProficiency();
+        int successChance = Math.min(10 + proficiency / 2, 60);
+        int roll = ThreadLocalRandom.current().nextInt(100) + 1;
+        boolean succeeded = roll <= successChance;
+
+        if (succeeded) {
+            DaoProvider.rooms().upsertDoor(curRoomId, door.direction, door.toRoomId, "CLOSED", false,
+                door.hidden, door.blocked, door.keyItemId, door.description);
+            out.println("With a soft click, the " + door.direction + " door unlocks.");
+            ClientHandler.roomAnnounceFromActor(curRoomId,
+                name + " picks the lock on the " + door.direction + " door.", charId);
+        } else {
+            out.println("Your lockpick snaps without effect.");
+        }
+
+        // Record skill use for proficiency growth
+        com.example.tassmud.util.SkillExecution.Result result =
+            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                name, charId, lockSkill, charLock, dao, succeeded);
+
+        ctx.handler.sendDebug("Pick Lock: roll=" + roll + " need<=" + successChance
+            + " proficiency=" + proficiency + "% succeeded=" + succeeded);
+        ctx.handler.sendDebug("  Proficiency improved: " + result.didProficiencyImprove());
+
+        if (result.didProficiencyImprove()) {
+            out.println(result.getProficiencyMessage());
+        }
+        return true;
+    }
+
+    boolean handlePoisonWeaponCommand(CommandContext ctx) {
+        final int POISON_WEAPON_SKILL_ID = 310;
+        final int POISON_VIAL_TEMPLATE_ID = 6;
+        final int PLAGUE_VIAL_TEMPLATE_ID = 7;
+        final String POISON_WEAPON_EFFECT_ID = "1031";
+        final String PLAGUE_WEAPON_EFFECT_ID = "1032";
+
+        String name = ctx.playerName;
+        PrintWriter out = ctx.out;
+        CharacterDAO dao = ctx.dao;
+        CharacterDAO.CharacterRecord rec = dao.findByName(name);
+        if (rec == null) {
+            out.println("You must be logged in to use poison weapon.");
+            return true;
+        }
+        Integer charId = ctx.characterId;
+        if (charId == null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+
+        Skill skill = DaoProvider.skills().getSkillById(POISON_WEAPON_SKILL_ID);
+        if (skill == null) {
+            out.println("Poison Weapon skill not found in database.");
+            return true;
+        }
+        CharacterSkill charSkill = DaoProvider.skills().getCharacterSkill(charId, POISON_WEAPON_SKILL_ID);
+        if (charSkill == null) {
+            out.println("You don't know how to apply contact poison to a weapon.");
+            return true;
+        }
+
+        // Check cooldown
+        com.example.tassmud.util.AbilityCheck.CheckResult check =
+            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, skill);
+        if (check.isFailure()) {
+            out.println(check.getFailureMessage());
+            return true;
+        }
+
+        // Find a coating vial in inventory — plague preferred over poison
+        java.util.List<com.example.tassmud.persistence.ItemDAO.RoomItem> inv =
+            DaoProvider.items().getItemsByCharacter(charId);
+        com.example.tassmud.persistence.ItemDAO.RoomItem vial = null;
+        boolean isPlague = false;
+        for (com.example.tassmud.persistence.ItemDAO.RoomItem ri : inv) {
+            if (ri.instance.templateId == PLAGUE_VIAL_TEMPLATE_ID) {
+                vial = ri;
+                isPlague = true;
+                break;
+            }
+            if (ri.instance.templateId == POISON_VIAL_TEMPLATE_ID && vial == null) {
+                vial = ri;
+            }
+        }
+        if (vial == null) {
+            out.println("You need a vial of poison or plague to coat your weapon.");
+            return true;
+        }
+
+        // Consume the vial
+        DaoProvider.items().deleteInstance(vial.instance.instanceId);
+
+        // Apply the appropriate WEAPON_COATING effect to self
+        int proficiency = charSkill.getProficiency();
+        String coatingEffectId = isPlague ? PLAGUE_WEAPON_EFFECT_ID : POISON_WEAPON_EFFECT_ID;
+        com.example.tassmud.effect.EffectRegistry.apply(
+            coatingEffectId, charId, charId,
+            java.util.Map.of("proficiency", String.valueOf(proficiency)));
+
+        if (isPlague) {
+            out.println("You carefully coat your weapon with virulent plague contagion.");
+            out.println("Your next critical hit will infect the target with plague.");
+            ClientHandler.roomAnnounceFromActor(ctx.currentRoomId,
+                name + " coats their weapon with a foul, reeking substance.", charId);
+        } else {
+            out.println("You carefully coat your weapon with contact poison.");
+            out.println("Your next critical hit will inject poison into the target.");
+            ClientHandler.roomAnnounceFromActor(ctx.currentRoomId,
+                name + " carefully coats their weapon with a dark liquid.", charId);
+        }
+
+        // Record skill use for proficiency growth
+        com.example.tassmud.util.SkillExecution.Result result =
+            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                name, charId, skill, charSkill, dao, true);
+        if (result.didProficiencyImprove()) {
+            out.println(result.getProficiencyMessage());
+        }
+        return true;
+    }
 }

@@ -106,6 +106,8 @@ public class CommandRegistry {
         registerCombat("circle", "Dart around an enemy to strike from behind", Category.COMBAT);
         register("assassinate", "Execute an unaware target - instant kill on crit", Category.COMBAT);
         register("shadow", "Shadow step: 'shadow set' to mark location, 'shadow step' to teleport", Category.COMBAT, List.of("ss"));
+        register("pick", "Pick a locked door using a lockpick from your inventory", Category.COMBAT);
+        register("poison", "Coat your weapon with contact poison (requires a vial of poison)", Category.COMBAT);
         
         // ===== GROUP & PARTY =====
         // Group commands allowed in combat for coordination

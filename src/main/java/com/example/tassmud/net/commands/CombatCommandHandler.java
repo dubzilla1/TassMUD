@@ -103,6 +103,10 @@ public class CombatCommandHandler implements CommandHandler {
             case "shadow":
             case "ss":
                 return rogueSkills.handleShadowCommand(ctx);
+            case "pick":
+                return rogueSkills.handlePickCommand(ctx);
+            case "poison":
+                return rogueSkills.handlePoisonWeaponCommand(ctx);
             default:
                 return false;
         }

@@ -910,3 +910,58 @@ effects:
     persistent: true
     priority: 0
     params: {}
+
+  # ========== WEAPON COATING EFFECTS ==========
+
+  - id: "1030"
+    name: "Poison"
+    description: "Venom courses through the wound, slowly draining life."
+    type: DOT
+    tags: [debuff, poison, dot]
+    duration: 30
+    cooldown: 0
+    dice_multiplier: 3d4
+    level_multiplier: 0
+    proficiency_impact: [DICE_MULTIPLIER]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      tick_interval: 5
+      damage_type: poison
+
+  - id: "1031"
+    name: "Poison Weapon"
+    description: "Your weapon is coated with contact poison. Critical hits will poison the target."
+    type: WEAPON_COATING
+    tags: [buff, poison]
+    duration: 300
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      coating_type: POISON
+      on_crit_effect_id: "1030"
+      charges: 0
+
+  - id: "1032"
+    name: "Plague Weapon"
+    description: "Your weapon is coated with plague contagion. Critical hits will infect the target with plague."
+    type: WEAPON_COATING
+    tags: [buff, plague]
+    duration: 300
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      coating_type: PLAGUE
+      on_crit_effect_id: "1017"
+      charges: 0

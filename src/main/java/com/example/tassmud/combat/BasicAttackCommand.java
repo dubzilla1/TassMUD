@@ -2,6 +2,7 @@ package com.example.tassmud.combat;
 
 
 import com.example.tassmud.persistence.DaoProvider;
+import com.example.tassmud.effect.WeaponCoatingEffect;
 import com.example.tassmud.effect.WeaponInfusionEffect;
 import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.CharacterSkill;
@@ -420,7 +421,27 @@ public class BasicAttackCommand implements CombatCommand {
         result.setAttackRoll(attackRoll);
         result.setDamageRoll(baseDamage);
         result.setDebugInfo(debugInfo);
-        
+
+        // On critical hit, trigger any active weapon coating applied by the attacker
+        if (isCrit && user.isPlayer() && user.getCharacterId() != null) {
+            WeaponCoatingEffect.CoatingData coating = WeaponCoatingEffect.getActiveCoating(user.getCharacterId());
+            if (coating != null && !coating.isExpired()) {
+                Integer targetCharId = target.isPlayer() ? target.getCharacterId()
+                        : (target.getMobile() != null ? -(int) target.getMobile().getInstanceId() : null);
+                if (targetCharId != null) {
+                    com.example.tassmud.effect.EffectRegistry.apply(
+                            coating.onCritEffectId,
+                            user.getCharacterId(),
+                            targetCharId,
+                            Map.of("proficiency", String.valueOf(coating.proficiency)));
+                    String label = coating.coatingType.substring(0, 1).toUpperCase()
+                            + coating.coatingType.substring(1).toLowerCase();
+                    result.addEffect(label + " seeps into the wound!");
+                    WeaponCoatingEffect.consumeCharge(coating.instanceId);
+                }
+            }
+        }
+
         return result;
     }
     
