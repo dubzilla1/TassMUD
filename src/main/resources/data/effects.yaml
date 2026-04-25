@@ -896,6 +896,46 @@ effects:
     priority: 0
     params: {}
 
+  # ========== DIVINE SHIELD ==========
+
+  - id: "1024"
+    name: "Divine Shield"
+    description: "Radiant holy energy hardens around you, fortifying your defenses."
+    type: MODIFIER
+    tags: [buff, magical, divine]
+    duration: 120
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: ARMOR
+      op: ADD
+      value: 1    # Overridden at cast time by handler (paladin class level / 5)
+
+  # ========== HOLY WEAPON ==========
+
+  - id: "1025"
+    name: "Holy Weapon"
+    description: "Your weapon blazes with divine radiance, sharpening your instincts for the perfect strike."
+    type: MODIFIER
+    tags: [buff, magical, divine]
+    duration: 300
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 0
+    params:
+      stat: CRITICAL_THRESHOLD_BONUS
+      op: ADD
+      value: -1    # Lowers crit threshold by 1 (e.g. 19-20 instead of 20)
+
   # ========== MONK EFFECTS ==========
 
   - id: "flurry"

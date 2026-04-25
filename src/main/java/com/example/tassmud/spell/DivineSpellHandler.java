@@ -7,11 +7,13 @@ import com.example.tassmud.model.Spell;
 import com.example.tassmud.net.ClientHandler;
 import com.example.tassmud.net.commands.CommandContext;
 import com.example.tassmud.persistence.CharacterDAO;
+import com.example.tassmud.persistence.DaoProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Central dispatcher for ARCANE spells. Registers handlers for all arcane
@@ -52,9 +54,9 @@ public class DivineSpellHandler {
         registerDivine("shield");
         registerDivine("stone skin");
         registerDivine("divine intervention");
-        
-        
-        
+        registerDivine("smite");
+        registerDivine("divine shield");
+        registerDivine("holy weapon");
     }
 
     private static void registerDivine(String spellName) {
@@ -89,6 +91,9 @@ public class DivineSpellHandler {
             case "shield": return handleShield(casterId, args, ctx);
             case "stone skin": return handleStoneSkin(casterId, args, ctx);
             case "divine intervention": return handleDivineIntervention(casterId, args, ctx);
+            case "smite": return handleSmite(casterId, args, ctx);
+            case "divine shield": return handleDivineShield(casterId, args, ctx);
+            case "holy weapon": return handleHolyWeapon(casterId, args, ctx);
             default:
                 return notImplemented(spellName, casterId, args, ctx);
         }
@@ -309,6 +314,148 @@ public class DivineSpellHandler {
         return true;
     }
     
+    private static boolean handleSmite(Integer casterId, String args, SpellContext ctx) {
+        // Smite: Level 3 DIVINE paladin spell
+        // Randomly applies one of 4 debuffs to the current combat target:
+        //   slow (1009), confused (1010), paralyzed (1011), or cursed (1012)
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[smite] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+        List<Integer> targets = ctx.getTargetIds();
+
+        if (targets.isEmpty()) {
+            cmdCtx.send("You must be in combat to use Smite.");
+            return false;
+        }
+
+        Integer targetId = targets.get(0);
+
+        // Randomly pick one of 4 divine judgments
+        String[] effectOptions  = {"1009", "1010", "1011", "1012"};
+        String[] casterMessages = {
+            "Divine power arrests your foe's movements!",
+            "Holy light fractures your foe's concentration!",
+            "Sacred energy locks your foe in place!",
+            "A divine curse descends upon your foe!"
+        };
+        String[] targetMessages = {
+            "Divine power arrests your movements!",
+            "Holy light fractures your concentration!",
+            "Sacred energy locks you in place!",
+            "A divine curse descends upon you!"
+        };
+        String[] roomSuffixes = {
+            "slowing their movements.",
+            "leaving them confused.",
+            "holding them in place.",
+            "cursing them with divine wrath."
+        };
+
+        int roll = ThreadLocalRandom.current().nextInt(effectOptions.length);
+        String chosenEffect = effectOptions[roll];
+
+        Map<String, String> extraParams = ctx.getExtraParams();
+        EffectInstance inst = EffectRegistry.apply(chosenEffect, casterId, targetId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("Your divine smite fails to take hold.");
+            return false;
+        }
+
+        CharacterDAO.CharacterRecord targetRec = DaoProvider.characters().findById(targetId);
+        String targetName = targetRec != null ? targetRec.name : "your foe";
+
+        cmdCtx.send("\u001B[93mYou call down divine judgment upon " + targetName + "! " + casterMessages[roll] + "\u001B[0m");
+        ClientHandler.sendToCharacter(targetId,
+            "\u001B[93m" + cmdCtx.playerName + " calls down divine judgment upon you! " + targetMessages[roll] + "\u001B[0m");
+        ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+            cmdCtx.playerName + " calls down divine judgment upon " + targetName + ", " + roomSuffixes[roll],
+            casterId);
+
+        logger.debug("[smite] {} applied effect {} to {}", casterId, chosenEffect, targetId);
+        return true;
+    }
+
+    private static boolean handleDivineShield(Integer casterId, String args, SpellContext ctx) {
+        // Divine Shield: Level 5 DIVINE paladin spell
+        // Wraps the caster in a radiant AC buff that scales with paladin class level / 5.
+        // Duration scales with proficiency (120s * proficiency/100).
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[divine shield] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+
+        if (casterId == null) {
+            cmdCtx.send("No caster for Divine Shield.");
+            return false;
+        }
+
+        // Compute AC bonus from paladin class level
+        int level = DaoProvider.characters().getPlayerLevel(casterId);
+        int acBonus = Math.max(1, level / 5);
+
+        // Build extraParams: override value with dynamic AC bonus and forward proficiency
+        Map<String, String> extraParams = new java.util.HashMap<>(ctx.getExtraParams());
+        extraParams.put("value", String.valueOf(acBonus));
+        extraParams.put("proficiency", String.valueOf(ctx.getProficiency()));
+
+        EffectInstance inst = EffectRegistry.apply("1024", casterId, casterId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("The divine shield fails to form around you.");
+            return false;
+        }
+
+        cmdCtx.send("\u001B[93mRadiant holy energy flows around you, hardening into a divine shield! (AC +" + acBonus + ")\u001B[0m");
+        ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+            cmdCtx.playerName + " is surrounded by a shimmering radiant barrier.", casterId);
+
+        logger.debug("[divine shield] {} applied AC +{} (level={}, proficiency={})",
+            casterId, acBonus, level, ctx.getProficiency());
+        return true;
+    }
+
+    private static boolean handleHolyWeapon(Integer casterId, String args, SpellContext ctx) {
+        // Holy Weapon: Level 7 DIVINE paladin spell
+        // Applies a MODIFIER effect (CRITICAL_THRESHOLD_BONUS -1) to the caster,
+        // widening the critical hit range by 1. While active, every critical hit
+        // also triggers a free Smite (random debuff: slow/confused/paralyzed/cursed)
+        // via CombatManager.tryHolyWeaponSmite().
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[holy weapon] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+
+        if (casterId == null) {
+            cmdCtx.send("No caster for Holy Weapon.");
+            return false;
+        }
+
+        Map<String, String> extraParams = new java.util.HashMap<>(ctx.getExtraParams());
+        extraParams.put("proficiency", String.valueOf(ctx.getProficiency()));
+
+        EffectInstance inst = EffectRegistry.apply("1025", casterId, casterId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("The divine blessing fails to take hold.");
+            return false;
+        }
+
+        cmdCtx.send("\u001B[1;93mYour weapon blazes with divine radiance! Your strikes are honed to deadly precision, and each perfect blow will call down holy judgment.\u001B[0m");
+        ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+            cmdCtx.playerName + "'s weapon blazes with divine radiance!", casterId);
+
+        logger.debug("[holy weapon] {} applied holy weapon crit bonus (proficiency={})", casterId, ctx.getProficiency());
+        return true;
+    }
+
     private static boolean notImplemented(String spellName, Integer casterId, String args, SpellContext ctx) {
         if (ctx != null && ctx.getCommandContext() != null) {
             CommandContext cc = ctx.getCommandContext();

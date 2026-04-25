@@ -392,6 +392,19 @@ skills:
     cooldown: 60
 
   # ============================================================
+  # PALADIN SKILLS (311-319)
+  # ============================================================
+  - id: 311
+    key: lay_on_hands
+    name: Lay On Hands
+    description: >
+      Channel divine power through your hands to mend wounds. You may target any player
+      in the room; if no target is given, you restore yourself to full health. When used
+      on another, the amount healed equals your maximum HP. Can be used in or out of combat.
+    progression: HARD
+    cooldown: 600
+
+  # ============================================================
   # RANGER SKILLS (400-499)
   # ============================================================
   - id: 400

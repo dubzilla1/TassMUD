@@ -14,6 +14,8 @@ import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.persistence.SkillDAO;
 import com.example.tassmud.effect.FlurryEffect;
 import com.example.tassmud.effect.HasteEffect;
+import com.example.tassmud.effect.EffectRegistry;
+import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.util.TickService;
 import com.example.tassmud.util.GroupManager;
 import com.example.tassmud.util.RegenerationService;
@@ -462,6 +464,7 @@ public class CombatManager {
                 combat.addRoundResult(result);
                 messagingService.broadcastCombatResult(combat, result);
                 tryGenerateKi(combatant, result);
+                tryHolyWeaponSmite(combatant, result, combat);
                 totalAoeDamage += Math.max(0, result.getDamage());
                 
                 Combatant aoeTarget = result.getTarget();
@@ -494,6 +497,7 @@ public class CombatManager {
         
         // Ki generation for monks on successful damage
         tryGenerateKi(combatant, result);
+        tryHolyWeaponSmite(combatant, result, combat);
         
         // Track aggro for player attackers (attacks generate 10 base + damage)
         if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -572,6 +576,7 @@ public class CombatManager {
             
             // Ki generation for monks on extra attacks
             tryGenerateKi(combatant, result);
+            tryHolyWeaponSmite(combatant, result, combat);
             
             // Track aggro for multi-attacks (same as primary: 10 base + damage)
             if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -628,6 +633,7 @@ public class CombatManager {
         
         // Ki generation (tryGenerateKi handles flurry suppression internally)
         tryGenerateKi(combatant, result);
+        tryHolyWeaponSmite(combatant, result, combat);
         
         // Track aggro
         if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -682,6 +688,7 @@ public class CombatManager {
 
         // Ki generation for monks
         tryGenerateKi(combatant, result);
+        tryHolyWeaponSmite(combatant, result, combat);
 
         // Track aggro
         if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -1193,7 +1200,42 @@ public class CombatManager {
             }
         }
     }
-    
+
+    // === Holy Weapon Proc ===
+
+    /**
+     * If the attacker has Holy Weapon active (effect "1025") and this result is a critical hit,
+     * trigger a free Smite: apply a random debuff (slow/confused/paralyzed/cursed) to the target.
+     */
+    private void tryHolyWeaponSmite(Combatant attacker, CombatResult result, Combat combat) {
+        if (!attacker.isPlayer() || attacker.getCharacterId() == null) return;
+        if (result.getType() != CombatResult.ResultType.CRITICAL_HIT) return;
+
+        Integer charId = attacker.getCharacterId();
+        if (!EffectRegistry.hasEffect(charId, "1025")) return;
+
+        Combatant target = result.getTarget();
+        if (target == null || !target.isAlive()) return;
+
+        Integer targetId = target.isPlayer()
+            ? target.getCharacterId()
+            : (target.getMobile() != null ? -(int) target.getMobile().getInstanceId() : null);
+        if (targetId == null) return;
+
+        String[] smiteEffects = {"1009", "1010", "1011", "1012"};
+        String[] smiteLabels  = {"slowing", "confusing", "paralyzing", "cursing"};
+        int roll = ThreadLocalRandom.current().nextInt(smiteEffects.length);
+
+        EffectInstance smiteInst = EffectRegistry.apply(smiteEffects[roll], charId, targetId, java.util.Map.of());
+        if (smiteInst == null) return; // target resisted
+
+        sendToPlayer(charId, "\u001b[1;93mHoly Weapon pulses! Divine judgment strikes "
+            + target.getName() + ", " + smiteLabels[roll] + " them!\u001b[0m");
+        ClientHandler.roomAnnounceFromActor(combat.getRoomId(),
+            attacker.getName() + "'s holy weapon flares with divine light, "
+            + smiteLabels[roll] + " " + target.getName() + "!", charId);
+    }
+
     // === Messaging (delegates to CombatMessagingService) ===
     
     private void sendToPlayer(Integer characterId, String message) {

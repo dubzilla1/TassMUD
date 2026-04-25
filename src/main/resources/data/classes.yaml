@@ -238,24 +238,26 @@ classes:
     skills:
       - level: 1
         skill_id: 900  # simple weapons (all classes)
-      # TODO: lay on hands skill not yet implemented
+      - level: 4
+        skill_id: 311  # lay on hands
       - level: 1
         skill_id: 953  # plate armor
       - level: 2
         skill_id: 19   # shields
       - level: 3
         skill_id: 901  # martial weapons
-      # TODO: Detect Evil spell not yet implemented
       - level: 5
         spell_id: 142  # insight
       - level: 10
         spell_id: 100  # cure light wounds
-      # TODO: Smite Evil spell not yet implemented
-      # TODO: Divine Shield spell not yet implemented
+      - level: 15
+        spell_id: 146  # smite
+      - level: 25
+        spell_id: 147  # divine shield
       - level: 20
         spell_id: 110  # cure moderate wounds
-      # TODO: Turn Undead spell not yet implemented
-      # TODO: Holy Weapon spell not yet implemented
+      - level: 28
+        spell_id: 148  # holy weapon
       - level: 30
         spell_id: 120  # cure serious wounds
       # TODO: Aura of Protection spell not yet implemented

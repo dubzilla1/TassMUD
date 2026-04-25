@@ -42,7 +42,7 @@ public class CommandRegistry {
         register("up", "Move up", Category.MOVEMENT, List.of("u"));
         register("down", "Move down", Category.MOVEMENT, List.of("d"));
         register("recall", "Teleport back to the Mead-Gaard Inn (home base)", Category.MOVEMENT);
-        registerCombat("look", "Look at your surroundings or examine something", Category.MOVEMENT, List.of("l"));
+        registerCombat("look", "Look at your surroundings or examine something", Category.MOVEMENT, List.of("l", "lo"));
         register("open", "Open a door or exit", Category.MOVEMENT);
         register("close", "Close a door or exit", Category.MOVEMENT);
         register("lock", "Lock a door using a key in your inventory", Category.MOVEMENT);
@@ -108,6 +108,7 @@ public class CommandRegistry {
         register("shadow", "Shadow step: 'shadow set' to mark location, 'shadow step' to teleport", Category.COMBAT, List.of("ss"));
         register("pick", "Pick a locked door using a lockpick from your inventory", Category.COMBAT);
         register("poison", "Coat your weapon with contact poison (requires a vial of poison)", Category.COMBAT);
+        registerCombat("lay", "Channel divine power to heal yourself or an ally (Lay on Hands)", Category.COMBAT, List.of("loh"));
         
         // ===== GROUP & PARTY =====
         // Group commands allowed in combat for coordination

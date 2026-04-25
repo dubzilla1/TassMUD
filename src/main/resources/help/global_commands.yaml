@@ -219,6 +219,39 @@ poison:
     EXAMPLE
         poison
 
+lay:
+  summary: "channel divine power to heal yourself or an ally (Paladin)"
+  aliases: [loh]
+  visibility: public
+  synopsis:
+    - "lay"
+    - "lay <target>"
+    - "loh"
+    - "loh <target>"
+  body: |
+    NAME
+        lay / loh - Lay on Hands
+
+    SYNOPSIS
+        lay [target]
+        loh [target]
+
+    DESCRIPTION
+        Channel the divine power of your deity through your hands, mending
+        grievous wounds.
+
+        Without a target (or targeting yourself), you restore your HP to full.
+
+        When targeting another player in the same room, you heal them for an
+        amount equal to your current maximum HP, capped at their own max HP.
+
+        The skill can be used in or out of combat. Requires the Lay on Hands
+        skill (Paladin, level 1). Cooldown: 600 seconds.
+
+    EXAMPLES
+        lay              (heals yourself to full)
+        lay Arwen        (heals Arwen for your max HP)
+
 communication:
   keywords: [communication, chatting, talking]
   see_also: [channels, say, chat, yell, whisper, tell, reply, emote, groupchat]

@@ -38,6 +38,7 @@ public class CombatCommandHandler implements CommandHandler {
     private final RogueSkillHandler rogueSkills = new RogueSkillHandler();
     private final MeleeSkillHandler meleeSkills = new MeleeSkillHandler();
     private final SpellCastHandler spellCasting = new SpellCastHandler();
+    private final PaladinSkillHandler paladinSkills = new PaladinSkillHandler();
 
     private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.COMBAT).stream()
             .map(cmd -> cmd.getName())
@@ -107,6 +108,9 @@ public class CombatCommandHandler implements CommandHandler {
                 return rogueSkills.handlePickCommand(ctx);
             case "poison":
                 return rogueSkills.handlePoisonWeaponCommand(ctx);
+            case "lay":
+            case "loh":
+                return paladinSkills.handleLayOnHandsCommand(ctx);
             default:
                 return false;
         }

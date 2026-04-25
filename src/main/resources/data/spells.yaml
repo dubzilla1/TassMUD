@@ -465,6 +465,55 @@ spells:
     effectIds: ["1022"]
     incantation: qodesh-tamid
 
+  # ========== PALADIN SPELLS ==========
+
+  # Level 3 Paladin
+  - id: 146
+    name: Smite
+    description: >
+      You channel divine wrath into a single devastating strike, calling down
+      holy judgment upon your foe. The form the judgment takes is unpredictable —
+      the target may be slowed, confused, paralyzed, or cursed.
+    school: DIVINE
+    level: 3
+    castingTime: 0.5
+    cooldown: 180.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: []
+    incantation: el-nakah
+
+  # Level 5 Paladin
+  - id: 147
+    name: Divine Shield
+    description: >
+      You invoke divine power, wrapping yourself in a radiant barrier that
+      hardens your defenses. The shield's strength grows with your holy calling.
+    school: DIVINE
+    level: 5
+    castingTime: 1.0
+    cooldown: 120.0
+    target: SELF
+    progression: EASY
+    effectIds: []
+    incantation: magen-el-gibor
+
+  # Level 7 Paladin
+  - id: 148
+    name: Holy Weapon
+    description: >
+      You imbue your weapon with divine radiance, honing your instincts for
+      the perfect strike. While active, your critical hit range expands by one,
+      and every devastating blow calls down divine judgment upon your foe.
+    school: DIVINE
+    level: 7
+    castingTime: 1.5
+    cooldown: 600.0
+    target: SELF
+    progression: HARD
+    effectIds: []
+    incantation: cherev-qodesh
+
   # ========== PRIMAL SPELLS (learned through exploration/nature) ==========
   
   # Level 1 Primal
