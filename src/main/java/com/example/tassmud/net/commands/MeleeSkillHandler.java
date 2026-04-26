@@ -1633,4 +1633,216 @@ class MeleeSkillHandler {
         }
         return true;
     }
+
+    // ── Quivering Palm (Monk ki skill) ────────────────────────────────
+
+    private static final int QUIVERING_PALM_SKILL_ID = 711;
+
+    boolean handleQuiveringPalmCommand(CommandContext ctx) {
+        String name = ctx.playerName;
+        CharacterDAO dao = ctx.dao;
+        PrintWriter out = ctx.out;
+        CharacterRecord rec = dao.findByName(name);
+
+        if (rec == null) {
+            out.println("You must be logged in to use Quivering Palm.");
+            return true;
+        }
+        Integer charId = ctx.characterId;
+        if (charId == null) {
+            charId = dao.getCharacterIdByName(name);
+        }
+
+        // Look up the quivering palm skill (id=711)
+        Skill qpSkill = DaoProvider.skills().getSkillById(QUIVERING_PALM_SKILL_ID);
+        if (qpSkill == null) {
+            out.println("Quivering Palm skill not found in database.");
+            return true;
+        }
+
+        // Check if character knows the skill
+        CharacterSkill charQp = DaoProvider.skills().getCharacterSkill(charId, QUIVERING_PALM_SKILL_ID);
+        if (charQp == null) {
+            out.println("You don't know how to use Quivering Palm.");
+            return true;
+        }
+
+        // Check cooldown and combat traits using unified check
+        com.example.tassmud.util.AbilityCheck.CheckResult qpCheck =
+            com.example.tassmud.util.SkillExecution.checkPlayerCanUseSkill(name, charId, qpSkill);
+        if (qpCheck.isFailure()) {
+            out.println(qpCheck.getFailureMessage());
+            return true;
+        }
+
+        // Check for curse effect - may cause skill to fail
+        if (com.example.tassmud.effect.CursedEffect.checkCurseFails(charId)) {
+            ctx.actorAnnounce("\u001B[35mThe curse disrupts your ki! Your Quivering Palm fails.\u001B[0m",
+                rec.name + " attempts Quivering Palm but dark curse energy disrupts their ki!");
+            return true;
+        }
+
+        // Must be in combat
+        CombatManager combatMgr = CombatManager.getInstance();
+        Combat activeCombat = combatMgr.getCombatForCharacter(charId);
+        if (activeCombat == null) {
+            out.println("You must be in combat to use Quivering Palm.");
+            return true;
+        }
+
+        Combatant userCombatant = activeCombat.findByCharacterId(charId);
+        if (userCombatant == null) {
+            out.println("Combat error: could not find your combatant.");
+            return true;
+        }
+
+        // Ki cost scales with proficiency: 5 at 1-49%, 4 at 50-99%, 3 at 100%
+        int proficiency = charQp.getProficiency();
+        int kiCost = Math.max(3, 5 - proficiency / 50);
+
+        // Check & spend ki
+        com.example.tassmud.model.GameCharacter gc = userCombatant.getCharacter();
+        if (gc == null || gc.getKiCur() < kiCost) {
+            out.println("You do not have enough ki to channel Quivering Palm. (Need " + kiCost + ", have " + (gc != null ? gc.getKiCur() : 0) + ")");
+            return true;
+        }
+        gc.spendKi(kiCost);
+        DaoProvider.characters().saveKiByName(name, gc.getKiMax(), gc.getKiCur());
+
+        // Find opponent (first combatant on different alliance)
+        Combatant targetCombatant = null;
+        for (Combatant c : activeCombat.getCombatants()) {
+            if (c.getAlliance() != userCombatant.getAlliance() && c.isActive() && c.isAlive()) {
+                targetCombatant = c;
+                break;
+            }
+        }
+
+        if (targetCombatant == null) {
+            out.println("You have no opponent to strike.");
+            // Refund ki on targeting failure
+            gc.setKiCur(gc.getKiCur() + kiCost);
+            DaoProvider.characters().saveKiByName(name, gc.getKiMax(), gc.getKiCur());
+            return true;
+        }
+
+        String targetName = targetCombatant.getName();
+        com.example.tassmud.model.GameCharacter targetChar = targetCombatant.getAsCharacter();
+
+        // Roll attack: 1d20 + STR mod + level/2 + attackHitBonus vs target armor
+        CharacterClassDAO qpClassDao = DaoProvider.classes();
+        int userLevel = rec.currentClassId != null ? qpClassDao.getCharacterClassLevel(charId, rec.currentClassId) : 1;
+        int strMod = (gc.getStr() - 10) / 2;
+        int attackHitBonus = gc.getAttackHitBonus();
+        int levelBonus = userLevel / 2;
+        int totalBonus = strMod + levelBonus + attackHitBonus;
+
+        int targetArmor = targetChar != null ? targetChar.getArmor() : 10;
+
+        int attackRoll = ThreadLocalRandom.current().nextInt(1, 21);
+        int totalAttack = attackRoll + totalBonus;
+
+        // Crit threshold (default 20, reduced by critical threshold bonuses)
+        int critThreshold = 20 + gc.getCriticalThresholdBonus(); // bonus is negative to lower threshold
+        critThreshold = Math.max(2, critThreshold);
+
+        boolean naturalCrit = attackRoll >= critThreshold;
+        boolean normalHit = !naturalCrit && attackRoll != 1 && totalAttack >= targetArmor;
+        // naturalCrit > normalHit > miss (everything else)
+
+        ctx.handler.sendDebug("Quivering Palm attack roll:");
+        ctx.handler.sendDebug("  d20=" + attackRoll + " + bonus=" + totalBonus + " = " + totalAttack + " vs armor=" + targetArmor);
+        ctx.handler.sendDebug("  Crit threshold: " + critThreshold + " | naturalCrit=" + naturalCrit + " | hit=" + normalHit);
+        ctx.handler.sendDebug("  Ki cost: " + kiCost + " (proficiency " + proficiency + "%)");
+
+        if (naturalCrit) {
+            // CRIT → INSTAKILL: channel ki into the target's life force, stopping it
+            int overkillDamage = targetCombatant.getHpCurrent() + 9999;
+            targetCombatant.damage(overkillDamage);
+
+            out.println("\u001B[1;35m*** QUIVERING PALM — DEATH STRIKE! ***\u001B[0m");
+            out.println("\u001B[1;35mYou channel ki into " + targetName + "'s life force, stopping it in its tracks!\u001B[0m");
+
+            if (targetCombatant.isPlayer()) {
+                Integer targetCharId = targetCombatant.getCharacterId();
+                ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
+                if (targetHandler != null) {
+                    targetHandler.out.println("\u001B[1;35m" + name + "'s Quivering Palm disrupts your life force — you collapse!\u001B[0m");
+                }
+            }
+
+            ClientHandler.roomAnnounceFromActor(ctx.currentRoomId,
+                "\u001B[1;35m" + name + " places a lethal touch on " + targetName
+                    + " — Quivering Palm DEATH STRIKE!\u001B[0m", charId);
+
+        } else if (normalHit) {
+            // HIT → CRITICAL: ki-infused strike doubles the impact
+            int maxDamage = calculateMaxWeaponDamage(charId, dao, userCombatant);
+            int critDamage = maxDamage * 2;
+            targetCombatant.damage(critDamage);
+            activeCombat.addAttackAggro(charId, critDamage);
+
+            out.println("\u001B[1;33m*** QUIVERING PALM — CRITICAL STRIKE! ***\u001B[0m");
+            out.println("\u001B[1;31mYour ki-charged strike deals \u001B[1;33m" + critDamage + "\u001B[1;31m critical damage to " + targetName + "!\u001B[0m");
+
+            if (targetCombatant.isPlayer()) {
+                Integer targetCharId = targetCombatant.getCharacterId();
+                ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
+                if (targetHandler != null) {
+                    targetHandler.out.println("\u001B[1;31m" + name + "'s Quivering Palm deals " + critDamage + " critical damage to you!\u001B[0m");
+                }
+            }
+
+            ClientHandler.roomAnnounceFromActor(ctx.currentRoomId,
+                name + "'s Quivering Palm lands a critical blow on " + targetName + "!", charId);
+
+            if (!targetCombatant.isAlive()) {
+                out.println(targetName + " crumples from the force of your Quivering Palm!");
+            }
+
+        } else {
+            // MISS → HIT: even a miss carries ki energy that lands
+            int maxDamage = calculateMaxWeaponDamage(charId, dao, userCombatant);
+            targetCombatant.damage(maxDamage);
+            activeCombat.addAttackAggro(charId, maxDamage);
+
+            out.println("\u001B[33mYour Quivering Palm grazes " + targetName + ", but ki carries it through for \u001B[1;31m" + maxDamage + "\u001B[33m damage!\u001B[0m");
+
+            if (targetCombatant.isPlayer()) {
+                Integer targetCharId = targetCombatant.getCharacterId();
+                ClientHandler targetHandler = ClientHandler.charIdToSession.get(targetCharId);
+                if (targetHandler != null) {
+                    targetHandler.out.println("\u001B[33m" + name + "'s Quivering Palm barely touches you but ki energy deals " + maxDamage + " damage!\u001B[0m");
+                }
+            }
+
+            ClientHandler.roomAnnounceFromActor(ctx.currentRoomId,
+                name + "'s Quivering Palm barely connects with " + targetName + " but still finds its mark!", charId);
+
+            if (!targetCombatant.isAlive()) {
+                out.println(targetName + " falls to your Quivering Palm!");
+            }
+        }
+
+        // Send ki update
+        out.println("\u001B[1;33mKi: " + gc.getKiCur() + "/" + gc.getKiMax() + "\u001B[0m");
+
+        // Use unified skill execution to apply cooldown and check proficiency growth
+        com.example.tassmud.util.SkillExecution.Result skillResult =
+            com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
+                name, charId, qpSkill, charQp, dao, true);
+
+        ctx.handler.sendDebug("Quivering Palm proficiency check:");
+        ctx.handler.sendDebug("  Current proficiency: " + charQp.getProficiency() + "%");
+        ctx.handler.sendDebug("  Proficiency improved: " + skillResult.didProficiencyImprove());
+        if (skillResult.getProficiencyResult() != null) {
+            ctx.handler.sendDebug("  Old prof: " + skillResult.getProficiencyResult().getOldProficiency()
+                + " -> New prof: " + skillResult.getProficiencyResult().getNewProficiency());
+        }
+
+        if (skillResult.didProficiencyImprove()) {
+            out.println(skillResult.getProficiencyMessage());
+        }
+        return true;
+    }
 }

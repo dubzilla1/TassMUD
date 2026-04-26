@@ -681,8 +681,12 @@ skills:
   - id: 709
     key: perfect_self
     name: Perfect Self
-    description: Achieve physical and spiritual perfection, transcending mortality.
-    progression: LEGENDARY
+    description: >-
+      Passive capstone of monastic mastery. Your ki pool is doubled, and your ki
+      refills completely whenever you leave combat — ensuring you always enter
+      battle at full strength.
+    progression: INSTANT
+    is_passive: true
 
   - id: 710
     key: ki_pool
@@ -692,6 +696,19 @@ skills:
       you have a chance to gain a ki point. Critical hits guarantee ki gain.
       Your maximum ki is determined by your wisdom modifier.
     progression: LEGENDARY
+
+  - id: 711
+    key: quivering_palm
+    name: Quivering Palm
+    description: >-
+      A devastating killing technique passed down through the oldest monastic
+      traditions. You channel ki into a precise strike that disrupts the
+      target's life force. A miss still lands, a hit becomes a critical, and
+      a critical kills outright. Ki cost decreases with mastery.
+    progression: LEGENDARY
+    is_passive: false
+    cooldown: 30
+    traits: [COMBAT]
 
   # ============================================================
   # WEAPON CATEGORY SKILLS (900-999)

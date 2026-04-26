@@ -348,5 +348,7 @@ classes:
         skill_id: 706  # wholeness of body
       - level: 40
         skill_id: 708  # empty body
-      # TODO: quivering palm skill not yet implemented
-      # TODO: perfect self skill not yet implemented (hero level)
+      - level: 45
+        skill_id: 711  # quivering palm
+      - level: 50
+        skill_id: 709  # perfect self (capstone — doubles ki pool, refills on combat exit)

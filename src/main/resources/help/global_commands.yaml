@@ -2923,6 +2923,55 @@ stun:
     EXAMPLE
         stun
 
+qp:
+  keywords: [qp, quivering palm, quiveringpalm, monk, ki]
+  see_also: [stun, flurry, skills, combat]
+  category: COMBAT
+  summary: "channel ki into a lethal strike: miss hits, hit crits, crit kills"
+  visibility: public
+  synopsis:
+    - "qp"
+    - "quivering palm"
+  body: |
+    NAME
+        qp - Quivering Palm
+
+    SYNOPSIS
+        qp
+
+    DESCRIPTION
+        Channel ki into a precise strike that disrupts the target's life
+        force. Every outcome is upgraded by one tier of lethality:
+
+          MISS  → still deals normal weapon damage (ki carries it home)
+          HIT   → deals critical (double) damage
+          CRIT  → instant kill (disrupts life force outright)
+
+        MECHANICS:
+        - Ki cost decreases with mastery:
+            1–49%  proficiency: 5 ki
+            50–99% proficiency: 4 ki
+            100%   proficiency: 3 ki
+        - Attack roll uses: d20 + STR mod + level/2 + hit bonuses
+        - Critical threshold: natural 20 (or lower with threshold bonuses)
+        - Cooldown: 30 seconds
+        - Skill progression: LEGENDARY
+        
+        REQUIREMENTS:
+        - You must know the Quivering Palm skill (Monk level 45)
+        - You must be in combat
+        - You must have sufficient ki points
+        
+        STRATEGY:
+        Save Quivering Palm for high-value targets. Against tough enemies,
+        even a miss guarantees solid damage. At full proficiency the ki
+        cost drops to 3, making it sustainable in extended fights. A
+        critical hit while using QP means instant death — position
+        yourself for maximum advantage before striking.
+
+    EXAMPLE
+        qp
+
 deflect_missiles:
   keywords: [deflect, missiles, deflect_missiles, monk]
   see_also: [skills, combat]

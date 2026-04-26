@@ -99,6 +99,7 @@ public class CommandRegistry {
         register("infuse", "Infuse your staff with arcane energy for ranged attacks", Category.COMBAT);
         registerCombat("flurry", "Unleash a ki-powered flurry of strikes", Category.COMBAT);
         registerCombat("stun", "Strike a pressure point to stun your opponent", Category.COMBAT);
+        registerCombat("qp", "Quivering Palm: a lethal ki strike that upgrades miss to hit, hit to crit, crit to kill", Category.COMBAT, List.of("quivering palm", "quiveringpalm"));
         register("hide", "Become invisible to others", Category.COMBAT);
         register("visible", "Become visible again, dropping invisibility", Category.COMBAT, List.of("unhide"));
         register("sneak", "Toggle sneaking mode to move silently and avoid aggro", Category.COMBAT);

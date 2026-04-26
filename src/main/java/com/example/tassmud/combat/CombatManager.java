@@ -68,6 +68,9 @@ public class CombatManager {
     /** Empty Body skill ID (from skills.yaml) — passive cheat-death + invincibility */
     private static final int EMPTY_BODY_SKILL_ID = 708;
 
+    /** Perfect Self skill ID (from skills.yaml) — doubles ki pool, refills ki on combat exit */
+    private static final int PERFECT_SELF_SKILL_ID = 709;
+
     /**
      * Tracks when each character's Empty Body invincibility expires.
      * Key = characterId, Value = System.currentTimeMillis() at expiry.
@@ -1176,6 +1179,20 @@ public class CombatManager {
                         dao.saveModifiersForCharacter(c.getCharacterId(), ch);
                     }
                 }
+            }
+
+            // Perfect Self: refill ki to max for monks who have the passive
+            for (Combatant c : combat.getPlayerCombatants()) {
+                if (!c.isPlayer() || c.getCharacterId() == null) continue;
+                GameCharacter gc = c.getAsCharacter();
+                if (gc == null || gc.getKiMax() <= 0) continue; // not a ki user
+                CharacterSkill psSkill = DaoProvider.skills().getCharacterSkill(c.getCharacterId(), PERFECT_SELF_SKILL_ID);
+                if (psSkill == null) continue;
+                // Refill ki to max
+                gc.setKiCur(gc.getKiMax());
+                DaoProvider.characters().saveKiByName(c.getName(), gc.getKiMax(), gc.getKiCur());
+                sendToPlayer(c.getCharacterId(), "\u001b[1;33mYour inner peace restores your ki to full. (Ki: "
+                        + gc.getKiCur() + "/" + gc.getKiMax() + ")\u001b[0m");
             }
             
             combat.end();

@@ -87,6 +87,10 @@ public class CombatCommandHandler implements CommandHandler {
                 return meleeSkills.handleFlurryCommand(ctx);
             case "stun":
                 return meleeSkills.handleStunningFistCommand(ctx);
+            case "qp":
+            case "quivering palm":
+            case "quiveringpalm":
+                return meleeSkills.handleQuiveringPalmCommand(ctx);
             case "hide":
                 return rogueSkills.handleHideCommand(ctx);
             case "visible":

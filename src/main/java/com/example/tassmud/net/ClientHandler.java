@@ -691,13 +691,16 @@ public class ClientHandler implements Runnable {
             // Monks use ki in their prompt instead of mp
             if (rec != null && rec.currentClassId != null && rec.currentClassId == 8) {
                 this.promptFormat = "<%h/%Hhp %k/%Kki %v/%Vmv> ";
-                // Ensure ki max is initialized from wisdom modifier on login
-                if (rec.kiMax <= 0) {
-                    int wisMod = (rec.getWisTotal() - 10) / 2;
-                    int newKiMax = Math.max(1, wisMod);
-                    dao.saveKiByName(name, newKiMax, Math.min(rec.kiCur, newKiMax));
-                    rec = dao.findByName(name); // refresh
+                // Always recompute ki max from wisdom modifier (+ Perfect Self doubling)
+                int wisMod = (rec.getWisTotal() - 10) / 2;
+                int newKiMax = Math.max(1, wisMod);
+                // Check for Perfect Self (skill 709) — doubles ki pool
+                Integer charId = dao.getCharacterIdByName(name);
+                if (charId != null && DaoProvider.skills().hasSkill(charId, 709)) {
+                    newKiMax *= 2;
                 }
+                dao.saveKiByName(name, newKiMax, Math.min(rec.kiCur, newKiMax));
+                rec = dao.findByName(name); // refresh
             }
             
             while (true) {
