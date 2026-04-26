@@ -669,8 +669,14 @@ skills:
   - id: 708
     key: empty_body
     name: Empty Body
-    description: Become ethereal, passing through walls and avoiding all attacks.
-    progression: LEGENDARY
+    description: >-
+      Passive survival reflex honed through years of meditation. When a killing
+      blow lands, the monk's ki instinctively empties the body of substance —
+      the damage is nullified, leaving the monk at 1 HP and intangible for a
+      short time (10–30s based on proficiency) during which no further damage
+      can reach them. 10-minute cooldown.
+    progression: EASY
+    cooldown: 600
 
   - id: 709
     key: perfect_self

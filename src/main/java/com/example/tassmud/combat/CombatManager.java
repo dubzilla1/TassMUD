@@ -61,9 +61,18 @@ public class CombatManager {
     
     /** Ki Pool skill ID (from skills.yaml) */
     private static final int KI_POOL_SKILL_ID = 710;
-    
+
     /** Flurry of Blows skill ID (from skills.yaml) */
     private static final int FLURRY_SKILL_ID = 701;
+
+    /** Empty Body skill ID (from skills.yaml) — passive cheat-death + invincibility */
+    private static final int EMPTY_BODY_SKILL_ID = 708;
+
+    /**
+     * Tracks when each character's Empty Body invincibility expires.
+     * Key = characterId, Value = System.currentTimeMillis() at expiry.
+     */
+    private final Map<Integer, Long> invincibilityExpiry = new ConcurrentHashMap<>();
     
     /** Callback for sending messages to players */
     private BiConsumer<Integer, String> playerMessageCallback;
@@ -170,7 +179,10 @@ public class CombatManager {
      */
     public void tick() {
         List<Combat> toRemove = new ArrayList<>();
-        
+
+        // Expire Empty Body invincibility windows
+        sweepEmptyBodyExpiry();
+
         for (Combat combat : activeCombats.values()) {
             if (combat.hasEnded()) {
                 toRemove.add(combat);
@@ -514,9 +526,11 @@ public class CombatManager {
             messagingService.syncPlayerHpToDatabase(target);
         }
         
-        // Check for death
+        // Check for death — Empty Body may intercept a killing blow
         if (result.isDeath() || !target.isAlive()) {
-            deathHandler.handleCombatantDeath(combat, target, combatant);
+            if (!tryEmptyBody(target, combatant, combat)) {
+                deathHandler.handleCombatantDeath(combat, target, combatant);
+            }
         }
         
         // Process multiple attacks (only for basic attacks)
@@ -595,7 +609,9 @@ public class CombatManager {
             
             // Check for death
             if (result.isDeath() || !target.isAlive()) {
-                deathHandler.handleCombatantDeath(combat, target, combatant);
+                if (!tryEmptyBody(target, combatant, combat)) {
+                    deathHandler.handleCombatantDeath(combat, target, combatant);
+                }
             }
         }
     }
@@ -653,7 +669,9 @@ public class CombatManager {
         
         // Check for death
         if (result.isDeath() || !target.isAlive()) {
-            deathHandler.handleCombatantDeath(combat, target, combatant);
+            if (!tryEmptyBody(target, combatant, combat)) {
+                deathHandler.handleCombatantDeath(combat, target, combatant);
+            }
         }
         
         // Try to improve flurry proficiency on successful extra attack
@@ -709,10 +727,117 @@ public class CombatManager {
 
         // Check for death
         if (result.isDeath() || !target.isAlive()) {
-            deathHandler.handleCombatantDeath(combat, target, combatant);
+            if (!tryEmptyBody(target, combatant, combat)) {
+                deathHandler.handleCombatantDeath(combat, target, combatant);
+            }
         }
     }
     
+    /**
+     * Attempt to activate Empty Body for a combatant who just received a lethal hit.
+     *
+     * <p>Conditions:
+     * <ul>
+     *   <li>Target must be a player with a valid character ID.</li>
+     *   <li>Target must have the empty_body skill (ID 708) in their character_skill record.</li>
+     *   <li>The skill must not be on cooldown.</li>
+     * </ul>
+     *
+     * <p>On success:
+     * <ul>
+     *   <li>HP is restored to 1.</li>
+     *   <li>The {@code INVINCIBLE} status flag is applied — subsequent damage calls are no-ops.</li>
+     *   <li>Duration = 10 + (proficiency / 5) seconds (10s at prof 1 → 30s at prof 100).</li>
+     *   <li>Skill is put on a 600-second cooldown.</li>
+     *   <li>Room announcement + private player message are sent.</li>
+     * </ul>
+     *
+     * @return {@code true} if Empty Body fired and death should be skipped, {@code false} otherwise
+     */
+    private boolean tryEmptyBody(Combatant target, Combatant attacker, Combat combat) {
+        if (!target.isPlayer()) return false;
+        Integer charId = target.getCharacterId();
+        if (charId == null) return false;
+
+        // Check cooldown first (cheap)
+        String playerName = target.getName();
+        if (playerName == null) return false;
+        if (com.example.tassmud.util.CooldownManager.getInstance()
+                .isPlayerOnCooldown(playerName, com.example.tassmud.model.CooldownType.SKILL, EMPTY_BODY_SKILL_ID)) {
+            return false;
+        }
+
+        // Check character has the skill
+        com.example.tassmud.persistence.SkillDAO skillDao = DaoProvider.skills();
+        CharacterSkill emptyBodySkill = skillDao.getCharacterSkill(charId, EMPTY_BODY_SKILL_ID);
+        if (emptyBodySkill == null) return false;
+
+        // All conditions met — activate Empty Body
+        int proficiency = emptyBodySkill.getProficiency();          // 1 – 100
+        int durationSeconds = 10 + (proficiency / 5);              // 10s – 30s
+
+        // Restore HP to 1 and mark invincible
+        target.getAsCharacter().setHpCur(1);
+        target.addStatusFlag(Combatant.StatusFlag.INVINCIBLE);
+        invincibilityExpiry.put(charId, System.currentTimeMillis() + (durationSeconds * 1000L));
+
+        // Put skill on cooldown
+        com.example.tassmud.util.CooldownManager.getInstance()
+                .setPlayerCooldown(playerName, com.example.tassmud.model.CooldownType.SKILL, EMPTY_BODY_SKILL_ID, 600.0);
+
+        // Sync HP to DB
+        messagingService.syncPlayerHpToDatabase(target);
+
+        // Announce to the room
+        Integer roomId = combat.getRoomId();
+        if (roomId != null) {
+            broadcastToRoom(roomId,
+                    "\u001b[1;35m" + playerName + "'s ki surges — they become ethereal, deflecting death itself! "
+                    + "(Invincible for " + durationSeconds + "s)\u001b[0m");
+        }
+        // Private confirmation to the player
+        sendToPlayer(charId,
+                "\u001b[1;35mYour Empty Body technique activates! You remain at 1 HP and become invincible for "
+                + durationSeconds + " seconds.\u001b[0m");
+        messagingService.sendPromptToPlayer(charId);
+
+        logger.debug("[EmptyBody] Triggered for {} — {}s invincibility (prof {})", playerName, durationSeconds, proficiency);
+        return true;
+    }
+
+    /**
+     * Expire any outstanding Empty Body invincibility windows whose timer has elapsed.
+     * Called at the start of every combat tick.
+     */
+    private void sweepEmptyBodyExpiry() {
+        if (invincibilityExpiry.isEmpty()) return;
+        long now = System.currentTimeMillis();
+        invincibilityExpiry.entrySet().removeIf(entry -> {
+            if (now < entry.getValue()) return false;   // still active
+
+            Integer charId = entry.getKey();
+            // Find the combatant in an active combat
+            Combat combat = combatsByCharacter.get(charId);
+            if (combat != null) {
+                Combatant c = combat.getCombatants().stream()
+                        .filter(cb -> charId.equals(cb.getCharacterId()))
+                        .findFirst().orElse(null);
+                if (c != null) {
+                    c.removeStatusFlag(Combatant.StatusFlag.INVINCIBLE);
+                    sendToPlayer(charId,
+                            "\u001b[0;35mYour ethereal state fades \u2014 you are vulnerable once more.\u001b[0m");
+                    messagingService.sendPromptToPlayer(charId);
+                }
+            } else {
+                // Player may have fled / combat ended — find their character and strip the flag
+                // via the MobileRegistry-style player lookup if available; otherwise just let it go.
+                // The flag will be absent from Combatant (which is combat-scoped) anyway.
+            }
+            logger.debug("[EmptyBody] Invincibility expired for characterId={}", charId);
+            return true;    // remove entry
+        });
+    }
+
     /**
      * Select a combat command for a mobile based on AI.
      * If the mobile has a registered spec_fun handler, invoke it first.

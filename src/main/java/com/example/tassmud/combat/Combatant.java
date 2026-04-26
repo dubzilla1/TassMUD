@@ -105,17 +105,19 @@ public class Combatant {
         /** Combatant has disadvantage (-1 level penalty to attacks this round) */
         DISADVANTAGE,
         /** Combatant is prone (melee attackers have advantage, ranged have disadvantage) */
-        PRONE;
+        PRONE,
+        /** Combatant is invincible — all incoming damage is nullified (Empty Body, etc.) */
+        INVINCIBLE;
 
         /**
          * Whether this flag represents a harmful/negative status that can be resisted.
-         * Positive or neutral flags (ADVANTAGE) are NOT resistible.
+         * Positive or neutral flags (ADVANTAGE, INVINCIBLE) are NOT resistible.
          */
         public boolean isNegative() {
             return switch (this) {
                 case INTERRUPTED, ROOTED, STUNNED, SLOWED, SILENCED,
                      DISARMED, BLINDED, CONFUSED, DISADVANTAGE, PRONE -> true;
-                case ADVANTAGE -> false;
+                case ADVANTAGE, INVINCIBLE -> false;
             };
         }
 
@@ -130,7 +132,7 @@ public class Combatant {
                 case BLINDED, SILENCED -> "sense";
                 case CONFUSED -> "mind";
                 case INTERRUPTED, DISADVANTAGE -> "combat";
-                case ADVANTAGE -> "none";
+                case ADVANTAGE, INVINCIBLE -> "none";
             };
         }
     }
@@ -391,6 +393,8 @@ public class Combatant {
     }
     
     public void damage(int amount) {
+        // Empty Body invincibility: absorb all damage while the flag is set
+        if (hasStatusFlag(StatusFlag.INVINCIBLE)) return;
         GameCharacter c = getAsCharacter();
         if (c != null) {
             c.setHpCur(c.getHpCur() - amount);
