@@ -796,6 +796,104 @@ public final class MobileSpecials {
             return false;
         });
 
+        // ── Angel spec_funs (Divine Fury paladin spell — IDs 790/791/792) ─────
+
+        // spec_angel_deva: healer/buffer — every ~6 ticks, heals the most-wounded ally.
+        // Also restores MP on a secondary roll. Out-of-combat: buffs the owner instead.
+        {
+            Map<Long, Integer> devaTickCounters = new ConcurrentHashMap<>();
+            registry.register("spec_angel_deva", (mob, ctx) -> {
+                int count = devaTickCounters.merge(mob.getInstanceId(), 1, Integer::sum);
+                if (count < 6) return false; // pulse every ~3 seconds (6 ticks × 500ms)
+                devaTickCounters.put(mob.getInstanceId(), 0);
+
+                if (!ctx.chance(80)) return false; // 80% chance to do something when pulse fires
+
+                List<Combatant> allies = ctx.combat != null
+                        ? ctx.combat.getPlayerCombatants()
+                        : new java.util.ArrayList<>();
+
+                // Find the most-wounded ally (lowest HP ratio)
+                Combatant healTarget = null;
+                double lowestRatio = 1.0;
+                for (Combatant ally : allies) {
+                    GameCharacter ac = getCharacterFromCombatant(ally);
+                    if (ac == null || ac.getHpMax() <= 0) continue;
+                    double ratio = (double) ac.getHpCur() / ac.getHpMax();
+                    if (ratio < lowestRatio) {
+                        lowestRatio = ratio;
+                        healTarget = ally;
+                    }
+                }
+
+                if (healTarget != null && lowestRatio < 0.95) {
+                    GameCharacter tc = getCharacterFromCombatant(healTarget);
+                    if (tc != null) {
+                        // Heal amount: 30 + 1d(mob level) — solid but not overpowered
+                        int healAmt = 30 + ctx.rng.nextInt(mob.getLevel() + 1);
+                        tc.setHpCur(Math.min(tc.getHpMax(), tc.getHpCur() + healAmt));
+                        ctx.sendToRoom.accept(ctx.roomId,
+                                mob.getName() + " touches " + tc.getName()
+                                + " with a wing of radiant light, restoring " + healAmt + " hit points!");
+                        notifyIfPlayer(healTarget,
+                                "\u001b[1;93mDivine warmth washes through you as the Deva heals you for "
+                                + healAmt + " HP!\u001b[0m");
+                        return true;
+                    }
+                }
+
+                // Secondary: restore MV to a random ally
+                if (!allies.isEmpty()) {
+                    Combatant mvTarget = allies.get(ctx.rng.nextInt(allies.size()));
+                    GameCharacter tc = getCharacterFromCombatant(mvTarget);
+                    if (tc != null && tc.getMvCur() < tc.getMvMax()) {
+                        int mvRestore = 10 + ctx.rng.nextInt(mob.getLevel() / 5 + 1);
+                        tc.setMvCur(Math.min(tc.getMvMax(), tc.getMvCur() + mvRestore));
+                        ctx.sendToRoom.accept(ctx.roomId,
+                                mob.getName() + " sings a single bright note — "
+                                + tc.getName() + " feels refreshed!");
+                        notifyIfPlayer(mvTarget,
+                                "\u001b[1;37mThe Deva's song renews your strength — +" + mvRestore + " MV!\u001b[0m");
+                        return false; // bonus action
+                    }
+                }
+                return false;
+            });
+        }
+
+        // spec_angel_solar: tank taunt — every 5 ticks, bellows a challenge that draws
+        // all enemy attacks onto itself for the next round (AoE light damage = aggro pull).
+        {
+            Map<Long, Integer> solarTickCounters = new ConcurrentHashMap<>();
+            registry.register("spec_angel_solar", (mob, ctx) -> {
+                if (ctx.combat == null) return false;
+                int count = solarTickCounters.merge(mob.getInstanceId(), 1, Integer::sum);
+                if (count < 5) return false; // every ~2.5 seconds
+                solarTickCounters.put(mob.getInstanceId(), 0);
+
+                Combatant self = ctx.combat.findByMobileInstanceId(mob.getInstanceId());
+                if (self == null) return false;
+                List<Combatant> enemies = ctx.combat.getValidTargets(self);
+                if (enemies.isEmpty()) return false;
+
+                ctx.sendToRoom.accept(ctx.roomId,
+                        "\u001b[1;93m" + mob.getName()
+                        + " raises its blazing sword and unleashes a thunderous divine challenge!\u001b[0m");
+
+                for (Combatant enemy : enemies) {
+                    GameCharacter ec = getCharacterFromCombatant(enemy);
+                    if (ec == null) continue;
+                    // Light shockwave damage — enough to mark the Solar as the threat
+                    int tauntDmg = 2 + ctx.rng.nextInt(4);
+                    ec.setHpCur(ec.getHpCur() - tauntDmg);
+                    notifyIfPlayer(enemy,
+                            "\u001b[1;91mThe Solar's challenge sends a shockwave through you for "
+                            + tauntDmg + " damage — it wants YOUR attention!\u001b[0m");
+                }
+                return false; // bonus action
+            });
+        }
+
         logger.info("[MobileSpecials] Registered {} handlers", registry.count());
     }
 

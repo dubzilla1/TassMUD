@@ -2544,3 +2544,108 @@
   gold_min: 20
   gold_max: 100
   respawn_seconds: 3600
+
+# ============================================================================
+# SUMMONED ANGEL TEMPLATES (IDs 790-792)
+# Used exclusively by the Divine Fury paladin spell (id 151).
+# No spawn configs — these mobs are never placed in the world directly.
+# Stats are intentionally left at placeholder values; fill in before release.
+# ============================================================================
+
+# Deva — role: healer/buffer. Uses spec_angel_deva to heal/buff the lowest-HP ally each tick.
+# Multi-attack: level 50 mob auto-gets 2nd/3rd/4th attack from MultiAttackHandler.
+- id: 790
+  spec_fun: "spec_angel_deva"
+  key: angel_deva
+  name: "A Deva"
+  short_desc: "A radiant deva stands here, wings of white light unfurled."
+  long_desc: "This celestial messenger stands eight feet tall, its body radiating a warm golden light. Two great wings of pure white energy extend behind it, and its gaze carries both fierce compassion and absolute resolve. Armed with a gleaming mace, the deva fights with disciplined precision — the first tier of heaven's wrath made manifest."
+  keywords: [deva, angel, celestial, divine]
+  level: 50
+  hp_max: 1200
+  mp_max: 0
+  mv_max: 100
+  str: 22
+  dex: 16
+  con: 20
+  intel: 14
+  wis: 14
+  cha: 14
+  armor: 40
+  fortitude: 10
+  reflex: 10
+  will: 10
+  base_damage: 6
+  damage_bonus: 28
+  attack_bonus: 8
+  behaviors: [DEFENSIVE]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+
+# Planetar — role: DPS. Higher base damage + damage_bonus. Level 50 auto-grants full
+# multi-attack chain (100%/80%/50%) from MultiAttackHandler — no spec_fun needed.
+- id: 791
+  key: angel_planetar
+  name: "A Planetar"
+  short_desc: "A towering planetar looms here, sword blazing with holy fire."
+  long_desc: "This powerful celestial warrior stands nearly ten feet tall, its muscular form sheathed in gleaming celestial plate. Its skin is a deep blue-green, its eyes burn with holy white fire, and the enormous two-handed sword it carries crackles with divine energy. Planetars are generals of the heavenly armies, and this one answers only to the paladin who called it."
+  keywords: [planetar, angel, celestial, divine]
+  level: 50
+  hp_max: 1200
+  mp_max: 0
+  mv_max: 100
+  str: 22
+  dex: 16
+  con: 20
+  intel: 14
+  wis: 14
+  cha: 14
+  armor: 40
+  fortitude: 10
+  reflex: 10
+  will: 10
+  base_damage: 10
+  damage_bonus: 40
+  attack_bonus: 8
+  behaviors: [DEFENSIVE]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0
+
+# Solar — role: tank. 1.5x HP, +10 to all saves and armor, spec_angel_solar taunts
+# enemies every ~5 ticks forcing attacks onto itself.
+- id: 792
+  spec_fun: "spec_angel_solar"
+  key: angel_solar
+  name: "A Solar"
+  short_desc: "A blazing solar descends here, the very air shimmering with its presence."
+  long_desc: "The most powerful of the angelic host, a solar stands fifteen feet tall and radiates light so intense it is difficult to look upon directly. Its massive wings are feathers of living flame, and its golden eyes contain an ancient, terrible wisdom. In one hand it bears a massive +5 holy greatsword; in the other, a bow of pure concentrated light. Even seasoned veterans feel the urge to kneel when this being enters a room."
+  keywords: [solar, angel, celestial, divine, archangel]
+  level: 50
+  hp_max: 1800
+  mp_max: 0
+  mv_max: 100
+  str: 22
+  dex: 16
+  con: 20
+  intel: 14
+  wis: 14
+  cha: 14
+  armor: 50
+  fortitude: 20
+  reflex: 20
+  will: 20
+  base_damage: 6
+  damage_bonus: 28
+  attack_bonus: 8
+  behaviors: [DEFENSIVE]
+  aggro_range: 0
+  experience_value: 0
+  gold_min: 0
+  gold_max: 0
+  respawn_seconds: 0

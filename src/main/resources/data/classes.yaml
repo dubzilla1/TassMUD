@@ -260,12 +260,14 @@ classes:
         spell_id: 148  # holy weapon
       - level: 30
         spell_id: 120  # cure serious wounds
-      # TODO: Aura of Protection spell not yet implemented
+      - level: 35
+        spell_id: 149  # aura of protection
       - level: 40
         spell_id: 130  # cure critical wounds
-      # TODO: Divine Mount spell not yet implemented
-      # TODO: holy avenger skill not yet implemented
-      # TODO: champion of light skill not yet implemented (hero level)
+      - level: 45
+        spell_id: 150  # holy avenger
+      - level: 50
+        spell_id: 151  # divine fury
 
   # ============================================================
   # NECROMANCER - Dark magic wielder

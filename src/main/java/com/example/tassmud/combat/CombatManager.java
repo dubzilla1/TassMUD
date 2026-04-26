@@ -14,6 +14,7 @@ import com.example.tassmud.persistence.MobileDAO;
 import com.example.tassmud.persistence.SkillDAO;
 import com.example.tassmud.effect.FlurryEffect;
 import com.example.tassmud.effect.HasteEffect;
+import com.example.tassmud.effect.HolyAvengerEffect;
 import com.example.tassmud.effect.EffectRegistry;
 import com.example.tassmud.effect.EffectInstance;
 import com.example.tassmud.util.TickService;
@@ -465,6 +466,7 @@ public class CombatManager {
                 messagingService.broadcastCombatResult(combat, result);
                 tryGenerateKi(combatant, result);
                 tryHolyWeaponSmite(combatant, result, combat);
+                tryHolyAvengerBonus(combatant, result, combat);
                 totalAoeDamage += Math.max(0, result.getDamage());
                 
                 Combatant aoeTarget = result.getTarget();
@@ -498,6 +500,7 @@ public class CombatManager {
         // Ki generation for monks on successful damage
         tryGenerateKi(combatant, result);
         tryHolyWeaponSmite(combatant, result, combat);
+        tryHolyAvengerBonus(combatant, result, combat);
         
         // Track aggro for player attackers (attacks generate 10 base + damage)
         if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -577,6 +580,7 @@ public class CombatManager {
             // Ki generation for monks on extra attacks
             tryGenerateKi(combatant, result);
             tryHolyWeaponSmite(combatant, result, combat);
+            tryHolyAvengerBonus(combatant, result, combat);
             
             // Track aggro for multi-attacks (same as primary: 10 base + damage)
             if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -634,6 +638,7 @@ public class CombatManager {
         // Ki generation (tryGenerateKi handles flurry suppression internally)
         tryGenerateKi(combatant, result);
         tryHolyWeaponSmite(combatant, result, combat);
+        tryHolyAvengerBonus(combatant, result, combat);
         
         // Track aggro
         if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -689,6 +694,7 @@ public class CombatManager {
         // Ki generation for monks
         tryGenerateKi(combatant, result);
         tryHolyWeaponSmite(combatant, result, combat);
+        tryHolyAvengerBonus(combatant, result, combat);
 
         // Track aggro
         if (combatant.isPlayer() && combatant.getCharacterId() != null) {
@@ -1236,8 +1242,45 @@ public class CombatManager {
             + smiteLabels[roll] + " " + target.getName() + "!", charId);
     }
 
+    // === Holy Avenger Per-Hit Bonus ===
+
+    /**
+     * If the attacker has Holy Avenger active and this result is a successful hit,
+     * deal escalating bonus holy damage: hitNumber × 1d10 where hitNumber increments
+     * each time the paladin lands a blow during the effect's duration.
+     */
+    private void tryHolyAvengerBonus(Combatant attacker, CombatResult result, Combat combat) {
+        if (!attacker.isPlayer() || attacker.getCharacterId() == null) return;
+        if (!result.isHit()) return;
+
+        Integer charId = attacker.getCharacterId();
+        if (!HolyAvengerEffect.isActive(charId)) return;
+
+        Combatant target = result.getTarget();
+        if (target == null || !target.isAlive()) return;
+
+        int bonus = HolyAvengerEffect.computeAndIncrementBonus(charId);
+        if (bonus <= 0) return;
+
+        target.damage(bonus);
+
+        // Re-check for death after bonus damage
+        if (!target.isAlive() && !result.isDeath()) {
+            deathHandler.handleCombatantDeath(combat, target, attacker);
+        }
+
+        sendToPlayer(charId, "\u001b[1;93mThe holy light of vengeance blazes within you, dealing " + bonus + " additional divine damage!\u001b[0m");
+        ClientHandler.roomAnnounceFromActor(combat.getRoomId(),
+            "Holy light surges through " + attacker.getName() + "'s strike!", charId);
+
+        // Sync target HP to DB if player
+        if (target.isPlayer()) {
+            messagingService.syncPlayerHpToDatabase(target);
+        }
+    }
+
     // === Messaging (delegates to CombatMessagingService) ===
-    
+
     private void sendToPlayer(Integer characterId, String message) {
         messagingService.sendToPlayer(characterId, message);
     }

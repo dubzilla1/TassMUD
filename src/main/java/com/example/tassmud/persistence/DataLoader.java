@@ -662,6 +662,12 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("AURA_REGEN_HOT", new com.example.tassmud.effect.RegenEffect());
             // Register sanctuary aura handler (radiating divine HOT to all PCs in room)
             com.example.tassmud.effect.EffectRegistry.registerHandler("SANCTUARY_AURA", new com.example.tassmud.effect.SanctuaryAuraEffect());
+            // Register protection aura handler (paladin AC aura radiating to all PCs in room)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("PROTECTION_AURA", new com.example.tassmud.effect.ProtectionAuraEffect());
+            // Register aura modifier handler (child effect of Protection aura — applies AC ADD modifier)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("AURA_MODIFIER", new com.example.tassmud.effect.AuraModifierEffect());
+            // Register holy avenger handler (escalating per-hit bonus damage for paladins)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("HOLY_AVENGER", new com.example.tassmud.effect.HolyAvengerEffect());
             // Register death coil handlers (instant strike + crit-applied DOT)
             com.example.tassmud.effect.EffectRegistry.registerHandler("DEATH_COIL", new com.example.tassmud.effect.DeathCoilEffect());
             com.example.tassmud.effect.EffectRegistry.registerHandler("DEATH_COIL_DOT", new com.example.tassmud.effect.DeathCoilDotEffect());

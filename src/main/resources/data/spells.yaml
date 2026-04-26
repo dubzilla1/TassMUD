@@ -514,6 +514,51 @@ spells:
     effectIds: []
     incantation: cherev-qodesh
 
+  - id: 149
+    name: Aura of Protection
+    description: >
+      You radiate a field of holy energy that bolsters the defenses of all
+      nearby allies. While active, companions in your presence gain a divine
+      ward proportional to your experience.
+    school: DIVINE
+    level: 6
+    castingTime: 1.5
+    cooldown: 300.0
+    target: SELF
+    progression: HARD
+    effectIds: []
+    incantation: magen-qadosh
+
+  - id: 150
+    name: Holy Avenger
+    description: >
+      You are suffused with the holy light of vengeance. While the power
+      burns within you, each blow you land is magnified by divine fury —
+      the longer the battle rages, the mightier the wrath.
+    school: DIVINE
+    level: 8
+    castingTime: 1.5
+    cooldown: 120.0
+    target: SELF
+    progression: INSTANT
+    effectIds: []
+    incantation: nekam-elohim
+
+  - id: 151
+    name: Divine Fury
+    description: >
+      You call upon the Heavenly Host for aid. An angelic being answers —
+      Deva, Planetar, or Solar — descending to fight at your side for one
+      minute before returning to the celestial plane.
+    school: DIVINE
+    level: 9
+    castingTime: 2.0
+    cooldown: 300.0
+    target: SELF
+    progression: INSTANT
+    effectIds: []
+    incantation: malakhei-el-tzevaot
+
   # ========== PRIMAL SPELLS (learned through exploration/nature) ==========
   
   # Level 1 Primal

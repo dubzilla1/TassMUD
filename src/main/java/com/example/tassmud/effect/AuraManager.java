@@ -40,12 +40,30 @@ public class AuraManager {
         volatile Integer currentRoomId;
         /** Character IDs currently receiving the child effect (includes the caster). */
         final Set<Integer> recipientIds = ConcurrentHashMap.newKeySet();
+        /** Extra params forwarded to the child effect on apply (may be empty). */
+        final Map<String, String> childExtraParams;
+        /** Message sent to a recipient when they gain the child effect (null = default). */
+        final String joinMessage;
+        /** Message sent to a recipient when they lose the effect because they left the room (null = default). */
+        final String leaveMessage;
+        /** Message sent to a recipient when the caster departs (null = default). */
+        final String departsMessage;
 
         AuraState(Integer casterId, String childEffectDefId, int proficiency, Integer roomId) {
+            this(casterId, childEffectDefId, proficiency, roomId, null, null, null, null);
+        }
+
+        AuraState(Integer casterId, String childEffectDefId, int proficiency, Integer roomId,
+                  Map<String, String> childExtraParams,
+                  String joinMessage, String leaveMessage, String departsMessage) {
             this.casterId = casterId;
             this.childEffectDefId = childEffectDefId;
             this.proficiency = proficiency;
             this.currentRoomId = roomId;
+            this.childExtraParams = childExtraParams != null ? new HashMap<>(childExtraParams) : new HashMap<>();
+            this.joinMessage = joinMessage;
+            this.leaveMessage = leaveMessage;
+            this.departsMessage = departsMessage;
         }
     }
 
@@ -69,10 +87,25 @@ public class AuraManager {
      * @param proficiency        caster proficiency, forwarded to child effect scaling
      */
     public void registerAura(Integer casterId, Integer roomId, String childEffectDefId, int proficiency) {
+        registerAura(casterId, roomId, childEffectDefId, proficiency, null, null, null, null);
+    }
+
+    /**
+     * Extended overload that supports per-aura extra params and flavor messages.
+     *
+     * @param childExtraParams  extra params merged into child effect apply call (e.g. {@code "value"} for AC bonus)
+     * @param joinMessage       sent to recipient when they gain the child effect
+     * @param leaveMessage      sent to recipient when they leave the aura room
+     * @param departsMessage    sent to recipient when the caster departs
+     */
+    public void registerAura(Integer casterId, Integer roomId, String childEffectDefId, int proficiency,
+                             Map<String, String> childExtraParams,
+                             String joinMessage, String leaveMessage, String departsMessage) {
         if (casterId == null || roomId == null) return;
         deregisterAura(casterId); // clean up any prior aura (e.g. re-cast)
 
-        AuraState state = new AuraState(casterId, childEffectDefId, proficiency, roomId);
+        AuraState state = new AuraState(casterId, childEffectDefId, proficiency, roomId,
+                childExtraParams, joinMessage, leaveMessage, departsMessage);
         aurasByCaster.put(casterId, state);
         aurasByRoom.computeIfAbsent(roomId, k -> ConcurrentHashMap.newKeySet()).add(casterId);
         applyToAllPcsInRoom(state, roomId);
@@ -142,8 +175,9 @@ public class AuraManager {
         for (Integer recipientId : new ArrayList<>(state.recipientIds)) {
             EffectRegistry.removeAllEffectsOfType(recipientId, state.childEffectDefId);
             if (!recipientId.equals(state.casterId)) {
-                ClientHandler.sendToCharacter(recipientId,
-                        "\u001B[33mThe divine sanctuary aura fades as your healer departs.\u001B[0m");
+                String msg = state.departsMessage != null ? state.departsMessage
+                        : "\u001B[33mThe divine sanctuary aura fades as your healer departs.\u001B[0m";
+                ClientHandler.sendToCharacter(recipientId, msg);
             }
         }
         state.recipientIds.clear();
@@ -170,8 +204,9 @@ public class AuraManager {
             AuraState state = aurasByCaster.get(casterId);
             if (state != null && state.recipientIds.remove(charId)) {
                 EffectRegistry.removeAllEffectsOfType(charId, state.childEffectDefId);
-                ClientHandler.sendToCharacter(charId,
-                        "\u001B[33mThe divine sanctuary aura fades as you step away from the sanctified area.\u001B[0m");
+                String msg = state.leaveMessage != null ? state.leaveMessage
+                        : "\u001B[33mThe divine sanctuary aura fades as you step away from the sanctified area.\u001B[0m";
+                ClientHandler.sendToCharacter(charId, msg);
             }
         }
     }
@@ -206,13 +241,15 @@ public class AuraManager {
         Map<String, String> extra = new HashMap<>();
         extra.put("proficiency", String.valueOf(state.proficiency));
         extra.put("aura_source", "true"); // tells child handler to use infinite duration
+        if (state.childExtraParams != null) extra.putAll(state.childExtraParams);
 
         EffectInstance inst = EffectRegistry.apply(
                 state.childEffectDefId, state.casterId, recipientId, extra);
         if (inst != null) {
             state.recipientIds.add(recipientId);
-            ClientHandler.sendToCharacter(recipientId,
-                    "\u001B[92mA warm divine aura washes over you, mending your wounds.\u001B[0m");
+            String msg = state.joinMessage != null ? state.joinMessage
+                    : "\u001B[92mA warm divine aura washes over you, mending your wounds.\u001B[0m";
+            ClientHandler.sendToCharacter(recipientId, msg);
         }
     }
 }

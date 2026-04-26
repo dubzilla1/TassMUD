@@ -57,6 +57,9 @@ public class DivineSpellHandler {
         registerDivine("smite");
         registerDivine("divine shield");
         registerDivine("holy weapon");
+        registerDivine("aura of protection");
+        registerDivine("holy avenger");
+        registerDivine("divine fury");
     }
 
     private static void registerDivine(String spellName) {
@@ -94,6 +97,9 @@ public class DivineSpellHandler {
             case "smite": return handleSmite(casterId, args, ctx);
             case "divine shield": return handleDivineShield(casterId, args, ctx);
             case "holy weapon": return handleHolyWeapon(casterId, args, ctx);
+            case "aura of protection": return handleAuraOfProtection(casterId, args, ctx);
+            case "holy avenger": return handleHolyAvenger(casterId, args, ctx);
+            case "divine fury": return handleDivineFury(casterId, args, ctx);
             default:
                 return notImplemented(spellName, casterId, args, ctx);
         }
@@ -454,6 +460,80 @@ public class DivineSpellHandler {
 
         logger.debug("[holy weapon] {} applied holy weapon crit bonus (proficiency={})", casterId, ctx.getProficiency());
         return true;
+    }
+
+    private static boolean handleAuraOfProtection(Integer casterId, String args, SpellContext ctx) {
+        // Aura of Protection: Level 6 DIVINE paladin spell
+        // Radiates a holy aura that boosts the ARMOR stat of all PCs in the caster's room.
+        // AC bonus = max(1, paladin level / 5). Duration scales with proficiency.
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[aura of protection] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+
+        if (casterId == null) {
+            cmdCtx.send("No caster for Aura of Protection.");
+            return false;
+        }
+
+        int level = DaoProvider.characters().getPlayerLevel(casterId);
+        int acBonus = Math.max(1, level / 5);
+
+        Map<String, String> extraParams = new java.util.HashMap<>(ctx.getExtraParams());
+        extraParams.put("proficiency", String.valueOf(ctx.getProficiency()));
+        extraParams.put("value", String.valueOf(acBonus));
+
+        com.example.tassmud.effect.EffectInstance inst =
+                com.example.tassmud.effect.EffectRegistry.apply("1026", casterId, casterId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("The protective aura fails to form.");
+            return false;
+        }
+
+        // Messages are sent by ProtectionAuraEffect.apply().
+        logger.debug("[aura of protection] {} applied AC +{} aura (level={}, proficiency={})",
+                casterId, acBonus, level, ctx.getProficiency());
+        return true;
+    }
+
+    private static boolean handleHolyAvenger(Integer casterId, String args, SpellContext ctx) {
+        // Holy Avenger: Level 8 DIVINE paladin spell
+        // Infuses the paladin with divine vengeance. Each hit while active deals
+        // escalating bonus damage: 1d10 on hit #1, 2d10 on hit #2, etc.
+        // Hit counter resets when the effect expires or a new cast replaces it.
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[holy avenger] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+
+        if (casterId == null) {
+            cmdCtx.send("No caster for Holy Avenger.");
+            return false;
+        }
+
+        Map<String, String> extraParams = new java.util.HashMap<>(ctx.getExtraParams());
+        extraParams.put("proficiency", String.valueOf(ctx.getProficiency()));
+
+        com.example.tassmud.effect.EffectInstance inst =
+                com.example.tassmud.effect.EffectRegistry.apply("1028", casterId, casterId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("The holy light of vengeance fails to ignite within you.");
+            return false;
+        }
+
+        // Messages are sent by HolyAvengerEffect.apply().
+        logger.debug("[holy avenger] {} activated (proficiency={})", casterId, ctx.getProficiency());
+        return true;
+    }
+
+    private static boolean handleDivineFury(Integer casterId, String args, SpellContext ctx) {
+        return DivineFuryHandler.handle(casterId, args, ctx);
     }
 
     private static boolean notImplemented(String spellName, Integer casterId, String args, SpellContext ctx) {

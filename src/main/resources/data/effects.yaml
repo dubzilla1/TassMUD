@@ -936,6 +936,56 @@ effects:
       op: ADD
       value: -1    # Lowers crit threshold by 1 (e.g. 19-20 instead of 20)
 
+  # ========== PALADIN AURA OF PROTECTION ==========
+
+  - id: "1026"
+    name: "Aura of Protection"
+    description: "A holy ward radiating from the paladin, bolstering the armor of all nearby allies."
+    type: PROTECTION_AURA
+    tags: [buff, magical, divine, aura]
+    duration: 120
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: [DURATION]
+    stackPolicy: REPLACE
+    persistent: true
+    priority: 0
+    params:
+      child_effect_id: "1027"
+
+  - id: "1027"
+    name: "Aura of Protection (ward)"
+    description: "Your defenses are bolstered by a paladin's divine aura."
+    type: AURA_MODIFIER
+    tags: [buff, magical, divine]
+    duration: 9999
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: []
+    stackPolicy: REPLACE
+    persistent: true
+    priority: 0
+    params:
+      stat: ARMOR
+      op: ADD
+
+  - id: "1028"
+    name: "Holy Avenger"
+    description: "Divine vengeance burns within you — each strike grows mightier than the last."
+    type: HOLY_AVENGER
+    tags: [buff, magical, divine]
+    duration: 30
+    cooldown: 0
+    dice_multiplier: 0
+    level_multiplier: 0
+    proficiency_impact: []
+    stackPolicy: REPLACE
+    persistent: true
+    priority: 0
+    params: {}
+
   # ========== MONK EFFECTS ==========
 
   - id: "flurry"
