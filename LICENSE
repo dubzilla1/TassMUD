@@ -1,0 +1,42 @@
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+  For the specific terms and conditions of the GNU General Public
+License version 3, see: https://www.gnu.org/licenses/gpl-3.0.txt
+
+-------------------------------------------------------------------------------
+
+IMPORTANT NOTE — SPLIT LICENSE
+===============================
+
+This repository contains two distinct components under different licenses:
+
+1. ENGINE CODE — GPLv3
+   All Java source code under src/main/java/ is original work and is
+   licensed under the GNU General Public License v3.0 (above).
+
+2. WORLD CONTENT — DIKU/MERC Terms (NON-COMMERCIAL)
+   Area files under src/main/resources/data/MERC/ are derived from
+   MERC Diku Mud (copyright 1992, 1993 Michael Chastain, Michael Quan,
+   and Mitchell Tse) and Diku Mud (copyright 1990, 1991 Sebastian Hammer,
+   Michael Seifert, Hans Henrik Staerfeldt, Tom Madsen, and Katja Nyboe).
+
+   This content may NOT be used for commercial purposes (no resale or
+   operation for profit). The original DIKU authors must appear in the
+   login sequence of any running MUD. A working 'credits' command must
+   acknowledge the original authors. See the full license terms at:
+   src/main/resources/MERC/doc/license.txt
+
+-------------------------------------------------------------------------------
+
+The full text of the GNU General Public License v3 can be found at:
+https://www.gnu.org/licenses/gpl-3.0.txt
