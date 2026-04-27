@@ -473,6 +473,63 @@ skills:
     description: Become one with the wild forces of nature. Halves the MP cost, casting time, and cooldown of every primal spell.
     progression: INSTANT
 
+  - id: 411
+    key: tame
+    name: Tame
+    description: >
+      Channel your bond with nature to calm and tame a wild creature, making it
+      your loyal companion. Animals may be tamed at any proficiency; magical
+      beasts require 50% mastery; dragons require full mastery of 100%. The
+      target must be no higher level than you, and you may only have one
+      companion at a time. Use 'release' to free your companion.
+    progression: HARD
+    is_passive: false
+    traits: []
+
+  - id: 412
+    key: rapid_shot
+    name: Rapid Shot
+    description: >
+      Loose a rapid additional arrow with practiced speed. Requires a ranged
+      weapon equipped. At greater mastery, the shot can be fired more frequently.
+    progression: LEGENDARY
+    is_passive: false
+    traits: []
+    cooldown: 20
+
+  - id: 413
+    key: multishot
+    name: Multishot
+    description: >
+      Your practiced speed allows a second arrow to follow naturally after
+      Rapid Shot. Each time you invoke Rapid Shot, there is a growing chance
+      a bonus arrow flies automatically.
+      Chance: 25% + half your proficiency (up to 75% at full mastery).
+    progression: VERY_HARD
+    is_passive: true
+
+  - id: 414
+    key: improved_multishot
+    name: Improved Multishot
+    description: >
+      Building on Multishot, your archery mastery sometimes allows a third
+      arrow to follow when Multishot triggers. The chance scales entirely
+      with proficiency.
+      Chance: half your proficiency (up to 50% at full mastery).
+    progression: HARD
+    is_passive: true
+
+  - id: 415
+    key: greater_multishot
+    name: Greater Multishot
+    description: >
+      The pinnacle of ranged speed. When Improved Multishot triggers, Greater
+      Multishot may add a fourth arrow. Only the most seasoned archers unlock
+      meaningful odds of this strike.
+      Chance: one third your proficiency (up to 33% at full mastery).
+    progression: EASY
+    is_passive: true
+
   # ============================================================
   # PALADIN SKILLS (500-599)
   # ============================================================

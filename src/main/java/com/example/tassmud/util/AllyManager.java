@@ -271,6 +271,24 @@ public class AllyManager {
         return (b != null && !b.isExpired()) ? b.getBehavior() : null;
     }
 
+    /**
+     * Returns true if the owner currently has a live tamed companion binding
+     * (created via the Ranger's Tame skill).
+     */
+    public boolean hasCompanion(int ownerCharacterId) {
+        return getCompanionBinding(ownerCharacterId) != null;
+    }
+
+    /**
+     * Returns the tamed companion binding for the owner, or null if they have none.
+     */
+    public AllyBinding getCompanionBinding(int ownerCharacterId) {
+        return getAlliesForOwner(ownerCharacterId).stream()
+                .filter(b -> !b.isExpired() && b.isTamedCompanion())
+                .findFirst()
+                .orElse(null);
+    }
+
     /** Total number of active (live) bindings tracked. */
     public int size() {
         return bindingByMobInstance.size();

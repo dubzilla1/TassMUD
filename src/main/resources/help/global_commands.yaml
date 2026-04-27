@@ -252,6 +252,180 @@ lay:
         lay              (heals yourself to full)
         lay Arwen        (heals Arwen for your max HP)
 
+tame:
+  summary: "tame a wild creature as your loyal companion (Ranger)"
+  visibility: public
+  synopsis:
+    - "tame <target>"
+  body: |
+    NAME
+        tame - Tame a wild creature
+
+    SYNOPSIS
+        tame <target>
+
+    DESCRIPTION
+        Channel your bond with nature to calm and tame a wild creature. The
+        creature becomes your loyal companion, following you and defending you
+        in combat.
+
+        Requirements:
+          - You must not be in combat.
+          - The target must be at your level or lower.
+          - You may only have one companion at a time.
+          - Animals: any proficiency.
+          - Magical beasts: 50% proficiency or greater.
+          - Dragons: 100% proficiency (full mastery).
+
+        After taming, you will be prompted to give your companion a name.
+
+        Use 'release' to free your companion, causing them to wander off.
+
+    SEE ALSO
+        release
+
+release:
+  summary: "release your companion, letting it wander off (Ranger)"
+  see_also: [tame]
+  visibility: public
+  synopsis:
+    - "release"
+  body: |
+    NAME
+        release - Release your companion
+
+    SYNOPSIS
+        release
+
+    DESCRIPTION
+        Free your tamed companion. They will turn and wander off into the wild,
+        leaving your service permanently.
+
+        Note: the companion is gone for good once released. If you wish to
+        have a new companion, you must tame another creature.
+
+    SEE ALSO
+        tame
+
+rapidshot:
+  summary: "fire a rapid bonus arrow in combat (Ranger)"
+  aliases: [rs]
+  see_also: [kill, backstab, multishot]
+  visibility: public
+  synopsis:
+    - "rapidshot"
+    - "rs"
+  body: |
+    NAME
+        rapidshot - Fire a rapid bonus arrow in combat
+
+    SYNOPSIS
+        rapidshot
+        rs
+
+    DESCRIPTION
+        Rapid Shot lets you loose an additional arrow beyond your normal attacks.
+        Only usable while wielding a ranged weapon (bow, crossbow, or sling).
+
+        The cooldown scales with proficiency: 20 seconds at low mastery, down
+        to a minimum of 10 seconds at full mastery (100% proficiency).
+
+    NOTES
+        Requires a ranged weapon equipped in your main hand.
+        Must be in active combat.
+        Ranger-only skill, available at level 10.
+
+    SEE ALSO
+        kill, backstab, multishot
+
+multishot:
+  summary: "passive: chance for a second arrow when using Rapid Shot (Ranger)"
+  see_also: [rapidshot, improved_multishot]
+  visibility: public
+  body: |
+    NAME
+        Multishot - Passive ranged bonus (Ranger level 25)
+
+    DESCRIPTION
+        Multishot is a passive skill. Each time you invoke Rapid Shot, there
+        is a chance a second arrow fires automatically — no extra command needed.
+
+        Chance to trigger: 25% + half your Multishot proficiency.
+        At 100% proficiency the chance reaches 75%.
+
+    SEE ALSO
+        rapidshot, improved_multishot
+
+improved_multishot:
+  summary: "passive: chance for a third arrow when Multishot triggers (Ranger)"
+  see_also: [multishot, greater_multishot]
+  visibility: public
+  body: |
+    NAME
+        Improved Multishot - Passive ranged bonus (Ranger level 35)
+
+    DESCRIPTION
+        Improved Multishot is a passive skill that can add a third arrow when
+        Multishot triggers. It has no effect without Multishot also firing first.
+
+        Chance to trigger: half your Improved Multishot proficiency.
+        At 100% proficiency the chance reaches 50%.
+
+    SEE ALSO
+        multishot, greater_multishot
+
+greater_multishot:
+  summary: "passive: chance for a fourth arrow when Improved Multishot triggers (Ranger)"
+  see_also: [improved_multishot]
+  visibility: public
+  body: |
+    NAME
+        Greater Multishot - Passive ranged bonus (Ranger level 45)
+
+    DESCRIPTION
+        Greater Multishot is a passive skill that can add a fourth arrow when
+        Improved Multishot triggers. It requires both Multishot and Improved
+        Multishot to have fired in the same Rapid Shot sequence.
+
+        Chance to trigger: one third your Greater Multishot proficiency.
+        At 100% proficiency the chance reaches 33%.
+
+    SEE ALSO
+        improved_multishot
+
+lay on hands:
+  summary: "channel divine power to heal yourself or an ally (Paladin)"
+  aliases: [loh]
+  visibility: public
+  synopsis:
+    - "lay"
+    - "lay <target>"
+    - "loh"
+    - "loh <target>"
+  body: |
+    NAME
+        lay / loh - Lay on Hands
+
+    SYNOPSIS
+        lay [target]
+        loh [target]
+
+    DESCRIPTION
+        Channel the divine power of your deity through your hands, mending
+        grievous wounds.
+
+        Without a target (or targeting yourself), you restore your HP to full.
+
+        When targeting another player in the same room, you heal them for an
+        amount equal to your current maximum HP, capped at their own max HP.
+
+        The skill can be used in or out of combat. Requires the Lay on Hands
+        skill (Paladin, level 1). Cooldown: 600 seconds.
+
+    EXAMPLES
+        lay              (heals yourself to full)
+        lay Arwen        (heals Arwen for your max HP)
+
 communication:
   keywords: [communication, chatting, talking]
   see_also: [channels, say, chat, yell, whisper, tell, reply, emote, groupchat]

@@ -295,6 +295,8 @@ public class DataLoader {
                     int respawnSeconds = getInt(mobData, "respawn_seconds", 300);
                     int autoflee = getInt(mobData, "autoflee", 0);
                     String specFun = getString(mobData, "spec_fun", null);
+                    String mobTypeRaw = getString(mobData, "mob_type", null);
+                    com.example.tassmud.model.MobType mobType = com.example.tassmud.model.MobType.fromString(mobTypeRaw);
                     MobileTemplate template = MobileTemplate.builder()
                         .id(id).key(key).name(name).shortDesc(shortDesc).longDesc(longDesc).keywords(keywords)
                         .level(level).hpMax(hpMax).mpMax(mpMax).mvMax(mvMax)
@@ -303,7 +305,7 @@ public class DataLoader {
                         .baseDamage(baseDamage).damageBonus(damageBonus).attackBonus(attackBonus)
                         .behaviors(behaviors).aggroRange(aggroRange)
                         .experienceValue(experienceValue).goldMin(goldMin).goldMax(goldMax)
-                        .respawnSeconds(respawnSeconds).autoflee(autoflee).specFun(specFun)
+                        .respawnSeconds(respawnSeconds).autoflee(autoflee).specFun(specFun).mobType(mobType)
                         .build();
                     mobileDao.upsertTemplate(template);
                     totalLoaded.incrementAndGet();
@@ -689,6 +691,8 @@ public class DataLoader {
             com.example.tassmud.effect.EffectRegistry.registerHandler("flurry", new com.example.tassmud.effect.FlurryEffect());
             // Register divine intervention handler (death-save ward for clerics)
             com.example.tassmud.effect.EffectRegistry.registerHandler("DIVINE_INTERVENTION", new com.example.tassmud.effect.DivineInterventionEffect());
+            // Register bestial wrath handler (ranger/companion battle frenzy)
+            com.example.tassmud.effect.EffectRegistry.registerHandler("BESTIAL_WRATH", new com.example.tassmud.effect.BestialWrathEffect());
             // UNDEAD is a flag effect - no handler needed, just presence check
 
             logger.info("Loaded {} effects from effects.yaml", count);

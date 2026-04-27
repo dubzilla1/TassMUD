@@ -59,6 +59,13 @@ public class ClientHandler implements Runnable {
     public volatile boolean debugChannelEnabled = false;  // GM-only debug output
     public volatile boolean gmInvisible = false;  // GM-only perfect invisibility
     public volatile String lastTellSender = null;  // For reply command
+
+    /**
+     * If set, the next line of player input is routed to this callback instead
+     * of being parsed as a command (e.g. companion naming after the Tame skill).
+     * One-shot: cleared immediately before the callback is invoked.
+     */
+    public volatile java.util.function.Consumer<String> pendingInputCallback = null;
     
     public Socket getSocket() {
         return this.socket;
@@ -719,6 +726,15 @@ public class ClientHandler implements Runnable {
                 if (line == null) break;
                 line = line.trim();
                 if (line.isEmpty()) continue;
+
+                // Route to pending input callback if set (e.g. companion naming after Tame).
+                // One-shot: the callback is cleared before it is invoked.
+                if (pendingInputCallback != null) {
+                    java.util.function.Consumer<String> cb = pendingInputCallback;
+                    pendingInputCallback = null;
+                    cb.accept(line);
+                    continue;
+                }
 
                 Command cmd = CommandParser.parse(line);
                 if (cmd == null) {

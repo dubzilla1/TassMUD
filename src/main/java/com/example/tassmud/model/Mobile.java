@@ -39,6 +39,12 @@ public class Mobile extends GameCharacter {
     private final String specFun;          // Scripted special function key (nullable)
     // Runtime tracking of applied equipment modifiers (so they can be removed on death/respawn)
     private final java.util.List<java.util.UUID> equipModifierIds = new java.util.ArrayList<>();
+
+    // Creature classification for class skills (Ranger favored enemy, Druid wild empathy, etc.)
+    private MobType mobType;
+
+    /** Player-given name for a tamed companion; null for untamed mobs. */
+    private String overrideName;
     
     /**
      * Create a Mobile instance from a template.
@@ -77,6 +83,7 @@ public class Mobile extends GameCharacter {
         this.attackBonus = template.getAttackBonus();
         this.autoflee = template.getAutoflee();
         this.specFun = template.getSpecFun();
+        this.mobType = template.getMobType();
     }
     
     /** Creates a new builder for DB-loading Mobile instances. */
@@ -91,7 +98,7 @@ public class Mobile extends GameCharacter {
                   StatBlock stats,
                   java.util.List<String> keywords, String shortDesc, List<MobileBehavior> behaviors,
                   int experienceValue, int baseDamage, int damageBonus, int attackBonus,
-                  int autoflee, String specFun,
+                  int autoflee, String specFun, MobType mobType,
                   String originUuid,
                   long spawnedAt, boolean isDead, long diedAt) {
         super(name, 0, description, hpMax, hpCur, mpMax, mpCur, mvMax, mvCur, currentRoom, stats);
@@ -113,6 +120,7 @@ public class Mobile extends GameCharacter {
         this.attackBonus = attackBonus;
         this.autoflee = autoflee;
         this.specFun = specFun;
+        this.mobType = (mobType != null) ? mobType : MobType.infer(name, this.keywords);
     }
     public long getInstanceId() { return instanceId; }
     public int getTemplateId() { return templateId; }
@@ -183,6 +191,62 @@ public class Mobile extends GameCharacter {
     public int getAttackBonus() { return attackBonus; }
     public int getAutoflee() { return autoflee; }
     public String getSpecFun() { return specFun; }
+
+    // ── MobType accessors ─────────────────────────────────────────────────────
+
+    /**
+     * Returns this mob's creature classification.  Never {@code null} — falls
+     * back to {@link MobType#HUMANOID} if no type was resolved at spawn/load time.
+     */
+    public MobType getMobType() { return mobType != null ? mobType : MobType.HUMANOID; }
+
+    /** Override the mob type (e.g. when set via GM command or runtime transform). */
+    public void setMobType(MobType type) { this.mobType = type; }
+
+    // Convenience type predicates
+    public boolean isAnimal()        { return getMobType() == MobType.ANIMAL; }
+    public boolean isMagicalBeast()  { return getMobType() == MobType.MAGICAL_BEAST; }
+    public boolean isDragon()        { return getMobType() == MobType.DRAGON; }
+    public boolean isHumanoid()      { return getMobType() == MobType.HUMANOID; }
+    public boolean isGiant()         { return getMobType() == MobType.GIANT; }
+    public boolean isUndead()        { return getMobType() == MobType.UNDEAD; }
+    public boolean isFiend()         { return getMobType() == MobType.FIEND; }
+    public boolean isCelestial()     { return getMobType() == MobType.CELESTIAL; }
+    public boolean isFey()           { return getMobType() == MobType.FEY; }
+    public boolean isConstruct()     { return getMobType() == MobType.CONSTRUCT; }
+    public boolean isPlant()         { return getMobType() == MobType.PLANT; }
+    public boolean isOoze()          { return getMobType() == MobType.OOZE; }
+    public boolean isAberration()    { return getMobType() == MobType.ABERRATION; }
+
+    /** True for animals and magical beasts — creatures of the natural world. */
+    public boolean isNaturalCreature() { return getMobType().isNaturalCreature(); }
+
+    /** True for animals, magical beasts, and dragons — creatures found in the wild. */
+    public boolean isWildlife()        { return getMobType().isWildlife(); }
+
+    /**
+     * Generic favored-enemy check used by Ranger and similar classes.
+     *
+     * @param type the {@link MobType} to test against
+     * @return {@code true} if this mob matches the given type
+     */
+    public boolean isFavoredEnemyType(MobType type) { return getMobType() == type; }
+
+    /** Human-readable creature type name (e.g. "Magical beast", "Dragon"). */
+    public String getMobTypeName() { return getMobType().displayName(); }
+
+    /**
+     * Returns the display name — the player-given companion name if set,
+     * otherwise the mob's default name.
+     */
+    public String getDisplayName() {
+        return overrideName != null ? overrideName : getName();
+    }
+
+    /** Set the player-given companion name (used by the Ranger's Tame skill). */
+    public void setOverrideName(String name) {
+        this.overrideName = name;
+    }
     
     /**
      * Check if this mobile has a specific behavior.
@@ -229,6 +293,7 @@ public class Mobile extends GameCharacter {
      */
     public String getRoomLine() {
         if (isDead) return null;
+        if (overrideName != null) return overrideName + " is here.";
         return shortDesc != null ? shortDesc : getName() + " is here.";
     }
 
@@ -249,6 +314,7 @@ public class Mobile extends GameCharacter {
         private java.util.List<MobileBehavior> behaviors;
         private int experienceValue, baseDamage, damageBonus, attackBonus, autoflee;
         private String specFun;
+        private MobType mobType;
         private String originUuid;
         private long spawnedAt;
         private boolean isDead;
@@ -288,6 +354,7 @@ public class Mobile extends GameCharacter {
         public DbBuilder attackBonus(int v) { this.attackBonus = v; return this; }
         public DbBuilder autoflee(int v) { this.autoflee = v; return this; }
         public DbBuilder specFun(String v) { this.specFun = v; return this; }
+        public DbBuilder mobType(MobType v) { this.mobType = v; return this; }
         public DbBuilder originUuid(String v) { this.originUuid = v; return this; }
         public DbBuilder spawnedAt(long v) { this.spawnedAt = v; return this; }
         public DbBuilder isDead(boolean v) { this.isDead = v; return this; }
@@ -301,7 +368,7 @@ public class Mobile extends GameCharacter {
                 currentRoom, spawnRoomId,
                 stats,
                 keywords, shortDesc, behaviors,
-                experienceValue, baseDamage, damageBonus, attackBonus, autoflee, specFun,
+                experienceValue, baseDamage, damageBonus, attackBonus, autoflee, specFun, mobType,
                 originUuid, spawnedAt, isDead, diedAt);
         }
     }

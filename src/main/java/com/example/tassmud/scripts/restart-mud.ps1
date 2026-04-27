@@ -45,7 +45,7 @@ if ($args -contains "--debug") {
 
 # 1) Stop existing TassMUD java processes (match jar name, command-line or port)
 Write-Host "Stopping any running TassMUD processes (matching jar or port)..."
-$jarName = "tass-mud-0.1.0-shaded.jar"
+$jarName = "tass-mud-1.0.0-shaded.jar"
 $matched = @()
  # default server port (used for port checks)
  $port = $Port

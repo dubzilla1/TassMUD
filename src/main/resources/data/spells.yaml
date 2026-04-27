@@ -665,6 +665,32 @@ spells:
     effectIds: [340]
     incantation: jordveltir
 
+  # Level 6 Primal
+  - id: 250
+    name: Primal Volley
+    description: Suffuse your arrows with primal energy, causing each shot to scatter among all enemies in the room.
+    school: PRIMAL
+    level: 6
+    castingTime: 1.5
+    cooldown: 120
+    target: SELF
+    progression: EASY
+    effectIds: ["550"]
+    incantation: skotaeldr
+
+  - id: 290
+    name: Bestial Wrath
+    description: You and your animal companion enter a savage frenzy. Your companion cannot miss and all their strikes are critical hits. You automatically fire arrows every 3 seconds and all multishot proficiencies are maximized.
+    school: PRIMAL
+    level: 9
+    castingTime: 1.0
+    cooldown: 600
+    target: SELF
+    progression: INSTANT
+    effectIds: ["551"]
+    mpCost: 9
+    incantation: dyrfrengi wildmot
+
   # ========== OCCULT SPELLS (learned through dark rituals/corpses) ==========
   
   # Level 1 Occult

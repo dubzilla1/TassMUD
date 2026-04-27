@@ -400,6 +400,36 @@ effects:
       ranged: true
       aoe: true
 
+  - id: "550"
+    name: "Primal Volley"
+    type: WEAPON_INFUSION
+    duration: 30      # 30 seconds at max proficiency; scales with proficiency
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: [DURATION]
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 5
+    params:
+      infusion_type: PRIMAL
+      weapon_family: BOWS     # overridden at cast time to player's actual ranged weapon family
+      attack_stat: DEXTERITY
+      defense_stat: ARMOR
+      ranged: true
+      aoe: true
+
+  - id: "551"
+    name: "Bestial Wrath"
+    type: BESTIAL_WRATH
+    duration: 30
+    cooldown: 0
+    dice_multiplier: 0
+    profficiency_impact: []
+    stackPolicy: REFRESH
+    persistent: true
+    priority: 10
+    params: {}
+
   # ========== VISIBILITY EFFECTS ==========
 
   - id: "110"

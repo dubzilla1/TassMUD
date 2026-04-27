@@ -39,6 +39,7 @@ public class CombatCommandHandler implements CommandHandler {
     private final MeleeSkillHandler meleeSkills = new MeleeSkillHandler();
     private final SpellCastHandler spellCasting = new SpellCastHandler();
     private final PaladinSkillHandler paladinSkills = new PaladinSkillHandler();
+    private final RangerSkillHandler rangerSkills = new RangerSkillHandler();
 
     private static final Set<String> SUPPORTED_COMMANDS = CommandRegistry.getCommandsByCategory(Category.COMBAT).stream()
             .map(cmd -> cmd.getName())
@@ -65,6 +66,13 @@ public class CombatCommandHandler implements CommandHandler {
                 return handleFleeCommand(ctx);
             case "cast":
                 return spellCasting.handleCastCommand(ctx);
+            case "bw": {
+                com.example.tassmud.net.CommandParser.Command bwCmd =
+                    new com.example.tassmud.net.CommandParser.Command("cast", "bestial wrath");
+                CommandContext bwCtx = new CommandContext(bwCmd, ctx.playerName, ctx.characterId,
+                    ctx.currentRoomId, ctx.character, ctx.dao, ctx.out, ctx.isGm, ctx.inCombat, ctx.handler);
+                return spellCasting.handleCastCommand(bwCtx);
+            }
             case "kick":
                 return meleeSkills.handleKickCommand(ctx);
             case "disarm":
@@ -115,6 +123,13 @@ public class CombatCommandHandler implements CommandHandler {
             case "lay":
             case "loh":
                 return paladinSkills.handleLayOnHandsCommand(ctx);
+            case "tame":
+                return rangerSkills.handleTameCommand(ctx);
+            case "release":
+                return rangerSkills.handleReleaseCommand(ctx);
+            case "rapidshot":
+            case "rs":
+                return rangerSkills.handleRapidShotCommand(ctx);
             default:
                 return false;
         }

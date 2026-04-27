@@ -234,6 +234,15 @@ public class BasicAttackCommand implements CombatCommand {
         critThreshold = Math.max(2, critThreshold); // Can't crit on natural 1
         boolean isCrit = (attackRoll >= critThreshold);
         
+        // Bestial Wrath companion frenzy: no misses, all hits are crits
+        if (user.isMobile() && user.getMobile() != null
+                && com.example.tassmud.effect.BestialWrathEffect.isFrenziedCompanion(
+                        user.getMobile().getInstanceId())) {
+            attackRoll = Math.max(2, attackRoll);          // prevent auto-miss on natural 1
+            isCrit = true;                                  // all hits are critical hits
+            if (totalAttack < targetDefense) totalAttack = targetDefense; // force the hit
+        }
+
         // Check for miss (natural 1 always misses, or roll < target defense)
         if (attackRoll == 1 || (!isCrit && totalAttack < targetDefense)) {
             // Miss - build debug info

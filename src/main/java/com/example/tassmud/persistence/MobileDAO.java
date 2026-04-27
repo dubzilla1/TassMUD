@@ -82,6 +82,8 @@ public class MobileDAO {
             s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS autoflee INT DEFAULT 0");
             // Migration: add spec_fun column
             s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS spec_fun VARCHAR(50) DEFAULT NULL");
+            // Migration: add mob_type column for creature classification
+            s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS mob_type VARCHAR(30) DEFAULT NULL");
             // Migration: increase template_key length if needed (best-effort)
             try {
                 s.execute("ALTER TABLE mobile_template ALTER COLUMN template_key SET DATA TYPE VARCHAR(200)");
@@ -113,8 +115,8 @@ public class MobileDAO {
         String sql = "MERGE INTO mobile_template (id, template_key, name, short_desc, long_desc, keywords, " +
             "level, hp_max, mp_max, mv_max, str, dex, con, intel, wis, cha, " +
             "armor, fortitude, reflex, will_save, base_damage, damage_bonus, attack_bonus, " +
-            "behaviors, aggro_range, experience_value, gold_min, gold_max, respawn_seconds, autoflee, spec_fun, template_json) " +
-            "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "behaviors, aggro_range, experience_value, gold_min, gold_max, respawn_seconds, autoflee, spec_fun, mob_type, template_json) " +
+            "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
            try (Connection c = TransactionManager.getConnection()) {
             // If a different row already exists with the same template_key,
@@ -170,7 +172,8 @@ public class MobileDAO {
             ps.setInt(29, template.getRespawnSeconds());
             ps.setInt(30, template.getAutoflee());
             ps.setString(31, template.getSpecFun());
-            ps.setString(32, template.getTemplateJson());
+            ps.setString(32, template.getMobType() != null ? template.getMobType().name() : null);
+            ps.setString(33, template.getTemplateJson());
                 // Note: if we changed targetId above we already set it into slot 1
                 ps.executeUpdate();
             }
@@ -333,6 +336,7 @@ public class MobileDAO {
             .respawnSeconds(rs.getInt("respawn_seconds"))
             .autoflee(rs.getInt("autoflee"))
             .specFun(rs.getString("spec_fun"))
+            .mobType(com.example.tassmud.model.MobType.fromString(rs.getString("mob_type")))
             .templateJson(rs.getString("template_json"))
             .build();
     }
@@ -425,7 +429,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.instance_id = ?";
         
@@ -451,7 +455,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.current_room_id = ? AND mi.is_dead = FALSE";
         
@@ -477,7 +481,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id";
         
         try (Connection c = TransactionManager.getConnection();
@@ -551,7 +555,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.template_id = ?";
         
@@ -599,7 +603,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun " +
+            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.orig_uuid = ? AND mi.is_dead = FALSE";
 
@@ -730,6 +734,7 @@ public class MobileDAO {
             .attackBonus(rs.getInt("attack_bonus"))
             .autoflee(rs.getInt("autoflee"))
             .specFun(rs.getString("spec_fun"))
+            .mobType(com.example.tassmud.model.MobType.fromString(rs.getString("mob_type")))
             .originUuid(origUuid)
             .spawnedAt(rs.getLong("spawned_at"))
             .isDead(rs.getBoolean("is_dead"))

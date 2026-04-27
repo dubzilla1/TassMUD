@@ -110,6 +110,10 @@ public class CommandRegistry {
         register("pick", "Pick a locked door using a lockpick from your inventory", Category.COMBAT);
         register("poison", "Coat your weapon with contact poison (requires a vial of poison)", Category.COMBAT);
         registerCombat("lay", "Channel divine power to heal yourself or an ally (Lay on Hands)", Category.COMBAT, List.of("loh"));
+        register("tame", "Tame a wild creature as your loyal companion (Ranger)", Category.COMBAT);
+        register("release", "Release your companion, letting it wander off (Ranger)", Category.COMBAT);
+        registerCombat("rapidshot", "Fire a rapid bonus shot with your ranged weapon (Ranger)", Category.COMBAT, List.of("rs"));
+        registerCombat("bw", "Bestial Wrath - enter savage frenzy with your animal companion (Ranger)", Category.COMBAT);
         
         // ===== GROUP & PARTY =====
         // Group commands allowed in combat for coordination

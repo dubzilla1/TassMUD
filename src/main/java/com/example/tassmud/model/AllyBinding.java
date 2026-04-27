@@ -64,6 +64,15 @@ public class AllyBinding {
     /** Unix epoch ms when the binding was created (for logging/display). */
     private final long boundAt;
 
+    /**
+     * True if this binding was created by the Ranger's Tame skill (companion).
+     * Distinguishes tamed companions from undead thralls or escort NPCs.
+     */
+    private final boolean tamedCompanion;
+
+    /** Player-given name for a tamed companion; null until the player names them. */
+    private String companionName;
+
     // ── constructor ───────────────────────────────────────────────────
 
     public AllyBinding(long mobInstanceId,
@@ -74,6 +83,20 @@ public class AllyBinding {
                        boolean followsOwner,
                        boolean obeys,
                        long expiresAt) {
+        this(mobInstanceId, ownerCharacterId, mobTemplateId, behavior, persistence,
+             followsOwner, obeys, expiresAt, false, null);
+    }
+
+    private AllyBinding(long mobInstanceId,
+                        int ownerCharacterId,
+                        long mobTemplateId,
+                        AllyBehavior behavior,
+                        AllyPersistence persistence,
+                        boolean followsOwner,
+                        boolean obeys,
+                        long expiresAt,
+                        boolean tamedCompanion,
+                        String companionName) {
         this.mobInstanceId = mobInstanceId;
         this.ownerCharacterId = ownerCharacterId;
         this.mobTemplateId = mobTemplateId;
@@ -83,6 +106,8 @@ public class AllyBinding {
         this.obeys = obeys;
         this.expiresAt = expiresAt;
         this.boundAt = System.currentTimeMillis();
+        this.tamedCompanion = tamedCompanion;
+        this.companionName = companionName;
     }
 
     // ── convenience factories ─────────────────────────────────────────
@@ -103,6 +128,17 @@ public class AllyBinding {
     public static AllyBinding permanentDefender(long mobInstanceId, int ownerCharacterId, long mobTemplateId) {
         return new AllyBinding(mobInstanceId, ownerCharacterId, mobTemplateId,
                 AllyBehavior.DEFENDER, AllyPersistence.PERMANENT, true, true, 0L);
+    }
+
+    /**
+     * Create a tamed companion binding for the Ranger's Tame skill.
+     * DEFENDER (joins combat), TEMPORARY (companion dies for real), follows and obeys.
+     * Call {@link #setCompanionName(String)} once the player provides a name.
+     */
+    public static AllyBinding tamedCompanion(long mobInstanceId, int ownerCharacterId, long mobTemplateId) {
+        return new AllyBinding(mobInstanceId, ownerCharacterId, mobTemplateId,
+                AllyBehavior.DEFENDER, AllyPersistence.TEMPORARY, true, true, 0L,
+                true, null);
     }
 
     // ── state queries ─────────────────────────────────────────────────
@@ -180,6 +216,21 @@ public class AllyBinding {
 
     public long getBoundAt() {
         return boundAt;
+    }
+
+    /** Returns true if this ally was created by the Ranger's Tame skill. */
+    public boolean isTamedCompanion() {
+        return tamedCompanion;
+    }
+
+    /** Returns the player-given companion name, or null if not yet named. */
+    public String getCompanionName() {
+        return companionName;
+    }
+
+    /** Set the player-given companion name after the player enters it. */
+    public void setCompanionName(String name) {
+        this.companionName = name;
     }
 
     @Override
