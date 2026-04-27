@@ -7,7 +7,12 @@ import com.example.tassmud.model.MobileTemplate;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -224,6 +229,33 @@ public class MobileDAO {
         return ids;
     }
     
+    /**
+     * Batch fetch the level of multiple mobile templates.
+     * Returns a map of templateId → level for all IDs that exist in the DB.
+     * IDs not found are simply absent from the result.
+     */
+    public Map<Integer, Integer> getTemplateLevels(Set<Integer> ids) {
+        if (ids == null || ids.isEmpty()) return Collections.emptyMap();
+        String placeholders = ids.stream().map(i -> "?").collect(Collectors.joining(", "));
+        String sql = "SELECT id, level FROM mobile_template WHERE id IN (" + placeholders + ")";
+        Map<Integer, Integer> result = new HashMap<>();
+        try (Connection c = TransactionManager.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            int i = 1;
+            for (int id : ids) {
+                ps.setInt(i++, id);
+            }
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    result.put(rs.getInt("id"), rs.getInt("level"));
+                }
+            }
+        } catch (SQLException e) {
+            logger.warn("getTemplateLevels error", e);
+        }
+        return result;
+    }
+
     /**
      * Get a mobile template by key.
      */

@@ -30,6 +30,8 @@ import com.example.tassmud.util.ItemMatchingService;
 import com.example.tassmud.util.MobileMatchingService;
 import com.example.tassmud.util.MobileRegistry;
 import com.example.tassmud.util.RegenerationService;
+import com.example.tassmud.event.SpawnConfig;
+import com.example.tassmud.event.SpawnManager;
 
 import java.io.PrintWriter;
 import java.util.*;
@@ -1569,11 +1571,50 @@ public class InformationCommandHandler implements CommandHandler {
             return true;
         }
 
+        // Build areaId → distinct mob template IDs from in-memory spawn registry
+        SpawnManager spawnMgr = SpawnManager.getInstance();
+        Map<Integer, Set<Integer>> areaToTemplateIds = new LinkedHashMap<>();
+        Set<Integer> allTemplateIds = new LinkedHashSet<>();
+        for (com.example.tassmud.model.Area area : areas) {
+            Set<Integer> templateIds = spawnMgr.getSpawnsForArea(area.getId()).stream()
+                    .filter(sc -> sc.type == SpawnConfig.SpawnType.MOB)
+                    .map(sc -> sc.templateId)
+                    .collect(Collectors.toCollection(LinkedHashSet::new));
+            areaToTemplateIds.put(area.getId(), templateIds);
+            allTemplateIds.addAll(templateIds);
+        }
+
+        // Single batch DB query for all needed template levels
+        Map<Integer, Integer> templateLevels = DaoProvider.mobiles().getTemplateLevels(allTemplateIds);
+
+        // Compute recommended level range per area: mean ± 1 std dev, clamped to [1, 55]
+        Map<Integer, String> areaLevelRanges = new HashMap<>();
+        for (com.example.tassmud.model.Area area : areas) {
+            List<Integer> levels = areaToTemplateIds.getOrDefault(area.getId(), Collections.emptySet())
+                    .stream()
+                    .map(templateLevels::get)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+            if (levels.isEmpty()) {
+                String stored = area.getLevelRange();
+                areaLevelRanges.put(area.getId(), stored != null ? stored : "all");
+            } else {
+                double mean = levels.stream().mapToInt(i -> i).average().orElse(1);
+                double variance = levels.stream()
+                        .mapToDouble(l -> (l - mean) * (l - mean))
+                        .average().orElse(0);
+                double std = Math.sqrt(variance);
+                int low = Math.max(1, (int) Math.round(mean - std));
+                int high = Math.min(55, (int) Math.round(mean + std));
+                areaLevelRanges.put(area.getId(), low == high ? String.valueOf(low) : low + "-" + high);
+            }
+        }
+
         out.println("\u001B[36m=== Areas ===\u001B[0m");
-        out.printf("  %-4s %-25s %-12s %s%n", "ID", "Name", "Level Range", "Terrain");
+        out.printf("  %-4s %-25s %-12s %s%n", "ID", "Name", "Levels", "Terrain");
         out.println("  " + "-".repeat(55));
         for (com.example.tassmud.model.Area area : areas) {
-            String lr = area.getLevelRange() != null ? area.getLevelRange() : "all";
+            String lr = areaLevelRanges.getOrDefault(area.getId(), "all");
             out.printf("  %-4d %-25s %-12s %s%n",
                     area.getId(),
                     area.getName(),
