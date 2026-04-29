@@ -2699,7 +2699,7 @@ rooms:
   - id: 3100
     key: midgaard_room_3100
     name: "Northwest end of Concourse"
-    area_id: 31
+    area_id: 30
     short_desc: "Northwest end of Concourse"
     long_desc: |
       You are at the concourse, the city wall is just west.  A small promenade
@@ -2742,7 +2742,7 @@ rooms:
   - id: 3101
     key: midgaard_room_3101
     name: "Promenade"
-    area_id: 31
+    area_id: 30
     short_desc: "Promenade"
     long_desc: |
       The river gently flows west just north of here.  The promenade continues
@@ -2790,7 +2790,7 @@ rooms:
   - id: 3102
     key: midgaard_room_3102
     name: "Promenade"
-    area_id: 31
+    area_id: 30
     short_desc: "Promenade"
     long_desc: |
       The river gently flows west just north of here.  The promenade continues
@@ -2838,7 +2838,7 @@ rooms:
   - id: 3103
     key: midgaard_room_3103
     name: "Promenade"
-    area_id: 31
+    area_id: 30
     short_desc: "Promenade"
     long_desc: |
       The river gently flows west just north of here.  The promenade continues
@@ -2886,7 +2886,7 @@ rooms:
   - id: 3104
     key: midgaard_room_3104
     name: "Northeast end of Concourse"
-    area_id: 31
+    area_id: 30
     short_desc: "Northeast end of Concourse"
     long_desc: |
       You are at the Concourse.  The city wall is just east and a small
@@ -2923,7 +2923,7 @@ rooms:
   - id: 3105
     key: midgaard_room_3105
     name: "Park Entrance"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Entrance"
     long_desc: |
       You are standing just inside the small park of Midgaard.  To the north is
@@ -2968,7 +2968,7 @@ rooms:
   - id: 3106
     key: midgaard_room_3106
     name: "Park Cafe"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Cafe"
     long_desc: |
       You are inside Park Cafe, a very well lighted, cosy place. The cafe
@@ -3013,7 +3013,7 @@ rooms:
   - id: 3107
     key: midgaard_room_3107
     name: "Small path through the park"
-    area_id: 31
+    area_id: 30
     short_desc: "Small path through the park"
     long_desc: |
       You are walking along a small path through the park.  The path continues
@@ -3045,7 +3045,7 @@ rooms:
   - id: 3108
     key: midgaard_room_3108
     name: "Small path in the park"
-    area_id: 31
+    area_id: 30
     short_desc: "Small path in the park"
     long_desc: |
       You are standing on a small path inside the park.  The park entrance is
@@ -3088,7 +3088,7 @@ rooms:
   - id: 3109
     key: midgaard_room_3109
     name: "Small path in the park"
-    area_id: 31
+    area_id: 30
     short_desc: "Small path in the park"
     long_desc: |
       You are on a small path running through the park.  It continues west and
@@ -3125,7 +3125,7 @@ rooms:
   - id: 3110
     key: midgaard_room_3110
     name: "Cityguard Head Quarters"
-    area_id: 31
+    area_id: 30
     short_desc: "Cityguard Head Quarters"
     long_desc: |
       You are inside a tidy office.  A big desk made from dark wood is standing
@@ -3159,7 +3159,7 @@ rooms:
   - id: 3111
     key: midgaard_room_3111
     name: "Park Road"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Road"
     long_desc: |
       The road continues north and south.  A building is just west of here, you
@@ -3291,7 +3291,7 @@ rooms:
   - id: 3112
     key: midgaard_room_3112
     name: "Western Park Entrance"
-    area_id: 31
+    area_id: 30
     short_desc: "Western Park Entrance"
     long_desc: |
       You are standing at the western end of the park.  A small path leads east
@@ -3325,7 +3325,7 @@ rooms:
   - id: 3113
     key: midgaard_room_3113
     name: "A path in the park"
-    area_id: 31
+    area_id: 30
     short_desc: "A path in the park"
     long_desc: |
       You are in the park.  The paths lead north and west.  Westwards is the
@@ -3372,7 +3372,7 @@ rooms:
   - id: 3114
     key: midgaard_room_3114
     name: "The Pond"
-    area_id: 31
+    area_id: 30
     short_desc: "The Pond"
     long_desc: |
       You are swimming around in the pond, feeling rather stupid.  You can get
@@ -3413,7 +3413,7 @@ rooms:
   - id: 3115
     key: midgaard_room_3115
     name: "A path in the park"
-    area_id: 31
+    area_id: 30
     short_desc: "A path in the park"
     long_desc: |
       You are in the park.  The paths lead north and east.  Eastwards is the
@@ -3460,7 +3460,7 @@ rooms:
   - id: 3116
     key: midgaard_room_3116
     name: "Eastern Park Entrance"
-    area_id: 31
+    area_id: 30
     short_desc: "Eastern Park Entrance"
     long_desc: |
       You are standing at the eastern end of the park.  A small path leads west
@@ -3495,7 +3495,7 @@ rooms:
   - id: 3117
     key: midgaard_room_3117
     name: "Emerald Avenue"
-    area_id: 31
+    area_id: 30
     short_desc: "Emerald Avenue"
     long_desc: |
       You are at Emerald Avenue which continues north and south.  To the west is
@@ -3547,7 +3547,7 @@ rooms:
   - id: 3118
     key: midgaard_room_3118
     name: "Park Road"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Road"
     long_desc: |
       You are on Park Road which leads north and south.
@@ -3578,7 +3578,7 @@ rooms:
   - id: 3119
     key: midgaard_room_3119
     name: "Emerald Avenue"
-    area_id: 31
+    area_id: 30
     short_desc: "Emerald Avenue"
     long_desc: |
       You are standing at a bend on Emerald Avenue.  The road leads north and west.
@@ -3609,7 +3609,7 @@ rooms:
   - id: 3120
     key: midgaard_room_3120
     name: "Road Crossing"
-    area_id: 31
+    area_id: 30
     short_desc: "Road Crossing"
     long_desc: |
       You are in the middle of the road cross.  Roads lead in all directions.
@@ -3694,7 +3694,7 @@ rooms:
   - id: 3121
     key: midgaard_room_3121
     name: "Emerald Avenue"
-    area_id: 31
+    area_id: 30
     short_desc: "Emerald Avenue"
     long_desc: |
       You are standing at a bend on Emerald Avenue.  The road leads south and
@@ -3726,7 +3726,7 @@ rooms:
   - id: 3122
     key: midgaard_room_3122
     name: "Park Road"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Road"
     long_desc: |
       You are on Park Road which leads south and north.  Elm Street is east of
@@ -3768,7 +3768,7 @@ rooms:
   - id: 3123
     key: midgaard_room_3123
     name: "Elm Street"
-    area_id: 31
+    area_id: 30
     short_desc: "Elm Street"
     long_desc: |
       You are on Elm street.  Park Road is to the west and Elm Street continues
@@ -3800,7 +3800,7 @@ rooms:
   - id: 3124
     key: midgaard_room_3124
     name: "End of Elm Street"
-    area_id: 31
+    area_id: 30
     short_desc: "End of Elm Street"
     long_desc: |
       You are at the end of Elm Street.  An old elm tree grows here.
@@ -3824,7 +3824,7 @@ rooms:
   - id: 3125
     key: midgaard_room_3125
     name: "Emerald Avenue"
-    area_id: 31
+    area_id: 30
     short_desc: "Emerald Avenue"
     long_desc: |
       You are on Emerald Avenue which continues north.
@@ -3856,7 +3856,7 @@ rooms:
   - id: 3126
     key: midgaard_room_3126
     name: "Park Road"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Road"
     long_desc: |
       You are on Park Road which continues north.  The Concourse is south of here.
@@ -3887,7 +3887,7 @@ rooms:
   - id: 3127
     key: midgaard_room_3127
     name: "On the Concourse"
-    area_id: 31
+    area_id: 30
     short_desc: "On the Concourse"
     long_desc: |
       You are at the southwest corner of the city wall.  The Concourse leads
@@ -3919,7 +3919,7 @@ rooms:
   - id: 3128
     key: midgaard_room_3128
     name: "On the Concourse"
-    area_id: 31
+    area_id: 30
     short_desc: "On the Concourse"
     long_desc: |
       The Concourse continues both east and west.  Emerald Avenue is north of
@@ -3970,7 +3970,7 @@ rooms:
   - id: 3129
     key: midgaard_room_3129
     name: "On the Concourse"
-    area_id: 31
+    area_id: 30
     short_desc: "On the Concourse"
     long_desc: |
       The Concourse continues both east and west.  Park Road is north of here
@@ -4033,7 +4033,7 @@ rooms:
   - id: 3130
     key: midgaard_room_3130
     name: "On the Concourse"
-    area_id: 31
+    area_id: 30
     short_desc: "On the Concourse"
     long_desc: |
       You are at the southeast corner of the city wall.  The Concourse leads
@@ -4065,7 +4065,7 @@ rooms:
   - id: 3131
     key: midgaard_room_3131
     name: "Park Road"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Road"
     long_desc: |
       You are at Park Road which continues north and south.
@@ -4096,7 +4096,7 @@ rooms:
   - id: 3132
     key: midgaard_room_3132
     name: "Emerald Avenue"
-    area_id: 31
+    area_id: 30
     short_desc: "Emerald Avenue"
     long_desc: |
       You are standing on the north end of Emerald Avenue.  To the north is the
@@ -4138,7 +4138,7 @@ rooms:
   - id: 3133
     key: midgaard_room_3133
     name: "Emerald Avenue"
-    area_id: 31
+    area_id: 30
     short_desc: "Emerald Avenue"
     long_desc: |
       You are standing at a bend on Emerald Avenue.  To the east the road goes on
@@ -4170,7 +4170,7 @@ rooms:
   - id: 3134
     key: midgaard_room_3134
     name: "Emerald Avenue"
-    area_id: 31
+    area_id: 30
     short_desc: "Emerald Avenue"
     long_desc: |
       You are standing at a bend on Emerald Avenue.  To the west the road goes on
@@ -4202,7 +4202,7 @@ rooms:
   - id: 3135
     key: midgaard_room_3135
     name: "Park Road"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Road"
     long_desc: |
       You are at a bend on Park Road.  To the north the road goes on and to the
@@ -4235,7 +4235,7 @@ rooms:
   - id: 3136
     key: midgaard_room_3136
     name: "Park Road"
-    area_id: 31
+    area_id: 30
     short_desc: "Park Road"
     long_desc: |
       You are at a bend on Park Road.  To the south the road goes on and to the
@@ -4267,7 +4267,7 @@ rooms:
   - id: 3137
     key: midgaard_room_3137
     name: "The Waiting Room"
-    area_id: 31
+    area_id: 30
     short_desc: "The Waiting Room"
     long_desc: |
       You are standing in the waiting room at the town hall.  Wooden chairs stand
@@ -4306,7 +4306,7 @@ rooms:
   - id: 3138
     key: midgaard_room_3138
     name: "The Mayor's Office"
-    area_id: 31
+    area_id: 30
     short_desc: "The Mayor's Office"
     long_desc: |
       You are in the not very big office of the Mayor of Midgaard.  A large and
@@ -4404,7 +4404,7 @@ rooms:
   - id: 3139
     key: midgaard_room_3139
     name: "Penny Lane"
-    area_id: 31
+    area_id: 30
     short_desc: "Penny Lane"
     long_desc: |
       You are on Penny Lane.  Emerald Avenue is to the west and Penny Lane
@@ -4436,7 +4436,7 @@ rooms:
   - id: 3140
     key: midgaard_room_3140
     name: "Penny Lane"
-    area_id: 31
+    area_id: 30
     short_desc: "Penny Lane"
     long_desc: |
       You are on Penny Lane.  The narrow road continues north and west.
@@ -4467,7 +4467,7 @@ rooms:
   - id: 3141
     key: midgaard_room_3141
     name: "End of Penny Lane"
-    area_id: 31
+    area_id: 30
     short_desc: "End of Penny Lane"
     long_desc: |
       You are at the end of Penny Lane.  The only exit appears to be south.
@@ -4497,7 +4497,7 @@ rooms:
   - id: 3142
     key: midgaard_room_3142
     name: "Captain's Office"
-    area_id: 31
+    area_id: 30
     short_desc: "Captain's Office"
     long_desc: |
       You are in the Office of the Captain of the Guard.  The Midgaard Coat of
@@ -4575,7 +4575,7 @@ rooms:
   - id: 3143
     key: midgaard_room_3143
     name: "The Jail"
-    area_id: 31
+    area_id: 30
     short_desc: "The Jail"
     long_desc: |
       You are in a dark and humid jail.  The dark stone walls are hard and cold
@@ -4603,7 +4603,7 @@ rooms:
   - id: 3200
     key: midgaard_room_3200
     name: "Under the Bridge"
-    area_id: 32
+    area_id: 30
     short_desc: "Under the Bridge"
     long_desc: |
       The arch under the bridge is covered by seaweed for one foot above the
@@ -4640,7 +4640,7 @@ rooms:
   - id: 3201
     key: midgaard_room_3201
     name: "On the River"
-    area_id: 32
+    area_id: 30
     short_desc: "On the River"
     long_desc: |
       North of here you see the miserable buildings of the poor alley.  The
@@ -4672,7 +4672,7 @@ rooms:
   - id: 3202
     key: midgaard_room_3202
     name: "On the River"
-    area_id: 32
+    area_id: 30
     short_desc: "On the River"
     long_desc: |
       North of here you see the dump.  The river flows from east to west.  The
@@ -4704,7 +4704,7 @@ rooms:
   - id: 3203
     key: midgaard_room_3203
     name: "On the River"
-    area_id: 32
+    area_id: 30
     short_desc: "On the River"
     long_desc: |
       The levee is directly north of here.  The river flows in an east west
@@ -4748,7 +4748,7 @@ rooms:
   - id: 3204
     key: midgaard_room_3204
     name: "On the River"
-    area_id: 32
+    area_id: 30
     short_desc: "On the River"
     long_desc: |
       You see the warehouse on the northern riverbank.  East of here you see the
@@ -4780,7 +4780,7 @@ rooms:
   - id: 3205
     key: midgaard_room_3205
     name: "On the River"
-    area_id: 32
+    area_id: 30
     short_desc: "On the River"
     long_desc: |
       The river enters from a hole in the eastern city wall.  The hole has been

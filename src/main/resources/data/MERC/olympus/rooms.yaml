@@ -2,7 +2,7 @@ rooms:
   - id: 901
     key: olympus_room_901
     name: "Mountain"
-    area_id: 30
+    area_id: 9
     short_desc: "Mountain"
     long_desc: |
       You are climbing a large mountain which towers over Ofcol.  The path
@@ -35,7 +35,7 @@ rooms:
   - id: 902
     key: olympus_room_902
     name: "Mountain"
-    area_id: 30
+    area_id: 9
     short_desc: "Mountain"
     long_desc: |
       You are making your way up the mountain.  The rigorous climb has left you
@@ -67,7 +67,7 @@ rooms:
   - id: 903
     key: olympus_room_903
     name: "Mountain"
-    area_id: 30
+    area_id: 9
     short_desc: "Mountain"
     long_desc: |
       You have finally reached the top of the mountain.  The air here is so thin
@@ -100,7 +100,7 @@ rooms:
   - id: 904
     key: olympus_room_904
     name: "Entrance"
-    area_id: 30
+    area_id: 9
     short_desc: "Entrance"
     long_desc: |
       You are at the entrance to a huge city.  As you look around, you realize
@@ -138,7 +138,7 @@ rooms:
   - id: 905
     key: olympus_room_905
     name: "Zeus Street"
-    area_id: 30
+    area_id: 9
     short_desc: "Zeus Street"
     long_desc: |
       You are walking down a huge street.  You notice that there are not many
@@ -186,7 +186,7 @@ rooms:
   - id: 906
     key: olympus_room_906
     name: "Zeus Street"
-    area_id: 30
+    area_id: 9
     short_desc: "Zeus Street"
     long_desc: |
       You are walking down what appears to be the main street of this city.
@@ -244,7 +244,7 @@ rooms:
   - id: 907
     key: olympus_room_907
     name: "Zeus Street"
-    area_id: 30
+    area_id: 9
     short_desc: "Zeus Street"
     long_desc: |
       You are on the main street of this town, called Zeus street.
@@ -290,7 +290,7 @@ rooms:
   - id: 908
     key: olympus_room_908
     name: "Zeus Street"
-    area_id: 30
+    area_id: 9
     short_desc: "Zeus Street"
     long_desc: |
       You are still on the main thoroughfare of this town.  To the north, you see
@@ -338,7 +338,7 @@ rooms:
   - id: 909
     key: olympus_room_909
     name: "Castle Entryway"
-    area_id: 30
+    area_id: 9
     short_desc: "Castle Entryway"
     long_desc: |
       You are in the entryway of a large castle.  It is very beautiful, with
@@ -393,7 +393,7 @@ rooms:
   - id: 910
     key: olympus_room_910
     name: "Throne Room"
-    area_id: 30
+    area_id: 9
     short_desc: "Throne Room"
     long_desc: |
       You stop dead in your tracks as you enter this room.  Before you is Zeus,
@@ -460,7 +460,7 @@ rooms:
   - id: 911
     key: olympus_room_911
     name: "Western Wing"
-    area_id: 30
+    area_id: 9
     short_desc: "Western Wing"
     long_desc: |
       You are in the western wing of the castle.  You see the entrance to the
@@ -494,7 +494,7 @@ rooms:
   - id: 912
     key: olympus_room_912
     name: "Western Wing"
-    area_id: 30
+    area_id: 9
     short_desc: "Western Wing"
     long_desc: |
       You are in the western wing of the castle.  The hallway continues to the
@@ -548,7 +548,7 @@ rooms:
   - id: 913
     key: olympus_room_913
     name: "Western Wing"
-    area_id: 30
+    area_id: 9
     short_desc: "Western Wing"
     long_desc: |
       You are in the western wing of the castle.  This hallway continues to the
@@ -582,7 +582,7 @@ rooms:
   - id: 914
     key: olympus_room_914
     name: "Kitchen"
-    area_id: 30
+    area_id: 9
     short_desc: "Kitchen"
     long_desc: |
       You have entered the kitchen of this castle, and it is a hotbed of
@@ -615,7 +615,7 @@ rooms:
   - id: 915
     key: olympus_room_915
     name: "Eastern Wing"
-    area_id: 30
+    area_id: 9
     short_desc: "Eastern Wing"
     long_desc: |
       You are in the eastern wing of the castle.  The hall continues to the
@@ -649,7 +649,7 @@ rooms:
   - id: 916
     key: olympus_room_916
     name: "Eastern Wing"
-    area_id: 30
+    area_id: 9
     short_desc: "Eastern Wing"
     long_desc: |
       You are in the eastern wing of the castle.  The hall turns to the north
@@ -703,7 +703,7 @@ rooms:
   - id: 917
     key: olympus_room_917
     name: "Eastern Wing"
-    area_id: 30
+    area_id: 9
     short_desc: "Eastern Wing"
     long_desc: |
       You are in the eastern wing of the castle.  You hear animals to the north,
@@ -737,7 +737,7 @@ rooms:
   - id: 918
     key: olympus_room_918
     name: "Dungeon"
-    area_id: 30
+    area_id: 9
     short_desc: "Dungeon"
     long_desc: |
       You are in Zeus's Dungeon.  You wonder what creatures are so terrible that
@@ -779,7 +779,7 @@ rooms:
   - id: 919
     key: olympus_room_919
     name: "Dungeon"
-    area_id: 30
+    area_id: 9
     short_desc: "Dungeon"
     long_desc: |
       You are in Zeus's Dungeon.  There are cells to the north, west, and east. 
@@ -833,7 +833,7 @@ rooms:
   - id: 920
     key: olympus_room_920
     name: "Cell"
-    area_id: 30
+    area_id: 9
     short_desc: "Cell"
     long_desc: |
       You are in a small, cramped, dirty cell.  It is a horrid place.
@@ -865,7 +865,7 @@ rooms:
   - id: 921
     key: olympus_room_921
     name: "Cell"
-    area_id: 30
+    area_id: 9
     short_desc: "Cell"
     long_desc: |
       You are in a small, cramped, dirty cell.  It is a horrid place.
@@ -893,7 +893,7 @@ rooms:
   - id: 922
     key: olympus_room_922
     name: "Cell"
-    area_id: 30
+    area_id: 9
     short_desc: "Cell"
     long_desc: |
       You are in a small, cramped, dirty cell.  It is a horrid place.
@@ -921,7 +921,7 @@ rooms:
   - id: 923
     key: olympus_room_923
     name: "Stairway"
-    area_id: 30
+    area_id: 9
     short_desc: "Stairway"
     long_desc: |
       You have come to a large stairway leading up.  To the south, you see the
@@ -955,7 +955,7 @@ rooms:
   - id: 924
     key: olympus_room_924
     name: "Bakery"
-    area_id: 30
+    area_id: 9
     short_desc: "Bakery"
     long_desc: |
       You are in the small store which supplies the residents of this town with
@@ -995,7 +995,7 @@ rooms:
   - id: 925
     key: olympus_room_925
     name: "Residence"
-    area_id: 30
+    area_id: 9
     short_desc: "Residence"
     long_desc: |
       You are in the residence of one of the inhabitants of this town.  She
@@ -1058,7 +1058,7 @@ rooms:
   - id: 926
     key: olympus_room_926
     name: "Residence"
-    area_id: 30
+    area_id: 9
     short_desc: "Residence"
     long_desc: |
       You are in the residence of one of the inhabitants of this town.  He looks
@@ -1118,7 +1118,7 @@ rooms:
   - id: 927
     key: olympus_room_927
     name: "Mystic Shop"
-    area_id: 30
+    area_id: 9
     short_desc: "Mystic Shop"
     long_desc: |
       You are in the store which provides the citizens here with whichever
@@ -1156,7 +1156,7 @@ rooms:
   - id: 928
     key: olympus_room_928
     name: "Ares Street"
-    area_id: 30
+    area_id: 9
     short_desc: "Ares Street"
     long_desc: |
       You are on a smaller road which branches off from the main street.  On a
@@ -1195,7 +1195,7 @@ rooms:
   - id: 929
     key: olympus_room_929
     name: "Guest Quarters"
-    area_id: 30
+    area_id: 9
     short_desc: "Guest Quarters"
     long_desc: |
       You have entered private quarters which are reserved for visitors to the
@@ -1232,7 +1232,7 @@ rooms:
   - id: 930
     key: olympus_room_930
     name: "Storage Room"
-    area_id: 30
+    area_id: 9
     short_desc: "Storage Room"
     long_desc: |
       You are in a storage room of the castle.  There isn't much here, just a
@@ -1256,7 +1256,7 @@ rooms:
   - id: 931
     key: olympus_room_931
     name: "Guest Quarters"
-    area_id: 30
+    area_id: 9
     short_desc: "Guest Quarters"
     long_desc: |
       You have entered a room reserved for visitors to this castle.  You are
@@ -1293,7 +1293,7 @@ rooms:
   - id: 932
     key: olympus_room_932
     name: "Storage Room"
-    area_id: 30
+    area_id: 9
     short_desc: "Storage Room"
     long_desc: |
       You are in a storage room of the castle.  There isn't much here, just a lot
@@ -1317,7 +1317,7 @@ rooms:
   - id: 933
     key: olympus_room_933
     name: "Stable"
-    area_id: 30
+    area_id: 9
     short_desc: "Stable"
     long_desc: |
       You are in the stable of the castle.  Rather than the horses which you
@@ -1359,7 +1359,7 @@ rooms:
   - id: 934
     key: olympus_room_934
     name: "Ares Street"
-    area_id: 30
+    area_id: 9
     short_desc: "Ares Street"
     long_desc: |
       You have reached the end of Ares Street.  To the south you see an armoury,
@@ -1419,7 +1419,7 @@ rooms:
   - id: 935
     key: olympus_room_935
     name: "Armoury"
-    area_id: 30
+    area_id: 9
     short_desc: "Armoury"
     long_desc: |
       This small store is almost empty.  It seems as if there is not much here,
@@ -1455,7 +1455,7 @@ rooms:
   - id: 936
     key: olympus_room_936
     name: "Weapon Shop"
-    area_id: 30
+    area_id: 9
     short_desc: "Weapon Shop"
     long_desc: |
       You have entered a small store with a modest selection of weapons.  You
@@ -1490,7 +1490,7 @@ rooms:
   - id: 937
     key: olympus_room_937
     name: "Smithy"
-    area_id: 30
+    area_id: 9
     short_desc: "Smithy"
     long_desc: |
       This large room is so noisy, you can barely hear yourself think.  All the
@@ -1553,7 +1553,7 @@ rooms:
   - id: 938
     key: olympus_room_938
     name: "The Planning Room"
-    area_id: 30
+    area_id: 9
     short_desc: "The Planning Room"
     long_desc: |
       You have entered a large room dominated by a huge table with a large map
@@ -1622,7 +1622,7 @@ rooms:
   - id: 939
     key: olympus_room_939
     name: "Second Floor"
-    area_id: 30
+    area_id: 9
     short_desc: "Second Floor"
     long_desc: |
       You are on the second floor of this castle.  You are numb from your
@@ -1698,7 +1698,7 @@ rooms:
   - id: 940
     key: olympus_room_940
     name: "Northern Hall"
-    area_id: 30
+    area_id: 9
     short_desc: "Northern Hall"
     long_desc: |
       You are in the northern hallway.  There is a private room to the north,
@@ -1732,7 +1732,7 @@ rooms:
   - id: 941
     key: olympus_room_941
     name: "Southern Hall"
-    area_id: 30
+    area_id: 9
     short_desc: "Southern Hall"
     long_desc: |
       You are in the southern hallway.  There is a private room to the south,
@@ -1766,7 +1766,7 @@ rooms:
   - id: 942
     key: olympus_room_942
     name: "Western Hall"
-    area_id: 30
+    area_id: 9
     short_desc: "Western Hall"
     long_desc: |
       You are in the western hallway.  There is a private room to the west, and
@@ -1800,7 +1800,7 @@ rooms:
   - id: 943
     key: olympus_room_943
     name: "Eastern Hall"
-    area_id: 30
+    area_id: 9
     short_desc: "Eastern Hall"
     long_desc: |
       You are in the eastern hallway.  There is a private room to the east, and
@@ -1834,7 +1834,7 @@ rooms:
   - id: 944
     key: olympus_room_944
     name: "Bed Room"
-    area_id: 30
+    area_id: 9
     short_desc: "Bed Room"
     long_desc: |
       You are in the bed room of a God!  This one seems to be empty.
@@ -1857,7 +1857,7 @@ rooms:
   - id: 945
     key: olympus_room_945
     name: "Bed Room"
-    area_id: 30
+    area_id: 9
     short_desc: "Bed Room"
     long_desc: |
       You are in the bed room of a God!
@@ -1894,7 +1894,7 @@ rooms:
   - id: 946
     key: olympus_room_946
     name: "Bed Room"
-    area_id: 30
+    area_id: 9
     short_desc: "Bed Room"
     long_desc: |
       You are in the bed room of a God!
@@ -1931,7 +1931,7 @@ rooms:
   - id: 947
     key: olympus_room_947
     name: "Bed Room"
-    area_id: 30
+    area_id: 9
     short_desc: "Bed Room"
     long_desc: |
       You are in the bed room of a God!
@@ -1971,7 +1971,7 @@ rooms:
   - id: 948
     key: olympus_room_948
     name: "Hall of Gods"
-    area_id: 30
+    area_id: 9
     short_desc: "Hall of Gods"
     long_desc: |
       You have entered the most sacred of places, the hall of true Gods.  If you
@@ -2006,7 +2006,7 @@ rooms:
   - id: 951
     key: olympus_room_951
     name: "The Portal"
-    area_id: 30
+    area_id: 9
     short_desc: "The Portal"
     long_desc: |
       A sign reads: Beware of the unexpected and don't expect too much.
@@ -2029,7 +2029,7 @@ rooms:
   - id: 954
     key: olympus_room_954
     name: "The Believer"
-    area_id: 30
+    area_id: 9
     short_desc: "The Believer"
     long_desc: |
       A voice whispers, 'before the time has passed, enjoy your life.'

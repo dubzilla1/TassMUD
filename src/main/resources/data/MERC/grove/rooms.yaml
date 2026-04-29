@@ -2,7 +2,7 @@ rooms:
   - id: 8901
     key: grove_room_8901
     name: "The holy grove"
-    area_id: 32
+    area_id: 89
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -53,7 +53,7 @@ rooms:
   - id: 8902
     key: grove_room_8902
     name: "The holy grove"
-    area_id: 32
+    area_id: 89
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -112,7 +112,7 @@ rooms:
   - id: 8903
     key: grove_room_8903
     name: "A clearing in the woods"
-    area_id: 32
+    area_id: 89
     short_desc: "A clearing in the woods"
     long_desc: |
       You are standing in a clearing in the light woods. Somehow, this place
@@ -174,7 +174,7 @@ rooms:
   - id: 8904
     key: grove_room_8904
     name: "The holy grove"
-    area_id: 32
+    area_id: 89
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -246,7 +246,7 @@ rooms:
   - id: 8905
     key: grove_room_8905
     name: "The sacred glade"
-    area_id: 32
+    area_id: 89
     short_desc: "The sacred glade"
     long_desc: |
       You are standing in the middle of the sacred glades, where the citizens of
@@ -330,7 +330,7 @@ rooms:
   - id: 8906
     key: grove_room_8906
     name: "The holy grove"
-    area_id: 32
+    area_id: 89
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -391,7 +391,7 @@ rooms:
   - id: 8907
     key: grove_room_8907
     name: "The holy grove"
-    area_id: 32
+    area_id: 89
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the tall, majestic trees in the southern end of the
@@ -437,7 +437,7 @@ rooms:
   - id: 8908
     key: grove_room_8908
     name: "The sunny field"
-    area_id: 32
+    area_id: 89
     short_desc: "The sunny field"
     long_desc: |
       You are standing in the middle of a wide, summery, sunlit field. There is a
@@ -495,7 +495,7 @@ rooms:
   - id: 8909
     key: grove_room_8909
     name: "The croquet lawn"
-    area_id: 32
+    area_id: 89
     short_desc: "The croquet lawn"
     long_desc: |
       You are standing on a immaculately manicured green lawn, the kind you only
@@ -538,7 +538,7 @@ rooms:
   - id: 8910
     key: grove_room_8910
     name: "The foyer"
-    area_id: 32
+    area_id: 89
     short_desc: "The foyer"
     long_desc: |
       You are standing in the foyer of Dragon's mansion. The wide double door to
@@ -582,7 +582,7 @@ rooms:
   - id: 8911
     key: grove_room_8911
     name: "The hallway"
-    area_id: 32
+    area_id: 89
     short_desc: "The hallway"
     long_desc: |
       You are in the north end of a connecting hallway, tastefully decorated with
@@ -635,7 +635,7 @@ rooms:
   - id: 8912
     key: grove_room_8912
     name: "The blue room"
-    area_id: 32
+    area_id: 89
     short_desc: "The blue room"
     long_desc: |
       You are in the blue room, one of the guest rooms in Dragon's mansion. The
@@ -667,7 +667,7 @@ rooms:
   - id: 8913
     key: grove_room_8913
     name: "The hallway"
-    area_id: 32
+    area_id: 89
     short_desc: "The hallway"
     long_desc: |
       You are standing in the south end of the hallway. There are doors in the
@@ -722,7 +722,7 @@ rooms:
   - id: 8914
     key: grove_room_8914
     name: "The red room"
-    area_id: 32
+    area_id: 89
     short_desc: "The red room"
     long_desc: |
       You are in the red room, one of the guest rooms in Dragon's mansion. The
@@ -761,7 +761,7 @@ rooms:
   - id: 8915
     key: grove_room_8915
     name: "The kitchen"
-    area_id: 32
+    area_id: 89
     short_desc: "The kitchen"
     long_desc: |
       You are standing in the middle of Dragon's kitchen. Contrary to popular
@@ -813,7 +813,7 @@ rooms:
   - id: 8916
     key: grove_room_8916
     name: "The ballroom"
-    area_id: 32
+    area_id: 89
     short_desc: "The ballroom"
     long_desc: |
       You are standing in the middle of a vast palisander floor. This is where
@@ -860,7 +860,7 @@ rooms:
   - id: 8917
     key: grove_room_8917
     name: "The greenhouse"
-    area_id: 32
+    area_id: 89
     short_desc: "The greenhouse"
     long_desc: |
       This is Dragons' greenhouse. Green light filters in slantwise through the
@@ -913,7 +913,7 @@ rooms:
   - id: 8918
     key: grove_room_8918
     name: "The dining hall"
-    area_id: 32
+    area_id: 89
     short_desc: "The dining hall"
     long_desc: |
       This is Dragons' dining hall. There is a large long solid oak table,
@@ -980,7 +980,7 @@ rooms:
   - id: 8919
     key: grove_room_8919
     name: "The terrace"
-    area_id: 32
+    area_id: 89
     short_desc: "The terrace"
     long_desc: |
       You are standing on a sunlit terrace in front of Dragon's mansion. To the
@@ -1029,7 +1029,7 @@ rooms:
   - id: 8999
     key: grove_room_8999
     name: "The fog"
-    area_id: 32
+    area_id: 89
     short_desc: "The fog"
     long_desc: |
       You are in a grey fog, falling, screaming in pain as you realize

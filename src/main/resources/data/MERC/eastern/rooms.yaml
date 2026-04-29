@@ -2,7 +2,7 @@ rooms:
   - id: 5001
     key: eastern_room_5001
     name: "A long tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A long tunnel"
     long_desc: |
       You encounter some rapids as you enter this tunnel cut out of
@@ -36,7 +36,7 @@ rooms:
   - id: 5002
     key: eastern_room_5002
     name: "A long tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A long tunnel"
     long_desc: |
       The tunnel branches off north.
@@ -79,7 +79,7 @@ rooms:
   - id: 5003
     key: eastern_room_5003
     name: "A long tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A long tunnel"
     long_desc: |
       The tunnel branches off south.
@@ -122,7 +122,7 @@ rooms:
   - id: 5004
     key: eastern_room_5004
     name: "A long tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A long tunnel"
     long_desc: |
       The tunnel branches off to the south.
@@ -165,7 +165,7 @@ rooms:
   - id: 5005
     key: eastern_room_5005
     name: "An underground lake"
-    area_id: 32
+    area_id: 50
     short_desc: "An underground lake"
     long_desc: |
       You are floating on a jet-black underground lake fed by dripping
@@ -221,7 +221,7 @@ rooms:
   - id: 5006
     key: eastern_room_5006
     name: "A long narrow tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A long narrow tunnel"
     long_desc: |
       The tunnel rises sharply to the east.
@@ -254,7 +254,7 @@ rooms:
   - id: 5007
     key: eastern_room_5007
     name: "A wide tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A wide tunnel"
     long_desc: |
       The tunnel continues east and west. To the east the tunnel dives
@@ -288,7 +288,7 @@ rooms:
   - id: 5008
     key: eastern_room_5008
     name: "Cave-in"
-    area_id: 32
+    area_id: 50
     short_desc: "Cave-in"
     long_desc: |
       You stand at the edge of a large pile of rubble created from the last
@@ -322,7 +322,7 @@ rooms:
   - id: 5009
     key: eastern_room_5009
     name: "At the foot of the rubble"
-    area_id: 32
+    area_id: 50
     short_desc: "At the foot of the rubble"
     long_desc: |
       You are at the bottom of a large pile of rubble. A tunnel branches
@@ -375,7 +375,7 @@ rooms:
   - id: 5010
     key: eastern_room_5010
     name: "Cave entrance"
-    area_id: 32
+    area_id: 50
     short_desc: "Cave entrance"
     long_desc: |
       You stand in the middle of a large and beautiful cave. A path leads
@@ -409,7 +409,7 @@ rooms:
   - id: 5011
     key: eastern_room_5011
     name: "Giant cave"
-    area_id: 32
+    area_id: 50
     short_desc: "Giant cave"
     long_desc: |
       This cavern overwhelms you. The walls and ceiling seem miles away.
@@ -449,7 +449,7 @@ rooms:
   - id: 5012
     key: eastern_room_5012
     name: "Narrow bend"
-    area_id: 32
+    area_id: 50
     short_desc: "Narrow bend"
     long_desc: |
       The tunnel turns to the south and west.
@@ -482,7 +482,7 @@ rooms:
   - id: 5013
     key: eastern_room_5013
     name: "Large cave"
-    area_id: 32
+    area_id: 50
     short_desc: "Large cave"
     long_desc: |
       You are standing in a large cave. Many furs are spread out on the floor.
@@ -515,7 +515,7 @@ rooms:
   - id: 5014
     key: eastern_room_5014
     name: "Damp hallway"
-    area_id: 32
+    area_id: 50
     short_desc: "Damp hallway"
     long_desc: |
       The walls here are extremely damp, as well as the floor.
@@ -557,7 +557,7 @@ rooms:
   - id: 5015
     key: eastern_room_5015
     name: "Underground pool"
-    area_id: 32
+    area_id: 50
     short_desc: "Underground pool"
     long_desc: |
       You are wading in a knee deep pool of lime-water.
@@ -590,7 +590,7 @@ rooms:
   - id: 5016
     key: eastern_room_5016
     name: "Damp hallway"
-    area_id: 32
+    area_id: 50
     short_desc: "Damp hallway"
     long_desc: |
       The walls of the tunnel are extremely damp here. You hear the faint
@@ -624,7 +624,7 @@ rooms:
   - id: 5017
     key: eastern_room_5017
     name: "Narrow crawlway"
-    area_id: 32
+    area_id: 50
     short_desc: "Narrow crawlway"
     long_desc: |
       This crawlway is just big enough for a human to crawl through or a
@@ -668,7 +668,7 @@ rooms:
   - id: 5018
     key: eastern_room_5018
     name: "Large cavern"
-    area_id: 32
+    area_id: 50
     short_desc: "Large cavern"
     long_desc: |
       You have entered a very large cavern. The rock formations would amaze
@@ -702,7 +702,7 @@ rooms:
   - id: 5019
     key: eastern_room_5019
     name: "Fungus patch"
-    area_id: 32
+    area_id: 50
     short_desc: "Fungus patch"
     long_desc: |
       As you walk through the fungus patch, you are shot at by many millions of
@@ -736,7 +736,7 @@ rooms:
   - id: 5020
     key: eastern_room_5020
     name: "Fungus path"
-    area_id: 32
+    area_id: 50
     short_desc: "Fungus path"
     long_desc: |
       As you walk along the path, millions of spores are shot at you. You can
@@ -770,7 +770,7 @@ rooms:
   - id: 5021
     key: eastern_room_5021
     name: "Fungus temple"
-    area_id: 32
+    area_id: 50
     short_desc: "Fungus temple"
     long_desc: |
       You find yourself standing inside of a giant mushroom. The inside
@@ -830,7 +830,7 @@ rooms:
   - id: 5022
     key: eastern_room_5022
     name: "Sloping passage"
-    area_id: 32
+    area_id: 50
     short_desc: "Sloping passage"
     long_desc: |
       You follow a path sloping down from the fungus temple.
@@ -863,7 +863,7 @@ rooms:
   - id: 5023
     key: eastern_room_5023
     name: "Sloping passage"
-    area_id: 32
+    area_id: 50
     short_desc: "Sloping passage"
     long_desc: |
       You are on a path that gently slopes up from the underground pool.
@@ -896,7 +896,7 @@ rooms:
   - id: 5024
     key: eastern_room_5024
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -953,7 +953,7 @@ rooms:
   - id: 5025
     key: eastern_room_5025
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1014,7 +1014,7 @@ rooms:
   - id: 5026
     key: eastern_room_5026
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1071,7 +1071,7 @@ rooms:
   - id: 5027
     key: eastern_room_5027
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1132,7 +1132,7 @@ rooms:
   - id: 5028
     key: eastern_room_5028
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1200,7 +1200,7 @@ rooms:
   - id: 5029
     key: eastern_room_5029
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1261,7 +1261,7 @@ rooms:
   - id: 5030
     key: eastern_room_5030
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1318,7 +1318,7 @@ rooms:
   - id: 5031
     key: eastern_room_5031
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1383,7 +1383,7 @@ rooms:
   - id: 5032
     key: eastern_room_5032
     name: "The Great Eastern Desert"
-    area_id: 32
+    area_id: 50
     short_desc: "The Great Eastern Desert"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1440,7 +1440,7 @@ rooms:
   - id: 5056
     key: eastern_room_5056
     name: "A nomad camp"
-    area_id: 32
+    area_id: 50
     short_desc: "A nomad camp"
     long_desc: |
       This small group of desert nomads has stopped for the day to rest
@@ -1484,7 +1484,7 @@ rooms:
   - id: 5057
     key: eastern_room_5057
     name: "Inside a small tent"
-    area_id: 32
+    area_id: 50
     short_desc: "Inside a small tent"
     long_desc: |
       This is a small and simple tent with few possessions in sight. Lying
@@ -1512,7 +1512,7 @@ rooms:
   - id: 5058
     key: eastern_room_5058
     name: "Beside the camels"
-    area_id: 32
+    area_id: 50
     short_desc: "Beside the camels"
     long_desc: |
       Here stand about ten camels, all hitched to some stakes plugged into
@@ -1562,7 +1562,7 @@ rooms:
   - id: 5059
     key: eastern_room_5059
     name: "The warrior's tent."
-    area_id: 32
+    area_id: 50
     short_desc: "The warrior's tent."
     long_desc: |
       This tent has a few furnishings, but mainly it holds the band's
@@ -1593,7 +1593,7 @@ rooms:
   - id: 5060
     key: eastern_room_5060
     name: "The main tent"
-    area_id: 32
+    area_id: 50
     short_desc: "The main tent"
     long_desc: |
       This tent is as lavishly decorated on the inside as it is on the
@@ -1639,7 +1639,7 @@ rooms:
   - id: 5061
     key: eastern_room_5061
     name: "The main tent"
-    area_id: 32
+    area_id: 50
     short_desc: "The main tent"
     long_desc: |
       This is where the leader of this band of nomads resides. He is
@@ -1683,7 +1683,7 @@ rooms:
   - id: 5062
     key: eastern_room_5062
     name: "Strange Glowing Sand"
-    area_id: 32
+    area_id: 50
     short_desc: "Strange Glowing Sand"
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
@@ -1716,7 +1716,7 @@ rooms:
   - id: 5063
     key: eastern_room_5063
     name: "The wind-swept ledge"
-    area_id: 32
+    area_id: 50
     short_desc: "The wind-swept ledge"
     long_desc: |
       Being very careful not to lose your balance, you look around and
@@ -1749,7 +1749,7 @@ rooms:
   - id: 5064
     key: eastern_room_5064
     name: "The cave mouth"
-    area_id: 32
+    area_id: 50
     short_desc: "The cave mouth"
     long_desc: |
       The air in here is MUCH cooler than outside. From the west you hear
@@ -1784,7 +1784,7 @@ rooms:
   - id: 5065
     key: eastern_room_5065
     name: "The mysterious lair."
-    area_id: 32
+    area_id: 50
     short_desc: "The mysterious lair."
     long_desc: |
       You have stumbled upon the home of something. From the treasure
@@ -1854,7 +1854,7 @@ rooms:
   - id: 5066
     key: eastern_room_5066
     name: "A wide tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A wide tunnel"
     long_desc: |
       This tunnel seems to go on forever into the darkness. You carefully
@@ -1889,7 +1889,7 @@ rooms:
   - id: 5067
     key: eastern_room_5067
     name: "A narrower tunnel"
-    area_id: 32
+    area_id: 50
     short_desc: "A narrower tunnel"
     long_desc: |
       The tunnel becomes very narrow and you fight to squeeze your way through.
@@ -1923,7 +1923,7 @@ rooms:
   - id: 5068
     key: eastern_room_5068
     name: "A narrow crack"
-    area_id: 32
+    area_id: 50
     short_desc: "A narrow crack"
     long_desc: |
       This part of the tunnel is the hardest to move through as the walls
@@ -1957,7 +1957,7 @@ rooms:
   - id: 5069
     key: eastern_room_5069
     name: "A small cavern."
-    area_id: 32
+    area_id: 50
     short_desc: "A small cavern."
     long_desc: |
       It is dark and damp and bats hang from the ceiling. A narrow crack is
@@ -1991,7 +1991,7 @@ rooms:
   - id: 5070
     key: eastern_room_5070
     name: "A small shaft"
-    area_id: 32
+    area_id: 50
     short_desc: "A small shaft"
     long_desc: |
       From within this shaft you can see a narrow hole in the roof just

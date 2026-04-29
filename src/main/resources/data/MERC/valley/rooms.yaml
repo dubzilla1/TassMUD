@@ -2,7 +2,7 @@ rooms:
   - id: 7800
     key: valley_room_7800
     name: "A Path from the Plains"
-    area_id: 32
+    area_id: 78
     short_desc: "A Path from the Plains"
     long_desc: |
       You are on a path away from the Plains of Ofcol.  The path doesn't look well
@@ -35,7 +35,7 @@ rooms:
   - id: 7801
     key: valley_room_7801
     name: "Along the Path"
-    area_id: 32
+    area_id: 78
     short_desc: "Along the Path"
     long_desc: |
       You are on the path away from the Plains of Ofcol.  The main path leads north
@@ -88,7 +88,7 @@ rooms:
   - id: 7802
     key: valley_room_7802
     name: "A Small Trail"
-    area_id: 32
+    area_id: 78
     short_desc: "A Small Trail"
     long_desc: |
       This small deer trail leads north and east.
@@ -119,7 +119,7 @@ rooms:
   - id: 7803
     key: valley_room_7803
     name: "A Small Trail"
-    area_id: 32
+    area_id: 78
     short_desc: "A Small Trail"
     long_desc: |
       This small deer trail leads north and west.
@@ -150,7 +150,7 @@ rooms:
   - id: 7804
     key: valley_room_7804
     name: "The Overlook"
-    area_id: 32
+    area_id: 78
     short_desc: "The Overlook"
     long_desc: |
       You are above a large valley.  Below you, you see humanoid forms wandering
@@ -183,7 +183,7 @@ rooms:
   - id: 7805
     key: valley_room_7805
     name: "The Entrance to the Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Entrance to the Valley of the Elves"
     long_desc: |
       You are at the entrance to the Valley of the Elves.  Elves stare at your
@@ -245,7 +245,7 @@ rooms:
   - id: 7806
     key: valley_room_7806
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a small
@@ -282,7 +282,7 @@ rooms:
   - id: 7807
     key: valley_room_7807
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a small
@@ -319,7 +319,7 @@ rooms:
   - id: 7808
     key: valley_room_7808
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a small
@@ -351,7 +351,7 @@ rooms:
   - id: 7809
     key: valley_room_7809
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -402,7 +402,7 @@ rooms:
   - id: 7810
     key: valley_room_7810
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -454,7 +454,7 @@ rooms:
   - id: 7811
     key: valley_room_7811
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -514,7 +514,7 @@ rooms:
   - id: 7812
     key: valley_room_7812
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a small
@@ -546,7 +546,7 @@ rooms:
   - id: 7813
     key: valley_room_7813
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  A steep trail leads up toward
@@ -599,7 +599,7 @@ rooms:
   - id: 7814
     key: valley_room_7814
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -650,7 +650,7 @@ rooms:
   - id: 7815
     key: valley_room_7815
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -706,7 +706,7 @@ rooms:
   - id: 7816
     key: valley_room_7816
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -766,7 +766,7 @@ rooms:
   - id: 7817
     key: valley_room_7817
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  A steep trail leads up toward
@@ -819,7 +819,7 @@ rooms:
   - id: 7818
     key: valley_room_7818
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a
@@ -864,7 +864,7 @@ rooms:
   - id: 7819
     key: valley_room_7819
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -915,7 +915,7 @@ rooms:
   - id: 7820
     key: valley_room_7820
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -983,7 +983,7 @@ rooms:
   - id: 7821
     key: valley_room_7821
     name: "The Valley of the Elves"
-    area_id: 32
+    area_id: 78
     short_desc: "The Valley of the Elves"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -1034,7 +1034,7 @@ rooms:
   - id: 7822
     key: valley_room_7822
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a small
@@ -1066,7 +1066,7 @@ rooms:
   - id: 7823
     key: valley_room_7823
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a small
@@ -1103,7 +1103,7 @@ rooms:
   - id: 7824
     key: valley_room_7824
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are in the Valley of the Elves.  The valley continues in all directions.
@@ -1155,7 +1155,7 @@ rooms:
   - id: 7825
     key: valley_room_7825
     name: "The Edge of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Edge of the Valley"
     long_desc: |
       You are at the edge of the Valley of the Elves.  High above you, you see a small
@@ -1192,7 +1192,7 @@ rooms:
   - id: 7826
     key: valley_room_7826
     name: "A Trail Leading from the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail Leading from the Valley"
     long_desc: |
       You are on a narrow trail leading away from the Valley of the Elves.  This
@@ -1234,7 +1234,7 @@ rooms:
   - id: 7827
     key: valley_room_7827
     name: "Along the Trail"
-    area_id: 32
+    area_id: 78
     short_desc: "Along the Trail"
     long_desc: |
       You are on the trail away from the Valley of the Elves.  The hills around you
@@ -1291,7 +1291,7 @@ rooms:
   - id: 7828
     key: valley_room_7828
     name: "A Bend in the Trail"
-    area_id: 32
+    area_id: 78
     short_desc: "A Bend in the Trail"
     long_desc: |
       You are on the trail away from the Valley of the Elves.  The hills around you
@@ -1323,7 +1323,7 @@ rooms:
   - id: 7829
     key: valley_room_7829
     name: "A Smaller Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Smaller Valley"
     long_desc: |
       You are in another valley within these hills. To the north, you can see a
@@ -1376,7 +1376,7 @@ rooms:
   - id: 7830
     key: valley_room_7830
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads north and
@@ -1413,7 +1413,7 @@ rooms:
   - id: 7831
     key: valley_room_7831
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads west and
@@ -1445,7 +1445,7 @@ rooms:
   - id: 7832
     key: valley_room_7832
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads north and
@@ -1477,7 +1477,7 @@ rooms:
   - id: 7833
     key: valley_room_7833
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads north and
@@ -1514,7 +1514,7 @@ rooms:
   - id: 7834
     key: valley_room_7834
     name: "The Elf Home"
-    area_id: 32
+    area_id: 78
     short_desc: "The Elf Home"
     long_desc: |
       You are in the home of the valley elves.  The building continues to the north
@@ -1558,7 +1558,7 @@ rooms:
   - id: 7835
     key: valley_room_7835
     name: "The Kitchen"
-    area_id: 32
+    area_id: 78
     short_desc: "The Kitchen"
     long_desc: |
       You are in a community kitchen for this valley elven home.  Pots and pans line
@@ -1599,7 +1599,7 @@ rooms:
   - id: 7836
     key: valley_room_7836
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads north and
@@ -1631,7 +1631,7 @@ rooms:
   - id: 7837
     key: valley_room_7837
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads north and
@@ -1668,7 +1668,7 @@ rooms:
   - id: 7838
     key: valley_room_7838
     name: "The Living Room"
-    area_id: 32
+    area_id: 78
     short_desc: "The Living Room"
     long_desc: |
       You are in the living room of the elven home.  Mats cover the floor, and a
@@ -1708,7 +1708,7 @@ rooms:
   - id: 7839
     key: valley_room_7839
     name: "The Storage Room"
-    area_id: 32
+    area_id: 78
     short_desc: "The Storage Room"
     long_desc: |
       You are in the storage room of the elven home.  Sacks of flour cover one side,
@@ -1758,7 +1758,7 @@ rooms:
   - id: 7840
     key: valley_room_7840
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads north and
@@ -1790,7 +1790,7 @@ rooms:
   - id: 7841
     key: valley_room_7841
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads south and
@@ -1822,7 +1822,7 @@ rooms:
   - id: 7842
     key: valley_room_7842
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads west and
@@ -1877,7 +1877,7 @@ rooms:
   - id: 7843
     key: valley_room_7843
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads east and
@@ -1909,7 +1909,7 @@ rooms:
   - id: 7844
     key: valley_room_7844
     name: "A Trail in the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "A Trail in the Valley"
     long_desc: |
       You are on the trail in the Valley of the Elves.  This trail leads south and
@@ -1950,7 +1950,7 @@ rooms:
   - id: 7845
     key: valley_room_7845
     name: "The Elders' Room"
-    area_id: 32
+    area_id: 78
     short_desc: "The Elders' Room"
     long_desc: |
       You are in the room of the valley elf elders.  Books written in strange
@@ -2011,7 +2011,7 @@ rooms:
   - id: 7846
     key: valley_room_7846
     name: "The Storage Room"
-    area_id: 32
+    area_id: 78
     short_desc: "The Storage Room"
     long_desc: |
       You are in a storage room.  Many useless (to you) items fill this room.
@@ -2073,7 +2073,7 @@ rooms:
   - id: 7847
     key: valley_room_7847
     name: "The Sleeping Quarters"
-    area_id: 32
+    area_id: 78
     short_desc: "The Sleeping Quarters"
     long_desc: |
       You are in the sleeping quarters of the valley elves.  Cots line the floor,
@@ -2117,7 +2117,7 @@ rooms:
   - id: 7848
     key: valley_room_7848
     name: "Study"
-    area_id: 32
+    area_id: 78
     short_desc: "Study"
     long_desc: |
       You are in the study room of the valley elves.  Comfortable mats are on the
@@ -2198,7 +2198,7 @@ rooms:
   - id: 7849
     key: valley_room_7849
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2240,7 +2240,7 @@ rooms:
   - id: 7850
     key: valley_room_7850
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2300,7 +2300,7 @@ rooms:
   - id: 7851
     key: valley_room_7851
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2342,7 +2342,7 @@ rooms:
   - id: 7852
     key: valley_room_7852
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2403,7 +2403,7 @@ rooms:
   - id: 7853
     key: valley_room_7853
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2464,7 +2464,7 @@ rooms:
   - id: 7854
     key: valley_room_7854
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2515,7 +2515,7 @@ rooms:
   - id: 7855
     key: valley_room_7855
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2557,7 +2557,7 @@ rooms:
   - id: 7856
     key: valley_room_7856
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2617,7 +2617,7 @@ rooms:
   - id: 7857
     key: valley_room_7857
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2659,7 +2659,7 @@ rooms:
   - id: 7858
     key: valley_room_7858
     name: "On the Rope Bridge"
-    area_id: 32
+    area_id: 78
     short_desc: "On the Rope Bridge"
     long_desc: |
       You are on the rope bridge.  From here, you can see the whole Valley of the
@@ -2704,7 +2704,7 @@ rooms:
   - id: 7859
     key: valley_room_7859
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2746,7 +2746,7 @@ rooms:
   - id: 7860
     key: valley_room_7860
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2810,7 +2810,7 @@ rooms:
   - id: 7861
     key: valley_room_7861
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2852,7 +2852,7 @@ rooms:
   - id: 7862
     key: valley_room_7862
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2909,7 +2909,7 @@ rooms:
   - id: 7863
     key: valley_room_7863
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -2970,7 +2970,7 @@ rooms:
   - id: 7864
     key: valley_room_7864
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -3012,7 +3012,7 @@ rooms:
   - id: 7865
     key: valley_room_7865
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -3063,7 +3063,7 @@ rooms:
   - id: 7866
     key: valley_room_7866
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -3123,7 +3123,7 @@ rooms:
   - id: 7867
     key: valley_room_7867
     name: "Along a Windy Trail on the Rim of the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "Along a Windy Trail on the Rim of the Valley"
     long_desc: |
       You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
@@ -3165,7 +3165,7 @@ rooms:
   - id: 7868
     key: valley_room_7868
     name: "A Bend in the Trail"
-    area_id: 32
+    area_id: 78
     short_desc: "A Bend in the Trail"
     long_desc: |
       You are on a bend in the trail leading from the main valley.  The hills around
@@ -3206,7 +3206,7 @@ rooms:
   - id: 7869
     key: valley_room_7869
     name: "A Bend in the Trail"
-    area_id: 32
+    area_id: 78
     short_desc: "A Bend in the Trail"
     long_desc: |
       You are on a bend in the trail leading from the main valley.  The hills around
@@ -3239,7 +3239,7 @@ rooms:
   - id: 7870
     key: valley_room_7870
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3292,7 +3292,7 @@ rooms:
   - id: 7871
     key: valley_room_7871
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3324,7 +3324,7 @@ rooms:
   - id: 7872
     key: valley_room_7872
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3356,7 +3356,7 @@ rooms:
   - id: 7873
     key: valley_room_7873
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3393,7 +3393,7 @@ rooms:
   - id: 7874
     key: valley_room_7874
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3425,7 +3425,7 @@ rooms:
   - id: 7875
     key: valley_room_7875
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3457,7 +3457,7 @@ rooms:
   - id: 7876
     key: valley_room_7876
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3504,7 +3504,7 @@ rooms:
   - id: 7877
     key: valley_room_7877
     name: "The Small Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "The Small Valley"
     long_desc: |
       You are in the small valley.  Strangely, tall trees grow here, almost as if some
@@ -3545,7 +3545,7 @@ rooms:
   - id: 7878
     key: valley_room_7878
     name: "Inside the Small Shack"
-    area_id: 32
+    area_id: 78
     short_desc: "Inside the Small Shack"
     long_desc: |
       You are inside the small shack.  A small stove is on the side, with soup
@@ -3584,7 +3584,7 @@ rooms:
   - id: 7879
     key: valley_room_7879
     name: "Beneath the Small Shack"
-    area_id: 32
+    area_id: 78
     short_desc: "Beneath the Small Shack"
     long_desc: |
       You are beneath the small shack, in a tunnel that leads south.  It feels
@@ -3618,7 +3618,7 @@ rooms:
   - id: 7880
     key: valley_room_7880
     name: "The Den of the Pyrohydra"
-    area_id: 32
+    area_id: 78
     short_desc: "The Den of the Pyrohydra"
     long_desc: |
       You are in the den of the pyrohydra.  All the walls are charred, and this
@@ -3670,7 +3670,7 @@ rooms:
   - id: 7881
     key: valley_room_7881
     name: "The Workroom"
-    area_id: 32
+    area_id: 78
     short_desc: "The Workroom"
     long_desc: |
       This room looks like it is used for magical studies.  Potions bubble over
@@ -3711,7 +3711,7 @@ rooms:
   - id: 7882
     key: valley_room_7882
     name: "The Storage Room"
-    area_id: 32
+    area_id: 78
     short_desc: "The Storage Room"
     long_desc: |
       This room is used to store scrolls, potions, and other magical items.  The
@@ -3788,7 +3788,7 @@ rooms:
   - id: 7883
     key: valley_room_7883
     name: "WAY Far Down into the Valley"
-    area_id: 32
+    area_id: 78
     short_desc: "WAY Far Down into the Valley"
     long_desc: |
       You have fallen trying to go down this steep hill.  Maybe that wasn't that

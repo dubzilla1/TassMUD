@@ -2,7 +2,7 @@ rooms:
   - id: 5550
     key: ofcol_room_5550
     name: "Village street"
-    area_id: 32
+    area_id: 55
     short_desc: "Village street"
     long_desc: |
       You stand at the small village street in Ofcol.
@@ -41,7 +41,7 @@ rooms:
   - id: 5551
     key: ofcol_room_5551
     name: "Village street"
-    area_id: 32
+    area_id: 55
     short_desc: "Village street"
     long_desc: |
       You are standing on the village street of Ofcol.
@@ -84,7 +84,7 @@ rooms:
   - id: 5552
     key: ofcol_room_5552
     name: "Village square"
-    area_id: 32
+    area_id: 55
     short_desc: "Village square"
     long_desc: |
       The village square is a place where inhabitants of Ofcol gather
@@ -137,7 +137,7 @@ rooms:
   - id: 5553
     key: ofcol_room_5553
     name: "The small alley"
-    area_id: 32
+    area_id: 55
     short_desc: "The small alley"
     long_desc: |
       You are in a small, quiet alley.  From here you see the village street
@@ -184,7 +184,7 @@ rooms:
   - id: 5554
     key: ofcol_room_5554
     name: "The future training room"
-    area_id: 32
+    area_id: 55
     short_desc: "The future training room"
     long_desc: |
       This is the future site of a training room.  The only exit is north
@@ -208,7 +208,7 @@ rooms:
   - id: 5555
     key: ofcol_room_5555
     name: "Luxan's mixed shop"
-    area_id: 32
+    area_id: 55
     short_desc: "Luxan's mixed shop"
     long_desc: |
       You are standing in a small shop, filled with all kinds of goods.
@@ -243,7 +243,7 @@ rooms:
   - id: 5556
     key: ofcol_room_5556
     name: "The Local Inn"
-    area_id: 32
+    area_id: 55
     short_desc: "The Local Inn"
     long_desc: |
       You are in the local inn, where the peaceful citizens of Ofcol
@@ -284,7 +284,7 @@ rooms:
   - id: 5577
     key: ofcol_room_5577
     name: "Ravan's hideout"
-    area_id: 32
+    area_id: 55
     short_desc: "Ravan's hideout"
     long_desc: |
       This place is a small, cosy place where no one disturbs you all

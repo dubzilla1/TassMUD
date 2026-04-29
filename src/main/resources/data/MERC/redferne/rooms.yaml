@@ -2,7 +2,7 @@ rooms:
   - id: 7900
     key: redferne_room_7900
     name: "Outside Redferne's residence"
-    area_id: 32
+    area_id: 79
     short_desc: "Outside Redferne's residence"
     long_desc: |
       A huge cloud forms the plateau on which you are now standing. The wind here
@@ -91,7 +91,7 @@ rooms:
   - id: 7901
     key: redferne_room_7901
     name: "The Southern end of the hall"
-    area_id: 32
+    area_id: 79
     short_desc: "The Southern end of the hall"
     long_desc: |
       You are standing in a vast hall that is dimly lit, but wherefrom the
@@ -174,7 +174,7 @@ rooms:
   - id: 7902
     key: redferne_room_7902
     name: "Redferne's Library"
-    area_id: 32
+    area_id: 79
     short_desc: "Redferne's Library"
     long_desc: |
       This is truly a magnificent place! Books and scrolls lie together on every
@@ -232,7 +232,7 @@ rooms:
   - id: 7903
     key: redferne_room_7903
     name: "The Artifact room of Naris"
-    area_id: 32
+    area_id: 79
     short_desc: "The Artifact room of Naris"
     long_desc: |
       This is gloomy and dark room with only a faint light radiating from the
@@ -264,7 +264,7 @@ rooms:
   - id: 7904
     key: redferne_room_7904
     name: "The Northern end of the hall"
-    area_id: 32
+    area_id: 79
     short_desc: "The Northern end of the hall"
     long_desc: |
       You are standing in the northern end of the huge hall. This part is under
@@ -322,7 +322,7 @@ rooms:
   - id: 7905
     key: redferne_room_7905
     name: "The Sitting room of Naris"
-    area_id: 32
+    area_id: 79
     short_desc: "The Sitting room of Naris"
     long_desc: |
       You are standing in the middle of a really comfortable place. The walls are
@@ -352,7 +352,7 @@ rooms:
   - id: 7906
     key: redferne_room_7906
     name: "The Kitchen of Naris"
-    area_id: 32
+    area_id: 79
     short_desc: "The Kitchen of Naris"
     long_desc: |
       This must be the place of food and drink. You can hear the faint noise of 
@@ -400,7 +400,7 @@ rooms:
   - id: 7907
     key: redferne_room_7907
     name: "The Larder"
-    area_id: 32
+    area_id: 79
     short_desc: "The Larder"
     long_desc: |
       You can see food all over. Among the heaps of food you notice HUGE rats
@@ -425,7 +425,7 @@ rooms:
   - id: 7908
     key: redferne_room_7908
     name: "The Fridge"
-    area_id: 32
+    area_id: 79
     short_desc: "The Fridge"
     long_desc: |
       This place is LOADED with drink, water and booze.
@@ -454,7 +454,7 @@ rooms:
   - id: 7909
     key: redferne_room_7909
     name: "On the stairs"
-    area_id: 32
+    area_id: 79
     short_desc: "On the stairs"
     long_desc: |
       You can see up and down the stairway. It seems to take forever, either going
@@ -490,7 +490,7 @@ rooms:
   - id: 7910
     key: redferne_room_7910
     name: "The Treasure room"
-    area_id: 32
+    area_id: 79
     short_desc: "The Treasure room"
     long_desc: |
       This place is gloomy.  The only visible exit is west, through the oak door.
@@ -529,7 +529,7 @@ rooms:
   - id: 7911
     key: redferne_room_7911
     name: "Redferne's Bedroom"
-    area_id: 32
+    area_id: 79
     short_desc: "Redferne's Bedroom"
     long_desc: |
       This is a snugly set bedroom with all the necessities for a romantic evening.
@@ -568,7 +568,7 @@ rooms:
   - id: 7912
     key: redferne_room_7912
     name: "The Balcony of Redferne's Residence"
-    area_id: 32
+    area_id: 79
     short_desc: "The Balcony of Redferne's Residence"
     long_desc: |
       You see a splendid of the most of this world. The valleys stretch as far as
@@ -605,7 +605,7 @@ rooms:
   - id: 7913
     key: redferne_room_7913
     name: "The Monster Pen"
-    area_id: 32
+    area_id: 79
     short_desc: "The Monster Pen"
     long_desc: |
       This looks like the cage in which a large carnivore is being kept. Judging by
@@ -631,7 +631,7 @@ rooms:
   - id: 7914
     key: redferne_room_7914
     name: "On the Huge Chain"
-    area_id: 32
+    area_id: 79
     short_desc: "On the Huge Chain"
     long_desc: |
       This place has quite a good view over Midgaard. Your possibilities of movement
@@ -667,7 +667,7 @@ rooms:
   - id: 7916
     key: redferne_room_7916
     name: "On the Great Chain of Naris"
-    area_id: 32
+    area_id: 79
     short_desc: "On the Great Chain of Naris"
     long_desc: |
       You are approximately on the middle of the treacherous Chain. One false step
@@ -693,7 +693,7 @@ rooms:
   - id: 7918
     key: redferne_room_7918
     name: "The Mighty Chain of Naris"
-    area_id: 32
+    area_id: 79
     short_desc: "The Mighty Chain of Naris"
     long_desc: |
       This place offers a splendid view of the WHOLE COUNTRY SIDE!!! A magnificent

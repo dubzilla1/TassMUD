@@ -2,7 +2,7 @@ rooms:
   - id: 2900
     key: firenewt_room_2900
     name: "Obsidian hills"
-    area_id: 30
+    area_id: 29
     short_desc: "Obsidian hills"
     long_desc: |
       You see before you some shiny black hills. There is very little vegetation
@@ -39,7 +39,7 @@ rooms:
   - id: 2901
     key: firenewt_room_2901
     name: "Obsidian hills"
-    area_id: 30
+    area_id: 29
     short_desc: "Obsidian hills"
     long_desc: |
       You see before you some shiny black hills. There is very little vegetation
@@ -76,7 +76,7 @@ rooms:
   - id: 2902
     key: firenewt_room_2902
     name: "Obsidian hills"
-    area_id: 30
+    area_id: 29
     short_desc: "Obsidian hills"
     long_desc: |
       You see before you some shiny black hills. There is very little vegetation
@@ -113,7 +113,7 @@ rooms:
   - id: 2903
     key: firenewt_room_2903
     name: "Mountain side"
-    area_id: 30
+    area_id: 29
     short_desc: "Mountain side"
     long_desc: |
       The mountain is very high and looks to be quite old. There are a few cracks
@@ -156,7 +156,7 @@ rooms:
   - id: 2904
     key: firenewt_room_2904
     name: "Mountain side"
-    area_id: 30
+    area_id: 29
     short_desc: "Mountain side"
     long_desc: |
       The mountain is very high and looks to be quite old. There is smoke coming
@@ -238,7 +238,7 @@ rooms:
   - id: 2905
     key: firenewt_room_2905
     name: "Mountain top"
-    area_id: 30
+    area_id: 29
     short_desc: "Mountain top"
     long_desc: |
       You've reached the top of the mountain. You can see more smoke from up here.
@@ -277,7 +277,7 @@ rooms:
   - id: 2906
     key: firenewt_room_2906
     name: "Entrance to the mountain"
-    area_id: 30
+    area_id: 29
     short_desc: "Entrance to the mountain"
     long_desc: |
       The smoke comes from inside the hole.  It also looks like there is a path
@@ -341,7 +341,7 @@ rooms:
   - id: 2907
     key: firenewt_room_2907
     name: "Mountain top"
-    area_id: 30
+    area_id: 29
     short_desc: "Mountain top"
     long_desc: |
       You are standing at the top of the mountain. The mountain looks like it has
@@ -365,7 +365,7 @@ rooms:
   - id: 2908
     key: firenewt_room_2908
     name: "Mountain top"
-    area_id: 30
+    area_id: 29
     short_desc: "Mountain top"
     long_desc: |
       You are standing at the top of the mountain. There are several cracks in the
@@ -389,7 +389,7 @@ rooms:
   - id: 2909
     key: firenewt_room_2909
     name: "Mountain top"
-    area_id: 30
+    area_id: 29
     short_desc: "Mountain top"
     long_desc: |
       You are standing on the top of the mountain and think you should move north.
@@ -412,7 +412,7 @@ rooms:
   - id: 2910
     key: firenewt_room_2910
     name: "Inside the mountain"
-    area_id: 30
+    area_id: 29
     short_desc: "Inside the mountain"
     long_desc: |
       You are standing inside the mountain.
@@ -474,7 +474,7 @@ rooms:
   - id: 2911
     key: firenewt_room_2911
     name: "Guard room"
-    area_id: 30
+    area_id: 29
     short_desc: "Guard room"
     long_desc: |
       You are standing in a room with beds, tables, and fire newts!
@@ -531,7 +531,7 @@ rooms:
   - id: 2912
     key: firenewt_room_2912
     name: "Guard room"
-    area_id: 30
+    area_id: 29
     short_desc: "Guard room"
     long_desc: |
       You are standing in a room with beds, chairs, tables, and fire newts!
@@ -588,7 +588,7 @@ rooms:
   - id: 2913
     key: firenewt_room_2913
     name: "Inside the mountain"
-    area_id: 30
+    area_id: 29
     short_desc: "Inside the mountain"
     long_desc: |
       You are standing inside the mountain.
@@ -641,7 +641,7 @@ rooms:
   - id: 2914
     key: firenewt_room_2914
     name: "Store room"
-    area_id: 30
+    area_id: 29
     short_desc: "Store room"
     long_desc: |
       You see nothing special in this room.  There are some boxes and fire newt
@@ -678,7 +678,7 @@ rooms:
   - id: 2915
     key: firenewt_room_2915
     name: "Workers' quarters"
-    area_id: 30
+    area_id: 29
     short_desc: "Workers' quarters"
     long_desc: |
       You are standing in the workers' quarters.  There are several workers here.  
@@ -732,7 +732,7 @@ rooms:
   - id: 2916
     key: firenewt_room_2916
     name: "Bottom of the mountain"
-    area_id: 30
+    area_id: 29
     short_desc: "Bottom of the mountain"
     long_desc: |
       You are standing at the bottom of the shaft.
@@ -774,7 +774,7 @@ rooms:
   - id: 2917
     key: firenewt_room_2917
     name: "The tunnel"
-    area_id: 30
+    area_id: 29
     short_desc: "The tunnel"
     long_desc: |
       You are standing in a dry, dark tunnel.
@@ -830,7 +830,7 @@ rooms:
   - id: 2919
     key: firenewt_room_2919
     name: "The tunnel"
-    area_id: 30
+    area_id: 29
     short_desc: "The tunnel"
     long_desc: |
       You are standing in a dark tunnel.
@@ -890,7 +890,7 @@ rooms:
   - id: 2920
     key: firenewt_room_2920
     name: "Fire Newt House"
-    area_id: 30
+    area_id: 29
     short_desc: "Fire Newt House"
     long_desc: |
       You are standing in a fire newt house.  There is a mother fire newt here
@@ -944,7 +944,7 @@ rooms:
   - id: 2921
     key: firenewt_room_2921
     name: "The tunnel"
-    area_id: 30
+    area_id: 29
     short_desc: "The tunnel"
     long_desc: |
       You are standing in a dark tunnel.
@@ -1004,7 +1004,7 @@ rooms:
   - id: 2922
     key: firenewt_room_2922
     name: "Fire Newt House"
-    area_id: 30
+    area_id: 29
     short_desc: "Fire Newt House"
     long_desc: |
       You are standing in a fire newt house.  There is a fire newt mother here
@@ -1058,7 +1058,7 @@ rooms:
   - id: 2923
     key: firenewt_room_2923
     name: "The tunnel"
-    area_id: 30
+    area_id: 29
     short_desc: "The tunnel"
     long_desc: |
       You are standing in the dark tunnel.
@@ -1112,7 +1112,7 @@ rooms:
   - id: 2924
     key: firenewt_room_2924
     name: "Entrance to the town hall"
-    area_id: 30
+    area_id: 29
     short_desc: "Entrance to the town hall"
     long_desc: |
       You are standing in the entrance to the town hall.  The room is large and
@@ -1158,7 +1158,7 @@ rooms:
   - id: 2925
     key: firenewt_room_2925
     name: "The Waiting Room"
-    area_id: 30
+    area_id: 29
     short_desc: "The Waiting Room"
     long_desc: |
       You are standing in the waiting room of the town hall.  There is a big door
@@ -1215,7 +1215,7 @@ rooms:
   - id: 2926
     key: firenewt_room_2926
     name: "The Leader's Office"
-    area_id: 30
+    area_id: 29
     short_desc: "The Leader's Office"
     long_desc: |
       You are standing in the fire newt leader's office.
@@ -1250,7 +1250,7 @@ rooms:
   - id: 2927
     key: firenewt_room_2927
     name: "Outside the temple"
-    area_id: 30
+    area_id: 29
     short_desc: "Outside the temple"
     long_desc: |
       You are standing outside the fire newt temple.  The temple has some very
@@ -1296,7 +1296,7 @@ rooms:
   - id: 2928
     key: firenewt_room_2928
     name: "Entrance to the temple"
-    area_id: 30
+    area_id: 29
     short_desc: "Entrance to the temple"
     long_desc: |
       You are standing at the entrance to the temple.  The temple is very neat. 
@@ -1353,7 +1353,7 @@ rooms:
   - id: 2929
     key: firenewt_room_2929
     name: "Inside the Temple"
-    area_id: 30
+    area_id: 29
     short_desc: "Inside the Temple"
     long_desc: |
       You are standing inside the fire newt temple.
@@ -1395,7 +1395,7 @@ rooms:
   - id: 2930
     key: firenewt_room_2930
     name: "The room before the doors"
-    area_id: 30
+    area_id: 29
     short_desc: "The room before the doors"
     long_desc: |
       You are standing before a pair of huge doors.
@@ -1443,7 +1443,7 @@ rooms:
   - id: 2931
     key: firenewt_room_2931
     name: "The Egg Room"
-    area_id: 30
+    area_id: 29
     short_desc: "The Egg Room"
     long_desc: |
       You are standing in a room that has several dozen piles of eggs.  There is

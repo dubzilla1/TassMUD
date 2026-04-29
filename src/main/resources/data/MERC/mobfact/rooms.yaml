@@ -2,7 +2,7 @@ rooms:
   - id: 9400
     key: mobfact_room_9400
     name: "Entrance to the Mob Factory"
-    area_id: 32
+    area_id: 94
     short_desc: "Entrance to the Mob Factory"
     long_desc: |
       You find that you have entered a strange factory. This factory doesn't
@@ -60,7 +60,7 @@ rooms:
   - id: 9401
     key: mobfact_room_9401
     name: "Mob Factory Storage Area"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Storage Area"
     long_desc: |
       This is where the raw materials from which mobs are manufactured are
@@ -112,7 +112,7 @@ rooms:
   - id: 9402
     key: mobfact_room_9402
     name: "Mob Factory Storage Area"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Storage Area"
     long_desc: |
       This is where the raw materials from which mobs are manufactured are
@@ -153,7 +153,7 @@ rooms:
   - id: 9403
     key: mobfact_room_9403
     name: "Foreman's Office"
-    area_id: 32
+    area_id: 94
     short_desc: "Foreman's Office"
     long_desc: |
       This is the ofice of the mob factory foreman. The room is sparsely
@@ -195,7 +195,7 @@ rooms:
   - id: 9404
     key: mobfact_room_9404
     name: "Foreman's Bathroom"
-    area_id: 32
+    area_id: 94
     short_desc: "Foreman's Bathroom"
     long_desc: |
       This is the place where the foreman makes frequent visits. The smell
@@ -227,7 +227,7 @@ rooms:
   - id: 9405
     key: mobfact_room_9405
     name: "Mob Factory Storage Area"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Storage Area"
     long_desc: |
       This is where the raw materials from which mobs are manufactured are
@@ -274,7 +274,7 @@ rooms:
   - id: 9406
     key: mobfact_room_9406
     name: "Mob Factory Storage Area"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Storage Area"
     long_desc: |
       This is where the raw materials from which mobs are manufactured are
@@ -336,7 +336,7 @@ rooms:
   - id: 9407
     key: mobfact_room_9407
     name: "Entrance Hallway to Mob Factoy"
-    area_id: 32
+    area_id: 94
     short_desc: "Entrance Hallway to Mob Factoy"
     long_desc: |
       You are standing in the entrance hallway of the mob factory. The sound
@@ -394,7 +394,7 @@ rooms:
   - id: 9408
     key: mobfact_room_9408
     name: "Mob Factory Cafeteria"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Cafeteria"
     long_desc: |
       You find that you have entered the cafeteria of the mob factory. There
@@ -441,7 +441,7 @@ rooms:
   - id: 9409
     key: mobfact_room_9409
     name: "Mob Factory Cafeteria"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Cafeteria"
     long_desc: |
       You find that you have entered the cafeteria of the mob factory. There
@@ -474,7 +474,7 @@ rooms:
   - id: 9410
     key: mobfact_room_9410
     name: "Mob Factory Inspection Room"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Inspection Room"
     long_desc: |
       You have entered the mob factory inspections room. This is where the
@@ -535,7 +535,7 @@ rooms:
   - id: 9411
     key: mobfact_room_9411
     name: "Mob Factory Inspection Room"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Inspection Room"
     long_desc: |
       You have entered the mob factory inspections room. This is where the
@@ -602,7 +602,7 @@ rooms:
   - id: 9412
     key: mobfact_room_9412
     name: "Entrance Hallway to Mob Factoy"
-    area_id: 32
+    area_id: 94
     short_desc: "Entrance Hallway to Mob Factoy"
     long_desc: |
       You are standing in the entrance hallway of the mob factory. The sound
@@ -660,7 +660,7 @@ rooms:
   - id: 9413
     key: mobfact_room_9413
     name: "Mob Factory Reject Room"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Reject Room"
     long_desc: |
       This is the factory reject room. All the mobs that are manufactured
@@ -702,7 +702,7 @@ rooms:
   - id: 9414
     key: mobfact_room_9414
     name: "Mob Factory Reject Room"
-    area_id: 32
+    area_id: 94
     short_desc: "Mob Factory Reject Room"
     long_desc: |
       This is the factory reject room. All the mobs that are manufactured
@@ -733,7 +733,7 @@ rooms:
   - id: 9415
     key: mobfact_room_9415
     name: "Primary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Primary Assembly Line"
     long_desc: |
       This is the primary assembly line of the mob factory. Here, all the
@@ -790,7 +790,7 @@ rooms:
   - id: 9416
     key: mobfact_room_9416
     name: "Primary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Primary Assembly Line"
     long_desc: |
       This is the primary assembly line of the mob factory. Here, all the
@@ -853,7 +853,7 @@ rooms:
   - id: 9417
     key: mobfact_room_9417
     name: "Primary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Primary Assembly Line"
     long_desc: |
       This is the primary assembly line of the mob factory. Here, all the
@@ -916,7 +916,7 @@ rooms:
   - id: 9418
     key: mobfact_room_9418
     name: "Primary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Primary Assembly Line"
     long_desc: |
       This is the primary assembly line of the mob factory. Here, all the
@@ -973,7 +973,7 @@ rooms:
   - id: 9419
     key: mobfact_room_9419
     name: "Primary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Primary Assembly Line"
     long_desc: |
       This is the primary assembly line of the mob factory. Here, all the
@@ -1016,7 +1016,7 @@ rooms:
   - id: 9420
     key: mobfact_room_9420
     name: "Secondary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Secondary Assembly Line"
     long_desc: |
       This is the secondary asembly line of the mob factory. You are
@@ -1062,7 +1062,7 @@ rooms:
   - id: 9421
     key: mobfact_room_9421
     name: "Secondary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Secondary Assembly Line"
     long_desc: |
       This is the secondary asembly line of the mob factory. You are
@@ -1118,7 +1118,7 @@ rooms:
   - id: 9422
     key: mobfact_room_9422
     name: "Secondary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Secondary Assembly Line"
     long_desc: |
       This is the secondary asembly line of the mob factory. You are
@@ -1170,7 +1170,7 @@ rooms:
   - id: 9423
     key: mobfact_room_9423
     name: "Secondary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Secondary Assembly Line"
     long_desc: |
       This is the secondary asembly line of the mob factory. You are
@@ -1226,7 +1226,7 @@ rooms:
   - id: 9424
     key: mobfact_room_9424
     name: "Secondary Assembly Line"
-    area_id: 32
+    area_id: 94
     short_desc: "Secondary Assembly Line"
     long_desc: |
       This is the secondary asembly line of the mob factory. You are

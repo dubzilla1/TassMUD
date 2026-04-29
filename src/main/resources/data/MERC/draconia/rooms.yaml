@@ -2,7 +2,7 @@ rooms:
   - id: 2201
     key: draconia_room_2201
     name: "The Tower Gates"
-    area_id: 30
+    area_id: 22
     short_desc: "The Tower Gates"
     long_desc: |
       You are at the entrance to a tall tower.  Lightning flashes periodically and
@@ -45,7 +45,7 @@ rooms:
   - id: 2202
     key: draconia_room_2202
     name: "The Foyer"
-    area_id: 30
+    area_id: 22
     short_desc: "The Foyer"
     long_desc: |
       This is the entrance to the Tower.  The hallway continues to the north,
@@ -134,7 +134,7 @@ rooms:
   - id: 2211
     key: draconia_room_2211
     name: "The Court"
-    area_id: 30
+    area_id: 22
     short_desc: "The Court"
     long_desc: |
       You have entered what seems to be a large court.  The people guarding it
@@ -195,7 +195,7 @@ rooms:
   - id: 2212
     key: draconia_room_2212
     name: "Hall O' Pleasure"
-    area_id: 30
+    area_id: 22
     short_desc: "Hall O' Pleasure"
     long_desc: |
       You stop dead in your tracks as you enter this ornately decorated room - it
@@ -258,7 +258,7 @@ rooms:
   - id: 2213
     key: draconia_room_2213
     name: "The Court"
-    area_id: 30
+    area_id: 22
     short_desc: "The Court"
     long_desc: |
       You are continuing down the hall.  To the east and west you see ornate doors.
@@ -309,7 +309,7 @@ rooms:
   - id: 2214
     key: draconia_room_2214
     name: "The Library"
-    area_id: 30
+    area_id: 22
     short_desc: "The Library"
     long_desc: |
       You have entered a huge room, filled with books.  A peaceful man is
@@ -374,7 +374,7 @@ rooms:
   - id: 2215
     key: draconia_room_2215
     name: "The Sanctum"
-    area_id: 30
+    area_id: 22
     short_desc: "The Sanctum"
     long_desc: |
       This small room is modestly decorated with small dragon icons.  Its sole
@@ -398,7 +398,7 @@ rooms:
   - id: 2216
     key: draconia_room_2216
     name: "The Court Ends"
-    area_id: 30
+    area_id: 22
     short_desc: "The Court Ends"
     long_desc: |
       You have reached the end of the court.  A huge Draconian is sitting in a
@@ -474,7 +474,7 @@ rooms:
   - id: 2217
     key: draconia_room_2217
     name: "bedroom"
-    area_id: 30
+    area_id: 22
     short_desc: "bedroom"
     long_desc: |
       This is the personal room of the draconian king.  It is not empty.
@@ -524,7 +524,7 @@ rooms:
   - id: 2218
     key: draconia_room_2218
     name: "Entrance to the Crypt"
-    area_id: 30
+    area_id: 22
     short_desc: "Entrance to the Crypt"
     long_desc: |
       You have entered a large room which smells heavily of reptile.  You wonder
@@ -567,7 +567,7 @@ rooms:
   - id: 2219
     key: draconia_room_2219
     name: "Crypt"
-    area_id: 30
+    area_id: 22
     short_desc: "Crypt"
     long_desc: |
       You are in a large room which continues to the west.  You notice many
@@ -611,7 +611,7 @@ rooms:
   - id: 2220
     key: draconia_room_2220
     name: "The Lair"
-    area_id: 30
+    area_id: 22
     short_desc: "The Lair"
     long_desc: |
       You have entered a large room dominated by a great white dragon.  It growls
@@ -644,7 +644,7 @@ rooms:
   - id: 2221
     key: draconia_room_2221
     name: "A Lair"
-    area_id: 30
+    area_id: 22
     short_desc: "A Lair"
     long_desc: |
       You have entered a large room dominated by a great black dragon.  It looks
@@ -677,7 +677,7 @@ rooms:
   - id: 2222
     key: draconia_room_2222
     name: "The Crypt Ends"
-    area_id: 30
+    area_id: 22
     short_desc: "The Crypt Ends"
     long_desc: |
       You have come to the end of the Crypt.  It seems deserted.  There is a 
@@ -729,7 +729,7 @@ rooms:
   - id: 2223
     key: draconia_room_2223
     name: "Entrance to the Great Hall"
-    area_id: 30
+    area_id: 22
     short_desc: "Entrance to the Great Hall"
     long_desc: |
       You have entered a huge hall.  It has been carefully decorated with
@@ -743,7 +743,7 @@ rooms:
   - id: 2224
     key: draconia_room_2224
     name: "The Great Hall"
-    area_id: 30
+    area_id: 22
     short_desc: "The Great Hall"
     long_desc: |
       You are working your way down the Hall.  To the north, you notice a smaller
@@ -777,7 +777,7 @@ rooms:
   - id: 2225
     key: draconia_room_2225
     name: "A Narrow Passageway"
-    area_id: 30
+    area_id: 22
     short_desc: "A Narrow Passageway"
     long_desc: |
       This Passageway branches off from the main hall and leads somewhere ... where?
@@ -810,7 +810,7 @@ rooms:
   - id: 2226
     key: draconia_room_2226
     name: "Lair"
-    area_id: 30
+    area_id: 22
     short_desc: "Lair"
     long_desc: |
       You have entered a large lair with bones strewn about the ground.  You
@@ -860,7 +860,7 @@ rooms:
   - id: 2227
     key: draconia_room_2227
     name: "Underground Tunnel"
-    area_id: 30
+    area_id: 22
     short_desc: "Underground Tunnel"
     long_desc: |
       You have entered an underground tunnel.  It is dark and dirty, and you find
@@ -894,7 +894,7 @@ rooms:
   - id: 2228
     key: draconia_room_2228
     name: "Underground Tunnel"
-    area_id: 30
+    area_id: 22
     short_desc: "Underground Tunnel"
     long_desc: |
       This tunnel has come to a dead end.  You feel nervous about being trapped here.
@@ -918,7 +918,7 @@ rooms:
   - id: 2229
     key: draconia_room_2229
     name: "The Great Hall Ends."
-    area_id: 30
+    area_id: 22
     short_desc: "The Great Hall Ends."
     long_desc: |
       You have come to the end of the great hall.  You see before you a huge
@@ -957,7 +957,7 @@ rooms:
   - id: 2230
     key: draconia_room_2230
     name: "THE Lair"
-    area_id: 30
+    area_id: 22
     short_desc: "THE Lair"
     long_desc: |
       You have entered a huge lair.  You feel that something big lives here or at least did.  The golden door lies back to the west.
@@ -994,7 +994,7 @@ rooms:
   - id: 2231
     key: draconia_room_2231
     name: "The End..."
-    area_id: 30
+    area_id: 22
     short_desc: "The End..."
     long_desc: |
       You have reached the final lair.  It is dominated by a huge five headed
@@ -1018,7 +1018,7 @@ rooms:
   - id: 2232
     key: draconia_room_2232
     name: "Stairwell"
-    area_id: 30
+    area_id: 22
     short_desc: "Stairwell"
     long_desc: |
       This is an old decrepit stairwell that leads to the wine cellar.  It looks
@@ -1057,7 +1057,7 @@ rooms:
   - id: 2233
     key: draconia_room_2233
     name: "Wine cellar"
-    area_id: 30
+    area_id: 22
     short_desc: "Wine cellar"
     long_desc: |
       This is the old wine cellar of the Dragon Tower.  The shelves are empty.
@@ -1095,7 +1095,7 @@ rooms:
   - id: 2234
     key: draconia_room_2234
     name: "Tunnel"
-    area_id: 30
+    area_id: 22
     short_desc: "Tunnel"
     long_desc: |
       This tunnel seems to stretch for miles.  You try to distinguish the end but
@@ -1144,7 +1144,7 @@ rooms:
   - id: 2235
     key: draconia_room_2235
     name: "A cave opening"
-    area_id: 30
+    area_id: 22
     short_desc: "A cave opening"
     long_desc: |
       You stand at the opening of a giant cave.  There are many bones strewn across
@@ -1178,7 +1178,7 @@ rooms:
   - id: 2236
     key: draconia_room_2236
     name: "The End of the tunnel"
-    area_id: 30
+    area_id: 22
     short_desc: "The End of the tunnel"
     long_desc: |
       You have finally come to the end of the tunnel.  Back to the west lies
@@ -1226,7 +1226,7 @@ rooms:
   - id: 2237
     key: draconia_room_2237
     name: "The Bridge"
-    area_id: 30
+    area_id: 22
     short_desc: "The Bridge"
     long_desc: |
       You are walking along an old wooden bridge.  Its not that secure.  You 
@@ -1261,7 +1261,7 @@ rooms:
   - id: 2238
     key: draconia_room_2238
     name: "A small opening"
-    area_id: 30
+    area_id: 22
     short_desc: "A small opening"
     long_desc: |
       You are standing in a small opening.  To the north lies the old wooden
@@ -1296,7 +1296,7 @@ rooms:
   - id: 2239
     key: draconia_room_2239
     name: "Clearing"
-    area_id: 30
+    area_id: 22
     short_desc: "Clearing"
     long_desc: |
       You stand out in a clearing.  Mountains are all around you.  There is a 
@@ -1354,7 +1354,7 @@ rooms:
   - id: 2240
     key: draconia_room_2240
     name: "A path"
-    area_id: 30
+    area_id: 22
     short_desc: "A path"
     long_desc: |
       This path leads up the side of the mountain.  A clearing lies below you.
@@ -1396,7 +1396,7 @@ rooms:
   - id: 2241
     key: draconia_room_2241
     name: "A cave opening"
-    area_id: 30
+    area_id: 22
     short_desc: "A cave opening"
     long_desc: |
       You stand before a huge cave opening.  You hearing heavy breathing from
@@ -1434,7 +1434,7 @@ rooms:
   - id: 2242
     key: draconia_room_2242
     name: "The path continues"
-    area_id: 30
+    area_id: 22
     short_desc: "The path continues"
     long_desc: |
       The path continues up the mountain to the top.  The path also goes down.
@@ -1466,7 +1466,7 @@ rooms:
   - id: 2243
     key: draconia_room_2243
     name: "The top of the mountain"
-    area_id: 30
+    area_id: 22
     short_desc: "The top of the mountain"
     long_desc: |
       You are standing at the top of the mountain.  It feels more like the top of
@@ -1506,7 +1506,7 @@ rooms:
   - id: 2244
     key: draconia_room_2244
     name: "Well"
-    area_id: 30
+    area_id: 22
     short_desc: "Well"
     long_desc: |
       O

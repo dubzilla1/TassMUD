@@ -2,7 +2,7 @@ rooms:
   - id: 2300
     key: mahntor_room_2300
     name: "The dark woods"
-    area_id: 30
+    area_id: 23
     short_desc: "The dark woods"
     long_desc: |
       You are travelling through woods that are as dark as night. The trees above
@@ -49,7 +49,7 @@ rooms:
   - id: 2301
     key: mahntor_room_2301
     name: "The dark woods"
-    area_id: 30
+    area_id: 23
     short_desc: "The dark woods"
     long_desc: |
       You wearily travel through the darkness of the forest. Huge skeletal trees
@@ -86,7 +86,7 @@ rooms:
   - id: 2302
     key: mahntor_room_2302
     name: "The small intersection in the forest"
-    area_id: 30
+    area_id: 23
     short_desc: "The small intersection in the forest"
     long_desc: |
       The forest path splits here in three directions. Small paths lead to the east,
@@ -134,7 +134,7 @@ rooms:
   - id: 2303
     key: mahntor_room_2303
     name: "The edge of the forest and hills"
-    area_id: 30
+    area_id: 23
     short_desc: "The edge of the forest and hills"
     long_desc: |
       You stand at the edge of a dark forest. A path leads north into the forest and
@@ -168,7 +168,7 @@ rooms:
   - id: 2304
     key: mahntor_room_2304
     name: "In the dense forest"
-    area_id: 30
+    area_id: 23
     short_desc: "In the dense forest"
     long_desc: |
       You walk along a small path leading through a dark forest. No sounds can be
@@ -202,7 +202,7 @@ rooms:
   - id: 2305
     key: mahntor_room_2305
     name: "The dark forest path"
-    area_id: 30
+    area_id: 23
     short_desc: "The dark forest path"
     long_desc: |
       You continue on through darkness and gloom. The path below you has become a
@@ -246,7 +246,7 @@ rooms:
   - id: 2306
     key: mahntor_room_2306
     name: "A turn in the path"
-    area_id: 30
+    area_id: 23
     short_desc: "A turn in the path"
     long_desc: |
       The forest path turns here towards the north and west. To the north, you see
@@ -280,7 +280,7 @@ rooms:
   - id: 2307
     key: mahntor_room_2307
     name: "The bloody intersection"
-    area_id: 30
+    area_id: 23
     short_desc: "The bloody intersection"
     long_desc: |
       This is a small intersection. Paths lead east, west, and south. You are struck
@@ -341,7 +341,7 @@ rooms:
   - id: 2308
     key: mahntor_room_2308
     name: "The rocky path"
-    area_id: 30
+    area_id: 23
     short_desc: "The rocky path"
     long_desc: |
       The path here winds among the low rocky hills. The long trek up and down the
@@ -374,7 +374,7 @@ rooms:
   - id: 2309
     key: mahntor_room_2309
     name: "The rocky path"
-    area_id: 30
+    area_id: 23
     short_desc: "The rocky path"
     long_desc: |
       The path here is very rocky and treacherous. The travelling is rough and you
@@ -408,7 +408,7 @@ rooms:
   - id: 2310
     key: mahntor_room_2310
     name: "Up the rocky hillside"
-    area_id: 30
+    area_id: 23
     short_desc: "Up the rocky hillside"
     long_desc: |
       You are climbing on a rocky hillside. As you scramble about, loose rocks and
@@ -464,7 +464,7 @@ rooms:
   - id: 2311
     key: mahntor_room_2311
     name: "The sparse foothills"
-    area_id: 30
+    area_id: 23
     short_desc: "The sparse foothills"
     long_desc: |
       You are in foothills that are sparsely covered by scraggly bushes and weather
@@ -503,7 +503,7 @@ rooms:
   - id: 2312
     key: mahntor_room_2312
     name: "Standing on level ground"
-    area_id: 30
+    area_id: 23
     short_desc: "Standing on level ground"
     long_desc: |
       You are standing at the edge of a steep set of foothills. Looking down, you
@@ -543,7 +543,7 @@ rooms:
   - id: 2313
     key: mahntor_room_2313
     name: "In the foothills"
-    area_id: 30
+    area_id: 23
     short_desc: "In the foothills"
     long_desc: |
       You are in a barren set of foothills. Looking around, all you see are dead
@@ -591,7 +591,7 @@ rooms:
   - id: 2314
     key: mahntor_room_2314
     name: "Before the huge tree"
-    area_id: 30
+    area_id: 23
     short_desc: "Before the huge tree"
     long_desc: |
       You enter a large ring of boulders. Sheltered by this wall of stones, a small
@@ -651,7 +651,7 @@ rooms:
   - id: 2315
     key: mahntor_room_2315
     name: "Before the dark cave"
-    area_id: 30
+    area_id: 23
     short_desc: "Before the dark cave"
     long_desc: |
       You stand directly before a huge dark cave. The rocks and boulders outside the
@@ -706,7 +706,7 @@ rooms:
   - id: 2316
     key: mahntor_room_2316
     name: "Inside the horrid cave"
-    area_id: 30
+    area_id: 23
     short_desc: "Inside the horrid cave"
     long_desc: |
       The stench is overwhelming. You can hardly breathe as you enter the cave.
@@ -742,7 +742,7 @@ rooms:
   - id: 2317
     key: mahntor_room_2317
     name: "The hills overlooking the shore"
-    area_id: 30
+    area_id: 23
     short_desc: "The hills overlooking the shore"
     long_desc: |
       Standing at the edge of the foothills, you are able to look down upon a rocky
@@ -788,7 +788,7 @@ rooms:
   - id: 2318
     key: mahntor_room_2318
     name: "The hills overlooking the shoreline"
-    area_id: 30
+    area_id: 23
     short_desc: "The hills overlooking the shoreline"
     long_desc: |
       You stand on a barren section of hills that overlook a rocky shoreline. The
@@ -844,7 +844,7 @@ rooms:
   - id: 2319
     key: mahntor_room_2319
     name: "The hills above the shoreline"
-    area_id: 30
+    area_id: 23
     short_desc: "The hills above the shoreline"
     long_desc: |
       You stand on a rocky summit overlooking a rough shoreline below. The sea wind
@@ -894,7 +894,7 @@ rooms:
   - id: 2320
     key: mahntor_room_2320
     name: "The rocky shore"
-    area_id: 30
+    area_id: 23
     short_desc: "The rocky shore"
     long_desc: |
       You are at the base of the rocky hills. Stretching to the south and east, you
@@ -937,7 +937,7 @@ rooms:
   - id: 2321
     key: mahntor_room_2321
     name: "The rocky shoreline"
-    area_id: 30
+    area_id: 23
     short_desc: "The rocky shoreline"
     long_desc: |
       You are on a rocky shore that borders a vast sea. A stiff wind blows here and
@@ -991,7 +991,7 @@ rooms:
   - id: 2322
     key: mahntor_room_2322
     name: "The rocky shore"
-    area_id: 30
+    area_id: 23
     short_desc: "The rocky shore"
     long_desc: |
       You stand at the base of some rocky hills, where they meet a rocky shore. A
@@ -1035,7 +1035,7 @@ rooms:
   - id: 2323
     key: mahntor_room_2323
     name: "The edge of the sea"
-    area_id: 30
+    area_id: 23
     short_desc: "The edge of the sea"
     long_desc: |
       You walk along the water's edge. The vastness of the ocean is staggering as
@@ -1068,7 +1068,7 @@ rooms:
   - id: 2324
     key: mahntor_room_2324
     name: "The Blood Sea Portal"
-    area_id: 30
+    area_id: 23
     short_desc: "The Blood Sea Portal"
     long_desc: |
       You stand on a small pedestal like altar that has been built on the shore here.
@@ -1130,7 +1130,7 @@ rooms:
   - id: 2325
     key: mahntor_room_2325
     name: "The edge of the sea"
-    area_id: 30
+    area_id: 23
     short_desc: "The edge of the sea"
     long_desc: |
       You walk along the water's edge. The tide appears to have risen. Very little
@@ -1164,7 +1164,7 @@ rooms:
   - id: 2326
     key: mahntor_room_2326
     name: "Floating in blue light"
-    area_id: 30
+    area_id: 23
     short_desc: "Floating in blue light"
     long_desc: |
       You seem to be floating in blue weightlessness. You tumble head over heels and
@@ -1198,7 +1198,7 @@ rooms:
   - id: 2327
     key: mahntor_room_2327
     name: "The swampy path"
-    area_id: 30
+    area_id: 23
     short_desc: "The swampy path"
     long_desc: |
       This damp path seems to lead into a deep, dark swamp. The trees above block
@@ -1235,7 +1235,7 @@ rooms:
   - id: 2328
     key: mahntor_room_2328
     name: "The swampy path"
-    area_id: 30
+    area_id: 23
     short_desc: "The swampy path"
     long_desc: |
       You tread lightly in a wet, swampy path. All around you, you see pools of
@@ -1271,7 +1271,7 @@ rooms:
   - id: 2329
     key: mahntor_room_2329
     name: "The swampy path"
-    area_id: 30
+    area_id: 23
     short_desc: "The swampy path"
     long_desc: |
       You weave your way through the treacherous swamp. Gas rises all around you and
@@ -1308,7 +1308,7 @@ rooms:
   - id: 2330
     key: mahntor_room_2330
     name: "The turn in the swampy path"
-    area_id: 30
+    area_id: 23
     short_desc: "The turn in the swampy path"
     long_desc: |
       You come upon a bend in the swampy path. The ground here is fairly sturdy,
@@ -1351,7 +1351,7 @@ rooms:
   - id: 2331
     key: mahntor_room_2331
     name: "The swampy path"
-    area_id: 30
+    area_id: 23
     short_desc: "The swampy path"
     long_desc: |
       You tread lightly through the mirky water and sludge that makes up the path
@@ -1386,7 +1386,7 @@ rooms:
   - id: 2332
     key: mahntor_room_2332
     name: "Lost in the Mist"
-    area_id: 30
+    area_id: 23
     short_desc: "Lost in the Mist"
     long_desc: |
       You wander, hopelessly lost. Swirling mist obscures your vision and clouds
@@ -1444,7 +1444,7 @@ rooms:
   - id: 2333
     key: mahntor_room_2333
     name: "Lost in the Mist"
-    area_id: 30
+    area_id: 23
     short_desc: "Lost in the Mist"
     long_desc: |
       You are in a thick misty area. The mist swirls around you, seeming to taunt
@@ -1503,7 +1503,7 @@ rooms:
   - id: 2334
     key: mahntor_room_2334
     name: "Lost in the Mist"
-    area_id: 30
+    area_id: 23
     short_desc: "Lost in the Mist"
     long_desc: |
       You try to peer through the mist......You see nothing. It swirls about you,
@@ -1556,7 +1556,7 @@ rooms:
   - id: 2335
     key: mahntor_room_2335
     name: "Lost in the Mist"
-    area_id: 30
+    area_id: 23
     short_desc: "Lost in the Mist"
     long_desc: |
       You stumble through the marsh here. The swamp seems to have swallowed you up
@@ -1609,7 +1609,7 @@ rooms:
   - id: 2336
     key: mahntor_room_2336
     name: "Lost in the Mist"
-    area_id: 30
+    area_id: 23
     short_desc: "Lost in the Mist"
     long_desc: |
       You wander, lost, for what seems an eternity. Then....From nowhere....You see
@@ -1670,7 +1670,7 @@ rooms:
   - id: 2337
     key: mahntor_room_2337
     name: "Lost in the Mist"
-    area_id: 30
+    area_id: 23
     short_desc: "Lost in the Mist"
     long_desc: |
       You wander through the thick mist. It swirls all about you and makes it hard
@@ -1729,7 +1729,7 @@ rooms:
   - id: 2338
     key: mahntor_room_2338
     name: "Lost in the Mist"
-    area_id: 30
+    area_id: 23
     short_desc: "Lost in the Mist"
     long_desc: |
       You wander, lost hopelessly. The mist swirls all about you. You can discern no
@@ -1782,7 +1782,7 @@ rooms:
   - id: 2339
     key: mahntor_room_2339
     name: "The solid path"
-    area_id: 30
+    area_id: 23
     short_desc: "The solid path"
     long_desc: |
       A solid path rises out of the misty swamp. It leads north, into what appears
@@ -1815,7 +1815,7 @@ rooms:
   - id: 2340
     key: mahntor_room_2340
     name: "A forested path"
-    area_id: 30
+    area_id: 23
     short_desc: "A forested path"
     long_desc: |
       The path here leads north through a thick forest. High bushes and forest
@@ -1851,7 +1851,7 @@ rooms:
   - id: 2341
     key: mahntor_room_2341
     name: "The gate before the Ogre Village"
-    area_id: 30
+    area_id: 23
     short_desc: "The gate before the Ogre Village"
     long_desc: |
       You stand before a huge pair of crude, wooden gates. They are thrown open.
@@ -1902,7 +1902,7 @@ rooms:
   - id: 2342
     key: mahntor_room_2342
     name: "Among the crude huts"
-    area_id: 30
+    area_id: 23
     short_desc: "Among the crude huts"
     long_desc: |
       You walk among the huts of the ogre village. The village appears to be cut
@@ -1952,7 +1952,7 @@ rooms:
   - id: 2343
     key: mahntor_room_2343
     name: "Inside the gates"
-    area_id: 30
+    area_id: 23
     short_desc: "Inside the gates"
     long_desc: |
       You stand just north of the gates to the village. Looking around, you see many
@@ -2015,7 +2015,7 @@ rooms:
   - id: 2344
     key: mahntor_room_2344
     name: "Among the crude huts"
-    area_id: 30
+    area_id: 23
     short_desc: "Among the crude huts"
     long_desc: |
       You walk through the crude village. Small huts made of wood and thatch
@@ -2054,7 +2054,7 @@ rooms:
   - id: 2345
     key: mahntor_room_2345
     name: "The gathering place"
-    area_id: 30
+    area_id: 23
     short_desc: "The gathering place"
     long_desc: |
       This appears to be the clearing the ogres use to assemble. It is quite large
@@ -2094,7 +2094,7 @@ rooms:
   - id: 2346
     key: mahntor_room_2346
     name: "The firepit before the lodge"
-    area_id: 30
+    area_id: 23
     short_desc: "The firepit before the lodge"
     long_desc: |
       You stand at the edge of a huge firepit. The heat from the burning embers
@@ -2166,7 +2166,7 @@ rooms:
   - id: 2347
     key: mahntor_room_2347
     name: "The village dump"
-    area_id: 30
+    area_id: 23
     short_desc: "The village dump"
     long_desc: |
       The smell here overpowers you. All around you are the rotting remains of the
@@ -2209,7 +2209,7 @@ rooms:
   - id: 2348
     key: mahntor_room_2348
     name: "The entryway to the lodge"
-    area_id: 30
+    area_id: 23
     short_desc: "The entryway to the lodge"
     long_desc: |
       You are at the entry hall to a large lodge. Animal pelts and other trophies
@@ -2266,7 +2266,7 @@ rooms:
   - id: 2349
     key: mahntor_room_2349
     name: "The throne room"
-    area_id: 30
+    area_id: 23
     short_desc: "The throne room"
     long_desc: |
       You stand in a large, crudely decorated throne room. A huge throne adorned
@@ -2315,7 +2315,7 @@ rooms:
   - id: 2350
     key: mahntor_room_2350
     name: "The chieftain's room"
-    area_id: 30
+    area_id: 23
     short_desc: "The chieftain's room"
     long_desc: |
       This appears to be the ogre chieftain's private quarters. A huge pile of furs
@@ -2354,7 +2354,7 @@ rooms:
   - id: 2351
     key: mahntor_room_2351
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2422,7 +2422,7 @@ rooms:
   - id: 2352
     key: mahntor_room_2352
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2480,7 +2480,7 @@ rooms:
   - id: 2353
     key: mahntor_room_2353
     name: "The Glacier Temple"
-    area_id: 30
+    area_id: 23
     short_desc: "The Glacier Temple"
     long_desc: |
       You are in a small temple. It appears to be built entirely from ice. The ice
@@ -2516,7 +2516,7 @@ rooms:
   - id: 2354
     key: mahntor_room_2354
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2588,7 +2588,7 @@ rooms:
   - id: 2355
     key: mahntor_room_2355
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2650,7 +2650,7 @@ rooms:
   - id: 2356
     key: mahntor_room_2356
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2708,7 +2708,7 @@ rooms:
   - id: 2357
     key: mahntor_room_2357
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2770,7 +2770,7 @@ rooms:
   - id: 2358
     key: mahntor_room_2358
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2823,7 +2823,7 @@ rooms:
   - id: 2359
     key: mahntor_room_2359
     name: "The frigid wastelands"
-    area_id: 30
+    area_id: 23
     short_desc: "The frigid wastelands"
     long_desc: |
       You wander through the frigid wastelands. Your breath is a cloud before you.
@@ -2899,7 +2899,7 @@ rooms:
   - id: 2360
     key: mahntor_room_2360
     name: "The edge of the frigid wastes"
-    area_id: 30
+    area_id: 23
     short_desc: "The edge of the frigid wastes"
     long_desc: |
       You stand at the base of a steep rocky cliff. To the north, a vast arctic
@@ -2935,7 +2935,7 @@ rooms:
   - id: 2361
     key: mahntor_room_2361
     name: "On the cliffside"
-    area_id: 30
+    area_id: 23
     short_desc: "On the cliffside"
     long_desc: |
       You cling to the side of the cliff. Looking down, you are terrified by the
@@ -2971,7 +2971,7 @@ rooms:
   - id: 2362
     key: mahntor_room_2362
     name: "Before the gates of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "Before the gates of Mahn-Tor"
     long_desc: |
       You stand at the edge of a high cliff. Directly south, set back off the
@@ -3026,7 +3026,7 @@ rooms:
   - id: 2363
     key: mahntor_room_2363
     name: "The city streets of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "The city streets of Mahn-Tor"
     long_desc: |
       You walk among the ice and snow covered shops and homes. Most of the doors are
@@ -3069,7 +3069,7 @@ rooms:
   - id: 2364
     key: mahntor_room_2364
     name: "Inside the gates of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "Inside the gates of Mahn-Tor"
     long_desc: |
       You stand just inside the gates to the city of Mahn-Tor. The city itself
@@ -3133,7 +3133,7 @@ rooms:
   - id: 2365
     key: mahntor_room_2365
     name: "The city streets of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "The city streets of Mahn-Tor"
     long_desc: |
       You trudge among the icy streets of Mahn-Tor. The streets themselves are made
@@ -3176,7 +3176,7 @@ rooms:
   - id: 2366
     key: mahntor_room_2366
     name: "The city streets of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "The city streets of Mahn-Tor"
     long_desc: |
       You trudge through the snow covered streets. The street itself is made of
@@ -3244,7 +3244,7 @@ rooms:
   - id: 2367
     key: mahntor_room_2367
     name: "The Square of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "The Square of Mahn-Tor"
     long_desc: |
       This appears to be the main square of Mahn-Tor. A huge fountain graces the
@@ -3329,7 +3329,7 @@ rooms:
   - id: 2368
     key: mahntor_room_2368
     name: "The streets of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "The streets of Mahn-Tor"
     long_desc: |
       You walk among the small stores and homes of Mahn-Tor. The cobblestone streets
@@ -3399,7 +3399,7 @@ rooms:
   - id: 2369
     key: mahntor_room_2369
     name: "The Inn of the Broken Horn"
-    area_id: 30
+    area_id: 23
     short_desc: "The Inn of the Broken Horn"
     long_desc: |
       You enter a warm tavern. The room is lit mainly by two huge fireplaces at each
@@ -3426,7 +3426,7 @@ rooms:
   - id: 2370
     key: mahntor_room_2370
     name: "The Mahn-Tor Equipment Shop"
-    area_id: 30
+    area_id: 23
     short_desc: "The Mahn-Tor Equipment Shop"
     long_desc: |
       You are in a crude equipment shop. The store is filled with racks of various
@@ -3461,7 +3461,7 @@ rooms:
   - id: 2371
     key: mahntor_room_2371
     name: "The Mahn-Tor General Store"
-    area_id: 30
+    area_id: 23
     short_desc: "The Mahn-Tor General Store"
     long_desc: |
       You enter a small store that is dark and cold. Old empty shelves line the
@@ -3487,7 +3487,7 @@ rooms:
   - id: 2372
     key: mahntor_room_2372
     name: "Gorak's Training Room"
-    area_id: 30
+    area_id: 23
     short_desc: "Gorak's Training Room"
     long_desc: |
       This room is full of all sorts of weapons and armours. Pieces of old targets
@@ -3537,7 +3537,7 @@ rooms:
   - id: 2373
     key: mahntor_room_2373
     name: "Darkoth's Dark Study"
-    area_id: 30
+    area_id: 23
     short_desc: "Darkoth's Dark Study"
     long_desc: |
       This room is dark. It reeks of death and evil. Arcane symbols and a small
@@ -3586,7 +3586,7 @@ rooms:
   - id: 2374
     key: mahntor_room_2374
     name: "Tyrgoth's Inner Sanctum"
-    area_id: 30
+    area_id: 23
     short_desc: "Tyrgoth's Inner Sanctum"
     long_desc: |
       Idols to the gods of good fill the room. White furniture and decorations give
@@ -3635,7 +3635,7 @@ rooms:
   - id: 2375
     key: mahntor_room_2375
     name: "The road to the Keep of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "The road to the Keep of Mahn-Tor"
     long_desc: |
       You walk up a steep rocky road. It leads up a steep grade to the east. At the
@@ -3671,7 +3671,7 @@ rooms:
   - id: 2376
     key: mahntor_room_2376
     name: "A small guard house"
-    area_id: 30
+    area_id: 23
     short_desc: "A small guard house"
     long_desc: |
       You enter a small guard house. A huge fireplace lights and warms the room.
@@ -3713,7 +3713,7 @@ rooms:
   - id: 2377
     key: mahntor_room_2377
     name: "Before the Keep of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "Before the Keep of Mahn-Tor"
     long_desc: |
       You stand before a huge keep that has been carved into the side of the
@@ -3776,7 +3776,7 @@ rooms:
   - id: 2378
     key: mahntor_room_2378
     name: "A small guard house"
-    area_id: 30
+    area_id: 23
     short_desc: "A small guard house"
     long_desc: |
       You enter a small, but warm, guard house. Deep rugs and thick curtains
@@ -3816,7 +3816,7 @@ rooms:
   - id: 2379
     key: mahntor_room_2379
     name: "The entryway to the Keep of Mahn-Tor"
-    area_id: 30
+    area_id: 23
     short_desc: "The entryway to the Keep of Mahn-Tor"
     long_desc: |
       You are at the entry hall to the huge keep. The high vaulted ceiling is carved
@@ -3874,7 +3874,7 @@ rooms:
   - id: 2380
     key: mahntor_room_2380
     name: "The Hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The Hall"
     long_desc: |
       You are in a huge hall. Large tapestries line the walls and huge statues of
@@ -3931,7 +3931,7 @@ rooms:
   - id: 2381
     key: mahntor_room_2381
     name: "The Grand Hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The Grand Hall"
     long_desc: |
       You are in the main hall of the Keep of Mahn-Tor. This hall is huge. The wide
@@ -3978,7 +3978,7 @@ rooms:
   - id: 2382
     key: mahntor_room_2382
     name: "The Great Hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The Great Hall"
     long_desc: |
       You stand in the great hall of the keep. Huge pillars rise up to the vaulted
@@ -4045,7 +4045,7 @@ rooms:
   - id: 2383
     key: mahntor_room_2383
     name: "Standing before the throne"
-    area_id: 30
+    area_id: 23
     short_desc: "Standing before the throne"
     long_desc: |
       You stand before the throne of Mahn-Tor. This golden throne is so huge that it
@@ -4116,7 +4116,7 @@ rooms:
   - id: 2384
     key: mahntor_room_2384
     name: "The Great Hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The Great Hall"
     long_desc: |
       You are in a great hall. Huge torches light the room and their light shimmers
@@ -4152,7 +4152,7 @@ rooms:
   - id: 2385
     key: mahntor_room_2385
     name: "The secret hallway"
-    area_id: 30
+    area_id: 23
     short_desc: "The secret hallway"
     long_desc: |
       You are in a small, torch lit hall. It leads from east to west. A large gold
@@ -4235,7 +4235,7 @@ rooms:
   - id: 2386
     key: mahntor_room_2386
     name: "Entry to the Royal Chambers"
-    area_id: 30
+    area_id: 23
     short_desc: "Entry to the Royal Chambers"
     long_desc: |
       You are at the entrance to the royal chambers of the keep. A plush shag rug
@@ -4284,7 +4284,7 @@ rooms:
   - id: 2387
     key: mahntor_room_2387
     name: "The Guard Post"
-    area_id: 30
+    area_id: 23
     short_desc: "The Guard Post"
     long_desc: |
       The hall here has been built into a guard post of sorts. It appears as though
@@ -4360,7 +4360,7 @@ rooms:
   - id: 2388
     key: mahntor_room_2388
     name: "The guarded hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The guarded hall"
     long_desc: |
       You walk down a torch lit hallway. It has been carved out of pure stone. It is
@@ -4421,7 +4421,7 @@ rooms:
   - id: 2389
     key: mahntor_room_2389
     name: "The guarded hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The guarded hall"
     long_desc: |
       You walk down a small, quiet, torch lit hallway. Doors of different colors are
@@ -4481,7 +4481,7 @@ rooms:
   - id: 2390
     key: mahntor_room_2390
     name: "Sumaron's Sanctum"
-    area_id: 30
+    area_id: 23
     short_desc: "Sumaron's Sanctum"
     long_desc: |
       You enter a temple of sorts. A small altar is here and relics of many
@@ -4530,7 +4530,7 @@ rooms:
   - id: 2391
     key: mahntor_room_2391
     name: "Amyrok's Arcane Study"
-    area_id: 30
+    area_id: 23
     short_desc: "Amyrok's Arcane Study"
     long_desc: |
       This room is full of shelves which hold various spell components. The center
@@ -4580,7 +4580,7 @@ rooms:
   - id: 2392
     key: mahntor_room_2392
     name: "The guarded hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The guarded hall"
     long_desc: |
       You walk down a quiet hall. The stone walls here are wet with moisture.
@@ -4641,7 +4641,7 @@ rooms:
   - id: 2393
     key: mahntor_room_2393
     name: "The Harem Room"
-    area_id: 30
+    area_id: 23
     short_desc: "The Harem Room"
     long_desc: |
       This appears to be the harem room of the Keep. Huge piles of furs and beds
@@ -4697,7 +4697,7 @@ rooms:
   - id: 2394
     key: mahntor_room_2394
     name: "Nasturn's Humble Abode"
-    area_id: 30
+    area_id: 23
     short_desc: "Nasturn's Humble Abode"
     long_desc: |
       This room is filled with all types of natural items. Trees and plants have
@@ -4746,7 +4746,7 @@ rooms:
   - id: 2395
     key: mahntor_room_2395
     name: "The main living room"
-    area_id: 30
+    area_id: 23
     short_desc: "The main living room"
     long_desc: |
       This room is decorated with sturdy stone furniture that is carved and gilded.
@@ -4786,7 +4786,7 @@ rooms:
   - id: 2396
     key: mahntor_room_2396
     name: "The Master Bedroom"
-    area_id: 30
+    area_id: 23
     short_desc: "The Master Bedroom"
     long_desc: |
       This appears to be the master bedroom. A huge bed fills the rooms. Piles of
@@ -4846,7 +4846,7 @@ rooms:
   - id: 2397
     key: mahntor_room_2397
     name: "The end of the guarded hall"
-    area_id: 30
+    area_id: 23
     short_desc: "The end of the guarded hall"
     long_desc: |
       You are at the end of the hall. Colored doors line the walls to the north. To
@@ -4896,7 +4896,7 @@ rooms:
   - id: 2398
     key: mahntor_room_2398
     name: "Dorgar's Dismal Domicile"
-    area_id: 30
+    area_id: 23
     short_desc: "Dorgar's Dismal Domicile"
     long_desc: |
       This room is dirty and unkempt. Odds and ends of different items lie all over.
@@ -4945,7 +4945,7 @@ rooms:
   - id: 2399
     key: mahntor_room_2399
     name: "Belrak's Green Room"
-    area_id: 30
+    area_id: 23
     short_desc: "Belrak's Green Room"
     long_desc: |
       This room is full of green. The furniture and all other items show the color

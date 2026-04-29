@@ -2,7 +2,7 @@ rooms:
   - id: 2801
     key: trollden_room_2801
     name: "Wastedump"
-    area_id: 30
+    area_id: 28
     short_desc: "Wastedump"
     long_desc: |
       This room is filled with bone shards and fragments.  Something (or things)
@@ -47,7 +47,7 @@ rooms:
   - id: 2802
     key: trollden_room_2802
     name: "Troll's Larder"
-    area_id: 30
+    area_id: 28
     short_desc: "Troll's Larder"
     long_desc: |
       This room has blood and grime all over the walls.  You see maggots and other
@@ -97,7 +97,7 @@ rooms:
   - id: 2803
     key: trollden_room_2803
     name: "Troll's Living Room"
-    area_id: 30
+    area_id: 28
     short_desc: "Troll's Living Room"
     long_desc: |
       This small cave opens to the north, south, east, and west.  You are
@@ -180,7 +180,7 @@ rooms:
   - id: 2804
     key: trollden_room_2804
     name: "The Playpen"
-    area_id: 30
+    area_id: 28
     short_desc: "The Playpen"
     long_desc: |
       The walls are covered with blood (and body parts!?!?).  Plastered on the far
@@ -234,7 +234,7 @@ rooms:
   - id: 2805
     key: trollden_room_2805
     name: "Troll's Bedroom"
-    area_id: 30
+    area_id: 28
     short_desc: "Troll's Bedroom"
     long_desc: |
       Obviously something REALLY big lives here.  The stench is quite unbearable.

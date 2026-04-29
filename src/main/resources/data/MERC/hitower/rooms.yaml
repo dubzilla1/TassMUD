@@ -2,7 +2,7 @@ rooms:
   - id: 1200
     key: hitower_room_1200
     name: "The Chat Room"
-    area_id: 30
+    area_id: 12
     short_desc: "The Chat Room"
     long_desc: |
       You are lounging in a quiet cosy parlour, warmed by a gentle magical fire
@@ -14,7 +14,7 @@ rooms:
   - id: 1300
     key: hitower_room_1300
     name: "Entrance to the Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "Entrance to the Shadow Grove"
     long_desc: |
       Before you, the grove of shadows lies. Giant grey trees are all that
@@ -51,7 +51,7 @@ rooms:
   - id: 1301
     key: hitower_room_1301
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -105,7 +105,7 @@ rooms:
   - id: 1302
     key: hitower_room_1302
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -164,7 +164,7 @@ rooms:
   - id: 1303
     key: hitower_room_1303
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem the glare at you
@@ -218,7 +218,7 @@ rooms:
   - id: 1304
     key: hitower_room_1304
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -277,7 +277,7 @@ rooms:
   - id: 1305
     key: hitower_room_1305
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -331,7 +331,7 @@ rooms:
   - id: 1306
     key: hitower_room_1306
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -390,7 +390,7 @@ rooms:
   - id: 1307
     key: hitower_room_1307
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -449,7 +449,7 @@ rooms:
   - id: 1308
     key: hitower_room_1308
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -508,7 +508,7 @@ rooms:
   - id: 1309
     key: hitower_room_1309
     name: "The Shadow Grove"
-    area_id: 30
+    area_id: 12
     short_desc: "The Shadow Grove"
     long_desc: |
       You are inside the shadow grove. Giant trees seem to glare at you
@@ -562,7 +562,7 @@ rooms:
   - id: 1311
     key: hitower_room_1311
     name: "A small clearing"
-    area_id: 30
+    area_id: 12
     short_desc: "A small clearing"
     long_desc: |
       You are in a small clearing in the shadow grove. There is charred grass
@@ -607,7 +607,7 @@ rooms:
   - id: 1312
     key: hitower_room_1312
     name: "Entrance to the High Tower"
-    area_id: 30
+    area_id: 12
     short_desc: "Entrance to the High Tower"
     long_desc: |
       You have reached the entrance to the high tower of sorcerery. The
@@ -639,7 +639,7 @@ rooms:
   - id: 1313
     key: hitower_room_1313
     name: "Inside the High Tower of Sorcerery"
-    area_id: 30
+    area_id: 12
     short_desc: "Inside the High Tower of Sorcerery"
     long_desc: |
       You are inside the high tower of sorcery. The sight is truly amazing.
@@ -702,7 +702,7 @@ rooms:
   - id: 1314
     key: hitower_room_1314
     name: "Common Room"
-    area_id: 30
+    area_id: 12
     short_desc: "Common Room"
     long_desc: |
       You are in the common room. There are many apprentice warlocks here
@@ -769,7 +769,7 @@ rooms:
   - id: 1315
     key: hitower_room_1315
     name: "The Hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "The Hallway"
     long_desc: |
       You are in a long hallway, it seems rather unremarkable.
@@ -808,7 +808,7 @@ rooms:
   - id: 1316
     key: hitower_room_1316
     name: "Dining Room"
-    area_id: 30
+    area_id: 12
     short_desc: "Dining Room"
     long_desc: |
       You are in the dining area of the student mages. From the number of
@@ -849,7 +849,7 @@ rooms:
   - id: 1317
     key: hitower_room_1317
     name: "Dark Hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "Dark Hallway"
     long_desc: |
       You are in a dark hallway. It is apparent that this area is seldom
@@ -885,7 +885,7 @@ rooms:
   - id: 1318
     key: hitower_room_1318
     name: "Mages Tavern"
-    area_id: 30
+    area_id: 12
     short_desc: "Mages Tavern"
     long_desc: |
       You are in mages tavern. The air is smokey and filled with the smells
@@ -926,7 +926,7 @@ rooms:
   - id: 1319
     key: hitower_room_1319
     name: "The Magic Shop"
-    area_id: 30
+    area_id: 12
     short_desc: "The Magic Shop"
     long_desc: |
       You are in the High Tower's store of magic. Tatorious stands behind
@@ -971,7 +971,7 @@ rooms:
   - id: 1320
     key: hitower_room_1320
     name: "the kitchen"
-    area_id: 30
+    area_id: 12
     short_desc: "the kitchen"
     long_desc: |
       You are in a small kitchen. All the usual kitchen type utensils and
@@ -1020,7 +1020,7 @@ rooms:
   - id: 1321
     key: hitower_room_1321
     name: "Below the trapdoor"
-    area_id: 30
+    area_id: 12
     short_desc: "Below the trapdoor"
     long_desc: |
       You are below the trapdoor. It is very dark and dusty here, very little
@@ -1056,7 +1056,7 @@ rooms:
   - id: 1322
     key: hitower_room_1322
     name: "A damp intersection"
-    area_id: 30
+    area_id: 12
     short_desc: "A damp intersection"
     long_desc: |
       You are in a damp intersection of what seems to be the basement of the
@@ -1122,7 +1122,7 @@ rooms:
   - id: 1323
     key: hitower_room_1323
     name: "A dark passage"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark passage"
     long_desc: |
       You are at the end of a dark passage which ends in a stout wooden door.
@@ -1157,7 +1157,7 @@ rooms:
   - id: 1324
     key: hitower_room_1324
     name: "A dark passage"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark passage"
     long_desc: |
       You are at the end of a dark passage. A half opened door is to the east,
@@ -1193,7 +1193,7 @@ rooms:
   - id: 1325
     key: hitower_room_1325
     name: "The stagnant pool"
-    area_id: 30
+    area_id: 12
     short_desc: "The stagnant pool"
     long_desc: |
       You are at the edge of a stagnant pool of water. The smell here is quite
@@ -1231,7 +1231,7 @@ rooms:
   - id: 1326
     key: hitower_room_1326
     name: "A dark passage"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark passage"
     long_desc: |
       You are in a dark passage, which comes to an abrupt stop at what appears
@@ -1257,7 +1257,7 @@ rooms:
   - id: 1327
     key: hitower_room_1327
     name: "A dark cell"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark cell"
     long_desc: |
       You are in a dark cell. Straw and dirt cover the floors here, it is
@@ -1291,7 +1291,7 @@ rooms:
   - id: 1328
     key: hitower_room_1328
     name: "The Jailor's office"
-    area_id: 30
+    area_id: 12
     short_desc: "The Jailor's office"
     long_desc: |
       You are in the Jailor's office. It is rather messy here. Judging by the
@@ -1326,7 +1326,7 @@ rooms:
   - id: 1329
     key: hitower_room_1329
     name: "Below the stagnant pool"
-    area_id: 30
+    area_id: 12
     short_desc: "Below the stagnant pool"
     long_desc: |
       As you dive beneath the putrid waters, you feel a strong tug and a whirlpool
@@ -1341,7 +1341,7 @@ rooms:
   - id: 1330
     key: hitower_room_1330
     name: "The hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "The hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -1395,7 +1395,7 @@ rooms:
   - id: 1331
     key: hitower_room_1331
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the hallway. The walls emit a faint magical glow
@@ -1449,7 +1449,7 @@ rooms:
   - id: 1332
     key: hitower_room_1332
     name: "A store room"
-    area_id: 30
+    area_id: 12
     short_desc: "A store room"
     long_desc: |
       You are in a small store room. Assorted junk is piled on shelves or
@@ -1474,7 +1474,7 @@ rooms:
   - id: 1333
     key: hitower_room_1333
     name: "A broom closet"
-    area_id: 30
+    area_id: 12
     short_desc: "A broom closet"
     long_desc: |
       You are in a dark broom closet. Many straw brooms and other cleaning
@@ -1516,7 +1516,7 @@ rooms:
   - id: 1334
     key: hitower_room_1334
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a
@@ -1563,7 +1563,7 @@ rooms:
   - id: 1335
     key: hitower_room_1335
     name: "Guardians chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "Guardians chamber"
     long_desc: |
       You are in the chamber of the tower guardians. It is rather sparsely
@@ -1609,7 +1609,7 @@ rooms:
   - id: 1336
     key: hitower_room_1336
     name: "A guest bedroom"
-    area_id: 30
+    area_id: 12
     short_desc: "A guest bedroom"
     long_desc: |
       You are in a small guest bedroom. A small cot is in one corner, and a
@@ -1638,7 +1638,7 @@ rooms:
   - id: 1337
     key: hitower_room_1337
     name: "A guest bedroom"
-    area_id: 30
+    area_id: 12
     short_desc: "A guest bedroom"
     long_desc: |
       You are in a comfortable looking bedroom. A small globe of magical energy
@@ -1669,7 +1669,7 @@ rooms:
   - id: 1338
     key: hitower_room_1338
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading from the south. The walls emit a faint
@@ -1714,7 +1714,7 @@ rooms:
   - id: 1339
     key: hitower_room_1339
     name: "The burnt room"
-    area_id: 30
+    area_id: 12
     short_desc: "The burnt room"
     long_desc: |
       You are in what looks to have once been a guest bed room. The walls are
@@ -1740,7 +1740,7 @@ rooms:
   - id: 1340
     key: hitower_room_1340
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading west from here. The walls emit a faint
@@ -1801,7 +1801,7 @@ rooms:
   - id: 1341
     key: hitower_room_1341
     name: "A culdesac"
-    area_id: 30
+    area_id: 12
     short_desc: "A culdesac"
     long_desc: |
       You are in a small culdesac. A window to the east is letting in moonlight
@@ -1831,7 +1831,7 @@ rooms:
   - id: 1342
     key: hitower_room_1342
     name: "The Apprentice's Barracks"
-    area_id: 30
+    area_id: 12
     short_desc: "The Apprentice's Barracks"
     long_desc: |
       You are in the barracks of the apprentice magic users. Here and there, a
@@ -1879,7 +1879,7 @@ rooms:
   - id: 1343
     key: hitower_room_1343
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -1924,7 +1924,7 @@ rooms:
   - id: 1344
     key: hitower_room_1344
     name: "The Apprentice's barracks"
-    area_id: 30
+    area_id: 12
     short_desc: "The Apprentice's barracks"
     long_desc: |
       You are in the barracks of the apprentice magic users. Here and there, a
@@ -1972,7 +1972,7 @@ rooms:
   - id: 1345
     key: hitower_room_1345
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -2034,7 +2034,7 @@ rooms:
   - id: 1346
     key: hitower_room_1346
     name: "The apprentice's workshop"
-    area_id: 30
+    area_id: 12
     short_desc: "The apprentice's workshop"
     long_desc: |
       You are in a small workshop. Writing implements and parchment are strewn
@@ -2060,7 +2060,7 @@ rooms:
   - id: 1347
     key: hitower_room_1347
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the hallway. The walls emit a faint magical glow
@@ -2095,7 +2095,7 @@ rooms:
   - id: 1348
     key: hitower_room_1348
     name: "The hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "The hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -2140,7 +2140,7 @@ rooms:
   - id: 1349
     key: hitower_room_1349
     name: "A classroom"
-    area_id: 30
+    area_id: 12
     short_desc: "A classroom"
     long_desc: |
       You are in a large classroom filled with bored looking students of the
@@ -2187,7 +2187,7 @@ rooms:
   - id: 1350
     key: hitower_room_1350
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -2231,7 +2231,7 @@ rooms:
   - id: 1351
     key: hitower_room_1351
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -2275,7 +2275,7 @@ rooms:
   - id: 1352
     key: hitower_room_1352
     name: "An empty classroom"
-    area_id: 30
+    area_id: 12
     short_desc: "An empty classroom"
     long_desc: |
       You are in an empty classroom. Some strange sigils are written on a
@@ -2301,7 +2301,7 @@ rooms:
   - id: 1353
     key: hitower_room_1353
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the hallway. The walls emit a faint magical glow
@@ -2336,7 +2336,7 @@ rooms:
   - id: 1354
     key: hitower_room_1354
     name: "An empty classroom"
-    area_id: 30
+    area_id: 12
     short_desc: "An empty classroom"
     long_desc: |
       You are in an apparently empty classroom. A strange feeling of being
@@ -2382,7 +2382,7 @@ rooms:
   - id: 1355
     key: hitower_room_1355
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -2427,7 +2427,7 @@ rooms:
   - id: 1356
     key: hitower_room_1356
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -2472,7 +2472,7 @@ rooms:
   - id: 1357
     key: hitower_room_1357
     name: "The Amphitheater"
-    area_id: 30
+    area_id: 12
     short_desc: "The Amphitheater"
     long_desc: |
       You are in a small amphitheater. Rows of comfortable looking chairs circle
@@ -2514,7 +2514,7 @@ rooms:
   - id: 1358
     key: hitower_room_1358
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -2559,7 +2559,7 @@ rooms:
   - id: 1359
     key: hitower_room_1359
     name: "The training room"
-    area_id: 30
+    area_id: 12
     short_desc: "The training room"
     long_desc: |
       You are in a large training room. It is filled with battle scared manikins
@@ -2616,7 +2616,7 @@ rooms:
   - id: 1360
     key: hitower_room_1360
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the hallway. The walls emit a faint magical glow
@@ -2651,7 +2651,7 @@ rooms:
   - id: 1361
     key: hitower_room_1361
     name: "A dueling room"
-    area_id: 30
+    area_id: 12
     short_desc: "A dueling room"
     long_desc: |
       You are in a large room used for duals arcane. The walls, ceiling and
@@ -2677,7 +2677,7 @@ rooms:
   - id: 1362
     key: hitower_room_1362
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -2722,7 +2722,7 @@ rooms:
   - id: 1363
     key: hitower_room_1363
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -2767,7 +2767,7 @@ rooms:
   - id: 1364
     key: hitower_room_1364
     name: "The spellmaster's lounge"
-    area_id: 30
+    area_id: 12
     short_desc: "The spellmaster's lounge"
     long_desc: |
       You are in a large comfortable looking lounge. Off duty spell teachers
@@ -2798,7 +2798,7 @@ rooms:
   - id: 1365
     key: hitower_room_1365
     name: "A bedroom"
-    area_id: 30
+    area_id: 12
     short_desc: "A bedroom"
     long_desc: |
       You are in a large, plush bedroom. The owner is obviously someone of high
@@ -2830,7 +2830,7 @@ rooms:
   - id: 1366
     key: hitower_room_1366
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -2875,7 +2875,7 @@ rooms:
   - id: 1367
     key: hitower_room_1367
     name: "The study"
-    area_id: 30
+    area_id: 12
     short_desc: "The study"
     long_desc: |
       You are in a small, well kept study. Ancient tomes are on shelves on the
@@ -2907,7 +2907,7 @@ rooms:
   - id: 1368
     key: hitower_room_1368
     name: "Below the stairs"
-    area_id: 30
+    area_id: 12
     short_desc: "Below the stairs"
     long_desc: |
       You are at the end of a long hallway. The walls emit a faint magical glow
@@ -2952,7 +2952,7 @@ rooms:
   - id: 1369
     key: hitower_room_1369
     name: "Atop the stairway"
-    area_id: 30
+    area_id: 12
     short_desc: "Atop the stairway"
     long_desc: |
       You are atop a stairway. The halls here look quite a bit less used than
@@ -2989,7 +2989,7 @@ rooms:
   - id: 1370
     key: hitower_room_1370
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway stretching east and west. The walls here emit
@@ -3034,7 +3034,7 @@ rooms:
   - id: 1371
     key: hitower_room_1371
     name: "A small office"
-    area_id: 30
+    area_id: 12
     short_desc: "A small office"
     long_desc: |
       You are in a small office. It looks like a calligrapher's study, there
@@ -3079,7 +3079,7 @@ rooms:
   - id: 1372
     key: hitower_room_1372
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -3113,7 +3113,7 @@ rooms:
   - id: 1373
     key: hitower_room_1373
     name: "The master scribe's workshop"
-    area_id: 30
+    area_id: 12
     short_desc: "The master scribe's workshop"
     long_desc: |
       You are in the workshop of the tower's master scribe. Many half finished
@@ -3158,7 +3158,7 @@ rooms:
   - id: 1374
     key: hitower_room_1374
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -3203,7 +3203,7 @@ rooms:
   - id: 1375
     key: hitower_room_1375
     name: "A store room"
-    area_id: 30
+    area_id: 12
     short_desc: "A store room"
     long_desc: |
       You are in a small dark store room. A few common items are stacked upon
@@ -3242,7 +3242,7 @@ rooms:
   - id: 1376
     key: hitower_room_1376
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the long hallway. The walls emit a faint magical
@@ -3277,7 +3277,7 @@ rooms:
   - id: 1377
     key: hitower_room_1377
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -3322,7 +3322,7 @@ rooms:
   - id: 1378
     key: hitower_room_1378
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -3367,7 +3367,7 @@ rooms:
   - id: 1379
     key: hitower_room_1379
     name: "A store room"
-    area_id: 30
+    area_id: 12
     short_desc: "A store room"
     long_desc: |
       You are in a large store room. Bins of ores, minerals and other rare
@@ -3420,7 +3420,7 @@ rooms:
   - id: 1380
     key: hitower_room_1380
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -3454,7 +3454,7 @@ rooms:
   - id: 1381
     key: hitower_room_1381
     name: "A very hot room"
-    area_id: 30
+    area_id: 12
     short_desc: "A very hot room"
     long_desc: |
       You are in a very hot room. Against one wall is a large forge, magical
@@ -3516,7 +3516,7 @@ rooms:
   - id: 1382
     key: hitower_room_1382
     name: "The master Enchanter's chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The master Enchanter's chamber"
     long_desc: |
       You have entered the master enchanter's chamber. Upon all the walls here
@@ -3562,7 +3562,7 @@ rooms:
   - id: 1383
     key: hitower_room_1383
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in a long hallway. The walls emit a faint magical glow
@@ -3597,7 +3597,7 @@ rooms:
   - id: 1384
     key: hitower_room_1384
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -3642,7 +3642,7 @@ rooms:
   - id: 1385
     key: hitower_room_1385
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -3676,7 +3676,7 @@ rooms:
   - id: 1386
     key: hitower_room_1386
     name: "A laboratory"
-    area_id: 30
+    area_id: 12
     short_desc: "A laboratory"
     long_desc: |
       You are in a small laboratory. Many strange instruments, vials, bottles
@@ -3712,7 +3712,7 @@ rooms:
   - id: 1387
     key: hitower_room_1387
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -3757,7 +3757,7 @@ rooms:
   - id: 1388
     key: hitower_room_1388
     name: "The Mad Alchemist's workroom"
-    area_id: 30
+    area_id: 12
     short_desc: "The Mad Alchemist's workroom"
     long_desc: |
       You are in the workroom of The Mad Alchemist. Bubbling braziers, long
@@ -3808,7 +3808,7 @@ rooms:
   - id: 1389
     key: hitower_room_1389
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in a long hallway. The walls emit a faint magical glow
@@ -3843,7 +3843,7 @@ rooms:
   - id: 1390
     key: hitower_room_1390
     name: "The pentagram chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The pentagram chamber"
     long_desc: |
       You are in a large room with a five pointed star etched into the floor.
@@ -3886,7 +3886,7 @@ rooms:
   - id: 1391
     key: hitower_room_1391
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -3931,7 +3931,7 @@ rooms:
   - id: 1392
     key: hitower_room_1392
     name: "Inside the Energy Field"
-    area_id: 30
+    area_id: 12
     short_desc: "Inside the Energy Field"
     long_desc: |
       You feel a stomach twisting sensation as you enter the energy field.
@@ -3994,7 +3994,7 @@ rooms:
   - id: 1393
     key: hitower_room_1393
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -4039,7 +4039,7 @@ rooms:
   - id: 1394
     key: hitower_room_1394
     name: "An empty room"
-    area_id: 30
+    area_id: 12
     short_desc: "An empty room"
     long_desc: |
       You are in an empty room. It is both quiet and comfortable here, it looks
@@ -4064,7 +4064,7 @@ rooms:
   - id: 1395
     key: hitower_room_1395
     name: "The charm master's chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The charm master's chamber"
     long_desc: |
       You are in the chambers of the tower's master of charm. Some straw and
@@ -4112,7 +4112,7 @@ rooms:
   - id: 1396
     key: hitower_room_1396
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -4146,7 +4146,7 @@ rooms:
   - id: 1397
     key: hitower_room_1397
     name: "The animal pens"
-    area_id: 30
+    area_id: 12
     short_desc: "The animal pens"
     long_desc: |
       You are in the animal pens. Many caged animals are here looking unhappy.
@@ -4171,7 +4171,7 @@ rooms:
   - id: 1398
     key: hitower_room_1398
     name: "The end of the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "The end of the hallway"
     long_desc: |
       You are at the end of a long north-south hallway. The walls emit a faint
@@ -4215,7 +4215,7 @@ rooms:
   - id: 1399
     key: hitower_room_1399
     name: "Atop the stairway"
-    area_id: 30
+    area_id: 12
     short_desc: "Atop the stairway"
     long_desc: |
       You are atop the stairway to the upper levels of the high tower. The walls
@@ -4250,7 +4250,7 @@ rooms:
   - id: 1400
     key: hitower_room_1400
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -4300,7 +4300,7 @@ rooms:
   - id: 1401
     key: hitower_room_1401
     name: "A store room"
-    area_id: 30
+    area_id: 12
     short_desc: "A store room"
     long_desc: |
       You are in a large store room. Raw materials are neatly bundled and piled
@@ -4341,7 +4341,7 @@ rooms:
   - id: 1402
     key: hitower_room_1402
     name: "The master spellbinder's chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The master spellbinder's chamber"
     long_desc: |
       You are in the chambers of the master spell binder. Unlike other work
@@ -4408,7 +4408,7 @@ rooms:
   - id: 1403
     key: hitower_room_1403
     name: "The spellbinder's cache"
-    area_id: 30
+    area_id: 12
     short_desc: "The spellbinder's cache"
     long_desc: |
       You have discovered the cache of the master spell binder. There are three
@@ -4452,7 +4452,7 @@ rooms:
   - id: 1404
     key: hitower_room_1404
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -4486,7 +4486,7 @@ rooms:
   - id: 1405
     key: hitower_room_1405
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -4531,7 +4531,7 @@ rooms:
   - id: 1406
     key: hitower_room_1406
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the long hallway. The walls emit a faint magical
@@ -4566,7 +4566,7 @@ rooms:
   - id: 1407
     key: hitower_room_1407
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -4600,7 +4600,7 @@ rooms:
   - id: 1408
     key: hitower_room_1408
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -4645,7 +4645,7 @@ rooms:
   - id: 1409
     key: hitower_room_1409
     name: "The golem master's workshop"
-    area_id: 30
+    area_id: 12
     short_desc: "The golem master's workshop"
     long_desc: |
       You are in the golem master's workshop. A few unfinished looking humanoid
@@ -4717,7 +4717,7 @@ rooms:
   - id: 1410
     key: hitower_room_1410
     name: "A store room"
-    area_id: 30
+    area_id: 12
     short_desc: "A store room"
     long_desc: |
       You are in a small store room. Large chunks of clay, stone, wood and many
@@ -4741,7 +4741,7 @@ rooms:
   - id: 1411
     key: hitower_room_1411
     name: "The golem chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The golem chamber"
     long_desc: |
       You are in the golem chamber. Golems made of every imaginable material
@@ -4783,7 +4783,7 @@ rooms:
   - id: 1412
     key: hitower_room_1412
     name: "It is very dark here..."
-    area_id: 30
+    area_id: 12
     short_desc: "It is very dark here..."
     long_desc: |
       It is very dark here...
@@ -4816,7 +4816,7 @@ rooms:
   - id: 1413
     key: hitower_room_1413
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -4850,7 +4850,7 @@ rooms:
   - id: 1414
     key: hitower_room_1414
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the long hallway. The walls emit a faint magical
@@ -4885,7 +4885,7 @@ rooms:
   - id: 1415
     key: hitower_room_1415
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -4919,7 +4919,7 @@ rooms:
   - id: 1416
     key: hitower_room_1416
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -4964,7 +4964,7 @@ rooms:
   - id: 1417
     key: hitower_room_1417
     name: "The master of illusion's chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The master of illusion's chamber"
     long_desc: |
       You are in the chamber of the master of illusions. The walls here are
@@ -5013,7 +5013,7 @@ rooms:
   - id: 1418
     key: hitower_room_1418
     name: "A bedroom"
-    area_id: 30
+    area_id: 12
     short_desc: "A bedroom"
     long_desc: |
       You are in the bedroom of the master of illusions. Strange looking items
@@ -5069,7 +5069,7 @@ rooms:
   - id: 1419
     key: hitower_room_1419
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading east and west. The walls emit a faint
@@ -5114,7 +5114,7 @@ rooms:
   - id: 1420
     key: hitower_room_1420
     name: "The meditation chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The meditation chamber"
     long_desc: |
       You are in a meditation chamber. It is very silent here, in fact you
@@ -5140,7 +5140,7 @@ rooms:
   - id: 1421
     key: hitower_room_1421
     name: "A bend in the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the hallway"
     long_desc: |
       You are at a bend in the long hallway. The walls emit a faint magical
@@ -5175,7 +5175,7 @@ rooms:
   - id: 1422
     key: hitower_room_1422
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -5220,7 +5220,7 @@ rooms:
   - id: 1423
     key: hitower_room_1423
     name: "A dark room"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark room"
     long_desc: |
       You are in a large dark room. The air here seems quite stale, and a sense
@@ -5255,7 +5255,7 @@ rooms:
   - id: 1424
     key: hitower_room_1424
     name: "A dark room"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark room"
     long_desc: |
       You are in a large dark room. The stench here makes you gag and wretch.
@@ -5292,7 +5292,7 @@ rooms:
   - id: 1425
     key: hitower_room_1425
     name: "The Necromancer's Lair"
-    area_id: 30
+    area_id: 12
     short_desc: "The Necromancer's Lair"
     long_desc: |
       You are in the lair of the evil Necromancer. Undead minions of all types,
@@ -5346,7 +5346,7 @@ rooms:
   - id: 1426
     key: hitower_room_1426
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -5380,7 +5380,7 @@ rooms:
   - id: 1427
     key: hitower_room_1427
     name: "A hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A hallway"
     long_desc: |
       You are in a long hallway leading north and south. The walls emit a faint
@@ -5414,7 +5414,7 @@ rooms:
   - id: 1428
     key: hitower_room_1428
     name: "The end of the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "The end of the hallway"
     long_desc: |
       You are at the end of a long hallway. The walls here glow with a faint
@@ -5458,7 +5458,7 @@ rooms:
   - id: 1429
     key: hitower_room_1429
     name: "A corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "A corridor"
     long_desc: |
       You are at the east end of a long corridor. Obsidian walls engraved with
@@ -5494,7 +5494,7 @@ rooms:
   - id: 1430
     key: hitower_room_1430
     name: "A corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "A corridor"
     long_desc: |
       You are in a long corridor. Obsidian walls engraved with ancient runes
@@ -5535,7 +5535,7 @@ rooms:
   - id: 1431
     key: hitower_room_1431
     name: "A bend in the corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "A bend in the corridor"
     long_desc: |
       You are at a bend in the long corridor. Obsidian walls engraved with
@@ -5571,7 +5571,7 @@ rooms:
   - id: 1432
     key: hitower_room_1432
     name: "A corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "A corridor"
     long_desc: |
       You are in a long corridor leading north and south. Obsidian walls
@@ -5607,7 +5607,7 @@ rooms:
   - id: 1433
     key: hitower_room_1433
     name: "An intersection"
-    area_id: 30
+    area_id: 12
     short_desc: "An intersection"
     long_desc: |
       You are at an intersection in the corridor. The obsidian walled halls
@@ -5667,7 +5667,7 @@ rooms:
   - id: 1434
     key: hitower_room_1434
     name: "A corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "A corridor"
     long_desc: |
       You are at the end of a long corridor. Obsidian walls engraved with
@@ -5703,7 +5703,7 @@ rooms:
   - id: 1435
     key: hitower_room_1435
     name: "The scrying chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The scrying chamber"
     long_desc: |
       You are in the scrying chamber of the high tower of sorcerery. It is here
@@ -5756,7 +5756,7 @@ rooms:
   - id: 1436
     key: hitower_room_1436
     name: "A corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "A corridor"
     long_desc: |
       You have reached an end in the long corridor. Obsidian walls engraved
@@ -5791,7 +5791,7 @@ rooms:
   - id: 1437
     key: hitower_room_1437
     name: "The entrance to the library"
-    area_id: 30
+    area_id: 12
     short_desc: "The entrance to the library"
     long_desc: |
       You are in the entrance to the great library of magic. A giant desk is
@@ -5856,7 +5856,7 @@ rooms:
   - id: 1438
     key: hitower_room_1438
     name: "In the library"
-    area_id: 30
+    area_id: 12
     short_desc: "In the library"
     long_desc: |
       You are in the great library of magic. A strong musty smell permeates the
@@ -5913,7 +5913,7 @@ rooms:
   - id: 1439
     key: hitower_room_1439
     name: "In the library"
-    area_id: 30
+    area_id: 12
     short_desc: "In the library"
     long_desc: |
       You are in the great library of magic. A strong musty smell permeates the
@@ -5970,7 +5970,7 @@ rooms:
   - id: 1440
     key: hitower_room_1440
     name: "In the library"
-    area_id: 30
+    area_id: 12
     short_desc: "In the library"
     long_desc: |
       You are in the great library of magic. A strong musty smell permeates the
@@ -6027,7 +6027,7 @@ rooms:
   - id: 1441
     key: hitower_room_1441
     name: "In the library"
-    area_id: 30
+    area_id: 12
     short_desc: "In the library"
     long_desc: |
       You are in the great library of magic. A strong musty smell permeates the
@@ -6084,7 +6084,7 @@ rooms:
   - id: 1442
     key: hitower_room_1442
     name: "In the library"
-    area_id: 30
+    area_id: 12
     short_desc: "In the library"
     long_desc: |
       You are in the great library of magic. A strong musty smell permeates the
@@ -6141,7 +6141,7 @@ rooms:
   - id: 1443
     key: hitower_room_1443
     name: "In the library"
-    area_id: 30
+    area_id: 12
     short_desc: "In the library"
     long_desc: |
       You are in the great library of magic. A strong musty smell permeates the
@@ -6178,7 +6178,7 @@ rooms:
   - id: 1444
     key: hitower_room_1444
     name: "Between the shelves"
-    area_id: 30
+    area_id: 12
     short_desc: "Between the shelves"
     long_desc: |
       You are in the great library of magic. The shelves seem uncomfortably
@@ -6214,7 +6214,7 @@ rooms:
   - id: 1445
     key: hitower_room_1445
     name: "The reading room"
-    area_id: 30
+    area_id: 12
     short_desc: "The reading room"
     long_desc: |
       You are in a small room completely devoid of furnishings. The only thing
@@ -6247,7 +6247,7 @@ rooms:
   - id: 1446
     key: hitower_room_1446
     name: "A corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "A corridor"
     long_desc: |
       You are in a long corridor leading north and south. Obsidian walls
@@ -6283,7 +6283,7 @@ rooms:
   - id: 1447
     key: hitower_room_1447
     name: "The end of the corridor"
-    area_id: 30
+    area_id: 12
     short_desc: "The end of the corridor"
     long_desc: |
       You are at the end of a long corridor. The obsidian walls come to an
@@ -6319,7 +6319,7 @@ rooms:
   - id: 1448
     key: hitower_room_1448
     name: "The arched entrance"
-    area_id: 30
+    area_id: 12
     short_desc: "The arched entrance"
     long_desc: |
       You feel a slight tingle as you pass through the archway, as if the living
@@ -6355,7 +6355,7 @@ rooms:
   - id: 1449
     key: hitower_room_1449
     name: "The landing"
-    area_id: 30
+    area_id: 12
     short_desc: "The landing"
     long_desc: |
       You are on a small landing in the middle of a long stairway leading up.
@@ -6395,7 +6395,7 @@ rooms:
   - id: 1450
     key: hitower_room_1450
     name: "An intersection"
-    area_id: 30
+    area_id: 12
     short_desc: "An intersection"
     long_desc: |
       You are at an intersection of several hallways. You feel as if strange
@@ -6464,7 +6464,7 @@ rooms:
   - id: 1451
     key: hitower_room_1451
     name: "A grey tiled hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A grey tiled hallway"
     long_desc: |
       You are in a grey tiled hallway leading north and south. Dim balls of
@@ -6499,7 +6499,7 @@ rooms:
   - id: 1452
     key: hitower_room_1452
     name: "A grey tiled hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A grey tiled hallway"
     long_desc: |
       You are in a grey tiled hallway leading north and south. Dim balls of
@@ -6535,7 +6535,7 @@ rooms:
   - id: 1453
     key: hitower_room_1453
     name: "The antechamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The antechamber"
     long_desc: |
       You are in the antechamber of the master magician of the grey light. A
@@ -6584,7 +6584,7 @@ rooms:
   - id: 1454
     key: hitower_room_1454
     name: "The main chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The main chamber"
     long_desc: |
       A feeling of tranquility comes over you as you enter the main chamber of
@@ -6659,7 +6659,7 @@ rooms:
   - id: 1455
     key: hitower_room_1455
     name: "The study"
-    area_id: 30
+    area_id: 12
     short_desc: "The study"
     long_desc: |
       You are in a large study. Shelves filled with many books or arcane
@@ -6686,7 +6686,7 @@ rooms:
   - id: 1456
     key: hitower_room_1456
     name: "A closet"
-    area_id: 30
+    area_id: 12
     short_desc: "A closet"
     long_desc: |
       You are in a small closet. It is filled with many cloaks, and some other
@@ -6710,7 +6710,7 @@ rooms:
   - id: 1457
     key: hitower_room_1457
     name: "A bedroom"
-    area_id: 30
+    area_id: 12
     short_desc: "A bedroom"
     long_desc: |
       You are in the bedroom of the master magician of neutrality. Curtained
@@ -6735,7 +6735,7 @@ rooms:
   - id: 1458
     key: hitower_room_1458
     name: "A dark hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark hallway"
     long_desc: |
       You are in a long dark hallway leading east and west. Not much can be
@@ -6770,7 +6770,7 @@ rooms:
   - id: 1459
     key: hitower_room_1459
     name: "A dark hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A dark hallway"
     long_desc: |
       You are in a long dark hallway leading east and west. Not much can be
@@ -6805,7 +6805,7 @@ rooms:
   - id: 1460
     key: hitower_room_1460
     name: "The end of the hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "The end of the hallway"
     long_desc: |
       You are at the end of a long dark hallway. The darkness here is almost
@@ -6841,7 +6841,7 @@ rooms:
   - id: 1461
     key: hitower_room_1461
     name: "The chamber of darkness"
-    area_id: 30
+    area_id: 12
     short_desc: "The chamber of darkness"
     long_desc: |
       You are in a vast chamber. The walls fade into darkness, leaving you
@@ -6909,7 +6909,7 @@ rooms:
   - id: 1462
     key: hitower_room_1462
     name: "It is very dark here..."
-    area_id: 30
+    area_id: 12
     short_desc: "It is very dark here..."
     long_desc: |
       It is very dark here...
@@ -6932,7 +6932,7 @@ rooms:
   - id: 1463
     key: hitower_room_1463
     name: "Torture chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "Torture chamber"
     long_desc: |
       You are in an ill lit chamber. Instruments of torture hang from a rack
@@ -6958,7 +6958,7 @@ rooms:
   - id: 1464
     key: hitower_room_1464
     name: "The inner chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The inner chamber"
     long_desc: |
       You are in a small dark chamber. Upon the walls are glowing sigils of
@@ -7003,7 +7003,7 @@ rooms:
   - id: 1465
     key: hitower_room_1465
     name: "A bright hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bright hallway"
     long_desc: |
       You are in a long well lit hallway leading east and west. The walls here
@@ -7039,7 +7039,7 @@ rooms:
   - id: 1466
     key: hitower_room_1466
     name: "A bright hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A bright hallway"
     long_desc: |
       You are in a long well lit hallway leading east and west. The walls here
@@ -7076,7 +7076,7 @@ rooms:
   - id: 1467
     key: hitower_room_1467
     name: "An antechamber"
-    area_id: 30
+    area_id: 12
     short_desc: "An antechamber"
     long_desc: |
       You are in a small antechamber. It is well lit here, though the source
@@ -7124,7 +7124,7 @@ rooms:
   - id: 1469
     key: hitower_room_1469
     name: "The chamber of the white light"
-    area_id: 30
+    area_id: 12
     short_desc: "The chamber of the white light"
     long_desc: |
       You are in a vast chamber, its walls floor and ceiling are of an unknown
@@ -7198,7 +7198,7 @@ rooms:
   - id: 1470
     key: hitower_room_1470
     name: "The meditation chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The meditation chamber"
     long_desc: |
       You are in a small meditation chamber. White silk cushions are everywhere,
@@ -7223,7 +7223,7 @@ rooms:
   - id: 1471
     key: hitower_room_1471
     name: "A study"
-    area_id: 30
+    area_id: 12
     short_desc: "A study"
     long_desc: |
       You are in a spacious study. It is extremely tidy here, to an almost
@@ -7248,7 +7248,7 @@ rooms:
   - id: 1472
     key: hitower_room_1472
     name: "A closet"
-    area_id: 30
+    area_id: 12
     short_desc: "A closet"
     long_desc: |
       You are in a small closet. Cloaks and vests hang from hooks in the wall,
@@ -7272,7 +7272,7 @@ rooms:
   - id: 1473
     key: hitower_room_1473
     name: "A wide hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A wide hallway"
     long_desc: |
       You are in a large hallway, wide enough to accommodate several people
@@ -7308,7 +7308,7 @@ rooms:
   - id: 1474
     key: hitower_room_1474
     name: "A wide hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A wide hallway"
     long_desc: |
       You are in a large hallway, wide enough to accommodate several people
@@ -7344,7 +7344,7 @@ rooms:
   - id: 1475
     key: hitower_room_1475
     name: "A wide hallway"
-    area_id: 30
+    area_id: 12
     short_desc: "A wide hallway"
     long_desc: |
       You are in a large hallway, wide enough to accommodate several people
@@ -7380,7 +7380,7 @@ rooms:
   - id: 1476
     key: hitower_room_1476
     name: "The entranceway"
-    area_id: 30
+    area_id: 12
     short_desc: "The entranceway"
     long_desc: |
       You are at the entrance to the audience chamber of the grand master of
@@ -7416,7 +7416,7 @@ rooms:
   - id: 1477
     key: hitower_room_1477
     name: "The audience chamber"
-    area_id: 30
+    area_id: 12
     short_desc: "The audience chamber"
     long_desc: |
       You are in a large chamber. Small bolts of energy leap from wall to wall,
@@ -7524,7 +7524,7 @@ rooms:
   - id: 1478
     key: hitower_room_1478
     name: "A dressing room"
-    area_id: 30
+    area_id: 12
     short_desc: "A dressing room"
     long_desc: |
       You are in a plush dressing room. Fine garments of many styles and some
@@ -7550,7 +7550,7 @@ rooms:
   - id: 1479
     key: hitower_room_1479
     name: "The library"
-    area_id: 30
+    area_id: 12
     short_desc: "The library"
     long_desc: |
       You are in a small cozy looking library. A few well made books sit atop
@@ -7576,7 +7576,7 @@ rooms:
   - id: 1480
     key: hitower_room_1480
     name: "The altar"
-    area_id: 30
+    area_id: 12
     short_desc: "The altar"
     long_desc: |
       You are in a small chapel designed around a beautifully crafted golden
@@ -7627,7 +7627,7 @@ rooms:
   - id: 1481
     key: hitower_room_1481
     name: "The treasury"
-    area_id: 30
+    area_id: 12
     short_desc: "The treasury"
     long_desc: |
       You are in a small chamber, the stale air here is testament to the fact
@@ -7656,7 +7656,7 @@ rooms:
   - id: 1482
     key: hitower_room_1482
     name: "A passage"
-    area_id: 30
+    area_id: 12
     short_desc: "A passage"
     long_desc: |
       You are in a small dark passage, which would be unremarkable if not for
@@ -7700,7 +7700,7 @@ rooms:
   - id: 1483
     key: hitower_room_1483
     name: "In the light"
-    area_id: 30
+    area_id: 12
     short_desc: "In the light"
     long_desc: |
       You seem to be floating in a magical energy field, though you cannot see
@@ -7727,7 +7727,7 @@ rooms:
   - id: 1499
     key: hitower_room_1499
     name: "Skylar's Hideout"
-    area_id: 30
+    area_id: 12
     short_desc: "Skylar's Hideout"
     long_desc: |
       You are in a small, very messy room. An unmade bed is against one wall, and

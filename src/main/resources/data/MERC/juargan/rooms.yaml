@@ -2,7 +2,7 @@ rooms:
   - id: 4700
     key: juargan_room_4700
     name: "The Spiral Stair"
-    area_id: 32
+    area_id: 47
     short_desc: "The Spiral Stair"
     long_desc: |
       A spiral stone stair leads up higher in the mountain, spiraling into the
@@ -35,7 +35,7 @@ rooms:
   - id: 4701
     key: juargan_room_4701
     name: "Mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Mines"
     long_desc: |
       A small glint of the burning torches is all that lights the way here.  Spots
@@ -68,7 +68,7 @@ rooms:
   - id: 4702
     key: juargan_room_4702
     name: "Mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Mines"
     long_desc: |
       This small dark tunnel continues to the north where to light no longer allows
@@ -101,7 +101,7 @@ rooms:
   - id: 4703
     key: juargan_room_4703
     name: "Mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Mines"
     long_desc: |
       This small tunnel is only five to six feet high and possibly the same
@@ -136,7 +136,7 @@ rooms:
   - id: 4704
     key: juargan_room_4704
     name: "Mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Mines"
     long_desc: |
       The small mine continues east and west here, small rocks and precious jewels
@@ -180,7 +180,7 @@ rooms:
   - id: 4705
     key: juargan_room_4705
     name: "Unfinished Mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Unfinished Mine"
     long_desc: |
       This is a small area that has been left unfinished at the moment.  It would
@@ -213,7 +213,7 @@ rooms:
   - id: 4706
     key: juargan_room_4706
     name: "Mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Mines"
     long_desc: |
       This small shaft of the mines continues its tunneling east and west.  Small
@@ -247,7 +247,7 @@ rooms:
   - id: 4707
     key: juargan_room_4707
     name: "Turn in the Mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Turn in the Mine"
     long_desc: |
       The small shaft travels east and south here, the masterful mining skills that
@@ -282,7 +282,7 @@ rooms:
   - id: 4708
     key: juargan_room_4708
     name: "Mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Mines"
     long_desc: |
       This is a three-way intersection in these mazes of mines with directions
@@ -327,7 +327,7 @@ rooms:
   - id: 4709
     key: juargan_room_4709
     name: "Dwarven mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mine"
     long_desc: |
       The walls of this mine are chipped and cut to perfection.  Workmanship of
@@ -381,7 +381,7 @@ rooms:
   - id: 4710
     key: juargan_room_4710
     name: "Dwarven mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mine"
     long_desc: |
       Tunnels spread off in all directions except to the west where the wall is made
@@ -426,7 +426,7 @@ rooms:
   - id: 4711
     key: juargan_room_4711
     name: "Dwarven mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mine"
     long_desc: |
       The small shaft ends abruptly at a jewel encrusted wall.  To the north the
@@ -450,7 +450,7 @@ rooms:
   - id: 4712
     key: juargan_room_4712
     name: "Dwarven mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mine"
     long_desc: |
       This section of small shaft is a turning point and continues to the west and to
@@ -484,7 +484,7 @@ rooms:
   - id: 4713
     key: juargan_room_4713
     name: "Dwarven mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mine"
     long_desc: |
       The small shaft continues north and south deep inside this large mountain.  A
@@ -527,7 +527,7 @@ rooms:
   - id: 4714
     key: juargan_room_4714
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       This section of the small shafts is a intersection of three separate tunnels.
@@ -572,7 +572,7 @@ rooms:
   - id: 4715
     key: juargan_room_4715
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       The small shaft of glittering gold and silver travels east and south here.
@@ -611,7 +611,7 @@ rooms:
   - id: 4716
     key: juargan_room_4716
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       The small Dwarven carved shaft continues to the north and to the east here.
@@ -654,7 +654,7 @@ rooms:
   - id: 4717
     key: juargan_room_4717
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       The small shaft of the mine continues to the west and to the south here.  A
@@ -688,7 +688,7 @@ rooms:
   - id: 4718
     key: juargan_room_4718
     name: "End of the mine"
-    area_id: 32
+    area_id: 47
     short_desc: "End of the mine"
     long_desc: |
       The south section of the small tunnel is covered in a blue light, and also
@@ -714,7 +714,7 @@ rooms:
   - id: 4719
     key: juargan_room_4719
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       Small shafts lead off in all directions except northerly, where the wall seems
@@ -759,7 +759,7 @@ rooms:
   - id: 4720
     key: juargan_room_4720
     name: "Unfinished shaft"
-    area_id: 32
+    area_id: 47
     short_desc: "Unfinished shaft"
     long_desc: |
       The walls here are jagged and unfinished in there cuts, leaving sharp and
@@ -796,7 +796,7 @@ rooms:
   - id: 4721
     key: juargan_room_4721
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       This small shaft travels to the west and to the south, sporting small clumps
@@ -830,7 +830,7 @@ rooms:
   - id: 4722
     key: juargan_room_4722
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       A slight downslope is present as this tunnel continues to the south and to the
@@ -865,7 +865,7 @@ rooms:
   - id: 4723
     key: juargan_room_4723
     name: "Unfinished mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Unfinished mine"
     long_desc: |
       The southern wall of this mine has been left uncarved and unfinished as you
@@ -899,7 +899,7 @@ rooms:
   - id: 4724
     key: juargan_room_4724
     name: "Dwarven mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mine"
     long_desc: |
       This small shaft travels to the east and west while along the way several
@@ -933,7 +933,7 @@ rooms:
   - id: 4725
     key: juargan_room_4725
     name: "Dwarven mine"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mine"
     long_desc: |
       The small tunnel continues to the west and to the south from this turning
@@ -976,7 +976,7 @@ rooms:
   - id: 4726
     key: juargan_room_4726
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       This is a north and south shaft that has been carved to perfection.  The walls
@@ -1010,7 +1010,7 @@ rooms:
   - id: 4727
     key: juargan_room_4727
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       The small shaft here continues to the north and to the east. As it slopes
@@ -1053,7 +1053,7 @@ rooms:
   - id: 4728
     key: juargan_room_4728
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       This small east-west shaft, which travels slightly downward to the east, has
@@ -1088,7 +1088,7 @@ rooms:
   - id: 4729
     key: juargan_room_4729
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       This intersection combines three tunnels, the western tunnel leading up.  To
@@ -1150,7 +1150,7 @@ rooms:
   - id: 4730
     key: juargan_room_4730
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       This is a small north and south passage that is bleak and void of any gold or
@@ -1184,7 +1184,7 @@ rooms:
   - id: 4731
     key: juargan_room_4731
     name: "Dwarven mines"
-    area_id: 32
+    area_id: 47
     short_desc: "Dwarven mines"
     long_desc: |
       This small shaft ends abruptly at the southern wall.  There is a faint blue
@@ -1208,7 +1208,7 @@ rooms:
   - id: 4732
     key: juargan_room_4732
     name: "Duergar Outcamp"
-    area_id: 32
+    area_id: 47
     short_desc: "Duergar Outcamp"
     long_desc: |
       This is a large cavern that stinks of decay and death.  To the north there is
@@ -1258,7 +1258,7 @@ rooms:
   - id: 4733
     key: juargan_room_4733
     name: "Duergar Barracks"
-    area_id: 32
+    area_id: 47
     short_desc: "Duergar Barracks"
     long_desc: |
       Several small cots line the walls here  inside this large thatched hut.  Small
@@ -1300,7 +1300,7 @@ rooms:
   - id: 4734
     key: juargan_room_4734
     name: "Small cave"
-    area_id: 32
+    area_id: 47
     short_desc: "Small cave"
     long_desc: |
       Many small and disfigured bodies have been piled up here stinking up the whole
@@ -1324,7 +1324,7 @@ rooms:
   - id: 4735
     key: juargan_room_4735
     name: "By a small fire"
-    area_id: 32
+    area_id: 47
     short_desc: "By a small fire"
     long_desc: |
       Several large rocks surround a petty little fire that has formed a cloud in
@@ -1368,7 +1368,7 @@ rooms:
   - id: 4736
     key: juargan_room_4736
     name: "Carved Tunnel"
-    area_id: 32
+    area_id: 47
     short_desc: "Carved Tunnel"
     long_desc: |
       This small tunnel has been carved to perfection, the walls are smooth and the
@@ -1403,7 +1403,7 @@ rooms:
   - id: 4737
     key: juargan_room_4737
     name: "Carved Tunnel"
-    area_id: 32
+    area_id: 47
     short_desc: "Carved Tunnel"
     long_desc: |
       The walls of the small tunnel have been carved to perfection as well as the
@@ -1438,7 +1438,7 @@ rooms:
   - id: 4738
     key: juargan_room_4738
     name: "Carved Tunnel"
-    area_id: 32
+    area_id: 47
     short_desc: "Carved Tunnel"
     long_desc: |
       The walls here are red and smooth as they have been carved into perfection.
@@ -1481,7 +1481,7 @@ rooms:
   - id: 4739
     key: juargan_room_4739
     name: "Stone Gates"
-    area_id: 32
+    area_id: 47
     short_desc: "Stone Gates"
     long_desc: |
       Two monstrous pillars of stone support a great stone gate that leads south
@@ -1525,7 +1525,7 @@ rooms:
   - id: 4740
     key: juargan_room_4740
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A small stone walkway leads its way through the immense cavern and all of its
@@ -1580,7 +1580,7 @@ rooms:
   - id: 4741
     key: juargan_room_4741
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way through all types of multicolored boulders of all
@@ -1625,7 +1625,7 @@ rooms:
   - id: 4742
     key: juargan_room_4742
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way south and west from this section of a enormously
@@ -1659,7 +1659,7 @@ rooms:
   - id: 4743
     key: juargan_room_4743
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way north and south through this large display of many
@@ -1699,7 +1699,7 @@ rooms:
   - id: 4744
     key: juargan_room_4744
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way to the north and to the west as the many different
@@ -1733,7 +1733,7 @@ rooms:
   - id: 4745
     key: juargan_room_4745
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way west and east through this array of multicolored
@@ -1778,7 +1778,7 @@ rooms:
   - id: 4746
     key: juargan_room_4746
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way east and north through this small section of the
@@ -1812,7 +1812,7 @@ rooms:
   - id: 4747
     key: juargan_room_4747
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way north and south through this small section of the
@@ -1847,7 +1847,7 @@ rooms:
   - id: 4748
     key: juargan_room_4748
     name: "Rock Garden"
-    area_id: 32
+    area_id: 47
     short_desc: "Rock Garden"
     long_desc: |
       A small path works its way east and south through this section of the great
@@ -1881,7 +1881,7 @@ rooms:
   - id: 4749
     key: juargan_room_4749
     name: "Temple of Juargan"
-    area_id: 32
+    area_id: 47
     short_desc: "Temple of Juargan"
     long_desc: |
       This large building is circular in shape and open on all sides, as the ceiling
@@ -1940,7 +1940,7 @@ rooms:
   - id: 4750
     key: juargan_room_4750
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A small stone walkway travels east and west through the many stalagmites and
@@ -1974,7 +1974,7 @@ rooms:
   - id: 4751
     key: juargan_room_4751
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A small stone walkway travels east and south through the debris of many
@@ -2019,7 +2019,7 @@ rooms:
   - id: 4752
     key: juargan_room_4752
     name: "Blacksmith's Home"
-    area_id: 32
+    area_id: 47
     short_desc: "Blacksmith's Home"
     long_desc: |
       A large black forge lies in the center of this small house pushing waves of
@@ -2044,7 +2044,7 @@ rooms:
   - id: 4753
     key: juargan_room_4753
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A small walkway travels north and south through the many scattered boulders
@@ -2088,7 +2088,7 @@ rooms:
   - id: 4754
     key: juargan_room_4754
     name: "Path in the Rock"
-    area_id: 32
+    area_id: 47
     short_desc: "Path in the Rock"
     long_desc: |
       A small path leads west further into the less carved rock while to the east
@@ -2122,7 +2122,7 @@ rooms:
   - id: 4755
     key: juargan_room_4755
     name: "Path in the Rock"
-    area_id: 32
+    area_id: 47
     short_desc: "Path in the Rock"
     long_desc: |
       This small uncarved path travels south and east as the edge of the cavern
@@ -2157,7 +2157,7 @@ rooms:
   - id: 4756
     key: juargan_room_4756
     name: "Path in the Rock"
-    area_id: 32
+    area_id: 47
     short_desc: "Path in the Rock"
     long_desc: |
       This small, uncarved path leads north and south along the cavern wall, over
@@ -2202,7 +2202,7 @@ rooms:
   - id: 4757
     key: juargan_room_4757
     name: "Path in the Rock"
-    area_id: 32
+    area_id: 47
     short_desc: "Path in the Rock"
     long_desc: |
       A small path travels over boulders and crevices to the north and east.  The
@@ -2246,7 +2246,7 @@ rooms:
   - id: 4758
     key: juargan_room_4758
     name: "Path in the Rock"
-    area_id: 32
+    area_id: 47
     short_desc: "Path in the Rock"
     long_desc: |
       A small and unused path travels over boulders and by many large hole as it
@@ -2292,7 +2292,7 @@ rooms:
   - id: 4759
     key: juargan_room_4759
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A stone walkway travels north and south through this section of this rocky
@@ -2335,7 +2335,7 @@ rooms:
   - id: 4760
     key: juargan_room_4760
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A stone walkway travels north and south through this section of the city.  A
@@ -2379,7 +2379,7 @@ rooms:
   - id: 4761
     key: juargan_room_4761
     name: "Pasty's Dwelling"
-    area_id: 32
+    area_id: 47
     short_desc: "Pasty's Dwelling"
     long_desc: |
       This is a small stone dwelling with a large oven on the south wall.  There are
@@ -2404,7 +2404,7 @@ rooms:
   - id: 4762
     key: juargan_room_4762
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A stone walkway travels north and east through this section of the stone city.
@@ -2448,7 +2448,7 @@ rooms:
   - id: 4763
     key: juargan_room_4763
     name: "Walkway"
-    area_id: 32
+    area_id: 47
     short_desc: "Walkway"
     long_desc: |
       A stone walkway leads west from here.  To the east the small walkway ends in a
@@ -2501,7 +2501,7 @@ rooms:
   - id: 4764
     key: juargan_room_4764
     name: "Leatherbies Home"
-    area_id: 32
+    area_id: 47
     short_desc: "Leatherbies Home"
     long_desc: |
       This is a small stone dwelling with many sizes of leather strewn about the
@@ -2525,7 +2525,7 @@ rooms:
   - id: 4765
     key: juargan_room_4765
     name: "The Stone Jewel"
-    area_id: 32
+    area_id: 47
     short_desc: "The Stone Jewel"
     long_desc: |
       Many different colors and sizes of jewels hang from the walls of this well
@@ -2550,7 +2550,7 @@ rooms:
   - id: 4766
     key: juargan_room_4766
     name: "Guard Barrack"
-    area_id: 32
+    area_id: 47
     short_desc: "Guard Barrack"
     long_desc: |
       Many small cots line the walls of this large building as it serves for the
@@ -2606,7 +2606,7 @@ rooms:
   - id: 4767
     key: juargan_room_4767
     name: "Alcove"
-    area_id: 32
+    area_id: 47
     short_desc: "Alcove"
     long_desc: |
       A small alcove serves as a turning point for this small, dark tunnel that goes
@@ -2641,7 +2641,7 @@ rooms:
   - id: 4768
     key: juargan_room_4768
     name: "Entrance to Tomb"
-    area_id: 32
+    area_id: 47
     short_desc: "Entrance to Tomb"
     long_desc: |
       A large archway leads north to a dark vault.  An old stench emanates from it,
@@ -2677,7 +2677,7 @@ rooms:
   - id: 4769
     key: juargan_room_4769
     name: "Ancients Tomb"
-    area_id: 32
+    area_id: 47
     short_desc: "Ancients Tomb"
     long_desc: |
       Two large stone sarcophagus's lie stagnant in the center of this small tomb.
@@ -2743,7 +2743,7 @@ rooms:
   - id: 4770
     key: juargan_room_4770
     name: "Ancients Vault"
-    area_id: 32
+    area_id: 47
     short_desc: "Ancients Vault"
     long_desc: |
       This is more of a small alcove than anything else.  The ceiling is covered
@@ -2777,7 +2777,7 @@ rooms:
   - id: 4771
     key: juargan_room_4771
     name: "Siven's Stone"
-    area_id: 32
+    area_id: 47
     short_desc: "Siven's Stone"
     long_desc: |
       A small and dark little room entombed within a large boulder, a very strange
@@ -2802,7 +2802,7 @@ rooms:
   - id: 4772
     key: juargan_room_4772
     name: "The small cave"
-    area_id: 32
+    area_id: 47
     short_desc: "The small cave"
     long_desc: |
       You barely squeeze through into this cave, and you don't see much to it
@@ -2837,7 +2837,7 @@ rooms:
   - id: 4773
     key: juargan_room_4773
     name: "Beneath the waterfall"
-    area_id: 32
+    area_id: 47
     short_desc: "Beneath the waterfall"
     long_desc: |
       As you wring your clothes, you see sunlight reflect beautifully off the
@@ -2873,7 +2873,7 @@ rooms:
   - id: 4774
     key: juargan_room_4774
     name: "By the beautiful waterfall"
-    area_id: 32
+    area_id: 47
     short_desc: "By the beautiful waterfall"
     long_desc: |
       You see a VERY beautiful waterfall here.  It looks almost as if diamonds are
@@ -2917,7 +2917,7 @@ rooms:
   - id: 4775
     key: juargan_room_4775
     name: "A valley"
-    area_id: 32
+    area_id: 47
     short_desc: "A valley"
     long_desc: |
       You see a fresh green valley.  Flowers blossom everywhere around you, and you
@@ -2950,7 +2950,7 @@ rooms:
   - id: 4776
     key: juargan_room_4776
     name: "A valley"
-    area_id: 32
+    area_id: 47
     short_desc: "A valley"
     long_desc: |
       You see a fresh green valley.  Flowers blossom everywhere around you, and you
@@ -2983,7 +2983,7 @@ rooms:
   - id: 4777
     key: juargan_room_4777
     name: "At the end of the hills"
-    area_id: 32
+    area_id: 47
     short_desc: "At the end of the hills"
     long_desc: |
       What a view!  From here, you can see a waterfall toward the east, and lush
@@ -3019,7 +3019,7 @@ rooms:
   - id: 4778
     key: juargan_room_4778
     name: "A trail along the hills"
-    area_id: 32
+    area_id: 47
     short_desc: "A trail along the hills"
     long_desc: |
       The dirt road you are treading on is as gentle as you can believe.  Rocks
@@ -3052,7 +3052,7 @@ rooms:
   - id: 4779
     key: juargan_room_4779
     name: "A trail along the hills"
-    area_id: 32
+    area_id: 47
     short_desc: "A trail along the hills"
     long_desc: |
       The trail flattens out a bit, giving you time to breathe.  You don't see much
@@ -3085,7 +3085,7 @@ rooms:
   - id: 4780
     key: juargan_room_4780
     name: "Up the hill"
-    area_id: 32
+    area_id: 47
     short_desc: "Up the hill"
     long_desc: |
       You continue to climb this hill as sweat breaks out upon your forehead.  It
@@ -3118,7 +3118,7 @@ rooms:
   - id: 4781
     key: juargan_room_4781
     name: "Up the hill"
-    area_id: 32
+    area_id: 47
     short_desc: "Up the hill"
     long_desc: |
       You continue to climb this hill as sweat breaks out upon your forehead.  It
@@ -3151,7 +3151,7 @@ rooms:
   - id: 4782
     key: juargan_room_4782
     name: "Up the hill"
-    area_id: 32
+    area_id: 47
     short_desc: "Up the hill"
     long_desc: |
       You continue to climb this hill as sweat breaks out upon your forehead.  It
@@ -3184,7 +3184,7 @@ rooms:
   - id: 4783
     key: juargan_room_4783
     name: "Up the hill"
-    area_id: 32
+    area_id: 47
     short_desc: "Up the hill"
     long_desc: |
       You continue to climb this hill as sweat breaks out upon your forehead.  It
@@ -3217,7 +3217,7 @@ rooms:
   - id: 4784
     key: juargan_room_4784
     name: "The hills"
-    area_id: 32
+    area_id: 47
     short_desc: "The hills"
     long_desc: |
       You sigh as the trail continues straight up into the mountain.  West leads
@@ -3250,7 +3250,7 @@ rooms:
   - id: 4785
     key: juargan_room_4785
     name: "The hills"
-    area_id: 32
+    area_id: 47
     short_desc: "The hills"
     long_desc: |
       You see all around you ... hills.  You're lucky you get to get so much

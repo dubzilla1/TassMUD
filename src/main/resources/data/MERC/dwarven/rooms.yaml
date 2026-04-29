@@ -2,7 +2,7 @@ rooms:
   - id: 6500
     key: dwarven_room_6500
     name: "Path to Dwarven Village"
-    area_id: 32
+    area_id: 65
     short_desc: "Path to Dwarven Village"
     long_desc: |
       You are walking down a path that leads to the dwarven village.  Above you
@@ -45,7 +45,7 @@ rooms:
   - id: 6501
     key: dwarven_room_6501
     name: "Path, base of mountain"
-    area_id: 32
+    area_id: 65
     short_desc: "Path, base of mountain"
     long_desc: |
       Now you are at the bottom of a rugged mountain.  The forest around you is
@@ -82,7 +82,7 @@ rooms:
   - id: 6502
     key: dwarven_room_6502
     name: "Path, middle of mountain"
-    area_id: 32
+    area_id: 65
     short_desc: "Path, middle of mountain"
     long_desc: |
       Standing on the middle of the mountain, you can easily see the turning
@@ -119,7 +119,7 @@ rooms:
   - id: 6503
     key: dwarven_room_6503
     name: "Top of mountain"
-    area_id: 32
+    area_id: 65
     short_desc: "Top of mountain"
     long_desc: |
       You are now on the top of the mountain.  To the south you see a path
@@ -171,7 +171,7 @@ rooms:
   - id: 6504
     key: dwarven_room_6504
     name: "Narrow Path"
-    area_id: 32
+    area_id: 65
     short_desc: "Narrow Path"
     long_desc: |
       This is a narrow path leading to the Dwarven Kingdom.  It looks less
@@ -206,7 +206,7 @@ rooms:
   - id: 6505
     key: dwarven_room_6505
     name: "Entrance to Mountain"
-    area_id: 32
+    area_id: 65
     short_desc: "Entrance to Mountain"
     long_desc: |
       Here is an entrance to the mountain.  The door looks very well built,
@@ -268,7 +268,7 @@ rooms:
   - id: 6506
     key: dwarven_room_6506
     name: "Bend in Narrow Path"
-    area_id: 32
+    area_id: 65
     short_desc: "Bend in Narrow Path"
     long_desc: |
       This is a narrow path that bends to the east here.  The trees hang over
@@ -306,7 +306,7 @@ rooms:
   - id: 6507
     key: dwarven_room_6507
     name: "Narrow path"
-    area_id: 32
+    area_id: 65
     short_desc: "Narrow path"
     long_desc: |
       This path is very narrow, and it continues to the north and west.
@@ -339,7 +339,7 @@ rooms:
   - id: 6508
     key: dwarven_room_6508
     name: "Narrow north-south path"
-    area_id: 32
+    area_id: 65
     short_desc: "Narrow north-south path"
     long_desc: |
       This path leads to the north and south.  To the north you can see a
@@ -378,7 +378,7 @@ rooms:
   - id: 6509
     key: dwarven_room_6509
     name: "Door to Kingdom"
-    area_id: 32
+    area_id: 65
     short_desc: "Door to Kingdom"
     long_desc: |
       Here the path turns to the west.  You can see a door in front of you,
@@ -451,7 +451,7 @@ rooms:
   - id: 6510
     key: dwarven_room_6510
     name: "Path to the Castle"
-    area_id: 32
+    area_id: 65
     short_desc: "Path to the Castle"
     long_desc: |
       You are on a path that will eventually lead to the castle.  It
@@ -485,7 +485,7 @@ rooms:
   - id: 6511
     key: dwarven_room_6511
     name: "Still on the path to the Castle"
-    area_id: 32
+    area_id: 65
     short_desc: "Still on the path to the Castle"
     long_desc: |
       You are still on the path to the castle, or back to the
@@ -520,7 +520,7 @@ rooms:
   - id: 6512
     key: dwarven_room_6512
     name: "Door to Castle"
-    area_id: 32
+    area_id: 65
     short_desc: "Door to Castle"
     long_desc: |
       Here there is a door to the castle to the east.  The castle
@@ -577,7 +577,7 @@ rooms:
   - id: 6513
     key: dwarven_room_6513
     name: "Inside the entrance"
-    area_id: 32
+    area_id: 65
     short_desc: "Inside the entrance"
     long_desc: |
       Everything here is covered in soot and very grimy.  The path continues
@@ -626,7 +626,7 @@ rooms:
   - id: 6514
     key: dwarven_room_6514
     name: "Path"
-    area_id: 32
+    area_id: 65
     short_desc: "Path"
     long_desc: |
       You are on a path in the dwarven village which leads north to the shops
@@ -660,7 +660,7 @@ rooms:
   - id: 6515
     key: dwarven_room_6515
     name: "Turn in road"
-    area_id: 32
+    area_id: 65
     short_desc: "Turn in road"
     long_desc: |
       You are on a path that leads to a Hide & Tooth shop to the west, and the
@@ -699,7 +699,7 @@ rooms:
   - id: 6516
     key: dwarven_room_6516
     name: "Hide & Tooth Shop"
-    area_id: 32
+    area_id: 65
     short_desc: "Hide & Tooth Shop"
     long_desc: |
       You are in the Hide & Tooth shop.  Here you may buy the finest in Dwarven
@@ -753,7 +753,7 @@ rooms:
   - id: 6517
     key: dwarven_room_6517
     name: "Path to the north of shop"
-    area_id: 32
+    area_id: 65
     short_desc: "Path to the north of shop"
     long_desc: |
       You are on a path to the north of the Hide & Tooth shop.  The path continues
@@ -797,7 +797,7 @@ rooms:
   - id: 6518
     key: dwarven_room_6518
     name: "North of Shops"
-    area_id: 32
+    area_id: 65
     short_desc: "North of Shops"
     long_desc: |
       Here the path bends to the east towards the barracks. To the
@@ -831,7 +831,7 @@ rooms:
   - id: 6519
     key: dwarven_room_6519
     name: "Path by Hospital"
-    area_id: 32
+    area_id: 65
     short_desc: "Path by Hospital"
     long_desc: |
       Here the path passes by the Hospital to the north.  It continues
@@ -875,7 +875,7 @@ rooms:
   - id: 6520
     key: dwarven_room_6520
     name: "Path next to barracks"
-    area_id: 32
+    area_id: 65
     short_desc: "Path next to barracks"
     long_desc: |
       Here the path continues west, and east to the barracks.
@@ -913,7 +913,7 @@ rooms:
   - id: 6521
     key: dwarven_room_6521
     name: "Entrance to barracks"
-    area_id: 32
+    area_id: 65
     short_desc: "Entrance to barracks"
     long_desc: |
       Here there is an entrance to the barracks to the south, and
@@ -976,7 +976,7 @@ rooms:
   - id: 6522
     key: dwarven_room_6522
     name: "Guard House"
-    area_id: 32
+    area_id: 65
     short_desc: "Guard House"
     long_desc: |
       You are in the guard house to the west of the entrance
@@ -1003,7 +1003,7 @@ rooms:
   - id: 6523
     key: dwarven_room_6523
     name: "First Barrack room"
-    area_id: 32
+    area_id: 65
     short_desc: "First Barrack room"
     long_desc: |
       Here is the first of two main rooms of barracks.  The
@@ -1062,7 +1062,7 @@ rooms:
   - id: 6524
     key: dwarven_room_6524
     name: "Back of Barracks"
-    area_id: 32
+    area_id: 65
     short_desc: "Back of Barracks"
     long_desc: |
       Here is the back of the dwarven barracks.  There are rows
@@ -1113,7 +1113,7 @@ rooms:
   - id: 6525
     key: dwarven_room_6525
     name: "Inside of Castle Strangelove"
-    area_id: 32
+    area_id: 65
     short_desc: "Inside of Castle Strangelove"
     long_desc: |
       You are just inside the castle.  It is very tubular in shape,
@@ -1148,7 +1148,7 @@ rooms:
   - id: 6526
     key: dwarven_room_6526
     name: "A store room"
-    area_id: 32
+    area_id: 65
     short_desc: "A store room"
     long_desc: |
       There is a layer of dust on the floor at least 3 inches thick!  It is
@@ -1185,7 +1185,7 @@ rooms:
   - id: 6527
     key: dwarven_room_6527
     name: "Wine cellar"
-    area_id: 32
+    area_id: 65
     short_desc: "Wine cellar"
     long_desc: |
       This room smells like wine, and you can only assume it used to be
@@ -1227,7 +1227,7 @@ rooms:
   - id: 6528
     key: dwarven_room_6528
     name: "Stairs in castle"
-    area_id: 32
+    area_id: 65
     short_desc: "Stairs in castle"
     long_desc: |
       The stairs continue to circle up and down here.
@@ -1265,7 +1265,7 @@ rooms:
   - id: 6529
     key: dwarven_room_6529
     name: "Stairs"
-    area_id: 32
+    area_id: 65
     short_desc: "Stairs"
     long_desc: |
       You are still circling around on the stairs.  You are starting to
@@ -1309,7 +1309,7 @@ rooms:
   - id: 6530
     key: dwarven_room_6530
     name: "Top of stairs"
-    area_id: 32
+    area_id: 65
     short_desc: "Top of stairs"
     long_desc: |
       You are at the top of the stairs in the castle.  There is an exit
@@ -1348,7 +1348,7 @@ rooms:
   - id: 6531
     key: dwarven_room_6531
     name: "Queen's waiting room"
-    area_id: 32
+    area_id: 65
     short_desc: "Queen's waiting room"
     long_desc: |
       This is the Queen's waiting room.  Here the men literally
@@ -1393,7 +1393,7 @@ rooms:
   - id: 6532
     key: dwarven_room_6532
     name: "Bedroom"
-    area_id: 32
+    area_id: 65
     short_desc: "Bedroom"
     long_desc: |
       This is the Queen's bedroom.  The bed is all ruffled, and there
@@ -1427,7 +1427,7 @@ rooms:
   - id: 6534
     key: dwarven_room_6534
     name: "Hospital"
-    area_id: 32
+    area_id: 65
     short_desc: "Hospital"
     long_desc: |
       You are inside the Dwarven Hospital.  It smells like rubbing
@@ -1475,7 +1475,7 @@ rooms:
   - id: 6535
     key: dwarven_room_6535
     name: "Granite Head's Bakery"
-    area_id: 32
+    area_id: 65
     short_desc: "Granite Head's Bakery"
     long_desc: |
       The aroma coming from this room is sensuous.  You can almost taste
@@ -1517,7 +1517,7 @@ rooms:
   - id: 6540
     key: dwarven_room_6540
     name: "Dark path"
-    area_id: 32
+    area_id: 65
     short_desc: "Dark path"
     long_desc: |
       This path is very well worn, and there is an entrance to the mines to the
@@ -1591,7 +1591,7 @@ rooms:
   - id: 6541
     key: dwarven_room_6541
     name: "Mine entrance"
-    area_id: 32
+    area_id: 65
     short_desc: "Mine entrance"
     long_desc: |
       The little path here leads down toward the mines, while the worn path
@@ -1625,7 +1625,7 @@ rooms:
   - id: 6542
     key: dwarven_room_6542
     name: "Inside the mine"
-    area_id: 32
+    area_id: 65
     short_desc: "Inside the mine"
     long_desc: |
       There are holes everywhere from the places that the workers blew
@@ -1669,7 +1669,7 @@ rooms:
   - id: 6543
     key: dwarven_room_6543
     name: "Path in the mine"
-    area_id: 32
+    area_id: 65
     short_desc: "Path in the mine"
     long_desc: |
       You are deep inside the mine, and you feel very uncomfortable.  The
@@ -1731,7 +1731,7 @@ rooms:
   - id: 6544
     key: dwarven_room_6544
     name: "Mine crossroad"
-    area_id: 32
+    area_id: 65
     short_desc: "Mine crossroad"
     long_desc: |
       You are at a crossroad in the mine.  There is a door to the north,
@@ -1785,7 +1785,7 @@ rooms:
   - id: 6545
     key: dwarven_room_6545
     name: "Coal Room"
-    area_id: 32
+    area_id: 65
     short_desc: "Coal Room"
     long_desc: |
       You are inside the storage area for the raw materials
@@ -1815,7 +1815,7 @@ rooms:
   - id: 6546
     key: dwarven_room_6546
     name: "Mine Maze"
-    area_id: 32
+    area_id: 65
     short_desc: "Mine Maze"
     long_desc: |
       You have entered the maze of the mines.  To the east you
@@ -1849,7 +1849,7 @@ rooms:
   - id: 6547
     key: dwarven_room_6547
     name: "Maze inscription"
-    area_id: 32
+    area_id: 65
     short_desc: "Maze inscription"
     long_desc: |
       You are inside the maze, but not far enough in that you could get lost.
@@ -1882,7 +1882,7 @@ rooms:
   - id: 6548
     key: dwarven_room_6548
     name: "Maze"
-    area_id: 32
+    area_id: 65
     short_desc: "Maze"
     long_desc: |
       You are in a maze.
@@ -1920,7 +1920,7 @@ rooms:
   - id: 6549
     key: dwarven_room_6549
     name: "Maze"
-    area_id: 32
+    area_id: 65
     short_desc: "Maze"
     long_desc: |
       You are in a maze.
@@ -1958,7 +1958,7 @@ rooms:
   - id: 6550
     key: dwarven_room_6550
     name: "Maze"
-    area_id: 32
+    area_id: 65
     short_desc: "Maze"
     long_desc: |
       You are in a maze.
@@ -1991,7 +1991,7 @@ rooms:
   - id: 6551
     key: dwarven_room_6551
     name: "Mining equipment room"
-    area_id: 32
+    area_id: 65
     short_desc: "Mining equipment room"
     long_desc: |
       This is the storage room for equipment used by the
@@ -2021,7 +2021,7 @@ rooms:
   - id: 6552
     key: dwarven_room_6552
     name: "Solved the Maze."
-    area_id: 32
+    area_id: 65
     short_desc: "Solved the Maze."
     long_desc: |
       You have solved the maze.  You can tell by the last few moves
@@ -2060,7 +2060,7 @@ rooms:
   - id: 6553
     key: dwarven_room_6553
     name: "The Mazekeeper's Room"
-    area_id: 32
+    area_id: 65
     short_desc: "The Mazekeeper's Room"
     long_desc: |
       You have entered the Mazekeeper's room.  There are pictures of
@@ -2093,7 +2093,7 @@ rooms:
   - id: 6554
     key: dwarven_room_6554
     name: "Bottom of mineshaft"
-    area_id: 32
+    area_id: 65
     short_desc: "Bottom of mineshaft"
     long_desc: |
       You are at the bottom of the mineshaft.  The air here is very sooty, and

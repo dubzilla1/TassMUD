@@ -2,7 +2,7 @@ rooms:
   - id: 7001
     key: sewer_room_7001
     name: "The muddy sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The muddy sewer"
     long_desc: |
       You are standing in mud to your knees. This is not the kind of place
@@ -30,7 +30,7 @@ rooms:
   - id: 7002
     key: sewer_room_7002
     name: "The muddy sewer junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The muddy sewer junction"
     long_desc: |
       The muddy sewer stretches into the dark to the south. It looks as if 
@@ -79,7 +79,7 @@ rooms:
   - id: 7003
     key: sewer_room_7003
     name: "The mudhole"
-    area_id: 32
+    area_id: 70
     short_desc: "The mudhole"
     long_desc: |
       You stand in mud all the way up to your thighs and it's not too 
@@ -120,7 +120,7 @@ rooms:
   - id: 7004
     key: sewer_room_7004
     name: "The Dark Pit"
-    area_id: 32
+    area_id: 70
     short_desc: "The Dark Pit"
     long_desc: |
       You are standing by the edge of a dark pit that leads down into even
@@ -166,7 +166,7 @@ rooms:
   - id: 7005
     key: sewer_room_7005
     name: "The muddy sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The muddy sewer"
     long_desc: |
       You are standing in the middle of a bend of the sewer pipe. It is very
@@ -207,7 +207,7 @@ rooms:
   - id: 7006
     key: sewer_room_7006
     name: "The muddy sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The muddy sewer"
     long_desc: |
       You are standing in something that reminds you very much of porridge, this
@@ -248,7 +248,7 @@ rooms:
   - id: 7007
     key: sewer_room_7007
     name: "The muddy sewer bend"
-    area_id: 32
+    area_id: 70
     short_desc: "The muddy sewer bend"
     long_desc: |
       This isn't your idea of a place to stay too long. You're in up to your
@@ -291,7 +291,7 @@ rooms:
   - id: 7008
     key: sewer_room_7008
     name: "A muddy intersection"
-    area_id: 32
+    area_id: 70
     short_desc: "A muddy intersection"
     long_desc: |
       You have both your feet safely stuck in mud. It isn't the mud that's wrong
@@ -349,7 +349,7 @@ rooms:
   - id: 7009
     key: sewer_room_7009
     name: "The Sewer Junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The Sewer Junction"
     long_desc: |
       You stand in the middle of a huge junction of sewer pipes right under
@@ -412,7 +412,7 @@ rooms:
   - id: 7010
     key: sewer_room_7010
     name: "A bend in sewer pipe"
-    area_id: 32
+    area_id: 70
     short_desc: "A bend in sewer pipe"
     long_desc: |
       You are in a bend in the sewer pipe. A strong smell seeps in from the north.
@@ -446,7 +446,7 @@ rooms:
   - id: 7011
     key: sewer_room_7011
     name: "The muddy sewer pipe"
-    area_id: 32
+    area_id: 70
     short_desc: "The muddy sewer pipe"
     long_desc: |
       You have entered a kind of tube intersection that leads south, west and east.
@@ -496,7 +496,7 @@ rooms:
   - id: 7012
     key: sewer_room_7012
     name: "The bend in the Muddy sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The bend in the Muddy sewer"
     long_desc: |
       This is not your idea of a holiday. You stand in mud up to your knees.
@@ -539,7 +539,7 @@ rooms:
   - id: 7013
     key: sewer_room_7013
     name: "A MUDDY intersection"
-    area_id: 32
+    area_id: 70
     short_desc: "A MUDDY intersection"
     long_desc: |
       You wouldn't want to know the true feeling of standing in this mud up to 
@@ -600,7 +600,7 @@ rooms:
   - id: 7014
     key: sewer_room_7014
     name: "Muddy sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "Muddy sewer"
     long_desc: |
       You stand in a bend of the pipe system of the sewer with mud up to your
@@ -645,7 +645,7 @@ rooms:
   - id: 7015
     key: sewer_room_7015
     name: "The old well"
-    area_id: 32
+    area_id: 70
     short_desc: "The old well"
     long_desc: |
       You are standing by an old and worn well from before this century. The sewer
@@ -688,7 +688,7 @@ rooms:
   - id: 7016
     key: sewer_room_7016
     name: "The ordinary bend"
-    area_id: 32
+    area_id: 70
     short_desc: "The ordinary bend"
     long_desc: |
       You are in the middle of a bend in the pipe system of the sewer system, 
@@ -724,7 +724,7 @@ rooms:
   - id: 7017
     key: sewer_room_7017
     name: "The sewer junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer junction"
     long_desc: |
       You are in a junction that leads north, west and south.
@@ -769,7 +769,7 @@ rooms:
   - id: 7018
     key: sewer_room_7018
     name: "The ordinary junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The ordinary junction"
     long_desc: |
       This looks like an ordinary junction, actually it seems very quiet
@@ -816,7 +816,7 @@ rooms:
   - id: 7021
     key: sewer_room_7021
     name: "A quiet pipe junction"
-    area_id: 32
+    area_id: 70
     short_desc: "A quiet pipe junction"
     long_desc: |
       This is the kind of place to rest, though the smell could be a LOT better
@@ -863,7 +863,7 @@ rooms:
   - id: 7022
     key: sewer_room_7022
     name: "The odd room with smooth walls"
-    area_id: 32
+    area_id: 70
     short_desc: "The odd room with smooth walls"
     long_desc: |
       As you enter you hear a loud click from one of the walls ... and you fall
@@ -895,7 +895,7 @@ rooms:
   - id: 7024
     key: sewer_room_7024
     name: "The sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer"
     long_desc: |
       You are standing in mud up to your ankles. This is an intersection with 
@@ -942,7 +942,7 @@ rooms:
   - id: 7025
     key: sewer_room_7025
     name: "Another intersection"
-    area_id: 32
+    area_id: 70
     short_desc: "Another intersection"
     long_desc: |
       You have never seen anything so BORING...This is an intersection with pipes
@@ -995,7 +995,7 @@ rooms:
   - id: 7026
     key: sewer_room_7026
     name: "A junction"
-    area_id: 32
+    area_id: 70
     short_desc: "A junction"
     long_desc: |
       This one seems interesting, a big difference from all the other junctions.
@@ -1048,7 +1048,7 @@ rooms:
   - id: 7028
     key: sewer_room_7028
     name: "The sewer junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer junction"
     long_desc: |
       You stand in a junction of sewer pipes leading north, east and west.
@@ -1091,7 +1091,7 @@ rooms:
   - id: 7029
     key: sewer_room_7029
     name: "The Triple Junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The Triple Junction"
     long_desc: |
       You stand in the middle of a huge junction of concrete sewer pipes. The 
@@ -1139,7 +1139,7 @@ rooms:
   - id: 7030
     key: sewer_room_7030
     name: "The Quadruple Junction Under the Dump"
-    area_id: 32
+    area_id: 70
     short_desc: "The Quadruple Junction Under the Dump"
     long_desc: |
       You are standing in something that reminds you of an entry to an ant hive.
@@ -1215,7 +1215,7 @@ rooms:
   - id: 7031
     key: sewer_room_7031
     name: "A triple junction"
-    area_id: 32
+    area_id: 70
     short_desc: "A triple junction"
     long_desc: |
       You stand in a junction with pipes leading west, north and east.
@@ -1265,7 +1265,7 @@ rooms:
   - id: 7034
     key: sewer_room_7034
     name: "A bend in the sewer pipe"
-    area_id: 32
+    area_id: 70
     short_desc: "A bend in the sewer pipe"
     long_desc: |
       You can look in two directions where the pipe leads : south and west.
@@ -1298,7 +1298,7 @@ rooms:
   - id: 7035
     key: sewer_room_7035
     name: "The sewer pipe bend"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer pipe bend"
     long_desc: |
       You can look in two different directions where the pipe goes : west and 
@@ -1324,7 +1324,7 @@ rooms:
   - id: 7036
     key: sewer_room_7036
     name: "The pit"
-    area_id: 32
+    area_id: 70
     short_desc: "The pit"
     long_desc: |
       You stand in a section of a pipe that leads to a dead end. In the floor
@@ -1359,7 +1359,7 @@ rooms:
   - id: 7037
     key: sewer_room_7037
     name: "The round room"
-    area_id: 32
+    area_id: 70
     short_desc: "The round room"
     long_desc: |
       As you enter the room it starts rotating - at first slowly, later faster
@@ -1394,7 +1394,7 @@ rooms:
   - id: 7038
     key: sewer_room_7038
     name: "The three way junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The three way junction"
     long_desc: |
       You are standing in a junction of pipes that lead west, east and south.
@@ -1437,7 +1437,7 @@ rooms:
   - id: 7039
     key: sewer_room_7039
     name: "The Sewer Store Room"
-    area_id: 32
+    area_id: 70
     short_desc: "The Sewer Store Room"
     long_desc: |
       You stand in a small room lit by a single torch set in the wall. The only 
@@ -1474,7 +1474,7 @@ rooms:
   - id: 7041
     key: sewer_room_7041
     name: "The Shaft"
-    area_id: 32
+    area_id: 70
     short_desc: "The Shaft"
     long_desc: |
       You are standing by the edge of a deep, dark shaft leading down. A single
@@ -1520,7 +1520,7 @@ rooms:
   - id: 7043
     key: sewer_room_7043
     name: "The Sewer Entrance"
-    area_id: 32
+    area_id: 70
     short_desc: "The Sewer Entrance"
     long_desc: |
       You stand in the middle of a pipe that leads from north to south. Above you
@@ -1555,7 +1555,7 @@ rooms:
   - id: 7044
     key: sewer_room_7044
     name: "The junction going three ways"
-    area_id: 32
+    area_id: 70
     short_desc: "The junction going three ways"
     long_desc: |
       You are in a passageway in the pipes of the sewer system leading north, east
@@ -1601,7 +1601,7 @@ rooms:
   - id: 7045
     key: sewer_room_7045
     name: "The Sewer Room"
-    area_id: 32
+    area_id: 70
     short_desc: "The Sewer Room"
     long_desc: |
       You are standing in a large room with chairs set in the walls. You have the
@@ -1637,7 +1637,7 @@ rooms:
   - id: 7046
     key: sewer_room_7046
     name: "The Sewer room"
-    area_id: 32
+    area_id: 70
     short_desc: "The Sewer room"
     long_desc: |
       This is a Room with walls that glitters like gold though not quite like it.
@@ -1663,7 +1663,7 @@ rooms:
   - id: 7047
     key: sewer_room_7047
     name: "The Pool in the Sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The Pool in the Sewer"
     long_desc: |
       You stand in water to your waist.  To the north is the entrance to this room.
@@ -1697,7 +1697,7 @@ rooms:
   - id: 7048
     key: sewer_room_7048
     name: "The Sewers"
-    area_id: 32
+    area_id: 70
     short_desc: "The Sewers"
     long_desc: |
       You stand in a dead end of the sewer. The only way out is south.
@@ -1722,7 +1722,7 @@ rooms:
   - id: 7049
     key: sewer_room_7049
     name: "The junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The junction"
     long_desc: |
       You stand in a junction leading north, west and east.
@@ -1764,7 +1764,7 @@ rooms:
   - id: 7050
     key: sewer_room_7050
     name: "The small room"
-    area_id: 32
+    area_id: 70
     short_desc: "The small room"
     long_desc: |
       The only thing in this room of interest is a chair, and that's tight to the 
@@ -1807,7 +1807,7 @@ rooms:
   - id: 7051
     key: sewer_room_7051
     name: "The Sewer pipe"
-    area_id: 32
+    area_id: 70
     short_desc: "The Sewer pipe"
     long_desc: |
       You are in what reminds you of a foul sewer, as if you liked being here! 
@@ -1841,7 +1841,7 @@ rooms:
   - id: 7052
     key: sewer_room_7052
     name: "The Grand Sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The Grand Sewer"
     long_desc: |
       You are in a Grand Sewer Pipe. This stretches toward the south. It's large 
@@ -1885,7 +1885,7 @@ rooms:
   - id: 7053
     key: sewer_room_7053
     name: "The South end of the Grand Pipe"
-    area_id: 32
+    area_id: 70
     short_desc: "The South end of the Grand Pipe"
     long_desc: |
       You stand in water to your knees. A doorway leads west from here. The Pipe
@@ -1919,7 +1919,7 @@ rooms:
   - id: 7055
     key: sewer_room_7055
     name: "The Edge of The Water Sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The Edge of The Water Sewer"
     long_desc: |
       You stand in a room where half of the floor is covered in water. The water
@@ -1958,7 +1958,7 @@ rooms:
   - id: 7056
     key: sewer_room_7056
     name: "The Dark hallway"
-    area_id: 32
+    area_id: 70
     short_desc: "The Dark hallway"
     long_desc: |
       You can't see much of this, even with a light. The hallway goes into a
@@ -1992,7 +1992,7 @@ rooms:
   - id: 7057
     key: sewer_room_7057
     name: "The dark passageway"
-    area_id: 32
+    area_id: 70
     short_desc: "The dark passageway"
     long_desc: |
       You can't see anything but the ground where you put your feet. The 
@@ -2030,7 +2030,7 @@ rooms:
   - id: 7058
     key: sewer_room_7058
     name: "The dark passageway"
-    area_id: 32
+    area_id: 70
     short_desc: "The dark passageway"
     long_desc: |
       You can't see anything but the ground where you put your feet. The
@@ -2068,7 +2068,7 @@ rooms:
   - id: 7059
     key: sewer_room_7059
     name: "The dark passageway"
-    area_id: 32
+    area_id: 70
     short_desc: "The dark passageway"
     long_desc: |
       You can't see anything but the ground where you put your feet. The
@@ -2106,7 +2106,7 @@ rooms:
   - id: 7060
     key: sewer_room_7060
     name: "The dark passageway"
-    area_id: 32
+    area_id: 70
     short_desc: "The dark passageway"
     long_desc: |
       You can't see anything but the ground where you put your feet. The
@@ -2159,7 +2159,7 @@ rooms:
   - id: 7061
     key: sewer_room_7061
     name: "The Watery Sewer Bend"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery Sewer Bend"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2200,7 +2200,7 @@ rooms:
   - id: 7062
     key: sewer_room_7062
     name: "The Watery sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery sewer"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2241,7 +2241,7 @@ rooms:
   - id: 7063
     key: sewer_room_7063
     name: "The Watery sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery sewer"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2282,7 +2282,7 @@ rooms:
   - id: 7064
     key: sewer_room_7064
     name: "The Watery Sewer Junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery Sewer Junction"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2335,7 +2335,7 @@ rooms:
   - id: 7065
     key: sewer_room_7065
     name: "The Watery sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery sewer"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2376,7 +2376,7 @@ rooms:
   - id: 7066
     key: sewer_room_7066
     name: "The Watery sewer junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery sewer junction"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2429,7 +2429,7 @@ rooms:
   - id: 7067
     key: sewer_room_7067
     name: "The Watery sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery sewer"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2470,7 +2470,7 @@ rooms:
   - id: 7068
     key: sewer_room_7068
     name: "The Watery sewer bend"
-    area_id: 32
+    area_id: 70
     short_desc: "The Watery sewer bend"
     long_desc: |
       You can't see anything but the water you're in up to your hips. The sewer
@@ -2511,7 +2511,7 @@ rooms:
   - id: 7069
     key: sewer_room_7069
     name: "A ledge by the dark pool"
-    area_id: 32
+    area_id: 70
     short_desc: "A ledge by the dark pool"
     long_desc: |
       You can't see much here but the echo tells you that there's quite a drop
@@ -2551,7 +2551,7 @@ rooms:
   - id: 7070
     key: sewer_room_7070
     name: "A ledge by the dark pool"
-    area_id: 32
+    area_id: 70
     short_desc: "A ledge by the dark pool"
     long_desc: |
       You can't see much here but the echo tells you that there's quite a drop
@@ -2602,7 +2602,7 @@ rooms:
   - id: 7099
     key: sewer_room_7099
     name: "The fissure under the ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The fissure under the ledge"
     long_desc: |
       This is a small fissure in the solid rock. Under you lies the deep dark pool.
@@ -2638,7 +2638,7 @@ rooms:
   - id: 7101
     key: sewer_room_7101
     name: "Under the mudhole"
-    area_id: 32
+    area_id: 70
     short_desc: "Under the mudhole"
     long_desc: |
       You stand in a small room with a great big opening in the ceiling. From this
@@ -2674,7 +2674,7 @@ rooms:
   - id: 7102
     key: sewer_room_7102
     name: "Under the Dark Pit"
-    area_id: 32
+    area_id: 70
     short_desc: "Under the Dark Pit"
     long_desc: |
       Nice place you found yourself. You stand in the middle of a room with only
@@ -2723,7 +2723,7 @@ rooms:
   - id: 7103
     key: sewer_room_7103
     name: "A muddy bend in the sewer system"
-    area_id: 32
+    area_id: 70
     short_desc: "A muddy bend in the sewer system"
     long_desc: |
       You are standing in what looks like a bend in the pipe system of the
@@ -2775,7 +2775,7 @@ rooms:
   - id: 7104
     key: sewer_room_7104
     name: "A junction in the sewer pipes"
-    area_id: 32
+    area_id: 70
     short_desc: "A junction in the sewer pipes"
     long_desc: |
       You stand in the middle of what looks like a triple junction of pipes
@@ -2818,7 +2818,7 @@ rooms:
   - id: 7105
     key: sewer_room_7105
     name: "Down the old well"
-    area_id: 32
+    area_id: 70
     short_desc: "Down the old well"
     long_desc: |
       You are dangling on the slippery sides of the old well leading down and up.
@@ -2864,7 +2864,7 @@ rooms:
   - id: 7106
     key: sewer_room_7106
     name: "The northwestern corner of the ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The northwestern corner of the ledge"
     long_desc: |
       You stand, swaying out from the ledge, with only a couple of inches of safe, 
@@ -2901,7 +2901,7 @@ rooms:
   - id: 7107
     key: sewer_room_7107
     name: "The narrow ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -2950,7 +2950,7 @@ rooms:
   - id: 7108
     key: sewer_room_7108
     name: "The narrow ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -2989,7 +2989,7 @@ rooms:
   - id: 7109
     key: sewer_room_7109
     name: "The narrow ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -3038,7 +3038,7 @@ rooms:
   - id: 7110
     key: sewer_room_7110
     name: "The narrow ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -3087,7 +3087,7 @@ rooms:
   - id: 7111
     key: sewer_room_7111
     name: "The southwestern corner of the ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The southwestern corner of the ledge"
     long_desc: |
       This seems like a ledge that is a little broader than the one just to the 
@@ -3151,7 +3151,7 @@ rooms:
   - id: 7112
     key: sewer_room_7112
     name: "An odd intersection"
-    area_id: 32
+    area_id: 70
     short_desc: "An odd intersection"
     long_desc: |
       You stand in a rather odd intersection of pipes. The pipes actually don't
@@ -3196,7 +3196,7 @@ rooms:
   - id: 7113
     key: sewer_room_7113
     name: "The narrow ledge going east to west"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow ledge going east to west"
     long_desc: |
       You are in the process of walking all the way around the ledge since there's
@@ -3245,7 +3245,7 @@ rooms:
   - id: 7114
     key: sewer_room_7114
     name: "Mid-air"
-    area_id: 32
+    area_id: 70
     short_desc: "Mid-air"
     long_desc: |
       You've just stepped into the most unlucky position in the whole of Merc Mud.
@@ -3264,7 +3264,7 @@ rooms:
   - id: 7115
     key: sewer_room_7115
     name: "The Broad ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The Broad ledge"
     long_desc: |
       You are standing on a ledge that seems quite a lot larger than the rest 
@@ -3311,7 +3311,7 @@ rooms:
   - id: 7116
     key: sewer_room_7116
     name: "The northeastern corner of the ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The northeastern corner of the ledge"
     long_desc: |
       You stand, swaying out from the ledge, with only a couple of inches of safe,
@@ -3366,7 +3366,7 @@ rooms:
   - id: 7117
     key: sewer_room_7117
     name: "The narrow eastern ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow eastern ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -3405,7 +3405,7 @@ rooms:
   - id: 7118
     key: sewer_room_7118
     name: "The narrow eastern ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow eastern ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -3444,7 +3444,7 @@ rooms:
   - id: 7119
     key: sewer_room_7119
     name: "The narrow eastern ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow eastern ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -3483,7 +3483,7 @@ rooms:
   - id: 7120
     key: sewer_room_7120
     name: "The narrow eastern ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The narrow eastern ledge"
     long_desc: |
       You are in the progress of walking all the way around the ledge since there's
@@ -3533,7 +3533,7 @@ rooms:
   - id: 7121
     key: sewer_room_7121
     name: "The southeastern corner of the ledge"
-    area_id: 32
+    area_id: 70
     short_desc: "The southeastern corner of the ledge"
     long_desc: |
       This seems like a ledge that is a little broader than the one just to the
@@ -3569,7 +3569,7 @@ rooms:
   - id: 7122
     key: sewer_room_7122
     name: "Under the pit"
-    area_id: 32
+    area_id: 70
     short_desc: "Under the pit"
     long_desc: |
       You stand in a completely dark cavern leading west. The wall looks weird here.
@@ -3610,7 +3610,7 @@ rooms:
   - id: 7123
     key: sewer_room_7123
     name: "Under The Shaft"
-    area_id: 32
+    area_id: 70
     short_desc: "Under The Shaft"
     long_desc: |
       A ladder leads up from here to the Shaft.
@@ -3644,7 +3644,7 @@ rooms:
   - id: 7129
     key: sewer_room_7129
     name: "The sewer line."
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer line."
     long_desc: |
       You are in a narrow part of the sewer. Down the sewer continues and to the
@@ -3678,7 +3678,7 @@ rooms:
   - id: 7130
     key: sewer_room_7130
     name: "The sewer pipe."
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer pipe."
     long_desc: |
       You are in an odd sewer pipe You see some odd scratches on the pipe wall, as
@@ -3692,7 +3692,7 @@ rooms:
   - id: 7190
     key: sewer_room_7190
     name: "Mid-air"
-    area_id: 32
+    area_id: 70
     short_desc: "Mid-air"
     long_desc: |
       You've just stepped into the most unlucky position in the whole of DikuMUD.
@@ -3711,7 +3711,7 @@ rooms:
   - id: 7199
     key: sewer_room_7199
     name: "The Edge of the Water"
-    area_id: 32
+    area_id: 70
     short_desc: "The Edge of the Water"
     long_desc: |
       The pool side is dimly lit up by your light. You can see absolutely nothing
@@ -3738,7 +3738,7 @@ rooms:
   - id: 7200
     key: sewer_room_7200
     name: "The Treasury"
-    area_id: 32
+    area_id: 70
     short_desc: "The Treasury"
     long_desc: |
       You are in a small but well equipped treasury.  You can see some writing on
@@ -3774,7 +3774,7 @@ rooms:
   - id: 7201
     key: sewer_room_7201
     name: "The inner Lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The inner Lair"
     long_desc: |
       You are in a octagonal room with smooth purple stone walls.  The floor is 
@@ -3823,7 +3823,7 @@ rooms:
   - id: 7202
     key: sewer_room_7202
     name: "The Lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The Lair"
     long_desc: |
       On the floor you see a lot of human decay, like bones and skulls. You also
@@ -3876,7 +3876,7 @@ rooms:
   - id: 7203
     key: sewer_room_7203
     name: "The Lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The Lair"
     long_desc: |
       On the floor you see a lot of human decay, like bones and skulls. You also
@@ -3937,7 +3937,7 @@ rooms:
   - id: 7204
     key: sewer_room_7204
     name: "The Lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The Lair"
     long_desc: |
       On the floor you see a lot of human decay, like bones and skulls. You also
@@ -3989,7 +3989,7 @@ rooms:
   - id: 7205
     key: sewer_room_7205
     name: "The Lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The Lair"
     long_desc: |
       On the floor you see a lot of human decay, like bones and skulls. You also
@@ -4040,7 +4040,7 @@ rooms:
   - id: 7206
     key: sewer_room_7206
     name: "The lair."
-    area_id: 32
+    area_id: 70
     short_desc: "The lair."
     long_desc: |
       On the floor you see a lot of human decay, like bones and skulls. You also
@@ -4097,7 +4097,7 @@ rooms:
   - id: 7207
     key: sewer_room_7207
     name: "The lair."
-    area_id: 32
+    area_id: 70
     short_desc: "The lair."
     long_desc: |
       On the floor you see a lot of human decay, like bones and skulls. You also
@@ -4148,7 +4148,7 @@ rooms:
   - id: 7208
     key: sewer_room_7208
     name: "The lair entrance."
-    area_id: 32
+    area_id: 70
     short_desc: "The lair entrance."
     long_desc: |
       You are in a dry part of the sewer. To the north is a wooden door, you 
@@ -4187,7 +4187,7 @@ rooms:
   - id: 7209
     key: sewer_room_7209
     name: "The crawlway."
-    area_id: 32
+    area_id: 70
     short_desc: "The crawlway."
     long_desc: |
       You are in a narrow crawlway.  You don't notice anything interesting here.
@@ -4220,7 +4220,7 @@ rooms:
   - id: 7210
     key: sewer_room_7210
     name: "The four-way junction."
-    area_id: 32
+    area_id: 70
     short_desc: "The four-way junction."
     long_desc: |
       You are in a sewer junction. To the north is a small hole, to the west is a
@@ -4254,7 +4254,7 @@ rooms:
   - id: 7211
     key: sewer_room_7211
     name: "The small cave."
-    area_id: 32
+    area_id: 70
     short_desc: "The small cave."
     long_desc: |
       You are in a collapsed sewer drain, which now is more like a small cave.
@@ -4277,7 +4277,7 @@ rooms:
   - id: 7212
     key: sewer_room_7212
     name: "The sewer drain."
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer drain."
     long_desc: |
       You are in a dry sewer drain which bends to the north.
@@ -4310,7 +4310,7 @@ rooms:
   - id: 7213
     key: sewer_room_7213
     name: "The sewer drain."
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer drain."
     long_desc: |
       You are in a dry sewer drain which bends to the east.
@@ -4352,7 +4352,7 @@ rooms:
   - id: 7214
     key: sewer_room_7214
     name: "The drain end."
-    area_id: 32
+    area_id: 70
     short_desc: "The drain end."
     long_desc: |
       You are at the end of the drain around you the sewer has collapsed, the only
@@ -4385,7 +4385,7 @@ rooms:
   - id: 7215
     key: sewer_room_7215
     name: "The half-wet drain."
-    area_id: 32
+    area_id: 70
     short_desc: "The half-wet drain."
     long_desc: |
       You are in a sewer drain where the floor is covered with water. To the north
@@ -4431,7 +4431,7 @@ rooms:
   - id: 7216
     key: sewer_room_7216
     name: "Under water in the sewer."
-    area_id: 32
+    area_id: 70
     short_desc: "Under water in the sewer."
     long_desc: |
       You swim in some dirty water and is holding you breath. You'll better 
@@ -4456,7 +4456,7 @@ rooms:
   - id: 7217
     key: sewer_room_7217
     name: "The half-dry drain."
-    area_id: 32
+    area_id: 70
     short_desc: "The half-dry drain."
     long_desc: |
       You are in a half-dry sewer drain. To the north the drain runs a little bit
@@ -4518,7 +4518,7 @@ rooms:
   - id: 7218
     key: sewer_room_7218
     name: "The very small room."
-    area_id: 32
+    area_id: 70
     short_desc: "The very small room."
     long_desc: |
       You are in a very small room, it is pretty uninteresting.
@@ -4541,7 +4541,7 @@ rooms:
   - id: 7219
     key: sewer_room_7219
     name: "A dry sewer drain."
-    area_id: 32
+    area_id: 70
     short_desc: "A dry sewer drain."
     long_desc: |
       You are in a dry but dirty sewer drain. The drain continues east and south.
@@ -4586,7 +4586,7 @@ rooms:
   - id: 7220
     key: sewer_room_7220
     name: "A boring drain."
-    area_id: 32
+    area_id: 70
     short_desc: "A boring drain."
     long_desc: |
       You are in yet another sewer drain.
@@ -4619,7 +4619,7 @@ rooms:
   - id: 7221
     key: sewer_room_7221
     name: "The sewer drain."
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer drain."
     long_desc: |
       You are in a sewer drain, there is nothing special inhere, except for a 
@@ -4675,7 +4675,7 @@ rooms:
   - id: 7222
     key: sewer_room_7222
     name: "The sewer drain."
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer drain."
     long_desc: |
       You are in a drain, with some slimy water on the floor.
@@ -4711,7 +4711,7 @@ rooms:
   - id: 7223
     key: sewer_room_7223
     name: "The sewer bend."
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer bend."
     long_desc: |
       You find yourself in an ordinary sewer bend, which bend from west to north.
@@ -4756,7 +4756,7 @@ rooms:
   - id: 7224
     key: sewer_room_7224
     name: "The sewer junction"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer junction"
     long_desc: |
       You stand in a junction of three sewer drains. You see some odd scratches on
@@ -4791,7 +4791,7 @@ rooms:
   - id: 7225
     key: sewer_room_7225
     name: "The sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer"
     long_desc: |
       You are in a sewer, where the slimy water runs down through a tiny hole.
@@ -4825,7 +4825,7 @@ rooms:
   - id: 7229
     key: sewer_room_7229
     name: "The strange sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The strange sewer"
     long_desc: |
       You are in a very strange sewer indeed, there are some odd scratches on the
@@ -4860,7 +4860,7 @@ rooms:
   - id: 7230
     key: sewer_room_7230
     name: "The damp sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The damp sewer"
     long_desc: |
       You are in a sewer drain with a funny damp substance on the floor, in the 
@@ -4896,7 +4896,7 @@ rooms:
   - id: 7231
     key: sewer_room_7231
     name: "The strange sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The strange sewer"
     long_desc: |
       You are in an ordinary sewer except for a lot of scratches on the sewer wall,
@@ -4933,7 +4933,7 @@ rooms:
   - id: 7232
     key: sewer_room_7232
     name: "The sewer"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer"
     long_desc: |
       You are in a sewer with more scratches on the walls. And of course a whole lot
@@ -4967,7 +4967,7 @@ rooms:
   - id: 7233
     key: sewer_room_7233
     name: "The sewer drain"
-    area_id: 32
+    area_id: 70
     short_desc: "The sewer drain"
     long_desc: |
       You stand in in a sewer drain, you are able to see some kind of cave-like
@@ -5025,7 +5025,7 @@ rooms:
   - id: 7234
     key: sewer_room_7234
     name: "The rat's lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The rat's lair"
     long_desc: |
       You are in a little cave. You are able to see quite a lot of debris on the 
@@ -5054,7 +5054,7 @@ rooms:
   - id: 7279
     key: sewer_room_7279
     name: "The Wall of the Abyss"
-    area_id: 32
+    area_id: 70
     short_desc: "The Wall of the Abyss"
     long_desc: |
       You hang onto some steps leading down into utter darkness. There's an exit 
@@ -5088,7 +5088,7 @@ rooms:
   - id: 7280
     key: sewer_room_7280
     name: "The entrance."
-    area_id: 32
+    area_id: 70
     short_desc: "The entrance."
     long_desc: |
       You are in a very dark room. You notice that some faces are
@@ -5136,7 +5136,7 @@ rooms:
   - id: 7281
     key: sewer_room_7281
     name: "The corridor."
-    area_id: 32
+    area_id: 70
     short_desc: "The corridor."
     long_desc: |
       The corridor is glowing oppressively in a red hue. You can hear wailing
@@ -5188,7 +5188,7 @@ rooms:
   - id: 7282
     key: sewer_room_7282
     name: "The Realm of lost souls"
-    area_id: 32
+    area_id: 70
     short_desc: "The Realm of lost souls"
     long_desc: |
       You are standing in nothing. All around you there are stars.
@@ -5227,7 +5227,7 @@ rooms:
   - id: 7283
     key: sewer_room_7283
     name: "The T-crossing"
-    area_id: 32
+    area_id: 70
     short_desc: "The T-crossing"
     long_desc: |
       You are in a small hallway. There are doors to the east and to
@@ -5279,7 +5279,7 @@ rooms:
   - id: 7284
     key: sewer_room_7284
     name: "The firedeath"
-    area_id: 32
+    area_id: 70
     short_desc: "The firedeath"
     long_desc: |
       This room is very hot. There are flames surrounding you.  You can
@@ -5300,7 +5300,7 @@ rooms:
   - id: 7285
     key: sewer_room_7285
     name: "The tortureroom."
-    area_id: 32
+    area_id: 70
     short_desc: "The tortureroom."
     long_desc: |
       You are standing in a middle of a square room. Along the walls skeletons 
@@ -5346,7 +5346,7 @@ rooms:
   - id: 7286
     key: sewer_room_7286
     name: "The hells yard"
-    area_id: 32
+    area_id: 70
     short_desc: "The hells yard"
     long_desc: |
       You are standing in a lot of mud. A disgusting smell surrounds
@@ -5392,7 +5392,7 @@ rooms:
   - id: 7301
     key: sewer_room_7301
     name: "The Entrance to the Realm of silence"
-    area_id: 32
+    area_id: 70
     short_desc: "The Entrance to the Realm of silence"
     long_desc: |
       This is an utterly silent place. As you look around you see that there
@@ -5441,7 +5441,7 @@ rooms:
   - id: 7399
     key: sewer_room_7399
     name: "On the walls of the Abyss"
-    area_id: 32
+    area_id: 70
     short_desc: "On the walls of the Abyss"
     long_desc: |
       You are clutching the steps on the wall so that you don't fall to the ground
@@ -5471,7 +5471,7 @@ rooms:
   - id: 7400
     key: sewer_room_7400
     name: "Cave entrance"
-    area_id: 32
+    area_id: 70
     short_desc: "Cave entrance"
     long_desc: |
       You are standing in the cave entrance. It is very dark
@@ -5509,7 +5509,7 @@ rooms:
   - id: 7401
     key: sewer_room_7401
     name: "Cave tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "Cave tunnel"
     long_desc: |
       You are walking in a tunnel. It is very cold. You
@@ -5548,7 +5548,7 @@ rooms:
   - id: 7402
     key: sewer_room_7402
     name: "Cave room"
-    area_id: 32
+    area_id: 70
     short_desc: "Cave room"
     long_desc: |
       You are standing in a room. It's much cooler now.
@@ -5592,7 +5592,7 @@ rooms:
   - id: 7403
     key: sewer_room_7403
     name: "Cave T-cross"
-    area_id: 32
+    area_id: 70
     short_desc: "Cave T-cross"
     long_desc: |
       You are standing in a mud-like substance. The smell here is
@@ -5647,7 +5647,7 @@ rooms:
   - id: 7404
     key: sewer_room_7404
     name: "Cave turning-point"
-    area_id: 32
+    area_id: 70
     short_desc: "Cave turning-point"
     long_desc: |
       The mud are getting deeper. You are wondering, 'Would
@@ -5688,7 +5688,7 @@ rooms:
   - id: 7405
     key: sewer_room_7405
     name: "The secret room"
-    area_id: 32
+    area_id: 70
     short_desc: "The secret room"
     long_desc: |
       There is dust all over the place. It looks like nobody
@@ -5731,7 +5731,7 @@ rooms:
   - id: 7406
     key: sewer_room_7406
     name: "The mudhole"
-    area_id: 32
+    area_id: 70
     short_desc: "The mudhole"
     long_desc: |
       You are standing in a lot of mud. The mud goes to your
@@ -5771,7 +5771,7 @@ rooms:
   - id: 7407
     key: sewer_room_7407
     name: "Tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "Tunnel"
     long_desc: |
       The mud goes to your knees. Otherwise the tunnel looks
@@ -5815,7 +5815,7 @@ rooms:
   - id: 7408
     key: sewer_room_7408
     name: "The long tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "The long tunnel"
     long_desc: |
       Here There is almost no mud, as you stand at the top
@@ -5850,7 +5850,7 @@ rooms:
   - id: 7409
     key: sewer_room_7409
     name: "The hot room"
-    area_id: 32
+    area_id: 70
     short_desc: "The hot room"
     long_desc: |
       You are very surprised, as this room for a change are
@@ -5885,7 +5885,7 @@ rooms:
   - id: 7410
     key: sewer_room_7410
     name: "The small room"
-    area_id: 32
+    area_id: 70
     short_desc: "The small room"
     long_desc: |
       As you look around you notice a small statue. There are
@@ -5923,7 +5923,7 @@ rooms:
   - id: 7411
     key: sewer_room_7411
     name: "The stalagmite cave"
-    area_id: 32
+    area_id: 70
     short_desc: "The stalagmite cave"
     long_desc: |
       You are standing in a stalagmite cave. Water is dripping
@@ -5970,7 +5970,7 @@ rooms:
   - id: 7412
     key: sewer_room_7412
     name: "The stalagmite tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "The stalagmite tunnel"
     long_desc: |
       You has entered a small tunnel. Here it is quite dry.
@@ -6009,7 +6009,7 @@ rooms:
   - id: 7413
     key: sewer_room_7413
     name: "The spongy room"
-    area_id: 32
+    area_id: 70
     short_desc: "The spongy room"
     long_desc: |
       You definitely NOT like this area. It is very dank, and most
@@ -6044,7 +6044,7 @@ rooms:
   - id: 7414
     key: sewer_room_7414
     name: "The stalagmite T-cross"
-    area_id: 32
+    area_id: 70
     short_desc: "The stalagmite T-cross"
     long_desc: |
       You are standing in a cross. To the north you can see
@@ -6089,7 +6089,7 @@ rooms:
   - id: 7415
     key: sewer_room_7415
     name: "The blind end room"
-    area_id: 32
+    area_id: 70
     short_desc: "The blind end room"
     long_desc: |
       This room is obviously a blind end. To the north you see
@@ -6128,7 +6128,7 @@ rooms:
   - id: 7416
     key: sewer_room_7416
     name: "The treasure room"
-    area_id: 32
+    area_id: 70
     short_desc: "The treasure room"
     long_desc: |
       This room is rich ornamented. The walls has carves showing
@@ -6154,7 +6154,7 @@ rooms:
   - id: 7417
     key: sewer_room_7417
     name: "The square lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The square lair"
     long_desc: |
       You are standing in the south-east part of the lair. You can
@@ -6202,7 +6202,7 @@ rooms:
   - id: 7418
     key: sewer_room_7418
     name: "The square lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The square lair"
     long_desc: |
       You are standing in the north-east part of the lair. You see
@@ -6251,7 +6251,7 @@ rooms:
   - id: 7419
     key: sewer_room_7419
     name: "The square lair"
-    area_id: 32
+    area_id: 70
     short_desc: "The square lair"
     long_desc: |
       You are standing in the north-west part of the lair. Here's
@@ -6305,7 +6305,7 @@ rooms:
   - id: 7420
     key: sewer_room_7420
     name: "The lair end"
-    area_id: 32
+    area_id: 70
     short_desc: "The lair end"
     long_desc: |
       You can see a table in front of you. It's very dusty.
@@ -6352,7 +6352,7 @@ rooms:
   - id: 7421
     key: sewer_room_7421
     name: "East tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "East tunnel"
     long_desc: |
       You are standing in dark tunnel, the exits are east
@@ -6387,7 +6387,7 @@ rooms:
   - id: 7422
     key: sewer_room_7422
     name: "North tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "North tunnel"
     long_desc: |
       You are standing in a dark tunnel, it leads upwards.
@@ -6435,7 +6435,7 @@ rooms:
   - id: 7423
     key: sewer_room_7423
     name: "The L-shaped room."
-    area_id: 32
+    area_id: 70
     short_desc: "The L-shaped room."
     long_desc: |
       You are standing in deep darkness. To the south there is a small exit.
@@ -6474,7 +6474,7 @@ rooms:
   - id: 7424
     key: sewer_room_7424
     name: "The Circular hall."
-    area_id: 32
+    area_id: 70
     short_desc: "The Circular hall."
     long_desc: |
       You are standing in round hall. To the north, east and south you
@@ -6525,7 +6525,7 @@ rooms:
   - id: 7425
     key: sewer_room_7425
     name: "Dusty tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "Dusty tunnel"
     long_desc: |
       You are standing in dust. This place has not been
@@ -6564,7 +6564,7 @@ rooms:
   - id: 7426
     key: sewer_room_7426
     name: "The crossing"
-    area_id: 32
+    area_id: 70
     short_desc: "The crossing"
     long_desc: |
       You are standing in a crossing of hallways. You can leave this place
@@ -6622,7 +6622,7 @@ rooms:
   - id: 7427
     key: sewer_room_7427
     name: "The L-shaped room"
-    area_id: 32
+    area_id: 70
     short_desc: "The L-shaped room"
     long_desc: |
       You are standing in a L-shaped room. You can hear noises from the long
@@ -6659,7 +6659,7 @@ rooms:
   - id: 7428
     key: sewer_room_7428
     name: "Dragons lair"
-    area_id: 32
+    area_id: 70
     short_desc: "Dragons lair"
     long_desc: |
       You can see burned walls, the floorstones are fiery red.  All kinds of bones
@@ -6726,7 +6726,7 @@ rooms:
   - id: 7429
     key: sewer_room_7429
     name: "The burned room"
-    area_id: 32
+    area_id: 70
     short_desc: "The burned room"
     long_desc: |
       You are in a room, which once had been quite burned.
@@ -6768,7 +6768,7 @@ rooms:
   - id: 7430
     key: sewer_room_7430
     name: "The wind tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "The wind tunnel"
     long_desc: |
       You are standing in a tunnel. Above you, you can feel
@@ -6806,7 +6806,7 @@ rooms:
   - id: 7431
     key: sewer_room_7431
     name: "The glittering room"
-    area_id: 32
+    area_id: 70
     short_desc: "The glittering room"
     long_desc: |
       This room are all bright. In the walls you can see some
@@ -6853,7 +6853,7 @@ rooms:
   - id: 7432
     key: sewer_room_7432
     name: "The secret passageroom"
-    area_id: 32
+    area_id: 70
     short_desc: "The secret passageroom"
     long_desc: |
       You have entered a tiny room. There WAS an exit down, and an
@@ -6880,7 +6880,7 @@ rooms:
   - id: 7433
     key: sewer_room_7433
     name: "End of long tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "End of long tunnel"
     long_desc: |
       You are at a end of a long tunnel. Right in front of you,
@@ -6918,7 +6918,7 @@ rooms:
   - id: 7434
     key: sewer_room_7434
     name: "Stair-room"
-    area_id: 32
+    area_id: 70
     short_desc: "Stair-room"
     long_desc: |
       You are standing in a small room. Drawings of faces in pain
@@ -6955,7 +6955,7 @@ rooms:
   - id: 7435
     key: sewer_room_7435
     name: "Dark tunnel"
-    area_id: 32
+    area_id: 70
     short_desc: "Dark tunnel"
     long_desc: |
       You are standing in a dark tunnel. It continues to the north
@@ -6997,7 +6997,7 @@ rooms:
   - id: 7436
     key: sewer_room_7436
     name: "Entrance to lair"
-    area_id: 32
+    area_id: 70
     short_desc: "Entrance to lair"
     long_desc: |
       The smell here is awful.  To the south you can see some smoke.
@@ -7042,7 +7042,7 @@ rooms:
   - id: 7437
     key: sewer_room_7437
     name: "North-eastern part of Basilisks cave"
-    area_id: 32
+    area_id: 70
     short_desc: "North-eastern part of Basilisks cave"
     long_desc: |
       It is hard to see here because of the smoke. To the north you
@@ -7087,7 +7087,7 @@ rooms:
   - id: 7438
     key: sewer_room_7438
     name: "South-eastern part of basilisks cave"
-    area_id: 32
+    area_id: 70
     short_desc: "South-eastern part of basilisks cave"
     long_desc: |
       There are a very small hole in wall, from where the smoke
@@ -7125,7 +7125,7 @@ rooms:
   - id: 7439
     key: sewer_room_7439
     name: "North-western part of basilisks cave"
-    area_id: 32
+    area_id: 70
     short_desc: "North-western part of basilisks cave"
     long_desc: |
       You can see some hay spread on the floor. The smell is awful here,
@@ -7172,7 +7172,7 @@ rooms:
   - id: 7440
     key: sewer_room_7440
     name: "South-western part of basilisks cave"
-    area_id: 32
+    area_id: 70
     short_desc: "South-western part of basilisks cave"
     long_desc: |
       You can see nothing but smoke.
@@ -7205,7 +7205,7 @@ rooms:
   - id: 7441
     key: sewer_room_7441
     name: "The small cave"
-    area_id: 32
+    area_id: 70
     short_desc: "The small cave"
     long_desc: |
       You are standing in small cave. You can see
@@ -7240,7 +7240,7 @@ rooms:
   - id: 7442
     key: sewer_room_7442
     name: "The northern end of the pool"
-    area_id: 32
+    area_id: 70
     short_desc: "The northern end of the pool"
     long_desc: |
       You have wet feet, you are standing in water. The water looks calm. You can
@@ -7284,7 +7284,7 @@ rooms:
   - id: 7443
     key: sewer_room_7443
     name: "The pool"
-    area_id: 32
+    area_id: 70
     short_desc: "The pool"
     long_desc: |
       You are swimming in water. It is getting deep here. It is dark in this end.
@@ -7307,7 +7307,7 @@ rooms:
   - id: 7444
     key: sewer_room_7444
     name: "The south end of the pool"
-    area_id: 32
+    area_id: 70
     short_desc: "The south end of the pool"
     long_desc: |
       You standing in water up to you neck. You can only see water.
@@ -7335,7 +7335,7 @@ rooms:
   - id: 7445
     key: sewer_room_7445
     name: "The pool"
-    area_id: 32
+    area_id: 70
     short_desc: "The pool"
     long_desc: |
       You are swimming in DARKNESS. You feel something

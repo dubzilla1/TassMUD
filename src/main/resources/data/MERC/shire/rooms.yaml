@@ -2,7 +2,7 @@ rooms:
   - id: 1100
     key: shire_room_1100
     name: "A dimly lit path"
-    area_id: 30
+    area_id: 11
     short_desc: "A dimly lit path"
     long_desc: |
       You tread through the deep, dark forest on a dimly lit path.  Up ahead you
@@ -34,7 +34,7 @@ rooms:
   - id: 1101
     key: shire_room_1101
     name: "A dimly lit path"
-    area_id: 30
+    area_id: 11
     short_desc: "A dimly lit path"
     long_desc: |
       You tread through the deep, dark forest on a dimly lit path.  Up ahead you
@@ -66,7 +66,7 @@ rooms:
   - id: 1102
     key: shire_room_1102
     name: "A dimly lit path"
-    area_id: 30
+    area_id: 11
     short_desc: "A dimly lit path"
     long_desc: |
       You tread through the deep, dark forest on a dimly lit path.  The forest
@@ -99,7 +99,7 @@ rooms:
   - id: 1103
     key: shire_room_1103
     name: "Entrance to the Shire"
-    area_id: 30
+    area_id: 11
     short_desc: "Entrance to the Shire"
     long_desc: |
       You stand at the entrance to the Shire.  You see halflings, no more than
@@ -146,7 +146,7 @@ rooms:
   - id: 1104
     key: shire_room_1104
     name: "Bywater Road"
-    area_id: 30
+    area_id: 11
     short_desc: "Bywater Road"
     long_desc: |
       You stand on Bywater Road, the busiest street in all of Shiredom.  The road
@@ -188,7 +188,7 @@ rooms:
   - id: 1105
     key: shire_room_1105
     name: "The General Store"
-    area_id: 30
+    area_id: 11
     short_desc: "The General Store"
     long_desc: |
       You are inside the general store.  All sorts of goodies are stacked on the
@@ -223,7 +223,7 @@ rooms:
   - id: 1106
     key: shire_room_1106
     name: "Bywater Road"
-    area_id: 30
+    area_id: 11
     short_desc: "Bywater Road"
     long_desc: |
       You stand on Bywater Road, the busiest street in all of Shiredom.  The road
@@ -276,7 +276,7 @@ rooms:
   - id: 1107
     key: shire_room_1107
     name: "The House of Arms"
-    area_id: 30
+    area_id: 11
     short_desc: "The House of Arms"
     long_desc: |
       You are inside the finest weapons and armour shop in all of Shiredom.  The
@@ -306,7 +306,7 @@ rooms:
   - id: 1108
     key: shire_room_1108
     name: "Kid'n Keep"
-    area_id: 30
+    area_id: 11
     short_desc: "Kid'n Keep"
     long_desc: |
       You are inside Kid'n Keep, the convenient one-stop nursery that maintains
@@ -364,7 +364,7 @@ rooms:
   - id: 1109
     key: shire_room_1109
     name: "A bend in the road"
-    area_id: 30
+    area_id: 11
     short_desc: "A bend in the road"
     long_desc: |
       Bywater Road continues west and south.  A large, imposing building lies
@@ -406,7 +406,7 @@ rooms:
   - id: 1110
     key: shire_room_1110
     name: "Shiriff Post of the Eastern Shire"
-    area_id: 30
+    area_id: 11
     short_desc: "Shiriff Post of the Eastern Shire"
     long_desc: |
       You are in the Shiriff Post which acts as the nucleus for the three shiriffs
@@ -470,7 +470,7 @@ rooms:
   - id: 1111
     key: shire_room_1111
     name: "Thain's Office"
-    area_id: 30
+    area_id: 11
     short_desc: "Thain's Office"
     long_desc: |
       You stand inside the office of the Thain, the police protectorate of the
@@ -511,7 +511,7 @@ rooms:
   - id: 1112
     key: shire_room_1112
     name: "Bywater Road"
-    area_id: 30
+    area_id: 11
     short_desc: "Bywater Road"
     long_desc: |
       You stand on Bywater Road, the busiest street in all of Shiredom.  The road
@@ -554,7 +554,7 @@ rooms:
   - id: 1113
     key: shire_room_1113
     name: "Bywater Road"
-    area_id: 30
+    area_id: 11
     short_desc: "Bywater Road"
     long_desc: |
       You stand on Bywater Road, the busiest street in all of Shiredom.  The road
@@ -610,7 +610,7 @@ rooms:
   - id: 1114
     key: shire_room_1114
     name: "A smial"
-    area_id: 30
+    area_id: 11
     short_desc: "A smial"
     long_desc: |
       You are inside a smial, a hole in the ground which serves as the proper
@@ -644,7 +644,7 @@ rooms:
   - id: 1115
     key: shire_room_1115
     name: "A smial"
-    area_id: 30
+    area_id: 11
     short_desc: "A smial"
     long_desc: |
       You are inside a smial, a hole in the ground which serves as the proper
@@ -678,7 +678,7 @@ rooms:
   - id: 1116
     key: shire_room_1116
     name: "The Ivy Bush"
-    area_id: 30
+    area_id: 11
     short_desc: "The Ivy Bush"
     long_desc: |
       You are in the Ivy Bush, one of the most famous inns in all of Shiredom.
@@ -746,7 +746,7 @@ rooms:
   - id: 1117
     key: shire_room_1117
     name: "Shiriff Training Grounds"
-    area_id: 30
+    area_id: 11
     short_desc: "Shiriff Training Grounds"
     long_desc: |
       The sounds of mock battle and feigned death cries fill your ears.  Every
@@ -803,7 +803,7 @@ rooms:
   - id: 1118
     key: shire_room_1118
     name: "Bywater Road"
-    area_id: 30
+    area_id: 11
     short_desc: "Bywater Road"
     long_desc: |
       You stand on Bywater Road, the busiest street in all of Shiredom.  The road
@@ -846,7 +846,7 @@ rooms:
   - id: 1119
     key: shire_room_1119
     name: "Shiriff Post of the Bridge"
-    area_id: 30
+    area_id: 11
     short_desc: "Shiriff Post of the Bridge"
     long_desc: |
       You are in the Shiriff Post which acts as the nucleus for the three shiriffs
@@ -900,7 +900,7 @@ rooms:
   - id: 1120
     key: shire_room_1120
     name: "Bywater Road"
-    area_id: 30
+    area_id: 11
     short_desc: "Bywater Road"
     long_desc: |
       You stand on Bywater Road, the busiest street in all of Shiredom.  The road
@@ -954,7 +954,7 @@ rooms:
   - id: 1121
     key: shire_room_1121
     name: "The Grocer's Delight"
-    area_id: 30
+    area_id: 11
     short_desc: "The Grocer's Delight"
     long_desc: |
       You tremble with ecstasy as the tempting odors of freshly made pipeweed
@@ -989,7 +989,7 @@ rooms:
   - id: 1122
     key: shire_room_1122
     name: "Bywater Road"
-    area_id: 30
+    area_id: 11
     short_desc: "Bywater Road"
     long_desc: |
       You stand on Bywater Road, the busiest street in all of Shiredom.  The road
@@ -1033,7 +1033,7 @@ rooms:
   - id: 1123
     key: shire_room_1123
     name: "Entrance to Watermill"
-    area_id: 30
+    area_id: 11
     short_desc: "Entrance to Watermill"
     long_desc: |
       You stand at the entrance to a watermill.  You hear the bustle of busy
@@ -1075,7 +1075,7 @@ rooms:
   - id: 1124
     key: shire_room_1124
     name: "The Watermill"
-    area_id: 30
+    area_id: 11
     short_desc: "The Watermill"
     long_desc: |
       Halfling workers are scattered everywhere, busy at work.  You see the river
@@ -1128,7 +1128,7 @@ rooms:
   - id: 1125
     key: shire_room_1125
     name: "Rear of watermill"
-    area_id: 30
+    area_id: 11
     short_desc: "Rear of watermill"
     long_desc: |
       You stand in a damp, dimly lit room.  Mildew clings to the walls and it
@@ -1168,7 +1168,7 @@ rooms:
   - id: 1126
     key: shire_room_1126
     name: "Took Hill"
-    area_id: 30
+    area_id: 11
     short_desc: "Took Hill"
     long_desc: |
       You stand on top of Took Hill, named after the legendary Bandobras Took.
@@ -1204,7 +1204,7 @@ rooms:
   - id: 1127
     key: shire_room_1127
     name: "Northern end of grassy field"
-    area_id: 30
+    area_id: 11
     short_desc: "Northern end of grassy field"
     long_desc: |
       You stand in a grassy field--nothing to get too excited about.  The field
@@ -1239,7 +1239,7 @@ rooms:
   - id: 1128
     key: shire_room_1128
     name: "A grassy field"
-    area_id: 30
+    area_id: 11
     short_desc: "A grassy field"
     long_desc: |
       You stand in the center of a grassy field.  A great birthday party appears
@@ -1309,7 +1309,7 @@ rooms:
   - id: 1129
     key: shire_room_1129
     name: "Southern end of grassy field"
-    area_id: 30
+    area_id: 11
     short_desc: "Southern end of grassy field"
     long_desc: |
       You stand in a grassy field--nothing to get too excited about.  The field
@@ -1344,7 +1344,7 @@ rooms:
   - id: 1130
     key: shire_room_1130
     name: "Western end of grassy field"
-    area_id: 30
+    area_id: 11
     short_desc: "Western end of grassy field"
     long_desc: |
       You stand in a grassy field--nothing to get too excited about.  The field
@@ -1379,7 +1379,7 @@ rooms:
   - id: 1131
     key: shire_room_1131
     name: "Brandywine Bridge"
-    area_id: 30
+    area_id: 11
     short_desc: "Brandywine Bridge"
     long_desc: |
       You stand on a solidly built bridge.  As you look down you spy gaily
@@ -1414,7 +1414,7 @@ rooms:
   - id: 1132
     key: shire_room_1132
     name: "Delving Lane"
-    area_id: 30
+    area_id: 11
     short_desc: "Delving Lane"
     long_desc: |
       Delving Lane runs north and south in this small borough of the Shire.  To 
@@ -1458,7 +1458,7 @@ rooms:
   - id: 1133
     key: shire_room_1133
     name: "Delving Lane"
-    area_id: 30
+    area_id: 11
     short_desc: "Delving Lane"
     long_desc: |
       Delving Lane runs north and south in this small borough of the Shire.  A 
@@ -1511,7 +1511,7 @@ rooms:
   - id: 1134
     key: shire_room_1134
     name: "Delving Lane"
-    area_id: 30
+    area_id: 11
     short_desc: "Delving Lane"
     long_desc: |
       Delving Lane runs north and south in this small borough of the Shire. There
@@ -1546,7 +1546,7 @@ rooms:
   - id: 1135
     key: shire_room_1135
     name: "Bag End"
-    area_id: 30
+    area_id: 11
     short_desc: "Bag End"
     long_desc: |
       You stand in a comfortably well-equipped house, a palace by humble halfling
@@ -1592,7 +1592,7 @@ rooms:
   - id: 1136
     key: shire_room_1136
     name: "Bedroom"
-    area_id: 30
+    area_id: 11
     short_desc: "Bedroom"
     long_desc: |
       You stand in the private bedroom of Bag End.  There are two beds to the
@@ -1642,7 +1642,7 @@ rooms:
   - id: 1137
     key: shire_room_1137
     name: "Pantry"
-    area_id: 30
+    area_id: 11
     short_desc: "Pantry"
     long_desc: |
       You are inside the pantry.  Shelves filled with food and drink surround
@@ -1693,7 +1693,7 @@ rooms:
   - id: 1138
     key: shire_room_1138
     name: "A grassy field"
-    area_id: 30
+    area_id: 11
     short_desc: "A grassy field"
     long_desc: |
       You stand upon a grassy field.  A bull stands grazing not far away and
@@ -1741,7 +1741,7 @@ rooms:
   - id: 1139
     key: shire_room_1139
     name: "Pig pen"
-    area_id: 30
+    area_id: 11
     short_desc: "Pig pen"
     long_desc: |
       You feel your boots sinking into the mud.  Numerous pigs roam about,
@@ -1795,7 +1795,7 @@ rooms:
   - id: 1140
     key: shire_room_1140
     name: "A stony path"
-    area_id: 30
+    area_id: 11
     short_desc: "A stony path"
     long_desc: |
       You walk on a stony path which leads to a small residence to the north.
@@ -1827,7 +1827,7 @@ rooms:
   - id: 1141
     key: shire_room_1141
     name: "Gamgee Residence"
-    area_id: 30
+    area_id: 11
     short_desc: "Gamgee Residence"
     long_desc: |
       You stand inside a modest home.  You deduce that this is indeed the home
@@ -1859,7 +1859,7 @@ rooms:
   - id: 1142
     key: shire_room_1142
     name: "A barn"
-    area_id: 30
+    area_id: 11
     short_desc: "A barn"
     long_desc: |
       Animals of every sort fill the small barn.  You feel the hot breath of
@@ -1926,7 +1926,7 @@ rooms:
   - id: 1143
     key: shire_room_1143
     name: "A chicken coop"
-    area_id: 30
+    area_id: 11
     short_desc: "A chicken coop"
     long_desc: |
       You stand inside a rather crowded chicken coop.  The cackle of hens fill
@@ -1993,7 +1993,7 @@ rooms:
   - id: 1144
     key: shire_room_1144
     name: "The Green Dragon"
-    area_id: 30
+    area_id: 11
     short_desc: "The Green Dragon"
     long_desc: |
       Welcome to the Green Dragon, the undisputed leader in the art of
@@ -2075,7 +2075,7 @@ rooms:
   - id: 1145
     key: shire_room_1145
     name: "Shiriff Post of Delving Lane"
-    area_id: 30
+    area_id: 11
     short_desc: "Shiriff Post of Delving Lane"
     long_desc: |
       You are in the Shiriff Post which acts as the nucleus for the three shiriffs
@@ -2129,7 +2129,7 @@ rooms:
   - id: 1146
     key: shire_room_1146
     name: "A dark tunnel"
-    area_id: 30
+    area_id: 11
     short_desc: "A dark tunnel"
     long_desc: |
       You stand inside a small underground tunnel.  The ceiling is so low that
@@ -2164,7 +2164,7 @@ rooms:
   - id: 1147
     key: shire_room_1147
     name: "A dark tunnel"
-    area_id: 30
+    area_id: 11
     short_desc: "A dark tunnel"
     long_desc: |
       You stand inside a small underground tunnel.  The ceiling is so low that
@@ -2199,7 +2199,7 @@ rooms:
   - id: 1148
     key: shire_room_1148
     name: "A dark tunnel"
-    area_id: 30
+    area_id: 11
     short_desc: "A dark tunnel"
     long_desc: |
       You stand inside a small underground tunnel.  The ceiling is so low that
@@ -2234,7 +2234,7 @@ rooms:
   - id: 1149
     key: shire_room_1149
     name: "A three way intersection"
-    area_id: 30
+    area_id: 11
     short_desc: "A three way intersection"
     long_desc: |
       You stand at an intersection.  The tunnel continues east and west while
@@ -2278,7 +2278,7 @@ rooms:
   - id: 1150
     key: shire_room_1150
     name: "End of a dark tunnel"
-    area_id: 30
+    area_id: 11
     short_desc: "End of a dark tunnel"
     long_desc: |
       You stand at the end of a dark tunnel.  The underground tunnel continues
@@ -2313,7 +2313,7 @@ rooms:
   - id: 1151
     key: shire_room_1151
     name: "A dark tunnel"
-    area_id: 30
+    area_id: 11
     short_desc: "A dark tunnel"
     long_desc: |
       You stand inside a small underground tunnel.  The ceiling is so low that
@@ -2369,7 +2369,7 @@ rooms:
   - id: 1152
     key: shire_room_1152
     name: "A dark tunnel"
-    area_id: 30
+    area_id: 11
     short_desc: "A dark tunnel"
     long_desc: |
       You stand inside a small underground tunnel.  The ceiling is so low that 
@@ -2414,7 +2414,7 @@ rooms:
   - id: 1153
     key: shire_room_1153
     name: "Shiriff Post of the Lower Shire"
-    area_id: 30
+    area_id: 11
     short_desc: "Shiriff Post of the Lower Shire"
     long_desc: |
       You are in the shiriff Post which acts as the nucleus for the three shiriffs 
@@ -2468,7 +2468,7 @@ rooms:
   - id: 1154
     key: shire_room_1154
     name: "A halfling hole"
-    area_id: 30
+    area_id: 11
     short_desc: "A halfling hole"
     long_desc: |
       You stand inside a rather crudely built halfling hole.  The many passageways
@@ -2498,7 +2498,7 @@ rooms:
   - id: 1155
     key: shire_room_1155
     name: "A halfling hole"
-    area_id: 30
+    area_id: 11
     short_desc: "A halfling hole"
     long_desc: |
       You stand inside a rather crudely built halfling hole.  The many passageways
@@ -2528,7 +2528,7 @@ rooms:
   - id: 1156
     key: shire_room_1156
     name: "End of a dark tunnel"
-    area_id: 30
+    area_id: 11
     short_desc: "End of a dark tunnel"
     long_desc: |
       You are at one end of a dark tunnel.  The tunnel continues to the south
@@ -2562,7 +2562,7 @@ rooms:
   - id: 1157
     key: shire_room_1157
     name: "The Inn of the Green Dragon"
-    area_id: 30
+    area_id: 11
     short_desc: "The Inn of the Green Dragon"
     long_desc: |
       You are standing in the Inn of the Green dragon.  Large paintings of 

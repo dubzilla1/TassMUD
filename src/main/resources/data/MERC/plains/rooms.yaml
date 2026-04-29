@@ -2,7 +2,7 @@ rooms:
   - id: 300
     key: plains_room_300
     name: "Path in the plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the plains"
     long_desc: |
       You are walking on a path situated in the rough plains.
@@ -57,7 +57,7 @@ rooms:
   - id: 301
     key: plains_room_301
     name: "Path in the plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the plains"
     long_desc: |
       You are walking on a path situated in the rough plains.
@@ -90,7 +90,7 @@ rooms:
   - id: 302
     key: plains_room_302
     name: "Path in the plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the plains"
     long_desc: |
       You are walking on a path situated in the rough plains.
@@ -123,7 +123,7 @@ rooms:
   - id: 303
     key: plains_room_303
     name: "Path in the plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the plains"
     long_desc: |
       You are walking on a path situated in the rough plains.
@@ -177,7 +177,7 @@ rooms:
   - id: 304
     key: plains_room_304
     name: "Path in the plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the plains"
     long_desc: |
       You are walking on a path situated in the rough plains.
@@ -210,7 +210,7 @@ rooms:
   - id: 305
     key: plains_room_305
     name: "Path in the plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the plains"
     long_desc: |
       You are walking on a path situated in the rough plains.
@@ -264,7 +264,7 @@ rooms:
   - id: 306
     key: plains_room_306
     name: "Path in the foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the foothills"
     long_desc: |
       You are on the path leading through the small foothills.
@@ -308,7 +308,7 @@ rooms:
   - id: 307
     key: plains_room_307
     name: "Path in the foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the foothills"
     long_desc: |
       You are walking on a path situated in the small foothills.
@@ -341,7 +341,7 @@ rooms:
   - id: 308
     key: plains_room_308
     name: "Path in the foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the foothills"
     long_desc: |
       You are walking on a narrow path in the foothills.
@@ -374,7 +374,7 @@ rooms:
   - id: 309
     key: plains_room_309
     name: "Path in the foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the foothills"
     long_desc: |
       You are walking on a path situated in foothills.
@@ -417,7 +417,7 @@ rooms:
   - id: 310
     key: plains_room_310
     name: "Path in the foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the foothills"
     long_desc: |
       You are walking on a long path in the east-west direction.
@@ -460,7 +460,7 @@ rooms:
   - id: 311
     key: plains_room_311
     name: "Path in the foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "Path in the foothills"
     long_desc: |
       You are walking on the long, narrow path through the foothills.
@@ -493,7 +493,7 @@ rooms:
   - id: 312
     key: plains_room_312
     name: "The path intersection"
-    area_id: 30
+    area_id: 3
     short_desc: "The path intersection"
     long_desc: |
       You are standing on an intersection between 3 paths.
@@ -537,7 +537,7 @@ rooms:
   - id: 313
     key: plains_room_313
     name: "Road to Ofcol"
-    area_id: 30
+    area_id: 3
     short_desc: "Road to Ofcol"
     long_desc: |
       You are walking on a wide road with trail marks on it.  To the north
@@ -581,7 +581,7 @@ rooms:
   - id: 314
     key: plains_room_314
     name: "Outside Ofcol"
-    area_id: 30
+    area_id: 3
     short_desc: "Outside Ofcol"
     long_desc: |
       You are standing outside the village of Ofcol.
@@ -617,7 +617,7 @@ rooms:
   - id: 315
     key: plains_room_315
     name: "Gallow hill"
-    area_id: 30
+    area_id: 3
     short_desc: "Gallow hill"
     long_desc: |
       You walk in the grassy plains. On this little hill you can see
@@ -680,7 +680,7 @@ rooms:
   - id: 316
     key: plains_room_316
     name: "Grassy plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy plains"
     long_desc: |
       You walk in the grassy plains among the herbs which grow here. The wind is
@@ -718,7 +718,7 @@ rooms:
   - id: 317
     key: plains_room_317
     name: "Grassy plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy plains"
     long_desc: |
       You walk in the grassy plains among the herbs which grow here. The wind is
@@ -762,7 +762,7 @@ rooms:
   - id: 318
     key: plains_room_318
     name: "Grassy plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy plains"
     long_desc: |
       You walk in the beautiful grassy plains. The wind is strong and rough.
@@ -810,7 +810,7 @@ rooms:
   - id: 319
     key: plains_room_319
     name: "Grassy plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy plains"
     long_desc: |
       You walk in the grassy plains among the herbs which grow here. The wind is
@@ -860,7 +860,7 @@ rooms:
   - id: 320
     key: plains_room_320
     name: "Grassy plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy plains"
     long_desc: |
       You walk in some grassy plains. The wind is strong and rough. To the
@@ -912,7 +912,7 @@ rooms:
   - id: 321
     key: plains_room_321
     name: "Grassy plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy plains"
     long_desc: |
       You walk in the grassy plains. The wind is fairly strong.
@@ -943,7 +943,7 @@ rooms:
   - id: 322
     key: plains_room_322
     name: "Grassy foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy foothills"
     long_desc: |
       You walk in the grassy foothills north of the plains. The wind is rough.
@@ -986,7 +986,7 @@ rooms:
   - id: 323
     key: plains_room_323
     name: "The steep foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "The steep foothills"
     long_desc: |
       You walk in the steep foothills. It is rather hard to move here.
@@ -1049,7 +1049,7 @@ rooms:
   - id: 324
     key: plains_room_324
     name: "The steep foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "The steep foothills"
     long_desc: |
       You are walking in the steep foothills. It is rather hard to move here.
@@ -1115,7 +1115,7 @@ rooms:
   - id: 325
     key: plains_room_325
     name: "The steep foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "The steep foothills"
     long_desc: |
       You are walking in the steep foothills. It is rather hard to move here.
@@ -1148,7 +1148,7 @@ rooms:
   - id: 326
     key: plains_room_326
     name: "The pool in the foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "The pool in the foothills"
     long_desc: |
       You are standing by a pool in the small foothills. It is clear and cold.
@@ -1195,7 +1195,7 @@ rooms:
   - id: 327
     key: plains_room_327
     name: "The foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "The foothills"
     long_desc: |
       You are walking in some foothills. It is rather hard to move here.
@@ -1233,7 +1233,7 @@ rooms:
   - id: 330
     key: plains_room_330
     name: "In front of hut in foothills"
-    area_id: 30
+    area_id: 3
     short_desc: "In front of hut in foothills"
     long_desc: |
       You are standing in the foothills. To the west, well hidden among the small
@@ -1286,7 +1286,7 @@ rooms:
   - id: 331
     key: plains_room_331
     name: "Hermit's hut"
-    area_id: 30
+    area_id: 3
     short_desc: "Hermit's hut"
     long_desc: |
       You are inside the hermit's hut. It is rather old, but serves it purpose.
@@ -1326,7 +1326,7 @@ rooms:
   - id: 332
     key: plains_room_332
     name: "The ancient path"
-    area_id: 30
+    area_id: 3
     short_desc: "The ancient path"
     long_desc: |
       You are moving on an ancient path. The path is slightly covered with
@@ -1359,7 +1359,7 @@ rooms:
   - id: 333
     key: plains_room_333
     name: "The ancient path"
-    area_id: 30
+    area_id: 3
     short_desc: "The ancient path"
     long_desc: |
       You are standing on the ancient path which runs north and south.
@@ -1391,7 +1391,7 @@ rooms:
   - id: 334
     key: plains_room_334
     name: "The ancient path"
-    area_id: 30
+    area_id: 3
     short_desc: "The ancient path"
     long_desc: |
       You are standing on the ancient path which runs north and south.
@@ -1428,7 +1428,7 @@ rooms:
   - id: 335
     key: plains_room_335
     name: "The ancient path"
-    area_id: 30
+    area_id: 3
     short_desc: "The ancient path"
     long_desc: |
       The path runs north and east from here.  You notice some markers placed
@@ -1464,7 +1464,7 @@ rooms:
   - id: 336
     key: plains_room_336
     name: "The wooden bridge"
-    area_id: 30
+    area_id: 3
     short_desc: "The wooden bridge"
     long_desc: |
       You have stepped upon a wooden bridge. It looks old but safe to cross.
@@ -1501,7 +1501,7 @@ rooms:
   - id: 337
     key: plains_room_337
     name: "The ancient path"
-    area_id: 30
+    area_id: 3
     short_desc: "The ancient path"
     long_desc: |
       You find yourself located between the bridge and the rock formations.
@@ -1539,7 +1539,7 @@ rooms:
   - id: 338
     key: plains_room_338
     name: "Grassy plains"
-    area_id: 30
+    area_id: 3
     short_desc: "Grassy plains"
     long_desc: |
       You walk in the grassy plains among the herbs which grow here. The wind is
@@ -1577,7 +1577,7 @@ rooms:
   - id: 339
     key: plains_room_339
     name: "The Stones of G'harne"
-    area_id: 30
+    area_id: 3
     short_desc: "The Stones of G'harne"
     long_desc: |
       You are in the center of 7, 15 ft tall monolith like black stones.
@@ -1624,7 +1624,7 @@ rooms:
   - id: 340
     key: plains_room_340
     name: "Dark smelly tunnels"
-    area_id: 30
+    area_id: 3
     short_desc: "Dark smelly tunnels"
     long_desc: |
       You are standing in a gloomy tunnel leading south and west, right under
@@ -1675,7 +1675,7 @@ rooms:
   - id: 341
     key: plains_room_341
     name: "Dead end of tunnel"
-    area_id: 30
+    area_id: 3
     short_desc: "Dead end of tunnel"
     long_desc: |
       The tunnel comes to an abrupt end here. It simply looks like it
@@ -1699,7 +1699,7 @@ rooms:
   - id: 342
     key: plains_room_342
     name: "Dark smelly tunnels"
-    area_id: 30
+    area_id: 3
     short_desc: "Dark smelly tunnels"
     long_desc: |
       You are standing in a gloomy tunnel leading east and west.
@@ -1739,7 +1739,7 @@ rooms:
   - id: 343
     key: plains_room_343
     name: "Dark smelly tunnels"
-    area_id: 30
+    area_id: 3
     short_desc: "Dark smelly tunnels"
     long_desc: |
       You are standing in a small smelly tunnel under the plains.
@@ -1775,7 +1775,7 @@ rooms:
   - id: 344
     key: plains_room_344
     name: "The Hall of G'harne"
-    area_id: 30
+    area_id: 3
     short_desc: "The Hall of G'harne"
     long_desc: |
       You stand in the hall of G'harne. The walls are dressed with strange
@@ -1813,7 +1813,7 @@ rooms:
   - id: 345
     key: plains_room_345
     name: "Steep slope"
-    area_id: 30
+    area_id: 3
     short_desc: "Steep slope"
     long_desc: |
       You try to climb down the slope.

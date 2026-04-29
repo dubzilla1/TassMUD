@@ -2,7 +2,7 @@ rooms:
   - id: 5300
     key: mirror_room_5300
     name: "The Grand Gate of Thalos"
-    area_id: 32
+    area_id: 53
     short_desc: "The Grand Gate of Thalos"
     long_desc: |
       You stand in the archway of a gigantic stone archway. The two
@@ -136,7 +136,7 @@ rooms:
   - id: 5301
     key: mirror_room_5301
     name: "Main Street"
-    area_id: 32
+    area_id: 53
     short_desc: "Main Street"
     long_desc: |
       This is a magnificent street, immaculate all over. The streets are filled
@@ -190,7 +190,7 @@ rooms:
   - id: 5302
     key: mirror_room_5302
     name: "Main Street"
-    area_id: 32
+    area_id: 53
     short_desc: "Main Street"
     long_desc: |
       This is a magnificent street, immaculate all over.  The streets are filled
@@ -259,7 +259,7 @@ rooms:
   - id: 5303
     key: mirror_room_5303
     name: "A Garden Path"
-    area_id: 32
+    area_id: 53
     short_desc: "A Garden Path"
     long_desc: |
       A circular path surrounds a magnificent domed temple in the center
@@ -313,7 +313,7 @@ rooms:
   - id: 5304
     key: mirror_room_5304
     name: "A Garden Path"
-    area_id: 32
+    area_id: 53
     short_desc: "A Garden Path"
     long_desc: |
       A circular path surrounds a magnificent domed temple in the center
@@ -387,7 +387,7 @@ rooms:
   - id: 5305
     key: mirror_room_5305
     name: "A garden path"
-    area_id: 32
+    area_id: 53
     short_desc: "A garden path"
     long_desc: |
       A circular path surrounds a magnificent domed temple in the center
@@ -421,7 +421,7 @@ rooms:
   - id: 5306
     key: mirror_room_5306
     name: "A Garden Path"
-    area_id: 32
+    area_id: 53
     short_desc: "A Garden Path"
     long_desc: |
       A circular path surrounds a magnificent domed temple in the center
@@ -464,7 +464,7 @@ rooms:
   - id: 5307
     key: mirror_room_5307
     name: "The market place"
-    area_id: 32
+    area_id: 53
     short_desc: "The market place"
     long_desc: |
       You stand in the middle of a large square lined on each side with
@@ -532,7 +532,7 @@ rooms:
   - id: 5308
     key: mirror_room_5308
     name: "The market place"
-    area_id: 32
+    area_id: 53
     short_desc: "The market place"
     long_desc: |
       You stand in the middle of a large square lined on each side with
@@ -590,7 +590,7 @@ rooms:
   - id: 5309
     key: mirror_room_5309
     name: "A Side Street"
-    area_id: 32
+    area_id: 53
     short_desc: "A Side Street"
     long_desc: |
       This small side street leads east and west into back alleys while
@@ -633,7 +633,7 @@ rooms:
   - id: 5310
     key: mirror_room_5310
     name: "A Side Street"
-    area_id: 32
+    area_id: 53
     short_desc: "A Side Street"
     long_desc: |
       You are in the common section of the city. More buildings made of
@@ -696,7 +696,7 @@ rooms:
   - id: 5311
     key: mirror_room_5311
     name: "A Side Street"
-    area_id: 32
+    area_id: 53
     short_desc: "A Side Street"
     long_desc: |
       This small side street leads away from the garden path to the south.
@@ -749,7 +749,7 @@ rooms:
   - id: 5312
     key: mirror_room_5312
     name: "A side street"
-    area_id: 32
+    area_id: 53
     short_desc: "A side street"
     long_desc: |
       This small side street leads south away from the temple into the
@@ -821,7 +821,7 @@ rooms:
   - id: 5313
     key: mirror_room_5313
     name: "A side street"
-    area_id: 32
+    area_id: 53
     short_desc: "A side street"
     long_desc: |
       This small side street is lined with great beautifully designed
@@ -901,7 +901,7 @@ rooms:
   - id: 5314
     key: mirror_room_5314
     name: "A side street"
-    area_id: 32
+    area_id: 53
     short_desc: "A side street"
     long_desc: |
       You are at the end of a long street leading to the center of the city.
@@ -962,7 +962,7 @@ rooms:
   - id: 5315
     key: mirror_room_5315
     name: "Under another grand watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "Under another grand watchtower"
     long_desc: |
       You stand at the base of a tall ivy covered watchtower built to
@@ -1026,7 +1026,7 @@ rooms:
   - id: 5316
     key: mirror_room_5316
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       This alley leads to the rear of meat stand. The aroma of fresh and
@@ -1072,7 +1072,7 @@ rooms:
   - id: 5317
     key: mirror_room_5317
     name: "The meat stand"
-    area_id: 32
+    area_id: 53
     short_desc: "The meat stand"
     long_desc: |
       A large stand has been set up here with metal hooks and wooden racks
@@ -1139,7 +1139,7 @@ rooms:
   - id: 5318
     key: mirror_room_5318
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow alley leads east to a wider street and west to one of
@@ -1180,7 +1180,7 @@ rooms:
   - id: 5319
     key: mirror_room_5319
     name: "The guild house"
-    area_id: 32
+    area_id: 53
     short_desc: "The guild house"
     long_desc: |
       You are standing in this city's ONLY guild house.  Tables and chairs
@@ -1224,7 +1224,7 @@ rooms:
   - id: 5320
     key: mirror_room_5320
     name: "The produce stand"
-    area_id: 32
+    area_id: 53
     short_desc: "The produce stand"
     long_desc: |
       A large cart sits here carrying fresh fruit and vegetables.
@@ -1281,7 +1281,7 @@ rooms:
   - id: 5321
     key: mirror_room_5321
     name: "The smithy"
-    area_id: 32
+    area_id: 53
     short_desc: "The smithy"
     long_desc: |
       In here you find tools and anvils used to make various weapons
@@ -1315,7 +1315,7 @@ rooms:
   - id: 5322
     key: mirror_room_5322
     name: "The tapestry stand"
-    area_id: 32
+    area_id: 53
     short_desc: "The tapestry stand"
     long_desc: |
       Beautiful tapestries and rugs hang all over the walls.  Fancy
@@ -1367,7 +1367,7 @@ rooms:
   - id: 5323
     key: mirror_room_5323
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow alley leads north to one of the city watchtowers while
@@ -1399,7 +1399,7 @@ rooms:
   - id: 5324
     key: mirror_room_5324
     name: "Under the watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "Under the watchtower"
     long_desc: |
       You stand under one of the city watchtowers built to protect
@@ -1467,7 +1467,7 @@ rooms:
   - id: 5325
     key: mirror_room_5325
     name: "The jewelery stand"
-    area_id: 32
+    area_id: 53
     short_desc: "The jewelery stand"
     long_desc: |
       A table stands covered with fine jewelery and gems.  The jeweler
@@ -1501,7 +1501,7 @@ rooms:
   - id: 5326
     key: mirror_room_5326
     name: "A simple clay dwelling"
-    area_id: 32
+    area_id: 53
     short_desc: "A simple clay dwelling"
     long_desc: |
       This is a very plain house with a few chairs and a bed.
@@ -1539,7 +1539,7 @@ rooms:
   - id: 5327
     key: mirror_room_5327
     name: "A stone dwelling"
-    area_id: 32
+    area_id: 53
     short_desc: "A stone dwelling"
     long_desc: |
       This small house is the dwelling of a humble citizen of Thalos.
@@ -1567,7 +1567,7 @@ rooms:
   - id: 5328
     key: mirror_room_5328
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow alley leads east to one of the city watchtowers and west to
@@ -1608,7 +1608,7 @@ rooms:
   - id: 5329
     key: mirror_room_5329
     name: "A busy shop"
-    area_id: 32
+    area_id: 53
     short_desc: "A busy shop"
     long_desc: |
       From the outside this place looks like an ordinary building,
@@ -1639,7 +1639,7 @@ rooms:
   - id: 5330
     key: mirror_room_5330
     name: "The Tavern of the Sun"
-    area_id: 32
+    area_id: 53
     short_desc: "The Tavern of the Sun"
     long_desc: |
       A glorious place, this tavern is second home for many citizens of
@@ -1708,7 +1708,7 @@ rooms:
   - id: 5331
     key: mirror_room_5331
     name: "South wing of the city hall"
-    area_id: 32
+    area_id: 53
     short_desc: "South wing of the city hall"
     long_desc: |
       You stand in a large room attached to this end of the hallway which
@@ -1797,7 +1797,7 @@ rooms:
   - id: 5332
     key: mirror_room_5332
     name: "The city hall"
-    area_id: 32
+    area_id: 53
     short_desc: "The city hall"
     long_desc: |
       This is the main reception area of Thalos' city hall. The walls have
@@ -1866,7 +1866,7 @@ rooms:
   - id: 5333
     key: mirror_room_5333
     name: "East wing of the city hall"
-    area_id: 32
+    area_id: 53
     short_desc: "East wing of the city hall"
     long_desc: |
       Here lies fancy office, possibly the mayor's. A few green plants
@@ -1908,7 +1908,7 @@ rooms:
   - id: 5334
     key: mirror_room_5334
     name: "The private gardens and courtyard of Thalos"
-    area_id: 32
+    area_id: 53
     short_desc: "The private gardens and courtyard of Thalos"
     long_desc: |
       You stare in awe as the beauty of this place takes you by
@@ -1976,7 +1976,7 @@ rooms:
   - id: 5335
     key: mirror_room_5335
     name: "A small guard house"
-    area_id: 32
+    area_id: 53
     short_desc: "A small guard house"
     long_desc: |
       This is the barracks for Thalos' cityguards.  Guards populate this
@@ -2069,7 +2069,7 @@ rooms:
   - id: 5336
     key: mirror_room_5336
     name: "An impressive house"
-    area_id: 32
+    area_id: 53
     short_desc: "An impressive house"
     long_desc: |
       This house houses the Defender of Thalos.  He represents all that
@@ -2133,7 +2133,7 @@ rooms:
   - id: 5337
     key: mirror_room_5337
     name: "A Public Library"
-    area_id: 32
+    area_id: 53
     short_desc: "A Public Library"
     long_desc: |
       This seems to be the tallest structure in the city.  Rows and rows of books
@@ -2182,7 +2182,7 @@ rooms:
   - id: 5338
     key: mirror_room_5338
     name: "The Library Addition"
-    area_id: 32
+    area_id: 53
     short_desc: "The Library Addition"
     long_desc: |
       There are more shelves and tables here.  Vials of strange potions line a
@@ -2229,7 +2229,7 @@ rooms:
   - id: 5339
     key: mirror_room_5339
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow back alley goes south to main street and north towards
@@ -2261,7 +2261,7 @@ rooms:
   - id: 5340
     key: mirror_room_5340
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow back alley leads north to one of the city watchtowers
@@ -2307,7 +2307,7 @@ rooms:
   - id: 5341
     key: mirror_room_5341
     name: "Under a watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "Under a watchtower"
     long_desc: |
       You stand under a tall watchtower. Narrow back alleys lead west and
@@ -2367,7 +2367,7 @@ rooms:
   - id: 5342
     key: mirror_room_5342
     name: "A bath house"
-    area_id: 32
+    area_id: 53
     short_desc: "A bath house"
     long_desc: |
       This is the bath house for the commoners of the city. Hot steamy water 
@@ -2416,7 +2416,7 @@ rooms:
   - id: 5343
     key: mirror_room_5343
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow back alley leads west to a small side street and east to one
@@ -2459,7 +2459,7 @@ rooms:
   - id: 5344
     key: mirror_room_5344
     name: "A Resting Room"
-    area_id: 32
+    area_id: 53
     short_desc: "A Resting Room"
     long_desc: |
       You are in a resting room.  Soft mats line the floor, and you see many
@@ -2516,7 +2516,7 @@ rooms:
   - id: 5345
     key: mirror_room_5345
     name: "On the second floor of the library"
-    area_id: 32
+    area_id: 53
     short_desc: "On the second floor of the library"
     long_desc: |
       You see more books here.  Through windows, you have a glorious view of
@@ -2543,7 +2543,7 @@ rooms:
   - id: 5346
     key: mirror_room_5346
     name: "The north-west watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "The north-west watchtower"
     long_desc: |
       You stand atop one of the city watchtowers. The view is magnificent
@@ -2586,7 +2586,7 @@ rooms:
   - id: 5347
     key: mirror_room_5347
     name: "The south-west watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "The south-west watchtower"
     long_desc: |
       You stand atop one of the city watchtowers. The view is magnificent
@@ -2622,7 +2622,7 @@ rooms:
   - id: 5348
     key: mirror_room_5348
     name: "The north-east watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "The north-east watchtower"
     long_desc: |
       You stand atop one of the city watchtowers. The view is magnificent
@@ -2665,7 +2665,7 @@ rooms:
   - id: 5350
     key: mirror_room_5350
     name: "The Temple of Thalos"
-    area_id: 32
+    area_id: 53
     short_desc: "The Temple of Thalos"
     long_desc: |
       You stand within one of the most holy places in the realm. This stunning 
@@ -2752,7 +2752,7 @@ rooms:
   - id: 5351
     key: mirror_room_5351
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow alley leads east to a wider street and west to one of
@@ -2784,7 +2784,7 @@ rooms:
   - id: 5352
     key: mirror_room_5352
     name: "Under a watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "Under a watchtower"
     long_desc: |
       You stand at the base of a tall watchtower built to protect the city
@@ -2855,7 +2855,7 @@ rooms:
   - id: 5353
     key: mirror_room_5353
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow alley leads south to one of the city watchtowers.
@@ -2886,7 +2886,7 @@ rooms:
   - id: 5354
     key: mirror_room_5354
     name: "The south-east watchtower"
-    area_id: 32
+    area_id: 53
     short_desc: "The south-east watchtower"
     long_desc: |
       You stand atop one of the city watchtowers. The view is magnificent
@@ -2929,7 +2929,7 @@ rooms:
   - id: 5355
     key: mirror_room_5355
     name: "A back alley"
-    area_id: 32
+    area_id: 53
     short_desc: "A back alley"
     long_desc: |
       A narrow alley leads north to the main street, and south toward a tall
@@ -2971,7 +2971,7 @@ rooms:
   - id: 5356
     key: mirror_room_5356
     name: "A trail at the end of the dwarf forest"
-    area_id: 32
+    area_id: 53
     short_desc: "A trail at the end of the dwarf forest"
     long_desc: |
       The trail ends here, with tall, leafy, green trees all around you.
@@ -3009,7 +3009,7 @@ rooms:
   - id: 5357
     key: mirror_room_5357
     name: "A trail at the end of the dwarf forest"
-    area_id: 32
+    area_id: 53
     short_desc: "A trail at the end of the dwarf forest"
     long_desc: |
       A side trail here leads from the dwarf forest.  It is definitely milder
@@ -3041,7 +3041,7 @@ rooms:
   - id: 5358
     key: mirror_room_5358
     name: "The dwarf forest"
-    area_id: 32
+    area_id: 53
     short_desc: "The dwarf forest"
     long_desc: |
       You see tall, healthy green trees here.  The trail bends north to
@@ -3078,7 +3078,7 @@ rooms:
   - id: 5359
     key: mirror_room_5359
     name: "The dwarf forest"
-    area_id: 32
+    area_id: 53
     short_desc: "The dwarf forest"
     long_desc: |
       You see more big green trees here.  It looks almost as if this place was
@@ -3110,7 +3110,7 @@ rooms:
   - id: 5360
     key: mirror_room_5360
     name: "The dwarf forest"
-    area_id: 32
+    area_id: 53
     short_desc: "The dwarf forest"
     long_desc: |
       You see more big green trees here.  It looks almost as if this place was
@@ -3142,7 +3142,7 @@ rooms:
   - id: 5361
     key: mirror_room_5361
     name: "The dwarf forest"
-    area_id: 32
+    area_id: 53
     short_desc: "The dwarf forest"
     long_desc: |
       You see many big green trees here.  You see many leaves on these huge
@@ -3179,7 +3179,7 @@ rooms:
   - id: 5362
     key: mirror_room_5362
     name: "The Cross Roads"
-    area_id: 32
+    area_id: 53
     short_desc: "The Cross Roads"
     long_desc: |
       The roads cross here.  Midgaard is to the west.  To the east, you see the
@@ -3232,7 +3232,7 @@ rooms:
   - id: 5363
     key: mirror_room_5363
     name: "The Lane"
-    area_id: 32
+    area_id: 53
     short_desc: "The Lane"
     long_desc: |
       You are strolling along a pleasant, shady lane. The road is lined on both
@@ -3265,7 +3265,7 @@ rooms:
   - id: 5364
     key: mirror_room_5364
     name: "City Entrance"
-    area_id: 32
+    area_id: 53
     short_desc: "City Entrance"
     long_desc: |
       You stand on the outskirts of a construction site - Midgaard; the capital
@@ -3301,7 +3301,7 @@ rooms:
   - id: 5365
     key: mirror_room_5365
     name: "The Plains"
-    area_id: 32
+    area_id: 53
     short_desc: "The Plains"
     long_desc: |
       You are standing on the plains. This is a vast desolate place where the
@@ -3328,7 +3328,7 @@ rooms:
   - id: 5366
     key: mirror_room_5366
     name: "The holy grove"
-    area_id: 32
+    area_id: 53
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -3362,7 +3362,7 @@ rooms:
   - id: 5367
     key: mirror_room_5367
     name: "The holy grove"
-    area_id: 32
+    area_id: 53
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -3416,7 +3416,7 @@ rooms:
   - id: 5368
     key: mirror_room_5368
     name: "A clearing in the woods"
-    area_id: 32
+    area_id: 53
     short_desc: "A clearing in the woods"
     long_desc: |
       You are standing in a clearing in the light woods. Somehow, this place
@@ -3473,7 +3473,7 @@ rooms:
   - id: 5369
     key: mirror_room_5369
     name: "The holy grove"
-    area_id: 32
+    area_id: 53
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -3537,7 +3537,7 @@ rooms:
   - id: 5370
     key: mirror_room_5370
     name: "The sacred glade"
-    area_id: 32
+    area_id: 53
     short_desc: "The sacred glade"
     long_desc: |
       You are standing in the middle of the sacred glades, where the citizens of
@@ -3601,7 +3601,7 @@ rooms:
   - id: 5371
     key: mirror_room_5371
     name: "The holy grove"
-    area_id: 32
+    area_id: 53
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the ancient oaks and poplars in the holy grove. You
@@ -3663,7 +3663,7 @@ rooms:
   - id: 5372
     key: mirror_room_5372
     name: "The holy grove"
-    area_id: 32
+    area_id: 53
     short_desc: "The holy grove"
     long_desc: |
       You are standing amidst the tall, majestic trees in the southern end of the
@@ -3723,7 +3723,7 @@ rooms:
   - id: 5373
     key: mirror_room_5373
     name: "The sunny field"
-    area_id: 32
+    area_id: 53
     short_desc: "The sunny field"
     long_desc: |
       You are standing in the middle of a wide, summery, sunlit field. There is a
@@ -3774,7 +3774,7 @@ rooms:
   - id: 5374
     key: mirror_room_5374
     name: "The croquet lawn"
-    area_id: 32
+    area_id: 53
     short_desc: "The croquet lawn"
     long_desc: |
       You are standing on a immaculately manicured green lawn, the kind you only
@@ -3816,7 +3816,7 @@ rooms:
   - id: 5375
     key: mirror_room_5375
     name: "The Void"
-    area_id: 32
+    area_id: 53
     short_desc: "The Void"
     long_desc: |
       You are standing in the middle of something you cannot explain.  You see
@@ -3882,7 +3882,7 @@ rooms:
   - id: 5376
     key: mirror_room_5376
     name: "The Void"
-    area_id: 32
+    area_id: 53
     short_desc: "The Void"
     long_desc: |
       You are standing in the middle of something you cannot explain.  You see
@@ -3957,7 +3957,7 @@ rooms:
   - id: 5377
     key: mirror_room_5377
     name: "The Void"
-    area_id: 32
+    area_id: 53
     short_desc: "The Void"
     long_desc: |
       You are standing in the middle of something you cannot explain.  You see
@@ -4032,7 +4032,7 @@ rooms:
   - id: 5378
     key: mirror_room_5378
     name: "The Void"
-    area_id: 32
+    area_id: 53
     short_desc: "The Void"
     long_desc: |
       You are standing in the middle of something you cannot explain.  You see
@@ -4098,7 +4098,7 @@ rooms:
   - id: 5379
     key: mirror_room_5379
     name: "The Temple Of Midgaard"
-    area_id: 32
+    area_id: 53
     short_desc: "The Temple Of Midgaard"
     long_desc: |
       You are in the southern end of the temple hall in the Temple of Midgaard.
@@ -4140,7 +4140,7 @@ rooms:
   - id: 5380
     key: mirror_room_5380
     name: "The Temple Square"
-    area_id: 32
+    area_id: 53
     short_desc: "The Temple Square"
     long_desc: |
       You are standing on the temple square.  Huge marble steps lead up to the
@@ -4179,7 +4179,7 @@ rooms:
   - id: 5381
     key: mirror_room_5381
     name: "Market Square"
-    area_id: 32
+    area_id: 53
     short_desc: "Market Square"
     long_desc: |
       You are standing on the market square, the Square of Midgaard.  It seems
@@ -4238,7 +4238,7 @@ rooms:
   - id: 5382
     key: mirror_room_5382
     name: "The Main Street"
-    area_id: 32
+    area_id: 53
     short_desc: "The Main Street"
     long_desc: |
       You are on Main Street crossing through this booming town.  The main
@@ -4275,7 +4275,7 @@ rooms:
   - id: 5383
     key: mirror_room_5383
     name: "The Main Street"
-    area_id: 32
+    area_id: 53
     short_desc: "The Main Street"
     long_desc: |
       The main street, to the east you leave town and to the west the street
@@ -4307,7 +4307,7 @@ rooms:
   - id: 5384
     key: mirror_room_5384
     name: "Inside the East Gate of Midgaard"
-    area_id: 32
+    area_id: 53
     short_desc: "Inside the East Gate of Midgaard"
     long_desc: |
       You are by two small newly built towers that have been built into the
@@ -4375,7 +4375,7 @@ rooms:
   - id: 5385
     key: mirror_room_5385
     name: "Outside the East Gate of Midgaard"
-    area_id: 32
+    area_id: 53
     short_desc: "Outside the East Gate of Midgaard"
     long_desc: |
       You are by two small towers that have been built into the city wall and
@@ -4422,7 +4422,7 @@ rooms:
   - id: 5386
     key: mirror_room_5386
     name: "By the Temple Altar"
-    area_id: 32
+    area_id: 53
     short_desc: "By the Temple Altar"
     long_desc: |
       You are by the temple altar in the northern end of the Temple of Midgaard.

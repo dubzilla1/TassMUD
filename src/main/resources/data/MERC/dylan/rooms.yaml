@@ -2,7 +2,7 @@ rooms:
   - id: 9101
     key: dylan_room_9101
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -42,7 +42,7 @@ rooms:
   - id: 9102
     key: dylan_room_9102
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -84,7 +84,7 @@ rooms:
   - id: 9103
     key: dylan_room_9103
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -127,7 +127,7 @@ rooms:
   - id: 9104
     key: dylan_room_9104
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -160,7 +160,7 @@ rooms:
   - id: 9105
     key: dylan_room_9105
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -202,7 +202,7 @@ rooms:
   - id: 9106
     key: dylan_room_9106
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -235,7 +235,7 @@ rooms:
   - id: 9107
     key: dylan_room_9107
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -278,7 +278,7 @@ rooms:
   - id: 9108
     key: dylan_room_9108
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -324,7 +324,7 @@ rooms:
   - id: 9109
     key: dylan_room_9109
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -362,7 +362,7 @@ rooms:
   - id: 9110
     key: dylan_room_9110
     name: "An ominous storm cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "An ominous storm cloud."
     long_desc: |
       You find yourself in a storm.  Lightning flashes and thunder
@@ -404,7 +404,7 @@ rooms:
   - id: 9111
     key: dylan_room_9111
     name: "High and perilous cliff"
-    area_id: 32
+    area_id: 91
     short_desc: "High and perilous cliff"
     long_desc: |
       You are on a high and rocky cliff.  To the west you see a huge
@@ -438,7 +438,7 @@ rooms:
   - id: 9112
     key: dylan_room_9112
     name: "Narrow rocky trail."
-    area_id: 32
+    area_id: 91
     short_desc: "Narrow rocky trail."
     long_desc: |
       A narrow trail leads down towards the mountain and north toward the
@@ -480,7 +480,7 @@ rooms:
   - id: 9113
     key: dylan_room_9113
     name: "Small valley."
-    area_id: 32
+    area_id: 91
     short_desc: "Small valley."
     long_desc: |
       You are in a lush valley full of trees and other vegetation and the
@@ -512,7 +512,7 @@ rooms:
   - id: 9114
     key: dylan_room_9114
     name: "Small valley."
-    area_id: 32
+    area_id: 91
     short_desc: "Small valley."
     long_desc: |
       You are in a lush valley full of trees and other vegetation and the
@@ -545,7 +545,7 @@ rooms:
   - id: 9115
     key: dylan_room_9115
     name: "Deep, slippery crevice."
-    area_id: 32
+    area_id: 91
     short_desc: "Deep, slippery crevice."
     long_desc: |
       The crevice is deep and a little dim and it is hard to make your
@@ -588,7 +588,7 @@ rooms:
   - id: 9116
     key: dylan_room_9116
     name: "Incredibly slippery crevice."
-    area_id: 32
+    area_id: 91
     short_desc: "Incredibly slippery crevice."
     long_desc: |
       The crevice is getting more and more slippery.  You are getting
@@ -624,7 +624,7 @@ rooms:
   - id: 9117
     key: dylan_room_9117
     name: "Steep mountainside."
-    area_id: 32
+    area_id: 91
     short_desc: "Steep mountainside."
     long_desc: |
       From here, you can see forever.  Clouds, birds, the forest.
@@ -661,7 +661,7 @@ rooms:
   - id: 9118
     key: dylan_room_9118
     name: "Steep mountainside."
-    area_id: 32
+    area_id: 91
     short_desc: "Steep mountainside."
     long_desc: |
       From here, you can see forever.  Clouds, birds, the forest.
@@ -693,7 +693,7 @@ rooms:
   - id: 9119
     key: dylan_room_9119
     name: "Treacherous Cliff."
-    area_id: 32
+    area_id: 91
     short_desc: "Treacherous Cliff."
     long_desc: |
       The cliff is rocky and difficult to negotiate.  One wrong slip and
@@ -741,7 +741,7 @@ rooms:
   - id: 9120
     key: dylan_room_9120
     name: "Cliff Face."
-    area_id: 32
+    area_id: 91
     short_desc: "Cliff Face."
     long_desc: |
       You are more than a little nervous climbing on this almost vertical
@@ -784,7 +784,7 @@ rooms:
   - id: 9121
     key: dylan_room_9121
     name: "Dank, dark, smelly hole."
-    area_id: 32
+    area_id: 91
     short_desc: "Dank, dark, smelly hole."
     long_desc: |
       This hole must have been used as a lair or nest.  There are
@@ -814,7 +814,7 @@ rooms:
   - id: 9122
     key: dylan_room_9122
     name: "Large, sturdy ledge."
-    area_id: 32
+    area_id: 91
     short_desc: "Large, sturdy ledge."
     long_desc: |
       You are on a ledge above a steep cliff face.  You can climb down
@@ -866,7 +866,7 @@ rooms:
   - id: 9123
     key: dylan_room_9123
     name: "Absolutely disgusting lair."
-    area_id: 32
+    area_id: 91
     short_desc: "Absolutely disgusting lair."
     long_desc: |
       The stench in here is quite foul.  There are feathers, bones and
@@ -899,7 +899,7 @@ rooms:
   - id: 9124
     key: dylan_room_9124
     name: "Absolutely disgusting lair."
-    area_id: 32
+    area_id: 91
     short_desc: "Absolutely disgusting lair."
     long_desc: |
       The stench in here is quite foul.  There are feathers, bones and
@@ -932,7 +932,7 @@ rooms:
   - id: 9125
     key: dylan_room_9125
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -965,7 +965,7 @@ rooms:
   - id: 9126
     key: dylan_room_9126
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -1018,7 +1018,7 @@ rooms:
   - id: 9127
     key: dylan_room_9127
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -1074,7 +1074,7 @@ rooms:
   - id: 9128
     key: dylan_room_9128
     name: "A fluffy white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "A fluffy white cloud."
     long_desc: |
       You find yourself standing on a small cloud.  The cloud feels kind
@@ -1107,7 +1107,7 @@ rooms:
   - id: 9129
     key: dylan_room_9129
     name: "Sleepy little cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Sleepy little cloud."
     long_desc: |
       This cloud is peacefully snoozing away, enjoying himself.  There
@@ -1146,7 +1146,7 @@ rooms:
   - id: 9130
     key: dylan_room_9130
     name: "Grumpy little cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Grumpy little cloud."
     long_desc: |
       This cloud mutters and grumbles at you.  You have to jump quickly
@@ -1191,7 +1191,7 @@ rooms:
   - id: 9131
     key: dylan_room_9131
     name: "Happy little cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Happy little cloud."
     long_desc: |
       You hear the cloud humming a little song to itself, but you can't
@@ -1238,7 +1238,7 @@ rooms:
   - id: 9132
     key: dylan_room_9132
     name: "Bashful little cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Bashful little cloud."
     long_desc: |
       This cloud blushes and tries to avoid your glance as you look at
@@ -1283,7 +1283,7 @@ rooms:
   - id: 9133
     key: dylan_room_9133
     name: "Sneezing little cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Sneezing little cloud."
     long_desc: |
       The cloud is wracked with sneezes.  At first you thought you were
@@ -1342,7 +1342,7 @@ rooms:
   - id: 9134
     key: dylan_room_9134
     name: "Dopey little cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Dopey little cloud."
     long_desc: |
       This cloud is too busy daydreaming to watch where its going.  It
@@ -1375,7 +1375,7 @@ rooms:
   - id: 9135
     key: dylan_room_9135
     name: "Doc-like little cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Doc-like little cloud."
     long_desc: |
       The cloud looks at you through its Lennon like specs and examines
@@ -1412,7 +1412,7 @@ rooms:
   - id: 9136
     key: dylan_room_9136
     name: "Snowy, white cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Snowy, white cloud."
     long_desc: |
       You shiver as you stand here.  This beautiful, fluffy, pure white
@@ -1455,7 +1455,7 @@ rooms:
   - id: 9137
     key: dylan_room_9137
     name: "Cold, damp cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Cold, damp cloud."
     long_desc: |
       Your mood grows grumpy as you find yourself cold and wet from this
@@ -1492,7 +1492,7 @@ rooms:
   - id: 9138
     key: dylan_room_9138
     name: "Mysterious rock outcropping."
-    area_id: 32
+    area_id: 91
     short_desc: "Mysterious rock outcropping."
     long_desc: |
       This rock outcropping just seems to hang in midair.  To the north
@@ -1527,7 +1527,7 @@ rooms:
   - id: 9139
     key: dylan_room_9139
     name: "Foyer."
-    area_id: 32
+    area_id: 91
     short_desc: "Foyer."
     long_desc: |
       Shadows play tricks on your eyes.  Everytime you think you see
@@ -1563,7 +1563,7 @@ rooms:
   - id: 9140
     key: dylan_room_9140
     name: "Tower."
-    area_id: 32
+    area_id: 91
     short_desc: "Tower."
     long_desc: |
       You are in a musty old tower.  The smell of mold and mildew is
@@ -1599,7 +1599,7 @@ rooms:
   - id: 9141
     key: dylan_room_9141
     name: "Witches Tower"
-    area_id: 32
+    area_id: 91
     short_desc: "Witches Tower"
     long_desc: |
       Here you see strange things of arcane value.  There is a cauldron in the
@@ -1642,7 +1642,7 @@ rooms:
   - id: 9142
     key: dylan_room_9142
     name: "Suspicious little raincloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Suspicious little raincloud."
     long_desc: |
       On second glance, this cloud doesn't seem much like a raincloud.
@@ -1675,7 +1675,7 @@ rooms:
   - id: 9143
     key: dylan_room_9143
     name: "Cirrus maximus cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Cirrus maximus cloud."
     long_desc: |
       This cloud looks like it is of the cirrus maximus genre of clouds.
@@ -1706,7 +1706,7 @@ rooms:
   - id: 9144
     key: dylan_room_9144
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -1744,7 +1744,7 @@ rooms:
   - id: 9145
     key: dylan_room_9145
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -1792,7 +1792,7 @@ rooms:
   - id: 9146
     key: dylan_room_9146
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -1830,7 +1830,7 @@ rooms:
   - id: 9147
     key: dylan_room_9147
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -1868,7 +1868,7 @@ rooms:
   - id: 9148
     key: dylan_room_9148
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -1916,7 +1916,7 @@ rooms:
   - id: 9149
     key: dylan_room_9149
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -1964,7 +1964,7 @@ rooms:
   - id: 9150
     key: dylan_room_9150
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -2012,7 +2012,7 @@ rooms:
   - id: 9151
     key: dylan_room_9151
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -2050,7 +2050,7 @@ rooms:
   - id: 9152
     key: dylan_room_9152
     name: "Raging hurricane."
-    area_id: 32
+    area_id: 91
     short_desc: "Raging hurricane."
     long_desc: |
       You are buffeted and knocked about by the almost godlike strength
@@ -2088,7 +2088,7 @@ rooms:
   - id: 9153
     key: dylan_room_9153
     name: "Calm cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Calm cloud."
     long_desc: |
       This cloud is just outside the hurricane.  It looks like it might
@@ -2125,7 +2125,7 @@ rooms:
   - id: 9154
     key: dylan_room_9154
     name: "Mountainside."
-    area_id: 32
+    area_id: 91
     short_desc: "Mountainside."
     long_desc: |
       You find yourself on the side of a huge granite mountain.  The air
@@ -2159,7 +2159,7 @@ rooms:
   - id: 9155
     key: dylan_room_9155
     name: "Mountainside."
-    area_id: 32
+    area_id: 91
     short_desc: "Mountainside."
     long_desc: |
       You find yourself on the side of a huge granite mountain.  The air
@@ -2193,7 +2193,7 @@ rooms:
   - id: 9156
     key: dylan_room_9156
     name: "Roc's Nest."
-    area_id: 32
+    area_id: 91
     short_desc: "Roc's Nest."
     long_desc: |
       You are standing in a nest.  It is huge, at least two spear-lengths
@@ -2221,7 +2221,7 @@ rooms:
   - id: 9157
     key: dylan_room_9157
     name: "Cumulative nimbus cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Cumulative nimbus cloud."
     long_desc: |
       This cloud looks like it belongs to the phylum of cumulative nimbus clouds.
@@ -2262,7 +2262,7 @@ rooms:
   - id: 9158
     key: dylan_room_9158
     name: "Dark hidden cloud."
-    area_id: 32
+    area_id: 91
     short_desc: "Dark hidden cloud."
     long_desc: |
       This cloud looks like the perfect place to hide.
@@ -2292,7 +2292,7 @@ rooms:
   - id: 9159
     key: dylan_room_9159
     name: "Yet another cloud"
-    area_id: 32
+    area_id: 91
     short_desc: "Yet another cloud"
     long_desc: |
       You find yourself in yet another cloud.  Will the madness never
@@ -2324,7 +2324,7 @@ rooms:
   - id: 9160
     key: dylan_room_9160
     name: "Front gate"
-    area_id: 32
+    area_id: 91
     short_desc: "Front gate"
     long_desc: |
       There is a gate here.  It is huge, towering over you.  It creaks
@@ -2359,7 +2359,7 @@ rooms:
   - id: 9161
     key: dylan_room_9161
     name: "Lawn"
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn"
     long_desc: |
       The lawn seems to stretch and stretch to the south and to the west.
@@ -2402,7 +2402,7 @@ rooms:
   - id: 9162
     key: dylan_room_9162
     name: "Croquet game"
-    area_id: 32
+    area_id: 91
     short_desc: "Croquet game"
     long_desc: |
       A croquet game has been set up and carelessly left out.  Who ever
@@ -2444,7 +2444,7 @@ rooms:
   - id: 9163
     key: dylan_room_9163
     name: "Huge, gorgeous fountain."
-    area_id: 32
+    area_id: 91
     short_desc: "Huge, gorgeous fountain."
     long_desc: |
       An enormous golden fountain is here.  You see swans, angels,
@@ -2482,7 +2482,7 @@ rooms:
   - id: 9164
     key: dylan_room_9164
     name: "Patio."
-    area_id: 32
+    area_id: 91
     short_desc: "Patio."
     long_desc: |
       A huge patio overlooks the lawn area.  There are enough tables and
@@ -2526,7 +2526,7 @@ rooms:
   - id: 9165
     key: dylan_room_9165
     name: "Long stairway."
-    area_id: 32
+    area_id: 91
     short_desc: "Long stairway."
     long_desc: |
       This stairway is suspended on clouds.  It leads from the house to
@@ -2559,7 +2559,7 @@ rooms:
   - id: 9166
     key: dylan_room_9166
     name: "Front door"
-    area_id: 32
+    area_id: 91
     short_desc: "Front door"
     long_desc: |
       You stand at the front door of an immense, sprawling mansion made
@@ -2612,7 +2612,7 @@ rooms:
   - id: 9167
     key: dylan_room_9167
     name: "Lawn northwest of house."
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn northwest of house."
     long_desc: |
       You stand just outside the northwest corner of the house.  You try
@@ -2644,7 +2644,7 @@ rooms:
   - id: 9168
     key: dylan_room_9168
     name: "Lawn west of house."
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn west of house."
     long_desc: |
       You stand just outside the west corner of the house.  You try to
@@ -2676,7 +2676,7 @@ rooms:
   - id: 9169
     key: dylan_room_9169
     name: "Lawn southwest of house."
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn southwest of house."
     long_desc: |
       You stand just outside the southwest corner of the house.  You try
@@ -2718,7 +2718,7 @@ rooms:
   - id: 9170
     key: dylan_room_9170
     name: "Lawn south of house."
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn south of house."
     long_desc: |
       You stand just outside the south corner of the house.  You try to
@@ -2750,7 +2750,7 @@ rooms:
   - id: 9171
     key: dylan_room_9171
     name: "Lawn southeast of house."
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn southeast of house."
     long_desc: |
       You stand just outside the southeast corner of the house.  You try
@@ -2782,7 +2782,7 @@ rooms:
   - id: 9172
     key: dylan_room_9172
     name: "Lawn east of house."
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn east of house."
     long_desc: |
       You stand just outside the east corner of the house.  You try to
@@ -2814,7 +2814,7 @@ rooms:
   - id: 9173
     key: dylan_room_9173
     name: "Lawn northeast of house."
-    area_id: 32
+    area_id: 91
     short_desc: "Lawn northeast of house."
     long_desc: |
       You stand just outside the northeast corner of the house.  You try
@@ -2846,7 +2846,7 @@ rooms:
   - id: 9174
     key: dylan_room_9174
     name: "Dirty, dusty tunnel."
-    area_id: 32
+    area_id: 91
     short_desc: "Dirty, dusty tunnel."
     long_desc: |
       This dirty dusty tunnel must lead somewhere.
@@ -2879,7 +2879,7 @@ rooms:
   - id: 9175
     key: dylan_room_9175
     name: "Basement."
-    area_id: 32
+    area_id: 91
     short_desc: "Basement."
     long_desc: |
       This seems like your average basement.  Old Christmas decorations,
@@ -2914,7 +2914,7 @@ rooms:
   - id: 9176
     key: dylan_room_9176
     name: "Bottom of the stairs."
-    area_id: 32
+    area_id: 91
     short_desc: "Bottom of the stairs."
     long_desc: |
       You stand at the bottom of a long staircase leading up to the main
@@ -2949,7 +2949,7 @@ rooms:
   - id: 9177
     key: dylan_room_9177
     name: "Foyer."
-    area_id: 32
+    area_id: 91
     short_desc: "Foyer."
     long_desc: |
       "Magnificent" does not even begin to describe the foyer.  Lavishly
@@ -3012,7 +3012,7 @@ rooms:
   - id: 9178
     key: dylan_room_9178
     name: "Elegant hallway."
-    area_id: 32
+    area_id: 91
     short_desc: "Elegant hallway."
     long_desc: |
       You are in a long, sprawling hallway connecting the eastern and
@@ -3057,7 +3057,7 @@ rooms:
   - id: 9179
     key: dylan_room_9179
     name: "Library"
-    area_id: 32
+    area_id: 91
     short_desc: "Library"
     long_desc: |
       You are overwhelmed by the sheer volumes of books here.  The
@@ -3083,7 +3083,7 @@ rooms:
   - id: 9180
     key: dylan_room_9180
     name: "Arboretum."
-    area_id: 32
+    area_id: 91
     short_desc: "Arboretum."
     long_desc: |
       A small indoor garden so that the residents don't have to go
@@ -3119,7 +3119,7 @@ rooms:
   - id: 9181
     key: dylan_room_9181
     name: "Western tower."
-    area_id: 32
+    area_id: 91
     short_desc: "Western tower."
     long_desc: |
       You are in the bottom part of a tower.  A draft brings a chill to
@@ -3156,7 +3156,7 @@ rooms:
   - id: 9182
     key: dylan_room_9182
     name: "Western tower."
-    area_id: 32
+    area_id: 91
     short_desc: "Western tower."
     long_desc: |
       The tower creaks and groans, almost as if it were muttering to
@@ -3191,7 +3191,7 @@ rooms:
   - id: 9183
     key: dylan_room_9183
     name: "Elegant hallway."
-    area_id: 32
+    area_id: 91
     short_desc: "Elegant hallway."
     long_desc: |
       You are in a long, sprawling hallway connecting the eastern and
@@ -3236,7 +3236,7 @@ rooms:
   - id: 9184
     key: dylan_room_9184
     name: "Conservatory"
-    area_id: 32
+    area_id: 91
     short_desc: "Conservatory"
     long_desc: |
       Here was the rehearsal and recital room for the residents of the
@@ -3261,7 +3261,7 @@ rooms:
   - id: 9185
     key: dylan_room_9185
     name: "Office"
-    area_id: 32
+    area_id: 91
     short_desc: "Office"
     long_desc: |
       You find yourself in a lavish office.  The desk is absolutely huge,
@@ -3297,7 +3297,7 @@ rooms:
   - id: 9186
     key: dylan_room_9186
     name: "Eastern tower."
-    area_id: 32
+    area_id: 91
     short_desc: "Eastern tower."
     long_desc: |
       You are in the bottom part of a tower.  A draft brings a chill to
@@ -3334,7 +3334,7 @@ rooms:
   - id: 9187
     key: dylan_room_9187
     name: "Eastern tower."
-    area_id: 32
+    area_id: 91
     short_desc: "Eastern tower."
     long_desc: |
       The tower creaks and groans, almost as if it were muttering to
@@ -3369,7 +3369,7 @@ rooms:
   - id: 9199
     key: dylan_room_9199
     name: "Mid-Air."
-    area_id: 32
+    area_id: 91
     short_desc: "Mid-Air."
     long_desc: |
       You slide down the moisture covered rock, gaining speed as you

@@ -2,7 +2,7 @@ rooms:
   - id: 2101
     key: hood_room_2101
     name: "A Dark Alleyway"
-    area_id: 30
+    area_id: 21
     short_desc: "A Dark Alleyway"
     long_desc: |
       The walls of the alleyway have been spray-painted over many times
@@ -41,7 +41,7 @@ rooms:
   - id: 2102
     key: hood_room_2102
     name: "Beginning of White Dragon Boulevard"
-    area_id: 30
+    area_id: 21
     short_desc: "Beginning of White Dragon Boulevard"
     long_desc: |
       This section of town has been overrun by the Troll gang.  Even the
@@ -104,7 +104,7 @@ rooms:
   - id: 2103
     key: hood_room_2103
     name: "Along White Dragon Boulevard"
-    area_id: 30
+    area_id: 21
     short_desc: "Along White Dragon Boulevard"
     long_desc: |
       Everywhere you look you see signs of recent violence.  Patches of blood
@@ -157,7 +157,7 @@ rooms:
   - id: 2104
     key: hood_room_2104
     name: "White Dragon Boulevard at Armory"
-    area_id: 30
+    area_id: 21
     short_desc: "White Dragon Boulevard at Armory"
     long_desc: |
       Only gang members dare wander the streets here.
@@ -209,7 +209,7 @@ rooms:
   - id: 2105
     key: hood_room_2105
     name: "White Dragon Blvd."
-    area_id: 30
+    area_id: 21
     short_desc: "White Dragon Blvd."
     long_desc: |
       Black Dragon Avenue used to run south from here but the way has been
@@ -247,7 +247,7 @@ rooms:
   - id: 2106
     key: hood_room_2106
     name: "Corner of Ice and White Dragon"
-    area_id: 30
+    area_id: 21
     short_desc: "Corner of Ice and White Dragon"
     long_desc: |
       Ice Dragon Way leads south from here.  It used to run the whole length
@@ -299,7 +299,7 @@ rooms:
   - id: 2107
     key: hood_room_2107
     name: "White Dragon Boulevard"
-    area_id: 30
+    area_id: 21
     short_desc: "White Dragon Boulevard"
     long_desc: |
       A once majestic inn with a white marble facade lies to the south.
@@ -341,7 +341,7 @@ rooms:
   - id: 2108
     key: hood_room_2108
     name: "Corner of Bronze and White Dragon"
-    area_id: 30
+    area_id: 21
     short_desc: "Corner of Bronze and White Dragon"
     long_desc: |
       This is the north-east corner of the neighborhood. White Dragon
@@ -386,7 +386,7 @@ rooms:
   - id: 2109
     key: hood_room_2109
     name: "An over-grown lot"
-    area_id: 30
+    area_id: 21
     short_desc: "An over-grown lot"
     long_desc: |
       A huge building was going to be built here, but they gave the
@@ -428,7 +428,7 @@ rooms:
   - id: 2110
     key: hood_room_2110
     name: "East end of an over-grown plot of land"
-    area_id: 30
+    area_id: 21
     short_desc: "East end of an over-grown plot of land"
     long_desc: |
       This was planned to be a park, but the developer was scared out
@@ -481,7 +481,7 @@ rooms:
   - id: 2111
     key: hood_room_2111
     name: "Armory"
-    area_id: 30
+    area_id: 21
     short_desc: "Armory"
     long_desc: |
       Well actually, this is what USED to be the armory.  The equipment has
@@ -522,7 +522,7 @@ rooms:
   - id: 2112
     key: hood_room_2112
     name: "A Bend in the Way"
-    area_id: 30
+    area_id: 21
     short_desc: "A Bend in the Way"
     long_desc: |
       Ice Dragon Way bends east and south from here.  You notice a lot of
@@ -563,7 +563,7 @@ rooms:
   - id: 2113
     key: hood_room_2113
     name: "Ice Dragon Bend"
-    area_id: 30
+    area_id: 21
     short_desc: "Ice Dragon Bend"
     long_desc: |
       Ice Dragon Way bends to the north and west here.  There are footprints
@@ -615,7 +615,7 @@ rooms:
   - id: 2114
     key: hood_room_2114
     name: "The remains of the magic shop"
-    area_id: 30
+    area_id: 21
     short_desc: "The remains of the magic shop"
     long_desc: |
       The wizard was tough but he couldn't take on 50 of them at once.  So he
@@ -672,7 +672,7 @@ rooms:
   - id: 2115
     key: hood_room_2115
     name: "Bronze Dragon Street at wizard's back door"
-    area_id: 30
+    area_id: 21
     short_desc: "Bronze Dragon Street at wizard's back door"
     long_desc: |
       Bronze Dragon street goes north and south.  The back door to what
@@ -723,7 +723,7 @@ rooms:
   - id: 2116
     key: hood_room_2116
     name: "Dracolich Plaza"
-    area_id: 30
+    area_id: 21
     short_desc: "Dracolich Plaza"
     long_desc: |
       They began construction of a pleasant plaza here.  You wouldn't have
@@ -778,7 +778,7 @@ rooms:
   - id: 2117
     key: hood_room_2117
     name: "Shortcut"
-    area_id: 30
+    area_id: 21
     short_desc: "Shortcut"
     long_desc: |
       This is a shortcut between Dracolich Plaza and the center of town.
@@ -829,7 +829,7 @@ rooms:
   - id: 2118
     key: hood_room_2118
     name: "Ice Dragon Way"
-    area_id: 30
+    area_id: 21
     short_desc: "Ice Dragon Way"
     long_desc: |
       Several smashed crystal statues line the Way here.  You begin to wonder
@@ -881,7 +881,7 @@ rooms:
   - id: 2119
     key: hood_room_2119
     name: "Courtyard North"
-    area_id: 30
+    area_id: 21
     short_desc: "Courtyard North"
     long_desc: |
       Once it was the courtyard of a beautiful building complex.  But alas,
@@ -922,7 +922,7 @@ rooms:
   - id: 2120
     key: hood_room_2120
     name: "Bronze Dragon Street"
-    area_id: 30
+    area_id: 21
     short_desc: "Bronze Dragon Street"
     long_desc: |
       There used to be a gate out to the east here which led to distant lands.
@@ -959,7 +959,7 @@ rooms:
   - id: 2121
     key: hood_room_2121
     name: "Shortcut"
-    area_id: 30
+    area_id: 21
     short_desc: "Shortcut"
     long_desc: |
       The shortcut extends north.  There is a street to the east.
@@ -999,7 +999,7 @@ rooms:
   - id: 2122
     key: hood_room_2122
     name: "Ice Dragon Way"
-    area_id: 30
+    area_id: 21
     short_desc: "Ice Dragon Way"
     long_desc: |
       The Way continues north and intersects with Yellow Dragon Avenue
@@ -1051,7 +1051,7 @@ rooms:
   - id: 2123
     key: hood_room_2123
     name: "Courtyard South"
-    area_id: 30
+    area_id: 21
     short_desc: "Courtyard South"
     long_desc: |
       Once full of lush green plants, it is now barren of growth.  A set of
@@ -1096,7 +1096,7 @@ rooms:
   - id: 2124
     key: hood_room_2124
     name: "Old Abandoned Warehouse"
-    area_id: 30
+    area_id: 21
     short_desc: "Old Abandoned Warehouse"
     long_desc: |
       Once the center of a lucrative storage business, it has fallen to
@@ -1147,7 +1147,7 @@ rooms:
   - id: 2125
     key: hood_room_2125
     name: "Bronze Dragon Street at Warehouse"
-    area_id: 30
+    area_id: 21
     short_desc: "Bronze Dragon Street at Warehouse"
     long_desc: |
       The street runs north and south.  There is an old wooden door leading
@@ -1201,7 +1201,7 @@ rooms:
   - id: 2126
     key: hood_room_2126
     name: "Yellow Dragon Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Yellow Dragon Road"
     long_desc: |
       Yellow Dragon Road is the southern boundary of Troll Territory.  The
@@ -1233,7 +1233,7 @@ rooms:
   - id: 2127
     key: hood_room_2127
     name: "Yellow Dragon Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Yellow Dragon Road"
     long_desc: |
       The road runs east and west.  Ice Dragon Way leads north from here.
@@ -1274,7 +1274,7 @@ rooms:
   - id: 2128
     key: hood_room_2128
     name: "Yellow Dragon Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Yellow Dragon Road"
     long_desc: |
       The roads continues east and west.  There is a courtyard to the north.
@@ -1331,7 +1331,7 @@ rooms:
   - id: 2129
     key: hood_room_2129
     name: "Yellow Dragon Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Yellow Dragon Road"
     long_desc: |
       There is a barred window to the north.  There appears to be a light
@@ -1374,7 +1374,7 @@ rooms:
   - id: 2130
     key: hood_room_2130
     name: "Yellow Dragon Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Yellow Dragon Road"
     long_desc: |
       Bronze Dragon Street intersects here and runs north.  Yellow Dragon ends
@@ -1415,7 +1415,7 @@ rooms:
   - id: 2131
     key: hood_room_2131
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1467,7 +1467,7 @@ rooms:
   - id: 2132
     key: hood_room_2132
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1519,7 +1519,7 @@ rooms:
   - id: 2133
     key: hood_room_2133
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1581,7 +1581,7 @@ rooms:
   - id: 2134
     key: hood_room_2134
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1643,7 +1643,7 @@ rooms:
   - id: 2135
     key: hood_room_2135
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1685,7 +1685,7 @@ rooms:
   - id: 2136
     key: hood_room_2136
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1737,7 +1737,7 @@ rooms:
   - id: 2137
     key: hood_room_2137
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1789,7 +1789,7 @@ rooms:
   - id: 2138
     key: hood_room_2138
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1851,7 +1851,7 @@ rooms:
   - id: 2139
     key: hood_room_2139
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1903,7 +1903,7 @@ rooms:
   - id: 2140
     key: hood_room_2140
     name: "NO MAN'S LAND"
-    area_id: 30
+    area_id: 21
     short_desc: "NO MAN'S LAND"
     long_desc: |
       This is the section of town between the two gang's territories.  This
@@ -1955,7 +1955,7 @@ rooms:
   - id: 2141
     key: hood_room_2141
     name: "Bend in Hector Street"
-    area_id: 30
+    area_id: 21
     short_desc: "Bend in Hector Street"
     long_desc: |
       Hector street bends to the east and the south here.  "No Man's Land"
@@ -1997,7 +1997,7 @@ rooms:
   - id: 2142
     key: hood_room_2142
     name: "Hector Street at Bakery"
-    area_id: 30
+    area_id: 21
     short_desc: "Hector Street at Bakery"
     long_desc: |
       Hector street runs east and west.  The Bakery used to be to the south
@@ -2039,7 +2039,7 @@ rooms:
   - id: 2143
     key: hood_room_2143
     name: "Another corner of Hector and Achilles streets"
-    area_id: 30
+    area_id: 21
     short_desc: "Another corner of Hector and Achilles streets"
     long_desc: |
       Achilles street heads to the south and Hector runs east and west.
@@ -2093,7 +2093,7 @@ rooms:
   - id: 2144
     key: hood_room_2144
     name: "Hector Street at Jeweler"
-    area_id: 30
+    area_id: 21
     short_desc: "Hector Street at Jeweler"
     long_desc: |
       Once a bright spot in the town, it now looks like one of the
@@ -2126,7 +2126,7 @@ rooms:
   - id: 2145
     key: hood_room_2145
     name: "Corner of Ajax and Hector"
-    area_id: 30
+    area_id: 21
     short_desc: "Corner of Ajax and Hector"
     long_desc: |
       There is a grand fountain to the east but the water doesn't
@@ -2178,7 +2178,7 @@ rooms:
   - id: 2146
     key: hood_room_2146
     name: "Hector Street"
-    area_id: 30
+    area_id: 21
     short_desc: "Hector Street"
     long_desc: |
       The street is full of garbage here.  An odd building lies to the west,
@@ -2220,7 +2220,7 @@ rooms:
   - id: 2147
     key: hood_room_2147
     name: "Achilles Avenue"
-    area_id: 30
+    area_id: 21
     short_desc: "Achilles Avenue"
     long_desc: |
       The town bards sang of the victory parades that used to pass along this
@@ -2253,7 +2253,7 @@ rooms:
   - id: 2148
     key: hood_room_2148
     name: "A small ruined chapel"
-    area_id: 30
+    area_id: 21
     short_desc: "A small ruined chapel"
     long_desc: |
       This was a small temple built to honor the minor gods and goddesses.
@@ -2307,7 +2307,7 @@ rooms:
   - id: 2149
     key: hood_room_2149
     name: "Ajax Avenue at chapel"
-    area_id: 30
+    area_id: 21
     short_desc: "Ajax Avenue at chapel"
     long_desc: |
       The temple to honor the minor gods is through a rusty metal door
@@ -2362,7 +2362,7 @@ rooms:
   - id: 2150
     key: hood_room_2150
     name: "First intersection of Hector and Achilles"
-    area_id: 30
+    area_id: 21
     short_desc: "First intersection of Hector and Achilles"
     long_desc: |
       There is a large statue here depicting a battle between two
@@ -2411,7 +2411,7 @@ rooms:
   - id: 2151
     key: hood_room_2151
     name: "Hector street"
-    area_id: 30
+    area_id: 21
     short_desc: "Hector street"
     long_desc: |
       A large open space, possibly a cemetery, lies to the south.
@@ -2454,7 +2454,7 @@ rooms:
   - id: 2152
     key: hood_room_2152
     name: "A bend in the road"
-    area_id: 30
+    area_id: 21
     short_desc: "A bend in the road"
     long_desc: |
       Achilles Avenue bends to the north and west here.  There
@@ -2513,7 +2513,7 @@ rooms:
   - id: 2153
     key: hood_room_2153
     name: "What is left of the weaponshop"
-    area_id: 30
+    area_id: 21
     short_desc: "What is left of the weaponshop"
     long_desc: |
       It doesn't even look like those punks gave the weaponsmith a
@@ -2549,7 +2549,7 @@ rooms:
   - id: 2154
     key: hood_room_2154
     name: "Ajax street at Weaponshop (or whats left of it)"
-    area_id: 30
+    area_id: 21
     short_desc: "Ajax street at Weaponshop (or whats left of it)"
     long_desc: |
       The street goes north and south.  The stables used to be to the
@@ -2596,7 +2596,7 @@ rooms:
   - id: 2155
     key: hood_room_2155
     name: "Khan Park"
-    area_id: 30
+    area_id: 21
     short_desc: "Khan Park"
     long_desc: |
       Not really a "park" as you and i would think of it but
@@ -2647,7 +2647,7 @@ rooms:
   - id: 2156
     key: hood_room_2156
     name: "Achilles avenue at entrance to park"
-    area_id: 30
+    area_id: 21
     short_desc: "Achilles avenue at entrance to park"
     long_desc: |
       A ... park?! lies to the west.  The street runs south to an
@@ -2698,7 +2698,7 @@ rooms:
   - id: 2157
     key: hood_room_2157
     name: "A bend in Ajax"
-    area_id: 30
+    area_id: 21
     short_desc: "A bend in Ajax"
     long_desc: |
       The roads bends south and east here.  You barely notice
@@ -2746,7 +2746,7 @@ rooms:
   - id: 2158
     key: hood_room_2158
     name: "Ajax street"
-    area_id: 30
+    area_id: 21
     short_desc: "Ajax street"
     long_desc: |
       A once prideful guildhouse was on the northeast corner of
@@ -2799,7 +2799,7 @@ rooms:
   - id: 2159
     key: hood_room_2159
     name: "Curve in the road"
-    area_id: 30
+    area_id: 21
     short_desc: "Curve in the road"
     long_desc: |
       The street goes north or west from here.  A narrow street once
@@ -2840,7 +2840,7 @@ rooms:
   - id: 2160
     key: hood_room_2160
     name: "A wide alleyway"
-    area_id: 30
+    area_id: 21
     short_desc: "A wide alleyway"
     long_desc: |
       The sides of the alleyway have been vandalized many times.
@@ -2874,7 +2874,7 @@ rooms:
   - id: 2161
     key: hood_room_2161
     name: "Alexander Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Alexander Road"
     long_desc: |
       You see many gang members walking around looking for
@@ -2926,7 +2926,7 @@ rooms:
   - id: 2162
     key: hood_room_2162
     name: "Alexander Street at park entrance"
-    area_id: 30
+    area_id: 21
     short_desc: "Alexander Street at park entrance"
     long_desc: |
       A park-looking area lies to the north and a passage between
@@ -2977,7 +2977,7 @@ rooms:
   - id: 2163
     key: hood_room_2163
     name: "Achilles Avenue"
-    area_id: 30
+    area_id: 21
     short_desc: "Achilles Avenue"
     long_desc: |
       The Avenue Runs north and south.  You sense you are deep within
@@ -3014,7 +3014,7 @@ rooms:
   - id: 2164
     key: hood_room_2164
     name: "Ajax Street"
-    area_id: 30
+    area_id: 21
     short_desc: "Ajax Street"
     long_desc: |
       You can see a sinister black wrought-iron fence to the west.
@@ -3055,7 +3055,7 @@ rooms:
   - id: 2165
     key: hood_room_2165
     name: "The inn/pub"
-    area_id: 30
+    area_id: 21
     short_desc: "The inn/pub"
     long_desc: |
       The inn actually looks fairly functional despite its lack
@@ -3129,7 +3129,7 @@ rooms:
   - id: 2166
     key: hood_room_2166
     name: "Solomon Street"
-    area_id: 30
+    area_id: 21
     short_desc: "Solomon Street"
     long_desc: |
       This street forms the southern boundary of Ogre territory.  The
@@ -3171,7 +3171,7 @@ rooms:
   - id: 2167
     key: hood_room_2167
     name: "Intersection of Achilles and Solomon"
-    area_id: 30
+    area_id: 21
     short_desc: "Intersection of Achilles and Solomon"
     long_desc: |
       Solomon street is to the east and west.  The other part of the
@@ -3222,7 +3222,7 @@ rooms:
   - id: 2168
     key: hood_room_2168
     name: "Solomon Street"
-    area_id: 30
+    area_id: 21
     short_desc: "Solomon Street"
     long_desc: |
       A wrought-iron fence blocks off what used to be an entrance to the
@@ -3256,7 +3256,7 @@ rooms:
   - id: 2169
     key: hood_room_2169
     name: "Intersection of Ajax and Solomon"
-    area_id: 30
+    area_id: 21
     short_desc: "Intersection of Ajax and Solomon"
     long_desc: |
       The two roads meet at a corner here.  Ajax runs north and
@@ -3308,7 +3308,7 @@ rooms:
   - id: 2170
     key: hood_room_2170
     name: "Hallway"
-    area_id: 30
+    area_id: 21
     short_desc: "Hallway"
     long_desc: |
       The hallway heads back north to the main part of the inn/pub.
@@ -3356,7 +3356,7 @@ rooms:
   - id: 2171
     key: hood_room_2171
     name: "Wall Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Wall Road"
     long_desc: |
       The road extends south along the inside of the wall surrounding
@@ -3388,7 +3388,7 @@ rooms:
   - id: 2172
     key: hood_room_2172
     name: "Wall Road"
-    area_id: 30
+    area_id: 21
     short_desc: "Wall Road"
     long_desc: |
       Wall road extends north along the inside of the city wall.  A dark

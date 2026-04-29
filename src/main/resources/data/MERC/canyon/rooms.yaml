@@ -2,7 +2,7 @@ rooms:
   - id: 9201
     key: canyon_room_9201
     name: "A Mountain Path"
-    area_id: 32
+    area_id: 92
     short_desc: "A Mountain Path"
     long_desc: |
       You are on a mountain path which ascends a steep mountainside.  The trail
@@ -40,7 +40,7 @@ rooms:
   - id: 9202
     key: canyon_room_9202
     name: "A Mountain Path"
-    area_id: 32
+    area_id: 92
     short_desc: "A Mountain Path"
     long_desc: |
       You are on a rocky mountain path leading up and around a steep mountainside.
@@ -84,7 +84,7 @@ rooms:
   - id: 9203
     key: canyon_room_9203
     name: "Mountainside Tombs"
-    area_id: 32
+    area_id: 92
     short_desc: "Mountainside Tombs"
     long_desc: |
       There are a few stone heaps here and there, the tombs of those who did not
@@ -137,7 +137,7 @@ rooms:
   - id: 9204
     key: canyon_room_9204
     name: "A Blind Curve on the Mountain Path."
-    area_id: 32
+    area_id: 92
     short_desc: "A Blind Curve on the Mountain Path."
     long_desc: |
       This looks like a normal mountain path, but it is NOT!  This section of the
@@ -182,7 +182,7 @@ rooms:
   - id: 9205
     key: canyon_room_9205
     name: "Vista"
-    area_id: 32
+    area_id: 92
     short_desc: "Vista"
     long_desc: |
       This is a stunning vista overlooking a canyon.  There is a sign here that says:
@@ -222,7 +222,7 @@ rooms:
   - id: 9206
     key: canyon_room_9206
     name: "The Overlook"
-    area_id: 32
+    area_id: 92
     short_desc: "The Overlook"
     long_desc: |
       You see various elemental servants wandering around the canyon.  The noise of
@@ -255,7 +255,7 @@ rooms:
   - id: 9207
     key: canyon_room_9207
     name: "Entrance to Elemental Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "Entrance to Elemental Canyon"
     long_desc: |
       You are awed by the sounds and sights of great powers at works here.
@@ -298,7 +298,7 @@ rooms:
   - id: 9208
     key: canyon_room_9208
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -341,7 +341,7 @@ rooms:
   - id: 9209
     key: canyon_room_9209
     name: "Elemental Gateway"
-    area_id: 32
+    area_id: 92
     short_desc: "Elemental Gateway"
     long_desc: |
       To the west a path dips and winds among some flowing firepits.  To the
@@ -426,7 +426,7 @@ rooms:
   - id: 9210
     key: canyon_room_9210
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -484,7 +484,7 @@ rooms:
   - id: 9211
     key: canyon_room_9211
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -538,7 +538,7 @@ rooms:
   - id: 9212
     key: canyon_room_9212
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -605,7 +605,7 @@ rooms:
   - id: 9213
     key: canyon_room_9213
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -665,7 +665,7 @@ rooms:
   - id: 9214
     key: canyon_room_9214
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -720,7 +720,7 @@ rooms:
   - id: 9215
     key: canyon_room_9215
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -783,7 +783,7 @@ rooms:
   - id: 9216
     key: canyon_room_9216
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -836,7 +836,7 @@ rooms:
   - id: 9217
     key: canyon_room_9217
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -886,7 +886,7 @@ rooms:
   - id: 9218
     key: canyon_room_9218
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -955,7 +955,7 @@ rooms:
   - id: 9219
     key: canyon_room_9219
     name: "The Floor of the Canyon"
-    area_id: 32
+    area_id: 92
     short_desc: "The Floor of the Canyon"
     long_desc: |
       Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -1009,7 +1009,7 @@ rooms:
   - id: 9220
     key: canyon_room_9220
     name: "Dark Cave"
-    area_id: 32
+    area_id: 92
     short_desc: "Dark Cave"
     long_desc: |
       You notice a path winding east among some huge boulders.  You feel a powerful
@@ -1056,7 +1056,7 @@ rooms:
   - id: 9221
     key: canyon_room_9221
     name: "Darker Caves"
-    area_id: 32
+    area_id: 92
     short_desc: "Darker Caves"
     long_desc: |
       You can barely see your way even with a light source.  The rocks of the cave
@@ -1115,7 +1115,7 @@ rooms:
   - id: 9222
     key: canyon_room_9222
     name: "Darker Caves"
-    area_id: 32
+    area_id: 92
     short_desc: "Darker Caves"
     long_desc: |
       You can barely see your way even with a light source.  The rocks of the cave
@@ -1180,7 +1180,7 @@ rooms:
   - id: 9223
     key: canyon_room_9223
     name: "Darker Caves"
-    area_id: 32
+    area_id: 92
     short_desc: "Darker Caves"
     long_desc: |
       You can barely see your way even with a light source.  The rocks of the cave
@@ -1235,7 +1235,7 @@ rooms:
   - id: 9224
     key: canyon_room_9224
     name: "Darker Caves"
-    area_id: 32
+    area_id: 92
     short_desc: "Darker Caves"
     long_desc: |
       You can barely see your way even with a light source.  The rocks of the cave
@@ -1286,7 +1286,7 @@ rooms:
   - id: 9225
     key: canyon_room_9225
     name: "Darkest Caves"
-    area_id: 32
+    area_id: 92
     short_desc: "Darkest Caves"
     long_desc: |
       Your light doesn't even seem to work here.  Even magical light sources seem
@@ -1339,7 +1339,7 @@ rooms:
   - id: 9226
     key: canyon_room_9226
     name: "Darkest Caves"
-    area_id: 32
+    area_id: 92
     short_desc: "Darkest Caves"
     long_desc: |
       Your light doesn't even seem to work here.  Even magical light sources seem
@@ -1390,7 +1390,7 @@ rooms:
   - id: 9227
     key: canyon_room_9227
     name: "Earth Chamber"
-    area_id: 32
+    area_id: 92
     short_desc: "Earth Chamber"
     long_desc: |
       This is the abode of the Earth Ruler.  He decides about earthquakes,
@@ -1447,7 +1447,7 @@ rooms:
   - id: 9228
     key: canyon_room_9228
     name: "By the River"
-    area_id: 32
+    area_id: 92
     short_desc: "By the River"
     long_desc: |
       The water in the river seems to bubble and froth with magic.  Though it
@@ -1489,7 +1489,7 @@ rooms:
   - id: 9229
     key: canyon_room_9229
     name: "In the River"
-    area_id: 32
+    area_id: 92
     short_desc: "In the River"
     long_desc: |
       To continue you had to walk right in the river.  Though you walk along in
@@ -1527,7 +1527,7 @@ rooms:
   - id: 9230
     key: canyon_room_9230
     name: "Elemental Bay"
-    area_id: 32
+    area_id: 92
     short_desc: "Elemental Bay"
     long_desc: |
       The water is crystal clear here and you can see the bottom of the bay 30 feet
@@ -1583,7 +1583,7 @@ rooms:
   - id: 9231
     key: canyon_room_9231
     name: "Elemental Bay"
-    area_id: 32
+    area_id: 92
     short_desc: "Elemental Bay"
     long_desc: |
       The water is crystal clear here and you can see the bottom of the bay 30 feet
@@ -1639,7 +1639,7 @@ rooms:
   - id: 9232
     key: canyon_room_9232
     name: "Elemental Bay"
-    area_id: 32
+    area_id: 92
     short_desc: "Elemental Bay"
     long_desc: |
       The water is crystal clear here and you can see the bottom of the bay 30 feet
@@ -1689,7 +1689,7 @@ rooms:
   - id: 9233
     key: canyon_room_9233
     name: "Elemental Bay"
-    area_id: 32
+    area_id: 92
     short_desc: "Elemental Bay"
     long_desc: |
       The water is crystal clear here and you can see the bottom of the bay 30 feet
@@ -1731,7 +1731,7 @@ rooms:
   - id: 9234
     key: canyon_room_9234
     name: "Elemental Bay"
-    area_id: 32
+    area_id: 92
     short_desc: "Elemental Bay"
     long_desc: |
       The water is crystal clear here and you can see the bottom of the bay 30 feet
@@ -1783,7 +1783,7 @@ rooms:
   - id: 9235
     key: canyon_room_9235
     name: "Elemental Bay"
-    area_id: 32
+    area_id: 92
     short_desc: "Elemental Bay"
     long_desc: |
       The water is crystal clear here and you can see the bottom of the bay 30 feet
@@ -1835,7 +1835,7 @@ rooms:
   - id: 9236
     key: canyon_room_9236
     name: "Water Chamber"
-    area_id: 32
+    area_id: 92
     short_desc: "Water Chamber"
     long_desc: |
       This chamber was magically created here on the floor of the bay.  It looks
@@ -1881,7 +1881,7 @@ rooms:
   - id: 9237
     key: canyon_room_9237
     name: "A Fiery Pathway"
-    area_id: 32
+    area_id: 92
     short_desc: "A Fiery Pathway"
     long_desc: |
       You tread carefully along a path which dips and turns among geysers of fire.
@@ -1919,7 +1919,7 @@ rooms:
   - id: 9238
     key: canyon_room_9238
     name: "A Fiery Pathway"
-    area_id: 32
+    area_id: 92
     short_desc: "A Fiery Pathway"
     long_desc: |
       You tread carefully along a path which dips and turns among pits of fire and
@@ -1984,7 +1984,7 @@ rooms:
   - id: 9242
     key: canyon_room_9242
     name: "The Burning Gardens"
-    area_id: 32
+    area_id: 92
     short_desc: "The Burning Gardens"
     long_desc: |
       Everywhere around you the landscape is afire; the rocks, the shrubs and even
@@ -2066,7 +2066,7 @@ rooms:
   - id: 9245
     key: canyon_room_9245
     name: "The Fire Chamber"
-    area_id: 32
+    area_id: 92
     short_desc: "The Fire Chamber"
     long_desc: |
       The fire ruler sits upon a throne made of blue flame.  Little flickers of
@@ -2116,7 +2116,7 @@ rooms:
   - id: 9246
     key: canyon_room_9246
     name: "Electric Pathway"
-    area_id: 32
+    area_id: 92
     short_desc: "Electric Pathway"
     long_desc: |
       The pathway glows and hums because of the electricity pulsing through it.
@@ -2166,7 +2166,7 @@ rooms:
   - id: 9247
     key: canyon_room_9247
     name: "The Electric Playground"
-    area_id: 32
+    area_id: 92
     short_desc: "The Electric Playground"
     long_desc: |
       Though there is a seemingly carefree atmosphere here, you sense that
@@ -2204,7 +2204,7 @@ rooms:
   - id: 9248
     key: canyon_room_9248
     name: "The Electric Playground"
-    area_id: 32
+    area_id: 92
     short_desc: "The Electric Playground"
     long_desc: |
       Though there is a seemingly carefree atmosphere here, you sense that
@@ -2256,7 +2256,7 @@ rooms:
   - id: 9249
     key: canyon_room_9249
     name: "The Electric Playground"
-    area_id: 32
+    area_id: 92
     short_desc: "The Electric Playground"
     long_desc: |
       Though there is a seemingly carefree atmosphere here, you sense that
@@ -2298,7 +2298,7 @@ rooms:
   - id: 9250
     key: canyon_room_9250
     name: "The Electric Playground"
-    area_id: 32
+    area_id: 92
     short_desc: "The Electric Playground"
     long_desc: |
       Though there is a seemingly carefree atmosphere here, you sense that
@@ -2354,7 +2354,7 @@ rooms:
   - id: 9251
     key: canyon_room_9251
     name: "Lightning Causeway"
-    area_id: 32
+    area_id: 92
     short_desc: "Lightning Causeway"
     long_desc: |
       Up a set of stairs carved into the hill you see intermittent flashes of
@@ -2392,7 +2392,7 @@ rooms:
   - id: 9252
     key: canyon_room_9252
     name: "Lightning Chamber"
-    area_id: 32
+    area_id: 92
     short_desc: "Lightning Chamber"
     long_desc: |
       There is some sort of control panel here. Apparently the Lightning Ruler
@@ -2441,7 +2441,7 @@ rooms:
   - id: 9253
     key: canyon_room_9253
     name: "Mesa West"
-    area_id: 32
+    area_id: 92
     short_desc: "Mesa West"
     long_desc: |
       An electric path starts to the west.  The mesa continues to the east.
@@ -2492,7 +2492,7 @@ rooms:
   - id: 9254
     key: canyon_room_9254
     name: "Mesa East"
-    area_id: 32
+    area_id: 92
     short_desc: "Mesa East"
     long_desc: |
       A path starts to the north.  The mesa continues to the west.
@@ -2543,7 +2543,7 @@ rooms:
   - id: 9255
     key: canyon_room_9255
     name: "Floating in Air"
-    area_id: 32
+    area_id: 92
     short_desc: "Floating in Air"
     long_desc: |
       Last you knew, you were walking on the mesa.  Abruptly the path dropped
@@ -2617,7 +2617,7 @@ rooms:
   - id: 9256
     key: canyon_room_9256
     name: "Floating in Air"
-    area_id: 32
+    area_id: 92
     short_desc: "Floating in Air"
     long_desc: |
       You look down and see the ground 100 feet below you.  The wind whispering
@@ -2655,7 +2655,7 @@ rooms:
   - id: 9257
     key: canyon_room_9257
     name: "Floating in Air"
-    area_id: 32
+    area_id: 92
     short_desc: "Floating in Air"
     long_desc: |
       You look down and see the ground 100 feet below you.  The wind whispering
@@ -2705,7 +2705,7 @@ rooms:
   - id: 9258
     key: canyon_room_9258
     name: "Floating in Air"
-    area_id: 32
+    area_id: 92
     short_desc: "Floating in Air"
     long_desc: |
       You look down and see the ground 100 feet below you.  The wind whispering
@@ -2757,7 +2757,7 @@ rooms:
   - id: 9259
     key: canyon_room_9259
     name: "Windy Tunnel"
-    area_id: 32
+    area_id: 92
     short_desc: "Windy Tunnel"
     long_desc: |
       A tunnel leads east.  To the west you can enter a portal. The wind in
@@ -2801,7 +2801,7 @@ rooms:
   - id: 9260
     key: canyon_room_9260
     name: "Air Chamber"
-    area_id: 32
+    area_id: 92
     short_desc: "Air Chamber"
     long_desc: |
       Tiny tornadoes come and go and dance along the ground here.  At the back

@@ -2,7 +2,7 @@ rooms:
   - id: 600
     key: ofcol2_room_600
     name: "Granny's Still Room"
-    area_id: 30
+    area_id: 6
     short_desc: "Granny's Still Room"
     long_desc: |
       You are in Granny Jenkins' still room.  The smell of whiskey is heady, and
@@ -37,7 +37,7 @@ rooms:
   - id: 601
     key: ofcol2_room_601
     name: "The Big Intersection"
-    area_id: 30
+    area_id: 6
     short_desc: "The Big Intersection"
     long_desc: |
       You are in the big intersection between Raff Way and Impy Way.  Crowds 
@@ -147,7 +147,7 @@ rooms:
   - id: 602
     key: ofcol2_room_602
     name: "Impy Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Impy Way"
     long_desc: |
       You are on Impy Way.  You can see a leather shop east and a blacksmith
@@ -199,7 +199,7 @@ rooms:
   - id: 603
     key: ofcol2_room_603
     name: "The Blacksmith"
-    area_id: 30
+    area_id: 6
     short_desc: "The Blacksmith"
     long_desc: |
       You are in a black and smelly room.  Pieces of metal are strewn all over
@@ -238,7 +238,7 @@ rooms:
   - id: 604
     key: ofcol2_room_604
     name: "The Leather Shop"
-    area_id: 30
+    area_id: 6
     short_desc: "The Leather Shop"
     long_desc: |
       You are in a brown and smelly room.  Pieces of leather are strewn all over
@@ -295,7 +295,7 @@ rooms:
   - id: 605
     key: ofcol2_room_605
     name: "Impy Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Impy Way"
     long_desc: |
       You are on Impy Way.  To the east is a meat store, and to the west is a
@@ -348,7 +348,7 @@ rooms:
   - id: 606
     key: ofcol2_room_606
     name: "The Pawn Shop."
-    area_id: 30
+    area_id: 6
     short_desc: "The Pawn Shop."
     long_desc: |
       You are in a little shop filled with a lot of knick knacks and semi-
@@ -385,7 +385,7 @@ rooms:
   - id: 607
     key: ofcol2_room_607
     name: "The Meat Store"
-    area_id: 30
+    area_id: 6
     short_desc: "The Meat Store"
     long_desc: |
       You are in a meat store.  Hanging on hooks are meats of many kinds of
@@ -424,7 +424,7 @@ rooms:
   - id: 608
     key: ofcol2_room_608
     name: "Impy Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Impy Way"
     long_desc: |
       You are on Impy Way.  To the east is Farmer's Market, and to the west is
@@ -495,7 +495,7 @@ rooms:
   - id: 609
     key: ofcol2_room_609
     name: "Nyles' House of Ale"
-    area_id: 30
+    area_id: 6
     short_desc: "Nyles' House of Ale"
     long_desc: |
       This is a very busy bar, with everyone holding homemade bottles of
@@ -536,7 +536,7 @@ rooms:
   - id: 610
     key: ofcol2_room_610
     name: "Farmer's Market"
-    area_id: 30
+    area_id: 6
     short_desc: "Farmer's Market"
     long_desc: |
       You see many carts filled with fruits and vegetables.  Many farmers are
@@ -577,7 +577,7 @@ rooms:
   - id: 611
     key: ofcol2_room_611
     name: "The End of Impy Way"
-    area_id: 30
+    area_id: 6
     short_desc: "The End of Impy Way"
     long_desc: |
       You are at the end of Impy and of the city part of Ofcol.  To the east is
@@ -625,7 +625,7 @@ rooms:
   - id: 612
     key: ofcol2_room_612
     name: "Fields"
-    area_id: 30
+    area_id: 6
     short_desc: "Fields"
     long_desc: |
       You are in a corn field.  You can't see far, since the corn stalks are
@@ -679,7 +679,7 @@ rooms:
   - id: 613
     key: ofcol2_room_613
     name: "Fields"
-    area_id: 30
+    area_id: 6
     short_desc: "Fields"
     long_desc: |
       You are among fruit trees in a field.  You see many apple and orange 
@@ -712,7 +712,7 @@ rooms:
   - id: 614
     key: ofcol2_room_614
     name: "Fields"
-    area_id: 30
+    area_id: 6
     short_desc: "Fields"
     long_desc: |
       You are among the vegetable fields.  You see many cabbage and lettuce
@@ -745,7 +745,7 @@ rooms:
   - id: 615
     key: ofcol2_room_615
     name: "Fields"
-    area_id: 30
+    area_id: 6
     short_desc: "Fields"
     long_desc: |
       You are among the wheat fields.  The gentle caress of the wheat and the
@@ -779,7 +779,7 @@ rooms:
   - id: 616
     key: ofcol2_room_616
     name: "The Shed"
-    area_id: 30
+    area_id: 6
     short_desc: "The Shed"
     long_desc: |
       You are in the storage shed.  Bales of wheat, corn and hay are piled
@@ -814,7 +814,7 @@ rooms:
   - id: 617
     key: ofcol2_room_617
     name: "Slaughterhouse"
-    area_id: 30
+    area_id: 6
     short_desc: "Slaughterhouse"
     long_desc: |
       You are in the slaughterhouse, where all the animals are slaughtered so
@@ -848,7 +848,7 @@ rooms:
   - id: 618
     key: ofcol2_room_618
     name: "Dirt Road"
-    area_id: 30
+    area_id: 6
     short_desc: "Dirt Road"
     long_desc: |
       You are on a dirt road.  To the east is a barn, and you see a big chicken
@@ -900,7 +900,7 @@ rooms:
   - id: 619
     key: ofcol2_room_619
     name: "Chicken Coop"
-    area_id: 30
+    area_id: 6
     short_desc: "Chicken Coop"
     long_desc: |
       You are in the chicken coop.  The smell of chickens and chicken droppings
@@ -941,7 +941,7 @@ rooms:
   - id: 620
     key: ofcol2_room_620
     name: "Barn"
-    area_id: 30
+    area_id: 6
     short_desc: "Barn"
     long_desc: |
       You are in a barn.  There are some cows here, munching on mounds of hay.
@@ -990,7 +990,7 @@ rooms:
   - id: 621
     key: ofcol2_room_621
     name: "Dirt Road"
-    area_id: 30
+    area_id: 6
     short_desc: "Dirt Road"
     long_desc: |
       You are on a dirt road.  To the north and south, you see some grass 
@@ -1042,7 +1042,7 @@ rooms:
   - id: 622
     key: ofcol2_room_622
     name: "Grass Field"
-    area_id: 30
+    area_id: 6
     short_desc: "Grass Field"
     long_desc: |
       You are in a grass field.  Fences block the way north, east, and west.
@@ -1081,7 +1081,7 @@ rooms:
   - id: 623
     key: ofcol2_room_623
     name: "Grass Field"
-    area_id: 30
+    area_id: 6
     short_desc: "Grass Field"
     long_desc: |
       You are in a grass field.  Fences block the way south, east, and west.
@@ -1116,7 +1116,7 @@ rooms:
   - id: 624
     key: ofcol2_room_624
     name: "Pig Sty"
-    area_id: 30
+    area_id: 6
     short_desc: "Pig Sty"
     long_desc: |
       For some reason, you are in a pig sty.  You wonder why you are standing in
@@ -1155,7 +1155,7 @@ rooms:
   - id: 625
     key: ofcol2_room_625
     name: "Impy Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Impy Way"
     long_desc: |
       You are on Impy Way.  East and west of you are big houses.  Impy Way
@@ -1208,7 +1208,7 @@ rooms:
   - id: 626
     key: ofcol2_room_626
     name: "Big House"
-    area_id: 30
+    area_id: 6
     short_desc: "Big House"
     long_desc: |
       You are in a big house.  Evidently, the owners of this house are richer
@@ -1254,7 +1254,7 @@ rooms:
   - id: 627
     key: ofcol2_room_627
     name: "Bedroom"
-    area_id: 30
+    area_id: 6
     short_desc: "Bedroom"
     long_desc: |
       You are in the bedroom.  There isn't much of interest except for a bed and
@@ -1290,7 +1290,7 @@ rooms:
   - id: 628
     key: ofcol2_room_628
     name: "Kitchen"
-    area_id: 30
+    area_id: 6
     short_desc: "Kitchen"
     long_desc: |
       You are in a kitchen.  There isn't much of interest here.  The main room
@@ -1314,7 +1314,7 @@ rooms:
   - id: 629
     key: ofcol2_room_629
     name: "Big House"
-    area_id: 30
+    area_id: 6
     short_desc: "Big House"
     long_desc: |
       You are in a big house.  Evidently, the owners of this house are richer
@@ -1372,7 +1372,7 @@ rooms:
   - id: 630
     key: ofcol2_room_630
     name: "Bedroom"
-    area_id: 30
+    area_id: 6
     short_desc: "Bedroom"
     long_desc: |
       You are in the bedroom.  There isn't much of interest except for a bed and
@@ -1396,7 +1396,7 @@ rooms:
   - id: 631
     key: ofcol2_room_631
     name: "Kitchen"
-    area_id: 30
+    area_id: 6
     short_desc: "Kitchen"
     long_desc: |
       You are in a kitchen.  There isn't much of interest here.  The main room
@@ -1420,7 +1420,7 @@ rooms:
   - id: 632
     key: ofcol2_room_632
     name: "Impy Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Impy Way"
     long_desc: |
       You are on Impy Way.  Houses are to the east and west of here.  Impy Way
@@ -1472,7 +1472,7 @@ rooms:
   - id: 633
     key: ofcol2_room_633
     name: "House"
-    area_id: 30
+    area_id: 6
     short_desc: "House"
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
@@ -1506,7 +1506,7 @@ rooms:
   - id: 634
     key: ofcol2_room_634
     name: "Bedroom"
-    area_id: 30
+    area_id: 6
     short_desc: "Bedroom"
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
@@ -1530,7 +1530,7 @@ rooms:
   - id: 635
     key: ofcol2_room_635
     name: "House"
-    area_id: 30
+    area_id: 6
     short_desc: "House"
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
@@ -1569,7 +1569,7 @@ rooms:
   - id: 636
     key: ofcol2_room_636
     name: "Bedroom"
-    area_id: 30
+    area_id: 6
     short_desc: "Bedroom"
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
@@ -1593,7 +1593,7 @@ rooms:
   - id: 637
     key: ofcol2_room_637
     name: "Impy Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Impy Way"
     long_desc: |
       You are on Impy Way.  Houses are to the east and west of here.  Impy Way
@@ -1668,7 +1668,7 @@ rooms:
   - id: 638
     key: ofcol2_room_638
     name: "House"
-    area_id: 30
+    area_id: 6
     short_desc: "House"
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
@@ -1702,7 +1702,7 @@ rooms:
   - id: 639
     key: ofcol2_room_639
     name: "Bedroom"
-    area_id: 30
+    area_id: 6
     short_desc: "Bedroom"
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
@@ -1726,7 +1726,7 @@ rooms:
   - id: 640
     key: ofcol2_room_640
     name: "House"
-    area_id: 30
+    area_id: 6
     short_desc: "House"
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
@@ -1760,7 +1760,7 @@ rooms:
   - id: 641
     key: ofcol2_room_641
     name: "Bedroom"
-    area_id: 30
+    area_id: 6
     short_desc: "Bedroom"
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
@@ -1784,7 +1784,7 @@ rooms:
   - id: 642
     key: ofcol2_room_642
     name: "The Big Intersection"
-    area_id: 30
+    area_id: 6
     short_desc: "The Big Intersection"
     long_desc: |
       You are on the intersection of Impy Way and Swiftest Way.  To the north of
@@ -1855,7 +1855,7 @@ rooms:
   - id: 643
     key: ofcol2_room_643
     name: "Big House"
-    area_id: 30
+    area_id: 6
     short_desc: "Big House"
     long_desc: |
       You are in a big house.  Evidently, the owners of this house are richer
@@ -1913,7 +1913,7 @@ rooms:
   - id: 644
     key: ofcol2_room_644
     name: "Bedroom"
-    area_id: 30
+    area_id: 6
     short_desc: "Bedroom"
     long_desc: |
       You are in the bedroom.  There isn't much of interest except for a bed 
@@ -1937,7 +1937,7 @@ rooms:
   - id: 645
     key: ofcol2_room_645
     name: "Kitchen"
-    area_id: 30
+    area_id: 6
     short_desc: "Kitchen"
     long_desc: |
       You are in a kitchen.  There isn't much of interest here.  The main room
@@ -1961,7 +1961,7 @@ rooms:
   - id: 646
     key: ofcol2_room_646
     name: "Swiftest Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Swiftest Way"
     long_desc: |
       You are on Swiftest Way, the commoner's residential area.  Small houses
@@ -2014,7 +2014,7 @@ rooms:
   - id: 647
     key: ofcol2_room_647
     name: "Swiftest Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Swiftest Way"
     long_desc: |
       You are on Swiftest Way, the commoner's residential area.  Small houses
@@ -2084,7 +2084,7 @@ rooms:
   - id: 648
     key: ofcol2_room_648
     name: "End of Swiftest Way"
-    area_id: 30
+    area_id: 6
     short_desc: "End of Swiftest Way"
     long_desc: |
       You are on Swiftest Way, the commoner's residential area.  Small houses
@@ -2141,7 +2141,7 @@ rooms:
   - id: 649
     key: ofcol2_room_649
     name: "Swiftest Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Swiftest Way"
     long_desc: |
       You are on Swiftest Way, the commoner's residential area.  Small houses
@@ -2194,7 +2194,7 @@ rooms:
   - id: 650
     key: ofcol2_room_650
     name: "Swiftest Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Swiftest Way"
     long_desc: |
       You are on Swiftest Way, the commoner's residential area.  Small houses
@@ -2268,7 +2268,7 @@ rooms:
   - id: 651
     key: ofcol2_room_651
     name: "The end of Swiftest Way"
-    area_id: 30
+    area_id: 6
     short_desc: "The end of Swiftest Way"
     long_desc: |
       You are on Swiftest Way, the commoner's residential area.  Small houses
@@ -2320,7 +2320,7 @@ rooms:
   - id: 652
     key: ofcol2_room_652
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2350,7 +2350,7 @@ rooms:
   - id: 653
     key: ofcol2_room_653
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2375,7 +2375,7 @@ rooms:
   - id: 654
     key: ofcol2_room_654
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2400,7 +2400,7 @@ rooms:
   - id: 655
     key: ofcol2_room_655
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2430,7 +2430,7 @@ rooms:
   - id: 656
     key: ofcol2_room_656
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2455,7 +2455,7 @@ rooms:
   - id: 657
     key: ofcol2_room_657
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2480,7 +2480,7 @@ rooms:
   - id: 658
     key: ofcol2_room_658
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2505,7 +2505,7 @@ rooms:
   - id: 659
     key: ofcol2_room_659
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2530,7 +2530,7 @@ rooms:
   - id: 660
     key: ofcol2_room_660
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2555,7 +2555,7 @@ rooms:
   - id: 661
     key: ofcol2_room_661
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2585,7 +2585,7 @@ rooms:
   - id: 662
     key: ofcol2_room_662
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2610,7 +2610,7 @@ rooms:
   - id: 663
     key: ofcol2_room_663
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2635,7 +2635,7 @@ rooms:
   - id: 664
     key: ofcol2_room_664
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2660,7 +2660,7 @@ rooms:
   - id: 665
     key: ofcol2_room_665
     name: "Small House"
-    area_id: 30
+    area_id: 6
     short_desc: "Small House"
     long_desc: |
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
@@ -2685,7 +2685,7 @@ rooms:
   - id: 666
     key: ofcol2_room_666
     name: "Raff Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Raff Way"
     long_desc: |
       You are on Raff Way.  To the west, you can see a big intersection.  To 
@@ -2724,7 +2724,7 @@ rooms:
   - id: 667
     key: ofcol2_room_667
     name: "Raff Way"
-    area_id: 30
+    area_id: 6
     short_desc: "Raff Way"
     long_desc: |
       You are on Raff Way.  Raff Way continues west to the city of Ofcol.  To 
@@ -2776,7 +2776,7 @@ rooms:
   - id: 668
     key: ofcol2_room_668
     name: "Dirt Road"
-    area_id: 30
+    area_id: 6
     short_desc: "Dirt Road"
     long_desc: |
       You are on a dirt road.  To the east is a large building with a bad smell
@@ -2819,7 +2819,7 @@ rooms:
   - id: 669
     key: ofcol2_room_669
     name: "The Temple of Ofcol"
-    area_id: 30
+    area_id: 6
     short_desc: "The Temple of Ofcol"
     long_desc: |
       You are in the Temple of Ofcol.  Golden tiles cover the floor, and solid
@@ -2925,7 +2925,7 @@ rooms:
   - id: 670
     key: ofcol2_room_670
     name: "The Anteroom to the Temple of Ofcol"
-    area_id: 30
+    area_id: 6
     short_desc: "The Anteroom to the Temple of Ofcol"
     long_desc: |
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
@@ -2970,7 +2970,7 @@ rooms:
   - id: 671
     key: ofcol2_room_671
     name: "The Anteroom to the Temple of Ofcol"
-    area_id: 30
+    area_id: 6
     short_desc: "The Anteroom to the Temple of Ofcol"
     long_desc: |
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
@@ -3015,7 +3015,7 @@ rooms:
   - id: 672
     key: ofcol2_room_672
     name: "The Anteroom to the Temple of Ofcol"
-    area_id: 30
+    area_id: 6
     short_desc: "The Anteroom to the Temple of Ofcol"
     long_desc: |
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
@@ -3060,7 +3060,7 @@ rooms:
   - id: 673
     key: ofcol2_room_673
     name: "The Anteroom to the Temple of Ofcol"
-    area_id: 30
+    area_id: 6
     short_desc: "The Anteroom to the Temple of Ofcol"
     long_desc: |
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
@@ -3110,7 +3110,7 @@ rooms:
   - id: 674
     key: ofcol2_room_674
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3150,7 +3150,7 @@ rooms:
   - id: 675
     key: ofcol2_room_675
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3195,7 +3195,7 @@ rooms:
   - id: 676
     key: ofcol2_room_676
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3248,7 +3248,7 @@ rooms:
   - id: 677
     key: ofcol2_room_677
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3283,7 +3283,7 @@ rooms:
   - id: 678
     key: ofcol2_room_678
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3323,7 +3323,7 @@ rooms:
   - id: 679
     key: ofcol2_room_679
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3379,7 +3379,7 @@ rooms:
   - id: 680
     key: ofcol2_room_680
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3424,7 +3424,7 @@ rooms:
   - id: 681
     key: ofcol2_room_681
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3477,7 +3477,7 @@ rooms:
   - id: 682
     key: ofcol2_room_682
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3517,7 +3517,7 @@ rooms:
   - id: 683
     key: ofcol2_room_683
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3557,7 +3557,7 @@ rooms:
   - id: 684
     key: ofcol2_room_684
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3602,7 +3602,7 @@ rooms:
   - id: 685
     key: ofcol2_room_685
     name: "A Hallway of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Hallway of the Golden Citadel"
     long_desc: |
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
@@ -3637,7 +3637,7 @@ rooms:
   - id: 686
     key: ofcol2_room_686
     name: "An Upper Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "An Upper Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the upper chambers of the Golden Citadel.  The decora-
@@ -3684,7 +3684,7 @@ rooms:
   - id: 687
     key: ofcol2_room_687
     name: "An Upper Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "An Upper Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the upper chambers of the Golden Citadel.  The decora-
@@ -3731,7 +3731,7 @@ rooms:
   - id: 688
     key: ofcol2_room_688
     name: "The Hall of the DragonLords"
-    area_id: 30
+    area_id: 6
     short_desc: "The Hall of the DragonLords"
     long_desc: |
       You are in a vast hall, filled with the commanders of the Golden Citadel.
@@ -3866,7 +3866,7 @@ rooms:
   - id: 689
     key: ofcol2_room_689
     name: "An Upper Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "An Upper Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the upper chambers of the Golden Citadel.  The decora-
@@ -3913,7 +3913,7 @@ rooms:
   - id: 690
     key: ofcol2_room_690
     name: "An Upper Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "An Upper Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the upper chambers of the Golden Citadel.  The decora-
@@ -3978,7 +3978,7 @@ rooms:
   - id: 691
     key: ofcol2_room_691
     name: "A Top Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Top Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the top chambers of the Golden Citadel.  The decorations
@@ -4015,7 +4015,7 @@ rooms:
   - id: 692
     key: ofcol2_room_692
     name: "A Top Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Top Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the top chambers of the Golden Citadel.  The decorations
@@ -4052,7 +4052,7 @@ rooms:
   - id: 693
     key: ofcol2_room_693
     name: "The Dragon Chamber"
-    area_id: 30
+    area_id: 6
     short_desc: "The Dragon Chamber"
     long_desc: |
       You are in a vast chamber carved from gold and platinum.  Gems the size of
@@ -4157,7 +4157,7 @@ rooms:
   - id: 694
     key: ofcol2_room_694
     name: "A Top Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Top Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the top chambers of the Golden Citadel.  The decorations
@@ -4194,7 +4194,7 @@ rooms:
   - id: 695
     key: ofcol2_room_695
     name: "A Top Chamber of the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "A Top Chamber of the Golden Citadel"
     long_desc: |
       You are in one of the top chambers of the Golden Citadel.  The decorations
@@ -4231,7 +4231,7 @@ rooms:
   - id: 696
     key: ofcol2_room_696
     name: "Above the Dragon Chamber"
-    area_id: 30
+    area_id: 6
     short_desc: "Above the Dragon Chamber"
     long_desc: |
       You are above the Dragon Chamber.  You curiously note that this shaft that
@@ -4266,7 +4266,7 @@ rooms:
   - id: 697
     key: ofcol2_room_697
     name: "In the Shaft from the Dragon Chamber"
-    area_id: 30
+    area_id: 6
     short_desc: "In the Shaft from the Dragon Chamber"
     long_desc: |
       You are in the shaft leading from the Dragon Chamber.  Below you lies the
@@ -4291,7 +4291,7 @@ rooms:
   - id: 698
     key: ofcol2_room_698
     name: "Inside the Entrance to the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "Inside the Entrance to the Golden Citadel"
     long_desc: |
       You are inside the entrance to the Golden Citadel.  Rich golden tapestries
@@ -4387,7 +4387,7 @@ rooms:
   - id: 699
     key: ofcol2_room_699
     name: "Outside the Entrance to the Golden Citadel"
-    area_id: 30
+    area_id: 6
     short_desc: "Outside the Entrance to the Golden Citadel"
     long_desc: |
       You are outside the entrance to the Golden Citadel.  A great gate is to

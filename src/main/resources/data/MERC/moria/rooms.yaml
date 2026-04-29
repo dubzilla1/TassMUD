@@ -2,7 +2,7 @@ rooms:
   - id: 3900
     key: moria_room_3900
     name: "West trail around Midgaard"
-    area_id: 32
+    area_id: 39
     short_desc: "West trail around Midgaard"
     long_desc: |
       You are on a dusty trail following the outside wall of Midgaard.
@@ -35,7 +35,7 @@ rooms:
   - id: 3901
     key: moria_room_3901
     name: "West trail around Midgaard"
-    area_id: 32
+    area_id: 39
     short_desc: "West trail around Midgaard"
     long_desc: |
       You are on a dusty trail following the outside wall of Midgaard.
@@ -68,7 +68,7 @@ rooms:
   - id: 3902
     key: moria_room_3902
     name: "Northwest corner of dusty trail."
-    area_id: 32
+    area_id: 39
     short_desc: "Northwest corner of dusty trail."
     long_desc: |
       You are standing outside the northwestern corner of the city wall.
@@ -100,7 +100,7 @@ rooms:
   - id: 3903
     key: moria_room_3903
     name: "Dusty trail along north wall."
-    area_id: 32
+    area_id: 39
     short_desc: "Dusty trail along north wall."
     long_desc: |
       You are walking on the trail following the outside of Midgaard's
@@ -132,7 +132,7 @@ rooms:
   - id: 3904
     key: moria_room_3904
     name: "The long dusty trail following the north wall."
-    area_id: 32
+    area_id: 39
     short_desc: "The long dusty trail following the north wall."
     long_desc: |
       You are walking along the north wall. This is the rear of the Temple.
@@ -180,7 +180,7 @@ rooms:
   - id: 3905
     key: moria_room_3905
     name: "Dusty trail along north wall."
-    area_id: 32
+    area_id: 39
     short_desc: "Dusty trail along north wall."
     long_desc: |
       You are walking on the trail following the outside of Midgaard's
@@ -214,7 +214,7 @@ rooms:
   - id: 3906
     key: moria_room_3906
     name: "Northeast corner of dusty trail."
-    area_id: 32
+    area_id: 39
     short_desc: "Northeast corner of dusty trail."
     long_desc: |
       You are standing outside the northeastern corner of the city wall.
@@ -246,7 +246,7 @@ rooms:
   - id: 3907
     key: moria_room_3907
     name: "East trail around Midgaard"
-    area_id: 32
+    area_id: 39
     short_desc: "East trail around Midgaard"
     long_desc: |
       You are on a dusty trail following the outside wall of Midgaard.
@@ -279,7 +279,7 @@ rooms:
   - id: 3908
     key: moria_room_3908
     name: "East trail around Midgaard"
-    area_id: 32
+    area_id: 39
     short_desc: "East trail around Midgaard"
     long_desc: |
       You are on a dusty trail following the outside wall of Midgaard.
@@ -312,7 +312,7 @@ rooms:
   - id: 4000
     key: moria_room_4000
     name: "The hills"
-    area_id: 32
+    area_id: 39
     short_desc: "The hills"
     long_desc: |
       You are on a small bewildered path winding its way between the hills in
@@ -359,7 +359,7 @@ rooms:
   - id: 4001
     key: moria_room_4001
     name: "The hills"
-    area_id: 32
+    area_id: 39
     short_desc: "The hills"
     long_desc: |
       You are surrounded by dark and sinister hills. Although they seemed fairly
@@ -398,7 +398,7 @@ rooms:
   - id: 4002
     key: moria_room_4002
     name: "End of the path"
-    area_id: 32
+    area_id: 39
     short_desc: "End of the path"
     long_desc: |
       At this point the path has had enough. With a terrified shudder it cowers
@@ -455,7 +455,7 @@ rooms:
   - id: 4010
     key: moria_room_4010
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in a large cave. The ceiling is lost somewhere above the reach of
@@ -490,7 +490,7 @@ rooms:
   - id: 4011
     key: moria_room_4011
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You squeeze your way through a small, narrow tunnel. The sharp-edged rocks
@@ -526,7 +526,7 @@ rooms:
   - id: 4012
     key: moria_room_4012
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a part of the tunnel that looks uncannily like the rest except
@@ -561,7 +561,7 @@ rooms:
   - id: 4013
     key: moria_room_4013
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       This tunnel, leading east-west, seems seldom used.  A thick layer of dust
@@ -604,7 +604,7 @@ rooms:
   - id: 4014
     key: moria_room_4014
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are walking in a narrow tunnel. The walls are only roughly shaped,
@@ -661,7 +661,7 @@ rooms:
   - id: 4015
     key: moria_room_4015
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a corner tunnel leading west and north.
@@ -703,7 +703,7 @@ rooms:
   - id: 4016
     key: moria_room_4016
     name: "The large cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The large cave"
     long_desc: |
       You are in a large cave, the cave continues east and west, to the south
@@ -747,7 +747,7 @@ rooms:
   - id: 4017
     key: moria_room_4017
     name: "The large cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The large cave"
     long_desc: |
       You are in the east end of the large cave.
@@ -775,7 +775,7 @@ rooms:
   - id: 4018
     key: moria_room_4018
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in the south end of a cave, to the south you see a tunnel. You
@@ -812,7 +812,7 @@ rooms:
   - id: 4019
     key: moria_room_4019
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a north-south leading tunnel.
@@ -845,7 +845,7 @@ rooms:
   - id: 4020
     key: moria_room_4020
     name: "The hole"
-    area_id: 32
+    area_id: 39
     short_desc: "The hole"
     long_desc: |
       You are by a hole in the floor, you can leave down, or north.
@@ -884,7 +884,7 @@ rooms:
   - id: 4021
     key: moria_room_4021
     name: "The hole"
-    area_id: 32
+    area_id: 39
     short_desc: "The hole"
     long_desc: |
       A hole in the floor leads down here.
@@ -927,7 +927,7 @@ rooms:
   - id: 4022
     key: moria_room_4022
     name: "The damp tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The damp tunnel"
     long_desc: |
       You are in a damp tunnel.  Your clothes feel wet.  The tunnel continues
@@ -981,7 +981,7 @@ rooms:
   - id: 4023
     key: moria_room_4023
     name: "The large cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The large cave"
     long_desc: |
       You are in the western part of the large cave, to the south you see
@@ -1020,7 +1020,7 @@ rooms:
   - id: 4024
     key: moria_room_4024
     name: "The damp tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The damp tunnel"
     long_desc: |
       You are in a corner of a damp tunnel.  You can go west or south.
@@ -1053,7 +1053,7 @@ rooms:
   - id: 4025
     key: moria_room_4025
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in the north end of a cave.  To the east you see many tunnels.
@@ -1091,7 +1091,7 @@ rooms:
   - id: 4026
     key: moria_room_4026
     name: "The many tunnels"
-    area_id: 32
+    area_id: 39
     short_desc: "The many tunnels"
     long_desc: |
       You are at the intersection of many tunnels.
@@ -1144,7 +1144,7 @@ rooms:
   - id: 4027
     key: moria_room_4027
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a north-south leading tunnel, you also notice a tunnel to
@@ -1197,7 +1197,7 @@ rooms:
   - id: 4028
     key: moria_room_4028
     name: "The smelly tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The smelly tunnel"
     long_desc: |
       You are in a north-south leading tunnel, you see a small light
@@ -1240,7 +1240,7 @@ rooms:
   - id: 4029
     key: moria_room_4029
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in a cave that is filled with fresh air, you sense the
@@ -1275,7 +1275,7 @@ rooms:
   - id: 4030
     key: moria_room_4030
     name: "The light cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The light cave"
     long_desc: |
       You are in a light cave, through a hole large above you, you see 
@@ -1308,7 +1308,7 @@ rooms:
   - id: 4031
     key: moria_room_4031
     name: "The valley"
-    area_id: 32
+    area_id: 39
     short_desc: "The valley"
     long_desc: |
       You are in a small valley, surrounded by hills and a mountain to 
@@ -1343,7 +1343,7 @@ rooms:
   - id: 4032
     key: moria_room_4032
     name: "The foothills"
-    area_id: 32
+    area_id: 39
     short_desc: "The foothills"
     long_desc: |
       You are on a winding path that leads through the foothills on the
@@ -1375,7 +1375,7 @@ rooms:
   - id: 4033
     key: moria_room_4033
     name: "The intersection in the foothills"
-    area_id: 32
+    area_id: 39
     short_desc: "The intersection in the foothills"
     long_desc: |
       The small path you are following splits here.  The path continues
@@ -1417,7 +1417,7 @@ rooms:
   - id: 4034
     key: moria_room_4034
     name: "The grassy area of the foothills"
-    area_id: 32
+    area_id: 39
     short_desc: "The grassy area of the foothills"
     long_desc: |
       The grass here is unusually high.  You notice several areas where
@@ -1460,7 +1460,7 @@ rooms:
   - id: 4035
     key: moria_room_4035
     name: "The foothills end"
-    area_id: 32
+    area_id: 39
     short_desc: "The foothills end"
     long_desc: |
       At this point you are leaving the foothills.  You see a plains area
@@ -1493,7 +1493,7 @@ rooms:
   - id: 4036
     key: moria_room_4036
     name: "The plains"
-    area_id: 32
+    area_id: 39
     short_desc: "The plains"
     long_desc: |
       The plains.  Exits are south.
@@ -1514,7 +1514,7 @@ rooms:
   - id: 4037
     key: moria_room_4037
     name: "The foothills path"
-    area_id: 32
+    area_id: 39
     short_desc: "The foothills path"
     long_desc: |
       Exits are east and west.
@@ -1545,7 +1545,7 @@ rooms:
   - id: 4038
     key: moria_room_4038
     name: "Base of the mountain"
-    area_id: 32
+    area_id: 39
     short_desc: "Base of the mountain"
     long_desc: |
       Exits are east and west.
@@ -1576,7 +1576,7 @@ rooms:
   - id: 4039
     key: moria_room_4039
     name: "A trail up the mountain"
-    area_id: 32
+    area_id: 39
     short_desc: "A trail up the mountain"
     long_desc: |
       Exits are east and west.
@@ -1607,7 +1607,7 @@ rooms:
   - id: 4040
     key: moria_room_4040
     name: "The mountain top."
-    area_id: 32
+    area_id: 39
     short_desc: "The mountain top."
     long_desc: |
       Exits are north, east, and west.
@@ -1648,7 +1648,7 @@ rooms:
   - id: 4041
     key: moria_room_4041
     name: "The lion's den"
-    area_id: 32
+    area_id: 39
     short_desc: "The lion's den"
     long_desc: |
       Exits are south.
@@ -1669,7 +1669,7 @@ rooms:
   - id: 4042
     key: moria_room_4042
     name: "The level foothills"
-    area_id: 32
+    area_id: 39
     short_desc: "The level foothills"
     long_desc: |
       Exits are east and west.
@@ -1700,7 +1700,7 @@ rooms:
   - id: 4043
     key: moria_room_4043
     name: "The cave entrance"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave entrance"
     long_desc: |
       Exits are east and west.
@@ -1731,7 +1731,7 @@ rooms:
   - id: 4044
     key: moria_room_4044
     name: "The hill giant cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The hill giant cave"
     long_desc: |
       Exits are east.
@@ -1752,7 +1752,7 @@ rooms:
   - id: 4050
     key: moria_room_4050
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       The tunnel turns here, continuing to the east and south.
@@ -1790,7 +1790,7 @@ rooms:
   - id: 4051
     key: moria_room_4051
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a narrow east-west tunnel.
@@ -1823,7 +1823,7 @@ rooms:
   - id: 4052
     key: moria_room_4052
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are at a turn, the tunnel continues south and west.
@@ -1861,7 +1861,7 @@ rooms:
   - id: 4053
     key: moria_room_4053
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are at a turn, the tunnel continues north and east.
@@ -1899,7 +1899,7 @@ rooms:
   - id: 4054
     key: moria_room_4054
     name: "The light cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The light cave"
     long_desc: |
       You are in a cave, to south from you there is a large fire that lights
@@ -1943,7 +1943,7 @@ rooms:
   - id: 4055
     key: moria_room_4055
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.  The only exit is west.
@@ -1971,7 +1971,7 @@ rooms:
   - id: 4056
     key: moria_room_4056
     name: "The light cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The light cave"
     long_desc: |
       You are in a light cave, a large fire in front of you lights the room.
@@ -2010,7 +2010,7 @@ rooms:
   - id: 4057
     key: moria_room_4057
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.
@@ -2048,7 +2048,7 @@ rooms:
   - id: 4058
     key: moria_room_4058
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.
@@ -2086,7 +2086,7 @@ rooms:
   - id: 4059
     key: moria_room_4059
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a tunnel, only exit is to the east. You sense that the
@@ -2126,7 +2126,7 @@ rooms:
   - id: 4060
     key: moria_room_4060
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a small tunnel, to the west the tunnel continues and 
@@ -2165,7 +2165,7 @@ rooms:
   - id: 4061
     key: moria_room_4061
     name: "The light cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The light cave"
     long_desc: |
       You are in the south end of a light cave.
@@ -2198,7 +2198,7 @@ rooms:
   - id: 4062
     key: moria_room_4062
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.
@@ -2239,7 +2239,7 @@ rooms:
   - id: 4063
     key: moria_room_4063
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.
@@ -2272,7 +2272,7 @@ rooms:
   - id: 4064
     key: moria_room_4064
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are at the eastern end of a tunnel.
@@ -2313,7 +2313,7 @@ rooms:
   - id: 4065
     key: moria_room_4065
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.
@@ -2351,7 +2351,7 @@ rooms:
   - id: 4066
     key: moria_room_4066
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.
@@ -2394,7 +2394,7 @@ rooms:
   - id: 4067
     key: moria_room_4067
     name: "The maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The maze"
     long_desc: |
       You are in a maze of small damp tunnels.
@@ -2422,7 +2422,7 @@ rooms:
   - id: 4068
     key: moria_room_4068
     name: "The large cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The large cave"
     long_desc: |
       You are in the northwest end of a large cave.
@@ -2464,7 +2464,7 @@ rooms:
   - id: 4069
     key: moria_room_4069
     name: "The large cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The large cave"
     long_desc: |
       You are in the northeast end of a large cave. To the north the
@@ -2513,7 +2513,7 @@ rooms:
   - id: 4070
     key: moria_room_4070
     name: "The large cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The large cave"
     long_desc: |
       You are in the southwest end of a large cave.
@@ -2555,7 +2555,7 @@ rooms:
   - id: 4071
     key: moria_room_4071
     name: "The large cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The large cave"
     long_desc: |
       You are in the southeast end of a large cave. To the east you
@@ -2611,7 +2611,7 @@ rooms:
   - id: 4072
     key: moria_room_4072
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a narrow tunnel, which leads both to the east and the
@@ -2656,7 +2656,7 @@ rooms:
   - id: 4073
     key: moria_room_4073
     name: "End of tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "End of tunnel"
     long_desc: |
       The tunnel stops here.
@@ -2684,7 +2684,7 @@ rooms:
   - id: 4074
     key: moria_room_4074
     name: "The hole"
-    area_id: 32
+    area_id: 39
     short_desc: "The hole"
     long_desc: |
       You are at a small hole in the floor, you can either leave north
@@ -2718,7 +2718,7 @@ rooms:
   - id: 4100
     key: moria_room_4100
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       Suddenly you feel that the tunnel leads slightly down.
@@ -2752,7 +2752,7 @@ rooms:
   - id: 4101
     key: moria_room_4101
     name: "The long tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The long tunnel"
     long_desc: |
       You are in a long east-west leading tunnel. The tunnel is quite
@@ -2786,7 +2786,7 @@ rooms:
   - id: 4102
     key: moria_room_4102
     name: "The long tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The long tunnel"
     long_desc: |
       You are in a long east-west leading tunnel. The tunnel becomes
@@ -2820,7 +2820,7 @@ rooms:
   - id: 4103
     key: moria_room_4103
     name: "The long tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The long tunnel"
     long_desc: |
       You are in a long east-west leading tunnel. The tunnel is quite
@@ -2878,7 +2878,7 @@ rooms:
   - id: 4104
     key: moria_room_4104
     name: "The long tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The long tunnel"
     long_desc: |
       You are in a long east-west leading tunnel. The tunnel starts sloping
@@ -2912,7 +2912,7 @@ rooms:
   - id: 4105
     key: moria_room_4105
     name: "The golden cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The golden cave"
     long_desc: |
       You are in a giant cave, all the walls are shining with a soft golden
@@ -2946,7 +2946,7 @@ rooms:
   - id: 4106
     key: moria_room_4106
     name: "The golden cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The golden cave"
     long_desc: |
       You are in a giant cave, all the walls are shining with a soft golden
@@ -2991,7 +2991,7 @@ rooms:
   - id: 4107
     key: moria_room_4107
     name: "The passage"
-    area_id: 32
+    area_id: 39
     short_desc: "The passage"
     long_desc: |
       You are in a small passage, it leads south, to the west is a golden
@@ -3025,7 +3025,7 @@ rooms:
   - id: 4108
     key: moria_room_4108
     name: "The golden cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The golden cave"
     long_desc: |
       You are in a giant cave, all the walls are shining with a soft golden
@@ -3075,7 +3075,7 @@ rooms:
   - id: 4109
     key: moria_room_4109
     name: "The golden cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The golden cave"
     long_desc: |
       You are in a giant cave, all the walls are shining with a soft golden
@@ -3119,7 +3119,7 @@ rooms:
   - id: 4110
     key: moria_room_4110
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are at the end of the tunnel.
@@ -3143,7 +3143,7 @@ rooms:
   - id: 4111
     key: moria_room_4111
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a small tunnel, it leads from east to the west.
@@ -3191,7 +3191,7 @@ rooms:
   - id: 4112
     key: moria_room_4112
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You are in a larger tunnel, it leads from west to east.
@@ -3224,7 +3224,7 @@ rooms:
   - id: 4113
     key: moria_room_4113
     name: "The passage"
-    area_id: 32
+    area_id: 39
     short_desc: "The passage"
     long_desc: |
       You are in a passage that leads towards the south. To the east 
@@ -3276,7 +3276,7 @@ rooms:
   - id: 4114
     key: moria_room_4114
     name: "The golden cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The golden cave"
     long_desc: |
       You are in a giant cave, all the walls are shining with a soft golden
@@ -3319,7 +3319,7 @@ rooms:
   - id: 4115
     key: moria_room_4115
     name: "The dark passage."
-    area_id: 32
+    area_id: 39
     short_desc: "The dark passage."
     long_desc: |
       You are in a dark passage, that leads east. In the ceiling you notice
@@ -3353,7 +3353,7 @@ rooms:
   - id: 4116
     key: moria_room_4116
     name: "The passage"
-    area_id: 32
+    area_id: 39
     short_desc: "The passage"
     long_desc: |
       You are in a passage that leads north-south. You notice a small
@@ -3387,7 +3387,7 @@ rooms:
   - id: 4117
     key: moria_room_4117
     name: "The secret chamber"
-    area_id: 32
+    area_id: 39
     short_desc: "The secret chamber"
     long_desc: |
       You are in a secret chamber.
@@ -3410,7 +3410,7 @@ rooms:
   - id: 4118
     key: moria_room_4118
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in a light cave, from torches several feet above your
@@ -3445,7 +3445,7 @@ rooms:
   - id: 4119
     key: moria_room_4119
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in a light cave, from torches several feet above your
@@ -3497,7 +3497,7 @@ rooms:
   - id: 4120
     key: moria_room_4120
     name: "The passage"
-    area_id: 32
+    area_id: 39
     short_desc: "The passage"
     long_desc: |
       You are in a north-south leading passage. To the south you see light.
@@ -3530,7 +3530,7 @@ rooms:
   - id: 4121
     key: moria_room_4121
     name: "The secret tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The secret tunnel"
     long_desc: |
       You are in a secret tunnel that leads west, you feel evilness
@@ -3564,7 +3564,7 @@ rooms:
   - id: 4122
     key: moria_room_4122
     name: "The secret chamber"
-    area_id: 32
+    area_id: 39
     short_desc: "The secret chamber"
     long_desc: |
       You are in a secret chamber, the room is filled with an evil
@@ -3606,7 +3606,7 @@ rooms:
   - id: 4123
     key: moria_room_4123
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in a light cave, from torches several feet above your
@@ -3640,7 +3640,7 @@ rooms:
   - id: 4124
     key: moria_room_4124
     name: "The cave"
-    area_id: 32
+    area_id: 39
     short_desc: "The cave"
     long_desc: |
       You are in a light cave, from torches several feet above your
@@ -3693,7 +3693,7 @@ rooms:
   - id: 4125
     key: moria_room_4125
     name: "The passage"
-    area_id: 32
+    area_id: 39
     short_desc: "The passage"
     long_desc: |
       You are in a passage, to the east you see a cave. Light from the
@@ -3728,7 +3728,7 @@ rooms:
   - id: 4150
     key: moria_room_4150
     name: "The dark hole"
-    area_id: 32
+    area_id: 39
     short_desc: "The dark hole"
     long_desc: |
       You are standing at a hole, a small passage leads south. You see
@@ -3756,7 +3756,7 @@ rooms:
   - id: 4151
     key: moria_room_4151
     name: "The small passage"
-    area_id: 32
+    area_id: 39
     short_desc: "The small passage"
     long_desc: |
       You are in a small passage, to the north you see a hole, and to
@@ -3805,7 +3805,7 @@ rooms:
   - id: 4152
     key: moria_room_4152
     name: "The tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The tunnel"
     long_desc: |
       You suddenly feel that the tunnel leads down.
@@ -3839,7 +3839,7 @@ rooms:
   - id: 4153
     key: moria_room_4153
     name: "The large tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The large tunnel"
     long_desc: |
       You are in a large tunnel leading from the south to the east. The
@@ -3888,7 +3888,7 @@ rooms:
   - id: 4154
     key: moria_room_4154
     name: "The large tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The large tunnel"
     long_desc: |
       You are in a large east-west leading tunnel, the air is damp and
@@ -3922,7 +3922,7 @@ rooms:
   - id: 4155
     key: moria_room_4155
     name: "The large tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The large tunnel"
     long_desc: |
       You are in a large tunnel, the tunnel leads west, and to the east
@@ -3965,7 +3965,7 @@ rooms:
   - id: 4156
     key: moria_room_4156
     name: "The long tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The long tunnel"
     long_desc: |
       You are standing in a long north-south tunnel.
@@ -3998,7 +3998,7 @@ rooms:
   - id: 4157
     key: moria_room_4157
     name: "The wet tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The wet tunnel"
     long_desc: |
       You are in a wet, north-south leading tunnel, the floor is
@@ -4051,7 +4051,7 @@ rooms:
   - id: 4158
     key: moria_room_4158
     name: "The small maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The small maze"
     long_desc: |
       You are in a small maze, exits leads off to the east,  south
@@ -4104,7 +4104,7 @@ rooms:
   - id: 4159
     key: moria_room_4159
     name: "The small maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The small maze"
     long_desc: |
       You are in a small maze, exits leads off only to the south
@@ -4147,7 +4147,7 @@ rooms:
   - id: 4160
     key: moria_room_4160
     name: "In the tunnel at the inscription"
-    area_id: 32
+    area_id: 39
     short_desc: "In the tunnel at the inscription"
     long_desc: |
       You are in a north-south leading tunnel, the air is damp. On
@@ -4200,7 +4200,7 @@ rooms:
   - id: 4161
     key: moria_room_4161
     name: "The wet tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The wet tunnel"
     long_desc: |
       You are in a north-south leading tunnel.  The floor is fully
@@ -4239,7 +4239,7 @@ rooms:
   - id: 4162
     key: moria_room_4162
     name: "The small maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The small maze"
     long_desc: |
       You are in a small maze. The floor is mainly covered by
@@ -4288,7 +4288,7 @@ rooms:
   - id: 4163
     key: moria_room_4163
     name: "The small maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The small maze"
     long_desc: |
       You are in a small maze, where the air is damp. Exits
@@ -4332,7 +4332,7 @@ rooms:
   - id: 4164
     key: moria_room_4164
     name: "The entrance to the small maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The entrance to the small maze"
     long_desc: |
       You are in a north-south leading tunnel, and the air is damp.
@@ -4385,7 +4385,7 @@ rooms:
   - id: 4165
     key: moria_room_4165
     name: "In the water"
-    area_id: 32
+    area_id: 39
     short_desc: "In the water"
     long_desc: |
       You are standing in water, the tunnel continues both to the
@@ -4419,7 +4419,7 @@ rooms:
   - id: 4166
     key: moria_room_4166
     name: "The wet maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The wet maze"
     long_desc: |
       You are in a part of the maze where the floor is fully covered
@@ -4463,7 +4463,7 @@ rooms:
   - id: 4167
     key: moria_room_4167
     name: "The wet maze"
-    area_id: 32
+    area_id: 39
     short_desc: "The wet maze"
     long_desc: |
       You are in a small maze, the floor is covered by water, the
@@ -4519,7 +4519,7 @@ rooms:
   - id: 4168
     key: moria_room_4168
     name: "The end of the tunnel"
-    area_id: 32
+    area_id: 39
     short_desc: "The end of the tunnel"
     long_desc: |
       The tunnel suddenly stops here, only exit is to the east.
@@ -4558,7 +4558,7 @@ rooms:
   - id: 4169
     key: moria_room_4169
     name: "In the water"
-    area_id: 32
+    area_id: 39
     short_desc: "In the water"
     long_desc: |
       You are standing in the water, exits leads both north and east.
@@ -4596,7 +4596,7 @@ rooms:
   - id: 4170
     key: moria_room_4170
     name: "In the water"
-    area_id: 32
+    area_id: 39
     short_desc: "In the water"
     long_desc: |
       You are standing in the water, it continues east and west.
@@ -4648,7 +4648,7 @@ rooms:
   - id: 4171
     key: moria_room_4171
     name: "End of maze"
-    area_id: 32
+    area_id: 39
     short_desc: "End of maze"
     long_desc: |
       You are at the end of the small maze which continues north.
@@ -4683,7 +4683,7 @@ rooms:
   - id: 4172
     key: moria_room_4172
     name: "At the sand bar"
-    area_id: 32
+    area_id: 39
     short_desc: "At the sand bar"
     long_desc: |
       You are on a little sand bar in the water.

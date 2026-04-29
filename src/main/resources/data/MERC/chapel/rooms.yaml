@@ -2,7 +2,7 @@ rooms:
   - id: 3405
     key: chapel_room_3405
     name: "Inside the Chapel"
-    area_id: 32
+    area_id: 34
     short_desc: "Inside the Chapel"
     long_desc: |
       You are in a small, dark chapel.  The dark brown glass in the tiny windows
@@ -51,7 +51,7 @@ rooms:
   - id: 3408
     key: chapel_room_3408
     name: "Stairwell into Darkness"
-    area_id: 32
+    area_id: 34
     short_desc: "Stairwell into Darkness"
     long_desc: |
       You sense even more danger coming from below but are urged onward ...
@@ -84,7 +84,7 @@ rooms:
   - id: 3409
     key: chapel_room_3409
     name: "The Acolyte's Bedroom"
-    area_id: 32
+    area_id: 34
     short_desc: "The Acolyte's Bedroom"
     long_desc: |
       This is why you were not welcomed at the entrance by the tomb's faithful
@@ -123,7 +123,7 @@ rooms:
   - id: 3410
     key: chapel_room_3410
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -163,7 +163,7 @@ rooms:
   - id: 3411
     key: chapel_room_3411
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -201,7 +201,7 @@ rooms:
   - id: 3412
     key: chapel_room_3412
     name: "The Grand Hall of Kings"
-    area_id: 32
+    area_id: 34
     short_desc: "The Grand Hall of Kings"
     long_desc: |
       You are at the west end of the Grand Hall of Kings.  There is a doorway to the
@@ -242,7 +242,7 @@ rooms:
   - id: 3413
     key: chapel_room_3413
     name: "The Shrine of Shohan"
-    area_id: 32
+    area_id: 34
     short_desc: "The Shrine of Shohan"
     long_desc: |
       BLOOD EVERYWHERE!
@@ -279,7 +279,7 @@ rooms:
   - id: 3414
     key: chapel_room_3414
     name: "The Tomb of Shohan"
-    area_id: 32
+    area_id: 34
     short_desc: "The Tomb of Shohan"
     long_desc: |
       Once beautiful, this place has been turned into a slaughterhouse by the hands
@@ -338,7 +338,7 @@ rooms:
   - id: 3415
     key: chapel_room_3415
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -379,7 +379,7 @@ rooms:
   - id: 3416
     key: chapel_room_3416
     name: "Entrance to the Lower Chambers"
-    area_id: 32
+    area_id: 34
     short_desc: "Entrance to the Lower Chambers"
     long_desc: |
       You can tell that this area wasn't a part of the original construction.
@@ -416,7 +416,7 @@ rooms:
   - id: 3417
     key: chapel_room_3417
     name: "The Grand Hall of Kings"
-    area_id: 32
+    area_id: 34
     short_desc: "The Grand Hall of Kings"
     long_desc: |
       This is the western wing of the Grand Hall of Kings.  Your only exits are to
@@ -458,7 +458,7 @@ rooms:
   - id: 3418
     key: chapel_room_3418
     name: "The Shrine of Cristis"
-    area_id: 32
+    area_id: 34
     short_desc: "The Shrine of Cristis"
     long_desc: |
       Different than the rest, this place has not been desecrated.  An altar still
@@ -521,7 +521,7 @@ rooms:
   - id: 3419
     key: chapel_room_3419
     name: "The Tomb of Cristis"
-    area_id: 32
+    area_id: 34
     short_desc: "The Tomb of Cristis"
     long_desc: |
       Everything here has simply been destroyed.   Exits lead north and west.
@@ -563,7 +563,7 @@ rooms:
   - id: 3420
     key: chapel_room_3420
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -594,7 +594,7 @@ rooms:
   - id: 3421
     key: chapel_room_3421
     name: "Entrance Chamber to the Grand Hall of Kings"
-    area_id: 32
+    area_id: 34
     short_desc: "Entrance Chamber to the Grand Hall of Kings"
     long_desc: |
       Whoever built this place must have been very rich indeed!  Though you did
@@ -655,7 +655,7 @@ rooms:
   - id: 3422
     key: chapel_room_3422
     name: "The Grand Hall of Kings"
-    area_id: 32
+    area_id: 34
     short_desc: "The Grand Hall of Kings"
     long_desc: |
       A long hallway stretches east and west.  On the southern side of the hall
@@ -711,7 +711,7 @@ rooms:
   - id: 3423
     key: chapel_room_3423
     name: "The Shrine of Crotus"
-    area_id: 32
+    area_id: 34
     short_desc: "The Shrine of Crotus"
     long_desc: |
       Mostly rubble, this place used to be the shrine of the famous king Crotus,
@@ -748,7 +748,7 @@ rooms:
   - id: 3424
     key: chapel_room_3424
     name: "The Tomb of Crotus"
-    area_id: 32
+    area_id: 34
     short_desc: "The Tomb of Crotus"
     long_desc: |
       A sarcophagus lies in the middle of the room and seems undisturbed.
@@ -802,7 +802,7 @@ rooms:
   - id: 3425
     key: chapel_room_3425
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -833,7 +833,7 @@ rooms:
   - id: 3426
     key: chapel_room_3426
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -877,7 +877,7 @@ rooms:
   - id: 3427
     key: chapel_room_3427
     name: "The Grand Hall of Kings"
-    area_id: 32
+    area_id: 34
     short_desc: "The Grand Hall of Kings"
     long_desc: |
       You are in the western part of the Grand Hall of Kings.  To the south is a
@@ -921,7 +921,7 @@ rooms:
   - id: 3428
     key: chapel_room_3428
     name: "The Shrine of Mitnar"
-    area_id: 32
+    area_id: 34
     short_desc: "The Shrine of Mitnar"
     long_desc: |
       Mitnar was a gruesome beast of a man ... he loved battle ... and nothing
@@ -967,7 +967,7 @@ rooms:
   - id: 3429
     key: chapel_room_3429
     name: "The Tomb of Mitnar"
-    area_id: 32
+    area_id: 34
     short_desc: "The Tomb of Mitnar"
     long_desc: |
       The wall paintings show men and women warriors alike bowing down to Mitnar,
@@ -1003,7 +1003,7 @@ rooms:
   - id: 3430
     key: chapel_room_3430
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1053,7 +1053,7 @@ rooms:
   - id: 3431
     key: chapel_room_3431
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1084,7 +1084,7 @@ rooms:
   - id: 3432
     key: chapel_room_3432
     name: "The Grand Hall of Kings"
-    area_id: 32
+    area_id: 34
     short_desc: "The Grand Hall of Kings"
     long_desc: |
       You are still walking through the gloomy hallway.
@@ -1125,7 +1125,7 @@ rooms:
   - id: 3433
     key: chapel_room_3433
     name: "The Shrine of Frath"
-    area_id: 32
+    area_id: 34
     short_desc: "The Shrine of Frath"
     long_desc: |
       Little chunks of dried meat are spattered throughout this room.  The walls
@@ -1160,7 +1160,7 @@ rooms:
   - id: 3434
     key: chapel_room_3434
     name: "The Tomb of Frath"
-    area_id: 32
+    area_id: 34
     short_desc: "The Tomb of Frath"
     long_desc: |
       UGH!  The sarcophagus is opened up and the mummified body lies out in the
@@ -1199,7 +1199,7 @@ rooms:
   - id: 3435
     key: chapel_room_3435
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1240,7 +1240,7 @@ rooms:
   - id: 3436
     key: chapel_room_3436
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1281,7 +1281,7 @@ rooms:
   - id: 3437
     key: chapel_room_3437
     name: "The Grand Hall of Kings"
-    area_id: 32
+    area_id: 34
     short_desc: "The Grand Hall of Kings"
     long_desc: |
       You are at the western end of the Grand Hall of Kings.  There is a
@@ -1320,7 +1320,7 @@ rooms:
   - id: 3438
     key: chapel_room_3438
     name: "The Shrine of Jubal"
-    area_id: 32
+    area_id: 34
     short_desc: "The Shrine of Jubal"
     long_desc: |
       This was once beautiful.  Now the huge tapestries have been torn down and the
@@ -1355,7 +1355,7 @@ rooms:
   - id: 3439
     key: chapel_room_3439
     name: "The Tomb of Jubal"
-    area_id: 32
+    area_id: 34
     short_desc: "The Tomb of Jubal"
     long_desc: |
       The smell coming off of the opened sarcophagus is nauseating.  The floor is
@@ -1390,7 +1390,7 @@ rooms:
   - id: 3440
     key: chapel_room_3440
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1431,7 +1431,7 @@ rooms:
   - id: 3441
     key: chapel_room_3441
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1488,7 +1488,7 @@ rooms:
   - id: 3442
     key: chapel_room_3442
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1524,7 +1524,7 @@ rooms:
   - id: 3443
     key: chapel_room_3443
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1555,7 +1555,7 @@ rooms:
   - id: 3444
     key: chapel_room_3444
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1597,7 +1597,7 @@ rooms:
   - id: 3445
     key: chapel_room_3445
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1628,7 +1628,7 @@ rooms:
   - id: 3446
     key: chapel_room_3446
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1669,7 +1669,7 @@ rooms:
   - id: 3447
     key: chapel_room_3447
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1715,7 +1715,7 @@ rooms:
   - id: 3448
     key: chapel_room_3448
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       This room has been totally hollowed out and smoothed, and a pit has been
@@ -1752,7 +1752,7 @@ rooms:
   - id: 3449
     key: chapel_room_3449
     name: "The Lower Chambers and Tombs of the Undead"
-    area_id: 32
+    area_id: 34
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
@@ -1800,7 +1800,7 @@ rooms:
   - id: 3450
     key: chapel_room_3450
     name: "Entrance to the Forbidden Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "Entrance to the Forbidden Catacombs"
     long_desc: |
       You have entered the forbidden catacombs.  This cave system must have been
@@ -1871,7 +1871,7 @@ rooms:
   - id: 3451
     key: chapel_room_3451
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -1902,7 +1902,7 @@ rooms:
   - id: 3452
     key: chapel_room_3452
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -1942,7 +1942,7 @@ rooms:
   - id: 3453
     key: chapel_room_3453
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -1972,7 +1972,7 @@ rooms:
   - id: 3454
     key: chapel_room_3454
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -1998,7 +1998,7 @@ rooms:
   - id: 3455
     key: chapel_room_3455
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2038,7 +2038,7 @@ rooms:
   - id: 3456
     key: chapel_room_3456
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2069,7 +2069,7 @@ rooms:
   - id: 3457
     key: chapel_room_3457
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2109,7 +2109,7 @@ rooms:
   - id: 3458
     key: chapel_room_3458
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2150,7 +2150,7 @@ rooms:
   - id: 3459
     key: chapel_room_3459
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2181,7 +2181,7 @@ rooms:
   - id: 3460
     key: chapel_room_3460
     name: "Den of the Vampire"
-    area_id: 32
+    area_id: 34
     short_desc: "Den of the Vampire"
     long_desc: |
       Your mind whirls in the hideous madness of this place.  The stench
@@ -2232,7 +2232,7 @@ rooms:
   - id: 3461
     key: chapel_room_3461
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2263,7 +2263,7 @@ rooms:
   - id: 3462
     key: chapel_room_3462
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2299,7 +2299,7 @@ rooms:
   - id: 3463
     key: chapel_room_3463
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2339,7 +2339,7 @@ rooms:
   - id: 3464
     key: chapel_room_3464
     name: "The Catacombs"
-    area_id: 32
+    area_id: 34
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
@@ -2380,7 +2380,7 @@ rooms:
   - id: 3465
     key: chapel_room_3465
     name: "The Gilded Hallway"
-    area_id: 32
+    area_id: 34
     short_desc: "The Gilded Hallway"
     long_desc: |
       Wow!  Although this hallway is quite filthy and dusty, it is noticeably
@@ -2437,7 +2437,7 @@ rooms:
   - id: 3466
     key: chapel_room_3466
     name: "The Gilded Hallway"
-    area_id: 32
+    area_id: 34
     short_desc: "The Gilded Hallway"
     long_desc: |
       Ancient etchings and writing in intricate gold and silver designs fill these
@@ -2484,7 +2484,7 @@ rooms:
   - id: 3467
     key: chapel_room_3467
     name: "The Gilded Hallway"
-    area_id: 32
+    area_id: 34
     short_desc: "The Gilded Hallway"
     long_desc: |
       Ancient etchings and writing in intricate gold and silver designs fill these
@@ -2522,7 +2522,7 @@ rooms:
   - id: 3468
     key: chapel_room_3468
     name: "The Gilded Hallway"
-    area_id: 32
+    area_id: 34
     short_desc: "The Gilded Hallway"
     long_desc: |
       Ancient etchings and writing in intricate gold and silver designs fill these
@@ -2573,7 +2573,7 @@ rooms:
   - id: 3469
     key: chapel_room_3469
     name: "The Gilded Hallway"
-    area_id: 32
+    area_id: 34
     short_desc: "The Gilded Hallway"
     long_desc: |
       Ancient etchings and writing in intricate gold and silver designs fill these
@@ -2601,7 +2601,7 @@ rooms:
   - id: 3470
     key: chapel_room_3470
     name: "A Secret Passageway"
-    area_id: 32
+    area_id: 34
     short_desc: "A Secret Passageway"
     long_desc: |
       A secret passage!  You wonder where it may lead!
@@ -2627,7 +2627,7 @@ rooms:
   - id: 3471
     key: chapel_room_3471
     name: "A Secret Passageway"
-    area_id: 32
+    area_id: 34
     short_desc: "A Secret Passageway"
     long_desc: |
       A secret passage!  You wonder where it may lead!
@@ -2662,7 +2662,7 @@ rooms:
   - id: 3472
     key: chapel_room_3472
     name: "The Short Way to Hell ..."
-    area_id: 32
+    area_id: 34
     short_desc: "The Short Way to Hell ..."
     long_desc: |
       You fall ...
@@ -2687,7 +2687,7 @@ rooms:
   - id: 3475
     key: chapel_room_3475
     name: "Inside the coffin"
-    area_id: 32
+    area_id: 34
     short_desc: "Inside the coffin"
     long_desc: |
       You are inside a coffin.  It seems rather cramped in here.  You can climb

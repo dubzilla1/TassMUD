@@ -2,7 +2,7 @@ rooms:
   - id: 3500
     key: midennir_room_3500
     name: "The Plains"
-    area_id: 32
+    area_id: 35
     short_desc: "The Plains"
     long_desc: |
       You are standing on the plains. This is a vast desolate place where the
@@ -38,7 +38,7 @@ rooms:
   - id: 3501
     key: midennir_room_3501
     name: "The Lane"
-    area_id: 32
+    area_id: 35
     short_desc: "The Lane"
     long_desc: |
       You are strolling along a pleasant, shady lane. The road is lined on both
@@ -71,7 +71,7 @@ rooms:
   - id: 3502
     key: midennir_room_3502
     name: "The Cross Roads"
-    area_id: 32
+    area_id: 35
     short_desc: "The Cross Roads"
     long_desc: |
       The roads cross here.  Midgaard is to the west.  To the east, you see the
@@ -135,7 +135,7 @@ rooms:
   - id: 3503
     key: midennir_room_3503
     name: "City Entrance"
-    area_id: 32
+    area_id: 35
     short_desc: "City Entrance"
     long_desc: |
       You stand on the outskirts of a large city - Midgaard; the capital of this
@@ -182,7 +182,7 @@ rooms:
   - id: 3504
     key: midennir_room_3504
     name: "The South Bridge"
-    area_id: 32
+    area_id: 35
     short_desc: "The South Bridge"
     long_desc: |
       You are standing on a small, rickety bridge leading from the Midgaard
@@ -224,7 +224,7 @@ rooms:
   - id: 3505
     key: midennir_room_3505
     name: "The Trail to Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "The Trail to Miden'nir"
     long_desc: |
       You are in a light forest. A path leads south, but the passage to the
@@ -277,7 +277,7 @@ rooms:
   - id: 3506
     key: midennir_room_3506
     name: "The Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "The Miden'nir"
     long_desc: |
       You are in a dark forest. To the east, mountains block passage. From
@@ -324,7 +324,7 @@ rooms:
   - id: 3507
     key: midennir_room_3507
     name: "The Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "The Miden'nir"
     long_desc: |
       The forest is deep here and the wind blows through the trees and
@@ -367,7 +367,7 @@ rooms:
   - id: 3508
     key: midennir_room_3508
     name: "On a Small Path"
-    area_id: 32
+    area_id: 35
     short_desc: "On a Small Path"
     long_desc: |
       A path is here, leading east and south through the dark woods of
@@ -399,7 +399,7 @@ rooms:
   - id: 3509
     key: midennir_room_3509
     name: "The Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "The Miden'nir"
     long_desc: |
       The trees of Miden'nir are lush and green, hiding the evil that lurks
@@ -447,7 +447,7 @@ rooms:
   - id: 3510
     key: midennir_room_3510
     name: "A Crossroads"
-    area_id: 32
+    area_id: 35
     short_desc: "A Crossroads"
     long_desc: |
       Here footworn paths meet leading north, south and east. The trees seem to
@@ -490,7 +490,7 @@ rooms:
   - id: 3511
     key: midennir_room_3511
     name: "The Trail"
-    area_id: 32
+    area_id: 35
     short_desc: "The Trail"
     long_desc: |
       You are on a north-south trail through the woods. To the west, impassable
@@ -523,7 +523,7 @@ rooms:
   - id: 3512
     key: midennir_room_3512
     name: "The Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "The Miden'nir"
     long_desc: |
       The trees of Miden'nir are lush and green, hiding the evil that lurks
@@ -575,7 +575,7 @@ rooms:
   - id: 3513
     key: midennir_room_3513
     name: "The Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "The Miden'nir"
     long_desc: |
       The forest is dark, and becomes even darker west.  You sense
@@ -613,7 +613,7 @@ rooms:
   - id: 3514
     key: midennir_room_3514
     name: "Deep Forest"
-    area_id: 32
+    area_id: 35
     short_desc: "Deep Forest"
     long_desc: |
       It is quite dark here, forest surrounds you. With each step, the forest
@@ -666,7 +666,7 @@ rooms:
   - id: 3515
     key: midennir_room_3515
     name: "Light Forest"
-    area_id: 32
+    area_id: 35
     short_desc: "Light Forest"
     long_desc: |
       The forest is light here and you can easily pick your way through the 
@@ -709,7 +709,7 @@ rooms:
   - id: 3516
     key: midennir_room_3516
     name: "Muddy Ground"
-    area_id: 32
+    area_id: 35
     short_desc: "Muddy Ground"
     long_desc: |
       The ground is quite muddy here and puddles are all around. Your boots
@@ -762,7 +762,7 @@ rooms:
   - id: 3517
     key: midennir_room_3517
     name: "Near the Mountains"
-    area_id: 32
+    area_id: 35
     short_desc: "Near the Mountains"
     long_desc: |
       The most prominent feature here is the mountains that lie to the east.
@@ -795,7 +795,7 @@ rooms:
   - id: 3518
     key: midennir_room_3518
     name: "The Fading Trail"
-    area_id: 32
+    area_id: 35
     short_desc: "The Fading Trail"
     long_desc: |
       The trail becomes nearly unpassable here. You can go north
@@ -837,7 +837,7 @@ rooms:
   - id: 3519
     key: midennir_room_3519
     name: "The Dark Path"
-    area_id: 32
+    area_id: 35
     short_desc: "The Dark Path"
     long_desc: |
       You are hemmed in by trees on either side of you.  The path
@@ -890,7 +890,7 @@ rooms:
   - id: 3520
     key: midennir_room_3520
     name: "The Dark Forest"
-    area_id: 32
+    area_id: 35
     short_desc: "The Dark Forest"
     long_desc: |
       You stomp your way through the underbrush.  The dark forest of Miden'nir
@@ -925,7 +925,7 @@ rooms:
   - id: 3521
     key: midennir_room_3521
     name: "Carnage"
-    area_id: 32
+    area_id: 35
     short_desc: "Carnage"
     long_desc: |
       Here, you see a gruesome sight. Blood is everywhere... on the trees and
@@ -984,7 +984,7 @@ rooms:
   - id: 3522
     key: midennir_room_3522
     name: "Deep in the Forest of Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "Deep in the Forest of Miden'nir"
     long_desc: |
       There is a sickening stench here. It smells of blood and death.
@@ -1017,7 +1017,7 @@ rooms:
   - id: 3523
     key: midennir_room_3523
     name: "The Dark Forest"
-    area_id: 32
+    area_id: 35
     short_desc: "The Dark Forest"
     long_desc: |
       The branches above you block out all direct sunlight, making the forest
@@ -1061,7 +1061,7 @@ rooms:
   - id: 3550
     key: midennir_room_3550
     name: "At The Foot of The Mountains"
-    area_id: 32
+    area_id: 35
     short_desc: "At The Foot of The Mountains"
     long_desc: |
       You find yourself at the foot of the mountains, where it is much to steep
@@ -1094,7 +1094,7 @@ rooms:
   - id: 3551
     key: midennir_room_3551
     name: "The Deep in the Forest of Miden'nir"
-    area_id: 32
+    area_id: 35
     short_desc: "The Deep in the Forest of Miden'nir"
     long_desc: |
       The branches above you block out all direct sunlight, making the forest
@@ -1133,7 +1133,7 @@ rooms:
   - id: 3552
     key: midennir_room_3552
     name: "A Tunnel in the Mountains"
-    area_id: 32
+    area_id: 35
     short_desc: "A Tunnel in the Mountains"
     long_desc: |
       The walls of this tunnel were carved out many years ago by the goblins of
@@ -1166,7 +1166,7 @@ rooms:
   - id: 3553
     key: midennir_room_3553
     name: "A Tunnel in the Mountains"
-    area_id: 32
+    area_id: 35
     short_desc: "A Tunnel in the Mountains"
     long_desc: |
       The tunnel gets lighter to the north, presumably leading out, while to
@@ -1209,7 +1209,7 @@ rooms:
   - id: 3554
     key: midennir_room_3554
     name: "A Small Alcove"
-    area_id: 32
+    area_id: 35
     short_desc: "A Small Alcove"
     long_desc: |
       A small alcove has been carved out here.  There are a bunch of twigs
@@ -1235,7 +1235,7 @@ rooms:
   - id: 3555
     key: midennir_room_3555
     name: "A Tunnel in the Mountains"
-    area_id: 32
+    area_id: 35
     short_desc: "A Tunnel in the Mountains"
     long_desc: |
       As you explore further into the mountainside, the tunnel gets smaller and
@@ -1268,7 +1268,7 @@ rooms:
   - id: 3556
     key: midennir_room_3556
     name: "The Goblin Headquarters"
-    area_id: 32
+    area_id: 35
     short_desc: "The Goblin Headquarters"
     long_desc: |
       The tunnel widens into a large (well, large for goblins) cavern that
@@ -1305,7 +1305,7 @@ rooms:
   - id: 3570
     key: midennir_room_3570
     name: "The Front of the Inn"
-    area_id: 32
+    area_id: 35
     short_desc: "The Front of the Inn"
     long_desc: |
       You are standing on a well-worn path which opens into a clearing.
@@ -1371,7 +1371,7 @@ rooms:
   - id: 3571
     key: midennir_room_3571
     name: "North of the Inn"
-    area_id: 32
+    area_id: 35
     short_desc: "North of the Inn"
     long_desc: |
       You are standing north of the inn. Things don't look much different
@@ -1395,7 +1395,7 @@ rooms:
   - id: 3572
     key: midennir_room_3572
     name: "South of the Inn"
-    area_id: 32
+    area_id: 35
     short_desc: "South of the Inn"
     long_desc: |
       You are standing south of the inn.  You could easily go north and enter
@@ -1438,7 +1438,7 @@ rooms:
   - id: 3573
     key: midennir_room_3573
     name: "Behind the Inn"
-    area_id: 32
+    area_id: 35
     short_desc: "Behind the Inn"
     long_desc: |
       You now stand behind the inn. The smell here is not so pleasant as
@@ -1473,7 +1473,7 @@ rooms:
   - id: 3574
     key: midennir_room_3574
     name: "The Woodsman Inn"
-    area_id: 32
+    area_id: 35
     short_desc: "The Woodsman Inn"
     long_desc: |
       You are in the common room of the Woodsman Inn. A thin haze of smoke sits
@@ -1531,7 +1531,7 @@ rooms:
   - id: 3575
     key: midennir_room_3575
     name: "The Ambush Point"
-    area_id: 32
+    area_id: 35
     short_desc: "The Ambush Point"
     long_desc: |
       This is a overgrown foot-trail south of the inn. It leads west, but you
@@ -1570,7 +1570,7 @@ rooms:
   - id: 3576
     key: midennir_room_3576
     name: "The Bar"
-    area_id: 32
+    area_id: 35
     short_desc: "The Bar"
     long_desc: |
       This is where people use to come and enjoy the food, drink and hospitality
@@ -1599,7 +1599,7 @@ rooms:
   - id: 3577
     key: midennir_room_3577
     name: "The Bard's Table"
-    area_id: 32
+    area_id: 35
     short_desc: "The Bard's Table"
     long_desc: |
       You are in a darker corner in the Inn.  A large round table with a few
@@ -1629,7 +1629,7 @@ rooms:
   - id: 3578
     key: midennir_room_3578
     name: "Garbage dump"
-    area_id: 32
+    area_id: 35
     short_desc: "Garbage dump"
     long_desc: |
       You stand knee deep in garbage.  YECCH!!! It smells terrible and who knows
@@ -1651,7 +1651,7 @@ rooms:
   - id: 3579
     key: midennir_room_3579
     name: "A Quieter Section of the Inn"
-    area_id: 32
+    area_id: 35
     short_desc: "A Quieter Section of the Inn"
     long_desc: |
       There seems to be no one in this end of the Woodsman, probably a safe place
@@ -1675,7 +1675,7 @@ rooms:
   - id: 3581
     key: midennir_room_3581
     name: "On the Trail of the Horsemen"
-    area_id: 32
+    area_id: 35
     short_desc: "On the Trail of the Horsemen"
     long_desc: |
       The path continues east and west of here.  You notice fresh tracks in
@@ -1707,7 +1707,7 @@ rooms:
   - id: 3582
     key: midennir_room_3582
     name: "On the Trail of the Horsemen"
-    area_id: 32
+    area_id: 35
     short_desc: "On the Trail of the Horsemen"
     long_desc: |
       The path continues east and south.  You notice fresh tracks in
@@ -1739,7 +1739,7 @@ rooms:
   - id: 3583
     key: midennir_room_3583
     name: "On the Trail of the Horsemen"
-    area_id: 32
+    area_id: 35
     short_desc: "On the Trail of the Horsemen"
     long_desc: |
       The trail of the horsemen continues east and north along this path through
@@ -1771,7 +1771,7 @@ rooms:
   - id: 3584
     key: midennir_room_3584
     name: "A Dead End Trail"
-    area_id: 32
+    area_id: 35
     short_desc: "A Dead End Trail"
     long_desc: |
       The path comes to an abrupt end here, as the trees close around you and

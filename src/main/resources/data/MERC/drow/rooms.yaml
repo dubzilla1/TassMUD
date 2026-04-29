@@ -2,7 +2,7 @@ rooms:
   - id: 5100
     key: drow_room_5100
     name: "City Entrance"
-    area_id: 32
+    area_id: 51
     short_desc: "City Entrance"
     long_desc: |
       You are at the entrance to a small underground city. A great adamantite
@@ -41,7 +41,7 @@ rooms:
   - id: 5101
     key: drow_room_5101
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate street going north-south. A large gate
@@ -104,7 +104,7 @@ rooms:
   - id: 5102
     key: drow_room_5102
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street going north and west.
@@ -137,7 +137,7 @@ rooms:
   - id: 5103
     key: drow_room_5103
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street going east-west. A large house
@@ -181,7 +181,7 @@ rooms:
   - id: 5104
     key: drow_room_5104
     name: "3rd House"
-    area_id: 32
+    area_id: 51
     short_desc: "3rd House"
     long_desc: |
       You stand inside the 3rd house of the city; it is fairly well decorated
@@ -241,7 +241,7 @@ rooms:
   - id: 5105
     key: drow_room_5105
     name: "Throne Room"
-    area_id: 32
+    area_id: 51
     short_desc: "Throne Room"
     long_desc: |
       The throne room of the 3rd house is about as decorated as the inner
@@ -277,7 +277,7 @@ rooms:
   - id: 5106
     key: drow_room_5106
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street going east-west. To the north
@@ -321,7 +321,7 @@ rooms:
   - id: 5107
     key: drow_room_5107
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street leading north and east. To the
@@ -365,7 +365,7 @@ rooms:
   - id: 5108
     key: drow_room_5108
     name: "2nd House"
-    area_id: 32
+    area_id: 51
     short_desc: "2nd House"
     long_desc: |
       You stand inside the 2nd house of the city. The room is highly decorated
@@ -424,7 +424,7 @@ rooms:
   - id: 5109
     key: drow_room_5109
     name: "Throne Room"
-    area_id: 32
+    area_id: 51
     short_desc: "Throne Room"
     long_desc: |
       The throne room of the 2nd house is just a little more decorative than
@@ -460,7 +460,7 @@ rooms:
   - id: 5110
     key: drow_room_5110
     name: "Main Gate"
-    area_id: 32
+    area_id: 51
     short_desc: "Main Gate"
     long_desc: |
       You are at the entrance to the 1st house of the city. A large gate, almost
@@ -504,7 +504,7 @@ rooms:
   - id: 5111
     key: drow_room_5111
     name: "1st House"
-    area_id: 32
+    area_id: 51
     short_desc: "1st House"
     long_desc: |
       You stand in the inner courtyard of the 1st and largest house in the city.
@@ -564,7 +564,7 @@ rooms:
   - id: 5112
     key: drow_room_5112
     name: "Throne Room"
-    area_id: 32
+    area_id: 51
     short_desc: "Throne Room"
     long_desc: |
       The throne room of the 1st house is in one word...awesome. It is so
@@ -598,7 +598,7 @@ rooms:
   - id: 5113
     key: drow_room_5113
     name: "Main Chamber"
-    area_id: 32
+    area_id: 51
     short_desc: "Main Chamber"
     long_desc: |
       This is the council chamber for the Matron Mother herself. A huge table
@@ -632,7 +632,7 @@ rooms:
   - id: 5114
     key: drow_room_5114
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street leading north-south and east.
@@ -675,7 +675,7 @@ rooms:
   - id: 5115
     key: drow_room_5115
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street leading south. A building is
@@ -709,7 +709,7 @@ rooms:
   - id: 5116
     key: drow_room_5116
     name: "Cleric Academy"
-    area_id: 32
+    area_id: 51
     short_desc: "Cleric Academy"
     long_desc: |
       This is the most lavish of the academies being that it is for the clerics.
@@ -744,7 +744,7 @@ rooms:
   - id: 5117
     key: drow_room_5117
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street going east-west. To the north
@@ -788,7 +788,7 @@ rooms:
   - id: 5118
     key: drow_room_5118
     name: "Warrior's Academy"
-    area_id: 32
+    area_id: 51
     short_desc: "Warrior's Academy"
     long_desc: |
       This looks more like a barracks than a school.
@@ -831,7 +831,7 @@ rooms:
   - id: 5119
     key: drow_room_5119
     name: "Entrance to the Temple of Lloth"
-    area_id: 32
+    area_id: 51
     short_desc: "Entrance to the Temple of Lloth"
     long_desc: |
       The temple is the largest building in the city. Even it's doors are beyond
@@ -866,7 +866,7 @@ rooms:
   - id: 5120
     key: drow_room_5120
     name: "Mage's Academy"
-    area_id: 32
+    area_id: 51
     short_desc: "Mage's Academy"
     long_desc: |
       The mages academy is fairly well decorated see that the drow prefer magic
@@ -902,7 +902,7 @@ rooms:
   - id: 5121
     key: drow_room_5121
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street going eastward. To the north is
@@ -956,7 +956,7 @@ rooms:
   - id: 5122
     key: drow_room_5122
     name: "Slave Chamber"
-    area_id: 32
+    area_id: 51
     short_desc: "Slave Chamber"
     long_desc: |
       The room is in shambles. Straw is strewn all about the room as beds for the
@@ -995,7 +995,7 @@ rooms:
   - id: 5123
     key: drow_room_5123
     name: "City street"
-    area_id: 32
+    area_id: 51
     short_desc: "City street"
     long_desc: |
       You walk along a highly ornate city street leading west and south. To the
@@ -1039,7 +1039,7 @@ rooms:
   - id: 5124
     key: drow_room_5124
     name: "4th house"
-    area_id: 32
+    area_id: 51
     short_desc: "4th house"
     long_desc: |
       You stand inside the 4th house of the city. Its inner courtyard is rather
@@ -1098,7 +1098,7 @@ rooms:
   - id: 5125
     key: drow_room_5125
     name: "Throne Room"
-    area_id: 32
+    area_id: 51
     short_desc: "Throne Room"
     long_desc: |
       The throne room is basically similar to the inner courtyard in regards
@@ -1134,7 +1134,7 @@ rooms:
   - id: 5126
     key: drow_room_5126
     name: "Entrance Way"
-    area_id: 32
+    area_id: 51
     short_desc: "Entrance Way"
     long_desc: |
       You stand in the entrance way to the temple which opens up to the north
@@ -1169,7 +1169,7 @@ rooms:
   - id: 5127
     key: drow_room_5127
     name: "Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Hallway"
     long_desc: |
       You are in a long hallway lined with adamantite. The walls are engraved
@@ -1225,7 +1225,7 @@ rooms:
   - id: 5128
     key: drow_room_5128
     name: "Long Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Long Hallway"
     long_desc: |
       You are in a long hallway lined with adamantite. The walls are engraved
@@ -1260,7 +1260,7 @@ rooms:
   - id: 5129
     key: drow_room_5129
     name: "Long Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Long Hallway"
     long_desc: |
       You are in a long hallway lined with adamantite. The walls are engraved
@@ -1306,7 +1306,7 @@ rooms:
   - id: 5130
     key: drow_room_5130
     name: "Long Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Long Hallway"
     long_desc: |
       You are in a long hallway lined with adamantite. The walls are engraved
@@ -1341,7 +1341,7 @@ rooms:
   - id: 5131
     key: drow_room_5131
     name: "Long Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Long Hallway"
     long_desc: |
       You are in a long hallway lined with adamantite. The walls are engraved
@@ -1376,7 +1376,7 @@ rooms:
   - id: 5132
     key: drow_room_5132
     name: "Long Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Long Hallway"
     long_desc: |
       You are in a long hallway lined with adamantite. The walls are engraved
@@ -1422,7 +1422,7 @@ rooms:
   - id: 5133
     key: drow_room_5133
     name: "Warrior's Barracks"
-    area_id: 32
+    area_id: 51
     short_desc: "Warrior's Barracks"
     long_desc: |
       The room is a complete mess. None of the beds are made, clothes and other
@@ -1456,7 +1456,7 @@ rooms:
   - id: 5134
     key: drow_room_5134
     name: "Long Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Long Hallway"
     long_desc: |
       You are in a long hallway lined with adamantite. The walls are engraved
@@ -1491,7 +1491,7 @@ rooms:
   - id: 5135
     key: drow_room_5135
     name: "Grand Stairway"
-    area_id: 32
+    area_id: 51
     short_desc: "Grand Stairway"
     long_desc: |
       You are standing at the bottom of a giant obsidian and adamantite
@@ -1525,7 +1525,7 @@ rooms:
   - id: 5136
     key: drow_room_5136
     name: "Grand Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Grand Hallway"
     long_desc: |
       You are standing in the middle of a grand hallway. The walls are
@@ -1569,7 +1569,7 @@ rooms:
   - id: 5137
     key: drow_room_5137
     name: "Mage's Barracks"
-    area_id: 32
+    area_id: 51
     short_desc: "Mage's Barracks"
     long_desc: |
       The mage's living quarters is rather clean with the exception of a few
@@ -1594,7 +1594,7 @@ rooms:
   - id: 5138
     key: drow_room_5138
     name: "Grand Hallway"
-    area_id: 32
+    area_id: 51
     short_desc: "Grand Hallway"
     long_desc: |
       You are walking down a grand hallway, heavily decorated with adamantite
@@ -1639,7 +1639,7 @@ rooms:
   - id: 5139
     key: drow_room_5139
     name: "Cleric's Barracks"
-    area_id: 32
+    area_id: 51
     short_desc: "Cleric's Barracks"
     long_desc: |
       The bed chamber is brightly decorated with spider shaped statues, murals
@@ -1664,7 +1664,7 @@ rooms:
   - id: 5140
     key: drow_room_5140
     name: "Grand Stairway"
-    area_id: 32
+    area_id: 51
     short_desc: "Grand Stairway"
     long_desc: |
       You are climbing a set of obsidian stairs surrounded by adamantite walls.
@@ -1698,7 +1698,7 @@ rooms:
   - id: 5141
     key: drow_room_5141
     name: "Main Chamber"
-    area_id: 32
+    area_id: 51
     short_desc: "Main Chamber"
     long_desc: |
       This is the south side of a large auditorium used for services by the
@@ -1743,7 +1743,7 @@ rooms:
   - id: 5142
     key: drow_room_5142
     name: "Eastern side of Chamber"
-    area_id: 32
+    area_id: 51
     short_desc: "Eastern side of Chamber"
     long_desc: |
       You are on the eastern side of the chamber overlooking the pit. To the east
@@ -1787,7 +1787,7 @@ rooms:
   - id: 5143
     key: drow_room_5143
     name: "Sacrificial Pit"
-    area_id: 32
+    area_id: 51
     short_desc: "Sacrificial Pit"
     long_desc: |
       A you climb down into the pit thousands of spiders cover you tearing your
@@ -1805,7 +1805,7 @@ rooms:
   - id: 5144
     key: drow_room_5144
     name: "Western side of Chamber"
-    area_id: 32
+    area_id: 51
     short_desc: "Western side of Chamber"
     long_desc: |
       You are on the western side of the main chamber overlooking a sacrificial
@@ -1839,7 +1839,7 @@ rooms:
   - id: 5145
     key: drow_room_5145
     name: "The Altar"
-    area_id: 32
+    area_id: 51
     short_desc: "The Altar"
     long_desc: |
       You are standing in front of a highly and freshly bloodstained altar.
@@ -1894,7 +1894,7 @@ rooms:
   - id: 5146
     key: drow_room_5146
     name: "Slave Cells"
-    area_id: 32
+    area_id: 51
     short_desc: "Slave Cells"
     long_desc: |
       This is the main room to the cell chambers for the slaves to be
@@ -1928,7 +1928,7 @@ rooms:
   - id: 5147
     key: drow_room_5147
     name: "Slave Pen"
-    area_id: 32
+    area_id: 51
     short_desc: "Slave Pen"
     long_desc: |
       Rotten meat and breads lie about the floor while shackles hang from the
@@ -1953,7 +1953,7 @@ rooms:
   - id: 5148
     key: drow_room_5148
     name: "Dais"
-    area_id: 32
+    area_id: 51
     short_desc: "Dais"
     long_desc: |
       You stand upon a dais behind the altar. Above you is a enormous illusion
@@ -1997,7 +1997,7 @@ rooms:
   - id: 5149
     key: drow_room_5149
     name: "The Treasury"
-    area_id: 32
+    area_id: 51
     short_desc: "The Treasury"
     long_desc: |
       This is obviously only a temporary storage place for the collected
@@ -2021,7 +2021,7 @@ rooms:
   - id: 5150
     key: drow_room_5150
     name: "Weaponsmaster's Chamber"
-    area_id: 32
+    area_id: 51
     short_desc: "Weaponsmaster's Chamber"
     long_desc: |
       This one person bedchamber is very elegant. The owner must be held in high

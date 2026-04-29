@@ -2,7 +2,7 @@ rooms:
   - id: 6200
     key: arachnos_room_6200
     name: "On the spider web"
-    area_id: 32
+    area_id: 62
     short_desc: "On the spider web"
     long_desc: |
       You are balancing carefully on the giant sticky threads that holds the giant
@@ -40,7 +40,7 @@ rooms:
   - id: 6201
     key: arachnos_room_6201
     name: "On the spider web"
-    area_id: 32
+    area_id: 62
     short_desc: "On the spider web"
     long_desc: |
       You are balancing carefully on the giant sticky threads that holds the giant
@@ -68,7 +68,7 @@ rooms:
   - id: 6202
     key: arachnos_room_6202
     name: "On the spider web"
-    area_id: 32
+    area_id: 62
     short_desc: "On the spider web"
     long_desc: |
       You are balancing carefully on the giant sticky threads that holds the giant
@@ -96,7 +96,7 @@ rooms:
   - id: 6203
     key: arachnos_room_6203
     name: "On the spider web"
-    area_id: 32
+    area_id: 62
     short_desc: "On the spider web"
     long_desc: |
       You are balancing carefully on the giant sticky threads that holds the giant
@@ -134,7 +134,7 @@ rooms:
   - id: 6301
     key: arachnos_room_6301
     name: "Webbed Entrance"
-    area_id: 32
+    area_id: 62
     short_desc: "Webbed Entrance"
     long_desc: |
       Sticky, sticky, sticky!  The ground is cluttered with leaves, decayed
@@ -176,7 +176,7 @@ rooms:
   - id: 6302
     key: arachnos_room_6302
     name: "Webby Passage"
-    area_id: 32
+    area_id: 62
     short_desc: "Webby Passage"
     long_desc: |
       You find that footing here is very good, almost too good.  The
@@ -230,7 +230,7 @@ rooms:
   - id: 6303
     key: arachnos_room_6303
     name: "Wasp Hive"
-    area_id: 32
+    area_id: 62
     short_desc: "Wasp Hive"
     long_desc: |
       Drones scuttle about in this room.  The cells on the walls
@@ -258,7 +258,7 @@ rooms:
   - id: 6304
     key: arachnos_room_6304
     name: "Webby Passage"
-    area_id: 32
+    area_id: 62
     short_desc: "Webby Passage"
     long_desc: |
       Another webby passage, all sticky and wet.  Tiny ballooning
@@ -285,7 +285,7 @@ rooms:
   - id: 6305
     key: arachnos_room_6305
     name: "Beneath the Busy Path"
-    area_id: 32
+    area_id: 62
     short_desc: "Beneath the Busy Path"
     long_desc: |
       You hear the sounds of crawling arachnids above.  The rhythms of
@@ -318,7 +318,7 @@ rooms:
   - id: 6306
     key: arachnos_room_6306
     name: "On the Busy Path"
-    area_id: 32
+    area_id: 62
     short_desc: "On the Busy Path"
     long_desc: |
       Spiders, spiders, everywhere!  It is almost ant-like in efficiency
@@ -360,7 +360,7 @@ rooms:
   - id: 6307
     key: arachnos_room_6307
     name: "On the Busy Path"
-    area_id: 32
+    area_id: 62
     short_desc: "On the Busy Path"
     long_desc: |
       Spiders, spiders, everywhere!  It is almost ant-like in efficiency
@@ -393,7 +393,7 @@ rooms:
   - id: 6308
     key: arachnos_room_6308
     name: "On the Busy Path"
-    area_id: 32
+    area_id: 62
     short_desc: "On the Busy Path"
     long_desc: |
       Spiders, spiders, everywhere!  It is almost ant-like in efficiency
@@ -447,7 +447,7 @@ rooms:
   - id: 6309
     key: arachnos_room_6309
     name: "A Split in the Path"
-    area_id: 32
+    area_id: 62
     short_desc: "A Split in the Path"
     long_desc: |
       As always, there is a split in the road.  One road is strewn
@@ -491,7 +491,7 @@ rooms:
   - id: 6310
     key: arachnos_room_6310
     name: "Fuzzy Tree Limb"
-    area_id: 32
+    area_id: 62
     short_desc: "Fuzzy Tree Limb"
     long_desc: |
       You are on a "fuzzy" tree limb.  Interesting, since the branches
@@ -524,7 +524,7 @@ rooms:
   - id: 6311
     key: arachnos_room_6311
     name: "Tree Trunk"
-    area_id: 32
+    area_id: 62
     short_desc: "Tree Trunk"
     long_desc: |
       You feel that you can rest here safely.  There is evidence of
@@ -556,7 +556,7 @@ rooms:
   - id: 6312
     key: arachnos_room_6312
     name: "Tree Lair Entrance"
-    area_id: 32
+    area_id: 62
     short_desc: "Tree Lair Entrance"
     long_desc: |
       It seems the inhabitant of this place does not web her
@@ -590,7 +590,7 @@ rooms:
   - id: 6313
     key: arachnos_room_6313
     name: "Wolf Spider Lair"
-    area_id: 32
+    area_id: 62
     short_desc: "Wolf Spider Lair"
     long_desc: |
       Very dark, as all lairs of spiders are.  Not much of furnishings
@@ -618,7 +618,7 @@ rooms:
   - id: 6320
     key: arachnos_room_6320
     name: "The Webless Path"
-    area_id: 32
+    area_id: 62
     short_desc: "The Webless Path"
     long_desc: |
       Strange.  No webbing here.  In fact, no sounds whatsoever.
@@ -651,7 +651,7 @@ rooms:
   - id: 6321
     key: arachnos_room_6321
     name: "Above the Ravine"
-    area_id: 32
+    area_id: 62
     short_desc: "Above the Ravine"
     long_desc: |
       Stranger still.  Your feet get a real firm grip on the spiderline.
@@ -701,7 +701,7 @@ rooms:
   - id: 6322
     key: arachnos_room_6322
     name: "The Rainbow Web"
-    area_id: 32
+    area_id: 62
     short_desc: "The Rainbow Web"
     long_desc: |
       This is the rainbow web--each strand, each link, a hue of violently
@@ -724,7 +724,7 @@ rooms:
   - id: 6323
     key: arachnos_room_6323
     name: "The Web Forest"
-    area_id: 32
+    area_id: 62
     short_desc: "The Web Forest"
     long_desc: |
       The trees here take on a different appearance--they are not trees
@@ -757,7 +757,7 @@ rooms:
   - id: 6324
     key: arachnos_room_6324
     name: "The Slave Pit"
-    area_id: 32
+    area_id: 62
     short_desc: "The Slave Pit"
     long_desc: |
       You have entered the slave pit.  A voice blares in the distance,
@@ -790,7 +790,7 @@ rooms:
   - id: 6325
     key: arachnos_room_6325
     name: "The Tether Path"
-    area_id: 32
+    area_id: 62
     short_desc: "The Tether Path"
     long_desc: |
       Another tether path just like the rest of them.  Surprisingly well
@@ -823,7 +823,7 @@ rooms:
   - id: 6326
     key: arachnos_room_6326
     name: "A Road Crossing"
-    area_id: 32
+    area_id: 62
     short_desc: "A Road Crossing"
     long_desc: |
       Another shifty little strand of webs, almost ethereal in nature.
@@ -854,7 +854,7 @@ rooms:
   - id: 6327
     key: arachnos_room_6327
     name: "A Leader Strand"
-    area_id: 32
+    area_id: 62
     short_desc: "A Leader Strand"
     long_desc: |
       This strand is weightier, more sturdy.  It shimmers as you step on
@@ -893,7 +893,7 @@ rooms:
   - id: 6328
     key: arachnos_room_6328
     name: "The Entrance of the Ethereal Web"
-    area_id: 32
+    area_id: 62
     short_desc: "The Entrance of the Ethereal Web"
     long_desc: |
       You are at the entrance to ethereal web.  Flickering in and out,
@@ -926,7 +926,7 @@ rooms:
   - id: 6330
     key: arachnos_room_6330
     name: "The Young Wormkin's Crib"
-    area_id: 32
+    area_id: 62
     short_desc: "The Young Wormkin's Crib"
     long_desc: |
       A playpen of sorts, with maggots of wasps and other baby vermin
@@ -960,7 +960,7 @@ rooms:
   - id: 6331
     key: arachnos_room_6331
     name: "The Base of the Web"
-    area_id: 32
+    area_id: 62
     short_desc: "The Base of the Web"
     long_desc: |
       Large strands connect at this point.  The node shimmers and
@@ -1009,7 +1009,7 @@ rooms:
   - id: 6332
     key: arachnos_room_6332
     name: "Through the Trees"
-    area_id: 32
+    area_id: 62
     short_desc: "Through the Trees"
     long_desc: |
       This part of the web intersects through the branches of some
@@ -1037,7 +1037,7 @@ rooms:
   - id: 6333
     key: arachnos_room_6333
     name: "Above the Clouds"
-    area_id: 32
+    area_id: 62
     short_desc: "Above the Clouds"
     long_desc: |
       You can see all of Midgaard in this ethereal web.  Many
@@ -1085,7 +1085,7 @@ rooms:
   - id: 6334
     key: arachnos_room_6334
     name: "On A Cloud"
-    area_id: 32
+    area_id: 62
     short_desc: "On A Cloud"
     long_desc: |
       Rather thick in consistency.  You realize this is not
@@ -1107,7 +1107,7 @@ rooms:
   - id: 6335
     key: arachnos_room_6335
     name: "A Link in the Ethereal Web"
-    area_id: 32
+    area_id: 62
     short_desc: "A Link in the Ethereal Web"
     long_desc: |
       This is another link in the ethereal web.  Various creatures
@@ -1144,7 +1144,7 @@ rooms:
   - id: 6336
     key: arachnos_room_6336
     name: "The Tenuous Strand"
-    area_id: 32
+    area_id: 62
     short_desc: "The Tenuous Strand"
     long_desc: |
       Very windy here since it goes up into the sky somewhat.
@@ -1186,7 +1186,7 @@ rooms:
   - id: 6340
     key: arachnos_room_6340
     name: "The Elder Wormkin's Room"
-    area_id: 32
+    area_id: 62
     short_desc: "The Elder Wormkin's Room"
     long_desc: |
       A more mature wormkin it seems resides here.  Various tomes of
@@ -1213,7 +1213,7 @@ rooms:
   - id: 6341
     key: arachnos_room_6341
     name: "Another Tree Limb"
-    area_id: 32
+    area_id: 62
     short_desc: "Another Tree Limb"
     long_desc: |
       Once again the web crosses another tree limb.  To the side you
@@ -1255,7 +1255,7 @@ rooms:
   - id: 6342
     key: arachnos_room_6342
     name: "The Bird Spider's Lair"
-    area_id: 32
+    area_id: 62
     short_desc: "The Bird Spider's Lair"
     long_desc: |
       This is a big game hunter among most spiders.  Crush jewels
@@ -1283,7 +1283,7 @@ rooms:
   - id: 6345
     key: arachnos_room_6345
     name: "A Link in the Ethereal Web"
-    area_id: 32
+    area_id: 62
     short_desc: "A Link in the Ethereal Web"
     long_desc: |
       This is another link in the ethereal web.  Various creatures
@@ -1325,7 +1325,7 @@ rooms:
   - id: 6346
     key: arachnos_room_6346
     name: "The Quiet Tree Top"
-    area_id: 32
+    area_id: 62
     short_desc: "The Quiet Tree Top"
     long_desc: |
       Here is a quiet tree top.
@@ -1356,7 +1356,7 @@ rooms:
   - id: 6347
     key: arachnos_room_6347
     name: "On The Web"
-    area_id: 32
+    area_id: 62
     short_desc: "On The Web"
     long_desc: |
       RRRRRRRRRRROOOOOOOOOOOOOAAAAAAAAAAAAAARR!  You hear the roar
@@ -1389,7 +1389,7 @@ rooms:
   - id: 6350
     key: arachnos_room_6350
     name: "The Ki-Rin Chamber"
-    area_id: 32
+    area_id: 62
     short_desc: "The Ki-Rin Chamber"
     long_desc: |
       A wise ki-rin was entrapped here many years ago.  It is from her
@@ -1421,7 +1421,7 @@ rooms:
   - id: 6355
     key: arachnos_room_6355
     name: "A Link in the Ethereal Web"
-    area_id: 32
+    area_id: 62
     short_desc: "A Link in the Ethereal Web"
     long_desc: |
       This is another link in the ethereal web.  Various creatures
@@ -1464,7 +1464,7 @@ rooms:
   - id: 6360
     key: arachnos_room_6360
     name: "Yevaud's Lair"
-    area_id: 32
+    area_id: 62
     short_desc: "Yevaud's Lair"
     long_desc: |
       Yevaud, the Usurper of Midgaard, resides here.  A voice cries
@@ -1495,7 +1495,7 @@ rooms:
   - id: 6365
     key: arachnos_room_6365
     name: "A Link in the Ethereal Web"
-    area_id: 32
+    area_id: 62
     short_desc: "A Link in the Ethereal Web"
     long_desc: |
       This is another link in the ethereal web.  Various creatures
@@ -1549,7 +1549,7 @@ rooms:
   - id: 6366
     key: arachnos_room_6366
     name: "Entrance to the Donjonkeep"
-    area_id: 32
+    area_id: 62
     short_desc: "Entrance to the Donjonkeep"
     long_desc: |
       A dark path at the end of the web strand, you see ahead
@@ -1573,7 +1573,7 @@ rooms:
   - id: 6367
     key: arachnos_room_6367
     name: "The Guardian's Room"
-    area_id: 32
+    area_id: 62
     short_desc: "The Guardian's Room"
     long_desc: |
       A chair sits here for a tireless guardian who ensures that no
@@ -1613,7 +1613,7 @@ rooms:
   - id: 6368
     key: arachnos_room_6368
     name: "Realm of the Hopeless"
-    area_id: 32
+    area_id: 62
     short_desc: "Realm of the Hopeless"
     long_desc: |
       Here you see many misguided souls who think they still live.
@@ -1647,7 +1647,7 @@ rooms:
   - id: 6369
     key: arachnos_room_6369
     name: "Realm of the Hopeless"
-    area_id: 32
+    area_id: 62
     short_desc: "Realm of the Hopeless"
     long_desc: |
       Here you see many misguided souls who think they still live.
@@ -1681,7 +1681,7 @@ rooms:
   - id: 6370
     key: arachnos_room_6370
     name: "The Donjonkeep"
-    area_id: 32
+    area_id: 62
     short_desc: "The Donjonkeep"
     long_desc: |
       No souls have ever lived in this place.  The wails of slaves
@@ -1724,7 +1724,7 @@ rooms:
   - id: 6371
     key: arachnos_room_6371
     name: "The Single Spider Line"
-    area_id: 32
+    area_id: 62
     short_desc: "The Single Spider Line"
     long_desc: |
       A single spider line supports you once more.  As you look
@@ -1758,7 +1758,7 @@ rooms:
   - id: 6372
     key: arachnos_room_6372
     name: "The Single Spider Line"
-    area_id: 32
+    area_id: 62
     short_desc: "The Single Spider Line"
     long_desc: |
       A single spider line supports you once more.  The shack comes
@@ -1790,7 +1790,7 @@ rooms:
   - id: 6373
     key: arachnos_room_6373
     name: "The Hermit's Corner"
-    area_id: 32
+    area_id: 62
     short_desc: "The Hermit's Corner"
     long_desc: |
       Here you see evidence of a vagrant's abode.  The shack is to the
@@ -1829,7 +1829,7 @@ rooms:
   - id: 6380
     key: arachnos_room_6380
     name: "Mahatma's Inescapable Trap"
-    area_id: 32
+    area_id: 62
     short_desc: "Mahatma's Inescapable Trap"
     long_desc: |
       Mahatma, that silly thief, is here, and he steals everything you
@@ -1843,7 +1843,7 @@ rooms:
   - id: 6390
     key: arachnos_room_6390
     name: "The Entrance to the Arachnos' Lair"
-    area_id: 32
+    area_id: 62
     short_desc: "The Entrance to the Arachnos' Lair"
     long_desc: |
       All strands inevitably lead here, the center of the web, the
@@ -1875,7 +1875,7 @@ rooms:
   - id: 6391
     key: arachnos_room_6391
     name: "The Sticky Chamber"
-    area_id: 32
+    area_id: 62
     short_desc: "The Sticky Chamber"
     long_desc: |
       You can still bail out since your knees are shaking from the
@@ -1910,7 +1910,7 @@ rooms:
   - id: 6392
     key: arachnos_room_6392
     name: "The Great Door"
-    area_id: 32
+    area_id: 62
     short_desc: "The Great Door"
     long_desc: |
       Before you you see a large, web-like door.  Various designs
@@ -1945,7 +1945,7 @@ rooms:
   - id: 6399
     key: arachnos_room_6399
     name: "The Lair of Arachnos"
-    area_id: 32
+    area_id: 62
     short_desc: "The Lair of Arachnos"
     long_desc: |
       This is the lair of the Empress Spider, Arachnos.  A lavishly

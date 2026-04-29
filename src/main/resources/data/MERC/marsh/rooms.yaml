@@ -2,7 +2,7 @@ rooms:
   - id: 8301
     key: marsh_room_8301
     name: "Muddy Path"
-    area_id: 32
+    area_id: 83
     short_desc: "Muddy Path"
     long_desc: |
       This section of the path is slowly being drowned by the nearby swamp to the
@@ -29,7 +29,7 @@ rooms:
   - id: 8302
     key: marsh_room_8302
     name: "Swamp's Edge"
-    area_id: 32
+    area_id: 83
     short_desc: "Swamp's Edge"
     long_desc: |
       Briars and marsh plants stick to your boots and clothes, and clouds cover the
@@ -73,7 +73,7 @@ rooms:
   - id: 8303
     key: marsh_room_8303
     name: "Marshy Forest"
-    area_id: 32
+    area_id: 83
     short_desc: "Marshy Forest"
     long_desc: |
       This area is by no means a forest, but for those who dwell in these sparse
@@ -128,7 +128,7 @@ rooms:
   - id: 8304
     key: marsh_room_8304
     name: "On a hill."
-    area_id: 32
+    area_id: 83
     short_desc: "On a hill."
     long_desc: |
       You stand atop a hill on the northwestern side of the evil swamp. Dark
@@ -187,7 +187,7 @@ rooms:
   - id: 8305
     key: marsh_room_8305
     name: "An Oozing Bog"
-    area_id: 32
+    area_id: 83
     short_desc: "An Oozing Bog"
     long_desc: |
       You stand in an oozing quagmire.  A creaking beat fills the air, 
@@ -239,7 +239,7 @@ rooms:
   - id: 8306
     key: marsh_room_8306
     name: "An Oozing Bog"
-    area_id: 32
+    area_id: 83
     short_desc: "An Oozing Bog"
     long_desc: |
       The ground here is soft and oozing.  You feel slimy water seeping into your
@@ -284,7 +284,7 @@ rooms:
   - id: 8307
     key: marsh_room_8307
     name: "Swamp Thing's Lair"
-    area_id: 32
+    area_id: 83
     short_desc: "Swamp Thing's Lair"
     long_desc: |
       A horrible swamp thing resides here.  Mutilated corpses suffuse the air with
@@ -330,7 +330,7 @@ rooms:
   - id: 8308
     key: marsh_room_8308
     name: "Pool of Quick Sand"
-    area_id: 32
+    area_id: 83
     short_desc: "Pool of Quick Sand"
     long_desc: |
       You stand by a large oozing pool of quick sand.  Luckily only a complete
@@ -391,7 +391,7 @@ rooms:
   - id: 8309
     key: marsh_room_8309
     name: "A Dark Pool."
-    area_id: 32
+    area_id: 83
     short_desc: "A Dark Pool."
     long_desc: |
       You stand beside a large dark pond.  The water boils not with heat, but with
@@ -453,7 +453,7 @@ rooms:
   - id: 8310
     key: marsh_room_8310
     name: "Gloomy Path Through the Marsh."
-    area_id: 32
+    area_id: 83
     short_desc: "Gloomy Path Through the Marsh."
     long_desc: |
       To the north lies a hill, shrouded in dark clouds, and to the south lies
@@ -517,7 +517,7 @@ rooms:
   - id: 8311
     key: marsh_room_8311
     name: "Cloud of Darkness."
-    area_id: 32
+    area_id: 83
     short_desc: "Cloud of Darkness."
     long_desc: |
       As you travel through this cloud of darkness, a fear such as you have never
@@ -561,7 +561,7 @@ rooms:
   - id: 8312
     key: marsh_room_8312
     name: "Near Vegetation from Hell."
-    area_id: 32
+    area_id: 83
     short_desc: "Near Vegetation from Hell."
     long_desc: |
       You stand near some of the strangest plant life you have ever seen, a mixture
@@ -611,7 +611,7 @@ rooms:
   - id: 8313
     key: marsh_room_8313
     name: "By the Monolith."
-    area_id: 32
+    area_id: 83
     short_desc: "By the Monolith."
     long_desc: |
       You are standing near a monolith which protrudes some 20 feet from the
@@ -674,7 +674,7 @@ rooms:
   - id: 8314
     key: marsh_room_8314
     name: "Murky Bog."
-    area_id: 32
+    area_id: 83
     short_desc: "Murky Bog."
     long_desc: |
       A murky bog surrounds you.  To the east a black monolith juts forth from the
@@ -720,7 +720,7 @@ rooms:
   - id: 8315
     key: marsh_room_8315
     name: "Northern Lake Side."
-    area_id: 32
+    area_id: 83
     short_desc: "Northern Lake Side."
     long_desc: |
       Floating on this boiling lake is not what you would consider an enjoyable 
@@ -766,7 +766,7 @@ rooms:
   - id: 8316
     key: marsh_room_8316
     name: "Southern Lake Side."
-    area_id: 32
+    area_id: 83
     short_desc: "Southern Lake Side."
     long_desc: |
       You are floating on a calm section of blue crystal water.  You feel much more
@@ -803,7 +803,7 @@ rooms:
   - id: 8317
     key: marsh_room_8317
     name: "Beach"
-    area_id: 32
+    area_id: 83
     short_desc: "Beach"
     long_desc: |
       You are on a sandy shore.  Marsh life creeps across the surface.  To the west
@@ -838,7 +838,7 @@ rooms:
   - id: 8318
     key: marsh_room_8318
     name: "Before the Great Gates."
-    area_id: 32
+    area_id: 83
     short_desc: "Before the Great Gates."
     long_desc: |
       You stand before the gates of a huge fortress.  The drawbridge is up, the

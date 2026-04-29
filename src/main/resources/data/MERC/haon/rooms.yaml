@@ -2,7 +2,7 @@ rooms:
   - id: 6000
     key: haon_room_6000
     name: "The edge of the forest"
-    area_id: 32
+    area_id: 60
     short_desc: "The edge of the forest"
     long_desc: |
       You are standing at the eastern edge of a big forest.  To the east is the West
@@ -54,7 +54,7 @@ rooms:
   - id: 6001
     key: haon_room_6001
     name: "A trail through the light forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A trail through the light forest"
     long_desc: |
       You are on a trail leading through the forest.  To the east is the forest edge
@@ -94,7 +94,7 @@ rooms:
   - id: 6002
     key: haon_room_6002
     name: "A trail through the light forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A trail through the light forest"
     long_desc: |
       You are on a narrow trail leading east and west through the forest.  To the
@@ -145,7 +145,7 @@ rooms:
   - id: 6003
     key: haon_room_6003
     name: "A trail through the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A trail through the dense forest"
     long_desc: |
       You are on a trail leading east and west through the dense forest.  To the
@@ -183,7 +183,7 @@ rooms:
   - id: 6004
     key: haon_room_6004
     name: "A trail through the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A trail through the dense forest"
     long_desc: |
       You are on a trail leading east and west through the dense forest.  To the
@@ -233,7 +233,7 @@ rooms:
   - id: 6005
     key: haon_room_6005
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -271,7 +271,7 @@ rooms:
   - id: 6006
     key: haon_room_6006
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -314,7 +314,7 @@ rooms:
   - id: 6007
     key: haon_room_6007
     name: "An intersection in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "An intersection in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -362,7 +362,7 @@ rooms:
   - id: 6008
     key: haon_room_6008
     name: "The forest clearing"
-    area_id: 32
+    area_id: 60
     short_desc: "The forest clearing"
     long_desc: |
       You are in a clearing in the forest.  Lots of fresh stumps of varying sizes
@@ -418,7 +418,7 @@ rooms:
   - id: 6009
     key: haon_room_6009
     name: "Outside a small cabin in the forest"
-    area_id: 32
+    area_id: 60
     short_desc: "Outside a small cabin in the forest"
     long_desc: |
       You are outside a small cabin built entirely from heavy logs.  There is a
@@ -483,7 +483,7 @@ rooms:
   - id: 6010
     key: haon_room_6010
     name: "Inside the cabin"
-    area_id: 32
+    area_id: 60
     short_desc: "Inside the cabin"
     long_desc: |
       You are inside a small one-room cabin made entirely from heavy logs.  It is
@@ -528,7 +528,7 @@ rooms:
   - id: 6011
     key: haon_room_6011
     name: "A small path through the light forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path through the light forest"
     long_desc: |
       You are on a small path leading through the forest.  The trees are tall and
@@ -565,7 +565,7 @@ rooms:
   - id: 6012
     key: haon_room_6012
     name: "An intersection in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "An intersection in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -618,7 +618,7 @@ rooms:
   - id: 6013
     key: haon_room_6013
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -661,7 +661,7 @@ rooms:
   - id: 6014
     key: haon_room_6014
     name: "An intersection in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "An intersection in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The forest gradually
@@ -721,7 +721,7 @@ rooms:
   - id: 6015
     key: haon_room_6015
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -764,7 +764,7 @@ rooms:
   - id: 6016
     key: haon_room_6016
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -807,7 +807,7 @@ rooms:
   - id: 6017
     key: haon_room_6017
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The forest seems to
@@ -850,7 +850,7 @@ rooms:
   - id: 6018
     key: haon_room_6018
     name: "An intersection in the light forest"
-    area_id: 32
+    area_id: 60
     short_desc: "An intersection in the light forest"
     long_desc: |
       You are on a small path leading through the forest.  A path leads north to a
@@ -897,7 +897,7 @@ rooms:
   - id: 6019
     key: haon_room_6019
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The forest seems to
@@ -940,7 +940,7 @@ rooms:
   - id: 6020
     key: haon_room_6020
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  The crowns of the
@@ -978,7 +978,7 @@ rooms:
   - id: 6021
     key: haon_room_6021
     name: "A small path in the dense forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the dense forest"
     long_desc: |
       You are on a small path leading through the dense forest.  To the west there is
@@ -1029,7 +1029,7 @@ rooms:
   - id: 6022
     key: haon_room_6022
     name: "Inside the cave"
-    area_id: 32
+    area_id: 60
     short_desc: "Inside the cave"
     long_desc: |
       You are in a natural cave.  Various sorts of debris cover the stone floor,
@@ -1066,7 +1066,7 @@ rooms:
   - id: 6023
     key: haon_room_6023
     name: "On a small, grassy field"
-    area_id: 32
+    area_id: 60
     short_desc: "On a small, grassy field"
     long_desc: |
       You are in a small, grassy field somewhere in the forest.  The tall grass
@@ -1106,7 +1106,7 @@ rooms:
   - id: 6100
     key: haon_room_6100
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a narrow trail winding its way between the enormous, grey trunks.
@@ -1157,7 +1157,7 @@ rooms:
   - id: 6101
     key: haon_room_6101
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way east-west between huge, ancient trees
@@ -1212,7 +1212,7 @@ rooms:
   - id: 6102
     key: haon_room_6102
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way east-west between huge, ancient trees
@@ -1257,7 +1257,7 @@ rooms:
   - id: 6103
     key: haon_room_6103
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are where the dusty trail bends, as to avoid conflict with a colossal
@@ -1314,7 +1314,7 @@ rooms:
   - id: 6104
     key: haon_room_6104
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  You feel as if
@@ -1368,7 +1368,7 @@ rooms:
   - id: 6105
     key: haon_room_6105
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
@@ -1413,7 +1413,7 @@ rooms:
   - id: 6106
     key: haon_room_6106
     name: "A junction in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A junction in the deep, dark forest"
     long_desc: |
       You are by a junction where three paths meet.  Ancient grey trees tower above
@@ -1463,7 +1463,7 @@ rooms:
   - id: 6107
     key: haon_room_6107
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
@@ -1503,7 +1503,7 @@ rooms:
   - id: 6108
     key: haon_room_6108
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way between huge, ancient trees
@@ -1567,7 +1567,7 @@ rooms:
   - id: 6109
     key: haon_room_6109
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way east-west between huge, ancient trees
@@ -1609,7 +1609,7 @@ rooms:
   - id: 6110
     key: haon_room_6110
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way between huge, ancient trees that stand
@@ -1664,7 +1664,7 @@ rooms:
   - id: 6111
     key: haon_room_6111
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way north-south between huge, ancient
@@ -1710,7 +1710,7 @@ rooms:
   - id: 6112
     key: haon_room_6112
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way between huge, ancient trees
@@ -1774,7 +1774,7 @@ rooms:
   - id: 6113
     key: haon_room_6113
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
@@ -1819,7 +1819,7 @@ rooms:
   - id: 6114
     key: haon_room_6114
     name: "A junction in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A junction in the deep, dark forest"
     long_desc: |
       You are by a junction where three paths meet.  Ancient grey trees tower above
@@ -1869,7 +1869,7 @@ rooms:
   - id: 6115
     key: haon_room_6115
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  You feel as
@@ -1910,7 +1910,7 @@ rooms:
   - id: 6116
     key: haon_room_6116
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Giant, grey
@@ -1959,7 +1959,7 @@ rooms:
   - id: 6117
     key: haon_room_6117
     name: "A junction in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A junction in the deep, dark forest"
     long_desc: |
       You are by a junction where three paths meet.  Ancient, grey trees seem to
@@ -2009,7 +2009,7 @@ rooms:
   - id: 6118
     key: haon_room_6118
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient,
@@ -2058,7 +2058,7 @@ rooms:
   - id: 6119
     key: haon_room_6119
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Huge, ancient
@@ -2103,7 +2103,7 @@ rooms:
   - id: 6120
     key: haon_room_6120
     name: "On the river bank in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "On the river bank in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  To the south a
@@ -2147,7 +2147,7 @@ rooms:
   - id: 6121
     key: haon_room_6121
     name: "A dead end path on the river bank in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A dead end path on the river bank in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  The ancient
@@ -2181,7 +2181,7 @@ rooms:
   - id: 6122
     key: haon_room_6122
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Giant, grey
@@ -2226,7 +2226,7 @@ rooms:
   - id: 6123
     key: haon_room_6123
     name: "A junction on the river bank in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A junction on the river bank in the deep, dark forest"
     long_desc: |
       You are by a junction where three paths meet.  Ancient, grey trees seem to
@@ -2280,7 +2280,7 @@ rooms:
   - id: 6124
     key: haon_room_6124
     name: "A dead end path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A dead end path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  The ancient
@@ -2324,7 +2324,7 @@ rooms:
   - id: 6125
     key: haon_room_6125
     name: "A small path on the river bank in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path on the river bank in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
@@ -2383,7 +2383,7 @@ rooms:
   - id: 6126
     key: haon_room_6126
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way between huge, ancient trees standing
@@ -2438,7 +2438,7 @@ rooms:
   - id: 6127
     key: haon_room_6127
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way between huge, ancient trees
@@ -2488,7 +2488,7 @@ rooms:
   - id: 6128
     key: haon_room_6128
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way east-west between huge, ancient trees
@@ -2530,7 +2530,7 @@ rooms:
   - id: 6129
     key: haon_room_6129
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way east-west between huge, ancient trees
@@ -2572,7 +2572,7 @@ rooms:
   - id: 6130
     key: haon_room_6130
     name: "A narrow trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A narrow trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail winding its way westwards just below huge sticky
@@ -2628,7 +2628,7 @@ rooms:
   - id: 6131
     key: haon_room_6131
     name: "The spider web"
-    area_id: 32
+    area_id: 60
     short_desc: "The spider web"
     long_desc: |
       You are walking along the narrow path, ducking under the sticky ropes as you
@@ -2655,7 +2655,7 @@ rooms:
   - id: 6132
     key: haon_room_6132
     name: "Up in the tree"
-    area_id: 32
+    area_id: 60
     short_desc: "Up in the tree"
     long_desc: |
       You are hanging on the outside of a huge tree trunk covered in a sticky
@@ -2695,7 +2695,7 @@ rooms:
   - id: 6133
     key: haon_room_6133
     name: "On the spider web"
-    area_id: 32
+    area_id: 60
     short_desc: "On the spider web"
     long_desc: |
       You are balancing carefully on the giant sticky threads that holds the giant
@@ -2746,7 +2746,7 @@ rooms:
   - id: 6134
     key: haon_room_6134
     name: "The Den of the Queen Spider"
-    area_id: 32
+    area_id: 60
     short_desc: "The Den of the Queen Spider"
     long_desc: |
       You are inside a cave-like structure that seems to be made entirely from
@@ -2778,7 +2778,7 @@ rooms:
   - id: 6135
     key: haon_room_6135
     name: "A dusty trail in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A dusty trail in the deep, dark forest"
     long_desc: |
       You are on a dusty trail leading through the deep, dark forest.  Ancient grey
@@ -2815,7 +2815,7 @@ rooms:
   - id: 6136
     key: haon_room_6136
     name: "A dusty trail in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A dusty trail in the deep, dark forest"
     long_desc: |
       You are on a dusty trail leading through the deep, dark forest.  Ancient,
@@ -2869,7 +2869,7 @@ rooms:
   - id: 6137
     key: haon_room_6137
     name: "At the end of the trail through the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "At the end of the trail through the deep, dark forest"
     long_desc: |
       You are on a dusty trail leading through the deep, dark forest.  Ancient grey
@@ -2907,7 +2907,7 @@ rooms:
   - id: 6142
     key: haon_room_6142
     name: "Outside a cave in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "Outside a cave in the deep, dark forest"
     long_desc: |
       You are at the end of a broad, irregular path.  To the north is a very large
@@ -2948,7 +2948,7 @@ rooms:
   - id: 6143
     key: haon_room_6143
     name: "The cave of the Green Dragon"
-    area_id: 32
+    area_id: 60
     short_desc: "The cave of the Green Dragon"
     long_desc: |
       You are in a big natural cave.  The floor is littered with bones of all sorts
@@ -2988,7 +2988,7 @@ rooms:
   - id: 6144
     key: haon_room_6144
     name: "A small path in the deep, dark forest"
-    area_id: 32
+    area_id: 60
     short_desc: "A small path in the deep, dark forest"
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient,
@@ -3032,7 +3032,7 @@ rooms:
   - id: 6150
     key: haon_room_6150
     name: "The narrow trail."
-    area_id: 32
+    area_id: 60
     short_desc: "The narrow trail."
     long_desc: |
       This trail looks much spookier than any other thats you have seen.  The usual
@@ -3067,7 +3067,7 @@ rooms:
   - id: 6151
     key: haon_room_6151
     name: "The narrow trail."
-    area_id: 32
+    area_id: 60
     short_desc: "The narrow trail."
     long_desc: |
       This area of the trail is also very peculiar.  You can see no signs of animal
@@ -3102,7 +3102,7 @@ rooms:
   - id: 6152
     key: haon_room_6152
     name: "The circle of trees."
-    area_id: 32
+    area_id: 60
     short_desc: "The circle of trees."
     long_desc: |
       The trees here seem to form a circle around a HUGE tree that is in the center
@@ -3137,7 +3137,7 @@ rooms:
   - id: 6153
     key: haon_room_6153
     name: "Inside the great tree."
-    area_id: 32
+    area_id: 60
     short_desc: "Inside the great tree."
     long_desc: |
       You have stepped inside of this hollowed tree.  From here steps lead down into
@@ -3171,7 +3171,7 @@ rooms:
   - id: 6154
     key: haon_room_6154
     name: "The underground hallway."
-    area_id: 32
+    area_id: 60
     short_desc: "The underground hallway."
     long_desc: |
       This hallway is apparently one of the roots of the tree hollowed out.  The hall
@@ -3205,7 +3205,7 @@ rooms:
   - id: 6155
     key: haon_room_6155
     name: "The cultist temple."
-    area_id: 32
+    area_id: 60
     short_desc: "The cultist temple."
     long_desc: |
       This temple is built to some god that you don't worship.  It is a nice place

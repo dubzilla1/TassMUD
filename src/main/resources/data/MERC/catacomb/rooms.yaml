@@ -2,7 +2,7 @@ rooms:
   - id: 2001
     key: catacomb_room_2001
     name: "North entrance to the catacombs"
-    area_id: 30
+    area_id: 20
     short_desc: "North entrance to the catacombs"
     long_desc: |
       You are almost surprised to see a tunnel leading off to the south
@@ -47,7 +47,7 @@ rooms:
   - id: 2002
     key: catacomb_room_2002
     name: "North/south tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "North/south tunnel"
     long_desc: |
       This part of the catacombs looked roughly hewn and man-made. There is
@@ -92,7 +92,7 @@ rooms:
   - id: 2003
     key: catacomb_room_2003
     name: "Weapon training area"
-    area_id: 30
+    area_id: 20
     short_desc: "Weapon training area"
     long_desc: |
       This is a place to keep up on there weapon skills.  Much of the
@@ -139,7 +139,7 @@ rooms:
   - id: 2004
     key: catacomb_room_2004
     name: "Prayer training area"
-    area_id: 30
+    area_id: 20
     short_desc: "Prayer training area"
     long_desc: |
       The templar's curious mix of religion and fighting is evident here.
@@ -183,7 +183,7 @@ rooms:
   - id: 2005
     key: catacomb_room_2005
     name: "Junction of hallways"
-    area_id: 30
+    area_id: 20
     short_desc: "Junction of hallways"
     long_desc: |
       Training facilities are evident to the west. To the south lies a hallway
@@ -233,7 +233,7 @@ rooms:
   - id: 2006
     key: catacomb_room_2006
     name: "Hallway"
-    area_id: 30
+    area_id: 20
     short_desc: "Hallway"
     long_desc: |
       The hallway takes on a more indoor look to the west.  To the east it
@@ -277,7 +277,7 @@ rooms:
   - id: 2007
     key: catacomb_room_2007
     name: "Intersection"
-    area_id: 30
+    area_id: 20
     short_desc: "Intersection"
     long_desc: |
       The tunnel continues to the north and the south, becoming less hewn and
@@ -321,7 +321,7 @@ rooms:
   - id: 2008
     key: catacomb_room_2008
     name: "Pages' sleeping quarters"
-    area_id: 30
+    area_id: 20
     short_desc: "Pages' sleeping quarters"
     long_desc: |
       Several bunk beds are lined up across the room.  It looks rather spartan
@@ -377,7 +377,7 @@ rooms:
   - id: 2009
     key: catacomb_room_2009
     name: "Templar Knights sleeping quarters"
-    area_id: 30
+    area_id: 20
     short_desc: "Templar Knights sleeping quarters"
     long_desc: |
       This is a huge room which is filled wall to wall with beds. Apparently
@@ -445,7 +445,7 @@ rooms:
   - id: 2010
     key: catacomb_room_2010
     name: "N/S hallway"
-    area_id: 30
+    area_id: 20
     short_desc: "N/S hallway"
     long_desc: |
       The hallway leads north an south.  A door leads to a templar's room to
@@ -494,7 +494,7 @@ rooms:
   - id: 2011
     key: catacomb_room_2011
     name: "A Middle-aged templar's room"
-    area_id: 30
+    area_id: 20
     short_desc: "A Middle-aged templar's room"
     long_desc: |
       This is a room furnished in a room becoming a low level templar scribe.
@@ -519,7 +519,7 @@ rooms:
   - id: 2012
     key: catacomb_room_2012
     name: "Humid, damp tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Humid, damp tunnel"
     long_desc: |
       As the tunnel leads south it gets more humid and damp.  Moss covers the
@@ -554,7 +554,7 @@ rooms:
   - id: 2013
     key: catacomb_room_2013
     name: "Administration room"
-    area_id: 30
+    area_id: 20
     short_desc: "Administration room"
     long_desc: |
       The elders gather here to discuss training strategies and count their
@@ -604,7 +604,7 @@ rooms:
   - id: 2014
     key: catacomb_room_2014
     name: "N/S hallway"
-    area_id: 30
+    area_id: 20
     short_desc: "N/S hallway"
     long_desc: |
       The hallway continues to become more important-looking as you wander
@@ -649,7 +649,7 @@ rooms:
   - id: 2015
     key: catacomb_room_2015
     name: "Mid-level leader's room"
-    area_id: 30
+    area_id: 20
     short_desc: "Mid-level leader's room"
     long_desc: |
       A rather nice looking room considering the drab conditions down here.
@@ -686,7 +686,7 @@ rooms:
   - id: 2016
     key: catacomb_room_2016
     name: "Mess hall"
-    area_id: 30
+    area_id: 20
     short_desc: "Mess hall"
     long_desc: |
       The a huge table with an immaculate white table cloth stretches way off
@@ -779,7 +779,7 @@ rooms:
   - id: 2017
     key: catacomb_room_2017
     name: "N/S hallway"
-    area_id: 30
+    area_id: 20
     short_desc: "N/S hallway"
     long_desc: |
       The hallway continues north and south.  A peculiar kind of glow seems
@@ -824,7 +824,7 @@ rooms:
   - id: 2018
     key: catacomb_room_2018
     name: "High officer's room"
-    area_id: 30
+    area_id: 20
     short_desc: "High officer's room"
     long_desc: |
       First thing you notice in this room is the pleasant aroma of cedar.  All
@@ -865,7 +865,7 @@ rooms:
   - id: 2019
     key: catacomb_room_2019
     name: "Mossy intersection"
-    area_id: 30
+    area_id: 20
     short_desc: "Mossy intersection"
     long_desc: |
       There is a turn off to the passage here.  The main passage leads north
@@ -916,7 +916,7 @@ rooms:
   - id: 2020
     key: catacomb_room_2020
     name: "The holy grove"
-    area_id: 30
+    area_id: 20
     short_desc: "The holy grove"
     long_desc: |
       A small grove of birches grow seem to grow from solid rock.  You hear
@@ -951,7 +951,7 @@ rooms:
   - id: 2021
     key: catacomb_room_2021
     name: "The holy grove"
-    area_id: 30
+    area_id: 20
     short_desc: "The holy grove"
     long_desc: |
       The trees seem real enough even though they take root in solid rock.
@@ -1007,7 +1007,7 @@ rooms:
   - id: 2022
     key: catacomb_room_2022
     name: "The holy grove"
-    area_id: 30
+    area_id: 20
     short_desc: "The holy grove"
     long_desc: |
       The grove continues west and south.  The glow is roughly to the south
@@ -1041,7 +1041,7 @@ rooms:
   - id: 2023
     key: catacomb_room_2023
     name: "Mess hall"
-    area_id: 30
+    area_id: 20
     short_desc: "Mess hall"
     long_desc: |
       "mess" isn't exactly the best word to describe this room.  On the
@@ -1100,7 +1100,7 @@ rooms:
   - id: 2024
     key: catacomb_room_2024
     name: "End of a hallway"
-    area_id: 30
+    area_id: 20
     short_desc: "End of a hallway"
     long_desc: |
       You hear voices coming from a room to the west.  the hallway goes north.
@@ -1144,7 +1144,7 @@ rooms:
   - id: 2025
     key: catacomb_room_2025
     name: "Grand Templar's room"
-    area_id: 30
+    area_id: 20
     short_desc: "Grand Templar's room"
     long_desc: |
       All the items in this room look ancient yet strangely very powerful and
@@ -1183,7 +1183,7 @@ rooms:
   - id: 2026
     key: catacomb_room_2026
     name: "Very dark passage"
-    area_id: 30
+    area_id: 20
     short_desc: "Very dark passage"
     long_desc: |
       This room is so dark that even powerful magic lights seems to barely
@@ -1227,7 +1227,7 @@ rooms:
   - id: 2027
     key: catacomb_room_2027
     name: "The holy grove"
-    area_id: 30
+    area_id: 20
     short_desc: "The holy grove"
     long_desc: |
       The grove continues north and east.  To the east a strange humming can
@@ -1261,7 +1261,7 @@ rooms:
   - id: 2028
     key: catacomb_room_2028
     name: "The holy grove"
-    area_id: 30
+    area_id: 20
     short_desc: "The holy grove"
     long_desc: |
       All of a sudden all the mysterious sounds of the grove stop. Or perhaps
@@ -1312,7 +1312,7 @@ rooms:
   - id: 2029
     key: catacomb_room_2029
     name: "Very dark caveway"
-    area_id: 30
+    area_id: 20
     short_desc: "Very dark caveway"
     long_desc: |
       This room is so very dark that no one is quite sure whats in it, so
@@ -1348,7 +1348,7 @@ rooms:
   - id: 2030
     key: catacomb_room_2030
     name: "Deep within the catacombs"
-    area_id: 30
+    area_id: 20
     short_desc: "Deep within the catacombs"
     long_desc: |
       It stinks like a lair in here.  A rotten smell of humanoid flesh
@@ -1413,7 +1413,7 @@ rooms:
   - id: 2031
     key: catacomb_room_2031
     name: "Very dark cavern"
-    area_id: 30
+    area_id: 20
     short_desc: "Very dark cavern"
     long_desc: |
       The cavern is hard to describe due to the extreme magical darkness.
@@ -1447,7 +1447,7 @@ rooms:
   - id: 2032
     key: catacomb_room_2032
     name: "The holy place"
-    area_id: 30
+    area_id: 20
     short_desc: "The holy place"
     long_desc: |
       A glowing stone lies in the center of the clearing.  You recognize it as
@@ -1478,7 +1478,7 @@ rooms:
   - id: 2033
     key: catacomb_room_2033
     name: "Misty passageway"
-    area_id: 30
+    area_id: 20
     short_desc: "Misty passageway"
     long_desc: |
       Warm mist swirl about you making you feel threatened as well as
@@ -1527,7 +1527,7 @@ rooms:
   - id: 2034
     key: catacomb_room_2034
     name: "Intersection of caverns"
-    area_id: 30
+    area_id: 20
     short_desc: "Intersection of caverns"
     long_desc: |
       Caverns head north, south and east from this peculiar spot. Medium
@@ -1573,7 +1573,7 @@ rooms:
   - id: 2035
     key: catacomb_room_2035
     name: "Entrance to the burial grounds"
-    area_id: 30
+    area_id: 20
     short_desc: "Entrance to the burial grounds"
     long_desc: |
       You have entered what appears to be a burial ground of sorts. The
@@ -1618,7 +1618,7 @@ rooms:
   - id: 2036
     key: catacomb_room_2036
     name: "The burial grounds"
-    area_id: 30
+    area_id: 20
     short_desc: "The burial grounds"
     long_desc: |
       Random tombs to unknown warriors were lain in rows as far as the eye
@@ -1677,7 +1677,7 @@ rooms:
   - id: 2037
     key: catacomb_room_2037
     name: "The burial grounds"
-    area_id: 30
+    area_id: 20
     short_desc: "The burial grounds"
     long_desc: |
       It seems as if many of the warriors could not stop fighting even in
@@ -1725,7 +1725,7 @@ rooms:
   - id: 2038
     key: catacomb_room_2038
     name: "The burial grounds"
-    area_id: 30
+    area_id: 20
     short_desc: "The burial grounds"
     long_desc: |
       Legions of skeletal warriors wander by and battle the enemy even in
@@ -1765,7 +1765,7 @@ rooms:
   - id: 2039
     key: catacomb_room_2039
     name: "New graves"
-    area_id: 30
+    area_id: 20
     short_desc: "New graves"
     long_desc: |
       The tombs in this section seem somewhat more recent.  Rotting zombie
@@ -1809,7 +1809,7 @@ rooms:
   - id: 2040
     key: catacomb_room_2040
     name: "Misty cavern"
-    area_id: 30
+    area_id: 20
     short_desc: "Misty cavern"
     long_desc: |
       A chilling icy mist swirl about you.  The dampness and warmth has become
@@ -1865,7 +1865,7 @@ rooms:
   - id: 2041
     key: catacomb_room_2041
     name: "Misty cavern"
-    area_id: 30
+    area_id: 20
     short_desc: "Misty cavern"
     long_desc: |
       The temperature is a pleasant and mild here.  This is due to a warm wind
@@ -1918,7 +1918,7 @@ rooms:
   - id: 2042
     key: catacomb_room_2042
     name: "Mist cavern"
-    area_id: 30
+    area_id: 20
     short_desc: "Mist cavern"
     long_desc: |
       A warm wind blows in from the east.  The air is still stifling hot in
@@ -1971,7 +1971,7 @@ rooms:
   - id: 2043
     key: catacomb_room_2043
     name: "Waterfall of mist"
-    area_id: 30
+    area_id: 20
     short_desc: "Waterfall of mist"
     long_desc: |
       River of hot mist pour down in a cascade from a hole in the cavern.  It
@@ -2024,7 +2024,7 @@ rooms:
   - id: 2044
     key: catacomb_room_2044
     name: "Huge multicolored tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Huge multicolored tunnel"
     long_desc: |
       The tunnel leads north and south.  To the south there is an odd
@@ -2058,7 +2058,7 @@ rooms:
   - id: 2045
     key: catacomb_room_2045
     name: "Desolate ruins"
-    area_id: 30
+    area_id: 20
     short_desc: "Desolate ruins"
     long_desc: |
       Several mausoleums used to grace the way here but these have been
@@ -2084,7 +2084,7 @@ rooms:
   - id: 2046
     key: catacomb_room_2046
     name: "Curators place"
-    area_id: 30
+    area_id: 20
     short_desc: "Curators place"
     long_desc: |
       The undertaker, the historian and the curator used to be here. Now they
@@ -2123,7 +2123,7 @@ rooms:
   - id: 2047
     key: catacomb_room_2047
     name: "Fresh graves"
-    area_id: 30
+    area_id: 20
     short_desc: "Fresh graves"
     long_desc: |
       Graves of recent casualties lie here.  Even the most recent don't seem to
@@ -2177,7 +2177,7 @@ rooms:
   - id: 2048
     key: catacomb_room_2048
     name: "Twisty cavern"
-    area_id: 30
+    area_id: 20
     short_desc: "Twisty cavern"
     long_desc: |
       The way twist this way and that and its all you can do to keep your head
@@ -2223,7 +2223,7 @@ rooms:
   - id: 2049
     key: catacomb_room_2049
     name: "Striped tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Striped tunnel"
     long_desc: |
       The walls of the tunnels have many brilliant colors in them from the
@@ -2263,7 +2263,7 @@ rooms:
   - id: 2050
     key: catacomb_room_2050
     name: "Prism cave"
-    area_id: 30
+    area_id: 20
     short_desc: "Prism cave"
     long_desc: |
       The roof of this cave peaks over a hundred feet high making it one of
@@ -2333,7 +2333,7 @@ rooms:
   - id: 2051
     key: catacomb_room_2051
     name: "Ruined monument"
-    area_id: 30
+    area_id: 20
     short_desc: "Ruined monument"
     long_desc: |
       A monument to a famous king once stood here. Not much is left to even
@@ -2379,7 +2379,7 @@ rooms:
   - id: 2052
     key: catacomb_room_2052
     name: "Basement"
-    area_id: 30
+    area_id: 20
     short_desc: "Basement"
     long_desc: |
       Its dark and it smells like. ...BATS down here!  All you see is a swirl
@@ -2447,7 +2447,7 @@ rooms:
   - id: 2053
     key: catacomb_room_2053
     name: "Fresh graves"
-    area_id: 30
+    area_id: 20
     short_desc: "Fresh graves"
     long_desc: |
       The graves here seem very recent.  You notice many signs of digging and
@@ -2496,7 +2496,7 @@ rooms:
   - id: 2054
     key: catacomb_room_2054
     name: "Southern gate"
-    area_id: 30
+    area_id: 20
     short_desc: "Southern gate"
     long_desc: |
       A rusty gate here no longer keeps anyone out or in.  You see a lonely
@@ -2541,7 +2541,7 @@ rooms:
   - id: 2055
     key: catacomb_room_2055
     name: "Scene of ghastly horror"
-    area_id: 30
+    area_id: 20
     short_desc: "Scene of ghastly horror"
     long_desc: |
       An army of undead creatures of all types are lined up patiently. Their
@@ -2593,7 +2593,7 @@ rooms:
   - id: 2056
     key: catacomb_room_2056
     name: "Twisty passage"
-    area_id: 30
+    area_id: 20
     short_desc: "Twisty passage"
     long_desc: |
       The passage bends north and east here.  To the east your not certain
@@ -2628,7 +2628,7 @@ rooms:
   - id: 2057
     key: catacomb_room_2057
     name: "Cross of caverns"
-    area_id: 30
+    area_id: 20
     short_desc: "Cross of caverns"
     long_desc: |
       A little-used cavern enters from the south. A passage twists away to
@@ -2672,7 +2672,7 @@ rooms:
   - id: 2058
     key: catacomb_room_2058
     name: "Lonely tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Lonely tunnel"
     long_desc: |
       Something indescribable makes you feel lonesome and sad here. Its just
@@ -2706,7 +2706,7 @@ rooms:
   - id: 2059
     key: catacomb_room_2059
     name: "Lonely tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Lonely tunnel"
     long_desc: |
       Something indescribable makes you feel lonesome and sad here. You see a
@@ -2751,7 +2751,7 @@ rooms:
   - id: 2060
     key: catacomb_room_2060
     name: "Bend in the lonely tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Bend in the lonely tunnel"
     long_desc: |
       Something indescribable makes you feel lonesome and sad here. The
@@ -2785,7 +2785,7 @@ rooms:
   - id: 2061
     key: catacomb_room_2061
     name: "Lonely tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Lonely tunnel"
     long_desc: |
       Something indescribable makes you feel lonesome and sad here. The very
@@ -2820,7 +2820,7 @@ rooms:
   - id: 2062
     key: catacomb_room_2062
     name: "Intersection"
-    area_id: 30
+    area_id: 20
     short_desc: "Intersection"
     long_desc: |
       To the north you enter the burial grounds.  a trail of blood leads that
@@ -2866,7 +2866,7 @@ rooms:
   - id: 2063
     key: catacomb_room_2063
     name: "Tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Tunnel"
     long_desc: |
       The tunnel heads north and south.  North you see an intersection and
@@ -2900,7 +2900,7 @@ rooms:
   - id: 2064
     key: catacomb_room_2064
     name: "Tunnel"
-    area_id: 30
+    area_id: 20
     short_desc: "Tunnel"
     long_desc: |
       The tunnel slopes noticeably down to the north and you sense the surface
@@ -2939,7 +2939,7 @@ rooms:
   - id: 2065
     key: catacomb_room_2065
     name: "Southern entrance to the catacombs"
-    area_id: 30
+    area_id: 20
     short_desc: "Southern entrance to the catacombs"
     long_desc: |
       Through a trapdoor above you streams light.  Through a doorway to
@@ -2980,7 +2980,7 @@ rooms:
   - id: 2066
     key: catacomb_room_2066
     name: "Unknown passage"
-    area_id: 30
+    area_id: 20
     short_desc: "Unknown passage"
     long_desc: |
       Oh dear you seem to have lost your way.  You look back from whence you
@@ -3016,7 +3016,7 @@ rooms:
   - id: 2067
     key: catacomb_room_2067
     name: "Unknown passage"
-    area_id: 30
+    area_id: 20
     short_desc: "Unknown passage"
     long_desc: |
       Oh dear you seem to have lost your way.  You look back from whence you
@@ -3052,7 +3052,7 @@ rooms:
   - id: 2068
     key: catacomb_room_2068
     name: "Unknown passage"
-    area_id: 30
+    area_id: 20
     short_desc: "Unknown passage"
     long_desc: |
       Oh dear you seem to have lost your way.  You look back from whence you
@@ -3088,7 +3088,7 @@ rooms:
   - id: 2069
     key: catacomb_room_2069
     name: "Unknown passage"
-    area_id: 30
+    area_id: 20
     short_desc: "Unknown passage"
     long_desc: |
       Oh dear you seem to have lost your way.  You look back from whence you

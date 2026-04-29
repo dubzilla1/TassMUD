@@ -2,7 +2,7 @@ rooms:
   - id: 101
     key: smurf_room_101
     name: "Dimly Lit Path"
-    area_id: 30
+    area_id: 1
     short_desc: "Dimly Lit Path"
     long_desc: |
       This path is made of crushed granite with curious blue streaks in it.
@@ -34,7 +34,7 @@ rooms:
   - id: 102
     key: smurf_room_102
     name: "Dimly Lit Path"
-    area_id: 30
+    area_id: 1
     short_desc: "Dimly Lit Path"
     long_desc: |
       This section of the road is badly worn and frequently traversed.  There is
@@ -68,7 +68,7 @@ rooms:
   - id: 103
     key: smurf_room_103
     name: "Dimly Lit Path"
-    area_id: 30
+    area_id: 1
     short_desc: "Dimly Lit Path"
     long_desc: |
       This section of the road is badly worn and frequently traversed.  Singing is
@@ -100,7 +100,7 @@ rooms:
   - id: 104
     key: smurf_room_104
     name: "Entrance to Smurf Village"
-    area_id: 30
+    area_id: 1
     short_desc: "Entrance to Smurf Village"
     long_desc: |
       You stand at the entrance to a tiny village.  You can see across the whole
@@ -142,7 +142,7 @@ rooms:
   - id: 105
     key: smurf_room_105
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       You are way too big to be using this road.  But who cares.  Who's gonna stop
@@ -201,7 +201,7 @@ rooms:
   - id: 106
     key: smurf_room_106
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       You continue to travel down Smurfy Road.  Isn't it just smurfy?  Smurfy road
@@ -254,7 +254,7 @@ rooms:
   - id: 107
     key: smurf_room_107
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       Oh boy, another smurfy road!  Smurfy Road goes north and south here.  There
@@ -312,7 +312,7 @@ rooms:
   - id: 108
     key: smurf_room_108
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       Smurfy Road continues to smurf here.  It smurfs to the south and smurfs to
@@ -373,7 +373,7 @@ rooms:
   - id: 109
     key: smurf_room_109
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       A smurfy well lies here in the middle of Smurfy Road.  A fence separates
@@ -429,7 +429,7 @@ rooms:
   - id: 110
     key: smurf_room_110
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       A corner of smurfy road is where you stand.  A smurfy fence blocks passage
@@ -470,7 +470,7 @@ rooms:
   - id: 111
     key: smurf_room_111
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       Western corner of Smurfy Road.  You can continue to smurf down the road
@@ -517,7 +517,7 @@ rooms:
   - id: 112
     key: smurf_room_112
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       There's no place like smurf.  There's no place like smurf.  Sorry wrong
@@ -569,7 +569,7 @@ rooms:
   - id: 113
     key: smurf_room_113
     name: "Stone Path"
-    area_id: 30
+    area_id: 1
     short_desc: "Stone Path"
     long_desc: |
       You are walking along a cute little stone path.  To the south lies Papa
@@ -612,7 +612,7 @@ rooms:
   - id: 114
     key: smurf_room_114
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       Yet another part of Smurfy Road.  Hey if you go west its the last
@@ -644,7 +644,7 @@ rooms:
   - id: 115
     key: smurf_room_115
     name: "Smurfy Road"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfy Road"
     long_desc: |
       The last piece of Smurfy Road.  You can go back to Smurfy Road to the east.
@@ -687,7 +687,7 @@ rooms:
   - id: 116
     key: smurf_room_116
     name: "Smurfberry Patch"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfberry Patch"
     long_desc: |
       Delicious smurfberries grow here.  You could probably eat a year's worth of
@@ -728,7 +728,7 @@ rooms:
   - id: 117
     key: smurf_room_117
     name: "Smurfberry Patch"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfberry Patch"
     long_desc: |
       Another patch of smurfberries is growing here.  The smell is driving your
@@ -780,7 +780,7 @@ rooms:
   - id: 118
     key: smurf_room_118
     name: "Smurfberry Patch"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfberry Patch"
     long_desc: |
       The northernmost of the smurfberry patches grows here.  It looks just
@@ -821,7 +821,7 @@ rooms:
   - id: 119
     key: smurf_room_119
     name: "Brainy Smurf's Home"
-    area_id: 30
+    area_id: 1
     short_desc: "Brainy Smurf's Home"
     long_desc: |
       You rip the roof of the home to get a good look inside.  You see
@@ -854,7 +854,7 @@ rooms:
   - id: 120
     key: smurf_room_120
     name: "Handy Smurf's Home"
-    area_id: 30
+    area_id: 1
     short_desc: "Handy Smurf's Home"
     long_desc: |
       This home was well built.  Of course, until you rip it apart you big meany
@@ -886,7 +886,7 @@ rooms:
   - id: 121
     key: smurf_room_121
     name: "Hefty Smurf's Home"
-    area_id: 30
+    area_id: 1
     short_desc: "Hefty Smurf's Home"
     long_desc: |
       Hefty is anything but wimpy.  So is his house.  It actually took you a 
@@ -918,7 +918,7 @@ rooms:
   - id: 122
     key: smurf_room_122
     name: "Sleepy Smurf's Home"
-    area_id: 30
+    area_id: 1
     short_desc: "Sleepy Smurf's Home"
     long_desc: |
       Be vewy vewy quiet.  Sleepy Smurf is probably sleeping.  You see so many
@@ -946,7 +946,7 @@ rooms:
   - id: 123
     key: smurf_room_123
     name: "Grumpy Smurf's Home"
-    area_id: 30
+    area_id: 1
     short_desc: "Grumpy Smurf's Home"
     long_desc: |
       This is Grumpy Smurf's home.  He is pissed at you.  Of course, he is pissed
@@ -974,7 +974,7 @@ rooms:
   - id: 124
     key: smurf_room_124
     name: "Jokey Smurf's Home"
-    area_id: 30
+    area_id: 1
     short_desc: "Jokey Smurf's Home"
     long_desc: |
       You pull the top of his house and it explodes in your face.  That Jokey
@@ -1002,7 +1002,7 @@ rooms:
   - id: 125
     key: smurf_room_125
     name: "Papa Smurf's Home"
-    area_id: 30
+    area_id: 1
     short_desc: "Papa Smurf's Home"
     long_desc: |
       It's the home of the leader of the smurfs.  Papa Smurf has a nicely decorated
@@ -1036,7 +1036,7 @@ rooms:
   - id: 126
     key: smurf_room_126
     name: "Path to Gargamel's Castle"
-    area_id: 30
+    area_id: 1
     short_desc: "Path to Gargamel's Castle"
     long_desc: |
       You are walking along a path to Gargamel's Castle to the North.
@@ -1068,7 +1068,7 @@ rooms:
   - id: 127
     key: smurf_room_127
     name: "Outside Gargamel's Castle"
-    area_id: 30
+    area_id: 1
     short_desc: "Outside Gargamel's Castle"
     long_desc: |
       You are standing outside Gargamel's Castle.  You can hear him screaming at
@@ -1101,7 +1101,7 @@ rooms:
   - id: 128
     key: smurf_room_128
     name: "Gargamel's Castle"
-    area_id: 30
+    area_id: 1
     short_desc: "Gargamel's Castle"
     long_desc: |
       This is Gargamel's Castle.  His big black kettle is in the middle of the room.
@@ -1136,7 +1136,7 @@ rooms:
   - id: 129
     key: smurf_room_129
     name: "Smurfette's House"
-    area_id: 30
+    area_id: 1
     short_desc: "Smurfette's House"
     long_desc: |
       This house is conveniently next to Papa Smurfs.  Makes it easier for Papa

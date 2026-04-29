@@ -2,7 +2,7 @@ rooms:
   - id: 1501
     key: gnome_room_1501
     name: "Entrance to Gnome Village"
-    area_id: 30
+    area_id: 15
     short_desc: "Entrance to Gnome Village"
     long_desc: |
       You stand on a dusty path that leads north and east.  To the east you hear
@@ -36,7 +36,7 @@ rooms:
   - id: 1502
     key: gnome_room_1502
     name: "A Dusty Path"
-    area_id: 30
+    area_id: 15
     short_desc: "A Dusty Path"
     long_desc: |
       This is a path leading into the village.  It continues east and west and
@@ -78,7 +78,7 @@ rooms:
   - id: 1503
     key: gnome_room_1503
     name: "A Road in the Village"
-    area_id: 30
+    area_id: 15
     short_desc: "A Road in the Village"
     long_desc: |
       This road runs north and south through the center of the village.  There
@@ -139,7 +139,7 @@ rooms:
   - id: 1504
     key: gnome_room_1504
     name: "A Dusty Path"
-    area_id: 30
+    area_id: 15
     short_desc: "A Dusty Path"
     long_desc: |
       You are on a dusty path on the far side of the village.  Houses are to the
@@ -185,7 +185,7 @@ rooms:
   - id: 1505
     key: gnome_room_1505
     name: "A Road in the Village"
-    area_id: 30
+    area_id: 15
     short_desc: "A Road in the Village"
     long_desc: |
       This road runs north and south through the center of the village.  There
@@ -236,7 +236,7 @@ rooms:
   - id: 1506
     key: gnome_room_1506
     name: "A Road in the Village"
-    area_id: 30
+    area_id: 15
     short_desc: "A Road in the Village"
     long_desc: |
       This road runs north and south through the center of the village.  There
@@ -267,7 +267,7 @@ rooms:
   - id: 1507
     key: gnome_room_1507
     name: "A Road in the Village"
-    area_id: 30
+    area_id: 15
     short_desc: "A Road in the Village"
     long_desc: |
       This road runs north and south through the center of the village.  There
@@ -299,7 +299,7 @@ rooms:
   - id: 1508
     key: gnome_room_1508
     name: "A Road in the Village"
-    area_id: 30
+    area_id: 15
     short_desc: "A Road in the Village"
     long_desc: |
       This road runs north and south through the center of the village.  There
@@ -341,7 +341,7 @@ rooms:
   - id: 1509
     key: gnome_room_1509
     name: "A Small Gnome House"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Gnome House"
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
@@ -377,7 +377,7 @@ rooms:
   - id: 1510
     key: gnome_room_1510
     name: "A Small Gnome House"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Gnome House"
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
@@ -413,7 +413,7 @@ rooms:
   - id: 1511
     key: gnome_room_1511
     name: "A Small Gnome House"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Gnome House"
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
@@ -449,7 +449,7 @@ rooms:
   - id: 1512
     key: gnome_room_1512
     name: "A Small Gnome House"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Gnome House"
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
@@ -473,7 +473,7 @@ rooms:
   - id: 1513
     key: gnome_room_1513
     name: "A Small Gnome House"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Gnome House"
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
@@ -508,7 +508,7 @@ rooms:
   - id: 1514
     key: gnome_room_1514
     name: "A Gnome Shop"
-    area_id: 30
+    area_id: 15
     short_desc: "A Gnome Shop"
     long_desc: |
       You are in one of the several shops of this fine town.  The wares look fine,
@@ -543,7 +543,7 @@ rooms:
   - id: 1515
     key: gnome_room_1515
     name: "A Gnome Shop"
-    area_id: 30
+    area_id: 15
     short_desc: "A Gnome Shop"
     long_desc: |
       You are in one of the several shops of this fine town.  The wares look fine,
@@ -576,7 +576,7 @@ rooms:
   - id: 1516
     key: gnome_room_1516
     name: "A Gnome Shop"
-    area_id: 30
+    area_id: 15
     short_desc: "A Gnome Shop"
     long_desc: |
       You are in one of the several shops of this fine town.  The wares look fine,
@@ -600,7 +600,7 @@ rooms:
   - id: 1517
     key: gnome_room_1517
     name: "Path by a Stream"
-    area_id: 30
+    area_id: 15
     short_desc: "Path by a Stream"
     long_desc: |
       You are on a small path leading north and west, that is surrounded on the
@@ -647,7 +647,7 @@ rooms:
   - id: 1518
     key: gnome_room_1518
     name: "Path by a Stream"
-    area_id: 30
+    area_id: 15
     short_desc: "Path by a Stream"
     long_desc: |
       You are on a small east-west path.  The path shows new grass, as if it
@@ -695,7 +695,7 @@ rooms:
   - id: 1519
     key: gnome_room_1519
     name: "A Small Hut"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Hut"
     long_desc: |
       The hut is a mess!  Blood has stained the grass walls into a dark rich
@@ -739,7 +739,7 @@ rooms:
   - id: 1520
     key: gnome_room_1520
     name: "On the Stream"
-    area_id: 30
+    area_id: 15
     short_desc: "On the Stream"
     long_desc: |
       The stream is cold and frigid, yet it supports plenty of life beneath its
@@ -781,7 +781,7 @@ rooms:
   - id: 1521
     key: gnome_room_1521
     name: "On the Stream"
-    area_id: 30
+    area_id: 15
     short_desc: "On the Stream"
     long_desc: |
       The current here flows from the east, but a logjam blocks you from 
@@ -813,7 +813,7 @@ rooms:
   - id: 1522
     key: gnome_room_1522
     name: "The Field of Mice's Dreams"
-    area_id: 30
+    area_id: 15
     short_desc: "The Field of Mice's Dreams"
     long_desc: |
       This is a large green field of waist high grass.  You feel something
@@ -854,7 +854,7 @@ rooms:
   - id: 1523
     key: gnome_room_1523
     name: "The Dark Cave"
-    area_id: 30
+    area_id: 15
     short_desc: "The Dark Cave"
     long_desc: |
       The cave gleams as your light reflects off of it.  As you squint your eyes
@@ -886,7 +886,7 @@ rooms:
   - id: 1524
     key: gnome_room_1524
     name: "Darker Cave"
-    area_id: 30
+    area_id: 15
     short_desc: "Darker Cave"
     long_desc: |
       The cave gets even darker as your terror grows stronger.  You fear for your
@@ -913,7 +913,7 @@ rooms:
   - id: 1526
     key: gnome_room_1526
     name: "A Dusty Path"
-    area_id: 30
+    area_id: 15
     short_desc: "A Dusty Path"
     long_desc: |
       You are on a well traveled path that leads in many directions.  To the north
@@ -960,7 +960,7 @@ rooms:
   - id: 1527
     key: gnome_room_1527
     name: "The Iron Gateway"
-    area_id: 30
+    area_id: 15
     short_desc: "The Iron Gateway"
     long_desc: |
       You stand at the entrance to the gnome fortress.  The place seems to be
@@ -1001,7 +1001,7 @@ rooms:
   - id: 1528
     key: gnome_room_1528
     name: "A Long Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Long Hallway"
     long_desc: |
       You are now inside of the fortress; you must be lucky that the guards 
@@ -1057,7 +1057,7 @@ rooms:
   - id: 1529
     key: gnome_room_1529
     name: "A Long Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Long Hallway"
     long_desc: |
       You are now inside of the fortress; you must be lucky that the guards 
@@ -1102,7 +1102,7 @@ rooms:
   - id: 1530
     key: gnome_room_1530
     name: "The Barracks"
-    area_id: 30
+    area_id: 15
     short_desc: "The Barracks"
     long_desc: |
       You now stand in the sleeping quarters of the gnome guards.  Every bed is
@@ -1144,7 +1144,7 @@ rooms:
   - id: 1531
     key: gnome_room_1531
     name: "A Small Storage Room"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Storage Room"
     long_desc: |
       This is where the gnomes store all their spare clothing and armor.
@@ -1168,7 +1168,7 @@ rooms:
   - id: 1532
     key: gnome_room_1532
     name: "A Small Storage Room"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Storage Room"
     long_desc: |
       This is where the gnomes store all their spare weapons.  A door leads off
@@ -1202,7 +1202,7 @@ rooms:
   - id: 1533
     key: gnome_room_1533
     name: "A Small Storage Room"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Storage Room"
     long_desc: |
       This is yet another room for storing gnome stuff.  Maps and battle plans
@@ -1226,7 +1226,7 @@ rooms:
   - id: 1534
     key: gnome_room_1534
     name: "The Mess Hall"
-    area_id: 30
+    area_id: 15
     short_desc: "The Mess Hall"
     long_desc: |
       You are in the room where the guards come to get their grub.  The benches 
@@ -1260,7 +1260,7 @@ rooms:
   - id: 1535
     key: gnome_room_1535
     name: "A Small Room"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Room"
     long_desc: |
       This is a small plain room.  Its only interesting feature is a ladder down.
@@ -1293,7 +1293,7 @@ rooms:
   - id: 1536
     key: gnome_room_1536
     name: "A Small Unused Room"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Unused Room"
     long_desc: |
       You stand in a small room in an unused section of the fortress.  The whole
@@ -1328,7 +1328,7 @@ rooms:
   - id: 1537
     key: gnome_room_1537
     name: "Dark Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "Dark Hallway"
     long_desc: |
       You find yourself in a very old section of the fortress.  You must be the
@@ -1363,7 +1363,7 @@ rooms:
   - id: 1538
     key: gnome_room_1538
     name: "Torture Chamber"
-    area_id: 30
+    area_id: 15
     short_desc: "Torture Chamber"
     long_desc: |
       This is a room that was once used to extract lies out of helpless victims.
@@ -1391,7 +1391,7 @@ rooms:
   - id: 1539
     key: gnome_room_1539
     name: "Dark Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "Dark Hallway"
     long_desc: |
       The hall continues in a north-south direction.  The floor is coated with
@@ -1445,7 +1445,7 @@ rooms:
   - id: 1540
     key: gnome_room_1540
     name: "Dark Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "Dark Hallway"
     long_desc: |
       The hall continues in a north-south direction.  The floor is coated with
@@ -1499,7 +1499,7 @@ rooms:
   - id: 1541
     key: gnome_room_1541
     name: "Prison Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "Prison Cell"
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
@@ -1532,7 +1532,7 @@ rooms:
   - id: 1542
     key: gnome_room_1542
     name: "Prison Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "Prison Cell"
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
@@ -1565,7 +1565,7 @@ rooms:
   - id: 1543
     key: gnome_room_1543
     name: "Prison Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "Prison Cell"
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
@@ -1594,7 +1594,7 @@ rooms:
   - id: 1544
     key: gnome_room_1544
     name: "Prison Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "Prison Cell"
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
@@ -1618,7 +1618,7 @@ rooms:
   - id: 1545
     key: gnome_room_1545
     name: "End of the Dark Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "End of the Dark Hallway"
     long_desc: |
       You have reached the end of the dark hallway and maybe the end of your puny
@@ -1660,7 +1660,7 @@ rooms:
   - id: 1546
     key: gnome_room_1546
     name: "A Ladder"
-    area_id: 30
+    area_id: 15
     short_desc: "A Ladder"
     long_desc: |
       You have come into a vertical tunnel with a ladder.
@@ -1693,7 +1693,7 @@ rooms:
   - id: 1547
     key: gnome_room_1547
     name: "Lair"
-    area_id: 30
+    area_id: 15
     short_desc: "Lair"
     long_desc: |
       You have entered a new lair in the fortress.  Anything could be lurking
@@ -1727,7 +1727,7 @@ rooms:
   - id: 1548
     key: gnome_room_1548
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -1778,7 +1778,7 @@ rooms:
   - id: 1549
     key: gnome_room_1549
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -1810,7 +1810,7 @@ rooms:
   - id: 1550
     key: gnome_room_1550
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -1851,7 +1851,7 @@ rooms:
   - id: 1551
     key: gnome_room_1551
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -1892,7 +1892,7 @@ rooms:
   - id: 1552
     key: gnome_room_1552
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -1924,7 +1924,7 @@ rooms:
   - id: 1553
     key: gnome_room_1553
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -1965,7 +1965,7 @@ rooms:
   - id: 1554
     key: gnome_room_1554
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -2007,7 +2007,7 @@ rooms:
   - id: 1555
     key: gnome_room_1555
     name: "A Damp Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "A Damp Hallway"
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
@@ -2048,7 +2048,7 @@ rooms:
   - id: 1556
     key: gnome_room_1556
     name: "The End of the Hallway"
-    area_id: 30
+    area_id: 15
     short_desc: "The End of the Hallway"
     long_desc: |
       You make your way out of the hallway, just to find yourself in greater
@@ -2092,7 +2092,7 @@ rooms:
   - id: 1557
     key: gnome_room_1557
     name: "The Altar"
-    area_id: 30
+    area_id: 15
     short_desc: "The Altar"
     long_desc: |
       You finally reach the end of the maze.  There is a great altar here in the
@@ -2123,7 +2123,7 @@ rooms:
   - id: 1558
     key: gnome_room_1558
     name: "The Chief's House"
-    area_id: 30
+    area_id: 15
     short_desc: "The Chief's House"
     long_desc: |
       You enter into a large and luxurious house.  The floor is coated with carpets
@@ -2163,7 +2163,7 @@ rooms:
   - id: 1559
     key: gnome_room_1559
     name: "The Unused Path"
-    area_id: 30
+    area_id: 15
     short_desc: "The Unused Path"
     long_desc: |
       You are now on a fairly unused path that leads east out of the village.  
@@ -2197,7 +2197,7 @@ rooms:
   - id: 1560
     key: gnome_room_1560
     name: "The Overgrown Path"
-    area_id: 30
+    area_id: 15
     short_desc: "The Overgrown Path"
     long_desc: |
       As the path continues on, the grass grows higher.  You can't imagine
@@ -2229,7 +2229,7 @@ rooms:
   - id: 1561
     key: gnome_room_1561
     name: "The Clearing"
-    area_id: 30
+    area_id: 15
     short_desc: "The Clearing"
     long_desc: |
       Your progress is suddenly stopped by mountains on all sides.  The path leads
@@ -2261,7 +2261,7 @@ rooms:
   - id: 1562
     key: gnome_room_1562
     name: "Entrance to the Mine Shaft"
-    area_id: 30
+    area_id: 15
     short_desc: "Entrance to the Mine Shaft"
     long_desc: |
       As you enter the mine shaft, you get a sudden fear of the walls closing
@@ -2295,7 +2295,7 @@ rooms:
   - id: 1563
     key: gnome_room_1563
     name: "Mine Shaft"
-    area_id: 30
+    area_id: 15
     short_desc: "Mine Shaft"
     long_desc: |
       This mine shaft looks stable, at least in this area.  The wooden supports are
@@ -2354,7 +2354,7 @@ rooms:
   - id: 1564
     key: gnome_room_1564
     name: "Mine Shaft"
-    area_id: 30
+    area_id: 15
     short_desc: "Mine Shaft"
     long_desc: |
       This mine shaft looks stable, at least in this area.  The wooden supports are
@@ -2408,7 +2408,7 @@ rooms:
   - id: 1565
     key: gnome_room_1565
     name: "Mine Shaft"
-    area_id: 30
+    area_id: 15
     short_desc: "Mine Shaft"
     long_desc: |
       This mine shaft looks stable, at least in this area.  The wooden supports are
@@ -2458,7 +2458,7 @@ rooms:
   - id: 1566
     key: gnome_room_1566
     name: "Walkway"
-    area_id: 30
+    area_id: 15
     short_desc: "Walkway"
     long_desc: |
       You are on a well built path in the middle of a mountain.  You sense something
@@ -2493,7 +2493,7 @@ rooms:
   - id: 1567
     key: gnome_room_1567
     name: "Walkway"
-    area_id: 30
+    area_id: 15
     short_desc: "Walkway"
     long_desc: |
       You are on a well built path in the middle of a mountain.  You sense something
@@ -2528,7 +2528,7 @@ rooms:
   - id: 1568
     key: gnome_room_1568
     name: "The Grand Hall"
-    area_id: 30
+    area_id: 15
     short_desc: "The Grand Hall"
     long_desc: |
       You have stepped into the Grand Hall of the hobgoblin kingdom; your luck
@@ -2563,7 +2563,7 @@ rooms:
   - id: 1569
     key: gnome_room_1569
     name: "The Throne Room"
-    area_id: 30
+    area_id: 15
     short_desc: "The Throne Room"
     long_desc: |
       This is large bright room filled with Hobgoblins.  To the south there is
@@ -2636,7 +2636,7 @@ rooms:
   - id: 1570
     key: gnome_room_1570
     name: "The Treasury"
-    area_id: 30
+    area_id: 15
     short_desc: "The Treasury"
     long_desc: |
       You are inside the hobgoblin's treasury.  Your eyes are almost blinded by the
@@ -2673,7 +2673,7 @@ rooms:
   - id: 1571
     key: gnome_room_1571
     name: "Guarded Room"
-    area_id: 30
+    area_id: 15
     short_desc: "Guarded Room"
     long_desc: |
       You are inside a well guarded room.  The place is slightly better built than
@@ -2740,7 +2740,7 @@ rooms:
   - id: 1572
     key: gnome_room_1572
     name: "Guarded Room"
-    area_id: 30
+    area_id: 15
     short_desc: "Guarded Room"
     long_desc: |
       You are inside a well guarded room.  The place is slightly better built than
@@ -2807,7 +2807,7 @@ rooms:
   - id: 1573
     key: gnome_room_1573
     name: "Hobgoblin Armory"
-    area_id: 30
+    area_id: 15
     short_desc: "Hobgoblin Armory"
     long_desc: |
       The guards store their spare weapons and armor here.  There are rusty swords
@@ -2836,7 +2836,7 @@ rooms:
   - id: 1574
     key: gnome_room_1574
     name: "Mine Shaft"
-    area_id: 30
+    area_id: 15
     short_desc: "Mine Shaft"
     long_desc: |
       You enter a part of the mine shaft where the torches have grown dim
@@ -2871,7 +2871,7 @@ rooms:
   - id: 1575
     key: gnome_room_1575
     name: "Entrance to a Dungeon"
-    area_id: 30
+    area_id: 15
     short_desc: "Entrance to a Dungeon"
     long_desc: |
       The floor dips slightly as you walk into this dark and nasty place.  Your
@@ -2926,7 +2926,7 @@ rooms:
   - id: 1576
     key: gnome_room_1576
     name: "A Dungeon"
-    area_id: 30
+    area_id: 15
     short_desc: "A Dungeon"
     long_desc: |
       You are in the deepest and darkest part of the mine shafts.  The light from
@@ -2981,7 +2981,7 @@ rooms:
   - id: 1577
     key: gnome_room_1577
     name: "A Jail Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "A Jail Cell"
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
@@ -3010,7 +3010,7 @@ rooms:
   - id: 1578
     key: gnome_room_1578
     name: "The Jail Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "The Jail Cell"
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
@@ -3039,7 +3039,7 @@ rooms:
   - id: 1579
     key: gnome_room_1579
     name: "The Jail Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "The Jail Cell"
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
@@ -3068,7 +3068,7 @@ rooms:
   - id: 1580
     key: gnome_room_1580
     name: "The Jail Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "The Jail Cell"
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
@@ -3097,7 +3097,7 @@ rooms:
   - id: 1581
     key: gnome_room_1581
     name: "The Jail Cell"
-    area_id: 30
+    area_id: 15
     short_desc: "The Jail Cell"
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
@@ -3126,7 +3126,7 @@ rooms:
   - id: 1582
     key: gnome_room_1582
     name: "Small Mine Shaft"
-    area_id: 30
+    area_id: 15
     short_desc: "Small Mine Shaft"
     long_desc: |
       You are in a small extension of the mine shaft.  The dust on the floor is
@@ -3160,7 +3160,7 @@ rooms:
   - id: 1583
     key: gnome_room_1583
     name: "Hobgoblin Barracks"
-    area_id: 30
+    area_id: 15
     short_desc: "Hobgoblin Barracks"
     long_desc: |
       You are suddenly surrounded by a small army of hobgoblin guards.  The room
@@ -3214,7 +3214,7 @@ rooms:
   - id: 1584
     key: gnome_room_1584
     name: "Hobgoblin Barracks"
-    area_id: 30
+    area_id: 15
     short_desc: "Hobgoblin Barracks"
     long_desc: |
       Yech!  As you continue forward, the smell just keeps getting worse.
@@ -3247,7 +3247,7 @@ rooms:
   - id: 1585
     key: gnome_room_1585
     name: "Mess Hall"
-    area_id: 30
+    area_id: 15
     short_desc: "Mess Hall"
     long_desc: |
       You stand in the hobgoblin eating area.  There are a few rotting tables
@@ -3292,7 +3292,7 @@ rooms:
   - id: 1586
     key: gnome_room_1586
     name: "A Store Room"
-    area_id: 30
+    area_id: 15
     short_desc: "A Store Room"
     long_desc: |
       You stand in a small room filled with flour, grain, fruit, and bat droppings.
@@ -3315,7 +3315,7 @@ rooms:
   - id: 1587
     key: gnome_room_1587
     name: "The Kitchen"
-    area_id: 30
+    area_id: 15
     short_desc: "The Kitchen"
     long_desc: |
       This kitchen hasn't been cleaned since the creation of humans.  The trash and
@@ -3345,7 +3345,7 @@ rooms:
   - id: 1588
     key: gnome_room_1588
     name: "A Small Mine Shaft"
-    area_id: 30
+    area_id: 15
     short_desc: "A Small Mine Shaft"
     long_desc: |
       You come to a place in the mine shaft where a tunnel leads down.  The
@@ -3389,7 +3389,7 @@ rooms:
   - id: 1589
     key: gnome_room_1589
     name: "Hermit's Lair"
-    area_id: 30
+    area_id: 15
     short_desc: "Hermit's Lair"
     long_desc: |
       You are in a small section where the mine wall has collapsed to reveal a
@@ -3419,7 +3419,7 @@ rooms:
   - id: 1590
     key: gnome_room_1590
     name: "A Hole"
-    area_id: 30
+    area_id: 15
     short_desc: "A Hole"
     long_desc: |
       You are in a hole.
