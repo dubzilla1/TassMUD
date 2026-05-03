@@ -7,6 +7,7 @@ rooms:
     long_desc: |
       This room is filled with bone shards and fragments.  Something (or things)
       very big lives here.  A small plaque is on the wall.
+    flags: [dark, indoors]
     exits:
       south: 2803
       north: 6124
@@ -54,6 +55,7 @@ rooms:
       insects crawling up them.  The resident is definitely uncivilized.  Half-eaten
       and rotting body parts scatter the floor, each having its own colony of flies,
       worms, and maggots.
+    flags: [dark, indoors]
     exits:
       east: 2803
     sector_type: INSIDE
@@ -102,6 +104,7 @@ rooms:
     long_desc: |
       This small cave opens to the north, south, east, and west.  You are
       overcome by the stench and consider turning around.
+    flags: [dark, indoors]
     exits:
       north: 2801
       east: 2804
@@ -186,6 +189,7 @@ rooms:
       The walls are covered with blood (and body parts!?!?).  Plastered on the far
       wall you see what looks like a human arm.  A half-eaten body lies here with
       its chest ripped out.  The predator seems disinterested in it.
+    flags: [dark, indoors]
     exits:
       west: 2803
     sector_type: INSIDE
@@ -242,6 +246,7 @@ rooms:
       orcs, (and humans?) strewn across the floor.  There is a larger, more
       prominent pile of rotten parts over in a corner.  It seems to have been
       flattened by something.
+    flags: [dark, no_mob, indoors]
     exits:
       north: 2803
     sector_type: INSIDE

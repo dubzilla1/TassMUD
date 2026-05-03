@@ -7,6 +7,7 @@ rooms:
     long_desc: |
       You stand on a dusty path that leads north and east.  To the east you hear
       the sounds of a small village.
+    flags: [no_mob]
     exits:
       north: 3503
       east: 1502
@@ -346,6 +347,7 @@ rooms:
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
       expert workmanship that went into making it, but it lacks creativity.
+    flags: [indoors]
     exits:
       south: 1502
     sector_type: INSIDE
@@ -382,6 +384,7 @@ rooms:
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
       expert workmanship that went into making it, but it lacks creativity.
+    flags: [indoors]
     exits:
       east: 1505
     sector_type: INSIDE
@@ -418,6 +421,7 @@ rooms:
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
       expert workmanship that went into making it, but it lacks creativity.
+    flags: [indoors]
     exits:
       west: 1505
     sector_type: INSIDE
@@ -454,6 +458,7 @@ rooms:
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
       expert workmanship that went into making it, but it lacks creativity.
+    flags: [indoors]
     exits:
       south: 1504
     sector_type: INSIDE
@@ -478,6 +483,7 @@ rooms:
     long_desc: |
       This is a small suburban house made from quality wood.  You can see the
       expert workmanship that went into making it, but it lacks creativity.
+    flags: [indoors]
     exits:
       north: 1504
     sector_type: INSIDE
@@ -513,6 +519,7 @@ rooms:
     long_desc: |
       You are in one of the several shops of this fine town.  The wares look fine,
       but unfortunately the gnomes don't do business with outsiders.
+    flags: [indoors]
     exits:
       east: 1507
     sector_type: INSIDE
@@ -548,6 +555,7 @@ rooms:
     long_desc: |
       You are in one of the several shops of this fine town.  The wares look fine,
       but unfortunately the gnomes don't do business with outsiders.
+    flags: [indoors]
     exits:
       east: 1508
     sector_type: INSIDE
@@ -581,6 +589,7 @@ rooms:
     long_desc: |
       You are in one of the several shops of this fine town.  The wares look fine,
       but unfortunately the gnomes don't do business with outsiders.
+    flags: [indoors]
     exits:
       west: 1508
     sector_type: INSIDE
@@ -605,6 +614,7 @@ rooms:
     long_desc: |
       You are on a small path leading north and west, that is surrounded on the
       other two sides by a small stream.  The water looks mighty cold.
+    flags: [no_mob]
     exits:
       north: 1508
       south: 1520
@@ -701,6 +711,7 @@ rooms:
       The hut is a mess!  Blood has stained the grass walls into a dark rich
       crimson color.  Torn clothes and trash lie all around, and you think you
       see a skeleton in the corner.
+    flags: [indoors]
     exits:
       east: 1518
     sector_type: INSIDE
@@ -859,6 +870,7 @@ rooms:
     long_desc: |
       The cave gleams as your light reflects off of it.  As you squint your eyes
       and try to look ahead, you think you see something move.
+    flags: [dark]
     exits:
       north: 1524
       west: 1522
@@ -891,6 +903,7 @@ rooms:
     long_desc: |
       The cave gets even darker as your terror grows stronger.  You fear for your
       life as something emerges out of the shadows.
+    flags: [dark]
     exits:
       south: 1523
     sector_type: FOREST
@@ -918,6 +931,7 @@ rooms:
     long_desc: |
       You are on a well traveled path that leads in many directions.  To the north
       is a large house, and to the west is a fortress.
+    flags: [no_mob]
     exits:
       north: 1558
       south: 1506
@@ -1008,6 +1022,7 @@ rooms:
       haven't killed you.  As you glance around, you notice that the walls and
       floors are spotlessly cleaned.  The barracks are to the north and a
       storage room is to the south.
+    flags: [indoors]
     exits:
       north: 1530
       east: 1527
@@ -1063,6 +1078,7 @@ rooms:
       You are now inside of the fortress; you must be lucky that the guards 
       haven't killed you.  As you glance around, you notice that the walls and
       floors are spotlessly cleaned.  A mess hall is to the south.
+    flags: [indoors]
     exits:
       east: 1528
       south: 1534
@@ -1108,6 +1124,7 @@ rooms:
       You now stand in the sleeping quarters of the gnome guards.  Every bed is
       made perfectly, and not single article of clothing is on the floor.  There
       is a small storage room to the east.
+    flags: [indoors]
     exits:
       east: 1531
     sector_type: INSIDE
@@ -1149,6 +1166,7 @@ rooms:
     long_desc: |
       This is where the gnomes store all their spare clothing and armor.
       There is not much here, but you might come up with something.
+    flags: [indoors]
     exits:
       west: 1530
     sector_type: INSIDE
@@ -1173,6 +1191,7 @@ rooms:
     long_desc: |
       This is where the gnomes store all their spare weapons.  A door leads off
       to the east.
+    flags: [indoors]
     exits:
       north: 1528
       east: 1533
@@ -1207,6 +1226,7 @@ rooms:
     long_desc: |
       This is yet another room for storing gnome stuff.  Maps and battle plans
       are stored in neat stacks on the shelves.
+    flags: [indoors]
     exits:
       west: 1532
     sector_type: INSIDE
@@ -1232,6 +1252,7 @@ rooms:
       You are in the room where the guards come to get their grub.  The benches 
       and tables are neatly cleaned and straightened, while shiny plates line
       the walls.
+    flags: [indoors]
     exits:
       north: 1529
     sector_type: INSIDE
@@ -1264,6 +1285,7 @@ rooms:
     short_desc: "A Small Room"
     long_desc: |
       This is a small plain room.  Its only interesting feature is a ladder down.
+    flags: [indoors]
     exits:
       east: 1529
       down: 1536
@@ -1299,6 +1321,7 @@ rooms:
       You stand in a small room in an unused section of the fortress.  The whole
       room is coated with dust and cobwebs.  The ladder leads back up, and
       a rusty door is to the east.
+    flags: [dark, indoors]
     exits:
       east: 1537
       up: 1535
@@ -1334,6 +1357,7 @@ rooms:
       You find yourself in a very old section of the fortress.  You must be the
       first person to pass through here in years.  The hallway continues south
       and a door leads off to the east.
+    flags: [dark, indoors]
     exits:
       east: 1538
       south: null
@@ -1368,6 +1392,7 @@ rooms:
     long_desc: |
       This is a room that was once used to extract lies out of helpless victims.
       The machines look unused, but could still work.
+    flags: [dark, indoors]
     exits:
       west: 1537
     sector_type: FIELD
@@ -1396,6 +1421,7 @@ rooms:
     long_desc: |
       The hall continues in a north-south direction.  The floor is coated with
       some kind of molded slime.  Doors lead east and west.
+    flags: [dark, indoors]
     exits:
       north: 1537
       east: 1542
@@ -1450,6 +1476,7 @@ rooms:
     long_desc: |
       The hall continues in a north-south direction.  The floor is coated with
       some kind of molded slime.  Doors lead east and west.
+    flags: [dark, indoors]
     exits:
       north: 1539
       east: 1544
@@ -1504,6 +1531,7 @@ rooms:
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
       an unbearable stench.
+    flags: [dark, indoors]
     exits:
       east: 1539
     sector_type: FIELD
@@ -1537,6 +1565,7 @@ rooms:
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
       an unbearable stench.
+    flags: [dark, indoors]
     exits:
       west: 1539
     sector_type: FIELD
@@ -1570,6 +1599,7 @@ rooms:
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
       an unbearable stench.
+    flags: [dark, indoors]
     exits:
       north: 1540
     sector_type: FIELD
@@ -1599,6 +1629,7 @@ rooms:
     long_desc: |
       You are in a dark and nasty prison cell.  Bodies lying on the floor give off
       an unbearable stench.
+    flags: [dark, indoors]
     exits:
       west: 1540
     sector_type: FIELD
@@ -1623,6 +1654,7 @@ rooms:
     long_desc: |
       You have reached the end of the dark hallway and maybe the end of your puny
       life.  Something lumbers its way out of the shadows.
+    flags: [dark, indoors]
     exits:
       east: 1540
       west: 1546
@@ -1664,6 +1696,7 @@ rooms:
     short_desc: "A Ladder"
     long_desc: |
       You have come into a vertical tunnel with a ladder.
+    flags: [dark, indoors]
     exits:
       east: 1545
       down: 1547
@@ -1698,6 +1731,7 @@ rooms:
     long_desc: |
       You have entered a new lair in the fortress.  Anything could be lurking
       around the corner.
+    flags: [dark, indoors]
     exits:
       south: 1548
       up: 1546
@@ -1732,6 +1766,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 1547
       east: 1549
@@ -1783,6 +1818,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       south: 1550
       west: 1548
@@ -1815,6 +1851,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 1549
       south: 1555
@@ -1856,6 +1893,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 1548
       south: 1552
@@ -1897,6 +1935,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 1551
       south: 1553
@@ -1929,6 +1968,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 1552
       east: 1554
@@ -1970,6 +2010,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 1556
       east: 1555
@@ -2012,6 +2053,7 @@ rooms:
     long_desc: |
       You are wandering in a dark, damp, twisting hallway.  The temperature
       seems to be greater here, as well as your fear.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 1550
       west: 1554
@@ -2053,6 +2095,7 @@ rooms:
     long_desc: |
       You make your way out of the hallway, just to find yourself in greater
       danger.  Before you looms the source of the great heat.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 1557
       south: 1554
@@ -2097,6 +2140,7 @@ rooms:
     long_desc: |
       You finally reach the end of the maze.  There is a great altar here in the
       shape of a bat.  A passageway leads off to the west.
+    flags: [dark, indoors, no_recall]
     exits:
       west: 1556
     sector_type: INSIDE
@@ -2129,6 +2173,7 @@ rooms:
       You enter into a large and luxurious house.  The floor is coated with carpets
       and the walls are covered in paintings.  You feel privileged just for stepping
       inside.
+    flags: [indoors]
     exits:
       south: 1526
     sector_type: INSIDE
@@ -2168,6 +2213,7 @@ rooms:
     long_desc: |
       You are now on a fairly unused path that leads east out of the village.  
       You wonder what could be out this way.
+    flags: [no_mob]
     exits:
       east: 1560
       west: 1504
@@ -2266,6 +2312,7 @@ rooms:
     long_desc: |
       As you enter the mine shaft, you get a sudden fear of the walls closing
       in on you.  You are surprised to notice that you don't need a light.
+    flags: [indoors]
     exits:
       east: 1563
       south: 1561
@@ -2300,6 +2347,7 @@ rooms:
     long_desc: |
       This mine shaft looks stable, at least in this area.  The wooden supports are
       thick and strong.  Torches line the walls.  Exits lead in all directions.
+    flags: [indoors]
     exits:
       north: 1582
       east: 1564
@@ -2359,6 +2407,7 @@ rooms:
     long_desc: |
       This mine shaft looks stable, at least in this area.  The wooden supports are
       thick and strong.  Torches line the walls.  Exits lead in all directions.
+    flags: [indoors]
     exits:
       north: 1583
       east: 1565
@@ -2414,6 +2463,7 @@ rooms:
       This mine shaft looks stable, at least in this area.  The wooden supports are
       thick and strong.  Torches line the walls.  Exits lead in all directions
       except north.
+    flags: [indoors]
     exits:
       east: 1566
       south: 1572
@@ -2464,6 +2514,7 @@ rooms:
       You are on a well built path in the middle of a mountain.  You sense something
       great up ahead, considering the hard work that must have gone into creating
       this passage.
+    flags: [indoors]
     exits:
       south: 1567
       west: 1565
@@ -2499,6 +2550,7 @@ rooms:
       You are on a well built path in the middle of a mountain.  You sense something
       great up ahead, considering the hard work that must have gone into creating
       this passage.
+    flags: [indoors]
     exits:
       north: 1566
       south: 1568
@@ -2534,6 +2586,7 @@ rooms:
       You have stepped into the Grand Hall of the hobgoblin kingdom; your luck
       must be running low by now.  Golden pillars span the hallway, and you
       notice a red carpet beneath your feet.
+    flags: [indoors]
     exits:
       north: 1567
       south: 1569
@@ -2568,6 +2621,7 @@ rooms:
     long_desc: |
       This is large bright room filled with Hobgoblins.  To the south there is
       a large golden throne against the wall.
+    flags: [indoors]
     exits:
       north: 1568
     sector_type: INSIDE
@@ -2641,6 +2695,7 @@ rooms:
     long_desc: |
       You are inside the hobgoblin's treasury.  Your eyes are almost blinded by the
       gold, silver and copper coins.
+    flags: [indoors]
     exits:
       north: 1571
     sector_type: INSIDE
@@ -2678,6 +2733,7 @@ rooms:
     long_desc: |
       You are inside a well guarded room.  The place is slightly better built than
       the mine shafts, and is lit by lanterns.
+    flags: [indoors]
     exits:
       north: 1572
       south: 1570
@@ -2745,6 +2801,7 @@ rooms:
     long_desc: |
       You are inside a well guarded room.  The place is slightly better built than
       the mine shafts, and is lit by lanterns.
+    flags: [indoors]
     exits:
       north: 1565
       south: 1571
@@ -2812,6 +2869,7 @@ rooms:
     long_desc: |
       The guards store their spare weapons and armor here.  There are rusty swords
       on rotting shelves, and armor hanging from hooks or laying on the floor.
+    flags: [indoors]
     exits:
       north: 1564
     sector_type: CITY
@@ -2842,6 +2900,7 @@ rooms:
       You enter a part of the mine shaft where the torches have grown dim
       and are almost ready to go out.  From what you can see, there are plenty
       of cobwebs on the walls and rats at your feet.
+    flags: [indoors]
     exits:
       north: 1563
       south: 1575
@@ -2877,6 +2936,7 @@ rooms:
       The floor dips slightly as you walk into this dark and nasty place.  Your
       skin crawls as you look at the filth on the walls and see it move.  Most
       of the exits lead into jail cells.
+    flags: [indoors]
     exits:
       north: 1574
       east: 1577
@@ -2932,6 +2992,7 @@ rooms:
       You are in the deepest and darkest part of the mine shafts.  The light from
       the torches barely reaches to where you are.  Most directions from here
       lead to jail cells.
+    flags: [indoors]
     exits:
       north: 1575
       east: 1578
@@ -2986,6 +3047,7 @@ rooms:
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
       The walls glisten with slime.  You see something stir in the straw.
+    flags: [indoors]
     exits:
       west: 1575
     sector_type: FIELD
@@ -3015,6 +3077,7 @@ rooms:
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
       The walls glisten with slime.  You see something stir in the straw.
+    flags: [indoors]
     exits:
       west: 1576
     sector_type: FIELD
@@ -3044,6 +3107,7 @@ rooms:
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
       The walls glisten with slime.  You see something stir in the straw.
+    flags: [indoors]
     exits:
       north: 1576
     sector_type: FIELD
@@ -3073,6 +3137,7 @@ rooms:
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
       The walls glisten with slime.  You see something stir in the straw.
+    flags: [indoors]
     exits:
       east: 1576
     sector_type: FIELD
@@ -3102,6 +3167,7 @@ rooms:
     long_desc: |
       You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
       The walls glisten with slime.  You see something stir in the straw.
+    flags: [indoors]
     exits:
       east: 1575
     sector_type: FIELD
@@ -3131,6 +3197,7 @@ rooms:
     long_desc: |
       You are in a small extension of the mine shaft.  The dust on the floor is
       undisturbed by footprints.
+    flags: [indoors]
     exits:
       north: 1588
       south: 1563
@@ -3166,6 +3233,7 @@ rooms:
       You are suddenly surrounded by a small army of hobgoblin guards.  The room
       itself is a mess with clothes and armor everywhere.  The beds are unmade and
       stained.
+    flags: [indoors]
     exits:
       north: 1584
       east: 1585
@@ -3219,6 +3287,7 @@ rooms:
     long_desc: |
       Yech!  As you continue forward, the smell just keeps getting worse.
       What are you DOING here?
+    flags: [indoors]
     exits:
       south: 1583
     sector_type: FIELD
@@ -3253,6 +3322,7 @@ rooms:
       You stand in the hobgoblin eating area.  There are a few rotting tables
       and many broken dishes scattered around the room.  You almost slip on a
       rotten piece of meat, but catch yourself just in time.
+    flags: [indoors]
     exits:
       north: 1586
       east: 1587
@@ -3296,6 +3366,7 @@ rooms:
     short_desc: "A Store Room"
     long_desc: |
       You stand in a small room filled with flour, grain, fruit, and bat droppings.
+    flags: [indoors]
     exits:
       south: 1585
     sector_type: CITY
@@ -3321,6 +3392,7 @@ rooms:
       This kitchen hasn't been cleaned since the creation of humans.  The trash and
       spoiled food laying on the floor reach up to your knees.  Off to the side a
       pot is boiling over.  A human hand floats in it.
+    flags: [indoors]
     exits:
       west: 1585
     sector_type: FIELD
@@ -3350,6 +3422,7 @@ rooms:
     long_desc: |
       You come to a place in the mine shaft where a tunnel leads down.  The
       small passage continues north and south.
+    flags: [indoors]
     exits:
       north: 1589
       south: 1582
@@ -3395,6 +3468,7 @@ rooms:
       You are in a small section where the mine wall has collapsed to reveal a
       tiny one-room cave.  The area is barely lit, but you can make out something
       moving towards you.
+    flags: [indoors]
     exits:
       south: 1588
     sector_type: FIELD
@@ -3423,6 +3497,7 @@ rooms:
     short_desc: "A Hole"
     long_desc: |
       You are in a hole.
+    flags: [indoors]
     exits:
       up: 1588
     sector_type: FOREST

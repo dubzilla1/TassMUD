@@ -142,71 +142,37 @@ public final class MobileSpecials {
             if (target == null) return false;
             int level = mob.getLevel();
             int roll = ctx.rng.nextInt(16);
-            // level-gated: keep rolling until we find a qualifying spell
             for (int attempt = 0; attempt < 30; attempt++) {
                 roll = ctx.rng.nextInt(16);
                 int minLevel;
                 switch (roll) {
-                    case 0:  minLevel = 0; break;  // blindness
-                    case 1:  minLevel = 3; break;  // chill touch
-                    case 2:  minLevel = 7; break;  // weaken (TODO: add to spells.yaml)
-                    case 3:  minLevel = 8; break;  // teleport / dimension door
-                    case 4:  minLevel = 11; break; // colour spray
-                    case 5:  minLevel = 12; break; // reroll (skip change_sex)
-                    case 6:  minLevel = 13; break; // energy drain
+                    case 0:  minLevel = 0;  break;  // blindness
+                    case 1:  minLevel = 3;  break;  // chill touch
+                    case 2:  minLevel = 7;  break;  // weaken
+                    case 3:  minLevel = 8;  break;  // teleport
+                    case 4:  minLevel = 11; break;  // colour spray → blindness
+                    case 5:  minLevel = 12; break;  // reroll
+                    case 6:  minLevel = 13; break;  // energy drain
                     case 7: case 8: case 9: minLevel = 15; break; // fireball
-                    default: minLevel = 20; break; // acid blast
+                    default: minLevel = 20; break;  // acid blast
                 }
                 if (level >= minLevel) break;
             }
-            // Apply chosen spell inline
-            GameCharacter tc = getCharacterFromCombatant(target);
-            if (tc == null) return false;
+            if (roll == 5) return false; // reroll slot
+            Integer targetId = target.getCharacterId();
+            String spellName;
             switch (roll) {
-                case 0: // blindness
-                    castInstantEffect(mob, target, tc, ctx, "blindness",
-                        mob.getName() + " mutters an incantation and blindness descends upon " + targetName(target) + "!",
-                        "You have been blinded!");
-                    break;
-                case 1: // chill touch
-                    castDirectDamage(mob, target, tc, ctx, level * 2 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " launches a chill touch at " + targetName(target) + "!");
-                    break;
-                case 2: // weaken — TODO: add weaken spell/effect; for now small STR penalty via flat damage
-                    castDirectDamage(mob, target, tc, ctx, level + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " saps the strength of " + targetName(target) + "! (weaken)");
-                    break;
-                case 3: // teleport / dimension door — eject target from combat
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " tears a portal open beneath " + targetName(target) + "!");
-                    notifyIfPlayer(target, "You are hurled through a dimensional rift!");
-                    // TODO: move target to a random room when teleport mechanics are added
-                    break;
-                case 4: // colour spray
-                    castInstantEffect(mob, target, tc, ctx, "blindness",
-                        mob.getName() + " sprays a prismatic cascade at " + targetName(target) + "!",
-                        "The prismatic colours blind you!");
-                    break;
-                case 5: // reroll (skip change_sex)
-                    return false;
-                case 6: // energy drain — Enervation
-                    int drain = level + ctx.rng.nextInt(level + 1);
-                    tc.setHpCur(tc.getHpCur() - drain);
-                    tc.setMpCur(Math.max(0, tc.getMpCur() - drain / 2));
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " drains the life energy of " + targetName(target) + "!");
-                    notifyIfPlayer(target, mob.getName() + "'s energy drain saps " + drain + " HP and " + (drain/2) + " MP!");
-                    break;
-                case 7: case 8: case 9: // fireball
-                    castDirectDamage(mob, target, tc, ctx, level * 3 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " hurls a fireball at " + targetName(target) + "!");
-                    break;
-                default: // acid blast
-                    castDirectDamage(mob, target, tc, ctx, level * 3 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " blasts " + targetName(target) + " with corrosive acid!");
-                    break;
+                case 0:  spellName = "blindness";    break;
+                case 1:  spellName = "chill touch";  break;
+                case 2:  spellName = "weaken";       break;
+                case 3:  spellName = "teleport";     break;
+                case 4:  spellName = "colour spray"; break;
+                case 6:  spellName = "energy drain"; break;
+                case 7: case 8: case 9: spellName = "fireball";   break;
+                default: spellName = "acid blast";   break;
             }
-            return true;
+            int proficiency = Math.min(100, 20 + level * 2);
+            return com.example.tassmud.spell.MobileSpellCaster.cast(mob, spellName, targetId, ctx.roomId, ctx.combat, proficiency);
         });
 
         // spec_cast_cleric: divine combat caster
@@ -218,81 +184,40 @@ public final class MobileSpecials {
             Combatant target = ctx.combat.getRandomTarget(self);
             if (target == null) return false;
             int level = mob.getLevel();
-            GameCharacter tc = getCharacterFromCombatant(target);
-            if (tc == null) return false;
             int roll;
             for (int attempt = 0; ; attempt++) {
                 roll = ctx.rng.nextInt(12);
                 int minLevel;
                 switch (roll) {
-                    case 0:  minLevel = 0; break;  // blindness
-                    case 1:  minLevel = 3; break;  // cause serious
-                    case 2:  minLevel = 7; break;  // earthquake
-                    case 3:  minLevel = 9; break;  // cause critical
-                    case 4:  minLevel = 10; break; // dispel evil (TODO)
-                    case 5:  minLevel = 12; break; // curse
-                    case 6:  minLevel = 12; break; // reroll (skip change_sex)
-                    case 7:  minLevel = 13; break; // flamestrike
-                    case 8: case 9: case 10: minLevel = 15; break; // harm (TODO)
-                    default: minLevel = 16; break; // dispel magic (TODO)
+                    case 0:  minLevel = 0;  break;  // blindness
+                    case 1:  minLevel = 3;  break;  // cause serious wounds
+                    case 2:  minLevel = 7;  break;  // earthquake
+                    case 3:  minLevel = 9;  break;  // cause critical wounds
+                    case 4:  minLevel = 10; break;  // dispel evil
+                    case 5:  minLevel = 12; break;  // curse
+                    case 6:  minLevel = 12; break;  // reroll
+                    case 7:  minLevel = 13; break;  // flame strike
+                    case 8: case 9: case 10: minLevel = 15; break; // harm
+                    default: minLevel = 16; break;  // dispel magic
                 }
                 if (level >= minLevel || attempt > 30) break;
             }
+            if (roll == 6) return false; // reroll slot
+            Integer targetId = target.getCharacterId();
+            String spellName;
             switch (roll) {
-                case 0: // blindness
-                    castInstantEffect(mob, target, tc, ctx, "blindness",
-                        mob.getName() + " invokes blindness upon " + targetName(target) + "!",
-                        "You have been blinded!");
-                    break;
-                case 1: // cause serious wounds
-                    castDirectDamage(mob, target, tc, ctx, level * 2 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " calls upon dark powers to wound " + targetName(target) + "!");
-                    break;
-                case 2: // earthquake — AoE damage
-                    Combatant clericSelf = ctx.combat.findByMobileInstanceId(mob.getInstanceId());
-                    if (clericSelf != null) {
-                        ctx.sendToRoom.accept(ctx.roomId, mob.getName() + " calls down an earthquake!");
-                        for (Combatant t : ctx.combat.getValidTargets(clericSelf)) {
-                            GameCharacter qtc = getCharacterFromCombatant(t);
-                            if (qtc == null) continue;
-                            int dmg = level + ctx.rng.nextInt(level + 1);
-                            qtc.setHpCur(qtc.getHpCur() - dmg);
-                            notifyIfPlayer(t, "The earthquake shakes the ground, dealing " + dmg + " damage!");
-                        }
-                    }
-                    break;
-                case 3: // cause critical
-                    castDirectDamage(mob, target, tc, ctx, level * 3 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " channels devastating holy fire into " + targetName(target) + "!");
-                    break;
-                case 4: // dispel evil — TODO add alignment check; for now just damage
-                    castDirectDamage(mob, target, tc, ctx, level * 2 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " calls down righteous fire upon " + targetName(target) + "! (dispel evil)");
-                    break;
-                case 5: // curse
-                    castInstantEffect(mob, target, tc, ctx, "curse",
-                        mob.getName() + " lays a curse upon " + targetName(target) + "!",
-                        "You feel a dark curse settle over you!");
-                    break;
-                case 6: // reroll
-                    return false;
-                case 7: // flamestrike
-                    castDirectDamage(mob, target, tc, ctx, level * 3 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " calls down a pillar of divine flame on " + targetName(target) + "!");
-                    break;
-                case 8: case 9: case 10: // harm — massive damage
-                    int harmDmg = Math.max(1, tc.getHpCur() - 1 - ctx.rng.nextInt(4));
-                    tc.setHpCur(tc.getHpCur() - harmDmg);
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " invokes Harm upon " + targetName(target) + ", leaving them near death!");
-                    notifyIfPlayer(target, "You have been Harmed! (" + harmDmg + " damage)");
-                    break;
-                default: // dispel magic — TODO: strip effects; for now no-op
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " gestures and waves of anti-magic wash over " + targetName(target) + "! (dispel magic)");
-                    break;
+                case 0:  spellName = "blindness";             break;
+                case 1:  spellName = "cause serious wounds";  break;
+                case 2:  spellName = "earthquake";            break;
+                case 3:  spellName = "cause critical wounds"; break;
+                case 4:  spellName = "dispel evil";           break;
+                case 5:  spellName = "curse";                 break;
+                case 7:  spellName = "flame strike";          break;
+                case 8: case 9: case 10: spellName = "harm";  break;
+                default: spellName = "dispel magic";          break;
             }
-            return true;
+            int proficiency = Math.min(100, 20 + level * 2);
+            return com.example.tassmud.spell.MobileSpellCaster.cast(mob, spellName, targetId, ctx.roomId, ctx.combat, proficiency);
         });
 
         // spec_cast_undead: undead combat spellcaster
@@ -304,75 +229,43 @@ public final class MobileSpecials {
             Combatant target = ctx.combat.getRandomTarget(self);
             if (target == null) return false;
             int level = mob.getLevel();
-            GameCharacter tc = getCharacterFromCombatant(target);
-            if (tc == null) return false;
             int roll;
             for (int attempt = 0; ; attempt++) {
                 roll = ctx.rng.nextInt(9);
                 int minLevel;
                 switch (roll) {
-                    case 0:  minLevel = 0; break;  // curse
-                    case 1:  minLevel = 3; break;  // weaken (TODO)
-                    case 2:  minLevel = 6; break;  // chill touch
-                    case 3:  minLevel = 9; break;  // blindness
-                    case 4:  minLevel = 12; break; // poison (TODO)
-                    case 5:  minLevel = 15; break; // energy drain
-                    case 6:  minLevel = 18; break; // harm
-                    case 7:  minLevel = 21; break; // teleport
-                    default: minLevel = 24; break; // gate (PINNED)
+                    case 0:  minLevel = 0;  break;  // curse
+                    case 1:  minLevel = 3;  break;  // weaken
+                    case 2:  minLevel = 6;  break;  // chill touch
+                    case 3:  minLevel = 9;  break;  // blindness
+                    case 4:  minLevel = 12; break;  // poison
+                    case 5:  minLevel = 15; break;  // energy drain
+                    case 6:  minLevel = 18; break;  // harm
+                    case 7:  minLevel = 21; break;  // teleport
+                    default: minLevel = 24; break;  // gate (PINNED)
                 }
                 if (level >= minLevel || attempt > 30) break;
             }
-            switch (roll) {
-                case 0: // curse
-                    castInstantEffect(mob, target, tc, ctx, "curse",
-                        mob.getName() + " hisses a dark invocation at " + targetName(target) + "!",
-                        "A foul curse grips your soul!");
-                    break;
-                case 1: // weaken (TODO: real debuff)
-                    castDirectDamage(mob, target, tc, ctx, level + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " saps the strength of " + targetName(target) + "! (weaken)");
-                    break;
-                case 2: // chill touch
-                    castDirectDamage(mob, target, tc, ctx, level * 2 + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " reaches out with a chill touch at " + targetName(target) + "!");
-                    break;
-                case 3: // blindness
-                    castInstantEffect(mob, target, tc, ctx, "blindness",
-                        mob.getName() + " howls and darkness descends upon " + targetName(target) + "!",
-                        "You have been blinded!");
-                    break;
-                case 4: // poison (TODO: real poison effect)
-                    castDirectDamage(mob, target, tc, ctx, level + ctx.rng.nextInt(level + 1),
-                        mob.getName() + " infects " + targetName(target) + " with a virulent poison! (poison)");
-                    break;
-                case 5: // energy drain
-                    int drain = level + ctx.rng.nextInt(level + 1);
-                    tc.setHpCur(tc.getHpCur() - drain);
-                    tc.setMpCur(Math.max(0, tc.getMpCur() - drain / 2));
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " drains the life essence from " + targetName(target) + "!");
-                    notifyIfPlayer(target, mob.getName() + " drains " + drain + " HP and " + (drain/2) + " MP from you!");
-                    break;
-                case 6: // harm
-                    int harmDmg = Math.max(1, tc.getHpCur() - 1 - ctx.rng.nextInt(4));
-                    tc.setHpCur(tc.getHpCur() - harmDmg);
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " corrupts the life force of " + targetName(target) + "!");
-                    notifyIfPlayer(target, "Your life is corrupted for " + harmDmg + " damage!");
-                    break;
-                case 7: // teleport
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " tears a rift beneath " + targetName(target) + "!");
-                    notifyIfPlayer(target, "You are yanked through a dimensional rift!");
-                    // TODO: actually move target when teleport system is added
-                    break;
-                default: // gate (PINNED — summoning system not yet implemented)
-                    ctx.sendToRoom.accept(ctx.roomId,
-                        mob.getName() + " begins to summon a demon from the abyss!");
-                    break;
+            // gate: pinned stub — summoning system not yet implemented
+            if (roll == 8) {
+                ctx.sendToRoom.accept(ctx.roomId,
+                    mob.getName() + " begins to summon a demon from the abyss!");
+                return true;
             }
-            return true;
+            Integer targetId = target.getCharacterId();
+            String spellName;
+            switch (roll) {
+                case 0:  spellName = "curse";         break;
+                case 1:  spellName = "weaken";        break;
+                case 2:  spellName = "chill touch";   break;
+                case 3:  spellName = "blindness";     break;
+                case 4:  spellName = "poison";        break;
+                case 5:  spellName = "energy drain";  break;
+                case 6:  spellName = "harm";          break;
+                default: spellName = "teleport";      break;
+            }
+            int proficiency = Math.min(100, 20 + level * 2);
+            return com.example.tassmud.spell.MobileSpellCaster.cast(mob, spellName, targetId, ctx.roomId, ctx.combat, proficiency);
         });
 
         // spec_cast_judge: always casts "high explosive" — massive damage nuke
@@ -395,62 +288,42 @@ public final class MobileSpecials {
             return true;
         });
 
-        // spec_cast_adept: out-of-combat healer, casts helpful spells on allies in room
+        // spec_cast_adept: out-of-combat healer, casts helpful spells on players in the room.
+        // All spell logic is delegated to DivineSpellHandler via MobileSpellCaster so that
+        // NPC casts share a single code path with player casts.
         registry.register("spec_cast_adept", (mob, ctx) -> {
-            // Works both in and out of combat (healer)
             if (!ctx.chance(20)) return false;
 
-            // Pick a target: prefer combat ally, else random player in room
-            Combatant healTarget = null;
-            if (ctx.combat != null) {
-                // Pick ally with lowest HP ratio
-                Combatant self = ctx.combat.findByMobileInstanceId(mob.getInstanceId());
-                if (self != null) {
-                    List<Combatant> allies = ctx.combat.getPlayerCombatants();
-                    // Just pick a random ally that isn't fully healed
-                    for (Combatant ally : allies) {
-                        GameCharacter ac = getCharacterFromCombatant(ally);
-                        if (ac != null && ac.getHpCur() < ac.getHpMax()) {
-                            healTarget = ally;
-                            break;
-                        }
-                    }
-                }
-            }
-
             int roll = ctx.rng.nextInt(6);
+            String spellName;
             String utterance;
             switch (roll) {
-                case 0: utterance = mob.getName() + " utters the words 'aegivex'."; break;
-                case 1: utterance = mob.getName() + " utters the words 'el-shavar'."; break;
-                case 2: utterance = mob.getName() + " utters the words 'el-ayin'."; break;
-                case 3: utterance = mob.getName() + " utters the words 'rapha-or'."; break;
-                case 4: utterance = mob.getName() + " utters the words 'shuv-rosh'."; break;
-                default: utterance = mob.getName() + " utters the words 'halak-shamai'."; break;
+                case 0: spellName = "armor";       utterance = mob.getName() + " utters the words 'aegivex'."; break;
+                case 1: spellName = "bless";       utterance = mob.getName() + " utters the words 'el-shavar'."; break;
+                case 2: spellName = "stone skin";  utterance = mob.getName() + " utters the words 'basar-aven'."; break;
+                case 3: spellName = "cure light";  utterance = mob.getName() + " utters the words 'rapha-or'."; break;
+                case 4: spellName = "cure poison"; utterance = mob.getName() + " utters the words 'shuv-rosh'."; break;
+                default: spellName = "refresh";    utterance = mob.getName() + " utters the words 'halak-shamai'."; break;
             }
-            ctx.sendToRoom.accept(ctx.roomId, utterance);
 
-            if (healTarget != null) {
-                GameCharacter tc = getCharacterFromCombatant(healTarget);
-                if (tc != null) {
-                    switch (roll) {
-                        case 1: // bless — small HP boost (real bless TODO: add to effect system)
-                        case 3: // cure light
-                            int healAmt = mob.getLevel() + ctx.rng.nextInt(mob.getLevel() + 1);
-                            tc.setHpCur(tc.getHpCur() + healAmt);
-                            notifyIfPlayer(healTarget, mob.getName() + " heals you for " + healAmt + " HP!");
-                            break;
-                        case 5: // refresh — restore MV
-                            tc.setMvCur(Math.min(tc.getMvMax(), tc.getMvCur() + mob.getLevel()));
-                            notifyIfPlayer(healTarget, mob.getName() + " refreshes your movement!");
-                            break;
-                        default:
-                            // armor/cure_blindness/cure_poison: TODO add effect system integration
-                            break;
-                    }
+            // Pick any PC in the room as the target
+            Integer targetId = null;
+            if (ctx.combat != null) {
+                Combatant self = ctx.combat.findByMobileInstanceId(mob.getInstanceId());
+                if (self == null) return false;
+                List<Combatant> players = ctx.combat.getPlayerCombatants();
+                if (!players.isEmpty()) {
+                    targetId = players.get(ctx.rng.nextInt(players.size())).getCharacterId();
                 }
+            } else {
+                List<Integer> roomPlayers = ClientHandler.getCharacterIdsInRoom(ctx.roomId);
+                if (roomPlayers.isEmpty()) return false;
+                targetId = roomPlayers.get(ctx.rng.nextInt(roomPlayers.size()));
             }
-            return healTarget != null; // only consume action if we actually did something
+            if (targetId == null) return false;
+
+            ctx.sendToRoom.accept(ctx.roomId, utterance);
+            return com.example.tassmud.spell.MobileSpellCaster.cast(mob, spellName, targetId, ctx.roomId, ctx.combat);
         });
 
         // ── Non-combat specials ───────────────────────────────────────────────

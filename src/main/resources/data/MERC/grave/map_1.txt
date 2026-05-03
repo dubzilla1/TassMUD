@@ -1,0 +1,18 @@
+=== Grave (Area 36)  Map 1 of 14
+
+                      [3606v ]---[3600  ]---[3650v ]
+                          |          |          |
+           [3610v ]---[3608v ]   [3601  ]   [3648v ]---[3646v ]
+               |                     |                     |
+[3613  ]---[3612  ]---[3614v ]   [3602  ]   [3642v ]---[3644v ]
+                          |          |          |
+                      [3616v ]   [3603  ]   [3640v ]
+                          |          |          |
+                      [3618v ]---[3604  ]---[3638v ]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 3600 -> north -> Room 3129
+  Room 3604 -> south -> Room 3405

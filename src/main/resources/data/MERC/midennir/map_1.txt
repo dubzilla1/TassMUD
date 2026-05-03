@@ -1,0 +1,17 @@
+=== Midennir (Area 35)  Map 1 of 1
+
+           [3500  ]
+               |
+           [3501  ]
+               |
+[3053]<-  -[3502v ]  ->[8904]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 3500 -> north -> Room 4000
+  Room 3502 -> east -> Room 8904
+  Room 3502 -> south -> Room 5261
+  Room 3503 -> south -> Room 1501
+  Room 3503 -> west -> Room 3053

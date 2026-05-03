@@ -613,10 +613,16 @@ public class RoomDAO {
         return hasRoomFlag(roomId, RoomFlag.NO_MOB);
     }
 
-    /** Check if a room is PRIVATE (only one non-GM PC allowed). */
+    /** Check if a room is PRIVATE (only two non-GM PCs allowed). */
     public boolean isRoomPrivate(int roomId) {
         return hasRoomFlag(roomId, RoomFlag.PRIVATE);
     }
+
+    /** Check if a room is SOLITARY (only one non-GM PC allowed). */
+    public boolean isRoomSolitary(int roomId) {
+        return hasRoomFlag(roomId, RoomFlag.SOLITARY);
+    }
+
 
     /** Check if a room has NO_RECALL flag. */
     public boolean isRoomNoRecall(int roomId) {

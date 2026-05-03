@@ -1,0 +1,22 @@
+=== Grove (Area 89)  Map 1 of 1
+
+[8901]---[8902]---[8903]
+   |        |        |
+[3502]<-  8905]---[8906]
+   |        |        |
+[8907]---[8908]---[8909]---[8919]
+                     |
+                  [8910]
+                     |
+                  [8911]---[8912]
+                     |
+[8917]---[8916]---[8913]---[8914]
+            |        |
+         [8918]---[8915]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 8903 -> north -> Room 5378
+  Room 8904 -> west -> Room 3502

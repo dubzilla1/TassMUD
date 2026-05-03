@@ -1,0 +1,24 @@
+=== Thalos (Area 52)  Map 7 of 8
+
+[5279  ]---[5278  ]---[5277  ]---[5276  ]---[5275  ]
+                                                |
+                                            [5274  ]
+                                                |
+                                            [5273  ]---[5280  ]
+                                                |
+                                            [5272  ]
+                                                |
+                                            [5271  ]
+                                                |
+                                 [5268  ]---[5267^ ]  ->[1701]
+                                     |
+                                 [5269v ]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 5267 -> east -> Room 1701
+  Room 5267 -> south -> Room 9201
+  Room 5279 -> south -> Room 4774
+  Room 5280 -> south -> Room 2300

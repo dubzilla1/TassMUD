@@ -177,6 +177,7 @@ rooms:
       This is a narrow path leading to the Dwarven Kingdom.  It looks less
       travelled than the others, and it is very creepy.  The path opens up
       to the south, and continues to the north.
+    flags: [indoors]
     exits:
       north: 6506
       south: 6540
@@ -274,6 +275,7 @@ rooms:
       This is a narrow path that bends to the east here.  The trees hang over
       the path, and it is very overgrown.  The narrow path continues to the
       south and to the east.
+    flags: [indoors]
     exits:
       east: 6507
       south: 6504
@@ -310,6 +312,7 @@ rooms:
     short_desc: "Narrow path"
     long_desc: |
       This path is very narrow, and it continues to the north and west.
+    flags: [indoors]
     exits:
       north: 6508
       west: 6506
@@ -344,6 +347,7 @@ rooms:
     long_desc: |
       This path leads to the north and south.  To the north you can see a
       door, and to the south the path continues.
+    flags: [indoors]
     exits:
       north: 6509
       south: 6507
@@ -383,6 +387,7 @@ rooms:
     long_desc: |
       Here the path turns to the west.  You can see a door in front of you,
       and the path continues to the west and south.
+    flags: [indoors]
     exits:
       east: 6510
       west: 6522
@@ -456,6 +461,7 @@ rooms:
     long_desc: |
       You are on a path that will eventually lead to the castle.  It
       continues north to the castle, and there is a door on the western wall.
+    flags: [indoors]
     exits:
       west: 6509
       north: 6511
@@ -491,6 +497,7 @@ rooms:
       You are still on the path to the castle, or back to the
       Dwarven village, whichever way you wish to go.  The path
       continues to the north and south.
+    flags: [indoors]
     exits:
       south: 6510
       north: 6512
@@ -531,6 +538,7 @@ rooms:
                     *  WELCOME TO THE CASTLE OF STRANGELOVE  *
                     *      Here, celibacy is uninvited       *
                     ******************************************
+    flags: [indoors]
     exits:
       east: 6525
       south: 6511
@@ -582,6 +590,7 @@ rooms:
     long_desc: |
       Everything here is covered in soot and very grimy.  The path continues
       to the east and north, and there is a door to the west.
+    flags: [indoors]
     exits:
       west: 6526
       north: 6514
@@ -631,6 +640,7 @@ rooms:
     long_desc: |
       You are on a path in the dwarven village which leads north to the shops
       and south to the corner of the area.
+    flags: [indoors]
     exits:
       south: 6513
       north: 6515
@@ -665,6 +675,7 @@ rooms:
     long_desc: |
       You are on a path that leads to a Hide & Tooth shop to the west, and the
       path continues to the south.
+    flags: [indoors]
     exits:
       west: 6516
       south: 6514
@@ -704,6 +715,7 @@ rooms:
     long_desc: |
       You are in the Hide & Tooth shop.  Here you may buy the finest in Dwarven
       weapons and armors. The path continues to the north and east.
+    flags: [indoors]
     exits:
       east: 6515
       north: 6517
@@ -758,6 +770,7 @@ rooms:
     long_desc: |
       You are on a path to the north of the Hide & Tooth shop.  The path continues
       to the north, and there is Granite Head's bakery to the west.
+    flags: [indoors]
     exits:
       north: 6518
       south: 6516
@@ -802,6 +815,7 @@ rooms:
     long_desc: |
       Here the path bends to the east towards the barracks. To the
       south you can see the shops.
+    flags: [indoors]
     exits:
       east: 6519
       south: 6517
@@ -836,6 +850,7 @@ rooms:
     long_desc: |
       Here the path passes by the Hospital to the north.  It continues
       to the east to the barracks, and to the west.
+    flags: [indoors]
     exits:
       north: 6534
       east: 6520
@@ -879,6 +894,7 @@ rooms:
     short_desc: "Path next to barracks"
     long_desc: |
       Here the path continues west, and east to the barracks.
+    flags: [indoors]
     exits:
       east: 6521
       west: 6519
@@ -918,6 +934,7 @@ rooms:
     long_desc: |
       Here there is an entrance to the barracks to the south, and
       the path continues to the west.
+    flags: [indoors]
     exits:
       west: 6520
       south: 6523
@@ -981,6 +998,7 @@ rooms:
     long_desc: |
       You are in the guard house to the west of the entrance
       to the castle.  There are nude posters covering the walls.
+    flags: [indoors]
     exits:
       east: 6509
     sector_type: INSIDE
@@ -1009,6 +1027,7 @@ rooms:
       Here is the first of two main rooms of barracks.  The
       barracks continue to the south, and you can leave the room
       to the north.
+    flags: [indoors]
     exits:
       north: 6521
       south: 6524
@@ -1067,6 +1086,7 @@ rooms:
     long_desc: |
       Here is the back of the dwarven barracks.  There are rows
       of beds here, and there is a stench that is unbearable.
+    flags: [indoors]
     exits:
       north: 6523
       down: 2001
@@ -1119,6 +1139,7 @@ rooms:
       You are just inside the castle.  It is very tubular in shape,
       and it is very featureless.  There is a set of stairs that lead
       up, and the door leads out of the castle to the west.
+    flags: [indoors]
     exits:
       west: 6512
       up: 6528
@@ -1153,6 +1174,7 @@ rooms:
     long_desc: |
       There is a layer of dust on the floor at least 3 inches thick!  It is
       probable that not many people have been in here for many months.
+    flags: [dark, indoors]
     exits:
       east: 6513
       down: 6527
@@ -1190,6 +1212,7 @@ rooms:
     long_desc: |
       This room smells like wine, and you can only assume it used to be
       a wine cellar at one time.
+    flags: [dark, indoors]
     exits:
       up: 6526
       down: 2065
@@ -1231,6 +1254,7 @@ rooms:
     short_desc: "Stairs in castle"
     long_desc: |
       The stairs continue to circle up and down here.
+    flags: [indoors]
     exits:
       down: 6525
       up: 6529
@@ -1271,6 +1295,7 @@ rooms:
       You are still circling around on the stairs.  You are starting to
       get dizzy from going around and around and around and around and
       around.  The stairs continue up and down.
+    flags: [indoors]
     exits:
       down: 6528
       up: 6530
@@ -1314,6 +1339,7 @@ rooms:
     long_desc: |
       You are at the top of the stairs in the castle.  There is an exit
       to the east, and the stairs lead down.
+    flags: [indoors]
     exits:
       down: 6529
       east: 6531
@@ -1355,6 +1381,7 @@ rooms:
       'wait' for the queen.  You've heard that the queen really likes
       to get to 'know' her people, in the biblical sense.  The queen's
       bedroom is to the north, and you can see stairs to the west.
+    flags: [indoors]
     exits:
       west: 6530
       north: 6532
@@ -1403,6 +1430,7 @@ rooms:
       
           I'm out looking for my birth control pills.
           Why don't you sleep into something comfortable while you're waiting?
+    flags: [indoors]
     exits:
       south: 6531
     sector_type: INSIDE
@@ -1432,6 +1460,7 @@ rooms:
     long_desc: |
       You are inside the Dwarven Hospital.  It smells like rubbing
       alcohol, and there is blood all over the walls.
+    flags: [indoors]
     exits:
       south: 6519
     sector_type: INSIDE
@@ -1480,6 +1509,7 @@ rooms:
     long_desc: |
       The aroma coming from this room is sensuous.  You can almost taste
       the pastries dissolving in your mouth.
+    flags: [indoors]
     exits:
       east: 6517
     sector_type: INSIDE
@@ -1522,6 +1552,7 @@ rooms:
     long_desc: |
       This path is very well worn, and there is an entrance to the mines to the
       east, while the path continues to the north and west.
+    flags: [indoors]
     exits:
       east: 6541
       north: 6504
@@ -1596,6 +1627,7 @@ rooms:
     long_desc: |
       The little path here leads down toward the mines, while the worn path
       continues to the west.
+    flags: [indoors]
     exits:
       down: 6542
       west: 6540
@@ -1631,6 +1663,7 @@ rooms:
       There are holes everywhere from the places that the workers blew
       away the rock to get to whatever they were looking for.  A path leads
       down and up.
+    flags: [dark, indoors]
     exits:
       up: 6541
       down: 6554
@@ -1674,6 +1707,7 @@ rooms:
     long_desc: |
       You are deep inside the mine, and you feel very uncomfortable.  The
       path continues to the east, and leads to the mineshaft to the west.
+    flags: [dark, indoors]
     exits:
       west: 6554
       east: 6544
@@ -1736,6 +1770,7 @@ rooms:
     long_desc: |
       You are at a crossroad in the mine.  There is a door to the north,
       and the path continues to the south, east, and west.
+    flags: [dark, indoors]
     exits:
       east: 6545
       west: 6543
@@ -1791,6 +1826,7 @@ rooms:
       You are inside the storage area for the raw materials
       that are found down here.  The room is very unsturdy as the
       supports are very rickety.
+    flags: [dark, indoors]
     exits:
       west: 6544
     sector_type: INSIDE
@@ -1820,6 +1856,7 @@ rooms:
     long_desc: |
       You have entered the maze of the mines.  To the east you
       can see some inscriptions, and you can exit to the south.
+    flags: [dark, indoors]
     exits:
       south: 6544
       east: 6547
@@ -1853,6 +1890,7 @@ rooms:
     short_desc: "Maze inscription"
     long_desc: |
       You are inside the maze, but not far enough in that you could get lost.
+    flags: [dark, indoors]
     exits:
       north: 6548
       west: 6546
@@ -1886,6 +1924,7 @@ rooms:
     short_desc: "Maze"
     long_desc: |
       You are in a maze.
+    flags: [dark, indoors]
     exits:
       north: 6549
       south: 6547
@@ -1924,6 +1963,7 @@ rooms:
     short_desc: "Maze"
     long_desc: |
       You are in a maze.
+    flags: [dark, indoors]
     exits:
       north: 6550
       west: 6548
@@ -1962,6 +2002,7 @@ rooms:
     short_desc: "Maze"
     long_desc: |
       You are in a maze.
+    flags: [dark, indoors]
     exits:
       south: 6549
       west: 6552
@@ -1997,6 +2038,7 @@ rooms:
       This is the storage room for equipment used by the
       Dwarven miners.  It is very small, and you can tell that
       not many miners actually use any equipment.
+    flags: [dark, indoors]
     exits:
       north: 6544
     sector_type: INSIDE
@@ -2031,6 +2073,7 @@ rooms:
       
           Those who enter, plan on a timely death.
           Especially if you're loyal to the queen.
+    flags: [dark, indoors]
     exits:
       east: 6550
       west: 6553
@@ -2066,6 +2109,7 @@ rooms:
       You have entered the Mazekeeper's room.  There are pictures of
       the Queen with darts thrown in it.  Spray-painted on the wall are
       things like 'the queen shall suffer' and 'Catholics Rule'.
+    flags: [dark, indoors]
     exits:
       east: 6552
     sector_type: INSIDE
@@ -2098,6 +2142,7 @@ rooms:
     long_desc: |
       You are at the bottom of the mineshaft.  The air here is very sooty, and
       it is very hard to breath.  The mineshaft leads up and east.
+    flags: [dark, indoors]
     exits:
       up: 6542
       east: 6543

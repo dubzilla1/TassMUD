@@ -107,6 +107,7 @@ rooms:
       This small tunnel is only five to six feet high and possibly the same
       dimensions wide.  It travels on a slight downslope to the west and to the south
       some light can be seen.
+    flags: [dark, indoors]
     exits:
       south: 4702
       west: 4704
@@ -141,6 +142,7 @@ rooms:
     long_desc: |
       The small mine continues east and west here, small rocks and precious jewels
       scattered about.  There is a small tunnel that leads to the south here.
+    flags: [dark, indoors]
     exits:
       east: 4703
       south: 4705
@@ -185,6 +187,7 @@ rooms:
     long_desc: |
       This is a small area that has been left unfinished at the moment.  It would
       have continued south from the main shaft that is to the north of here.
+    flags: [dark, indoors]
     exits:
       north: 4704
     sector_type: CITY
@@ -218,6 +221,7 @@ rooms:
     long_desc: |
       This small shaft of the mines continues its tunneling east and west.  Small
       glints of metal can be seen within the walls.
+    flags: [dark, indoors]
     exits:
       east: 4704
       west: 4707
@@ -253,6 +257,7 @@ rooms:
       The small shaft travels east and south here, the masterful mining skills that
       made this turn possible are evidently by the smooth cuts in the walls.  Almost
       as if a hot knife made its way through some warm butter.
+    flags: [dark, indoors]
     exits:
       east: 4706
       south: 4708
@@ -288,6 +293,7 @@ rooms:
       This is a three-way intersection in these mazes of mines with directions
       going north, west, and south which travels further down into the heart of the
       mountain itself.
+    flags: [dark, indoors]
     exits:
       north: 4707
       south: 4709
@@ -333,6 +339,7 @@ rooms:
       The walls of this mine are chipped and cut to perfection.  Workmanship of
       this type could only have been done by the masterful Dwarven race.  Tunnels
       continue to the south and east, and the tunnel travels upward to the north.
+    flags: [dark, indoors]
     exits:
       north: 4708
       east: 4724
@@ -387,6 +394,7 @@ rooms:
       Tunnels spread off in all directions except to the west where the wall is made
       of a dark and bleak stone.  A small glow emanates from the walls of the mines,
       but not enough to see by.
+    flags: [dark, indoors]
     exits:
       north: 4709
       east: 4712
@@ -431,6 +439,7 @@ rooms:
     long_desc: |
       The small shaft ends abruptly at a jewel encrusted wall.  To the north the
       small shaft continues some past some small rocks.
+    flags: [dark, indoors]
     exits:
       north: 4710
     sector_type: CITY
@@ -455,6 +464,7 @@ rooms:
     long_desc: |
       This section of small shaft is a turning point and continues to the west and to
       the south.  Small glints of gold and silver can be seen in the walls.
+    flags: [dark, indoors]
     exits:
       south: 4713
       west: 4710
@@ -489,6 +499,7 @@ rooms:
     long_desc: |
       The small shaft continues north and south deep inside this large mountain.  A
       light glow can be seen in the walls, but not enough to see by.
+    flags: [dark, indoors]
     exits:
       north: 4712
       south: 4714
@@ -533,6 +544,7 @@ rooms:
       This section of the small shafts is a intersection of three separate tunnels.
       They lead north, east, and west.  A faint glow is within the walls of this
       small intersection.
+    flags: [dark, indoors]
     exits:
       north: 4713
       east: 4719
@@ -577,6 +589,7 @@ rooms:
     long_desc: |
       The small shaft of glittering gold and silver travels east and south here.
       The faint glow from within the walls give you a sense of safety.
+    flags: [dark, indoors]
     exits:
       east: 4714
       south: 4716
@@ -616,6 +629,7 @@ rooms:
     long_desc: |
       The small Dwarven carved shaft continues to the north and to the east here.
       Small clumps of precious metals can be seen within the rocky walls.
+    flags: [dark, indoors]
     exits:
       north: 4715
       east: 4717
@@ -659,6 +673,7 @@ rooms:
     long_desc: |
       The small shaft of the mine continues to the west and to the south here.  A
       small amount of light can be seen to the south.
+    flags: [dark, indoors]
     exits:
       south: 4718
       west: 4716
@@ -694,6 +709,7 @@ rooms:
       The south section of the small tunnel is covered in a blue light, and also
       radiating a aura of heat.  The eastern and western walls also glow but not as
       fierce as the southern section.
+    flags: [no_mob, indoors]
     exits:
       north: 4717
     sector_type: CITY
@@ -720,6 +736,7 @@ rooms:
       Small shafts lead off in all directions except northerly, where the wall seems
       to have a tinted blue color to it.  The southern tunnel seems to end a small
       ways down.
+    flags: [dark, indoors]
     exits:
       east: 4721
       south: 4720
@@ -764,6 +781,7 @@ rooms:
     long_desc: |
       The walls here are jagged and unfinished in there cuts, leaving sharp and
       jagged edges at every turn.  The only exit appears to be to the north.
+    flags: [dark, indoors]
     exits:
       north: 4719
     sector_type: CITY
@@ -801,6 +819,7 @@ rooms:
     long_desc: |
       This small shaft travels to the west and to the south, sporting small clumps
       of precious metals as they go.
+    flags: [dark, indoors]
     exits:
       south: 4722
       west: 4719
@@ -836,6 +855,7 @@ rooms:
       A slight downslope is present as this tunnel continues to the south and to the
       north.  To the south is where the small slope is present, traveling slightly
       further down into the depths of the mountain.
+    flags: [dark, indoors]
     exits:
       north: 4721
       south: 4723
@@ -871,6 +891,7 @@ rooms:
       The southern wall of this mine has been left uncarved and unfinished as you
       can see that the amount of metals in the walls have decreased slightly here.
       The tunnel leads to the north out of this dead end.
+    flags: [dark, indoors]
     exits:
       north: 4722
     sector_type: CITY
@@ -904,6 +925,7 @@ rooms:
     long_desc: |
       This small shaft travels to the east and west while along the way several
       spots of precious metal and rock jut forth from the red rock.
+    flags: [dark, indoors]
     exits:
       east: 4725
       west: 4709
@@ -938,6 +960,7 @@ rooms:
     long_desc: |
       The small tunnel continues to the west and to the south from this turning
       point.  Small spots of gold and silver can be seen in the walls.
+    flags: [dark, indoors]
     exits:
       south: 4726
       west: 4724
@@ -981,6 +1004,7 @@ rooms:
     long_desc: |
       This is a north and south shaft that has been carved to perfection.  The walls
       are almost square here, giving it a hall like appearance.
+    flags: [dark, indoors]
     exits:
       north: 4725
       south: 4727
@@ -1015,6 +1039,7 @@ rooms:
     long_desc: |
       The small shaft here continues to the north and to the east. As it slopes
       slightly downward to the east, the walls have a more unfinished look to them.
+    flags: [dark, indoors]
     exits:
       north: 4726
       east: 4728
@@ -1059,6 +1084,7 @@ rooms:
       This small east-west shaft, which travels slightly downward to the east, has
       a distinct smell to it.  The smell is revolting, coming close to that of rotting
       flesh.
+    flags: [dark, indoors]
     exits:
       east: 4729
       west: 4727
@@ -1094,6 +1120,7 @@ rooms:
       This intersection combines three tunnels, the western tunnel leading up.  To
       the south is darkness, but there is a disgusting stench emanating from a very
       large cavern.
+    flags: [dark, indoors]
     exits:
       north: 4732
       south: 4730
@@ -1155,6 +1182,7 @@ rooms:
     long_desc: |
       This is a small north and south passage that is bleak and void of any gold or
       silver in the walls.  It continues into darkness to the south.
+    flags: [dark, indoors]
     exits:
       north: 4729
       south: 4731
@@ -1189,6 +1217,7 @@ rooms:
     long_desc: |
       This small shaft ends abruptly at the southern wall.  There is a faint blue
       glow to the southern wall but no metals of jewels are present.
+    flags: [dark, indoors]
     exits:
       north: 4730
     sector_type: CITY
@@ -1214,6 +1243,7 @@ rooms:
       This is a large cavern that stinks of decay and death.  To the north there is
       a rather large hut, while to the west there is a small fire and several big
       boulders.
+    flags: [indoors]
     exits:
       north: 4733
       south: 4729
@@ -1264,6 +1294,7 @@ rooms:
       Several small cots line the walls here  inside this large thatched hut.  Small
       scraps of food and several small disfigured bodies lie about, no doubt the
       remains of some unfortunate dwarf.
+    flags: [indoors]
     exits:
       south: 4732
     sector_type: CITY
@@ -1305,6 +1336,7 @@ rooms:
     long_desc: |
       Many small and disfigured bodies have been piled up here stinking up the whole
       cavern.  Blood stains line the walls and entrails are strewn about the floor.
+    flags: [indoors]
     exits:
       south: 4735
     sector_type: CITY
@@ -1330,6 +1362,7 @@ rooms:
       Several large rocks surround a petty little fire that has formed a cloud in
       the ceiling of this large cavern.  A window of the hut looks out over this small
       meeting area.  To the north a small dark cave can be seen.
+    flags: [indoors]
     exits:
       east: 4732
       north: 4734
@@ -1374,6 +1407,7 @@ rooms:
       This small tunnel has been carved to perfection, the walls are smooth and the
       floor has been worn soft through years of passage.  The red coloring of the
       rock gives this small tunnel a soft glow.
+    flags: [dark, indoors]
     exits:
       north: 4737
       east: 4708
@@ -1409,6 +1443,7 @@ rooms:
       The walls of the small tunnel have been carved to perfection as well as the
       floor that has been worn smooth.  It travels south and west leading off into
       darkness.
+    flags: [dark, indoors]
     exits:
       south: 4736
       west: 4738
@@ -1443,6 +1478,7 @@ rooms:
     long_desc: |
       The walls here are red and smooth as they have been carved into perfection.
       The floor has been worm smooth with use and clear of any rubble.
+    flags: [dark, indoors]
     exits:
       east: 4737
       south: 4739
@@ -1487,6 +1523,7 @@ rooms:
       Two monstrous pillars of stone support a great stone gate that leads south
       into a gigantic cavern with a small city inside.  The redden rock of the of
       mountain gives this small gate and cavern within a slight reddish glow.
+    flags: [indoors]
     exits:
       north: 4738
       south: 4740
@@ -1532,6 +1569,7 @@ rooms:
       scattered boulders and misplaced stalagmites.  To the south you can see a large
       area of many multicolored rock, rising up in the center of which is a small
       building.
+    flags: [indoors]
     exits:
       north: 4739
       south: 4741
@@ -1586,6 +1624,7 @@ rooms:
       A small path works its way through all types of multicolored boulders of all
       sizes and shapes.  Despite it's hardness and great size it has a certain
       beauty to it.
+    flags: [indoors]
     exits:
       north: 4740
       east: 4742
@@ -1630,6 +1669,7 @@ rooms:
     long_desc: |
       A small path works its way south and west from this section of a enormously
       large, yet beautiful conglomeration of rocks and boulders.
+    flags: [indoors]
     exits:
       south: 4743
       west: 4741
@@ -1665,6 +1705,7 @@ rooms:
       A small path works its way north and south through this large display of many
       different colored boulders and rocks.  A large building can be seen rising above
       the boulders directly to the west.
+    flags: [indoors]
     exits:
       north: 4742
       south: 4744
@@ -1704,6 +1745,7 @@ rooms:
     long_desc: |
       A small path works its way to the north and to the west as the many different
       colored boulders and rocks perform a array of beauty before you.
+    flags: [indoors]
     exits:
       north: 4743
       west: 4745
@@ -1739,6 +1781,7 @@ rooms:
       A small path works its way west and east through this array of multicolored
       boulders and rocks.  To the north a smooth path leads to a large and immaculate
       stone building.
+    flags: [indoors]
     exits:
       north: 4749
       east: 4744
@@ -1783,6 +1826,7 @@ rooms:
     long_desc: |
       A small path works its way east and north through this small section of the
       large array of boulders and rocks of all different colors.
+    flags: [indoors]
     exits:
       north: 4747
       east: 4745
@@ -1818,6 +1862,7 @@ rooms:
       A small path works its way north and south through this small section of the
       large garden of multicolored boulders.  Directly to the east a large building
       can be seen rising above the piles of boulders.
+    flags: [indoors]
     exits:
       north: 4748
       south: 4746
@@ -1852,6 +1897,7 @@ rooms:
     long_desc: |
       A small path works its way east and south through this section of the great
       multicolored array of boulders and rock formations.
+    flags: [indoors]
     exits:
       east: 4741
       south: 4747
@@ -1888,6 +1934,7 @@ rooms:
       is supported by pillars made of the deep red stone from the heart of the
       Dra-Korrin.
         In the center there is rests a large throne, formed of red rock.
+    flags: [indoors]
     exits:
       south: 4745
     sector_type: CITY
@@ -1945,6 +1992,7 @@ rooms:
     long_desc: |
       A small stone walkway travels east and west through the many stalagmites and
       stray boulders that scatter the floor of the great cavern.
+    flags: [indoors]
     exits:
       east: 4740
       west: 4751
@@ -1980,6 +2028,7 @@ rooms:
       A small stone walkway travels east and south through the debris of many
       boulders and stalagmites.  Another small walkway leads west to a small building
       pushing a black smoke from its roof.
+    flags: [indoors]
     exits:
       east: 4750
       south: 4753
@@ -2025,6 +2074,7 @@ rooms:
       A large black forge lies in the center of this small house pushing waves of
       heat into your face, barley allowing you to stand within the entranceway.  A
       large trough of water and several anvils are resting here as well.
+    flags: [indoors]
     exits:
       east: 4751
     sector_type: CITY
@@ -2049,6 +2099,7 @@ rooms:
     long_desc: |
       A small walkway travels north and south through the many scattered boulders
       and stalagmites.  A separate, less used path leads to the west.
+    flags: [indoors]
     exits:
       north: 4751
       south: 4759
@@ -2093,6 +2144,7 @@ rooms:
     long_desc: |
       A small path leads west further into the less carved rock while to the east
       the larger walkway can be seen.
+    flags: [indoors]
     exits:
       east: 4753
       west: 4755
@@ -2128,6 +2180,7 @@ rooms:
       This small uncarved path travels south and east as the edge of the cavern
       blocks any travel further west.  The wall of the cavern has a deep red color to
       it and with the many stalactites parts resemble dripping blood.
+    flags: [indoors]
     exits:
       east: 4754
       south: 4756
@@ -2163,6 +2216,7 @@ rooms:
       This small, uncarved path leads north and south along the cavern wall, over
       many boulders at points.  To the east you can see a path leading up to a small
       hole in a large boulder.
+    flags: [indoors]
     exits:
       north: 4755
       east: 4771
@@ -2208,6 +2262,7 @@ rooms:
       A small path travels over boulders and crevices to the north and east.  The
       edge of the cavern lies to the west while mounds of boulders are heaped to the
       south.
+    flags: [indoors]
     exits:
       north: 4756
       east: 4758
@@ -2253,6 +2308,7 @@ rooms:
       makes its way to the west.  To the east the small path ends in the larger walk-
       way of the city.  To the south a path leads to a small hut perched on top of a
       large boulder.
+    flags: [indoors]
     exits:
       east: 4760
       south: 4761
@@ -2297,6 +2353,7 @@ rooms:
     long_desc: |
       A stone walkway travels north and south through this section of this rocky
       city.  To the west you can see a uncarved and hug mound of rock and boulder.
+    flags: [indoors]
     exits:
       north: 4753
       south: 4760
@@ -2340,6 +2397,7 @@ rooms:
     long_desc: |
       A stone walkway travels north and south through this section of the city.  A
       small and unused path can be seen traveling west into the uncut and jagged rock.
+    flags: [indoors]
     exits:
       north: 4759
       south: 4762
@@ -2385,6 +2443,7 @@ rooms:
       This is a small stone dwelling with a large oven on the south wall.  There are
       many tables and chairs placed about the place and by the oven there is a table
       piled with grains and a small bowl of dough.
+    flags: [indoors]
     exits:
       north: 4758
     sector_type: CITY
@@ -2409,6 +2468,7 @@ rooms:
     long_desc: |
       A stone walkway travels north and east through this section of the stone city.
       A small path leads south to a small rock dwelling.
+    flags: [indoors]
     exits:
       north: 4760
       east: 4763
@@ -2453,6 +2513,7 @@ rooms:
     long_desc: |
       A stone walkway leads west from here.  To the east the small walkway ends in a
       large building, and to the south a small path leads to a small stone dwelling.
+    flags: [indoors]
     exits:
       east: 4766
       south: 4765
@@ -2506,6 +2567,7 @@ rooms:
     long_desc: |
       This is a small stone dwelling with many sizes of leather strewn about the
       place.  A small table with a few chairs sits in the center of the house.
+    flags: [indoors]
     exits:
       north: 4762
     sector_type: CITY
@@ -2531,6 +2593,7 @@ rooms:
       Many different colors and sizes of jewels hang from the walls of this well
       kept dwelling.  A small counter sits on the far wall with other small tables
       lining the walls.
+    flags: [indoors]
     exits:
       north: 4763
     sector_type: CITY
@@ -2556,6 +2619,7 @@ rooms:
       Many small cots line the walls of this large building as it serves for the
       homes of many brave Dwarven men who pledge their lives to the suppression of
       their Duergar enemies.  A small archway leads south to a lower level.
+    flags: [indoors]
     exits:
       west: 4763
       south: 4767
@@ -2611,6 +2675,7 @@ rooms:
     long_desc: |
       A small alcove serves as a turning point for this small, dark tunnel that goes
       north and west from here.
+    flags: [dark, no_mob, indoors]
     exits:
       north: 4766
       west: 4768
@@ -2647,6 +2712,7 @@ rooms:
       A large archway leads north to a dark vault.  An old stench emanates from it,
       as dust seems to continually flow from the old arch.  There is a small tunnel
       that travels east into a darkness.
+    flags: [dark, no_mob, indoors]
     exits:
       north: 4769
       east: 4767
@@ -2684,6 +2750,7 @@ rooms:
       The walls are lined with holes that contain many coffers containing, no doubt,
       the remains of some ancient dwarf.
         A great stone door leads to the west, it has many inscriptions upon it.
+    flags: [dark, no_mob, indoors]
     exits:
       south: 4768
       west: 4770
@@ -2749,6 +2816,7 @@ rooms:
       This is more of a small alcove than anything else.  The ceiling is covered
       with many descriptive carvings, as are the walls and floor.  Where it not for
       the years of decay and no upkeep, this would be a glamorous chamber.
+    flags: [dark, indoors]
     exits:
       east: 4769
     sector_type: CITY
@@ -2783,6 +2851,7 @@ rooms:
       A small and dark little room entombed within a large boulder, a very strange
       place to want to live.  There is a small table in the center, but the room is
       void of any other objects.
+    flags: [indoors]
     exits:
       west: 4756
     sector_type: CITY
@@ -2808,6 +2877,7 @@ rooms:
       You barely squeeze through into this cave, and you don't see much to it
       either.  All you see are piles of stones.  At least none of the stones has
       fallen over your exit north.
+    flags: [indoors]
     exits:
       north: 4773
       down: 4700
@@ -2843,6 +2913,7 @@ rooms:
       As you wring your clothes, you see sunlight reflect beautifully off the
       waterfall, forming at rainbow.  With the sparkling illumination, you think you
       see a cave to the south.
+    flags: [no_mob, indoors]
     exits:
       south: 4772
       west: 4774
@@ -2990,6 +3061,7 @@ rooms:
       green forests south-east.  To the north, you see the Mountains of Moria.  To
       the west, you see the dirty trail again.  A trail leads down to the valley
       below.
+    flags: [no_mob]
     exits:
       down: 4776
       west: 4778

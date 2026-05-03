@@ -55,7 +55,7 @@ public class ArcaneSpellHandler {
         registerArcane("energy drain");
         registerArcane("faerie fire");
         registerArcane("fireball");
-        registerArcane("flamestrike");
+        // "flame strike" is DIVINE school — handled by DivineSpellHandler
         registerArcane("harm");
         registerArcane("know alignment");
         registerArcane("lightning bolt");
@@ -97,7 +97,7 @@ public class ArcaneSpellHandler {
             case "energy drain": return handleEnergyDrain(casterId, args, ctx);
             case "faerie fire": return handleFaerieFire(casterId, args, ctx);
             case "fireball": return handleFireball(casterId, args, ctx);
-            case "flamestrike": return handleFlamestrike(casterId, args, ctx);
+            // "flame strike" is DIVINE school — handled by DivineSpellHandler
             case "harm": return handleHarm(casterId, args, ctx);
             case "know alignment": return handleKnowAlignment(casterId, args, ctx);
             case "lightning bolt": return handleLightningBolt(casterId, args, ctx);
@@ -348,8 +348,8 @@ public class ArcaneSpellHandler {
         return applySpellEffects(ctx, "curse");
     }
     
-    private static boolean handleDispelEvil(Integer casterId, String args, SpellContext ctx) { return notImplemented("dispel evil", casterId, args, ctx); }
-    private static boolean handleDispelMagic(Integer casterId, String args, SpellContext ctx) { return notImplemented("dispel magic", casterId, args, ctx); }
+    private static boolean handleDispelEvil(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "dispel evil"); }
+    private static boolean handleDispelMagic(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "dispel magic"); }
     
     private static boolean handleEarthquake(Integer casterId, String args, SpellContext ctx) {
         // Earthquake: Level 9 ARCANE spell
@@ -508,13 +508,13 @@ public class ArcaneSpellHandler {
         return anyAffected;
     }
     
-    private static boolean handleEnergyDrain(Integer casterId, String args, SpellContext ctx) { return notImplemented("energy drain", casterId, args, ctx); }
+    private static boolean handleEnergyDrain(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "energy drain"); }
     private static boolean handleFaerieFire(Integer casterId, String args, SpellContext ctx) { return notImplemented("faerie fire", casterId, args, ctx); }
-    private static boolean handleFireball(Integer casterId, String args, SpellContext ctx) { return notImplemented("fireball", casterId, args, ctx); }
-    private static boolean handleFlamestrike(Integer casterId, String args, SpellContext ctx) { return notImplemented("flamestrike", casterId, args, ctx); }
-    private static boolean handleHarm(Integer casterId, String args, SpellContext ctx) { return notImplemented("harm", casterId, args, ctx); }
+    private static boolean handleFireball(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "fireball"); }
+
+    private static boolean handleHarm(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "harm"); }
     private static boolean handleKnowAlignment(Integer casterId, String args, SpellContext ctx) { return notImplemented("know alignment", casterId, args, ctx); }
-    private static boolean handleLightningBolt(Integer casterId, String args, SpellContext ctx) { return notImplemented("lightning bolt", casterId, args, ctx); }
+    private static boolean handleLightningBolt(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "lightning bolt"); }
     
     private static boolean handleMagicMissile(Integer casterId, String args, SpellContext ctx) {
         // Magic Missile: Level 1 ARCANE spell
@@ -620,10 +620,10 @@ public class ArcaneSpellHandler {
         return anyHit;
     }
     
-    private static boolean handlePoison(Integer casterId, String args, SpellContext ctx) { return notImplemented("poison", casterId, args, ctx); }
+    private static boolean handlePoison(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "poison"); }
     private static boolean handleShockingGrasp(Integer casterId, String args, SpellContext ctx) { return notImplemented("shocking grasp", casterId, args, ctx); }
     private static boolean handleSleep(Integer casterId, String args, SpellContext ctx) { return notImplemented("sleep", casterId, args, ctx); }
-    private static boolean handleWeaken(Integer casterId, String args, SpellContext ctx) { return notImplemented("weaken", casterId, args, ctx); }
+    private static boolean handleWeaken(Integer casterId, String args, SpellContext ctx) { return applySpellEffects(ctx, "weaken"); }
 
     private static boolean handleMeteorSwarm(Integer casterId, String args, SpellContext ctx) {
         if (ctx == null || ctx.getCommandContext() == null) {

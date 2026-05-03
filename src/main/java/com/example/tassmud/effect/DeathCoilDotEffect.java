@@ -96,8 +96,6 @@ public class DeathCoilDotEffect implements EffectHandler {
         if (targetId == null || damage <= 0) return;
 
         CombatManager cm = CombatManager.getInstance();
-        CharacterDAO dao = DaoProvider.characters();
-
         boolean isMobTarget = targetId < 0;
         Combatant targetCombatant = null;
 
@@ -115,12 +113,13 @@ public class DeathCoilDotEffect implements EffectHandler {
             targetCombatant.damage(damage);
             if (targetCombatant.isPlayer() && targetCombatant.getCharacterId() != null) {
                 GameCharacter ch = targetCombatant.getAsCharacter();
-                dao.saveCharacterStateByName(ch.getName(), ch.getHpCur(), ch.getMpCur(), ch.getMvCur(), ch.getCurrentRoom());
+                DaoProvider.characters().saveCharacterStateByName(ch.getName(), ch.getHpCur(), ch.getMpCur(), ch.getMvCur(), ch.getCurrentRoom());
             }
             return;
         }
 
         if (!isMobTarget) {
+            CharacterDAO dao = DaoProvider.characters();
             CharacterDAO.CharacterRecord rec = dao.findById(targetId);
             if (rec != null) {
                 int newHp = Math.max(0, rec.hpCur - damage);

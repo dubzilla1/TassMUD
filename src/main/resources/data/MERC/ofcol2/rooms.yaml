@@ -9,6 +9,7 @@ rooms:
       the bottles of it on the floor make your mouth water and your mind swirl.  You
       also see a very large still.  So THIS is why there are so many grain fields!
       The exit is to the east.
+    flags: [indoors]
     exits:
       east: 616
     sector_type: INSIDE
@@ -205,6 +206,7 @@ rooms:
       You are in a black and smelly room.  Pieces of metal are strewn all over
       the floor, and a wave of heat from a big furnace hits you.  An anvil sits on 
       one side of the room, and on the other side is a workbench.  The exit is east.
+    flags: [indoors]
     exits:
       east: 602
     sector_type: INSIDE
@@ -245,6 +247,7 @@ rooms:
       the floor.  The smell of burnt hide assaults your nose.  You can tell by the
       looks that the tanning is done VERY CLOSE to here!   A table is near the
       entrance.  The exit is west.
+    flags: [indoors]
     exits:
       west: 602
     sector_type: INSIDE
@@ -354,6 +357,7 @@ rooms:
       You are in a little shop filled with a lot of knick knacks and semi-
       valuable goods.  There is a display case full of little treasures that you are
       sure that you or any other little kid would like to touch!  The exit is east.
+    flags: [indoors]
     exits:
       east: 605
     sector_type: INSIDE
@@ -391,6 +395,7 @@ rooms:
       You are in a meat store.  Hanging on hooks are meats of many kinds of
       animals.  In the background, you can hear the sound of blade against flesh.
       It smells like meat here (which is not a good smell).  The exit is west.
+    flags: [indoors]
     exits:
       west: 605
     sector_type: INSIDE
@@ -501,6 +506,7 @@ rooms:
       This is a very busy bar, with everyone holding homemade bottles of
       ale.  You see even the more gentile persons here, laughing along with
       Nyles, who offers you a quart of ale too.
+    flags: [indoors]
     exits:
       east: 608
     sector_type: INSIDE
@@ -542,6 +548,7 @@ rooms:
       You see many carts filled with fruits and vegetables.  Many farmers are
       all trying to sell you their produce, each saying their's is better.  The exit
       is west.
+    flags: [indoors]
     exits:
       west: 608
     sector_type: INSIDE
@@ -785,6 +792,7 @@ rooms:
       You are in the storage shed.  Bales of wheat, corn and hay are piled
       against the wall, and some vegetables are in carts.  You see a small door
       on the west door.  The main exit is south.
+    flags: [indoors]
     exits:
       south: 612
       west: 600
@@ -820,6 +828,7 @@ rooms:
       You are in the slaughterhouse, where all the animals are slaughtered so
       that they can be sold or their skins be tanned.  The scream of dying animals
       makes your stomach churn.  The exit is to the west.
+    flags: [indoors]
     exits:
       west: 668
     sector_type: INSIDE
@@ -905,6 +914,7 @@ rooms:
     long_desc: |
       You are in the chicken coop.  The smell of chickens and chicken droppings
       makes you gasp.  The exit is north.
+    flags: [indoors]
     exits:
       north: 618
     sector_type: INSIDE
@@ -946,6 +956,7 @@ rooms:
     long_desc: |
       You are in a barn.  There are some cows here, munching on mounds of hay.
       Milk is milked and bottled here.  You see the exit west.
+    flags: [indoors]
     exits:
       west: 618
     sector_type: INSIDE
@@ -1215,6 +1226,7 @@ rooms:
       than the average citizen, since there is more than one room to this house.  A
       door leads to the kitchen east, and a bedroom is upstairs.  The exit is to the
       west.
+    flags: [indoors]
     exits:
       east: 628
       west: 625
@@ -1259,6 +1271,7 @@ rooms:
     long_desc: |
       You are in the bedroom.  There isn't much of interest except for a bed and
       a closet.  The stairs lead back down.
+    flags: [indoors]
     exits:
       down: 626
     sector_type: INSIDE
@@ -1295,6 +1308,7 @@ rooms:
     long_desc: |
       You are in a kitchen.  There isn't much of interest here.  The main room
       is west of here.
+    flags: [indoors]
     exits:
       west: 626
     sector_type: INSIDE
@@ -1321,6 +1335,7 @@ rooms:
       than the average citizen, since there is more than one room to this house.  A
       door leads to the kitchen west, and a bedroom is upstairs.  The exit is to the
       east.
+    flags: [indoors]
     exits:
       west: 631
       east: 625
@@ -1377,6 +1392,7 @@ rooms:
     long_desc: |
       You are in the bedroom.  There isn't much of interest except for a bed and
       a closet.  The stairs lead back down.
+    flags: [indoors]
     exits:
       down: 629
     sector_type: INSIDE
@@ -1401,6 +1417,7 @@ rooms:
     long_desc: |
       You are in a kitchen.  There isn't much of interest here.  The main room
       is east of here.
+    flags: [indoors]
     exits:
       east: 629
     sector_type: INSIDE
@@ -1477,6 +1494,7 @@ rooms:
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
       this room.  There is a bedroom south of here.  The exit is west.
+    flags: [indoors]
     exits:
       south: 634
       west: 632
@@ -1511,6 +1529,7 @@ rooms:
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
       and a dresser.  The main room of the house is north of here.
+    flags: [indoors]
     exits:
       north: 633
     sector_type: INSIDE
@@ -1535,6 +1554,7 @@ rooms:
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
       this room.  There is a bedroom south of here.  The exit is east.
+    flags: [indoors]
     exits:
       south: 636
       east: 632
@@ -1574,6 +1594,7 @@ rooms:
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
       and a dresser.  The main room of the house is north of here.
+    flags: [indoors]
     exits:
       north: 635
     sector_type: INSIDE
@@ -1673,6 +1694,7 @@ rooms:
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
       this room.  There is a bedroom south of here.  The exit is west.
+    flags: [indoors]
     exits:
       south: 639
       west: 637
@@ -1707,6 +1729,7 @@ rooms:
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
       and a dresser.  The main room of the house is north of here.
+    flags: [indoors]
     exits:
       north: 638
     sector_type: INSIDE
@@ -1731,6 +1754,7 @@ rooms:
     long_desc: |
       You are in a house.  The living room and kitchen are all bundled into
       this room.  There is a bedroom south of here.  The exit is east.
+    flags: [indoors]
     exits:
       south: 641
       east: 637
@@ -1765,6 +1789,7 @@ rooms:
     long_desc: |
       You are in a bedroom.  There isn't much of interest here except for a bed
       and a dresser.  The main room of the house is north of here.
+    flags: [indoors]
     exits:
       north: 640
     sector_type: INSIDE
@@ -1862,6 +1887,7 @@ rooms:
       than the average citizen, since there is more than one room to this house.  A
       door leads to the kitchen north, and a bedroom is upstairs.  The exit is to 
       the south.
+    flags: [indoors]
     exits:
       north: 645
       south: 642
@@ -1918,6 +1944,7 @@ rooms:
     long_desc: |
       You are in the bedroom.  There isn't much of interest except for a bed 
       and a closet.  The stairs lead back down.
+    flags: [indoors]
     exits:
       down: 643
     sector_type: INSIDE
@@ -1942,6 +1969,7 @@ rooms:
     long_desc: |
       You are in a kitchen.  There isn't much of interest here.  The main room
       is east of here.
+    flags: [indoors]
     exits:
       south: 643
     sector_type: INSIDE
@@ -2326,6 +2354,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the south.
+    flags: [indoors]
     exits:
       south: 646
     sector_type: INSIDE
@@ -2356,6 +2385,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the north.
+    flags: [indoors]
     exits:
       north: 646
     sector_type: INSIDE
@@ -2381,6 +2411,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the south.
+    flags: [indoors]
     exits:
       south: 647
     sector_type: INSIDE
@@ -2406,6 +2437,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the north.
+    flags: [indoors]
     exits:
       north: 647
     sector_type: INSIDE
@@ -2436,6 +2468,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the south.
+    flags: [indoors]
     exits:
       south: 648
     sector_type: INSIDE
@@ -2461,6 +2494,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the west.
+    flags: [indoors]
     exits:
       west: 648
     sector_type: INSIDE
@@ -2486,6 +2520,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the north.
+    flags: [indoors]
     exits:
       north: 648
     sector_type: INSIDE
@@ -2511,6 +2546,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the south.
+    flags: [indoors]
     exits:
       south: 649
     sector_type: INSIDE
@@ -2536,6 +2572,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the north.
+    flags: [indoors]
     exits:
       north: 649
     sector_type: INSIDE
@@ -2561,6 +2598,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the south.
+    flags: [indoors]
     exits:
       south: 650
     sector_type: INSIDE
@@ -2591,6 +2629,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the north.
+    flags: [indoors]
     exits:
       north: 650
     sector_type: INSIDE
@@ -2616,6 +2655,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the south.
+    flags: [indoors]
     exits:
       south: 651
     sector_type: INSIDE
@@ -2641,6 +2681,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the north.
+    flags: [indoors]
     exits:
       north: 651
     sector_type: INSIDE
@@ -2666,6 +2707,7 @@ rooms:
       You are in a small house, owned by a commoner of Ofcol.  There isn't much
       of value here to you, but you'd bet that the owner really cherishes the pile
       of stuff here.  The exit is to the east.
+    flags: [indoors]
     exits:
       east: 651
     sector_type: INSIDE
@@ -2826,6 +2868,7 @@ rooms:
       gold columns reach the twelve foot ceiling of this vast chamber.  Servants in
       golden livery wander this place, making even the raggiest messenger boy look
       richer than you are.  Exits lead to the anterooms in the cardinal directions.
+    flags: [indoors]
     exits:
       north: 670
       east: 672
@@ -2931,6 +2974,7 @@ rooms:
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
       floor, and servants in golden livery pass you by peaceably.  The temple is to
       the south, and to the north is a hallway.  A stairways leads up.
+    flags: [indoors]
     exits:
       north: 675
       south: 669
@@ -2976,6 +3020,7 @@ rooms:
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
       floor, and servants in golden livery pass you by peaceably.  The temple is to
       the east, and to the west is a hallway.  A stairways leads up.
+    flags: [indoors]
     exits:
       east: 669
       west: 679
@@ -3021,6 +3066,7 @@ rooms:
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
       floor, and servants in golden livery pass you by peaceably.  The temple is to
       the west, and to the east is a hallway.  A stairways leads up.
+    flags: [indoors]
     exits:
       east: 680
       west: 669
@@ -3066,6 +3112,7 @@ rooms:
       You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
       floor, and servants in golden livery pass you by peaceably.  The temple is to
       the north, and to the south is a hallway.  A stairways leads up.
+    flags: [indoors]
     exits:
       north: 669
       south: 684
@@ -3116,6 +3163,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead east and south.
+    flags: [indoors]
     exits:
       east: 675
       south: 677
@@ -3156,6 +3204,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead east, west, and south.
+    flags: [indoors]
     exits:
       east: 676
       south: 670
@@ -3201,6 +3250,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead west and south.
+    flags: [indoors]
     exits:
       south: 678
       west: 675
@@ -3254,6 +3304,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead north and south.
+    flags: [indoors]
     exits:
       north: 674
       south: 679
@@ -3289,6 +3340,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead north and south.
+    flags: [indoors]
     exits:
       north: 676
       south: 680
@@ -3330,6 +3382,7 @@ rooms:
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead to the cardinal directions, with the east leading
       toward the Temple of Ofcol, and west leading toward the City of Ofcol.
+    flags: [indoors]
     exits:
       north: 677
       east: 671
@@ -3385,6 +3438,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead west, north and south.
+    flags: [indoors]
     exits:
       north: 678
       south: 682
@@ -3430,6 +3484,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead north and south.
+    flags: [indoors]
     exits:
       north: 679
       south: 683
@@ -3483,6 +3538,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead north and south.
+    flags: [indoors]
     exits:
       north: 680
       south: 685
@@ -3523,6 +3579,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead north and east.
+    flags: [indoors]
     exits:
       north: 681
       east: 684
@@ -3563,6 +3620,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead east, west, and north.
+    flags: [indoors]
     exits:
       north: 673
       east: 685
@@ -3608,6 +3666,7 @@ rooms:
       You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
       and rich golden tapestries drape the walls.  Servants in golden livery pass you
       by peaceably.  Exits lead west and north.
+    flags: [indoors]
     exits:
       north: 682
       west: 684
@@ -3645,6 +3704,7 @@ rooms:
       with platinum cover the floor, walls and the ceiling.  The lights from numerous
       torches reflect from these shimmering planes, giving the illusion that you are
       standing in a gem.  Stairways lead up and down, and the hall leads south.
+    flags: [indoors]
     exits:
       south: 688
       up: 691
@@ -3692,6 +3752,7 @@ rooms:
       with platinum cover the floor, walls and the ceiling.  The lights from numerous
       torches reflect from these shimmering planes, giving the illusion that you are
       standing in a gem.  Stairways lead up and down, and the hall leads east.
+    flags: [indoors]
     exits:
       east: 688
       up: 692
@@ -3739,6 +3800,7 @@ rooms:
       are mounted on the walls of this meeting hall.  Surrounding a solid gold table
       are four sons of the Keeper of the Golden Citadel.  They smile at you and ask 
       you to join them in lunch.  Exits lead to the cardinal directions.
+    flags: [indoors]
     exits:
       north: 686
       east: 689
@@ -3874,6 +3936,7 @@ rooms:
       with platinum cover the floor, walls and the ceiling.  The lights from numerous
       torches reflect from these shimmering planes, giving the illusion that you are
       standing in a gem.  Stairways lead up and down, and the hall leads west.
+    flags: [indoors]
     exits:
       west: 688
       up: 694
@@ -3921,6 +3984,7 @@ rooms:
       with platinum cover the floor, walls and the ceiling.  The lights from numerous
       torches reflect from these shimmering planes, giving the illusion that you are
       standing in a gem.  Stairways lead up and down, and the hall leads north.
+    flags: [indoors]
     exits:
       north: 688
       up: 695
@@ -3986,6 +4050,7 @@ rooms:
       gold, and gems of all types glitter from the walls, ceiling, even the floor.
       It is obvious that this room was not meant for you to intrude upon.  A stair-
       case leads back down, and a doorway leads south.
+    flags: [indoors]
     exits:
       south: 693
       down: 686
@@ -4023,6 +4088,7 @@ rooms:
       gold, and gems of all types glitter from the walls, ceiling, even the floor.
       It is obvious that this room was not meant for you to intrude upon.  A stair-
       case leads back down, and a doorway leads east.
+    flags: [indoors]
     exits:
       east: 693
       down: 687
@@ -4061,6 +4127,7 @@ rooms:
       center of this chamber, you see a great wealth of coins, and on top of that
       pile of coins, you see a golden dragon squinting at you.  Exits lead to the
       cardinal directions to the anterooms.
+    flags: [indoors]
     exits:
       north: 691
       east: 694
@@ -4165,6 +4232,7 @@ rooms:
       gold, and gems of all types glitter from the walls, ceiling, even the floor.
       It is obvious that this room was not meant for you to intrude upon.  A stair-
       case leads back down, and a doorway leads west.
+    flags: [indoors]
     exits:
       west: 693
       down: 689
@@ -4202,6 +4270,7 @@ rooms:
       gold, and gems of all types glitter from the walls, ceiling, even the floor.
       It is obvious that this room was not meant for you to intrude upon.  A stair-
       case leads back down, and a doorway leads north.
+    flags: [indoors]
     exits:
       east: 695
       down: 690
@@ -4237,6 +4306,7 @@ rooms:
       You are above the Dragon Chamber.  You curiously note that this shaft that
       connects the chamber to the sky is wide enough that even a dragon can fit
       through.  This shaft leads up and down.
+    flags: [indoors]
     exits:
       up: 697
       down: 693
@@ -4272,6 +4342,7 @@ rooms:
       You are in the shaft leading from the Dragon Chamber.  Below you lies the
       Dragon Chamber of the Golden Citadel.  Above you, you see the sky, but 
       currently, the way out is sealed by a layer of diamond that looks impenetrable.
+    flags: [indoors]
     exits:
       down: 696
     sector_type: INSIDE
@@ -4297,6 +4368,7 @@ rooms:
       You are inside the entrance to the Golden Citadel.  Rich golden tapestries
       line the walls, and golden tiles cover the floors.  The exit to this citadel is
       to the west, while the citadel itself is to the east.
+    flags: [indoors]
     exits:
       east: 679
       west: 699

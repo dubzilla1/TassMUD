@@ -10,6 +10,7 @@ rooms:
       destiny lie beyond this world.'  You are still wondering what she means when
       you suddenly notice the crystal ball ... it glows fiercely and displays the
       Universe!
+    flags: [indoors]
     exits:
       down: 9302
       west: 1306
@@ -308,6 +309,7 @@ rooms:
       This bridge, like the other, was made as a memorial.  The nebulae had to
       make one just to show that they are as capable as the stars.  North lies
       a throne room.
+    flags: [dark]
     exits:
       north: 9310
       east: 9314
@@ -356,6 +358,7 @@ rooms:
       You can only faintly make out that it is a throne room as it is too
       dark in here.  In the middle is an empty throne.  You wonder where
       the King has gone, maybe he is hiding from you?
+    flags: [dark, indoors]
     exits:
       south: 9309
     sector_type: INSIDE
@@ -634,6 +637,7 @@ rooms:
       You are very near to a gigantic red star.  While you are still fascinated
       by its beauty, the star keeps on growing ... suddenly you realize that you'd
       better leave.
+    flags: [no_mob]
     exits:
       north: 9320
       east: 9320
@@ -691,6 +695,7 @@ rooms:
       You may find yourself lucky to witness this rare event but even luckier,
       you have finally got out of this galaxy as your body turns into dust.
       That really HURTS!
+    flags: [no_mob]
     exits:
     sector_type: INSIDE
     legacy_flags:
@@ -704,6 +709,7 @@ rooms:
     long_desc: |
       You are inside the home of the stars.  All you can see around you are stars
       and nothing else.  You eyes become pretty hurt as you look at them.
+    flags: [indoors]
     exits:
       north: 9322
       east: 9303
@@ -872,6 +878,7 @@ rooms:
     long_desc: |
       You are now lost in space.  Compasses don't work here, sorry.  What's more
       you can sense darkness engulfing you.  You'd better get out quick.
+    flags: [dark]
     exits:
       north: 9325
       east: 9306
@@ -915,6 +922,7 @@ rooms:
       Well you have chosen the wrong path, sorry.  Nothing can escape from this
       monster, not even light.
       PANIC!  You can't escape!
+    flags: [dark, no_mob]
     exits:
     sector_type: INSIDE
 
@@ -1610,6 +1618,7 @@ rooms:
     long_desc: |
       A peaceful feeling overtakes you.  You see a magnificent four-poster bed.
       It's a double bed and there is only room for one more!  Well, what now ... ?
+    flags: [indoors]
     exits:
       west: 9348
     sector_type: CITY
@@ -1644,6 +1653,7 @@ rooms:
       You are standing inside the dock of a court.  You feel an overwhelming
       sense of guilt and you want to protest your innocence!  You fear retribution
       and feel yourself exposed, just like the trees in Autumn.
+    flags: [indoors]
     exits:
       south: 9339
       west: 9349
@@ -1910,6 +1920,7 @@ rooms:
     long_desc: |
       You realize you are standing on scaly ground.  As you wonder what the ground
       is made of, you feel the ground move.
+    flags: [dark]
     exits:
       north: 9356
       down: 9354
@@ -1948,6 +1959,7 @@ rooms:
       At last you realize that you are on a giant snake-like dragon called the
       Draco, the guardian of the inner galaxy.  You realize that the Draco is
       actually flying now!
+    flags: [dark]
     exits:
       south: 9355
       north: 9357
@@ -1980,6 +1992,7 @@ rooms:
     long_desc: |
       As you struggle along this scaly creature you realize that the only way
       you can reach to the inner galaxy is by going all the way to the head.
+    flags: [dark]
     exits:
       north: 9358
     sector_type: HILLS
@@ -2003,6 +2016,7 @@ rooms:
       You are approaching the leg part of this creature.  You look around and see
       that the surrounding is all dark except for some faint lights from the
       distant stars.
+    flags: [dark]
     exits:
       north: 9359
       south: 9357
@@ -2040,6 +2054,7 @@ rooms:
     long_desc: |
       At last you are half way through this long, weary journey. You can see
       the wings are to the east but it seems that another forcefield is in the way.
+    flags: [dark]
     exits:
       east: 9360
       south: 9358
@@ -2072,6 +2087,7 @@ rooms:
     long_desc: |
       You hear some giant flapping sounds nearby.  You desperately try to get hold
       of something as the forceful gusts sweep you away.
+    flags: [dark]
     exits:
       east: 9361
       west: 9359
@@ -2109,6 +2125,7 @@ rooms:
     long_desc: |
       From above you can faintly make out the gigantic arms which extend far
       beyond into the darkness.
+    flags: [dark]
     exits:
       south: 9362
       west: 9360
@@ -2141,6 +2158,7 @@ rooms:
     long_desc: |
       Your journey is now approaching the end.  However, this neck seems to be
       endless.
+    flags: [dark]
     exits:
       north: 9361
       west: 9363
@@ -2174,6 +2192,7 @@ rooms:
       You have come to the end of Draco, but you can't find the head!
       You see a forcefield to the south, some distance away, beyond reach.
       If only the head were here ...
+    flags: [dark]
     exits:
       east: 9362
       south: 9364

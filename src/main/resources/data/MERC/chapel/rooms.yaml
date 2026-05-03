@@ -55,6 +55,7 @@ rooms:
     short_desc: "Stairwell into Darkness"
     long_desc: |
       You sense even more danger coming from below but are urged onward ...
+    flags: [dark, indoors]
     exits:
       west: 3449
       down: 3450
@@ -93,6 +94,7 @@ rooms:
       A bloodied corpse of an acolyte is lying here ...
       A bloodied corpse of an acolyte is lying here ...
       A bloodied corpse of an acolyte is lying here ...
+    flags: [dark, indoors]
     exits:
     sector_type: INSIDE
     spawns:
@@ -127,6 +129,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3415
       south: 3411
@@ -167,6 +170,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3410
     sector_type: INSIDE
@@ -207,6 +211,7 @@ rooms:
       You are at the west end of the Grand Hall of Kings.  There is a doorway to the
       south with something strange written above it.  Also on the floor are dried
       blood stains, but their color seems a little wrong.
+    flags: [dark, indoors]
     exits:
       east: 3417
       south: 3413
@@ -250,6 +255,7 @@ rooms:
       and torn clothing is scattered about.  It wouldn't disturb you in the least
       except that it is all FRESH!  What ever used to pass as an altar here,
       lies overturned and smashed.  Doors lead to the south and to the north.
+    flags: [dark, indoors]
     exits:
       north: 3412
       south: 3414
@@ -287,6 +293,7 @@ rooms:
       like the feeding grounds of beasts and monsters.  The overturned sarcophagus
       of the once powerful King Shohan lies here.  A door leads to the north and a
       doorway has been hewn to the east.
+    flags: [dark, indoors]
     exits:
       north: 3413
       east: 3419
@@ -342,6 +349,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3420
       south: 3416
@@ -385,6 +393,7 @@ rooms:
       You can tell that this area wasn't a part of the original construction.
       The walls have been hewn by a mighty force look as though they were CLAWED.
       The passage slopes upward here and also continues to the north.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3415
       up: 3418
@@ -421,6 +430,7 @@ rooms:
     long_desc: |
       This is the western wing of the Grand Hall of Kings.  Your only exits are to
       the east and west in this gloomy hallway.
+    flags: [dark, indoors]
     exits:
       east: 3422
       west: 3412
@@ -465,6 +475,7 @@ rooms:
       stands here and the walls show scenes from the life of Cristis the Kind,
       a ruler of the outlying regions west of Midgaard.  There is a stone staircase
       leading down.  The Ghost of Cristis the Kind stands here.
+    flags: [dark, indoors]
     exits:
       south: 3419
       down: 3416
@@ -525,6 +536,7 @@ rooms:
     short_desc: "The Tomb of Cristis"
     long_desc: |
       Everything here has simply been destroyed.   Exits lead north and west.
+    flags: [dark, indoors]
     exits:
       north: 3418
       west: 3414
@@ -567,6 +579,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3425
       west: 3415
@@ -603,6 +616,7 @@ rooms:
       covered in finely crafted tapestries. You can tell that these things must have
       been worth much but they have not lasted well throughout the ages.  Massive
       doors lead off to the south and a large stone staircase leads up.
+    flags: [dark, indoors]
     exits:
       south: 3422
       up: 3405
@@ -662,6 +676,7 @@ rooms:
       there are many doors, each with the name of a king who has died and is
       entombed here.  The hallway is beautiful yet chilling.  Even though the area
       has been kept well by acolytes, there remains a stench of the undead.
+    flags: [dark, indoors]
     exits:
       north: 3421
       east: 3427
@@ -719,6 +734,7 @@ rooms:
       100 years ago.  If not for him, Midgaard of course would have eventually been
       conquered as well.  Though Crotus was a goodly king, it was rumored that he
       turned to the dark ways in his dying years ... and died an evil man.
+    flags: [dark, indoors]
     exits:
       north: 3422
       south: 3424
@@ -753,6 +769,7 @@ rooms:
     long_desc: |
       A sarcophagus lies in the middle of the room and seems undisturbed.
       A hole has been knocked into the east wall.
+    flags: [dark, indoors]
     exits:
       north: 3423
       east: 3429
@@ -806,6 +823,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       south: 3426
       west: 3420
@@ -837,6 +855,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3425
       east: 3430
@@ -882,6 +901,7 @@ rooms:
     long_desc: |
       You are in the western part of the Grand Hall of Kings.  To the south is a
       door and to the east and west the hall continues.
+    flags: [dark, indoors]
     exits:
       east: 3432
       south: 3428
@@ -928,6 +948,7 @@ rooms:
       else.  Warriors did love Mitnar, and all fighting men honored him.
       On the wall is depicted battle after battle after battle.
       A small opening has been shaped carefully to the east.
+    flags: [dark, indoors]
     exits:
       north: 3427
       east: 3433
@@ -974,6 +995,7 @@ rooms:
       prisoners of war being put to the sword by Mitnar, and great heaps of gold
       and weapons under the feet of Mitnar.  Where his coffin was, there is now
       only a rectangular blemish on the floor of the dusty room.
+    flags: [dark, indoors]
     exits:
       north: 3428
       west: 3424
@@ -1007,6 +1029,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3435
       south: 3431
@@ -1057,6 +1080,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3430
       east: 3436
@@ -1088,6 +1112,7 @@ rooms:
     short_desc: "The Grand Hall of Kings"
     long_desc: |
       You are still walking through the gloomy hallway.
+    flags: [dark, indoors]
     exits:
       east: 3437
       west: 3427
@@ -1131,6 +1156,7 @@ rooms:
       Little chunks of dried meat are spattered throughout this room.  The walls
       are covered in gore.  Almost as if they were painted ... ICK!  You can
       almost make out the design!
+    flags: [dark, indoors]
     exits:
       east: 3438
       west: 3428
@@ -1165,6 +1191,7 @@ rooms:
     long_desc: |
       UGH!  The sarcophagus is opened up and the mummified body lies out in the
       open, ripped to pieces.  Gnawed pieces of flesh and bone are strewn here.
+    flags: [dark, indoors]
     exits:
       down: 3439
     sector_type: INSIDE
@@ -1203,6 +1230,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3440
       south: 3436
@@ -1244,6 +1272,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3435
       east: 3441
@@ -1286,6 +1315,7 @@ rooms:
     long_desc: |
       You are at the western end of the Grand Hall of Kings.  There is a
       door leading north and the hallway continues west.
+    flags: [dark, indoors]
     exits:
       north: 3409
       west: 3432
@@ -1326,6 +1356,7 @@ rooms:
       This was once beautiful.  Now the huge tapestries have been torn down and the
       carpeting pulled up ... the paintings on the ceiling are unreadable and the
       altar is crumbled.
+    flags: [dark, indoors]
     exits:
       south: 3439
       west: 3433
@@ -1361,6 +1392,7 @@ rooms:
       The smell coming off of the opened sarcophagus is nauseating.  The floor is
       slightly crumpled and walls are raked ... but the worst part is the mummy ...
       Jubal the Benevolent is missing his head!
+    flags: [dark, indoors]
     exits:
       north: 3438
       up: 3434
@@ -1394,6 +1426,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3445
       south: 3441
@@ -1435,6 +1468,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3440
       east: 3446
@@ -1492,6 +1526,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3447
       south: 3443
@@ -1528,6 +1563,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3442
       south: 3444
@@ -1559,6 +1595,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors]
     exits:
       north: 3443
       east: 3449
@@ -1601,6 +1638,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       south: 3446
       west: 3440
@@ -1632,6 +1670,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3445
       south: 3447
@@ -1673,6 +1712,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3446
       south: 3448
@@ -1722,6 +1762,7 @@ rooms:
       drilled in the center of the floor.  There are extensive gruesome paintings
       of beasts and monsters terrorizing the countryside; vampires sucking the
       blood of beasts and humans alike.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3447
     sector_type: INSIDE
@@ -1756,6 +1797,7 @@ rooms:
     short_desc: "The Lower Chambers and Tombs of the Undead"
     long_desc: |
       The stench of death is heavy in these caverns.
+    flags: [dark, indoors]
     exits:
       east: 3408
       west: 3444
@@ -1806,6 +1848,7 @@ rooms:
       You have entered the forbidden catacombs.  This cave system must have been
       built long ago.  The air is dank and smells of something dead ...  or maybe
       undead.  Enter here at your own risk ... something evil abides.
+    flags: [dark, indoors]
     exits:
       north: 3451
       east: 3452
@@ -1875,6 +1918,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3455
       south: 3450
@@ -1906,6 +1950,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3461
       west: 3450
@@ -1946,6 +1991,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3450
     sector_type: INSIDE
@@ -1976,6 +2022,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3450
     sector_type: INSIDE
@@ -2002,6 +2049,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       south: 3456
       west: 3451
@@ -2042,6 +2090,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3455
       east: 3457
@@ -2073,6 +2122,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       south: 3458
       west: 3456
@@ -2113,6 +2163,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3457
       south: 3472
@@ -2154,6 +2205,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3458
       west: 3460
@@ -2187,6 +2239,7 @@ rooms:
       Your mind whirls in the hideous madness of this place.  The stench
       is horrendous and dead bodies, sucked of life, lay all over.  One coffin
       lies in the center of the room ... waiting for YOU!
+    flags: [dark, indoors]
     exits:
       east: 3459
       down: 3475
@@ -2236,6 +2289,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3462
       south: 3452
@@ -2267,6 +2321,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       south: 3463
       west: 3461
@@ -2303,6 +2358,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 3462
       east: 3464
@@ -2343,6 +2399,7 @@ rooms:
     short_desc: "The Catacombs"
     long_desc: |
       Stone walls, musty air ... the earth seems to moan softly.
+    flags: [dark, indoors, no_recall]
     exits:
       east: 3470
       south: 3465
@@ -2388,6 +2445,7 @@ rooms:
       The walls faintly show ancient detailed etchings in gold and silver of
       ancient rituals ... not all of which seem pleasant.  The hallway continues
       north into the catacombs and further south as long as you can see.
+    flags: [dark, indoors]
     exits:
       north: 3464
       south: 3466
@@ -2443,6 +2501,7 @@ rooms:
       Ancient etchings and writing in intricate gold and silver designs fill these
       walls.  You are tempted to linger and examine them closely.  Your light source
       flickers off the walls showing you exits north and south.
+    flags: [dark, indoors]
     exits:
       north: 3465
       south: 3467
@@ -2490,6 +2549,7 @@ rooms:
       Ancient etchings and writing in intricate gold and silver designs fill these
       walls.  You are tempted to linger and examine them closely.  Your light source
       flickers off the walls showing you exits north and south.
+    flags: [dark, indoors]
     exits:
       north: 3466
       south: 3468
@@ -2528,6 +2588,7 @@ rooms:
       Ancient etchings and writing in intricate gold and silver designs fill these
       walls.  You are tempted to linger and examine them closely.  Your light source
       flickers off the walls showing you exits north and south.
+    flags: [dark, indoors]
     exits:
       north: 3467
       south: 3469
@@ -2579,6 +2640,7 @@ rooms:
       Ancient etchings and writing in intricate gold and silver designs fill these
       walls.  You are tempted to linger and examine them closely.  Your light source
       flickers off the walls showing you exits north.
+    flags: [dark, indoors]
     exits:
       north: 3468
     sector_type: INSIDE
@@ -2605,6 +2667,7 @@ rooms:
     short_desc: "A Secret Passageway"
     long_desc: |
       A secret passage!  You wonder where it may lead!
+    flags: [dark, indoors]
     exits:
       south: 3471
     sector_type: INSIDE
@@ -2631,6 +2694,7 @@ rooms:
     short_desc: "A Secret Passageway"
     long_desc: |
       A secret passage!  You wonder where it may lead!
+    flags: [dark, indoors]
     exits:
       north: 3470
     sector_type: INSIDE
@@ -2681,6 +2745,7 @@ rooms:
       Welcome to HELL!
       
       But even in Hell we give you another chance.
+    flags: [no_mob, indoors]
     exits:
     sector_type: INSIDE
 
@@ -2692,6 +2757,7 @@ rooms:
     long_desc: |
       You are inside a coffin.  It seems rather cramped in here.  You can climb
       up out of the coffin, or you can wait for here the real occupant to join you.
+    flags: [dark, indoors]
     exits:
       up: 3460
     sector_type: INSIDE

@@ -15,8 +15,8 @@ import java.util.Random;
 /**
  * Generates random loot for mob corpses.
  * 
- * Item drop chance: 50% for 1 item, 25% for 2, 12.5% for 3, etc. (halving each time)
- * Item type distribution: 50% trash, 50% equipment (from 999xxx templates)
+ * Trash drop: independent 50% chance for exactly one junk item.
+ * Equipment drop: 50% for 1, 25% for 2, 12.5% for 3, etc. (halving each time, capped at 5).
  * 
  * Equipment templates are IDs 999000-999999 (generic weapons, armor, shields).
  * All equipment in that range has equal probability of dropping.
@@ -170,14 +170,31 @@ public class LootGenerator {
             return new ArrayList<>();
         }
         List<GeneratedItem> generatedItems = new ArrayList<>();
-        
-        // Determine how many items to generate
-        int itemCount = determineItemCount();
-        
-        for (int i = 0; i < itemCount; i++) {
-            GeneratedItem item = generateSingleItem(mobLevel, itemDAO);
+
+        // Independent 50% chance for one piece of trash
+        if (RNG.nextDouble() < 0.5) {
+            GeneratedItem trash = generateTrash(mobLevel);
+            long instanceId = itemDAO.createGeneratedInstance(
+                trash.templateId, corpseInstanceId,
+                trash.customName, trash.customDescription, trash.itemLevel,
+                trash.baseDieOverride, trash.multiplierOverride, trash.abilityMultOverride,
+                trash.armorSaveOverride, trash.fortSaveOverride, trash.refSaveOverride, trash.willSaveOverride,
+                trash.spellEffects,
+                trash.valueOverride
+            );
+            if (instanceId > 0) generatedItems.add(trash);
+        }
+
+        // Cascading halving roll for useful equipment: 50% for 1, 25% for 2, etc.
+        int equipCount = 0;
+        double chance = 0.5;
+        while (equipCount < 5 && RNG.nextDouble() < chance) {
+            equipCount++;
+            chance *= 0.5;
+        }
+        for (int i = 0; i < equipCount; i++) {
+            GeneratedItem item = generateEquipment(mobLevel, itemDAO);
             if (item != null) {
-                // Create the item in the database inside the corpse
                 long instanceId = itemDAO.createGeneratedInstance(
                     item.templateId, corpseInstanceId,
                     item.customName, item.customDescription, item.itemLevel,
@@ -186,9 +203,7 @@ public class LootGenerator {
                     item.spellEffects,
                     item.valueOverride
                 );
-                if (instanceId > 0) {
-                    generatedItems.add(item);
-                }
+                if (instanceId > 0) generatedItems.add(item);
             }
         }
         
@@ -203,7 +218,7 @@ public class LootGenerator {
             logger.info("LootGenerator: generateItemInRoom is disabled.");
             return null;
         }
-        GeneratedItem item = generateSingleItem(level, itemDAO);
+        GeneratedItem item = generateEquipment(level, itemDAO);
         if (item == null) return null;
 
         long instanceId = itemDAO.createGeneratedInstanceInRoom(
@@ -243,41 +258,12 @@ public class LootGenerator {
     }
     
     /**
-     * Determine how many items to generate.
-     * 50% for 1, 25% for 2, 12.5% for 3, etc.
-     * Capped at 5 items max.
-     */
-    private static int determineItemCount() {
-        int count = 0;
-        double chance = 0.5;
-        
-        while (count < 5 && RNG.nextDouble() < chance) {
-            count++;
-            chance *= 0.5;
-        }
-        
-        return count;
-    }
-    
-    /**
-     * Generate a single random item.
-     * 50% trash, 50% equipment from 999xxx range.
-     */
-    private static GeneratedItem generateSingleItem(int mobLevel, ItemDAO itemDAO) {
-        if (RNG.nextInt(100) < 50) {
-            return generateTrash(mobLevel);
-        } else {
-            return generateEquipment(mobLevel, itemDAO);
-        }
-    }
-    
-    /**
-     * Public wrapper for tests/tools to sample a single generated item.
+     * Public wrapper for tests/tools to sample a single generated equipment item.
      */
     public static GeneratedItem sampleSingleItem(int mobLevel) {
         if (LOOT_GENERATION_DISABLED) return null;
         ItemDAO itemDAO = DaoProvider.items();
-        return generateSingleItem(mobLevel, itemDAO);
+        return generateEquipment(mobLevel, itemDAO);
     }
     
     /**

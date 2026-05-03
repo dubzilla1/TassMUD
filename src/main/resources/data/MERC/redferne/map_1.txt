@@ -1,0 +1,18 @@
+=== Redferne (Area 79)  Map 1 of 6
+
+           [7907  ]
+               |
+           [7906  ]---[7908  ]
+               |
+[7905  ]---[7904  ]---[7913  ]
+               |
+[7902  ]---[7901^ ]---[7910  ]  ->[-1]
+               |
+           [7900v ]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 7900 -> south -> Room 9101
+  Room 7910 -> east -> Room -1

@@ -441,9 +441,13 @@ class GmWorldHandler {
             }
             
             // Kill and remove the mob
-            targetMob.die();
-            com.example.tassmud.util.MobileRegistry.getInstance().unregister(targetMob.getInstanceId());
-            mobileDao.deleteInstance(targetMob.getInstanceId());
+            try {
+                targetMob.die();
+                com.example.tassmud.util.MobileRegistry.getInstance().unregister(targetMob.getInstanceId());
+                mobileDao.deleteInstance(targetMob.getInstanceId());
+            } catch (Exception e) {
+                logger.warn("[slay] Failed to remove mob {}: {}", mobName, e.getMessage());
+            }
         }
         return true;
     }

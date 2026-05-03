@@ -1,0 +1,24 @@
+=== Draconia (Area 22)  Map 1 of 6
+
+[2232v ]---[2222  ]---[2219  ]---[2218  ]---  ->[2209]-[2223  ]
+                                                |
+                                            [2201  ]  ->[1304]
+                                                |
+                                                |
+                                                |
+                                                |
+                                                |
+                                            [2211  ]---[2212  ]
+                                                |
+                                 [2215  ]---[2213  ]---[2214  ]
+                                                |
+                                            [2216  ]---[2217  ]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 2201 -> east -> Room 1304
+  Room 2202 -> north -> Room 2207
+  Room 2211 -> north -> Room 2210
+  Room 2218 -> east -> Room 2209

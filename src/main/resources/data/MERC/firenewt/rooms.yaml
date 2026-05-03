@@ -7,6 +7,7 @@ rooms:
     long_desc: |
       You see before you some shiny black hills. There is very little vegetation
       here. The hills appear to lead to a high mountain to the south east
+    flags: [no_mob]
     exits:
       north: 4785
       south: 2901
@@ -44,6 +45,7 @@ rooms:
     long_desc: |
       You see before you some shiny black hills. There is very little vegetation
       here. The hills appear to lead to a high mountain to the south east
+    flags: [no_mob]
     exits:
       south: 2902
       north: 2900
@@ -81,6 +83,7 @@ rooms:
     long_desc: |
       You see before you some shiny black hills. There is very little vegetation
       here. The hills appear to lead to a high mountain to the south east
+    flags: [no_mob]
     exits:
       east: 2903
       north: 2901
@@ -243,6 +246,7 @@ rooms:
     long_desc: |
       You've reached the top of the mountain. You can see more smoke from up here.
       The smoke seems to come from a hole to the south.
+    flags: [no_mob]
     exits:
       south: 2906
       north: 2904
@@ -282,6 +286,7 @@ rooms:
     long_desc: |
       The smoke comes from inside the hole.  It also looks like there is a path
       that leads down.
+    flags: [no_mob]
     exits:
       down: 2910
       north: 2905
@@ -346,6 +351,7 @@ rooms:
     long_desc: |
       You are standing at the top of the mountain. The mountain looks like it has
       been ravaged by something.
+    flags: [no_mob]
     exits:
       west: 2906
     sector_type: HILLS
@@ -370,6 +376,7 @@ rooms:
     long_desc: |
       You are standing at the top of the mountain. There are several cracks in the
       ground and you don't feel safe!
+    flags: [no_mob]
     exits:
       east: 2906
     sector_type: HILLS
@@ -393,6 +400,7 @@ rooms:
     short_desc: "Mountain top"
     long_desc: |
       You are standing on the top of the mountain and think you should move north.
+    flags: [no_mob]
     exits:
       north: 2906
     sector_type: HILLS
@@ -416,6 +424,7 @@ rooms:
     short_desc: "Inside the mountain"
     long_desc: |
       You are standing inside the mountain.
+    flags: [dark, indoors]
     exits:
       down: 2913
       up: 2906
@@ -479,6 +488,7 @@ rooms:
     long_desc: |
       You are standing in a room with beds, tables, and fire newts!
       There are paintings on the wall.  They show battle scenes.
+    flags: [dark, indoors]
     exits:
       west: 2910
     sector_type: FIELD
@@ -536,6 +546,7 @@ rooms:
     long_desc: |
       You are standing in a room with beds, chairs, tables, and fire newts!
       There are paintings on the wall that show great leaders.
+    flags: [dark, indoors]
     exits:
       east: 2910
     sector_type: FIELD
@@ -592,6 +603,7 @@ rooms:
     short_desc: "Inside the mountain"
     long_desc: |
       You are standing inside the mountain.
+    flags: [dark, indoors]
     exits:
       down: 2916
       up: 2910
@@ -646,6 +658,7 @@ rooms:
     long_desc: |
       You see nothing special in this room.  There are some boxes and fire newt
       workers here.  There is also some trash piled up in the room.
+    flags: [dark, indoors]
     exits:
       south: 2913
     sector_type: FIELD
@@ -684,6 +697,7 @@ rooms:
       You are standing in the workers' quarters.  There are several workers here.  
       The room is messy and has nothing of value in it.  The party the night before
       must have destroyed everything.
+    flags: [dark, indoors]
     exits:
       north: 2913
     sector_type: FIELD
@@ -736,6 +750,7 @@ rooms:
     short_desc: "Bottom of the mountain"
     long_desc: |
       You are standing at the bottom of the shaft.
+    flags: [dark, indoors]
     exits:
       north: 2917
       up: 2913
@@ -778,6 +793,7 @@ rooms:
     short_desc: "The tunnel"
     long_desc: |
       You are standing in a dry, dark tunnel.
+    flags: [dark, indoors]
     exits:
       north: 2918
       south: 2917
@@ -834,6 +850,7 @@ rooms:
     short_desc: "The tunnel"
     long_desc: |
       You are standing in a dark tunnel.
+    flags: [dark, indoors]
     exits:
       north: 2921
       west: 2918
@@ -896,6 +913,7 @@ rooms:
       You are standing in a fire newt house.  There is a mother fire newt here
       playing with her children.  The room is full of newt toys- they look very
       boring.
+    flags: [dark, indoors]
     exits:
       west: 2919
     sector_type: FIELD
@@ -948,6 +966,7 @@ rooms:
     short_desc: "The tunnel"
     long_desc: |
       You are standing in a dark tunnel.
+    flags: [dark, indoors]
     exits:
       west: 2922
       south: 2919
@@ -1010,6 +1029,7 @@ rooms:
       You are standing in a fire newt house.  There is a fire newt mother here
       playing with her children.  The room has several torn baby newt diapers here
       ... how disgusting!
+    flags: [dark, indoors]
     exits:
       east: 2921
     sector_type: FIELD
@@ -1062,6 +1082,7 @@ rooms:
     short_desc: "The tunnel"
     long_desc: |
       You are standing in the dark tunnel.
+    flags: [dark, indoors]
     exits:
       west: null
       east: 2927
@@ -1117,6 +1138,7 @@ rooms:
     long_desc: |
       You are standing in the entrance to the town hall.  The room is large and
       ornate.
+    flags: [dark, indoors]
     exits:
       west: 2925
       east: 2923
@@ -1163,6 +1185,7 @@ rooms:
     long_desc: |
       You are standing in the waiting room of the town hall.  There is a big door
       to the west.  The room has pictures of the villages history.
+    flags: [dark, indoors]
     exits:
       west: 2926
       east: 2924
@@ -1219,6 +1242,7 @@ rooms:
     short_desc: "The Leader's Office"
     long_desc: |
       You are standing in the fire newt leader's office.
+    flags: [dark, indoors]
     exits:
       east: 2925
     sector_type: FIELD
@@ -1255,6 +1279,7 @@ rooms:
     long_desc: |
       You are standing outside the fire newt temple.  The temple has some very
       large arches and towers.
+    flags: [dark, indoors]
     exits:
       east: 2928
       west: 2923
@@ -1301,6 +1326,7 @@ rooms:
     long_desc: |
       You are standing at the entrance to the temple.  The temple is very neat. 
       The sates are set in straight rows and the alter is very large.
+    flags: [dark, indoors]
     exits:
       east: 2929
       west: 2927
@@ -1357,6 +1383,7 @@ rooms:
     short_desc: "Inside the Temple"
     long_desc: |
       You are standing inside the fire newt temple.
+    flags: [dark, indoors]
     exits:
       west: 2928
       down: 2930
@@ -1399,6 +1426,7 @@ rooms:
     short_desc: "The room before the doors"
     long_desc: |
       You are standing before a pair of huge doors.
+    flags: [dark, indoors]
     exits:
       east: 2931
       up: 2929
@@ -1448,6 +1476,7 @@ rooms:
     long_desc: |
       You are standing in a room that has several dozen piles of eggs.  There is
       a chest on the floor also.
+    flags: [dark, no_mob, indoors]
     exits:
       west: 2930
     sector_type: FIELD

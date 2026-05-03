@@ -1292,6 +1292,7 @@ rooms:
       You are inside the hermit's hut. It is rather old, but serves it purpose.
       It keeps its habitant from the rough winds and dangerous beasts of the
       plains and foothills. There is a small fireplace here.
+    flags: [indoors]
     exits:
       east: 330
     sector_type: INSIDE
@@ -1631,6 +1632,7 @@ rooms:
       the altar of G'harne.  The walls are covered with a smelly slime and small
       rotting pieces of a meat like substance, fills the air with an unbearable
       stench.  You might be able to force your way up into fresh air from here.
+    flags: [dark, indoors]
     exits:
       south: 341
       west: 342
@@ -1680,6 +1682,7 @@ rooms:
     long_desc: |
       The tunnel comes to an abrupt end here. It simply looks like it
       hasn't been excavated further.  North of here the tunnel makes a turn east.
+    flags: [dark, indoors]
     exits:
       north: 340
     sector_type: INSIDE
@@ -1705,6 +1708,7 @@ rooms:
       You are standing in a gloomy tunnel leading east and west.
       The walls are covered with a smelly slime and small rotting pieces of a
       meat like substance, fills the air with an unbearable stench.
+    flags: [dark, indoors]
     exits:
       east: 340
       west: 343
@@ -1781,6 +1785,7 @@ rooms:
       You stand in the hall of G'harne. The walls are dressed with strange
       carving, symbolizing human sacrifice and people worshipping giant worms.
       Disgusting slime and gore are also very dominant in your view of this room.
+    flags: [dark, indoors]
     exits:
       east: 343
     sector_type: INSIDE
@@ -1824,6 +1829,7 @@ rooms:
       You die.
       
       You've fallen, and you can't get up!
+    flags: [no_mob]
     exits:
     sector_type: FIELD
     legacy_flags:

@@ -1,0 +1,21 @@
+=== Firenewt (Area 29)  Map 1 of 5
+
+[2900  ]
+    |
+[2901  ]
+    |
+[2902  ]---[2903  ]
+               |
+           [2904  ]
+               |
+           [2905  ]
+               |
+[2908  ]---[2906v ]---[2907  ]
+               |
+           [2909  ]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 2900 -> north -> Room 4785

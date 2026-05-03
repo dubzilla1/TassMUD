@@ -119,6 +119,7 @@ rooms:
       seems powerfully DIFFERENT from the rest of the forest, as if something is
       severely strained in the fabric of reality here.  There is a small tablet 
       on one of the trees.
+    flags: [no_mob]
     exits:
       north: 5378
       south: 8906
@@ -181,6 +182,7 @@ rooms:
       feel calm and relaxed here, as if great burdens have been lifted from Your
       shoulders. From here, pleasant-looking paths lead east, north and south. To
       the west, through the trees, You can see the road to Midgaard.
+    flags: [no_mob]
     exits:
       east: 8905
       north: 8901
@@ -447,6 +449,7 @@ rooms:
       sion, shimmering softly through the colors of the rainbow. You feel as if You
       could spend the rest of your life here, lying on your back and looking at the
       patterns of the clouds as they gently drift across the sky.
+    flags: [indoors]
     exits:
       north: 8905
       east: 8919
@@ -503,6 +506,7 @@ rooms:
       from the wood's edge to the north, to the softly shimmering, rainbow-colored
       mansion to the south. This place enjoys a perpetual cool, sunny summers after-
       noon.
+    flags: [no_mob]
     exits:
       north: 8906
       south: 8910
@@ -545,6 +549,7 @@ rooms:
       the croquet lawn is to the north, flanked by large windows. The walls are
       panelled in oak and hung with strange paintings.  There is door in the south
       wall.
+    flags: [no_mob, indoors]
     exits:
       north: 8909
       south: 8911
@@ -588,6 +593,7 @@ rooms:
       You are in the north end of a connecting hallway, tastefully decorated with
       oak paneling and the coat-of-arms of various famous nobles hung on the walls.
       The hallway leads south, and there is a door in the eastern wall.
+    flags: [indoors]
     exits:
       north: 8910
       east: 8912
@@ -643,6 +649,7 @@ rooms:
       shades, producing a very nice, cool effect. There is a large bed and a
       matching set of sofas, easy-chairs and a coffee table. Through the venetian
       blinds in front of the large east window you can see the edge of the grove.
+    flags: [indoors, private]
     exits:
       west: 8911
     sector_type: INSIDE
@@ -673,6 +680,7 @@ rooms:
       You are standing in the south end of the hallway. There are doors in the
       elegant oak-panelled walls to the south, east and west. Many different
       coat-of-arms adorn the walls here.
+    flags: [indoors]
     exits:
       north: 8911
       east: 8914
@@ -730,6 +738,7 @@ rooms:
       plements them. There is a large, warm waterbed and a sofa group in dark wood
       with leather upholstery, including a coffee table. Heavy brown curtains are
       pulled away from the wide windows, to reveal a nice view towards the grove.
+    flags: [indoors, private]
     exits:
       west: 8913
     sector_type: INSIDE
@@ -771,6 +780,7 @@ rooms:
       along several shelves and a large combo refrigerator/freezer. A big oven and
       stove is lurking in a corner. There is some proof here that Dragon is a less
       than meticulous housekeeper... There are doors to the north and west.
+    flags: [indoors]
     exits:
       north: 8913
       west: 8918
@@ -821,6 +831,7 @@ rooms:
       standing forlornly in a corner suggests that this does not happen often.
       There are doors in the south and west walls, while to the east there is a
       short corridor to the greenhouse.
+    flags: [indoors]
     exits:
       east: 8913
       south: 8918
@@ -870,6 +881,7 @@ rooms:
       see out for all the greenery here. There is a set of easy-chairs and a glass
       coffee table. To the south, there is a wide double door out to a sunlit 
       terrace.
+    flags: [indoors, private]
     exits:
       east: 8916
       south: 8919
@@ -920,6 +932,7 @@ rooms:
       seating at least 24, with heavy, wooden chairs to match. The oak panel walls
       are filled with paintings. There are doors to the north and east, and to the
       west there is a wide double door opening out onto the sunlit terrace.
+    flags: [indoors]
     exits:
       north: 8916
       east: 8915
@@ -989,6 +1002,7 @@ rooms:
       colors, while a double door leads into the house proper to the east. It is
       warm and calm here. There is a white-painted table with a parasol here,
       together with a matched set of chairs.
+    flags: [no_mob, indoors]
     exits:
       north: 8917
       east: 8918
@@ -1037,6 +1051,7 @@ rooms:
       and falling ...
       ...
       .
+    flags: [no_mob]
     exits:
     sector_type: INSIDE
     legacy_flags:

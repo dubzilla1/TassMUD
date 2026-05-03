@@ -912,11 +912,20 @@ public class MovementCommandHandler implements CommandHandler {
                     return true;
                 }
                 
-                // PRIVATE check - destination room can only have 1 non-GM player
+                // PRIVATE check - destination room can only have 2 non-GM players
                 if (DaoProvider.rooms().isRoomPrivate(destId) && !isGm) {
                     int nonGmCount = countNonGmPlayersInRoom(destId, dao);
-                    if (nonGmCount >= 1) {
+                    if (nonGmCount >= 2) {
                         out.println("That room is currently occupied.");
+                        return true;
+                    }
+                }
+
+                // SOLITARY check - destination room can only have 1 non-GM player
+                if (DaoProvider.rooms().isRoomSolitary(destId) && !isGm) {
+                    int nonGmCount = countNonGmPlayersInRoom(destId, dao);
+                    if (nonGmCount >= 1) {
+                        out.println("That room is already occupied.");
                         return true;
                     }
                 }

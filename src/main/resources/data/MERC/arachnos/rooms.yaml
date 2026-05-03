@@ -8,6 +8,7 @@ rooms:
       You are balancing carefully on the giant sticky threads that holds the giant
       web in place.  To the south leads a strand to a cave-like structure made from
       many layers of a spider web.  Another silky strand continues to the north.
+    flags: [dark, indoors]
     exits:
       north: 6203
       south: 6133
@@ -46,6 +47,7 @@ rooms:
       You are balancing carefully on the giant sticky threads that holds the giant
       web in place.  To the north leads a strand to a cave-like structure made from
       many layers of a spider web.
+    flags: [dark, indoors]
     exits:
       north: 6134
     sector_type: WATER_SWIM
@@ -74,6 +76,7 @@ rooms:
       You are balancing carefully on the giant sticky threads that holds the giant
       web in place.  To the east leads a strand to a cave-like structure made from
       many layers of a spider web.
+    flags: [dark, indoors]
     exits:
       east: 6134
     sector_type: WATER_SWIM
@@ -102,6 +105,7 @@ rooms:
       You are balancing carefully on the giant sticky threads that holds the giant
       web in place. A single silky strand lead to the south, while another leads
       off into the northern direction.
+    flags: [dark, indoors]
     exits:
       north: 6301
       south: 6200
@@ -142,6 +146,7 @@ rooms:
       You begin to wonder about what lies ahead.  The air is damp here,
       and even the little light that shines through the canopy seems
       absorbed into the webbing.
+    flags: [no_mob]
     exits:
       north: 6302
       south: 6203
@@ -1835,6 +1840,7 @@ rooms:
       Mahatma, that silly thief, is here, and he steals everything you
       have.  He says, 'Here, have a quick trip to the Temple of Midgaard.'
       He plunges a black dagger into your back ...
+    flags: [no_mob]
     exits:
     sector_type: INSIDE
     legacy_flags:
@@ -1916,6 +1922,7 @@ rooms:
       Before you you see a large, web-like door.  Various designs
       of ancient runes and names of Midgaard heroes are etched into
       the webwork.  Perhaps lists of victims?  You can't tell.
+    flags: [indoors]
     exits:
       north: 6399
       south: 6391

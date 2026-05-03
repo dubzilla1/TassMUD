@@ -426,6 +426,17 @@ class MeleeSkillHandler {
         com.example.tassmud.util.SkillExecution.Result infuseResult = 
             com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
                 name, charId, infuseSkill, charInfuse, dao, infuseSucceeded);
+
+        ctx.handler.sendDebug("Arcane Infusion proficiency check:");
+        ctx.handler.sendDebug("  Skill progression: " + infuseSkill.getProgression());
+        ctx.handler.sendDebug("  Current proficiency: " + charInfuse.getProficiency() + "%");
+        ctx.handler.sendDebug("  Gain chance at this level: " + infuseSkill.getProgression().getGainChance(charInfuse.getProficiency()) + "%");
+        ctx.handler.sendDebug("  Skill succeeded: " + infuseSucceeded);
+        ctx.handler.sendDebug("  Proficiency improved: " + infuseResult.didProficiencyImprove());
+        if (infuseResult.getProficiencyResult() != null) {
+            ctx.handler.sendDebug("  Old prof: " + infuseResult.getProficiencyResult().getOldProficiency()
+                + " -> New prof: " + infuseResult.getProficiencyResult().getNewProficiency());
+        }
         
         if (infuseResult.didProficiencyImprove()) {
             out.println(infuseResult.getProficiencyMessage());
@@ -630,7 +641,16 @@ class MeleeSkillHandler {
         com.example.tassmud.util.ProficiencyCheck.Result profResult = 
             com.example.tassmud.util.ProficiencyCheck.checkProficiencyGrowth(
                 charId, heroicSkill, charHeroic, heroicSucceeded, dao);
+
+        ctx.handler.sendDebug("Heroic Strike proficiency check:");
+        ctx.handler.sendDebug("  Skill progression: " + heroicSkill.getProgression());
+        ctx.handler.sendDebug("  Current proficiency: " + charHeroic.getProficiency() + "%");
+        ctx.handler.sendDebug("  Gain chance at this level: " + heroicSkill.getProgression().getGainChance(charHeroic.getProficiency()) + "%");
+        ctx.handler.sendDebug("  Skill succeeded: " + heroicSucceeded);
+        ctx.handler.sendDebug("  Proficiency improved: " + profResult.hasImproved());
         if (profResult.hasImproved()) {
+            ctx.handler.sendDebug("  Old prof: " + profResult.getOldProficiency()
+                + " -> New prof: " + profResult.getNewProficiency());
             out.println(profResult.getImprovementMessage());
         }
         
@@ -844,6 +864,17 @@ class MeleeSkillHandler {
         com.example.tassmud.util.SkillExecution.Result bashResult = 
             com.example.tassmud.util.SkillExecution.recordPlayerSkillUse(
                 name, charId, bashSkill, charBash, dao, bashSucceeded);
+
+        ctx.handler.sendDebug("Bash proficiency check:");
+        ctx.handler.sendDebug("  Skill progression: " + bashSkill.getProgression());
+        ctx.handler.sendDebug("  Current proficiency: " + charBash.getProficiency() + "%");
+        ctx.handler.sendDebug("  Gain chance at this level: " + bashSkill.getProgression().getGainChance(charBash.getProficiency()) + "%");
+        ctx.handler.sendDebug("  Skill succeeded: " + bashSucceeded);
+        ctx.handler.sendDebug("  Proficiency improved: " + bashResult.didProficiencyImprove());
+        if (bashResult.getProficiencyResult() != null) {
+            ctx.handler.sendDebug("  Old prof: " + bashResult.getProficiencyResult().getOldProficiency()
+                + " -> New prof: " + bashResult.getProficiencyResult().getNewProficiency());
+        }
 
         if (bashResult.didProficiencyImprove()) {
             out.println(bashResult.getProficiencyMessage());

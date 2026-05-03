@@ -8,6 +8,7 @@ rooms:
       You are standing at the eastern edge of a big forest.  To the east is the West
       Gate of Midgaard and to the west is a narrow trail, leading in through the
       forest.  A dimly lit path leads north.
+    flags: [no_mob]
     exits:
       north: 1100
       east: 3052
@@ -489,6 +490,7 @@ rooms:
       You are inside a small one-room cabin made entirely from heavy logs.  It is
       very sparsely furnished, containing only most basic housekeeping equipment,
       such as a bed, a chair and a table.
+    flags: [indoors]
     exits:
       south: 6009
     sector_type: INSIDE
@@ -1035,6 +1037,7 @@ rooms:
       You are in a natural cave.  Various sorts of debris cover the stone floor,
       emitting a rather unpleasant smell that makes the air thick and hard to
       breathe.  The only obvious exit is east.
+    flags: [dark, indoors]
     exits:
       east: 6021
     sector_type: INSIDE
@@ -1112,6 +1115,7 @@ rooms:
       You are on a narrow trail winding its way between the enormous, grey trunks.
       The crowns of the trees must be very dense, as they leave the forest floor in
       utter darkness.  The trail leads east and west.
+    flags: [dark, indoors]
     exits:
       east: 6004
       west: 6101
@@ -1163,6 +1167,7 @@ rooms:
       You are on a dusty trail winding its way east-west between huge, ancient trees
       whose grey trunks remind you of ancient pillars in a enormous, deserted hall.
       To the south, a frail path leads away from the trail.
+    flags: [dark, indoors]
     exits:
       east: 6100
       south: 6104
@@ -1218,6 +1223,7 @@ rooms:
       You are on a dusty trail winding its way east-west between huge, ancient trees
       that stand close on all sides.  Not a sound is to be heard - everything is
       ominously quiet.
+    flags: [dark, indoors]
     exits:
       east: 6101
       west: 6103
@@ -1263,6 +1269,7 @@ rooms:
       You are where the dusty trail bends, as to avoid conflict with a colossal
       trunk to the west.  Not a sound is to be heard - everything is ominously quiet.
       The trail leads east and south.
+    flags: [dark, indoors]
     exits:
       north: 6150
       east: 6102
@@ -1320,6 +1327,7 @@ rooms:
       You are on a narrow path leading through the deep, dark forest.  You feel as if
       the ancient trees observe you in watchful silence.  The path continues north
       and south.
+    flags: [dark, indoors]
     exits:
       north: 6101
       south: 6105
@@ -1373,6 +1381,7 @@ rooms:
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
       trees loom all around you.  The path continues north and west.
+    flags: [dark, indoors]
     exits:
       north: 6104
       west: 6106
@@ -1418,6 +1427,7 @@ rooms:
     long_desc: |
       You are by a junction where three paths meet.  Ancient grey trees tower above
       you on all sides.  Paths lead east, south and west.
+    flags: [dark, indoors]
     exits:
       east: 6105
       south: 6117
@@ -1468,6 +1478,7 @@ rooms:
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
       trees loom all around you.  The path continues north and east.
+    flags: [dark, indoors]
     exits:
       north: 6108
       east: 6106
@@ -1509,6 +1520,7 @@ rooms:
       You are on a dusty trail winding its way between huge, ancient trees
       standing close on all sides.  The trail leads north and west and to the south,
       a frail path leads away from the trail.
+    flags: [dark, indoors]
     exits:
       north: 6103
       south: 6107
@@ -1573,6 +1585,7 @@ rooms:
       You are on a dusty trail winding its way east-west between huge, ancient trees
       that stand close on all sides.  Not a sound is to be heard - everything is
       ominously quiet.
+    flags: [dark, indoors]
     exits:
       east: 6108
       west: 6110
@@ -1615,6 +1628,7 @@ rooms:
       You are on a dusty trail winding its way between huge, ancient trees that stand
       close on all sides.  The trail leads east and south.  To the north, a narrow
       path leads away from the trail.
+    flags: [dark, indoors]
     exits:
       north: 6144
       east: 6109
@@ -1669,6 +1683,7 @@ rooms:
     long_desc: |
       You are on a dusty trail winding its way north-south between huge, ancient
       trees that loom ominously above you.
+    flags: [dark, indoors]
     exits:
       north: 6110
       south: 6112
@@ -1716,6 +1731,7 @@ rooms:
       You are on a dusty trail winding its way between huge, ancient trees
       standing close on all sides.  The trail leads north and west and to the east,
       a frail path leads away from the trail.
+    flags: [dark, indoors]
     exits:
       north: 6111
       east: 6113
@@ -1779,6 +1795,7 @@ rooms:
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
       trees loom in all directions.  The path continues south and west.
+    flags: [dark, indoors]
     exits:
       south: 6114
       west: 6112
@@ -1824,6 +1841,7 @@ rooms:
     long_desc: |
       You are by a junction where three paths meet.  Ancient grey trees tower above
       you on all sides.  Paths lead north, east and west.
+    flags: [dark, indoors]
     exits:
       north: 6113
       east: 6115
@@ -1875,6 +1893,7 @@ rooms:
       You are on a narrow path leading through the deep, dark forest.  You feel as
       if the ancient trees observe you in watchful silence.  The path continues north
       and west.
+    flags: [dark, indoors]
     exits:
       north: 6116
       west: 6114
@@ -1915,6 +1934,7 @@ rooms:
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Giant, grey
       trees loom ominously on all sides.  The path continues east and south.
+    flags: [dark, indoors]
     exits:
       east: 6117
       south: 6115
@@ -1964,6 +1984,7 @@ rooms:
     long_desc: |
       You are by a junction where three paths meet.  Ancient, grey trees seem to
       observe you silently you from all sides.  Paths lead north, east and west.
+    flags: [dark, indoors]
     exits:
       north: 6106
       east: 6118
@@ -2014,6 +2035,7 @@ rooms:
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Ancient,
       grey trees loom everywhere.  The path continues south and west.
+    flags: [dark, indoors]
     exits:
       south: 6119
       west: 6117
@@ -2063,6 +2085,7 @@ rooms:
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Huge, ancient
       trees are on all sides.  The path continues north and south.
+    flags: [dark, indoors]
     exits:
       north: 6118
       south: 6120
@@ -2109,6 +2132,7 @@ rooms:
       You are on a narrow path leading through the deep, dark forest.  To the south a
       fast river is flowing westwards through the forest.  Ancient grey trees loom on
       both banks.  The path continues north and west.
+    flags: [dark, indoors]
     exits:
       north: 6119
       west: 6121
@@ -2153,6 +2177,7 @@ rooms:
       You are on a narrow path leading through the deep, dark forest.  The ancient
       trees stand so close that the path disappears between the dusty roots.  To the
       south a dark river flows from east to west.  The only exit appears to be east.
+    flags: [dark, indoors]
     exits:
       east: 6120
     sector_type: FOREST
@@ -2186,6 +2211,7 @@ rooms:
     long_desc: |
       You are on a narrow path leading through the deep, dark forest.  Giant, grey
       trees loom ominously all around.  The path continues east and south.
+    flags: [dark, indoors]
     exits:
       east: 6114
       south: 6123
@@ -2232,6 +2258,7 @@ rooms:
       You are by a junction where three paths meet.  Ancient, grey trees seem to
       observe you silently you from all around.  To the south a dark river flows from
       east to west through the forest.  Paths lead north, east and west.
+    flags: [dark, indoors]
     exits:
       north: 6122
       east: 6124
@@ -2286,6 +2313,7 @@ rooms:
       You are on a narrow path leading through the deep, dark forest.  The ancient
       trees stand so close that the path disappears between the dusty roots.  To the
       south a dark river flows from east to west.  The only exit appears to be west.
+    flags: [dark, indoors]
     exits:
       west: 6123
       south: 2801
@@ -2330,6 +2358,7 @@ rooms:
       You are on a narrow path leading through the deep, dark forest.  Ancient grey
       trees loom everywhere.  To the south you smell marsh gas.  The path continues
       north and east.
+    flags: [dark, indoors]
     exits:
       north: 6126
       east: 6123
@@ -2389,6 +2418,7 @@ rooms:
       You are on a dusty trail winding its way between huge, ancient trees standing
       close on all sides.  The trail leads north and west, and to the south a frail
       path leads away from the trail.
+    flags: [dark, indoors]
     exits:
       north: 6127
       south: 6125
@@ -2443,6 +2473,7 @@ rooms:
     long_desc: |
       You are on a dusty trail winding its way between huge, ancient trees
       standing close on all sides.  The trail leads east and south.
+    flags: [dark, indoors]
     exits:
       east: 6112
       south: 6126
@@ -2494,6 +2525,7 @@ rooms:
       You are on a dusty trail winding its way east-west between huge, ancient trees
       that stand close on all sides.  Not a sound is to be heard - everything is
       ominously quiet.
+    flags: [dark, indoors]
     exits:
       east: 6126
       west: 6129
@@ -2536,6 +2568,7 @@ rooms:
       You are on a dusty trail winding its way east-west between huge, ancient trees
       that stand close on all sides.  Not a sound is to be heard - everything is
       ominously quiet.
+    flags: [dark, indoors]
     exits:
       east: 6128
       west: 6135
@@ -2579,6 +2612,7 @@ rooms:
       wires suspended like ropes between the trees.  To the west the path seems to
       be completely covered in a giant web made from huge threads covered with glue.
       This place gives you the creeps.
+    flags: [dark, indoors]
     exits:
       east: 6144
       west: 6131
@@ -2646,6 +2680,7 @@ rooms:
       
       >
       You've fallen, and you can't get up!!!!!
+    flags: [no_mob, indoors]
     exits:
     sector_type: FOREST
     legacy_flags:
@@ -2661,6 +2696,7 @@ rooms:
       You are hanging on the outside of a huge tree trunk covered in a sticky
       substance.  Directly to the west is an immense spider web suspended between
       numerous of the giant trees including the one you are hanging on.
+    flags: [dark, no_mob, indoors]
     exits:
       west: 6133
       down: 6130
@@ -2701,6 +2737,7 @@ rooms:
       You are balancing carefully on the giant sticky threads that holds the giant
       web in place.  To the east is a giant tree trunk and to the west is an entrance
       to a cave-like structure made from many layers of spider web.
+    flags: [dark, indoors]
     exits:
       north: 6200
       east: 6132
@@ -2753,6 +2790,7 @@ rooms:
       countless layers of spider web.  Temperature and humidity is very high making
       it hard to breathe the foul air that lingers here.  The walls are covered with
       open cocoons.
+    flags: [dark, indoors]
     exits:
       east: 6133
     sector_type: WATER_SWIM
@@ -2783,6 +2821,7 @@ rooms:
     long_desc: |
       You are on a dusty trail leading through the deep, dark forest.  Ancient grey
       trees loom all around you.  The trail continues north and east.
+    flags: [dark, indoors]
     exits:
       north: 6136
       east: 6129
@@ -2821,6 +2860,7 @@ rooms:
       You are on a dusty trail leading through the deep, dark forest.  Ancient,
       grey trees loom everywhere.  The trail continues south and west.  A broad
       irregular path leads eastwards away from the trail.
+    flags: [dark, indoors]
     exits:
       east: 6142
       south: 6135
@@ -2875,6 +2915,7 @@ rooms:
       You are on a dusty trail leading through the deep, dark forest.  Ancient grey
       trees loom all around you.  You see a dark grove north of you.
       The only other exit is east.
+    flags: [dark, indoors]
     exits:
       north: 1300
       east: 6136
@@ -2913,6 +2954,7 @@ rooms:
       You are at the end of a broad, irregular path.  To the north is a very large
       ominous-looking cave opening.  The trees here have many marks as if something
       with huge claws has been tearing at them in rage.
+    flags: [dark, indoors]
     exits:
       north: 6143
       west: 6136
@@ -2954,6 +2996,7 @@ rooms:
       You are in a big natural cave.  The floor is littered with bones of all sorts
       and the stench is so massive that you could cut it with a knife.  The only exit
       is to the south.
+    flags: [dark, indoors]
     exits:
       south: 6142
     sector_type: FOREST
@@ -2994,6 +3037,7 @@ rooms:
       You are on a narrow path leading through the deep, dark forest.  Ancient,
       grey trees loom everywhere.  The tree trunks here seem to be covered in some
       sticky substance.  The path continues south and west.
+    flags: [dark, indoors]
     exits:
       south: 6110
       west: 6130
@@ -3038,6 +3082,7 @@ rooms:
       This trail looks much spookier than any other thats you have seen.  The usual
       animal claw marks and bites on the trees are getting far and few between. The
       trail continues north.
+    flags: [dark, indoors]
     exits:
       north: 6151
       south: 6103
@@ -3073,6 +3118,7 @@ rooms:
       This area of the trail is also very peculiar.  You can see no signs of animal
       life what so ever.  The structure of the surrounding trees forces the path to
       make a sharp turn to the east.
+    flags: [dark, indoors]
     exits:
       east: 6152
       south: 6150
@@ -3108,6 +3154,7 @@ rooms:
       The trees here seem to form a circle around a HUGE tree that is in the center
       of them.  You notice a wooden door carved into the huge tree to the east.  The
       trail that you followed to get here seems to end at the base of the tree.
+    flags: [dark, indoors]
     exits:
       east: 6153
       west: 6151
@@ -3142,6 +3189,7 @@ rooms:
     long_desc: |
       You have stepped inside of this hollowed tree.  From here steps lead down into
       darkness or you can exit the tree by going west.
+    flags: [dark, indoors]
     exits:
       down: 6154
       west: 6152
@@ -3176,6 +3224,7 @@ rooms:
     long_desc: |
       This hallway is apparently one of the roots of the tree hollowed out.  The hall
       leads south to a room where you hear strange noises or you can go up the steps.
+    flags: [dark, indoors]
     exits:
       up: 6153
       south: 6155
@@ -3212,6 +3261,7 @@ rooms:
       to visit but you feel very uncomfortable about spending much time here.
       The wooden altar seems almost to glow as you enter the room.  The only exit is
       the way you came in.
+    flags: [dark, indoors]
     exits:
       north: 6154
     sector_type: FOREST

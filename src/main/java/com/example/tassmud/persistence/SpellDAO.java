@@ -152,7 +152,7 @@ public class SpellDAO {
     }
 
     public Spell getSpellByName(String name) {
-        String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE name = ?";
+        String sql = "SELECT id, name, description, school, level, casting_time, target, progression, effect_ids, traits, cooldown, duration, mp_cost FROM spelltb WHERE UPPER(name) = UPPER(?)";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);

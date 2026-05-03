@@ -80,6 +80,7 @@ rooms:
       trees it is one.  Occasionally you see a whole humanoid form floating face down
       in the water, but mostly you only find pieces.  You hear a loud bellow in the
       distance.  And feel fear creep into your heart.
+    flags: [dark]
     exits:
       east: 8305
       west: 8302
@@ -133,6 +134,7 @@ rooms:
     long_desc: |
       You stand atop a hill on the northwestern side of the evil swamp. Dark
       clouds whip around you and the wind raises its voice and assails you.
+    flags: [dark]
     exits:
       north: 8302
       east: 8309
@@ -195,6 +197,7 @@ rooms:
       beasts flap over you and send chilling glares your way.  You feel out
       of place, and feel that the occupants of this realm will soon 
       have you for a feast.
+    flags: [dark]
     exits:
       east: 8306
       west: 8303
@@ -244,6 +247,7 @@ rooms:
     long_desc: |
       The ground here is soft and oozing.  You feel slimy water seeping into your
       boots.  Better stop and check for leeches when you get out of here.
+    flags: [dark]
     exits:
       west: 8305
     sector_type: MOUNTAIN
@@ -289,6 +293,7 @@ rooms:
     long_desc: |
       A horrible swamp thing resides here.  Mutilated corpses suffuse the air with
       the overwhelming stench of putrid flesh.
+    flags: [dark]
     exits:
       west: 8308
     sector_type: WATER_SWIM
@@ -336,6 +341,7 @@ rooms:
       You stand by a large oozing pool of quick sand.  Luckily only a complete
       klutz could not avoid it.  Dancing lights fly about you and one seems to
       be taunting you towards the pool.
+    flags: [dark]
     exits:
       east: 8307
       south: 8314
@@ -397,6 +403,7 @@ rooms:
       You stand beside a large dark pond.  The water boils not with heat, but with
       motion, as if it is alive.  A creaking beat pulses through the air, leaving
       you with a cold sweat and fear in your heart.
+    flags: [dark]
     exits:
       east: 8308
       south: 8311
@@ -460,6 +467,7 @@ rooms:
       a huge patch of vegetation.  You sense an evil presence and notice 
       a beast flying overhead to the south east, towards what looks to be a 
       huge fortress, half buried in the marsh.
+    flags: [dark]
     exits:
       north: 8304
       south: 8312
@@ -522,6 +530,7 @@ rooms:
     long_desc: |
       As you travel through this cloud of darkness, a fear such as you have never
       known before assails you.
+    flags: [dark]
     exits:
       north: 8309
       south: 8313
@@ -566,6 +575,7 @@ rooms:
     long_desc: |
       You stand near some of the strangest plant life you have ever seen, a mixture
       of tumescent vegetables, evil-smelling fruit trees, and malignant ferns.
+    flags: [dark]
     exits:
       north: 8310
       east: 8313
@@ -617,6 +627,7 @@ rooms:
       You are standing near a monolith which protrudes some 20 feet from the
       marsh into the air.  Its black obsidian surface shines darkly in the 
       strange, almost unearthly light that enters through the clouds above.
+    flags: [dark]
     exits:
       north: 8311
       east: 8314
@@ -680,6 +691,7 @@ rooms:
       A murky bog surrounds you.  To the east a black monolith juts forth from the
       ground.  Far to the north lies a huge pool of quicksand.  Snarls can be heard
       echoing as if from a great distance.
+    flags: [dark]
     exits:
       north: 8308
       east: 8315
@@ -727,6 +739,7 @@ rooms:
       experience.  Many a creature bumps the bottom of your boat, and glares 
       at you through unblinking eyes from the waters below.  The southern 
       portion of the lake looks calm and serene compared to this wild place.
+    flags: [dark]
     exits:
       south: 8316
       west: 8314
@@ -772,6 +785,7 @@ rooms:
       You are floating on a calm section of blue crystal water.  You feel much more
       at ease then you were before in this area.  Then a wave of fear passes over
       you.  You are not alone.
+    flags: [dark]
     exits:
       north: 8315
       west: 8317
@@ -808,6 +822,7 @@ rooms:
     long_desc: |
       You are on a sandy shore.  Marsh life creeps across the surface.  To the west
       lies an evil fortress.  You see figures walking along the battlements.
+    flags: [dark]
     exits:
       east: 8316
       west: 8318
@@ -844,6 +859,7 @@ rooms:
       You stand before the gates of a huge fortress.  The drawbridge is up, the
       gates closed, and the portcullis down.  This place looks very dangerous,
       and you decide not to continue onward.
+    flags: [dark]
     exits:
       east: 8317
       south: -1

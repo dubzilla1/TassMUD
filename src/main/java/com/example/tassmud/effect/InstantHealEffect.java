@@ -86,6 +86,10 @@ public class InstantHealEffect implements EffectHandler {
             CharacterDAO.CharacterRecord crec = dao.findById(casterId);
             if (crec != null) casterName = crec.name;
         }
+        // Allow NPC casters (casterId == null) to supply their name via extraParams
+        if (casterName == null && p.containsKey("caster_name")) {
+            casterName = p.get("caster_name");
+        }
 
         String targetName = null;
         CharacterDAO.CharacterRecord trec = dao.findById(targetId);

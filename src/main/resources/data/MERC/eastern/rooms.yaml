@@ -7,6 +7,7 @@ rooms:
     long_desc: |
       You encounter some rapids as you enter this tunnel cut out of
       the mountains by the river.
+    flags: [dark, indoors]
     exits:
       east: 5002
       west: 3205
@@ -40,6 +41,7 @@ rooms:
     short_desc: "A long tunnel"
     long_desc: |
       The tunnel branches off north.
+    flags: [dark, indoors]
     exits:
       north: 5008
       east: 5003
@@ -83,6 +85,7 @@ rooms:
     short_desc: "A long tunnel"
     long_desc: |
       The tunnel branches off south.
+    flags: [dark, indoors]
     exits:
       east: 5004
       south: 5017
@@ -126,6 +129,7 @@ rooms:
     short_desc: "A long tunnel"
     long_desc: |
       The tunnel branches off to the south.
+    flags: [dark, indoors]
     exits:
       east: 5005
       south: 5018
@@ -172,6 +176,7 @@ rooms:
       water and lime from above. The tunnel continues to the east and the river
       leads back west. To the north is a roughly-hewn hallway. There is also
       a tunnel south.
+    flags: [dark, indoors]
     exits:
       north: 5016
       east: 5006
@@ -225,6 +230,7 @@ rooms:
     short_desc: "A long narrow tunnel"
     long_desc: |
       The tunnel rises sharply to the east.
+    flags: [dark, indoors]
     exits:
       east: 5007
       west: 5005
@@ -259,6 +265,7 @@ rooms:
     long_desc: |
       The tunnel continues east and west. To the east the tunnel dives
       down into a bright light.
+    flags: [dark, indoors]
     exits:
       east: 5027
       west: 5006
@@ -293,6 +300,7 @@ rooms:
     long_desc: |
       You stand at the edge of a large pile of rubble created from the last
       rockslide.
+    flags: [dark, indoors]
     exits:
       south: 5002
       down: 5009
@@ -327,6 +335,7 @@ rooms:
     long_desc: |
       You are at the bottom of a large pile of rubble. A tunnel branches
       off to the north and east.
+    flags: [dark, indoors]
     exits:
       north: 5010
       east: 5012
@@ -380,6 +389,7 @@ rooms:
     long_desc: |
       You stand in the middle of a large and beautiful cave. A path leads
       deeper into the darkness.
+    flags: [dark, indoors]
     exits:
       south: 5009
       down: 5011
@@ -414,6 +424,7 @@ rooms:
     long_desc: |
       This cavern overwhelms you. The walls and ceiling seem miles away.
       Bones of previous adventurers lie strewn on the cavern floor.
+    flags: [dark, indoors]
     exits:
       up: 5010
     sector_type: MOUNTAIN
@@ -453,6 +464,7 @@ rooms:
     short_desc: "Narrow bend"
     long_desc: |
       The tunnel turns to the south and west.
+    flags: [dark, indoors]
     exits:
       south: 5013
       west: 5009
@@ -486,6 +498,7 @@ rooms:
     short_desc: "Large cave"
     long_desc: |
       You are standing in a large cave. Many furs are spread out on the floor.
+    flags: [dark, indoors]
     exits:
       north: 5012
       east: 5014
@@ -519,6 +532,7 @@ rooms:
     short_desc: "Damp hallway"
     long_desc: |
       The walls here are extremely damp, as well as the floor.
+    flags: [dark, indoors]
     exits:
       east: 5015
       west: 5013
@@ -561,6 +575,7 @@ rooms:
     short_desc: "Underground pool"
     long_desc: |
       You are wading in a knee deep pool of lime-water.
+    flags: [dark, indoors]
     exits:
       south: 5016
       west: 5014
@@ -595,6 +610,7 @@ rooms:
     long_desc: |
       The walls of the tunnel are extremely damp here. You hear the faint
       sound of running water to the south.
+    flags: [dark, indoors]
     exits:
       north: 5015
       south: 5005
@@ -629,6 +645,7 @@ rooms:
     long_desc: |
       This crawlway is just big enough for a human to crawl through or a
       halfling to walk through.
+    flags: [dark, indoors]
     exits:
       north: 5003
       east: 5018
@@ -673,6 +690,7 @@ rooms:
     long_desc: |
       You have entered a very large cavern. The rock formations would amaze
       almost any dwarf.
+    flags: [dark, indoors]
     exits:
       north: 5004
       west: 5017
@@ -707,6 +725,7 @@ rooms:
     long_desc: |
       As you walk through the fungus patch, you are shot at by many millions of
       spores. You can hardly breathe.
+    flags: [dark, indoors]
     exits:
       north: 5017
       east: 5020
@@ -741,6 +760,7 @@ rooms:
     long_desc: |
       As you walk along the path, millions of spores are shot at you. You can
       hardly breathe.
+    flags: [dark, indoors]
     exits:
       south: 5021
       west: 5019
@@ -775,6 +795,7 @@ rooms:
     long_desc: |
       You find yourself standing inside of a giant mushroom. The inside
       is decorated in the fashion of a temple.
+    flags: [dark, indoors]
     exits:
       north: 5020
       east: 5022
@@ -834,6 +855,7 @@ rooms:
     short_desc: "Sloping passage"
     long_desc: |
       You follow a path sloping down from the fungus temple.
+    flags: [dark, indoors]
     exits:
       west: 5021
       down: 5023
@@ -867,6 +889,7 @@ rooms:
     short_desc: "Sloping passage"
     long_desc: |
       You are on a path that gently slopes up from the underground pool.
+    flags: [dark, indoors]
     exits:
       north: 5005
       up: 5022
@@ -901,6 +924,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5030
       east: 5025
@@ -958,6 +982,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5056
       east: 5026
@@ -1019,6 +1044,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5032
       east: 5024
@@ -1076,6 +1102,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5024
       east: 5028
@@ -1137,6 +1164,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5025
       east: 5029
@@ -1205,6 +1233,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5026
       east: 5062
@@ -1266,6 +1295,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5027
       east: 5031
@@ -1323,6 +1353,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5028
       east: 5032
@@ -1388,6 +1419,7 @@ rooms:
     long_desc: |
       A vast desert stretches for miles, the sand constantly shifting around you.
       You feel lost.
+    flags: [no_recall]
     exits:
       north: 5029
       east: 5030
@@ -1689,6 +1721,7 @@ rooms:
       A vast desert stretches for miles, the sand constantly shifting around you.
       But this patch of desert looks different ... the sand glows.  You see a
       futuristic city to the south.
+    flags: [no_mob, indoors]
     exits:
       south: 8001
       west: 5029
@@ -1755,6 +1788,7 @@ rooms:
       The air in here is MUCH cooler than outside. From the west you hear
       strange sounds, but can see nothing. The cave slopes down into the
       darkness.
+    flags: [dark, indoors]
     exits:
       east: 5063
       west: 5065
@@ -1791,6 +1825,7 @@ rooms:
       haphazardly strewn about and the rotting carcasses, you would guess that
       this is a dragon's lair. As to what type, you can't really say. The cave
       narrows out into a tunnel to the west.
+    flags: [dark, indoors]
     exits:
       east: 5064
       west: 5066
@@ -1859,6 +1894,7 @@ rooms:
     long_desc: |
       This tunnel seems to go on forever into the darkness. You carefully
       feel your way along the walls.
+    flags: [dark, no_mob, indoors]
     exits:
       east: 5065
       west: 5067
@@ -1894,6 +1930,7 @@ rooms:
     long_desc: |
       The tunnel becomes very narrow and you fight to squeeze your way through.
       The floor seems to level off a little.
+    flags: [dark, indoors]
     exits:
       east: 5066
       south: 5068
@@ -1928,6 +1965,7 @@ rooms:
     long_desc: |
       This part of the tunnel is the hardest to move through as the walls
       move in to meet you.
+    flags: [dark, indoors]
     exits:
       north: 5067
       west: 5069
@@ -1962,6 +2000,7 @@ rooms:
     long_desc: |
       It is dark and damp and bats hang from the ceiling. A narrow crack is
       in the east wall. The floor now slopes upwards.
+    flags: [dark, indoors]
     exits:
       north: 5070
       east: 5068
@@ -1996,6 +2035,7 @@ rooms:
     long_desc: |
       From within this shaft you can see a narrow hole in the roof just
       large enough for one person. Back east is the cavern.
+    flags: [dark, indoors]
     exits:
       south: 5069
       up: 5009

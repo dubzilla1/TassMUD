@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Central dispatcher for ARCANE spells. Registers handlers for all arcane
+ * Central dispatcher for DIVINE spells. Registers handlers for all divine
  * spells and provides dedicated handle<SpellName>() methods for each.
  *
  * Currently each handler delegates to a common "not implemented" stub.
@@ -26,7 +26,7 @@ public class DivineSpellHandler {
     private static final Logger logger = LoggerFactory.getLogger(DivineSpellHandler.class);
 
     static {
-        // Register ARCANE spells with the SpellRegistry. Each registration
+        // Register DIVINE spells with the SpellRegistry. Each registration
         // captures the spell name and dispatches to our shared dispatcher.
         registerDivine("armor");
         registerDivine("bless");
@@ -34,6 +34,7 @@ public class DivineSpellHandler {
         registerDivine("cure blindness");
         registerDivine("cure critical");
         registerDivine("cure light");
+        registerDivine("cure moderate wounds");
         registerDivine("cure poison");
         registerDivine("cure serious");
         registerDivine("detect evil");
@@ -60,6 +61,7 @@ public class DivineSpellHandler {
         registerDivine("aura of protection");
         registerDivine("holy avenger");
         registerDivine("divine fury");
+        registerDivine("flame strike");
     }
 
     private static void registerDivine(String spellName) {
@@ -74,8 +76,9 @@ public class DivineSpellHandler {
             case "cure blindness": return handleCureBlindness(casterId, args, ctx);
             case "cure critical": return handleCureCritical(casterId, args, ctx);
             case "cure light": return handleCureLight(casterId, args, ctx);
+            case "cure moderate wounds": return handleCureModerate(casterId, args, ctx);
             case "cure poison": return handleCurePoison(casterId, args, ctx);
-            case "cure serious": return handleCureSerious(casterId, args,ctx);
+            case "cure serious": return handleCureSerious(casterId, args, ctx);
             case "detect evil": return handleDetectEvil(casterId, args, ctx);
             case "detect hidden": return handleDetectHidden(casterId, args, ctx);
             case "detect invis": return handleDetectInvis(casterId, args, ctx);
@@ -100,6 +103,7 @@ public class DivineSpellHandler {
             case "aura of protection": return handleAuraOfProtection(casterId, args, ctx);
             case "holy avenger": return handleHolyAvenger(casterId, args, ctx);
             case "divine fury": return handleDivineFury(casterId, args, ctx);
+            case "flame strike": return applySpellEffects(ctx, "flame strike");
             default:
                 return notImplemented(spellName, casterId, args, ctx);
         }
@@ -107,20 +111,162 @@ public class DivineSpellHandler {
 
     // --- Per-spell handler stubs ---
     
-    private static boolean handleArmor(Integer casterId, String args, SpellContext ctx) { return notImplemented("armor", casterId, args, ctx); }
-    private static boolean handleBless(Integer casterId, String args, SpellContext ctx) { return notImplemented("bless", casterId, args, ctx); }
+    private static boolean handleArmor(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[armor] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+        List<Integer> targets = ctx.getTargetIds();
+
+        Integer targetId = targets.isEmpty() ? casterId : targets.get(0);
+        if (targetId == null) {
+            cmdCtx.send("No valid target for Armor.");
+            return false;
+        }
+
+        // AC bonus = ceil(target level / 10), minimum 1
+        int level = DaoProvider.characters().getPlayerLevel(targetId);
+        int acBonus = Math.max(1, (int) Math.ceil(level / 10.0));
+
+        Map<String, String> extraParams = new java.util.HashMap<>(ctx.getExtraParams());
+        extraParams.put("value", String.valueOf(acBonus));
+        extraParams.put("proficiency", String.valueOf(ctx.getProficiency()));
+
+        com.example.tassmud.effect.EffectInstance inst =
+                com.example.tassmud.effect.EffectRegistry.apply("1033", casterId, targetId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("The divine armor fails to take hold.");
+            return false;
+        }
+
+        CharacterDAO.CharacterRecord targetRec = DaoProvider.characters().findById(targetId);
+        String targetName = targetRec != null ? targetRec.name : "the target";
+
+        if (targetId.equals(casterId)) {
+            cmdCtx.send("\u001B[36mDivine magic hardens around you, bolstering your defenses! (AC +" + acBonus + ")\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    cmdCtx.playerName + " is surrounded by a faint divine glow.", casterId);
+        } else {
+            cmdCtx.send("\u001B[36mYou reinforce " + targetName + " with divine armor! (AC +" + acBonus + ")\u001B[0m");
+            ClientHandler.sendToCharacter(targetId,
+                    "\u001B[36m" + cmdCtx.playerName + "'s divine magic hardens around you! (AC +" + acBonus + ")\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    targetName + " is surrounded by a faint divine glow.", casterId);
+        }
+
+        logger.debug("[armor] {} applied AC +{} armor to {} (level={}, proficiency={})",
+                casterId, acBonus, targetId, level, ctx.getProficiency());
+        return true;
+    }
+    private static boolean handleBless(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[bless] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+        List<Integer> targets = ctx.getTargetIds();
+
+        if (targets.isEmpty()) {
+            cmdCtx.send("No valid targets for Bless.");
+            return false;
+        }
+
+        boolean anyApplied = false;
+        for (Integer targetId : targets) {
+            int level = DaoProvider.characters().getPlayerLevel(targetId);
+            int bonus = Math.max(1, (int) Math.ceil(level / 10.0));
+
+            Map<String, String> extraParams = new java.util.HashMap<>(ctx.getExtraParams());
+            extraParams.put("value", String.valueOf(bonus));
+            extraParams.put("proficiency", String.valueOf(ctx.getProficiency()));
+
+            com.example.tassmud.effect.EffectInstance inst =
+                    com.example.tassmud.effect.EffectRegistry.apply("202", casterId, targetId, extraParams);
+
+            if (inst != null) {
+                anyApplied = true;
+                CharacterDAO.CharacterRecord targetRec = DaoProvider.characters().findById(targetId);
+                String targetName = targetRec != null ? targetRec.name : "the target";
+
+                if (targetId.equals(casterId)) {
+                    cmdCtx.send("\u001B[93mDivine favor fills you with battle-readiness! (To-hit +" + bonus + ")\u001B[0m");
+                } else {
+                    ClientHandler.sendToCharacter(targetId,
+                            "\u001B[93m" + cmdCtx.playerName + "'s blessing fills you with divine purpose! (To-hit +" + bonus + ")\u001B[0m");
+                    cmdCtx.send("\u001B[93mYou bless " + targetName + ". (To-hit +" + bonus + ")\u001B[0m");
+                }
+                logger.debug("[bless] {} applied +{} to-hit to {} (level={})", casterId, bonus, targetId, level);
+            }
+        }
+
+        if (anyApplied) {
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    cmdCtx.playerName + "'s prayer calls down divine favor upon your allies.", casterId);
+        }
+
+        return anyApplied;
+    }
     private static boolean handleContinualLight(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("continual light", casterId, args, ctx); }
     private static boolean handleCureBlindness(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("cure blindness", casterId, args, ctx); }
     private static boolean handleCureCritical(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("cure critical", casterId, args, ctx); }
+    { return applySpellEffects(ctx, "cure critical"); }
     private static boolean handleCureLight(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("cure light", casterId, args, ctx); }
-    private static boolean handleCurePoison(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("cure poison", casterId, args, ctx); }
+    { return applySpellEffects(ctx, "cure light"); }
+    private static boolean handleCureModerate(Integer casterId, String args, SpellContext ctx)
+    { return applySpellEffects(ctx, "cure moderate wounds"); }
+    private static boolean handleCurePoison(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[cure poison] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+        List<Integer> targets = ctx.getTargetIds();
+        Integer targetId = targets.isEmpty() ? casterId : targets.get(0);
+        if (targetId == null) {
+            cmdCtx.send("No valid target for Cure Poison.");
+            return false;
+        }
+
+        // Remove all effects tagged both "poison" and "debuff" — captures any
+        // poison DOT or poison debuff added in the future, not weapon coatings (tagged "buff").
+        int removed = com.example.tassmud.effect.EffectRegistry.removeEffectsByTag(targetId, "poison", "debuff");
+
+        CharacterDAO.CharacterRecord targetRec = DaoProvider.characters().findById(targetId);
+        String targetName = targetRec != null ? targetRec.name : "the target";
+
+        if (removed == 0) {
+            if (targetId.equals(casterId)) {
+                cmdCtx.send("You are not poisoned.");
+            } else {
+                cmdCtx.send(targetName + " is not poisoned.");
+            }
+            return false;
+        }
+
+        if (targetId.equals(casterId)) {
+            cmdCtx.send("\u001B[32mDivine light purges the poison from your veins!\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    cmdCtx.playerName + "'s wounds glow briefly as divine power purges the poison.", casterId);
+        } else {
+            cmdCtx.send("\u001B[32mYou purge the poison from " + targetName + "!\u001B[0m");
+            ClientHandler.sendToCharacter(targetId,
+                    "\u001B[32m" + cmdCtx.playerName + "'s divine magic purges the poison from your veins!\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    targetName + "'s wounds glow briefly as " + cmdCtx.playerName + " purges the poison.", casterId);
+        }
+
+        logger.debug("[cure poison] {} removed {} poison effect(s) from {}", casterId, removed, targetId);
+        return true;
+    }
     private static boolean handleCureSerious(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("cure serious", casterId, args, ctx); }
+    { return applySpellEffects(ctx, "cure serious"); }
     private static boolean handleDetectEvil(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("detect evil", casterId, args, ctx); }
     private static boolean handleDetectHidden(Integer casterId, String args, SpellContext ctx)
@@ -228,16 +374,130 @@ public class DivineSpellHandler {
     { return notImplemented("invis", casterId, args, ctx); }
     private static boolean handleProtection(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("protection", casterId, args, ctx); }
-    private static boolean handleRefresh(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("refresh", casterId, args, ctx); }
+    private static boolean handleRefresh(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[refresh] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+        List<Integer> targets = ctx.getTargetIds();
+        Integer targetId = targets.isEmpty() ? casterId : targets.get(0);
+        if (targetId == null) {
+            cmdCtx.send("No valid target for Refresh.");
+            return false;
+        }
+
+        // MV to restore: casterLevel * 3 + proficiency / 5, minimum 5
+        int casterLevel = casterId != null ? DaoProvider.characters().getPlayerLevel(casterId) : 1;
+        int proficiency = ctx.getProficiency();
+        int mvAmount = Math.max(5, casterLevel * 3 + proficiency / 5);
+
+        CharacterDAO.CharacterRecord targetRec = DaoProvider.characters().findById(targetId);
+        String targetName = targetRec != null ? targetRec.name : "the target";
+
+        // Check if target is in active combat (update live GameCharacter)
+        com.example.tassmud.combat.CombatManager cm = com.example.tassmud.combat.CombatManager.getInstance();
+        com.example.tassmud.combat.Combatant targetCombatant = cm.getCombatantForCharacter(targetId);
+
+        if (targetCombatant != null && targetCombatant.getAsCharacter() != null) {
+            com.example.tassmud.model.GameCharacter ch = targetCombatant.getAsCharacter();
+            int oldMv = ch.getMvCur();
+            ch.setMvCur(Math.min(ch.getMvMax(), ch.getMvCur() + mvAmount));
+            int actual = ch.getMvCur() - oldMv;
+            // Persist
+            if (targetCombatant.isPlayer() && targetCombatant.getCharacterId() != null) {
+                DaoProvider.characters().saveCharacterStateByName(
+                    ch.getName(), ch.getHpCur(), ch.getMpCur(), ch.getMvCur(), ch.getCurrentRoom());
+            }
+            sendRefreshMessages(cmdCtx, casterId, targetId, targetName, actual);
+        } else if (targetRec != null) {
+            // Not in combat: update persisted record
+            int newMv = Math.min(targetRec.mvMax, targetRec.mvCur + mvAmount);
+            int actual = newMv - targetRec.mvCur;
+            DaoProvider.characters().saveCharacterStateByName(
+                targetRec.name, targetRec.hpCur, targetRec.mpCur, newMv, targetRec.currentRoom);
+            sendRefreshMessages(cmdCtx, casterId, targetId, targetName, actual);
+        } else {
+            cmdCtx.send("No valid target for Refresh.");
+            return false;
+        }
+
+        logger.debug("[refresh] {} restored {} MV to {} (casterLevel={}, proficiency={})",
+                casterId, mvAmount, targetId, casterLevel, proficiency);
+        return true;
+    }
+
+    private static void sendRefreshMessages(CommandContext cmdCtx, Integer casterId, Integer targetId,
+                                            String targetName, int actual) {
+        if (targetId.equals(casterId)) {
+            cmdCtx.send("\u001B[36mDivine energy surges through your legs, refreshing your movement! (MV +" + actual + ")\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    cmdCtx.playerName + "'s feet glow briefly with divine light.", casterId);
+        } else {
+            cmdCtx.send("\u001B[36mYou refresh " + targetName + "'s movement! (MV +" + actual + ")\u001B[0m");
+            ClientHandler.sendToCharacter(targetId,
+                    "\u001B[36m" + cmdCtx.playerName + "'s divine magic refreshes your movement! (MV +" + actual + ")\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    targetName + "'s feet glow briefly with divine light.", casterId);
+        }
+    }
     private static boolean handleRemoveCurse(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("remove curse", casterId, args, ctx); }
     private static boolean handleSanctuary(Integer casterId, String args, SpellContext ctx)
     { return applySpellEffects(ctx, "sanctuary"); }
     private static boolean handleShield(Integer casterId, String args, SpellContext ctx)
     { return notImplemented("shield", casterId, args, ctx); }
-    private static boolean handleStoneSkin(Integer casterId, String args, SpellContext ctx)
-    { return notImplemented("stone skin", casterId, args, ctx); }
+    private static boolean handleStoneSkin(Integer casterId, String args, SpellContext ctx) {
+        if (ctx == null || ctx.getCommandContext() == null) {
+            logger.warn("[stone skin] No spell context provided");
+            return false;
+        }
+
+        CommandContext cmdCtx = ctx.getCommandContext();
+        List<Integer> targets = ctx.getTargetIds();
+
+        Integer targetId = targets.isEmpty() ? casterId : targets.get(0);
+        if (targetId == null) {
+            cmdCtx.send("No valid target for Stone Skin.");
+            return false;
+        }
+
+        // DR bonus = ceil(target level / 10), minimum 1
+        int level = DaoProvider.characters().getPlayerLevel(targetId);
+        int drBonus = Math.max(1, (int) Math.ceil(level / 10.0));
+
+        Map<String, String> extraParams = new java.util.HashMap<>(ctx.getExtraParams());
+        extraParams.put("value", String.valueOf(drBonus));
+        extraParams.put("proficiency", String.valueOf(ctx.getProficiency()));
+
+        com.example.tassmud.effect.EffectInstance inst =
+                com.example.tassmud.effect.EffectRegistry.apply("1034", casterId, targetId, extraParams);
+
+        if (inst == null) {
+            cmdCtx.send("The stone skin fails to take hold.");
+            return false;
+        }
+
+        CharacterDAO.CharacterRecord targetRec = DaoProvider.characters().findById(targetId);
+        String targetName = targetRec != null ? targetRec.name : "the target";
+
+        if (targetId.equals(casterId)) {
+            cmdCtx.send("\u001B[36mYour flesh hardens like stone, shrugging off physical blows! (DR +" + drBonus + ")\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    cmdCtx.playerName + "'s skin takes on a stony, hardened appearance.", casterId);
+        } else {
+            cmdCtx.send("\u001B[36mYou harden " + targetName + "'s flesh to the texture of stone! (DR +" + drBonus + ")\u001B[0m");
+            ClientHandler.sendToCharacter(targetId,
+                    "\u001B[36m" + cmdCtx.playerName + "'s divine magic hardens your flesh like stone! (DR +" + drBonus + ")\u001B[0m");
+            ClientHandler.roomAnnounceFromActor(cmdCtx.currentRoomId,
+                    targetName + "'s skin takes on a stony, hardened appearance.", casterId);
+        }
+
+        logger.debug("[stone skin] {} applied melee DR +{} to {} (level={}, proficiency={})",
+                casterId, drBonus, targetId, level, ctx.getProficiency());
+        return true;
+    }
 
     private static boolean handleDivineIntervention(Integer casterId, String args, SpellContext ctx) {
         // Divine Intervention: Level 9 DIVINE capstone, out-of-combat only (NOCOMBAT trait)

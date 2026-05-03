@@ -273,7 +273,7 @@ spells:
     
   - id: 101
     name: Bless
-    description: You invoke divine favor upon yourTARGET and allies.
+    description: You invoke divine favor upon your TARGET and allies.
     school: DIVINE
     level: 1
     castingTime: 1.0
@@ -293,7 +293,18 @@ spells:
     progression: NORMAL
     effectIds: [203]
     incantation: magen-el
-    
+
+  - id: 103
+    name: Armor
+    description: Divine magic reinforces the target's defenses. Grants an AC bonus of ceil(level/10).
+    school: DIVINE
+    level: 1
+    castingTime: 1.0
+    target: TARGET
+    progression: EASY
+    effectIds: [1033]
+    incantation: magen-barzel
+
   # Level 3 Divine
   - id: 110
     name: Cure Moderate Wounds
@@ -348,6 +359,27 @@ spells:
     target: TARGET
     progression: NORMAL
     incantation: choshek-ayin
+
+  - id: 114
+    name: Refresh
+    description: Divine magic restores the target's movement points. Restores (caster level * 3 + proficiency / 5) MV.
+    school: DIVINE
+    level: 2
+    castingTime: 1.0
+    target: TARGET
+    progression: EASY
+    incantation: halak-nefesh
+
+  - id: 116
+    name: Stone Skin
+    description: Divine magic hardens the target's flesh to the texture of stone, reducing physical damage taken by ceil(level/10).
+    school: DIVINE
+    level: 4
+    castingTime: 1.5
+    target: TARGET
+    progression: VERY_HARD
+    effectIds: ["1034"]
+    incantation: basar-aven
 
   # Level 5 Divine
   - id: 120
@@ -941,3 +973,77 @@ spells:
     duration: 30  # lasts 30 seconds
     effectIds: [500]
     incantation: el-gibor
+
+  # ========== MISSING COMBAT SPELLS ==========
+
+  - id: 360
+    name: Harm
+    description: You channel devastating negative energy directly into the victim's life force.
+    school: OCCULT
+    level: 7
+    castingTime: 1.5
+    cooldown: 4.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: ["1041"]
+    incantation: mutu-napish
+
+  - id: 361
+    name: Weaken
+    description: Necrotic energy saps the target's strength, leaving them feeble.
+    school: OCCULT
+    level: 3
+    castingTime: 1.5
+    cooldown: 3.0
+    target: CURRENT_ENEMY
+    progression: AVERAGE
+    effectIds: ["1042"]
+    incantation: arru-ensi
+
+  - id: 362
+    name: Energy Drain
+    description: You drain the life essence from your foe, stealing their vitality.
+    school: OCCULT
+    level: 6
+    castingTime: 1.5
+    cooldown: 3.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: ["1040"]
+    incantation: mutu-ersu
+
+  - id: 363
+    name: Dispel Evil
+    description: You channel holy power to smite and drive back creatures of evil.
+    school: DIVINE
+    level: 5
+    castingTime: 1.5
+    cooldown: 3.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: ["1043"]
+    incantation: el-rasha
+
+  - id: 364
+    name: Dispel Magic
+    description: Waves of anti-magic wash over the target, stripping away magical enhancements.
+    school: ARCANE
+    level: 5
+    castingTime: 1.5
+    cooldown: 3.0
+    target: CURRENT_ENEMY
+    progression: HARD
+    effectIds: ["1044"]
+    incantation: magus-negata
+
+  - id: 365
+    name: Poison
+    description: Virulent toxins infect the target, causing them to suffer a lingering poison.
+    school: ARCANE
+    level: 3
+    castingTime: 1.5
+    cooldown: 3.0
+    target: CURRENT_ENEMY
+    progression: AVERAGE
+    effectIds: ["1045"]
+    incantation: venef-corpus

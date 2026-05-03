@@ -150,12 +150,11 @@ public class DeathHandler {
                     // Generate random loot in the corpse
                     lootHolder[0] = LootGenerator.generateLoot(mobLevel, corpseIdHolder[0], itemDAO);
                 }
+                // Move any item instances that were used to equip this mob into the corpse.
+                moveEquippedItemsToCorpse(mob, corpseIdHolder[0]);
             } catch (Exception e) {
                 logger.warn("[DeathHandler] Failed to create corpse for {}: {}", mobName, e.getMessage(), e);
             }
-
-            // Move any item instances that were used to equip this mob into the corpse.
-            moveEquippedItemsToCorpse(mob, corpseIdHolder[0]);
         });
 
         long corpseId = corpseIdHolder[0];
@@ -294,7 +293,7 @@ public class DeathHandler {
      * 3. Move ALL inventory items into the corpse
      * 4. Move ALL gold into the corpse
      * 5. Deduct 250 XP (minimum 0, cannot lose a level)
-     * 6. Teleport player to Mead-Gaard Inn (room 3041)
+     * 6. Teleport player to Temple Altar (room 3054)
      * 7. Set HP to 1, MP to 0, MV to 0
      * 8. Set stance to SLEEPING
      */
@@ -315,7 +314,7 @@ public class DeathHandler {
         // Wrap all death DB operations in a single transaction to prevent item/gold loss
         final int[] xpLostHolder = {0};
         final long[] corpseIdHolder = {-1};
-        final int recallRoomId = 3041;
+        final int recallRoomId = 3054;
 
         TransactionManager.runInTransaction(() -> {
             // 1. Create the corpse in the death room (uses template 999)
@@ -364,7 +363,7 @@ public class DeathHandler {
             // 5. Deduct 250 XP (minimum 0, cannot lose a level)
             xpLostHolder[0] = classDAO.deductXpFromCurrentClass(characterId, 250);
 
-            // 6. Teleport player to Mead-Gaard Inn (room 3041)
+            // 6. Teleport player to Temple Altar (room 3054)
             charDAO.updateCharacterRoom(playerName, recallRoomId);
 
             // 7. Set HP to 1, MP to 0, MV to 0
@@ -410,7 +409,7 @@ public class DeathHandler {
             sendToPlayer(characterId, "You have lost \u001B[1;31m" + xpLost + " experience\u001B[0m.");
         }
         sendToPlayer(characterId, "");
-        sendToPlayer(characterId, "You awaken at the Mead-Gaard Inn, naked and penniless.");
+        sendToPlayer(characterId, "You awaken at the Temple of Midgaard, naked and penniless.");
         sendToPlayer(characterId, "Your possessions remain in your corpse at the place of your death.");
         sendToPlayer(characterId, "You fall into an exhausted sleep...");
 

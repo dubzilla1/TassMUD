@@ -4,6 +4,7 @@ import com.example.tassmud.model.CharacterClass;
 import com.example.tassmud.model.GameCharacter;
 import com.example.tassmud.model.Room;
 import com.example.tassmud.model.Skill;
+import com.example.tassmud.model.Spell;
 import com.example.tassmud.persistence.CharacterClassDAO;
 import com.example.tassmud.persistence.CharacterDAO;
 import com.example.tassmud.persistence.CharacterDAO.CharacterRecord;
@@ -255,6 +256,25 @@ public class CharacterCreationHandler {
         if (characterId == null) {
             out.println("Failed to retrieve character ID after creation.");
             return null;
+        }
+
+        // Grant all level-1 class skills and spells
+        for (CharacterClass.ClassSkillGrant grant : selectedClass.getSkillsUnlockedAtLevel(1)) {
+            if (grant.isSkillGrant()) {
+                Skill skillDef = DaoProvider.skills().getSkillById(grant.skillId);
+                if (skillDef != null) {
+                    DaoProvider.skills().learnSkill(characterId, grant.skillId, skillDef);
+                } else {
+                    DaoProvider.skills().learnSkill(characterId, grant.skillId);
+                }
+            } else if (grant.isSpellGrant()) {
+                Spell spellDef = DaoProvider.spells().getSpellById(grant.spellId);
+                if (spellDef != null) {
+                    DaoProvider.spells().learnSpell(characterId, grant.spellId, spellDef);
+                } else {
+                    DaoProvider.spells().learnSpell(characterId, grant.spellId);
+                }
+            }
         }
 
         out.println("=========================================");

@@ -8,6 +8,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8606
       east: 8601
@@ -81,6 +82,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8607
       east: 8602
@@ -154,6 +156,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8608
       east: 8600
@@ -227,6 +230,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8600
       east: 8604
@@ -300,6 +304,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_mob, no_recall]
     exits:
       north: 8601
       east: 8605
@@ -373,6 +378,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8602
       east: 8603
@@ -446,6 +452,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8603
       east: 8607
@@ -519,6 +526,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8604
       east: 8608
@@ -592,6 +600,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8605
       east: 8606
@@ -665,6 +674,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8616
       east: 8611
@@ -738,6 +748,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8630
       east: 8612
@@ -811,6 +822,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8618
       east: 8610
@@ -884,6 +896,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8610
       east: 8614
@@ -957,6 +970,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8611
       east: 8615
@@ -1030,6 +1044,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8612
       east: 8632
@@ -1103,6 +1118,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8613
       east: 8617
@@ -1176,6 +1192,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8614
       east: 8618
@@ -1249,6 +1266,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8615
       east: 8616
@@ -1322,6 +1340,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8626
       east: 8621
@@ -1395,6 +1414,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8627
       east: 8622
@@ -1468,6 +1488,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8628
       east: 8620
@@ -1541,6 +1562,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8620
       east: 8624
@@ -1614,6 +1636,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8621
       east: 8625
@@ -1687,6 +1710,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8622
       east: 8623
@@ -1760,6 +1784,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8623
       east: 8627
@@ -1833,6 +1858,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8624
       east: 8628
@@ -1906,6 +1932,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [no_recall]
     exits:
       north: 8625
       east: 8626
@@ -2237,6 +2264,7 @@ rooms:
       You are suspended in cool electric space above a translucent plain.  You feel
       synesthesia invading your nerves and reshuffling your senses.  The sky is the
       same obsidian color as the ground and you can't find a horizon.
+    flags: [solitary]
     exits:
     sector_type: FIELD
     spawns:

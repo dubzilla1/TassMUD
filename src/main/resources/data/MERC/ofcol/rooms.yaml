@@ -189,6 +189,7 @@ rooms:
     long_desc: |
       This is the future site of a training room.  The only exit is north
       leading to the small alley.
+    flags: [indoors]
     exits:
       north: 5553
     sector_type: CITY
@@ -214,6 +215,7 @@ rooms:
       You are standing in a small shop, filled with all kinds of goods.
       Here you might be able to find just the thing you're looking for.
       The only exit is east to village square.
+    flags: [indoors]
     exits:
       east: 5552
     sector_type: CITY
@@ -251,6 +253,7 @@ rooms:
       You can't help thinking that Ofcol is a dry city, when you see the
       many people here.
       The only exit is south to the village square.
+    flags: [indoors]
     exits:
       south: 5552
     sector_type: CITY

@@ -416,6 +416,17 @@ public class BasicAttackCommand implements CombatCommand {
             defender.getName(), defenseType.toUpperCase(), targetDefense,
             true, damageDice, baseDamage, multipliedBonus
         );
+        // Annotate debug with crit multiplier and/or damage reduction when they alter the total
+        if (isCrit) {
+            int postCritDamage = (int)((baseDamage + multipliedBonus) * CRIT_MULTIPLIER);
+            debugInfo += " (CRIT ×" + (int)CRIT_MULTIPLIER + " = " + postCritDamage;
+            if (reduction > 0) {
+                debugInfo += ", -" + reduction + " DR = " + totalDamage;
+            }
+            debugInfo += ")";
+        } else if (reduction > 0) {
+            debugInfo += " (-" + reduction + " DR = " + totalDamage + ")";
+        }
         
         // Create result
         CombatResult result;

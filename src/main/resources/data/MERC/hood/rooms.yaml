@@ -12,6 +12,7 @@ rooms:
                   If you are below level 5 enter at your own risk.
       Another section of graffiti says "Raff Rules!"
       There is a boulevard to the east and Wall Road East is to the west.
+    flags: [dark, no_mob]
     exits:
       west: 2172
       east: 2102
@@ -488,6 +489,7 @@ rooms:
       all been stolen or broken beyond repair. The back wall of the
       building has been bashed down, allowing you to go south.  White
       Dragon Boulevard is north.
+    flags: [indoors]
     exits:
       north: 2104
       south: 2117
@@ -622,6 +624,7 @@ rooms:
       died and they took all his stuff and used it on their fellowmen.
       The front door leads west back out to the street.  There is a back
       door leading to another street to the east.
+    flags: [indoors]
     exits:
       east: 2115
       west: 2113
@@ -888,6 +891,7 @@ rooms:
       someone forgot to water the plants and they all died.  Then again,
       you wonder how many people have died here too.  The courtyard extends
       to the south and there is a road to the west.
+    flags: [indoors]
     exits:
       south: 2123
       west: 2118
@@ -1058,6 +1062,7 @@ rooms:
       stairs used to extend up to a suite of rooms but the set is missing
       stairs 3-15.  The courtyard extends north and there is a street to
       the south.
+    flags: [indoors]
     exits:
       north: 2119
       south: 2128
@@ -1103,6 +1108,7 @@ rooms:
       disrepair like everything else.  It is now the hideout of the
       Dragon gang.  The gang leader runs his reign of terror from here.
       There is a wooden door barely on the hinges to the east.
+    flags: [dark, indoors]
     exits:
       east: 2125
     sector_type: CITY
@@ -2260,6 +2266,7 @@ rooms:
       It is now desecrated by graffiti and vandalism.  Perhaps its worst
       defilement is that it is the hangout of the Ogre gang.  There is a street to
       the east through a rusty metal door.
+    flags: [dark, indoors]
     exits:
       east: 2149
     sector_type: CITY
@@ -2521,6 +2528,7 @@ rooms:
       received!  Blood is splattered and dried all over the walls here.
       It looks like a great deal of carnage happened here.  The way
       out to the east leads out onto a street.
+    flags: [indoors]
     exits:
       east: 2154
     sector_type: INSIDE
@@ -2850,6 +2858,7 @@ rooms:
                   If you are below level 5 enter at your own risk.
       In another spot it says "now entering Ogre territory..."
       A street lies to the west and a major road to the east.
+    flags: [dark, no_mob]
     exits:
       east: 2161
     sector_type: CITY
@@ -3063,6 +3072,7 @@ rooms:
       into oblivion sometimes.  It looks as if the beer is still on tap!!!
       A hallway leads south and you spy a street through the doorway
       to the north.
+    flags: [indoors]
     exits:
       north: 2158
       south: 2170
@@ -3315,6 +3325,7 @@ rooms:
       The stairs leading up to the guest rooms here do not seem
       advisable to climb.  A doorway empties out into Solomon
       street to the west.
+    flags: [dark, indoors]
     exits:
       north: 2165
       west: 2169

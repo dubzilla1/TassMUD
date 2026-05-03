@@ -39,6 +39,7 @@ rooms:
     long_desc: |
       This section of the road is badly worn and frequently traversed.  There is
       faint singing to the north.  The road back to the forest lies to the south.
+    flags: [no_mob]
     exits:
       north: 103
       south: 101

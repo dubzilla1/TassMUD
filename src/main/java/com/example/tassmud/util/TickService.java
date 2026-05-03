@@ -1,5 +1,8 @@
 package com.example.tassmud.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledExecutorService;
@@ -12,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  * Subsystems can register Runnables at different intervals (ms).
  */
 public class TickService {
+    private static final Logger logger = LoggerFactory.getLogger(TickService.class);
     private final ScheduledExecutorService scheduler;
     private final Map<String, ScheduledFuture<?>> tasks = new ConcurrentHashMap<>();
 
@@ -29,7 +33,14 @@ public class TickService {
     }
 
     public ScheduledFuture<?> scheduleAtFixedRate(String name, Runnable task, long initialDelayMs, long periodMs) {
-        ScheduledFuture<?> f = scheduleAtFixedRate(task, initialDelayMs, periodMs);
+        Runnable safeTask = () -> {
+            try {
+                task.run();
+            } catch (Exception e) {
+                logger.error("[TickService] Task '{}' threw uncaught exception — task continues: {}", name, e.getMessage(), e);
+            }
+        };
+        ScheduledFuture<?> f = scheduleAtFixedRate(safeTask, initialDelayMs, periodMs);
         tasks.put(name, f);
         return f;
     }

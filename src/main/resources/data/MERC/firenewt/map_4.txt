@@ -1,0 +1,16 @@
+=== Firenewt (Area 29) (Level -3)  Map 4 of 5
+
+[2926  ]---[2925  ]---[2924  ]---[2923  ]---[2927  ]---[2928  ]---[2929v ]
+                                     |
+                      [2922  ]---[2921  ]
+                                     |
+                      [[2918]<-  [2919  ]---[2920  ]
+                          |
+                      [2916^ ]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 2917 -> north -> Room 2918
+  Room 2919 -> west -> Room 2918

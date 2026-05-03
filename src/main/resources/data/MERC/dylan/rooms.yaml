@@ -13,6 +13,7 @@ rooms:
       
       "Scubdu's Area--Tread carefully! Only high levels should attempt
       this place. Leave messages on the board if you have problems."
+    flags: [no_mob]
     exits:
       north: 7900
       up: 9102
@@ -790,6 +791,7 @@ rooms:
       This hole must have been used as a lair or nest.  There are
       feathers and bones everywhere and the floor is covered with
       something disgusting.
+    flags: [dark, indoors]
     exits:
       west: 9120
     sector_type: MOUNTAIN
@@ -872,6 +874,7 @@ rooms:
       The stench in here is quite foul.  There are feathers, bones and
       rotting carcasses everywhere.  This place is absolutely gross and
       you have to strain yourself not to lose your lunch.
+    flags: [dark, indoors]
     exits:
       east: 9122
     sector_type: MOUNTAIN
@@ -905,6 +908,7 @@ rooms:
       The stench in here is quite foul.  There are feathers, bones and
       rotting carcasses everywhere.  This place is absolutely gross and
       you have to strain yourself not to lose your lunch.
+    flags: [dark, indoors]
     exits:
       south: 9122
     sector_type: MOUNTAIN
@@ -1460,6 +1464,7 @@ rooms:
     long_desc: |
       Your mood grows grumpy as you find yourself cold and wet from this
       dismal cloud.  You notice a rock outcropping above you.
+    flags: [dark]
     exits:
       east: 9136
       up: 9138
@@ -1498,6 +1503,7 @@ rooms:
       This rock outcropping just seems to hang in midair.  To the north
       you see a house and if you ease yourself down, you can land on a
       rather damp, dismal cloud.  The door to the house is closed.
+    flags: [dark, no_mob]
     exits:
       north: 9139
       down: 9137
@@ -1534,6 +1540,7 @@ rooms:
       something in a corner and turn to get a better look, nothing is
       there.  The place is very dark.  Even with a torch, you have
       trouble making out the room to the east.
+    flags: [dark, indoors]
     exits:
       east: 9140
       south: 9138
@@ -1570,6 +1577,7 @@ rooms:
       almost overpowering.  You hear strange creaks and groans ... is it
       the wind or did someone (something?) make that noise.  To the west
       is the house and there is a stairway leading up into the tower.
+    flags: [dark, indoors]
     exits:
       west: 9139
       up: 9141
@@ -1606,6 +1614,7 @@ rooms:
       corner bubbling madly, belching a foul brew that must have come from hell.
       On shelves lie jars of strange creatures you have never seen before, or
       hope to again.  A picture of a familiar temple hangs on the east wall.
+    flags: [dark, no_mob, indoors, no_recall]
     exits:
       east: 3001
       down: 9140
@@ -1712,6 +1721,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       north: 9148
       down: 9146
@@ -1750,6 +1760,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       south: 9133
       west: 9150
@@ -1798,6 +1809,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       north: 9147
       east: 9144
@@ -1836,6 +1848,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       south: 9146
       east: 9148
@@ -1874,6 +1887,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       up: 9145
       south: 9144
@@ -1922,6 +1936,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       north: 9152
       east: 9150
@@ -1970,6 +1985,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       north: 9151
       east: 9145
@@ -2018,6 +2034,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       south: 9150
       west: 9152
@@ -2056,6 +2073,7 @@ rooms:
       You are buffeted and knocked about by the almost godlike strength
       of the raging hurricane.  It is hard to see and hear anything.
       Your only thought is to seek refuge from the storm.
+    flags: [dark, no_recall]
     exits:
       east: 9151
       south: 9149
@@ -2266,6 +2284,7 @@ rooms:
     short_desc: "Dark hidden cloud."
     long_desc: |
       This cloud looks like the perfect place to hide.
+    flags: [dark]
     exits:
       east: 9157
     sector_type: INSIDE
@@ -2330,6 +2349,7 @@ rooms:
       There is a gate here.  It is huge, towering over you.  It creaks
       as it sways in the breeze.  To the south you see a huge lawn.
       There is a rope ladder leading down.
+    flags: [no_mob]
     exits:
       south: 9161
       down: 9159
@@ -2850,6 +2870,7 @@ rooms:
     short_desc: "Dirty, dusty tunnel."
     long_desc: |
       This dirty dusty tunnel must lead somewhere.
+    flags: [dark, indoors]
     exits:
       east: 9175
       up: 9169
@@ -2885,6 +2906,7 @@ rooms:
       This seems like your average basement.  Old Christmas decorations,
       suitcases, bicycles litter your way.  You hear the squeaking of
       rats in the corners.
+    flags: [dark, indoors]
     exits:
       north: 9176
       west: 9174
@@ -2920,6 +2942,7 @@ rooms:
       You stand at the bottom of a long staircase leading up to the main
       house.  To the south you can barely make out the accumulated
       clutter gathered throughout the years.
+    flags: [dark, indoors]
     exits:
       south: 9175
       up: 9177
@@ -2958,6 +2981,7 @@ rooms:
       from throughout history.  Antiques furnitures and oriental rugs are
       tastefully placed in ideal spots.  The door is at least 10 feet
       high and is made of oak.
+    flags: [indoors]
     exits:
       north: 9166
       east: 9183
@@ -3018,6 +3042,7 @@ rooms:
       You are in a long, sprawling hallway connecting the eastern and
       western wings of the house.  There are several chairs and sofas in
       the hallway and some gorgeous, handwoven drapes.
+    flags: [indoors]
     exits:
       east: 9177
       south: 9179
@@ -3064,6 +3089,7 @@ rooms:
       shelves stretch all the way to the ceiling and are on every wall,
       even above the doorway.  There are chairs for sitting and reading
       and a desk for more intense studies.
+    flags: [indoors]
     exits:
       north: 9178
     sector_type: INSIDE
@@ -3089,6 +3115,7 @@ rooms:
       A small indoor garden so that the residents don't have to go
       outside to enjoy plants and commune with nature.  There are several
       trees, a small pond and flowers of every kind.
+    flags: [no_mob, indoors]
     exits:
       east: 9178
       south: 9181
@@ -3127,6 +3154,7 @@ rooms:
       wind, causing quite a distraction.  When you go to shut the window,
       you see that the window is closed.  An old, wooden staircase leads
       up into darkness.
+    flags: [indoors]
     exits:
       north: 9180
       up: 9182
@@ -3164,6 +3192,7 @@ rooms:
       the night sky.  The room is dark and there is almost a musty odor
       to it.  You are surprised that you can't detect any dust or dirt,
       although there are a couple of cobwebs in the corner.
+    flags: [dark, indoors]
     exits:
       down: 9181
     sector_type: CITY
@@ -3197,6 +3226,7 @@ rooms:
       You are in a long, sprawling hallway connecting the eastern and
       western wings of the house.  There are several chairs and sofas in
       the hallway and some gorgeous, handwoven drapes.
+    flags: [indoors]
     exits:
       east: 9185
       west: 9177
@@ -3242,6 +3272,7 @@ rooms:
       Here was the rehearsal and recital room for the residents of the
       estate.  There is a Steinway piano in the corner and various gilded
       instruments are on display in a glass cabinet.
+    flags: [indoors]
     exits:
       north: 9183
     sector_type: INSIDE
@@ -3268,6 +3299,7 @@ rooms:
       at least ten feet by five feet and made of ebony and inlaid with
       mother of pearl.  A grandfather clock towers over the room,
       mechanically ticking and tocking the hours away.
+    flags: [indoors]
     exits:
       south: 9186
       west: 9183
@@ -3305,6 +3337,7 @@ rooms:
       wind, causing quite a distraction.  When you go to shut the window,
       you see that the window is closed.  An old, wooden staircase leads
       up into darkness.
+    flags: [indoors]
     exits:
       north: 9185
       up: 9187
@@ -3342,6 +3375,7 @@ rooms:
       the night sky.  The room is dark and there is almost a musty odor
       to it.  You are surprised that you can't detect any dust or dirt,
       although there are a couple of cobwebs in the corner.
+    flags: [dark, indoors]
     exits:
       down: 9186
     sector_type: CITY
@@ -3378,6 +3412,7 @@ rooms:
       worthless hide.  Next time, heed your conscience.
       
       You've fallen, and you can't get up!!!
+    flags: [no_mob]
     exits:
     sector_type: FIELD
     legacy_flags:

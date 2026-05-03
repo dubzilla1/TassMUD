@@ -245,6 +245,7 @@ rooms:
     long_desc: |
       You have entered what appears to be an old storeroom. Most of the items
       that were in here appear to have been ruined long ago.
+    flags: [dark, indoors]
     exits:
       east: 1606
     sector_type: INSIDE
@@ -274,6 +275,7 @@ rooms:
     long_desc: |
       This room appears to be completely empty. The only exit seems to be the
       way you came.  There are some scratches around the floor.
+    flags: [dark, indoors]
     exits:
       south: 1606
       down: 1610
@@ -311,6 +313,7 @@ rooms:
       ~ 
       16 13 0
       D4
+    flags: [dark, no_mob, indoors]
     exits:
     sector_type: INSIDE
     spawns:
@@ -453,6 +456,7 @@ rooms:
       You are on a foyer on the west side of the structure. The moat is west of 
       here. There is also a large door eastward into the structure.  You notice that
       the walls are ornately decorated with very life-like stone gargoyles.
+    flags: [dark, indoors]
     exits:
       east: 1624
       west: 1620
@@ -499,6 +503,7 @@ rooms:
       ornate balcony surrounds the lobby. To the east, below the balcony, is an
       opening. The door leading out is west.  You notice that the balcony is
       covered in highly ornate and life-like stone gargoyles.
+    flags: [dark, indoors]
     exits:
       east: 1625
       west: 1623
@@ -543,6 +548,7 @@ rooms:
       You stand in the center of the Western tower's base. Torch brackets occupy
       the four corners of this huge room. Above each torch is a lifelike ornate
       stone gargoyle.  There are doors north and south, and passages east and west.
+    flags: [indoors]
     exits:
       north: 1627
       east: 1626
@@ -602,6 +608,7 @@ rooms:
     long_desc: |
       You are walking along a musty east-west corridor joining the two towers.
       There are room on each side of the corridor, and openings at each end.
+    flags: [dark, indoors]
     exits:
       north: 1629
       east: 1631
@@ -657,6 +664,7 @@ rooms:
       You have entered what must once have been a kitchen. The rusting remains of
       various utensils lie on countertops. There is also an old wash basin and a
       pot-belly stove.  There is a door south, and a serving hatch east.
+    flags: [dark, indoors]
     exits:
       south: 1625
     sector_type: INSIDE
@@ -686,6 +694,7 @@ rooms:
     long_desc: |
       You are in the tower's private conservatory. However, through years of neglect,
       the plants have grown into a hideous jungle.  The only exit is north.
+    flags: [dark, indoors]
     exits:
       north: 1625
     sector_type: INSIDE
@@ -717,6 +726,7 @@ rooms:
       dominate the room. A horrible odor pervades the room, like some foul-smelling
       beast has been eating and shitting in here.  There is a serving hatch west and
       a door south.
+    flags: [dark, indoors]
     exits:
       south: 1626
     sector_type: INSIDE
@@ -746,6 +756,7 @@ rooms:
     long_desc: |
       You are in the ruined remains of an art gallery. Everything appears to
       have been stolen long ago, however.  The only exit is north.
+    flags: [dark, indoors]
     exits:
       north: 1626
     sector_type: CITY
@@ -778,6 +789,7 @@ rooms:
       gargoyle.  There are are open doors to the north and south, and passages east
       and west.  In addition, a spiral staircase leads up to the next level of this
       tower.
+    flags: [indoors]
     exits:
       north: 1632
       south: 1633
@@ -838,6 +850,7 @@ rooms:
       You are in what must once have been a common room for all residents of the
       tower. There is a huge fire pit with a chimney in the center, and the smashed
       remains of a great many table and chairs.  The exit is south.
+    flags: [indoors]
     exits:
       south: 1631
       down: 1634
@@ -878,6 +891,7 @@ rooms:
       You are in what once was the servant's quarters, as evidenced by the shabby
       belongings and decor. What little remains is rotting and of little value
       anyway.  The only exit is north.
+    flags: [dark, indoors]
     exits:
       north: 1631
     sector_type: INSIDE
@@ -903,6 +917,7 @@ rooms:
       You are in a large, murky cellar. An almost tangible air of horror pervades
       the room.  A thin layer of nitre covers the walls and ceiling.  Rotting
       furniture looms obliquely about the room.
+    flags: [dark, indoors]
     exits:
       up: 1632
     sector_type: CITY
@@ -936,6 +951,7 @@ rooms:
     long_desc: |
       You are on a Spiral staircase connecting the first and second levels of
       the eastern tower. You can go up or down.
+    flags: [dark, indoors]
     exits:
       up: 1636
       down: 1631
@@ -971,6 +987,7 @@ rooms:
       You are in the center of the second level of the Eastern tower. This large
       room appears quite empty, except for the candle abras firmly fixed to the
       walls.  An opening leads westward, and a spiral staircase leads down.
+    flags: [dark, indoors]
     exits:
       west: 1637
       down: 1635
@@ -1024,6 +1041,7 @@ rooms:
       The rotted remains of a plush carpet covers the floor, while several moldy
       tapestries adorn the each side of the hall.  There are door north and south,
       and openings east and west.
+    flags: [dark, indoors]
     exits:
       north: 1638
       east: 1636
@@ -1085,6 +1103,7 @@ rooms:
       Costly paintings and pieces of furniture are tastefully situated.  On the
       north wall is an altar to Knar, the ghastly patron of Gargoyles.  The only
       exit is south.
+    flags: [indoors]
     exits:
       south: 1637
     sector_type: INSIDE
@@ -1121,6 +1140,7 @@ rooms:
     long_desc: |
       This room appears to have been a library.  Empty book shelves line each wall.
       The only exit is north.
+    flags: [dark, indoors]
     exits:
       north: 1637
     sector_type: INSIDE
@@ -1156,6 +1176,7 @@ rooms:
       staircase of 29 steps connects this level with the third.  There are doors
       to the east and west.  Except for a torch bracket in each corner, the 
       room is barren.
+    flags: [indoors]
     exits:
       east: 1637
       west: 1641
@@ -1200,6 +1221,7 @@ rooms:
     long_desc: |
       You are on the balcony overlooking the Grand lobby.  You have a fabulous
       view of the entire room.  The only exit is the way you came in.
+    flags: [indoors]
     exits:
       east: 1640
     sector_type: FIELD
@@ -1224,6 +1246,7 @@ rooms:
     long_desc: |
       You are on a large spiral staircase of 29 steps, leading between the 
       second and third floors.  You can go up or down.
+    flags: [indoors]
     exits:
       up: 1643
       down: 1640
@@ -1259,6 +1282,7 @@ rooms:
       You stand in the center of the western tower's third floor.  This large room
       glows mysteriously with a strange light all its own.  From a door to the east
       comes a strange inky blackness.  A spiral staircase leads down.
+    flags: [indoors]
     exits:
       east: 1644
       down: 1642
@@ -1297,6 +1321,7 @@ rooms:
     short_desc: "It's too dark to see anything!"
     long_desc: |
       It's too dark to see anything!
+    flags: [dark, indoors]
     exits:
       north: 1645
       east: 1647
@@ -1347,6 +1372,7 @@ rooms:
       In this room, which has somehow evaded the ravages of time, are neatly stored
       racks of common weapons.  They appear to be quite ordinary; however, a chest
       in one corner catches your eye.  The only exit is the way you came in.
+    flags: [dark, indoors]
     exits:
       south: 1644
     sector_type: INSIDE
@@ -1387,6 +1413,7 @@ rooms:
       flying snake-like reptiles with poisonous tails fight humans and dwarves.
       Various objects in the room give evidence that it is occupied by individuals
       of authority.  The only door is north.
+    flags: [dark, indoors]
     exits:
       north: 1644
     sector_type: INSIDE
@@ -1425,6 +1452,7 @@ rooms:
       glows with a mysterious light that has no source.  In the center of the room a
       ladder climbs up to a hatchway in the ceiling.  The hatchway is a strange
       looking keyhole.  There is also a door to the west.
+    flags: [indoors]
     exits:
       west: 1644
       up: 1648
@@ -1542,6 +1570,7 @@ rooms:
       Scattered about this room are a great many coins and valuable articles.
       Yet you can't get rid of a feeling of dread!  A mirror-like portal is in the
       western wall.
+    flags: [dark, indoors]
     exits:
       east: 1649
       west: 1651
@@ -1643,6 +1672,7 @@ rooms:
       You are on the old Eastern Road.  The crossroads to the east joins ANOTHER
       northern route to this road, which continues east.  South of the crossroads is
       an old building.  The area around here is lightly timbered.
+    flags: [no_mob]
     exits:
       east: 1702
       west: 5267
@@ -1733,6 +1763,7 @@ rooms:
       You are in a trading post just south of the crossroads, where rangers,
       trappers and hunters from the surrounding area come to buy, sell, and
       barter goods.
+    flags: [indoors]
     exits:
       north: 1702
     sector_type: INSIDE
@@ -2153,6 +2184,7 @@ rooms:
     long_desc: |
       You are inside a smallish hut, the home of a family of Centaurs.  The hut
       is sparsely furnished, mostly the trappings of survival.
+    flags: [indoors]
     exits:
       south: 1710
     sector_type: INSIDE
@@ -2182,6 +2214,7 @@ rooms:
     long_desc: |
       You are inside a smallish hut, the home of a family of Centaurs.  The hut
       is sparsely furnished, mostly the trappings of survival.
+    flags: [indoors]
     exits:
       north: 1710
     sector_type: INSIDE
@@ -2211,6 +2244,7 @@ rooms:
     long_desc: |
       You are inside a smallish hut, the home of a family of Centaurs.  The hut
       is sparsely furnished, mostly the trappings of survival.
+    flags: [indoors]
     exits:
       south: 1711
     sector_type: INSIDE
@@ -2240,6 +2274,7 @@ rooms:
     long_desc: |
       You are inside a smallish hut, the home of a family of Centaurs.  The hut
       is sparsely furnished, mostly the trappings of survival.
+    flags: [indoors]
     exits:
       north: 1711
     sector_type: INSIDE
@@ -2270,6 +2305,7 @@ rooms:
       You are in the entry foyer of a large hut.  A curtain separates this section
       of the hut from the next section to the west.  To the east is an opening out
       onto the clearing.
+    flags: [indoors]
     exits:
       east: 1711
       west: 1717
@@ -2322,6 +2358,7 @@ rooms:
       You are in the back of a large hut.  A curtain separates this section from
       the front of the hut to the east.  This room is finely decorated, if
       somewhat primitive.  The decor suggests someone of authority lives here.
+    flags: [indoors]
     exits:
       east: 1716
     sector_type: INSIDE

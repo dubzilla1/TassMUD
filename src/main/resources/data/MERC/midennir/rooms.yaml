@@ -143,6 +143,7 @@ rooms:
       forest; and to the west it becomes the main street of the town; surrounded by
       a confusion of shops, bars, and market places.  Another path wanders off to
       the south.
+    flags: [no_mob]
     exits:
       east: 3502
       south: 1501
@@ -932,6 +933,7 @@ rooms:
       soaked into the ground. Two carcasses lie in front of you, seeming to look
       up at you. The forest is impassible to the south, but the other directions
       look ok.
+    flags: [dark]
     exits:
       north: 3519
       east: 3523
@@ -1101,6 +1103,7 @@ rooms:
       in this area very dark.  The forest continues west, but mountains block
       further exploration in all other directions, except south, where you notice a
       small tunnel dug into the mountainside.
+    flags: [dark]
     exits:
       south: 3552
       west: 3523
@@ -1139,6 +1142,7 @@ rooms:
       The walls of this tunnel were carved out many years ago by the goblins of
       this forest.  The floor is well worn, and continues south, into the
       mountain, or back north out into the forest.
+    flags: [dark]
     exits:
       north: 3551
       south: 3553
@@ -1172,6 +1176,7 @@ rooms:
       The tunnel gets lighter to the north, presumably leading out, while to
       the south the passage gets smaller and smaller.  A small alcove has been
       carved into the east wall.
+    flags: [dark]
     exits:
       north: 3552
       east: 3554
@@ -1214,6 +1219,7 @@ rooms:
     long_desc: |
       A small alcove has been carved out here.  There are a bunch of twigs
       and leaves thrown into a pile here, probably serving as a bed.
+    flags: [dark]
     exits:
       west: 3553
     sector_type: CITY
@@ -1241,6 +1247,7 @@ rooms:
       As you explore further into the mountainside, the tunnel gets smaller and
       smaller to the south.  You almost have to hunch over to make your way thru
       this area.  A small archway to the south leads into a large chamber.
+    flags: [dark]
     exits:
       north: 3553
       south: 3556
@@ -1275,6 +1282,7 @@ rooms:
       serves as the living quarters for the goblins of Miden'nir.  The bones of
       numbers woodland creatures are strewn about the room, the remanents of a
       recent meal.
+    flags: [dark]
     exits:
       north: 3555
     sector_type: CITY
@@ -1481,6 +1489,7 @@ rooms:
       goblins as of late, and it is no longer safe in these parts. The bar is just
       north of here. If you'd rather have your own table, one is empty to the
       south.
+    flags: [no_mob, indoors]
     exits:
       north: 3576
       east: 3570
@@ -1605,6 +1614,7 @@ rooms:
       You are in a darker corner in the Inn.  A large round table with a few
       wooden chairs sits here.  There is a large stain on the table, the remnants
       of a spilled drink.
+    flags: [indoors]
     exits:
       east: 3574
     sector_type: CITY
@@ -1656,6 +1666,7 @@ rooms:
     long_desc: |
       There seems to be no one in this end of the Woodsman, probably a safe place
       to rest and lick your wounds ...
+    flags: [indoors]
     exits:
       north: 3574
     sector_type: INSIDE

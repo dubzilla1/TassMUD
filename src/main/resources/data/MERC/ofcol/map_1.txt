@@ -1,0 +1,16 @@
+=== Ofcol (Area 55)  Map 1 of 1
+
+         [5556]
+            |
+[5555]---[5552]
+            |
+         [5551]---[5553]  ->[601]
+            |        |
+         [5550]   [5554]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 5550 -> south -> Room 314
+  Room 5553 -> east -> Room 601

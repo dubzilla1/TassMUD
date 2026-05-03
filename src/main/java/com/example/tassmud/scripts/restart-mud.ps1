@@ -45,7 +45,7 @@ if ($args -contains "--debug") {
 
 # 1) Stop existing TassMUD java processes (match jar name, command-line or port)
 Write-Host "Stopping any running TassMUD processes (matching jar or port)..."
-$jarName = "tass-mud-1.0.0-shaded.jar"
+$jarName = "tass-mud-1.0.0.jar"
 $matched = @()
  # default server port (used for port checks)
  $port = $Port
@@ -164,7 +164,7 @@ if (-not $NoBuild) {
 
 # 3) Start the server
 Write-Host "Starting TassMUD server..."
-$jarPath = "target\tass-mud-0.1.0.jar"
+$jarPath = "target\tass-mud-1.0.0.jar"
 if (-not (Test-Path $jarPath)) {
     Write-Error "Jar not found at $jarPath. Did the build succeed?"
     exit 1

@@ -398,7 +398,7 @@ public class ClientHandler implements Runnable {
         if (handler == null) return;
         
         // Update the handler's current room to the recall point
-        handler.currentRoomId = 3041;
+        handler.currentRoomId = 3054;
         
         // Set the player's stance to SLEEPING via RegenerationService
         RegenerationService.getInstance().setPlayerStance(characterId, Stance.SLEEPING);
@@ -526,6 +526,16 @@ public class ClientHandler implements Runnable {
      */
     public static java.util.Set<Integer> getConnectedCharacterIds() {
         return new java.util.HashSet<>(charIdToSession.keySet());
+    }
+
+    /**
+     * Get character IDs for all players currently in a specific room.
+     * Used by mobile specials (e.g. spec_cast_adept) to find players to target.
+     */
+    public static java.util.List<Integer> getCharacterIdsInRoom(Integer roomId) {
+        java.util.List<Integer> result = new java.util.ArrayList<>();
+        forEachInRoom(roomId, s -> { if (s.characterId != null) result.add(s.characterId); });
+        return result;
     }
     
     /**

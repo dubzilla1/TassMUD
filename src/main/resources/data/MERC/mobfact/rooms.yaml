@@ -11,6 +11,7 @@ rooms:
       crazy! To the north you see the storage area, to the south the
       foreman's office, to the east the entrance hallway, and to the west the
       eastern end of alley.
+    flags: [indoors]
     exits:
       north: 9401
       east: 9407
@@ -68,6 +69,7 @@ rooms:
       containing wigs and a bottle mysteriously labelled "solution x". Exits
       are more of storage to the east and north, and entrance to the mob
       factory to the south.
+    flags: [indoors]
     exits:
       north: 9402
       east: 9406
@@ -119,6 +121,7 @@ rooms:
       stored. You see sacks of sawdust, cans of pink paint, a large box
       containing wigs and a bottle mysteriously labelled "solution X". Exits
       are more of storage to the east and south.
+    flags: [indoors]
     exits:
       east: 9405
       south: 9401
@@ -161,6 +164,7 @@ rooms:
       of various sizes and a Sports Illustrated Swimsuit calendar on the west
       wall. Exits lead north to the mob factory entrance and south to the
       foreman's bathroom.
+    flags: [indoors]
     exits:
       north: 9400
       south: 9404
@@ -203,6 +207,7 @@ rooms:
       shower to the back, and a urinal to the left. On the floor you can
       see stains of a very suspicious nature. The only exit leads north to
       the foreman's office.
+    flags: [indoors]
     exits:
       north: 9403
     sector_type: INSIDE
@@ -235,6 +240,7 @@ rooms:
       containing wigs and a bottle mysteriously labelled "solution X". Exits
       are more of storage to the west and south, and an inspection room to
       the east.
+    flags: [indoors]
     exits:
       east: 9410
       south: 9406
@@ -282,6 +288,7 @@ rooms:
       containing wigs and a bottle mysteriously labelled "solution X". Exits
       are more of storage to the west and north, an inspection room to the
       east and the entrance hallway to the south.
+    flags: [indoors]
     exits:
       north: 9405
       east: 9411
@@ -345,6 +352,7 @@ rooms:
       eyes is observing you...... Exits are north to the storage area, east
       to the entrance hallway, south to the cafeteria and west to the mob
       factory entrance.
+    flags: [indoors]
     exits:
       north: 9406
       east: 9412
@@ -403,6 +411,7 @@ rooms:
       seem to care. There are many places where food and drink have been
       spilled on the ground. Exits are north to the entrance hallway and
       south to the mob factory cafeteria.
+    flags: [indoors]
     exits:
       north: 9407
       south: 9409
@@ -450,6 +459,7 @@ rooms:
       seem to care. There are many places where food and drink have been
       spilled on the ground. The only exit is north to the mob factory
       cafeteria.
+    flags: [indoors]
     exits:
       north: 9408
     sector_type: INSIDE
@@ -483,6 +493,7 @@ rooms:
       standing around, trying to look busy. Exits are south to the mob
       factory inspection room, east to the primary assembly line and west to
       the storage area.
+    flags: [indoors]
     exits:
       east: 9415
       south: 9411
@@ -544,6 +555,7 @@ rooms:
       standing around, trying to look busy. Exits are south to the mob
       factory inspection room, east to the primary assembly line and west to
       the storage area.
+    flags: [indoors]
     exits:
       north: 9410
       east: 9416
@@ -611,6 +623,7 @@ rooms:
       eyes is observing you...... Exits are north to the inspection room,
       east to the primary assembly line, south to the reject room and west
       to the entrance hallway.
+    flags: [indoors]
     exits:
       north: 9411
       east: 9417
@@ -668,6 +681,7 @@ rooms:
       destruction. You shudder at the many deformed and grotesque shapes
       present before you. Exits are south to the reject room and north to
       the entrance hallway.
+    flags: [indoors]
     exits:
       north: 9412
       south: 9414
@@ -709,6 +723,7 @@ rooms:
       incorrectly or have some defect are placed here before subsequent
       destruction. You shudder at the many deformed and grotesque shapes
       present before you. The only exit is north to the reject room.
+    flags: [indoors]
     exits:
       north: 9413
     sector_type: INSIDE
@@ -742,6 +757,7 @@ rooms:
       of noise! It seems that the workers are making drunks today. Exits are
       east to the secondary assembly line, south to the primary assembly
       line and west to the inspection room.
+    flags: [indoors]
     exits:
       east: 9420
       south: 9416
@@ -799,6 +815,7 @@ rooms:
       of noise! It seems that the workers are making drunks today. Exits are
       east to the secondary assembly line, north and south to the primary
       assembly line and west to the inspection room.
+    flags: [indoors]
     exits:
       north: 9415
       east: 9421
@@ -862,6 +879,7 @@ rooms:
       of noise! It seems that the workers are making drunks today. Exits are
       east to the secondary assembly line, north and south to the primary
       assembly line and west to the entrance hallway.
+    flags: [indoors]
     exits:
       north: 9416
       east: 9422
@@ -925,6 +943,7 @@ rooms:
       of noise! It seems that the workers are making drunks today. Exits are
       east to the secondary assembly line, north and south to the primary
       assembly line.
+    flags: [indoors]
     exits:
       north: 9417
       east: 9423
@@ -982,6 +1001,7 @@ rooms:
       of noise! It seems that the workers are making drunks today. Exits are
       east to the secondary assembly line and north to the primary
       assembly line.
+    flags: [indoors]
     exits:
       north: 9418
       east: 9424
@@ -1024,6 +1044,7 @@ rooms:
       The very sight is sickening, but the workers seem to be quite
       cheerful about their work. Exits are south to the secondary assembly
       line and west to the primary assembly line.
+    flags: [indoors]
     exits:
       south: 9421
       west: 9415
@@ -1070,6 +1091,7 @@ rooms:
       The very sight is sickening, but the workers seem to be quite
       cheerful about their work. Exits are north and south to the secondary
       assembly line and west to the primary assembly line.
+    flags: [indoors]
     exits:
       north: 9420
       south: 9422
@@ -1126,6 +1148,7 @@ rooms:
       The very sight is sickening, but the workers seem to be quite
       cheerful about their work. Exits are north and south to the secondary
       assembly line and west to the primary assembly line.
+    flags: [indoors]
     exits:
       north: 9421
       south: 9423
@@ -1178,6 +1201,7 @@ rooms:
       The very sight is sickening, but the workers seem to be quite
       cheerful about their work. Exits are north and south to the secondary
       assembly line and west to the primary assembly line.
+    flags: [indoors]
     exits:
       north: 9422
       south: 9424
@@ -1234,6 +1258,7 @@ rooms:
       The very sight is sickening, but the workers seem to be quite
       cheerful about their work. Exits are north to the secondary
       assembly line and west to the primary assembly line.
+    flags: [indoors]
     exits:
       north: 9423
       west: 9419

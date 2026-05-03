@@ -6,6 +6,7 @@ rooms:
     short_desc: "The Void"
     long_desc: |
       You are floating in nothing.
+    flags: [indoors]
     exits:
     sector_type: CITY
     legacy_flags:
@@ -21,6 +22,7 @@ rooms:
       matter, surrounded by swirling glowing light, which fades into the relative
       darkness around you without any trace of edges or shadow.
          There is a "No Tipping" notice pinned to the darkness.
+    flags: [indoors]
     exits:
     sector_type: CITY
     spawns:

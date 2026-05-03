@@ -1,0 +1,19 @@
+=== Marsh (Area 83)  Map 1 of 1
+
+[8301]
+   |
+[8302]---[8303]---[8305]---[8306]
+   |
+[8304]---[8309]---[8308]---[8307]
+   |        |        |
+[8312]---[8313]---[8314]---[8315]
+   |        |                 |
+[8310]   [8318]---[8317]---[8316]
+            |
+         [8311]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 8318 -> south -> Room -1

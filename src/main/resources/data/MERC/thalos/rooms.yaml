@@ -9,6 +9,7 @@ rooms:
       steel gates have been forced open and have rusted in place. A hollow
       gust of wind blows by you into the deserted, and seemingly destroyed,
       city.
+    flags: [no_mob]
     exits:
       east: 5256
       west: 5201
@@ -969,6 +970,7 @@ rooms:
       the floor as if some massive battle had taken place here. Draped along
       the back wall is a tattered, jet-black banner with the symbol of the
       Darkside set upon it.
+    flags: [indoors]
     exits:
       east: 5213
     sector_type: CITY
@@ -1052,6 +1054,7 @@ rooms:
       In here you find tools and anvils used to make various weapons
       and items. The walls have been stripped clean and only a few incomplete
       pieces of armor and weaponry are left.
+    flags: [indoors]
     exits:
       east: 5212
     sector_type: CITY
@@ -1259,6 +1262,7 @@ rooms:
       This was once a very plain house with nothing more than a few chairs
       and a bed. A cold fireplace suggests that the city has been abandoned
       for quite a while. Almost nothing remains of this humble abode.
+    flags: [indoors]
     exits:
       east: 5210
     sector_type: CITY
@@ -1361,6 +1365,7 @@ rooms:
       but inside these cramped quarters you discover what used to be a shop
       filled with armor, weapons, and various other goods. A small sign flutters
       in the wind.
+    flags: [indoors]
     exits:
       north: 5214
     sector_type: CITY
@@ -1452,6 +1457,7 @@ rooms:
       and most of the valuable items have been taken, leaving worthless debris.
       A few chairs have survived, as well as a large curved desk. To the east
       is a vine-covered archway leading out into a private courtyard.
+    flags: [indoors]
     exits:
       north: 5232
       east: 5234
@@ -1494,6 +1500,7 @@ rooms:
       A large gaping hole in the west wall allows you to see out to one of
       the city's side streets. Obviously no one will be seeing you through today.
       Hallways lead south and east.
+    flags: [indoors]
     exits:
       north: 5202
       east: 5233
@@ -1564,6 +1571,7 @@ rooms:
       but fancy, though. The only thing remaining intact here is a large
       glass cabinet. A long hallway leads west back to the reception area and
       an ivy-covered archway leads south into a private courtyard.
+    flags: [indoors]
     exits:
       south: 5234
       west: 5232
@@ -1729,6 +1737,7 @@ rooms:
       entrance into another building through yet another collapsed wall.
       Between the two buildings are a few blast craters and boulders. An old
       set of wooden steps leads up to a creaking second floor.
+    flags: [indoors]
     exits:
       east: 5238
       west: 5211
@@ -1787,6 +1796,7 @@ rooms:
       find broken shelves and workbenches with various vials and pouches spilling
       contents all across the floor. This was possibly the magic shop of the
       city. The doorway to the east is blocked, making the only exit back west.
+    flags: [indoors]
     exits:
       west: 5237
     sector_type: CITY
@@ -1953,6 +1963,7 @@ rooms:
       yields a dead body floating around in it, skin melted away from months
       of floating in there. The west wall has collapsed revealing another
       collapsed house.
+    flags: [indoors]
     exits:
       north: 5243
       west: 5244
@@ -2047,6 +2058,7 @@ rooms:
       Except for the massive hole in the east wall, everything else looks
       intact, including the windows. Great amounts of steam issue forth from
       the hole in the east wall.
+    flags: [indoors]
     exits:
       east: 5242
       west: 5210
@@ -2089,6 +2101,7 @@ rooms:
       yourself on jagged boards below.
       
       You've fallen, and you can't get up!!!
+    flags: [no_mob]
     exits:
     sector_type: CITY
     legacy_flags:
@@ -2232,6 +2245,7 @@ rooms:
       strange tongue.
            Wind gusts through the four archways and howls and screams can be
       heard from all parts of the city.
+    flags: [indoors]
     exits:
       north: 5205
       east: 5203
@@ -2717,6 +2731,7 @@ rooms:
       You see a more dense foliage in these stunted trees.  The gloom caused
       by them is enhanced by a draft coming from all around.  The trail turns south
       from the west.
+    flags: [dark]
     exits:
       west: 5262
       south: 5264
@@ -2750,6 +2765,7 @@ rooms:
       You see a more dense foliage in these stunted trees.  The gloom caused
       by them is enhanced by a draft coming from all around.  The trail turns east
       from the north.
+    flags: [dark]
     exits:
       north: 5263
       east: 5265
@@ -2783,6 +2799,7 @@ rooms:
       You see a more dense foliage in these stunted trees.  The gloom caused
       by them is enhanced by a draft coming from all around.  The trail leads
       east and west.
+    flags: [dark]
     exits:
       west: 5264
       east: 5266
@@ -2816,6 +2833,7 @@ rooms:
       You see a more dense foliage in these stunted trees.  The gloom caused
       by them is enhanced by a draft coming from all around.  The trail leads
       down into a valley and west.
+    flags: [dark]
     exits:
       west: 5265
       down: 5267
@@ -2848,6 +2866,7 @@ rooms:
     long_desc: |
       You are in a valley in the dark dwarf forest.  Short black grass grows
       around you.  Trails lead in all directions.
+    flags: [dark]
     exits:
       up: 5266
       north: 5271
@@ -2920,6 +2939,7 @@ rooms:
       You see a small cave.  Skeletons of many types of creatures litter the area.
       Obviously, no fox lives here!  The oppression makes you want to leave and
       vomit.
+    flags: [dark]
     exits:
       east: 5267
       south: 5269
@@ -2957,6 +2977,7 @@ rooms:
       You are in a small ugly cave.  More skeletons lie around.  It is obvious
       that the owner doesn't want you here.  The exit north is still visible.
       Some writings are on this wall.
+    flags: [dark]
     exits:
       north: 5268
       down: 5270
@@ -2997,6 +3018,7 @@ rooms:
     long_desc: |
       You are down the path.  There is no obvious exit in this place, exit the
       one back up north.  All around you, you see skeletons.
+    flags: [dark]
     exits:
       up: 5269
       down: 5100
@@ -3051,6 +3073,7 @@ rooms:
     long_desc: |
       You are in a valley in the forest.  To the north is a trail out of this
       dark valley.  South is more of this valley.
+    flags: [dark]
     exits:
       south: 5267
       north: 5272
@@ -3084,6 +3107,7 @@ rooms:
       You are in a dim trail in the dwarf forest.  Not much light passes through
       here.  To the south is a gloomy valley, while to the north the light grows
       brighter.
+    flags: [dark]
     exits:
       north: 5273
       south: 5271

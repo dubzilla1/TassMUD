@@ -449,6 +449,25 @@ class SpellCastHandler {
                 if (!effectedNames.isEmpty()) out.println("Effects applied: " + String.join(", ", effectedNames));
             }
             
+            // Check spell proficiency growth on each cast attempt
+            int profBefore = proficiency;
+            boolean profImproved = false;
+            if (charSpell != null) {
+                profImproved = DaoProvider.spells().tryImproveSpell(charId, matchedSpell.getId(), matchedSpell);
+                if (profImproved) {
+                    int newProf = charSpell.getProficiency() + 1;
+                    out.println("Your " + matchedSpell.getName() + " has improved! (" + profBefore + "% -> " + newProf + "%)");
+                    proficiency = newProf;
+                }
+            }
+
+            // Debug output for spell cast proficiency
+            ctx.handler.sendDebug("Spell cast: " + matchedSpell.getName() + " (" + matchedSpell.getSchool() + ")");
+            ctx.handler.sendDebug("  Proficiency: " + profBefore + "%" + (profImproved ? " -> " + proficiency + "% (IMPROVED)" : ""));
+            ctx.handler.sendDebug("  Gain chance: " + (charSpell != null ? matchedSpell.getProgression().getGainChance(profBefore) + "%" : "n/a"));
+            ctx.handler.sendDebug("  MP cost: " + mpCost + " | Cooldown: " + finalCooldown + "s");
+            ctx.handler.sendDebug("  Result: " + (castSuccess ? "SUCCESS" : "FIZZLE"));
+
             // Deduct MP only on successful cast
             if (castSuccess) {
                 if (!dao.deductManaPoints(name, mpCost)) {

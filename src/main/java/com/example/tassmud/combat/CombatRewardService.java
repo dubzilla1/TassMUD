@@ -265,11 +265,17 @@ public class CombatRewardService {
             // Roll 1d100
             int roll = ThreadLocalRandom.current().nextInt(1, 101);
 
+            com.example.tassmud.net.ClientHandler.sendDebugToCharacter(characterId,
+                "Armor proficiency check (" + armorSkill.getName() + "): roll=" + roll
+                + " vs threshold=" + successThreshold + "% (prof=" + currentProficiency + "%, level=" + classLevel + ")");
+
             if (roll <= successThreshold) {
                 // Success! Increase proficiency by 1%
                 int newProficiency = DaoProvider.skills().increaseSkillProficiency(characterId, armorSkill.getId(), 1);
                 if (newProficiency > 0) {
                     sendToPlayer(characterId, "Your " + armorSkill.getName() + " skill improves! (" + newProficiency + "%)");
+                    com.example.tassmud.net.ClientHandler.sendDebugToCharacter(characterId,
+                        "  Armor proficiency improved: " + currentProficiency + "% -> " + newProficiency + "%");
                 }
             }
         }

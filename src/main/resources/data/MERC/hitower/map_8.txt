@@ -1,0 +1,21 @@
+=== Hitower (Area 12) (Level +2)  Map 8 of 12
+
+                                                       [1428^ ]
+                                                           |
+[1410  ]   [1407  ]                                    [1427  ]   [1425  ]
+    |          |                                           |          |
+[1409v ]---[1408  ]                                    [1426  ]   [1424  ]
+    |          |                                           |          |
+[1411  ]   [1413  ]                                    [1422  ]---[1423  ]
+               |                                           |
+           [1414  ]---[1415  ]---[1416  ]---[1419  ]---[1421  ]
+                                     |          |
+              [-1]<-  [1418  ]---[1417  ]   [1420  ]
+
+Legend: [NNN]=room  ---=corridor  |=corridor  +=crossing
+        ^=up exit   v=down exit   ->N=cross-area exit to room N
+
+Cross-area exits:
+  Room 1418 -> north -> Room -1
+  Room 1418 -> south -> Room -1
+  Room 1418 -> west -> Room -1

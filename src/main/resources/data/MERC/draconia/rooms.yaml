@@ -7,6 +7,7 @@ rooms:
     long_desc: |
       You are at the entrance to a tall tower.  Lightning flashes periodically and
       it is raining.  You think it might be a good idea to turn back into the grove.
+    flags: [dark]
     exits:
       north: 2202
       east: 1304
@@ -51,6 +52,7 @@ rooms:
       This is the entrance to the Tower.  The hallway continues to the north,
       leading towards a staircase.  You notice a grim painting on the wall,  and 
       quickly look away.
+    flags: [no_mob, indoors]
     exits:
       north: 2207
       east: 2223
@@ -139,6 +141,7 @@ rooms:
     long_desc: |
       You have entered what seems to be a large court.  The people guarding it
       don't seem happy to see you ...
+    flags: [indoors]
     exits:
       north: 2210
       south: 2213
@@ -200,6 +203,7 @@ rooms:
     long_desc: |
       You stop dead in your tracks as you enter this ornately decorated room - it
       is populated with the king's harem.
+    flags: [indoors]
     exits:
       west: 2211
     sector_type: CITY
@@ -314,6 +318,7 @@ rooms:
     long_desc: |
       You have entered a huge room, filled with books.  A peaceful man is
       sitting at a table, studying.
+    flags: [indoors]
     exits:
       west: 2213
     sector_type: CITY
@@ -379,6 +384,7 @@ rooms:
     long_desc: |
       This small room is modestly decorated with small dragon icons.  Its sole
       occupant is deep in thought.
+    flags: [indoors]
     exits:
       east: 2213
     sector_type: CITY
@@ -404,6 +410,7 @@ rooms:
       You have reached the end of the court.  A huge Draconian is sitting in a
       chair here.  As you enter, he motions with his hand and you are rushed by three
       of his bodyguards.
+    flags: [indoors]
     exits:
       north: 2213
       east: 2217
@@ -478,6 +485,7 @@ rooms:
     short_desc: "bedroom"
     long_desc: |
       This is the personal room of the draconian king.  It is not empty.
+    flags: [indoors]
     exits:
       west: 2216
     sector_type: CITY
@@ -529,6 +537,7 @@ rooms:
     long_desc: |
       You have entered a large room which smells heavily of reptile.  You wonder
       what awaits you here.
+    flags: [indoors]
     exits:
       east: 2209
       west: 2219
@@ -573,6 +582,7 @@ rooms:
       You are in a large room which continues to the west.  You notice many
       coffins here.  Open coffins reveal remains of something other than man.  
       The smell of reptile is very strong here.
+    flags: [indoors]
     exits:
       east: 2218
       west: 2222
@@ -616,6 +626,7 @@ rooms:
     long_desc: |
       You have entered a large room dominated by a great white dragon.  It growls
       at you before it attacks.
+    flags: [indoors]
     exits:
       south: 2235
     sector_type: CITY
@@ -649,6 +660,7 @@ rooms:
     long_desc: |
       You have entered a large room dominated by a great black dragon.  It looks
       as though it is amused by your presence.
+    flags: [indoors]
     exits:
       north: 2241
     sector_type: CITY
@@ -682,6 +694,7 @@ rooms:
     long_desc: |
       You have come to the end of the Crypt.  It seems deserted.  There is a 
       strange coffin lying against the wall.
+    flags: [indoors]
     exits:
       east: 2219
       west: 2232
@@ -735,6 +748,7 @@ rooms:
       You have entered a huge hall.  It has been carefully decorated with
       beautiful tapestries depicting a great battle between dragons and men.  The
       dragons appear to be the victors.
+    flags: [indoors]
     exits:
     sector_type: CITY
     legacy_flags:
@@ -748,6 +762,7 @@ rooms:
     long_desc: |
       You are working your way down the Hall.  To the north, you notice a smaller
       passageway, while the main hall continues to the east.
+    flags: [indoors]
     exits:
       north: 2225
       east: 2229
@@ -781,6 +796,7 @@ rooms:
     short_desc: "A Narrow Passageway"
     long_desc: |
       This Passageway branches off from the main hall and leads somewhere ... where?
+    flags: [indoors]
     exits:
       north: 2226
       south: 2224
@@ -816,6 +832,7 @@ rooms:
       You have entered a large lair with bones strewn about the ground.  You
       notice the source of these as you come face to face with a rather large red
       dragon.  You notice a trap door in the floor.
+    flags: [indoors]
     exits:
       south: 2225
       down: 2227
@@ -865,6 +882,7 @@ rooms:
     long_desc: |
       You have entered an underground tunnel.  It is dark and dirty, and you find
       yourself wishing you were back in Midgaard.
+    flags: [dark, indoors]
     exits:
       north: 2228
       up: 2226
@@ -898,6 +916,7 @@ rooms:
     short_desc: "Underground Tunnel"
     long_desc: |
       This tunnel has come to a dead end.  You feel nervous about being trapped here.
+    flags: [dark, no_mob, indoors]
     exits:
       south: 2227
     sector_type: FIELD
@@ -924,6 +943,7 @@ rooms:
       You have come to the end of the great hall.  You see before you a huge
       golden door, it must be at least twenty feet tall!  It has beautiful etchings
       of dragons.  You see a sign on the door.
+    flags: [indoors]
     exits:
       west: 2224
       east: 2230
@@ -961,6 +981,7 @@ rooms:
     short_desc: "THE Lair"
     long_desc: |
       You have entered a huge lair.  You feel that something big lives here or at least did.  The golden door lies back to the west.
+    flags: [indoors]
     exits:
       west: 2229
     sector_type: FIELD
@@ -999,6 +1020,7 @@ rooms:
     long_desc: |
       You have reached the final lair.  It is dominated by a huge five headed
       dragon.  You suddenly realize that you have SERIOUS problems...
+    flags: [indoors]
     exits:
       south: 2243
     sector_type: FIELD
@@ -1023,6 +1045,7 @@ rooms:
     long_desc: |
       This is an old decrepit stairwell that leads to the wine cellar.  It looks
       like it hasn't been used for decades.  Well, at least not by anything living.
+    flags: [indoors]
     exits:
       east: 2222
       down: 2233
@@ -1063,6 +1086,7 @@ rooms:
       This is the old wine cellar of the Dragon Tower.  The shelves are empty.
       Nothing living has been in here for a long time.  You see a tunnel leading
       off to the east and boy does it smell bad.  Kinda of like rotting flesh.
+    flags: [dark]
     exits:
       up: 2232
       east: 2234
@@ -1102,6 +1126,7 @@ rooms:
       your eyes soon tire from the strain.  The smell here has increased two fold.
       The tunnel continues to go to the east.  The wine cellar lies back to the 
       west.
+    flags: [dark]
     exits:
       north: 2235
       west: 2233
@@ -1151,6 +1176,7 @@ rooms:
       the room.  Some human, some indistinguishable.  It smells very bad in here.
       You can hear movement in the cave to the north.  The tunnel goes back to the
       south.
+    flags: [dark]
     exits:
       north: 2220
       south: 2234
@@ -1184,6 +1210,7 @@ rooms:
       You have finally come to the end of the tunnel.  Back to the west lies
       the miles of tunnels you have walked through.  You see the faint outline of
       a trapdoor above you.  A bride over an underground river lies to the south.
+    flags: [dark]
     exits:
       west: 2234
       up: 2202
@@ -1232,6 +1259,7 @@ rooms:
       You are walking along an old wooden bridge.  Its not that secure.  You 
       might want to hurry along.  To the south, on the other side of the bridge,
       lies a small opening.
+    flags: [dark, indoors]
     exits:
       north: 2236
       south: 2238
@@ -1267,6 +1295,7 @@ rooms:
       You are standing in a small opening.  To the north lies the old wooden
       bridge.  To your south the you can see a clearing.  You can see sunlight
       again.  What a welcome relief!
+    flags: [dark, indoors]
     exits:
       north: 2237
       south: 2239

@@ -533,6 +533,7 @@ rooms:
       You are in a very dark and seedy alley.  This is just the right place for
       a bite fight.  Bite fighting is an illegal activity where both combatants
       can only use their sharpened teeth as weapons.
+    flags: [dark]
     exits:
       east: 8017
       west: 8005
@@ -943,6 +944,7 @@ rooms:
     long_desc: |
       A scabrous hole.  Run by Ernie Ramirez, an ex-perp, it is a meeting place
       for the low-life in the area.
+    flags: [indoors]
     exits:
       east: 8003
     sector_type: INSIDE
@@ -982,6 +984,7 @@ rooms:
       A sleazy dive and the meeting place of a lot of perps.  Shuggy is a
       twenty-second Century version of pool, played on a hilly table, usually
       with large side bets.
+    flags: [indoors]
     exits:
       east: 8005
     sector_type: INSIDE
@@ -1007,6 +1010,7 @@ rooms:
       This is an experimental psychiatric home.  Named after a 20th Century
       vid-critic, the home attempts, by various methods, to readjust the
       socially unacceptable attitudes of the inmates.
+    flags: [indoors]
     exits:
       east: 8006
     sector_type: INSIDE
@@ -1042,6 +1046,7 @@ rooms:
       and cheap face-changing facilities to the general public.  However,
       since the closure of Sump's Ugly clinics, the craze for face-changing has
       died down.
+    flags: [indoors]
     exits:
       east: 8007
     sector_type: INSIDE
@@ -1076,6 +1081,7 @@ rooms:
       The only suspended animation parlour in the area.  It has a high turnover
       rate.  It is rumored that the patrons are being used in body sharking and
       organ legging activities.
+    flags: [indoors]
     exits:
       east: 8009
     sector_type: INSIDE
@@ -1111,6 +1117,7 @@ rooms:
       with the utmost discourtesy.  Of course, something as crazy as this was
       bound to succeed.  There is a door to the north with a slot next to it.
       There is also a sign next to the slot.
+    flags: [indoors]
     exits:
       north: 8027
       west: 8016
@@ -1148,6 +1155,7 @@ rooms:
     long_desc: |
       Many useless items stock the shelves of this stockroom.  A door leads
       south and large vault door is to the north.
+    flags: [indoors]
     exits:
       north: 8028
       south: 8026
@@ -1197,6 +1205,7 @@ rooms:
     short_desc: "Throt & Gleep's Vault"
     long_desc: |
       The vault is musty with a slight smell of ozone in the air.
+    flags: [indoors]
     exits:
       south: 8027
     sector_type: INSIDE

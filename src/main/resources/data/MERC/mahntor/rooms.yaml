@@ -11,6 +11,7 @@ rooms:
       very much like turning back and heading for safer areas. The path leads north
       into more open lands while it also leads south into the darkness of the forest.
       A small sign is posted here.
+    flags: [no_mob]
     exits:
       north: 5280
       south: 2301
@@ -57,6 +58,7 @@ rooms:
       down through the gaps in the canopy above and provide small spots of light
       that seem to attract what little foliage can grow on the dark forest floor.
       The path winds north and south into darkness.
+    flags: [dark, no_mob]
     exits:
       north: 2300
       south: 2302
@@ -175,6 +177,7 @@ rooms:
       heard and little light penetrates the canopy of trees above you. The air here
       smells musty and you long for a fresh breath. You see an intersection of paths
       to the west. The path you are on leads south into the darkening woods.
+    flags: [dark]
     exits:
       south: 2305
       west: 2302
@@ -209,6 +212,7 @@ rooms:
       wet quagmire. It is difficult to walk, and you make squishing sounds as you
       move on. Looking east, you see a swampy path. The main path leads north and
       south into darkness.
+    flags: [dark]
     exits:
       north: 2304
       east: 2327
@@ -253,6 +257,7 @@ rooms:
       that the ground has become dank and swampy, while the western path appears
       to be entering a hilly area. You hear sounds of swamp creatures to the north
       east.
+    flags: [dark]
     exits:
       north: 2305
       west: 2307
@@ -289,6 +294,7 @@ rooms:
       of beaten armour and broken blades lie all around. Examining the tracks here
       lead you to believe that the dead and wounded were dragged off in two 
       directions, south and east.
+    flags: [dark]
     exits:
       east: 2306
       south: 2310
@@ -415,6 +421,7 @@ rooms:
       small boulders bounce and fall down below you. Looking to the east and west,
       you see more stable ground. The hillside itself goes on higher to the south
       and it drops away to the north.
+    flags: [no_mob]
     exits:
       north: 2307
       east: 2312
@@ -715,6 +722,7 @@ rooms:
       rotting away slowly in the gloomy darkness. In the back of the cave, you see a
       large pile of rotting cloth, fur, and plant matter. Light and safety is
       towards the west.
+    flags: [dark, indoors]
     exits:
       west: 2315
     sector_type: INSIDE
@@ -1171,6 +1179,7 @@ rooms:
       finally right yourself. Gaining your bearings, you notice that there are two
       "windows" in the sea of blue here. One to the south shows an image of a snowy
       plain. Another window the the north shows an image of a rocky shore.
+    flags: [no_mob, indoors]
     exits:
       north: 2324
       south: 2353
@@ -1205,6 +1214,7 @@ rooms:
       out all light and stifle the wind. You smell swamp gas and hear damp squashing
       sounds all around you. The path leads east deeper into the swamp. You also see
       a dark forest to the west.
+    flags: [dark, no_mob, indoors]
     exits:
       east: 2328
       west: 2305
@@ -1242,6 +1252,7 @@ rooms:
       quicksand and rotting vegetation. Unlike the forest to the west, the swamp is
       teeming with life. Some of it is harmless, some is not. The path leads east
       and west into more swamp.
+    flags: [dark, indoors]
     exits:
       east: 2329
       west: 2327
@@ -1279,6 +1290,7 @@ rooms:
       carefully picking your way around obstacles. Large, gnarled trees rise above
       you. Their moss covered branches block out all traces of the sun. The path
       here leads east and west.
+    flags: [dark, indoors]
     exits:
       east: 2330
       west: 2328
@@ -1314,6 +1326,7 @@ rooms:
       You come upon a bend in the swampy path. The ground here is fairly sturdy,
       as this place is elevated above the rest of the swamp. Looking around, you see
       a dark, mist filled swamp. Small paths lead south and west into the mist.
+    flags: [dark, indoors]
     exits:
       south: 2331
       west: 2329
@@ -1357,6 +1370,7 @@ rooms:
       You tread lightly through the mirky water and sludge that makes up the path
       you follow. To the east, there is a thick wall of mist. You can see nothing
       within it. Harder ground rises to the north.
+    flags: [dark, indoors]
     exits:
       north: 2330
       east: 2335
@@ -1392,6 +1406,7 @@ rooms:
       You wander, hopelessly lost. Swirling mist obscures your vision and clouds
       your mind. You lose all concept of direction. Small, silent giggles can be
       heard all around. You can wander in any direction.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 2337
       east: 2334
@@ -1451,6 +1466,7 @@ rooms:
       you and dare you to escape. You feel a slight electric charge in the mist. It
       almost caresses your body as it floats about you. You can wander in any
       direction.......
+    flags: [dark, indoors, no_recall]
     exits:
       north: 2333
       east: 2336
@@ -1509,6 +1525,7 @@ rooms:
       You try to peer through the mist......You see nothing. It swirls about you,
       covering you in a damp sheen. There is no sound, all light is eagerly devoured
       by the mist. You feel totally and hopelessly lost.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 2338
       east: 2332
@@ -1562,6 +1579,7 @@ rooms:
       You stumble through the marsh here. The swamp seems to have swallowed you up
       and denied you exit. This mist is your jailor. You cannot tell where you are.
       You hear quiet laughter all about you.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 2332
       east: 2333
@@ -1615,6 +1633,7 @@ rooms:
       You wander, lost, for what seems an eternity. Then....From nowhere....You see
       what appears to be trees and hills to the east. The mist itself thickens to
       the west, while it grows thin to the east.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 2334
       east: 2339
@@ -1677,6 +1696,7 @@ rooms:
       to breathe. The ground below you makes a soft squishing sound as you trudge
       on, but this noise is absorbed by the mist and does not travel. You can wander
       in any direction.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 2335
       east: 2338
@@ -1735,6 +1755,7 @@ rooms:
       You wander, lost hopelessly. The mist swirls all about you. You can discern no
       direction. You stumble blindly through the mist, oblivious to your
       surroundings.
+    flags: [dark, indoors, no_recall]
     exits:
       north: 2336
       east: 2337
@@ -1822,6 +1843,7 @@ rooms:
       undergrowth line both sides of the trail. Looking north, you see a thin line
       of smoke rising up above the tree line. You also notice a crude wooden gate
       farther north on the trail. The trail itself leads south into murky territory.
+    flags: [no_mob]
     exits:
       north: 2341
       south: 2339
@@ -2216,6 +2238,7 @@ rooms:
       line the walls here. Large chests on either side of the door appear to be
       locked. The lodge stretches north, while the doors to the south provide an
       exit into the village.
+    flags: [indoors]
     exits:
       north: 2349
       south: 2346
@@ -2274,6 +2297,7 @@ rooms:
       is against the east wall. A doorway is directly to the north, long strands of
       beads blocking the view of the other side. Crude torches light the hall and 
       smoke clings to the ceiling.
+    flags: [indoors]
     exits:
       north: 2350
       south: 2348
@@ -2323,6 +2347,7 @@ rooms:
       locks. The room is filled with trophies of dead enemies. It is quite lavishly
       decorated for such a crude inhabitant as an ogre. A beaded doorway is to the
       south.
+    flags: [indoors]
     exits:
       south: 2349
     sector_type: INSIDE
@@ -2487,6 +2512,7 @@ rooms:
       walls are frosted and are opaque. There is a small blue portal here. You can
       go north, to enter the portal. Looking south, you see a world of white outside
       the open doorway. Swirling snow and bright light obscure your view.
+    flags: [indoors]
     exits:
       north: 2326
       south: 2351
@@ -2906,6 +2932,7 @@ rooms:
       wasteland stretches out. The snow falls lightly here and the wind is not
       very fierce. You can climb up the rocky cliff or head north into the arctic
       wastes.
+    flags: [no_mob]
     exits:
       north: 2358
       up: 2361
@@ -2942,6 +2969,7 @@ rooms:
       sheer distance to the ground below. You can climb up higher into the cliffs,
       but the area above is obscured by clouds and you cannot tell what lies waiting
       above.
+    flags: [no_mob]
     exits:
       up: 2362
       down: 2360
@@ -3407,6 +3435,7 @@ rooms:
       inhabitants of the inn are all minotaurs of varying size and disposition. Most
       seem to regard you with suspicion. Few approach you. A large door leads
       north, out of the bar and back out into the cold.
+    flags: [indoors]
     exits:
       north: 2366
     sector_type: INSIDE
@@ -3433,6 +3462,7 @@ rooms:
       items that adventurers could use. Large fireplaces light and heat the room.
       A large desk occupies the back of the room. The door to the shop lies to the
       north.
+    flags: [indoors]
     exits:
       north: 2367
     sector_type: INSIDE
@@ -3468,6 +3498,7 @@ rooms:
       walls and snow blows across the dirty stone floor. It is evident that this
       store was once used, but it is no more. A small doorway leads north out into
       the chilling snow and wind.
+    flags: [indoors]
     exits:
       north: 2368
     sector_type: INSIDE
@@ -3494,6 +3525,7 @@ rooms:
       and practice dummies lie all around. The walls are chipped and scored from
       weapon blows. This is obviously the room of an avid warrior. A red door leads
       east.
+    flags: [indoors]
     exits:
       east: 2388
     sector_type: INSIDE
@@ -3543,6 +3575,7 @@ rooms:
       This room is dark. It reeks of death and evil. Arcane symbols and a small
       altar fill the room. Blood runs from the altar. It is evident that this room
       is used for unholy purposes. A black door leads west.
+    flags: [dark, indoors]
     exits:
       east: 2389
     sector_type: INSIDE
@@ -3592,6 +3625,7 @@ rooms:
       Idols to the gods of good fill the room. White furniture and decorations give
       the room a holy appearance. It is evident that some being of supreme goodness
       lives here. A white door leads east.
+    flags: [indoors]
     exits:
       east: 2392
     sector_type: INSIDE
@@ -3642,6 +3676,7 @@ rooms:
       end of this steep road, you see a huge keep. Snow swirls all about you and you
       feel your breath freeze as it leaves your lungs. Blurry lights to the east and
       west are all you can see from here.
+    flags: [no_mob]
     exits:
       east: 2377
       west: 2368
@@ -3679,6 +3714,7 @@ rooms:
       and curtains help insulate the room and the beds themselves look quite warm.
       A table in the center of the room has the remnants of a card game strewn
       across it. A small door leads south.
+    flags: [indoors]
     exits:
       south: 2377
     sector_type: INSIDE
@@ -3782,6 +3818,7 @@ rooms:
       You enter a small, but warm, guard house. Deep rugs and thick curtains
       insulate the room. A huge fireplace lights and warms the room. Outside, you
       hear the roar of the freezing wind. A small door leads north out into the cold.
+    flags: [indoors]
     exits:
       north: 2377
     sector_type: INSIDE
@@ -3824,6 +3861,7 @@ rooms:
       ceiling far above. The architecture appears to be dwarven. A huge pair of
       gates stand to the west, protecting the keep from the harsh cold outside. A
       large hall leads east, deeper into the keep.
+    flags: [indoors]
     exits:
       east: 2380
       west: 2377
@@ -3881,6 +3919,7 @@ rooms:
       various make and appearance are spread about. The ceiling above supports huge
       candelabras, which light the room. To the east, you see a bright light and
       hear sounds of inhabitation. Looking west, you see the entry gates to the keep.
+    flags: [indoors]
     exits:
       east: 2381
       west: 2379
@@ -3939,6 +3978,7 @@ rooms:
       off by the torches that line the walls. To the east, you see what appears to
       be a huge golden throne. The hall itself stretches south and a smaller hall
       leads to the west.
+    flags: [indoors]
     exits:
       east: 2383
       south: 2382
@@ -3985,6 +4025,7 @@ rooms:
       ceiling and torch light glimmers off the marble floor here. You are amazed at
       the sheer size of the hall. The hall itself leads north and east. You notice a
       smaller hall leading south, deeper into the keep.
+    flags: [indoors]
     exits:
       north: 2381
       east: 2384
@@ -4053,6 +4094,7 @@ rooms:
       it, you feel small and feeble. It is evident that this throne is more of a
       decoration than anything else. Only the largest of kings could sit upon it.
       The hall leads south and west into other parts of the keep.
+    flags: [indoors]
     exits:
       east: 2385
       south: 2384
@@ -4123,6 +4165,7 @@ rooms:
       off the marble floor below you. To the north, you see a huge golden throne.
       Looking up, you grow dizzy at the height to which the vaulted ceiling rises.
       The hall itself leads north and west.
+    flags: [indoors]
     exits:
       north: 2383
       west: 2382
@@ -4157,6 +4200,7 @@ rooms:
     long_desc: |
       You are in a small, torch lit hall. It leads from east to west. A large gold
       door is to the west. To the east, you see a heavy stone door.
+    flags: [indoors]
     exits:
       east: 2386
       west: 2383
@@ -4242,6 +4286,7 @@ rooms:
       covers the stone floor. Large candelabras hang from the ceiling, lighting the
       room. A huge fireplace warms the room. Beaded doorways lead south and east. A
       huge stone door stands in the west wall.
+    flags: [indoors]
     exits:
       east: 2395
       south: 2393
@@ -4291,6 +4336,7 @@ rooms:
       it would be quite easy to defend in times of emergency. Obviously, something
       important lies beyond. A small hall leads south, while the main hall can be
       seen to the north.
+    flags: [indoors]
     exits:
       north: 2382
       south: 2388
@@ -4367,6 +4413,7 @@ rooms:
       very quiet in this hall. You notice rows of colored doors on each wall. To
       your east, you see a yellow door. To your west, you see a red door. The hall
       itself leads south and north.
+    flags: [indoors]
     exits:
       north: 2387
       east: 2390
@@ -4427,6 +4474,7 @@ rooms:
       You walk down a small, quiet, torch lit hallway. Doors of different colors are
       in each wall. To your east, you see a maroon door. To your west, you see a
       black door. The hall itself leads north and south.
+    flags: [indoors]
     exits:
       north: 2388
       east: 2391
@@ -4487,6 +4535,7 @@ rooms:
       You enter a temple of sorts. A small altar is here and relics of many
       religions lie around. It is evident that this is the room of a studying cleric.
       A yellow door leads west.
+    flags: [indoors]
     exits:
       west: 2388
     sector_type: INSIDE
@@ -4537,6 +4586,7 @@ rooms:
       of the room is occupied by a huge pentagram. The entire room smells of smoke
       and incense. The room is obviously used extensively by a practicing mage. A
       maroon door leads west.
+    flags: [indoors]
     exits:
       west: 2389
     sector_type: INSIDE
@@ -4587,6 +4637,7 @@ rooms:
       Colored doors can be seen in the walls here. To your east, you see a green
       door. To your west, you see a white door. The hall itself leads north and
       south.
+    flags: [indoors]
     exits:
       north: 2389
       east: 2394
@@ -4647,6 +4698,7 @@ rooms:
       This appears to be the harem room of the Keep. Huge piles of furs and beds
       fill the room. The lighting is dim, but the room is very warm. You can hear
       music playing quietly from somewhere. Beaded doorways lead north and east.
+    flags: [indoors]
     exits:
       north: 2386
       east: 2396
@@ -4703,6 +4755,7 @@ rooms:
       This room is filled with all types of natural items. Trees and plants have
       been lovingly cultivated and grown by hand, in large pots. The room is like an
       indoor garden. A green door leads west.
+    flags: [indoors]
     exits:
       west: 2392
     sector_type: INSIDE
@@ -4752,6 +4805,7 @@ rooms:
       This room is decorated with sturdy stone furniture that is carved and gilded.
       Large candles light the room. A thick rug covers the floor. Thick furs and
       tapestries decorate the walls. Beaded doorways lead south and west.
+    flags: [indoors]
     exits:
       south: 2396
       west: 2386
@@ -4793,6 +4847,7 @@ rooms:
       furs and other rich furnishings adorn the room. Candles are everywhere and
       they help a huge fireplace light the room. The lavishness of the room
       overwhelms you. Beaded doorways lead north and west.
+    flags: [indoors]
     exits:
       north: 2395
       west: 2393
@@ -4852,6 +4907,7 @@ rooms:
       You are at the end of the hall. Colored doors line the walls to the north. To
       your west, you see a brown door. To you east, you see a grey door. The hall
       itself leads north back along the rows of doors.
+    flags: [indoors]
     exits:
       north: 2392
       east: 2398
@@ -4902,6 +4958,7 @@ rooms:
       This room is dirty and unkempt. Odds and ends of different items lie all over.
       It is apparent that some type of pack-rat lives here. It appears as though
       nothing has ever entered this room and ever left again. A grey door leads west.
+    flags: [indoors]
     exits:
       west: 2397
     sector_type: INSIDE
@@ -4951,6 +5008,7 @@ rooms:
       This room is full of green. The furniture and all other items show the color
       of nature. The room smells of pine and forest odors. From the items here, it
       appears as though a woodsman of some sorts lives here. A brown door leads east.
+    flags: [indoors]
     exits:
       east: 2397
     sector_type: INSIDE

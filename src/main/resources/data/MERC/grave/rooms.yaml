@@ -266,6 +266,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3606
     sector_type: CITY
@@ -341,6 +342,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3608
     sector_type: CITY
@@ -416,6 +418,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3610
     sector_type: CITY
@@ -496,6 +499,7 @@ rooms:
     long_desc: |
       You are in a small shed that looks as if it is used to store all sorts of
       gardening equipment.  The only exit appears to be through a door to the east.
+    flags: [indoors]
     exits:
       east: 3612
     sector_type: CITY
@@ -590,6 +594,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3614
     sector_type: CITY
@@ -665,6 +670,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3616
     sector_type: CITY
@@ -743,6 +749,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3618
     sector_type: CITY
@@ -823,6 +830,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3638
     sector_type: CITY
@@ -903,6 +911,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3640
     sector_type: CITY
@@ -978,6 +987,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3642
     sector_type: CITY
@@ -1058,6 +1068,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3644
     sector_type: CITY
@@ -1136,6 +1147,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3646
     sector_type: CITY
@@ -1211,6 +1223,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3648
     sector_type: CITY
@@ -1286,6 +1299,7 @@ rooms:
     long_desc: |
       You are in a dark burial chamber beneath a large tomb stone.
       The only exit appears to be up.
+    flags: [dark, indoors]
     exits:
       up: 3650
     sector_type: CITY

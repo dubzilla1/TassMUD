@@ -181,6 +181,7 @@ public class CombatManager {
      * Main combat tick - called periodically to process all active combats.
      */
     public void tick() {
+        try {
         List<Combat> toRemove = new ArrayList<>();
 
         // Expire Empty Body invincibility windows
@@ -208,6 +209,9 @@ public class CombatManager {
         // Clean up ended combats
         for (Combat combat : toRemove) {
             cleanupCombat(combat);
+        }
+        } catch (Exception e) {
+            logger.error("[CombatManager] Uncaught exception in combat tick: {}", e.getMessage(), e);
         }
     }
     

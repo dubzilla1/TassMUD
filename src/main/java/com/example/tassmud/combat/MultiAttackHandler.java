@@ -222,6 +222,14 @@ public class MultiAttackHandler {
         ProficiencyCheck.Result result = ProficiencyCheck.checkProficiencyGrowth(
             characterId, skill, charSkill, succeeded, getDao());
         
+        com.example.tassmud.net.ClientHandler.sendDebugToCharacter(characterId,
+            skill.getName() + " passive check: prof=" + charSkill.getProficiency()
+            + "% triggered=" + succeeded + " improved=" + result.hasImproved());
+        if (result.hasImproved()) {
+            com.example.tassmud.net.ClientHandler.sendDebugToCharacter(characterId,
+                "  Old prof: " + result.getOldProficiency() + " -> New prof: " + result.getNewProficiency());
+        }
+
         if (result.hasImproved() && playerMessageCallback != null) {
             playerMessageCallback.accept(characterId, result.getImprovementMessage());
         }

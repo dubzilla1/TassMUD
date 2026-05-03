@@ -1187,6 +1187,7 @@ rooms:
       are set about for the occupants' comfort.  Weapons are stacked neatly on the
       weapons rack.  Each weapon looks polished, sharpened, and oiled.
       Draped along the back wall is the proud banner of Thalos in all its glory.
+    flags: [indoors]
     exits:
       east: 5313
     sector_type: CITY
@@ -1286,6 +1287,7 @@ rooms:
     long_desc: |
       In here you find tools and anvils used to make various weapons
       and items. The walls are fully stocked with pieces of armor and weaponry.
+    flags: [indoors]
     exits:
       east: 5312
     sector_type: CITY
@@ -1507,6 +1509,7 @@ rooms:
       This is a very plain house with a few chairs and a bed.
       A warmed and lit fireplace suggests that the dwelling is currently
       occupied.  You should leave before the owner finds you here.
+    flags: [indoors]
     exits:
       east: 5310
     sector_type: CITY
@@ -1615,6 +1618,7 @@ rooms:
       but inside these cramped quarters you discover a shop filled with
       armor, weapons, and various other goods. A small sign posted on the wall
       flutters in the wind.
+    flags: [indoors]
     exits:
       north: 5314
     sector_type: CITY
@@ -1716,6 +1720,7 @@ rooms:
       faithfully.  Valuable items hang from the walls each to be admired
       by onlookers.  Chairs lie around, and a large curved desk. To the east
       is a vine-covered archway leading out into a private courtyard.
+    flags: [indoors]
     exits:
       north: 5332
       east: 5334
@@ -1804,6 +1809,7 @@ rooms:
       been painted in pure white and thick lush carpet line the floor wall to wall.
       A side door on the west wall allows you to go out to one of the city's side 
       streets.  Hallways lead south and east.
+    flags: [indoors]
     exits:
       north: 5302
       east: 5333
@@ -1874,6 +1880,7 @@ rooms:
       glass cabinet along the wall. A long hallway leads west back to the
       reception area and an ivy-covered archway leads south into a private
       courtyard.
+    flags: [indoors]
     exits:
       south: 5334
       west: 5332
@@ -2138,6 +2145,7 @@ rooms:
     long_desc: |
       This seems to be the tallest structure in the city.  Rows and rows of books
       line the 20 foot tall bookcases, and a quiet serenity can be felt by all here.
+    flags: [indoors]
     exits:
       east: 5338
       west: 5311
@@ -2188,6 +2196,7 @@ rooms:
       There are more shelves and tables here.  Vials of strange potions line a
       section of the wall, and books and other items of power line another.  The exit
       is to the west.
+    flags: [indoors]
     exits:
       west: 5337
     sector_type: CITY
@@ -2374,6 +2383,7 @@ rooms:
       wells up from a hole in the floor. Obviously there is a hot spring located 
       under the city (making the decision to put a city here seem much more 
       reasonable). To the west is another room.
+    flags: [indoors]
     exits:
       north: 5343
       west: 5344
@@ -2466,6 +2476,7 @@ rooms:
       people just relaxing on them.  The comfort of this place is so inviting, you 
       want to join them.  Great amounts of steam issue forth from the hole in the 
       east wall.
+    flags: [indoors]
     exits:
       east: 5342
       west: 5310
@@ -2674,6 +2685,7 @@ rooms:
       roof are all made of ceramic, making this place reflect the sun well.  
           The greenery around the temple itself makes this place a great blend of
       nature and man's works of art.
+    flags: [indoors]
     exits:
       north: 5305
       east: 5303
@@ -3272,6 +3284,7 @@ rooms:
       of this land. The road leads east into the peace and quiet - and dangers -
       of the forest; and to the west it becomes the main street of the town;
       surrounded by building foundations of unfinished shops, houses, and temple.
+    flags: [no_mob]
     exits:
       east: 5362
       west: 5385
@@ -3422,6 +3435,7 @@ rooms:
       You are standing in a clearing in the light woods. Somehow, this place
       seems powerfully DIFFERENT from the rest of the forest, as if something is
       severely strained in the fabric of reality here.
+    flags: [no_mob]
     exits:
       north: 5375
       south: 5371
@@ -3481,6 +3495,7 @@ rooms:
       shoulders. From here, pleasant-looking paths lead east, north and south. To
       the west, through the trees, You can see the road to Midgaard's construction
       site.
+    flags: [no_mob]
     exits:
       east: 5370
       north: 5366
@@ -3733,6 +3748,7 @@ rooms:
       shimmering softly through the colors of the rainbow. You feel as if You
       could spend the rest of your life here, lying on your back and looking at the
       patterns of the clouds as they gently drift across the sky.
+    flags: [indoors]
     exits:
       north: 5370
       west: 5372
@@ -3782,6 +3798,7 @@ rooms:
       from the wood's edge to the north, to the softly shimmering, rainbow-colored
       dome covering construction to the south. This place enjoys a perpetual cool,
       sunny summers after-noon.
+    flags: [no_mob]
     exits:
       north: 5371
     sector_type: FIELD
@@ -4108,6 +4125,7 @@ rooms:
          Large steps lead down through the grand temple gate, descending the huge
       mound upon which the temple is built and ends on the temple square below.
          You notice that this building is quite new.  A small plaque is on this wall.
+    flags: [no_mob, indoors, safe]
     exits:
       north: 5386
       south: 5380
@@ -4428,6 +4446,7 @@ rooms:
       You are by the temple altar in the northern end of the Temple of Midgaard.
       A huge altar made from white polished marble is standing in front of you and
       behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
+    flags: [indoors, safe]
     exits:
       south: 5379
     sector_type: INSIDE

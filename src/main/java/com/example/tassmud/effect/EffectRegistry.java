@@ -54,6 +54,26 @@ public class EffectRegistry {
             }
         }
 
+        // Stack policy enforcement: for REFRESH/UNIQUE/REPLACE_HIGHER_PRIORITY, expire and
+        // remove any existing instances of this effect on the same target before applying the
+        // new one. This prevents buffs like Bless/Armor/Stone Skin from stacking indefinitely.
+        if (def.getStackPolicy() != EffectDefinition.StackPolicy.STACK
+                && def.getStackPolicy() != null
+                && targetId != null
+                && def.isPersistent()) {
+            final EffectHandler finalH = h;
+            List<EffectInstance> toExpire = new ArrayList<>();
+            for (EffectInstance existing : activeInstances.values()) {
+                if (defId.equals(existing.getDefId()) && targetId.equals(existing.getTargetId())) {
+                    toExpire.add(existing);
+                }
+            }
+            for (EffectInstance existing : toExpire) {
+                activeInstances.remove(existing.getId());
+                try { finalH.expire(existing); } catch (Exception ignored) {}
+            }
+        }
+
         EffectInstance inst = h.apply(def, casterId, targetId, extraParams);
         // Only track persistent effects with duration > 0 in activeInstances
         // Instant effects (heals, damage) should not be tracked
@@ -193,5 +213,38 @@ public class EffectRegistry {
         for (UUID id : toRemove) {
             activeInstances.remove(id);
         }
+    }
+
+    /**
+     * Remove all active effects on a target that have ALL of the specified tags,
+     * calling each effect's expire() handler for proper cleanup (e.g. modifier removal).
+     *
+     * @param targetId     The character to cleanse
+     * @param requiredTags Every tag in this list must be present on the effect
+     * @return The number of effects removed
+     */
+    public static int removeEffectsByTag(Integer targetId, String... requiredTags) {
+        if (targetId == null || requiredTags == null || requiredTags.length == 0) return 0;
+        List<EffectInstance> toRemove = new ArrayList<>();
+        for (EffectInstance ei : activeInstances.values()) {
+            if (!targetId.equals(ei.getTargetId())) continue;
+            EffectDefinition def = defs.get(ei.getDefId());
+            if (def == null) continue;
+            boolean allMatch = true;
+            for (String tag : requiredTags) {
+                if (!def.hasTag(tag)) { allMatch = false; break; }
+            }
+            if (allMatch) toRemove.add(ei);
+        }
+        for (EffectInstance ei : toRemove) {
+            activeInstances.remove(ei.getId());
+            EffectHandler h = getHandlerForDef(defs.get(ei.getDefId()));
+            if (h != null) {
+                try { h.expire(ei); } catch (Exception e) {
+                    // expire() is best-effort cleanup; don't abort the cleanse
+                }
+            }
+        }
+        return toRemove.size();
     }
 }
