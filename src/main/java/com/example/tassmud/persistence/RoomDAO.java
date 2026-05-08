@@ -75,7 +75,8 @@ public class RoomDAO {
             s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_u INT");
             s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS exit_d INT");
             s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS move_cost INT");
-            logger.debug("Migration: ensured column room.move_cost");
+            s.execute("ALTER TABLE room ADD COLUMN IF NOT EXISTS sector_type VARCHAR(50) DEFAULT NULL");
+            logger.debug("Migration: ensured columns room.move_cost, room.sector_type");
 
             // Door table for exit metadata (open/closed/locked/hidden/blocked)
             s.execute("CREATE TABLE IF NOT EXISTS door (" +
@@ -253,7 +254,13 @@ public class RoomDAO {
 
     public int addRoomWithId(int id, int areaId, String name, String shortDesc, String longDesc,
                              Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD) {
-        String sql = "MERGE INTO room (id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        return addRoomWithId(id, areaId, name, shortDesc, longDesc, exitN, exitE, exitS, exitW, exitU, exitD, null);
+    }
+
+    public int addRoomWithId(int id, int areaId, String name, String shortDesc, String longDesc,
+                             Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD,
+                             com.example.tassmud.model.SectorType sectorType) {
+        String sql = "MERGE INTO room (id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d, sector_type) KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -267,6 +274,7 @@ public class RoomDAO {
             if (exitW == null) ps.setNull(9, Types.INTEGER); else ps.setInt(9, exitW);
             if (exitU == null) ps.setNull(10, Types.INTEGER); else ps.setInt(10, exitU);
             if (exitD == null) ps.setNull(11, Types.INTEGER); else ps.setInt(11, exitD);
+            if (sectorType == null) ps.setNull(12, Types.VARCHAR); else ps.setString(12, sectorType.name());
             ps.executeUpdate();
             return id;
         } catch (SQLException e) {
@@ -276,7 +284,7 @@ public class RoomDAO {
     }
 
     public Room getRoomById(int id) {
-        String sql = "SELECT id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d, move_cost FROM room WHERE id = ?";
+        String sql = "SELECT id, area_id, name, short_desc, long_desc, exit_n, exit_e, exit_s, exit_w, exit_u, exit_d, move_cost, sector_type FROM room WHERE id = ?";
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -289,15 +297,30 @@ public class RoomDAO {
                     Integer exitU = rs.getObject("exit_u") == null ? null : rs.getInt("exit_u");
                     Integer exitD = rs.getObject("exit_d") == null ? null : rs.getInt("exit_d");
                     Integer moveCost = rs.getObject("move_cost") == null ? null : rs.getInt("move_cost");
+                    String stStr = rs.getString("sector_type");
+                    SectorType sectorType = (stStr != null) ? SectorType.fromString(stStr) : null;
                     return new Room(rs.getInt("id"), rs.getInt("area_id"), rs.getString("name"),
                             rs.getString("short_desc"), rs.getString("long_desc"),
-                            exitN, exitE, exitS, exitW, exitU, exitD, moveCost);
+                            exitN, exitE, exitS, exitW, exitU, exitD, moveCost, sectorType);
                 }
             }
         } catch (SQLException e) {
             return null;
         }
         return null;
+    }
+
+    /**
+     * Get the effective sector type for a room.
+     * Returns the room's own sector type if set, otherwise falls back to the area's sector type.
+     */
+    public SectorType getSectorTypeForRoom(int roomId) {
+        Room room = getRoomById(roomId);
+        if (room == null) return SectorType.FIELD;
+        if (room.getSectorType() != null) return room.getSectorType();
+        Area area = getAreaById(room.getAreaId());
+        if (area == null) return SectorType.FIELD;
+        return area.getSectorType() != null ? area.getSectorType() : SectorType.FIELD;
     }
 
     /**
@@ -632,5 +655,30 @@ public class RoomDAO {
     /** Check if a room is DARK (requires light source). */
     public boolean isRoomDark(int roomId) {
         return hasRoomFlag(roomId, RoomFlag.DARK);
+    }
+
+    /**
+     * Nullify exit columns that reference room IDs which do not exist in the room table.
+     * Equivalent to MERC's fix_exits() first pass.
+     * Call this after all rooms have been loaded so dangling references are removed.
+     *
+     * @return total number of exit cells that were NULLed
+     */
+    public int fixExits() {
+        String[] dirs = {"exit_n", "exit_e", "exit_s", "exit_w", "exit_u", "exit_d"};
+        int total = 0;
+        try (Connection c = TransactionManager.getConnection();
+             Statement s = c.createStatement()) {
+            for (String col : dirs) {
+                // Also NULL any exit pointing to id <= 0 (vnum <= 0 in MERC)
+                int rows = s.executeUpdate(
+                    "UPDATE room SET " + col + " = NULL WHERE " + col + " IS NOT NULL AND " +
+                    "(" + col + " <= 0 OR " + col + " NOT IN (SELECT id FROM room))");
+                total += rows;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("fixExits failed", e);
+        }
+        return total;
     }
 }

@@ -41,7 +41,7 @@
     A small smurf is quietly picking berries.  He seems to hardly notice you.
   keywords: ['smurf']
   level: 1
-  hp_max: 26
+  hp_max: 8
   mp_max: 0
   mv_max: 100
   str: 10
@@ -326,6 +326,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 2
   damage_bonus: 12
   attack_bonus: 0
@@ -360,6 +361,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 2
   damage_bonus: 12
   attack_bonus: 0

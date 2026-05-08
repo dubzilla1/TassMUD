@@ -6,7 +6,7 @@
     Her job is to set the level for this equipment.
   keywords: ['keeper']
   level: 8
-  hp_max: 1000
+  hp_max: 104
   mp_max: 0
   mv_max: 100
   str: 10
@@ -19,6 +19,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 4
   base_damage: 6
   damage_bonus: 3
   attack_bonus: 0

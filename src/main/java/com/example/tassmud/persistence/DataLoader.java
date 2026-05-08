@@ -46,6 +46,13 @@ public class DataLoader {
         Map<String,Integer> areaMap = loadAreas(dao);
         Map<String,Integer> roomKeyToId = loadRoomsFirstPass(dao, areaMap);
         loadRoomsSecondPass(dao, roomKeyToId);
+        // Nullify exits pointing to nonexistent rooms (MERC fix_exits equivalent)
+        int fixedExits = DaoProvider.rooms().fixExits();
+        if (fixedExits > 0) {
+            logger.warn("[DataLoader] fix_exits: nullified {} dangling room exit(s)", fixedExits);
+        } else {
+            logger.info("[DataLoader] fix_exits: all room exits are valid");
+        }
         // Load item templates from YAML resource into item_template table
         ItemDAO itemDao = null;
         try {
@@ -269,6 +276,7 @@ public class DataLoader {
                     int fortitude = getInt(mobData, "fortitude", 0);
                     int reflex = getInt(mobData, "reflex", 0);
                     int will = getInt(mobData, "will", 0);
+                    int damageCount = getInt(mobData, "damage_count", 1);
                     int baseDamage = getInt(mobData, "base_damage", 4);
                     int damageBonus = getInt(mobData, "damage_bonus", 0);
                     int attackBonus = getInt(mobData, "attack_bonus", 0);
@@ -302,7 +310,7 @@ public class DataLoader {
                         .level(level).hpMax(hpMax).mpMax(mpMax).mvMax(mvMax)
                         .str(str).dex(dex).con(con).intel(intel).wis(wis).cha(cha)
                         .armor(armor).fortitude(fortitude).reflex(reflex).will(will)
-                        .baseDamage(baseDamage).damageBonus(damageBonus).attackBonus(attackBonus)
+                        .damageCount(damageCount).baseDamage(baseDamage).damageBonus(damageBonus).attackBonus(attackBonus)
                         .behaviors(behaviors).aggroRange(aggroRange)
                         .experienceValue(experienceValue).goldMin(goldMin).goldMax(goldMax)
                         .respawnSeconds(respawnSeconds).autoflee(autoflee).specFun(specFun).mobType(mobType)
@@ -950,6 +958,7 @@ public class DataLoader {
         String shortDesc;
         String longDesc;
         Integer exitN, exitE, exitS, exitW, exitU, exitD;
+        com.example.tassmud.model.SectorType sectorType = null;
         List<SpawnConfig> spawns = new ArrayList<>();
         List<String> flags = new ArrayList<>();  // Room flags (dark, no_mob, safe, etc.)
     }
@@ -1024,6 +1033,12 @@ public class DataLoader {
                         }
                     }
 
+                    // Parse per-room sector type override
+                    String stStr = getString(roomData, "sector_type", null);
+                    if (stStr != null && !stStr.isEmpty()) {
+                        t.sectorType = com.example.tassmud.model.SectorType.fromString(stStr);
+                    }
+
                     if (t.key.isEmpty() || t.name.isEmpty()) continue;
                     templates.add(t);
                 }
@@ -1090,7 +1105,13 @@ public class DataLoader {
                         }
                     }
                 }
-                
+
+                // Parse per-room sector type override
+                String stStr = getString(roomData, "sector_type", null);
+                if (stStr != null && !stStr.isEmpty()) {
+                    t.sectorType = com.example.tassmud.model.SectorType.fromString(stStr);
+                }
+
                 if (t.key.isEmpty() || t.name.isEmpty()) continue;
                 templates.add(t);
             }
@@ -1222,7 +1243,7 @@ public class DataLoader {
                     }
                 }
                 roomId = DaoProvider.rooms().addRoomWithId(t.explicitId, t.areaId, t.name, t.shortDesc, t.longDesc, 
-                    t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
+                    t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD, t.sectorType);
                 if (roomId <= 0) {
                     logger.warn("[DataLoader] Failed to insert room with explicit id {} key={} name={}", t.explicitId, t.key, t.name);
                 }
@@ -1233,7 +1254,7 @@ public class DataLoader {
                 } else {
                     int computed = t.areaId * 1000 + nextLocal;
                     roomId = DaoProvider.rooms().addRoomWithId(computed, t.areaId, t.name, t.shortDesc, t.longDesc,
-                        t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD);
+                        t.exitN, t.exitE, t.exitS, t.exitW, t.exitU, t.exitD, t.sectorType);
                     if (roomId <= 0) {
                         logger.warn("[DataLoader] Failed to insert room with computed id {} key={} name={}", computed, t.key, t.name);
                     }

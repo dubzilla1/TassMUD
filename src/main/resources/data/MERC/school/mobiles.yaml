@@ -6,7 +6,7 @@
     He is big and bad.  Don't mess with him.
   keywords: ['acolyte', 'cleric']
   level: 30
-  hp_max: 30000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -19,6 +19,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0
@@ -238,7 +239,7 @@
     He is big and bad.  Don't mess with him.
   keywords: ['adept', 'cleric']
   level: 30
-  hp_max: 30000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -251,6 +252,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0
@@ -527,7 +529,7 @@
     He is big and bad.  Don't mess with him.
   keywords: ['adept', 'cleric']
   level: 30
-  hp_max: 30000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -540,6 +542,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0
@@ -559,7 +562,7 @@
     He is big and bad.  Don't mess with him.
   keywords: ['adept', 'cleric']
   level: 30
-  hp_max: 30000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -572,6 +575,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0
@@ -591,7 +595,7 @@
     He is big and bad.  Don't mess with him.
   keywords: ['priest', 'cleric']
   level: 30
-  hp_max: 30000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -604,6 +608,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0

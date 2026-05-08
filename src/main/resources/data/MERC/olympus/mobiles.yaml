@@ -22,6 +22,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 20
   base_damage: 3
   damage_bonus: 25
   attack_bonus: 0
@@ -56,6 +57,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 15
   base_damage: 2
   damage_bonus: 20
   attack_bonus: 0
@@ -91,6 +93,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 20
   base_damage: 2
   damage_bonus: 20
   attack_bonus: 0
@@ -126,6 +129,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 20
   base_damage: 3
   damage_bonus: 25
   attack_bonus: 0
@@ -161,6 +165,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 15
   base_damage: 3
   damage_bonus: 25
   attack_bonus: 0
@@ -194,6 +199,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 10
   base_damage: 2
   damage_bonus: 25
   attack_bonus: 0
@@ -228,6 +234,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 15
   base_damage: 2
   damage_bonus: 10
   attack_bonus: 0
@@ -263,6 +270,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 12
   base_damage: 2
   damage_bonus: 26
   attack_bonus: 0
@@ -297,6 +305,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 8
   damage_bonus: 2
   attack_bonus: 0
@@ -330,6 +339,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 6
   damage_bonus: 12
   attack_bonus: 0
@@ -363,6 +373,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 5
   damage_bonus: 2
   attack_bonus: 0
@@ -382,7 +393,7 @@
     This boy is truly lucky to be able to serve Athena herself.
   keywords: ['boy', 'serving', 'servant']
   level: 6
-  hp_max: 209
+  hp_max: 70
   mp_max: 0
   mv_max: 100
   str: 10
@@ -395,6 +406,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 3
   damage_bonus: 2
   attack_bonus: 0
@@ -428,6 +440,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 12
   damage_bonus: 10
   attack_bonus: 0
@@ -463,6 +476,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 10
   base_damage: 2
   damage_bonus: 25
   attack_bonus: 0
@@ -498,6 +512,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 10
   damage_bonus: 10
   attack_bonus: 0
@@ -532,6 +547,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 25
   base_damage: 2
   damage_bonus: 50
   attack_bonus: 0
@@ -565,6 +581,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 10
   base_damage: 3
   damage_bonus: 20
   attack_bonus: 0
@@ -598,6 +615,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 10
   base_damage: 3
   damage_bonus: 20
   attack_bonus: 0
@@ -633,6 +651,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 25
   base_damage: 2
   damage_bonus: 25
   attack_bonus: 0
@@ -667,6 +686,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 5
   base_damage: 5
   damage_bonus: 15
   attack_bonus: 0
@@ -701,6 +721,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 15
   base_damage: 3
   damage_bonus: 15
   attack_bonus: 0
@@ -735,6 +756,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 8
   damage_bonus: 6
   attack_bonus: 0
@@ -768,6 +790,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
@@ -801,6 +824,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 5
   damage_bonus: 3
   attack_bonus: 0
@@ -833,6 +857,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 2
   attack_bonus: 0
@@ -854,7 +879,7 @@
     prisoners.
   keywords: ['jailer']
   level: 13
-  hp_max: 624
+  hp_max: 209
   mp_max: 0
   mv_max: 100
   str: 10
@@ -867,6 +892,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 6
   damage_bonus: 1
   attack_bonus: 0

@@ -342,7 +342,9 @@ items:
     description: A small skiff is here.
     weight: 24
     value: 1500
-    type: immobile
+    types:
+      - boat
+      - immobile
     wear_flags:
       - TAKE
     keywords: [skiff]

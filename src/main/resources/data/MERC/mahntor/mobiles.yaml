@@ -56,6 +56,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -91,6 +92,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 6
   damage_bonus: 3
   attack_bonus: 0
@@ -123,6 +125,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 8
   damage_bonus: 3
   attack_bonus: 0
@@ -156,6 +159,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 4
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -188,6 +192,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 9
   damage_bonus: 3
   attack_bonus: 0
@@ -223,6 +228,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 4
   damage_bonus: 5
   attack_bonus: 0
@@ -256,6 +262,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 6
   damage_bonus: 2
   attack_bonus: 0
@@ -289,6 +296,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 6
   damage_bonus: 3
   attack_bonus: 0
@@ -322,6 +330,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -356,6 +365,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 4
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -389,6 +399,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 5
   base_damage: 5
   damage_bonus: 5
   attack_bonus: 0
@@ -422,6 +433,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 1
   damage_bonus: 50
   attack_bonus: 0
@@ -456,6 +468,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 7
   damage_bonus: 3
   attack_bonus: 0
@@ -490,6 +503,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -523,6 +537,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 5
   damage_bonus: 5
   attack_bonus: 0
@@ -556,6 +571,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 4
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -589,6 +605,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 7
   damage_bonus: 5
   attack_bonus: 0
@@ -622,6 +639,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 5
   base_damage: 5
   damage_bonus: 5
   attack_bonus: 0
@@ -655,6 +673,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 4
   base_damage: 7
   damage_bonus: 4
   attack_bonus: 0
@@ -688,6 +707,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 5
   base_damage: 5
   damage_bonus: 4
   attack_bonus: 0
@@ -721,6 +741,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 5
   damage_bonus: 5
   attack_bonus: 0
@@ -741,7 +762,7 @@
     in the harem.
   keywords: ['girl', 'haremgirl', 'harem', 'slave']
   level: 2
-  hp_max: 60
+  hp_max: 18
   mp_max: 0
   mv_max: 100
   str: 10
@@ -754,6 +775,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 1
   damage_bonus: 5
   attack_bonus: 0
@@ -786,6 +808,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 6
   damage_bonus: 4
   attack_bonus: 0
@@ -820,6 +843,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 5
   base_damage: 7
   damage_bonus: 5
   attack_bonus: 0
@@ -840,7 +864,7 @@
     master of the warrior guild of Mahn-Tor.
   keywords: ['gorak', 'minotaur', 'warrior', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -853,6 +877,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -874,7 +899,7 @@
     chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
   keywords: ['darkoth', 'minotaur', 'anti-paladin', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -887,6 +912,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -907,7 +933,7 @@
     presence. He is the leader of the Mahn-Tor paladins.
   keywords: ['tyrgoth', 'minotaur', 'paladin', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -920,6 +946,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -942,7 +969,7 @@
     mages of Mahn-Tor.
   keywords: ['amyrok', 'minotaur', 'mage', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -955,6 +982,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -976,7 +1004,7 @@
     master of all the clerics of Mahn-Tor.
   keywords: ['sumaron', 'minotaur', 'cleric', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -989,6 +1017,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -1010,7 +1039,7 @@
     wears no metal of any type. He looks at you and smiles.
   keywords: ['nasturn', 'minotaur', 'druid', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -1023,6 +1052,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -1043,7 +1073,7 @@
     compared to the normal minotaur. He looks at you with a slight smirk.
   keywords: ['belrak', 'minotaur', 'ranger', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -1056,6 +1086,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -1076,7 +1107,7 @@
     appears to be quite a skilled thief.
   keywords: ['dorgar', 'minotaur', 'thief', 'master']
   level: 30
-  hp_max: 3000
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -1089,6 +1120,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 6
   damage_bonus: 5
   attack_bonus: 0
@@ -1111,7 +1143,7 @@
     Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
   keywords: ['mahn-tor', 'minotaur', 'grand', 'master']
   level: 33
-  hp_max: 3500
+  hp_max: 944
   mp_max: 0
   mv_max: 100
   str: 10
@@ -1124,6 +1156,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 6
   base_damage: 7
   damage_bonus: 5
   attack_bonus: 0

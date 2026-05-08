@@ -534,9 +534,25 @@ public class CombatCalculator {
      * Moved from Mobile.rollDamage() — combat logic belongs in CombatCalculator.
      */
     public static int rollMobileDamage(Mobile mob) {
-        int roll = java.util.concurrent.ThreadLocalRandom.current().nextInt(1, mob.getBaseDamage() + 1);
+        java.util.concurrent.ThreadLocalRandom rng = java.util.concurrent.ThreadLocalRandom.current();
         int strMod = (mob.getStr() - 10) / 2;
-        return Math.max(1, roll + mob.getDamageBonus() + strMod);
+
+        // MERC fallback: when base_damage is unset, derive a range from mob level.
+        // MERC formula: number_range(level/2, level*3/2), average = level.
+        if (mob.getBaseDamage() <= 0) {
+            int level = Math.max(1, mob.getLevel());
+            int lo = Math.max(1, level / 2);
+            int hi = Math.max(lo, level * 3 / 2);
+            return Math.max(1, rng.nextInt(lo, hi + 1) + mob.getDamageBonus() + strMod);
+        }
+
+        int dice = Math.max(1, mob.getDamageCount());
+        int faces = Math.max(1, mob.getBaseDamage());
+        int total = 0;
+        for (int i = 0; i < dice; i++) {
+            total += rng.nextInt(1, faces + 1);
+        }
+        return Math.max(1, total + mob.getDamageBonus() + strMod);
     }
 
     /**

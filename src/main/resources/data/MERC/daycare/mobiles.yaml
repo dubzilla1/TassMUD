@@ -119,6 +119,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 3
   damage_bonus: 2
   attack_bonus: 0
@@ -253,6 +254,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 5
   damage_bonus: 2
   attack_bonus: 0
@@ -274,7 +276,7 @@
     biggest urge to put him out of his misery.
   keywords: ['brat', 'spoiled']
   level: 1
-  hp_max: 20
+  hp_max: 8
   mp_max: 0
   mv_max: 100
   str: 10
@@ -287,6 +289,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 2
   damage_bonus: 1
   attack_bonus: 0

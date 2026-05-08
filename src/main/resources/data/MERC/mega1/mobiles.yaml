@@ -8,7 +8,7 @@
     vandalism repairs.
   keywords: ['juve']
   level: 5
-  hp_max: 0
+  hp_max: 55
   mp_max: 0
   mv_max: 100
   str: 10
@@ -41,7 +41,7 @@
     fashionable of all gangs -- the Grunge Mongers.
   keywords: ['punk']
   level: 10
-  hp_max: 0
+  hp_max: 142
   mp_max: 0
   mv_max: 100
   str: 10
@@ -75,7 +75,7 @@
     Justice Department.
   keywords: ['Futsie']
   level: 17
-  hp_max: 0
+  hp_max: 316
   mp_max: 0
   mv_max: 100
   str: 10
@@ -109,7 +109,7 @@
     and undersupervised.
   keywords: ['Citi-Def', 'Militiaman']
   level: 16
-  hp_max: 0
+  hp_max: 288
   mp_max: 0
   mv_max: 100
   str: 10
@@ -142,7 +142,7 @@
     He blends into the crowd as his hand travels into another citizen's pocket.
   keywords: ['dunk']
   level: 10
-  hp_max: 0
+  hp_max: 142
   mp_max: 0
   mv_max: 100
   str: 10
@@ -175,7 +175,7 @@
     looking you over for a possible business transaction.
   keywords: ['tap']
   level: 14
-  hp_max: 0
+  hp_max: 234
   mp_max: 0
   mv_max: 100
   str: 10
@@ -210,7 +210,7 @@
     you though.
   keywords: ['rookie', 'judge']
   level: 20
-  hp_max: 0
+  hp_max: 410
   mp_max: 0
   mv_max: 100
   str: 10
@@ -243,7 +243,7 @@
     unintelligent and unimaginative, but looks can be deceiving.
   keywords: ['Wallaby', 'Gleep']
   level: 22
-  hp_max: 0
+  hp_max: 478
   mp_max: 0
   mv_max: 100
   str: 10
@@ -277,7 +277,7 @@
     eyes is the mention of money.
   keywords: ['Pinkerton', 'Throt']
   level: 25
-  hp_max: 0
+  hp_max: 590
   mp_max: 0
   mv_max: 100
   str: 10
@@ -311,7 +311,7 @@
     Gleep.
   keywords: ['Ernie', 'Ramirez']
   level: 19
-  hp_max: 0
+  hp_max: 377
   mp_max: 0
   mv_max: 100
   str: 10
@@ -345,7 +345,7 @@
     of the Downtown Quadrant.
   keywords: ['Judge', 'Eckersely']
   level: 30
-  hp_max: 0
+  hp_max: 802
   mp_max: 0
   mv_max: 100
   str: 10
@@ -380,7 +380,7 @@
     to enforce the LAW.
   keywords: ['Judge', 'Sara', 'Beddows']
   level: 25
-  hp_max: 0
+  hp_max: 590
   mp_max: 0
   mv_max: 100
   str: 10
@@ -412,7 +412,7 @@
     A bite fighter is here with sharpened teeth and a bad attitude.
   keywords: ['bite', 'fighter']
   level: 20
-  hp_max: 0
+  hp_max: 410
   mp_max: 0
   mv_max: 100
   str: 10

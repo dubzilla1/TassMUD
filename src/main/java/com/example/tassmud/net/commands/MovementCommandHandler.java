@@ -876,10 +876,12 @@ public class MovementCommandHandler implements CommandHandler {
                     return true;
                 }
 
-                // If the destination room id refers to a missing room (broken world), redirect to The Void (id 0)
+                // If the destination room id refers to a missing room (broken world), block movement.
+                // fixExits() on startup should have already NULLed these, but guard here as a safety net.
                 Room maybeDest = (destId == null) ? null : DaoProvider.rooms().getRoomById(destId);
                 if (destId != null && maybeDest == null) {
-                    destId = 0;
+                    out.println("You can't go that way.");
+                    return true;
                 }
 
                 // Check door state for player movement (block if closed/locked/blocked/hidden)
@@ -928,6 +930,22 @@ public class MovementCommandHandler implements CommandHandler {
                         out.println("That room is already occupied.");
                         return true;
                     }
+                }
+
+                // Sector access restriction
+                com.example.tassmud.model.SectorType destSector = DaoProvider.rooms().getSectorTypeForRoom(destId);
+                boolean flying = com.example.tassmud.effect.FlyingEffect.isFlying(charId);
+                if (destSector == com.example.tassmud.model.SectorType.WATER_NOSWIM && !flying) {
+                    boolean hasBoat = DaoProvider.items().getItemsByCharacter(charId).stream()
+                        .anyMatch(ri -> ri.template != null && ri.template.hasType("boat"));
+                    if (!hasBoat) {
+                        out.println("You need a boat to enter those deep waters.");
+                        return true;
+                    }
+                }
+                if (destSector == com.example.tassmud.model.SectorType.FLYING && !flying) {
+                    out.println("You need to be flying to enter there.");
+                    return true;
                 }
 
                 // Check and deduct movement points based on destination room/area
@@ -1167,6 +1185,23 @@ public class MovementCommandHandler implements CommandHandler {
             }
 
             // Check if follower has enough movement points
+            com.example.tassmud.model.SectorType followerDestSector = DaoProvider.rooms().getSectorTypeForRoom(toRoomId);
+            boolean followerFlying = com.example.tassmud.effect.FlyingEffect.isFlying(followerRec.id);
+            if (followerDestSector == com.example.tassmud.model.SectorType.WATER_NOSWIM && !followerFlying) {
+                boolean hasBoat = DaoProvider.items().getItemsByCharacter(followerRec.id).stream()
+                    .anyMatch(ri -> ri.template != null && ri.template.hasType("boat"));
+                if (!hasBoat) {
+                    followerHandler.out.println("You need a boat to enter those deep waters.");
+                    ClientHandler.sendPromptToCharacter(followerId);
+                    continue;
+                }
+            }
+            if (followerDestSector == com.example.tassmud.model.SectorType.FLYING && !followerFlying) {
+                followerHandler.out.println("You need to be flying to enter there.");
+                ClientHandler.sendPromptToCharacter(followerId);
+                continue;
+            }
+
             int moveCost = DaoProvider.rooms().getMoveCostForRoom(toRoomId);
             if (followerRec.mvCur < moveCost) {
                 followerHandler.out.println("You are too exhausted to follow " + leaderName + ".");

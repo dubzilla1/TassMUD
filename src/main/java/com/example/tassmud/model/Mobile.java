@@ -32,6 +32,7 @@ public class Mobile extends GameCharacter {
     private final java.util.List<String> keywords;
     private final List<MobileBehavior> behaviors;
     private final int experienceValue;
+    private final int damageCount;
     private final int baseDamage;
     private final int damageBonus;
     private final int attackBonus;
@@ -78,6 +79,7 @@ public class Mobile extends GameCharacter {
         this.keywords = template.getKeywords() == null ? java.util.Collections.emptyList() : java.util.Collections.unmodifiableList(new java.util.ArrayList<>(template.getKeywords()));
         this.behaviors = template.getBehaviors();
         this.experienceValue = template.getExperienceValue();
+        this.damageCount = template.getDamageCount();
         this.baseDamage = template.getBaseDamage();
         this.damageBonus = template.getDamageBonus();
         this.attackBonus = template.getAttackBonus();
@@ -97,7 +99,7 @@ public class Mobile extends GameCharacter {
                   Integer currentRoom, Integer spawnRoomId,
                   StatBlock stats,
                   java.util.List<String> keywords, String shortDesc, List<MobileBehavior> behaviors,
-                  int experienceValue, int baseDamage, int damageBonus, int attackBonus,
+                  int experienceValue, int damageCount, int baseDamage, int damageBonus, int attackBonus,
                   int autoflee, String specFun, MobType mobType,
                   String originUuid,
                   long spawnedAt, boolean isDead, long diedAt) {
@@ -115,6 +117,7 @@ public class Mobile extends GameCharacter {
         this.keywords = keywords == null ? java.util.Collections.emptyList() : java.util.Collections.unmodifiableList(new java.util.ArrayList<>(keywords));
         this.behaviors = behaviors == null ? Collections.emptyList() : behaviors;
         this.experienceValue = experienceValue;
+        this.damageCount = damageCount;
         this.baseDamage = baseDamage;
         this.damageBonus = damageBonus;
         this.attackBonus = attackBonus;
@@ -186,6 +189,7 @@ public class Mobile extends GameCharacter {
     public java.util.List<String> getKeywords() { return keywords; }
     public List<MobileBehavior> getBehaviors() { return behaviors; }
     public int getExperienceValue() { return experienceValue; }
+    public int getDamageCount() { return damageCount; }
     public int getBaseDamage() { return baseDamage; }
     public int getDamageBonus() { return damageBonus; }
     public int getAttackBonus() { return attackBonus; }
@@ -312,7 +316,7 @@ public class Mobile extends GameCharacter {
         private java.util.List<String> keywords;
         private String shortDesc;
         private java.util.List<MobileBehavior> behaviors;
-        private int experienceValue, baseDamage, damageBonus, attackBonus, autoflee;
+        private int experienceValue, damageCount, baseDamage, damageBonus, attackBonus, autoflee;
         private String specFun;
         private MobType mobType;
         private String originUuid;
@@ -349,6 +353,7 @@ public class Mobile extends GameCharacter {
         public DbBuilder shortDesc(String v) { this.shortDesc = v; return this; }
         public DbBuilder behaviors(java.util.List<MobileBehavior> v) { this.behaviors = v; return this; }
         public DbBuilder experienceValue(int v) { this.experienceValue = v; return this; }
+        public DbBuilder damageCount(int v) { this.damageCount = v; return this; }
         public DbBuilder baseDamage(int v) { this.baseDamage = v; return this; }
         public DbBuilder damageBonus(int v) { this.damageBonus = v; return this; }
         public DbBuilder attackBonus(int v) { this.attackBonus = v; return this; }
@@ -368,7 +373,7 @@ public class Mobile extends GameCharacter {
                 currentRoom, spawnRoomId,
                 stats,
                 keywords, shortDesc, behaviors,
-                experienceValue, baseDamage, damageBonus, attackBonus, autoflee, specFun, mobType,
+                experienceValue, damageCount, baseDamage, damageBonus, attackBonus, autoflee, specFun, mobType,
                 originUuid, spawnedAt, isDead, diedAt);
         }
     }

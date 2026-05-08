@@ -9,7 +9,7 @@
     rings and bracelets.
   keywords: ['wizard']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -42,7 +42,7 @@
     body.
   keywords: ['baker']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -74,7 +74,7 @@
     A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
   keywords: ['grocer']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -106,7 +106,7 @@
     A young weaponsmith, who still has lots to learn.
   keywords: ['weaponsmith']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -139,7 +139,7 @@
     lifetime than you have ever seen.
   keywords: ['armourer', 'armorer']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -204,7 +204,7 @@
     This captain has killed more sharks than you have eaten peas.
   keywords: ['captain']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -268,7 +268,7 @@
     He is young and close-cropped and looks quite happy.
   keywords: ['boy']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -300,7 +300,7 @@
     He is fat and has a content although watchful look on his face.
   keywords: ['jeweller']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -333,7 +333,7 @@
     keep himself going.
   keywords: ['leather', 'worker']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -400,7 +400,7 @@
     Although retired from adventuring, the healer still lends a hand.
   keywords: ['healer']
   level: 40
-  hp_max: 30000
+  hp_max: 1320
   mp_max: 0
   mv_max: 100
   str: 10
@@ -413,6 +413,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 30
   attack_bonus: 0
@@ -448,6 +449,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
@@ -482,6 +484,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
@@ -517,6 +520,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
@@ -551,6 +555,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 8
   damage_bonus: 24
   attack_bonus: 0
@@ -573,7 +578,7 @@
     as well as defensive spells make him a deadly opponent.
   keywords: ['sorcerer']
   level: 23
-  hp_max: 3933
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -608,7 +613,7 @@
     opponent.
   keywords: ['templar']
   level: 23
-  hp_max: 3933
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -642,7 +647,7 @@
     them combined with his extraordinary stealth makes him a deadly opponent.
   keywords: ['assassin']
   level: 23
-  hp_max: 3933
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -677,7 +682,7 @@
     opponent.
   keywords: ['knight']
   level: 23
-  hp_max: 5933
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -709,7 +714,7 @@
     A tired looking Bartender who hates trouble in his bar.
   keywords: ['bartender']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -901,7 +906,7 @@
     but do not mess with him or else he'll get upset.
   keywords: ['filthy']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -940,7 +945,7 @@
     Since he practices safe sex,
   keywords: ['dealer']
   level: 15
-  hp_max: 1000
+  hp_max: 260
   mp_max: 0
   mv_max: 100
   str: 10
@@ -953,6 +958,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 10
   damage_bonus: 20
   attack_bonus: 0
@@ -1733,6 +1739,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 7
   damage_bonus: 1
   attack_bonus: 0

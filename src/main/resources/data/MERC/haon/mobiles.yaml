@@ -54,6 +54,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 6
   damage_bonus: 2
   attack_bonus: 0
@@ -186,6 +187,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 0
   attack_bonus: 0
@@ -219,6 +221,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 0
   attack_bonus: 0
@@ -319,6 +322,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 6
   damage_bonus: 18
   attack_bonus: 0
@@ -387,6 +391,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 8
   damage_bonus: 2
   attack_bonus: 0

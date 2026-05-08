@@ -11,24 +11,32 @@ public class Room {
     private final String shortDesc;
     private final String longDesc;
     private final Integer moveCost;  // Optional room-specific move cost override
+    private final SectorType sectorType; // Optional per-room sector type override
 
     /** Immutable map of exits — only directions with non-null destination room IDs are present. */
     private final Map<Direction, Integer> exits;
 
     public Room(int id, int areaId, String name, String shortDesc, String longDesc,
                 Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD) {
-        this(id, areaId, name, shortDesc, longDesc, exitN, exitE, exitS, exitW, exitU, exitD, null);
+        this(id, areaId, name, shortDesc, longDesc, exitN, exitE, exitS, exitW, exitU, exitD, null, null);
     }
     
     public Room(int id, int areaId, String name, String shortDesc, String longDesc,
                 Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD,
                 Integer moveCost) {
+        this(id, areaId, name, shortDesc, longDesc, exitN, exitE, exitS, exitW, exitU, exitD, moveCost, null);
+    }
+
+    public Room(int id, int areaId, String name, String shortDesc, String longDesc,
+                Integer exitN, Integer exitE, Integer exitS, Integer exitW, Integer exitU, Integer exitD,
+                Integer moveCost, SectorType sectorType) {
         this.id = id;
         this.areaId = areaId;
         this.name = name;
         this.shortDesc = shortDesc;
         this.longDesc = longDesc;
         this.moveCost = moveCost;
+        this.sectorType = sectorType;
         EnumMap<Direction, Integer> map = new EnumMap<>(Direction.class);
         if (exitN != null) map.put(Direction.NORTH, exitN);
         if (exitE != null) map.put(Direction.EAST,  exitE);
@@ -68,4 +76,9 @@ public class Room {
      * Check if this room has a custom movement cost.
      */
     public boolean hasCustomMoveCost() { return moveCost != null; }
+
+    /**
+     * Get this room's sector type, or null if not set (falls back to area default).
+     */
+    public SectorType getSectorType() { return sectorType; }
 }

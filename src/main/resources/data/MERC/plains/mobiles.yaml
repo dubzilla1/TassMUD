@@ -20,6 +20,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 5
   damage_bonus: 2
   attack_bonus: 0
@@ -87,6 +88,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 2
   attack_bonus: 0
@@ -120,6 +122,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 4
   damage_bonus: 1
   attack_bonus: 0
@@ -154,6 +157,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 3
   base_damage: 8
   damage_bonus: 8
   attack_bonus: 0
@@ -176,7 +180,7 @@
     He looks very fit and capable of protecting his goods.
   keywords: ['luxan', 'shopkeeper']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -189,6 +193,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 10
   damage_bonus: 0
   attack_bonus: 0
@@ -209,7 +214,7 @@
     wierdest drinks known. He also looks very big.
   keywords: ['keeper', 'innkeeper']
   level: 23
-  hp_max: 30001
+  hp_max: 514
   mp_max: 0
   mv_max: 100
   str: 10
@@ -222,6 +227,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 2
   base_damage: 10
   damage_bonus: 1
   attack_bonus: 0
@@ -289,6 +295,7 @@
   fortitude: 0
   reflex: 0
   will: 0
+  damage_count: 10
   base_damage: 10
   damage_bonus: 0
   attack_bonus: 0

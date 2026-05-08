@@ -1009,7 +1009,9 @@ items:
     description: A small seashell has been left here.
     weight: 2
     value: 6500
-    type: immobile
+    types:
+      - boat
+      - immobile
     extra_flags:
       - MAGIC
     wear_flags:

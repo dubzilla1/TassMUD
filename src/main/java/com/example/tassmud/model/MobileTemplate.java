@@ -27,7 +27,8 @@ public class MobileTemplate {
     private final StatBlock stats;
     
     // Combat
-    private final int baseDamage;          // Base damage dice (e.g., 6 for 1d6)
+    private final int damageCount;         // Number of damage dice (e.g., 3 in 3d6)
+    private final int baseDamage;          // Damage die face (e.g., 6 in 3d6)
     private final int damageBonus;         // Flat damage bonus
     private final int attackBonus;         // To-hit bonus
     
@@ -62,7 +63,7 @@ public class MobileTemplate {
             int id, String key, String name, String shortDesc, String longDesc, List<String> keywords,
             int level, int hpMax, int mpMax, int mvMax,
             StatBlock stats,
-            int baseDamage, int damageBonus, int attackBonus,
+            int damageCount, int baseDamage, int damageBonus, int attackBonus,
             List<MobileBehavior> behaviors, int aggroRange,
             int experienceValue, int goldMin, int goldMax,
             int respawnSeconds, int autoflee, String specFun, MobType mobType, String templateJson) {
@@ -77,6 +78,7 @@ public class MobileTemplate {
         this.mpMax = mpMax;
         this.mvMax = mvMax;
         this.stats = stats;
+        this.damageCount = damageCount;
         this.baseDamage = baseDamage;
         this.damageBonus = damageBonus;
         this.attackBonus = attackBonus;
@@ -115,6 +117,7 @@ public class MobileTemplate {
     public int getWill() { return stats.will(); }
     /** Returns the immutable stat block for this template. */
     public StatBlock getStats() { return stats; }
+    public int getDamageCount() { return damageCount; }
     public int getBaseDamage() { return baseDamage; }
     public int getDamageBonus() { return damageBonus; }
     public int getAttackBonus() { return attackBonus; }
@@ -188,6 +191,7 @@ public class MobileTemplate {
         private int mvMax;
         private int str, dex, con, intel, wis, cha;
         private int armor, fortitude, reflex, will;
+        private int damageCount = 1;
         private int baseDamage, damageBonus, attackBonus;
         private List<MobileBehavior> behaviors;
         private int aggroRange;
@@ -221,6 +225,7 @@ public class MobileTemplate {
         public Builder fortitude(int v) { this.fortitude = v; return this; }
         public Builder reflex(int v) { this.reflex = v; return this; }
         public Builder will(int v) { this.will = v; return this; }
+        public Builder damageCount(int v) { this.damageCount = v; return this; }
         public Builder baseDamage(int v) { this.baseDamage = v; return this; }
         public Builder damageBonus(int v) { this.damageBonus = v; return this; }
         public Builder attackBonus(int v) { this.attackBonus = v; return this; }
@@ -239,7 +244,7 @@ public class MobileTemplate {
             StatBlock stats = new StatBlock(str, dex, con, intel, wis, cha,
                 armor, fortitude, reflex, will);
             return new MobileTemplate(id, key, name, shortDesc, longDesc, keywords,
-                level, hpMax, mpMax, mvMax, stats, baseDamage, damageBonus, attackBonus,
+                level, hpMax, mpMax, mvMax, stats, damageCount, baseDamage, damageBonus, attackBonus,
                 behaviors, aggroRange, experienceValue, goldMin, goldMax,
                 respawnSeconds, autoflee, specFun, mobType, templateJson);
         }

@@ -89,6 +89,8 @@ public class MobileDAO {
             s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS spec_fun VARCHAR(50) DEFAULT NULL");
             // Migration: add mob_type column for creature classification
             s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS mob_type VARCHAR(30) DEFAULT NULL");
+            // Migration: add damage_count column for multi-dice damage rolls
+            s.execute("ALTER TABLE mobile_template ADD COLUMN IF NOT EXISTS damage_count INT DEFAULT 1");
             // Migration: increase template_key length if needed (best-effort)
             try {
                 s.execute("ALTER TABLE mobile_template ALTER COLUMN template_key SET DATA TYPE VARCHAR(200)");
@@ -119,9 +121,9 @@ public class MobileDAO {
     public void upsertTemplate(MobileTemplate template) {
         String sql = "MERGE INTO mobile_template (id, template_key, name, short_desc, long_desc, keywords, " +
             "level, hp_max, mp_max, mv_max, str, dex, con, intel, wis, cha, " +
-            "armor, fortitude, reflex, will_save, base_damage, damage_bonus, attack_bonus, " +
+            "armor, fortitude, reflex, will_save, damage_count, base_damage, damage_bonus, attack_bonus, " +
             "behaviors, aggro_range, experience_value, gold_min, gold_max, respawn_seconds, autoflee, spec_fun, mob_type, template_json) " +
-            "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "KEY(id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
            try (Connection c = TransactionManager.getConnection()) {
             // If a different row already exists with the same template_key,
@@ -161,24 +163,25 @@ public class MobileDAO {
             ps.setInt(18, template.getFortitude());
             ps.setInt(19, template.getReflex());
             ps.setInt(20, template.getWill());
-            ps.setInt(21, template.getBaseDamage());
-            ps.setInt(22, template.getDamageBonus());
-            ps.setInt(23, template.getAttackBonus());
+            ps.setInt(21, template.getDamageCount());
+            ps.setInt(22, template.getBaseDamage());
+            ps.setInt(23, template.getDamageBonus());
+            ps.setInt(24, template.getAttackBonus());
             // Serialize behaviors list to comma-separated string
             String behaviorsStr = template.getBehaviors().stream()
                 .map(MobileBehavior::name)
                 .reduce((a, b) -> a + "," + b)
                 .orElse("PASSIVE");
-            ps.setString(24, behaviorsStr);
-            ps.setInt(25, template.getAggroRange());
-            ps.setInt(26, template.getExperienceValue());
-            ps.setInt(27, template.getGoldMin());
-            ps.setInt(28, template.getGoldMax());
-            ps.setInt(29, template.getRespawnSeconds());
-            ps.setInt(30, template.getAutoflee());
-            ps.setString(31, template.getSpecFun());
-            ps.setString(32, template.getMobType() != null ? template.getMobType().name() : null);
-            ps.setString(33, template.getTemplateJson());
+            ps.setString(25, behaviorsStr);
+            ps.setInt(26, template.getAggroRange());
+            ps.setInt(27, template.getExperienceValue());
+            ps.setInt(28, template.getGoldMin());
+            ps.setInt(29, template.getGoldMax());
+            ps.setInt(30, template.getRespawnSeconds());
+            ps.setInt(31, template.getAutoflee());
+            ps.setString(32, template.getSpecFun());
+            ps.setString(33, template.getMobType() != null ? template.getMobType().name() : null);
+            ps.setString(34, template.getTemplateJson());
                 // Note: if we changed targetId above we already set it into slot 1
                 ps.executeUpdate();
             }
@@ -357,6 +360,7 @@ public class MobileDAO {
             .fortitude(rs.getInt("fortitude"))
             .reflex(rs.getInt("reflex"))
             .will(rs.getInt("will_save"))
+            .damageCount(rs.getInt("damage_count"))
             .baseDamage(rs.getInt("base_damage"))
             .damageBonus(rs.getInt("damage_bonus"))
             .attackBonus(rs.getInt("attack_bonus"))
@@ -385,10 +389,13 @@ public class MobileDAO {
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             long now = System.currentTimeMillis();
+            // Safety guard: if hp_max is unset, compute from MERC level formula.
+            // This should not normally trigger after YAML backfill, but guards against edge cases.
+            int hpCur = computeSpawnHp(template);
             ps.setInt(1, template.getId());
             ps.setInt(2, roomId);
             ps.setInt(3, roomId);
-            ps.setInt(4, template.getHpMax());
+            ps.setInt(4, hpCur);
             ps.setInt(5, template.getMpMax());
             ps.setInt(6, template.getMvMax());
             ps.setInt(7, template.getFortitude());
@@ -429,10 +436,12 @@ public class MobileDAO {
         try (Connection c = TransactionManager.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             long now = System.currentTimeMillis();
+            // Safety guard: if hp_max is unset, compute from MERC level formula.
+            int hpCur = computeSpawnHp(template);
             ps.setInt(1, template.getId());
             ps.setInt(2, roomId);
             ps.setInt(3, roomId);
-            ps.setInt(4, template.getHpMax());
+            ps.setInt(4, hpCur);
             ps.setInt(5, template.getMpMax());
             ps.setInt(6, template.getMvMax());
             ps.setBoolean(7, false);
@@ -461,7 +470,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
+            "mt.experience_value, mt.damage_count, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.instance_id = ?";
         
@@ -487,7 +496,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
+            "mt.experience_value, mt.damage_count, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.current_room_id = ? AND mi.is_dead = FALSE";
         
@@ -513,7 +522,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
+            "mt.experience_value, mt.damage_count, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id";
         
         try (Connection c = TransactionManager.getConnection();
@@ -587,7 +596,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
+            "mt.experience_value, mt.damage_count, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.template_id = ?";
         
@@ -635,7 +644,7 @@ public class MobileDAO {
         String sql = "SELECT mi.*, mt.level, mt.name, mt.short_desc, mt.long_desc, mt.keywords, " +
             "mt.hp_max, mt.mp_max, mt.mv_max, mt.str, mt.dex, mt.con, mt.intel, mt.wis, mt.cha, " +
             "mt.armor, mt.fortitude, mt.reflex, mt.will_save, mt.behaviors, " +
-            "mt.experience_value, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
+            "mt.experience_value, mt.damage_count, mt.base_damage, mt.damage_bonus, mt.attack_bonus, mt.autoflee, mt.spec_fun, mt.mob_type " +
             "FROM mobile_instance mi JOIN mobile_template mt ON mi.template_id = mt.id " +
             "WHERE mi.orig_uuid = ? AND mi.is_dead = FALSE";
 
@@ -717,6 +726,22 @@ public class MobileDAO {
         return out;
     }
     
+    /**
+     * Compute a spawn HP value for a mobile template.
+     * Uses the template's hp_max when positive; falls back to the MERC level formula
+     * (level*8 + rand(level²/4, level²)) when hp_max is 0 or negative.
+     * This guard handles edge cases and future templates that omit hp_max.
+     */
+    private static int computeSpawnHp(MobileTemplate template) {
+        if (template.getHpMax() > 0) {
+            return template.getHpMax();
+        }
+        int level = Math.max(1, template.getLevel());
+        int lo = level * level / 4;
+        int hi = level * level;
+        return Math.max(1, level * 8 + java.util.concurrent.ThreadLocalRandom.current().nextInt(lo, hi + 1));
+    }
+
     private Mobile mobileFromResultSet(ResultSet rs) throws SQLException {
         // Parse behaviors from comma-separated string
         String behaviorsStr = rs.getString("behaviors");
@@ -761,6 +786,7 @@ public class MobileDAO {
             .reflex(rs.getInt("reflex")).will(rs.getInt("will_save"))
             .keywords(keywords).shortDesc(rs.getString("short_desc")).behaviors(behaviors)
             .experienceValue(rs.getInt("experience_value"))
+            .damageCount(rs.getInt("damage_count"))
             .baseDamage(rs.getInt("base_damage"))
             .damageBonus(rs.getInt("damage_bonus"))
             .attackBonus(rs.getInt("attack_bonus"))

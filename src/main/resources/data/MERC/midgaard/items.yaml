@@ -480,7 +480,9 @@ items:
     description: A raft has been left here.
     weight: 75
     value: 400
-    type: immobile
+    types:
+      - boat
+      - immobile
     wear_flags:
       - TAKE
     keywords: [raft]
@@ -501,7 +503,9 @@ items:
     description: A canoe has been left here.
     weight: 32
     value: 1000
-    type: immobile
+    types:
+      - boat
+      - immobile
     wear_flags:
       - TAKE
     keywords: [canoe]

@@ -79,7 +79,9 @@ items:
     description: A green-painted wheelbarrow is standing here.
     weight: 100
     value: 100
-    type: immobile
+    types:
+      - boat
+      - immobile
     wear_flags:
       - TAKE
     keywords: [wheelbarrow]
